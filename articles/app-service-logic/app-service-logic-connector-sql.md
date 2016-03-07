@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/11/2016"
    ms.author="sameerch"/>
 
 
 # Introducción al conector de Microsoft SQL y su incorporación a las aplicaciones lógicas
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview de SQL Azure, haga clic en [API de SQL Azure](../connectors/create-api-sqlazure.md).
+
 Conéctese a un servidor SQL Server o a una Base de datos SQL de Azure local para crear y cambiar información o datos. Los conectores pueden utilizarse en aplicaciones lógicas para recuperar, procesar o insertar datos como parte de un “flujo de trabajo”. Al utilizar el conector de SQL en su flujo de trabajo, puede conseguir distintos escenarios. Por ejemplo, puede:
 
 - Exponer una parte de los datos que residen en la base de datos SQL a través de una aplicación móvil o web.
@@ -58,8 +60,7 @@ Cadena de conexión del bus de servicio | No | Si se conecta en un entorno local
 Nombre del servidor asociado | No | Si el servidor principal no está disponible, puede especificar un servidor asociado como un servidor de copia de seguridad o alternativo.
 Tablas | No | Enumere las tablas de base de datos que se pueden actualizar mediante el conector. Por ejemplo, escriba *OrdersTable* o *EmployeeTable*. Si no se especifica ninguna tabla, todas las tablas pueden usarse. Las tablas válidas o los procedimientos almacenados son necesarios para usar este conector como una acción.
 Procedimientos almacenados | No | Escriba un procedimiento almacenado que se pueda llamar mediante el conector. Por ejemplo, escriba *sp\_IsEmployeeEligible* o *sp\_CalculateOrderDiscount*. Las tablas válidas o los procedimientos almacenados son necesarios para usar este conector como una acción.
-Consulta de datos disponibles | Para la compatibilidad del desencadenador | Instrucción SQL para determinar si los datos están disponibles para el sondeo de una tabla de la base de datos de SQL Server. Esto debería devolver un valor numérico que representa el número de filas de datos disponibles. Ejemplo: SELECT COUNT(*) from table\_name.
-Consulta de sondeo de datos | Para la compatibilidad del desencadenador | La instrucción SQL para sondear la tabla de base de datos de SQL Server. Puede especificar cualquier número de instrucciones SQL separadas por un signo de punto y coma. Esta instrucción se ejecuta transaccionalmente y se confirma solo cuando los datos estén almacenados de forma segura en la aplicación lógica. Ejemplo: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>**Nota**<br/>Tiene que proporcionar una instrucción de sondeo que evite un bucle infinito mediante la eliminación, la transferencia o la actualización de los datos seleccionados para garantizar que no se vuelven a sondear los mismos datos.
+Consulta de datos disponibles | Para la compatibilidad del desencadenador | Instrucción SQL para determinar si los datos están disponibles para el sondeo de una tabla de la base de datos de SQL Server. Esto debería devolver un valor numérico que representa el número de filas de datos disponibles. Ejemplo: SELECT COUNT(*) from table\_name. Consulta de sondeo de datos | Para la compatibilidad del desencadenador | La instrucción SQL para sondear la tabla de base de datos de SQL Server. Puede especificar cualquier número de instrucciones SQL separadas por un signo de punto y coma. Esta instrucción se ejecuta transaccionalmente y se confirma solo cuando los datos estén almacenados de forma segura en la aplicación lógica. Ejemplo: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>***Nota**<br/>Tiene que proporcionar una instrucción de sondeo que evite un bucle infinito mediante la eliminación, la transferencia o la actualización de los datos seleccionados para garantizar que no se vuelven a sondear los mismos datos.
 
 5. Cuando termine, la configuración del paquete tendrá un aspecto similar al siguiente:  
 ![][1]  
@@ -161,4 +162,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

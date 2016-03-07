@@ -29,11 +29,10 @@ En primer lugar, cree una tabla temporal que contenga un número de fila único 
 ```
 CREATE TABLE #tbl 
 WITH 
-(   LOCATION     = USER_DB
-,   DISTRIBUTION = ROUND_ROBIN
+( DISTRIBUTION = ROUND_ROBIN
 )
 AS
-SELECT  ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) ) AS Sequence
+SELECT  ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS Sequence
 ,       [name]
 ,       'UPDATE STATISTICS '+QUOTENAME([name]) AS sql_code
 FROM    sys.tables
@@ -82,4 +81,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -144,8 +144,8 @@ En la tabla encontrará una lista de las ofertas de autenticación y cifrado de 
 | 18 | - | AH MD5, sin vida útil |
 
 
-- Puede especificar el cifrado IPsec ESP NULL con puerta de enlace de VPN de alto rendimiento y basada en enrutamiento. Esto está pensado para las conexiones de red virtual a red virtual dentro de redes de Azure. 
+- Puede especificar el cifrado IPsec ESP NULL con puertas de enlace de VPN de alto rendimiento y basadas en enrutamiento. El cifrado basado en null no proporciona protección de datos en tránsito, solo se debe usar al máximo rendimiento y es necesaria la mínima latencia. Los clientes pueden optar por usar estos escenarios de comunicación de red virtual a red virtual, o el momento de aplicación del cifrado en otra parte de la solución.
 
 - Para conectividad entre locales a través de Internet, use la configuración de la puerta de enlace de VPN de Azure predeterminada con los algoritmos de cifrado y hash de las tablas anteriores para garantizar la seguridad de su comunicación crítica.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

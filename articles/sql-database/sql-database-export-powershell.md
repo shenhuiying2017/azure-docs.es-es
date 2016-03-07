@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # Creación y exportación de un BACPAC de una base de datos SQL de Azure mediante PowerShell
 
-**Base de datos única**
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-export.md)
@@ -30,7 +29,7 @@ Este artículo proporciona instrucciones para exportar un archivo BACPAC de la b
 
 Un [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) es un archivo .bacpac que contiene datos y un esquema de base de datos. El caso de uso principal para un BACPAC es mover una base de datos de un servidor a otro, para [migrar una base de datos local a la nube](sql-database-cloud-migrate.md) y para archivar una base de datos existente en un formato abierto.
 
-> [AZURE.NOTE]Los BACPAC no están diseñados para usarse en operaciones de copia de seguridad y restauración. La Base de datos SQL de Azure crea automáticamente copias de seguridad para cada base de datos de usuario. Para obtener detalles, vea [Información general sobre la continuidad del negocio](sql-database-business-continuity.md).
+> [AZURE.NOTE] Los BACPAC no están diseñados para usarse en operaciones de copia de seguridad y restauración. La Base de datos SQL de Azure crea automáticamente copias de seguridad para cada base de datos de usuario. Para obtener detalles, vea [Información general sobre la continuidad del negocio](sql-database-business-continuity.md).
 
 
 El BACPAC se exporta a un contenedor de blobs de almacenamiento de Azure que puede descargar cuando se completa la operación correctamente.
@@ -38,10 +37,10 @@ El BACPAC se exporta a un contenedor de blobs de almacenamiento de Azure que pue
 
 Para completar este artículo, necesitará lo siguiente:
 
-- Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
+- Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **CUENTA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
 - Una Base de datos SQL de Azure. Si no tiene una base de datos SQL, siga los pasos de este artículo para crear uno: [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
-- Una [cuenta de Almacenamiento de Azure](storage-create-storage-account.md) con un contenedor de blobs para almacenar el BACPAC. Actualmente la cuenta de almacenamiento debe usar el modelo de implementación clásico; por tanto, elija **Clásica** al crear una cuenta de almacenamiento.
-- Azure PowerShell. Puede descargar e instalar los módulos de Azure PowerShell mediante la ejecución del [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
+- Una [cuenta de Almacenamiento de Azure](../storage/storage-create-storage-account.md) con un contenedor de blobs para almacenar el BACPAC. Actualmente la cuenta de almacenamiento debe usar el modelo de implementación clásico; por tanto, elija **Clásica** al crear una cuenta de almacenamiento.
+- Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -94,7 +93,7 @@ Al ejecutar el cmdlet **Get-Credential**, se abre una ventana en la que se le pi
 
 Este comando envía una solicitud de exportación de base de datos al servicio. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
 
-> [AZURE.IMPORTANT]Para garantizar un archivo BACPAC transaccionalmente coherente, primero debe [crear una copia de la base de datos](sql-database-copy-powershell.md) y después exportar dicha copia.
+> [AZURE.IMPORTANT] Para garantizar un archivo BACPAC transaccionalmente coherente, primero debe [crear una copia de la base de datos](sql-database-copy-powershell.md) y después exportar dicha copia.
 
 
     $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
@@ -148,4 +147,4 @@ Al ejecutar este comando se le solicitará una contraseña. Escriba la contrase�
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 - [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

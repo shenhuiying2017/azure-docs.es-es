@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-  ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # ¿Qué le ha ocurrido a mi proyecto de servicios en la nube (servicio conectado a Almacenamiento de Azure de Visual Studio)?
@@ -38,4 +38,4 @@ Se han creado elementos con la cadena y la clave de conexión de la cuenta de al
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

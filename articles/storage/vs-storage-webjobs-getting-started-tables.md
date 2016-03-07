@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Introducción a Almacenamiento de Azure (proyectos de WebJobs de Azure)
 
 ## Información general
 
-En este artículo se proporcionan ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de tablas de Azure. Los ejemplos de código usan el [SDK de WebJobs](/app-service-web/websites-dotnet-webjobs-sdk.md) versión 1.x.
+En este artículo se proporcionan ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de tablas de Azure. Los ejemplos de código usan el [SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md) versión 1.x.
 
-El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales. Para obtener más información, consulte [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Uso del almacenamiento de tablas en .NET").
+El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales. Vea [Introducción al Almacenamiento de tablas de Azure mediante .NET](storage-dotnet-how-to-use-tables.md#create-a-table) para obtener más información.
 
-
-Algunos de los fragmentos de código muestran el atributo **Table** usado en funciones que se [llaman manualmente](vs-storage-webjobs-getting-started-blobs.md#manual), es decir, sin usar ninguno de los atributos de desencadenador.
+Algunos de los fragmentos de código muestran el atributo **Table** usado en funciones que se llaman manualmente, es decir, sin usar ninguno de los atributos de desencadenador.
 
 ## Cómo agregar entidades a una tabla
 
@@ -142,16 +141,16 @@ El siguiente ejemplo de código usa un objeto **CloudTable** para agregar una en
 		    tableBinding.Execute(insertOperation);
 		}
 
-Para más información sobre cómo usar el objeto **CloudTable**, vea [Uso del almacenamiento de tablas de .NET](./storage-dotnet-how-to-use-tables.md).
+Para más información sobre cómo usar el objeto **CloudTable**, vea [Introducción al Almacenamiento de tablas de Azure mediante .NET](storage-dotnet-how-to-use-tables.md).
 
 ## Temas relacionados tratados en el artículo de procedimientos de las colas
 
-Para obtener información sobre cómo controlar el procesamiento de tablas desencadenado por un mensaje de cola o para ver los escenarios de SDK de WebJobs no específicos para el procesamiento de tablas, consulte [Cómo usar el almacenamiento de colas con el SDK de WebJobs](vs-storage-webjobs-getting-started-queues.md).
+Para obtener información sobre cómo controlar el procesamiento de tablas desencadenado por un mensaje de cola o para ver los escenarios de SDK de WebJobs no específicos para el procesamiento de tablas, consulte [Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)](vs-storage-webjobs-getting-started-queues.md).
 
 
 
 ## Pasos siguientes
 
-En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con tablas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
+En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con tablas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

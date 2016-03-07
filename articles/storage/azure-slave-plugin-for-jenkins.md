@@ -204,4 +204,4 @@ En esta sección, creará una tarea de Jenkins que se ejecutará en un nodo subo
 
 Jenkins creará luego un nodo subordinado con la plantilla que creó en la sección anterior y ejecutará el script especificado en el paso de compilación de esta tarea.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/11/2016"
 	ms.author="emgerner"/>
 
 
@@ -23,14 +23,11 @@
 
 ## Información general
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento Tabla de Azure. Los ejemplos están escritos en Python y usan el [paquete de almacenamiento de Azure para Python][]. Entre los escenarios descritos se incluyen la creación y eliminación de una tabla, la inserción y la consulta de entidades en una tabla.
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento Tabla de Azure. Los ejemplos están escritos en Python y usan el [SDK de Almacenamiento de Microsoft Azure para Python]. Entre los escenarios descritos se incluyen la creación y eliminación de una tabla, la inserción y la consulta de entidades en una tabla.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
-
-[AZURE.NOTE]Si necesita instalar Python o el [paquete de Azure para Python][], consulte la [Guía de instalación de Python](../python-how-to-install.md).
-
 
 ## Creación de una tabla
 
@@ -38,7 +35,7 @@ El objeto **TableService** le permite trabajar con servicios de tabla. El siguie
 
 	from azure.storage.table import TableService, Entity
 
-El código siguiente crea un objeto **TableService** usando el nombre de la cuenta de almacenamiento y la clave de la cuenta. sustituya "myaccount" y "mykey" por la cuenta real y la clave.
+El código siguiente crea un objeto **TableService** usando el nombre de la cuenta de almacenamiento y la clave de la cuenta. Reemplace 'myaccount' y 'mykey' por la clave y el nombre de cuenta.
 
 	table_service = TableService(account_name='myaccount', account_key='mykey')
 
@@ -46,7 +43,7 @@ El código siguiente crea un objeto **TableService** usando el nombre de la cuen
 
 ## Adición de una entidad a una tabla
 
-Para agregar una entidad, primero cree un diccionario que defina sus nombres y valores de propiedad de la entidad. Tenga en cuenta que para cada entidad debe especificar valores en **PartitionKey** y **RowKey** Estos son los identificadores únicos de las entidades. Puede consultar estos valores de una forma mucho más rápida que las demás propiedades. El sistema usa **PartitionKey** para distribuir automáticamente las entidades de la tabla entre varios nodos de almacenamiento. Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. **RowKey** es el identificador exclusivo de la entidad de la partición a la que pertenece.
+Para agregar una entidad, primero cree un diccionario o entidad que defina sus nombres y valores de propiedad de la entidad. Tenga en cuenta que para cada entidad debe especificar valores en **PartitionKey** y **RowKey** Estos son los identificadores únicos de las entidades. Puede consultar estos valores de una forma mucho más rápida que las demás propiedades. El sistema usa **PartitionKey** para distribuir automáticamente las entidades de la tabla entre varios nodos de almacenamiento. Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. **RowKey** es el identificador exclusivo de la entidad de la partición a la que pertenece.
 
 Para agregar una entidad a la tabla, pase un objeto de diccionario al método **insert\_entity**.
 
@@ -66,27 +63,38 @@ También puede pasar una instancia de la clase **Entity** al método **insert\_e
 
 Este código muestra cómo reemplazar la versión anterior de una entidad existente con una versión actualizada.
 
-	task = {'description' : 'Take out the garbage', 'priority' : 250}
-	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
+	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage', 'priority' : 250}
+	table_service.update_entity('tasktable', task)
 
 Si la entidad que se está actualizando no existe, la operación de actualización generará un error. Si desea almacenar una entidad independientemente de si ya existía antes, use **insert\_or\_replace\_entity**. En el siguiente ejemplo, la primera llamada reemplazará la entidad existente. La segunda llamada insertará una nueva entidad, debido a que en la tabla no existe ninguna entidad con **PartitionKey** y **RowKey** especificados.
 
-	task = {'description' : 'Take out the garbage again', 'priority' : 250}
-	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task)
+	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage again', 'priority' : 250}
+	table_service.insert_or_replace_entity('tasktable', task)
 
-	task = {'description' : 'Buy detergent', 'priority' : 300}
-	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '3', task)
+	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '3', 'description' : 'Buy detergent', 'priority' : 300}
+	table_service.insert_or_replace_entity('tasktable', task)
 
 ## Cambio de un grupo de entidades
 
-A veces resulta útil enviar varias operaciones juntas en un lote a fin de garantizar el procesamiento atómico por parte del servidor. Para ello, debe usar el método **begin\_batch** en **TableService** y, a continuación, llamar a las series de operaciones como de costumbre. Cuando quiera enviar el lote, llame a **commit\_batch**. Tenga en cuenta que todas las entidades deben estar en la misma partición para que se pueda cambiar como un lote. El ejemplo siguiente agrega dos entidades juntas en un lote.
+A veces resulta útil enviar varias operaciones juntas en un lote a fin de garantizar el procesamiento atómico por parte del servidor. Para ello, use la clase **TableBatch**. Cuando quiera enviar el lote, llame a **commit\_batch**. Tenga en cuenta que todas las entidades deben estar en la misma partición para que se pueda cambiar como un lote. El ejemplo siguiente agrega dos entidades juntas en un lote.
 
+	from azure.storage.table import TableBatch
+	batch = TableBatch()
 	task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
 	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
-	table_service.begin_batch()
-	table_service.insert_entity('tasktable', task10)
-	table_service.insert_entity('tasktable', task11)
-	table_service.commit_batch()
+	batch.insert_entity(task10)
+	batch.insert_entity(task11)
+	table_service.commit_batch('tasktable', batch)
+
+Los lotes también pueden usarse con la sintaxis de administrador de contexto:
+
+	task12 = {'PartitionKey': 'tasksSeattle', 'RowKey': '12', 'description' : 'Go grocery shopping', 'priority' : 400}
+	task13 = {'PartitionKey': 'tasksSeattle', 'RowKey': '13', 'description' : 'Clean the bathroom', 'priority' : 100}
+
+	with table_service.batch('tasktable') as batch:
+		batch.insert_entity(task12)
+		batch.insert_entity(task13)
+
 
 ## Consulta de una entidad
 
@@ -100,7 +108,7 @@ Para consultar una entidad en una tabla, use el método **get\_entity**, pasando
 
 Este ejemplo busca todas las tareas en Seattle en función de la **PartitionKey**.
 
-	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'")
+	tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
 	for task in tasks:
 		print(task.description)
 		print(task.priority)
@@ -111,9 +119,9 @@ Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. E
 
 La consulta del código siguiente devuelve solo las descripciones de las entidades de la tabla.
 
-[AZURE.NOTE]El siguiente fragmento de código funciona solo con el servicio de almacenamiento de nube. Esto no es compatible con el emulador de almacenamiento.
+[AZURE.NOTE] El siguiente fragmento de código funciona solo con el servicio de almacenamiento de nube. Esto no es compatible con el emulador de almacenamiento.
 
-	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'", 'description')
+	tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
 	for task in tasks:
 		print(task.description)
 
@@ -131,15 +139,14 @@ El código siguiente elimina una tabla de la cuenta de almacenamiento.
 
 ## Pasos siguientes
 
-Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas:
+Ahora que está familiarizado con los aspectos básicos del Almacenamiento de tablas, siga estos vínculos para obtener más información.
 
--   Vea la referencia de MSDN [Almacenamiento de Azure][].
--   Visite el [Blog del equipo de Almacenamiento de Azure][]
+- [Centro para desarrolladores de Python](/develop/python/)
+- [API de REST de servicios de almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dd179355)
+- [Blog del equipo de almacenamiento de Azure]
+- [SDK de Almacenamiento de Microsoft Azure para Python]
 
-Para obtener más información, consulte también el [Centro para desarrolladores de Python](/develop/python/).
+[Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-[Blog del equipo de Almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[paquete de Azure para Python]: https://pypi.python.org/pypi/azure
-[paquete de almacenamiento de Azure para Python]: https://pypi.python.org/pypi/azure-storage
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="02/18/2016" 
 	ms.author="juliako"/>
 
 #Información general de protección del contenido
@@ -66,17 +66,23 @@ Cuando un reproductor solicita una transmisión, Servicios multimedia usa la cla
 
 >[AZURE.NOTE]Para aprovechar al máximo el cifrado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido cifrado. Para obtener más información, consulte [Escalación de Servicios multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
 
-###Servicios de entrega de licencias de DRM de PlayReady o claves sin cifrado de AES
+###Servicio de entrega de licencias y claves
 
-Servicios multimedia proporciona un servicio para entregar licencias de PlayReady y claves sin cifrado de AES a clientes autorizados. Puede utilizar el Portal de Azure clásico, API de REST o SDK de Servicios multimedia para .NET para configurar las directivas de autorización y autenticación de sus licencias y claves.
+Servicios multimedia proporciona un servicio para entregar licencias DRM (PlayReady y Widevine) y claves sin cifrado de AES a clientes autorizados. Puede utilizar el Portal de Azure clásico, API de REST o SDK de Servicios multimedia para .NET para configurar las directivas de autorización y autenticación de sus licencias y claves.
 
 Observe que si usa el portal puede configura una directiva AES (que se aplicará a todo el contenido cifrado por AES) y una directiva de PlayReady (que se aplicará a todo el contenido cifrado por PlayReady). Use el SDK de Servicios multimedia para .NET si desea tener más control sobre las configuraciones.
 
-###Plantilla de licencia de PlayReady
+###Licencia de PlayReady 
 
 Servicios multimedia proporciona un servicio para entregar licencias de PlayReady. Cuando el reproductor del usuario final (por ejemplo, Silverlight) intenta reproduce el contenido protegido de PlayReady, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencia aprueba la solicitud, emite la licencia, la que se envía al cliente y se puede usar para descifrar y reproducir el contenido especificado.
 
-Las licencias contienen los derechos y restricciones que desea para el tiempo de ejecución de DRM de PlayReady con la finalidad de hacer respetar los requisitos cuando un usuario intenta reproducir contenido protegido. Servicios multimedia proporciona API que le permiten configurar sus licencias de PlayReady. Para obtener más información, consulte [Información general de plantillas de licencias de PlayReady de Servicios multimedia](media-services-playready-license-template-overview).
+Las licencias contienen los derechos y restricciones que desea para el tiempo de ejecución de DRM de PlayReady con la finalidad de hacer respetar los requisitos cuando un usuario intenta reproducir contenido protegido. Servicios multimedia proporciona API que le permiten configurar sus licencias de PlayReady. Para obtener más información, consulte [Información general de plantillas de licencias de PlayReady de Servicios multimedia](media-services-playready-license-template-overview.md).
+
+###Licencia de Widevine
+
+AMS también le permite entregar MPEG DASH cifrado con DRM de Widevine. PlayReady y Widewine se cifran según la especificación de cifrado común (CENC). Puede usar el [.NET SDK de AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine.
+
+A partir del SDK de Servicios multimedia para .NET versión 3.5.2, Servicios multimedia permite configurar la [plantilla de licencia Widevine](media-services-widevine-license-template-overview.md) y obtener licencias de Widevine. También puede usar los siguientes asociados de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 ###Restricción de token
 
@@ -84,11 +90,6 @@ La directiva de autorización de claves de acceso podría tener una o más restr
 
 Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, emisor y público. La clave de comprobación principal contiene la clave con la que se firmó el token y el emisor es el servicio de tokens seguros que emite el token. El público (a veces denominado ámbito) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla.
 
-###Widevine
-
-AMS también le permite entregar MPEG DASH cifrado con DRM de Widevine. PlayReady y Widewine se cifran según la especificación de cifrado común (CENC). Puede usar el [.NET SDK de AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine.
-
-A partir del SDK de Servicios multimedia para .NET versión 3.5.2, Servicios multimedia permite configurar la plantilla de licencia Widevine y obtener licencias de Widevine. También puede usar los siguientes asociados de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 ##Escenarios comunes
 
@@ -138,4 +139,4 @@ Para obtener más información, consulte [Integración del servicio de licencia 
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

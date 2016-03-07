@@ -56,8 +56,6 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 	        "type": "OnPremisesTeradata",
 	        "typeProperties": {
 	            "server": "<server>",
-	            "database": "<database>",
-	            "schema": "<schema>",
 	            "authenticationType": "<authentication type>",
 	            "username": "<username>",
 	            "password": "<password>",
@@ -92,7 +90,6 @@ Si se establece "external": true y se especifica la directiva externalData, se i
 	        "type": "RelationalTable",
 	        "linkedServiceName": "OnPremTeradataLinkedService",
 	        "typeProperties": {
-	            "tableName": "MyTable"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
@@ -228,8 +225,6 @@ Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 type | La propiedad type debe establecerse en **OnPremisesTeradata** | Sí
 server | Nombre del servidor de Teradata. | Sí
-database | Nombre de la base de datos Teradata. | Sí 
-schema | Nombre del esquema de la base de datos. | No
 authenticationType | Tipo de autenticación usado para conectarse a la base de datos Teradata. Los valores posibles son: Anonymous, Basic y Windows. | Sí
 nombre de usuario | Especifique el nombre de usuario si usa la autenticación Basic o Windows. | No 
 contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. | No 
@@ -241,11 +236,8 @@ Consulte [Configuración de credenciales y seguridad](data-factory-move-data-bet
 
 Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
-La sección typeProperties es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección **typeProperties** del conjunto de datos de tipo **RelationalTable** (que incluye el conjunto de datos Teradata) tiene las propiedades siguientes.
+La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. No hay ninguna propiedad de tipo compatible con el conjunto de datos de Teradata esta vez.
 
-Propiedad | Descripción | Obligatorio
--------- | ----------- | --------
-tableName | Nombre de la tabla en la instancia de Base de datos Teradata a la que hace referencia el servicio vinculado. | No (si se especifica **query** de **RelationalSource**) 
 
 ## Propiedades de tipo de actividad de copia de Teradata
 
@@ -257,7 +249,7 @@ En caso de la actividad de copia, si el origen es de tipo **RelationalSource** (
 
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-query | Utilice la consulta personalizada para leer los datos. | Cadena de consulta SQL. Por ejemplo: select * from MyTable. | No (si se especifica **tableName** de **dataset**)
+query | Utilice la consulta personalizada para leer los datos. | Cadena de consulta SQL. Por ejemplo: select * from MyTable. | Sí
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -316,4 +308,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -262,7 +262,7 @@ Los siguientes pasos le guiarán por los pasos para visualizar la salida de dato
     -   Mantenga el mouse sobre este icono en el panel, haga clic en el icono "Editar" en la esquina superior derecha para cambiar el título a "Fleet View of Sensor 11 vs. Threshold 48.26" y el subtítulo a "Average across fleet over time".
 
 ## **Eliminación de la solución**
-Asegúrese de detener el generador de datos cuando no se use activamente la solución, ya que de lo contrario incurrirá en costos elevados. Elimine la solución si no lo está usando. Al eliminar la solución se eliminarán todos los componentes aprovisionados en su suscripción al implementar la solución. Para eliminar la solución, haga clic con el botón derecho en el nombre de la solución en el panel izquierdo de la plantilla de soluciones y haga clic en Eliminar.
+Asegúrese de detener el generador de datos cuando no se use activamente la solución, ya que de lo contrario incurrirá en costos elevados. Elimine la solución si no lo está usando. Al eliminar la solución se eliminarán todos los componentes aprovisionados en su suscripción al implementar la solución. Para eliminar la solución, haga clic en el nombre de la solución en el panel izquierdo de la plantilla de soluciones y haga clic en Eliminar.
 
 ## **Herramientas de estimación de costos**
 
@@ -272,4 +272,4 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

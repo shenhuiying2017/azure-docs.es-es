@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 ## Creación de una aplicación de Ruby
 
-Para obtener instrucciones sobre cómo crear una aplicación de Ruby, consulte [Creación de una aplicación de Ruby en Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Para obtener instrucciones sobre cómo crear una aplicación de Ruby, consulte [Aplicación web de Ruby on Rails en una máquina virtual de Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
 
 ## Configuración de la aplicación para obtener acceso al almacenamiento
 
@@ -56,15 +56,21 @@ El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y *
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
 
-Para obtener estos valores:
+Para obtener estos valores desde una cuenta de almacenamiento de ARM o clásica en el Portal de Azure:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. Vaya a la cuenta de almacenamiento que desea utilizar.
+3. En la hoja Configuración de la derecha, haga clic en **Claves de acceso**.
+4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas. 
+5. Haga clic en el icono de copia para copiar la clave en el Portapapeles. 
 
-2. Vaya a la cuenta de almacenamiento.
+Para obtener estos valores desde una cuenta de almacenamiento clásica en el Portal clásico:
 
-3. En la hoja **Configuración**, seleccione **Claves**.
-
-4. Copie el valor de la clave de acceso deseado.
+1. Inicie sesión en el [Portal clásico](https://manage.windowsazure.com).
+2. Vaya a la cuenta de almacenamiento que desea utilizar.
+3. Haga clic en **ADMINISTRAR CLAVES DE ACCESO** en la parte inferior del panel de navegación.
+4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria. 
+5. Haga clic en el icono de copia para copiar la clave en el Portapapeles.
 
 ## Creación de una tabla
 
@@ -157,4 +163,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Repositorio de [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

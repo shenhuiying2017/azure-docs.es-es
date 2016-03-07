@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 # Análisis de registros de HDInsight Spark mediante una biblioteca personalizada (Linux)
 
 En este cuaderno se muestra cómo analizar los datos de registro mediante una biblioteca personalizada con Spark en HDInsight. La biblioteca personalizada que usamos es una biblioteca de Python llamada **iislogparser.py**.
 
-> [AZURE.TIP] Este tutorial también está disponible como un cuaderno de Jupyter en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio cuaderno. Para realizar el tutorial desde un cuaderno, cree un clúster Spark, inicie un cuaderno de Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y luego ejecute el cuaderno **Análisis de registros con Spark mediante una biblioteca personalizada library.ipynb** en la carpeta **Python**.
+> [AZURE.TIP] Este tutorial también está disponible como un cuaderno de Jupyter en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio cuaderno. Para realizar el tutorial desde un cuaderno, cree un clúster Spark, inicie un cuaderno de Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y luego ejecute el cuaderno **Análisis de registros con Spark mediante una biblioteca personalizada library.ipynb** en la carpeta **PySpark**.
 
 **Requisitos previos:**
 
@@ -44,7 +44,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y luego en **Python 2**.
+2. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
 	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
 
@@ -52,21 +52,11 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 	![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
 
-4. Importe los módulos requeridos y cree los contextos Spark y SQL. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
+4. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark, SQL y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos que son necesarios para este escenario. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
 
 
-		import pyspark
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
-		%matplotlib inline
-		import matplotlib.pyplot as plt
 		from pyspark.sql import Row
 		from pyspark.sql.types import *
-		import atexit
-		sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-		sqlContext = SQLContext(sc)
-		atexit.register(lambda: sc.stop())
 
 
 5. Crear un RDD con los datos de registro de ejemplo ya disponibles en el clúster. Puede acceder a los datos de la cuenta de almacenamiento predeterminada asociada al clúster en **\\HdiSamples\\HdiSamples\\WebsiteLogSampleData\\SampleLog\\909f2b.log**.
@@ -93,11 +83,9 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 ## Análisis de datos de registro mediante una biblioteca personalizada de Python
 
-7. En la salida anterior, las primeras líneas del par incluyen la información de encabezado y cada línea restante coincide con el esquema descrito en ese encabezado. Analizar dichos registros podría ser complicado. Por lo tanto, utilizamos una biblioteca personalizada de Python (**iislogparser.py**) que ayuda a analizar estos registros de manera más fácil. De forma predeterminada, esta biblioteca se incluye con el clúster Spark en HDInsight.
+7. En la salida anterior, las primeras líneas del par incluyen la información de encabezado y cada línea restante coincide con el esquema descrito en ese encabezado. Analizar dichos registros podría ser complicado. Por lo tanto, utilizamos una biblioteca personalizada de Python (**iislogparser.py**) que ayuda a analizar estos registros de manera más fácil. De forma predeterminada, esta biblioteca se incluye con el clúster Spark en HDInsight en **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
 
-	Sin embargo, esta biblioteca no está en `PYTHONPATH`, por lo que no podemos usarla mediante una instrucción de importación como `import iislogparser`. Para usar esta biblioteca, debemos distribuirla a todos los nodos de trabajo.
-
-	Después debe ejecutar el siguiente fragmento de código para distribuir la biblioteca a todos los nodos de trabajo en el clúster Spark.
+	Sin embargo, esta biblioteca no está en `PYTHONPATH`, por lo que no podemos usarla mediante una instrucción de importación como `import iislogparser`. Para usar esta biblioteca, debemos distribuirla a todos los nodos de trabajo. Ejecute el siguiente fragmento de código:
 
 
 		sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
@@ -184,12 +172,35 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 		 (u'/blogposts/mvc4/step1.png', 98.0)]
 
 
-13. También puede presentar esta información en forma de gráfico. El gráfico agrupa los registros por tiempo para ver si se produjeron picos de latencia inusuales en un momento dado.
+13. También puede presentar esta información en forma de gráfico. Como primer paso para crear un trazado, permítanos crear primero una tabla temporal **AverageTime**. La tabla agrupa los registros por tiempo para ver si se produjeron picos de latencia inusuales en un momento dado.
 
 		avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
-		minutes = avgTimeTakenByMinute.map(lambda pair: pair[0]).collect()
-		time = avgTimeTakenByMinute.map(lambda pair: pair[1]).collect()
-		plt.plot(minutes, time, marker='o', linestyle='--')
+		schema = StructType([StructField('Minutes', IntegerType(), True),
+		                     StructField('Time', FloatType(), True)])
+		                     
+		avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
+		avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
+
+14. A continuación, puede ejecutar la siguiente consulta SQL para ubicar todos los registros en la tabla **AverageTime**.
+
+		%%sql -o averagetime
+		SELECT * FROM AverageTime
+
+	La instrucción mágica `%%sql` seguida de `-o averagetime` garantiza que el resultado de la consulta persiste localmente en el servidor de Jupyter (normalmente, el nodo principal del clúster). El resultado se conserva como una trama de datos [Pandas](http://pandas.pydata.org/) con el nombre especificado **averagetime**.
+
+	Debe ver algo parecido a lo siguiente:
+
+	![Resultado de la consulta SQL](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "Resultado de la consulta SQL")
+
+	Para obtener más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles en los cuadernos de Jupyter con clústeres de HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+
+15. Ahora puede usar Matplotlib, una biblioteca que se usa para construir la visualización de datos, para crear un gráfico. Dado que el gráfico se debe crear a partir de la trama de datos **averagetime** persistente localmente, el fragmento de código debe comenzar con la instrucción mágica `%%local`. Esto garantiza que el código se ejecuta localmente en el servidor de Jupyter.
+
+		%%local
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		
+		plt.plot(averagetime['Minutes'], averagetime['Time'], marker='o', linestyle='--')
 		plt.xlabel('Time (min)')
 		plt.ylabel('Average time taken for request (ms)')
 
@@ -197,7 +208,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 	![Salida de Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Salida de Matplotlib")
 
-14. Cuando haya terminado de ejecutar la aplicación, debe apagar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
+16. Cuando haya terminado de ejecutar la aplicación, debe apagar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
 	
 
 ## <a name="seealso"></a>Otras referencias
@@ -233,4 +244,4 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

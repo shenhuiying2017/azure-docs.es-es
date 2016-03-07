@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Caso práctico para desarrolladores de Búsqueda de Azure
@@ -64,7 +64,7 @@ Si examina los cuadros verdes en el diagrama anterior, verá que la solución de
 
 - [Búsqueda de Azure](https://azure.microsoft.com/services/search/)
 - [Sitios web de Azure que usan MVC 4](https://azure.microsoft.com/services/websites/)
-- [WebJobs de Azure para las tareas programadas](../websites-webjobs-resources.md)
+- [WebJobs de Azure para las tareas programadas](../app-service-web/websites-webjobs-resources.md)
 - [Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/)
 - [Almacenamiento de blobs de Azure](https://azure.microsoft.com/services/storage/)
 - [Servicio de correo electrónico SendGrid](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -421,4 +421,4 @@ El código siguiente genera el indexador mencionado en la sección sobre la crea
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

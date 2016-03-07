@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: llamar a una API web desde una aplicación web de .NET
@@ -36,7 +36,7 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 
 - Incluir una **aplicación web/API web** en la aplicación.
 - Escribir `https://localhost:44316/` como **dirección URL de respuesta**: es la dirección URL predeterminada para este ejemplo de código.
-- Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve.
+- Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve. Tenga en cuenta que este valor debe [incluirse entre secuencias de escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) antes de su uso.
 - Escribir el **Id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -89,7 +89,7 @@ Cuando `TaskService` recibe solicitudes de `TaskWebApp`, busca un token de acces
 
 Este artículo no aborda los detalles de la protección de `TaskService`. Si quiere saber de qué forma una aplicación web autentica de forma segura las solicitudes con Azure AD B2C, consulte nuestro [artículo de introducción a la API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Configurar la aplicación web de tarea
+## 6\. Configurar la aplicación web de tarea
 
 Para que `TaskWebApp` se comunique con Azure AD B2C, hay algunos parámetros comunes que debe proporcionar. En el proyecto `TaskWebApp`, abra el archivo `web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`: Estos valores se usarán en toda la aplicación web.
 
@@ -387,4 +387,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

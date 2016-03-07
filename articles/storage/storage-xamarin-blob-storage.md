@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/21/2016"
 	ms.author="micurd"/>
 
 # Cómo utilizar el almacenamiento de blobs de Xamarin (vista previa)
@@ -49,7 +49,7 @@ El URI de la firma de acceso compartido para el nuevo contenedor debe ser simila
 
 La firma de acceso compartido que creó en el contenedor será válida durante el día siguiente. La firma concede permisos totales (*es decir*, lectura, escritura, eliminación y enumeración) para blobs situados dentro del contenedor.
 
-Para obtener más información acerca de las firmas de acceso compartido, consulte el [tutorial SAS para .NET](storage-dotnet-shared-access-signature-part-2.md).
+Para obtener más información sobre firmas de acceso compartido, vea [Firmas de acceso compartido: Creación y uso de una SAS con Almacenamiento de blobs](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Creación de una nueva aplicación Xamarin
 
@@ -173,10 +173,11 @@ En este tutorial, ha aprendido a utilizar el Almacenamiento de blobs de Azure y 
 
 Obtenga más información acerca de blobs, tablas y colas mediante la consulta de los vínculos siguientes:
 
-[Introducción al Almacenamiento de Microsoft Azure ](storage-introduction.md) 
-[Cómo utilizar el almacenamiento de blobs de .NET](storage-dotnet-how-to-use-blobs.md) 
-[Cómo utilizar el almacenamiento de tablas de .NET](storage-dotnet-how-to-use-tables.md) 
-[Cómo utilizar el almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md) 
-[Transferir datos con la utilidad de la línea de comandos AzCopy](storage-use-azcopy)
+- [Introducción a Almacenamiento de Microsoft Azure](storage-introduction.md)
+- [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md)
+- [Introducción al Almacenamiento de tablas de Azure mediante .NET](storage-dotnet-how-to-use-tables.md)
+- [Introducción al Almacenamiento en cola de Azure mediante .NET](storage-dotnet-how-to-use-queues.md)
+- [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md)
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -19,7 +19,7 @@
 
 #Creación de clústeres basados en Linux en HDInsight con cURL y la API de REST de Azure
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 La API de REST de Azure permite realizar operaciones de administración de servicios hospedados en la plataforma Azure, incluida la creación de recursos como, por ejemplo, clústeres de HDInsight basados en Linux. En este documento, obtendrá información sobre cómo crear plantillas del Administrador de recursos de Azure para configurar un clúster de HDInsight y el almacenamiento asociado y luego usar cURL para implementar la plantilla en la API de REST de Azure para crear un clúster de HDInsight.
 
@@ -355,4 +355,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/05/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli"/>
 
 # Implementar una matriz virtual de StorSimple: Configurar un servidor de archivos (versión preliminar)
@@ -69,7 +69,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
 
-	Si agrega más de una interfaz de red durante el aprovisionamiento del dispositivo, se pueden configurar aquí.
+	Si agrega más de una interfaz de red durante el aprovisionamiento del dispositivo, se pueden configurar aquí. Tenga en cuenta que puede configurar la interfaz de red como IPv4 únicamente o como IPv4 e IPv6. No se admiten las configuraciones de solo IPv6.
 
 1.  Los servidores DNS son necesarios porque se utilizan cuando el dispositivo intenta comunicarse con sus proveedores de servicios de almacenamiento en la nube o para resolver el dispositivo por nombre cuando se configura como servidor de archivos. En la página **Configuración de red** en **Servidores DNS**:
 
@@ -195,9 +195,9 @@ Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.co
 
     3.  Seleccione un tipo de uso para el recurso compartido. El tipo de uso puede ser **En capas** o **Anclado localmente**, donde el tipo en capas es el valor predeterminado. Para las cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione un recurso compartido **Anclado localmente**. Para todos los demás datos, seleccione un recurso compartido **En capas**.
 
-	Un recurso compartido anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del recurso compartido continúen siendo locales en el dispositivo y que no se traspasan a la nube. Por otro lado, un recurso compartido en capas se aprovisiona de manera fina y se puede crear muy rápidamente. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas.
+	Un recurso compartido anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del recurso compartido continúen siendo locales en el dispositivo y que no se traspasan a la nube. Por otro lado, un recurso compartido en capas se aprovisiona de manera fina y se puede crear muy rápidamente. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas.
 
-1.  Especifique la capacidad aprovisionada para el recurso compartido. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si usa un recurso compartido en capas, el tamaño del recurso compartido debe estar entre 500 GB y 20 TB. Para un recurso compartido anclado localmente, especifique un tamaño de recurso compartido de 50 GB a 2 TB. Use la capacidad disponible como guía para aprovisionar un recurso compartido. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar recursos compartidos locales o en capas.
+1.  Especifique la capacidad aprovisionada para el recurso compartido. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si usa un recurso compartido en capas, el tamaño del recurso compartido debe estar entre 500 GB y 20 TB. Para un recurso compartido anclado localmente, especifique un tamaño de recurso compartido de 50 GB a 2 TB. Use la capacidad disponible como guía para aprovisionar un recurso compartido. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar recursos compartidos locales o en capas.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image18.png)
 
@@ -235,4 +235,4 @@ Mire el vídeo para ver cómo puede configurar y registrar una matriz virtual de
 
 Obtenga más información acerca de usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

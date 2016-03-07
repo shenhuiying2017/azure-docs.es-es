@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Definición de alertas en Application Insights
@@ -100,11 +100,15 @@ Las alertas más populares son:
 * **Tiempo de respuesta del servidor** y **Solicitudes incorrectas** para las aplicaciones web del lado servidor. Además de configurar alertas, eche un vistazo a estas métricas para ver si varían desproporcionadamente con tasas de solicitud altas: esto puede indicar que la aplicación se está quedando sin recursos.
 * **Excepciones de servidor**: para verlas, deberá realizar alguna [configuración adicional](app-insights-asp-net-exceptions.md).
 
+## Automatización
+
+* [Uso de PowerShell para automatizar la configuración de alertas](app-insights-powershell-alerts.md)
+* [Uso de Webhook para automatizar la respuesta a alertas](../azure-portal/insights-webhooks-alerts.md)
 
 ## Consulte también
 
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
-* [Use PowerShell to set alerts in Application Insights](app-insights-powershell-alerts.md) (Uso de PowerShell para definir alertas en Application Insights)
+* [Use PowerShell to set alerts in Application Insights (Uso de PowerShell para definir alertas en Application Insights)](app-insights-powershell-alerts.md)
 * [Application Insights: detección proactiva](app-insights-proactive-detection.md) 
 
 
@@ -119,4 +123,4 @@ Las alertas más populares son:
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

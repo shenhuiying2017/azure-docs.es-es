@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indexadores | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
+	pageTitle="Conexión de Base de datos SQL de Azure a Búsqueda de Azure con indexadores | Microsoft Azure | Indexadores" 
 	description="Obtenga información sobre cómo extraer datos de la base de datos SQL de Azure en un índice de Búsqueda de Azure mediante el uso de indizadores." 
 	services="search" 
 	documentationCenter="" 
@@ -171,11 +171,11 @@ Veamos un ejemplo entenderlo concretamente. Supongamos que está configurada la 
 
 Esto es lo que sucede:
 
-1. La primera ejecución del indizador se inicia exactamente o en torno al 1 de marzo de 2015, 12:00 a. m. hora UTC.
+1. La primera ejecución del indizador se inicia exactamente o en torno al 1 de marzo de 2015, 12:00 a. m. hora UTC.
 1. Suponga que esta ejecución tarda 20 minutos (o un período inferior a 1 hora).
-1. La segunda ejecución se inicia exactamente o en torno al 1 de marzo de 2015, 1:00 a. m. 
-1. Suponga que esta ejecución tarda más de una hora (haría falta un gran número de documentos para que esto sucediera en la realidad, pero es una ilustración útil), por ejemplo, 70 minutos, de modo que finaliza en torno a las 2:10 a. m.
-1. Ahora son las 2:00 a. m., momento en que debe comenzar la tercera ejecución. Sin embargo, dado que la segunda ejecución de la 1 a. m. todavía se está ejecutando, se omite la tercera ejecución. La tercera ejecución empieza a las 3 a. m.
+1. La segunda ejecución se inicia exactamente o en torno al 1 de marzo de 2015, 1:00 a. m. 
+1. Suponga que esta ejecución tarda más de una hora (haría falta un gran número de documentos para que esto sucediera en la realidad, pero es una ilustración útil), por ejemplo, 70 minutos, de modo que finaliza en torno a las 2:10 a. m.
+1. Ahora son las 2:00 a. m., momento en que debe comenzar la tercera ejecución. Sin embargo, dado que la segunda ejecución de la 1 a. m. todavía se está ejecutando, se omite la tercera ejecución. La tercera ejecución empieza a las 3 a. m.
 
 Puede agregar, cambiar o eliminar la programación de un indizador existente mediante una solicitud **PUT de indizador**.
 
@@ -275,4 +275,4 @@ R: Sí. Sin embargo, solo puede ejecutarse un indizador en un nodo de cada vez. 
 
 R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y los recursos de dicho nodo se reparten entre la indización y la prestación de servicios al tráfico de consultas y otras solicitudes de API. Si al ejecutar cargas de trabajo intensivas de indización y consulta detecta la alta tasa de 503 errores o el aumento de los tiempos de respuesta, considere la posibilidad de escalar verticalmente el servicio de búsqueda.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

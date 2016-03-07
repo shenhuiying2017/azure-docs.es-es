@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/04/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina local
@@ -60,4 +60,4 @@ Después de agregar seguimiento ETW personalizado al código del servicio, puede
 ## Pasos siguientes
 El mismo código de seguimiento que agregó a la aplicación anterior para diagnósticos locales funcionará con las herramientas que puede usar para ver estos eventos al ejecutar la aplicación en un clúster de Azure. Consulte estos artículos que tratan las distintas opciones para las herramientas y describen cómo puede configurarlas. * [Recopilación de registros desde un clúster de Service Fabric en Azure mediante WAD (Diagnósticos de Microsoft Azure) y Visión operativa](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [Uso de ElasticSearch como almacén de seguimientos de aplicaciones de Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

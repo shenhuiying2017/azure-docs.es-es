@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="01/05/2016" 
+  ms.date="02/20/2016" 
   ms.author="tamram"/>
 
 
@@ -30,7 +30,7 @@ Objetos en las propiedades de compatibilidad de sistema de Almacenamiento de Azu
 
 El proceso de recuperación de los valores de propiedad y metadatos de un recurso de almacenamiento consta de dos pasos. Para poder leer estos valores, tiene que capturarlos explícitamente llamando el método **FetchAttributes**.
 
-> [AZURE.IMPORTANT]Los valores de propiedad y los metadatos para un recurso de almacenamiento no se rellenan, a menos que se llame a uno de los métodos **FetchAttributes**.
+> [AZURE.IMPORTANT] Los valores de propiedad y los metadatos para un recurso de almacenamiento no se rellenan, a menos que se llame a uno de los métodos **FetchAttributes**.
 
 ## Establecer y recuperar propiedades
 
@@ -99,4 +99,4 @@ Para recuperar metadatos, llame al método **FetchAttributes** en el blob o cont
 - [Documentación de referencia de la biblioteca cliente de Almacenamiento de Azure para .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Paquete de la biblioteca cliente de Almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

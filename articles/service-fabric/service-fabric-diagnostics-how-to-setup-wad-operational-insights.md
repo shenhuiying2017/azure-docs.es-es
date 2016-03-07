@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/20/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # Recopilación de registros desde un clúster de Service Fabric mediante Diagnósticos y Visión operativa de Azure
@@ -325,4 +325,4 @@ Tendrá que actualizar la sección EtwEventSourceProviderConfiguration en WadCon
 ## Pasos siguientes
 Revise los eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) y [Reliable Services](service-fabric-reliable-services-diagnostics.md) para comprender más a fondo qué eventos debería examinar durante la solución de problemas.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

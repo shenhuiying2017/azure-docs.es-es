@@ -191,8 +191,12 @@ Se puede deshabilitar, pero no se recomienda. El muestreo está diseñado para q
 
 La ciudad, región y dimensiones del país proceden de las direcciones IP y no siempre son precisas.
 
+## Excepción "Método no encontrado" en la ejecución en Servicios en la nube de Azure
+
+¿Ha realizado la compilación para .NET 4.6? 4.6 no se admite automáticamente en los roles de Servicios en la nube de Azure. [Instale 4.6 en cada rol](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de ejecutar la aplicación.
+
 ## Sigue sin funcionar...
 
 * [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/es-ES/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

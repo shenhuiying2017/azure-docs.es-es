@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="02/12/2016"
    ms.author="hascipio" />
 
 # Publicación de una oferta en Azure Marketplace
@@ -47,6 +47,7 @@ Algunos pasos se comparten entre los distintos tipos de soluciones. En este art�
 - [Obtención de soporte técnico como publicador][suppt-general]
 - [Descripción de informes de perspectivas de vendedor][suppt-rpt-insights]
 - [Descripción de informes de pago][suppt-rpt-payouts]
+- [Cómo cambiar el incentivo de revendedores para proveedores de soluciones en la nube](marketplace-publishing-csp-incentive.md)
 - [Solución de problemas comunes de publicación en Marketplace][suppt-common]
 
 ## Recursos adicionales
@@ -81,4 +82,4 @@ Algunos pasos se comparten entre los distintos tipos de soluciones. En este art�
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

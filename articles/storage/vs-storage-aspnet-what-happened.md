@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # ¿Qué le ha ocurrido a mi proyecto ASP.NET (servicio conectado a Almacenamiento de Azure de Visual Studio)?
@@ -36,4 +36,4 @@ En el archivo web.config de su proyecto, se ha creado un elemento con la cadena 
 
 Para obtener más información, consulte [ASP.NET](http://www.asp.net).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

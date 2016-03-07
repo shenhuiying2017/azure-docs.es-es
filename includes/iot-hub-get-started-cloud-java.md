@@ -181,7 +181,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
     public static void main( String[] args ) throws IOException
     ```
 
-12. Agregue el siguiente código al método **main** en la clase **App**. Este código crea una instancia de **EventHubClient** para conectarse al punto de conexión compatible del Centro eventos en Centro de IoT. Después, crea dos subprocesos para leer de las dos particiones. Reemplace **{youriothubkey}**, **{youreventhubcompatiblenamespace}** y **{youreventhubcompatiblename}** por los valores indicados anteriormente. El valor del marcador **{youreventhubcompatiblenamespace}** proviene del **punto de conexión compatible con Centro de eventos** y adopta la forma siguiente: **xxxxnamespace.servicebus.windows.net**.
+12. Agregue el siguiente código al método **main** en la clase **App**. Este código crea una instancia de **EventHubClient** para conectarse al punto de conexión compatible del Centro eventos en Centro de IoT. Después, crea dos subprocesos para leer de las dos particiones. Reemplace **{youriothubkey}**, **{youreventhubcompatiblenamespace}** y **{youreventhubcompatiblename}** por los valores indicados anteriormente. El valor del marcador de posición **{youreventhubcompatiblenamespace}** proviene del **punto de conexión compatible con el Centro de eventos** y adopta la forma siguiente: **xxxxnamespace** (dicho de otro modo, quite el prefijo ****sb://** y el sufijo **.servicebus.windows.net** del valor de punto de conexión compatible con el Centro de eventos del portal).
 
     ```
     String policyName = "iothubowner";
@@ -209,7 +209,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
     client.close();
     ```
 
-    > [AZURE.NOTE] Este código supone que usted creó el Centro de IoT en el nivel de F1 (gratis). Un Centro de IoT gratis tiene dos particiones denominadas "0" y "1". Si creó el Centro de IoT con uno de los demás planes de tarifa, debe ajustar el código para crear una clase **MessageReceiver** para cada partición.
+    > [AZURE.NOTE] Este código supone que usted creó el Centro de IoT en el nivel de F1 (gratis). Un Centro de IoT gratis tiene dos particiones denominadas "0" y "1". Si creó el Centro de IoT con otro plan de tarifa, debe ajustar el código para crear una clase **MessageReceiver** para cada partición.
 
 13. Guarde y cierre el archivo App.java.
 
@@ -228,4 +228,4 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

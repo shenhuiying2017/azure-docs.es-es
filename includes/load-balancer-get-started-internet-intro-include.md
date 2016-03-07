@@ -2,8 +2,8 @@ Puede usar un equilibrador de carga para proporcionar alta disponibilidad para l
  
 Puede configurar un equilibrador de carga para.
 
-- Equilibrar la carga del tráfico entrante de Internet a las máquinas virtuales (VM). En este escenario hacemos referencia a un equilibrador de carga como un [equilibrador de carga orientado a Internet](load-balancer-internet-overview.md).
-- El tráfico de equilibrio de carga entre máquinas virtuales de una red virtual (VNet), las máquinas virtuales de los servicios en la nube o entre equipos locales y máquinas virtuales en una red virtual entre entornos. En este escenario hacemos referencia a un equilibrador de carga como un [equilibrador de carga interno (ILB)](load-balancer-internal-overview.md).
+- Equilibrar la carga del tráfico entrante de Internet a las máquinas virtuales (VM). En este escenario hacemos referencia a un equilibrador de carga como un [equilibrador de carga orientado a Internet](../articles/load-balancer/load-balancer-internet-overview.md).
+- El tráfico de equilibrio de carga entre máquinas virtuales de una red virtual (VNet), las máquinas virtuales de los servicios en la nube o entre equipos locales y máquinas virtuales en una red virtual entre entornos. En este escenario hacemos referencia a un equilibrador de carga como un [equilibrador de carga interno (ILB)](../articles/load-balancer/load-balancer-internal-overview.md).
 - 	Enrutar el tráfico externo a una instancia específica de máquina virtual.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/18/2016"
    ms.author="andalmia"/>
 
 #Reglas de BizTalk
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
 Las reglas de negocios encapsulan las directivas y decisiones que controlan los procesos de negocio. Estas directivas se pueden definir formalmente en manuales de procedimientos, contratos o acuerdos, o pueden existir como conocimiento o experiencia incorporados en los empleados. Su naturaleza es dinámica y están sujetas a cambios con el paso del tiempo debido a cambios en los planes de negocio, las normativas u otros motivos.
 
@@ -253,4 +255,4 @@ Una de las principales ventajas del uso de reglas de negocios es que los cambios
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

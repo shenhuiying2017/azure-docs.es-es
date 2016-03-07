@@ -207,6 +207,16 @@ La canalización contiene una actividad de copia que está configurada para usar
 	   }
 	}
 
+
+Debe ajustar la cadena de consulta, según cómo se configuran las fechas en la base de datos de Oracle. Si aparece el siguiente mensaje de error:
+
+	Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+
+puede ser necesario cambiar la consulta, como se muestra a continuación (con la función to\_date):
+
+	"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
+
 ## Propiedades del servicio vinculado de Oracle
 
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos al servicio vinculado de Oracle.
@@ -302,4 +312,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

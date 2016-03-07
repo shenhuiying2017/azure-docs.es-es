@@ -58,6 +58,8 @@ Si necesita ejecutar una tarea de sincronización, ejecútelo de nuevo mediante 
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
+Para obtener más información sobre la Sincronización de Azure AD Connect: Programador, consulte [Programador de Azure AD Connect](active-directory-aadconnectsync-feature-scheduler.md).
+
 
 ## Tareas adicionales disponibles en Azure AD Connect
 Después de la instalación inicial de Azure AD Connect, siempre puede volver a iniciar el asistente desde la página de inicio de Azure AD Connect o el acceso directo de escritorio. Verá que volver a pasar por el asistente ofrece algunas nuevas opciones en el formulario de tareas adicionales.
@@ -76,4 +78,4 @@ Habilitar el modo provisional | Esto permite almacenar información que se sincr
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

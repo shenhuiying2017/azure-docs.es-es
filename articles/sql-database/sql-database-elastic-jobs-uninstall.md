@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="ddove; sidneyh"/>
 
 #Desinstalación de componentes de Trabajos de base de datos elástica.
@@ -29,7 +29,7 @@ Los componentes de **Trabajos de base de datos elástica** se pueden desinstalar
 
 ##Desinstalación de componentes de Trabajos de base de datos elástica mediante PowerShell
 
-1.	Inicie una ventana de comandos de Microsoft Azure PowerShell y navegue hasta el subdirectorio tools en la carpeta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x: escriba cd tools
+1.	Inicie una ventana de comandos de Microsoft Azure PowerShell y navegue hasta el subdirectorio tools en la carpeta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x: escriba **cd tools**.
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -61,7 +61,5 @@ Para reinstalar Trabajos de base de datos elástica, vea [Instalación del servi
 Si desea obtener más información sobre Trabajos de base de datos elástica, vea [Información general de Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-job-uninstall/
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

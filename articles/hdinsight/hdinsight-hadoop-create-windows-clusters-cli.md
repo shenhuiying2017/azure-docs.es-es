@@ -19,7 +19,7 @@
 
 # Creación de clústeres de Hadoop basados en Windows en HDInsight con la CLI de Azure
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Aprenda a crear clústeres de HDInsight con la CLI de Azure. Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
 
@@ -134,4 +134,4 @@ Puede utilizar la CLI para crear clústeres llamando a plantillas de ARM. Consul
 - [Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md)
 - [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](../virtual-machines/virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

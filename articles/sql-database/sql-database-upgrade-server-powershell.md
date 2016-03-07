@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 # Actualización a la Base de datos SQL V12 de Azure mediante PowerShell
@@ -66,7 +66,7 @@ Para ejecutar los cmdlets de PowerShell en su suscripción de Azure debe estable
 
 Después de iniciar sesión correctamente, se mostrará información en la pantalla que incluye el identificador con el que ha iniciado sesión y las suscripciones a Azure a las que tiene acceso.
 
-Para seleccionar la suscripción con la que quiere trabajar, necesita el identificador de suscripción (**-SubscriptionId**) o el nombre de suscripción (**-SubscriptionName**). Puede copiarlo en el paso anterior o, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de suscripción que quiera del conjunto de resultados.
+Para seleccionar la suscripción con la que quiera trabajar, necesita el identificador de la suscripción (**-SubscriptionId**) o el nombre de la suscripción (**-SubscriptionName**). Puede copiar el nombre o el identificador del paso anterior, o bien, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureRmSubscription** y copiar la información de suscripción deseada del conjunto de resultados.
 
 Ejecute el siguiente cmdlet con la información de suscripción para establecer la suscripción actual:
 
@@ -80,7 +80,7 @@ Para obtener la recomendación para la actualización del servidor, ejecute el s
 
     $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
 
-Para más información, consulte [Recomendaciones sobre el grupo de bases de datos elásticas de Base de datos SQL de Azure](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) y [Recomendaciones sobre el plan de tarifas de Base de datos SQL de Azure](sql-database-service-tier-advisor.md).
+Para obtener más información, consulte las [Recomendaciones acerca del grupo de bases de datos elásticas de Base de datos SQL de Azure](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) y las [Recomendaciones acerca del nivel de precios de Base de datos SQL de Azure](sql-database-service-tier-advisor.md).
 
 
 
@@ -163,7 +163,7 @@ Después de la actualización, es recomendable que supervise la base de datos de
 Además de supervisar las bases de datos individuales, también puede supervisar los grupos de bases de datos elásticas [mediante el portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) o mediante [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
-**Datos de consumo de recursos**: para las bases de datos de niveles Básico, Estándar y Premium hay datos de consumo de recursos disponibles a través de la DMV denominada [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) de la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y de registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
+**Datos de consumo de recursos**: para las bases de datos de niveles Básico, Estándar y Premium, tiene disponibles datos de consumo de recursos a través de una vista de administración dinámica (DMV) denominada [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y de registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -177,14 +177,14 @@ Además de supervisar las bases de datos individuales, también puede supervisar
 Información de supervisión adicional:
 
 - [Guía de rendimiento de Base de datos SQL de Azure para bases de datos individuales](http://msdn.microsoft.com/library/azure/dn369873.aspx).
-- [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database=elastic-pool-guidance.md).
+- [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
 - [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
 
 
-**Alertas**: configure "Alertas" en el Portal de Azure para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en el Portal de Azure con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. Vaya a la base de datos y seleccione **Reglas de alerta** en la hoja **Configuración**.
+**Alertas:** configure “Alertas” en el Portal de Azure para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en el Portal de Azure con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. Vaya a la base de datos y seleccione **Reglas de alerta** en la hoja **Configuración**.
 
-Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Recepción de notificaciones de alerta](insights-receive-alert-notifications.md) para más información sobre cómo configurar notificaciones de alerta.
+Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Recibir notificaciones de alerta](../azure-portal/insights-receive-alert-notifications.md) para obtener más información acerca de cómo configurar las notificaciones de alerta.
 
 
 
@@ -201,4 +201,4 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

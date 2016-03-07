@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/23/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # Proveedores, regiones, versiones de API y esquemas del Administrador de recursos
@@ -35,8 +35,7 @@ En las tablas siguientes se muestra qué servicios admiten la implementación y 
 | Dynamics Lifecycle Services | Sí | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (vista previa) | Sí | [Rest de Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Máquinas virtuales | Sí | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Máquinas virtuales (clásicas) | Limitado | - | - | 
-| Aplicación remota | No | - | - | | Servicios en la nube (clásicos) | Limitado (ver a continuación) | - | - | - |
+| Máquinas virtuales (clásicas) | Limitado | - | - | | Aplicación remota | No | - | - | | Servicios en la nube (clásicos) | Limitado (ver a continuación) | - | - | - |
 
 Máquinas virtuales (clásicas) hace referencia a recursos que se implementaron mediante el modelo de implementación clásica, en lugar de a través del modelo de implementación del Administrador de recursos. En general, estos recursos no admiten las operaciones del Administrador de recursos, pero hay algunas operaciones que se han habilitado. Para obtener más información sobre estos modelos de implementación, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
 
@@ -113,8 +112,7 @@ Los Servicios en la nube (clásicos) se pueden usar con otros recursos clásicos
 | ------- | ------- | -------- | ------ | ------ |
 | Servicios de BizTalk | Sí | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Bus de servicio | Sí | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Copia de seguridad | No | - | - |
-| Recuperación del sitio | No | - | - |
+| Copia de seguridad | No | - | - | | Recuperación del sitio | No | - | - |
 
 ## Administración de identidad y acceso 
 
@@ -183,7 +181,22 @@ La salida debe ser similar a:
     
 ### Azure CLI
 
-Puede guardar la información para un proveedor de recursos en un archivo con el siguiente comando.
+En el ejemplo siguiente se muestra cómo obtener todos los proveedores de recursos disponibles.
+
+    azure provider list
+    
+La salida debe ser similar a:
+
+    info:    Executing command provider list
+    + Getting ARM registered providers
+    data:    Namespace                        Registered
+    data:    -------------------------------  -------------
+    data:    Microsoft.ApiManagement          Unregistered
+    data:    Microsoft.AppService             Registered
+    data:    Microsoft.Authorization          Registered
+    ...
+
+Puede guardar la información para un proveedor de recursos particular en un archivo con el siguiente comando.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
@@ -277,4 +290,4 @@ Puede abrir el archivo y buscar el elemento **apiVersions**.
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

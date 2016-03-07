@@ -206,11 +206,9 @@ La canalización contiene una actividad de copia que está configurada para usar
 	   }
 	}
 
-> [AZURE.NOTE] En el ejemplo anterior, **sqlReaderQuery** se especifica para SqlSource. La actividad de copia ejecuta esta consulta en el origen de Base de datos de SQL Server para obtener los datos.
->  
-> Como alternativa, puede especificar un procedimiento almacenado mediante la especificación de **sqlReaderStoredProcedureName** y **storedProcedureParameters** (si el procedimiento almacenado toma parámetros).
->  
-> Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas definidas en la sección sobre la estructura del conjunto de datos JSON se usan para crear una consulta (seleccione column1, column2 en mytable) y ejecutarla en la base de datos SQL de Azure. Si la definición de conjunto de datos no tiene la estructura, se seleccionan todas las columnas de la tabla.
+En el ejemplo anterior, **sqlReaderQuery** se especifica para SqlSource. La actividad de copia ejecuta esta consulta en el origen de Base de datos de SQL Server para obtener los datos. Como alternativa, puede especificar un procedimiento almacenado mediante la especificación de **sqlReaderStoredProcedureName** y **storedProcedureParameters** (si el procedimiento almacenado toma parámetros).
+ 
+Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas definidas en la sección sobre la estructura del conjunto de datos JSON se usan para crear una consulta (seleccione column1, column2 en mytable) y ejecutarla en la base de datos SQL de Azure. Si la definición de conjunto de datos no tiene la estructura, se seleccionan todas las columnas de la tabla.
 
 
 Consulte la sección [SqlSource](#sqlsource) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) para obtener la lista de propiedades admitidas por SqlSource y BlobSink.
@@ -467,7 +465,9 @@ Si se especifica **sqlReaderQuery** para SqlSource, la actividad de copia ejecut
 
 Como alternativa, puede especificar un procedimiento almacenado mediante la especificación de **sqlReaderStoredProcedureName** y **storedProcedureParameters** (si el procedimiento almacenado toma parámetros).
 
-Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas definidas en la sección sobre la estructura del conjunto de datos JSON se usan para crear una consulta (seleccione column1, column2 en mytable) y ejecutarla en la base de datos SQL de Azure. Si la definición de conjunto de datos no tiene la estructura, se seleccionan todas las columnas de la tabla.
+Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas definidas en la sección sobre la estructura del conjunto de datos JSON se usan para crear una consulta (seleccione column1, column2 en mytable) y ejecutarla en la base de datos SQL de Azure. Si la definición del conjunto de datos no tiene la estructura, se seleccionan todas las columnas de la tabla.
+
+> [AZURE.NOTE] Cuando use **sqlReaderStoredProcedureName**, deberá especificar un valor para la propiedad **tableName** del conjunto de datos JSON. Esta vez, se trata de una limitación del producto. Pero no se ha realizado ninguna validación en esta tabla.
 
 ### SqlSink
 
@@ -498,13 +498,83 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 	Consulte [Habilitar o deshabilitar un protocolo de red de servidor](https://msdn.microsoft.com/library/ms191294.aspx) para ver detalles y maneras alternativas de habilitar el protocolo TCP/IP. 
 3. En la misma ventana, haga doble clic en **TCP/IP** para abrir la ventana **Propiedades de TCP/IP**.
 4. Cambie a la pestaña **Direcciones IP**. Desplácese hacia abajo hasta la sección **IPAll**. Anote el valor de **Puerto TCP** (el valor predeterminado es **1433**).
-5. Cree una **regla del Firewall de Windows** en el equipo para permitir el tráfico entrante a través de este puerto.  
-6. **Compruebe la conexión**: use SQL Server Management Studio en un equipo diferente para conectarse a SQL Server con el nombre completo. Por ejemplo: <machine>.<domain>.corp.<company>.com,1433.
+5. Cree una **regla del Firewall de Windows** en la máquina para permitir el tráfico entrante a través de este puerto.  
+6. **Compruebe la conexión**: use SQL Server Management Studio en una máquina diferente para conectarse a SQL Server con el nombre completo. Por ejemplo: <machine>.<domain>.corp.<company>.com,1433.
 
 	> [AZURE.IMPORTANT] 
 	Consulte [Consideraciones de puertos y seguridad](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) para información detallada.
 	>   
-	> Consulte [Solución de problemas de la puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre la solución de problemas de conexión o puerta de enlace.
+	> Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+
+## Columnas de identidad en la base de datos de destino
+En esta sección se proporciona un ejemplo para copiar datos de una tabla de origen sin una columna de identidad en una tabla de destino con una columna de identidad.
+
+**Tabla de origen:**
+
+	create table dbo.SourceTbl
+	(
+	       name varchar(100),
+	       age int
+	)
+
+**Tabla de destino:**
+
+	create table dbo.TargetTbl
+	(
+	       id int identity(1,1),
+	       name varchar(100),
+	       age int
+	)
+
+
+Observe que la tabla de destino tiene una columna de identidad.
+
+**Definición de JSON del conjunto de datos de origen**
+
+	{
+	    "name": "SampleSource",
+	    "properties": {
+	        "published": false,
+	        "type": " SqlServerTable",
+	        "linkedServiceName": "TestIdentitySQL",
+	        "typeProperties": {
+	            "tableName": "SourceTbl"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+	        "external": true,
+	        "policy": {}
+	    }
+	}
+
+**Definición de JSON del conjunto de datos de destino**
+
+	{
+	    "name": "SampleTarget",
+	    "properties": {
+	        "structure": [
+	            { "name": "name" },
+	            { "name": "age" }
+	        ],
+	        "published": false,
+	        "type": "AzureSqlTable",
+	        "linkedServiceName": "TestIdentitySQLSource",
+	        "typeProperties": {
+	            "tableName": "TargetTbl"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+	        "external": false,
+	        "policy": {}
+	    }	
+	}
+
+
+Tenga en cuenta que la tabla de origen y de destino tienen un esquema diferente (el destino tiene una columna adicional con identidad). En este escenario, debe especificar la propiedad de la **estructura** de la definición del conjunto de datos de destino, que no incluye la columna de identidad.
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -567,4 +637,4 @@ La asignación es igual que la asignación de tipo de datos de SQL Server para A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="02/21/2016"
    ms.author="tomfitz"/>
 
 # Autenticación de una entidad de servicio con el Administrador de recursos de Azure
@@ -27,7 +27,9 @@ Puede utilizar Azure PowerShell o CLI de Azure para Mac, Linux y Windows. Si no 
 ## Conceptos
 1. Azure Active Directory (AAD): un servicio de administración de identidades y acceso para la nube. Para obtener más información, consulte [¿Qué es Azure Active Directory?](active-directory/active-directory-whatis.md)
 2. Entidad de servicio: una instancia de una aplicación en un directorio que necesita acceder a otros recursos.
-3. Aplicación de AD: un registro de directorio que identifica una aplicación en AAD. Para obtener más información, consulte [Conceptos básicos sobre autenticación en Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
+3. Aplicación de AD: un registro de directorio que identifica una aplicación en AAD.
+
+Para obtener una explicación más detallada de las aplicaciones y entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](active-directory/active-directory-application-objects.md). Para obtener más información acerca de la autenticación de Active Directory, vea [Escenarios de autenticación en Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 ## Autenticar entidad de servicio con contraseña: PowerShell
 
@@ -312,4 +314,4 @@ En esta sección llevará a cabo los pasos para crear una entidad de servicio pa
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

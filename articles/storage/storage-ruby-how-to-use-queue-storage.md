@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/23/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 ## Creación de una aplicación de Ruby
 
-Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Aplicación web de Ruby on Rails en una máquina virtual de Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
 
 ## Configuración de la aplicación para obtener acceso al almacenamiento
 
@@ -56,12 +56,22 @@ El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y *
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your Azure storage access key>"
 
-Para obtener estos valores:
+ 
+Para obtener estos valores desde una cuenta de almacenamiento de ARM o clásica en el Portal de Azure:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
-3. Haga clic en **ADMINISTRAR CLAVES** en la parte inferior del panel de navegación.
-4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede elegir la principal o la secundaria.
+3. En la hoja Configuración de la derecha, haga clic en **Claves de acceso**.
+4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas. 
+5. Haga clic en el icono de copia para copiar la clave en el Portapapeles. 
+
+Para obtener estos valores desde una cuenta de almacenamiento clásica en el Portal clásico:
+
+1. Inicie sesión en el [Portal clásico](https://manage.windowsazure.com).
+2. Vaya a la cuenta de almacenamiento que desea utilizar.
+3. Haga clic en **ADMINISTRAR CLAVES DE ACCESO** en la parte inferior del panel de navegación.
+4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria. 
+5. Haga clic en el icono de copia para copiar la clave en el Portapapeles.
 
 ## Creación de una cola
 
@@ -147,9 +157,9 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
 - Visite el [blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/) (en inglés).
-- Visite el repositorio del [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) (en inglés) en GitHub.
+- Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-Podrá encontrar una comparación entre el servicio Cola de Azure, que se explica en este artículo, y las Colas del Bus de servicio de Azure, que se explican en el artículo [Utilización de las colas del bus de servicio](/develop/ruby/how-to-guides/service-bus-queues/), en el documento [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias](http://msdn.microsoft.com/library/azure/hh767287.aspx).
+Podrá encontrar una comparación entre el servicio Cola de Azure, que se explica en este artículo, y las Colas del Bus de servicio de Azure, que se explican en el artículo [Utilización de las colas del bus de servicio](/develop/ruby/how-to-guides/service-bus-queues/), en el documento [Colas de Azure y Colas de Service Bus: comparación y diferencias](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

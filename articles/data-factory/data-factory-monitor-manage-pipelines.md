@@ -22,7 +22,7 @@
 - [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 - [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
 
-El servicio Factoría de datos proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. Le ayuda a evaluar el estado de la canalización de datos de un extremo a otro rápidamente, a identificar problemas y a tomar medidas correctivas si es necesario. Visualmente, puede realizar el seguimiento del linaje de datos y las relaciones entre los datos a través de cualquiera de los orígenes y consultar una contabilización histórica completa de ejecución del trabajo, estado del sistema y dependencias desde un solo panel de supervisión.
+El servicio Factoría de datos proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. Le ayuda a evaluar el estado de la canalización de datos de un extremo a otro rápidamente, a identificar problemas y a tomar medidas correctivas si es necesario. Visualmente, puede realizar el seguimiento del linaje de datos y las relaciones entre los datos a través de cualquiera de los orígenes y consultar una contabilización histórica completa de ejecución del trabajo, estado del sistema y dependencias desde un solo panel de supervisión.
 
 En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones. También se ofrece información sobre cómo crear alertas y recibir notificaciones cuando se produzcan errores.
 
@@ -296,6 +296,8 @@ Los eventos de Azure proporcionan información útil sobre lo que sucede en los 
 
 Puede crear alertas sobre estos eventos del usuario y configurarlas para enviar notificaciones por correo electrónico al administrador y a los coadministradores de la suscripción. Además, puede especificar direcciones de correo electrónico adicionales de los usuarios que necesiten recibir notificaciones por correo electrónico cuando se cumplan las condiciones. Esto resulta muy útil si se quiere recibir una notificación cuando se produzcan errores y no se desea supervisar continuamente la factoría de datos.
 
+> [AZURE.NOTE] El portal no muestra alertas en eventos esta vez. Use la [aplicación de administración y supervisión](data-factory-monitor-manage-app.md) para consultar todas las alertas.
+
 #### Especificación de una definición de alerta:
 Para especificar una definición de alerta, cree un archivo JSON que describa las operaciones sobre las que desea recibir alertas. En el ejemplo siguiente, la alerta enviará una notificación por correo electrónico para la operación RunFinished. Para ser más específicos, se envía una notificación por correo electrónico cuando se ha completado una ejecución en la Factoría de datos y se ha producido un error (estado = FailedExecution).
 
@@ -543,7 +545,9 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns.
+*metricName* a partir de ahora admite dos valores:
+- FailedRuns
+- SuccessfulRuns.
 
 **Implementación de alertas:**
 
@@ -568,6 +572,15 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 	Outputs           
 
 
-También puede usar el cmdlet **Add-AlertRule** para implementar una regla de alerta. Consulte el tema [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obtener información detallada y ejemplos.
+También puede usar el cmdlet **Add-AlertRule** para implementar una regla de alertas. Consulte el tema [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obtener información detallada y ejemplos.
 
-<!---HONumber=AcomDC_0218_2016-->
+## Desplazamiento de una factoría de datos a una suscripción o un grupo de recursos diferentes
+Puede mover una factoría de datos a un grupo de recursos o una suscripción diferentes con el botón **Mover** de la barra de comandos que aparece en la página principal de la factoría de datos.
+
+![Mover factoría de datos](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+
+Junto con la factoría de datos, también puede mover todos los recursos relacionados (como alertas asociadas a la factoría de datos).
+
+![Cuadro de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+
+<!---HONumber=AcomDC_0224_2016-->

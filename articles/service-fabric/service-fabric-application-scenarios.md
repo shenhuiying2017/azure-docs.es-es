@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/30/2015"
+   ms.date="02/12/2016"
    ms.author="mfussell"/>
 
 # Escenarios de aplicación de Service Fabric
@@ -22,9 +22,9 @@ Azure Service Fabric ofrece una plataforma confiable y flexible que le permite e
 
 La plataforma Service Fabric de Azure es ideal para las siguientes categorías de aplicaciones y servicios:
 
-- **Servicios de alta disponibilidad**: los servicios de Service Fabric proporcionan una conmutación por error muy rápida. Service Fabric le permite crear varias réplicas de servicio secundario. Si un nodo, proceso o servicio individual deja de funcionar por un error de hardware u otro fallo, una de las réplicas secundarias se amplía inmediatamente a una réplica principal con una pérdida insignificante de servicio para los clientes.
+- **Servicios de alta disponibilidad**: los servicios de Service Fabric proporcionan conmutación por error rápida mediante la creación de varias réplicas de servicio secundarias. Si un nodo, proceso o servicio individual deja de funcionar por un error de hardware u otro fallo, una de las réplicas secundarias se amplía a una réplica principal con una pérdida mínima de servicio.
 
-- **Servicios escalables**: los servicios individuales pueden tener particiones, permitiendo que el estado se escale horizontalmente en el clúster. Además, pueden crearse y eliminarse servicios individuales sobre la marcha. Los servicios se pueden escalar horizontalmente de forma rápida y fácil en unas pocas instancias en unos cuantos nodos hasta miles de instancias en muchos nodos y, a continuación, reducir verticalmente de manera inmediata otra vez, dependiendo de sus necesidades de recursos. Puede usar Service Fabric para crear estos servicios y administrar su ciclo de vida completo.
+- **Servicios escalables**: los servicios individuales pueden tener particiones, permitiendo que el estado se escale horizontalmente en el clúster. Además, pueden crearse y eliminarse servicios individuales sobre la marcha. Los servicios se pueden escalar horizontalmente de forma rápida y fácil en unas pocas instancias en unos cuantos nodos hasta miles de instancias en muchos nodos y, a continuación, reducir verticalmente otra vez, dependiendo de sus necesidades de recursos. Puede usar Service Fabric para crear estos servicios y administrar su ciclo de vida completo.
 
 - **Cálculo de datos no estáticos**: Service Fabric le permite generar aplicaciones de datos, de entrada/salida y con estado de proceso intensivo. Service Fabric permite la colocación de los datos y el procesamiento (cálculo) en las aplicaciones. Normalmente, cuando la aplicación requiere acceso a datos, hay una latencia de red que está asociada con un nivel de caché o almacenamiento de datos externos. Con servicios Service Fabric con estado, esa latencia se elimina, lo que permite unas lecturas y escrituras de mayor rendimiento. Por ejemplo, supongamos que tiene una aplicación que realiza una selección de recomendaciones en tiempo real para los clientes con un requisito de tiempo de ida y vuelta inferior a 100 milisegundos. Las características de latencia y rendimiento de los servicios Service Fabric (en el que el cálculo de la selección de la recomendación se combina con los datos y las reglas) proporciona una experiencia con capacidad de respuesta al usuario en comparación con el modelo de implementación estándar de tener que recuperar los datos necesarios del almacenamiento remoto.
 
@@ -68,4 +68,4 @@ Vea también los siguientes temas:
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

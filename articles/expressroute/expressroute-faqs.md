@@ -143,7 +143,7 @@ Sí. Tendrá que crear una puerta de enlace de ExpressRoute dentro de la red vir
 Debe establecer un circuito ExpressRoute y configurar rutas para el intercambio de tráfico público.
 
 ### ¿Hay límites en el número de rutas que puedo anunciar?
-Sí. Aceptamos hasta 4000 prefijos de rutas para el intercambio público y privado. Puede aumentarlo a 10.000 rutas si habilita la característica Premium en ExpressRoute.
+Sí. Aceptamos hasta 4000 prefijos de enrutamientos para el intercambio privado y 200 de cada para el intercambio público y de Microsoft. Puede aumentarlo a 10.000 enrutamientos para el intercambio privado si habilita la característica Premium en ExpressRoute.
 
 ### ¿Existen restricciones en los intervalos IP que puedo anunciar durante la sesión BGP?
 Los prefijos anunciados a través de BGP deben ser/29 o mayor (/ 28 a /8).
@@ -241,4 +241,4 @@ Consulte [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) pa
 ### ¿Es posible obtener acceso a Office 365 por Internet incluso si ExpressRoute se ha configurado ExpressRoute para mi organización?
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

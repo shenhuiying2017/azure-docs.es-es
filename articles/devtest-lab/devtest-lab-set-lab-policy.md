@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Definición de directivas de laboratorio
+
+> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo crear artefactos personalizados](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab)
 
 ## Información general
 
@@ -100,4 +102,4 @@ La directiva de apagado automático ayuda a minimizar la pérdida del laboratori
 
 1. Pulse **Guardar**.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

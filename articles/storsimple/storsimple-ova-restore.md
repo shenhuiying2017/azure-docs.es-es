@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="02/23/2016"
    ms.author="alkohli"/>
 
 # Realizar una restauración mediante una copia de seguridad de la matriz virtual de StorSimple (vista previa)
@@ -98,14 +98,13 @@ Siga estos pasos en el Portal de Azure clásico para realizar una restauración 
 
 2.  Una vez completado el trabajo de restauración, la restauración se iniciará y aparecerá otra notificación. Para supervisar el progreso de la restauración, haga clic en **Ver trabajo**. Esto le llevará a la página **Trabajos**.
 
-3.  Puede supervisar el progreso del trabajo de restauración. Cuando la restauración se haya completado al 100 %, vuelva a la página **Volúmenes** del dispositivo.
+3.  Puede supervisar el progreso del trabajo de restauración. Cuando la restauración se haya completado al 100 %, vuelva a la página **Volúmenes** del dispositivo.
 
-4.  En la lista de volúmenes del dispositivo podrá ver el volumen recién restaurado.
+4.  En la lista de volúmenes del dispositivo podrá ver el volumen recién restaurado. Asimismo, verá que, al realizar la restauración, el tipo de volumen sigue siendo el mismo. Esto es, un volumen en niveles se restaurará “en niveles” y un volumen anclado localmente se restaurará como “anclado localmente”.
 
-	> [AZURE.NOTE] Asimismo, verá que al realizar la restauración el tipo del volumen sigue siendo el mismo. Esto es, un volumen en niveles se restaurará “en niveles” y un volumen anclado localmente se restaurará como “anclado localmente”.
+> [AZURE.IMPORTANT] Si se produce un error en el trabajo de restauración al intentar restaurar un volumen o un recurso compartido desde un conjunto de copia de seguridad, todavía se puede crear en el portal un recurso compartido o un volumen de destino. Es importante eliminar este recurso compartido o este volumen de destino del portal para minimizar los problemas que deriven de este elemento en el futuro.
 
 ## Recuperación a nivel de elemento (ILR)
-
 
 Esta versión incluye la recuperación a nivel de elemento (ILR) en un dispositivo virtual de StorSimple configurado como un servidor de archivos. Gracias a esta característica, podrá realizar una recuperación pormenorizada de los archivos y carpetas mediante una copia de seguridad en la nube de todos los recursos compartidos en el dispositivo StorSimple. Asimismo, los usuarios pueden recuperar archivos eliminados de copias de seguridad recientes mediante un modelo de autoservicio.
 
@@ -138,4 +137,4 @@ Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar c
 
 Obtenga más información acerca de cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Establecimiento de una IP privada estática en el modo ARM con PowerShell | Microsoft Azure"
-   description="Descripción de las IP estáticas (DIP) y su administración en el modo ARM con PowerShell"
+   pageTitle="Configuración de una dirección IP privada estática en Azure Resource Manager mediante PowerShell | Microsoft Azure"
+   description="Descripción de direcciones IP privadas estáticas y cómo administrarlas en Azure Resource Manager mediante PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# Configuración de una dirección IP privada estática en PowerShell
+# Configuración de una dirección IP privada estática en el Administrador de recursos mediante PowerShell
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [administrar la dirección IP privada estática en el modelo de implementación clásica](virtual-networks-static-private-ip-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puedes [Administrar la dirección IP privada estática en el modelo de implementación clásica](virtual-networks-static-private-ip-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -77,7 +77,7 @@ Para crear una VM denominada *DNS01* en la subred de *FrontEnd* de una Red virtu
 
 
 ## Recuperación de la información de la dirección IP privada estática para una VM
-Para ver la información de la dirección IP privada estática para la máquina virtual que se creó con el script anterior, ejecute el siguiente comando de PowerShell y observe los valores para *PrivateIpAddress* y *PrivateIpAllocationMethod*:
+Para ver la información de la dirección IP privada estática para la VM que se ha creado con el script anterior, ejecute el siguiente comando de PowerShell y observe los valores para *PrivateIpAddress* y *PrivateIpAllocationMethod*:
 
 	Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 
@@ -188,8 +188,8 @@ Para agregar una dirección IP privada estática a la VM creada con el script an
 
 ## Pasos siguientes
 
-- Obtenga información sobre las direcciones [IP públicas reservadas](../virtual-networks-reserved-public-ip).
+- Obtenga más información acerca de las [direcciones IP públicas reservadas](../virtual-networks-reserved-public-ip).
 - Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

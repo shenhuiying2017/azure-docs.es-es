@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # C&#x23; desarrollo de bases de datos: crear y configurar un grupo de bases de datos elásticas para una base de datos SQL
@@ -27,17 +27,14 @@
 
 En este artículo se muestra cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) para bases de datos SQL desde una aplicación, mediante el uso de técnicas de desarrollo de bases de datos de C#.
 
-> [AZURE.NOTE]Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12. Si tiene un servidor de Base de datos SQL V11, puede [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server.md) en un solo paso.
+> [AZURE.NOTE] Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12. Si tiene un servidor de Base de datos SQL V11, puede [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server-powershell.md) en un solo paso.
 
 En los ejemplos usaremos la [Biblioteca de Base de datos SQL de Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Los fragmentos de código individuales se dividen por motivos de claridad y una aplicación de consola de ejemplo reúne todos los comandos en la sección de la parte inferior de este artículo.
 
-La biblioteca de Base de datos SQL de Azure para .NET le ofrece una API basada en el [Administrador de recursos de Azure](resource-group-overview.md) que encapsula la [API de REST de la Base de datos SQL basada en el Administrador de recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Esta biblioteca cliente sigue el patrón común para las bibliotecas de cliente basada en el Administrador de recursos. El Administrador de recursos requiere grupos de recursos y la autenticación con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
-<br>
+> [AZURE.NOTE] La biblioteca de bases de datos SQL para .NET está actualmente en vista previa.
 
-> [AZURE.NOTE]La biblioteca de bases de datos SQL para .NET está actualmente en vista previa.
 
-<br>
 
 Si no tiene una suscripción a Azure, simplemente haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva a este artículo. Asimismo, para obtener una copia gratuita de Visual Studio, consulte la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
@@ -86,14 +83,14 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
     ![Agregar aplicación][8]
 
-7. Finalice la creación de la aplicación, haga clic en **CONFIGURAR** y copie el **ID. DE CLIENTE** (lo necesitará para su código).
+7. Finalice la creación de la aplicación, haga clic en **CONFIGURAR** y copie el **ID. DE CLIENTE** (lo necesitará en su código).
 
     ![Obtener el id. de cliente][9]
 
 
 1. En la parte inferior de la página, haga clic en **Agregar aplicación**.
 1. Seleccione **Aplicaciones de Microsoft**.
-1. Seleccione **API de administración de servicios de Azure** y, a continuación, complete los pasos del asistente.
+1. Seleccione **API de administración de servicios de Azure** y, después, complete el asistente.
 2. Con la API seleccionada, deberá conceder los permisos específicos necesarios para obtener acceso a esta API, seleccionando **Acceder a la administración del servicio de Azure (vista previa)**.
 
     ![Establecer permisos][2]
@@ -123,20 +120,15 @@ Encontrará información adicional sobre el uso de Azure Active Directory para l
 La aplicación cliente debe recuperar el token de acceso de la aplicación para el usuario actual. La primera vez que un usuario ejecuta el código se le pedirá que escriba sus credenciales de usuario y el token resultante se almacenará en caché localmente. Las ejecuciones posteriores recuperarán el token de la memoria caché y solo pedirán al usuario que inicie sesión si el token ha expirado.
 
 
-    /// <summary>
-    /// Prompts for user credentials when first run or if the cached credentials have expired.
-    /// </summary>
-    /// <returns>The access token from AAD.</returns>
     private static AuthenticationResult GetAccessToken()
     {
         AuthenticationContext authContext = new AuthenticationContext
-            ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+            ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
         AuthenticationResult token = authContext.AcquireToken
             ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/,
-        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
+                clientId,
+        new Uri(redirectUri) /* redirect URI */,
         PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
         return token;
@@ -144,7 +136,7 @@ La aplicación cliente debe recuperar el token de acceso de la aplicación para 
 
 
 
-> [AZURE.NOTE]En los ejemplos de este artículo se usa un formulario sincrónico de cada solicitud de API y se bloquea hasta que finaliza la llamada de REST en el servicio subyacente. Hay métodos asincrónicos disponibles.
+> [AZURE.NOTE] En los ejemplos de este artículo se usa un formulario sincrónico de cada solicitud de API y se bloquea hasta que finaliza la llamada de REST en el servicio subyacente. Hay métodos asincrónicos disponibles.
 
 
 
@@ -388,14 +380,13 @@ En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
         private static AuthenticationResult GetAccessToken()
         {
             AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+                ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
                 ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
-                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
-                PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
+                    clientId,
+            new Uri(redirectUri) /* redirect URI */,
+            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
             return token;
         }
@@ -585,4 +576,4 @@ En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

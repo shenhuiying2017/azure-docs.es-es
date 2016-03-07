@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -27,7 +27,7 @@ Este tutorial explica cómo realizar lo siguiente:
 - Instalar un nuevo módulo de baterías de reserva
 - Mantener el módulo de baterías de reserva
 
->[AZURE.IMPORTANT]Antes de quitar y reemplazar un módulo de baterías de reserva, revise la información de seguridad de [Introducción al reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Antes de quitar y reemplazar un módulo de baterías de reserva, revise la información de seguridad de [Introducción al reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Quitar el módulo de baterías de reserva
 
@@ -97,7 +97,7 @@ En el dispositivo, el módulo de baterías de reserva proporciona energía al co
 
 En el Portal de Azure clásico, el **Estado del hardware** en la página **Mantenimiento** indica si la batería funciona mal o si se aproxima el final del ciclo de vida. El estado de la batería se indica mediante **Batería en PCM 0** o **Batería en PCM 1** en **Componentes compartidos**. Esta página muestra un estado **DEGRADADO** cuando se aproxima el final del ciclo de vida, y **ERROR** cuando se alcanza el final del ciclo de vida.
 
->[AZURE.NOTE]La batería puede mostrar **ERROR** cuando simplemente necesita cargarse.
+>[AZURE.NOTE] La batería puede mostrar **ERROR** cuando simplemente necesita cargarse.
  
 Si aparece el estado **DEGRADADO**, se recomienda lo siguiente:
 
@@ -109,10 +109,10 @@ Si aparece el estado **DEGRADADO**, se recomienda lo siguiente:
 
 - Si no ha habido una pérdida de alimentación de CA asociada y el PCM está encendido y conectado a CA, debe reemplazar la batería. [Póngase en contacto con Microsoft Support](storsimple-contact-microsoft-support.md) para obtener un módulo de baterías de reserva de reemplazo.
 
->[AZURE.IMPORTANT]Deseche la batería que no funciona según las normas nacionales y regionales.
+>[AZURE.IMPORTANT] Deseche la batería que no funciona según las normas nacionales y regionales.
 
 ## Pasos siguientes
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

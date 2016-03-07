@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Control del enrutamiento y uso de aplicaciones virtuales en el Administrador de recursos usando PowerShell | Microsoft Azure"
-   description="Aprender a controlar el enrutamiento y el uso de aplicaciones virtuales en Azure PowerShell"
+   pageTitle="Control del enrutamiento y uso de aplicaciones virtuales en el Administrador de recursos con PowerShell | Microsoft Azure"
+   description="Vea cómo controlar el enrutamiento y uso de aplicaciones virtuales en el Administrador de recursos usando PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#Crear rutas definidas por el usuario (UDR) en PowerShell
+#Creación de enrutamientos definidos por el usuario (UDR) en el Administrador de recursos mediante PowerShell
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -56,7 +56,7 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
->[AZURE.WARNING]La salida del comando anterior muestra el contenido del objeto de configuración de red virtual, que solo existe en el equipo donde se ejecuta PowerShell. Debe ejecutar el cmdlet **AzureVirtualNetwork Set** para guardar esta configuración en Azure.
+>[AZURE.WARNING] La salida del comando anterior muestra el contenido del objeto de configuración de red virtual, que solo existe en el equipo donde se ejecuta PowerShell. Debe ejecutar el cmdlet **AzureVirtualNetwork Set** para guardar esta configuración en Azure.
 
 7. Guarde la nueva configuración de subred de Azure.
 
@@ -68,7 +68,7 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 		ResourceGroupName : TestRG
 		Location          : westus
 		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              : 
 		                    Name         Value
@@ -181,7 +181,7 @@ Para crear la tabla de rutas y la ruta necesaria para la subred back-end según 
 		                    ]
 
 ## Habilitación del reenvío IP en FW1
-Para habilitar el reenvío IP de la NIC que se usa en **FW1**, siga estos pasos.
+Para habilitar el reenvío IP en la NIC usada por **FW1**, siga estos pasos.
 
 1. Cree una variable que contenga la configuración de la NIC usada por FW1. En nuestro escenario, la NIC se llama **NICFW1**.
 
@@ -236,4 +236,4 @@ Para habilitar el reenvío IP de la NIC que se usa en **FW1**, siga estos pasos.
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

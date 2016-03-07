@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/22/2016"
    ms.author="v-sharos" />
 
 # Uso del servicio StorSimple para ver los trabajos de la matriz virtual de StorSimple (vista previa)
@@ -60,8 +60,16 @@ Realice los pasos siguientes para ver los detalles de cualquier trabajo.
  
     ![Página Detalles del trabajo](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
+#### Errores en el trabajo cuando la máquina virtual está en pausa en el hipervisor
+
+Cuando un trabajo se encuentra en curso en la matriz virtual de StorSimple y el dispositivo (máquina virtual aprovisionada en hipervisor) se pone en pausa durante más de 15 minutos, se producirá un error en el trabajo. Esto es debido a que la hora de la matriz virtual de StorSimple no está sincronizada con la hora de Microsoft Azure. En la captura de pantalla siguiente, se muestra un ejemplo de un error del trabajo de restauración.
+
+![Error de trabajo de restauración](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+
+Estos errores se aplicarán a los trabajos de copia de seguridad, restauración, actualización y conmutación por error. Si se aprovisiona la máquina virtual de Hyper-V, la máquina sincronizará finalmente la hora con el hipervisor. Cuando esto ocurra, puede reiniciar el trabajo.
+
 ## Pasos siguientes
 
-[Obtener información sobre cómo usar la interfaz de usuario web local para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
+[Obtenga información sobre cómo usar la interfaz de usuario web local para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

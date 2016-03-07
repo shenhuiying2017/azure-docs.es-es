@@ -20,9 +20,9 @@
 
 Normalmente, las aplicaciones de Azure requieren una combinación de recursos (por ejemplo, un servidor de base de datos, una base de datos o un sitio web) para cumplir los objetivos deseados. En lugar de implementar y administrar cada recurso por separado, puede crear una plantilla del Administrador de recursos de Azure que implementa y aprovisiona todos los recursos de su aplicación en una operación única y coordinada. En la plantilla, se definen los recursos necesarios para la aplicación y se especifican los parámetros de implementación para especificar valores para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. En este tema se describen las secciones de la plantilla.
 
-Visual Studio ofrece las herramientas para ayudarle a crear plantillas. Para más información sobre el uso de Visual Studio con las plantillas, vea [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) y [Edición de las plantillas del Administrador de recursos con Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
+Visual Studio ofrece las herramientas para ayudarle a crear plantillas. Para más información sobre el uso de Visual Studio con las plantillas, vea [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-Debe limitar el tamaño de la plantilla a 1 MB y cada archivo de parámetros a 64 KB. El límite de 1 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros.
+Debe limitar el tamaño de la plantilla a 1 MB y cada archivo de parámetros a 64 KB. El límite de 1 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros.
 
 ## Planeamiento de la plantilla
 
@@ -131,7 +131,7 @@ Los valores y tipos permitidos son los siguientes:
 
 Para especificar un parámetro como opcional, establezca su defaultValue en una cadena vacía.
 
-Si especifica un parámetro con un nombre que coincide con el de uno de los parámetros del comando utilizado para implementar la plantilla (por ejemplo, incluye un parámetro denominado **ResourceGroupName** en la plantilla y este parámetro es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
+Si especifica un parámetro con un nombre que coincide con el de uno de los parámetros del comando usado para implementar la plantilla (por ejemplo, incluye un parámetro denominado **ResourceGroupName** en la plantilla y este parámetro es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
 
 >[AZURE.NOTE] Todas las contraseñas, claves y otros secretos deben utilizar el tipo **secureString**. No se pueden leer los parámetros de plantilla con el tipo secureString después de la implementación de recursos.
 
@@ -474,4 +474,4 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -3,7 +3,7 @@
 	description="Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Almacenamiento de Azure, AzCopy y el analizador de mensajes de Microsoft." 
 	services="storage" 
 	documentationCenter="dotnet" 
-	authors="tamram" 
+	authors="robinsh" 
 	manager="carmonm"/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="02/23/2016" 
+	ms.author="robinsh"/>
 
 # Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes 
 
@@ -58,7 +58,7 @@ En nuestro escenario de ejemplo, una vez que hayamos establecido la métrica de 
 
 En los siguientes ejemplos se exponen algunas muestras de errores de intervalo 400 para solicitudes de almacenamiento de blobs de Azure, así como sus posibles causas. Cualquiera de estos errores, además de los errores en el intervalo 300 y el intervalo 500, pueden ser la razón de una tasa de bajo porcentaje de éxito.
 
-Tenga en cuenta que las siguientes listas no están ni mucho menos completas. Vea [Códigos de estado y de error](http://msdn.microsoft.com/library/azure/dd179382.aspx) en MSDN para más información sobre los errores generales de Almacenamiento de Azure y sobre los errores específicos de cada uno de los servicios de almacenamiento.
+Tenga en cuenta que las siguientes listas no están ni mucho menos completas. Vea [Códigos de estado y de error](http://msdn.microsoft.com/library/azure/dd179382.aspx) para más información sobre los errores generales de Almacenamiento de Azure y sobre los errores específicos de cada uno de los servicios de almacenamiento.
 
 **Ejemplos de código de estado 404 (no encontrado)**
 
@@ -88,7 +88,7 @@ En este tutorial, usaremos el analizador de mensajes para trabajar con tres tipo
 
 ### Configurar el registro y las métricas del lado servidor
 
-Primero, necesitaremos configurar el registro y las métricas de Almacenamiento de Azure para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través del [Portal de Azure clásico](https://manage.windowsazure.com), con PowerShell o mediante programación. Vea [Habilitación de las Métricas de almacenamiento y las Métricas de visualización](http://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitación del registro de almacenamiento y acceso a los datos del registro](http://msdn.microsoft.com/library/azure/dn782840.aspx) en MSDN para más información sobre la configuración del registro y las métricas
+Primero, necesitaremos configurar el registro y las métricas de Almacenamiento de Azure para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través del [Portal de Azure clásico](https://manage.windowsazure.com), con PowerShell o mediante programación. Vea [Habilitación de las Métricas de almacenamiento y las Métricas de visualización](http://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitación del registro de almacenamiento y acceso a los datos del registro](http://msdn.microsoft.com/library/azure/dn782840.aspx) para más información sobre la configuración del registro y las métricas
 
 **Mediante el Portal de Azure clásico**
 
@@ -130,7 +130,7 @@ Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y c
 
 ### Configurar el registro del lado cliente de .NET
 
-Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación (web.config o app.config). Consulte [Inicio de sesión del lado cliente con la Biblioteca del cliente de almacenamiento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con el SDK de Almacenamiento de Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) en MSDN para obtener más información.
+Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación (web.config o app.config). Consulte [Inicio de sesión del lado cliente con la Biblioteca del cliente de almacenamiento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con el SDK de Almacenamiento de Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) para obtener más información.
 
 El registro del lado cliente incluye información detallada sobre el modo en que el cliente prepara la solicitud y recibe y procesa la respuesta.
 
@@ -347,18 +347,7 @@ Ahora que ya está familiarizado con el analizador de mensajes y su uso para ana
 | Retrasos inesperados en la entrega de mensajes en una cola | AzureStorageClientDotNetV4.Description contiene "Intentando de nuevo la operación con error." | Cliente |
 | Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Red |
 | Aumento en PercentTimeoutError | HTTP.Response.StatusCode == 500 | Red |
-| Aumento en PercentTimeoutError (todos) |    *StatusCode == 500 | Todos |
-| Aumento en PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
-| Mensajes HTTP 403 (prohibido) | HTTP.Response.StatusCode == 403 | Red |
-| Mensajes HTTP 404 (no encontrado) | HTTP.Response.StatusCode == 404 | Red |
-| 404 (todos) | *StatusCode == 404 | Todos |
-| Problema de autorización de Firma de acceso compartido (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Red |
-| Mensajes HTTP 409 (conflicto) | HTTP.Response.StatusCode == 409 | Red |
-| 409 (todos) | *StatusCode == 409 | Todos |
-| Entradas de registro de análisis o de bajo porcentaje de éxito que tienen operaciones con un estado de transacción ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
-| Advertencia de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) y (AzureStorageLog.RequestPacketSize <1460) y (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor |
-| Intervalo de tiempo en los registros de servidor y de red | #Timestamp >= 2014-10-20T16:36:38 y #Timestamp <= 2014-10-20T16:36:39 | Servidor, red |
-| Intervalo de tiempo en los registros de servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
+| Aumento en PercentTimeoutError (todos) |    **StatusCode == 500 | Todos | | Aumento en PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | | Mensajes HTTP 403 (prohibido) | HTTP.Response.StatusCode == 403 | Red | | Mensajes HTTP 404 (no encontrado) | HTTP.Response.StatusCode == 404 | Red | | 404 (todos) | *StatusCode == 404 | Todos | | Problema de autorización de Firma de acceso compartido (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Red | | Mensajes HTTP 409 (conflicto) | HTTP.Response.StatusCode == 409 | Red | | 409 (todos) | *StatusCode == 409 | Todos | | Entradas de registro de análisis o de bajo porcentaje de éxito que tienen operaciones con un estado de transacción ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor | | Advertencia de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) y (AzureStorageLog.RequestPacketSize <1460) y (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor | | Intervalo de tiempo en los registros de servidor y de red | #Timestamp >= 2014-10-20T16:36:38 y #Timestamp <= 2014-10-20T16:36:39 | Servidor, red | | Intervalo de tiempo en los registros de servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
 
 
 ## Pasos siguientes
@@ -373,4 +362,4 @@ Para más información sobre los escenarios de solución integral de problemas e
  
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

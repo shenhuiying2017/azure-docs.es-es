@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Aplicación del cifrado de discos | Microsoft Azure"
+   pageTitle="Aplicación del cifrado de discos en el Centro de seguridad de Azure | Microsoft Azure"
    description="En este documento, se muestra cómo implementar la recomendación **Aplicar el cifrado de discos** del Centro de seguridad de Azure."
    services="security-center"
    documentationCenter="na"
@@ -10,13 +10,13 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
-# Aplicación del cifrado de discos
+# Aplicación del cifrado de discos en el Centro de seguridad de Azure
 
 El Centro de seguridad de Azure recomendará que aplique el cifrado de discos si tiene discos de máquina virtual de Windows o Linux que no estén cifrados con el Cifrado de discos de Azure. El Cifrado de discos permite cifrar los discos de máquina virtual IaaS de Windows y Linux. Se recomienda cifrar tanto los volúmenes de datos como los del sistema operativo en la máquina virtual.
 
@@ -54,4 +54,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

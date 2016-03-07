@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -67,7 +67,7 @@ Puede utilizar al asistente de configuración que le guiará a través de los pa
 
 4. Elija el tipo de autenticación entre **NTLM**, **Básica** o **Ninguna**. La autenticación Básica es la menos segura para la configuración del servidor proxy. NT LAN Manager (NTLM) es un protocolo de autenticación complejo y muy seguro que utiliza un sistema de mensajería de tres vías (a veces cuatro si se requiere integridad adicional) para autenticar a un usuario. La autenticación predeterminada es NTLM. Para obtener más información, consulte [autenticación Básica](http://hc.apache.org/httpclient-3.x/authentication.html) y [NTLM](http://hc.apache.org/httpclient-3.x/authentication.html).
 
-	> [AZURE.IMPORTANT]**En el servicio de Administrador de StorSimple, los gráficos de supervisión de dispositivos no funcionan cuando está habilitada la autenticación básica o NTLM en la configuración del servidor proxy para el dispositivo. Para que los gráficos de supervisión funcionen, debe asegurarse de que la autenticación esté establecida en NINGUNA.**
+	> [AZURE.IMPORTANT] **En el servicio de Administrador de StorSimple, los gráficos de supervisión de dispositivos no funcionan cuando está habilitada la autenticación básica o NTLM en la configuración del servidor proxy para el dispositivo. Para que los gráficos de supervisión funcionen, debe asegurarse de que la autenticación esté establecida en NINGUNA.**
 
 5. Si utiliza la autenticación, proporcione un **nombre de usuario de Proxy Web** y una **contraseña de Proxy Web**. También deberá confirmar la contraseña.
 
@@ -100,7 +100,7 @@ El proxy web ya está configurado y debe habilitarse.
 
 El proxy web está deshabilitado de manera predeterminada. Después de configurar los valores del proxy web en el dispositivo StorSimple, deberá utilizar Windows PowerShell para StorSimple para habilitar la configuración de proxy web.
 
-> [AZURE.NOTE]**Este paso no será necesario si usa el asistente de configuración para configurar el proxy web. El proxy web se habilita automáticamente de manera predeterminada después de una sesión del asistente de configuración.**
+> [AZURE.NOTE] **Este paso no será necesario si usa el asistente de configuración para configurar el proxy web. El proxy web se habilita automáticamente de manera predeterminada después de una sesión del asistente de configuración.**
 
 Lleve a cabo los siguientes pasos en Windows PowerShell para StorSimple para habilitar el proxy web en el dispositivo:
 
@@ -134,13 +134,13 @@ Si el proxy web se configuró de manera incorrecta, se mostrarán mensajes de er
 |:---|:---|:---|:---|
 |1\.|0x80070001|El comando se ejecuta desde el controlador pasivo y no puede comunicarse con el controlador activo.|Ejecute el comando en el controlador activo. Para ejecutar el comando desde el controlador pasivo, deberá arreglar la conectividad del controlador pasivo al activo. Si la conectividad está rota, deberá ponerse en contacto con el soporte técnico de Microsoft.|
 |2\.|0x800710dd - El identificador de la operación no es válido|El dispositivo virtual StorSimple no admite la configuración de proxy.|El dispositivo virtual StorSimple no admite la configuración de proxy. La misma solo puede establecerse en un dispositivo StorSimple físico.|
-|3\.|0x80070057 - Parámetro no válido|Uno de los parámetros proporcionados para la configuración del proxy no es válido.|El URI no se proporciona con el formato correcto. Use el siguiente formato: `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
+|3\.|0x80070057 - Parámetro no válido|Uno de los parámetros proporcionados para la configuración del proxy no es válido.|El URI no se proporciona con el formato correcto. Utilice el siguiente formato: `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
 |4\.|0x800706ba - Servidor RPC no disponible|La causa principal es una de las siguientes:</br></br>El clúster está inactivo.</br></br>El servicio de ruta de datos no está en ejecución.</br></br>El comando se ejecuta desde el controlador pasivo y no puede comunicarse con el controlador activo.|Póngase en contacto con el soporte técnico de Microsoft para asegurarse de que el clúster está activo y el servicio de ruta de datos está ejecutándose.</br></br>Ejecute el comando desde el controlador activo. Si desea ejecutar el comando desde el controlador pasivo, deberá asegurarse de que el controlador pasivo puede comunicarse con el controlador activo. Si la conectividad está rota, deberá ponerse en contacto con el soporte técnico de Microsoft.|
 |5\.|0X800706be - Llamada RPC con errores|El clúster está inactivo.|Póngase en contacto con el soporte técnico de Microsoft para asegurarse de que el clúster está activo.|
 |6\.|0x8007138f - Recurso de clúster no encontrado|El recurso de clúster del servicio de plataforma no se encuentra. Esto puede ocurrir cuando la instalación no se ha realizado correctamente.|Puede que deba restablecer su dispositivo a los valores de fábrica. Es posible que deba crear un recurso de plataforma. Póngase en contacto con el soporte técnico de Microsoft para conocer los siguientes pasos.|
 |7\.|0x8007138c - El recurso de clúster no está en línea|Los recursos de clúster de ruta de datos o plataforma no están en línea.|Póngase en contacto con el soporte técnico de Microsoft para asegurarse de que la ruta de datos y el recurso del servicio de plataforma están en línea.|
 
-> [AZURE.NOTE]
+> [AZURE.NOTE] 
 > 
 > -  La lista anterior de mensajes de error no es exhaustiva. 
 > - Los errores relacionados con la configuración de proxy web no se muestran en el Portal de Azure clásico del servicio del Administrador de StorSimple. Si hay un problema con el proxy web una vez completada la configuración, el estado del dispositivo cambiará a **Sin conexión** en el Portal clásico.
@@ -151,4 +151,4 @@ Si el proxy web se configuró de manera incorrecta, se mostrarán mensajes de er
 
 - Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

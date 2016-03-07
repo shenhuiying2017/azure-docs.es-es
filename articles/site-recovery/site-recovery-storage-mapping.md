@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/14/2015"
+	ms.date="02/22/2016"
 	ms.author="raynew"/>
 
 
 # Preparación de la asignación de almacenamiento para la replicación de máquina virtual de Hyper-V entre dos centros de datos locales con Azure Site Recovery
 
 
-Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores virtuales. Este artículo describe la asignación de almacenamiento, que le ayuda a realizar un uso óptimo del almacenamiento cuando use Site Recovery para replicar máquinas virtuales de Hyper-V entre dos centros de datos locales.
+Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores virtuales. Este artículo describe la asignación de almacenamiento, que le ayuda a realizar un uso óptimo del almacenamiento cuando use Site Recovery para replicar máquinas virtuales de Hyper-V entre dos centros de datos locales de VMM.
 
-Después de leer este artículo, publique sus preguntas en el [Foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Información general
 
@@ -98,4 +98,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | No hay ninguna asignación, por 
 
 Ahora que dispone de más información sobre la asignación de almacenamiento, [prepárese para la implementación de Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/16/2016" 
 	ms.author="andrl"/>
 
 # Programación en el servidor de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF
@@ -50,7 +50,9 @@ Este enfoque de *"JavaScript como un T-SQL moderno"* libera a los desarrolladore
 	-	Agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual permite a los arquitectos de datos desarrollar sus aplicaciones de forma independiente de los datos. Esto supone una especial ventaja cuando los datos no tienen esquema, debido a débiles suposiciones que se deben integrar en la aplicación si tienen que tratar directamente con los datos.  
 	-	Esta abstracción permite a las empresas mantener seguros sus datos simplificando el acceso desde los scripts.  
 
-Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas: .NET, Node.js y JavaScript, entre otras. **Este tutorial utiliza el [SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
+Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) y los [SDK de cliente](documentdb-sdk-dotnet.md) en muchas plataformas: .NET, Node.js y JavaScript, entre otras.
+
+**Este tutorial usa el [SDK de Node.js con objetos Q promise](http://azure.github.io/azure-documentdb-node-q/)** para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
 
 ## Procedimientos almacenados
 
@@ -92,7 +94,7 @@ Una vez que se registre el procedimiento almacenado, podemos ejecutarlo con la c
 		});
 
 
-El objeto de contexto proporciona acceso a todas las operaciones que se pueden realizar en el almacenamiento de la Base de datos de documentos, así como acceso a los objetos de solicitud y respuesta. En este caso, hemos utilizado el objeto de respuesta para establecer el cuerpo de la respuesta que se ha devuelto al cliente. Para obtener más información, consulte la [documentación del SDK del lado del servidor JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+El objeto de contexto proporciona acceso a todas las operaciones que se pueden realizar en el almacenamiento de la Base de datos de documentos, así como acceso a los objetos de solicitud y respuesta. En este caso, hemos utilizado el objeto de respuesta para establecer el cuerpo de la respuesta que se ha devuelto al cliente. Para obtener más información, consulte la [documentación del SDK del lado del servidor JavaScript de DocumentDB](http://azure.github.io/azure-documentdb-js-server/).
 
 Permítanos ampliar este ejemplo y agregar más funcionalidad relacionada con la base de datos al procedimiento almacenado. Los procedimientos almacenados pueden crear, actualizar, leer, consultar y eliminar documentos y datos adjuntos de la colección.
 
@@ -433,7 +435,7 @@ Es importante tener en cuenta la ejecución **transaccional** de los desencadena
 ##<a id="udf"></a>Funciones definidas por el usuario
 Las funciones definidas por el usuario (UDF) se utilizan para ampliar la gramática del lenguaje de consultas SQL de DocumentDB e implementar la lógica empresarial personalizada. Solo se las puede llamar desde consultas internas. No tienen acceso al objeto de contexto y se supone que se deben utilizar como un JavaScript únicamente de cálculo. Por lo tanto, las UDF se pueden ejecutar en réplicas secundarias del servicio de DocumentDB.
  
-En el siguiente ejemplo, se crea una UDF para calcular la base imponible basada en tipos para varios niveles de renta y, a continuación, se usa dentro de una consulta para buscar a todas las personas que pagan más de 20.000 $ en impuestos.
+En el siguiente ejemplo, se crea una UDF para calcular la base imponible basada en tipos para varios niveles de renta y, a continuación, se usa dentro de una consulta para buscar a todas las personas que pagan más de 20.000 $ en impuestos.
 
 	var taxUdf = {
 	    name: "tax",
@@ -475,7 +477,7 @@ La UDF se puede utilizar de forma consecuente en consultas como en el ejemplo si
 ## API de consulta integradas en lenguajes JavaScript
 Además de emitir consultas mediante la gramática de SQL del DocumentDB, el SDK del lado servidor permite realizar consultas optimizadas a través de una interfaz fluida de JavaScript sin necesitar conocimientos de SQL. La API de consulta de JavaScript permite crear mediante programación las consultas al pasar las funciones de predicado a función encadenada, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y las bibliotecas populares de JavaScript, como lodash. Las consultas se analizan con el tiempo de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de DocumentDB.
 
-> [AZURE.NOTE]`__` (subrayado doble) es un alias para `getContext().getCollection()`. <br/> En otras palabras, puede utilizar `__` o `getContext().getCollection()` para obtener acceso a la API de consulta de JavaScript.
+> [AZURE.NOTE] `__` (subrayado doble) es un alias para `getContext().getCollection()`. <br/> En otras palabras, puede utilizar `__` o `getContext().getCollection()` para obtener acceso a la API de consulta de JavaScript.
 
 Entre las funciones compatibles se encuentran: <ul> <li> <b>chain() ... .value([devolución de llamada] [, opciones])</b> <ul> <li> Inicia una llamada encadenada que debe terminarse con value(). </li> </ul> </li> <li> <b>filter(predicateFunction [, opciones] [, devolución de llamada])</b> <ul> <li> Filtra la entrada con una función de predicado que devuelve verdadero o falso para filtrar la entrada y salida de documentos de entrada en el conjunto resultante. Este comportamiento es similar al de una cláusula WHERE de SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, opciones] [, devolución de llamada])</b> <ul> <li> Aplica una proyección dada una función de transformación que asigna cada elemento de entrada a un valor o un objeto de JavaScript. Este comportamiento es similar al de una cláusula SELECT de SQL. </li> </ul> </li> <li> <b>pluck([nombrePropiedad] [, opciones] [, devolución de llamada])</b> <ul> <li> Se trata de un método abreviado de una asignación que extrae el valor de una propiedad única de cada elemento de entrada. </li> </ul> </li> <li> <b>flatten([isShallow] [, opciones] [, devolución de llamada])</b> <ul> <li> Combina y aplana las matrices de cada elemento de entrada en una sola matriz. Este comportamiento es similar al de SelectMany en LINQ. </li> </ul> </li> <li> <b>sortBy([predicado] [, opciones] [, devolución de llamada])</b> <ul> <li> Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden ascendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY en SQL. </li> </ul> </li> <li> <b>sortByDescending([predicado] [, opciones] [, devolución de llamada])</b> <ul> <li> Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden descendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY x DESC en SQL. </li> </ul> </li> </ul>
 
@@ -491,7 +493,7 @@ Las siguientes construcciones de JavaScript no se optimizan para índices de Doc
 * Control de flujo (por ejemplo: if, for, while)
 * Llamadas a funciones
 
-Para obtener más información, consulte [Server-Side JSDocs](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+Para obtener más información, consulte [Server-Side JSDocs](http://azure.github.io/azure-documentdb-js-server/).
 
 ### Ejemplo: escribir un procedimiento almacenado mediante la API de consulta de JavaScript
 
@@ -557,7 +559,7 @@ Como sucede con las consultas SQL, las claves de propiedad del documento (por ej
 <br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>API de consulta de JavaScript</th> <th>Detalles</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>El resultado es todos los documentos (paginados con token de continuación) tal y como son.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>Proyecta id, message (con msg como alias) y action de todos los documentos.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>Consulta los documentos con el predicado: id = "X998\_Y998".</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Consulta los documentos que tengan una propiedad Tags y en los que Tags sea una matriz que contenga el valor 123.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>Consulta los documentos con un predicado id = "X998\_Y998" y, después, proyecta id y message (con el alias msg).</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>Filtra los documentos que tengan una propiedad de matriz, Tags, ordena los documentos resultantes según la propiedad del sistema de marca de tiempo \_ts, y proyecta y aplana la matriz Tags.</td> </tr> </tbody> </table>
 
 ## Compatibilidad con el tiempo de ejecución
-El [SDK del lado servidor de JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) ofrece compatibilidad con la mayoría de características del lenguaje JavaScript habituales, según el estándar [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+El [SDK del lado servidor de JavaScript de DocumentDB](http://azure.github.io/azure-documentdb-js-server/) ofrece compatibilidad con la mayoría de características del lenguaje JavaScript habituales, según el estándar [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Seguridad
 Los procedimientos almacenados y desencadenadores de JavaScript se encuentran en un espacio aislado para que los efectos de un script no se filtren al otro sin pasar por el aislamiento de la transacción de instantánea en el nivel de la base de datos. Los entornos de tiempo de ejecución se agrupan pero se borran del contexto tras cada ejecución. Por lo tanto se garantiza su seguridad de cualquier efecto secundario no intencionado entre ellos.
@@ -566,7 +568,7 @@ Los procedimientos almacenados y desencadenadores de JavaScript se encuentran en
 Los procedimientos almacenados, desencadenadores y UDF se precompilan implícitamente en formato de código byte para evitar los costes de compilación en el momento de cada invocación de script. Esto garantiza que las invocaciones de los procedimientos almacenados son rápidos y tienen poca superficie.
 
 ## Compatibilidad con SDK de cliente
-Además del cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB es compatible con [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) y los [SDK de Python](http://dl.windowsazure.com/documentDB/pythondocs/). Los procedimientos almacenados, desencadenadores y UDF también se pueden crear y ejecutar mediante cualquiera de estos SDK. En el siguiente ejemplo se muestra cómo crear y ejecutar un procedimiento almacenado mediante el cliente.NET. Observe cómo los tipos de .NET se pasan al procedimiento almacenado como JSON y se vuelven a leer.
+Además del cliente [Node.js](documentdb-sdk-node.md), DocumentDB es compatible con [.NET](documentdb-sdk-dotnet.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) y los [SDK de Python](documentdb-sdk-python.md). Los procedimientos almacenados, desencadenadores y UDF también se pueden crear y ejecutar mediante cualquiera de estos SDK. En el siguiente ejemplo se muestra cómo crear y ejecutar un procedimiento almacenado mediante el cliente.NET. Observe cómo los tipos de .NET se pasan al procedimiento almacenado como JSON y se vuelven a leer.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -708,7 +710,7 @@ Aquí el desencadenador previo que se debe ejecutar con la solicitud se especifi
 
 ## Código de ejemplo
 
-Encontrará más ejemplos de código del lado servidor (entre los que se incluyen [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) y [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) en nuestro [repositorio de Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Puede encontrar más ejemplos de código del lado servidor (entre los que se incluyen [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) y [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) en nuestro [repositorio de Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 ¿Desea compartir el impresionante procedimiento almacenado? Envíenos una solicitud de extracción.
 
@@ -719,11 +721,12 @@ Una vez haya almacenado uno o varios procedimientos, y creado desencadenadores y
 También puede encontrar útiles las siguientes referencias y recursos en su ruta de acceso para obtener más información acerca de la programación del servidor de DocumentDB:
 
 - [SDK de DocumentDB de Azure](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 - [JSON](http://www.json.org/) 
 - [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
--	[JavaScript: sistema de tipo JSON](http://www.json.org/js.html) 
--	[Extensibilidad de la base de datos segura y portátil](http://dl.acm.org/citation.cfm?id=276339) 
--	[Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
--	[Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
+- [JavaScript: sistema de tipo JSON](http://www.json.org/js.html) 
+- [Extensibilidad de la base de datos segura y portátil](http://dl.acm.org/citation.cfm?id=276339) 
+- [Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+- [Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

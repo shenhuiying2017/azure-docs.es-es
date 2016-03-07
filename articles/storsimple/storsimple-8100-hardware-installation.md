@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -225,7 +225,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
      2,3 | Interfaces de red de 10 GbE
      6 | Puertos serie
 
-2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. La configuración adicional requerida para alta disponibilidad y rendimiento se muestra mediante líneas de puntos. 
+2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. La configuración adicional requerida para alta disponibilidad y rendimiento se muestra mediante líneas de puntos.
 
 		
     ![Colocación del cable de red del dispositivo 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
@@ -255,7 +255,7 @@ Cuando se realiza el cableado del dispositivo, la configuración mínima requier
 Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
 
-- Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador. 
+- Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador. 
 
 - Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos.
 
@@ -291,4 +291,4 @@ Ahora su dispositivo dispondrá de los cables de alimentación, de acceso a la r
 
 Obtenga información sobre cómo [implementar y configurar el dispositivo local StorSimple](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

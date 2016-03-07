@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="12/04/2015"
+   ms.date="02/21/2016"
    ms.author="robinsh" />
 
 # Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
@@ -29,7 +29,7 @@ Este tema trata cuestiones de rendimiento y escalabilidad de Almacenamiento de M
 
 >Cuando la aplicación alcanza el límite de lo que puede administrar una partición para la carga de trabajo, Almacenamiento de Azure comenzará a responder con el código de error 503 (servidor ocupado) o el código de error 500 (tiempo de espera de operación). Cuando esto ocurre, la aplicación debe utilizar una directiva de retroceso exponencial para los reintentos. El retroceso exponencial permite que disminuya la carga de la partición y evita los picos de tráfico en esa partición.
 
-Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Consulte [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/) para obtener información sobre los precios por volumen.
+Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/) para obtener información sobre los precios por volumen.
 
 
 ## Objetivos de escalabilidad para blobs, colas, tablas y archivos
@@ -58,7 +58,7 @@ Consulte [Tamaños de máquina virtual](../virtual-machines/virtual-machines-siz
 
 Cada objeto que contiene datos almacenados en Almacenamiento de Azure (blobs, mensajes, entidades y archivos) pertenece a una partición y se identifica mediante una clave de partición. La partición determina cómo Almacenamiento de Azure equilibra entre servidores la carga de blobs, mensajes, entidades y archivos para satisfacer las necesidades de tráfico de esos objetos. La clave de partición es única dentro de la cuenta de almacenamiento y se utiliza para ubicar un blob, un mensaje o una entidad.
 
-La tabla anterior que aparece en [Objetivos de escalabilidad para las cuentas de almacenamiento estándar](#scalability-targets-for-standard-storage-accounts) muestra los objetivos de rendimiento para una partición única para cada servicio.
+La tabla anterior que aparece en [Objetivos de escalabilidad para las cuentas de almacenamiento estándar](#standard-storage-accounts) muestra los objetivos de rendimiento para una partición única para cada servicio.
 
 Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de los servicios de almacenamiento de las maneras siguientes:
 
@@ -80,9 +80,9 @@ Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de
 
 - [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/)
 - [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md)
-- [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal/)
+- [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md)
 - [Replicación de almacenamiento de Azure](storage-redundancy.md)
 - [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](storage-performance-checklist.md)
 - [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

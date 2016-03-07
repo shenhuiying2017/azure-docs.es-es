@@ -19,7 +19,7 @@
 
 #Volver a entrenar modelos de aprendizaje automático mediante programación  
 
-Como parte del proceso de operacionalización de modelos de aprendizaje automático de Azure, un modelo se debe entrenar y guardar y, después, usarse para crear un servicio web predicativo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles.
+Como parte del proceso de operacionalización de modelos de aprendizaje automático de Azure, un modelo se debe entrenar y guardar y, después, usarse para crear un servicio web predictivo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles.
 
 Con frecuencia, deberá volver a entrenar el modelo creado en el primer paso con nuevos datos. Anteriormente, esto solo era posible a través de la interfaz de usuario de Aprendizaje automático de Azure, pero con la introducción de la característica de API de reentrenamiento mediante programación, ahora puede volver a entrenar el modelo y actualizar el servicio web, con el modelo recién entrenado, mediante programación con las API de reentrenamiento.
 
@@ -34,7 +34,7 @@ Como parte del proceso de entrenamiento de aprendizaje automático, un modelo se
 En estos casos, una API de programación proporciona una manera cómoda de permitirle a usted o al consumidor de sus API crear un cliente que pueda, en un momento determinado o de forma habitual, volver a entrenar un modelo usando sus propios datos. A continuación, puede evaluar los resultados del reentrenamiento y actualizar la API del servicio web para utilizar el modelo nuevamente entrenado.
 
 ##Cómo volver a entrenar: el proceso completo  
-Para empezar, el proceso implica a los siguientes componentes: un experimento de entrenamiento y un experimento predicativo publicados como un servicio web. Para habilitar el reentrenamiento de un modelo entrenado, el experimento de entrenamiento también debe publicarse como servicio web con el resultado de un modelo entrenado. Esto permite a la API obtener acceso al modelo para el nuevo entrenamiento. El proceso de configuración de reentrenamiento implica los pasos siguientes:
+Para empezar, el proceso implica a los siguientes componentes: un experimento de entrenamiento y un experimento predictivo publicados como un servicio web. Para habilitar el reentrenamiento de un modelo entrenado, el experimento de entrenamiento también debe publicarse como servicio web con el resultado de un modelo entrenado. Esto permite a la API obtener acceso al modelo para el nuevo entrenamiento. El proceso de configuración de reentrenamiento implica los pasos siguientes:
 
 ![][1]
 
@@ -49,9 +49,9 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 
 	![][3]
 
-	Una vez completado el experimento, hacemos clic en Crear experimento predicativo. Esto crea un experimento predicativo, guarda el modelo como un modelo entrenado y agrega los módulos de entrada y salida de servicio web como se muestra a continuación. A continuación, hacemos clic en Ejecutar.
+	Una vez completado el experimento, hacemos clic en Crear experimento predictivo. Esto crea un experimento predictivo, guarda el modelo como un modelo entrenado y agrega los módulos de entrada y salida de servicio web como se muestra a continuación. A continuación, hacemos clic en Ejecutar.
 
-	Una vez ejecutado el experimento, al hacer clic en "Publicar servicio web", se publicará el experimento predicativo como un servicio web y se creará un punto de conexión predeterminado. El modelo de aprendizaje en este servicio web se puede actualizar, como se muestra a continuación. Los detalles de este extremo se mostrarán en la pantalla.  
+	Una vez ejecutado el experimento, al hacer clic en "Publicar servicio web", se publicará el experimento predictivo como un servicio web y se creará un punto de conexión predeterminado. El modelo de aprendizaje en este servicio web se puede actualizar, como se muestra a continuación. Los detalles de este extremo se mostrarán en la pantalla.  
 3. *Publicar el experimento de entrenamiento como un servicio web* Para volver a entrenar el modelo entrenado, necesitamos publicar el experimento de formación que hemos creado en el paso 1 anterior como un servicio web. Este servicio web necesitará un módulo de salida del servicio web conectado al módulo [Entrenar modelo][train-model] para poder generar nuevos modelos entrenados. Haga clic en el icono Experimentos en el panel izquierdo, y luego haga clic en el experimento denominado Modelo de censo para volver al experimento de entrenamiento.  
 
 	Ahora, agregamos una entrada de servicio web y dos módulos de salida de servicio web al flujo de trabajo. La salida del servicio web para Entrenar modelo nos ofrecerá el nuevo modelo entrenado. La salida vinculada a Evaluar modelo devolverá el resultado de la evaluación del modelo de dicho módulo.
@@ -61,7 +61,7 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 	![][4]
 
 	Ahora hacemos clic en el botón Implementar servicio web y luego en Sí. Esto implementará el experimento de entrenamiento como un servicio web que genera un modelo entrenado y resultados de evaluación del modelo. Aparecerá el panel del servicio web con la clave de API y la página de Ayuda de API para la ejecución por lotes. Tenga en cuenta que solo se puede usar el método de ejecución por lotes para crear modelos entrenados.  
-4. *Agregar un nuevo punto de conexión* El servicio web predicativo publicado en el paso 2 anterior se creó con un extremo predeterminado. Los extremos predeterminados se mantienen sincronizados con el experimento de formación y puntuación original y, por tanto, el modelo entrenado de un extremo predeterminado no se puede reemplazar. Para crear un punto de conexión actualizable, visite el Portal de Azure clásico y haga clic en Agregar punto de conexión (más detalles [aquí](machine-learning-create-endpoint.md)).
+4. *Agregar un nuevo punto de conexión* El servicio web predictivo publicado en el paso 2 anterior se creó con un punto de conexión predeterminado. Los extremos predeterminados se mantienen sincronizados con el experimento de formación y puntuación original y, por tanto, el modelo entrenado de un extremo predeterminado no se puede reemplazar. Para crear un punto de conexión actualizable, visite el Portal de Azure clásico y haga clic en Agregar punto de conexión (más detalles [aquí](machine-learning-create-endpoint.md)).
 
 5. *Volver a entrenar el modelo con nuevos datos y BES* Para llamar a las API de reentrenamiento, crearemos una nueva aplicación de consola C# en Visual Studio (Nuevo -> Proyecto -> Windows Desktop -> Aplicación de consola).
 
@@ -94,7 +94,7 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 
 	Esto nos indicará si el modelo recientemente entrenado funciona lo suficientemente bien como para reemplazar el existente.
 
-7. *Actualizar modelo entrenado del punto de conexión agregado* Para completar el proceso, es preciso actualizar el modelo entrenado del punto de conexión predicativo creado en el paso 4 anterior.
+7. *Actualizar modelo entrenado del punto de conexión agregado* Para completar el proceso, es preciso actualizar el modelo entrenado del punto de conexión predictivo creado en el paso 4 anterior.
 
 	(Si ha agregado el nuevo punto de conexión mediante el Portal de Azure, puede hacer clic en el nombre del nuevo punto de conexión y luego en el vínculo UpdateResource para obtener la dirección URL que necesitará para actualizar el modelo del punto de conexión).
 
@@ -158,4 +158,4 @@ Al usar las API de reentrenamiento, podemos actualizar el modelo entrenado de un
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

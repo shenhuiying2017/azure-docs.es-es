@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/18/2016" 
 	ms.author="awills"/>
 
 #  Muestreo en Application Insights.
@@ -22,12 +22,13 @@
 
 El muestreo es una característica de Application Insights que permite recopilar y almacenar un conjunto reducido de telemetría al mismo tiempo que se mantiene un análisis estadísticamente correcto de los datos de la aplicación. Reduce el tráfico y ayuda a evitar la [limitación](app-insights-pricing.md#data-rate). Los datos se filtran de manera que los elementos relacionados se permitan, para que sea posible desplazarse entre elementos cuando se realicen investigaciones de diagnóstico. Cuando los recuentos de métrica se presentan al usuario en el portal, se renormalizan para tener en cuenta el muestreo y minimizar cualquier efecto en las estadísticas.
 
-El muestreo adaptable está habilitado de forma predeterminada en el SDK de Application Insights para ASP.NET, versión 2.0.0-beta3 o posterior. El muestreo está actualmente en versión beta y puede cambiar en el futuro.
+El muestreo está actualmente en versión beta y puede cambiar en el futuro.
 
-Hay dos módulos de muestreo alternativos:
+Existen tres métodos de muestreo alternativos:
 
-* El muestreo adaptable ajusta automáticamente el porcentaje de muestreo para lograr un volumen específico de solicitudes. Actualmente solo está disponible para la telemetría del lado servidor ASP.NET.  
-* También está disponible el muestreo de tasa fija, donde Con él, se especifica un porcentaje de muestreo. Está disponible para el código de aplicación web ASP.NET y páginas web de JavaScript. El cliente y el servidor sincronizarán su muestreo para que, en Búsqueda, pueda desplazarse entre las vistas de página y las solicitudes relacionadas.
+* El **muestreo adaptable** ajusta automáticamente el porcentaje de muestreo para lograr un volumen específico de solicitudes. Está habilitado de forma predeterminada en el SDK de Application Insights para ASP.NET, versión 2.0.0-beta3 o posterior. 
+* El **muestreo de frecuencia fija** también está disponible en las versiones 2 y posteriores del SDK. Con él, se especifica un porcentaje de muestreo. Funciona tanto en el cliente de JavaScript como en el servidor ASP.NET. El cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
+* **Muestreo de ingesta**. Tiene lugar en el servicio Application Insights. El SDK envía todos los datos de telemetría desde el explorador y el servidor, pero solo se retiene un porcentaje. Es adaptable y solo funciona si la aplicación envía más de un volumen mínimo de telemetría, y solo si el SDK no está realizando uno de los otros tipos de muestreo. También resulta afectado por el plan de tarifa que utilice. Aunque no reduce el tráfico, le ayuda a mantenerse dentro de su cuota mensual.
 
 ## Habilitación del muestreo adaptable
 
@@ -144,12 +145,12 @@ Cuando [configure las páginas web para Application Insights](app-insights-javas
 
 Para el porcentaje de muestreo, elija un porcentaje que esté cerca de 100/N, donde N es un número entero. Actualmente el muestreo no es compatible con otros valores.
 
-Si también habilita el muestreo de frecuencia fija en el servidor, los clientes y el servidor se sincronizarán para que, en Búsqueda, pueda desplazarse entre las solicitudes y las vistas de página relacionadas.
+Si también habilita el muestreo de frecuencia fija en el servidor, los clientes y el servidor se sincronizarán de modo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
 
 
 ## Habilitación del muestreo de frecuencia fija en el servidor
 
-1. **Actualice los paquetes NuGet del proyecto** a la *versión preliminar* más reciente de Application Insights. Haga clic con el botón derecho en el Explorador de soluciones, elija Administrar paquetes NuGet, active la opción **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web. 
+1. **Actualice los paquetes de NuGet del proyecto** a la *versión preliminar* más reciente de Application Insights. Haga clic con el botón derecho en el Explorador de soluciones, elija Administrar paquetes NuGet, active la opción **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web. 
 
 2. **Deshabilite el muestreo adaptable**: en [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), quite o convierta en comentario el nodo `AdaptiveSamplingTelemetryProcessor`.
 
@@ -180,11 +181,11 @@ Si también habilita el muestreo de frecuencia fija en el servidor, los clientes
 
     ```
 
-> [AZURE.NOTE]Para el porcentaje de muestreo, elija un porcentaje que esté cerca de 100/N, donde N es un número entero. Actualmente el muestreo no es compatible con otros valores.
+> [AZURE.NOTE] Para el porcentaje de muestreo, elija un porcentaje que esté cerca de 100/N, donde N es un número entero. Actualmente el muestreo no es compatible con otros valores.
 
 
 
-### Alternativa: habilite el muestreo de tasa fija en el código de servidor
+### Alternativa: habilitación del muestreo de frecuencia fija en el código de servidor
 
 
 En lugar de establecer el parámetro de muestreo en el archivo .config, puede usar código.
@@ -207,11 +208,11 @@ En lugar de establecer el parámetro de muestreo en el archivo .config, puede us
 
 ```
 
-([Más información sobre los procesadores de telemetría](app-insights-api-filtering-sampling.md#filtering)).
+([Más información acerca de los procesadores de telemetría](app-insights-api-filtering-sampling.md#filtering)).
 
 ## ¿Cuándo usar un muestreo?
 
-El muestreo adaptable está habilitado automáticamente si usa el SDK de ASP.NET versión 2.0.0-beta3 o posterior.
+El muestreo adaptable está habilitado automáticamente si usa el SDK de ASP.NET versión 2.0.0-beta3 o posterior. Independientemente de la versión del SDK que se utilice, el muestreo de ingesta (en nuestro servidor) puede funcionar si no hay ningún muestreo en el SDK.
 
 Para la mayoría de las aplicaciones pequeñas y medianas no es necesario realizar muestreos. La información de diagnóstico más útil y las estadísticas más precisas se obtienen mediante la recopilación de datos en todas las actividades del usuario.
 
@@ -224,19 +225,23 @@ Las principales ventajas del muestreo son:
 
 ### ¿Muestreo adaptable o fijo?
 
+Todas las formas de muestreo funcionan solamente por encima de un determinado umbral de tráfico. Por ejemplo, no afectarán a la mayoría de las sesiones de depuración o a los sitios con un porcentaje de utilización bajo.
+
 Use el muestreo de frecuencia fija si:
 
 * Quiere un muestreo sincronizado entre cliente y servidor para que, cuando investigue eventos en [Búsqueda](app-insights-diagnostic-search.md), pueda desplazarse entre los eventos relacionados en el cliente y el servidor, como vistas de página y solicitudes HTTP.
 * Está seguro del porcentaje de muestreo adecuado para la aplicación. Debe ser lo bastante alto como para obtener métricas precisas, pero inferior a la frecuencia que supera la cuota de precios y los valores de limitación. 
 * No está depurando la aplicación. Cuando presione F5 e intente ver algunas páginas de la aplicación, probablemente desee ver toda la telemetría.
 
-De lo contrario, se recomienda el muestreo adaptable.
+De lo contrario, se recomienda el muestreo adaptable. Este está habilitado de forma predeterminada en el SDK del servidor ASP.NET.
+
+Si no utiliza muestreo en el SDK, por ejemplo, si emplea Java, o si deshabilita el muestreo en ApplicationInsights.config, el muestreo de ingesta puede funcionar conforme los datos llegan al servicio de Application Insights. Es una forma de muestreo adaptable.
 
 ## ¿Cómo funciona el muestreo?
 
-Desde el punto de vista de aplicación, el muestreo es una característica de SDK de Application Insights. Se especifica qué porcentaje de todos los puntos de datos debe enviarse al servicio Application Insights. Desde la versión 2.0.0 de SDK de Application Insights puede controlar el porcentaje de muestreo desde el código. (Las versiones futuras de SDK además permitirán configurar el porcentaje de muestreo desde el archivo ApplicationInsights.config.)
+El muestreo adaptable y de frecuencia fija es una característica del SDK de ASP.NET 2.0.0 y versiones posteriores. El muestreo de ingesta es una característica del servicio de Application Insights y puede funcionar si el SDK no realiza muestreo.
 
-El SDK decide qué elementos de telemetría se descartarán y cuáles se van conservar. La decisión del muestreo se basa en varias reglas que tienen como objetivo conservar intactos todos los puntos de datos interrelacionados, manteniendo una experiencia de diagnóstico en Application Insights que sea práctica y confiable, incluso con un conjunto reducido de datos. Por ejemplo, si para una solicitud errónea su aplicación envía elementos de telemetría adicionales (como la excepción y los seguimientos registrados para dicha solicitud), el muestreo no dividirá esta solicitud y otra telemetría. Escogerá mantenerlos o descartarlos todos juntos Como resultado, al examinar los detalles de solicitud en Application Insights, siempre puede ver la solicitud junto con sus elementos de telemetría asociados.
+El algoritmo de muestreo decide qué elementos de telemetría quitar y cuáles conservar (ya sea en el SDK o en el servicio de Application Insights). La decisión del muestreo se basa en varias reglas que tienen como objetivo conservar intactos todos los puntos de datos interrelacionados, manteniendo una experiencia de diagnóstico en Application Insights que sea práctica y confiable, incluso con un conjunto reducido de datos. Por ejemplo, si para una solicitud errónea su aplicación envía elementos de telemetría adicionales (como la excepción y los seguimientos registrados para dicha solicitud), el muestreo no dividirá esta solicitud y otra telemetría. Escogerá mantenerlos o descartarlos todos juntos Como resultado, al examinar los detalles de solicitud en Application Insights, siempre puede ver la solicitud junto con sus elementos de telemetría asociados.
 
 Para las aplicaciones que definen "usuario" (es decir, las aplicaciones web más típicas), la decisión de muestreo se basa en el hash del identificador de usuario, lo que significa que toda la telemetría para cualquier usuario específico o se conservan o se descarta. Para los tipos de aplicaciones que no definen a los usuarios (como los servicios web) la decisión de muestreo se basa en el identificador de operación de la solicitud. Por último, para los elementos de telemetría que no tienen establecido ni identificador de usuario ni identificador de operación (por ejemplo elementos de telemetría notificados desde subprocesos asincrónicos sin contexto de http), el muestreo simplemente captura un porcentaje de elementos de telemetría de cada tipo.
 
@@ -273,7 +278,7 @@ El SDK del lado del cliente (JavaScript) participa en el muestreo junto con el S
 
 *¿Se puede averiguar la frecuencia de muestreo que usa el muestreo adaptable?*
 
- * Sí, utilice el método de código de la configuración de muestreo adaptativo y podrá proporcionar una devolución de llamada que obtenga la velocidad de muestreo.
+ * Sí, utilice el método de código de la configuración de muestreo adaptativo y podrá proporcionar una devolución de llamada que obtenga la velocidad de muestreo. Si utiliza la exportación continua, puede ver la velocidad de muestreo en los puntos de datos exportados.
 
 *Si uso el muestreo de frecuencia fija, ¿cómo sé cuál es el porcentaje de muestreo que funcionará mejor para mi aplicación?*
 
@@ -291,10 +296,12 @@ El SDK del lado del cliente (JavaScript) participa en el muestreo junto con el S
 
 *¿En qué plataformas puedo usar muestreo?*
 
-* Actualmente, el muestreo adaptable está disponible para los lados del servidor de aplicaciones web ASP.NET (hospedadas en Azure o en su servidor propio). El muestreo de frecuencia fija está disponible para cualquier página web y para las aplicaciones web .NET, tanto del lado del cliente como del lado del servidor.
+* El muestreo de ingesta puede producirse automáticamente cuando cualquier dato de telemetría se sitúa por encima de un determinado volumen, si el SDK no realiza muestreo. Este sería el caso, por ejemplo, si su aplicación utiliza un servidor Java o si usa una versión anterior del SDK de ASP.NET.
+
+* Si usa el SDK de ASP.NET 2.0.0 y versiones posteriores (hospedado en Azure o en su propio servidor), obtendrá de forma predeterminada muestreo adaptable, pero puede cambiar al de frecuencia fija como se ha descrito anteriormente. Con el muestreo de frecuencia fija, el SDK del explorador se sincroniza automáticamente con los eventos relacionados con el muestreo.
 
 *Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
 
  * Inicialice una instancia independiente de TelemetryClient con un nuevo valor de TelemetryConfiguration (no el activo de forma predeterminada). Úsela para enviar sus eventos excepcionales.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -123,7 +123,7 @@ Los distintos parámetros que pueden utilizarse con el cmdlet Export-HcsSupportP
 
 Después de haber generado un paquete de soporte, puede que necesite editarlo para quitar información específica del cliente como nombres de volumen, direcciones IP de dispositivos y nombres de copias de seguridad de los archivos de registro.
 
-> [AZURE.IMPORTANT]Solo pueden editarse los paquetes de soporte generados a través de Windows PowerShell para StorSimple. No es posible editar los paquetes creados en el Portal de Azure clásico con el servicio de Administrador de StorSimple.
+> [AZURE.IMPORTANT] Solo pueden editarse los paquetes de soporte generados a través de Windows PowerShell para StorSimple. No es posible editar los paquetes creados en el Portal de Azure clásico con el servicio de Administrador de StorSimple.
 
 Para editar un paquete de soporte antes de cargarlo en el sitio de soporte técnico de Microsoft, debe descifrar el paquete de soporte, editar los archivos y volver a cifrarlo. Lleve a cabo los siguientes pasos para editar un paquete de soporte:
 
@@ -200,4 +200,4 @@ A continuación se muestra un ejemplo que explica cómo descifrar, editar y volv
 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

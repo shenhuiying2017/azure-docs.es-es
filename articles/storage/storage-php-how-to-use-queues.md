@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # Uso del almacenamiento de colas de PHP
@@ -42,12 +42,13 @@ En esta guía, usará funciones del servicio Cola a las que se puede llamar desd
 
 Para usar las API de almacenamiento en cola de Azure, necesitará:
 
-1. Hacer referencia al archivo autocargador mediante la instrucción [require\_once][require_once].
+1. Hacer referencia al archivo autocargador mediante la instrucción [require\_once].
 2. Hacer referencia a todas las clases que puede que use.
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder**.
 
-> [AZURE.NOTE]En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el Compositor. Si las instaló manualmente o como un paquete PEAR, tendrá que hacer referencia al archivo autocargador `WindowsAzure.php`.
+> [AZURE.NOTE]
+En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el Compositor. Si las instaló manualmente o como un paquete PEAR, tendrá que hacer referencia al archivo autocargador `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -115,7 +116,7 @@ Un objeto **QueueRestProxy** le permite crear una cola con el método **createQu
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]No debe confiar en la distinción entre minúsculas y mayúsculas para las claves de metadatos. Todas las claves se leen en el servicio en minúsculas.
+> [AZURE.NOTE] No debe confiar en la distinción entre minúsculas y mayúsculas para las claves de metadatos. Todas las claves se leen en el servicio en minúsculas.
 
 
 ## un mensaje a una cola
@@ -380,7 +381,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento en co
 Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure Portal]: portal.azure.com
+[require\_once]: http://www.php.net/manual/en/function.require-once.php
+[Azure Portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

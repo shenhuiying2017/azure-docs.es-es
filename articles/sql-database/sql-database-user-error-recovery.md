@@ -28,6 +28,7 @@ Puede obtener más información acerca de estas capacidades en esta [publicació
 Base de datos SQL de Azure siempre se restaura en una base de datos nueva. Estas capacidades de restauración se ofrecen para todas las bases de datos de los niveles Basic, Standard y Premium.
 
 ##Restauración a un momento dado
+
 En caso de un error de usuario o de modificación no intencionada de los datos, se puede usar Restauración a un momento dado para restaurar la base de datos a cualquier punto dado del período de retención de la base de datos.
 
 Las bases de datos de la versión Basic tienen 7 días de retención, las de la versión Standard disponen de 14 días de retención y las de la versión Premium tienen 35 días de retención. Para obtener más información acerca de la retención de la base de datos, vea [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md).
@@ -35,9 +36,11 @@ Las bases de datos de la versión Basic tienen 7 días de retención, las de la 
 > [AZURE.NOTE] Al restaurar una base de datos se crea una nueva base de datos. Es importante asegurarse de que el servidor en el que va a efectuar la restauración tenga suficiente capacidad DTU para la nueva base de datos. Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portal de Azure
+> [AZURE.NOTE] Para bases de datos en grupos de bases de datos elásticas, el Portal de Azure solo admite punto de restauración a un momento dado en el mismo grupo. Si desea restaurar a un momento dado una base de datos de forma independiente, use la API de REST.
+
 Para usar la restauración a un momento dado en el Portal de Azure, siga los pasos indicados a continuación.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.Azure.com).
+1. Inicie sesión en el [portal de Azure](https://portal.Azure.com).
 2. En el lado izquierdo de la pantalla, seleccione **EXAMINAR** y, a continuación, seleccione **Bases de datos SQL**.
 3. Navegue hasta la base de datos y selecciónela.
 4. En la parte superior de la hoja de la base de datos, seleccione **Restaurar**.
@@ -55,13 +58,7 @@ Use PowerShell para realizar una restauración a un momento dado mediante progra
 		 
 
 ###API de REST 
-Use REST para realizar la restauración de la base de datos mediante programación.
-
-1. Obtenga la base de datos que desee restaurar mediante la operación [Obtener base de datos](http://msdn.microsoft.com/library/azure/dn505708.aspx).
-
-2.	Cree la solicitud de restauración con la operación [Crear solicitud de restauración de base de datos](http://msdn.microsoft.com/library/azure/dn509571.aspx).
-	
-3.	Realice el seguimiento de la solicitud de restauración con la operación [Estado de operación de base de datos](http://msdn.microsoft.com/library/azure/dn720371.aspx).
+Use REST para realizar la restauración de la base de datos mediante programación. Para ello, cree la solicitud de restauración con la operación [Create Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) y establezca el **modo de creación** en **PointInTimeRestore**.
 
 ##Restauración de una base de datos eliminada
 En caso de que se elimine una base de datos, Base de datos SQL de Azure le permite restaurar la base de datos eliminada en el momento en que se eliminó. Base de datos SQL de Azure almacena la copia de seguridad de la base de datos eliminada durante el período de retención de la base de datos.
@@ -73,7 +70,7 @@ El período de retención de una base de datos eliminada lo determinan el nivel 
 ###Portal de Azure
 Para restaurar una base de datos eliminada mediante el Portal de Azure, siga estos pasos indicados a continuación:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.Azure.com).
+1. Inicie sesión en el [portal de Azure](https://portal.Azure.com).
 2. En el lado izquierdo de la pantalla, seleccione **EXAMINAR** y, a continuación, seleccione **Servidores SQL**.
 3. Navegue hasta el servidor y selecciónelo.
 4. Desplácese hacia abajo hasta **Operaciones** en la hoja del servidor y haga clic en el icono **Bases de datos eliminadas**.
@@ -106,4 +103,4 @@ Use REST para realizar la restauración de la base de datos mediante programaci�
 	
 4.	Realice un seguimiento del estado de la restauración con la operación [Estado de operación de base de datos](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

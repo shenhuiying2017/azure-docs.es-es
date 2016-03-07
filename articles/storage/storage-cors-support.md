@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/19/2016"
 	ms.author="tamram"/>
 
 # Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de almacenamiento de Azure
@@ -22,7 +22,7 @@ A partir de la versión 2013-08-15, los servicios de almacenamiento de Azure adm
 
 Puede establecer reglas de CORS individualmente para cada uno de los servicios de almacenamiento mediante una llamada a [Definición de las propiedades del servicio Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definición de las propiedades del servicio Cola](https://msdn.microsoft.com/library/hh452232.aspx) y [Definición de las propiedades del servicio Tabla](https://msdn.microsoft.com/library/hh452240.aspx). Una vez establecidas las reglas de CORS para el servicio, se evaluará una solicitud autenticada correctamente realizada en el servicio desde un dominio diferente para determinar si se permite según las reglas que ha especificado.
 
->[AZURE.NOTE]Tenga en cuenta que CORS no es ningún mecanismo de autenticación. Cualquier solicitud realizada en un recurso de almacenamiento cuando se ha habilitado CORS debe tener una firma de autenticación adecuada o bien se debe realizar en un recurso público.
+>[AZURE.NOTE] Tenga en cuenta que CORS no es ningún mecanismo de autenticación. Cualquier solicitud realizada en un recurso de almacenamiento cuando se ha habilitado CORS debe tener una firma de autenticación adecuada o bien se debe realizar en un recurso público.
 
 ## Descripción de las solicitudes de CORS
 
@@ -147,7 +147,7 @@ La segunda solicitud no coincide con la primera regla porque el método no coinc
 
 La tercera solicitud coincide con la segunda regla en su dominio de origen y método, por lo que no se evalúa ninguna regla más. Sin embargo, *x-ms-client-request-id header* no está permitido por la segunda regla, por lo que se produce un error en la solicitud, a pesar de que la semántica de la tercera regla habría permitido que se realizara correctamente.
 
->[AZURE.NOTE]Aunque este ejemplo muestra una regla menos restrictiva antes que otra más restrictiva, en general la práctica recomendada es enumerar primero las reglas más restrictivas.
+>[AZURE.NOTE] Aunque este ejemplo muestra una regla menos restrictiva antes que otra más restrictiva, en general la práctica recomendada es enumerar primero las reglas más restrictivas.
 
 ## Descripción de cómo se establece el encabezado Vary
 
@@ -195,4 +195,4 @@ Las solicitudes preparatorias erróneas no se cargan en cuenta.
 
 [Especificación de uso compartido de recursos entre orígenes de W3C](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

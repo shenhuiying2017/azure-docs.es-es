@@ -18,12 +18,13 @@
 	ms.author="jodebrui"/>
 
 
-# Uso de In-Memory (vista previa) para mejorar el rendimiento de la aplicación de Base de datos SQL de Azure
+# Uso de In-Memory OLTP (vista previa) para mejorar el rendimiento de la aplicación de Base de datos SQL de Azure
 
-Siga estos pasos para optimizar el rendimiento transaccional de una Base de datos SQL de Azure [Premium](sql-database-service-tiers.md) ya existente mediante la característica [In-Memory](sql-database-in-memory.md).
+[In-Memory OLTP](sql-database-in-memory.md) puede usarse para mejorar el rendimiento de la carga de trabajo de OLTP en las bases de datos SQL de Azure [Premium](sql-database-service-tiers.md) sin aumentar el nivel de rendimiento.
 
+Siga estos pasos para adoptar In-Memory OLTP en la base de datos existente.
 
-## Paso 1: Asegurarse de que la base de datos Premium admite In-Memory
+## Paso 1: Asegurarse de que la base de datos Premium admite In-Memory OLTP
 
 Las bases de datos Premium creadas en noviembre de 2015 o después son compatibles con la característica In-Memory. Puede determinar si la base de datos Premium admite la característica In-Memory mediante la ejecución de la siguiente instrucción de Transact-SQL. Se admite In-Memory si el resultado devuelto es 1 (no 0):
 
@@ -233,4 +234,4 @@ Considere la posibilidad de supervisar los efectos de rendimiento de las impleme
 
 - [Asesor de optimización en memoria](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

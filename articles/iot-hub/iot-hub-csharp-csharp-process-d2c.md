@@ -99,7 +99,6 @@ Información adicional sobre el centro de IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
-[control de errores transitorios]: https://msdn.microsoft.com/es-ES/library/hh680901(v=pandp.50).aspx
 
 [Guía del desarrollador del Centro de IoT de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/iot-hub-devguide/#d2c
 
@@ -108,17 +107,15 @@ Información adicional sobre el centro de IoT:
 
 
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
-[Procesamiento de mensajes de dispositivo a nube]: iot-hub-csharp-csharp-process-d2c.md
 [Carga de archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
 [Directrices sobre el centro de IoT]: iot-hub-guidance.md
 [Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
 [Introducción al Centro de IoT]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[Supported devices]: iot-hub-tested-configurations.md
 [Centro para desarrolladores de Azure]: https://azure.microsoft.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

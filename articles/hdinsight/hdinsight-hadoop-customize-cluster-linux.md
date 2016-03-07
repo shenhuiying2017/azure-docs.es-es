@@ -19,8 +19,6 @@
 
 # Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
-
 HDInsight proporciona una opción de configuración denominada **Acción de script** que invoca scripts personalizados, que definen la personalización que se realizará en el clúster en el proceso de aprovisionamiento. Estos scripts pueden utilizarse para instalar software adicional en un clúster o para cambiar la configuración de las aplicaciones de un clúster.
 
 > [AZURE.NOTE] La información de este artículo es específica de los clústeres de HDInsight basados en Linux. Para obtener una versión de este artículo específica para clústeres basados en Windows, vea [Personalización de clústeres de HDInsight mediante la acción de script (Windows)](hdinsight-hadoop-customize-cluster.md)
@@ -54,8 +52,8 @@ Nombre | Script
 **Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh. Vea [Instalación y uso de Spark en clústeres de HDInsight](hdinsight-hadoop-spark-install-linux.md).
 **Instalar R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. Consulte [Instalación y uso de R en clústeres de HDInsight](hdinsight-hadoop-r-scripts-linux.md).
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Consulte [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md).
-**Instalación de Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Consulte [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md).
-| **Carga previa de las bibliotecas de Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Consulte [Add Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) (Incorporación de bibliotecas de Hive en clústeres de HDInsight). |
+**Instalación de Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Vea [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md).
+| **Carga previa de las bibliotecas de Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Consulte [Incorporación de bibliotecas de Hive en clústeres de HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## Use una acción de script desde el Portal de Azure
 
@@ -447,4 +445,4 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

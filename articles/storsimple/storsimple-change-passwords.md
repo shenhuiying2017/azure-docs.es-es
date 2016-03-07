@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -68,4 +68,4 @@ Ahora debe actualizarse la contraseña del administrador de dispositivos. Puede 
 
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

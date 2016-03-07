@@ -14,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="11/04/2015"
+   ms.date="02/04/2016"
    ms.author="heidist"/>
 
 # Supervisión del uso y estadísticas en un servicio Búsqueda de Azure
 
 Llevar un seguimiento del crecimiento de los índices y el tamaño de los documentos puede ayudarle a ajustar la capacidad de forma proactiva antes de alcanzar el límite superior que haya establecido para el servicio.
 
-Para supervisar el uso de recursos, los recuentos y las estadísticas pueden verse con facilidad en el [Portal de Azure](https://portal.azure.com), pero también se puede obtener la información mediante programación si va a crear una herramienta de administración de servicio personalizada. En este artículo se muestran los pasos para ambas técnicas.
+Para supervisar el uso de recursos, los recuentos y las estadísticas de su servicio pueden verse con facilidad en el [Portal de Azure](https://portal.azure.com), pero también se puede obtener la información mediante programación si va a crear una herramienta de administración de servicio personalizada. En este artículo se muestran los pasos para ambas técnicas.
+
+También puede usar la nueva función de análisis de tráfico de búsqueda para obtener información sobre la actividad en el nivel de índice. Visite [Análisis de tráfico de búsqueda para Búsqueda de Azure](search-traffic-analytics.md) para comenzar.
 
 ##Ver recuentos y métricas en el portal 
 
@@ -57,4 +59,4 @@ Visite [Administración del servicio de búsqueda en Microsoft Azure](search-man
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

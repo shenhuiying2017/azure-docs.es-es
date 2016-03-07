@@ -14,10 +14,10 @@ Si aparece cualquiera de estos mensajes, es posible que la versión del SDK de A
 2. En la pestaña Explorador de proyectos, en **Scripts de Gradle**, abra el archivo **build.gradle (modeule: app)**. Asegúrese de que **compileSdkVersion** y **buildToolsVersion** se establecen en la versión más reciente del SDK instalada. Es posible que las etiquetas tengan este aspecto:
  
 	 	    compileSdkVersion 'Google Inc.:Google APIs:23'
-    		buildToolsVersion "23.0.0"
+    		buildToolsVersion "23.0.2"
 	
 3. En el Explorador de proyectos de Android Studio, haga clic con el botón secundario en el nodo del proyecto, elija **Propiedades** y en la columna izquierda, seleccione **Android**. Asegúrese de que **Destino de compilación de proyecto** se haya establecido en la misma versión de SDK que **targetSdkVersion**.
 
 4. En Android Studio, el archivo de manifiesto ya no se utiliza para especificar el SDK de destino y la versión del SDK mínima, al contrario que ocurre con Eclipse.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

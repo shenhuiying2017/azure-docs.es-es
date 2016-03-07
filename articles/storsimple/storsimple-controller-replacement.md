@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -21,7 +21,7 @@
 
 Este tutorial explica cómo quitar y reemplazar uno o ambos módulos de controladores en un dispositivo StorSimple. También se explica la lógica subyacente para los escenarios de reemplazo de uno o dos controladores.
 
->[AZURE.NOTE]Antes de realizar un reemplazo de controlador, se recomienda actualizar siempre el firmware del controlador a la versión más reciente.
+>[AZURE.NOTE] Antes de realizar un reemplazo de controlador, se recomienda actualizar siempre el firmware del controlador a la versión más reciente.
 >
 >Para evitar daños en el dispositivo StorSimple, no expulse el controlador hasta que los LED muestren uno de los siguientes:
 >
@@ -47,7 +47,7 @@ Debe quitar un módulo del controladores si se ha producido un error. Uno o ambo
 - [Insertar un controlador](#insert-a-controller)
 - [Identificar el controlador activo en el dispositivo](#identify-the-active-controller-on-your-device)
 
->[AZURE.IMPORTANT]Antes de quitar y reemplazar un controlador, revise la información de seguridad en [Reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Antes de quitar y reemplazar un controlador, revise la información de seguridad en [Reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Reemplazar un único controlador
 
@@ -71,7 +71,7 @@ Un reemplazo de un controlador único, primero debe quitar el controlador defect
 
 Complete los pasos siguientes si se produce un error en uno de los controladores del dispositivo StorSimple de Microsoft Azure. (El otro controlador debe estar activo y en funcionamiento. Si ambos controladores fallan o no funcionan, vaya a [Pasos de reemplazo de dos controladores](#dual-controller-replacement-steps).)
 
->[AZURE.NOTE]Puede tardar entre 30 y 45 minutos para que el controlador se reinicie y recupere completamente del procedimiento de reemplazo de un único controlador. El tiempo total para el procedimiento completo, incluida la conexión de los cables, es de aproximadamente dos horas.
+>[AZURE.NOTE] Puede tardar entre 30 y 45 minutos para que el controlador se reinicie y recupere completamente del procedimiento de reemplazo de un único controlador. El tiempo total para el procedimiento completo, incluida la conexión de los cables, es de aproximadamente dos horas.
 
 #### Para quitar un módulo de un solo controlador defectuoso
 
@@ -79,7 +79,7 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
 
 2. Haga clic en la pestaña **Mantenimiento** y, a continuación, vaya a **Estado del hardware**. El estado del Controlador 0 o 1 debe ser rojo, que indica un error.
 
-    >[AZURE.NOTE]El controlador defectuoso en un reemplazo de un único controlador siempre es un controlador en modo de espera.
+    >[AZURE.NOTE] El controlador defectuoso en un reemplazo de un único controlador siempre es un controlador en modo de espera.
 
 3. Utilice la Figura 1 y la tabla siguiente para buscar el módulo del controlador defectuoso.
 
@@ -104,7 +104,7 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
 
 8. Una vez reiniciado el controlador, compruebe el **Estado del controlador** y el **Estado del clúster** en el Portal de Azure clásico para comprobar que el controlador esté en un estado correcto y en modo de espera.
 
->[AZURE.NOTE]Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando se presente el menú de la consola enserie, sabrá que el reemplazo está completo. Si el menú no aparece en un plazo de dos horas de iniciado el reemplazo del controlador, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
+>[AZURE.NOTE] Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando se presente el menú de la consola enserie, sabrá que el reemplazo está completo. Si el menú no aparece en un plazo de dos horas de iniciado el reemplazo del controlador, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Reemplazar ambos controladores
 
@@ -132,13 +132,13 @@ En un reemplazo de dos controladores, primero extraiga ambos controladores defec
 
 5. Después, se ejecutarán ambos controladores y el clúster se conectará.
 
->[AZURE.IMPORTANT]Después de un reemplazo de dos controladores, después de configurar el dispositivo StorSimple, es esencial que realice una copia de seguridad manual del dispositivo. Las copias de seguridad de configuración de dispositivo diarias no se producen hasta después de que hayan transcurrido 24 horas. Trabaje con [Servicio técnico de Microsoft](storsimple-contact-microsoft-support.md) para hacer una copia de seguridad manual del dispositivo.
+>[AZURE.IMPORTANT] Después de un reemplazo de dos controladores, después de configurar el dispositivo StorSimple, es esencial que realice una copia de seguridad manual del dispositivo. Las copias de seguridad de configuración de dispositivo diarias no se producen hasta después de que hayan transcurrido 24 horas. Trabaje con [Servicio técnico de Microsoft](storsimple-contact-microsoft-support.md) para hacer una copia de seguridad manual del dispositivo.
 
 ### Pasos de reemplazo de dos controladores
 
 Este flujo de trabajo es necesario cuando los dos controladores del dispositivo StorSimple de Microsoft Azure están defectuosos. Esto podría suceder en un centro de datos en el que el sistema de refrigeración deja de funcionar y, como resultado, ambos controladores se dañarán en muy poco tiempo. Según si el dispositivo StorSimple está desactivado o activado y si se utiliza un modelo 8600 u 8100, se requiere una serie diferente de pasos.
 
->[AZURE.IMPORTANT]Puede tardar de 45 minutos a 1 hora que el controlador se reinicie y recupere completamente de un procedimiento de reemplazo de dos controladores. El tiempo total para el procedimiento completo, incluida la conexión de los cables, es de aproximadamente 2,5 horas.
+>[AZURE.IMPORTANT] Puede tardar de 45 minutos a 1 hora que el controlador se reinicie y recupere completamente de un procedimiento de reemplazo de dos controladores. El tiempo total para el procedimiento completo, incluida la conexión de los cables, es de aproximadamente 2,5 horas.
 
 #### Para reemplazar los módulos de dos controladores
 
@@ -166,13 +166,13 @@ Este flujo de trabajo es necesario cuando los dos controladores del dispositivo 
 
     4. Después de que el primer controlador se reinicie y se encuentre en un estado correcto, el sistema estará en ejecución.
 
-    >[AZURE.NOTE]Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando aparezca el menú de la consola en serie, sabrá que el reemplazo está completo. Si el menú no aparece en 2,5 horas después de haber iniciado el reemplazo del controlador, [póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
+    >[AZURE.NOTE] Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando aparezca el menú de la consola en serie, sabrá que el reemplazo está completo. Si el menú no aparece en 2,5 horas después de haber iniciado el reemplazo del controlador, [póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Quitar un controlador
 
 Utilice el siguiente procedimiento para quitar un módulo defectuoso del controlador del dispositivo StorSimple.
 
->[AZURE.NOTE]Las ilustraciones siguientes se usan para el controlador 0. Para el controlador 1, estos se revertirán.
+>[AZURE.NOTE] Las ilustraciones siguientes se usan para el controlador 0. Para el controlador 1, estos se revertirán.
 
 #### Para quitar un módulo del controlador
 
@@ -212,7 +212,7 @@ Utilice el siguiente procedimiento para instalar un módulo del controlador sumi
 
 4. Ha terminado cuando el pestillo encaje en su lugar. El LED **Aceptar** debe estar encendido ahora.
 
-    >[AZURE.NOTE]Puede tardar hasta 5 minutos para que el controlador y el LED se activen.
+    >[AZURE.NOTE] Puede tardar hasta 5 minutos para que el controlador y el LED se activen.
 
 5. Para comprobar que el reemplazo se realizó correctamente, en el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware** y asegúrese de que los controladores 0 y 1 funcionan correctamente (el estado es verde).
 
@@ -266,4 +266,4 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

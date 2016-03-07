@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -189,11 +189,16 @@ Ahora que ya está conectado, ejecute los siguientes comandos para implementar s
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+## RDP en una instancia de conjunto de escala de máquinas virtuales (VMSS) o un nodo de clúster 
+
+Cada uno de los tipos de nodos que especificó en los resultados de clúster de una configuración de realización de VMSS. Consulte [Cómo obtener RDP en la instancia VMSS](service-fabric-cluster-nodetypes.md) para obtener más información.
+
 ## Pasos siguientes
 
 - [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 - [Seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md)
 - [Introducción al modelo de mantenimiento de Service Fabric](service-fabric-health-introduction.md)
+- [Cómo obtener RDP en la instancia VMSS](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
@@ -207,4 +212,4 @@ Ahora que ya está conectado, ejecute los siguientes comandos para implementar s
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

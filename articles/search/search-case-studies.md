@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Quién usa la Búsqueda de Azure: casos prácticos y testimonios de clientes | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
+	pageTitle="Quién usa la Búsqueda de Azure: casos prácticos y testimonios de clientes | Microsoft Azure | Escenarios de usuario"
 	description="Casos prácticos e historias de clientes acerca de Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure."
 	services="search"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="11/13/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Quién usa la Búsqueda de Azure: casos prácticos y testimonios de clientes
@@ -61,4 +61,4 @@ Obtenga información acerca de cómo una nueva empresa sueca creó un portal de 
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

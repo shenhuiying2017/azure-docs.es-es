@@ -15,13 +15,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="02/18/2016" 
 	ms.author="jeffstok"
 />
 
-# Construir una solución de IoT con Análisis de transmisiones #
+# Construir una solución de IoT con Análisis de transmisiones
 
-## Introducción ##
+## Introducción
 
 En este tutorial aprenderá a obtener información de sus datos en tiempo real mediante Análisis de transmisiones. El servicio de procesamiento de transmisiones de Azure permite a los desarrolladores solucionar fácilmente el espacio de datos en movimiento al combinar flujos de datos, como las secuencias de clic, los registros y los eventos generados por dispositivos, con registros de historiales o datos de referencia para obtener información de la empresa de forma rápida y sencilla. Análisis de transmisiones de Azure es un servicio de cálculo de transmisiones en tiempo real totalmente administrado y hospedado en Microsoft Azure que ofrece una gran resistencia, baja latencia y escalabilidad, para permitirle entrar funcionamiento en minutos.
 
@@ -33,7 +33,7 @@ Después de completar este tutorial, estará capacitado para lo siguiente:
 -   Desarrollar soluciones de streaming para los clientes usando el lenguaje de consulta de Análisis de transmisiones.
 -   Usar la experiencia de supervisión y registro para solucionar problemas.
 
-## Requisitos previos ##
+## Requisitos previos
 
 Necesitará los siguientes requisitos previos antes de realizar este tutorial
 
@@ -41,20 +41,21 @@ Necesitará los siguientes requisitos previos antes de realizar este tutorial
 -   Visual Studio 2015 o la versión de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx).
 -   [Suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Privilegios administrativos en el equipo.
--   Descargar la versión más reciente de TollApp.zip de [GitHub](https://github.com/streamanalytics/samples/releases).
+-   Descargue [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) del Centro de descarga de Microsoft.
+-   Opcional: código fuente del generador de eventos TollApp desde [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)
 
-## Introducción al escenario: peajes ##
+## Introducción al escenario: peajes
 
 
 Un peaje es un fenómeno habitual, nos los podemos encontrar en muchas autopistas, puentes y túneles en todo el mundo. Cada peaje tiene varias cabinas, que pueden ser manuales, lo que significa que le atenderá un empleado, o automatizadas, donde un sensor en la parte superior de la cabina detecta una tarjeta RFID fijada en el parabrisas del vehículo cuando este atraviesa el peaje. Es fácil imaginar el paso de los vehículos a través de estos peajes como si fuera un flujo de eventos sobre los que se pueden realizar operaciones interesantes.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
-## Datos de entrada ##
+## Datos de entrada
 
 Se trabajará con dos flujos de datos producidos por los sensores instalados en la entrada y salida de los peajes y un conjunto de datos de búsqueda estático que contiene los datos de matriculación de los vehículos.
 
-### Flujo de datos de entrada ###
+### Flujo de datos de entrada
 
 El flujo de datos de entrada contiene información sobre los automóviles que entran al peaje.
   
@@ -108,7 +109,7 @@ Breve descripción de las columnas:
 | ExitTime | La fecha y hora de salida del vehículo de la cabina de peaje en UTC. |
 | LicensePlate | Número de matrícula del vehículo. |
 
-###Datos de matriculación de vehículos comerciales
+### Datos de matriculación de vehículos comerciales
 
 Usaremos una instantánea estática de la base de datos de matriculación de vehículos comerciales.
   
@@ -136,7 +137,7 @@ Breve descripción de las columnas:
 
 Para realizar este tutorial, deberá tener una suscripción a Microsoft Azure. Microsoft ofrece una evaluación gratuita para los servicios de Microsoft Azure, tal como se describe a continuación.
 
-Si no tiene una cuenta de Azure, puede solicitar una versión de evaluación gratuita en la dirección <http://azure.microsoft.com/pricing/free-trial/> .
+Si no tiene una cuenta de Azure, puede solicitar una versión de evaluación gratuita en la dirección <http://azure.microsoft.com/pricing/free-trial/>.
 
 Nota: Para suscribirse a una evaluación gratuita, necesita un dispositivo móvil que pueda recibir mensajes de texto y una tarjeta de crédito válida.
 
@@ -148,7 +149,7 @@ Este tutorial requiere dos Centros de eventos de Azure para recibir los flujos d
 
 Se puede usar el script Setup.ps1 de la carpeta TollApp en GitHub para crear todos los recursos necesarios. Se recomienda su uso para ahorrar tiempo. Si quiere obtener más información acerca de la configuración de estos recursos en el portal de Azure, consulte el apéndice "Configuración de recursos del tutorial en el Portal de Azure".
 
-Descargue y guarde el soporte los archivos y carpetas de [TollApp](https://github.com/streamanalytics/samples/releases) compatibles. Asegúrese de descargar la versión más reciente.
+Descargue y guarde el soporte los archivos y carpetas de [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) compatibles.
 
 Abra una ventana "Microsoft Azure PowerShell" **COMO ADMINISTRADOR**. Si aún no tiene Azure PowerShell, siga estas instrucciones: [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
@@ -222,9 +223,9 @@ Haga clic en "TollDataDB".
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)
 
-Copie el nombre del servidor sin el número de puerto (*nombredeservidor*. database.windows.net, por ejemplo).
+Copie el nombre del servidor sin el número de puerto (*nombredeservidor*.database.windows.net, por ejemplo).
 
-##Conexión a la Base de datos desde Visual Studio
+## Conexión a la Base de datos desde Visual Studio
 
 Usaremos Visual Studio para acceder a los resultados de consulta de la base de datos de salida.
 
@@ -236,7 +237,7 @@ Conectarse a la base de datos de Azure (el destino) desde Visual Studio:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)
 
-3) En el campo Nombre del servidor pegue el nombre del SQL Server que copió en la sección anterior del Portal de Azure (*nombredeservidor*. database.windows.net)
+3) En el campo Nombre del servidor pegue el nombre del SQL Server que copió en la sección anterior del Portal de Azure (*nombredeservidor*.database.windows.net)
 
 4) En el campo Autenticación elija Autenticación de SQL Server.
 
@@ -256,7 +257,7 @@ Conectarse a la base de datos de Azure (el destino) desde Visual Studio:
   
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
   
-##Generador de eventos: proyecto ejemplo de TollApp
+## Generador de eventos: proyecto ejemplo de TollApp
 
 El script de PowerShell comienza a enviar eventos automáticamente mediante el programa de aplicación de ejemplo TollApp. No es necesario realizar pasos adicionales.
 
@@ -278,7 +279,7 @@ Haga clic en "Crear un Análisis de transmisiones" en la parte inferior de la p�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)
 
-##Definición de orígenes de entrada
+## Definición de orígenes de entrada
 
 Haga clic en el trabajo de análisis creado en el portal.
 
@@ -344,7 +345,7 @@ Ahora todas las entradas están definidas.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image36.jpg)
 
-##Defininición de salida
+## Defininición de salida
 
 Vaya a la ficha "Salidas" y haga clic en "Agregar salida".
 
@@ -358,7 +359,7 @@ Escriba "tolladmin" como nombre de usuario y "123toll!" como contraseña. El nom
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.jpg)
 
-##Consulta de Análisis de transmisiones de Azure
+## Consulta de Análisis de transmisiones de Azure
 
 La ficha Consulta contiene una consulta SQL que realiza la transformación de los datos entrantes.
 
@@ -368,7 +369,7 @@ En este tutorial intentaremos responder varias cuestiones empresariales relacion
 
 Antes de empezar el primer trabajo de Análisis de transmisiones, veamos algunos escenarios y sintaxis de consulta.
 
-##Introducción al lenguaje de consulta de Análisis de transmisiones de Azure
+## Introducción al lenguaje de consulta de Análisis de transmisiones de Azure
 -----------------------------------------------------
 
 Supongamos que necesitamos contar el número de vehículos que entra en el peaje. Dado que se trata de un flujo continuo de eventos, es esencial definir un "período de tiempo". Por lo tanto, se tiene que modificar la pregunta para que indique el "número de vehículos que entran al peaje cada 3 minutos". Esto se denomina comúnmente "tumbling count".
@@ -383,7 +384,7 @@ Como puede ver, Análisis de transmisiones usa un lenguaje de consulta similar a
 
 Para obtener más información, puede leer sobre las construcciones de [Administración de tiempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) y [Ventanas](https://msdn.microsoft.com/library/azure/dn835019.aspx) que se usan en una consulta de MSDN.
 
-##Pruebas de consultas de Análisis de transmisiones de Azure
+## Pruebas de consultas de Análisis de transmisiones de Azure
 
 Ahora que hemos escrito nuestra primera consulta de Análisis de transmisiones, es momento de probarla usando los archivos de datos de ejemplo ubicados en la carpeta TollApp en la siguiente ruta:
 
@@ -411,7 +412,7 @@ Compruebe que el resultado de la consulta es el esperado:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.jpg)
 
-##Pregunta 2: notificar el tiempo total que necesita cada vehículo para atravesar el peaje
+## Pregunta 2: notificar el tiempo total que necesita cada vehículo para atravesar el peaje
 
 Queremos saber el tiempo promedio que tarda un vehículo en pasar a través del peaje para valorar la eficiencia y la experiencia del cliente.
 
@@ -435,7 +436,7 @@ Active la casilla para probar la consulta y ver los resultados:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
 
-##Pregunta 3: notificar todos los vehículos comerciales con matriculaciones expiradas
+## Pregunta 3: notificar todos los vehículos comerciales con matriculaciones expiradas
 
 Análisis de transmisiones de Azure puede usar instantáneas estáticas de datos para combinar con flujos de datos temporales. Para demostrar esta capacidad se utilizará la siguiente pregunta de ejemplo.
 
@@ -457,7 +458,7 @@ Vea el resultado de la consulta:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image47.png)
 
-##Inicio de un trabajo de Análisis de transmisiones
+## Inicio de un trabajo de Análisis de transmisiones
 
 
 Ahora que hemos escrito nuestra primera consulta de Análisis de transmisiones, es momento de finalizar la configuración e iniciar el trabajo. Guarde la consulta de la pregunta 3, que generará un resultado que coincidirá con el esquema de la tabla de salida **TollDataRefJoin**.
@@ -474,13 +475,13 @@ El trabajo puede tardar unos minutos en iniciarse. Podrá ver el estado en la p�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)
 
-##Comprobación de resultados en Visual Studio
+## Comprobación de resultados en Visual Studio
 
 Abra el Explorador de servidores de Visual Studio y haga clic con el botón derecho en la tabla TollDataRefJoin. Seleccione "Mostrar datos de tabla" para ver el resultado del trabajo.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
-##Escalado horizontal de trabajos de Análisis de transmisiones de Azure
+## Escalado horizontal de trabajos de Análisis de transmisiones de Azure
 
 Análisis de transmisiones de Azure está diseñado para escalar de manera elástica y ser capaz de controlar una gran carga de datos. Las consultas de Análisis de transmisiones puede usar una cláusula **PARTITION BY** para indicar al sistema que este paso se escalará horizontalmente. PartitionId es una columna especial agregada por el sistema que coincide con el identificador de partición de la entrada (Centro de eventos).
 
@@ -500,7 +501,7 @@ Vaya a la ficha Salida y cambie el nombre de la tabla SQL a "TollDataTumblingCou
 
 Ahora, si inicia el trabajo, Análisis de transmisiones podrá distribuir el trabajo entre más recursos de proceso y lograr un rendimiento mejor. Tenga en cuenta que la aplicación TollApp también envía eventos con que particiona TollId.
 
-##Supervisión
+## Supervisión
 
 La ficha Supervisión contiene estadísticas sobre el trabajo en ejecución.
 
@@ -516,13 +517,13 @@ Para obtener información adicional sobre un evento determinado, selecciónelo y
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image56.png)
 
-##Conclusión
+## Conclusión
 
 Este tutorial ofrecía una introducción al servicio de Análisis de transmisiones de Azure. Se mostró cómo configurar entradas y salidas de un trabajo de Análisis de transmisiones. Gracias al escenario de los datos de peaje, se pudieron explicar los tipos más comunes de problemas que surgen en el espacio de datos en movimiento y cómo pueden resolverse con simples consultas de tipo SQL en Análisis de transmisiones. Asimismo, se describieron las construcciones de extensión SQL para trabajar con datos temporales; se mostró cómo combinar los flujos de datos y cómo enriquecerlos con datos de referencia estática; y, finalmente, se explicó cómo escalar horizontalmente una consulta para lograr una mayor capacidad de procesamiento.
 
 Este tutorial proporciona una buena cobertura de introducción, pero no se trata de un tutorial completo de ningún modo. Puede encontrar más patrones de consulta que usan el lenguaje SAQL [aquí](stream-analytics-stream-analytics-query-patterns.md). Para obtener más información sobre Análisis de transmisiones, consulte la [documentación en línea](https://azure.microsoft.com/documentation/services/stream-analytics/).
 
-##Limpiar la cuenta de Azure
+## Limpiar la cuenta de Azure
 
 Detenga el trabajo de análisis de secuencia desde el Portal de Azure.
 
@@ -534,4 +535,4 @@ Tenga en cuenta que los recursos se identifican por el nombre. Asegúrese de rev
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

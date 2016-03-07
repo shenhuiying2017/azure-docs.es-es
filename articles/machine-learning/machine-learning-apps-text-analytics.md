@@ -1,6 +1,6 @@
 <properties
 	pageTitle="API de aprendizaje automático: análisis de texto | Microsoft Azure"
-	description="API de análisis de texto proporcionadas por Aprendizaje automático de Azure. Se puede usar para analizar texto no estructurado para análisis de opiniones, extracción de frases clave y detección de idiomas."
+	description="La API de análisis de texto de aprendizaje automático de Microsoft puede usarse para analizar el texto no estructurado para el análisis de opiniones, la extracción de frases clave, la detección de idiomas y la detección de temas."
 	services="machine-learning"
 	documentationCenter=""
 	authors="onewth"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/22/2016"
 	ms.author="onewth"/>
 
 
-# API de aprendizaje automático: análisis de texto de opinión, extracción de frases clave y detección de idiomas
+# API de aprendizaje automático: análisis de texto de opinión, extracción de frases clave, detección de idiomas y detección de temas
 
 ## Información general
 
-La API de análisis de texto es un conjunto de [servicios web](https://datamarket.azure.com/dataset/amla/text-analytics) de análisis de texto creado con Aprendizaje automático de Azure. La API puede usarse para analizar el texto no estructurado para tareas como el análisis de opiniones, la extracción de frases clave y la detección de idiomas. No se necesitan datos de formación para usar esta API, simplemente pase los datos del texto. Esta API usa técnicas de procesamiento de lenguaje natural avanzadas para proporcionar las mejores predicciones.
+La API de análisis de texto es un conjunto de [servicios web](https://datamarket.azure.com/dataset/amla/text-analytics) de análisis de texto creado con Aprendizaje automático de Azure. La API puede usarse para analizar el texto no estructurado para tareas como el análisis de opiniones, la extracción de frases clave, la detección de idiomas y la detección de temas. No se necesitan datos de formación para usar esta API, simplemente pase los datos del texto. Esta API usa técnicas de procesamiento de lenguaje natural avanzadas para proporcionar las mejores predicciones.
 
 Puede ver el análisis de texto en acción en nuestro [sitio de demostración](https://text-analytics-demo.azurewebsites.net/), donde también encontrará [ejemplos](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) sobre cómo implementar el análisis de texto en C# y Python.
 
@@ -40,6 +40,10 @@ La API devuelve una lista de cadenas que representan los puntos clave de la conv
 ## Detección de idiomas
 
 La API devuelve el idioma detectado y una puntuación numérica comprendida entre 0 y 1. Las puntuaciones cercanas a 1 indican una certeza del 100 % de que el idioma identificado es verdadero. Se admiten un total de 120 idiomas.
+
+## Detección de temas
+
+Se trata de una API recién publicada que devuelve los temas detectados más importantes para obtener los registros de texto enviados. Se identifica un tema con una frase clave, que puede ser una o más palabras relacionadas. Esta API requiere un mínimo de 100 registros de texto que enviar, pero se ha diseñado para detectar temas en cientos o miles de registros. Tenga en cuenta que esta API cobra una transacción por registro de texto enviado. La API se ha diseñado para funcionar bien con texto escrito humano y corto, como revisiones y comentarios del usuario.
 
 ---
 
@@ -161,14 +165,14 @@ Cuerpo de la solicitud:
 	{"Inputs":
 	[
 	    {"Id":"1","Text":"hello world"},
-    	    {"Id":"2","Text":"hello foo world"},
-    	    {"Id":"3","Text":"hello my world"},
+	    {"Id":"2","Text":"hello foo world"},
+	    {"Id":"3","Text":"hello my world"},
 	]}
 
 En la respuesta siguiente, obtendrá la lista de puntuaciones asociadas a sus identificadores de texto:
 
 	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", 
+	  "odata.metadata":"<url>", 
 	  "SentimentBatch":
 	  [
 		{"Score":0.9549767,"Id":"1"},
@@ -210,7 +214,7 @@ Cuerpo de la solicitud:
 
 En la respuesta siguiente, obtendrá la lista de las frases clave asociadas a sus identificadores de texto:
 
-	{ "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+	{ "odata.metadata":"<url>",
 	 	"KeyPhrasesBatch":
 		[
 		   {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
@@ -261,4 +265,122 @@ Esto devuelve la respuesta siguiente, donde se detecta inglés en la primera ent
        "Errors": []
     }
 
-<!---HONumber=AcomDC_1125_2015-->
+---
+
+## API de detección de temas
+
+Se trata de una API recién publicada que devuelve los temas detectados más importantes para obtener los registros de texto enviados. Se identifica un tema con una frase clave, que puede ser una o más palabras relacionadas. Tenga en cuenta que esta API cobra una transacción por registro de texto enviado.
+
+Esta API requiere un mínimo de 100 registros de texto que enviar, pero se ha diseñado para detectar temas en cientos o miles de registros.
+
+
+### Temas: Envío de trabajo
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
+
+**Solicitud de ejemplo**
+
+
+En la siguiente llamada POST, vamos a solicitar temas para un conjunto de 100 artículos, donde se muestran los primeros y últimos artículos de entrada, y se incluyen dos StopPhrases.
+
+	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection HTTP/1.1
+
+Cuerpo de la solicitud:
+
+	{"Inputs":[
+		{"Id":"1","Text":"I loved the food at this restaurant"},
+		...,
+		{"Id":"100","Text":"I hated the decor"}
+	],
+	"StopPhrases":[
+		"restaurant", “visitor"
+	]}
+
+En la respuesta siguiente, obtendrá el JobId para el trabajo enviado:
+
+	{
+		"odata.metadata":"<url>",
+		"JobId":"<JobId>"
+	}
+
+Una lista de palabras únicas o frases con varias palabras que no se deben devolver como temas. Puede usarse para filtrar temas muy genéricos. Por ejemplo, en un conjunto de datos acerca de reseñas de hoteles, "hotel" y "hostal" pueden ser frases de detección razonables.
+
+### Temas: Sondeo de resultados del trabajo
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult
+
+**Solicitud de ejemplo**
+
+Apruebe el JobId devuelto para el paso "Envío de trabajo" para capturar los resultados. Se recomienda que llame a este punto de conexión cada minuto hasta que aparezca Status=’Complete’ en la respuesta. Un trabajo tardará aproximadamente 10 minutos en completarse o más si los trabajos tienen miles de registros.
+
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult?JobId=<JobId>
+
+
+Mientras se está procesando, la respuesta será de la siguiente forma:
+
+	{
+		"odata.metadata":"<url>",
+		"Status":"Running",
+ 		"TopicInfo":[],
+		"TopicAssignment":[],
+		"Errors":[]
+	}
+
+
+La API devuelve una salida con formato JSON en el formato siguiente:
+
+	{
+		"odata.metadata":"<url>",
+		"Status":"Finished",
+		"TopicInfo":[
+		{
+			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+			"Score":8.0,
+			"KeyPhrase":"food"
+		},
+		...
+		{
+			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+			"Score":6.0,
+			"KeyPhrase":"decor"
+    		}
+  		],
+		"TopicAssignment":[
+		{
+			"Id":"1",
+			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+			"Distance":0.7809
+		},
+		...
+		{
+			"Id":"100",
+			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+			"Distance":0.8034
+		}
+		],
+		"Errors":[]
+
+
+Las propiedades de cada parte de la respuesta son las siguientes:
+
+**Propiedades de TopicInfo**
+
+| Clave | Descripción |
+|:-----|:----|
+| TopicId | Un identificador único para cada tema. |
+| Score | Recuento de registros asignados al tema. |
+| KeyPhrase | Una palabra o frase de resumen para el tema. Puede ser una palabra o varias. |
+
+**Propiedades de TopicAssignment**
+
+| Clave | Descripción |
+|:-----|:----|
+| Id | Identificador del registro. Equivale al identificador incluido en la entrada. |
+| TopicId | El identificador de tema que se ha asignado al registro. |
+| Distancia | Confianza de que el registro pertenece al tema. La distancia más cercana a cero indica mayor confianza. |
+
+<!---HONumber=AcomDC_0224_2016-->

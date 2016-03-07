@@ -13,7 +13,7 @@ Las siguientes son las condiciones de error, estas condiciones producirán una e
 3.	El resultado de la consulta SQL no tiene un nombre de columna que esté especificado en la asignación.
 
 ## Ejemplos de asignación de columnas
-> [AZURE.NOTE]Los ejemplos a continuación son para SQL Azure y Azure Blob pero son aplicables de la misma manera a cualquier almacén de datos que admita tablas rectangulares. Tendrá que ajustar el conjunto de datos y las definiciones de servicios vinculados en los ejemplos siguientes para que apunten a los datos en el origen de datos correspondiente.
+> [AZURE.NOTE] Los ejemplos siguientes son para SQL Azure y Azure Blob, pero son aplicables a cualquier almacén de datos que admita conjuntos de datos rectangulares. Tendrá que ajustar el conjunto de datos y las definiciones de servicios vinculados en los ejemplos siguientes para que apunten a los datos en el origen de datos correspondiente.
 
 ### Ejemplo 1: asignación de columnas de SQL Server a un blob de Azure
 En este ejemplo la tabla de entrada tiene una estructura y apunta a una tabla SQL en una base de datos de SQL de Azure.
@@ -149,4 +149,4 @@ En este caso, los resultados de consulta se asignan primero a las columnas espec
 
 ![Flujo de asignación de columnas 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

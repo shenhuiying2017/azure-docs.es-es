@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 
 ## Información general
 
-En este artículo se describe cómo empezar a usar el Almacenamiento de colas de Azure en un proyecto de WebJobs de Azure de Visual Studio después de crear una cuenta de almacenamiento de Azure o hacer referencia a ella con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instalan los paquetes de NuGet de Almacenamiento de Azure adecuados, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
+En este artículo se describe cómo empezar a usar el Almacenamiento en cola de Azure en un proyecto de WebJobs de Azure de Visual Studio después de crear una cuenta de almacenamiento de Azure o hacer referencia a ella con el cuadro de diálogo <1>Agregar servicios conectados</1> de Visual Studio. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instalan los paquetes de NuGet de Almacenamiento de Azure adecuados, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
 
 En este artículo se ofrecen ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de colas de Azure.
 
-El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Para obtener más información, consulte [Uso del almacenamiento en cola en .NET](storage-dotnet-how-to-use-queues.md). Para obtener más información acerca de ASP.NET, consulte [ASP.NET](http://www.asp.net).
+El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Vea [Introducción al Almacenamiento en cola de Azure mediante .NET](storage-dotnet-how-to-use-queues.md) para obtener más información. Para obtener más información acerca de ASP.NET, consulte [ASP.NET](http://www.asp.net).
 
 
 
 ## Desencadenar una función cuando se recibe un mensaje de cola
 
-Para escribir una función que el SDK de WebJobs llama cuando se recibe un mensaje en cola, use el atributo **QueueTrigge**. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la cola para sondear. También puede [establecer dinámicamente el nombre de cola](how-to-set-configuration-options).
+Para escribir una función que el SDK de WebJobs llama cuando se recibe un mensaje en cola, use el atributo **QueueTrigge**. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la cola para sondear. Para ver cómo establecer dinámicamente el nombre de la cola, consulte [Establecimiento de opciones de configuración](#how-to-set-configuration-options).
 
 ### Mensajes en cola de cadena
 
@@ -259,7 +259,7 @@ La interfaz **IBinder** también puede usarse con los atributos **Table** y **Bl
 
 ## Lectura y escritura de blobs y tablas al procesar un mensaje de cola
 
-Los atributos **Blob** y **Table** permiten leer y escribir los blobs y tablas. Los ejemplos en esta sección se aplican a los blobs. Para los ejemplos de código que muestran cómo desencadenar procesos cuando se crean o actualizan los blobs, consulte [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), y para obtener ejemplos de código que leen y escriben las tablas, vea [Cómo usar el almacenamiento de tablas Azure con el SDK de WebJobs](/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Los atributos **Blob** y **Table** permiten leer y escribir los blobs y tablas. Los ejemplos en esta sección se aplican a los blobs. Para los ejemplos de código que muestran cómo desencadenar procesos cuando se crean o actualizan los blobs, consulte [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), y para obtener ejemplos de código que leen y escriben las tablas, vea [Cómo usar el almacenamiento de tablas Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### Mensajes en cola de cadena que desencadenan operaciones de blob
 
@@ -275,7 +275,7 @@ El ejemplo siguiente usa objetos **Stream** para leer y escribir blobs. El mensa
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
-El constructor de atributo **Blob** toma un parámetro **blobPath** que especifica el nombre del contenedor y el nombre del blob. Para obtener más información acerca de este marcador de posición, consulte [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md),
+El constructor de atributo **Blob** toma un parámetro **blobPath** que especifica el nombre del contenedor y el nombre del blob. Para obtener más información acerca de este marcador de posición, consulte [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md).
 
 Cuando el atributo representa a un objeto **Stream**, otro parámetro de constructor especifica el modo **FileAccess** como lectura, escritura o lectura/escritura.
 
@@ -290,7 +290,7 @@ En el ejemplo siguiente se usa un objeto **CloudBlockBlob** para eliminar un blo
 
 ### Mensajes en cola POCO [ (objeto CRL estándar](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 
-Para un objeto POCO almacenado como JSON en el mensaje de la cola, puede usar marcadores de posición que asignen nombre a propiedades del objeto en el parámetro **blobPath** del atributo **Queue**. También puede utilizar [nombres de propiedad de metadatos de cola](#get-queue-or-queue-message-metadata) como marcadores de posición.
+Para un objeto POCO almacenado como JSON en el mensaje de la cola, puede usar marcadores de posición que asignen nombre a propiedades del objeto en el parámetro **blobPath** del atributo **Queue**. También puede utilizar nombres de propiedad de metadatos de cola como marcadores de posición. Consulte [Obtener metadatos de cola o de mensaje en cola](#get-queue-or-queue-message-metadata).
 
 El ejemplo siguiente copia un blob a un blob nuevo con una extensión distinta. El mensaje de la cola es un objeto **BlobInformation** que incluye las propiedades **BlobName** y **BlobNameWithoutExtension**. Los nombres de propiedad se usan como marcadores de posición en la ruta de acceso del blob para los atributos **Blob**.
 
@@ -308,7 +308,7 @@ El SDK usa el [paquete Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newt
 		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 		logQueue.AddMessage(queueMessage);
 
-Si necesita realizar algún trabajo en la función antes de enlazar un blob a un objeto, puede usar el atributo en el cuerpo de la función, [como se ha mostrado anteriormente para el atributo de cola](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
+Si necesita realizar algún trabajo en la función antes de enlazar un blob a un objeto, puede usar el atributo en el cuerpo de la función, como se ha mostrado en [Utilizar atributos del SDK de WebJobs en el cuerpo de una función](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
 
 ###Tipos con los que puede usar el atributo Blob
 
@@ -332,7 +332,7 @@ Los mensajes cuyo contenido produce un error de una función se denominan *mensa
 
 ### Control automático de mensajes dudosos
 
-El SDK llamará a una función hasta 5 veces para procesar un mensaje de la cola. Si se produce un error en el quinta intento, el mensaje se mueve a una cola de mensajes dudosos. [Es posible configurar el número máximo de reintentos](#how-to-set-configuration-options).
+El SDK llamará a una función hasta 5 veces para procesar un mensaje de la cola. Si se produce un error en el quinta intento, el mensaje se mueve a una cola de mensajes dudosos. Puede ver cómo configurar el número máximo de reintentos en [Establecimiento de opciones de configuración](#how-to-set-configuration-options).
 
 La cola de mensajes dudosos se denomina *{originalqueuename}*-poison. Puede escribir una función para procesar los mensajes desde la cola de mensajes dudosos registrándolos o enviando una notificación indicando que se necesita atención manual.
 
@@ -501,7 +501,7 @@ Para escribir [registros de seguimiento de aplicación](web-sites-dotnet-trouble
 
 El resultado de la consola aparece en el Panel solo si el programa se ejecuta en un Azure WebJob, no si el programa se ejecuta localmente o en algún otro entorno.
 
-Puede deshabilitar el registro [definiendo la cadena de conexión del panel en Null](#how-to-set-configuration-options).
+Para deshabilitar el registro estableciendo la cadena de conexión del panel en null. Para obtener más información, consulte [Establecimiento de opciones de configuración](#how-to-set-configuration-options).
 
 En el ejemplo siguiente se muestran varias maneras de escribir registros:
 
@@ -541,6 +541,6 @@ Y en una tabla de Azure los registros **Console.Out** y **Console.Error** tienen
 
 ##Pasos siguientes
 
-En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
+En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

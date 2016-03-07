@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/19/2016"
     ms.author="prkhad"/>
 
 
@@ -31,11 +31,11 @@ La finalidad de esta guía es ayudar a los nuevos usuarios del Almacenamiento pr
 
 Para completar el proceso de migración en su totalidad puede ser necesario realizar acciones adicionales antes y después de los pasos proporcionados en esta guía, por ejemplo, configurar redes virtuales o extremos, o realizar cambios de código dentro de la propia aplicación. Estas acciones son únicas para cada aplicación y deben completarse junto con los pasos proporcionados en esta guía para realizar la transición completa a Almacenamiento premium lo más fácilmente posible.
 
-Encontrará una introducción a las características de Almacenamiento premium en [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](storage-premium-storage-preview-portal.md).
+Encontrará una introducción a las características de Almacenamiento premium en [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](storage-premium-storage.md).
 
 Esta guía se divide en dos secciones donde se tratan los dos escenarios de migración siguientes:
 
-- [Migrar máquinas virtuales desde fuera de Azure al Almacenamiento premium de Azure](#migrating-vms-from-outside-azure-to-azure-premium-storage).
+- [Migrar máquinas virtuales desde otras plataformas al Almacenamiento premium de Azure](#migrating-vms-from-other-platforms-to-azure-premium-storage).
 - [Migrar máquinas virtuales de Azure al Almacenamiento premium de Azure](#migrating-existing-azure-vms-to-azure-premium-storage).
 
 Siga los pasos especificados en la sección correspondiente en función de su escenario.
@@ -45,7 +45,7 @@ Siga los pasos especificados en la sección correspondiente en función de su es
 ### Requisitos previos
 - Necesitará una suscripción de Azure. Si no tiene una, puede crear una suscripción de [prueba gratuita](https://azure.microsoft.com/pricing/free-trial/) de un mes o visitar la página [Precios de Azure](https://azure.microsoft.com/pricing/) para conocer más opciones.
 - Para ejecutar los cmdlets de PowerShell, necesitará un módulo de PowerShell de Microsoft Azure. Vaya a [Descargas de Microsoft Azure](https://azure.microsoft.com/downloads/) para descargar el módulo.
-- Si tiene previsto ejecutar máquinas virtuales de Azure en Almacenamiento premium, deberá usar las máquinas virtuales de las series DS o GS. Con la serie DS de máquinas virtuales se pueden usar discos de almacenamiento tanto estándar como premium. Pronto habrá disponibles discos de Almacenamiento premium con más tipos de VM. Para más información sobre todos los tamaños y tipos de disco de máquina virtual de Azure disponibles, vea [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
+- Si tiene previsto ejecutar máquinas virtuales de Azure en Almacenamiento premium, deberá usar las máquinas virtuales de las series DS o GS. Con la serie DS de máquinas virtuales se pueden usar discos de almacenamiento tanto estándar como premium. Pronto habrá disponibles discos de Almacenamiento premium con más tipos de VM. Para más información sobre todos los tamaños y tipos de disco de máquina virtual de Azure disponibles, vea [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-size-specs.md) y [Tamaños de servicios en la nube](../cloud-services/cloud-services-sizes-specs.md).
 
 ### Consideraciones
 
@@ -64,16 +64,16 @@ Hay tres tipos de discos que se pueden usar con las máquinas virtuales, cada un
 
 #### Objetivos de escalabilidad de la cuenta de almacenamiento
 
-Aparte de los [objetivos de escalabilidad y rendimiento del almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx), las cuentas de Almacenamiento premium tienen estos otros objetivos de escalabilidad. Si los requisitos de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento.
+Aparte de los [objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md), las cuentas de Almacenamiento premium tienen estos otros objetivos de escalabilidad. Si los requisitos de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento.
 
 |Capacidad total de la cuenta|Ancho de banda total de una cuenta de almacenamiento con redundancia local|
 |:--|:---|
 |Capacidad de disco: 35 TB<br />Capacidad de instantánea: 10 TB|Hasta 50 gigabits por segundo de entrada y salida|
 
-Para más información sobre las especificaciones del Almacenamiento premium, consulte [Objetivos de escalabilidad y rendimiento al usar el Almacenamiento premium](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whes-ESing-premium-storage).
+Para más información sobre las especificaciones del Almacenamiento premium, consulte [Objetivos de escalabilidad y rendimiento al usar el Almacenamiento premium](storage-premium-storage.md#scalability-and-performance-targets-whes-ESing-premium-storage).
 
 #### Discos de datos adicionales
-Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. Si secciona discos de datos Almacenamiento premium usando [Espacios de almacenamiento](http://technet.microsoft.com/library/hh831739.aspx), será necesario configurarlo con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm*. Vea el artículo [Configuración del software RAID en Linux](../virtual-machines-linux-configure-raid.md) para más información.
+Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. Si secciona discos de datos Almacenamiento premium usando [Espacios de almacenamiento](http://technet.microsoft.com/library/hh831739.aspx), será necesario configurarlo con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm*. Vea el artículo [Configuración del software RAID en Linux](../virtual-machines/virtual-machines-linux-configure-raid.md) para más información.
 
 #### Directiva de almacenamiento en caché de disco
 De forma predeterminada, la directiva de almacenamiento en caché de los discos es *Solo lectura* para todos los discos de datos Premium y *Lectura y Escritura* para el disco del sistema operativo Premium vinculado a la máquina virtual. Recomendamos esta opción de configuración para lograr el rendimiento óptimo de E/S de la aplicación. Para discos de datos de solo escritura o de gran cantidad de escritura (por ejemplo, archivos de registro de SQL Server), deshabilite el almacenamiento en caché de disco para lograr un mejor rendimiento de la aplicación. La configuración de caché de los discos de datos existentes se puede actualizar con el *Portal de Azure* o con el parámetro [- HostCaching](https://portal.azure.com) del cmdlet *Set-AzureDataDisk*.
@@ -99,11 +99,11 @@ Para migrar las máquinas virtuales, necesitará:
 
 - Una suscripción de Azure, una cuenta de almacenamiento y un contenedor en dicha cuenta en el que copiar el disco duro virtual. Conviene saber que, según cuáles sean sus necesidades, la cuenta de almacenamiento de destino puede ser una cuenta de almacenamiento estándar o premium.
 - Una herramienta para generalizar el disco duro virtual, en caso de que tenga intención de crear varias instancias de máquina virtual a partir de dicho disco. Por ejemplo, sysprep para Windows o virt sysprep para Ubuntu.
-- Una herramienta para cargar el archivo VHD en la cuenta de almacenamiento. Por ejemplo, [AzCopy](storage-use-azcopy.md) o el [explorador de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Esta guía describe el procedimiento de copiar su VDN con la herramienta AzCopy.
+- Una herramienta para cargar el archivo VHD en la cuenta de almacenamiento. Consulte [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md) o use un [Explorador de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Esta guía describe el procedimiento de copiar su VDN con la herramienta AzCopy.
 
 > [AZURE.NOTE] Para obtener un rendimiento óptimo, copie el disco duro virtual ejecutando una de estas herramientas desde una máquina virtual de Azure que está en la misma región que la cuenta de almacenamiento de destino. Si está copiando un VHD de una máquina virtual de Azure en una región distinta, el rendimiento puede ser más lento.
 >
-> En caso de copiar grandes cantidades de datos sobre un ancho de banda limitado, piense en recurrir al [servicio Importación/Exportación de Microsoft Azure](storage-import-export-service.md) para transferir los datos enviando las unidades de disco duro a un centro de datos de Azure. Puede usar el servicio de importación y exportación de Azure para copiar los datos solo en una cuenta de almacenamiento estándar. Una vez que los datos estén en la cuenta de almacenamiento estándar, puede usar la [API Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) o AzCopy para transferirlos a la cuenta de almacenamiento premium.
+> En caso de copiar grandes cantidades de datos sobre un ancho de banda limitado, piense en recurrir al [servicio Importación/Exportación de Azure para transferir los datos al Almacenamiento de blobs](storage-import-export-service.md); esto permite transferir los datos enviando las unidades de disco duro a un centro de datos de Azure. Puede usar el servicio de importación y exportación de Azure para copiar los datos solo en una cuenta de almacenamiento estándar. Una vez que los datos estén en la cuenta de almacenamiento estándar, puede usar la [API Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) o AzCopy para transferirlos a la cuenta de almacenamiento premium.
 >
 > Tenga en cuenta que Microsoft Azure solo admite archivos VHD de tamaño fijo. No se admiten archivos VHDX ni discos duros virtuales dinámicos. Si tiene un disco duro virtual dinámico, puede convertirlo a tamaño fijo con el cmdlet [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx).
 
@@ -115,7 +115,7 @@ A continuación se describen algunos escenarios para preparar los discos duros v
 
 Si está cargando un disco duro virtual que se va usar para crear varias instancias de máquina virtual de Azure genéricas, antes habrá que generalizarlo usando una utilidad sysprep. Esto es válido para discos duros virtuales tanto locales como en la nube. Sysprep quita cualquier información específica del equipo del disco duro virtual.
 
->[AZURE.IMPORTANT] Realice una instantánea o copia de seguridad de la máquina virtual antes de generalizarla. Al ejecutar sysprep se eliminará la instancia de máquina virtual. Siga los pasos que se muestran a continuación para un sysprep de un disco duro virtual del sistema operativo Windows. Tenga en cuenta que la ejecución del comando Sysprep requerirá que apague la máquina virtual. Para obtener más información sobre Sysprep, consulte [Introducción a Sysprep](http://technet.microsoft.com/library/hh825209.aspx) o [Referencia técnica de Sysprep](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx).
+>[AZURE.IMPORTANT] Realice una instantánea o copia de seguridad de la máquina virtual antes de generalizarla. Al ejecutar sysprep se eliminará la instancia de máquina virtual. Siga los pasos que se muestran a continuación para un sysprep de un disco duro virtual del sistema operativo Windows. Tenga en cuenta que la ejecución del comando Sysprep requerirá que apague la máquina virtual. Para obtener más información sobre Sysprep, consulte [Introducción a Sysprep](http://technet.microsoft.com/library/hh825209.aspx) o [Referencia técnica de Sysprep](http://technet.microsoft.com/library/cc766049.aspx).
 
 1. Abra una ventana de símbolo del sistema como administrador.
 2. Escriba el siguiente comando para abrir Sysprep:
@@ -197,7 +197,7 @@ Con AzCopy, puede cargar el disco duro virtual fácilmente a través de Internet
  - **/BlobType: page:** indica que el destino es un blob en páginas.
  - **/Pattern: *&lt;file-name&gt;:*** escriba el nombre de archivo del disco duro virtual que va a copiar.
 
-Para obtener más información sobre el uso de la herramienta AzCopy, consulte [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md).
+Para obtener más información sobre cómo usar la herramienta AzCopy, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
 ### Copiar un disco duro virtual con PowerShell
 También puede copiar el archivo VHD con el cmdlet de PowerShell Start-AzureStorageBlobCopy. Use el siguiente comando de Azure PowerShell para copiar el VHD: Reemplace los valores de <> por los valores correspondientes de la cuenta de almacenamiento de origen y de destino. Para usar este comando, debe tener un contenedor llamado vhds en la cuenta de almacenamiento de destino. Si el contenedor no existe, créelo antes de ejecutar el comando.
@@ -212,7 +212,7 @@ También puede copiar el archivo VHD con el cmdlet de PowerShell Start-AzureStor
 También puede cargar un VHD a la cuenta de almacenamiento mediante uno de los siguientes medios:
 
 - [API de tipo Copy Blob de Almacenamiento Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Servicio de importación y exportación de Azure](https://msdn.microsoft.com/library/dn529096.aspx)
+- [Referencia de la API de REST de servicios de importación y exportación de almacenamiento](https://msdn.microsoft.com/library/dn529096.aspx)
 
 >[AZURE.NOTE] El servicio de importación y exportación solamente se puede usar para copiar en una cuenta de almacenamiento estándar. Para copiar desde el almacenamiento estándar a una cuenta de Almacenamiento premium, use una herramienta como AzCopy.
 
@@ -663,18 +663,18 @@ Las bases de datos y otras aplicaciones complejas pueden requerir pasos especial
 Vea los siguientes recursos para conocer otros escenarios específicos de migración de máquinas virtuales.
 
 - [Migrar máquinas virtuales de Azure entre cuentas de almacenamiento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-- [Crear y cargar un VHD de Windows Server a Azure](../virtual-machines-create-upload-vhd-windows-server.md)
-- [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](../virtual-machines-linux-create-upload-vhd.md)
+- [Crear y cargar un VHD de Windows Server a Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
+- [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](../virtual-machines/virtual-machines-linux-create-upload-vhd.md)
 - [Migrar máquinas virtuales de Amazon AWS a Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Vea también los siguientes recursos para obtener más información sobre Almacenamiento de Azure y Máquinas virtuales de Azure:
 
 - [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Máquinas virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-- [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md)
+- [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md)
 
 [1]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

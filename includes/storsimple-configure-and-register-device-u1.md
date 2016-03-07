@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 12/01/15-->
+<!--author=alkohli last changed: 02/22/2016-->
 
 
 ### Para configurar y registrar el dispositivo
@@ -27,9 +27,9 @@
    - Puerta de enlace
    - Dirección IP para el servidor DNS principal
     
-		Tenga en cuenta que el sistema valida la configuración de red después de cada paso del proceso.
-   
-      > [AZURE.NOTE] Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «Compruebe la conectividad de red para Data 0», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
+	Tenga en cuenta que el sistema valida la configuración de red después de cada paso del proceso.
+		   
+	> [AZURE.NOTE] Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «Compruebe la conectividad de red para Data 0», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
 
 8. (Opcional) Configure el servidor proxy web. Aunque la configuración del proxy web es opcional, **tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí**. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md).
 
@@ -58,14 +58,14 @@
   2. Haga clic en **Ver los dispositivos conectados**.
   3. En la página **Dispositivos**, compruebe que el dispositivo se conectó correctamente al servicio consultando el estado. El estado del dispositivo debe ser **Conectado**.
    
-    	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
+	![Página de dispositivos de StorSimple](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png)
   
-        Si el estado del dispositivo es Desconectado, espere un par de minutos hasta que el dispositivo se conecte. 
-      
-        Si el dispositivo sigue estando sin conexión después de unos minutos, tendrá que asegurarse de que la red de firewall se configuró como se describe en los [requisitos de red para el dispositivo StorSimple](../articles/storsimple/storsimple-system-requirements.md). 
+	Si el estado del dispositivo es **Desconectado**, espere un par de minutos para que el servicio vuelva a estar en línea.
 
-		Si no es compatible con HTTP 1.1, compruebe el puerto 9354 para asegurarse de que está abierto para la comunicación saliente. Este puerto se usa para la comunicación entre el servicio StorSimple Manager y su dispositivo de StorSimple.
+	Si el dispositivo sigue sin conexión tras unos minutos, hay que asegurarse de que la red de firewall se haya configurado tal como se describe en [Software de StorSimple, alta disponibilidad y requisitos de red](../articles/storsimple/storsimple-system-requirements.md).
+
+	Compruebe que el puerto 9354 está abierto para la comunicación saliente, ya que lo usa el Bus de servicio para la comunicación de servicio al dispositivo de StorSimple Manager.
      
        
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

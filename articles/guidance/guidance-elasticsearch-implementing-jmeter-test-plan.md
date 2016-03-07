@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Consideraciones para implementar un plan de pruebas con JMeter para Elasticsearch | Microsoft Azure"
+   pageTitle="Implementación de un plan de pruebas con JMeter para Elasticsearch | Microsoft Azure"
    description="Cómo ejecutar pruebas de rendimiento para Elasticsearch con JMeter."
    services=""
    documentationCenter="na"
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
-   ms.author="mabsimms"/>
+   ms.date="02/18/2016"
+   ms.author="masimms"/>
    
-# Consideraciones para implementar un plan de pruebas con JMeter para Elasticsearch
+# Implementación de un plan de pruebas con JMeter para Elasticsearch
 
-Este artículo [forma parte de una serie](guidance-elasticsearch-introduction.md).
+Este artículo [forma parte de una serie](guidance-elasticsearch.md).
 
-Las pruebas de rendimiento realizadas en Elasticsearch se implementan mediante planes de pruebas de JMeter junto con el código de Java incorporado como una prueba de JUnit para realizar tareas como la carga de datos en el clúster. Los planes de pruebas y el código de JUnit se describen en los documentos Maximizing Data Ingestion Performance with Elasticsearch on Azure (Maximizar el rendimiento de la ingesta de datos con Elasticsearch en Azure) y Maximizing Data Aggregation and Query Performance with Elasticsearch on Azure (Maximizar el rendimiento de la consulta y la agregación de datos con Elasticsearch en Azure).
+Las pruebas de rendimiento realizadas en Elasticsearch se implementan mediante planes de pruebas de JMeter junto con el código de Java incorporado como una prueba de JUnit para realizar tareas como la carga de datos en el clúster. Los planes de pruebas y el código de JUnit se describen en [Ajuste del rendimiento de introducción de datos para Elasticsearch en Azure][] y [Ajuste de la agregación de datos y el rendimiento de las consultas para Elasticsearch en Azure][].
 
 El propósito de este documento es resumir la experiencia clave obtenida al construir y ejecutar estos planes de pruebas. La página de [procedimientos recomendados de JMeter](http://jmeter.apache.org/usermanual/best-practices.html) del sitio web de Apache JMeter contiene asesoramiento más generalizado sobre el uso eficaz de JMeter.
 
@@ -33,11 +33,13 @@ En la lista siguiente se resumen los elementos que se deben tener en cuenta al c
 
 - Evite crear demasiados subprocesos en un grupo de subprocesos. Un número excesivo de subprocesos provocará un error de JMeter con las excepciones "Memoria insuficiente". Es mejor agregar más servidores subordinados de JMeter cada vez que se ejecuta un número inferior de subprocesos que intentar ejecutar un gran número de subprocesos en un único servidor de JMeter.
 
-![](./media/guidance-elasticsearch-jmeter-testing1.png)
+![](./media/guidance-elasticsearch/jmeter-testing1.png)
 
-- Para evaluar el rendimiento del clúster, incorpore el complemento [PerfMon Metrics Collector](http://jmeter-plugins.org/wiki/PerfMon/) al plan de pruebas; se trata de un agente de escucha de JMeter que está disponible como uno de los complementos estándares de JMeter. Guarde los datos de rendimiento sin procesar en un conjunto de archivos en formato CSV y procéselos una vez finalizada la prueba. Esto es más eficaz e impone menos presión en JMeter que intentar procesar los datos mientras se capturan. Puede utilizar una herramienta tipo Excel para importar los datos y generar una serie de gráficos para fines analíticos.
+- Para evaluar el rendimiento del clúster, incorpore el complemento [PerfMon Metrics Collector](http://jmeter-plugins.org/wiki/PerfMon/) al plan de pruebas; se trata de un agente de escucha de JMeter que está disponible como uno de los complementos estándares de JMeter. Guarde los datos de rendimiento sin procesar en un conjunto de archivos en formato CSV y procéselos una vez finalizada la prueba. Esto es más eficaz e impone menos presión en JMeter que intentar procesar los datos mientras se capturan. 
 
-![](./media/guidance-elasticsearch-jmeter-testing2.png)
+Puede utilizar una herramienta tipo Excel para importar los datos y generar una serie de gráficos para fines analíticos.
+
+![](./media/guidance-elasticsearch/jmeter-testing2.png)
 
 Considere la posibilidad de capturar la información siguiente:
 
@@ -57,19 +59,19 @@ El campo 16 de la salida de *vmstat* contiene el tiempo de espera de la CPU para
 
 - Utilice agentes de escucha de informe agregado independientes para registrar el rendimiento y la frecuencia de las operaciones correctas e incorrectas. Capture datos correctos e incorrectos en archivos diferentes.
 
-![](./media/guidance-elasticsearch-jmeter-testing3.png)
+![](./media/guidance-elasticsearch/jmeter-testing3.png)
 
 - Mantenga cada caso de prueba de JMeter de la manera más sencilla posible para poder correlacionar directamente el rendimiento con acciones de prueba específicas. Para casos de prueba que requieren una lógica compleja, considere la posibilidad de encapsular esta lógica en una prueba de JUnit y use la muestra de solicitud de JUnit en JMeter para ejecutar la prueba.
 
 - Utilice la muestra de solicitud HTTP para realizar operaciones HTTP, como GET, POST, PUT o DELETE. Por ejemplo, puede ejecutar búsquedas de Elasticsearch mediante una consulta POST y proporcionar los detalles de la consulta en el cuadro de *datos del cuerpo*:
 
-![](./media/guidance-elasticsearch-jmeter-testing4.png)
+![](./media/guidance-elasticsearch/jmeter-testing4.png)
 
 - Para facilitar la repetibilidad y la reutilización, parametrice los planes de pruebas de JMeter. A continuación, puede utilizar scripting para automatizar la ejecución de planes de pruebas.
 
 ## Implementación de una prueba de JUnit
 
-Puede incorporar código complejo en un plan de pruebas de JMeter mediante la creación de una o varias pruebas de JUnit. Puede escribir una prueba de JUnit mediante un IDE de Java como Eclipse. En el documento How-To: Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance (Creación e implementación de una muestra de JUnit en JMeter para probar el rendimiento de Elasticsearch) se ofrece información sobre cómo configurar un entorno de desarrollo apropiado.
+Puede incorporar código complejo en un plan de pruebas de JMeter mediante la creación de una o varias pruebas de JUnit. Puede escribir una prueba de JUnit mediante un IDE de Java como Eclipse. [Implementación de una muestra de JUnit en JMeter para probar el rendimiento de Elasticsearch][]\: ofrece información sobre cómo configurar un entorno de desarrollo apropiado.
 
 En la lista siguiente se resumen algunos procedimientos recomendados que se deben seguir al escribir el código para una prueba de JUnit:
 
@@ -84,7 +86,7 @@ private String clusterName = "";
 private int itemsPerBatch = 0;
 
 /* JUnit test class constructor */
-public ElasticSearchLoadTest2(String params) {
+public ElasticsearchLoadTest2(String params) {
 	/* params is a string containing a set of comma separated values for:
 		hostName
 		indexName
@@ -134,4 +136,9 @@ public void bulkInsertTest() throws IOException {
 }
 ```
 
-<!---HONumber=AcomDC_0211_2016-->
+[Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
+[Ajuste del rendimiento de introducción de datos para Elasticsearch en Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
+[Implementación de una muestra de JUnit en JMeter para probar el rendimiento de Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
+[Ajuste de la agregación de datos y el rendimiento de las consultas para Elasticsearch en Azure]: guidance-elasticsearch-tuning-data-aggregation-and-query-performance.md
+
+<!---HONumber=AcomDC_0224_2016-->

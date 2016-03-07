@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 9/23/15-->
+<!--author=alkohli last changed:02/22/16-->
 
 #### Conexión de los cables SAS
 
@@ -13,7 +13,7 @@
     |1|Receptáculo principal|
     |2|Receptáculo EBOD|
 
-2. Busca los números de serie del alojamiento principal y de EBOD. La etiqueta del número de serie está colocada en el dispositivo de escucha posterior de cada alojamiento. Los números de serie deben ser idénticos en ambos receptáculos. [Contactar al servicio técnico de Microsoft](storsimple-contact-microsoft-support.md) inmediatamente si no coinciden los números de serie. Consulta la siguiente ilustración para localizar los números de serie.
+2. Busca los números de serie del alojamiento principal y de EBOD. La etiqueta del número de serie está colocada en el dispositivo de escucha posterior de cada alojamiento. Los números de serie deben ser idénticos en ambos receptáculos. [Contactar al servicio técnico de Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) inmediatamente si no coinciden los números de serie. Consulta la siguiente ilustración para localizar los números de serie.
 
     ![Vista trasera del alojamiento que muestra el número de serie](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
 
@@ -46,4 +46,4 @@
     |5, 6|Puertos SAS del receptáculo principal (con la etiqueta EBOD)|
     |7, 8|Puertos SAS del receptáculo EBOD (puerto A)|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

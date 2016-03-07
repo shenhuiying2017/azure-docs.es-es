@@ -14,15 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
 # Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure (Linux)
 
 Obtenga información acerca de cómo crear una aplicación de aprendizaje automático con un clúster Apache Spark en HDInsight. En este artículo se muestra cómo usar el cuaderno de Jupyter disponible con el clúster para compilar y probar la aplicación. La aplicación usa los datos de ejemplo de HVAC.csv, que está disponible en todos los clústeres de manera predeterminada.
-
-> [AZURE.TIP] Este tutorial también está disponible como Jupyter Notebook en un clúster de Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio Bloc de notas. Para realizar el tutorial desde dentro de un cuaderno, cree un clúster de Spark, inicie un cuaderno de Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y luego ejecute el cuaderno **Aprendizaje automático de Spark: prediga la temperatura del edificio con data.ipynb de HVAC** en la carpeta **Python**.
 
 **Requisitos previos:**
 
@@ -45,7 +43,9 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 
 ##<a name="app"></a>Escritura de una aplicación de aprendizaje automático mediante Spark MLlib
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+En esta aplicación se usa una canalización Spark ML para realizar una clasificación de documentos. En la canalización, se divide el documento en palabras, se convierten las palabras en un vector numérico de característica y finalmente se genera un modelo de predicción que use los vectores de característica y las etiquetas. Realice los siguientes pasos para crear la aplicación:
+
+1. Desde el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ha fijado en el panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
 2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
@@ -53,7 +53,7 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y luego en **Python 2**.
+2. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
 	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
 
@@ -61,10 +61,7 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 
 	![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
 
-3. Comience a crear la aplicación de Aprendizaje automático. En esta aplicación se usa una canalización Spark ML para realizar una clasificación de documentos. En la canalización, se divide el documento en palabras, se convierten las palabras en un vector numérico de característica y finalmente se genera un modelo de predicción que use los vectores de característica y las etiquetas.
-
-	Para empezar a crear la aplicación, primero importe los módulos necesarios y asigne recursos a la aplicación. En la celda vacía del nuevo cuaderno, pegue el siguiente fragmento y luego presione **MAYÚS + ENTRAR**.
-
+3. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark, SQL y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos que son necesarios para este escenario. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
 
 		from pyspark.ml import Pipeline
 		from pyspark.ml.classification import LogisticRegression
@@ -73,29 +70,14 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 		
 		import os
 		import sys
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
 		from pyspark.sql.types import *
 		
 		from pyspark.mllib.classification import LogisticRegressionWithSGD
 		from pyspark.mllib.regression import LabeledPoint
 		from numpy import array
 		
-		# Assign resources to the application
-		conf = SparkConf()
-		conf.setMaster('yarn-client')
-		conf.setAppName('pysparkregression')
-		conf.set("spark.cores.max", "4")
-		conf.set("spark.executor.memory", "4g")
 		
-		sc = SparkContext(conf=conf)
-		sqlContext = SQLContext(sc)
-
-	Cada vez que se ejecuta un trabajo en Jupyter, el título de la ventana del explorador web mostrará el estado **(Ocupado)** junto con el título del cuaderno. También verá un círculo sólido junto al texto **Python 2** en la esquina superior derecha. Una vez completado el trabajo, cambiará a un círculo hueco.
-
-	 ![Estado de un trabajo de cuaderno de Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.jupyter.job.status.png "Estado de un trabajo de cuaderno de Jupyter")
- 
+	 
 4. Ahora, debe cargar los datos (hvac.csv), analizarlos y usarlos para entrenar el modelo. Para ello, se define una función que comprueba si la temperatura real del edificio es mayor que la temperatura objetivo. Si la temperatura real es mayor, el edificio está cálido, lo que viene indicado por el valor **1.0**. Si la temperatura real es menor, el edificio está frío, lo que se indica con el valor **0.0**.
 
 	Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
@@ -272,4 +254,4 @@ Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, entre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

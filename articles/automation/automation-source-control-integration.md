@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="02/09/2016"
-    ms.author="sngun" />
+    ms.date="02/18/2016"
+    ms.author="magoedte;sngun" />
 
 # Integración del control de código fuente en Automatización de Azure
 
@@ -33,7 +33,7 @@ Si ya tiene una cuenta de GitHub y un repositorio que desea vincular a Automatiz
 
 ## Paso 2: Configuración del control de código fuente en Automatización de Azure
 
-1. En la hoja Cuenta de Automatización del Portal de vista previa de Azure, haga clic en **Configurar control de código fuente.** 
+1. En la hoja Cuenta de Automatización del Portal de Azure, haga clic en **Configurar control de código fuente**. 
  
     ![Configuración del control de código fuente](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
 
@@ -158,4 +158,4 @@ Para desconectarse de su cuenta de GitHub, abra la hoja Sincronización de repos
 
 Para más información sobre la integración del control de código fuente, consulte los siguientes recursos: - [Automatización de Azure: integración del control de código fuente en Automatización de Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [Vote por su sistema de control de código fuente favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Automatización de Azure: integración del control de código fuente de runbook mediante Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

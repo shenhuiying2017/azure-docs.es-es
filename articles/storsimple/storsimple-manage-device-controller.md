@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 # Administrar controladores de su dispositivo StorSimple
@@ -41,7 +41,7 @@ No es necesario reiniciar o apagar un controlador como parte del funcionamiento 
 
 El reinicio de un dispositivo no es problemático para los iniciadores conectados, siempre que el controlador pasivo esté disponible. Si un controlador pasivo no está disponible o está desactivado, el reinicio del controlador activo puede resultar en la interrupción del servicio y en tiempo de inactividad.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 
 > - **Un controlador en ejecución nunca debe moverse físicamente ya que esto podría provocar una pérdida de redundancia y un mayor riesgo de tiempo de inactividad.**
 
@@ -63,14 +63,14 @@ Para administrar los controladores de su dispositivo desde el Portal de Azure cl
 
 	![Administrar controladores de dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	>[AZURE.NOTE]Si no ve **Administrar controladores**, debe instalar las actualizaciones. Para obtener más información, consulte [Actualizar dispositivo StorSimple](storsimple-update-device.md).
+	>[AZURE.NOTE] Si no ve **Administrar controladores**, debe instalar las actualizaciones. Para obtener más información, consulte [Actualizar dispositivo StorSimple](storsimple-update-device.md).
 
 1. En el cuadro de diálogo **Cambiar configuración de controlador**, haga lo siguiente:
 
 
 	- En la lista desplegable **Seleccionar controlador**, seleccione el controlador que desea administrar. Las opciones son Controlador 0 y Controlador 1. Estos controladores también se identifican como activo o pasivo.
 
-		>[AZURE.NOTE]Si un controlador no está disponible o está apagado, el mismo no podrá administrarse y tampoco aparecerá en la lista desplegable.
+		>[AZURE.NOTE] Si un controlador no está disponible o está apagado, el mismo no podrá administrarse y tampoco aparecerá en la lista desplegable.
 	
 
 
@@ -121,7 +121,7 @@ Lleve a cabo los siguientes pasos para apagar o reiniciar un solo controlador de
 
 En esta sección se explica cómo apagar un dispositivo StorSimple en ejecución o con errores desde un equipo remoto. Un dispositivo se apaga después de apagar sus dos controladores. El dispositivo se apaga cuando se lo va a trasladar físicamente o cuando se lo va a dejar fuera de servicio.
 
-> [AZURE.IMPORTANT]Antes de apagar el dispositivo, compruebe el estado de los componentes del dispositivo. Vaya a **Dispositivos > Mantenimiento > Estado del hardware** y compruebe que el estado de los LED de todos los componentes sea verde. Solo los dispositivos correctos tendrán un estado verde. Si el dispositivo se apaga para sustituir un componente que no funciona correctamente, verá un estado de error (rojo) o de degradado (amarillo) para los componentes correspondientes.
+> [AZURE.IMPORTANT] Antes de apagar el dispositivo, compruebe el estado de los componentes del dispositivo. Vaya a **Dispositivos > Mantenimiento > Estado del hardware** y compruebe que el estado de los LED de todos los componentes sea verde. Solo los dispositivos correctos tendrán un estado verde. Si el dispositivo se apaga para sustituir un componente que no funciona correctamente, verá un estado de error (rojo) o de degradado (amarillo) para los componentes correspondientes.
 
 #### Para apagar un dispositivo StorSimple
 
@@ -166,10 +166,12 @@ Lleve a cabo los siguientes pasos para restablecer su dispositivo Microsoft Azur
 
 	El sistema se reiniciará varias veces. Se le notificará cuando el restablecimiento se haya completado correctamente. Según el modelo del sistema, un dispositivo 8100 puede tardar de 45 a 60 minutos y un 8600 de 60 a 90 minutos en finalizar este proceso.
 
-	> [AZURE.TIP]
+	> [AZURE.TIP] 
 	
 	> - Use el comando `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` para omitir la comprobación de la versión de firmware si el cmdlet de restablecimiento de fábrica (según se usó anteriormente) notifica el siguiente error de coincidencia de firmware: El restablecimiento de fábrica no puede continuar debido a una incoherencia en las versiones de firmware. Debe omitir la comprobación de firmware (mediante el uso de opción `–SkipFirmwareCheck`) al realizar un restablecimiento de fábrica en un dispositivo que se actualizó previamente mediante Microsoft Update o un mecanismo de revisión.
 	
+	> - El procedimiento de restablecimiento de fábrica puede producir un error en los dispositivos StorSimple que ejecuten la actualización 1 o 1.1 en el Portal de Government y han llevado a cabo un reemplazo de controlador único o doble correcto (con los controladores de reemplazo que se enviaron con el software anterior a la actualización 1). Esto sucede cuando la imagen del restablecimiento de fábrica se valida para la presencia de un archivo SHA1 del controlador que no existe para el software anterior a la actualización 1. Si se produce un error en el restablecimiento de fábrica, póngase en contacto con Microsoft Support para ayudarle con los siguientes pasos. Este problema no se produce con los controladores de reemplazo enviados desde fábrica con la actualización 1 o posterior del software.
+
 	> - Para obtener más información sobre cómo usar este cmdlet, vaya a [Referencia de cmdlet de Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 
@@ -217,8 +219,8 @@ En esta sección, hemos resumido algunas de las preguntas más frecuentes sobre 
 
 ## Pasos siguientes
 
-- Si tiene algún problema con los controladores de su dispositivo StorSimple que no pueda resolver mediante el uso de los procedimientos descritos en este tutorial, [póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
+- Si tiene algún problema con los controladores de su dispositivo StorSimple que no pueda resolver mediante el uso de los procedimientos descritos en este tutorial,[póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
 - Para obtener información sobre el uso del servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

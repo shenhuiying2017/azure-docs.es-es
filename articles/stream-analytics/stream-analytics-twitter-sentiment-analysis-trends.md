@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/04/2016"
+	ms.date="02/18/2016"
 	ms.author="jeffstok"/>
 
 
@@ -29,8 +29,9 @@ Las herramientas de análisis de los medios sociales ayudan a las organizaciones
 Un sitio web multimedia de noticias está interesado en obtener una ventaja sobre sus competidores al proporcionar contenido del sitio inmediatamente relevante para sus lectores. Utilizan análisis de las redes sociales en temas relevantes para sus lectores mediante la elaboración de análisis de opinión en tiempo real de los datos de Twitter. En concreto, para identificar qué temas son tendencias en tiempo real en Twitter, necesitan el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave. Por lo que en esencia requieren un motor de análisis de análisis de opiniones basado en esta fuente de medios sociales.
 
 ## Requisitos previos
-1.	Se requiere una cuenta de Twitter para este tutorial.  
-2.	Este tutorial usa una aplicación de cliente Twitter que se encuentra en GitHub. Descárguelo [aquí](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) y siga estos pasos para configurar la solución.
+1.	Cuenta de Twitter y [token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
+2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) del Centro de descarga de Microsoft
+3.	Opcional: código fuente de cliente de twitter desde [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) 
 
 ## Cree una entrada del centro de eventos y un grupo de consumidores
 
@@ -55,16 +56,15 @@ Hemos proporcionado una aplicación cliente que aprovechará datos de Twitter a 
 
 Siga estos pasos para configurar la aplicación:
 
-1.	[Descargue la solución TwitterClient](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
-2.	Abra App.config y reemplace oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con tokens de Twitter con sus valores.  
+1.	[Descargue la solución TwitterClient](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
+2.	Abra TwitterClient.exe.config y reemplace oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con tokens de Twitter con sus valores.  
 
 	[Pasos para generar un token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Tenga en cuenta que necesitará crear una aplicación vacía para generar un token.  
-3.	Reemplace los valores de EventHubConnectionString y EventHubName en el archivo App.config con la cadena de conexión del centro de eventos y el nombre.
-4.	*Opcional:* ajuste las palabras clave que se buscarán. De forma predeterminada, esta aplicación busca "Azure, Skype, XBox, Microsoft, Seattle". Puede ajustar los valores de twitter\_keywords en el archivo App.config, si lo desea.
-5.	Compile la solución
-6.	Inicie la aplicación. Verá los eventos Tweet con los valores de CreatedAt, tema y SentimentScore que se envían al centro de eventos:
+3.	Reemplace los valores de EventHubConnectionString y EventHubName en el archivo TwitterClient.exe.config con la cadena de conexión del centro de eventos y el nombre.
+4.	*Opcional:* ajuste las palabras clave que se buscarán. De forma predeterminada, esta aplicación busca "Azure, Skype, XBox, Microsoft, Seattle". Puede ajustar los valores de twitter\_keywords en el archivo TwitterClient.exe.config, si lo desea.
+5.	Ejecute **TwitterClient.exe** para iniciar la aplicación. Verá los eventos Tweet con los valores de CreatedAt, tema y SentimentScore que se envían al centro de eventos:
 
 	![Análisis de opinión: valores de SentimentScore enviados a un centro de eventos.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
@@ -201,7 +201,7 @@ Siga estos pasos para crear un contenedor para el almacenamiento de blobs, si a�
 	* **SUSCRIPCIÓN**: si el almacenamiento de blobs que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione **Usar cuenta de almacenamiento de la suscripción actual**. Si el almacenamiento está en otra suscripción, seleccione **Utilizar almacenamiento de otra suscripción** y especifique manualmente la información de **CUENTA DE ALMACENAMIENTO**, **CLAVE DE LA CUENTA DE ALMACENAMIENTO**, **CONTENEDOR**.
 	* **CUENTA DE ALMACENAMIENTO**: seleccione el nombre de la cuenta de almacenamiento
 	* **CONTENEDOR**: seleccione el nombre del contenedor
-	* **PREFIJO DE NOMBRE DE ARCHIVO**: escriba un prefijo de archivo que se utilizará al escribir la salida de blob
+	* **PREFIJO DE NOMBRE DE ARCHIVO**: escriba un prefijo de archivo que se usará al escribir la salida de blob
 
 4.	Haga clic con el botón secundario.
 5.	Especifique los siguientes valores:
@@ -236,4 +236,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

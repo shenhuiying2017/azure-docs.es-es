@@ -11,7 +11,7 @@
 <tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="02/04/2016"
@@ -34,7 +34,8 @@ En escenarios convencionales de Internet de las cosas (IoT) se genera gran canti
 
 ## Requisitos previos
 
-Este tutorial aprovecha un generador de eventos situado en GitHub. Descárguelo [aquí](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) y siga los pasos de este tutorial para configurar la solución.
+- Descargue [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) del Centro de descarga de Microsoft. 
+- Opcional: código fuente del generador de eventos desde [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)
 
 ## Creación de un Grupo de consumidores y una entrada de Centros de eventos de Azure
 
@@ -56,16 +57,15 @@ Para crear un Centro de eventos:
 
 Proporcionamos una aplicación cliente que generará los metadatos de llamada entrante de ejemplo y los insertará en el Centro de eventos. Siga los pasos que se indican a continuación para configurar esta aplicación.
 
-1.	Descargue la solución TelcoGenerator de [https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator).
-2.	Reemplace los valores de Microsoft.ServiceBus.ConnectionString y EventHubName en el archivo App.config con la cadena de conexión del Centro de eventos y el nombre.
-3.	Compile la solución para desencadenar la descarga de paquetes de nuget necesarias.
-4.	Inicie la aplicación. El uso es como sigue:
+1.	Descargue el [archivo TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)
+2.	Reemplace los valores de Microsoft.ServiceBus.ConnectionString y EventHubName en el archivo **telcodatagen.exe.config** con la cadena de conexión del Centro de eventos y el nombre.
+3.	Inicie la aplicación. El uso es como sigue:
 
-    	telcodatagen [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
+   telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
 
-En el ejemplo siguiente, se generarán 1000 eventos con una probabilidad de fraude del 20 % en el transcurso de 2 horas.
+En el ejemplo siguiente, se generarán 1000 eventos con una probabilidad de fraude del 20 % en el transcurso de 2 horas.
 
-    TelcoDataGen.exe 1000 .2 2
+    telcodatagen.exe 1000 .2 2
 
 Podrá ver los registros que se envían al Centro de eventos. Aquí se definen algunos campos clave que se van a usar en esta aplicación de detección de fraudes en tiempo real:
 
@@ -127,7 +127,7 @@ Ahora que tenemos un flujo de eventos de telecomunicaciones, podemos configurar 
 Análisis de secuencias admite un modelo de consulta declarativo sencillo para describir las transformaciones para el procesamiento en tiempo real. Para obtener más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx). Este tutorial le ayudará a crear y probar varias consultas sobre el streaming de datos de llamada en tiempo real.
 
 #### Opcional: Datos de entrada de ejemplo
-Para validar la consulta con datos de trabajo reales, puede usar la característica **Datos de ejemplo** para extraer los eventos del streaming y crear un archivo .JSON de los eventos para las pruebas. Los pasos siguientes muestran cómo hacerlo y también hemos proporcionado un archivo de ejemplo [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) con fines de prueba.
+Para validar la consulta con datos de trabajo reales, puede usar la característica **Datos de ejemplo** para extraer los eventos del streaming y crear un archivo .JSON de los eventos para las pruebas. Los pasos siguientes muestran cómo hacerlo y también hemos proporcionado un archivo de ejemplo [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) con fines de prueba.
 
 1.	Seleccione la entrada del Centro de eventos y haga clic en **Datos de ejemplo** en la parte inferior de la página.
 2.	En el cuadro de diálogo que aparece, especifique una **Hora de inicio** para empezar a recopilar datos y una **Duración** para indicar la cantidad de datos adicionales que se consumirá.
@@ -147,7 +147,7 @@ Si desea archivar todos los eventos, puede usar una consulta de paso a través p
 	> Asegúrese de que el nombre del origen de entrada coincida con el nombre de la entrada que especificó anteriormente.
 
 3.	Haga clic en **Prueba** en el editor de consultas.
-4.	Proporcione un archivo de prueba, bien uno creado siguiendo los pasos anteriores o use [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)
+4.	Proporcione un archivo de prueba, bien uno creado siguiendo los pasos anteriores o use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)
 5.	Haga clic en el botón de comprobación y vea los resultados que aparecen debajo de la definición de consulta.
 
 	![Resultados de la definición de consulta](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -257,4 +257,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

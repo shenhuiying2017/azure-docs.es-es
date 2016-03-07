@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
 # PDF de hoja de referencia sobre SQL de DocumentDB
@@ -39,4 +39,4 @@ Descargue y use la hoja de referencia de consultas SQL para escribir consultas m
 - Para realizar un recorrido por las opciones de consulta disponibles en DocumentDB, consulte [Consulta de DocumentDB](documentdb-sql-query.md).
 - Para obtener la documentación de referencia relacionada, consulte [Lenguaje de consulta SQL de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

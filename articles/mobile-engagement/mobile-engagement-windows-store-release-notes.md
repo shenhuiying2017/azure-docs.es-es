@@ -18,6 +18,11 @@
 
 #Notas de la versión del SDK de Windows Universal Apps
 
+##3\.3.1 (18/02/2016)
+
+-   Corrija los conflictos entre el contenido HTML del anuncio web y la página HTML del SDK.
+-   Mejoras de estabilidad.
+
 ##3\.3.0 (01/22/2016)
 
 -   Corrija el formato de bloqueo en las aplicaciones UWP que se ejecutan en modo de versión.
@@ -56,4 +61,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->
