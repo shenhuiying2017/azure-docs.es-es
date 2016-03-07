@@ -76,7 +76,7 @@ Pueden utilizarse los siguientes operadores:
 - **Lógico**: && (and), || (or)
 - **Orden de evaluación**: ( )
 
-Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (*) no se evalúa antes que la resta (-). 2*(5+3) no es lo mismo que 2*5+3. Los corchetes () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
+Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (\*) no se evalúa antes que la resta (-). 2\*(5+3) no es lo mismo que 2\*5+3. Los corchetes () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
 
 ## Escenarios comunes
 
