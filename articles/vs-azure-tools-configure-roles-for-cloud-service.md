@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="02/24/2016"
    ms.author="tarcher" />
 
 # Configuración de los roles para un servicio en la nube de Azure con Visual Studio
@@ -77,7 +77,7 @@ Para mejorar el rendimiento de su servicio en la nube, puede cambiar el número 
 
 Puede agregar, quitar o modificar cadenas de conexión para sus configuraciones de servicio. Es posible que quiera diferentes cadenas de conexión para distintas configuraciones del servicio. Por ejemplo, es posible que quiera una cadena de conexión local para una configuración de servicio local que tiene un valor de `UseDevelopmentStorage=true`. También puede que desee configurar una configuración de servicio en la nube que use una cuenta de almacenamiento de Azure.
 
->[AZURE.CAUTION] Al especificar la información de la clave de la cuenta de almacenamiento de Azure para una cadena de conexión de la cuenta de almacenamiento, esta información se almacena localmente en el archivo de configuración de servicio. Sin embargo, esta información no se almacena actualmente como texto cifrado.
+>[AZURE.WARNING] Al especificar la información de la clave de la cuenta de almacenamiento de Azure para una cadena de conexión de la cuenta de almacenamiento, esta información se almacena localmente en el archivo de configuración de servicio. Sin embargo, esta información no se almacena actualmente como texto cifrado.
 
 Si usa un valor diferente para cada configuración de servicio, no tendrá que usar cadenas de conexión diferentes en su servicio en la nube ni modificar su código al publicar su servicio en la nube en Azure. Puede usar el mismo nombre para la cadena de conexión en el código y el valor será diferente, en función de la configuración del servicio que selecciona al crear su servicio en la nube o al publicarlo.
 
@@ -183,7 +183,7 @@ Al usar un valor diferente para cada configuración de servicio, no tendrá que 
 
 ## Administrar el almacenamiento local para cada instancia de rol
 
-Puede agregar almacenamiento del sistema de archivos local para cada instancia de un rol. Puede almacenar los datos locales aquí a los que no necesitan obtener acceso otros roles. Los datos que no tenga que guardar en tabla, blob o almacenamiento de base de datos SQL pueden almacenarse aquí. Por ejemplo, podría usar este almacenamiento local para almacenar datos en caché que deben volver a usarse. No se puede tener acceso a estos datos almacenados por otras instancias de un rol. Para obtener más información sobre los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](/cloud-services/cloud-services-configure-local-storage-resources.md).
+Puede agregar almacenamiento del sistema de archivos local para cada instancia de un rol. Puede almacenar los datos locales aquí a los que no necesitan obtener acceso otros roles. Los datos que no tenga que guardar en tabla, blob o almacenamiento de base de datos SQL pueden almacenarse aquí. Por ejemplo, podría usar este almacenamiento local para almacenar datos en caché que deben volver a usarse. No se puede tener acceso a estos datos almacenados por otras instancias de un rol. Para obtener más información sobre los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](cloud-services/cloud-services-configure-local-storage-resources.md).
 
 Los valores de almacenamiento local se aplican a todas las configuraciones de servicio. Solo puede agregar, quitar o modificar el almacenamiento local para todas las configuraciones de servicio.
 
@@ -293,7 +293,7 @@ Puede recopilar datos de diagnóstico para el servicio en la nube de Azure. Esto
 
 ## Cambiar el tamaño de la máquina virtual que se usa para cada rol
 
-Puede establecer el tamaño de la máquina virtual para cada rol. Solo puede establecer este tamaño para todas las configuraciones de servicio. Si selecciona un tamaño de máquina menor, se asignarán menos núcleos de CPU, memoria y almacenamiento en disco local. El ancho de banda asignado también es menor. Para obtener más información sobre estos tamaños y los recursos asignados, vea [Tamaños para los Servicios en la nube](/cloud-services/cloud-services-sizes-specs.md).
+Puede establecer el tamaño de la máquina virtual para cada rol. Solo puede establecer este tamaño para todas las configuraciones de servicio. Si selecciona un tamaño de máquina menor, se asignarán menos núcleos de CPU, memoria y almacenamiento en disco local. El ancho de banda asignado también es menor. Para obtener más información sobre estos tamaños y los recursos asignados, vea [Tamaños para los Servicios en la nube](cloud-services/cloud-services-sizes-specs.md).
 
 Los recursos necesarios para cada máquina virtual en Azure afectan al costo de ejecutar su servicio en la nube en Azure. Para obtener más información sobre la facturación de Azure, vea [Comprender la factura de Microsoft Azure](billing-understand-your-bill.md).
 
@@ -376,4 +376,4 @@ Cualquier certificado de administración que asocie a sus configuraciones de ser
 ## Pasos siguientes
 Para obtener más información sobre los proyectos de Azure en Visual Studio, consulte [Configurar un proyecto de Azure](vs-azure-tools-configuring-an-azure-project.md). Para obtener más información sobre el esquema del servicio en la nube, consulte [Referencia de esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

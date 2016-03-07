@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/01/2015"
+   ms.date="02/23/2016"
    ms.author="sstein" />
 
 # Preguntas frecuentes relacionadas con la retirada de las versiones Web y Business
@@ -31,13 +31,13 @@ Para ayudarle con la actualización de las bases de datos Web y Business, el ser
 
 ## ¿Por qué muestra el Portal de Azure mis bases de datos Web y Business como retiradas?
 
-Puesto que las versiones Web y Business de las bases de datos dejarán de estar disponibles después de septiembre de 2015, el portal etiqueta las bases de datos Web y Business como retiradas. Las bases de datos Web y Business todavía se pueden aprovisionar y administrar como de costumbre; sin embargo, la etiqueta Retirado recuerda que es preferible usar los niveles de servicio Basic, Standard o Premium para las nuevas bases de datos. La etiqueta Retirado también avisa de que se deben actualizar las bases de datos Web y Business a Premium, Basic o Standard. Para obtener información detallada sobre cómo actualizar las bases de datos Web o Business existentes a los nuevos niveles de servicio, consulte [Actualización de base de datos SQL Web/Business a los nuevos niveles de servicio](sql-database-upgrade-new-service-tiers.md).
+Puesto que las versiones Web y Business de las bases de datos dejarán de estar disponibles después de septiembre de 2015, el portal etiqueta las bases de datos Web y Business como retiradas. La etiqueta Retirado también avisa de que se deben actualizar las bases de datos Web y Business a Premium, Basic o Standard. Para obtener información detallada sobre cómo actualizar las bases de datos Web o Business existentes a los nuevos niveles de servicio, consulte [Actualización a Base de datos SQL de Azure V12](sql-database-upgrade-server-portal.md).
 
 ## ¿Qué nuevo nivel de servicio es la mejor opción para actualizar la base de datos Web o Business existente?
 
 Seleccionar un nuevo nivel de servicio y un nuevo nivel de rendimiento para la base de datos Web o Business existente depende de los requisitos específicos de características y rendimiento de su aplicación.
 
-Use las recomendaciones de nivel de precios descritas anteriormente, o bien consulte [Actualización de base de datos SQL Web/Business a los nuevos niveles de servicio](sql-database-upgrade-new-service-tiers.md) para obtener información detallada que le ayudará a seleccionar un nivel de servicio adecuado.
+Use las recomendaciones de plan de tarifa descritas anteriormente, o bien consulte [Actualización a Base de datos SQL de Azure V12](sql-database-upgrade-server-portal.md) para obtener información detallada que le ayudará a seleccionar un nivel de servicio adecuado.
 
 ## ¿Por qué introduce Microsoft nuevos niveles de servicio?
 
@@ -66,6 +66,6 @@ Los niveles de bases de datos SQL de Azure Basic, Standard y Premium se facturan
 
 [Niveles de servicio](sql-database-service-tiers.md)
 
-[Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-new-service-tiers.md)
+[Actualización a Base de datos SQL de Azure V12](sql-database-upgrade-server-portal.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

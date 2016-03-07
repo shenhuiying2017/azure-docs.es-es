@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/11/2016"
    ms.author="sameerch"/>
 
 # Introducción al conector de SharePoint y su incorporación a su aplicación lógica
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
 Conéctese a SharePoint Server o SharePoint Online para administrar documentos y enumerar elementos. Puede realizar diversas acciones tales como crear, actualizar, obtener y eliminar documentos y elementos de lista. Cuando se usa el servidor local de SharePoint, puede proporcionar la cadena de conexión del bus de servicio como parte de la configuración del conector e instalar el agente de escucha local para conectarse al servidor.
 
 La aplicación de galería del conector de SharePoint Server y el conector de SharePoint Online proporciona desencadenadores y acciones como mecanismos para interactuar con SharePoint.
@@ -34,11 +36,9 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 	Nombre | Obligatorio | Descripción
 --- | --- | ---
-Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: *https://microsoft.sharepoint.com/teams/wabstest*.
-Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
+Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: **https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
 
-5. Cuando haya terminado, la configuración del paquete tendrá un aspecto similar al siguiente: 
-![][1]
+5. Cuando haya terminado, la configuración del paquete tendrá un aspecto similar al siguiente: ![][1]
 
 Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Online.
 
@@ -53,15 +53,13 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 	Nombre | Obligatorio | Descripción
 --- | --- | ---
-Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: *https://microsoft.sharepoint.com/teams/wabstest*.
-Modo de autenticación | Sí | Especifique el modo de autenticación para conectarse al sitio de SharePoint. Las opciones incluyen:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si selecciona Default, se usan las credenciales con las que se ejecuta el conector de SharePoint; no se necesitan ni el nombre de usuario ni la contraseña. El nombre de usuario y la contraseña son necesarios para otros tipos de autenticación.<br/><br/>**Nota** No se admite la autenticación anónima.
+Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: *https://microsoft.sharepoint.com/teams/wabstest*. Modo de autenticación | Sí | Especifique el modo de autenticación para conectarse al sitio de SharePoint. Las opciones incluyen:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si selecciona Default, se usan las credenciales con las que se ejecuta el conector de SharePoint; no se necesitan ni el nombre de usuario ni la contraseña. El nombre de usuario y la contraseña son necesarios para otros tipos de autenticación.<br/><br/>**Nota** No se admite la autenticación anónima.
 User Name | No | Especifique un nombre de usuario válido para conectarse al sitio de SharePoint, en caso de que el modo de autenticación no sea el predeterminado.
 Password | No | Especifique una contraseña válida para conectarse al sitio de SharePoint, en caso de que el modo de autenticación no sea el predeterminado.
 Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
 Cadena de conexión del bus de servicio | No | Si se conecta en un entorno local, escriba la cadena de conexión de Retransmisión de bus de servicio.<br/><br/>[Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md)<br/>[Precios de Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Cuando termine, la configuración del paquete tendrá un aspecto similar al siguiente:  
-![][2]
+5. Cuando termine, la configuración del paquete tendrá un aspecto similar al siguiente: ![][2]
 
 Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Server.
 
@@ -76,20 +74,15 @@ Una vez creada la aplicación de API, puede usar el conector de SharePoint como 
 
 3. Si se selecciona el conector de SharePoint al principio de la aplicación lógica, actúa como desencadenador. De lo contrario, podrían realizarse acciones en la cuenta de SharePoint mediante el conector.
 
-4. Al usar el conector de SharePoint Online, se debe autenticar y autorizar las aplicaciones lógicas para realizar operaciones en su nombre. Para iniciar la autorización, haga clic en **Autorizar** en el conector de SharePoint:  
-![][3]
+4. Al usar el conector de SharePoint Online, se debe autenticar y autorizar las aplicaciones lógicas para realizar operaciones en su nombre. Para iniciar la autorización, haga clic en **Autorizar** en el conector de SharePoint: ![][3]
 
-5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta de SharePoint en la que desea realizar las operaciones:  
-![][4]
+5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta de SharePoint en la que desea realizar las operaciones: ![][4]
 
-6. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre:  
-![][5]
+6. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre: ![][5]
 
-7. Si el conector de SharePoint está configurado como desencadenador, se muestran los desencadenadores. De lo contrario, se muestra la lista de acciones y puede elegir la operación apropiada que desea realizar:  
-![][6]
+7. Si el conector de SharePoint está configurado como desencadenador, se muestran los desencadenadores. De lo contrario, se muestra la lista de acciones y puede elegir la operación apropiada que desea realizar: ![][6]
   
-**Dirección URL relativa configurada para la biblioteca de documentos**  
-![][7]
+**Dirección URL relativa configurada para la biblioteca de documentos** ![][7]
 
 **Dirección URL relativa configurada para la lista de documentos**
 
@@ -465,11 +458,11 @@ Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybri
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](app-service-api-manage-in-portal.md).
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
 
 
 <!--Image references-->
@@ -481,4 +474,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

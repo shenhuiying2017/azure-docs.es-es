@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/20/2016" 
 	ms.author="anwestg"/>
 
 # Notas del producto sobre ofertas de Aplicaciones web del Servicio de aplicaciones de Azure para empresas #
@@ -83,9 +83,9 @@ Aplicaciones web del Servicio de aplicaciones proporciona una plataforma estable
 
 La plataforma de Microsoft Azure permite controles de autorización basados en rol que posibilitan niveles de control empresarial a recursos dentro de Aplicaciones web. RBAC ofrece a las empresas la capacidad de implementar sus propias directivas de administración de acceso para todos sus recursos en el entorno de Azure, asignando usuarios a grupos y, a su vez, asignando los permisos necesarios a esos grupos en el recurso como una aplicación web. Para obtener más información sobre RBAC en Azure, consulte [http://aka.ms/azurerbac](../role-based-access-control-configure/). Mediante el uso de Aplicaciones web, puede estar seguro de que las aplicaciones web se implementan en un entorno seguro y de que tiene control total sobre en qué territorio se implementan sus recursos.
 
-Los Entornos del Servicio de aplicaciones de Azure [http://aka.ms/aseintro] son una nueva opción del plan de servicio premium para los clientes de empresa que deseen utilizar el Servicio de aplicaciones de Azure y ofrecen un entorno totalmente aislado y dedicado. Esto permite a los clientes de empresa implementar aplicaciones que pueden sacar provecho de muy alta escala, al mismo tiempo que les permite ejercer el pleno control del tráfico de red de entrada y salida; además, los Entornos del servicio de aplicaciones permiten a las aplicaciones establecer conexiones seguras de alta velocidad a recursos locales a través de redes virtuales.
+Los Entornos del Servicio de aplicaciones de Azure [http://aka.ms/aseintro](http://aka.ms/aseintro) son una nueva opción del plan de servicio premium para los clientes de empresa que deseen usar el Servicio de aplicaciones de Azure y ofrecen un entorno totalmente aislado y dedicado. Esto permite a los clientes de empresa implementar aplicaciones que pueden sacar provecho de muy alta escala, al mismo tiempo que les permite ejercer el pleno control del tráfico de red de entrada y salida; además, los Entornos del servicio de aplicaciones permiten a las aplicaciones establecer conexiones seguras de alta velocidad a recursos locales a través de redes virtuales.
 
-Las Aplicaciones web del Servicio de aplicaciones también pueden usar íntegramente sus inversiones locales ofreciendo la posibilidad de conectarse a los recursos internos, como el almacenamiento de datos o el entorno de SharePoint. Como se analizó en la sección [Solución de alto nivel], puede utilizar las conexiones híbridas y la conectividad de Red virtual para establecer conexiones con la infraestructura y los servicios locales.
+Las Aplicaciones web del Servicio de aplicaciones también pueden usar íntegramente sus inversiones locales ofreciendo la posibilidad de conectarse a los recursos internos, como el almacenamiento de datos o el entorno de SharePoint. Como se analizó en la sección [Solución de alto nivel](#highlevel), puede hacer uso de conexiones híbridas y conectividad de redes virtuales para establecer conexiones con servicios e infraestructuras locales.
 
 ### Escala global ###
 
@@ -135,7 +135,7 @@ La plataforma de Azure ofrece varias alternativas al uso de Base datos SQL de Az
 #### Conectividad con recursos locales ####
 Aplicaciones web del Servicio de aplicaciones ofrece varias opciones de conexión a los recursos locales, como por ejemplo bases de datos, que permiten la reutilización de la infraestructura existente de alto valor. Las opciones se enumeran a continuación:
 
-- Los entornos de Servicio de aplicaciones están aislados y se crean dentro de una subred de una red virtual, permitiendo así que el entorno se comunique con puntos de conexión privados ubicados dentro de la misma red virtual - [http://aka.ms/appserviceasenetworking]
+- Los entornos de Servicio de aplicaciones están aislados y se crean dentro de una subred de una red virtual, permitiendo así que el entorno se comunique con puntos de conexión privados ubicados dentro de la misma red virtual - [http://aka.ms/appserviceasenetworking](http://aka.ms/appserviceasenetworking)
 - Integración de red virtual de Aplicaciones web admite la integración entre Aplicaciones web y una red virtual de Azure, lo que permite el acceso a los recursos que se ejecutan en la red virtual que, si se conecta a la red local con VPN de tipo sitio a sitio, permite la conectividad directa a los sistemas locales.
 - Conexiones híbridas es una característica de Servicios de BizTalk de Azure que proporciona una manera fácil de conectarse a recursos locales individuales como SQL Server, MySQL, API web HTTP y la mayoría de servicios web.
 
@@ -159,4 +159,4 @@ Para obtener más información sobre el servicio Aplicaciones web del Servicio d
  
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

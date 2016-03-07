@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 # Introducción a la API de REST de administración de búsqueda de Azure
@@ -39,11 +39,11 @@ Puede encontrar la aplicación cliente en Codeplex en [Demostración de la API d
 
 ##Configuración de la aplicación
 
-Para poder ejecutar la aplicación de ejemplo, debe habilitar la autenticación de modo que se puedan aceptar solicitudes enviadas desde la aplicación cliente al extremo del Administrador de recursos. El requisito de autenticación se origina con el [Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), que es la base para todas las operaciones relacionadas con el portal solicitadas a través de una API, incluidas las relacionadas con la administración del servicio Búsqueda. La API de administración de servicios de Búsqueda de Azure es simplemente una extensión del Administrador de recursos de Azure y, por tanto, hereda sus dependencias.
+Para poder ejecutar la aplicación de ejemplo, debe habilitar la autenticación de modo que se puedan aceptar solicitudes enviadas desde la aplicación cliente al extremo del Administrador de recursos. El requisito de autenticación se origina con el [Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx), que es la base para todas las operaciones relacionadas con el portal solicitadas a través de una API, incluidas las relacionadas con la administración del servicio Búsqueda. La API de administración de servicios de Búsqueda de Azure es simplemente una extensión del Administrador de recursos de Azure y, por tanto, hereda sus dependencias.
 
 El Administrador de recursos de Azure requiere el servicio Azure Active Directory como su proveedor de identidades.
 
-Para obtener un token de acceso que permitirá que las solicitudes lleguen al Administrador de recursos, la aplicación cliente incluye un segmento de código que llama a Active Directory. El segmento de código, además de los pasos previos para usarlo, se ha tomado prestado de este artículo: [Autenticación de solicitudes del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+Para obtener un token de acceso que permitirá que las solicitudes lleguen al Administrador de recursos, la aplicación cliente incluye un segmento de código que llama a Active Directory. El segmento de código, además de los pasos previos para usarlo, se ha tomado prestado de este artículo: [Autenticación de solicitudes del Administrador de recursos de Azure]().
 
 Puede seguir las instrucciones del vínculo anterior o usar los pasos de este documento si prefiere revisar el tutorial paso a paso.
 
@@ -54,7 +54,7 @@ En esta sección, realizaremos las siguientes tareas:
 1. Configurar la aplicación AD registrando detalles acerca de la aplicación cliente de ejemplo que descargó
 1. Cargar la aplicación cliente de ejemplo con los valores que se usarán para obtener autorización para sus solicitudes
 
-> [AZURE.NOTE]Estos vínculos proporcionan antecedentes acerca del uso de Azure Active Directory para autenticar solicitudes de cliente para el administrador de recursos: [Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Autenticación de solicitudes del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx) y [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx).
+> [AZURE.NOTE] Estos vínculos proporcionan antecedentes acerca del uso de Azure Active Directory para autenticar solicitudes de cliente para el administrador de recursos: [Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Autenticación de solicitudes del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx) y [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx).
 
 ###Crear un servicio de Active Directory
 
@@ -204,4 +204,4 @@ Una vez terminado este tutorial, puede obtener más información acerca de la ad
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

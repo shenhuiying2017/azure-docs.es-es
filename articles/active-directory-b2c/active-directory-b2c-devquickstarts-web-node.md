@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/18/2016"
 	ms.author="brandwe"/>
 
 # Vista previa de B2C: Agregar inicio de sesión a una aplicación web NodeJS
@@ -51,7 +51,7 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 
 - Incluir una **aplicación web/API web** en la aplicación.
 - Escribir `http://localhost/TodoListService` como **dirección URL de respuesta**: es la dirección URL predeterminada para este ejemplo de código.
-- Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve.
+- Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve. Tenga en cuenta que este valor debe [incluirse entre secuencias de escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) antes de su uso.
 - Escribir el **Id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -418,7 +418,7 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 
 Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
-[Protección de una API web con el modelo B2C en Node.js >>](active-directory-b2c-devquickstarts-webapi-nodejs.md)
+[Protección de una API web con el modelo B2C en Node.js >>](active-directory-b2c-devquickstarts-api-node.md)
 
 <!--
 
@@ -431,4 +431,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

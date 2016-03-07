@@ -169,7 +169,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 	HAVING
 		[Count] >= 3
 
-**Explicación**: la cláusula INTO indica a Análisis de transmisiones en cuál de las salidas se escribirán los datos de esta instrucción. La primera consulta es una transferencia de los datos que recibimos a una salida que denominamos ArchiveOutput. La segunda consulta hace una agregación y filtrado simples y envía los resultados a un sistema de alertas descendente. *Nota*: también puede volver a usar los resultados de CTE (es decir, instrucciones WITH) en varias instrucciones de salida. Esto tiene la ventaja adicional de abrir menos lectores en el origen de entrada.
+**Explicación**: la cláusula INTO indica a Análisis de transmisiones en cuál de las salidas se escribirán los datos de esta instrucción. La primera consulta es una transferencia de los datos que recibimos a una salida que denominamos ArchiveOutput. La segunda consulta hace una agregación y filtrado simples y envía los resultados a un sistema de alertas descendente. *Nota*: También puede volver a usar los resultados de CTE (es decir, instrucciones WITH) en varias instrucciones de salida. Esto tiene la ventaja adicional de abrir menos lectores en el origen de entrada.
 
 	WITH AllRedCars AS (
 		SELECT
@@ -415,7 +415,7 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 **Explicación**: use la función LAST para recuperar el último valor Time en el que el tipo de evento era "Start". Tenga en cuenta que la última LAST usa PARTITION BY [user] para indicar que el resultado se calculará por usuario único. La consulta tiene un umbral máximo de 1 hora para el intervalo de tiempo entre eventos "Start" y "Stop", pero se puede configurar como según sea necesario (LIMIT DURATION(hour, 1).
 
 ## Ejemplo de consulta: detectar la duración de una condición
-**Descripción**: averigüe durante cuánto tiempo se produjo una condición, por ejemplo, supongamos que por error todos los vehículos tienen un peso incorrecto (por encima de 20.000 libras) y queremos calcular la duración del error.
+**Descripción**: averigüe durante cuánto tiempo se produjo una condición; por ejemplo, supongamos que por error todos los vehículos tienen un peso incorrecto (por encima de 20.000 libras) y queremos calcular la duración del error.
 
 **Entrada**:
 
@@ -453,7 +453,7 @@ WHERE
     AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
 ````
 
-**Explicación**: use LAG para ver el flujo de entrada que se produjo durante 24 horas y busque instancias donde StartFault y StopFault superan el peso de 20 000.
+**Explicación**: use LAG para ver el flujo de entrada que se produjo durante 24 horas y busque instancias donde StartFault y StopFault superan el peso de 20 000.
 
 ## Ejemplo de consulta: rellenar los valores que faltan
 **Descripción**: para la transmisión de eventos con valores que faltan, genere una transmisión de eventos con intervalos regulares. Por ejemplo, genere un evento cada 5 segundos que informará el punto de datos visto más recientemente.
@@ -510,4 +510,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

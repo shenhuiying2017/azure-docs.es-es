@@ -20,8 +20,6 @@
 
 Si necesita pasar un valor seguro (como una contraseña) como un parámetro durante la implementación, puede almacenar ese valor como un secreto en un [Almacén de claves de Azure](./key-vault/key-vault-whatis.md) y hacer referencia al valor en otras plantillas del Administrador de recursos. Incluya solo una referencia al secreto en la plantilla para que el secreto nunca se exponga. No es necesario especificar manualmente el valor para el secreto cada vez que implemente los recursos. Especifique qué usuarios o entidades de servicio pueden tener acceso al secreto.
 
-> [AZURE.NOTE] Actualmente, solo la CLI de Azure admite la capacidad de hacer referencia a un secreto del Almacén de claves. Azure PowerShell agregará esta capacidad tan pronto como sea posible.
-
 ## Implementación de un almacén de claves y un secreto
 
 Para crear un almacén de claves al que se pueda hacer referencia desde otras plantillas del Administrador de recursos, debe establecer la propiedad **enabledForTemplateDeployment** en **true**, y debe conceder acceso al usuario o entidad de servicio que ejecutará la implementación que hace referencia al secreto.
@@ -102,7 +100,7 @@ El parámetro que acepta el secreto debe ser **securestring**. En el ejemplo sig
 ## Pasos siguientes
 
 - Para obtener información general sobre almacenes de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
-- Para obtener información sobre el uso de un almacén de claves con una máquina virtual, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
+- Para obtener información sobre el uso de un almacén de claves con una máquina virtual, consulte [Consideraciones de seguridad para Azure Resource Manager](best-practices-resource-manager-security.md).
 - Para obtener ejemplos completos de secretos de clave de referencia, consulte [Ejemplos del Almacén de claves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

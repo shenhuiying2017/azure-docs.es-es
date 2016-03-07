@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Adición de un repositorio de artefactos Git al laboratorio de desarrollo y pruebas.
+
+> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo agregar el repositorio de artefactos privados a un laboratorio de desarrollo y pruebas](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
 
 ## Información general
 
@@ -115,4 +117,4 @@ Para agregar un repositorio de artefactos de Git de Visual Studio al laboratorio
     3. En **Token de acceso personal**, escriba el token de acceso personal guardado para el repositorio de artefactos.
     4. Pulse **Guardar**.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

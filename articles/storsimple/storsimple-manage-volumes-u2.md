@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.workload="NA"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar volúmenes (Update 2)
@@ -48,7 +48,7 @@ Cuando se crea un volumen anclado localmente, el espacio disponible para la crea
 
 Los volúmenes en capas son volúmenes con aprovisionamiento reducido en los que los datos a los que se accede con frecuencia permanecen locales en el dispositivo y los datos de uso menos frecuente se apilan automáticamente en la nube. El aprovisionamiento fino es una tecnología de virtualización en que el almacenamiento disponible parece superar los recursos físicos. En lugar de reservar almacenamiento suficiente por adelantado, StorSimple utiliza el aprovisionamiento fino para asignar solo el espacio suficiente para cumplir con los requisitos actuales. La naturaleza elástica del almacenamiento en la nube facilita este enfoque porque StorSimple puede aumentar o disminuir el almacenamiento en la nube para cumplir con las exigencias cambiantes.
 
-Puede designar un volumen en capas como volumen de archivo si activa la casilla **Usar este volumen para los datos de archivo a los que accede con menos frecuencia**. Los volúmenes de archivo usan un tamaño de fragmento de desduplicación de 512 KB, mientras que los que no son de archivo emplean un tamaño de 64 KB. El tamaño mayor del fragmento de desduplicación permite al dispositivo transferir a la nube fragmentos de datos más grandes.
+Si usa el volumen en capas para los datos de archivo, seleccione la casilla de verificación **Usar este volumen para los datos de archivo a los que accede con menos frecuencia** cambia el tamaño del fragmento de desduplicación del volumen a 512 KB. Si no selecciona esta opción, el volumen correspondiente en capas usará un tamaño del fragmento de 64 KB. Un mayor tamaño de fragmento de desduplicación permite que el dispositivo acelere la transferencia de datos de archivado de gran tamaño a la nube.
 
 >[AZURE.NOTE] Los volúmenes de archivo creados con una versión anterior a Update 2 de StorSimple se importarán como volúmenes en capas con la casilla de archivo seleccionada.
 
@@ -285,4 +285,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

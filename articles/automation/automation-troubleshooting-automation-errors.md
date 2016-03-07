@@ -143,35 +143,47 @@ Este artículo explica algunos de los errores comunes que se pueden producir al 
 
 ### Escenario: el nodo se encuentra en estado de error con el error "No encontrado"
 
-**Error:** el nodo tiene un informe de estado de error que contiene el mensaje "Error al intentar obtener la acción del servidor https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction porque no se encontró una configuración <guid> válida".
+**Error:** el nodo tiene un informe con estado **Error** y que contiene el error "el intento de obtener la acción de servidor https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid> no se encuentra".
 
-**Motivo del error:** este error suele ocurrir porque el nodo se asigna a un nombre de configuración (por ejemplo, ABC), y no a un nombre de configuración de nodo (por ejemplo, ABC.WebServer).
+**Motivo del error:** este error suele ocurrir cuando se asigna al nodo un nombre de configuración (por ejemplo, ABC), en lugar de un nombre de configuración de nodo (por ejemplo, ABC.WebServer).
 
-**Sugerencias para solucionar el problema:** compruebe que esté usando el nombre de la configuración de nodo, y no el de la configuración. Puede usar el botón "Asignar configuración de nodo" de la hoja del nodo en el portal o el cmdlet Set-AzureRMAutomationDscNode para asignar el nodo a una configuración de nodo válida.
+**Sugerencias de solución de problemas:**
 
-### Escenario: no se produjeron configuraciones de nodo (archivos mof) al realizarse una compilación de configuración
+- Asegúrese de estar asignando al nodo un "nombre de configuración de nodo" y no el "nombre de configuración".  
+
+- Puede asignar una configuración de nodo a un nodo mediante el Portal de Azure o con un cmdlet de PowerShell.
+    - Para asignar una configuración de nodo a un nodo mediante el Portal de Azure, abra la hoja **Nodos de DSC**, seleccione un nodo y haga clic en el botón **Asignar configuración de nodo**.  
+    - Para asignar una configuración de nodo a un nodo mediante el cmdlet de PowerShell, use el cmdlet **AzureRmAutomationDscNode Set**.
+
+
+### Escenario: no se produjeron configuraciones de nodo (archivos mof) al compilarse una configuración
 
 **Error:** el trabajo de compilación de DSC se suspendió con el mensaje de error "La compilación finalizó correctamente, pero no se generaron archivos .mof de configuración de nodo".
 
-**Motivo del error:** cuando la expresión que aparece junto a "Node" en la configuración de DSC se evalúa como $null, no se produce ninguna configuración de nodo.
+**Motivo del error:** cuando la expresión que aparece junto a la palabra clave **Node** en la configuración de DSC se evalúa como $null, no se produce ninguna configuración de nodo.
 
-**Sugerencias para solucionar el problema:** compruebe que la expresión que aparece junto a Node no se evalúe como $null. Si está pasando el valor ConfigurationData, asegúrese de que pasa los valores requeridos por la configuración de acuerdo a los datos de configuración. Por ejemplo, “$AllNodes. Consulte https://azure.microsoft.com/es-ES/documentation/articles/automation-dsc-compile/#configurationdata para obtener más información.
+**Sugerencias para solucionar el problema:** cualquiera de las siguientes alternativas solucionará este problema:
 
-### Escenario: el informe de nodo de DSC se queda bloqueado en el estado "En curso"
+- Asegúrese de que la expresión junto a la palabra clave **Node** en la definición de configuración no se está evaluando como $null.  
+- Si se pasan datos de configuración al compilar la configuración, asegúrese de que pasa los valores esperados que la configuración necesita de [configurationData](automation-dsc-compile.md#configurationdata).
 
-**Error:** el agente DSC genera "No se encontró ninguna instancia con los valores de propiedad especificados".
+
+### Escenario: el informe de nodo de DSC se queda bloqueado en el estado "en curso"
+
+**Error:** el agente DSC genera el mensaje "No se encontró ninguna instancia con los valores de propiedad especificados".
 
 **Motivo del error:** ha actualizado la versión de WMF y ha dañado WMI.
 
-**Sugerencias para solucionar el problema:** siga las instrucciones indicadas en esta publicación para solucionar el problema: https://msdn.microsoft.com/es-ES/powershell/wmf/limitation_dsc
+**Sugerencias para solucionar problemas:** siga las instrucciones que se indican en la entrada del blog [DSC known issues and limitations](https://msdn.microsoft.com/powershell/wmf/limitation_dsc) (Limitaciones y problemas conocidos de DSC) para corregir el problema.
 
 ### Escenario: no se puede usar una credencial en una configuración de DSC 
 
-**Error:** el trabajo de compilación de DSC se suspendió con el error "Error System.InvalidOperationException al procesar la propiedad 'Credential' DE TIPO '<some resource name>': se permite convertir y almacenar una contraseña cifrada como texto no cifrado solo si PSDscAllowPlainTextPassword se establece en true".
+**Error:** el trabajo de compilación de DSC se suspendió con el error "Error System.InvalidOperationException al procesar la propiedad 'Credential' de tipo '``<some resource name>``': se permite convertir y almacenar una contraseña cifrada como texto no cifrado solo si PSDscAllowPlainTextPassword se establece en true".
 
-**Motivo del error:** intentó usar una credencial en una configuración, pero no pasó el valor de ConfigurationData adecuado para establecer PSAllowPlainTextPassword como true para cada configuración de nodo.
+**Motivo del error:** ha usado una credencial en la configuración pero no ha proporcionado el valor adecuado de **ConfigurationData** para establecer **PSDscAllowPlainTextPassword** como true para cada configuración de nodo.
 
-**Sugerencias para solucionar el problema:** asegúrese de que pasa el valor de ConfigurationData adecuado para establecer PSAllowPlainTextPassword como true para cada configuración de nodo mencionada en la configuración. Consulte https://azure.microsoft.com/es-ES/documentation/articles/automation-dsc-compile/#assets para obtener más información.
+**Sugerencias para solucionar el problema:** asegúrese de que pasa el valor adecuado de **ConfigurationData** para establecer **PSAllowPlainTextPassword** como true para cada configuración de nodo mencionada en la configuración. Para más información, consulte los [recursos en DSC de Automatización de Azure](automation-dsc-compile.md#assets).
+
 
   <br/>
 
@@ -187,4 +199,4 @@ Si ha seguido los pasos de la solución de problemas anteriores y necesita ayuda
 
 - Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

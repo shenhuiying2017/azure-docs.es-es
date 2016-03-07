@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/10/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Uso del servicio de Administrador de StorSimple para ver y administrar alertas para la matriz virtual de StorSimple (vista previa)
@@ -31,7 +31,7 @@ Puede elegir si desea recibir una notificación por correo electrónico de las c
 
 >[AZURE.NOTE] Puede escribir un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
 
-Después de habilitar la notificación por correo electrónico para un dispositivo virtual, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde *storsimple-alerts-noreply@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
+Después de habilitar la notificación por correo electrónico para un dispositivo virtual, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde **storsimple-alerts-noreply@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
 
 #### Para habilitar la notificación de alertas por correo electrónico de un dispositivo virtual
 
@@ -45,7 +45,7 @@ Después de habilitar la notificación por correo electrónico para un dispositi
 
     2. En el campo **Administradores del servicio de correo electrónico**, seleccione **SÍ** si desea que el administrador de servicios y todos los coadministradores reciban las notificaciones de alerta.
 
-    3. En el campo **Otros destinatarios de correo electrónico**, escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres en el formato *someone@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
+    3. En el campo **Otros destinatarios de correo electrónico**, escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres en el formato **someone@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
 
         ![configuración de notificaciones de alerta](./media/storsimple-ova-manage-alerts/alerts3.png)
 
@@ -175,7 +175,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 |Texto de la alerta|Evento|Más información / acciones recomendadas|
 |:---|:---|:---|
 |Observa retrasos inesperados en la transferencia de datos.|Transferencias de datos lenta.|Los errores de limitación se producen cuando supera los objetivos de escalabilidad de un servicio de almacenamiento. El servicio de almacenamiento hace esto para asegurarse de que ningún cliente o inquilino pueda usar el servicio a expensas de otros. Para obtener más información sobre la solución de problemas de la cuenta de Almacenamiento de Azure, vaya a [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
-|Se está agotando el espacio en disco de reserva local en <*nombre de dispositivo*>.|Tiempo de respuesta lento.|El 10 % del tamaño total de aprovisionamiento para <*nombre de dispositivo*> está reservado en el dispositivo local y ahora está agotando el espacio reservado. La carga de trabajo <*nombre de dispositivo*> está generando una mayor tasa de renovación o puede que haya migrado recientemente una gran cantidad de datos. Esto puede producir un rendimiento inferior. Considere una de las siguientes acciones para resolver este problema:<ul><li>Aumentar el ancho de banda de la nube para este dispositivo.</li><li>Reducir o mover cargas de trabajo a otro volumen o recurso compartido.</li></ul>
+|Se está agotando el espacio en disco de reserva local en <*nombre de dispositivo*>.|Tiempo de respuesta lento.|El 10 % del tamaño total de aprovisionamiento para <*nombre de dispositivo*> está reservado en el dispositivo local y ahora está agotando el espacio reservado. La carga de trabajo <*nombre de dispositivo*> está generando una mayor tasa de renovación o puede que haya migrado recientemente una gran cantidad de datos. Esto puede producir un rendimiento inferior. Considere una de las siguientes acciones para resolver este problema:<ul><li>Aumentar el ancho de banda de la nube para este dispositivo.</li><li>Reducir o mover cargas de trabajo a otro volumen o recurso compartido.</li></ul>
 
 ### Alertas de seguridad
 
@@ -195,4 +195,4 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 
 - [Obtenga más información sobre la matriz virtual de StorSimple](storsimple-ova-overview.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

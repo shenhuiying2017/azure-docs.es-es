@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Recursos de variables en Automatización de Azure
 
@@ -67,7 +67,7 @@ Las actividades de flujo de trabajo en la tabla siguiente se usan para acceder a
 1. Realice los pasos del asistente y haga clic en la casilla para guardar la nueva variable.
 
 
-### Para crear una nueva variable con el Portal de vista previa de Azure
+### Para crear una nueva variable con el Portal de Azure
 
 1. En la cuenta de Automatización, haga clic en la parte **Recursos** para abrir la hoja **Recursos**.
 1. Haga clic en la parte **Variables** para abrir la hoja **Variables**.
@@ -188,4 +188,4 @@ La imagen siguiente muestra cómo filtrar los objetos almacenados en una variabl
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

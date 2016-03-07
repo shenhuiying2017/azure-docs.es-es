@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="02/21/2016" 
 	ms.author="robinsh"/>
 
 # Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure
@@ -216,10 +216,10 @@ Tenga en cuenta que las copias dentro de la misma cuenta de almacenamiento, por 
 Para obtener más información, consulte [Copia de blobs](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 ####<a name="subheading18"></a>Uso de AzCopy
-El equipo de Almacenamiento de Azure ha lanzado “AzCopy”, una herramienta de línea de comandos diseñada para ayudarle a transferir muchos blobs a, desde y entre cuentas de almacenamiento. Esta herramienta está optimizada para este escenario y puede lograr altas tasas de transferencia. Su uso es muy recomendable para escenarios de carga, descarga y copia en masa. Puede obtener más información acerca de esta herramienta y descargarla [aquí](storage-use-azcopy.md).
+El equipo de Almacenamiento de Azure ha lanzado “AzCopy”, una herramienta de línea de comandos diseñada para ayudarle a transferir muchos blobs a, desde y entre cuentas de almacenamiento. Esta herramienta está optimizada para este escenario y puede lograr altas tasas de transferencia. Su uso es muy recomendable para escenarios de carga, descarga y copia en masa. Para obtener más información, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
 ####<a name="subheading19"></a>Servicio de importación y exportación de Azure
-Para volúmenes muy grandes de datos (más de 1 TB), Almacenamiento de Azure ofrece el servicio Importación/Exportación, que permite realizar operaciones de carga y descarga desde el almacenamiento de blobs enviando unidades de disco duro. Puede poner sus datos en una unidad de disco duro y enviarla a Microsoft para cargarlos o enviar una unidad de disco duro vacía a Microsoft para descargar datos. Puede leer más sobre este tema [aquí](storage-import-export-service.md). Esto puede ser mucho más eficiente que cargar y descargar este volumen de datos a través de la red.
+Para volúmenes muy grandes de datos (más de 1 TB), Almacenamiento de Azure ofrece el servicio Importación/Exportación, que permite realizar operaciones de carga y descarga desde el almacenamiento de blobs enviando unidades de disco duro. Puede poner sus datos en una unidad de disco duro y enviarla a Microsoft para cargarlos o enviar una unidad de disco duro vacía a Microsoft para descargar datos. Para obtener más información, consulte [Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al almacenamiento en blobs](storage-import-export-service.md). Esto puede ser mucho más eficiente que cargar y descargar este volumen de datos a través de la red.
 
 ###<a name="subheading20"></a>Uso de metadatos
 El servicio BLOB admite solicitudes de encabezado, que pueden incluir metadatos acerca del blob. Por ejemplo, si su aplicación necesita los datos EXIF fuera de una foto, podría recuperar la foto y extraerlos. Para ahorrar ancho de banda y mejorar el rendimiento, la aplicación podría almacenar los datos EXIF en los metadatos del blob cuando la aplicación cargara la foto: puede, a continuación, recuperar los datos EXIF de los metadatos mediante una única solicitud HEAD, lo que permite ahorrar mucho ancho de banda y el tiempo de procesamiento necesario para extraer los datos EXIF cada vez que se lee el blob. Esto sería útil en escenarios donde solamente necesita los metadatos y no el contenido completo de un blob. Tenga en cuenta que solamente se pueden almacenar 8 KB de metadatos por blob (el servicio no aceptará una solicitud para almacenar más que eso), por lo que si los datos no caben en ese tamaño, no podrá usar este enfoque.
@@ -235,7 +235,7 @@ Para cargar un solo blob grande rápidamente, la aplicación cliente debe cargar
 -	.NET: establezca ParallelOperationThreadCount en un objeto BlobRequestOptions para usar.
 -	Java/Android: use BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js: use parallelOperationThreadCount en las opciones de solicitud o en el servicio BLOB.
--	C++: use el método blob_request_options::set_parallelism_factor.
+-	C++: use el método blob\_request\_options::set\_parallelism\_factor.
 
 ####<a name="subheading22"></a>Carga de muchos blobs rápidamente
 Para cargar muchos blobs rápidamente, cárguelos en paralelo. Este método es más rápido que cargar blobs de uno en uno con cargas de bloque paralelas porque distribuye la carga entre varias particiones del servicio de almacenamiento. Un solo blob únicamente admite un rendimiento de 60 MB/segundo (aproximadamente 480 Mbps). En el momento de escribir estas líneas, una cuenta LRS con sede en Estados Unidos admite entradas de hasta 20 Gbps, que es mucho más que la capacidad de proceso admitida por un blob individual. [AzCopy](#subheading18) realiza cargas en paralelo de forma predeterminada y se recomienda para este escenario.
@@ -243,7 +243,7 @@ Para cargar muchos blobs rápidamente, cárguelos en paralelo. Este método es m
 ###<a name="subheading23"></a>Elección del tipo correcto de blob
 Almacenamiento de Azure admite dos tipos de blobs: de *página* y de *bloque*. Para un escenario de uso dado, el tipo de blob que elija afectará al rendimiento y escalabilidad de la solución. Los blobs en bloques son apropiados si desea cargar eficazmente grandes cantidades de datos: por ejemplo, una aplicación cliente puede necesitar cargar fotos o vídeos al almacenamiento de blobs. Los blobs de página son apropiados si la aplicación necesita realizar operaciones de escritura aleatorias en los datos: por ejemplo, los discos duros virtuales de Azure se almacenan como blobs de página.
 
-Para obtener más información, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Para obtener más información, consulte [Introducción a los blobs en bloques, los blobs de anexión y los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ##Tablas
 Además de las prácticas probadas para [Todos los servicios](#allservices) descritas anteriormente, las siguientes prácticas probadas se aplican específicamente al servicio Tabla.
@@ -370,7 +370,7 @@ Para obtener información de coste actualizada, consulte [Precios de Almacenamie
 ###<a name=subheading44"></a>UpdateMessage
 Puede usar **UpdateMessage para** aumentar el tiempo de espera de invisibilidad o para actualizar la información de estado de un mensaje. Aunque esto es muy eficiente, recuerde que cada operación **UpdateMessage** cuenta para el objetivo de escalabilidad. Sin embargo, esto puede ser un enfoque mucho más eficiente que tener un flujo de trabajo que pasa un trabajo de una cola a la siguiente, cuando cada paso del trabajo se completa. El uso de la operación **UpdateMessage** permite que la aplicación guarde el estado del trabajo en el mensaje y, a continuación, continúe trabajando, en lugar de volver a poner en cola el mensaje para el próximo paso del trabajo cada vez que se completa un paso.
 
-Para obtener más información, consulte [Cambio del contenido de un mensaje en cola](../storage-dotnet-how-to-use-queues/#change-contents).
+Para obtener más información, consulte [Cambio del contenido de un mensaje en cola](storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message).
 
 ###<a name=subheading45"></a>Arquitectura de la aplicación
 Debe usar colas para que la arquitectura de la aplicación sea escalable. A continuación se enumeran algunas formas de usar colas para que la aplicación sea más escalable:
@@ -382,4 +382,4 @@ Debe usar colas para que la arquitectura de la aplicación sea escalable. A cont
 En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa el Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas aplicaciones que usan el Almacenamiento de Azure.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

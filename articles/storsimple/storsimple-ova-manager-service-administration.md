@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Uso del servicio StorSimple Manager para administrar la matriz virtual de StorSimple (vista previa)
@@ -75,23 +75,25 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 |Si desea hacer esto...|Vaya a esta página de la UI...|Use este procedimiento|
 |---|---|---|
 |Crear un servicio</br>Eliminar un servicio</br>Obtener la clave de registro del servicio</br>Volver a generar la clave de registro del servicio|Servicio StorSimple Manager|[Implementar el servicio StorSimple Manager](storsimple-ova-manage-service.md)|
+|Cambiar la clave de cifrado de datos del servicio</br>Ver los registros de operaciones|Servicio de Administrador de StorSimple → Panel|[Uso del panel de servicios de StorSimple](storsimple-ova-service-dashboard.md)|
 |Desactivar una matriz virtual</br>Eliminar una matriz virtual|Servicio de Administrador de StorSimple → Dispositivos|[Desactivar o eliminar una matriz virtual](storsimple-ova-deactivate-and-delete-device.md)|
 |Recuperación ante desastres y conmutación por error de dispositivos</br>Requisitos de la conmutación por error</br>Conmutación por error en un dispositivo virtual</br>Recuperación ante desastres y continuidad empresarial (BCDR)</br>Errores durante la recuperación ante desastres|Servicio de Administrador de StorSimple → Dispositivos|[Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple](storsimple-ova-failover-dr.md)|
 |Crear copias de seguridad de los recursos compartidos y volúmenes</br>Crear una copia de seguridad manual</br>Establecer la programación de copias de seguridad</br>Ver copias de seguridad existentes|Servicio StorSimple Manager → Catálogo de copias de seguridad|[Crear una copia de seguridad de la matriz virtual de StorSimple](storsimple-ova-backup.md)|
 |Restaurar recursos compartidos a partir de un conjunto de copias de seguridad</br>Restaurar volúmenes a partir de un conjunto de copias de seguridad</br>Recuperación a nivel de elemento (solo servidor de archivos)|Servicio de Administrador de StorSimple → Catálogo de copias de seguridad|[Restaurar desde una copia de seguridad de la matriz virtual de StorSimple](storsimple-ova-restore.md)|
 |Acerca de las cuentas de almacenamiento</br>Agregar una cuenta de almacenamiento</br>Editar una cuenta de almacenamiento</br>Eliminar una cuenta de almacenamiento|Servicio de Administrador de StorSimple → Configurar|[Administrar cuentas de almacenamiento para la matriz virtual de StorSimple](storsimple-ova-manage-storage-accounts.md)|
 |Acerca de los registros de control de acceso</br>Agregar o modificar un registro de control de acceso </br>Eliminar un registro de control de acceso|Servicio de Administrador de StorSimple → Configurar|[Administrar registros de control de acceso para la matriz virtual de StorSimple](storsimple-ova-manage-acrs.md)|
-|Configurar alertas</br>Recibir notificaciones de alerta</br>Administrar alertas</br>Revisar alertas|Servicio de Administrador de StorSimple → Alertas|[Ver y administrar alertas para la matriz virtual de StorSimple](storsimple-ova-manage-alerts.md)
+|Ver detalles del trabajo|Servicio StorSimple Manager → Trabajos| [Administrar trabajos de matriz virtual de StorSimple](storsimple-ova-manage-jobs.md)|
+|Configurar alertas</br>Recibir notificaciones de alerta</br>Administrar alertas</br>Revisar alertas|Servicio de Administrador de StorSimple → Alertas|[Ver y administrar alertas para la matriz virtual de StorSimple](storsimple-ova-manage-alerts.md)|
 |Modificar la contraseña del administrador de dispositivos|Servicio de Administrador de StorSimple → Dispositivos → Configurar|[Cambiar la contraseña del administrador de dispositivos de la matriz virtual de StorSimple](storsimple-ova-change-device-admin-password.md)|
 |Instalación de actualizaciones de software|Servicio de Administrador de StorSimple → Dispositivos → Mantenimiento|[Actualizar la matriz virtual](storsimple-ova-update.md)|
 
 >[AZURE.NOTE] Debe usar la [interfaz de usuario web local](storsimple-ova-web-ui-admin.md) para realizar las tareas siguientes:
 >
->- [Recuperar la clave de cifrado de datos de servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
+>- [Recuperar la clave de cifrado de datos de servicio.](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)
 >- [Crear un paquete de soporte](storsimple-ova-web-ui-admin.md#generate-a-log-package)
->- [Detener y reiniciar una matriz virtual](storsimple-ova-web-ui-admin.md#shut-down-and-restart-your-device).
+>- [Detener y reiniciar una matriz virtual.](storsimple-ova-web-ui-admin.md#shut-down-and-restart-your-device)
 
 ##Pasos siguientes
 Si desea obtener información sobre la interfaz de usuario web y cómo usarla, vaya a [Uso de la interfaz de usuario web de StorSimple para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 # Problemas conocidos de Apache Spark en HDInsight de Azure (Linux)
@@ -54,11 +54,11 @@ El servidor de historial de Spark no se inicia automáticamente después de crea
 
 Inicie el servidor de historial manualmente desde Ambari.
 
-##Error al cargar un bloc de notas con un tamaño mayor a 2 MB
+##Error al cargar un bloc de notas con tamaños mayores
 
 **Síntoma:**
 
-Es posible que aparezca un error **`Error loading notebook`** al cargar blocs de notas que tengan un tamaño mayor a 2 MB.
+Es posible que aparezca un error **`Error loading notebook`** al cargar blocs de notas que tengan un tamaño mayor.
 
 **Mitigación:**
 
@@ -77,15 +77,17 @@ Para evitar que este error ocurra en el futuro, debe seguir algunos procedimient
 
 La primera instrucción del cuaderno de Jupyter con la instrucción mágica de Spark podría tardar más de un minuto.
 
-**Mitigación:**
+**Explicación:**
  
-Ninguna solución alternativa. A veces tarda un minuto.
+Esto sucede cuando se ejecuta la primera celda de código. En segundo plano se inicia la configuración de la sesión y se establecen los contextos de Spark, SQL y Hive. Una vez establecidos estos contextos, se ejecuta la primera instrucción y esto da la impresión de que la instrucción tardó mucho tiempo en completarse.
 
 ##Tiempo de espera del cuaderno de Jupyter en la creación de la sesión
 
 **Síntoma:**
 
-Cuando el clúster Spark se está quedando sin recursos, el tiempo de espera de los kernels Spark y Pyspark del cuaderno de Jupyter se agotará al tratar de crear la sesión. Mitigaciones:
+Cuando el clúster Spark se está quedando sin recursos, el tiempo de espera de los kernels Spark y Pyspark del cuaderno de Jupyter se agotará al tratar de crear la sesión.
+
+**Mitigaciones:**
 
 1. Libere algunos recursos del clúster Spark de la siguiente forma:
 
@@ -93,50 +95,6 @@ Cuando el clúster Spark se está quedando sin recursos, el tiempo de espera de 
     - Detenga otras aplicaciones de Spark desde YARN.
 
 2. Reinicie el cuaderno que trataba de iniciar. Debe haber suficientes recursos para crear una sesión ahora.
-
-##Problema de formato en los resultados generados en el cuaderno
-
-**Síntoma:**
- 
-Los resultados generados en el cuaderno presentan un formato incorrecto después de ejecutar una celda desde los kernels Spark y Pyspark de Jupyter. Esto incluye los resultados correctos de las ejecuciones de la celda como rastreos de pila de Spark u otros errores.
-
-**Mitigación:**
- 
-Este problema se abordará en una versión posterior.
-
-##Errores tipográficos en cuadernos de ejemplo
- 
-- **Cuaderno de Python 4 (Análisis de registros con Spark mediante una biblioteca personalizada)**
-
-    "Supongamos que lo copia en wasb:///example/data/iislogparser.py" debe ser "Supongamos que lo copia en wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py"”.
-
-- **Cuaderno de Python 5 (Aprendizaje automático de Spark: análisis predictivo de datos de inspección de alimentos mediante MLLib)**
-
-    “Una visualización rápida puede ayudarnos a razonar sobre la distribución de estos resultados” contiene algún código incorrecto que no se ejecutará. Debe editarse como sigue:
-
-        countResults = df.groupBy('results').count().withColumnRenamed('count', 'cnt').collect() 
-        labels = [row.results for row in countResults] 
-        sizes = [row.cnt for row in countResults] 
-        colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral'] 
-        plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors) plt.axis('equal') 
-        
-- **Cuaderno de Python 5 (Aprendizaje automático de Spark: análisis predictivo de datos de inspección de alimentos mediante MLLib)**
-
-    El comentario final revela que los porcentajes de falsos negativos y falsos positivos son 12,6% y 16,0%, respectivamente. Estas cifras no son exactas; ejecute el código para visualizar el gráfico circular con los porcentajes verdaderos.
-
-- **Cuadernos de Python 6 y 7**
-
-    Se produce un error en la primera celda para registrar el método sc.stop() al que hay que llamar cuando el cuaderno existe. En determinadas circunstancias, esto podría ocasionar pérdidas de recursos en Spark. Para evitar esta situación, asegúrese de ejecutar import atexit; atexit.register(lambda: sc.stop()) en dichos cuadernos antes de detenerlos. Si accidentalmente ha experimentado una pérdida de recursos, siga las instrucciones anteriores para terminar las aplicaciones de YARN con pérdidas.
-     
-##No se pueden personalizar las configuraciones de núcleos y memoria
-
-**Síntoma:**
- 
-No se pueden especificar configuraciones de núcleos y memoria diferentes a las predeterminadas de los kernels Spark y Pyspark.
-
-**Mitigación:**
- 
-Esta característica estará disponible próximamente.
 
 ## Problemas con permisos en el directorio de registros de Spark 
 
@@ -156,4 +114,4 @@ Cuando hdiuser envía un trabajo con spark-submit, hay un error java.io.FileNotF
 - [Introducción a Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-overview.md)
 - [Introducción: aprovisionamiento de Apache Spark en Azure HDInsight (Linux) y ejecución de consultas interactivas mediante Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

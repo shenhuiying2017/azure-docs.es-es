@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/08/2015"
+   ms.date="02/08/2016"
    ms.author="sstein"/>
 
 # Recomendaciones sobre el nivel de precios de Base de datos SQL
@@ -26,7 +26,7 @@
 Obtenga recomendaciones del plan de tarifa durante las siguientes tareas:
 
 - [Cambio del nivel de servicio y del nivel de rendimiento (nivel de precios) de una base de datos SQL](sql-database-scale-up.md)
-- [Actualizar un servidor SQL de Azure a V12](sql-database-v12-upgrade.md)
+- [Actualizar un servidor SQL de Azure a V12](sql-database-upgrade-server-portal.md)
 - Vaya a su servidor V12: si las bases de datos pueden [beneficiarse de un grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), la hoja del servidor mostrará un mensaje que indica un grupo recomendado. Haga clic en el mensaje para crear el grupo recomendado.
 - [Creación de un grupo de bases de datos elásticas](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
@@ -56,7 +56,7 @@ Según el uso de la base de datos, se pueden encontrar dos categorías de recome
 
 ## Obtención de recomendaciones de nivel de precios
 
-Para obtener recomendaciones sobre los planes de tarifa, seleccione una base de datos Web o Business existente y haga clic en **Toda la configuración** y luego en **Plan de tarifa (escalar DTU)**. (Las recomendaciones del plan de tarifa también están disponibles durante la [Actualización de SQL Server de Azure a V12](sql-database-v12-upgrade.md)).
+Para obtener recomendaciones sobre los planes de tarifa, seleccione una base de datos Web o Business existente y haga clic en **Toda la configuración** y luego en **Plan de tarifa (escalar DTU)**. (Las recomendaciones del plan de tarifa también están disponibles durante la [Actualización de SQL Server de Azure a V12](sql-database-upgrade-server-portal.md)).
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **EXAMINAR** > **Bases de datos SQL**.
@@ -96,4 +96,4 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

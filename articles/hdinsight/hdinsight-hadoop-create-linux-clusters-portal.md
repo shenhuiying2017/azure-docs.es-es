@@ -20,7 +20,7 @@
 
 #Creación de clústeres basados en Linux en HDInsight con el Portal de vista previa de Azure
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 El Portal de vista previa de Azure es una herramienta de administración basada en web para servicios y recursos hospedados en la nube de Microsoft Azure. Use la información de este documento para crear un clúster de HDInsight basado en Linux con el Portal de vista previa y el explorador web.
 
@@ -182,4 +182,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

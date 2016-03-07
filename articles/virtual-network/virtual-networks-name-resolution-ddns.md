@@ -17,9 +17,9 @@
 
 
 # Uso de DNS dinámico para registrar nombres de host en su propio servidor DNS
-[Azure ofrece resolución de nombres](virtual-networks-name-resolution-for-vms-and-role-instances.md) para las máquinas virtuales y las instancias de rol. Sin embargo, cuando la resolución de nombres debe ir más allá de lo que Azure ofrece, puede proporcionar sus propios servidores DNS para la resolución de nombres. Esto le ofrece la capacidad de personalizar su solución DNS para satisfacer sus propias necesidades específicas. Por ejemplo, puede que necesite una solución DNS para tener acceso al controlador de dominio de Active Directory local.
+[Azure ofrece resolución de nombres](virtual-networks-name-resolution-for-vms-and-role-instances.md) para las máquinas virtuales y las instancias de rol. Sin embargo, cuando la resolución de nombres tiene que ir más allá de lo que Azure ofrece, puede proporcionar sus propios servidores DNS. Esto le ofrece la capacidad de personalizar su solución DNS para satisfacer sus propias necesidades específicas. Por ejemplo, puede que necesite acceder a los recursos locales a través del controlador de dominio de Active Directory.
 
-Azure no tiene la capacidad (por ejemplo, credenciales) para realizar directamente los registros en los servidores DNS, por lo que a menudo se necesitan medidas alternativas. Aquí presentamos algunos escenarios comunes con alternativas.
+Cuando se hospedan los servidores DNS personalizados como máquinas virtuales de Azure, puede reenviar consultas de nombre de host (para la misma red virtual) a Azure para resolver las direcciones IP internas. Si no desea usar este enrutamiento, puede registrar las máquinas virtuales en el servidor DNS con DNS dinámico. Azure no tiene la capacidad (por ejemplo, credenciales) para crear directamente los registros en los servidores DNS, por lo que a menudo se necesitan medidas alternativas. Aquí presentamos algunos escenarios comunes con alternativas.
 
 ## Clientes Windows
 Los clientes Windows no unidos a dominio intenta realizar actualizaciones de DNS dinámico (DDNS) no seguro cuando arrancan o cuando su dirección IP cambia. El nombre DNS es el nombre de host más el sufijo DNS primario. Azure deja en blanco el sufijo DNS principal, pero puede reemplazarlo en la máquina virtual, a través de la [interfaz de usuario](https://technet.microsoft.com/library/cc794784.aspx) o [mediante la automatización](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
@@ -27,7 +27,7 @@ Los clientes Windows no unidos a dominio intenta realizar actualizaciones de DNS
 Los clientes Windows unidos a dominio registran sus direcciones IP con el controlador de dominio mediante DNS dinámico seguro. El proceso de unión a dominio establece el sufijo DNS primario en el cliente y administra la relación de confianza.
 
 ## Clientes Linux
-Por lo general, los clientes Linux no se registran con el servidor DNS al iniciarse; asumen que esto lo hace el servidor DHCP. Puede usar una herramienta denominada *nsupdate*, que se incluye en el paquete Bind, para enviar las actualizaciones de DNS dinámico. Dado que el protocolo DNS dinámico está estandarizado, puede usar *nsupdate* incluso si no usa Bind en el servidor DNS.
+Por lo general, los clientes Linux no se registran con el servidor DNS al iniciarse; asumen que esto lo hace el servidor DHCP. Los servidores DHCP de Azure no tienen la capacidad para realizar registros en el servidor DNS. Puede usar una herramienta denominada *nsupdate*, que se incluye en el paquete Bind, para enviar las actualizaciones de DNS dinámico. Dado que el protocolo DNS dinámico está estandarizado, puede usar *nsupdate* incluso si no usa Bind en el servidor DNS.
 
 Puede usar los enlaces que proporciona el cliente DHCP para registrar el nombre de host en el servidor DNS. Durante el ciclo de DHCP, el cliente ejecuta los scripts que aparecen en */etc/dhcp/dhclient-exit-hooks.d/*. Esto se puede usar para registrar la nueva dirección IP mediante el uso de *nsupdate*. Por ejemplo:
 
@@ -64,4 +64,4 @@ En caso de ser necesario, puede agregar un sufijo de búsqueda DNS a las máquin
 
 		supersede domain-name <required-dns-suffix>;
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

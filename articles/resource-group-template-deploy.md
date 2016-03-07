@@ -16,13 +16,13 @@
    ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
-# Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
+# Implementación de un grupo de recursos con la plantilla del Administrador de recursos de Azure
 
-En este tema se explica cómo utilizar las plantillas de Administrador de recursos de Azure para implementar su aplicación en Azure. Se muestra cómo implementar la aplicación mediante el uso de PowerShell de Azure, CLI de Azure, API de REST o el Portal de Azure.
+En este tema se explica cómo usar las plantillas de Administrador de recursos de Azure para implementar sus recursos en Azure. Se muestra cómo implementar los recursos mediante el uso de PowerShell de Azure, CLI de Azure, API de REST o el Portal de Azure.
 
 Para ver una introducción al Administrador de recursos, vea [Información general del Administrador de recursos de Azure](./resource-group-overview.md). Para obtener más información sobre la creación de plantillas, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
-Al implementar una aplicación con una plantilla, puede proporcionar valores de parámetros para personalizar cómo se crean los recursos. Especifique los valores para estos parámetros, ya sea en línea o en un archivo de parámetros.
+Al implementar la definición de una aplicación con una plantilla, puede proporcionar valores de parámetros para personalizar cómo se crean los recursos. Especifique los valores para estos parámetros, ya sea en línea o en un archivo de parámetros.
 
 ## Implementaciones de incrementales y completadas
 
@@ -284,4 +284,4 @@ Para definir parámetros de plantilla, consulte [Creación de plantillas](../res
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

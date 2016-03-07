@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
 # Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)
 
-El clúster Apache Spark en HDInsight (Linux) incluye cuadernos de Jupyter que puede usar para probar las aplicaciones. De forma predeterminada el cuaderno de Jupyter incorpora un kernel **Python2**. Los clústeres de HDInsight Spark proporcionan dos kernels adicionales que puede utilizar con el cuaderno de Jupyter. Esto son:
+El clúster Apache Spark en HDInsight (Linux) incluye cuadernos de Jupyter que puede usar para probar las aplicaciones. De forma predeterminada el cuaderno de Jupyter incorpora un kernel **Python2**. Un kernel es un programa que ejecuta e interpreta el código. Los clústeres de HDInsight Spark proporcionan dos kernels adicionales que puede utilizar con el cuaderno de Jupyter. Dichos componentes son:
 
-1. **Spark** (para aplicaciones escritas con Scala)
-2. **PySpark** (para aplicaciones escritas con Python)
+1. **PySpark** (para aplicaciones escritas con Python)
+2. **Spark** (para aplicaciones escritas con Scala)
 
 En este artículo, obtendrá información sobre cómo usar estos kernels y cuáles son los beneficios que obtiene de uso.
 
@@ -52,9 +52,9 @@ Debe tener lo siguiente:
 
 ## ¿Por qué debo usar los kernels nuevos?
 
-Utilizar los kernels nuevos aporta un par de beneficios.
+Utilizar los nuevos kernels aporta un par de beneficios.
 
-1. Con el kernel predeterminado **Python2**, debe establecer los contextos Spark, SQL o Hive antes de empezar a trabajar con la aplicación que está desarrollando. Si utiliza los kernels nuevos (**Spark** o **PySpark**), estos contextos están disponibles de forma predeterminada. Estos contextos son:
+1. **Contextos preestablecidos**. Con el kernel predeterminado, **Python2**, que está disponible con cuadernos de Jupyter, tiene que establecer explícitamente los contextos Spark, SQL o Hive para poder empezar a trabajar con la aplicación que desarrolla. Si usa los nuevos kernels (**PySpark** o **Spark**), estos contextos están disponibles de forma predeterminada. Estos contextos son:
 
 	* **sc**: para el contexto Spark
 	* **sqlContext**: para el contexto SQL
@@ -72,10 +72,24 @@ Utilizar los kernels nuevos aporta un par de beneficios.
 
 	En su lugar, puede utilizar directamente los contextos preestablecidos en la aplicación.
 	
-2. Puede usar directamente las instrucciones mágicas **%sql** y **%hive** para usar consultas SQL o Hive, respectivamente. Por tanto, algo como esto funcionaría de forma rápida y directa, sin ninguna instrucción de código inicial.
+2. **Comandos mágicos de celda**. El kernel PySpark proporciona algunas "instrucciones mágicas" predefinidas, que son comandos especiales que se pueden llamar con `%%` (por ejemplo, `%%MAGIC` <args>). El comando mágico debe ser la primera palabra de una celda de código y permitir varias líneas de contenido. La palabra mágica debe ser la primera palabra en la celda. Si se agrega algo antes de la palabra mágica, incluso comentarios, se producirá un error. Para más información sobre instrucciones mágicas, consulte [aquí](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
 
-		%hive
-		SELECT * FROM hivesampletable LIMIT 10
+	La tabla siguiente muestra las diferentes instrucciones mágicas disponibles a través de los kernels.
+
+	| Instrucción mágica | Ejemplo | Descripción |
+	|-----------|---------------------------------|--------------|
+	| help | `%%help` | Genera una tabla de todas las instrucciones mágicas disponibles con el ejemplo y la descripción |
+	| info | `%%info` | Produce información de sesión del punto de conexión actual de Livy. |
+	| configurar | `%%configure -f {"executorMemory": "1000M", "executorCores": 4`} | Configura los parámetros para crear una sesión. La marca force (-f) es obligatoria si ya se ha creado una sesión, que se quitará y se vuelve a crear. Consulte [Cuerpo de la solicitud de sesiones o POST de Livy](https://github.com/cloudera/livy#request-body) para obtener una lista de parámetros válidos. Los parámetros deben pasarse en forma de cadena JSON. |
+	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | Ejecuta una consulta SQL en el sqlContext. Si se pasa el parámetro `-o`, el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos [Pandas](http://pandas.pydata.org/). |
+	| hive | `%%hive -o <variable name>`<br> `SHOW TABLES` | Ejecuta una consulta de Hive en el hivelContext. Si se pasa el parámetro -o, el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos [Pandas](http://pandas.pydata.org/). |
+	| local | `%%local`<br>`a=1` | Todo el código de las líneas siguientes se ejecutará localmente. El código debe ser un código de Python válido. |
+	| logs | `%%logs` | Genera los registros de la sesión actual de Livy. |
+	| delete | `%%delete -f -s <session number>` | Elimina una sesión específica del punto de conexión actual de Livy. Tenga en cuenta que no se puede eliminar la sesión iniciada en el propio kernel. |
+	| cleanup | `%%cleanup -f` | Elimina todas las sesiones del punto de conexión actual de Livy, incluida la sesión de este cuaderno. La marca force -f es obligatoria. |
+
+3. **Visualización automática**. El kernel **Pyspark** visualiza automáticamente el resultado de las consultas de Hive y SQL. Tiene la posibilidad de elegir entre diferentes tipos de visualizaciones como tabla, circular, línea, área, barra.
+
 
 ## Consideraciones al utilizar los kernels nuevos
 
@@ -88,14 +102,14 @@ Sin embargo, con los kernels PySpark y Spark, como los contextos están preestab
 
 Al abrir un cuaderno de Jupyter, verá dos carpetas disponibles en el nivel raíz.
 
-* La carpeta **Python** tiene cuadernos de ejemplo que usan el kernel **Python2** predeterminado.
+* La carpeta **PySpark** tiene cuadernos de ejemplo que usan el nuevo kernel **Spark**.
 * La carpeta **Scala** tiene cuadernos de ejemplo que usan el kernel **Spark** nuevo.
 
-Puede abrir el mismo cuaderno (por ejemplo, **LÉAME PRIMERO: aprenda los conceptos básicos de Spark en HDInsight**) de las dos carpetas para ver cómo el cuaderno Python2 siempre empieza con la definición de los contextos necesarios, mientras que el cuaderno Spark solo usa los contextos preestablecidos.
+Puede abrir el cuaderno **00 - [READ ME FIRST] Spark Magic Kernel Features** (Características del kernel de instrucción mágica de Spark) de la carpeta **PySpark** o **Spark** para más información sobre las distintas instrucciones mágicas disponibles. Puede usar los demás cuadernos de ejemplo disponibles en las dos carpetas para aprender a lograr distintos escenarios con cuadernos de Jupyter con clústeres de HDInsight Spark.
 
 ## Comentarios
 
-Los kernels nuevos se encuentran en una fase muy incipiente y evolucionarán con el tiempo. También podría significar que las API podrían cambiar a medida que estos kernels maduran. Agradecemos cualquier comentario que tenga al utilizar estos nuevos kernels. Esto será muy útil para dar forma a la versión final de estos kernels. Puede dejar sus comentarios la sección **Comentarios** al final de este artículo.
+El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo. También podría significar que las API podrían cambiar a medida que estos kernels maduran. Agradecemos cualquier comentario que tenga al utilizar estos nuevos kernels. Esto será muy útil para dar forma a la versión final de estos kernels. Puede dejar sus comentarios la sección **Comentarios** al final de este artículo.
 
 
 ## <a name="seealso"></a>Otras referencias
@@ -131,4 +145,4 @@ Los kernels nuevos se encuentran en una fase muy incipiente y evolucionarán con
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

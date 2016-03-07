@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/03/2015"
+   ms.date="02/03/2016"
    ms.author="sstein"/>
 
 # Query Performance Insight de Base de datos SQL de Azure
@@ -33,7 +33,7 @@ La administración y ajuste del rendimiento de las bases de datos relacionales s
  
 ## Permisos
 
-Los siguientes permisos de [control de acceso basado en roles](role-based-access-control-configure.md) se requieren para usar Query Performance Insight:
+Los siguientes permisos de [control de acceso basado en roles](../active-directory/role-based-access-control-configure.md) se requieren para usar Query Performance Insight:
 
 - Los permisos de **lector**, **propietario**, **colaborador**, **colaborador de base de datos de SQL** o **colaborador de SQL Server** se requieren para ver las consultas y gráficos que más recursos consumen. 
 - Los permisos de **propietario**, **colaborador**, **colaborador de base de datos de SQL** o **colaborador de SQL Server** se requieren para ver el texto de la consulta.
@@ -170,4 +170,4 @@ Para obtener recomendaciones adicionales para mejorar el rendimiento de la base 
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

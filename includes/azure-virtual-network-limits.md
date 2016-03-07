@@ -3,7 +3,7 @@ Los límites siguientes se aplican solo a los recursos de redes administrados a 
 Recurso| Límite predeterminado | Límite máximo
 --- | --- | --- 
 Redes virtuales por suscripción | 50 | 100
-Sitios de red local por red virtual | 20 | póngase en contacto con el soporte técnico
+Sitios de red local por suscripción | 20 | póngase en contacto con el soporte técnico
 Servidores DNS por red virtual | 20 | 100
 Máquinas virtuales e instancias de rol por red virtual | 2048 | 2048
 Conexiones TCP concurrentes para una máquina virtual o instancia de rol | 500 KB | 500 KB 
@@ -43,4 +43,4 @@ Puertas de enlace de aplicaciones | 50 | 50
 
 Si necesita que los límites sean superiores a lo establecido de manera predeterminada, póngase en contacto con el soporte técnico.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

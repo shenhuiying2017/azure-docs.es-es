@@ -3,7 +3,7 @@
 	description="Las preguntas más frecuentes son preguntas y respuestas sobre Azure AD Connect Health. Estas preguntas más frecuentes cubre las preguntas acerca de cómo utilizar el servicio, incluido el modelo de facturación, las capacidades, las limitaciones y la compatibilidad."
 	services="active-directory"
 	documentationCenter=""
-	authors="karavar"
+	authors="billmath"
 	manager="samueld"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="vakarand"/>
+	ms.date="02/17/2016"
+	ms.author="billmath;vakarand"/>
 
 
 # Preguntas más frecuentes sobre Azure AD Connect Health
@@ -43,7 +43,7 @@ Los números siguientes son una aproximación.
 - Consumo de memoria: hasta 10 % de la memoria total del sistema
 - Uso de ancho de banda de la red: ~1 MB por cada 1000 solicitudes de ADFS
 
->[AZURE.NOTE] En caso de que el agente no se pueda comunicar con Azure, el agente almacenará los datos localmente, hasta un límite máximo definido. Cuando el agente alcance el límite, si el agente no ha podido cargar los datos en el servicio, las nuevas transacciones de ADFS sobrescribirán cualquier transacción "en caché" como "menos atendida recientemente".
+>[AZURE.NOTE]En caso de que el agente no se pueda comunicar con Azure, el agente almacenará los datos localmente, hasta un límite máximo definido. Cuando el agente alcance el límite, si el agente no ha podido cargar los datos en el servicio, las nuevas transacciones de ADFS sobrescribirán cualquier transacción "en caché" como "menos atendida recientemente".
 
 - Almacenamiento en búfer local para el agente de AD Health: ~20 MB
 - Almacenamiento de datos requerido para canal de auditoría
@@ -99,5 +99,6 @@ Deberá abrir los puertos 80, 443 y 5671 TCP/UDP para que el agente de Azure AD 
 * [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
+* [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

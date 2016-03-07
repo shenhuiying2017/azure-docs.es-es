@@ -221,7 +221,7 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](Marketing de macrodatos: Atraer más eficazmente a los clientes e impulsar el valor) (http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco churn model template] (Modelo de plantilla de renovación Telco) (https://caqs.azure.net/#gallery/telcocustomerchurn) en la Galería de Cortana Analytics
+[5] [Telco churn model template] (Modelo de plantilla de renovación Telco) (http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) en la Galería de Cortana Analytics
 ##Anexo
 
 ![][10]
@@ -240,4 +240,4 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

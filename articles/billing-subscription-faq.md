@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="02/24/2016"
 	ms.author="genli"/>
 
 #  Preguntas más frecuentes sobre suscripciones y facturación de Azure
@@ -44,6 +44,18 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 - [¿Cómo funcionarán los contratos de nivel de servicio de Azure con los contratos de licencia locales de Microsoft vigentes en la actualidad?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
 **Suscripciones**
+
+- [¿Cómo compro soporte técnico de Azure?](#how-do-i-purchase-azure-support)
+
+- [¿La cuota mensual cubre un único plan de Azure o toda la cuenta?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
+
+- [¿Cómo cambio a un plan de soporte técnico de Azure de nivel superior?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
+
+-	[¿Cuándo se me cobrará el soporte técnico de Azure?](#when-will-i-be-billed-for-azure-support)
+
+- [¿Qué ocurre al final del período de la suscripción?](#what-happens-at-the-end-of-the-term)
+
+- [¿Cómo cancelo mi plan de soporte técnico de Azure?](#how-do-i-cancel-my-azure-support-plan)
 
 - [¿Cómo puedo migrar datos y servicios de la suscripción de Azure a una nueva suscripción?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
 
@@ -115,7 +127,7 @@ Nuestro contrato de nivel de servicio de disponibilidad se aplica a las aplicaci
 
 **Mantenimiento planeado (Portal clásico)**: en configuraciones de una o varias instancias, Azure envía comunicaciones por correo electrónico por adelantado para avisarle del próximo mantenimiento planeado (con una semana de antelación en el caso de una instancia y con 48 horas de antelación en el caso de instancias múltiples). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador de cuenta, del administrador de servicios y del coadministrador facilitadas en la suscripción.
 
-**Nota:** Para más información específica de Máquinas virtuales, consulte el artículo [Planeación del mantenimiento de máquinas virtuales de Azure](./virtual-machines/virtual-machines-planned-maintenance.md).
+**Nota:** Si desea más información específica de Máquinas virtuales, consulte el artículo [Planeación del mantenimiento de máquinas virtuales de Azure](./virtual-machines/virtual-machines-planned-maintenance.md).
 
 **Mantenimiento no planeado:** en caso de que se produzca una interrupción del servicio no planeada en la Plataforma de Azure, se realizarán actualizaciones de estado en nuestro [panel de servicios](http://status.azure.com/) y los clientes recibirán también un aviso en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
@@ -125,13 +137,46 @@ Azure tiene contratos de nivel de servicio independientes para todos los servici
 
 ### ¿Qué son los créditos del contrato de nivel de servicio de Azure?
 
-Los créditos del contrato de nivel de servicio de Azure se calculan por cada suscripción como un porcentaje de la factura por ese servicio en el mes de facturación en que se incumplió el contrato de nivel de servicio. Los créditos del servicio se aplican en la factura del mes posterior. Por lo general, proporcionamos un 10 % de crédito si caemos por debajo del primer umbral (99,95 % o 99,9 %, dependiendo del servicio) y el 25 % si caemos por debajo del umbral siguiente (99 %). Consulte la [página del contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) para ver todos los detalles.
+Los créditos del contrato de nivel de servicio de Azure se calculan por cada suscripción como un porcentaje de la factura por ese servicio en el mes de facturación en que se incumplió el contrato de nivel de servicio. Los créditos del servicio se aplican en la factura del mes posterior. Por lo general, proporcionamos un 10 % de crédito si caemos por debajo del primer umbral (99,95 % o 99,9 %, dependiendo del servicio) y el 25 % si caemos por debajo del umbral siguiente (99 %). Consulte la [página del contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) para ver todos los detalles.
 
 ### ¿Cómo funcionarán los contratos de nivel de servicio de Azure con los contratos de licencia locales de Microsoft vigentes en la actualidad?
 
 Los contratos de nivel de servicio de Azure son independientes de nuestros contratos de licencia locales de Microsoft. Nuestros contratos de nivel de servicio para Azure le ofrecen un tiempo de actividad mensual garantizado para los servicios que se consuman en la nube, con créditos de contrato de nivel de servicio que se aplicarán sobre lo facturado en caso de que no se cumpla esa garantía.
 
 ## Suscripciones
+
+### ¿Cómo compro soporte técnico de Azure?
+Los planes de soporte técnico de Azure se pueden comprar en línea o a través de un contrato Enterprise. Los planes Developer, Standard o Professional Direct están disponibles en línea a través de la página de [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/). Para comprar un plan de soporte técnico, debe ser el propietario de la cuenta de Microsoft Azure.
+
+Si compra Microsoft Azure a través de un contrato Enterprise (EA), puede agregar un plan de soporte técnico Standard o Professional Direct al contrato Enterprise poniéndose en contacto con su revendedor de grandes cuentas (LAR). El soporte técnico Developer no está disponible a través de un contrato Enterprise.
+
+### ¿La cuota mensual cubre un único plan de Azure o toda la cuenta?
+
+La cuota fija mensual del soporte técnico de Azure cubre una cuenta, independientemente del número de suscripciones o de usuarios que tenga en la cuenta.
+
+Todas las suscripciones de una cuenta compartirán el mismo plan de soporte técnico y todos los usuarios con acceso de administrador o de propietario a cualquiera de las suscripciones de la cuenta con un plan de soporte técnico también tendrán derecho a recibir soporte técnico para esas suscripciones de la cuenta en concreto a las que tienen acceso.
+
+Para acceder a una cuenta de Microsoft Azure puede usar el [Centro de cuentas de Azure](https://account.windowsazure.com/Home/Index). Desde aquí puede ver la lista de las suscripciones que pertenecen a la cuenta y que tendrán derecho a recibir soporte técnico.
+
+### ¿Cómo cambio a un plan de soporte técnico de Azure de nivel superior?
+
+Para cambiar a un plan de nivel superior, [envíe una solicitud de soporte técnico](billing-how-to-create-billing-support-ticket.md) y elija "Administración de la suscripción". Microsoft renunciará a los pagos restantes de su plan de soporte técnico original de Azure y se le cobrarán los meses restantes de su compromiso inicial con arreglo al nivel superior.
+
+### ¿Cuándo se me cobrará el soporte técnico de Azure?
+
+Cuando compre un plan de soporte técnico de Azure en línea, se le cobrará inmediatamente la cuota del primer mes. Se le cobrará el importe mensual el primer día de cada ciclo de facturación. Las compras de contratos Enterprise (EA) seguirán el ciclo de facturación de los contratos.
+
+### ¿Qué ocurre al final del período de la suscripción?
+
+Al final del período de seis meses, los planes se renovarán automáticamente durante otros seis meses en el mismo plan de soporte técnico de Azure y con el mismo método de pago. Como propietario de la cuenta, puede elegir desactivar la función de renovación automática a través del [Centro de cuentas de Azure](https://account.windowsazure.com/Home/Index).
+
+Si no desea que la suscripción se renueve automáticamente, inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Home/Index), seleccione el plan de soporte técnico en cuestión, haga clic en "Cambiar detalles de renovación" y desactive la opción predeterminada de renovación automática.
+
+### ¿Cómo cancelo mi plan de soporte técnico de Azure?
+
+El propietario de una cuenta puede cancelar un plan de soporte técnico de Azure. Para ello, debe iniciar sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Home/Index), seleccionar “CENTRO DE CUENTAS” y después "Suscripciones". Si tiene una suscripción, se mostrará su lista de suscripciones. Seleccione la suscripción que desea cancelar. A continuación, se mostrarán los detalles de la suscripción con una lista de opciones a la derecha de la pantalla. Seleccione "Cancelar" y continúe. Si no tiene una suscripción, aparecerá el mensaje "No tiene ninguna suscripción".
+
+Tenga en cuenta que un plan de soporte técnico de Azure tiene una duración de seis meses y Microsoft requiere un compromiso monetario continuado durante todo este período. La cancelación antes del vencimiento del período no eximirá del compromiso restante ni supondrá el reembolso de ningún importe prepagado. Para más información, consulte [Cancelación de su suscripción de Azure](billing-how-to-cancel-azure-subscription.md).
 
 ### ¿Cómo puedo migrar datos y servicios de la suscripción de Azure a una nueva suscripción?
 
@@ -210,4 +255,4 @@ Sí.
 
 Actualmente, no está previsto ofrecer Azure o Base de datos SQL a través de SPLA.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

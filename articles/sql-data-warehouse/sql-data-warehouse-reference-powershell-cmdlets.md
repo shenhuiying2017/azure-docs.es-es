@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Introducción a los cmdlets de Almacenamiento de datos SQL"
+   pageTitle="Uso de las API de REST y los cmdlets de PowerShell con Almacenamiento de datos SQL"
    description="Suspender y reiniciar el Almacenamiento de datos SQL mediante cmdlets de PowerShell"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sidneyh"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/11/2016"
-   ms.author="mausher;sidneyh;barbkess;sonyama"/>
+   ms.date="02/22/2016"
+   ms.author="barbkess;mausher;sonyama"/>
 
-# Introducción a los cmdlets de Almacenamiento de datos de Azure y a las API de REST
+# Uso de las API de REST y los cmdlets de PowerShell con Almacenamiento de datos SQL
 
 El Almacenamiento de datos SQL se puede administrar mediante los cmdlets de PowerShell de Azure o las API de REST.
 
@@ -133,4 +133,4 @@ Para obtener más información de referencia, vea [Información general de refer
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

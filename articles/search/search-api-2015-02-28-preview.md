@@ -1,5 +1,5 @@
 <properties
-   pageTitle="API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview | Microsoft Azure | API de vista previa de Búsqueda de Azure"
    description="La API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview incluye funciones experimentales como analizadores de lenguaje Natural y búsquedas moreLikeThis."
    services="search"
    documentationCenter="na"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="02/04/2016"
+   ms.date="02/16/2016"
    ms.author="heidist"/>
 
 # API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview
 
 Este artículo es la documentación de referencia de `api-version=2015-02-28-Preview`. Esta vista previa amplía la versión disponible generalmente actual, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), proporcionando las siguientes funciones experimentales:
 
-- Ahora se puede utilizar la [sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/mt589323.aspx) para las consultas de Búsqueda de Azure. Para usar el analizador de consultas de Lucene, especifique `queryType` en operaciones de búsqueda.- `moreLikeThis` es un parámetro de consulta que se usa en [operaciones de búsqueda](#SearchDocs) para encontrar otros documentos que están relacionados con otro documento específico.
+- Parámetro de consulta `moreLikeThis` en API de [Buscar documentos](#SearchDocs). Busca otros documentos que sean relevantes para otro documento específico.
 
-Algunas funciones adicionales de `2015-02-28-Preview` se documentan por separado. Entre ellos se incluyen los siguientes:
+Algunas partes adicionales de la API de REST `2015-02-28-Preview` se documentan por separado. Entre ellos se incluyen los siguientes:
 
 - [Perfiles de puntuación](search-api-scoring-profiles-2015-02-28-preview.md)
 - [Indexadores](search-api-indexers-2015-02-28-preview.md)
@@ -619,7 +619,7 @@ Un `scoringProfile` define comportamientos de puntuación personalizados que per
 
 El perfil de puntuación predeterminada funciona en segundo plano para calcular un resultado de búsqueda para todos los elementos de un conjunto de resultados. Puede usar un perfil de puntuación interno y sin nombre. Como alternativa, establezca `defaultScoringProfile` para usar un perfil personalizado como valor predeterminado, al que se invoca cuando no se especifica un perfil personalizado en la cadena de consulta.
 
-Consulte [Adición de perfiles de puntuación a un índice de búsqueda (API de REST de servicio Búsqueda de Azure)](search-api-scoring-profiles-2015-02-28.md) para obtener más información.
+Consulte [Adición de perfiles de puntuación a un índice de búsqueda (API de REST de servicio Búsqueda de Azure)](search-api-scoring-profiles-2015-02-28-preview.md) para obtener más información.
 
 **Opciones de CORS**
 
@@ -1029,7 +1029,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
 - `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Agregar documentos** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
 
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](.search-create-service-portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service-portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -1150,7 +1150,7 @@ La operación de **búsqueda** se emite como una solicitud GET o POST y especifi
 
 **Cuándo usar POST en lugar de GET**
 
-Cuando use HTTP GET para llamar a la API de **búsqueda**, deberá tener en cuenta que la longitud de la URL de la solicitud no puede superar los 8 KB. Esto suele ser suficiente para la mayoría de las aplicaciones. Sin embargo, algunas aplicaciones generan consultas muy extensas o expresiones de filtro OData. Para estas aplicaciones, el uso de HTTP POST es una opción mejor porque permite filtros y consultas mayores que GET. Con POST, el número de términos o cláusulas en una consulta es el factor limitador, no el tamaño de la consulta básica, ya que el límite de tamaño de la solicitud POST es de 17 MB aproximadamente.
+Cuando use HTTP GET para llamar a la API de **búsqueda**, deberá tener en cuenta que la longitud de la URL de la solicitud no puede superar los 8 KB. Esto suele ser suficiente para la mayoría de las aplicaciones. Sin embargo, algunas aplicaciones generan consultas muy extensas o expresiones de filtro OData. Para estas aplicaciones, el uso de HTTP POST es una opción mejor porque permite filtros y consultas mayores que GET. Con POST, el número de términos o cláusulas en una consulta es el factor limitador, no el tamaño de la consulta básica, ya que el límite de tamaño de la solicitud POST es de 16 MB aproximadamente.
 
 > [AZURE.NOTE] Aunque el límite de tamaño de la solicitud POST es muy grande, las consultas y las expresiones de filtro de búsqueda no pueden ser arbitrariamente complejas. Consulte [Sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/mt589323.aspx) y [Sintaxis de expresiones de OData](https://msdn.microsoft.com/library/dn798921.aspx) para más información sobre las limitaciones de complejidad de consultas y filtros de búsqueda. **Solicitud**
 
@@ -1224,7 +1224,7 @@ La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
   - Por ejemplo: `facet=baseRate,interval:100` genera depósitos basados en intervalos de tarifas base de tamaño de 100. Por ejemplo, si las tarifas base se encuentran entre 60 y 600 dólares, habrá depósitos para 0-100, 100-200, 300 200, 300-400, 400-500 y 500-600.
   - Por ejemplo: `facet=lastRenovationDate,interval:year` genera un depósito para cada año en que se han reformado los hoteles.
 - `timeoffset` ([+-] hh: mm, [+-] hhmm, o [+-] hh) `timeoffset` es opcional. Solo se puede combinar con la opción `interval` y solo cuando se aplica a un campo de tipo `Edm.DateTimeOffset`. El valor especifica la diferencia horaria UTC para explicar la configuración de los límites de tiempo.
-  - Por ejemplo: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` utiliza el límite de día que comienza a la 01:00:00 UTC (medianoche en la zona horaria de destino)
+  - Por ejemplo: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` usa el límite de día que comienza a la 01:00:00 UTC (medianoche en la zona horaria de destino)
 - **Nota**: `count` y `sort` se pueden combinar en la misma especificación de faceta, pero no se pueden combinar con `interval` o `values`, y `interval` y `values` no se pueden combinar entre sí.
 - **Nota**: Las facetas de intervalo de fecha y hora se calculan en función de la hora UTC si `timeoffset` no se ha especificado. Por ejemplo, para `facet=lastRenovationDate,interval:day`, el límite de día comienza a las 00:00:00 UTC. 
 
@@ -1639,7 +1639,9 @@ Una operación **Sugerencias** se emite como una solicitud GET o POST.
 
 **Cuándo usar POST en lugar de GET**
 
-Cuando use HTTP GET para llamar a la API de **Sugerencias**, deberá tener en cuenta que la longitud de la URL de la solicitud no puede superar los 8 KB. Esto suele ser suficiente para la mayoría de las aplicaciones. Sin embargo, algunas aplicaciones generan consultas muy extensas, en concreto, expresiones de filtro de OData. Para estas aplicaciones, el uso de HTTP POST es una opción mejor. El límite de tamaño de la solicitud de POST es aproximadamente de 17 MB, lo que es mucho espacio incluso para las consultas más complejas.
+Cuando use HTTP GET para llamar a la API de **Sugerencias**, deberá tener en cuenta que la longitud de la URL de la solicitud no puede superar los 8 KB. Esto suele ser suficiente para la mayoría de las aplicaciones. Sin embargo, algunas aplicaciones generan consultas muy extensas, en concreto, expresiones de filtro de OData. Para estas aplicaciones, el uso de HTTP POST es una opción mejor porque permite filtros mayores que GET. Con POST, el número de cláusulas en un filtro es el factor limitador, no el tamaño de la cadena del filtro, ya que el límite de tamaño de la solicitud POST es de 16 MB aproximadamente.
+
+> [AZURE.NOTE] Aunque el límite de tamaño de la solicitud POST es muy grande, las expresiones de filtro no pueden ser arbitrariamente complejas. Consulte [Sintaxis de expresiones de OData](https://msdn.microsoft.com/library/dn798921.aspx) para más información sobre las limitaciones de complejidad de filtros.
 
 **Solicitud**
 
@@ -1772,4 +1774,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

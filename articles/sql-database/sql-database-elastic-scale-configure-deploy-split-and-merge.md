@@ -4,7 +4,7 @@
 	services="sql-database"  
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh" />
 
 # Tutorial de la herramienta de división y combinación de Base de datos elástica
@@ -42,11 +42,11 @@ Los pasos anteriores descargan los archivos de División y combinación al direc
 
 ### Configuración del servicio División y combinación
 
-1. En la carpeta donde ha descargado los bits de División y combinación, cree una copia del archivo **ServiceConfiguration.Template.cscfg** que se suministra junto a **SplitMergeService.cspkg** y llámelo **ServiceConfiguration.cscfg**.
+1. En la carpeta donde ha descargado los ensamblados de división y combinación, cree una copia del archivo **ServiceConfiguration.Template.cscfg** que se suministra junto a **SplitMergeService.cspkg** y cámbiele el nombre por **ServiceConfiguration.cscfg**.
 
-2. Abra ServiceConfiguration.cscfg en su editor de texto favorito. Recomendamos usar Visual Studio, puesto que validará entradas como el formato de las huellas digitales del certificado.
+2. Abra **ServiceConfiguration.cscfg** en un editor de texto como Visual Studio que permite validar las entradas como el formato de las huellas digitales de certificados.
 
-3. Cree una nueva base de datos o elija una base de datos existente que sirva como la base de datos de estado para las operaciones de División y combinación y recupere la cadena de conexión de esa base de datos.
+3. Cree una nueva base de datos o elija una base de datos existente que sirva como la base de datos de estado para las operaciones de división y combinación y recupere la cadena de conexión de esa base de datos.
 
 	**Importante** En este momento, la base de datos de estado debe usar la intercalación latina (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obtener más información, vea [Nombre de intercalación de Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
 
@@ -334,4 +334,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

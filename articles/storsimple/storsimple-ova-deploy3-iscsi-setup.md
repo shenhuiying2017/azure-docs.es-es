@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/08/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 
@@ -76,7 +76,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
     ![Página de configuración de red](./media/storsimple-ova-deploy3-iscsi-setup/image6.png)
 
-    Si agrega más de una interfaz de red durante el aprovisionamiento del dispositivo, se pueden configurar aquí.
+    Si agrega más de una interfaz de red durante el aprovisionamiento del dispositivo, se pueden configurar aquí. Tenga en cuenta que puede configurar la interfaz de red como IPv4 únicamente o como IPv4 e IPv6. No se admiten las configuraciones de solo IPv6.
 
 5. Los servidores DNS son necesarios porque se utilizan cuando el dispositivo intenta comunicarse con sus proveedores de servicios de almacenamiento en la nube o para resolver el dispositivo por nombre si se configura como servidor de archivos. En la página **Configuración de red** en **Servidores DNS**:
 
@@ -201,9 +201,9 @@ Siga estos pasos en el Portal de Azure clásico para crear un volumen.
 
         Un volumen anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del volumen se mantengan en el dispositivo y que no se traspasan a la nube. Si crea un volumen anclado localmente, el dispositivo comprobará el espacio disponible en las capas locales para aprovisionar un volumen del tamaño solicitado. Crear un volumen anclado localmente puede implicar traspasar los datos existentes del dispositivo a la nube, por lo que la creación del volumen puede llevar mucho tiempo. El tiempo total depende del tamaño del volumen aprovisionado, el ancho de banda de red disponible y los datos en el dispositivo.
 
-        Por otro lado, un volumen en capas se aprovisiona de manera fina y se puede crear muy rápidamente. Cuando se crea un volumen en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas (porque el 10 % no estará disponible).
+        Por otro lado, un volumen en capas se aprovisiona de manera fina y se puede crear muy rápidamente. Cuando se crea un volumen en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas (porque el 10 % no estará disponible).
 
-    4. Especifique la capacidad aprovisionada para el volumen. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si va a crear un volumen en capas, el tamaño debe estar entre 500 GB y 20 TB. Para un volumen anclado localmente, especifique un tamaño de volumen de 50 GB a 2 TB. Use la capacidad disponible como guía para aprovisionar un volumen. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar un volumen anclado localmente o en capas.
+    4. Especifique la capacidad aprovisionada para el volumen. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si va a crear un volumen en capas, el tamaño debe estar entre 500 GB y 20 TB. Para un volumen anclado localmente, especifique un tamaño de volumen de 50 GB a 2 TB. Use la capacidad disponible como guía para aprovisionar un volumen. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar un volumen anclado localmente o en capas.
 
         ![Configuración básica](./media/storsimple-ova-deploy3-iscsi-setup/image17.png)
 
@@ -310,4 +310,4 @@ Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de W
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

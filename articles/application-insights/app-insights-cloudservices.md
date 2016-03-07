@@ -258,6 +258,10 @@ Eso es todo. La experiencia del portal ya está dispuesta para ayudarle a ver la
 
 [El ejemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) supervisa un servicio que tiene un rol web y dos roles de trabajo.
 
+## Excepción "Método no encontrado" en la ejecución en Servicios en la nube de Azure
+
+¿Ha realizado la compilación para .NET 4.6? 4.6 no se admite automáticamente en los roles de Servicios en la nube de Azure. [Instale 4.6 en cada rol](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de ejecutar la aplicación.
+
 ## Temas relacionados
 
 * [Configuración del envío de diagnósticos de Azure a Application Insights](app-insights-azure-diagnostics.md)
@@ -279,4 +283,4 @@ Eso es todo. La experiencia del portal ya está dispuesta para ayudarle a ver la
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

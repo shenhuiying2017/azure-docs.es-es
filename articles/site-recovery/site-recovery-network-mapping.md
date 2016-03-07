@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="02/22/2016"
 	ms.author="raynew"/>
 
 
@@ -23,7 +23,7 @@ Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recup
 
 Este artículo describe la asignación de red, que le ayuda a configurar de forma óptima los ajustes de red cuando se usa Site Recovery para replicar máquinas virtuales de Hyper-V ubicadas en nubes VMM entre dos centros de datos locales o entre un centro de datos local y Azure. Tenga en cuenta que si está replicando máquinas virtuales de Hyper-V sin una nube VMM o replicando VM de VMware o servidores físicos, este artículo no es pertinente.
 
-Después de leer este artículo, publique sus preguntas en el [Foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Información general
@@ -123,4 +123,4 @@ Se cambia la asignación de redes de VMNetwork1-Chicago. | VM-1 se conectará a 
 
 Ahora que dispone de más información sobre la asignación de red, [comience con la implementación de Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

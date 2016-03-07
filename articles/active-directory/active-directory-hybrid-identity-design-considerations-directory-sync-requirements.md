@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 # Determinación de los requisitos de sincronización de directorios
@@ -37,9 +37,11 @@ Asegúrese de responder a las siguientes preguntas:
   - ¿Cuál es el estado actual de los UPN de su organización? 
   - ¿Tiene un directorio diferente en el que se autentican los usuarios?
   - ¿Usa su organización Microsoft Exchange?
-    - ¿Tienen previsto tener una implementación híbrida de Exchange? 
+    - ¿Tienen previsto tener una implementación híbrida de Exchange?
+
+Ahora que ya se ha hecho una idea de los requisitos de sincronización, debe determinar qué herramienta es la correcta para satisfacer estos requisitos. Microsoft proporciona varias herramientas para llevar a cabo la sincronización y la integración de directorios. Consulte la [tabla de comparación de las herramientas para la integración de directorios de identidades híbridas](active-directory-hybrid-identity-design-considerations-tools-comparison.md) para obtener más información.
    
-Ahora que tiene una idea sobre los requisitos de sincronización de su empresa, debe evaluar las aplicaciones que usan estos servicios de directorio. Esta evaluación es importante para definir los requisitos técnicos para integrar estas aplicaciones en la nube. Asegúrese de responder a las siguientes preguntas:
+Ahora que ya se ha hecho una idea de los requisitos de sincronización y de la herramienta con la que la llevará a cabo para su empresa, debe evaluar las aplicaciones que usan estos servicios de directorio. Esta evaluación es importante para definir los requisitos técnicos para integrar estas aplicaciones en la nube. Asegúrese de responder a las siguientes preguntas:
 
 - ¿Se migrarán estas aplicaciones a la nube y usarán el directorio?
 - ¿Hay atributos especiales que sea necesario sincronizar con la nube para que estas aplicaciones puedan usarlos correctamente?
@@ -66,4 +68,4 @@ Asegúrese de anotar cada respuesta y de que comprende las razones que se escond
 ## Consulte también
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

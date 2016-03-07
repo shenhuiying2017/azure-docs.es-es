@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
@@ -556,24 +556,25 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 El Administrador de recursos ofrece las siguientes funciones para obtener valores de recursos:
 
 - [listkeys](#listkeys)
+- [list*](#list)
 - [providers](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
 - [resourceId](#resourceid)
 - [suscripción](#subscription)
 
-Para obtener valores de parámetros, variables o la implementación actual, consulte [Funciones de valor de implementación](#deployment-value-functions).
+Para obtener valores de parámetros, variables o la implementación actual, consulte [Funciones con valores de implementación](#deployment-value-functions).
 
 <a id="listkeys" />
 ### listKeys
 
 **listKeys (resourceName o resourceIdentifier, apiVersion)**
 
-Devuelve las claves de una cuenta de almacenamiento. El valor de resourceId puede especificarse mediante la [función resourceId](./#resourceid) o mediante el formato **providerNamespace/resourceType/resourceName**. Puede utilizar la función para obtener los valores de primaryKey y secondaryKey.
+Devuelve las claves para cualquier tipo de recurso que admite la operación listKeys. El valor de resourceId puede especificarse mediante la [función resourceId](./#resourceid) o mediante el formato **providerNamespace/resourceType/resourceName**. Puede utilizar la función para obtener los valores de primaryKey y secondaryKey.
   
 | Parámetro | Obligatorio | Descripción
 | :--------------------------------: | :------: | :----------
-| resourceName o resourceIdentifier | Sí | Identificador único de una cuenta de almacenamiento.
+| resourceName o resourceIdentifier | Sí | Identificador único para el recurso.
 | apiVersion | Sí | Versión de API de estado en tiempo de ejecución de un recurso.
 
 En el ejemplo siguiente se muestra cómo se devuelven las claves de una cuenta de almacenamiento en la sección de salidas.
@@ -584,6 +585,19 @@ En el ejemplo siguiente se muestra cómo se devuelven las claves de una cuenta d
         "type" : "object" 
       } 
     } 
+
+<a id="list" />
+### list*
+
+**list* (resourceName o resourceIdentifier, apiVersion)**
+
+Cualquier operación que comienza por **list** se puede usar como función en la plantilla. Esto incluye **listKeys**, como se muestra anteriormente, pero también operaciones como **list**, **listAdminKeys** y **listStatus**. Al llamar a la función, use el nombre real de la función, en lugar de list*. Para determinar qué tipos de recursos tienen una operación de lista, use el siguiente comando de PowerShell.
+
+    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+O bien, recupere la lista con CLI de Azure. En el ejemplo siguiente se recuperan todas las operaciones de **apiapps** y se usa la utilidad JSON [jq](http://stedolan.github.io/jq/download/) para filtrar las operaciones de la lista.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
 
 <a id="providers" />
 ### providers
@@ -792,4 +806,4 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 - Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

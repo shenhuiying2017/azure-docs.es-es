@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor="tysonn"/>
+	editor="tysonn" />
 
 <tags
     ms.service="storage"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/20/2016"
     ms.author="prkhad"/>
 
 # Almacenamiento premium de Azure: diseño de alto rendimiento
@@ -33,7 +33,7 @@ Este artículo le ayudará a responder a las siguientes preguntas habituales ace
 
 Proporcionamos estas directrices específicamente para Almacenamiento premium porque las cargas de trabajo que se ejecutan en Almacenamiento premium dependen mucho del rendimiento. Se proporcionan ejemplos donde corresponda. También puede aplicar algunas de estas instrucciones a las aplicaciones que se ejecutan en máquinas virtuales de IaaS con discos de Almacenamiento estándar.
 
-Antes de comenzar, si no está familiarizado con Almacenamiento premium, lea primero los artículos [Introducción al Almacenamiento premium](storage-premium-storage-preview-portal.md) y [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
+Antes de comenzar, si no está familiarizado con Almacenamiento premium, lea primero los artículos [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md) y [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md#premium-storage-accounts).
 
 ## Indicadores del rendimiento de las aplicaciones  
 Evaluamos si una aplicación tiene un buen rendimiento o no mediante indicadores de rendimiento como: la rapidez con la que una aplicación procesa una solicitud del usuario, la cantidad de datos que una aplicación procesa por solicitud, cuántas solicitudes procesa una aplicación en un determinado período, cuánto tiempo tiene que esperar un usuario para obtener una respuesta después de enviar su solicitud. Los términos técnicos para estos indicadores de rendimiento son IOPS, latencia y rendimiento o ancho de banda.
@@ -92,7 +92,7 @@ A continuación, mida los requisitos para obtener el máximo rendimiento de sus 
 
 Si tiene una aplicación existente y desea cambiar a Almacenamiento premium, primero prepare la lista de comprobación anterior para la aplicación existente. A continuación, cree un prototipo de la aplicación en Almacenamiento premium y diseñe la aplicación de acuerdo con las directrices descritas en *Optimización del rendimiento de las aplicaciones*, en una sección posterior de este documento. La siguiente sección describe las herramientas que puede usar para recopilar las mediciones de rendimiento.
 
-Cree una lista de comprobación similar a la aplicación existente para el prototipo. Con herramientas de pruebas comparativas puede simular las cargas de trabajo y medir el rendimiento de las aplicaciones de prototipo. Consulte la sección *Pruebas comparativas* para obtener más información. Gracias a ello, puede determinar si Almacenamiento premium puede alcanzar o superar los requisitos de rendimiento de las aplicaciones. A continuación, puede implementar las mismas directrices para la aplicación de producción.
+Cree una lista de comprobación similar a la aplicación existente para el prototipo. Con herramientas de pruebas comparativas puede simular las cargas de trabajo y medir el rendimiento de las aplicaciones de prototipo. Consulte la sección [Pruebas comparativas](#benchmarking) para obtener más información. Gracias a ello, puede determinar si Almacenamiento premium puede alcanzar o superar los requisitos de rendimiento de las aplicaciones. A continuación, puede implementar las mismas directrices para la aplicación de producción.
 
 ### Contadores para medir los requisitos de rendimiento de las aplicaciones  
 La mejor forma de medir los requisitos de rendimiento de las aplicaciones es usar las herramientas de supervisión del rendimiento proporcionadas por el sistema operativo del servidor. Puede usar PerfMon para Windows e iostat para Linux. Estas herramientas capturan contadores correspondientes a cada medida explicada en la sección anterior. Debe capturar los valores de estos contadores cuando la aplicación funciona con cargas de trabajo normales, pico y valle.
@@ -116,7 +116,7 @@ Obtenga más información sobre [iostat](http://linuxcommand.org/man_pages/iosta
 ## Optimización del rendimiento de las aplicaciones  
 Los principales factores que influyen en el rendimiento de una aplicación que se ejecuta en Almacenamiento premium son la naturaleza de las solicitudes de E/S, el tamaño de la máquina virtual, el tamaño del disco, el número de discos, la caché de disco, el multithreading y la profundidad de la cola. Puede controlar algunos de estos factores con mecanismos proporcionados por el sistema. Es posible que la mayoría de las aplicaciones no le de opción de modificar el tamaño de E/S y la profundidad de la cola directamente. Por ejemplo, si usa SQL Server, no puede elegir la profundidad de la cola y el tamaño de E/S. SQL Server selecciona los valores de tamaño de E/S y profundidad de la cola óptimos para obtener el máximo rendimiento. Es importante comprender los efectos de ambos tipos de factores en rendimiento de su aplicación para poder aprovisionar los recursos adecuados para satisfacer las necesidades de rendimiento.
 
-En esta sección, consulte la lista de comprobación de los requisitos de la aplicación que creó para averiguar la cantidad que necesita para optimizar el rendimiento de las aplicaciones. En función de ello, podrá determinar qué factores de esta sección debe optimizar. Para ver los efectos de cada factor en el rendimiento de las aplicaciones, ejecute las herramientas de pruebas comparativas en la configuración de su aplicación. Vea la sección [Pruebas comparativas](#_Benchmarking) al final de este artículo para conocer los pasos para ejecutar las herramientas de pruebas comparativas comunes en las máquinas virtuales de Windows y de Linux.
+En esta sección, consulte la lista de comprobación de los requisitos de la aplicación que creó para averiguar la cantidad que necesita para optimizar el rendimiento de las aplicaciones. En función de ello, podrá determinar qué factores de esta sección debe optimizar. Para ver los efectos de cada factor en el rendimiento de las aplicaciones, ejecute las herramientas de pruebas comparativas en la configuración de su aplicación. Vea la sección [Pruebas comparativas](#Benchmarking) al final de este artículo para conocer los pasos para ejecutar las herramientas de pruebas comparativas comunes en las máquinas virtuales de Windows y de Linux.
 
 ### Optimización de IOPS, rendimiento y latencia de un vistazo  
 La tabla siguiente resume todos los factores de rendimiento y los pasos necesarios para optimizar la IOPS, el rendimiento y la latencia. Las secciones que siguen a este resumen describen cada factor con mucha más profundidad.
@@ -165,7 +165,7 @@ Para obtener una IOPS y un ancho de banda mayores que el valor máximo de un sol
 
 >**Nota:** a medida que aumente la IOPS o el rendimiento, el otro también aumenta, asegúrese de que no supera los límites de IOPS o rendimiento del disco o la máquina virtual al aumentar cualquiera de ellos.
 
-Para ver los efectos del tamaño de E/S en el rendimiento de las aplicaciones, puede ejecutar las herramientas de pruebas comparativas en la máquina virtual y los discos. Cree varias ejecuciones de pruebas y use un tamaño de E/S diferente para cada ejecución para ver el impacto. Consulte la sección [Pruebas comparativas](#_Benchmarking) al final de este artículo para más detalles.
+Para ver los efectos del tamaño de E/S en el rendimiento de las aplicaciones, puede ejecutar las herramientas de pruebas comparativas en la máquina virtual y los discos. Cree varias ejecuciones de pruebas y use un tamaño de E/S diferente para cada ejecución para ver el impacto. Consulte la sección [Pruebas comparativas](#Benchmarking) al final de este artículo para más detalles.
 
 ## Tamaños de máquina virtual a gran escala  
 Al empezar a diseñar una aplicación, una de las primeras cosas que hay que hacer es elegir una máquina virtual para hospedar la aplicación. Almacenamiento premium viene con tamaños de máquina virtual a gran escala que pueden ejecutar aplicaciones que requieren una mayor capacidad de proceso y un alto rendimiento de E/S del disco local. Estas máquinas virtuales proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco local. Algunos ejemplos de máquinas virtuales a gran escala que admiten Almacenamiento premium son las máquinas virtuales de la serie DS y GS.
@@ -177,7 +177,7 @@ Las máquinas virtuales a gran escala están disponibles en distintos tamaños c
 | Standard\_DS14 | 16 | 112 GB | OS = 1.023 GB <br> SSD Local = 224 GB | 32 | 576 GB | 50\.000 E/S por segundo <br> 512 MB por segundo | 4\.000 IOPS y 33 MB por segundo |
 | Standard\_GS5 | 32 | 448 GB | SO = 1023 GB <br> SSD Local = 896 GB | 64 | 4224 GB | 80\.000 E/S por segundo <br> 2000 MB por segundo | 5\.000 IOPS y 50 MB por segundo |
 
-Para una lista completa de todos los tamaños de máquinas virtuales de Azure disponibles, vea [Tamaños de máquinas virtuales de Azure](virtual-machines-size-specs.md). Elija un tamaño de máquina virtual que puede cumplir y escale a los requisitos de rendimiento de las aplicaciones que desee. Además, tenga en cuenta que debe seguir consideraciones importantes al elegir los tamaños de las máquinas virtuales.
+Para una lista completa de todos los tamaños de máquinas virtuales de Azure disponibles, vea [Tamaños de máquinas virtuales de Azure](../virtual-machines/virtual-machines-size-specs.md). Elija un tamaño de máquina virtual que puede cumplir y escale a los requisitos de rendimiento de las aplicaciones que desee. Además, tenga en cuenta que debe seguir consideraciones importantes al elegir los tamaños de las máquinas virtuales.
 
 *Límites de escala* Los límites máximos de IOPS por máquina virtual y por disco son diferentes e independientes entre sí. Asegúrese de que la aplicación mantiene la IOPS dentro de los límites de la máquina virtual, así como los discos de premium conectados a ella. En caso contrario, el rendimiento de las aplicaciones experimentará una limitación.
 
@@ -197,7 +197,7 @@ La tabla siguiente resume el análisis de costos de este escenario de Almacenami
 | **Costo de discos al mes** | 1\.638,40 USD (32 discos x 1 TB) | 544,34 USD (4 discos x P30) |
 | **Costo total al mes** | 3\.208,98 USD | 1\.544,34 USD |
 
-*Linux Distros* Con Almacenamiento premium de Azure, obtendrá el mismo nivel de rendimiento para las máquinas virtuales de Windows y de Linux. Se admiten muchas versiones de las distribuciones de Linux; puede ver la lista completa [aquí](virtual-machines-linux-endorsed-distributions.md). Es importante tener en cuenta que son adecuadas distintas distribuciones para diferentes tipos de carga de trabajo. Podrá ver diferentes niveles de rendimiento según la distribución en la que se ejecuta la carga de trabajo. Pruebe las distribuciones de Linux con su aplicación y elija la que mejor se adapte.
+*Linux Distros* Con Almacenamiento premium de Azure, obtendrá el mismo nivel de rendimiento para las máquinas virtuales de Windows y de Linux. Se admiten muchas versiones de las distribuciones de Linux; puede ver la lista completa en [Linux en distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). Es importante tener en cuenta que son adecuadas distintas distribuciones para diferentes tipos de carga de trabajo. Podrá ver diferentes niveles de rendimiento según la distribución en la que se ejecuta la carga de trabajo. Pruebe las distribuciones de Linux con su aplicación y elija la que mejor se adapte.
 
 Cuando ejecute Linux con Almacenamiento premium, compruebe las actualizaciones más recientes acerca de los controladores necesarios para garantizar un alto rendimiento.
 
@@ -263,13 +263,13 @@ En Windows, puede usar espacios de almacenamiento para seccionar discos conjunta
 
 Importante: Con la IU del Administrador del servidor, puede establecer el número total de columnas en hasta 8 para un volumen seccionado. Al conectar más de 8 discos, use PowerShell para crear el volumen. Mediante PowerShell, puede establecer un número de columnas igual al número de discos. Por ejemplo, si hay 16 discos en un solo conjunto de secciones; especifique 16 columnas en el parámetro *NumberOfColumns* del cmdlet de PowerShell *New-VirtualDisk*.
 
-En Linux, use la utilidad MDADM para seccionar discos conjuntamente. Para ver los pasos detallados para seccionar discos en Linux, consulte [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md).
+En Linux, use la utilidad MDADM para seccionar discos conjuntamente. Para ver los pasos detallados para seccionar discos en Linux, consulte [Configuración del software RAID en Linux](../virtual-machines/virtual-machines-linux-configure-raid.md).
 
 *Tamaño de franja* Una configuración importante en el seccionamiento del disco es el tamaño de franja. El tamaño de franja o tamaño de bloque es el fragmento de datos más pequeño que la aplicación puede manejar en un volumen seccionado. El tamaño de franja que configurar depende del tipo de aplicación y su patrón de solicitudes. Si elije un tamaño de franja incorrecto, podría provocar la desalineación de E/S, lo que conduce a una disminución del rendimiento de la aplicación.
 
 Por ejemplo, si una solicitud de E/S generada por la aplicación es mayor que el tamaño de franja del disco, el sistema de almacenamiento escribe a través de límites de la unidad de franja en más de un disco. Cuando llega el momento para tener acceso a esos datos, tendrá que buscar en las unidades con más de una franja para completar la solicitud. El efecto acumulativo de este comportamiento puede provocar una degradación del rendimiento considerable. Por otro lado, si el tamaño de la solicitud de E/S es menor que el tamaño de franja, y si es aleatoria por naturaleza, las solicitudes de E/S pueden acumularse en el mismo disco, causar un cuello de botella y, en última instancia, degradar el rendimiento de E/S.
 
-Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Almacenamiento premium. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations) para más información.
+Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Almacenamiento premium. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y 256 KB para cargas de trabajo de almacenamiento de datos. Para más información, consulte [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure: Consideraciones sobre discos y rendimiento](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations).
 
 >**Nota:** Puede seccionar conjuntamente un máximo de 32 discos de almacenamiento premium en una serie de máquinas virtuales DS y 64 discos de almacenamiento premium en una serie de máquinas virtuales GS.
 
@@ -315,14 +315,14 @@ Las pruebas comparativas consisten en el proceso de simular cargas de trabajo di
 
 Hemos usado las herramientas de pruebas comparativas comunes Iometer y FIO, para Windows y Linux respectivamente. Estas herramientas generan varios subprocesos que simulan una carga de trabajo de producción y miden el rendimiento del sistema. Con estas herramientas, también puede configurar parámetros como la profundidad de la cola y el tamaño de bloque, que normalmente no se puede cambiar de una aplicación. Esto proporciona más flexibilidad para controlar el rendimiento máximo en una máquina virtual a gran escala aprovisionada con discos premium para diferentes tipos de cargas de trabajo de la aplicación. Para más información sobre la herramienta de pruebas comparativas, visite [Iometer](http://www.iometer.org/) y [FIO](http://freecode.com/projects/fio).
 
-Para seguir estos ejemplos, cree una máquina virtual estándar DS14 y conecte 11 discos de Almacenamiento premium a la máquina virtual. De los discos 11, configure 10 discos con almacenamiento en caché del host como "Ninguno" y secciónelos en un volumen denominado NoCacheWrites. Configure el almacenamiento en caché del host como "ReadOnly" en el disco restante de host y cree un volumen denominado CacheReads con este disco. Con esta configuración, podrá ver el rendimiento máximo de lectura y escritura de una máquina virtual estándar DS14. Para pasos detallados sobre de la creación de una máquina virtual DS14 con discos de premium, vaya a [Creación y uso de la cuenta de Almacenamiento premium para un disco de datos de la máquina virtual](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Para seguir estos ejemplos, cree una máquina virtual estándar DS14 y conecte 11 discos de Almacenamiento premium a la máquina virtual. De los discos 11, configure 10 discos con almacenamiento en caché del host como "Ninguno" y secciónelos en un volumen denominado NoCacheWrites. Configure el almacenamiento en caché del host como "ReadOnly" en el disco restante de host y cree un volumen denominado CacheReads con este disco. Con esta configuración, podrá ver el rendimiento máximo de lectura y escritura de una máquina virtual estándar DS14. Para pasos detallados sobre de la creación de una máquina virtual DS14 con discos de premium, vaya a [Creación y uso de la cuenta de Almacenamiento premium para un disco de datos de la máquina virtual](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 *Preparación de la memoria caché* El disco con almacenamiento en caché de host ReadOnly podrá proporcionar una IOPS mayor que el límite del disco. Para obtener este máximo rendimiento de lectura de la caché de host, primero debe preparar la memoria caché de este disco. Esto garantiza que las E/S de lectura en las qué la herramienta de pruebas comparativas manejará el volumen de CacheReads alcanzan realmente la memoria caché y no en el disco directamente. Los aciertos de caché generan IOPS adicionales desde el único disco con la memoria caché habilitada.
 
 >**Importante:** debe preparar la memoria caché antes de ejecutar pruebas comparativas y cada vez que se reinicie la máquina virtual.
 
 #### Iometer   
-Descargue la herramienta Iometer en la máquina virtual desde este vínculo: [descargar](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download).
+[Descargue la herramienta Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) en la máquina virtual.
 
 *Archivo de prueba* Iometer usa un archivo de prueba que se almacena en el volumen en el que se ejecutará la prueba comparativa. Realiza lecturas y escrituras en el archivo de prueba para medir la IOPS y el rendimiento del disco. Iometer crea este archivo de prueba si no proporcionó ninguno. Cree un archivo de prueba de 200 GB llamado iobw.tst en los volúmenes CacheReads y NoCacheWrites.
 
@@ -385,9 +385,9 @@ A continuación se muestran capturas de pantalla de los resultados de la prueba 
 *Rendimiento máximo de lectura y escritura combinado* ![](media/storage-premium-storage-performance/image10.png)
 
 ### FIO  
-FIO es una popular herramienta para el almacenamiento de información de referencia en las máquinas virtuales de Linux. Tiene flexibilidad para seleccionar distintos tamaños de E/S y lecturas y escrituras secuenciales o aleatorias. Genera subprocesos de trabajo o procesos para realizar las operaciones de E/S especificadas. Puede especificar el tipo de operaciones de E/S que debe realizar cada subproceso de trabajo con archivos de trabajo. Hemos creado un archivo de trabajo por escenario que se ilustra en los ejemplos siguientes. Puede cambiar las especificaciones de estos archivos de trabajo para tener referencia de diferentes cargas de trabajo en Almacenamiento premium. En los ejemplos, usamos una máquina virtual estándar 14 DS que ejecuta **Ubuntu**. Use la misma configuración descrita al principio de la sección Pruebas comparativas y prepare la memoria caché antes de ejecutar las pruebas comparativas.
+FIO es una popular herramienta para el almacenamiento de información de referencia en las máquinas virtuales de Linux. Tiene flexibilidad para seleccionar distintos tamaños de E/S y lecturas y escrituras secuenciales o aleatorias. Genera subprocesos de trabajo o procesos para realizar las operaciones de E/S especificadas. Puede especificar el tipo de operaciones de E/S que debe realizar cada subproceso de trabajo con archivos de trabajo. Hemos creado un archivo de trabajo por escenario que se ilustra en los ejemplos siguientes. Puede cambiar las especificaciones de estos archivos de trabajo para tener referencia de diferentes cargas de trabajo en Almacenamiento premium. En los ejemplos, usamos una máquina virtual estándar 14 DS que ejecuta **Ubuntu**. Use la misma configuración descrita al principio de la [sección Pruebas comparativas](#Benchmarking) y prepare la memoria caché antes de ejecutar las pruebas comparativas.
 
-Antes de comenzar, instale FIO en la máquina virtual. Descárguelo desde [GitHub](https://github.com/axboe/fio).
+Antes de comenzar, [descargue FIO](https://github.com/axboe/fio) e instálelo en la máquina virtual.
 
 Ejecute el siguiente comando para Ubuntu:
 
@@ -522,12 +522,11 @@ Mientras se ejecuta la prueba, podrá ver el número de IOPS de lectura y escrit
 
 Más información sobre Almacenamiento premium de Azure:
 
-- [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md)  
+- [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md)  
 
 Para los usuarios de SQL Server, lea artículos sobre procedimientos recomendados para SQL Server:
 
-- [Procedimientos recomendados de rendimiento para SQL Server en
-- máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx)
-- [Almacenamiento premium de Azure proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  
+- [Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-sql-server-performance-best-practices.md)
+- [Almacenamiento premium de Azure proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

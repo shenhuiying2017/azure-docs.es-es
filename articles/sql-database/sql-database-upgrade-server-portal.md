@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 
@@ -35,7 +35,7 @@ Este artículo proporciona instrucciones para actualizar los servidores y las ba
 
 Durante el proceso de actualización a la versión V12, podrá actualizar cualquier base de datos de tipo Web y Business a un nuevo nivel de servicio, por lo que se incluyen instrucciones para actualizar este tipo de bases de datos.
 
-Asimismo, la migración a un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) puede resultarle más rentable que actualizar a niveles de rendimiento individuales (planes de tarifas) de bases de datos únicas. De igual manera, los grupos le permitirán simplificar la administración de sus bases de datos, ya que realmente solo necesita administrar la configuración de rendimiento del grupo, en vez de dedicarse a administrar independientemente los niveles de rendimiento de las bases de datos individuales. Si tiene bases de datos en varios servidores, puede considerar la posibilidad de colocarlas todas en el mismo servidor y aprovecharse de las ventajas que supondría implementarlas en un grupo. Puede [migrar de forma automática y con facilidad las bases de datos de los servidores V11 a grupos de bases de datos elásticas mediante PowerShell](sql-database-upgrade-server.md). Asimismo, también puede usar el portal para migrar bases de datos de V11 en un grupo, pero recuerde que en el portal ya debe tener un servidor V12 para poder crear un grupo. Si tiene [bases de datos que se pueden beneficiar de un grupo](sql-database-elastic-pool-guidance.md), más adelante encontrará instrucciones para que pueda crear el grupo una vez actualizado el servidor.
+Asimismo, la migración a un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) puede resultarle más rentable que actualizar a niveles de rendimiento individuales (planes de tarifas) de bases de datos únicas. De igual manera, los grupos le permitirán simplificar la administración de sus bases de datos, ya que realmente solo necesita administrar la configuración de rendimiento del grupo, en vez de dedicarse a administrar independientemente los niveles de rendimiento de las bases de datos individuales. Si tiene bases de datos en varios servidores, puede considerar la posibilidad de colocarlas todas en el mismo servidor y aprovecharse de las ventajas que supondría implementarlas en un grupo. Puede [migrar de forma automática y con facilidad las bases de datos de los servidores V11 a grupos de bases de datos elásticas mediante PowerShell](sql-database-upgrade-server-powershell.md). Asimismo, también puede usar el portal para migrar bases de datos de V11 en un grupo, pero recuerde que en el portal ya debe tener un servidor V12 para poder crear un grupo. Si tiene [bases de datos que se pueden beneficiar de un grupo](sql-database-elastic-pool-guidance.md), más adelante encontrará instrucciones para que pueda crear el grupo una vez actualizado el servidor.
 
 Tenga en cuenta que las bases de datos permanecerán en línea y seguirán funcionando durante toda la operación de actualización. En el momento en que realice la transición al nuevo nivel de rendimiento, es posible que se produzca una caída temporal de las conexiones a la base de datos, aunque no durarán mucho; normalmente oscilarán entre los 90 segundos y los 5 minutos. Si su aplicación tiene una [gestión de errores temporal para terminaciones de conexiones](sql-database-connect-central-recommendations.md), entonces es suficiente con que tome precauciones contra las interrupciones de la conexión al final de la actualización.
 
@@ -132,7 +132,7 @@ Además de supervisar las bases de datos individuales, también puede supervisar
 Información de supervisión adicional:
 
 - [Guía de rendimiento de Base de datos SQL de Azure para bases de datos individuales](http://msdn.microsoft.com/library/azure/dn369873.aspx).
-- [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database=elastic-pool-guidance.md).
+- [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
 - [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
 
@@ -140,7 +140,7 @@ Información de supervisión adicional:
 
 **Alertas:** configure “Alertas” en el Portal de Azure para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en el Portal de Azure con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. Vaya a la base de datos y seleccione **Reglas de alerta** en la hoja **Configuración**.
 
-Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Recibir notificaciones de alerta](insights-receive-alert-notifications.md) para obtener más información acerca de cómo configurar las notificaciones de alerta.
+Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Recibir notificaciones de alerta](../azure-portal/insights-receive-alert-notifications.md) para obtener más información acerca de cómo configurar las notificaciones de alerta.
 
 
 
@@ -169,4 +169,4 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

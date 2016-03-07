@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/20/2016"
 	ms.author="jolevy"/>
 
 
@@ -34,20 +34,20 @@ Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentra
 
 ## ¿Cómo puede ayudar el servicio Automatización de Azure a administrar Almacenamiento de Azure?
 
-Almacenamiento de Azure se puede administrar en Automatización de Azure mediante los cmdlets de PowerShell que están disponibles en las [herramientas de Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de Almacenamiento disponibles directamente para que pueda realizar todas las tareas de administración de blobs, tablas y colas dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
+Almacenamiento de Azure se puede administrar en Automatización de Azure mediante los cmdlets de PowerShell que están disponibles en [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de Almacenamiento disponibles directamente para que pueda realizar todas las tareas de administración de blobs, tablas y colas dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
 La [Galería de runbooks de Automatización de Azure](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contiene una gran variedad de runbooks de comunidad y equipo de producto para empezar a automatizar la administración de Almacenamiento de Azure, otros servicios de Azure y sistemas de terceros. Los runbooks de la Galería incluyen:
 
- * [Quitar blobs de Almacenamiento de Azure que tengan más de X días de antigüedad](https://gallery.technet.microsoft.com/scriptcenter/Remove-Storage-Blobs-that-aae4b761)
- * [Descargar un blob desde Almacenamiento de Azure en Automatización de Azure:](https://gallery.technet.microsoft.com/scriptcenter/a-Blob-from-Azure-Storage-6bc13745)
- * [Crear copias de discos de datos de Máquinas virtuales de Azure en un servicio en la nube de Azure](https://gallery.technet.microsoft.com/scriptcenter/Make-copies-of-Azure-VM-065a6394)
+ * [Quitar Blobs desde Almacenamiento de Azure que llevan varios días mediante el Servicio de automatización](https://gallery.technet.microsoft.com/scriptcenter/Remove-Storage-Blobs-that-aae4b761)
+ * [Descargar un Blob desde Almacenamiento de Azure](https://gallery.technet.microsoft.com/scriptcenter/a-Blob-from-Azure-Storage-6bc13745)
+ * [Hacer una copia de seguridad de todos los discos para una sola VM de Azure o para todas las VM en un servicio en la nube](https://gallery.technet.microsoft.com/scriptcenter/Backup-all-disks-for-a-ede940d5)
 
 
 ## Pasos siguientes
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar blobs, tablas y colas de Almacenamiento de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
-Consulte el [Tutorial de introducción](../automation-create-runbook-from-samples.md) de Automatización de Azure.
+Consulte el tutorial de Automatización de Azure [Crear o importar un Runbook en Automatización de Azure](../automation/automation-creating-importing-runbook.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Información general sobre las transacciones de base de datos elástica con Base de datos SQL de Azure (en versión preliminar)"
-   description="Información general sobre las transacciones de base de datos elástica con Base de datos SQL de Azure (en versión preliminar)"
+   pageTitle="Introducción sobre las transacciones de base de datos elástica con Base de datos SQL de Azure"
+   description="Introducción sobre las transacciones de base de datos elástica con Base de datos SQL de Azure"
    services="sql-database"
    documentationCenter=""
    authors="torsteng"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
-   ms.date="02/01/2016"
+   ms.date="02/23/2016"
    ms.author="torsteng"/>
 
-# Información general sobre las transacciones de base de datos elástica con Base de datos SQL de Azure (en versión preliminar)
+# Introducción sobre las transacciones de base de datos elástica con Base de datos SQL de Azure
 
 Las transacciones de base de datos elástica para Base de datos SQL de Azure le permiten ejecutar transacciones que abarcan varias bases de datos de Base de datos SQL. Están disponibles para aplicaciones .NET mediante ADO .NET y se integran con la conocida experiencia de programación en la que se hace uso de las clases [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx). Para obtener la biblioteca, vea [.NET Framework 4.6.1 (instalador web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
@@ -94,11 +94,13 @@ Las transacciones de base de datos elástica para Base de datos SQL también adm
 	}
 
 
-## Configuración de roles de trabajo de Azure
+## Instalación de .NET para servicios en la nube de Azure
 
-Puede automatizar la instalación y la implementación de la versión y las bibliotecas de .NET necesarias para las transacciones de base de datos elástica en Azure (en el sistema operativo invitado de su servicio en la nube). Para los roles de trabajo de Azure, use las tareas de inicio. Los conceptos y los pasos se documentan en [Instalación de .NET en un rol de servicio en la nube](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+Azure proporciona varias ofertas para hospedar aplicaciones. NET. Hay disponible una comparación de las diferentes ofertas en [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md) (Comparación entre el Servicio de aplicaciones de Azure, los Servicios en la nube y las máquinas virtuales). Si el SO invitado de la oferta es inferior a .NET 4.6.1, que es el que se requiere para las transacciones elásticas, debe actualizar el SO invitado a 4.6.1.
 
-Tenga en cuenta que el instalador de .NET 4.6.1 requiere más espacio de almacenamiento temporal durante el proceso de arranque en los servicios en la nube de Azure que el instalador de .NET 4.6. Para garantizar una instalación correcta, debe aumentar el almacenamiento temporal para el servicio en la nube de Azure en el archivo ServiceDefinition.csdef en la sección LocalResources y en la configuración del entorno de la tarea de inicio, como se muestra en el ejemplo siguiente:
+Para los Servicios de aplicaciones de Azure, no se admiten las actualizaciones del SO invitado en estos momentos. En el caso de las máquinas virtuales de Azure, solo tiene que iniciar sesión en la máquina virtual y ejecutar el instalador para la última versión de .NET Framework. Para los Servicios en la nube de Azure, hay que incluir la instalación de una versión más reciente de .NET en las tareas de inicio de la implementación. Los conceptos y los pasos se documentan en [Instalación de .NET en un rol de servicio en la nube](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+
+Tenga en cuenta que el instalador de .NET 4.6.1 puede requerir más espacio de almacenamiento temporal durante el proceso de arranque en los Servicios en la nube de Azure que el instalador de .NET 4.6. Para garantizar una instalación correcta, debe aumentar el almacenamiento temporal para el servicio en la nube de Azure en el archivo ServiceDefinition.csdef en la sección LocalResources y en la configuración del entorno de la tarea de inicio, como se muestra en el ejemplo siguiente:
 
 	<LocalResources>
 	...
@@ -118,6 +120,17 @@ Tenga en cuenta que el instalador de .NET 4.6.1 requiere más espacio de almacen
 			</Environment>
 		</Task>
 	</Startup>
+	
+## Transacciones entre varios servidores
+
+Se admiten transacciones de la base de datos elástica entre diferentes servidores lógicos en Base de datos SQL de Azure. Cuando las transacciones cruzan los límites del servidor lógico, los servidores implicados en primer lugar deben involucrarse en una relación de comunicación mutua. Una vez que se ha establecido la relación de comunicación, cualquier base de datos ubicada en uno de los dos servidores puede participar en transacciones elásticas con bases de datos desde el otro servidor. En el caso de las transacciones distribuidas en más de dos servidores lógicos, debe existir una relación de comunicación para cualquier par de servidores lógicos.
+
+Use los siguientes cmdlets de PowerShell para administrar las relaciones de comunicación entre los servidores para las transacciones de la base de datos elástica:
+
+* **New-AzureRmSqlServerCommunicationLink**: Este cmdlet se usa para crear una nueva relación de comunicación entre dos servidores lógicos en Base de datos SQL de Azure. La relación es simétrica, lo que significa que ambos servidores pueden iniciar transacciones con el otro servidor.
+* **Get-AzureRmSqlServerCommunicationLink**: Este cmdlet se usa para recuperar una relación de comunicación existente y sus propiedades.
+* **Remove-AzureRmSqlServerCommunicationLink**: Este cmdlet se usa para eliminar una relación de comunicación existente. 
+
 
 ## Supervisión del estado de la transacción
 
@@ -136,7 +149,6 @@ Las siguientes limitaciones se aplican actualmente a transacciones de base de da
 * Se admiten únicamente transacciones entre bases de datos en Base de datos SQL. Otros proveedores de recursos y bases de datos de [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) externos a Base de datos SQL no podrán participar en transacciones de base de datos elástica. Esto significa que dichas transacciones no pueden extenderse entre bases de datos locales de SQL Server y SQL de Azure. Para las transacciones distribuidas en el entorno local, siga usando MSDTC. 
 * Solo se admiten transacciones coordinadas por el cliente desde una aplicación .NET. Está prevista la compatibilidad en el lado servidor con T-SQL, por ejemplo, INICIAR TRANSACCIÓN DISTRIBUIDA, pero aún no se encuentra disponible. 
 * Solo se admiten las bases de datos V12 de Base de datos SQL de Azure.
-* Solo se admiten las bases de datos que pertenecen al mismo servidor lógico en Base de datos SQL.
 
 ## Más información
 
@@ -145,4 +157,4 @@ Las siguientes limitaciones se aplican actualmente a transacciones de base de da
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

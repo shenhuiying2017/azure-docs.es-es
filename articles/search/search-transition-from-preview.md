@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 #Transición de versión preliminar api-version=2014* a api-version=2015 *#
@@ -144,4 +144,4 @@ La versión `2015-02-28` de la API responde a un Contrato de nivel de servicio (
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

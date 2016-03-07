@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure
@@ -25,7 +25,7 @@
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-En este artículo se muestra cómo configurar la replicación geográfica para Base de datos SQL con el [Portal de Azure](https://portal.azure.com).
+En este artículo se muestra cómo configurar la replicación geográfica para Base de datos SQL con el [Portal de Azure](http://portal.azure.com).
 
 La replicación geográfica permite crear hasta cuatro bases de datos de réplica (secundarias) en distintas ubicaciones de centros de datos (regiones). Las bases de datos secundarias están disponibles en caso de una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal.
 
@@ -56,7 +56,7 @@ La base de datos secundaria tendrá el mismo nombre que la base de datos princip
 
 ### Adición de una secundaria
 
-1. En el [Portal de Azure](https://portal.azure.com), vaya a la base de datos que desea configurar para replicación geográfica.
+1. En el [Portal de Azure](http://portal.azure.com), vaya a la base de datos que desea configurar para replicación geográfica.
 2. En la hoja Base de datos SQL, seleccione **Toda la configuración** > **Replicación geográfica**.
 3. Seleccione la región para crear la base de datos secundaria. Las bases de datos Premium pueden usar cualquier región para una base de datos secundaria, las bases de datos Estándar deben usar la región recomendada:
 
@@ -89,7 +89,7 @@ La base de datos secundaria tendrá el mismo nombre que la base de datos princip
 
 La operación termina de forma permanente la replicación en la base de datos secundaria y el rol de la base de datos secundaria cambia al de una base de datos de lectura y escritura normal. Si se interrumpe la conectividad a la base de datos secundaria, el comando se ejecuta correctamente pero la base de datos secundaria no pasará a ser de lectura y escritura hasta después de restaurarse la conectividad.
 
-1. En el [Portal de Azure](https://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
+1. En el [Portal de Azure](http://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
 2. En la hoja Base de datos SQL, seleccione **Toda la configuración** > **Replicación geográfica**.
 3. En la lista **SECUNDARIAS**, seleccione la base de datos que quiere quitar de la asociación de replicación geográfica.
 4. Haga clic en **Detener replicación**.
@@ -108,7 +108,7 @@ La operación termina de forma permanente la replicación en la base de datos se
 
 La base de datos secundaria se puede cambiar para convertirse en la principal.
 
-1. En el [Portal de Azure](https://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
+1. En el [Portal de Azure](http://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
 2. En la hoja Base de datos SQL, seleccione **Toda la configuración** > **Replicación geográfica**.
 3. En la lista **SECUNDARIAS**, seleccione la base de datos que quiere convertir en la nueva base de datos principal.
 4. Haga clic en **Conmutación por error**.
@@ -151,4 +151,4 @@ En el caso de una conmutación por error planeada, esta secuencia garantiza que 
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

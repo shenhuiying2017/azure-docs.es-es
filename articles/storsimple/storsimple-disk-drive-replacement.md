@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -27,7 +27,7 @@ Este tutorial explica cómo quitar y reemplazar una unidad de disco duro que no 
 
 - Instalar la unidad de disco de reemplazo
 
->[AZURE.IMPORTANT]Antes de quitar y reemplazar una unidad de disco, revise la información de seguridad en [Reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Antes de quitar y reemplazar una unidad de disco, revise la información de seguridad en [Reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Desactivar el bloqueo antisabotaje
 
@@ -37,7 +37,7 @@ Este procedimiento explica cómo pueden activarse o desactivarse los bloqueos an
 
 1. Inserte cuidadosamente la clave de bloqueo (un destornillador T10 "inviolable" proporcionado por Microsoft) en el orificio del asa y en la toma. 
 
-    >[AZURE.NOTE]Si el bloqueo antisabotaje está activado, el indicador rojo está visible en el orificio.
+    >[AZURE.NOTE] Si el bloqueo antisabotaje está activado, el indicador rojo está visible en el orificio.
 
     ![Unidad de disco bloqueada](./media/storsimple-disk-drive-replacement/IC741056.png)
 
@@ -118,10 +118,10 @@ Después de que se ha producido un error en la unidad de su dispositivo StorSimp
 
 5. Compruebe que el reemplazo se realizó correctamente y que la unidad funcione. Para ello, acceda al Portal de Azure clásico y vaya a **Mantenimiento** > **Estado del hardware**. En **Componentes compartidos** o **Componentes compartidos del gabinete EBOD**, el estado de la unidad debe ser verde, que indica que está en buenas condiciones.
 
-    >[AZURE.NOTE]Puede tardar varias horas para que el estado del disco cambie a verde, después de la sustitución.
+    >[AZURE.NOTE] Puede tardar varias horas para que el estado del disco cambie a verde, después de la sustitución.
 
 ## Pasos siguientes
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Vista previa de Azure AD B2C: Llamada a una API web desde una aplicación Android | Microsoft Azure"
-	description="Este artículo le mostrará cómo crear una aplicación Android de "Lista de tareas pendientes" que llama a una API web de node.js mediante tokens de portador de OAuth 2.0. Tanto la aplicación Android como la API web usan Azure AD B2C para administrar identidades de usuario y autenticar usuarios."
-	services="active-directory-b2c"
-	documentationCenter="android"
-	authors="brandwe"
-	manager="msmbaldwin"
-	editor=""/>
+<properties pageTitle="Vista previa de Azure AD B2C: Llamada a una API web desde una aplicación Android | Microsoft Azure" description="Este artículo le mostrará cómo crear una aplicación Android de "Lista de tareas pendientes" que llama a una API web de node.js mediante tokens de portador de OAuth 2.0. Tanto la aplicación Android como la API web usan Azure AD B2C para administrar identidades de usuario y autenticar usuarios." services="active-directory-b2c" documentationCenter="android" authors="brandwe" manager="msmbaldwin" editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +6,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
 # Vista previa de Azure AD B2C: Llamada a una API web desde una aplicación Android
@@ -49,7 +42,7 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 
 - Incluir una **aplicación web/API web** en la aplicación.
 - Escribir `urn:ietf:wg:oauth:2.0:oob` como **dirección URL de respuesta**: es la dirección URL predeterminada para este ejemplo de código.
-- Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve.
+- Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve. Tenga en cuenta que este valor debe [incluirse entre secuencias de escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) antes de su uso.
 - Escribir el **Id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -78,7 +71,7 @@ El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQu
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-Android.git
 ```
 
-> [AZURE.NOTE]**Es necesaria la descarga del esqueleto para completar este tutorial.** Debido a la complejidad de la implementación de una aplicación totalmente funcional en Android, el **esqueleto** tiene el código de experiencia de usuario que se ejecutará una vez completado el tutorial siguiente. Se trata de una medida de ahorro de tiempo para los desarrolladores. El código de experiencia de usuario no es relevante para el tema de cómo agregar B2C a una aplicación Android.
+> [AZURE.NOTE] **Es necesaria la descarga del esqueleto para completar este tutorial.** Debido a la complejidad de la implementación de una aplicación totalmente funcional en Android, el **esqueleto** tiene el código de experiencia de usuario que se ejecutará una vez completado el tutorial siguiente. Se trata de una medida de ahorro de tiempo para los desarrolladores. El código de experiencia de usuario no es relevante para el tema de cómo agregar B2C a una aplicación Android.
 
 La aplicación completada también estará [disponible como .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) o en la rama `complete` del mismo repositorio.
 
@@ -198,19 +191,12 @@ public class Constants {
 
 
 ```
-**SCOPES**: se trata de los ámbitos que pasamos al servidor que queremos solicitar desde el servidor para el inicio de sesión del usuario. Para la vista previa de B2C, pasamos client\_id. Sin embargo, esto cambiará la lectura de ámbitos en el futuro. Entonces se actualizará este documento.
-**ADDITIONAL\_SCOPES**: son los ámbitos adicionales que podemos usar para la aplicación. Esto se usará en el futuro.
-**CLIENT\_ID**: el id. de aplicación que obtuvo en el portal.
-**REDIRECT\_URL**: la redirección donde se espera que se envíe de nuevo el token.
-**EXTRA\_QP**: cualquier elemento adicional que desea pasar al servidor en formato codificado de dirección URL.
-**FB\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
-**EMAIL\_SIGNIN\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
-**EMAIL\_SIGNUP\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
+**SCOPES**: se trata de los ámbitos que pasamos al servidor que queremos solicitar desde el servidor para el inicio de sesión del usuario. Para la vista previa de B2C, pasamos client\_id. Sin embargo, esto cambiará la lectura de ámbitos en el futuro. Entonces se actualizará este documento. **ADDITIONAL\_SCOPES**: son los ámbitos adicionales que podemos usar para la aplicación. Esto se usará en el futuro. **CLIENT\_ID**: el id. de aplicación que obtuvo en el portal. **REDIRECT\_URL**: la redirección donde se espera que se envíe de nuevo el token. **EXTRA\_QP**: cualquier elemento adicional que desea pasar al servidor en formato codificado de dirección URL. **FB\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial. **EMAIL\_SIGNIN\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial. **EMAIL\_SIGNUP\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
 
 ### Paso 7: Agregar referencias a ADAL de Android en el proyecto
 
 
-> [AZURE.NOTE]ADAL para Android usa un modelo basado en intentos para invocar la autenticación. Los intentos dependen de la aplicación para realizar el trabajo. Todo este ejemplo y, en realidad, todo el uso de ADAL para Android, consiste en administrar los intentos y pasar información entre ellos.
+> [AZURE.NOTE]	ADAL para Android usa un modelo basado en intentos para invocar la autenticación. Los intentos dependen de la aplicación para realizar el trabajo. Todo este ejemplo y, en realidad, todo el uso de ADAL para Android, consiste en administrar los intentos y pasar información entre ellos.
 
 
 Lo primero que debemos hacer es indicarle a Android el diseño de la aplicación, incluidos los Intents() que deseamos usar. Voy a explicar estos intentos de forma detallada más adelante.
@@ -503,7 +489,7 @@ public class SettingsActivity extends Activity {
 
 Esto nos permitirá agregar una tarea al extremo de la API de REST. De nuevo, esto es bastante sencillo.
 
-Cree un archivo que se llame `AddTaskActivity.java`.
+Cree un archivo que se llame `AddTaskActivity.java`
 
 Y escriba:
 
@@ -760,14 +746,14 @@ Explicación de los parámetros:
 
   La devolución de llamada tendrá un objeto de AuthenticationResult que tiene accesstoken, fecha de caducidad e información sobre el token del identificador.
 
-> [AZURE.NOTE]La aplicación del portal de empresa de Microsoft Intune proporciona el componente de agente y puede instalarse en el dispositivo del usuario. Los desarrolladores deben estar preparados para permitir su uso ya que proporciona el SSO en todas las aplicaciones del dispositivo. ADAL para Android usará la cuenta del agente si hay una cuenta de usuario creada en el autenticador. Para usar el agente, el desarrollador necesita registrar un redirectUri especial para el uso del agente. RedirectUri tiene el formato msauth://packagename/Base64UrlencodedSignature. Puede obtener el redirecturi para la aplicación mediante el script `brokerRedirectPrint.ps1` o usar la llamada a la API `mContext.getBrokerRedirectUri()`. La firma está relacionada con los certificados de firma procedentes de Google Play Store.
+> [AZURE.NOTE]	La aplicación del portal de empresa de Microsoft Intune proporciona el componente de agente y puede instalarse en el dispositivo del usuario. Los desarrolladores deben estar preparados para permitir su uso ya que proporciona el SSO en todas las aplicaciones del dispositivo. ADAL para Android usará la cuenta del agente si hay una cuenta de usuario creada en el autenticador. Para usar el agente, el desarrollador necesita registrar un redirectUri especial para el uso del agente. RedirectUri tiene el formato msauth://packagename/Base64UrlencodedSignature. Puede obtener el redirecturi para la aplicación mediante el script `brokerRedirectPrint.ps1` o usar la llamada a la API `mContext.getBrokerRedirectUri()`. La firma está relacionada con los certificados de firma procedentes de Google Play Store.
 
  El desarrollador puede omitir el usuario del agente con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
     ```
-> [AZURE.NOTE]Con el fin de reducir la complejidad de esta guía de inicio rápido de B2C, hemos optado, en nuestro ejemplo, por omitir el agente.
+> [AZURE.NOTE] Con el fin de reducir la complejidad de esta guía de inicio rápido de B2C, hemos optado, en nuestro ejemplo, por omitir el agente.
 
 A continuación, vamos a crear algunos métodos auxiliares que obtendrán el token solo durante las llamadas de autenticación a la API de tarea.
 
@@ -907,16 +893,7 @@ Vamos a escribir primero nuestro `getTask`:
  
  **En el mismo archivo** llamado `ToDoActivity.java`
  
-  ```
-    private URL getEndpointUrl() {
-        URL endpoint = null;
-        try {
-            endpoint = new URL(Constants.SERVICE_URL);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return endpoint;
-    }
+ ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
 
  ```
 
@@ -987,7 +964,7 @@ Por último, cree y ejecute la aplicación tanto en Android Studio como en Eclip
 
 Observe cómo se almacenan las tareas por usuario en la API, puesto que la API extrae la identidad del usuario del token de acceso que recibe.
 
-Como referencia, el ejemplo completado [se ofrece aquí en forma de archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip), aunque también puede clonarlo desde GitHub:
+Como referencia, el ejemplo finalizado [se proporciona en forma de archivo .zip aquí](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip), aunque también puede clonarlo desde GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
 
@@ -1001,16 +978,12 @@ ADAL cifra los tokens y los almacena en SharedPreferences de forma predeterminad
 
 #### Cookies de sesión en WebView
 
-Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente:
-```
+Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente: ```
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-```
-Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+``` Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=AcomDC_1125_2015-->
-
-
+<!---HONumber=AcomDC_0224_2016-->

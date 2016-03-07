@@ -49,9 +49,9 @@ Si ha conmutado por error una máquina virtual de VMware, puede conmutar por rec
 
 - Si ha conmutado por error servidores físicos, la conmutación por recuperación siempre es a una nueva máquina virtual de VMware.
 - Si conmuta por recuperación a la máquina virtual original, se necesita lo siguiente:
-	- Si la máquina virtual está administrada por un servidor vCenter, la máquina virtual del sitio local debe utilizar el mismo almacén de datos que la máquina virtual que ejecuta el servidor de destino maestro local. Si no lo está, deberá migrarla para conmutar por recuperación a la misma máquina virtual.
-	- Si la máquina virtual está en un host ESX, pero no está administrada por vCenter, el disco duro de la máquina virtual debe estar en el mismo almacén de datos que la máquina virtual de destino maestra.
-	- Si la máquina virtual está en un host ESX y no usa vCenter, debe completar la detección del host ESX antes de volver a protegerla. Lo mismo se aplica si también conmuta por recuperación a servidores físicos.
+	- Si la máquina virtual está administrada por un servidor vCenter, el host ESX del destino principal debe tener acceso al almacén de datos de máquinas virtuales.
+	- Si la máquina virtual está en un host ESX, pero no está administrada por vCenter, el disco duro de la máquina virtual debe estar en un almacén de datos accesible para el host de MT.
+	- Si la máquina virtual está en un host ESX y no usa vCenter, debe completar la detección del host ESX de MT antes de volver a protegerla. Lo mismo se aplica si también conmuta por recuperación a servidores físicos.
 	- Otra opción (si existe la máquina virtual local) es eliminarla antes de realizar una conmutación por recuperación. En este caso, la conmutación por recuperación crea una nueva máquina virtual en el mismo host que el host ESX de destino maestro.
 	
 - Cuando se conmuta por recuperación a una ubicación alternativa, los datos se recuperan en el mismo almacén de datos y el mismo host ESX que los usados por el servidor de destino maestro local.
@@ -86,14 +86,14 @@ Para que las máquinas virtuales de Azure puedan devolver los datos a un servido
 
 	Después de que el servidor de procesos se implemente en Azure, podrá iniciar sesión en él con las credenciales que especificó. La primera vez que inicia sesión, se ejecutará el cuadro de diálogo del servidor de procesos. Escriba la dirección IP del servidor de administración local y su frase de contraseña. Deje la configuración predeterminada del puerto 443. También puede dejar el puerto predeterminado 9443 para la replicación de datos, a no ser que modificara en concreto este valor al configurar el servidor de administración local.
 
-	>[AZURE.NOTE]El servidor no será visible en las **propiedades de la máquina virtual**. Solo aparecerá en la pestaña **Servidores** del servidor de administración en el que se ha registrado. Puede tardar entre 10 y 15 minutos en aparecer el servidor de procesos.
+	>[AZURE.NOTE] El servidor no será visible en las **propiedades de la máquina virtual**. Solo aparecerá en la pestaña **Servidores** del servidor de administración en el que se ha registrado. Puede tardar entre 10 y 15 minutos en aparecer el servidor de procesos.
 
 
 ## Configuración del servidor de destino maestro local
 
 El servidor de destino maestro recibe los datos de conmutación por recuperación. Un servidor de destino maestro se instala automáticamente en el servidor de administración local, pero si va a conmutar por recuperación muchos datos puede que tenga que configurar otro adicional. Para ello, realice lo siguiente:
 
->[AZURE.NOTE]Si desea instalar un servidor de destino maestro en Linux, siga las instrucciones del procedimiento siguiente.
+>[AZURE.NOTE] Si desea instalar un servidor de destino maestro en Linux, siga las instrucciones del procedimiento siguiente.
 
 1. Si va a instalar al servidor de destino maestro en Windows, abra la página de inicio rápido de la máquina virtual en la que va a instalarlo y descargue el archivo de instalación para el Asistente de configuración unificada de Azure Site Recovery.
 2. Ejecute el programa de instalación y, en **Antes de comenzar**, seleccione **Agregar servidores de procesos adicionales para el escalado horizontal de la implementación**.
@@ -181,4 +181,4 @@ Puede conmutar por recuperación a través de una conexión VPN o de Azure Expre
 - ExpressRoute se debe configurar en la red virtual de Azure a la que conmutarán por error las máquinas de origen, y en la que se encuentran las máquinas virtuales de Azure después de que tiene lugar este proceso.
 - Los datos se replican en una cuenta de almacenamiento de Azure en un punto de conexión público. Para usar ExpressRoute, debe realizar la configuración entre pares públicos en ExpressRoute con el centro de datos de destino para la replicación de Site Recovery.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

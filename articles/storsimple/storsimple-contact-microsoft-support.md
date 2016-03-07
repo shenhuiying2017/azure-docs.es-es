@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/14/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 # Contactar al soporte técnico de Microsoft
@@ -30,21 +30,47 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
 #### Para crear una solicitud de soporte
 
-1. Las solicitudes de soporte técnico pueden crearse a través del [Portal de Azure clásico](https://manage.windowsazure.com/). En el [portal clásico](https://manage.windowsazure.com/), haga clic en el **Nombre de cuenta** y, a continuación, haga clic en **Póngase en contacto con el Soporte técnico de Microsoft**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en el extremo superior derecho, en el nombre de cuenta y, a continuación, haga clic en **Póngase en contacto con el Soporte técnico de Microsoft**.
 
-	![Contactar al soporte técnico de MS a través del Portal de administración](./media/storsimple-contact-microsoft-support/IC777286.png)
+	![Contactar al soporte técnico de MS a través del Portal de administración](./media/storsimple-contact-microsoft-support/Ibiza1.png)
 
-2. En el cuadro de diálogo **Póngase en contacto con el Soporte técnico de Microsoft**:
+2. Se le redirigirá al nuevo portal de Azure (ms.portal.azure.com). Haga clic en el icono **Nueva solicitud de soporte técnico**.
 
-	1. En la lista desplegable, seleccione la **Suscripción** de destino asociada con su servicio StorSimple Manager. En **Tipo de soporte** especifique **Técnico**. Para habilitar el soporte técnico, debe contar con un plan de soporte técnico de pago.
+	![Contactar al soporte técnico de MS a través del nuevo portal](./media/storsimple-contact-microsoft-support/Ibiza2.png)
 
-	2. Haga clic en el icono ![Icono de marca de verificación](./media/storsimple-contact-microsoft-support/IC740895.png) para ejecutar la opción **Crear incidencia**.
+    En el lado derecho de la pantalla, aparecerá el panel **Nueva solicitud de soporte técnico**.
 
-3. En la ventana **Servicio de soporte técnico de Microsoft**, en la lista desplegable **Producto**, elija **StorSimple**.
+	![Panel Nueva solicitud de soporte](./media/storsimple-contact-microsoft-support/Ibiza3a.png)
 
-	![Contactar al soporte técnico de Microsoft - Producto](./media/storsimple-contact-microsoft-support/IC777288.png)
+3. En el cuadro de diálogo **Aspectos básicos**, haga lo siguiente:
+	1. Desde la lista desplegable **Tipo de problema**, seleccione **Técnico**.
+	2. Seleccione una **Suscripción** en la lista desplegable.
+	3. Desde la lista desplegable **Servicio**, seleccione **StorSimple**. 
+	4. Seleccione un **Plan de soporte técnico** en la lista desplegable. Para habilitar el soporte técnico, debe contar con un plan de soporte técnico de pago.
 
-4. Siga las instrucciones en pantalla para clasificar la solicitud correctamente y proporcionar una descripción clara y específica de su problema.
+4. Haga clic en **Siguiente**. Aparecerá el cuadro de diálogo **Problema**.
+
+	![Panel Nueva solicitud de soporte](./media/storsimple-contact-microsoft-support/Ibiza5a.png)
+
+5. En el cuadro de diálogo **Problema**, haga lo siguiente:
+
+    1.  Seleccione un nivel de **Gravedad** en la lista desplegable.
+    2.  Seleccione un **Tipo de problema** en la lista desplegable.
+    3.  Seleccione una **Categoría** en la lista desplegable. 
+    4.  En el campo **Detalles**, escriba una descripción breve del problema.
+    5.  En el cuadro **Período de tiempo**, indique la fecha, la hora y la zona horaria correspondiente a la aparición más reciente del problema.
+    6.  En **Carga de archivos**, haga clic en el icono de carpeta para buscar el paquete de soporte técnico.
+    7.  Seleccione la casilla de verificación **Compartir información de diagnóstico**.
+
+6. Haga clic en **Siguiente**. Aparecerá el cuadro de diálogo **Información de contacto**.
+
+	![Panel Nueva solicitud de soporte](./media/storsimple-contact-microsoft-support/Ibiza6a.png)
+
+7. Escriba la información de contacto y seleccione un método de contacto (teléfono o correo electrónico).
+
+8. Seleccione la casilla de verificación **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
+
+9. Haga clic en **Crear**.
 
 Una vez que ha enviado la solicitud, un ingeniero de soporte se pondrá en contacto con usted tan pronto como sea posible para procesar su solicitud.
 
@@ -74,6 +100,6 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 
 7. Guarde esta cadena y envíela por correo electrónico al soporte técnico de Microsoft.
 
-> [AZURE.IMPORTANT]Puede deshabilitar el acceso al soporte técnico ejecutando `Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
+> [AZURE.IMPORTANT] Puede deshabilitar el acceso al soporte técnico ejecutando `Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

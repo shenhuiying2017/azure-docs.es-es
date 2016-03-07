@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Creación de grupos de seguridad de red en el modo ARM mediante PowerShell | Microsoft Azure"
-   description="Aprenda a crear e implementar grupos de seguridad de red en ARM mediante PowerShell"
+   pageTitle="Cómo crear NSG en Azure Resource Manager mediante PowerShell | Microsoft Azure"
+   description="Aprenda a crear e implementar NSG en Azure Resource Manager mediante PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# Creación de grupos de seguridad de red en PowerShell
+# Cómo crear NSG en el Administrador de recursos mediante PowerShell
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
@@ -34,7 +34,7 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Si es la primera vez que usa Azure PowerShell, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+1. Si es la primera vez que usa Azure PowerShell, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 
 3. Cree una regla de seguridad que permita el acceso desde Internet al puerto 3389.
 
@@ -123,7 +123,7 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 		                        "ProvisioningState": "Succeeded"
 		                      }
 
->[AZURE.WARNING]La salida del comando anterior muestra el contenido del objeto de configuración de red virtual, que solo existe en el equipo donde se ejecuta PowerShell. Debe ejecutar el cmdlet **Set-AzureRmVirtualNetwork** para guardar esta configuración en Azure.
+>[AZURE.WARNING] La salida del comando anterior muestra el contenido del objeto de configuración de red virtual, que solo existe en el equipo donde se ejecuta PowerShell. Debe ejecutar el cmdlet `Set-AzureRmVirtualNetwork` para guardar esta configuración en Azure.
 
 7. Guardar la nueva configuración de red virtual en Azure.
 
@@ -162,7 +162,7 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
-	El resultado solo muestra la configuración de la subred *BackEnd*, observe el valor de la propiedad **NetworkSecurityGroup**:
+	El resultado solo muestra la configuración de la subred *BackEnd*, por lo que deberá fijarse en el valor de la propiedad **NetworkSecurityGroup**:
 
 		Subnets           : [
                       {
@@ -182,4 +182,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

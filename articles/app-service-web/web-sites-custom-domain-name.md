@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="02/16/2016"
 	ms.author="cephalin"/>
 
 # Configurar un nombre de dominio personalizado en el servicio de aplicaciones de Azure
@@ -112,7 +112,7 @@ Suponiendo que el nombre de dominio personalizado es 'contoso.com', esto crearí
 - **contoso.com** asignado a 168.62.48.183.
 - **www.contoso.com** asignado a **contoso.azurewebsites.net**.
 
->[AZURE.NOTE] Puede utilizar DNS de Azure para hospedar los registros de dominio necesarios para la aplicación web. Para configurar el dominio personalizado y crear los registros, en DNS de Azure, consulte [Creación de registros de DNS personalizados para una aplicación web](../dns-web-sites-custom-domain).
+>[AZURE.NOTE] Puede utilizar DNS de Azure para hospedar los registros de dominio necesarios para la aplicación web. Para configurar el dominio personalizado y crear los registros, en DNS de Azure, consulte [Creación de registros de DNS personalizados para una aplicación web](../dns/dns-web-sites-custom-domain).
 
 <a name="awverify" />
 ## Creación de un registro awverify (solo registros A)
@@ -155,4 +155,4 @@ Para obtener más información, consulte: [Introducción a DNS de Azure](../dns/
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

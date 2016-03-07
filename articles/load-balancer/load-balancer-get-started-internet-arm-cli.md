@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/12/2015"
    ms.author="joaoma" />
 
 # Introducción a la creación de un equilibrador de carga orientado a Internet con la CLI de Azure
@@ -49,9 +49,9 @@ Para más información sobre los componentes del equilibrador de carga con el Ad
 
 ## Configurar la CLI para utilizar el Administrador de recursos
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../../articles/xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, tal como se muestra a continuación.
+2. Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
 
@@ -63,7 +63,7 @@ Para más información sobre los componentes del equilibrador de carga con el Ad
 
 ### Paso 1
 
-Cree una red virtual llamada *NRPVnet* en la ubicación Este de EE. UU. mediante el uso de un grupo de recursos llamado *NRPRG*.
+Cree una red virtual llamada *NRPVnet* en la ubicación Este de EE. UU. mediante el uso de un grupo de recursos llamado *NRPRG*.
 
 	azure network vnet create NRPRG NRPVnet eastUS -a 10.0.0.0/16
 
@@ -78,11 +78,11 @@ Cree una dirección IP pública llamada *NRPPublicIP* para que la use un grupo d
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
 
->[AZURE.IMPORTANT]El equilibrador de carga usará la etiqueta de dominio de la dirección IP pública como su FQDN. Esto representa un cambio en la implementación clásica, la que usa el servicio en la nube como el FQDN del equilibrador de carga. En este ejemplo, el FQDN será *loadbalancernrp.eastus.cloudapp.azure.com*.
+>[AZURE.IMPORTANT] El equilibrador de carga usará la etiqueta de dominio de la dirección IP pública como su FQDN. Esto representa un cambio en la implementación clásica, la que usa el servicio en la nube como el FQDN del equilibrador de carga. En este ejemplo, el FQDN será *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## Crear un equilibrador de carga
 
-En el ejemplo siguiente, el comando que aparece a continuación crea un equilibrador de carga llamado *NRPlb* en el grupo de recursos *NRPRG* de la ubicación *Este de EE. UU.* de Azure.
+En el ejemplo siguiente, el comando que aparece a continuación crea un equilibrador de carga llamado *NRPlb* en el grupo de recursos *NRPRG* de la ubicación *Este de EE. UU.* de Azure.
 
 	azure network lb create NRPRG NRPlb eastus
 
@@ -106,19 +106,19 @@ Configure un grupo de direcciones de back-end usado para recibir el tráfico ent
 
 En el ejemplo que aparece a continuación, se crean los elementos siguientes.
 
-- Una regla NAT para trasladar todo el tráfico entrante del puerto 3441 al puerto 3389<sup>1</sup>.
-- Una regla NAT para trasladar todo el tráfico entrante del puerto 3442 al puerto 3389.
+- Una regla NAT para trasladar todo el tráfico entrante del puerto 21 al puerto 22<sup>1</sup>
+- Una regla NAT para trasladar todo el tráfico entrante del puerto 23 al puerto 22
 - Una regla de equilibrador de carga para equilibrar todo el tráfico entrante del puerto 80 al puerto 80 en las direcciones del grupo de back-end.
 - Una regla de sondeo que comprobará el estado de mantenimiento en una página llamada *HealthProbe.aspx*.
 
-<sup>1</sup> Las reglas NAT están asociadas a una instancia de máquina virtual específica detrás del equilibrador de carga. En el ejemplo siguiente, el tráfico de red entrante al puerto 3341 se enviará a una máquina virtual específica en el puerto 3389 asociada a una regla NAT. Debe elegir un protocolo para la regla NAT, UDP o TCP. Los dos protocolos no se pueden asignar al mismo puerto.
+<sup>1</sup> Las reglas NAT están asociadas a una instancia de máquina virtual específica detrás del equilibrador de carga. En el ejemplo siguiente, el tráfico de red entrante al puerto 21 se enviará a una máquina virtual específica en el puerto 22 asociada a una regla NAT. Debe elegir un protocolo para la regla NAT, UDP o TCP. Los dos protocolos no se pueden asignar al mismo puerto.
 
 ### Paso 1
 
 Cree las reglas NAT.
 
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp1 -p tcp -f 3441 -b 3389
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp2 -p tcp -f 3442 -b 3389
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh1 -p tcp -f 21 -b 22
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh2 -p tcp -f 23 -b 22
 
 Parámetros:
 
@@ -145,7 +145,7 @@ Cree un sondeo de estado.
 
 **-g** -grupo de recursos **-l**: nombre del conjunto de equilibrador de carga **- n**: nombre del sondeo de estado **-p** -protocolo usado por sondeo de estado **i -**: intervalo de sondeo en segundos **- c**: número de comprobaciones
 
-### Paso 4
+### Paso 4
 
 Compruebe la configuración.
 
@@ -184,20 +184,20 @@ Resultado esperado:
 	data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
 	data:
 	data:    Inbound NAT rules:
-	data:      Name                          : rdp1
+	data:      Name                          : ssh1
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3441
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 21
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
 	data:
-	data:      Name                          : rdp2
+	data:      Name                          : ssh2
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3442
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 23
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
@@ -270,7 +270,7 @@ Cree una máquina virtual llamada *web1* y asóciela con la NIC llamada *lb-nic1
 
 	azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]Las máquinas virtuales en un equilibrador de carga deben estar en el mismo conjunto de disponibilidad. Use `azure availset create` para crear un conjunto de disponibilidad.
+>[AZURE.IMPORTANT] Las máquinas virtuales en un equilibrador de carga deben estar en el mismo conjunto de disponibilidad. Use `azure availset create` para crear un conjunto de disponibilidad.
 
 El resultado será el siguiente:
 
@@ -291,11 +291,11 @@ El resultado será el siguiente:
 	+ Creating VM "web1"
 	info:    vm create command OK
 
->[AZURE.NOTE]El mensaje informativo **Esta es una NIC sin dirección IP pública configurada** es un comportamiento esperado, debido a que la NIC que se creó para el equilibrador de carga se conecta a Internet con la dirección IP pública del equilibrador de carga.
+>[AZURE.NOTE] El mensaje informativo **Esta es una NIC sin dirección IP pública configurada** es un comportamiento esperado, debido a que la NIC que se creó para el equilibrador de carga se conecta a Internet con la dirección IP pública del equilibrador de carga.
 
 Como la NIC *lb-nic1-be* está asociada con la regla NAT *rdp1*, es posible conectarse a *web1* con RDP a través del puerto 3441 en el equilibrador de carga.
 
-### Paso 4
+### Paso 4
 
 Cree una máquina virtual llamada *web2* y asóciela con la NIC llamada *lb-nic2-be*. Se creó una cuenta de almacenamiento llamada *web1nrp* antes de ejecutar el comando que aparece a continuación.
 
@@ -322,10 +322,10 @@ donde **nrprg** es el grupo de recursos y **nrplb** el nombre del equilibrador d
 
 ## Pasos siguientes
 
-[Introducción a la configuración de un equilibrador de carga interno](load-balancer-internal-getstarted.md)
+[Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-cli.md)
 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="ricksal"/>
 
 
@@ -106,7 +106,7 @@ Un script de operación de tabla debe llamar al menos a una de las siguientes fu
  
 + **Función Responder**: se ha devuelto una respuesta personalizada.
 
-> [AZURE.IMPORTANT]Es posible que la operación no responda cuando un script cuente con una ruta de código en la que no se invoque **execute** ni **respond**.
+> [AZURE.IMPORTANT] Es posible que la operación no responda cuando un script cuente con una ruta de código en la que no se invoque **execute** ni **respond**.
 
 El siguiente script llama a la función **execute** para finalizar la operación de datos solicitada por el cliente:
 
@@ -513,7 +513,7 @@ Puede usar el control de código fuente con el administrador de paquetes Node.js
 
 Una vez que confirme el archivo package.json o los módulos personalizados en el repositorio para su servicio móvil, use **require** para hacer referencia a los módulos por nombre.
 
->[AZURE.NOTE]Los módulos que especifica en package.json o carga en el servicio móvil solo se usan en el código del script del servidor. El tiempo de ejecución de Servicios móviles no usa estos módulos.
+>[AZURE.NOTE] Los módulos que especifica en package.json o carga en el servicio móvil solo se usan en el código del script del servidor. El tiempo de ejecución de Servicios móviles no usa estos módulos.
 
 ###<a name="helper-functions"></a>Uso de funciones auxiliares
 
@@ -661,7 +661,7 @@ Los scripts de la API personalizada pueden obtener acceso al [objeto de tablas] 
 
 		var todoItemsTable = request.service.tables.getTable('TodoItem');
 
-> [AZURE.NOTE]Las funciones compartidas no pueden obtener acceso al objeto de **tablas** directamente. En una función compartida, debe pasar el objeto tables a la función.
+> [AZURE.NOTE] Las funciones compartidas no pueden obtener acceso al objeto de **tablas** directamente. En una función compartida, debe pasar el objeto tables a la función.
 
 Una vez que tenga un [objeto de tabla], puede llamar a una o varias funciones de operación de tabla: inserción, actualización, eliminación o lectura. En este ejemplo se leen los permisos de usuario desde una tabla de permisos:
 
@@ -924,7 +924,7 @@ La forma más sencilla de depurar y solucionar los problemas de los scripts del 
 
 Para escribir en los registros, use el objeto de [consola global]. Use la función **log** o **info** para registrar advertencias de nivel de información. Las funciones **warning** y **error** registran sus niveles respectivos, a los que se llama en los registros.
 
-> [AZURE.NOTE]Para ver los registros del servicio móvil, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/), seleccione el servicio móvil y luego elija la pestaña **Registros**.
+> [AZURE.NOTE] Para ver los registros del servicio móvil, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/), seleccione el servicio móvil y luego elija la pestaña **Registros**.
 
 También puede usar las funciones de registro del [objeto de consola] para dar formato a sus mensajes mediante parámetros. En el siguiente ejemplo se proporciona un objeto JSON como parámetro para la cadena de mensaje:
 
@@ -1055,4 +1055,4 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

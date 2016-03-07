@@ -1,18 +1,19 @@
-There are 3 VPN Gateway SKUs:
+Hay tres SKU de puerta de enlace de VPN:
 
-- Basic
+- Básica
 - Standard
-- High Performance
+- Alto rendimiento
 
-The table below shows the gateway types and the estimated aggregate throughput. 
-Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
+La tabla siguiente muestra los tipos de puerta de enlace y el rendimiento agregado estimado. Los precios difieren entre las SKU de puerta de enlace. Para obtener información acerca de los precios, consulte [Precios de puertas de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
 
 
-|    | **VPN Gateway throughput** | **VPN Gateway max IPsec tunnels** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+| | **Rendimiento de puerta de enlace de VPN** | **Túneles IPsec máx. de puerta de enlace de VPN** | **Rendimiento de puerta de enlace de ExpressRoute** | **Puerta de enlace de VPN y ExpressRoute coexisten**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
-| **Standard SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
-| **High Performance SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
+| **SKU básica** | 100 Mbps | 10 | 500 Mbps | No |
+| **SKU estándar** | 100 Mbps | 10 | 1000 Mbps | Sí |
+| **SKU de alto rendimiento** | 200 Mbps | 30 | 2000 Mbps | Sí |
 
 
-**Note:** The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
+**Nota:** el rendimiento de la VPN es una estimación aproximada basada en las medidas entre redes virtuales en la misma región de Azure. No es una garantía de lo que puede obtener para conexiones entre entornos a través de Internet, sino que debe usarse como una medida máxima posible.
+
+<!---HONumber=AcomDC_0224_2016-->

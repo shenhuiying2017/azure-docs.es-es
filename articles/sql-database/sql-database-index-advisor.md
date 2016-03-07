@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/23/2015"
+   ms.date="01/23/2016"
    ms.author="sstein"/>
 
 # Asesor de índices de Base de datos SQL
@@ -33,7 +33,7 @@ En este artículo se describe el Asesor de índices para servidores V12. Las rec
 
 ### Permisos
 
-Para ver y crear recomendaciones de índice, necesita los permisos de [control de acceso basado en rol](role-based-access-control-configure.md) correctos en Azure.
+Para ver y crear recomendaciones de índice, necesita los permisos de [control de acceso basado en rol](../active-directory/role-based-access-control-configure.md) correctos en Azure.
 
 - Para ver las recomendaciones, se requieren los permisos de **Lector** y **Colaborador de Base de datos SQL**.
 - Para ejecutar cualquier acción, crear o eliminar índices y cancelar la creación de índices, se requieren los permisos de **Propietario** y **Colaborador de Base de datos SQL**.
@@ -179,4 +179,4 @@ El Asesor de índices proporciona recomendaciones de índices y una experiencia 
 
 Supervise las recomendaciones de índices y continúe aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. El Asesor de índices seguirá supervisando y recomendando índices que podrían mejorar el rendimiento de la base de datos.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

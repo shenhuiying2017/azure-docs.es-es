@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
@@ -50,7 +50,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y luego en **Python 2**.
+2. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
 	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
 
@@ -58,22 +58,12 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 	![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
 
-4. Importe los módulos necesarios y cree los contextos Spark y Hive. Pegue el siguiente fragmento en una celda vacía y presione **MAYÚS + ENTRAR**.
+4. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark, SQL y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos necesarios para este escenario. Para ello, coloque el cursor en la celda y presione **MAYÚS + ENTRAR**.
 
-		from pyspark import SparkContext
 		from pyspark.sql import *
-		from pyspark.sql import HiveContext
-		from pyspark.sql import Row
 		
-		# Create Spark and Hive contexts
-		sc = SparkContext('yarn-client')
-		hiveCtx = HiveContext(sc)
-
-	Cada vez que se ejecuta un trabajo en Jupyter, el título de la ventana del explorador web mostrará el estado **(Busy)** (Ocupado) junto con el título del cuaderno. También verá un círculo sólido junto al texto **Python 2** en la esquina superior derecha. Una vez completado el trabajo, cambiará a un círculo hueco.
-
-	 ![Estado de un trabajo de cuaderno de Jupyter](./media/hdinsight-apache-spark-use-bi-tools/hdispark.jupyter.job.status.png "Estado de un trabajo de cuaderno de Jupyter")
-
-4. Cargue los datos de ejemplo en una tabla temporal. Cuando crea un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**.
+	
+5. Cargue los datos de ejemplo en una tabla temporal. Cuando crea un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**.
 
 	En una celda vacía, pegue el siguiente fragmento de código y presione **MAYÚS + ENTRAR**. Este fragmento de código registra los datos en una tabla de Hive llamada **hvac**.
 
@@ -94,9 +84,10 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. Compruebe que la tabla se creó correctamente. En una celda vacía del cuaderno, copie el siguiente fragmento y presione **MAYÚS + ENTRAR**.
+5. Compruebe que la tabla se creó correctamente. Puede usar la instrucción mágica `%%hive` para ejecutar las consultas de Hive directamente. Para obtener más información sobre la instrucción mágica `%%hive`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles en los cuadernos de Jupyter con clústeres de HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
-		hiveCtx.sql("SHOW TABLES").show()
+		%%hive
+		SHOW TABLES
 
 	Debería ver algo parecido a lo siguiente:
 
@@ -113,7 +104,8 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 6. Compruebe que la tabla contenga los datos previstos. En una celda vacía del cuaderno, copie el siguiente fragmento de código y presione **MAYÚS + ENTRAR**.
 
-		hiveCtx.sql("SELECT * FROM hvac LIMIT 10").show()
+		%%hive
+		SELECT * FROM hvac LIMIT 10
 	
 7. Ahora puede cerrar el cuaderno para liberar recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
 
@@ -239,4 +231,4 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

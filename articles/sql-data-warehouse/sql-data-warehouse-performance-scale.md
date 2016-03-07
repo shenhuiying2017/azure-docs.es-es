@@ -58,6 +58,8 @@ El almacenamiento de datos SQL tiene la capacidad única de pausar y reanudar el
 
 La acción de pausar devuelve los recursos de proceso al grupo de recursos disponibles en el centro de datos, mientras que la de reanudar adquiere los recursos de proceso necesarios para las DWU establecidas y asigna estas a la instancia del almacenamiento de datos.
 
+> [AZURE.NOTE] Puesto que el almacenamiento es independiente de los procesos, el almacenamiento no se ve afectado por las pausas.
+
 Las operaciones de pausar y reanudar la capacidad de proceso se pueden realizar mediante el [Portal de Azure clásico][], a través de las API de REST o usando Powershell. Al pausar se cancela la ejecución de todas las actividades que están en ejecución o en cola, y cuando vuelva, puede reanudar el uso de los recursos de proceso en segundos.
 
 El código siguiente muestra cómo realizar una pausa mediante PowerShell:
@@ -73,9 +75,9 @@ Reanudar el servicio también es muy sencillo con PowerShell:
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
-Para obtener más detalles sobre cómo usar PowerShell, consulte el artículo [Introducción a los cmdlets de PowerShell][].
+Para obtener más detalles sobre cómo usar PowerShell, consulte el artículo [Uso de las API de REST y los cmdlets de PowerShell con Almacenamiento de datos SQL][].
 
-> [Azure.Note]Puesto que el almacenamiento es independiente de los procesos, el almacenamiento no se ve afectado por las pausas.
+
 
 ## Pasos siguientes
 Para obtener información general sobre el rendimiento, vea [Introducción al rendimiento][].
@@ -84,7 +86,7 @@ Para obtener información general sobre el rendimiento, vea [Introducción al re
 
 <!--Article references-->
 [Introducción al rendimiento]: sql-data-warehouse-overview-performance.md
-[Introducción a los cmdlets de PowerShell]: sql-data-warehouse-get-started-powershell-cmdlets.md
+[Uso de las API de REST y los cmdlets de PowerShell con Almacenamiento de datos SQL]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 <!--MSDN references-->
 
@@ -93,4 +95,4 @@ Para obtener información general sobre el rendimiento, vea [Introducción al re
 
 [Portal de Azure clásico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

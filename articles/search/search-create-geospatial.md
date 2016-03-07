@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Crear una aplicación de búsqueda geoespacial usando Búsqueda de Azure
 
-En este tutorial explicamos cómo agregar la búsqueda geoespacial a las aplicaciones web usando la Búsqueda de Azure y Mapas de Bing. Con la búsqueda geoespacial, puede buscar destinos de búsqueda a una distancia determinada de un punto (por ejemplo, todos los restaurantes que estén en un radio de 5 km de su ubicación actual). Esta capacidad geoespacial de Búsqueda de Azure admite técnicas de creación de mapas usadas habitualmente. Por ejemplo, si quiere usar formas poligonales en una aplicación inmobiliaria que muestra casas en venta dentro de unos límites poligonales, puede hacerlo fácilmente usando OData o nuestra sencilla sintaxis de búsqueda.
+En este tutorial explicamos cómo agregar la búsqueda geoespacial a las aplicaciones web usando la Búsqueda de Azure y Mapas de Bing. Con la búsqueda geoespacial, puede buscar destinos de búsqueda a una distancia determinada de un punto (por ejemplo, todos los restaurantes que estén en un radio de 5 km de su ubicación actual). Esta capacidad geoespacial de Búsqueda de Azure admite técnicas de creación de mapas usadas habitualmente. Por ejemplo, si quiere usar formas poligonales en una aplicación inmobiliaria que muestra casas en venta dentro de unos límites poligonales, puede hacerlo fácilmente usando OData o nuestra sencilla sintaxis de búsqueda.
 
 Si quiere más información, vea este vídeo de Channel 9 sobre [Búsqueda de Azure y datos geoespaciales](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
@@ -67,7 +67,7 @@ Vamos a usar la API de Mapas de Bing para dos cosas.
 
 En este paso, usaremos la API DataFlow de Mapas de Bing para obtener las coordenadas geográficas de las direcciones de varias tiendas de bicicletas de todo el mundo.
 
-Estos datos provienen de un archivo CSV llamado store_locations.csv que se encuentra en el origen que se descargó antes. Si abre este archivo en un editor de texto o en Excel, verá que tiene una columna de identificador para cada tienda, el nombre de la tienda y su dirección.
+Estos datos provienen de un archivo CSV llamado store\_locations.csv que se encuentra en el origen que se descargó antes. Si abre este archivo en un editor de texto o en Excel, verá que tiene una columna de identificador para cada tienda, el nombre de la tienda y su dirección.
 
 Analicemos el código que explica cómo funciona esto.
 
@@ -75,7 +75,7 @@ Analicemos el código que explica cómo funciona esto.
 
 2. Vaya a la función **Main** y fíjese en que llama a **ApplyStoreData**. Pase a esta función y explore el código.
 
-3. **ApplyStoreData** carga datos de un archivo CSV llamado "store_locations.csv" en una System.Data.DataTable.
+3. **ApplyStoreData** carga datos de un archivo CSV llamado "store\_locations.csv" en una System.Data.DataTable.
 
     Este archivo contiene todas las tiendas, incluidas las direcciones que queremos cargar en Búsqueda de Azure. Al procesar una iteración en todas las filas del archivo, podemos crear un conjunto de **indexOperations** que luego se insertan en un índice de Búsqueda de Azure (creado anteriormente en la función **CreateStoresIndex()**).
 
@@ -127,7 +127,7 @@ El proyecto **AdventureWorksWebGeo** nos muestra cómo se puede usar ASP.NET MVC
 
 +	La función **Buscar** recupera las ubicaciones de las tiendas, que luego se reciben y agregan como marcadores en el Mapa de Bing.
 
-4.	Abra HomeController.cs en **Controladores** y fíjese en la función **Buscar**. Vea que hace una llamada a \_storeSearch.Search(lat, lon, 10000). Esto hará que se ejecute una consulta para buscar todas las tiendas que se encuentren a 10.000 km de la latitud (lat) y la longitud (lon) especificadas. Los resultados de esta consulta se procesan y luego se envían de vuelta a la vista índice para que se procesen como marcadores superpuestos en el mapa de Bing.
+4.	Abra HomeController.cs en **Controladores** y fíjese en la función **Buscar**. Vea que hace una llamada a \_storeSearch.Search(lat, lon, 10000). Esto hará que se ejecute una consulta para buscar todas las tiendas que se encuentren a 10.000 km de la latitud (lat) y la longitud (lon) especificadas. Los resultados de esta consulta se procesan y luego se envían de vuelta a la vista índice para que se procesen como marcadores superpuestos en el mapa de Bing.
 
 Con esto finaliza la demostración. Ya ha visto las operaciones principales que necesitará conocer para elaborar una aplicación de ASP.NET MVC4 basada en mapas usando Búsqueda de Azure.
 
@@ -167,4 +167,4 @@ Si quiere ampliar conocimientos, puede agregar más capacidades a la aplicación
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/23/2016"
 	ms.author="tomfitz"/>
 
 
@@ -50,6 +50,37 @@ En el ejemplo siguiente se muestra una cuenta de almacenamiento con una etiqueta
             }
         }
     ]
+
+Actualmente, el administrador de recursos no admite el procesamiento de un objeto para los valores y los nombres de etiqueta. En su lugar, puede pasar un objeto para los valores de etiqueta, pero debe especificar los nombres de etiqueta, como se muestra a continuación.
+
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "tagvalues": {
+          "type": "object",
+          "defaultValue": {
+            "dept": "Finance",
+            "project": "Test"
+          }
+        }
+      },
+      "resources": [
+      {
+        "apiVersion": "2015-06-15",
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "examplestorage",
+        "tags": {
+          "dept": "[parameters('tagvalues').dept]",
+          "project": "[parameters('tagvalues').project]"
+        },
+        "location": "[resourceGroup().location]",
+        "properties": {
+          "accountType": "Standard_LRS"
+        }
+      }]
+    }
+
 
 ## Etiquetas en el portal
 
@@ -183,4 +214,4 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 - Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, consulte [Uso de la interfaz de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
 - Para obtener información sobre cómo usar el portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](./azure-portal/resource-group-portal.md)  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

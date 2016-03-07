@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2015"
+	ms.date="01/14/2016"
 	ms.author="sstein"/>
 
 # SQL Database tutorial: Protect sensitive data with Always Encrypted (Windows certificate store) [Tutorial de base de datos SQL: protección de datos confidenciales con Always Encrypted (almacén de certificados de Windows)]
@@ -52,7 +52,7 @@ Para este tutorial, necesitará:
 ## Crear una base de datos SQL en blanco
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **Nuevo** > **Datos + almacenamiento** > **Base de datos SQL**.
-3. Crear una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. A fin de obtener instrucciones detalladas para crear una base de datos en el portal de Azure, consulte [Creación de una Base de datos SQL en cuestión de minutos](sql-database-getting-started.md).
+3. Crear una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. A fin de obtener instrucciones detalladas para crear una base de datos en el portal de Azure, consulte [Creación de una Base de datos SQL en cuestión de minutos](sql-database-get-started.md).
 
 	![crear una base de datos en blanco](./media/sql-database-always-encrypted/create-database.png)
 
@@ -545,4 +545,4 @@ Después de crear una base de datos que usa Always Encrypted es posible que quie
 - [Asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog de Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

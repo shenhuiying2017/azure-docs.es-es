@@ -3,7 +3,7 @@
 	description="Aprenda a supervisar una cuenta de almacenamiento en Azure usando el Portal de Azure."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="tamram"/>
+	ms.date="02/19/2016"
+	ms.author="robinsh"/>
 
 # Supervisión de una cuenta de almacenamiento en el Portal de Azure
 
@@ -157,4 +157,4 @@ Para cada uno de los servicios de almacenamiento disponibles en su cuenta de alm
 
 Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor $logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="02/10/2016"
+	ms.date="02/21/2016"
 	ms.author="garye" />
 
 
@@ -127,7 +127,7 @@ De forma similar, la respuesta de la API para este servicio también se muestra 
 
 Hacia la parte inferior de la página de ayuda, encontrará los ejemplos de código. A continuación se muestra el código de ejemplo para la implementación de C#.
 
-**Código de ejemplo**
+**Código de ejemplo en C#**
 
 	using System;
 	using System.Collections.Generic;
@@ -198,6 +198,58 @@ Hacia la parte inferior de la página de ayuda, encontrará los ejemplos de cód
 	        }
 	    }
 	}
+
+**Código de ejemplo en Java**
+
+El código de ejemplo siguiente muestra cómo crear una solicitud de API de REST en Java. Supone que las variables (apikey y apiurl) tienen los detalles de la API necesarios y la variable jsonBody tiene un objeto JSON correcto según lo esperado por la API de REST para realizar una predicción correcta. Puede descargar el código completo desde github: [https://github.com/nk773/AzureML\_RRSApp](https://github.com/nk773/AzureML_RRSApp). Este ejemplo de Java requiere una [biblioteca de cliente http de Apache](https://hc.apache.org/downloads.cgi).
+
+	/**
+	 * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
+ 	 */
+    	/**
+     	  * Call REST API for retrieving prediction from Azure ML 
+     	  * @return response from the REST API
+     	  */	
+    	public static String rrsHttpPost() {
+        
+        	HttpPost post;
+        	HttpClient client;
+        	StringEntity entity;
+        
+        	try {
+            		// create HttpPost and HttpClient object
+            		post = new HttpPost(apiurl);
+            		client = HttpClientBuilder.create().build();
+            
+            		// setup output message by copying JSON body into 
+            		// apache StringEntity object along with content type
+            		entity = new StringEntity(jsonBody, HTTP.UTF_8);
+            		entity.setContentEncoding(HTTP.UTF_8);
+            		entity.setContentType("text/json");
+
+            		// add HTTP headers
+            		post.setHeader("Accept", "text/json");
+            		post.setHeader("Accept-Charset", "UTF-8");
+        
+            		// set Authorization header based on the API key
+            		post.setHeader("Authorization", ("Bearer "+apikey));
+            		post.setEntity(entity);
+
+            		// Call REST API and retrieve response content
+            		HttpResponse authResponse = client.execute(post);
+            
+            		return EntityUtils.toString(authResponse.getEntity());
+            
+        	}
+        	catch (Exception e) {
+            
+            		return e.toString();
+        	}
+    
+    	}
+    
+    	
+ 
 
 ### Ejemplo de BES
 A diferencia del servicio RRS, el servicio BES es asincrónico. Esto significa que la API de BES simplemente pone en cola un trabajo que se va a ejecutar y el llamador sondea el estado del trabajo para cuándo se ha completado. Estas son las operaciones admitidas actualmente para los trabajos por lotes:
@@ -435,4 +487,202 @@ El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un tr
 	    }
 	}
 
-<!---HONumber=AcomDC_0211_2016-->
+#### Código de ejemplo en Java para BES
+La API de REST del servicio de ejecución de lotes toma JSON, que consta de una referencia a un csv de ejemplo de entrada y un csv de ejemplo de salida, como se muestra a continuación y crea un trabajo en Aprendizaje automático de Azure para hacer predicciones de lotes. Puede ver el código completo en [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Este ejemplo de Java requiere una [biblioteca de cliente http de Apache](https://hc.apache.org/downloads.cgi).
+
+
+	{ "GlobalParameters": {}, 
+    	"Inputs": { "input1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=Q8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleinput.csv" } }, 
+    	"Outputs": { "output1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=kjC12xQ8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleoutput.csv" } } 
+	} 
+
+
+#####Creación de un trabajo de BES	
+	    
+	    /**
+	     * Call REST API to create a job to Azure ML 
+	     * for batch predictions
+	     * @return response from the REST API
+	     */	
+	    public static String besCreateJob() {
+	        
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(apiurl);
+	            client = HttpClientBuilder.create().build();
+	            
+	            // setup output message by copying JSON body into 
+	            // apache StringEntity object along with content type
+	            entity = new StringEntity(jsonBody, HTTP.UTF_8);
+	            entity.setContentEncoding(HTTP.UTF_8);
+	            entity.setContentType("text/json");
+	
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+				// note a space after the word "Bearer " - don't miss that
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	            post.setEntity(entity);
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            jobId = EntityUtils.toString(authResponse.getEntity()).replaceAll(""", "");
+	            
+	            
+	            return jobId;
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    
+	    }
+	    
+#####Inicio de un trabajo de BES creado anteriormente	        
+	    /**
+	     * Call REST API for starting prediction job previously submitted 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besStartJob(String job){
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(startJobUrl+"/"+job+"/start?api-version=2.0");
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+#####Cancelación de un trabajo de BES creado anteriormente
+	    
+	    /**
+	     * Call REST API for canceling the batch job 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besCancelJob(String job) {
+	        HttpDelete post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpDelete(startJobUrl+job);
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	         
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+	    
+###Otros entornos de programación
+También puede generar el código en muchos otros idiomas mediante un documento swagger desde la página de ayuda de la API y siguiendo las instrucciones proporcionadas en el sitio [swagger.io](http://swagger.io/). Vaya a [swagger.io](http://swagger.io/swagger-codegen/) y siga las instrucciones para descargar el código swagger, java y apache mvn. Este es el resumen de instrucciones sobre cómo configurar swagger para otros entornos de programación.
+
+* Asegúrese de instalar Java 7 o una versión posterior
+* Instale apache mvn (en Ubuntu, puede usar *apt-get install mvn*)
+* Vaya a github para swagger y descargue el proyecto swagger como archivo zip
+* Descomprima swagger
+* Cree herramientas swagger ejecutando el *paquete mvn* desde el directorio de origen de swagger
+
+Ahora puede usar cualquiera de las herramientas swagger. Aquí encontrará las instrucciones para generar el código de cliente de Java.
+
+* Vaya a la página de ayuda de la API de Aprendizaje automático de Azure (ejemplo [aquí](https://studio.azureml.net/apihelp/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/jobs))
+* Busque la dirección URL para swagger.json para las API de REST de Aprendizaje automático de Azure (penúltima viñeta en la parte superior de la página de ayuda de la API)
+* Haga clic en el vínculo de documento swagger (ejemplo [aquí](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument))
+* Utilice el siguiente comando, como se muestra en el [archivo Léame de swagger](https://github.com/swagger-api/swagger-codegen/blob/master/README.md) para generar el código de cliente
+
+**Línea de comandos de ejemplo para generar código de cliente**
+
+	java -jar swagger-codegen-cli.jar generate\
+	 -i https://ussouthcentral.services.azureml.net:443/workspaces/\
+	fb62b56f29fc4ba4b8a8f900c9b89584/services/26a3afce1767461ab6e73d5a206fbd62/swagger.json\
+	 -l java -o /home/username/sample
+
+* Combine valores en el host de campos, basePath y "/ swagger.json" en el ejemplo de una [página de ayuda de la API](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument) swagger que se muestra a continuación para crear la dirección URL swagger usada en la línea de comandos anterior
+
+**Página de ayuda de la API de ejemplo**
+
+
+	{
+	  "swagger": "2.0",
+	  "info": {
+	    "version": "2.0",
+	    "title": "Sample 5: Binary Classification with Web Service: Adult Dataset [Predictive Exp.]",
+	    "description": "No description provided for this web service.",
+	    "x-endpoint-name": "default"
+	  },
+	  "host": "ussouthcentral.services.azureml.net:443",
+	  "basePath": "/workspaces/afbd553b9bac4c95be3d040998943a4f/services/26a3afce1767461ab6e73d5a206fbd62",
+	  "schemes": [
+	    "https"
+	  ],
+	  "consumes": [
+	    "application/json"
+	  ],
+	  "produces": [
+	    "application/json"
+	  ],
+	  "paths": {
+	    "/swagger.json": {
+	      "get": {
+	        "summary": "Get swagger API document for the web service",
+	        "operationId": "getSwaggerDocument",
+	        
+
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/20/2016"
 	ms.author="rmcmurray"/>
 
 # Aplicación local con almacenamiento en blobs
@@ -26,8 +26,9 @@ El siguiente ejemplo muestra cómo se puede utilizar el almacenamiento de Azure 
 
 - Un kit para desarrolladores de Java (JDK) v 1.6 o posteriores instalado.
 - El SDK de Azure instalado.
-- El archivo JAR de las Bibliotecas de Azure para Java (y cualquier JAR de dependencia correspondiente) instalado y en la ruta de acceso de compilación utilizada por el compilador de Java. Para obtener información acerca de la instalación de bibliotecas de Azure para Java, consulte [Descarga del SDK de Azure para Java][].
-- Una cuenta de almacenamiento configurada en Azure. El código en este artículo usará el nombre y la clave de cuenta para la cuenta de almacenamiento. Consulte [Creación de una cuenta de almacenamiento] para obtener información acerca de la creación de una cuenta de almacenamiento y [Administración de cuentas de almacenamiento][] para obtener información acerca del la recuperación de la clave de la cuenta.
+- El archivo JAR de las Bibliotecas de Azure para Java (y cualquier JAR de dependencia correspondiente) instalado y en la ruta de acceso de compilación utilizada por el compilador de Java. Para obtener información acerca de la instalación de bibliotecas de Azure para Java, consulte [Descarga del SDK de Azure para Java](java-download-azure-sdk.md).
+- Una cuenta de almacenamiento configurada en Azure. El código en este artículo usará el nombre y la clave de cuenta para la cuenta de almacenamiento. Consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account) para obtener información acerca de la creación de una cuenta de almacenamiento y [Visualización y copia de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-and-copy-storage-access-keys) para obtener información acerca de la recuperación de la clave de cuenta.
+
 - Un archivo de imagen local creado con nombre y almacenado en la ruta de acceso c:\\myimages\\image1.jpg. También puede modificar el constructor **FileInputStream** en el ejemplo para utilizar una ruta de acceso de imagen y un nombre de archivo diferentes.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -347,23 +348,15 @@ Para llamar al método **CloudBlobContainer.delete**, el proceso de inicializaci
         }
     }
 
-Para ver información general de otras clases y métodos de almacenamiento de blobs, consulte [Uso del servicio de almacenamiento de blobs desde Java].
+Para ver información general de otras clases y métodos de almacenamiento de blobs, consulte [Uso del almacenamiento de blobs desde Java](storage-java-how-to-use-blob-storage.md).
 
 ## Pasos siguientes
 
 Siga estos vínculos para obtener más información acerca de las tareas de almacenamiento más complejas.
 
-- [SDK de almacenamiento de Azure para Java][]
-- [Referencia del SDK de cliente de almacenamiento de Azure][]
-- [API de REST de almacenamiento de Azure][]
-- [Blog del equipo de almacenamiento de Azure][]
+- [SDK de almacenamiento de Azure para Java](https://github.com/azure/azure-storage-java)
+- [Referencia del SDK de cliente de almacenamiento de Azure](http://dl.windowsazure.com/storage/javadoc/)
+- [API de REST de servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-  [Descarga del SDK de Azure para Java]: http://go.microsoft.com/fwlink/?LinkID=525671
-  [Creación de una cuenta de almacenamiento]: storage-create-storage-account.md#create-a-storage-account
-  [Administración de cuentas de almacenamiento]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
-  [Uso del servicio de almacenamiento de blobs desde Java]: storage-java-how-to-use-blob-storage.md
-  [SDK de almacenamiento de Azure para Java]: https://github.com/azure/azure-storage-java
-  [Referencia del SDK de cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

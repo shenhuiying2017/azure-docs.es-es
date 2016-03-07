@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Adición de propietarios y usuarios a un laboratorio de desarrollo y pruebas
+
+> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo establecer la seguridad del laboratorio de desarrollo y pruebas](/documentation/videos/how-to-set-security-in-your-devtest-lab)
 
 ## Información general
 
@@ -101,4 +103,4 @@ Para agregar un usuario de Laboratorio de desarrollo y pruebas al laboratorio, s
 
 	1. La hoja **Usuarios** muestra los roles y usuarios agregados.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

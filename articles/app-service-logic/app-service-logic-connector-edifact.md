@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/17/2015"
+   ms.date="02/10/2016"
    ms.author="rajram"/>
 
 # Introducción al conector Edifact de BizTalk y su incorporación a su aplicación lógica  
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
 Use el servicio Edifact para recibir y enviar mensajes mediante el protocolo Edifact en comunicaciones de negocio a negocio. Edifact se conoce también comúnmente como ASC Edifact o Accredited Standards Committee Edifact y se usa ampliamente en las industrias.
 
 Puede agregar el conector Edifact de BizTalk a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
@@ -39,25 +41,17 @@ El conector Edifact puede usarse como un desencadenador o como una acción.
 
 ### Desencadenador
 - Inicie el diseñador de flujo de aplicaciones lógicas de Azure.
-- Haga clic en el conector Edifact en el panel derecho:  
-![Configuración del desencadenador][3]
-- Haga clic en ->:  
-![Opciones del desencadenador][4]
-- El conector Edifact expone un solo desencadenador. Seleccione *Lote de versión*:  
-![Entrada de lote de versión][5]
-- Este desencadenador no tiene ninguna entrada. Haga clic en ->:  
-![Lote de versión configurado][6]
+- Haga clic en el conector Edifact en el panel derecho: ![Configuración del desencadenador][3]
+- Haga clic en ->: ![Opciones del desencadenador][4]
+- El conector Edifact expone un solo desencadenador. Seleccione *Lote de versión*: ![Entrada de lote de versión][5]
+- Este desencadenador no tiene ninguna entrada. Haga clic en ->: ![Lote de versión configurado][6]
 - Como parte de la salida, el conector devuelve la carga Edifact, el identificador del contrato e información sobre si el mensaje se procesa por lotes o no.
 
 ### Acción
-- Haga clic en el conector Edifact en el panel derecho:  
-![Configuración de la acción][7]
-- Haga clic en ->:  
-![Lista de acciones][8]
-- El conector Edifact admite muchas acciones. Seleccione *Codificar*:  
-![Codificar entrada][9]
-- Proporcione las entradas para la acción y configure esta última:  
-![Codificar configurado][10]
+- Haga clic en el conector Edifact en el panel derecho: ![Configuración de la acción][7]
+- Haga clic en ->: ![Lista de acciones][8]
+- El conector Edifact admite muchas acciones. Seleccione *Codificar*: ![Codificar entrada][9]
+- Proporcione las entradas para la acción y configúrela: ![Codificar configurado][10]
 
 	Parámetro|Tipo|Descripción del parámetro
 ---|---|---
@@ -78,7 +72,7 @@ La acción devuelve un objeto que contiene la carga EDIFACT para indicar que se 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -97,4 +91,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

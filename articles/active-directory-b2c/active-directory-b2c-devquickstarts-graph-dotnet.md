@@ -349,9 +349,6 @@ Puede usar el nombre completo, por ejemplo `extension_55dc0861f9a44eb999e0a8a872
 - Al llamar a la API Graph, use [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
 - A la hora de crear y actualizar los usuarios de consumidor, hay algunas propiedades necesarias, descritas anteriormente.
 
-> [AZURE.IMPORTANT]
-Necesitará dar cuenta de las características de replicación del servicio de directorio que subyacen bajo Azure AD B2C (lea [este](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) artículo para obtener más información) cuando use la API Graph de Azure AD en la aplicación B2C. Después de que un consumidor se suscriba a la aplicación B2C mediante una directiva de **suscripción**, si sale inmediatamente e intenta leer el objeto de usuario mediante la API Graph de Azure AD en su aplicación, puede que no esté disponible. Tendrá que esperar unos segundos para que se complete el proceso de replicación. Publicaremos instrucciones más concretas en la "garantía de coherencia de lectura y escritura" proporcionada por la API Graph de Azure AD y el servicio de directorio en disponibilidad general.
-
 Si tiene alguna pregunta o solicitud para las acciones que desea realizar con la API Graph en el inquilino de B2C, ¡somos todo oídos! Deje un comentario sobre el artículo o registre un problema en el repositorio de GitHub de ejemplos de código.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->
