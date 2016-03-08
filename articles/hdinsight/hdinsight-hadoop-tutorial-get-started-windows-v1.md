@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/29/2015"
+   ms.date="02/25/2016"
    ms.author="nitinme"/>
 
 
@@ -76,7 +76,7 @@ En este tutorial solamente se usa el blob predeterminado y la cuenta de almacena
 
 	![Portal de Azure clásico donde puede utilizar la función de creación rápida para configurar una nueva cuenta de almacenamiento.][image-hdi-storageaccount-quickcreate]
 
->[AZURE.NOTE]  Asegúrese de crear la cuenta de almacenamiento en una ubicación admitida para el clúster. Son las siguientes: **Asia oriental**, **sudeste de Asia**, **norte de Europa**, **oeste de Europa**, **este de EE. UU.**, **oeste de EE. UU.**, **centro y norte de EE. UU.** y **centro y sur de EE. UU**.
+>[AZURE.NOTE]  Asegúrese de crear la cuenta de almacenamiento en una ubicación admitida para el clúster. Son las siguientes: **Asia oriental**, **sudeste de Asia**, **norte de Europa**, **oeste de Europa**, **este de EE. UU.**, **oeste de EE. UU.**, **centro y norte de EE. UU.** y **centro y sur de EE. UU**.
 
 Elija la nueva cuenta de almacenamiento en la lista y haga clic en **Administrar claves de acceso** en la parte inferior de la página. Anote la **CLAVE DE ACCESO PRIMARIA** (o la **CLAVE DE ACCESO SECUNDARIA**, cualquiera de las claves funciona). Las necesitará más adelante en el tutorial. Para obtener más información, vea [Cómo crear una cuenta de almacenamiento][azure-create-storageaccount].
 
@@ -280,4 +280,4 @@ En este tutorial de Hadoop, ha aprendido a aprovisionar un clúster de Hadoop en
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

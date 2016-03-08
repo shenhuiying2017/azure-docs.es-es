@@ -9,10 +9,10 @@
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="03/02/2016"
    ms.author="cherylmc" />
 
 # Acerca de los dispositivos VPN para las conexiones de puerta de enlace de VPN de sitio a sitio
@@ -44,18 +44,18 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | No compatible |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [Instrucciones de configuración](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | No compatible |
 | Punto de comprobación | Puerta de enlace de seguridad | R75.40, R75.40VS | [Instrucciones de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Instrucciones de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco | ASA | 8\.3 | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) | No compatible |
-| Cisco | ASR | IOS 15.1 (basada en directivas), IOS 15.2 (basada en enrutamiento) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) |
-| Cisco | ISR | IOS 15.0 (basada en directiva), IOS 15.1 (basada en enrutamiento) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) |
+| Cisco | ASA | 8\.3 | [Ejemplos de Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | No compatible |
+| Cisco | ASR | IOS 15.1 (basada en directivas), IOS 15.2 (basada en enrutamiento) | [Ejemplos de Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) | [Ejemplos de Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
+| Cisco | ISR | IOS 15.0 (basada en directiva), IOS 15.1 (basada en enrutamiento) | [Ejemplos de Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) | [Ejemplos de Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix | Dispositivo CloudBridge MPX o dispositivo virtual VPX | N/D | [Instrucciones de integración](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | No compatible |
 | Dell SonicWALL | Serie TZ, serie NSA, serie SuperMassive, serie NSA E-Class | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Instrucciones: SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instrucciones: SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Instrucciones: SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instrucciones: SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Serie BIG-IP | N/D | [Instrucciones de configuración](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | No compatible |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [Instrucciones de configuración](http://docs.fortinet.com/fortigate/admin-guides) | [Instrucciones de configuración](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | Serie SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Instrucciones de configuración](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | No compatible |
-| Juniper | SRX | JunOS 10.2 (basada en directivas), JunOS 11.4 (basada en enrutamiento) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | Serie J | JunOS 10.4r9 (basada en directivas), JunOS 11.4 (basada en enrutamiento) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | ISG | ScreenOS 6.3 (basada en directivas y basada en enrutamiento) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | SSG | ScreenOS 6.2 (basada en directiva y basada en enrutamiento) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
+| Juniper | SRX | JunOS 10.2 (basada en directivas), JunOS 11.4 (basada en enrutamiento) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
+| Juniper | Serie J | JunOS 10.4r9 (basada en directivas), JunOS 11.4 (basada en enrutamiento) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
+| Juniper | ISG | ScreenOS 6.3 (basada en directivas y basada en enrutamiento) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
+| Juniper | SSG | ScreenOS 6.2 (basada en directiva y basada en enrutamiento) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft | Servicio de acceso remoto y enrutamiento | Windows Server 2012 | No compatible | [Ejemplos de Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Openswan | Openswan | 2\.6.32 | (Próximamente) | No compatible |
 | Palo Alto Networks | Todos los dispositivos que ejecutan PAN-OS 5.0 o superior | PAN-OS 5x o superior | [Palo Alto Networks](https://support.paloaltonetworks.com/) | No compatible |
@@ -148,4 +148,4 @@ En la tabla encontrará una lista de las ofertas de autenticación y cifrado de 
 
 - Para conectividad entre locales a través de Internet, use la configuración de la puerta de enlace de VPN de Azure predeterminada con los algoritmos de cifrado y hash de las tablas anteriores para garantizar la seguridad de su comunicación crítica.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="01/08/2016"
@@ -29,13 +29,13 @@ Apache Storm es un sistema de cálculo de código abierto, distribuido y con tol
 
 Apache Storm en HDInsight es un clúster administrado integrado en el entorno de Azure. Ofrece las siguientes ventajas principales:
 
-* Actúa como un servicio administrado con un SLA de 99,9 % de tiempo de actividad.
+* Actúa como un servicio administrado con un SLA de 99,9 % de tiempo de actividad.
 
 * Use el lenguaje que prefiera, ya que ofrece compatibilidad con los componentes de Storm escritos en **Java**, **C#** y **Python**.
 
 	* Admite una variedad de lenguajes de programación: lea datos con Java y procéselos con C#.
 	
-		> [AZURE.NOTE]Solo se admiten topologías de C# en clústeres de HDInsight basados en Windows.
+		> [AZURE.NOTE] Solo se admiten topologías de C# en clústeres de HDInsight basados en Windows.
 
 	* Use la interfaz de Java **Trident** para crear topologías de Storm que admitan el procesamiento de mensajes "exactamente una vez", la persistencia del almacén de datos "transaccional" y un conjunto de operaciones comunes de análisis de flujos.
 
@@ -53,7 +53,7 @@ Para ver una introducción al uso de Storm, consulte [Introducción a Storm en H
 
 Puede aprovisionar un nuevo clúster de Storm en HDInsight en minutos. Especifique el nombre del clúster, su tamaño, la cuenta del administrador y la cuenta de almacenamiento. Azure creará el clúster, incluyendo las topologías de ejemplo y un panel de administración web.
 
-> [AZURE.NOTE]También puede aprovisionar clústeres Storm mediante la [CLI de Azure](../xplat-cli-install.md) o [Azure PowerShell](../powershell-install-configure.md).
+> [AZURE.NOTE] También puede aprovisionar clústeres Storm mediante la [CLI de Azure](../xplat-cli-install.md) o [Azure PowerShell](../powershell-install-configure.md).
 
 En menos de 15 minutos tras el envío de la solicitud, dispondrá de un nuevo clúster de Storm en ejecución y listo para su primera canalización de análisis en tiempo real.
 
@@ -101,11 +101,11 @@ La configuración predeterminada de Apache Storm es que solo tenga un nodo Nimbu
 
 Aunque puede especificar el número de nodos del clúster durante la creación, puede que desee aumentar o reducir el clúster para que coincida con la carga de trabajo. Todos los clústeres de HDInsight le permiten cambiar el número de nodos del clúster, incluso durante el procesamiento de datos.
 
-> [AZURE.NOTE]Para aprovechar de los nodos nuevos que se agregan mediante el escalado, deberá reequilibrar las topologías iniciadas antes de que se aumentara el tamaño del clúster.
+> [AZURE.NOTE] Para aprovechar de los nodos nuevos que se agregan mediante el escalado, deberá reequilibrar las topologías iniciadas antes de que se aumentara el tamaño del clúster.
 
 ###Soporte técnico
 
-Storm en HDInsight incluye soporte técnico completo ininterrumpido de nivel de empresa. Storm en HDInsight también tiene un SLA del 99,9 %. Eso significa que está garantizado que el clúster dispondrá de conectividad externa como mínimo el 99,9 % del tiempo.
+Storm en HDInsight incluye soporte técnico completo ininterrumpido de nivel de empresa. Storm en HDInsight también tiene un SLA del 99,9 %. Eso significa que está garantizado que el clúster dispondrá de conectividad externa como mínimo el 99,9 % del tiempo.
 
 ##Casos de uso comunes del análisis en tiempo real
 
@@ -137,7 +137,7 @@ Apache Storm ejecuta **topologías** en lugar de los trabajos de MapReduce con l
 
 * **Spout**: consume datos de un origen de datos y emite uno o varios **flujos**.
 
-	> [AZURE.NOTE]En muchos casos, los datos se leen de una cola, como Kafka, las colas del Bus de servicio de Azure o los Centros de eventos. La cola garantiza que los datos persistan en caso de una interrupción.
+	> [AZURE.NOTE] En muchos casos, los datos se leen de una cola, como Kafka, las colas del Bus de servicio de Azure o los Centros de eventos. La cola garantiza que los datos persistan en caso de una interrupción.
 
 * **Bolt**: consume **flujos**, realiza el procesamiento en **tuplas** y puede emitir **flujos**. Los bolts son responsables también de escribir datos en el almacenamiento externo, como una cola, HBase de HDInsight, un blob u otro almacén de datos.
 
@@ -219,4 +219,4 @@ Obtenga más información sobre las soluciones de análisis en tiempo real con A
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

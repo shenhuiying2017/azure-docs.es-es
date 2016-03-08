@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones universales de Windows
 
 > [AZURE.SELECTOR]
-- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows universal](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
 - [iOS | Obj C](mobile-engagement-ios-get-started.md)
 - [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
@@ -33,7 +33,7 @@ Este tutorial requiere lo siguiente:
 + Visual Studio 2013
 + Paquete de Nuget [MicrosoftAzure.MobileEngagement]
 
-> [AZURE.IMPORTANT]Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones Windows Universal. Para completarlo, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.IMPORTANT] Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones Windows Universal. Para completarlo, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 ##<a id="setup-azme"></a>Configure Mobile Engagement para su aplicación Windows Universal
 
@@ -71,7 +71,7 @@ Ahora ha creado un nuevo proyecto de aplicación universal de Windows en el que 
 
 	![][3]
 
-	>[AZURE.TIP]Si su aplicación va a tener como destino Windows y las plataformas Windows Phone, a continuación, se deberán crear dos aplicaciones Mobile Engagement, una para cada plataforma compatible. Esto permite garantizar que puede crear una segmentación correcta de la audiencia y que puede enviar notificaciones de destino de forma adecuada para cada plataforma.
+	>[AZURE.TIP] Si su aplicación va a tener como destino Windows y las plataformas Windows Phone, a continuación, se deberán crear dos aplicaciones Mobile Engagement, una para cada plataforma compatible. Esto permite garantizar que puede crear una segmentación correcta de la audiencia y que puede enviar notificaciones de destino de forma adecuada para cada plataforma.
 
 4. En el archivo `App.xaml.cs`:
 
@@ -126,7 +126,7 @@ Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, de
 
 	b. Reemplace **Page** en el nombre de etiqueta XML por **engagement:EngagementPageOverlay**.
 	
-> [AZURE.IMPORTANT]Si la página invalida el método `OnNavigatedTo`, no olvide llamar a `base.OnNavigatedTo(e)`. De lo contrario, no se informará de la actividad (`EngagementPage` llama a `StartActivity` en su método `OnNavigatedTo`). Esto es especialmente importante en un proyecto de Windows Phone cuando la plantilla predeterminada tiene un método `OnNavigatedTo`.
+> [AZURE.IMPORTANT] Si la página invalida el método `OnNavigatedTo`, no olvide llamar a `base.OnNavigatedTo(e)`. De lo contrario, no se informará de la actividad (`EngagementPage` llama a `StartActivity` en su método `OnNavigatedTo`). Esto es especialmente importante en un proyecto de Windows Phone cuando la plantilla predeterminada tiene un método `OnNavigatedTo`.
 
 ##<a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 
@@ -213,4 +213,4 @@ Si la aplicación se estaba ejecutando, verá entonces una notificación desde l
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

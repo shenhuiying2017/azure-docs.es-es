@@ -11,7 +11,7 @@
 <tags 
 	ms.service="stream-analytics" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="02/04/2016" 
@@ -32,7 +32,7 @@ En la actualidad, grandes cantidades de datos se transmiten a alta velocidad por
 ## Ventajas y principales capacidades
 -   **Facilidad de uso**: Análisis de transmisiones admite un modelo de consulta declarativa simple para describir las transformaciones. Con el fin de mejorar la facilidad de uso, Análisis de transmisiones usa una variante SQL y libera a los clientes de las considerables complejidades técnicas de los sistemas de procesamiento de transmisiones. Con el [lenguaje de consulta de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn834998.aspx) en el editor de consultas del explorador, obtendrá la función de autocompletar inteligente que le ayudará a implementar de manera rápida y fácil funciones de series temporales, que incluyen uniones de base temporal, agregados basados en ventanas, filtros temporales, así como otras operaciones comunes, como uniones, agregados, proyecciones y filtros. Además, pruebas de consultas realizadas en el explorador en un archivo de datos de ejemplo para habilitar la implementación rápida e iterativa.  
 
--   **Análisis de transmisiones** es capaz de controlar la capacidad de proceso de alto nivel de eventos de hasta 1 GB por segundo. La integración con [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs/) permite que la solución ingiera millones de eventos por segundo procedentes de dispositivos conectados, datos de clickstream y archivos de registro, por nombrar unos cuantos. Para ello, Análisis de transmisiones aprovecha la capacidad de particionamiento de los Centros de eventos, los cuales pueden producir 1 MB/s por partición. Los usuarios pueden particionar el cálculo en varios pasos lógicos dentro de la definición de consulta, con la posibilidad de particionarlos de manera adicional para aumentar la escalabilidad.
+-   **Análisis de transmisiones** es capaz de controlar la capacidad de proceso de alto nivel de eventos de hasta 1 GB por segundo. La integración con [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs/) permite que la solución ingiera millones de eventos por segundo procedentes de dispositivos conectados, datos de clickstream y archivos de registro, por nombrar unos cuantos. Para ello, Análisis de transmisiones aprovecha la capacidad de particionamiento de los Centros de eventos, los cuales pueden producir 1 MB/s por partición. Los usuarios pueden particionar el cálculo en varios pasos lógicos dentro de la definición de consulta, con la posibilidad de particionarlos de manera adicional para aumentar la escalabilidad.
 
 -   **Confiabilidad, capacidad de repetición y recuperación rápida**: como es un servicio administrado en la nube, Análisis de transmisiones le ayudará a evitar la pérdida de datos y le proporcionará continuidad empresarial en el caso de que se produzcan errores, gracias a sus capacidades integradas de recuperación. Gracias a la posibilidad de mantener el estado internamente, el servicio proporciona resultados repetibles donde sea posible archivar eventos y volver a aplicar el procesamiento en el futuro, mientras que se obtienen los mismos resultados. Todo esto permite a los clientes retroceder en el tiempo e investigar los cálculos cuando realicen análisis de causas raíz o análisis de hipótesis, entre otros.
 
@@ -53,4 +53,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

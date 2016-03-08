@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -28,7 +28,7 @@ Los almacenamientos de datos se caracterizan por consultas que analizan un mayor
 
 - Un almacenamiento de datos funciona mejor cuando los datos se almacenan de manera que se optimizan las consultas que necesitan analizar grandes cantidades de filas o de intervalos de datos. Este tipo de análisis funciona mejor cuando los datos se almacenan y se buscan por columnas, en lugar de por filas. 
 
->[AZURE.NOTE]El índice de almacén de columnas en memoria, que usa el almacenamiento por columnas, proporciona hasta 10 veces más ganancias de compresión y 100 veces el rendimiento de las consultas, en comparación con los árboles binarios tradicionales, para consultas de informes y análisis. Consideramos los índices de almacén de columnas como el estándar para almacenar y analizar datos de gran tamaño en un almacenamiento de datos.
+>[AZURE.NOTE] El índice de almacén de columnas en memoria, que usa el almacenamiento por columnas, proporciona hasta 10 veces más ganancias de compresión y 100 veces el rendimiento de las consultas, en comparación con los árboles binarios tradicionales, para consultas de informes y análisis. Consideramos los índices de almacén de columnas como el estándar para almacenar y analizar datos de gran tamaño en un almacenamiento de datos.
 
 - Un almacenamiento de datos tiene requisitos diferentes de un sistema que se optimiza para el procesamiento de transacciones en línea (OLTP). El sistema OLTP tiene muchas operaciones de inserción, actualización y eliminación. Estas operaciones buscan en filas específicas de la tabla. Las búsquedas en tablas son más eficaces cuando los datos se almacenan por filas. Los datos se pueden ordenar rápidamente y hacer búsquedas por partes, en un enfoque denominado búsqueda binaria de árbol.
 
@@ -38,7 +38,7 @@ La carga de datos es una parte importante de la carga de trabajo del almacenamie
 
 - Tradicionalmente, el proceso de carga se denomina ETL (extracción, transformación y carga). Normalmente, los datos deben transformarse para mantener la coherencia con otros datos del almacenamiento de datos. Anteriormente, las empresas usaban servidores dedicados de ETL para estas transformaciones. Ahora, gracias al rápido procesamiento masivo paralelo, es posible cargar datos en Almacenamiento de datos SQL en primer lugar y, a continuación, hacer las transformaciones. Este proceso se denomina extraer, cargar y transformar (ELT) y se está convirtiendo en un nuevo estándar para la carga de trabajo de almacenamiento de datos.
 
-> [AZURE.NOTE]Con SQL Server CTP2, ahora es posible realizar análisis en tiempo real en una tabla OLTP. Esto no reemplaza la necesidad de un almacenamiento de datos para almacenar y analizar datos, pero ofrece un modo de hacer el análisis en tiempo real.
+> [AZURE.NOTE] Con SQL Server CTP2, ahora es posible realizar análisis en tiempo real en una tabla OLTP. Esto no reemplaza la necesidad de un almacenamiento de datos para almacenar y analizar datos, pero ofrece un modo de hacer el análisis en tiempo real.
  
 ### Consultas de informes y análisis
 Las consultas de informes y análisis a menudo se clasifican como pequeñas, medianas y grandes en función de diversos criterios, pero normalmente están basadas en el tiempo. En la mayoría de los almacenamientos de datos, hay una carga de trabajo mixta de ejecución rápida frente a consultas de larga ejecución. En cada caso, es importante determinar esta mezcla y determinar su frecuencia (cada hora, diariamente, a fin de mes, al final del trimestre, etcétera). Es importante comprender que la carga de trabajo de consulta mixta, junto con la simultaneidad, lleva al planeamiento de un almacenamiento de datos con la capacidad adecuada.
@@ -73,4 +73,4 @@ Para empezar a desarrollar el almacenamiento de datos, vea [Introducción al des
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

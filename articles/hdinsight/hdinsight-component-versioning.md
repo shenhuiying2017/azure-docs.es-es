@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
 
@@ -38,7 +38,7 @@ Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
 Apache Storm|0\.10.0|0\.9.3|0\.9.1||
 Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
 Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
-Spark de Apache|1\.3.1|1\.3.1|||
+Spark de Apache|1\.5.2 (solo Linux/compilación experimental)|1\.3.1 (solo Windows)|||
 
 
 **Obtención de información sobre las versiones actuales de componentes**
@@ -57,11 +57,11 @@ Al crear un clúster a través de los cmdlets de Windows PowerShell para HDInsig
 ##Características destacadas
 Algunas de las características más destacadas de la plataforma de HDInsight incluyen:
 
-- **Spark**: Apache Spark es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones de análisis de macrodatos. Las capacidades de cálculo en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático.
+- **Spark**: Apache Spark es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones de análisis de Big Data. Las capacidades de cálculo en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático.
 
 	Spark también se puede usar para llevar a cabo el procesamiento de datos convencional basado en disco. Spark mejora el marco de MapReduce tradicional evitando escrituras en disco en las etapas intermedias. Además, Spark es compatible con el Sistema de archivos distribuido de Hadoop (HDFS) y el almacenamiento de blobs de Azure, por lo que se pueden procesar los datos existentes fácilmente a través de Spark.
 
-	Spark también se puede agregar mediante una acción de script. La acción de script agrega Spark 1.2.0 a un clúster de HDInsight 3.2 o Spark 1.0.2 a un clúster de HDInsight 3.1. Para más información, consulte [Instalación y uso de Spark en clústeres Hadoop de HDInsight](hdinsight-hadoop-spark-install.md).
+	Spark también se puede agregar mediante una acción de script. La acción de script agrega Spark 1.2.0 a un clúster de HDInsight 3.2 o Spark 1.0.2 a un clúster de HDInsight 3.1. Para obtener más información, consulte [Instalación y uso de Spark en clústeres Hadoop de HDInsight](hdinsight-hadoop-spark-install.md).
 
 
 - **Storm** : Storm en HDInsight de Azure ya está disponible con carácter general y ofrece una manera rápida y fácil de implementar análisis en tiempo real con solo unos cuantos clics y en pocos minutos. Apache Storm en HDInsight de Azure es un proyecto de código abierto en el ecosistema de Apache Hadoop que proporciona acceso a una plataforma de análisis capaz de procesar millones de eventos de forma confiable. Ahora los usuarios de Hadoop pueden obtener información a medida que ocurren los eventos, además de información de eventos anteriores. Microsoft también proporciona integración con Visual Studio, lo que facilita la interacción de los desarrolladores con Storm. Ahora puede desarrollar, implementar y depurar topologías de Storm desde Visual Studio.
@@ -123,7 +123,7 @@ El SLA se define en términos de "plazo de soporte técnico". Un plazo de soport
 
 La **fecha de desuso** es la fecha tras la cual no se puede crear la versión del clúster en HDInsight.
 
-> [AZURE.NOTE]Los clústeres de HDInsight 2.1 y 3.0 se ejecutan en el SO invitado de Azure [Familia 4](../cloud-services-guestos-update-matrix.md) que usa la versión de 64 bits de Windows Server 2012 R2 y admite .NET Framework 4.0, 4.5 y 4.5.1.
+> [AZURE.NOTE] Los clústeres de HDInsight 2.1 y 3.0 se ejecutan en el SO invitado de Azure [Familia 4](../cloud-services/cloud-services-guestos-update-matrix.md) que usa la versión de 64 bits de Windows Server 2012 R2 y admite .NET Framework 4.0, 4.5 y 4.5.1.
 
 ## Notas de la versión de HortonWorks asociadas con las versiones de HDInsight##
 
@@ -167,4 +167,4 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

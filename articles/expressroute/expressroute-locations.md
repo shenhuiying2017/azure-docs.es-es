@@ -29,7 +29,7 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|
-|**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Toronto+|
+|**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Toronto+|
 |**Sudamérica**|Sur de Brasil|São Paulo|
 |**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín, Londres|
 |**Asia**|Este de Asia y Sudeste de Asia|Hong Kong y Singapur|
@@ -60,7 +60,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Ámsterdam, Dallas, Londres, Silicon Valley, Singapur, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Tokio, Washington DC |
 |**China Telecom Global** | Compatible | No compatible | Hong Kong |
-|**Cologix** | Próximamente | No compatible | Montreal+, Toronto+ |
+|**Cologix** | Próximamente | Próximamente | Montreal+, Toronto+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | Compatible | Ámsterdam, Dublín, Londres |
 | **Comcast** | Compatible | No compatible | Silicon Valley, Washington DC |
 | **CoreSite** | Compatible | Compatible | Los Ángeles | 
@@ -73,11 +73,11 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Megaport** | Compatible | Compatible | Dallas, Los Ángeles, Melbourne, Nueva York, Seattle, Sidney, Washington DC |
 | **MTN** | Compatible | Compatible | Londres |
 | **NEXTDC** | Compatible | Compatible | Melbourne, Sidney |
-| **NTT Communications** | Compatible | Próximamente | Londres, Tokio |
+| **NTT Communications** | Compatible | Compatible | Londres, Tokio |
 | **[Orange](http://www.orange-business.com/)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Washington DC |
 | **PCCW Global Limited** | Compatible | Compatible | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Compatible | No compatible | Singapur |
-| **Softbank** | Próximamente | No compatible | Osaka, Tokyo | 
+| **Softbank** | Próximamente | Próximamente | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Compatible | Compatible | Ámsterdam, Chennai, Hong Kong, Londres, Mumbai, Singapur, Washington DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Compatible | Compatible | Ámsterdam y Londres |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Compatible | No compatible | Melbourne, Sidney |
@@ -141,4 +141,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

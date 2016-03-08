@@ -19,11 +19,11 @@
 
 # Importación de datos a Búsqueda de Azure mediante .NET
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
+- [Información general](search-what-is-data-import.md)
 - [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [Indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 Este artículo muestra cómo rellenar un índice con el [SDK de .NET de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx). El contenido siguiente es un subconjunto de [Cómo usar Búsqueda de Azure desde una aplicación .NET](search-howto-dotnet-sdk.md). Consulte en el artículo primario los pasos al completo.
 
@@ -98,7 +98,7 @@ El siguiente paso en `Main` consiste en rellenar el índice recién creado. Esto
 
         try
         {
-            var batch = IndexBatch.Upload(sitecoreItems);
+            var batch = IndexBatch.Upload(documents);
             indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
@@ -125,4 +125,4 @@ La tercera parte de este método es un bloque catch que controla un caso de erro
 
 Por último, el método se retrasa durante dos segundos. La indización ocurre de manera asincrónica en el servicio Búsqueda de Azure, por lo que la aplicación de ejemplo debe esperar unos momentos para asegurarse de que los documentos estén disponibles para la búsqueda. Retrasos así solo suelen ser necesarios en las pruebas, demostraciones y aplicaciones de ejemplo.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

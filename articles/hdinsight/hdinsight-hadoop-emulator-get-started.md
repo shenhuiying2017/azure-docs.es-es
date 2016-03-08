@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
@@ -48,7 +48,11 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 El emulador de Microsoft HDInsight se puede instalar a través del instalador de plataforma web de Microsoft.
 
-> [AZURE.NOTE] El emulador de HDInsight solo es compatible actualmente con los sistemas operativos en inglés. Si tiene instalada una versión anterior del emulador, debe desinstalar los dos componentes siguientes desde el Panel de Control/Programas y características antes de instalar la versión más reciente del emulador: <ul> <li>Emulador de Microsoft HDInsight para Azure o la vista previa del desarrollador de HDInsight, lo que tenga instalado</li> <li>Hortonworks Data Platform</li> </ul>
+> [AZURE.NOTE] El emulador de HDInsight solo es compatible actualmente con los sistemas operativos en inglés. Si tiene instalada una versión anterior del emulador, debe desinstalar los dos componentes siguientes desde Panel de control/Programas y características antes de instalar la última versión del emulador:
+><ul>
+> <li>Emulador de Microsoft HDInsight para Azure o HDInsight Developer Preview, el que esté instalado.</li>
+> <li>Hortonworks Data Platform</li>
+> </ul>
 
 
 **Para instalar el emulador de HDInsight**
@@ -196,7 +200,7 @@ Los datos de muestra se organizan en torno al procesamiento de datos de registro
 
 ###<a name="scenarios"></a>Los escenarios de datos del registro de IIS W3C
 
-El escenario de W3C genera e importa datos de registro de IIS W3C en tres tamaños a HDFS o al almacenamiento de blobs de Azure: 1 MB (pequeño), 500 MB (mediano) y 2 GB (grande). Proporciona tres tipos de trabajos y los implementa en C#, Java, Pig y Hive.
+El escenario de W3C genera e importa datos de registro de IIS W3C en tres tamaños a HDFS o al almacenamiento de blobs de Azure: 1 MB (pequeño), 500 MB (mediano) y 2 GB (grande). Proporciona tres tipos de trabajos y los implementa en C#, Java, Pig y Hive.
 
 - **totalhits**: calcula la cantidad total de solicitudes de una página determinada.
 - **avgtime**: calcula el tiempo promedio utilizado (en segundos) para una solicitud por página.
@@ -259,7 +263,22 @@ El archivo jar y los archivos de origen se encuentran en la carpeta C:\\Hadoop\\
 
 		hadoop jar .\Java\w3c_scenarios.jar "microsoft.hadoop.w3c.TotalHitsForPage" "/w3c/input/small/data_w3c_small.txt" "/w3c/output"
 
-	En la tabla siguiente, se describen los elementos del comando: <table border="1"> <tr><td>Parámetro</td><td>Nota</td></tr> <tr><td>w3c\_scenarios.jar</td><td>El archivo jar se encuentra en la carpeta C:\\hdp\\GettingStarted\\Java.</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>El tipo se puede sustituir por uno de los siguientes valores: <ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li> <li>microsoft.hadoop.w3c.ErrorsByPage</li> </ul></td></tr> <tr><td>/w3c/input/small/data\_w3c\_small.txt</td><td>El archivo de entrada se puede sustituir por lo siguiente: <ul> <li>/w3c/input/medium/data\_w3c\_medium.txt</li> <li>/w3c/input/large/data\_w3c\_large.txt</li> </ul></td></tr> <tr><td>/w3c/output</td><td>Este es el nombre de la carpeta de salida.</td></tr> </table>
+	En la siguiente tabla se describen los elementos del comando:
+	<table border="1">
+	<tr><td>Parámetro</td><td>Nota:</td></tr>
+	<tr><td>w3c_scenarios.jar</td><td>El archivo jar se encuentra en la carpeta C:\hdp\GettingStarted\Java.</td></tr>
+	<tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>El tipo se puede sustituir por una de las siguientes opciones:
+	<ul>
+	<li>microsoft.hadoop.w3c.AverageTimeTaken</li>
+	<li>microsoft.hadoop.w3c.ErrorsByPage</li>
+	</ul></td></tr>
+	<tr><td>/w3c/input/small/data_w3c_small.txt</td><td>El archivo de entrada se puede sustituir por lo siguiente:
+	<ul>
+	<li>/w3c/input/medium/data_w3c_medium.txt</li>
+	<li>/w3c/input/large/data_w3c_large.txt</li>
+	</ul></td></tr>
+	<tr><td>/w3c/output</td><td>Este es el nombre de la carpeta de salida.</td></tr>
+	</table>
 
 4. Ejecute el siguiente comando para ver el archivo de salida:
 
@@ -317,8 +336,17 @@ A los analistas con profundos conocimientos de lenguaje de consulta estructurado
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
-	En la tabla siguiente, se describen los elementos del comando: <table border="1"> <tr><td>Archivo</td><td>Descripción</td></tr> <tr><td>C:\\hdp\\hive-0.13.0.2.1.3.0-1981\\bin\\hive.cmd</td><td>El script del comando de Hive.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3ctotalhitsbypage.hql</td><td> Puede sustituir el archivo de script de Hive por uno de los siguientes valores: <ul> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3caveragetimetaken.hql</li> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3cerrorsbypage.hql</li> </ul> </td></tr>
-
+	En la siguiente tabla se describen los elementos del comando:
+	<table border="1">
+	<tr><td>Archivo</td><td>Descripción</td></tr>
+	<tr><td>C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd</td><td>El script de comando de Hive.</td></tr>
+	<tr><td>C:\hdp\GettingStarted\Hive\w3c\w3ctotalhitsbypage.hql</td><td> Puede sustituir el archivo de script de Hive por una de las siguientes opciones:
+	<ul>
+	<li>C:\hdp\GettingStarted\Hive\w3c\w3caveragetimetaken.hql</li>
+	<li>C:\hdp\GettingStarted\Hive\w3c\w3cerrorsbypage.hql</li>
+	</ul>
+	</td></tr>
+	
 	</table>
 
 	El script de HiveQL w3ctotalhitsbypage.hql es:
@@ -359,12 +387,25 @@ El procesamiento de Pig usa un lenguaje de flujo de datos llamado *Pig Latin*. L
 
 		C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
 
-	En la tabla siguiente, se muestran los elementos del comando: <table border="1"> <tr><td>Archivo</td><td>Descripción</td></tr> <tr><td>C:\\hdp\\pig-0.12.1.2.1.3.0-1981\\bin\\pig.cmd</td><td>El script del comando de Pig.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Pig\\w3c\\TotalHitsForPage.pig</td><td> Puede sustituir el archivo de script de Pig Latin por uno de los siguientes valores: <ul> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\AverageTimeTaken.pig</li> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\ErrorsByPage.pig</li> </ul> </td></tr> <tr><td>/w3c/input/small/data\_w3c\_small.txt</td><td> Puede sustituir el parámetro por un archivo de mayor tamaño:
-
+	En la siguiente tabla se muestran los elementos del comando:
+	<table border="1">
+	<tr><td>Archivo</td><td>Descripción</td></tr>
+	<tr><td>C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd</td><td>El script de comando de Pig.</td></tr>
+	<tr><td>C:\hdp\GettingStarted\Pig\w3c\TotalHitsForPage.pig</td><td> Puede sustituir el archivo de script de Pig Latin por una de las siguientes opciones:
 	<ul>
-<li>/w3c/input/medium/data_w3c_medium.txt</li>
-<li>/w3c/input/large/data_w3c_large.txt</li>
-</ul></td></tr> </table>
+	<li>C:\hdp\GettingStarted\Pig\w3c\AverageTimeTaken.pig</li>
+	<li>C:\hdp\GettingStarted\Pig\w3c\ErrorsByPage.pig</li>
+	</ul>
+	</td></tr>
+	<tr><td>/w3c/input/small/data_w3c_small.txt</td><td> Puede sustituir el parámetro por un archivo más grande:
+	
+	<ul>
+	<li>/w3c/input/medium/data_w3c_medium.txt</li>
+	<li>/w3c/input/large/data_w3c_large.txt</li>
+	</ul>
+	
+	</td></tr>
+	</table>
 
 	La salida debe ser similar a la siguiente:
 
@@ -497,4 +538,4 @@ En este tutorial de MapReduce, ha instalado un Emulador de HDInsight (un espacio
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -11,7 +11,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
    ms.date="01/22/2016"
@@ -22,7 +22,7 @@
 **Base de datos única**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-get-started.md)
+- [Portal de Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -34,7 +34,7 @@ Probará la Base de datos SQL mediante la creación de una Base de datos única 
 
 Los fragmentos de código individuales se dividen por motivos de claridad y una aplicación de consola de ejemplo reúne todos los comandos en la sección de la parte inferior de este artículo.
 
-La biblioteca de Base de datos SQL de Azure para .NET ofrece una API basada en el [Administrador de recursos de Azure](resource-group-overview.md) que encapsula la [API de REST de Base de datos SQL basada en el Administrador de recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Esta biblioteca cliente sigue el patrón común para las bibliotecas de cliente basada en el Administrador de recursos. El Administrador de recursos requiere grupos de recursos y la autenticación con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+La biblioteca de Base de datos SQL de Azure para .NET ofrece una API basada en el [Administrador de recursos de Azure](../resource-group-overview.md) que encapsula la [API de REST de Base de datos SQL basada en el Administrador de recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Esta biblioteca cliente sigue el patrón común para las bibliotecas de cliente basada en el Administrador de recursos. El Administrador de recursos requiere grupos de recursos y la autenticación con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -463,4 +463,4 @@ Ahora que probó la Base de datos SQL y configuró una base de datos con C#, est
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

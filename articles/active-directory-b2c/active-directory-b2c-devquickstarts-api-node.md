@@ -12,7 +12,7 @@
 	ms.workload="identity"
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
@@ -20,9 +20,8 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-	Este artículo no trata de la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado.
-Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
+
+> [AZURE.NOTE] Este artículo no trata sobre cómo implementar el inicio de sesión, el registro y la administración de perfiles con Azure AD B2C. Se centra en llamar a las API web una vez que el usuario está autenticado. Si aún no lo ha hecho, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure Active Directory B2C.
 
 
 > [AZURE.NOTE]	Este ejemplo se escribió para conectase con nuestra [aplicación de ejemplo B2C para iOS](active-directory-b2c-devquickstarts-ios.md). Primero realice este tutorial y luego continúe con ese ejemplo.
@@ -883,4 +882,4 @@ Ahora puede pasar a temas más avanzados, como:
 
 [Conexión a una API web mediante iOS con B2C](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

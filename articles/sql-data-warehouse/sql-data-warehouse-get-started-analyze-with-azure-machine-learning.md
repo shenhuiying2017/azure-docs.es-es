@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Análisis de datos con Aprendizaje automático de Azure
@@ -140,4 +140,4 @@ Para obtener más información sobre la creación de modelos de aprendizaje auto
 [cargar manualmente los datos de ejemplo]: sql-data-warehouse-get-started-manually-load-samples.md
 [Creación de un Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

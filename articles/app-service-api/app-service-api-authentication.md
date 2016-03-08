@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="01/21/2016"
 	ms.author="tdykstra"/>
 
@@ -112,4 +112,4 @@ Para más información acerca de la autenticación con Azure Active Directory, c
 
 En este artículo se han explicado las características de autenticación y autorización del Servicio de aplicaciones que puede utilizar para las aplicaciones de API. En el siguiente tutorial, aprenderá a implementar la [autenticación de usuario en aplicaciones de API del Servicio de aplicaciones](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

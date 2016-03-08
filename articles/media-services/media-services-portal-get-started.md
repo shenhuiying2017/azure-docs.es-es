@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/25/2016"
 	ms.author="juliako"/>
 
 
@@ -139,7 +139,7 @@ Tenga en cuenta que además de poder usar las capacidades de empaquetado dinámi
 
 ### Codificación
 
-En esta sección se describen los pasos que puede seguir para codificar el contenido con Codificador multimedia de Azure mediante el Portal de Azure clásico.
+En esta sección se describen los pasos que puede seguir para codificar el contenido con Estándar de codificador multimedia mediante el Portal de Azure clásico.
 
 1.  Seleccione el archivo que desea codificar. Si se admite la codificación para este tipo de archivo, se habilitará el botón **PROCESO** en la parte inferior de la página CONTENIDO.
 4. En el cuadro de diálogo **Proceso**, seleccione el procesador **Estándar de codificador multimedia**.
@@ -253,4 +253,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

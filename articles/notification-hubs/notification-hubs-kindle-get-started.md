@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones Kindle
@@ -74,7 +74,7 @@ En el portal, agregue el secreto de cliente y el Id. de cliente a la pestaña **
 
 ## Configuración de la aplicación
 
-> [AZURE.NOTE]Al crear un aplicación, use al menos el nivel de API 17.
+> [AZURE.NOTE] Al crear un aplicación, use al menos el nivel de API 17.
 
 Agregue las bibliotecas de ADM al proyecto de Eclipse.
 
@@ -251,7 +251,7 @@ Edite el manifiesto de la aplicación para admitir ADM:
 2. En el emulador, desplácese desde la parte superior y haga clic en **Settings** (Configuración) y luego haga clic en **My account** (Mi cuenta) y regístrese con una cuenta de Amazon válida.
 3. Ejecute la aplicación en Eclipse.
 
-> [AZURE.NOTE]Si se produce un error, compruebe el tiempo del emulador (o del dispositivo). El valor de tiempo debe ser preciso. Para cambiar el tiempo del emulador de Kindle, puede ejecutar el comando siguiente desde el directorio de herramientas de la plataforma del SDK de Android:
+> [AZURE.NOTE] Si se produce un error, compruebe el tiempo del emulador (o del dispositivo). El valor de tiempo debe ser preciso. Para cambiar el tiempo del emulador de Kindle, puede ejecutar el comando siguiente desde el directorio de herramientas de la plataforma del SDK de Android:
 
 		adb shell  date -s "yyyymmdd.hhmmss"
 
@@ -281,4 +281,4 @@ Para enviar un mensaje con .NET:
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

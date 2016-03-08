@@ -3,7 +3,7 @@
    description="Describe los pasos que debe realizar para configurar Automatización de Azure para su uso inicial."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
+   authors="MGoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Configuración de Automatización de Azure
@@ -94,4 +94,4 @@ Deberá repetir estas líneas después de cada [punto de control](http://technet
 - [Azure Automation: Authenticating to Azure using Azure Active Directory (Automatización de Azure: autenticación en Azure mediante Azure Active Directory)](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

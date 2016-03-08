@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: creación de un inquilino de Azure AD B2C
@@ -74,4 +74,4 @@ Use los pasos siguientes para crear un nuevo inquilino de Azure AD B2C. Actualme
 
 Obtenga información acerca de cómo registrar una aplicación con Azure AD B2C y cómo crear una aplicación de inicio rápido; para ello, consulte [Vista previa de Azure Active Directory B2C: Registro de la aplicación](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
