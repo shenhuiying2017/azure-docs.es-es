@@ -3,7 +3,7 @@
     description="Tutorial que le guiará a través de la creación, prueba y publicación de un runbook de PowerShell."
     services="automation"
     documentationCenter=""
-    authors="SnehaGunda"
+    authors="mgoedtel"
     manager="stevenka"
     editor="tysonn"/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;sngun"/>
 
 # Mi primer runbook de PowerShell
@@ -125,4 +125,4 @@ Los runbooks de PowerShell tienen el mismo ciclo de vida, las mismas funcionalid
 -	Para más información acerca de los tipos de runbook, sus ventajas y limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
 -	Para más información sobre la característica de compatibilidad con scripts de PowerShell, consulte [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Anuncio de la compatibilidad nativa con scripts de PowerShell en Automatización de Azure).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

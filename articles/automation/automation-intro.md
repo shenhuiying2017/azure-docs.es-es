@@ -3,7 +3,7 @@
 	description="Conozca el valor que aporta Automatización de Azure y obtenga respuestas a preguntas habituales para comenzar a crear, usar runbooks y DSC de Automatización de Azure."
 	services="automation"
 	documentationCenter=""
-	authors="SnehaGunda"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren"/>
 
 # Información general sobre Automatización de Azure
@@ -101,4 +101,4 @@ Hay una amplia gama de recursos disponibles para obtener más información sobre
 
 **Envíenos sus comentarios** Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). Gracias.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

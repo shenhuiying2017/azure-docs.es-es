@@ -4,12 +4,12 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/01/2015"
@@ -32,18 +32,18 @@ La opción que elija dependerá de varios factores, como, por ejemplo:
 La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad para su solución.
 
 
-| -                            | **De punto a sitio**                                                                   | **De sitio a sitio**                                                                                              | **ExpressRoute**                                                                                                                      |
-|------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| **Servicios compatibles con Azure** | Máquinas virtuales de servicios en la nube                                                  | Máquinas virtuales de servicios en la nube                                                                           | [Lista de servicios](../expressroute/expressroute-faqs.md#supported-azure-services)                                                                                                                |
-| **Anchos de banda típicos**       | Normalmente < 100 Mbps agregados                                                  | Normalmente < 100 Mbps agregados                                                                            | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps                                                                                            |
-| **Protocolos admitidos**      | Protocolo de túnel de Sockets seguros (SSTP)                                        | IPsec                                                                       | Conexión directa a través de redes VLAN, tecnologías de proveedores de servicios de red VPN (MPLS, VPLS...)                                                                                                  |
-| **Enrutamiento**                  | Estático                                                                          | Estático: se admite el enrutamiento basado en directivas y VPN de enrutamiento dinámico basado en ruta                    | BGP                                                                                                                                     |
-| **Resistencia de la conexión**    | activo-pasivo                                                                  | activo-pasivo                                                                                            | activo-activo                                                                                                                           |
-| **Caso de uso típico**         | Creación de prototipos, escenarios de laboratorio, desarrollo y prueba para servicios en la nube y máquinas virtuales  | scenarios de laboratorio, desarrollo y prueba y cargas de trabajo de producción a pequeña escala para máquinas virtuales y servicios en la nube | Acceso a todos los servicios de Azure (lista validada), cargas de trabajo críticas y de clase empresarial, copia de seguridad, datos de gran tamaño, Azure como sitio de recuperación ante desastres |
-| **SLA**                      | [SLA](https://azure.microsoft.com/support/legal/sla/)                           | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                     | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                                                   |
-| **Precios**                  | [Precios](http://azure.microsoft.com/pricing/details/vpn-gateway/)              | [Precios](http://azure.microsoft.com/pricing/details/vpn-gateway/)                                             | [Precios](http://azure.microsoft.com/pricing/details/expressroute/)                                                                           |
-| **Documentación técnica**  | [Documentación de puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)                                               | [Documentación de puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)                                                                         | [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)                                                                                                      |
-| **Preguntas más frecuentes**                      | [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md)                                                         | [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md)                                                                                   | [Preguntas más frecuentes de ExpressRoute](../expressroute/expressroute-faqs.md)                                                                                                                |
+| - | **De punto a sitio** | **De sitio a sitio** | **ExpressRoute** |
+|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| **Servicios de Azure compatibles** | Servicios en la nube y máquinas virtuales | Servicios en la nube y máquinas virtuales | [Lista de servicios](../expressroute/expressroute-faqs.md#supported-services) |
+| **Anchos de banda típicos** | Agregación típica de < 100 Mbps | Agregación típica de < 100 Mbps | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
+| **Protocolos admitidos** | Protocolo de túnel de Sockets seguros (SSTP) | IPsec | Conexión directa a través de las redes VLAN y las tecnologías VPN de NSP (MPLS, VPLS...) |
+| **Enrutamiento** | Basado en enrutamientos (dinámico) | Admitimos elementos basados en directivas (enrutamiento estático) y basados en enrutamiento (VPN de enrutamiento dinámico) | BGP |
+| **Resistencia de la conexión** | active-passive | active-passive | active-active |
+| **Caso de uso típico** | Creación de prototipos, escenarios de laboratorio / pruebas / desarrollo para máquinas virtuales y servicios en la nube | Escenarios de laboratorio / pruebas / desarrollo y cargas de trabajo de producción a pequeña escala para máquinas virtuales y servicios en la nube | Acceso a todos los servicios de Azure (lista validada), cargas de trabajo críticas y empresariales, copias de seguridad, macrodatos, Azure como sitio de recuperación ante desastres |
+| **CONTRATO DE NIVEL DE SERVICIO** | [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/) |
+| **Precios** | [Precios](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Precios](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Precios](https://azure.microsoft.com/pricing/details/expressroute/) |
+| **Documentación técnica** | [Documentación de Puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentación de Puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
+| **** PREGUNTAS MÁS FRECUENTES ** | [Preguntas más frecuentes de puerta de enlace de VPN](vpn-gateway-vpn-faq.md) | [Preguntas más frecuentes de puerta de enlace de VPN](vpn-gateway-vpn-faq.md) | [Preguntas más frecuentes de ExpressRoute](../expressroute/expressroute-faqs.md) |
 
 
 ## Conexiones de sitio a sitio
@@ -99,4 +99,4 @@ Para más información sobre ExpressRoute, vea la [Información técnica de Expr
 
 Vea las [Preguntas más frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md) y las [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para más información.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

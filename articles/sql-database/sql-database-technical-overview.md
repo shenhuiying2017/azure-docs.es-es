@@ -61,4 +61,4 @@ Ahora que leyó una introducción a la Base de datos SQL y contestó a la pregun
 
 - Comience por [crear su primera base de datos](sql-database-get-started.md). Luego cree su primera aplicación en [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

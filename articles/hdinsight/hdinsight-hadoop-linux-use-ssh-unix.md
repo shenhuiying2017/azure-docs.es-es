@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="01/28/2016"
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-- [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Linux, Unix y OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Shell seguro (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) permite realizar operaciones de forma remota en los clústeres de HDInsight basado en Linux con una interfaz de línea de comandos. Este documento proporciona información sobre el uso de SSH con HDInsight desde clientes Linux, Unix u OS X.
 
@@ -99,7 +99,8 @@ Si selecciona **CLAVE PÚBLICA DE SSH**, puede pegar la clave pública (contenid
 
 ![Imagen del formulario que solicita la clave pública](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
-> [AZURE.NOTE] El archivo de la clave es simplemente un texto de archivo. El contenido debe ser similar al siguiente: ```
+> [AZURE.NOTE] El archivo de la clave es simplemente un texto de archivo. El contenido debe ser similar al siguiente:
+> ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KGz90pgMk3VRJk4PEUSELfXKxP3NtsVwLVPN1l09utI/tKHQ6WL3qy89WVVVLiwzL7tfJ2B08Gmcw8mC/YoieT/YG+4I4oAgPEmim+6/F9S0lU2I2CuFBX9JzauX8n1Y9kWzTARST+ERx2hysyA5ObLv97Xe4C2CQvGE01LGAXkw2ffP9vI+emUM+VeYrf0q3w/b1o/COKbFVZ2IpEcJ8G2SLlNsHWXofWhOKQRi64TMxT7LLoohD61q2aWNKdaE4oQdiuo8TGnt4zWLEPjzjIYIEIZGk00HiQD+KCB5pxoVtp user@system
 > ```
 
@@ -238,4 +239,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

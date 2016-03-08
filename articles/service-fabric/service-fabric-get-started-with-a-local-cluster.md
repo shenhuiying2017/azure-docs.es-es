@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/20/2015"
+   ms.date="02/26/2016"
    ms.author="seanmck"/>
 
 # Introducción a la implementación y actualización de aplicaciones en un clúster local
@@ -117,6 +117,10 @@ Ahora que hemos implementado la aplicación, echemos un vistazo a algunos de los
 
 3. Por último, eche un vistazo a la lista de particiones de WordCountService:
 
+    ```powershell
+    Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
+    ```
+
     ![Ver las particiones de servicio en PowerShell][ps-getsfpartitions]
 
     El conjunto de comandos que acaba de usar, al igual que todos los comandos de PowerShell de Service Fabric, está disponibles para cualquier clúster al que se pueda conectar, tanto local como remoto.
@@ -132,7 +136,7 @@ Service Fabric proporciona actualizaciones sin tiempo de inactividad mediante la
 
 La nueva versión de la aplicación ahora contará solo las palabras que comiencen por una vocal. Cuando se implemente la actualización, veremos dos cambios en el comportamiento de la aplicación. En primer lugar, la velocidad a la que crece el recuento debe reducirse, ya que se cuentan menos palabras. En segundo lugar, dado que la primera partición tiene dos vocales (A y E) y las restantes particiones contienen solo una, su recuento debería finalmente debería empezar a superar a los demás.
 
-1. [Descargue el paquete de v2](http://aka.ms/servicefabric-wordcountappv2) a la misma ubicación en que descargó el paquete de v1.
+1. [Descargue el paquete de WordCount v2](http://aka.ms/servicefabric-wordcountappv2) a la misma ubicación en que descargó el paquete de v1.
 
 2. Vuelva a la ventana de PowerShell y use el comando de actualización del SDK para registrar la nueva versión en el clúster. Después, empiece a actualizar la aplicación fabric:/WordCount.
 
@@ -186,4 +190,4 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

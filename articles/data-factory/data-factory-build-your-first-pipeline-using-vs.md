@@ -18,11 +18,11 @@
 
 # Introducción a la Factoría de datos de Azure (Visual Studio)
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Información general del tutorial](data-factory-build-your-first-pipeline.md)
+- [Uso del Editor de Data Factory](data-factory-build-your-first-pipeline-using-editor.md).
+- [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Uso de la plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 En este artículo, aprenderá a usar Microsoft Visual Studio para crear su primera factoría de datos de Azure.
@@ -116,7 +116,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 #### Creación del conjunto de datos de entrada
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Tablas**, seleccione **Agregar** y haga clic en **Nuevo elemento**. 
-2. Seleccione **Blob de Azure** en la lista, cambie el nombre del archivo a **OutputDataset.json** y haga clic en **Agregar**.
+2. Seleccione **Blob de Azure** en la lista, cambie el nombre del archivo a **InputDataSet.json** y haga clic en **Agregar**.
 3. Reemplace el código **JSON** del editor por lo siguiente: 
 
 	En el fragmento de código JSON, va a crear un conjunto de datos denominado **AzureBlobInput** que representa los datos de entrada para una actividad de la canalización. Además, va a especificar que los datos de entrada se coloquen en el contenedor de blobs llamado **adfgetstarted** y en la carpeta llamada **inputdata**.
@@ -291,8 +291,7 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 ## Paso 4: Supervisión de la canalización
 
 6. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y realice lo siguiente:
-	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
-		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos. 
 7. En la página principal de la factoría de datos, haga clic en **Diagrama**.
   
@@ -347,7 +346,7 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 ## Uso de archivos de configuración
 Puede usar archivos de configuración de Visual Studio para configurar propiedades para servicios vinculados/tablas/canalizaciones distintos para cada entorno.
 
-Considere la siguiente definición de JSON para un servicio vinculado de Almacenamiento de Azure. Para especificar la propiedad **connectionString** con distintos valores para accountname y accountkey basados en el entorno (desarrollo, prueba y producción) en el que va a implementar las entidades de Factoría de datos. Puede hacerlo usando el archivo de configuración independiente para cada entorno.
+Considere la siguiente definición de JSON para un servicio vinculado de Almacenamiento de Azure. Para especificar la propiedad **connectionString** con distintos valores para accountname y accountkey basados en el entorno (desarrollo, prueba y producción) en el que va a implementar las entidades de Data Factory. Puede hacerlo usando el archivo de configuración independiente para cada entorno.
 
 	{
 	    "name": "StorageLinkedService",
@@ -363,7 +362,7 @@ Considere la siguiente definición de JSON para un servicio vinculado de Almacen
 ### Adición de un archivo de configuración
 Agregue un archivo de configuración a cada entorno realizando los pasos siguientes:
 
-1. Haga clic con el botón derecho en el proyecto de Factoría de datos de la solución de Visual Studio, seleccione **Agregar** y haga clic en **Nuevo elemento**.
+1. Haga clic con el botón derecho en el proyecto de Data Factory en la solución de Visual Studio, seleccione **Agregar** y haga clic en **Nuevo elemento**.
 2. Seleccione **Config** en la lista de plantillas instaladas de la izquierda, elija **Archivo de configuración**, escriba un **nombre** para el archivo de configuración y haga clic en **Agregar**.
 
 	![Adición de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
@@ -433,7 +432,7 @@ Al publicar las entidades de Factoría de datos de Azure en Visual Studio, puede
 
 Para publicar entidades en un proyecto de Factoría de datos de Azure mediante el archivo de configuración:
 
-1. Haga doble clic en el proyecto de Data Factory y haga clic en **Publicar** para ver el cuadro de diálogo **Publicar elementos**. 
+1. Haga clic con el botón derecho en el proyecto de Data Factory y haga clic en **Publicar** para ver el cuadro de diálogo **Publicar elementos**. 
 2. Seleccione una factoría de datos existente o especifique valores para crear una nueva en la página **Configurar factoría de datos** y haga clic en **Siguiente**.   
 3. En la página **Publicar elementos**, verá una lista desplegable con las configuraciones disponibles para el campo **Seleccionar configuración de implementación**.
 
@@ -441,7 +440,7 @@ Para publicar entidades en un proyecto de Factoría de datos de Azure mediante e
 
 4. Seleccione el **archivo de configuración** que le gustaría usar y haga clic en **Siguiente**.
 5. Confirme que aparece el nombre del archivo JSON en la página **Resumen** y haga clic en **Siguiente**. 
-6. Cuando se haya finalizado la implementación, haga clic en **Finalizar**. 
+6. Cuando finalice la implementación, haga clic en **Finalizar**. 
 
 Cuando realiza la implementación, se usan los valores del archivo de configuración para establecer los valores de las propiedades de los archivos JSON para entidades de Factoría de datos (servicios vinculados, tablas o canalizaciones) antes de que las entidades se implementen en el servicio Factoría de datos de Azure.
 
@@ -449,4 +448,4 @@ Cuando realiza la implementación, se usan los valores del archivo de configurac
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

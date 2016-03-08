@@ -3,7 +3,7 @@
     description="Tutorial que le guiará a través de la creación, prueba y publicación de un runbook gráfico simple."
     services="automation"
     documentationCenter=""
-    authors="bwren"
+    authors="mgoedtel"
     manager="stevenka"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;bwren"/>
 
 # Mi primer runbook gráfico
@@ -161,4 +161,4 @@ Ahora modificaremos el runbook para que solo intente iniciar el runbook si no se
 -	[Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 -	[Mi primer runbook de PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

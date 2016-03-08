@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones iOS en Objective C
 
 > [AZURE.SELECTOR]
-- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows universal](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
 - [iOS | Obj C](mobile-engagement-ios-get-started.md)
 - [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
@@ -35,7 +35,7 @@ Este tutorial requiere lo siguiente:
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones iOS.
 
-> [AZURE.IMPORTANT]Completar este tutorial es un requisito previo para los demás tutoriales de Mobile Engagement para aplicaciones iOS. Para completarlo, debe tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.IMPORTANT] Completar este tutorial es un requisito previo para los demás tutoriales de Mobile Engagement para aplicaciones iOS. Para completarlo, debe tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 ##<a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación iOS
 
@@ -185,4 +185,4 @@ Mobile Engagement permite interactuar y llegar mediante notificaciones push y me
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

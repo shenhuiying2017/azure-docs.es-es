@@ -13,7 +13,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
@@ -111,4 +111,4 @@ A continuación, cuando esté listo para obtener más información, visite nuest
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

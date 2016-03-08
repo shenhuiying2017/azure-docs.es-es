@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="documentdb"
-	ms.workload="data-services" 
+	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -20,8 +20,8 @@
 # Creación de una cuenta de base de datos de DocumentDB mediante el Portal de Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+- [Portal de Azure](documentdb-create-account.md)
+- [CLI de Azure y ARM](documentdb-automation-resource-manager-cli.md)
 
 Para usar Microsoft Azure DocumentDB, debe crear una cuenta de base de datos de DocumentDB mediante el uso del Portal de Azure, plantillas del Administrador de recursos de Azure o la interfaz de línea de comandos (CLI) de Azure. En este artículo se muestra cómo crear una cuenta de base de datos con el Portal de Azure. Para crear una cuenta con Administrador de recursos de Azure o CLI de Azure, consulte [Automate DocumentDB account creation using Azure Resource Manager templates and Azure CLI](documentdb-automation-resource-manager-cli.md).
 
@@ -48,4 +48,4 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 -	[Ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modelo de recursos y conceptos de DocumentDB](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

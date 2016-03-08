@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/07/2015"
+	ms.date="02/29/2016"
 	ms.author="tdykstra"/>
 
 # Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure
@@ -79,7 +79,7 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 3. Asegúrese de que **.NET Framework 4.5.2** es el marco de trabajo de destino seleccionado.
 
-4.  [Azure Application Insights](app-insights-overview.md) supervisa la aplicación web en cuanto a disponibilidad, rendimiento y uso. Desactive la casilla **Agregar Application Insights al proyecto** si no desea probarlo.
+4.  [Azure Application Insights](../application-insights/app-insights-overview.md) supervisa la aplicación web en cuanto a disponibilidad, rendimiento y uso. Desactive la casilla **Agregar Application Insights al proyecto** si no desea probarlo.
 
 4. Asigne a la aplicación el nombre **MyExample**.
 
@@ -301,4 +301,4 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web al Servicio de aplicaciones, consulte [Servicio de aplicaciones de Azure y los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

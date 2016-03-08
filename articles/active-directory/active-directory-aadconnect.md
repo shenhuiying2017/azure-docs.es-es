@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016"
+	ms.date="02/29/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integración de las identidades locales con Azure Active Directory
@@ -49,11 +49,11 @@ Puede encontrar la descarga de Azure AD Connect en el [Centro de descarga de Mic
 
 | Solución | Escenario |
 | ----- | ----- |
-| Antes de comenzar | <li>[Azure AD Connect: hardware y requisitos previos](active-directory-aadconnect-prerequisites.md)</li> |
+| Antes de empezar: [hardware y requisitos previos](active-directory-aadconnect-prerequisites.md) | <li>Pasos que deben completarse antes de empezar a instalar Azure AD Connect.</li> |
 | [Configuración rápida](active-directory-aadconnect-get-started-express.md) | <li>Opción recomendada y predeterminada si tiene Active Directory de un solo bosque.</li> <li>Inicio de sesión de usuario con la misma contraseña mediante la sincronización de contraseñas.</li>
 | [Configuración personalizada](active-directory-aadconnect-get-started-custom.md) | <li>Se usa cuando se tienen varios bosques. Admite muchas [topologías](active-directory-aadconnect-topologies.md) locales.</li> <li>Personalice la opción de inicio de sesión, como ADFS para la federación, o use un proveedor de identidades de terceros.</li> <li>Personalice las características de sincronización, como filtrado y escritura diferida.</li>
 | [Actualización desde DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Si tiene un servidor de DirSync existente que ya se está ejecutando.</li>
-| Actualización desde Sincronización de Azure AD | <li>Se trata de una actualización en contexto sin problemas.</li>
+| [Actualización desde Azure AD Sync o Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md)| <li>Hay varios métodos diferentes y el que elija dependerá de sus preferencias.</li>
 
 
 [Después de la instalación](active-directory-aadconnect-whats-next.md), debe comprobar que funciona según lo previsto y asignar licencias a los usuarios.
@@ -93,7 +93,7 @@ La [reescritura de dispositivos](active-directory-aadconnect-feature-device-writ
 
 La característica para [evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) está activada de forma predeterminada y protege su directorio en la nube de un lote de eliminaciones al mismo tiempo. De forma predeterminada, se permiten 500 eliminaciones por cada ejecución y este número se puede cambiar según el tamaño de su organización.
 
-[La actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) está habilitada de forma predeterminada para las instalaciones de configuración rápidas y permite garantizar que Azure AD Connect siempre estará actualizado con la versión más reciente.
+La [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) está habilitada de forma predeterminada para las instalaciones de configuración rápida y garantiza que Azure AD Connect está siempre actualizado con la versión más reciente.
 
 ### Pasos siguientes para configurar características
 
@@ -131,7 +131,7 @@ El modelo de configuración sincronizado se denomina [aprovisionamiento declarat
 | Tema. | |
 | --------- | --------- |
 | Historial de versiones | [Historial de versiones](active-directory-aadconnect-version-history.md) |
-| Comparación de DirSync, Sincronización de Azure AD y Azure AD Connect | [Comparación de las herramientas para la integración de directorios](active-directory-aadconnect-get-started-tools-comparison.md) |
+| Comparación de DirSync, Sincronización de Azure AD y Azure AD Connect | [Comparación de las herramientas para la integración de directorios](active-directory-hybrid-identity-design-considerations-tools-comparison.md) |
 | Atributos sincronizados | [Atributos sincronizados](active-directory-aadconnectsync-attributes-synchronized.md) |
 | Supervisión del uso de Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md) |
 | Preguntas frecuentes | [Preguntas más frecuentes sobre Azure AD Connect](active-directory-aadconnect-faq.md) |
@@ -144,4 +144,4 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

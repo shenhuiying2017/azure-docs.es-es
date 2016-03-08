@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="02/02/2016"
 	ms.author="jeffreyg"/>
 
 # Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)
@@ -129,9 +129,9 @@ Si se encuentra en una empresa incipiente con falta de medios o en un equipo de 
 
 **Base de datos SQL** se vende a los clientes como servicio, no con licencia, mientras que SQL Server en Máquinas virtuales de Azure requiere licencias tradicionales de SQL Server.
 
-Actualmente, **Base de datos SQL** está disponible en varios niveles de servicio, que se facturan por hora a una tarifa fija en función del nivel de servicio y el nivel de rendimiento que se elija. Los niveles de servicio Basic, Standard y Premium se han concebido para proporcionar un rendimiento predecible con varios niveles de rendimiento para igualar los requisitos máximos de la aplicación. Se puede cambiar de un nivel de servicio a otro y de un nivel de rendimiento a otro para igualar las necesidades variables de capacidad de proceso de la aplicación. Para obtener la información más reciente sobre los niveles de servicio que se admiten actualmente, consulte [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md).
+Actualmente, **Base de datos SQL** está disponible en varios niveles de servicio, que se facturan por hora a una tarifa fija en función del nivel de servicio y el nivel de rendimiento que se elija. Además, se le facturará el tráfico saliente de Internet. Los niveles de servicio Basic, Standard y Premium se han concebido para proporcionar un rendimiento predecible con varios niveles de rendimiento para igualar los requisitos máximos de la aplicación. Se puede cambiar de un nivel de servicio a otro y de un nivel de rendimiento a otro para igualar las necesidades variables de capacidad de proceso de la aplicación. Si la base de datos tiene un alto volumen de transacciones y debe admitir muchos usuarios simultáneos, recomendamos usar el nivel de servicio Premium. Para obtener la información más reciente sobre los niveles de servicio que se admiten actualmente, consulte [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md).
 
-Con **Base de datos SQL**, Microsoft configura, revisa y actualiza automáticamente el software de base de datos, lo que reduce los costos de administración. Además, sus capacidades de [copia de seguridad integrada](sql-database-business-continuity.md) ayudan a obtener un ahorro significativo, sobre todo, cuando se tiene gran cantidad de base de datos. Cuando se utiliza Base de datos SQL, no se factura por consultas individuales que se ejecuten en Base de datos SQL ni por el tráfico entrante de Internet, sino por el [tráfico saliente de Internet](https://azure.microsoft.com/pricing/details/data-transfers/). Si la base de datos tiene un alto volumen de transacciones y debe admitir muchos usuarios simultáneos, recomendamos usar el nivel de servicio Premium.
+Con **Base de datos SQL**, Microsoft configura, revisa y actualiza automáticamente el software de base de datos, lo que reduce los costos de administración. Además, sus capacidades de [copia de seguridad integrada](sql-database-business-continuity.md) ayudan a obtener un ahorro significativo, sobre todo, cuando se tiene gran cantidad de base de datos.
 
 Con **SQL Server en Máquinas virtuales de Azure**, se emplean licencias tradicionales de SQL Server. También puede usar la imagen de SQL Server que proporciona la plataforma (que incluye una licencia) o incorporar su licencia de SQL Server. Cuando use las imágenes suministradas por Azure, el costo operativo depende del tamaño de la máquina virtual, así como de la edición de SQL Server que elija. Independientemente del tamaño de la máquina virtual o la edición de SQL Server, se paga el costo de licencia por minuto de SQL Server y Windows Server, junto con el costo de Almacenamiento de Azure para los discos de la máquina virtual. La opción de facturación por minuto permite utilizar SQL Server durante el tiempo que sea necesario sin comprar licencias adicionales de SQL Server. Si incorpora su propia licencia de SQL Server a Azure, solo se cobran los costos de Windows Server y de almacenamiento. Para obtener más información sobre la incorporación de licencias propias, consulte [Movilidad de Licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
@@ -199,4 +199,4 @@ Consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virt
 
 > [AZURE.NOTE] ¿Desea probar SQL Server 2016 CTP2? Suscríbase a Microsoft Azure y, a continuación, acceda [aquí](http://aka.ms/sql2016vm "aquí") para crear una máquina virtual con SQL Server 2016 CTP2 ya instalado.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

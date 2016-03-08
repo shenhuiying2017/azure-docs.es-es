@@ -3,7 +3,7 @@
     description="Tutorial que le guiará a través de la creación, prueba y publicación de un runbook de texto simple con Flujo de trabajo de PowerShell."
     services="automation"
     documentationCenter=""
-    authors="bwren"
+    authors="mgoedtel"
     manager="stevenka"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;bwren"/>
 
 # Mi primer runbook de flujo de trabajo de PowerShell
@@ -117,4 +117,4 @@ Actualmente, nuestro runbook inicia la máquina virtual que codificamos en el ru
 -	[Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 -	[Mi primer runbook de PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

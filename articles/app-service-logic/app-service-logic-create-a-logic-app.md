@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.topic="hero-article"
+	ms.date="03/01/2016"
 	ms.author="stepsic"/>
 
 # Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS
@@ -24,7 +24,7 @@
 | [Documentación del conector de aplicaciones lógicas](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Foro de aplicaciones lógicas](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurelogicapps) |
 
-En este tema se muestra cómo, en solo unos minutos, puede comenzar a trabajar con las [aplicaciones lógicas de Servicios de aplicaciones](app-service-logic-what-are-logic-apps.md). Recorreremos un flujo de trabajo que permite entregar un conjunto de tweets en el que está interesado a una carpeta de Dropbox.
+En este tema se muestra cómo, en solo unos minutos, puede comenzar a trabajar con las [aplicaciones lógicas de Servicios de aplicaciones](app-service-logic-what-are-logic-apps.md). Recorreremos un flujo de trabajo que le permite entregar un conjunto de tweets que le interesa en un buzón de correo.
 
 Para utilizar este escenario necesitará:
 
@@ -38,22 +38,16 @@ Para utilizar este escenario necesitará:
 2. En Todas, busque 'aplicaciones lógicas' y, a continuación, seleccione **Aplicación lógica (versión preliminar)**. También puede seleccionar **Nuevo**, **Web y móvil**, y seleccione **Aplicación lógica (versión preliminar)**. 
 3. Escriba un nombre para la aplicación lógica, seleccione el plan del Servicio de aplicaciones y seleccione **Crear**. En este paso, estamos suponiendo que tiene un plan del Servicio de aplicaciones y está familiarizado con las propiedades necesarias. Si no, no se preocupe, puede obtener información inicial en [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-4. Cuando la aplicación lógica se abre por primera vez deberá tener un desencadenador. Por ejemplo, puede utilizar **Periodicidad**: ![Periodicidad](./media/app-service-logic-create-a-logic-app/recurrence.png)
+4. Cuando la aplicación lógica se abre por primera vez deberá tener un desencadenador. Busque **twitter** en el cuadro de búsqueda del desencadenador y selecciónelo.
 
-	Si utiliza la opción Periodicidad, la aplicación lógica se ejecutará continuamente en el intervalo de tiempo que elija. Por ejemplo, puede ejecutar la aplicación lógica cada 30 segundos, cada 5 horas, todos los días a las 8 a.m. hora estándar del Pacífico, cada noche a las 2 a.m. hora estándar del Este, etc. También puede eliminar la periodicidad de la aplicación lógica. Si elimina la periodicidad, deberá iniciar manualmente la aplicación lógica.
+7. Ahora tendrá que escribir la palabra clave que desea buscar en twitter. ![Búsqueda de Twitter](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
-5. Sin embargo, para este tutorial, vamos a hacer que el desencadenador se ejecute cada vez que hay un tweet que coincide con una condición. Haga clic en el menú `...` para eliminar el desencadenador de periodicidad.
+5. Seleccione el signo más y elija **Agregar una acción** o **Agregar una condición**: ![Signo más](./media/app-service-logic-create-a-logic-app/plus.png)
+6. Si selecciona **Agregar una acción**, se enumerarán todos los conectores con sus acciones disponibles. A continuación, puede elegir qué conector y qué acción desea agregar a la aplicación lógica. Por ejemplo, puede seleccionar **Office 365: enviar correo electrónico** u otras acciones de Office 365: ![Acciones](./media/app-service-logic-create-a-logic-app/actions.png)
 
-6. Busque **Twitter** en el cuadro de búsqueda de desencadenador y selecciónelo.
+7. Ahora tiene que rellenar los parámetros del correo electrónico que desee: ![Parámetros](./media/app-service-logic-create-a-logic-app/parameters.png)
 
-7. Ahora tendrá que escribir la palabra clave que desea buscar en Twitter. ![Búsqueda de Twitter](./media/app-service-logic-create-a-logic-app/twittersearch.png)
-
-5. Seleccione el signo más y, a continuación, elija **Agregar una acción** o **Agregar una condición**: ![Signo más](./media/app-service-logic-create-a-logic-app/plus.png)
-6. Cuando seleccione **Agregar una acción**, se enumerarán todos los conectores con sus acciones disponibles. A continuación, puede elegir qué conector y qué acción desea agregar a la aplicación lógica. Por ejemplo, puede seleccionar **Office 365: enviar correo electrónico** u otras acciones de Office 365: ![Acciones](./media/app-service-logic-create-a-logic-app/actions.png)
-
-7. Ahora tiene que rellenar los parámetros para el correo electrónico que desee: ![Parámetros](./media/app-service-logic-create-a-logic-app/parameters.png)
-
-8. Por último, puede seleccionar **Guardar** para que se ejecute la aplicación lógica.
+8. Por último, puede seleccionar **Guardar** para activar la aplicación lógica.
 
 ## Administrar la aplicación lógica tras la creación
 
@@ -73,4 +67,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Azure portal]: https://portal.azure.com
 [Uso de las características de aplicaciones lógicas]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

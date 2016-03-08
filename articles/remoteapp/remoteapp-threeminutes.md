@@ -12,8 +12,8 @@
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/05/2015"
+    ms.topic="hero-article"
+    ms.date="02/25/2016"
     ms.author="mbaldwin" />
 
 
@@ -33,6 +33,6 @@ Ahora puede tener acceso a aplicaciones que se ejecutan en tiempo real en Azure 
 
 Su opinión es importante. Al final de cada sesión, verá un cuadro de diálogo para ingresar sus comentarios. Si tiene un momento, indíquenos sus opiniones y permítanos saber si quisiera que Microsoft se pusiera en contacto con usted para obtener información adicional.
 
->[AZURE.NOTE]Debido a que este es un entorno controlado para uso de demostración, no tenemos habilitado el acceso externo a Internet desde las aplicaciones de demostración publicadas. Por lo tanto, servicios como OneDrive no se encuentran accesibles. Además, también está desactivado el uso compartido del portapapeles (copiar y pegar) y la redirección de impresora y USB.
+>[AZURE.NOTE] Debido a que este es un entorno controlado para uso de demostración, no tenemos habilitado el acceso externo a Internet desde las aplicaciones de demostración publicadas. Por lo tanto, servicios como OneDrive no se encuentran accesibles. Además, también está desactivado el uso compartido del portapapeles (copiar y pegar) y la redirección de impresora y USB.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

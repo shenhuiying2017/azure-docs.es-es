@@ -3,17 +3,17 @@
     		description="Almacene datos de archivo en la nube con el Almacenamiento de archivos de Azure y monte un recurso compartido de archivos de nube desde una máquina virtual (VM) de Azure o desde una aplicación local con Windows."
             services="storage"
             documentationCenter=".net"
-            authors="robinsh"
-            manager="carmonm"
-            editor="" />
+            authors="mine-msft"
+            manager="aungoo"
+            editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/19/2016"
-      ms.author="robinsh" />
+      ms.date="02/29/2016"
+      ms.author="minet" />
 
 # Introducción a Almacenamiento de archivos de Azure en Windows
 
@@ -580,6 +580,14 @@ En el [Portal de Azure](https://portal.azure.com) es posible habilitar las métr
 
 	Para transferir una gran cantidad de archivos al almacenamiento de archivos es aconsejable usar AzCopy, Azure Powershell (Windows) o la CLI de Azure (Linux/Unix), ya que estas herramientas se optimizaron para la transferencia a través de red.
 
+13. **Revisión publicada para corregir el problema de rendimiento lento con archivos de Azure**
+
+	El equipo de Windows ha publicado recientemente una revisión para solucionar un problema de rendimiento lento cuando el cliente accede a Almacenamiento de archivos de Azure desde Windows 8.1 o Windows Server 2012 R2. Para más información, consulte el artículo de la Knowledge Base asociado, [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/es-ES/kb/3114025) (Rendimiento lento al acceder a Almacenamiento de archivos de Azure desde Windows 8.1 o Server 2012 R2).
+
+14. **Uso del Almacenamiento de archivos de Azure con IBM MQ**
+
+	IBM ha publicado un documento para guiar a los clientes de IBM MQ a la hora de configurar el Almacenamiento de archivos de Azure con su servicio. Para más información, consulte [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Configuración del administrador de colas de varias instancias de IBM MQ con el servicio de archivos de Microsoft Azure).
+
 ## Pasos siguientes
 
 Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
@@ -607,4 +615,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

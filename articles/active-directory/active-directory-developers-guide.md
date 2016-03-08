@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/01/2016"
+   ms.date="02/25/2016"
    ms.author="mbaldwin"/>
 
 
@@ -141,4 +141,4 @@ Los ponentes de estas presentaciones de información general sobre el desarrollo
 
 - [Azure Active Directory en Twitter](https://twitter.com/azuread): anuncios de Azure Active Directory en 140 caracteres o menos.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

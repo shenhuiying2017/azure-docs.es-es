@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
 	ms.topic="get-started-article"
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones iOS en Swift
 
 > [AZURE.SELECTOR]
-- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows universal](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
 - [iOS | Obj C](mobile-engagement-ios-get-started.md)
 - [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
@@ -66,7 +66,7 @@ Crearemos una aplicación básica con XCode para demostrar la integración:
 
 	![][2]
 
-5. Abra la pestaña `Build Phases` y en el menú `Link Binary With Libraries` agregue los marcos tal como se muestra a continuación. **NOTA** Debe incluir `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration`:
+5. Abra la pestaña `Build Phases` y en el menú `Link Binary With Libraries` agregue los marcos tal como se muestra a continuación. **NOTE** Debe incluir `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration`:
 
 	![][3]
 
@@ -210,4 +210,4 @@ Mobile Engagement permite interactuar y llegar a los usuarios mediante notificac
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -21,7 +21,7 @@
 
 Búsqueda de Microsoft Azure es un servicio de búsqueda hospedado en la nube que le permite insertar funcionalidad de búsqueda en aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para sus datos de búsqueda, a los que puede acceder y administrarlos mediante el Portal de Azure, un SDK de .NET o una API de REST. Entre las funciones clave se incluyen consultas de autocompletar, la coincidencia aproximada, la navegación con facetas, el resaltado de resultados, los perfiles de puntuación y la compatibilidad con varios idiomas. Para saber más del funcionamiento de Búsqueda de Azure, consulte [¿Qué es Búsqueda de Azure?](search-what-is-azure-search.md).
 
-Búsqueda de Azure está disponible en los niveles de precios comprendidos entre gratis (compartido) y estándar, donde el costo se basa en la capacidad en la que está suscrito.
+Búsqueda de Azure está disponible en los niveles de precios comprendidos entre gratis (compartido) y básico o estándar, donde el costo se prorratea en función de la capacidad para la que está suscrito.
 
 ## Incorporación de Búsqueda de Azure a una suscripción de forma gratuita
 
@@ -42,7 +42,8 @@ Como administrador, puede agregar Búsqueda de Azure a una suscripción de Azure
 	- **Nivel de precios** determina la capacidad y la facturación. Los dos niveles proporcionan las mismas características, pero con niveles de recursos distintos.
 
 		- **Gratuito** se ejecuta en clústeres que se comparten con otros suscriptores. Ofrece suficiente capacidad para probar tutoriales y escribir código de prueba de concepto, pero no está destinado a aplicaciones de producción. Implementar un servicio gratuito suele llevar pocos minutos.
-		- **Estándar** se ejecuta en recursos dedicados y es altamente escalable. Inicialmente, se aprovisiona un servicio estándar con una réplica y una partición, pero se puede ajustar la capacidad una vez creado el servicio. Implementar un servicio estándar lleva más tiempo, normalmente unos 15 minutos.
+		- **Básico (versión preliminar)** se ejecuta en recursos dedicados pero con límites y precios inferiores para cargas de trabajo de producción más pequeñas. Se puede escalar hasta en 3 réplicas y 1 partición, suficiente para la alta disponibilidad necesaria para ejecución de consultas.
+		- **Estándar** se ejecuta en recursos dedicados y es altamente escalable. Inicialmente, se aprovisiona un servicio estándar con una réplica y una partición, pero se puede aumentar la capacidad a un máximo de 36 unidades de búsqueda una vez creado el servicio. Implementar un servicio estándar lleva más tiempo, normalmente unos 15 minutos.
 
 	- Los **grupos de recursos** son contenedores para servicios y recursos que se usan para un objetivo común. Por ejemplo, si va a compilar una aplicación de búsqueda personalizada basada en Búsqueda de Azure, la función Aplicaciones web en Servicio de aplicaciones de Azure y el almacenamiento de blobs de Azure, puede crear un grupo de recursos que mantenga estos servicios juntos en las páginas de administración del portal.
 
@@ -126,4 +127,4 @@ Ahora que se ha creado el servicio, puede realizar los pasos siguientes: crear u
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

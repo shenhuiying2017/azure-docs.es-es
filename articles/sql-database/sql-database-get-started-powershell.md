@@ -11,7 +11,7 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="get-started-article"
+    ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
     ms.date="01/20/2016"
@@ -22,7 +22,7 @@
 **Base de datos única**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-get-started.md)
+- [Portal de Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -56,7 +56,7 @@ Después de ejecutar correctamente **Select-AzureRmSubscription**, volverá al s
 
 ## Configuración de la base de datos: creación de un grupo de recursos, un servidor y una regla de firewall
 
-Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure seleccionada, por lo que el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará la base de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureRmLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** para obtener una lista de ubicaciones válidas.
+Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure seleccionada, por lo que el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará la base de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obtener una lista de ubicaciones válidas.
 
 Ejecute el comando siguiente para crear un nuevo grupo de recursos:
 
@@ -142,4 +142,4 @@ Después de crear una nueva Base de datos SQL y de realizar las tareas de config
 
 - [Base de datos SQL de Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

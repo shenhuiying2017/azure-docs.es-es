@@ -13,7 +13,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
@@ -21,7 +21,7 @@
 
 La concesión de un código de autorización de OAuth 2.0 se puede usar en aplicaciones que se instalan en un dispositivo para obtener acceso a recursos protegidos, como las API web. Mediante la implementación de OAuth 2.0 del modelo de aplicaciones v2.0, puede agregar inicio de sesión y acceso a API a las aplicaciones móviles y de escritorio. Esta guía, que es independiente del lenguaje, describe cómo enviar y recibir mensajes HTTP sin usar ninguna de nuestras bibliotecas de código abierto.
 
-<!-- TODO: Need link to libraries -->
+<!-- TODO: Need link to libraries -->	
 
 > [AZURE.NOTE]
 	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
@@ -275,4 +275,4 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | trace\_id | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos. |
 | correlation\_id | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos entre componentes. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

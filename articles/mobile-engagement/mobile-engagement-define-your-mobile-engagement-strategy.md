@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="03/01/2016"
 	ms.author="piyushjo" />
 
 # Definición de la estrategia de Mobile Engagement
@@ -60,7 +60,7 @@ Como habrá observado en este punto, no basta con realizar una notificación de 
 
 Para ser lo más contextual posible al atraer la participación de la audiencia, es fundamental conocer el comportamiento de los usuarios finales para conocer su estado en tiempo real. Con la recopilación de datos, los vendedores pueden centrarse realmente en lo importante para reproducir casos de uso y lograr los objetivos de la estrategia de Mobile Engagement. El logro de los objetivos fijados anteriormente también explica el motivo por el que la práctica recomendada no es recopilar cualquier cosa sino solamente aquello que le permita centrarse en lo que quiere saber y en los casos de uso. Esta es una buena manera de empezar, probar y aprender a usar la solución y a abordar la notificación de inserción inteligente y aumentar la retención de una aplicación a tal nivel que se convierta en una historia de éxito.
 
->[AZURE.NOTE]Recuerde: ¡demasiados datos suponen la muerte de los datos!
+>[AZURE.NOTE] Recuerde: ¡demasiados datos suponen la muerte de los datos!
 
 ### Casos de uso y prácticas recomendadas
 
@@ -113,13 +113,15 @@ Todo este tipo de datos puede ampliarse con parámetros (*información adicional
 
 	![][1]
 
-*Caso de uso: datos declarativos* 1. Segmente las noticias de alerta: recopile datos declarativos para segmentar la audiencia según sus preferencias. Permite enviar notificaciones de inserción de un tema concreto que realmente le interesa a una audiencia concreta. 2. Segmente la audiencia según el estado de inicio de sesión. Recopile datos para saber si un usuario está conectado o ha creado una cuenta. Diríjase a usuarios finales que aún no iniciaron sesión y envíe una notificación de inserción para atraer la participación del usuario final. ![][2]
+*Caso de uso: datos declarativos*
+1.	Segmente las noticias de alerta: recopile datos declarativos para segmentar la audiencia según sus preferencias. Permite enviar notificaciones de inserción de un tema concreto que realmente le interesa a una audiencia concreta.
+2.	Segmente la audiencia según el estado de inicio de sesión. Recopile datos para saber si un usuario está conectado o ha creado una cuenta. Diríjase a usuarios finales que aún no iniciaron sesión y envíe una notificación de inserción para atraer la participación del usuario final. ![][2]
 
 ### Pasos siguientes
 
 - Visite [Conceptos de Mobile Engagement] para obtener más información sobre conceptos básicos de Mobile Engagement.
-- [Creación de una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md)
-- Visite [Azure Mobile Engagement - Guía de introducción con prácticas recomendadas](mobile-engagement-getting-started-best-practices.md) para acceder a los detalles
+- Visite [Creación de una aplicación de Azure Mobile Engagement](mobile-engagement-create.md) para crear una colección de aplicaciones de Mobile Engagement en Azure y comenzar a administrar las aplicaciones con el portal de Mobile Engagement.
+- Visite [Azure Mobile Engagement - Guía de introducción con procedimientos recomendadas](mobile-engagement-getting-started-best-practices.md) para acceder a los detalles
 - Visite [Implementación de Mobile Engagement con una aplicación de juegos](mobile-engagement-gaming-scenario.md) para obtener información sobre la implementación de Mobile Engagement con una aplicación de juegos de ejemplo. 
 - Visite [Implementación de Mobile Engagement con una aplicación de medios](mobile-engagement-media-scenario.md) para obtener información sobre la implementación de Mobile Engagement con una aplicación multimedia de ejemplo. 
 - Visite [Tutoriales] para obtener más información sobre la implementación.
@@ -132,4 +134,4 @@ Todo este tipo de datos puede ampliarse con parámetros (*información adicional
 [Conceptos de Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriales]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

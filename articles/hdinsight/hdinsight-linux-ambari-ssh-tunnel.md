@@ -10,7 +10,7 @@ editor="cgronlun"/>
 <tags
 ms.service="hdinsight"
 ms.devlang="na"
-ms.topic="article"
+ms.topic="get-started-article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="01/12/2016"
@@ -45,13 +45,13 @@ Cuando se usa un túnel SSH para el tráfico web, debe tener lo siguiente:
 
 * Un cliente SSH. Para las distribuciones de Linux y Unix o Macintosh OS X, el comando `ssh` se proporciona con el sistema operativo. Para Windows, se recomienda [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-	> [AZURE.NOTE]Si desea usar un cliente SSH distinto de `ssh` o PuTTY, vea la documentación de su cliente sobre cómo establecer un túnel SSH.
+	> [AZURE.NOTE] Si desea usar un cliente SSH distinto de `ssh` o PuTTY, vea la documentación de su cliente sobre cómo establecer un túnel SSH.
 
 * Un explorador web que se puede configurar para usar un proxy SOCKS
 
 * __(opcional)__: un complemento como [FoxyProxy](http://getfoxyproxy.org/,) que puede aplicar reglas que se limitan a enrutar solicitudes específicas a través del túnel.
 
-	> [AZURE.WARNING]Sin un complemento como FoxyProxy, todas las solicitudes realizadas a través del explorador se pueden enrutar a través del túnel. Esto puede producir una carga más lenta de las páginas web en el explorador.
+	> [AZURE.WARNING] Sin un complemento como FoxyProxy, todas las solicitudes realizadas a través del explorador se pueden enrutar a través del túnel. Esto puede producir una carga más lenta de las páginas web en el explorador.
 
 ##<a name="usessh"></a>Creación de un túnel con el comando SSH
 
@@ -105,13 +105,13 @@ Use los siguientes pasos para crear un túnel SSH con PuTTY.
 
 ##Uso del túnel desde el explorador
 
-> [AZURE.NOTE]Los pasos de esta sección usan el explorador FireFox, ya que es gratuito para sistemas Linux, Unix, Macintosh OS X y Windows. Otros exploradores modernos como Google Chrome, Microsoft Edge o Apple Safari deberían funcionar; sin embargo, el complemento FoxyProxy usado en algunos pasos no está disponible para todos los exploradores.
+> [AZURE.NOTE] Los pasos de esta sección usan el explorador FireFox, ya que es gratuito para sistemas Linux, Unix, Macintosh OS X y Windows. Otros exploradores modernos como Google Chrome, Microsoft Edge o Apple Safari deberían funcionar; sin embargo, el complemento FoxyProxy usado en algunos pasos no está disponible para todos los exploradores.
 
 1. Configure el explorador para usar **localhost:9876** como un proxy **SOCKS v5**. La configuración de Firefox se verá de la siguiente manera. Si usa un puerto que no es 9876, cambie el puerto al que usa:
 
 	![imagen de la configuración de Firefox](./media/hdinsight-linux-ambari-ssh-tunnel/socks.png)
 
-	> [AZURE.NOTE]Seleccionar **DNS remoto** se resuelven las solicitudes del sistema de nombres de dominio (DNS) mediante el uso de un clúster de HDInsight. Si no se selecciona, el DNS se resolverá de manera local.
+	> [AZURE.NOTE] Seleccionar **DNS remoto** se resuelven las solicitudes del sistema de nombres de dominio (DNS) mediante el uso de un clúster de HDInsight. Si no se selecciona, el DNS se resolverá de manera local.
 
 2. Compruebe que el tráfico se enruta a través del túnel en un sitio como [http://www.whatismyip.com/](http://www.whatismyip.com/) con la configuración del proxy habilitada y deshabilitada en Firefox. Cuando la configuración esté habilitada, la dirección IP será la de una máquina en el centro de datos de Microsoft Azure.
 
@@ -173,16 +173,16 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
 
 	![Imagen con el menú Vínculos rápidos expandido](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
 
-	> [AZURE.NOTE]Si tiene una conexión a Internet lenta o el nodo principal está muy ocupado, es posible que obtenga un indicador de espera en lugar de un menú al seleccionar __Vínculos rápidos__. Si es así, espere un minuto o dos hasta que se reciban los datos del servidor e intente de nuevo la lista.
+	> [AZURE.NOTE] Si tiene una conexión a Internet lenta o el nodo principal está muy ocupado, es posible que obtenga un indicador de espera en lugar de un menú al seleccionar __Vínculos rápidos__. Si es así, espere un minuto o dos hasta que se reciban los datos del servidor e intente de nuevo la lista.
 
 
-	> [AZURE.TIP]Si tiene un monitor con una resolución inferior o no se maximiza la ventana del explorador, algunas entradas del menú __Vínculos rápidos__ puede aparecer cortadas por el lado derecho de la pantalla. Si es así, expanda el menú con el mouse, use la tecla de flecha derecha para desplazarse por la pantalla hacia la derecha para ver el resto del menú.
+	> [AZURE.TIP] Si tiene un monitor con una resolución inferior o no se maximiza la ventana del explorador, algunas entradas del menú __Vínculos rápidos__ puede aparecer cortadas por el lado derecho de la pantalla. Si es así, expanda el menú con el mouse, use la tecla de flecha derecha para desplazarse por la pantalla hacia la derecha para ver el resto del menú.
 
 4. Debería ver una página similar a la siguiente:
 
 	![Imagen de la interfaz de usuario de ResourceManager YARN](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP]Observe la dirección URL de esta página; debe ser similar a \_\___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Esto usa el nombre de dominio completo interno (FQDN) del nodo y no es accesible sin usar un túnel SSH.
+	> [AZURE.TIP] Observe la dirección URL de esta página; debe ser similar a \_\___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Esto usa el nombre de dominio completo interno (FQDN) del nodo y no es accesible sin usar un túnel SSH.
 
 ##Pasos siguientes
 
@@ -196,4 +196,4 @@ Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguien
 
 * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->
