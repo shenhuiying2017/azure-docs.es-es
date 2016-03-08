@@ -29,7 +29,7 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|
-|**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Toronto+|
+|**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Toronto+|
 |**Sudamérica**|Sur de Brasil|São Paulo|
 |**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín, Londres|
 |**Asia**|Este de Asia y Sudeste de Asia|Hong Kong y Singapur|

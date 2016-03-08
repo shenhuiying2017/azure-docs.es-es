@@ -16,7 +16,8 @@
 
 	- Use **Ubicación** para especificar la ubicación geográfica en la que se hospedará la cuenta de DocumentDB.
 
-4.	Una vez que las nuevas opciones de cuenta de DocumentDB estén configuradas, haga clic en **Crear**. La cuenta de DocumentDB puede tardar unos minutos en crearse. Para comprobar el estado, puede supervisar el progreso en el Panel de inicio. ![Captura de pantalla del icono de creación en el Panel de inicio - creador de bases de datos en línea](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	Una vez que las nuevas opciones de cuenta de DocumentDB estén configuradas, haga clic en **Crear**. La cuenta de DocumentDB puede tardar unos minutos en crearse. Para comprobar el estado, puede supervisar el progreso en el Panel de inicio.  
+	![Captura de pantalla del icono de creación en el Panel de inicio - creador de bases de datos en línea](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	O bien, puede supervisar su progreso en el centro de notificaciones.
 

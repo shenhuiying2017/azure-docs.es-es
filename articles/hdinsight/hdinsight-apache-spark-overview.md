@@ -46,7 +46,7 @@ HDInsight de Azure ofrece un servicio Spark completamente administrado. Estas so
 | Integración con herramientas de BI | Spark para HDInsight ofrece conectores para herramientas de BI habituales como [Power BI](http://www.powerbi.com/) y [Tableau](http://www.tableau.com/products/desktop) para el análisis de datos.|
 | Bibliotecas de Anaconda precargadas | Los clústeres Spark en HDInsight incluyen bibliotecas de Anaconda preinstaladas. [Anaconda](http://docs.continuum.io/anaconda/) ofrece prácticamente 200 bibliotecas para el aprendizaje automático, el análisis de datos, la visualización, etc.|
 | Escalabilidad | Aunque puede especificar el número de nodos del clúster durante la creación, puede que desee aumentar o reducir el clúster para que coincida con la carga de trabajo. Todos los clústeres de HDInsight le permiten cambiar el número de nodos del clúster. Además, se pueden quitar clústeres Spark sin que se pierdan datos, ya que todos están almacenados en el almacenamiento de blobs de Azure. |
-| Soporte técnico ininterrumpido | Spark en HDInsight incluye soporte técnico ininterrumpido de nivel empresarial y un SLA del 99,9 % de tiempo de actividad.|
+| Soporte técnico ininterrumpido | Spark en HDInsight incluye soporte técnico ininterrumpido de nivel empresarial y un SLA del 99,9 % de tiempo de actividad.|
 
 
 

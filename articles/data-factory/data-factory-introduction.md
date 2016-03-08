@@ -25,7 +25,7 @@ La Factoría de datos funciona transversalmente en orígenes de datos locales y 
 
 ![Información general](./media/data-factory-introduction/data-factory-overview.png)
 
-**Ilustración 1.** Recopile datos de distintos orígenes de datos locales, introdúzcalos y prepárelos, organícelos y analícelos con una serie de transformaciones, y publique datos listos para usar para su consumo.
+**Ilustración 1.** Recopile datos de distintos orígenes de datos locales, introdúzcalos y prepárelos, organícelos y analícelos con una serie de transformaciones, y publique datos listos para usar para su consumo.
 
 Puede usar la Factoría de datos cada vez que tenga que recopilar datos de diferentes formas y tamaños, transformarlos y publicarlos para extraer conocimientos profundos: todo en una programación confiable. La Factoría de datos se usa para crear canalizaciones de flujo de datos de alta disponibilidad para muchos escenarios en diferentes sectores para sus necesidades de canalización de análisis. Los distribuidores en línea la usan para generar [recomendaciones de producto](data-factory-product-reco-usecase.md) personalizadas en función del comportamiento de exploración del cliente. Los estudios de juegos la usan para comprender la [eficacia de sus campañas de marketing](data-factory-customer-profiling-usecase.md). Sepa directamente de nuestros clientes cómo y por qué usan la Factoría de datos revisando[casos prácticos de clientes](data-factory-customer-case-studies.md).
 

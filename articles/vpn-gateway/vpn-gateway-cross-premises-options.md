@@ -35,7 +35,7 @@ La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad par
 | - | **De punto a sitio** | **De sitio a sitio** | **ExpressRoute** |
 |------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Servicios de Azure compatibles** | Servicios en la nube y máquinas virtuales | Servicios en la nube y máquinas virtuales | [Lista de servicios](../expressroute/expressroute-faqs.md#supported-services) |
-| **Anchos de banda típicos** | Agregación típica de < 100 Mbps | Agregación típica de < 100 Mbps | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
+| **Anchos de banda típicos** | Agregación típica de < 100 Mbps | Agregación típica de < 100 Mbps | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
 | **Protocolos admitidos** | Protocolo de túnel de Sockets seguros (SSTP) | IPsec | Conexión directa a través de las redes VLAN y las tecnologías VPN de NSP (MPLS, VPLS...) |
 | **Enrutamiento** | Basado en enrutamientos (dinámico) | Admitimos elementos basados en directivas (enrutamiento estático) y basados en enrutamiento (VPN de enrutamiento dinámico) | BGP |
 | **Resistencia de la conexión** | active-passive | active-passive | active-active |

@@ -103,7 +103,7 @@ De este modo se muestran los resultados de la prueba.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
-La prueba se ejecuta desde varias ubicaciones, elija una donde los resultados sean inferiores al 100 %.
+La prueba se ejecuta desde varias ubicaciones, elija una donde los resultados sean inferiores al 100 %.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
 

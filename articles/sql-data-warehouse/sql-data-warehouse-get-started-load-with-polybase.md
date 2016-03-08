@@ -233,7 +233,7 @@ En el Explorador de objetos de SQL Server de Visual Studio, se puede ver el form
 
 ![Vea la tabla externa](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## Paso 5: Creación de estadísticas de los datos recién cargados 
+## Paso 5: Creación de estadísticas de los datos recién cargados 
 
 Almacenamiento de datos SQL no crea ni actualiza automáticamente las estadísticas. Por lo tanto, para lograr un rendimiento elevado de las consultas, es importante crear estadísticas de todas las columna de cada tabla después de la primera carga. También es importante actualizar las estadísticas si se realizan cambios significativos en los datos.
 

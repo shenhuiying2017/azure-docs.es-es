@@ -1,7 +1,7 @@
 
 <properties
     pageTitle="Prueba de Azure RemoteApp en un dispositivo en tres minutos o menos | Microsoft Azure"
-    description="Pruebe la funcionalidad de Azure RemoteApp sin instalar el servicio."
+    description="Pruebe la funcionalidad de Azure RemoteApp sin instalar el servicio."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -20,7 +20,7 @@
 
 # Pruebe RemoteApp en su dispositivo en tres minutos o menos
 
-¿Desea ver Azure RemoteApp en su dispositivo? Puede tener acceso a una demostración de nuestra implementación durante 10 minutos, siempre que tenga una cuenta Microsoft. Tenemos disponible Office y algunas otras aplicaciones. Se trata de una excelente manera de probar la experiencia del usuario con Azure RemoteApp en menos de tres minutos.
+¿Desea ver Azure RemoteApp en su dispositivo? Puede tener acceso a una demostración de nuestra implementación durante 10 minutos, siempre que tenga una cuenta Microsoft. Tenemos disponible Office y algunas otras aplicaciones. Se trata de una excelente manera de probar la experiencia del usuario con Azure RemoteApp en menos de tres minutos.
 
 ¿Le interesa?
 

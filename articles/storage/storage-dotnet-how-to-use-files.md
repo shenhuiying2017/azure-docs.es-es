@@ -199,7 +199,7 @@ Cuando un cliente accede al almacenamiento de archivos, la versión SMB que se u
 
 | Cliente Windows | Versión de SMB que admite |
 |------------------------|----------------------|
-| Windows 7 | SMB 2.1 |
+| Windows 7 | SMB 2.1 |
 | Windows Server 2008 R2 | SMB 2.1 |
 | Windows 8 | SMB 3.0 |
 | Windows Server 2012 | SMB 3.0 |

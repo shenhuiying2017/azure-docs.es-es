@@ -200,7 +200,7 @@ Los datos de muestra se organizan en torno al procesamiento de datos de registro
 
 ###<a name="scenarios"></a>Los escenarios de datos del registro de IIS W3C
 
-El escenario de W3C genera e importa datos de registro de IIS W3C en tres tamaños a HDFS o al almacenamiento de blobs de Azure: 1 MB (pequeño), 500 MB (mediano) y 2 GB (grande). Proporciona tres tipos de trabajos y los implementa en C#, Java, Pig y Hive.
+El escenario de W3C genera e importa datos de registro de IIS W3C en tres tamaños a HDFS o al almacenamiento de blobs de Azure: 1 MB (pequeño), 500 MB (mediano) y 2 GB (grande). Proporciona tres tipos de trabajos y los implementa en C#, Java, Pig y Hive.
 
 - **totalhits**: calcula la cantidad total de solicitudes de una página determinada.
 - **avgtime**: calcula el tiempo promedio utilizado (en segundos) para una solicitud por página.

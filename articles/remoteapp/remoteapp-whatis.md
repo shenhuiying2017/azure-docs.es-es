@@ -63,15 +63,15 @@ Vea [Actualización de la colección](remoteapp-update.md) para obtener más inf
 ## Clientes compatibles con RemoteApp
 Azure RemoteApp es compatible con las aplicaciones de cliente de RemoteApp para Windows y Windows RT, así como con las aplicaciones de Escritorio remoto de Microsoft para Mac, iOS y Android. Los usuarios pueden usar estas aplicaciones en sus dispositivos móviles o de proceso para acceder a los nuevos programas de Azure RemoteApp.
 
-Vea [Acceso a las aplicaciones de Azure RemoteApp](remoteapp-clients.md) para obtener más información sobre los clientes.
+Vea [Acceso a las aplicaciones de Azure RemoteApp](remoteapp-clients.md) para obtener más información sobre los clientes.
 
 ## Pasos siguientes
 Venga, pruébelo. Estos artículos le ayudarán a comenzar a usar Azure RemoteApp:
 
 - [¿Qué tipo de colección necesita para Azure RemoteApp?](remoteapp-collections.md)
-- [Creación de una imagen de Azure RemoteApp](remoteapp-imageoptions.md)
-- [Creación de una colección en la nube de Azure RemoteApp](remoteapp-create-cloud-deployment.md)
-- [Creación de una colección híbrida de Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
+- [Creación de una imagen de Azure RemoteApp](remoteapp-imageoptions.md)
+- [Creación de una colección en la nube de Azure RemoteApp](remoteapp-create-cloud-deployment.md)
+- [Creación de una colección híbrida de Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
 - [¿Cómo funciona la concesión de licencias de RemoteApp de Azure?](remoteapp-licensing.md)
 - [Prácticas recomendadas para usar RemoteApp de Azure](remoteapp-bestpractices.md)
 - [Preguntas más frecuentes sobre RemoteApp de Azure](remoteapp-faq.md)

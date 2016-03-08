@@ -29,7 +29,7 @@ Apache Storm es un sistema de cálculo de código abierto, distribuido y con tol
 
 Apache Storm en HDInsight es un clúster administrado integrado en el entorno de Azure. Ofrece las siguientes ventajas principales:
 
-* Actúa como un servicio administrado con un SLA de 99,9 % de tiempo de actividad.
+* Actúa como un servicio administrado con un SLA de 99,9 % de tiempo de actividad.
 
 * Use el lenguaje que prefiera, ya que ofrece compatibilidad con los componentes de Storm escritos en **Java**, **C#** y **Python**.
 
@@ -105,7 +105,7 @@ Aunque puede especificar el número de nodos del clúster durante la creación, 
 
 ###Soporte técnico
 
-Storm en HDInsight incluye soporte técnico completo ininterrumpido de nivel de empresa. Storm en HDInsight también tiene un SLA del 99,9 %. Eso significa que está garantizado que el clúster dispondrá de conectividad externa como mínimo el 99,9 % del tiempo.
+Storm en HDInsight incluye soporte técnico completo ininterrumpido de nivel de empresa. Storm en HDInsight también tiene un SLA del 99,9 %. Eso significa que está garantizado que el clúster dispondrá de conectividad externa como mínimo el 99,9 % del tiempo.
 
 ##Casos de uso comunes del análisis en tiempo real
 

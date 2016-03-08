@@ -55,7 +55,7 @@ Para seguir paso a paso este tutorial, necesita:
 
 En este tutorial, creará una tabla en Almacenamiento de datos SQL de Azure e importará datos en la tabla.
 
-### Paso 1: Crear una tabla en Almacenamiento de datos SQL de Azure
+### Paso 1: Crear una tabla en Almacenamiento de datos SQL de Azure
 
 Desde un símbolo del sistema, conéctese a la instancia con el comando siguiente, reemplazando los valores según corresponda:
 
@@ -80,7 +80,7 @@ GO
 ```
 >[AZURE.NOTE] Consulte el tema [Diseño de tablas][] en el grupo de temas relacionados con el desarrollo para obtener más información sobre las opciones disponibles con la cláusula WITH.
 
-### Paso 2: Crear un archivo de datos de origen
+### Paso 2: Crear un archivo de datos de origen
 
 Abra el Bloc de notas y copie las siguientes líneas de datos en un nuevo archivo.
 
@@ -103,7 +103,7 @@ Guárdelo en el directorio temporal local, C:\\Temp\\DimDate2.txt.
 
 > [AZURE.NOTE] Es importante recordar que bcp.exe no admite la codificación de archivos UTF-8. Use archivos codificados en ASCII o la codificación UTF-16 para los archivos al usar bcp.exe.
 
-### Paso 3: Conectar e importar los datos
+### Paso 3: Conectar e importar los datos
 Con bcp, puede conectarse e importar los datos con el comando siguiente, reemplazando los valores según corresponda:
 
 ```
@@ -134,7 +134,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### Paso 4: Crear estadísticas de los datos recién cargados 
+### Paso 4: Crear estadísticas de los datos recién cargados 
 
 Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
 
@@ -150,7 +150,7 @@ GO
 ## Exportación de datos de Almacenamiento de datos SQL
 En este tutorial, creará un archivo de datos a partir de una tabla de Almacenamiento de datos SQL. Se exportarán los datos creados anteriormente a un nuevo archivo de datos denominado DimDate2\_export.txt.
 
-### Paso 1: Exportar los datos
+### Paso 1: Exportar los datos
 
 Con la utilidad bcp, puede conectarse y exportar los datos con el comando siguiente, reemplazando los valores según corresponda:
 

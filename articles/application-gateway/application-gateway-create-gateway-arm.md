@@ -87,7 +87,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-### Paso 4
+### Paso 4
 Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
@@ -158,7 +158,7 @@ Configure la opción de la puerta de enlace de aplicaciones "poolsetting01" para
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 
-### Paso 4
+### Paso 4
 
 Configure el puerto IP del front-end denominado "frontendport01" para el punto de conexión de la IP pública.
 
@@ -171,7 +171,7 @@ Cree la configuración de direcciones IP front-end denominada "fipconfig01" y as
 	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
 
-### Paso 6
+### Paso 6
 
 Cree el nombre del agente de escucha "listener01" y asocie el puerto front-end con la configuración de direcciones IP del front-end.
 

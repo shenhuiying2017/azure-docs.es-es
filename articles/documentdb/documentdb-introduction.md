@@ -102,8 +102,8 @@ Si ya tiene una cuenta de Azure, puede empezar a trabajar con DocumentDB en el [
 
 Si no tiene una cuenta de Azure, puede:
 
-- Si es la primera vez que usa Azure, regístrese para una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le proporciona 30 días y 200 USD para que pruebe todos los servicios de Azure. 
-- Si tiene una suscripción a MSDN, puede recibir [150 USD en créditos gratis de Azure al mes](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure. 
+- Si es la primera vez que usa Azure, regístrese para una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le proporciona 30 días y 200 USD para que pruebe todos los servicios de Azure. 
+- Si tiene una suscripción a MSDN, puede recibir [150 USD en créditos gratis de Azure al mes](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure. 
 
 A continuación, cuando esté listo para obtener más información, visite nuestra [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos los recursos de aprendizaje disponibles.
 

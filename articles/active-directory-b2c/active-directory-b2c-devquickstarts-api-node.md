@@ -675,7 +675,8 @@ Asegúrese de que la instancia de MongoDB se esté ejecutando.
 
 Cambie al directorio `azuread` y utilice `curl`.
 
-`$ cd azuread` `$ node server.js`
+`$ cd azuread`
+`$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 

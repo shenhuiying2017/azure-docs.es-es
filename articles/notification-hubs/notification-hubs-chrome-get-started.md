@@ -488,7 +488,7 @@ En este sencillo ejemplo, difundirá notificaciones a la aplicación Chrome. Obt
 [ejemplo de GCM de la aplicación Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Aplicaciones web instalables]: https://developers.google.com/chrome/apps/docs/
 [Aplicaciones de Chrome en dispositivos móviles]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Crear registro]: http://msdn.microsoft.com/library/azure/dn223265.aspx
+[Creación de una API de REST para el registro en el Centro de notificaciones]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [biblioteca crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Servicio de mensajería en la nube de Google para Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
