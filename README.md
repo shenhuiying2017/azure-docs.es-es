@@ -51,14 +51,14 @@ El contenido del repositorio azure-content sigue la organización de documentaci
 
 La carpeta *\articles* contiene los artículos de la documentación con formato de archivos de Markdown con la extensión *.md*.
 
-Los artículos del directorio raíz se publican en Azure.Microsoft.com, en la ruta de acceso **http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
+Los artículos del directorio raíz se publican en Azure.Microsoft.com, en la ruta de acceso *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
-* **Nombres de archivo y artículos:**: Consulte [nuestra guía de nomenclatura de archivos](./contributor-guide/file-names-and-locations.md).
+* **Nombres de archivo y artículos:** Consulte [nuestra guía de nomenclatura de archivos](./contributor-guide/file-names-and-locations.md).
 
-Los artículos con su propia carpeta de servicio se publican en Azure.Microsoft.com, en la ruta de acceso *
+Los artículos con su propia carpeta de servicio se publican en Azure.Microsoft.com, en la ruta de acceso
 *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
 
-* **Subcarpetas multimedia**: la carpeta *\\articles* contiene la carpeta *\\media* para los archivos multimedia de los artículos del directorio raíz; dentro de ella se encuentran subcarpetas con las imágenes de cada artículo. Las carpetas de servicio contienen una carpeta multimedia independiente para los artículos que se encuentran en cada carpeta de servicio. Las carpetas de imágenes de los artículos tienen el mismo nombre que el archivo del artículo, sin la extensión de archivo *.md*.
+* **Subcarpetas multimedia**: la carpeta *\articles* contiene la carpeta *\media* para los archivos multimedia de los artículos del directorio raíz; dentro de ella se encuentran subcarpetas con las imágenes de cada artículo. Las carpetas de servicio contienen una carpeta multimedia independiente para los artículos que se encuentran en cada carpeta de servicio. Las carpetas de imágenes de los artículos tienen el mismo nombre que el archivo del artículo, sin la extensión de archivo *.md*.
 
 ### \includes
 
@@ -104,4 +104,4 @@ Los metadatos del artículo habilitan ciertas funcionalidades en el sitio web az
 
 Consulte [Azure technical content contributors' guide index](./contributor-guide/contributor-guide-index.md) para ver todos nuestros temas de guía.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0307_2016-->
