@@ -100,4 +100,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de ar
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

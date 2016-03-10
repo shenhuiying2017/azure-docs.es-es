@@ -103,4 +103,4 @@ Aprenda a realizar tareas adicionales importantes en Servicios móviles:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versión back-end de JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
