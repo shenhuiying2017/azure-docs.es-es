@@ -331,4 +331,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

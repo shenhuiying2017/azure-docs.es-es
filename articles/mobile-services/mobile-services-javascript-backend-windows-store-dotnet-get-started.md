@@ -99,4 +99,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Portal de Azure clásico]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

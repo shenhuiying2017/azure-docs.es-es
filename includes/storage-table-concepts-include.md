@@ -32,4 +32,4 @@ El servicio Tabla contiene los siguientes componentes:
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

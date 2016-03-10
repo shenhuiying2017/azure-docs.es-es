@@ -238,4 +238,4 @@ El nombre de página puede contener los mismos caracteres que una URL, aunque se
 * [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Compilación - Métrica - Aprendizaje](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
