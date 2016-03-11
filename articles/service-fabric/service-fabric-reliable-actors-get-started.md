@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introducción a Reliable Actors | Microsoft Azure"
-   description="Este tutorial le guiará a través de los pasos para crear, depurar e implementar un servicio HelloWorld canónico con los actores confiables de Service Fabric."
+   description="Este tutorial le guiará a través de los pasos para crear, depurar e implementar un servicio HelloWorld canónico con los Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -16,11 +16,12 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-# Actores confiables: el escenario de tutorial de HelloWorld canónico
+# Reliable Actors: el escenario de tutorial de HelloWorld canónico
 En este artículo se explican los conceptos básicos de Reliable Actors de Azure Service Fabric, además de ofrecer orientación sobre cómo completar los pasos para crear, depurar e implementar una aplicación HelloWorld sencilla en Visual Studio.
 
 ## Instalación y configuración
-Antes de comenzar, asegúrese de que el entorno de desarrollo de Service Fabric está configurado en el equipo. Para ello, vea instrucciones detalladas sobre [cómo configurar el entorno de desarrollo](service-fabric-get-started.md).
+Antes de comenzar, asegúrese de que el entorno de desarrollo de Service Fabric está configurado en el equipo. 
+Para ello, vea instrucciones detalladas sobre [cómo configurar el entorno de desarrollo](service-fabric-get-started.md).
 
 ## Conceptos básicos
 Para empezar a trabajar con Reliable Actors, solo es necesario comprender cuatro conceptos básicos:
@@ -48,7 +49,7 @@ Después de haber creado la solución, debe ver la estructura siguiente:
 
 ![Estructura de proyecto de Service Fabric][2]
 
-## Bloques de creación básicos de actores de confianza
+## Bloques de creación básicos de Reliable Actors
 
 Una solución típica de Reliable Actors se compone de tres proyectos:
 
@@ -148,7 +149,7 @@ Durante el proceso de implementación, puede ver el progreso en la ventana **Res
 
 ## Pasos siguientes
 
-- [Introducción a Actores confiables de Service Fabric.](service-fabric-reliable-actors-introduction.md)
+- [Introducción a Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md)
 - [Documentación de referencia de API de Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 - [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 

@@ -25,7 +25,7 @@ El nombre del proveedor de EventSource del tiempo de ejecución de Reliable Acto
 Otros ejemplos de herramientas y tecnologías que ayudan a recopilar o ver eventos EventSource son [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) y [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Palabras clave
-Todos los eventos que pertenecen al EventSource de Actores fiables están asociados a una o varias palabras clave. Esto habilita el filtrado de los eventos que se recopilan. Se definen los siguientes bits de palabras clave:
+Todos los eventos que pertenecen al EventSource de Reliable Actors están asociados a una o varias palabras clave. Esto habilita el filtrado de los eventos que se recopilan. Se definen los siguientes bits de palabras clave:
 
 |Bit|Descripción|
 |---|---|
@@ -35,7 +35,7 @@ Todos los eventos que pertenecen al EventSource de Actores fiables están asocia
 |0x8|Conjunto de eventos relacionados con la simultaneidad basada en turnos en el actor. Para obtener más información, consulte el tema sobre [simultaneidad](service-fabric-reliable-actors-introduction.md#concurrency).|
 
 ## Contadores de rendimiento
-El tiempo de ejecución de Actores confiables define las siguientes categorías de contador de rendimiento.
+El tiempo de ejecución de Reliable Actors define las siguientes categorías de contador de rendimiento.
 
 |Categoría|Descripción|
 |---|---|
@@ -94,7 +94,7 @@ El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacion
 |ActorMethodStop|8|Detallado|0x2|Un método de actor terminó de ejecutarse. Por ejemplo, se ha devuelto la llamada asincrónica del tiempo de ejecución al método de actor y se completó la tarea que el método de actor devolvió.|
 |ActorMethodThrewException|9|Warning (Advertencia)|0x3|Se produjo una excepción durante la ejecución de un método de actor, bien durante la llamada asincrónica del tiempo de ejecución al método actor o bien durante la ejecución de la tarea el método de actor devolvió. Este evento indica algún tipo de error en el código de actor que debe investigarse.|
 
-El tiempo de ejecución de Actores confiables publica los siguientes contadores de rendimiento relacionados con la ejecución de los métodos de actor.
+El tiempo de ejecución de Reliable Actors publica los siguientes contadores de rendimiento relacionados con la ejecución de los métodos de actor.
 
 |Nombre de la categoría|Nombre del contador|Descripción|
 |---|---|---|
@@ -103,13 +103,13 @@ El tiempo de ejecución de Actores confiables publica los siguientes contadores 
 |Método del actor de Service Fabric|Excepciones generadas/seg.|Número de veces que el método de servicio del actor genera una excepción por segundo|
 
 ### Contadores de rendimiento y eventos de simultaneidad
-El tiempo de ejecución de Actores confiables emite los siguientes eventos relacionados con la [simultaneidad](service-fabric-reliable-actors-introduction.md#concurrency).
+El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacionados con la [simultaneidad](service-fabric-reliable-actors-introduction.md#concurrency).
 
 |Nombre del evento|Id. de evento|Level|Palabra clave|Descripción|
 |---|---|---|---|---|
 |ActorMethodCallsWaitingForLock|12|Detallado|0x8|Este evento se escribe al comienzo de cada turno nuevo en un actor. Contiene el número de llamadas de actor en espera para adquirir el bloqueo por actor que exige la simultaneidad basada en turnos.|
 
-El tiempo de ejecución de Actores confiables publica los siguientes contadores de rendimiento relacionados con la simultaneidad.
+El tiempo de ejecución de Reliable Actors publica los siguientes contadores de rendimiento relacionados con la simultaneidad.
 
 |Nombre de la categoría|Nombre del contador|Descripción|
 |---|---|---|
@@ -123,7 +123,7 @@ El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacion
 |ActorSaveStateStart|10|Detallado|0x4|El tiempo de ejecución de los actores está a punto de guardar el estado del actor.|
 |ActorSaveStateStop|11|Detallado|0x4|El tiempo de ejecución de los actores finalizó de guardar el estado del actor.|
 
-El tiempo de ejecución de Actores confiables publica los siguientes contadores de rendimiento relacionados con la administración del estado de los actores.
+El tiempo de ejecución de Reliable Actors publica los siguientes contadores de rendimiento relacionados con la administración del estado de los actores.
 
 |Nombre de la categoría|Nombre del contador|Descripción|
 |---|---|---|

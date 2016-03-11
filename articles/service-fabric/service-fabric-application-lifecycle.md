@@ -34,12 +34,12 @@ Los roles del modelo de servicio son:
 
 
 ## Desarrollo
-1. Un *desarrollador de servicios* desarrolla los distintos tipos de servicios con el modelo de programación [Actores confiables](service-fabric-reliable-actors-introduction.md) o [Servicios confiables](service-fabric-reliable-services-introduction.md).
+1. Un *desarrollador de servicios* desarrolla los distintos tipos de servicios con el modelo de programación [Reliable Actors](service-fabric-reliable-actors-introduction.md) o [Reliable Services](service-fabric-reliable-services-introduction.md).
 2. Un *desarrollar de servicio* describe, mediante declaración, los tipos de servicio desarrollados en un archivo de manifiesto de servicio que consta de uno o más paquetes de código, configuración y datos.
 3. Un *desarrollador de aplicaciones* luego crea una aplicación con distintos tipos de servicio.
 4. Un *desarrollador de aplicaciones* describe, mediante declaración, el tipo de aplicación en un manifiesto de aplicación a través de la referencia a los manifiestos de servicio de los servicios constituyentes y anulan y parametrizan de manera adecuada las distintas configuraciones de ajuste e implementación de los servicios constituyentes.
 
-Consulte [Introducción a los actores confiables](service-fabric-reliable-actors-get-started.md) e [Introducción a los servicios confiables](service-fabric-reliable-services-quick-start.md) para obtener ejemplos.
+Consulte [Introducción a los Reliable Actors](service-fabric-reliable-actors-get-started.md) e [Introducción a los Reliable Services](service-fabric-reliable-services-quick-start.md) para obtener ejemplos.
 
 ## Implementación
 1. Un *administrador de aplicaciones* adapta el tipo de aplicación a una aplicación específica para su implementación en un clúster de Service Fabric mediante la especificación de los parámetros adecuados del elemento **ApplicationType** en el manifiesto de aplicación.
