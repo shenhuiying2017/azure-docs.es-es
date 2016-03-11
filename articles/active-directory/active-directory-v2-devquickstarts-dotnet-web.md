@@ -199,4 +199,4 @@ Ahora puede pasar a temas más avanzados. Es posible que desee probar:
 
 Para obtener recursos adicionales, consulte: - [La guía para desarrolladores de v2.0 >>](active-directory-appmodel-v2-overview.md) - [La etiqueta "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->

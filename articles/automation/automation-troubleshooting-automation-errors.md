@@ -74,7 +74,9 @@ Este artículo explica algunos de los errores comunes que se pueden producir al 
 
 **Motivo del error:** si su runbook es un flujo de trabajo de PowerShell, este almacena objetos complejos en un formato deserializado para conservar el estado del runbook si se suspende el flujo de trabajo.
 
-**Sugerencias para solucionar el problema:** cualquiera de las siguientes tres alternativas solucionará este problema:
+**Sugerencias para solucionar el problema:**
+
+Cualquiera de las siguientes tres alternativas solucionará este problema:
 
 1. Si canaliza objetos complejos de un cmdlet a otro, encapsule estos cmdlets en un InlineScript.  
 2. En lugar de pasar el objeto complejo entero, pase solamente el nombre o valor del mismo que necesite.  
@@ -129,7 +131,9 @@ Este artículo explica algunos de los errores comunes que se pueden producir al 
 
 - El cmdlet **New-AzureRmAutomationModule** se está usando para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo usando una URL de acceso público.
 
-**Sugerencias para solucionar el problema:** cualquiera de las siguientes alternativas solucionará este problema:
+**Sugerencias para solucionar el problema:**
+
+Cualquiera de las siguientes alternativas solucionará este problema:
 
 - Asegúrese de que el módulo sigue el formato siguiente: NombreMódulo.zip **->** NombreMódulo o número de versión **->** (NombreMódulo.psm1, NombreMódulo.psd1)
 

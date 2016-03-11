@@ -114,8 +114,8 @@ Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería
 
    ![Texto alternativo][4]
 
-2.Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario.<br/>
-3.Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario. 
+2.Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario.  
+3.Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario.
 Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
 
 ##Definición literal
@@ -151,13 +151,13 @@ Los nombres de las múltiples definiciones creadas adoptarán de forma predeterm
 ##Creación de directivas
 Una vez que el desarrollador ha creado los vocabularios necesarios, lo normal es que el analista de negocios sea el que cree las directivas de negocios a través del portal de Azure.  
 	1.	En la aplicación de reglas creada, hay un modo Directiva en el que al hacer clic el usuario va a la página de creación de directivas.  
- 	2. Esta página mostrará la lista de directivas que tiene esta aplicación de reglas en particular. El analista puede agregar una nueva directiva con solo escribir un nombre y pulsar la tecla de tabulación dos veces. Pueden residir varias directivas en una sola aplicación de API de reglas. 
-        3. Al seleccionar la directiva creada, el usuario va a la página de detalles de la directiva donde puede ver las reglas que contiene. 
-	![Texto alternativo][8] 
+ 	2. Esta página mostrará la lista de directivas que tiene esta aplicación de reglas en particular. El analista puede agregar una nueva directiva con solo escribir un nombre y pulsar la tecla de tabulación dos veces. Pueden residir varias directivas en una sola aplicación de API de reglas.  
+ 	3. Al seleccionar la directiva creada, el usuario va a la página de detalles de la directiva donde puede ver las reglas que contiene.  
+	![Texto alternativo][8]  
 	4. Seleccione "Agregar" para agregar una nueva regla. Esta acción le llevará a una nueva hoja.
 
 ##Creación de reglas
-Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas: 
+Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas:  
 1. 	And: operador condicional  
 2. 	Or: operador condicional  
 3. 	does_not_exist  
@@ -187,7 +187,7 @@ Los cuadros de condición y acción proporcionan Intellisense para ayudar al aut
 ![Texto alternativo][9]
 
 ##Encadenamiento progresivo explícito
-Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Las palabras clave admitidas son las siguientes: 
+Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Las palabras clave admitidas son las siguientes:  
    1.	update <vocabulary definition>: esta palabra clave vuelve a evaluar todas las reglas que usan la definición de vocabulario especificada en su condición.  
    2.	Halt: esta palabra clave detiene todas las ejecuciones de reglas
 
