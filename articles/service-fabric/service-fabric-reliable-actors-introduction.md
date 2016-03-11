@@ -1,6 +1,6 @@
 <properties
    pageTitle="Descripción general de Reliable Actors de Service Fabric | Microsoft Azure"
-   description="Introducción al modelo de programación de Actores confiables de Service Fabric"
+   description="Introducción al modelo de programación de Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -16,7 +16,7 @@
    ms.date="08/05/2015"
    ms.author="vturecek"/>
 
-# Introducción a Actores confiables de Service Fabric.
+# Introducción a Service Fabric Reliable Actors.
 La API de Reliable Actors es uno de los dos marcos de alto nivel proporcionados por [Service Fabric](service-fabric-technical-overview.md), junto con la [API de Reliable Services](service-fabric-reliable-services-introduction.md).
 
 En función del patrón de actor, la API de Reliable Actors proporciona un modelo de programación asincrónico y uniproceso que simplifica el código mientras se beneficia de la confiabilidad y escalabilidad que Service Fabric proporciona.
@@ -57,7 +57,9 @@ Dado que las invocaciones de método y sus respuestas tienen como resultado fina
 
 > [AZURE.TIP]El tiempo de ejecución de Service Fabric Actors emite algunos [eventos y contadores de rendimiento relacionados con los métodos de actor](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
 
-Es conveniente comentar las siguientes reglas relativas a métodos de interfaz de actor: - No se pueden sobrecargar los métodos de la interfaz de actor. - Los métodos de la interfaz de actor no pueden contener parámetros out, ref u optional.
+Es conveniente comentar las siguientes reglas relativas a métodos de interfaz de actor: 
+- No se pueden sobrecargar los métodos de la interfaz de actor. 
+- Los métodos de la interfaz de actor no pueden contener parámetros out, ref u optional.
 
 ## Comunicación con actores
 ### El proxy de actor
@@ -115,7 +117,7 @@ El tiempo de ejecución de los actores permite la reentrada de forma predetermin
 
 El tiempo de ejecución de los actores ofrece estas garantías de simultaneidad en situaciones donde controla la invocación de estos métodos. Por ejemplo, ofrece estas garantías para las invocaciones de método que se realizan en respuesta a una solicitud de cliente y para las devoluciones de llamada de temporizadores y recordatorios. Sin embargo, si el código del actor invoca directamente a estos métodos fuera de los mecanismos que ofrece el tiempo de ejecución de los actores, el tiempo de ejecución no puede ofrecer ninguna garantía de simultaneidad. Por ejemplo, si el método se invoca en el contexto de una tarea que no está asociada con la tarea que han devuelto los métodos de actor, el tiempo de ejecución no puede ofrecer garantías de simultaneidad. Si el método se invoca desde un subproceso que el actor crea por sí mismo, entonces el tiempo de ejecución tampoco puede proporcionar garantías de simultaneidad. Por lo tanto, para realizar operaciones en segundo plano, los actores deben usar [temporizadores de actor o recordatorios de actor](service-fabric-reliable-actors-timers-reminders.md) que respeten la simultaneidad basada en turnos.
 
-> [AZURE.TIP]El tiempo de ejecución de Service Fabric Actors emite algunos [eventos y contadores de rendimiento relacionados con la simultaneidad](service-fabric-reliable-actors-diagnostics.md#concurrency-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
+> [AZURE.TIP] El tiempo de ejecución de Service Fabric Actors emite algunos [eventos y contadores de rendimiento relacionados con la simultaneidad](service-fabric-reliable-actors-diagnostics.md#concurrency-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
 
 ## Administración de estados de los actores
 Puede usar Service Fabric para crear actores con o sin estado.
@@ -153,14 +155,14 @@ class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 
 El estado del actor se conserva en recolecciones de elementos no utilizados y conmutaciones por error al mantenerlos en el disco y replicándolos en varios nodos del clúster. Esto significa que, como los argumentos de método y los valores devueltos, el tipo de estado del actor debe ser [serializable por contrato de datos](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-> [AZURE.NOTE]Vea el artículo sobre las [notas de serialización de Reliable Actors](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) para obtener información detallada sobre cómo se deben definir las interfaces y los tipos de estado de los actores.
+> [AZURE.NOTE] Vea el artículo sobre las [notas de serialización de Reliable Actors](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) para obtener información detallada sobre cómo se deben definir las interfaces y los tipos de estado de los actores.
 
 #### proveedores de estado de actor
 Un proveedor de estado de actor proporciona el almacenamiento y la recuperación del estado. Los proveedores de estado se puede configurar por actor o para todos los actores dentro de un ensamblado, mediante el atributo específico de proveedor de estado. Cuando se activa un actor, su estado se carga en memoria. Cuando se completa un método de actor, el tiempo de ejecución de actores guarda automáticamente el estado modificado mediante una llamada a un método en el proveedor de estado. Si se produce un error durante la operación de **almacenamiento**, el tiempo de ejecución de los actores crea una nueva instancia de actor y carga el último estado coherente desde el proveedor de estados.
 
 De forma predeterminada, los actores con estado usan el proveedor de estado de actor de almacén de pares clave-valor, que se integra en el almacén de pares clave-valor proporcionado por la plataforma Service Fabric. Para obtener más información, vea el tema sobre [opciones de proveedores de estado](service-fabric-reliable-actors-platform.md#actor-state-provider-choices).
 
-> [AZURE.TIP]El tiempo de ejecución de los actores emite algunos [eventos y contadores de rendimiento relacionados con la administración de estados de los actores](service-fabric-reliable-actors-diagnostics.md#actor-state-management-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
+> [AZURE.TIP] El tiempo de ejecución de los actores emite algunos [eventos y contadores de rendimiento relacionados con la administración de estados de los actores](service-fabric-reliable-actors-diagnostics.md#actor-state-management-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
 
 #### Métodos de solo lectura
 De forma predeterminada, el tiempo de ejecución de los actores guarda el estado del actor tras la finalización de la llamada a un método de actor, la devolución de llamada de un temporizador o la devolución de llamada de un recordatorio. No se permite ninguna otra llamada de actor hasta que la operación de almacenamiento de estado se complete.
@@ -188,7 +190,7 @@ Las devoluciones de llamada de temporizador se pueden marcar con el atributo `Re
 
 [Reentrada de actor](service-fabric-reliable-actors-reentrancy.md)
 
-[Uso de la plataforma Service Fabric por parte de actores confiables](service-fabric-reliable-actors-platform.md)
+[Uso de la plataforma Service Fabric por parte de Reliable Actors](service-fabric-reliable-actors-platform.md)
 
 [Configuración del actor KVSActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 
