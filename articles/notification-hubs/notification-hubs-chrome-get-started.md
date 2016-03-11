@@ -376,7 +376,7 @@ La aplicación Chrome se crea con JavaScript y puede usar su editor de texto pre
 	- *registerWithNH* es el identificador de clic del segundo botón, que se registra con los Centros de notificaciones. Obtiene los valores **hubName** y **connectionString** (que el usuario especificó) y crea la llamada a la API de REST de registro de los Centros de notificaciones.
 	- *splitConnectionString* y *generateSaSToken* son la implementación de Javascript de la creación de un token SaS que debe enviarse en todas las llamadas de la API de REST. Para más información, vea [Conceptos](http://msdn.microsoft.com/library/dn495627.aspx).
 	- *sendNHRegistrationRequest* es la función que realiza una llamada HTTP REST.
-	- *registrationPayload* define la carga XML del registro. Para obtener más información, consulte [Crear registro]. Actualizamos el identificador de registro en ella con lo que hemos recibido de GCM.
+	- *registrationPayload* define la carga XML del registro. Para obtener más información, consulte [Creación de una API de REST para el registro en el Centro de notificaciones]. Actualizamos el identificador de registro en ella con lo que hemos recibido de GCM.
 	- *client* es una instancia de **XMLHttpRequest** que usamos para realizar la solicitud HTTP POST. Tenga en cuenta que actualizamos el encabezado **Authorization** con **sasToken**. La finalización correcta de esta llamada registrará esta instancia de la aplicación Chrome con Centros de notificaciones de Azure.
 
 
@@ -495,4 +495,4 @@ En este sencillo ejemplo, difundirá notificaciones a la aplicación Chrome. Obt
 [Uso de Centros de notificaciones para notificar a los usuarios]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->
