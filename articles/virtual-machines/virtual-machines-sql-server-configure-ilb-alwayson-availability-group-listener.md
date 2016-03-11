@@ -134,7 +134,7 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 [AZURE.INCLUDE [Test-Listener-Within-VNET](../../includes/virtual-machines-ag-listener-test.md)]
 
-## Pasos siguientes- test
+## Pasos siguientes
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
