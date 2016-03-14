@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.date="02/29/2016" 
+	ms.author="wesmc"/>
 
 # Uso de los centros de notificaciones desde Python
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 Puede tener acceso a todas las características de los Centros de notificaciones desde un back-end Java/PHP/Python/Ruby mediante la interfaz REST del Centro de notificaciones, tal como se describe en el tema de MSDN [API de REST de los Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx).
 
-> [AZURE.NOTE]Esta es una implementación de referencia de ejemplo que permite implementar los envíos de notificaciones en Python, por lo que no es el SDK de Python oficialmente compatible del centro de notificaciones.
+> [AZURE.NOTE] Esta es una implementación de referencia de ejemplo que permite implementar los envíos de notificaciones en Python, por lo que no es el SDK de Python oficialmente compatible del centro de notificaciones.
 
-> [AZURE.NOTE]Este ejemplo está escrito con Python 3.4.
+> [AZURE.NOTE] Este ejemplo está escrito con Python 3.4.
 
 En este tema le mostraremos cómo:
 
@@ -33,7 +33,7 @@ En este tema le mostraremos cómo:
 
 Puede seguir el [tutorial de introducción](notification-hubs-windows-store-dotnet-get-started.md) para la plataforma móvil de su elección e implementar la parte de back-end en Python.
 
-> [AZURE.NOTE]El ámbito del ejemplo está limitado solo al envío de notificaciones y no realiza ninguna administración de registros.
+> [AZURE.NOTE] El ámbito del ejemplo está limitado solo al envío de notificaciones y no realiza ninguna administración de registros.
 
 ## Interfaz del cliente
 La interfaz del cliente principal puede proporcionar los mismos métodos disponibles en el [SDK de Centros de notificaciones .NET](http://msdn.microsoft.com/library/jj933431.aspx). Esto le permitirá traducir directamente todos los tutoriales y ejemplos disponibles en este sitio y aportados por la comunidad de Internet.
@@ -393,4 +393,4 @@ En este tema hemos visto cómo crear a un cliente REST de Python sencillo para c
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

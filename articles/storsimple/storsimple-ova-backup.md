@@ -12,21 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# Hacer una copia de seguridad de la matriz virtual de StorSimple (versión preliminar)
+# Crear una copia de seguridad de la matriz virtual de StorSimple
 
 ## Información general 
 
-Este tutorial se aplica a la matiz virtual de Microsoft Azure StorSimple (también conocido como dispositivo virtual StorSimple local o dispositivo virtual StorSimple) 1.1.1.0 (versión preliminar) únicamente.
+Este tutorial se aplica a la matriz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple o dispositivo virtual de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016.
 
 La matriz virtual de StorSimple es un dispositivo virtual local de almacenamiento en nube híbrida que se puede configurar como servidor de archivos o servidor iSCSI. Puede crear copias de seguridad, restaurar copias de seguridad y realizar la conmutación por error de dispositivos si se necesita recuperación ante desastres. Cuando se configura como servidor de archivos, también permite la recuperación a nivel de elemento. En este tutorial se describe cómo usar el portal clásico de Azure o la interfaz de usuario web de StorSimple para crear copias de seguridad programadas y manuales de la matriz virtual de StorSimple.
 
->[AZURE.IMPORTANT] 
->
->- La matriz virtual de StorSimple se encuentra en versión preliminar y está pensada con fines de evaluación y planificación de implementación. No se admite la instalación de esta versión preliminar en un entorno de producción. 
->- Si experimenta problemas con la matriz virtual de StorSimple, publique los problemas en el [foro de MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
 
 ## Hacer copias de seguridad de recursos compartidos y volúmenes
 
@@ -54,7 +50,7 @@ Además de las copias de seguridad programadas, puede crear una copia de segurid
 
 #### Para crear una copia de seguridad manual (a petición)
 
-1. Desplácese hasta la pestaña **Recursos compartidos** o la pestaña **Volúmenes**.
+1. Vaya a la pestaña **Recursos compartidos** o la pestaña **Volúmenes**.
 
 2. En la parte inferior de la página, haga clic en **Realizar copia de seguridad general**. Se le pedirá que verifique que desea realizar la copia de seguridad ahora. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-backup/image3.png) para continuar con la copia de seguridad.
 
@@ -106,6 +102,6 @@ Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar c
 
 ## Pasos siguientes
 
-Obtenga más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
+Más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

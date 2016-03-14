@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
 # Envío de trabajos de Hadoop en HDInsight
@@ -58,7 +58,7 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 1. Cree una aplicación de consola en C# mediante Visual Studio.
 2. En la Consola del administrador de paquetes Nuget, ejecute el siguiente comando.
 
-		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 2. Use el código siguiente:
@@ -98,7 +98,10 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 		
 					var tokenCreds = GetTokenCloudCredentials();
 					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-		
+
+					var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);  
+ 					var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");  
+
 					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 		
 					var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
@@ -266,4 +269,4 @@ En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introducción a la API de Google Drive
-Conéctese a Google Drive para crear archivos, obtener filas, etc.
+Conéctese a Google Drive para crear archivos, obtener filas, etc. La API de Google Drive puede usarse desde:
 
-La API de Google Drive se puede usar PowerApps y aplicaciones lógicas.
+- PowerApps 
+- Aplicaciones lógicas 
 
 Con Google Drive, puede:
 
@@ -29,9 +30,9 @@ Con Google Drive, puede:
 - Usar acciones para buscar imágenes, noticias, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede buscar un vídeo y luego usar Twitter para publicar ese vídeo en una fuente de Twitter.
 - Agregar la API de Google Drive a PowerApps Enterprise. Así los usuarios pueden usar esta API en sus aplicaciones. 
 
-Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Para obtener información acerca de cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación a las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Desencadenadores y acciones
@@ -39,7 +40,7 @@ Google Drive incluye las siguientes acciones. No hay desencadenadores.
 
 Desencadenadores | Acciones
 --- | ---
-None | <ul><li>Crear archivo</li><li>Insertar fila</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Eliminar fila</li><li>Extraer archivo en la carpeta</li><li>Obtener contenido de archivo mediante el identificador</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo mediante el identificador</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Obtener fila</li><li>Actualizar archivo</li><li>Actualizar fila</li></ul>
+None | <ul><li>Crear archivo</li><li>Insertar fila</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Eliminar fila</li><li>Extraer archivo en carpeta</li><li>Obtener contenido de archivo mediante identificador</li><li>Obtener contenido de archivo mediante ruta de acceso</li><li>Obtener metadatos de archivo mediante identificador</li><li>Obtener metadatos de archivo mediante ruta de acceso</li><li>Obtener fila</li><li>Actualizar archivo</li><li>Actualizar fila</li></ul>
 
 Todas las API admiten datos en formato JSON y XML.
 
@@ -47,17 +48,17 @@ Todas las API admiten datos en formato JSON y XML.
 ## Creación de la conexión a Google Drive
 
 ### Incorporación de una configuración adicional en PowerApps
-Cuando agregue Google Drive a PowerApps Enterprise, escriba los valores **Clave de aplicación** y el **Secreto de la aplicación** de la aplicación de Google Drive. El valor **URL de redireccionamiento** también se usa en la aplicación de Google. Si no tiene una aplicación de Google Drive, puede usar los siguientes pasos para crearla:
+Al agregar Google Drive a PowerApps Enterprise, especifique los valores de **Clave de la aplicación** y **Secreto de la aplicación** de la aplicación de Google Drive. El valor de **URL de redireccionamiento** también se usa en la aplicación de Google. Si no tiene una aplicación de Google Drive, puede usar los siguientes pasos para crearla:
 
-1. Inicie sesión en [Google Developers Console][5] y seleccione **Crear un proyecto vacío**: ![Consola de desarrolladores de Google][6]
+1. Inicie sesión en [Google Developers Console][5] y seleccione **Create an empty project** (Crear un proyecto vacío): ![Consola de desarrolladores de Google][6]
 
-2. Escriba las propiedades de la aplicación y seleccione **Crear**.
-3. Seleccione **Usar APIs de Google**: ![Usar api de google][8]  
-4. En Visión general, seleccione **Drive API**: ![Información general de la API de Google Drive][9]  
+2. Escriba las propiedades de la aplicación y seleccione **Create** (Crear).
+3. Seleccione **Use Google APIs** (Usar APIs de Google): ![Usar api de google][8]  
+4. En Overview (Visión general), seleccione **Drive API** (API de Drive): ![Información general de la API de Google Drive][9]  
 5. Seleccione **Habilitar API**: ![Habilitar la API de Google Drive][10]  
 6. Al habilitar la API de Drive, seleccione **Credenciales** y, a continuación, **Id. de cliente de OAuth 2.0**: ![Agregar credenciales][12]  
 7. Seleccione **Configurar pantalla de consentimiento**.
-8. En **Pantalla de autorización de OAuth**, introduzca un **Nombre de producto** y seleccione **Guardar**: ![Configurar pantalla de consentimiento][13]  
+8. En **OAuth consent screen** (Pantalla de autorización de OAuth), especifique un **nombre de producto** y seleccione **Save** (Guardar): ![Configurar pantalla de consentimiento][13]  
 9. En la página de creación del Id. de cliente:  
 
 	1. En **Tipo de aplicación**, seleccione **Aplicación web**.
@@ -69,21 +70,22 @@ Cuando agregue Google Drive a PowerApps Enterprise, escriba los valores **Clave 
 
 11. Se mostrarán el identificador y el secreto de cliente de la aplicación registrada.
 
-Ahora, copie y pegue estos valores **Clave de aplicación** y **Secreto de aplicación** en la configuración de la API de Google Drive en el Portal de Azure.
+Ahora, copie y pegue los valores de **App Key** (Clave de aplicación) y **App Secret** (Secreto de aplicación) en la configuración de la API de Google Drive del Portal de Azure.
 
 
 ### Incorporación de una configuración adicional en aplicaciones lógicas
 Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a Google Drive.
 
 1. Inicie sesión en su cuenta de Google Drive.
-2. Seleccione **Autorizar** y permita que las aplicaciones lógicas se conecten y utilicen Google Drive. 
+2. Permita que las aplicaciones lógicas se conecten a Google Drive y lo usen. 
 
-Después de crear la conexión, especifique las propiedades de Google Drive, como la ruta de acceso a la carpeta o el nombre de archivo. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de Google Drive, como la ruta de acceso a la carpeta o el nombre de archivo. La **referencia de la API de REST** de este tema describe estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Google Drive en otras aplicaciones lógicas.
 
 
-## Referencia de API de REST de Swagger
+## Referencia de la API de REST de Swagger
+Se aplica a la versión: 1.0.
 
 ### Crear archivo    
 Carga un archivo en Google Drive. ```POST: /datasets/default/files```
@@ -154,7 +156,7 @@ Elimina una fila de una hoja de Google. ```DELETE: /datasets/{dataset}/tables/{t
 | ---|---|---|---|---|---|
 |dataset|cadena|yes|path|Ninguna |Identificador único del archivo de hoja de Google|
 |table|cadena|yes|path|Ninguna |Identificador único de la hoja de cálculo|
-|id|cadena|yes|path|Ninguna |Identificador único de la fila que se va a eliminar.|
+|id|cadena|yes|path|Ninguna |Identificador único de la fila que se va a eliminar|
 
 #### Respuesta
 |Nombre|Descripción|
@@ -164,7 +166,7 @@ Elimina una fila de una hoja de Google. ```DELETE: /datasets/{dataset}/tables/{t
 
 
 ### Extraer archivo en la carpeta    
-Extrae un archivo de almacenamiento en una carpeta en Google Drive (ejemplo: .zip). ```POST: /datasets/default/extractFolderV2```
+Extrae un archivo de almacenamiento en una carpeta de Google Drive (por ejemplo: .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -180,7 +182,7 @@ Extrae un archivo de almacenamiento en una carpeta en Google Drive (ejemplo: .zi
 
 
 ### Obtener contenido de archivo mediante el identificador    
-Recupera el contenido de archivo de Google Drive mediante el identificador. ```GET: /datasets/default/files/{id}/content```
+Recupera el contenido del archivo de Google Drive mediante el identificador.```GET: /datasets/default/files/{id}/content```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -194,7 +196,7 @@ Recupera el contenido de archivo de Google Drive mediante el identificador. ```G
 
 
 ### Obtener contenido de archivo mediante la ruta de acceso    
-Recupera el contenido de archivo de Google Drive mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera el contenido del archivo de Google Drive mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -208,7 +210,7 @@ Recupera el contenido de archivo de Google Drive mediante la ruta de acceso. ```
 
 
 ### Obtener metadatos de archivo mediante el identificador    
-Recupera los metadatos de archivo de Google Drive mediante el identificador. ```GET: /datasets/default/files/{id}```
+Recupera los metadatos del archivo de Google Drive mediante el identificador. ```GET: /datasets/default/files/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -222,7 +224,7 @@ Recupera los metadatos de archivo de Google Drive mediante el identificador. ```
 
 
 ### Obtener metadatos de archivo mediante la ruta de acceso    
-Recupera los metadatos de archivo de Google Drive mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
+Recupera los metadatos del archivo de Google Drive mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -361,9 +363,9 @@ Actualiza una fila en una hoja de Google. ```PATCH: /datasets/{dataset}/tables/{
 
 
 ## Pasos siguientes
-Después de agregar Google Drive a PowerApps Enterprise, [conceda permisos a los usuarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar la API en sus aplicaciones.
+Después de agregar Google Drive a PowerApps Enterprise, [conceda a los usuarios los permisos necesarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar la API en sus aplicaciones.
 
-[Cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 <!--References-->
@@ -376,4 +378,4 @@ Después de agregar Google Drive a PowerApps Enterprise, [conceda permisos a los
 [13]: ./media/create-api-googledrive/configure-consent-screen.png
 [14]: ./media/create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

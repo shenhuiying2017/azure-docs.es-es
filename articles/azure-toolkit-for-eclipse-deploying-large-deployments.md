@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268601.aspx -->
@@ -37,22 +37,22 @@ Encontrará información adicional sobre la creación de un recurso de almacenam
 
 [Kit de herramientas de Azure para Eclipse][]
 
-[Creación de una aplicación Hola a todos para Azure en Eclipse][]
+[Creación de una aplicación Hello World para Azure en Eclipse][]
 
-[Instalación del Kit de herramientas de Azure para Eclipse][]
+[Instalación del kit de herramientas de Azure para Eclipse][]
 
-Para más información sobre el uso de Azure con Java, vea el [Centro de desarrolladores de Java de Azure][].
+Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure][].
 
 <!-- URL List -->
 
-[Centro de desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Centro para desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creación de una aplicación Hola a todos para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Instalación del Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Creación de una aplicación Hello World para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Instalación del kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Propiedades de almacenamiento local]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 
 <!-- IMG List -->
 
 [ic667943]: ./media/azure-toolkit-for-eclipse-deploying-large-deployments/ic667943.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

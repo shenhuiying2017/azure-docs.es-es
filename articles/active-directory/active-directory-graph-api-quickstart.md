@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/22/2016"
+      ms.date="02/25/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Guía de inicio rápido de la API Graph de Azure AD
@@ -71,7 +71,7 @@ A continuación se muestra el resultado que vería si fuera al Explorador de gr�
 **Ejecutar una consulta**: para ejecutar una consulta, escríbala en el cuadro de texto de la solicitud y haga clic en **GET** o en la tecla **Entrar**. Los resultados se muestran en el cuadro de respuesta. Por ejemplo, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` enumerará todos los objetos de grupo del directorio de demostración.
 
 Tenga en cuenta las siguientes características y limitaciones del Explorador de gráficos:
-- la funcionalidad Autocompletar en conjuntos de recursos. Para verla, haga clic en **Usar compañía de demostración** y, a continuación, haga clic en el cuadro de texto de la solicitud (donde aparece la dirección URL de la compañía). Puede seleccionar un conjunto de recursos en la lista desplegable.
+- Funcionalidad Autocompletar en conjuntos de recursos. Para verla, haga clic en **Usar compañía de demostración** y, a continuación, haga clic en el cuadro de texto de la solicitud (donde aparece la dirección URL de la compañía). Puede seleccionar un conjunto de recursos en la lista desplegable.
 
 - Admite los alias de direccionamiento “me” y “myorganization”. Por ejemplo, puede usar `https://graph.windows.net/me?api-version=1.5` para devolver el objeto de usuario del usuario con sesión iniciada o `https://graph.windows.net/myorganization/users?api-version=1.5` para devolver todos los usuarios del directorio actual. Tenga en cuenta que el alias "me" devuelve un error de la compañía de demostración porque no hay ningún usuario con sesión iniciada que realice la solicitud.
 
@@ -126,4 +126,4 @@ Para más información sobre las entidades y los tipos de Azure AD expuestos por
 
 Obtenga más información acerca de la [API Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

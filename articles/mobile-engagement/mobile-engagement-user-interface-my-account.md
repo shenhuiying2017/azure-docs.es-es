@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/22/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Cómo administrar el perfil de su cuenta y probar los dispositivos
  
-Este artículo describe la página **Inicio** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**. Para obtener más información, consulte [Crear una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md).
+Este artículo describe la página **Inicio** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles.
  
 Para obtener acceso a la página Mi cuenta, haga clic en su cuenta en la parte superior de la página.
 
@@ -27,7 +27,7 @@ La sección Mi cuenta de la interfaz de usuario es donde puede ver y cambiar la 
 ![MyAccount1][7]
 
 ## Perfil:
-Puede ver o cambiar cualquier configuración de la cuenta que se muestra a continuación. También puede dar permiso a otro usuario para usar la aplicación basándose en su dirección de correo electrónico desde [Inicio](mobile-engagement-interface-home.md).
+Puede ver o cambiar cualquier configuración de la cuenta que se muestra a continuación. También puede dar permiso a otro usuario para usar la aplicación basándose en su dirección de correo electrónico desde [Inicio](mobile-engagement-user-interface-home.md).
 
 ![MyAccount2][8]
 
@@ -151,4 +151,4 @@ Para usar la API de inserción o la API de dispositivo necesitará conocer el id
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

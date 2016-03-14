@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Notas de la versión del SDK de Windows Phone Silverlight
@@ -43,4 +43,4 @@ Parte del paquete de Nuget *MicrosoftAzure.MobileEngagement* **v3.2.0**
 -   Mejoras de seguridad.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

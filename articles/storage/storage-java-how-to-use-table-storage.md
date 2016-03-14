@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="micurd"/>
+	ms.date="02/29/2016"
+	ms.author="robmcm"/>
 
 
 # Uso del almacenamiento de tablas de Java
@@ -564,4 +564,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [Tablas de Azure: Introducción a Upsert y proyección de consultas]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [Tablas de Azure: Introducción de Upsert y proyección de consultas]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

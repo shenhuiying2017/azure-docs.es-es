@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/26/2016" 
 	ms.author="billmath"/>
 
 # Configuración de Azure Multi-Factor Authentication
@@ -35,7 +35,7 @@ Característica| Descripción| ¿Qué se va a tratar?
 [Almacenamiento en caché](#caching)|El almacenamiento en caché permite establecer un período de tiempo específico para que los intentos de autenticación siguientes se realicen correctamente de forma automática. |Cómo instalar y configurar el almacenamiento en caché de la autenticación.
 [Direcciones IP de confianza](#trusted-ips)|IP de confianza es una característica de la autenticación multifactor que permite a los administradores de un inquilino administrado o federado la capacidad de omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet local de la empresa.|Configurar e instalar las direcciones IP que están exentas para la autenticación multifactor	
 [Contraseñas de aplicación](#app-passwords)|Las contraseñas de aplicación permiten omitir la autenticación multifactor a una aplicación que no sea compatible con la misma y poder seguir trabajando.|Información acerca de las contraseñas de aplicación.
-[Suspensión de Multi-Factor Authentication para exploradores y dispositivos recordados (vista previa pública)](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-public-preview)|Permite suspender la autenticación multifactor durante un número determinado de días después de que un usuario inicie sesión correctamente utilizando la autenticación multifactor.|Información sobre cómo habilitar esta característica y configurar el número de días.
+[Recordar Multi-Factor Authentication para exploradores y dispositivos recordados](#remember-multi-factor-authentication-for-devices-users-trust)|Permite recordar dispositivos durante un número determinado de días después de que un usuario inicie sesión correctamente mediante MFA.|Información sobre cómo habilitar esta característica y configurar el número de días.
 [Métodos de verificación seleccionables (versión preliminar pública)](#selectable-verification-methods-public-preview)|Le permite elegir los métodos de autenticación que están disponibles para que los usuarios los utilicen.|Información acerca de cómo habilitar o deshabilitar métodos de autenticación específicos, como mensajes de texto o llamada.
 
 
@@ -331,25 +331,25 @@ Además los usuarios también pueden crear contraseñas de aplicación más adel
 
 ![Contraseñas de aplicación](./media/multi-factor-authentication-whats-next/myapp.png)
 
-## Suspensión de Multi-Factor Authentication para exploradores y dispositivos recordados (vista previa pública)
+## Recordar Multi-Factor Authentication para confianza de usuarios de dispositivos
 
-Suspender Multi-Factor Authentication para exploradores y dispositivos recordados es una característica que le permite proporcionar a los usuarios la opción de suspender MFA durante un número definido de días después de realizar un inicio de sesión correcto con MFA. Se trata de una característica disponible para todos los usuarios MFA que mejora su facilidad de uso. Sin embargo, puesto que los usuarios pueden suspender MFA, esta característica puede reducir la seguridad de la cuenta.
+Recordar Multi-Factor Authentication para los dispositivos y exploradores en los que los usuarios confían es una característica gratuita para todos los usuarios de MFA. Permite ofrecer a los usuarios la opción de omitir MFA durante un número determinado de días después de realizar un inicio de sesión correcto con MFA. Esto puede mejorar la experiencia de uso para los usuarios.
 
-Para asegurarse de que se protegen las cuentas de usuario, debe restaurar Multi-Factor Authentication para sus dispositivos si se presenta cualquiera de los siguientes escenarios:
+Sin embargo, como los usuarios pueden recordar MFA para los dispositivos de confianza, esta característica puede reducir la seguridad de la cuenta. Para garantizar la seguridad de las cuentas, debe restaurar Multi-Factor Authentication para sus dispositivos si se presenta cualquiera de los siguientes escenarios:
 
 - Si su cuenta corporativa se ha visto comprometida
 - Si un dispositivo recordado se ha perdido o ha sido robado
 
 > [AZURE.NOTE] Esta característica se implementa como una caché de cookies del explorador. No funcionará si no están habilitadas las cookies del explorador.
 
-### Activación y desactivación de la suspensión de MFA para los dispositivos recordados
+### Cómo habilitar o deshabilitar Recordar Multi-Factor Authentication
 
 1. Inicie sesión en el Portal de Azure clásico.
 2. En la parte izquierda, haga clic en Active Directory.
-3. En Active Directory, haga clic en el directorio en el que desea configurar Suspensión de Multi-Factor Authentication para dispositivos recordados.
+3. En Active Directory, haga clic en el directorio en el que desea configurar Recordar Multi-Factor Authentication para los dispositivos.
 4. En el directorio que ha seleccionado, haga clic en Configurar.
 5. En la sección de la autenticación multifactor, haga clic en Administrar configuración del servicio.
-6. En la página Configuración del servicio, en la sección para administrar la configuración de dispositivo de usuario, seleccione o anule la selección de la opción para **Permitir a los usuarios suspender la autenticación multifactor al causar que se recuerde un dispositivo**. ![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png).
+6. En la página Configuración del servicio, en la sección para administrar la configuración de dispositivos de usuario, active o desactive la opción **Permitir a los usuarios recordar Multi-Factor Authentication en los dispositivos en los que confían**. ![Recordar dispositivos](./media/multi-factor-authentication-whats-next/remember.png).
 8. Establezca el número de días que desea permitir la suspensión. El valor predeterminado es 14 días.
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
@@ -372,8 +372,8 @@ Método|Descripción
 3. En Active Directory, haga clic en el directorio para el que desea habilitar o deshabilitar los métodos de autenticación.
 4. En el directorio que ha seleccionado, haga clic en Configurar.
 5. En la sección de la autenticación multifactor, haga clic en Administrar configuración del servicio.
-6. En la página Configuración del servicio, en Opciones de comprobación, seleccione o anule la selección de las opciones que desee usar.</br></br> ![Suspender dispositivos](./media/multi-factor-authentication-whats-next/authmethods.png)
+6. En la página Configuración del servicio, en Opciones de comprobación, active o desactive las opciones que desee usar.</br></br> ![Opciones de comprobación](./media/multi-factor-authentication-whats-next/authmethods.png)
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

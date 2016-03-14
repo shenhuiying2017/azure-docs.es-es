@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Lista de API administradas | Servicio de aplicaciones de Microsoft Azure"
+	pageTitle="Lista de API administradas por Microsoft | Servicio de aplicaciones de Microsoft Azure"
 	description="Obtenga una lista completa de las API administradas de Microsoft que puede usar para crear Aplicaciones lógicas en el Servicio de aplicaciones de Azure."
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,16 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/02/2016"
 	ms.author="deonhe"/>
 
-# Esta es la lista de las API administradas por Microsoft para crear aplicaciones
+# Lista de API administradas
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Lista de conectores](../app-service-logic/app-service-logic-connectors-list.md).
 
 Seleccione un icono para aprender a aprovechar rápidamente estas API a fin de crear aplicaciones que llamen a estos servicios. Estas API se pueden utilizar para crear aplicaciones lógicas, PowerApps o ambos tipos.
 
 Para obtener información y una lista de lo que se incluye con cada nivel de servicio de precios, consulte [Precios del Servicio de aplicaciones de Azure](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Si desea empezar a utilizar Aplicaciones lógicas de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la página [Cree su aplicación del Servicio de aplicaciones de Azure](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> [AZURE.NOTE] Si desea empezar a utilizar Aplicaciones lógicas de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 |API existentes||||
 |-----------|-----------|-----------|-----------|
@@ -31,11 +33,9 @@ Para obtener información y una lista de lo que se incluye con cada nivel de ser
 |[![Icono de API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Icono de API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icono de API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icono de API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
 |[![Icono de API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Usuarios**][office365usersdoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Vídeo**][office365videodoc]|
 |[![Icono de API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icono de API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Icono de API][servicebusicon]<br/>**Bus de servicio**][servicebusdoc]|[![Icono de API][sftpicon]<br/>**SFTP**][sftpdoc]|
-|[![Icono de API][sharepointicon]<br/>**SharePoint**<br/>**Server**][sharepointdoc]|[![Icono de API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Icono de API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icono de API][sqlicon]<br/>**SQL Azure**][sqldoc]|
+|[![Icono de API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Icono de API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Icono de API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icono de API][sqlicon]<br/>**SQL Azure**][sqldoc]|
 |[![Icono de API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icono de API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icono de API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-
-> [AZURE.NOTE] Estas API funcionan con la versión preliminar 2015-12-01 del servicio.
 
 ### Las API pueden ser desencadenadores
 Varias API proporcionan desencadenadores que pueden notificar a la aplicación que se producen eventos determinados. Por ejemplo, la API de FTP tiene el desencadenador OnUpdatedFile. Puede crear una aplicación lógica o una PowerApp que escuche al desencadenador y realice alguna acción cuando este se ponga en marcha.
@@ -50,7 +50,7 @@ Existen dos tipos de desencadenadores:
 Las API también pueden utilizarse como acciones dentro de sus aplicaciones. Las acciones resultan útiles para buscar datos que luego se pueden utilizar en la ejecución de la aplicación. Por ejemplo, puede que necesite buscar datos de clientes de una base de datos SQL al procesar un pedido. O bien, puede que necesite escribir, actualizar o eliminar datos en una tabla de destino. Para ello, puede usar las acciones proporcionadas por las API. Las acciones se asignan a las operaciones que se definen en los metadatos de Swagger.
 
 
-[Novedades](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Compile una aplicación lógica ahora](../app-service-logic/app-service-logic-create-a-logic-app.md) [Empiece a usar a PowerApps ahora](../power-apps/powerapps-get-started-azure-portal.md)
+[Novedades](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Cree una aplicación lógica ahora](../app-service-logic/app-service-logic-create-a-logic-app.md) [Empiece a usar a PowerApps ahora](../power-apps/powerapps-get-started-azure-portal.md)
 
 <!--API Documentation-->
 [azureblobdoc]: ./create-api-azureblobstorage.md "Conéctese a un blob de Azure para administrar archivos en el contenedor de blobs."
@@ -70,7 +70,7 @@ Las API también pueden utilizarse como acciones dentro de sus aplicaciones. Las
 [onedrivedoc]: ./create-api-onedrive.md "Se conecta a su Microsoft OneDrive personal y cargue, elimine, mostrar archivos, etc."
 [salesforcedoc]: ./create-api-salesforce.md "Se conecta a su cuenta de Salesforce y puede administrar cuentas, clientes potenciales, oportunidades y mucho más."
 [servicebusdoc]: ./create-api-servicebus.md "Puede enviar mensajes desde los temas y las colas del Bus de servicio y recibir mensajes de suscripciones y colas del Bus de servicio."
-[sharepointdoc]: ./create-api-sharepointserver.md "Se conecta a Microsoft SharePoint Server o SharePoint Online local, administra documentos y enumera elementos. Se admiten métodos de autenticación diferentes, como credenciales predeterminadas, OAuth 2.0, autenticación de Windows y autenticación basada en formularios."
+[sharepointdoc]: ./create-api-sharepointonline.md "Se conecta a SharePoint Online para administrar documentos y enumerar elementos."
 [slackdoc]: ./create-api-slack.md "Conéctese a Slack y publique mensajes en los canales de Slack."
 [sftpdoc]: ./create-api-sftp.md "Se conecta a SFTP y puede cargar, obtener, eliminar archivos, etc."
 [smtpdoc]: ./create-api-smtp.md "Se conecta a un servidor SMTP y envía correo con datos adjuntos."
@@ -103,4 +103,4 @@ Las API también pueden utilizarse como acciones dentro de sus aplicaciones. Las
 [twittericon]: ./media/apis-list/twittericon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

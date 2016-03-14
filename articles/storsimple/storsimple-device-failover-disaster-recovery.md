@@ -59,6 +59,19 @@ Utilice la tabla siguiente para determinar si puede conmutar por error a otro di
 | Update 2 a Update 1 (1, 1.1, 1.2) | Sí <br></br>Si utiliza volúmenes anclados localmente o en capas o una combinación de ambos, la conmutación por error de tales volúmenes siempre se realiza en capas. | Sí<br></br>Si utiliza volúmenes anclados localmente, su conmutación por error se realiza en capas. |
 | Update 2 a Update 2 (versión posterior) | Sí<br></br>Si utiliza volúmenes anclados localmente o en capas o una combinación de ambos, la conmutación por error de tales volúmenes se realiza como el tipo de volumen de partida; los volúmenes en capas como en capas y los anclados localmente como anclados localmente. | Sí<br></br>Si utiliza volúmenes anclados localmente, su conmutación por error se realiza en capas. |
 
+
+#### Conmutación por error parcial entre versiones de software
+
+Siga esta guía si va a realizar una conmutación por error parcial de un dispositivo de origen StorSimple con una versión anterior a la actualización 1 en un destino en que se ejecuta la actualización 1 o una versión posterior.
+
+
+| Conmutación por error parcial desde | Permitida para dispositivo físico | Permitida para dispositivo virtual |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+|Versión anterior a la actualización 1 (lanzamiento, 0.1, 0.2, 0.3) en la versión de actualización 1 o posterior | Sí, consulte abajo la sugerencia de procedimiento recomendado. | Sí, consulte abajo la sugerencia de procedimiento recomendado. |
+
+
+>[AZURE.TIP] Se produjo un cambio de formato de datos y metadatos de nube en la versión de actualización 1 y posteriores. Por lo tanto, no se recomienda realizar una conmutación por error parcial desde versiones anteriores a la actualización 1 en la versión de actualización 1 o posteriores. Si necesita realizar una conmutación por error parcial, se recomienda que aplique primero la actualización 1 o posterior en ambos dispositivos (origen y destino) y después lleve a cabo la conmutación por error.
+
 ## Conmutar por error a otro dispositivo físico
 
 Siga estos pasos para restaurar el dispositivo a un dispositivo físico de destino.
@@ -162,4 +175,4 @@ Si hay dispositivos StorSimple que se registraron justo antes de que ocurra un d
 - Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

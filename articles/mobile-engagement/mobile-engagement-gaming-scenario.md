@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="11/23/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo"/>
 
 #Implementación de Mobile Engagement con una aplicación de juegos
@@ -69,4 +69,4 @@ Gracias a este análisis, el director de proyectos móviles decide crear secuenc
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -74,6 +74,7 @@ Cada back-end de Node.js de aplicación móvil del Servicio de aplicaciones de A
 Esta aplicación crea una WebAPI sencilla optimizada para móviles con un único punto de conexión (`/tables/TodoItem`) que proporciona el acceso no autenticado a un almacén de datos SQL subyacente mediante un esquema dinámico. Es adecuado para los siguientes inicios rápidos de la biblioteca de cliente:
 
 - [Inicio rápido de cliente de Android]
+- [Inicio rápido de cliente de Apache Cordova]
 - [Inicio rápido de cliente de iOS]
 - [Inicio rápido de cliente de Windows]
 - [Inicio rápido de cliente de Xamarin.iOS]
@@ -133,7 +134,7 @@ Al crear un nuevo back-end de aplicación móvil de Node.js mediante la hoja **I
 
 2. Siga los pasos de [Habilitación del repositorio de aplicaciones web](../app-service-web/web-sites-publish-source-control.md#Step4) a fin de habilitar el repositorio de Git para el sitio del back-end, y tome nota del nombre de usuario y de la contraseña de la implementación.
 
-3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git**.
+3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git **.
 
 4.  Ejecute el comando `git clone` en una herramienta de línea de comandos compatible con Git mediante la URL de clonación de Git e introduzca la contraseña cuando sea necesario, como en el ejemplo siguiente:
 
@@ -378,7 +379,7 @@ Una vez creado el back-end de la aplicación móvil, puede conectar una base de 
 
 7. En la hoja **Agregar conexión de datos**, haga clic en **Base de datos SQL - Configurar los valores obligatorios** > **Crear una base de datos nueva**. Escriba el nombre de la base de datos nueva en el campo **Nombre**.
 
-8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
+8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor ** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
 
 	![Creación de una Base de datos SQL de Azure][6]
 
@@ -429,6 +430,67 @@ La propiedad de acceso puede tomar uno de tres valores
   - *disabled* indica que esta tabla está deshabilitada actualmente
 
 Si la propiedad de acceso no está definida, se permite el acceso no autenticado.
+
+### <a name="howto-tables-getidentity"></a>Uso de notificaciones de autenticación con las tablas
+
+Puede configurar un número de notificaciones que se solicitan cuando se configura la autenticación. Estas notificaciones no suelen estar disponibles a través del objeto `context.user`. Sin embargo, se pueden recuperar mediante el método `context.user.getIdentity()`. El método `getIdentity()` devuelve una promesa que se resuelve en un objeto. El objeto tiene como clave el método de autenticación (facebook, google, twitter, microsoftaccount o aad).
+
+Por ejemplo, si establece la autenticación mediante una cuenta Microsoft y solicita la notificación de direcciones de correo electrónico, puede agregar la dirección de correo electrónico al registro con la información siguiente:
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+Para ver qué notificaciones están disponibles, use un explorador web para ver el punto de conexión `/.auth/me` de su sitio.
 
 ### <a name="howto-tables-disabled"></a>Deshabilitación del acceso a operaciones de tabla específicas
 
@@ -647,7 +709,7 @@ Debe usar el mismo token que se utiliza para el punto de conexión de tablas en 
 
 ### <a name="howto-customapi-auth"></a>Control de grandes cargas de archivos
 
-SDK de Aplicaciones móviles de Azure usa el [analizador de cuerpo de software intermedio](https://github.com/expressjs/body-parser) para aceptar y descodificar el contenido del cuerpo del envío. Puede configurar previamente el analizador de cuerpo para aceptar tamaños mayores de cargas de archivos:
+El SDK de Aplicaciones móviles de Azure usa el [middleware de analizador de cuerpo](https://github.com/expressjs/body-parser) para aceptar y descodificar el contenido del cuerpo del envío. Puede configurar previamente el analizador de cuerpo para aceptar tamaños mayores de cargas de archivos:
 
 	var express = require('express'),
         bodyParser = require('body-parser'),
@@ -766,6 +828,7 @@ En el editor, también puede ejecutar el código en el sitio.
 
 <!-- URLs -->
 [Inicio rápido de cliente de Android]: app-service-mobile-android-get-started.md
+[Inicio rápido de cliente de Apache Cordova]: app-service-mobile-cordova-get-started.md
 [Inicio rápido de cliente de iOS]: app-service-mobile-ios-get-started.md
 [Inicio rápido de cliente de Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
 [Inicio rápido de cliente de Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
@@ -803,5 +866,4 @@ En el editor, también puede ejecutar el código en el sitio.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0224_2016-->
-
+<!---HONumber=AcomDC_0302_2016-->

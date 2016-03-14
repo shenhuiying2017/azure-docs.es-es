@@ -61,7 +61,7 @@ inputs | Entradas consumidas por la actividad de Hive | No
 outputs | Salidas producidas por la actividad de Hive | Sí 
 linkedServiceName | Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos | Sí 
 script | Especifica el script de Hive en línea | No
-script path | Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. | No 
+script path | Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. Tenga en cuenta que el nombre del archivo distingue mayúsculas de minúsculas. | No 
 define los campos | Especifique parámetros como pares de clave y valor para referencia en el script de Hive con 'hiveconf' | No
 
 ## Ejemplo
@@ -214,4 +214,4 @@ Para usar un script de Hive parametrizado, haga lo siguiente:
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

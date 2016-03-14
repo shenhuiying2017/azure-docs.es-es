@@ -13,16 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # Administración del control de acceso basado en rol con Azure PowerShell
+
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
+- [API DE REST](role-based-access-control-manage-access-rest.md)
+
 
 ## Enumeración de roles de control de acceso basado en rol (RBAC)
+
+>[AZURE.IMPORTANT] Para poder usar los cmdlets de este artículo, debe [instalar los cmdlets de Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) en PowerShell.
+
 ### Lista de todos los roles disponibles
 Para enumerar los roles RBAC disponibles para asignación y para inspeccionar las operaciones a las que conceden acceso, use:
 
@@ -64,7 +69,7 @@ Para enumerar las asignaciones de acceso para el administrador y los coadministr
 
 ## Conceder acceso
 ### Búsqueda de identificadores de objetos
-Para usar las siguientes secuencias de comandos, primero debe encontrar los identificadores de los objetos. Se presume que ya conoce el identificador de la suscripción con la que trabaja; si no es así, consulte [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) en MSDN.
+Para usar las siguientes secuencias de comandos, primero debe encontrar los identificadores de los objetos. Se da por supuesto que ya conoce el identificador de la suscripción con la que trabaja; si no es así, consulte [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) en MSDN.
 
 #### Búsqueda del identificador del objeto de un grupo de Azure AD
 Para obtener el identificador del objeto de un grupo de Azure AD, use:
@@ -151,4 +156,4 @@ En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no 
 ## Temas de RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016" 
+	ms.date="02/26/2016" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -32,7 +32,7 @@ Evalúe si usar un grupo de bases de datos elásticas para un grupo de bases de 
 
 Los ISV de SaaS desarrollan aplicaciones basadas en los niveles superiores de datos de la escala que constan de varias bases de datos. Un patrón de aplicación común es proporcionar a cada cliente su propia base de datos. Sin embargo, cada cliente tiene patrones de uso variables e impredecibles y resulta difícil predecir los requisitos de recursos de cada usuario de base de datos. Por lo tanto, un ISV puede realizar un aprovisionamiento excesivo de los recursos con un gasto considerable para garantizar un rendimiento y unos tiempos de repuesta favorables para todas las bases de datos. El ISV también puede gastar menos y arriesgar en una experiencia de rendimiento insuficiente para sus clientes.
 
-Los grupos de bases de datos elásticas en Base de datos SQL de Azure permiten a los ISV de SaaS optimizar el rendimiento del precio para un grupo de bases de datos dentro de un presupuesto prescrito a la vez que se ofrece elasticidad de rendimiento para cada base de datos. Los grupos de bases de datos elásticas permiten al ISV adquirir unidades de rendimiento de base de datos elásticas (eDTU) para un grupo compartido entre varias bases de datos con el fin de dar cabida a períodos impredecibles de uso por bases de datos individuales. El requisito de eDTU para un grupo se determina mediante el uso agregado de sus bases de datos. La cantidad de eDTU disponibles para el grupo se controla mediante el presupuesto del ISV. Los grupos de bases de datos elásticas facilitan al ISV razonar el impacto del presupuesto en el rendimiento y viceversa para su grupo. El ISV simplemente agrega bases de datos al grupo, establece el número garantizado o la capacidad de eDTU necesarias para las bases de datos y luego establece la eDTU del grupo según el presupuesto. Mediante el uso de grupos de bases de datos elásticas, los ISV pueden aumentar de forma eficiente su servicio a partir de un método Lean Startup hasta un negocio con madurez a una escala cada vez mayor.
+Los grupos de bases de datos elásticas en Base de datos SQL de Azure permiten a los ISV de SaaS optimizar el rendimiento del precio para un grupo de bases de datos dentro de un presupuesto prescrito a la vez que se ofrece elasticidad de rendimiento para cada base de datos. Los grupos de bases de datos elásticas permiten al ISV adquirir unidades de transacción de base de datos elástica (eDTU) para un grupo compartido entre varias bases de datos con el fin de dar cabida a períodos impredecibles de uso por bases de datos individuales. El requisito de eDTU para un grupo se determina mediante el uso agregado de sus bases de datos. La cantidad de eDTU disponibles para el grupo se controla mediante el presupuesto del ISV. Los grupos de bases de datos elásticas facilitan al ISV razonar el impacto del presupuesto en el rendimiento y viceversa para su grupo. El ISV simplemente agrega bases de datos al grupo, establece el número garantizado o la capacidad de eDTU necesarias para las bases de datos y luego establece la eDTU del grupo según el presupuesto. Mediante el uso de grupos de bases de datos elásticas, los ISV pueden aumentar de forma eficiente su servicio a partir de un método Lean Startup hasta un negocio con madurez a una escala cada vez mayor.
   
 
 
@@ -191,11 +191,11 @@ Instale lo siguientes antes de ejecutar el script:
 
 Puede ejecutar el script desde la máquina local o una máquina virtual en la nube. Cuando lo ejecute desde la máquina local, es posible que se produzcan cargos de salida de datos porque el script tiene que descargar datos de las bases de datos de destino. A continuación se muestra la estimación de volumen de datos según el número de bases de datos de destino y la duración de la ejecución del script. Para ver los costes de transferencia de datos de Azure, consulte [Detalles de precios de transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/).
        
- -     1 base de datos por hora = 38 KB
- -     1 base de datos por día = 900 KB
- -     1 base de datos por semana = 6 MB
- -     100 bases de datos por día = 90 MB
- -     500 bases de datos por semana = 3 GB
+ -     1 base de datos por hora = 38 KB
+ -     1 base de datos por día = 900 KB
+ -     1 base de datos por semana = 6 MB
+ -     100 bases de datos por día = 90 MB
+ -     500 bases de datos por semana = 3 GB
 
 El script excluye determinadas bases de datos que no son buenas candidatas para la oferta de vista previa pública actual del nivel de grupo elástico estándar. Si necesita excluir bases de datos adicionales del servidor de destino, puede cambiar el script para cumplir con los criterios. De forma predeterminado, el script no compila información para lo siguiente:
 
@@ -435,4 +435,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos de b
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

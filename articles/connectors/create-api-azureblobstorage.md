@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introducción a la API de Almacenamiento de blobs de Azure
-Conéctese a un blob de Azure para administrar los archivos de un contenedor de blobs, por ejemplo, para crear o eliminar archivos, entre otras muchas cosas.
+Conéctese a un blob de Azure para administrar los archivos de un contenedor de blobs, por ejemplo, para crear o eliminar archivos, entre otras muchas cosas. La API de Almacenamiento de blobs de Azure puede utilizarse desde:
 
-La API de Almacenamiento de blobs de Azure puede utilizarse desde aplicaciones lógicas.
+- Aplicaciones lógicas 
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Conector de blobs de Almacenamiento de Azure](../app-service-logic/app-service-logic-connector-azurestorageblob.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Conector de blobs de Almacenamiento de Azure](../app-service-logic/app-service-logic-connector-azurestorageblob.md).
 
 Con Almacenamiento de blobs de Azure, puede:
 
@@ -36,7 +36,7 @@ Blob de Azure incluye las siguientes acciones. No hay desencadenadores.
 
 | Desencadenadores | Acciones|
 | --- | --- |
-| Ninguno. | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer archivo en la carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante</li><li>Actualizar archivo</li></ul> |
+| Ninguno. | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer archivo en la carpeta</li><li>Obtener contenido del archivo</li><li>Obtener contenido del archivo mediante la ruta de acceso</li><li>Obtener metadatos del archivo</li><li>Obtener metadatos del archivo mediante</li><li>Actualizar archivo</li></ul> |
 
 Todas las API admiten datos en formato JSON y XML.
 
@@ -57,7 +57,7 @@ Después de crear la conexión, escriba las propiedades del blob, como el nombre
 Se aplica a la versión: 1.0.
 
 ### Crear archivo
-Carga un archivo en el Almacenamiento de blobs de Azure. ```POST: /datasets/default/files```
+Carga un archivo a Almacenamiento de blobs de Azure. ```POST: /datasets/default/files```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -72,7 +72,7 @@ Carga un archivo en el Almacenamiento de blobs de Azure. ```POST: /datasets/defa
 |default|Error en la operación.|
 
 ### Copiar archivo
-Copia un archivo en el Almacenamiento de blobs de Azure. ```POST: /datasets/default/copyFile```
+Copia un archivo en Almacenamiento de blobs de Azure. ```POST: /datasets/default/copyFile```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -118,7 +118,7 @@ Extrae un archivo de almacenamiento en una carpeta de Almacenamiento de blobs de
 
 
 ### Obtener contenido de archivo
-Recupera contenido de Almacenamiento de blobs de Azure mediante el identificador. ```GET: /datasets/default/files/{id}/content```
+Recupera contenido de archivo de Almacenamiento de blobs de Azure mediante el identificador. ```GET: /datasets/default/files/{id}/content```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -146,7 +146,7 @@ Recupera el contenido de archivo de Almacenamiento de blobs de Azure mediante la
 
 
 ### Obtener metadatos de archivo
-Recupera los metadatos de archivo de Almacenamiento de blobs de Azure mediante el id. de archivo. ```GET: /datasets/default/files/{id}```
+Recupera los metadatos de archivo de Almacenamiento de blobs de Azure mediante el identificador de archivo. ```GET: /datasets/default/files/{id}```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -160,7 +160,7 @@ Recupera los metadatos de archivo de Almacenamiento de blobs de Azure mediante e
 
 
 ### Obtener metadatos de archivo mediante la ruta de acceso
-Recupera los metadatos de Almacenamiento de blobs de Azure mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
+Recupera los metadatos de archivo de Almacenamiento de blobs de Azure mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -234,4 +234,4 @@ Actualiza un archivo en Almacenamiento de blobs de Azure. ```PUT: /datasets/defa
 
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

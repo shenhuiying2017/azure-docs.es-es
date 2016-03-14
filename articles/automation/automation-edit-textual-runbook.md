@@ -3,7 +3,7 @@
 	description="En este artículo, se proporcionan diferentes procedimientos para trabajar con runbooks de PowerShell y de flujo de trabajo de PowerShell en Automatización de Azure mediante el editor de texto."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren" />
 
 # Edición de runbooks de texto en Automatización de Azure
@@ -144,4 +144,4 @@ En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido 
 - [Programaciones](automation-schedules.md)
 - [Variables](automation-variables.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

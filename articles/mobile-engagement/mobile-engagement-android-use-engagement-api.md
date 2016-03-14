@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Uso de la API de Engagement en Android
@@ -40,7 +40,7 @@ Sin embargo, las *actividades* también se pueden controlar manualmente mediante
 
 ##Informes sobre actividades
 
-> [AZURE.IMPORTANT]Si usa la clase `EngagementActivity` y sus variantes según se explica en el documento Integración de Engagement en Android, no es necesario notificar las actividades de la forma descrita en esta sección.
+> [AZURE.IMPORTANT] Si usa la clase `EngagementActivity` y sus variantes según se explica en el documento Integración de Engagement en Android, no es necesario notificar las actividades de la forma descrita en esta sección.
 
 ### El usuario inicia una nueva actividad
 
@@ -233,9 +233,9 @@ Se pueden adjuntar datos arbitrarios en eventos, errores, actividades y trabajos
 
 Estos datos se pueden estructurar y usan la clase Bundle de Android (en realidad, funcionan como los parámetros adicionales en los elementos Intent de Android). Tenga en cuenta que una clase Bundle puede contener matrices u otras instancias de Bundle.
 
-> [AZURE.IMPORTANT]Si incluye parámetros de tipo parcelable o serializable, asegúrese de que se implemente su método `toString()` para devolver una cadena en lenguaje natural. Las clases serializables con campos no transitorios de tipo no serializable provocarán un bloqueo de Android cuando se llame a `bundle.putSerializable("key",value);`
+> [AZURE.IMPORTANT] Si incluye parámetros de tipo parcelable o serializable, asegúrese de que se implemente su método `toString()` para devolver una cadena en lenguaje natural. Las clases serializables con campos no transitorios de tipo no serializable provocarán un bloqueo de Android cuando se llame a `bundle.putSerializable("key",value);`
 
-> [AZURE.WARNING]No se admiten las matrices ralas en los parámetros adicionales, es decir, no se serializarán como matriz. Deberán convertirse en matrices estándar antes de usarlas en dichos parámetros.
+> [AZURE.WARNING] No se admiten las matrices ralas en los parámetros adicionales, es decir, no se serializarán como matriz. Deberán convertirse en matrices estándar antes de usarlas en dichos parámetros.
 
 ### Ejemplo
 
@@ -298,4 +298,4 @@ En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

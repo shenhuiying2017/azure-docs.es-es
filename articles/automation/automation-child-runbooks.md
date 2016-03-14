@@ -3,7 +3,7 @@
    description="Describe los diferentes métodos para iniciar un runbook en la Automatización de Azure desde otro runbook y compartir información entre ellos."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Runbooks secundarios en la Automatización de Azure
@@ -94,4 +94,4 @@ En la siguiente tabla se resumen las diferencias entre los dos métodos para lla
 - [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md)
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Cómo usar la interfaz de usuario de Azure Mobile Engagement (IU)
@@ -133,4 +133,4 @@ Una vez que se ha integrado el [SDK][Link 5] de Azure Mobile Engagement en su ap
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

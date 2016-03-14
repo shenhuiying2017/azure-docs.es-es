@@ -17,6 +17,10 @@
 	ms.author="heidist"/>
 
 # Introducción a la API de REST de administración de búsqueda de Azure
+> [AZURE.SELECTOR]
+- [Portal](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [API DE REST](search-get-started-management-api.md)
 
 La API de administración de REST de Búsqueda de Azure es una alternativa de programación para realizar tareas administrativas en el portal. Las operaciones de administración de servicios incluyen crear o eliminar el servicio, escalar el servicio y administrar las claves. Este tutorial incluye una aplicación cliente de ejemplo que muestra la API de administración de servicios. También incluye los pasos de configuración necesarios para ejecutar el ejemplo en el entorno de desarrollo local.
 
@@ -119,7 +123,7 @@ En esta sección, modificará la solución en Visual Studio, sustituyendo los va
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-Si no ha [descargado la aplicación de ejemplo de Github](https://github.com/Azure-Samples/search-dotnet-management-api/), la necesitará en este paso.
+Si aún no [descargó la aplicación de ejemplo de Github](https://github.com/Azure-Samples/search-dotnet-management-api/), la necesitará en este paso.
 
 1. Abra **ManagementAPI.sln** en Visual Studio.
 
@@ -204,4 +208,4 @@ Una vez terminado este tutorial, puede obtener más información acerca de la ad
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -136,9 +136,16 @@ Cree una regla de equilibrador de carga.
 
 ### Paso 3
 
-Cree un sondeo de estado.
-
+Cree un sondeo de estado. Hay dos formas de configurar un sondeo:
+ 
+Sondeo HTTP
+	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+o
+
+Sondeo TCP
+	
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 ### Paso 4
 
@@ -287,7 +294,7 @@ Guarde la nueva configuración mediante Set-AzureLoadBalancer
 
 ## Eliminación de un equilibrador de carga
 
-Use el comando `Remove-AzureLoadBalancer` para eliminar un equilibrador de carga creado previamente denominado "NRP-LB" en un grupo de recursos denominado "NRP-RG".
+Use el comando `Remove-AzureLoadBalancer` para eliminar un equilibrador de carga creado previamente denominado "NRP-LB" en un grupo de recursos llamado "NRP-RG".
 
 	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
@@ -295,10 +302,10 @@ Use el comando `Remove-AzureLoadBalancer` para eliminar un equilibrador de carga
 
 ## Pasos siguientes
 
-[Introducción a la configuración de un equilibrador de carga interno](load-balancer-internal-getstarted.md)
+[Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

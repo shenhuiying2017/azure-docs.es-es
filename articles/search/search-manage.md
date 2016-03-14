@@ -18,6 +18,10 @@
 	ms.author="heidist"/>
 
 # Administración del servicio de búsqueda en Microsoft Azure
+> [AZURE.SELECTOR]
+- [Portal](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [API DE REST](search-get-started-management-api.md)
 
 Búsqueda de Azure es un servicio basado en la nube con una API basada en HTTP que puede usarse en aplicaciones de búsqueda personalizadas. Nuestro servicio de búsqueda proporciona el motor para análisis de texto de búsqueda de texto completo, características de búsqueda avanzadas, almacenamiento de datos de búsqueda y una sintaxis de comando de consulta.
 
@@ -30,9 +34,9 @@ Como alternativa, puede utilizar la API de REST de administración. Consulte [In
 
 Como administrador de configuración de un servicio de búsqueda, uno de sus primeras decisiones es elegir un nivel de precios. Las opciones incluyen los niveles de precios Gratuito y Estándar.
 
-Sin cargo alguno para los suscriptores existentes, puede seleccionar un servicio compartido, recomendado con fines didácticos, evaluación de prueba de concepto y pequeños proyectos de desarrollo. El servicio compartido incluye un espacio de almacenamiento de 50 MB, tres índices y recuento de documentos (un límite máximo de 10.000 documentos, incluso si el consumo de almacenamiento es inferior a los 50 MB totales permitidos). No hay garantías de rendimiento con el servicio compartido, de modo que si crea una aplicación de búsqueda de producción, considere la búsqueda estándar en su lugar.
+Sin cargo alguno para los suscriptores existentes, puede seleccionar un servicio compartido, recomendado con fines didácticos, evaluación de prueba de concepto y pequeños proyectos de desarrollo. El servicio compartido incluye un espacio de almacenamiento de 50 MB, tres índices y recuento de documentos (un límite máximo de 10.000 documentos, incluso si el consumo de almacenamiento es inferior a los 50 MB totales permitidos). No hay garantías de rendimiento con el servicio compartido, de modo que si crea una aplicación de búsqueda de producción, considere la búsqueda estándar en su lugar.
 
-La búsqueda estándar se puede facturar al registrarse para obtener recursos dedicados e infraestructura usada solo por su suscripción. La búsqueda estándar se asigna en agrupaciones de particiones (almacenamiento) definidas por el usuario y réplicas (cargas de trabajo de servicio) y los precios se establecen por unidad de búsqueda. Puede escalar en particiones o réplicas de forma independiente, agregando más de cualquiera que sea el recurso requerido.
+Las búsquedas Estándar y Básica son facturables porque se está registrando para obtener recursos dedicados y una infraestructura que solo usará su suscripción. La búsqueda Estándar y Básica se asigna en agrupaciones de particiones (almacenamiento) definidas por el usuario y réplicas (cargas de trabajo de servicio) y los precios se establecen por unidad de búsqueda. Puede escalar en particiones o réplicas de forma independiente, agregando más de cualquiera que sea el recurso requerido.
 
 Para planificar la capacidad y entender el impacto de facturación, recomendamos estos vínculos:
 
@@ -43,7 +47,7 @@ Cuando esté listo para suscribirse, consulte [Creación de un servicio de búsq
 
 ##Análisis de búsqueda
 
-Puede habilitar la recopilación de datos a través de la actividad de búsqueda del usuario para comprender cómo funciona el servicio de búsqueda, los términos que se utilizan y si esos términos devuelven coincidencias. La mejor manera de analizar y visualizar estos datos a través de un paquete de contenido de Power BI. El primer paso es habilitar el análisis de tráfico de búsqueda. Vea [Análisis del tráfico de Búsqueda de Azure](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) para obtener información sobre el procedimiento.
+Puede habilitar la recopilación de datos a través de la actividad de búsqueda del usuario para comprender cómo funciona el servicio de búsqueda, los términos que se utilizan y si esos términos devuelven coincidencias. La mejor manera de analizar y visualizar estos datos a través de un paquete de contenido de Power BI. El primer paso es habilitar el análisis de tráfico de búsqueda. Consulte [Análisis del tráfico de Búsqueda de Azure](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) para obtener información sobre el procedimiento.
 
 <a id="sub-2"></a>
 ## Tareas administrativas
@@ -104,7 +108,7 @@ En esta vista previa pública, la supervisión de recursos se limita a la inform
 
 En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación.
 
-Al usar la API del servicio de búsqueda, podrá obtener una recuento de los documentos e índices. Existen límites máximos asociados a estos recuentos basados en el nivel de precio. Consulte [Límites y restricciones para obtener detalles](search-limits-quotas-capacity.md).
+Al usar la API del servicio de búsqueda, podrá obtener una recuento de los documentos e índices. Existen límites máximos asociados a estos recuentos basados en el nivel de precio. Consulte [Límites del servicio de búsqueda](search-limits-quotas-capacity.md) para obtener más información.
 
 +	[Obtención de estadísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Recuento de documentos](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -115,15 +119,15 @@ Al usar la API del servicio de búsqueda, podrá obtener una recuento de los doc
 <a id="sub-6"></a>
 ## Escalado o reducción vertical
 
-Cada uno de los servicios de búsqueda se inicia con una cantidad mínima de una réplica y una partición. Si se registró para obtener recursos dedicados usando el nivel de precios estándar, puede hacer clic en el icono de **ESCALAR** del panel de servicios para reajustar el número de particiones y réplicas usadas por su servicio.
+Cada uno de los servicios de búsqueda se inicia con una cantidad mínima de una réplica y una partición. Si se registró para obtener recursos dedicados con el [nivel de precios Básico o Estándar](search-limits-quotas-capacity.md), puede hacer clic en el icono **ESCALAR** en el panel de servicios para reajustar el número de particiones y réplicas que usa por su servicio.
 
-Al agregar cualquiera de los recursos, el servicio los usa automáticamente. No es necesario que haga nada más, pero habrá un ligero retraso antes de materializarse el impacto del nuevo recurso. Puede tardar 15 minutos o más en aprovisionar los recursos adicionales.
+Al agregar capacidad mediante cualquiera de los recursos, el servicio los usa automáticamente. No es necesario que haga nada más, pero habrá un ligero retraso antes de materializarse el impacto del nuevo recurso. Puede tardar 15 minutos o más en aprovisionar los recursos adicionales.
 
  ![][10]
 
 ### Adición de réplicas
 
-La adición de réplicas permiten un aumento de las consultas por segundo (QPS) o la consecución de una alta disponibilidad. Cada réplica tiene una copia de un índice, de modo que la adición de una réplica más se traduce en un índice más que puede usarse para ofrecer solicitudes de consulta. En la actualidad, la regla general es que son necesarias al menos tres réplicas para obtener una alta disponibilidad.
+La adición de réplicas permiten un aumento de las consultas por segundo (QPS) o la consecución de una alta disponibilidad. Cada réplica tiene una copia de un índice, de modo que la adición de una réplica más se traduce en un índice más que puede usarse para ofrecer solicitudes de consulta. En la actualidad, la regla general es que son necesarias al menos tres réplicas para obtener una alta disponibilidad (consulte [Planeación de la capacidad](search-capacity-planning.md) para más información).
 
 Un servicio de búsqueda con más réplicas puede equilibrar la carga de solicitudes de consulta sobre un número de índices mayor. Una vez especificado un nivel del volumen de consultas, el rendimiento de las consultas va a ser más rápido cuando haya más copias del índice disponible para ofrecer la solicitud. En caso de experimentar una latencia de consulta, puede esperar que se produzca un impacto positivo en el rendimiento una vez que las réplicas adicionales estén en línea.
 
@@ -133,7 +137,9 @@ Aunque el rendimiento de las consultas aumente a medida que agrega réplicas, es
 
 La mayoría de las aplicaciones de servicio tienen una necesidad integrada de más réplicas en lugar de particiones, ya que la mayor parte de las aplicaciones que usan la búsqueda pueden ajustarse fácilmente a una sola partición que puede admitir hasta 15 millones de documentos.
 
-En los casos donde se requiere un mayor recuento de documentos, puede agregar particiones. Tenga en cuenta que las particiones se agregan en múltiplos de 12 (concretamente 1, 2, 3, 4, 6 o 12). Se trata de un artefacto de particionamiento; un índice se crea en 12 particiones que pueden almacenarse en su totalidad en una partición o dividirse de igual forma en 2, 3, 4, 6 o 12 particiones (una partición por partición).
+En los casos donde se requiere un mayor número de documentos, puede agregar particiones si se registró en un servicio Estándar. El nivel Básico no proporciona particiones adicionales.
+
+En el nivel Estándar, las particiones se agregan en múltiplos de 12 (concretamente 1, 2, 3, 4, 6 o 12). Se trata de un artefacto de particionamiento; un índice se crea en 12 particiones que pueden almacenarse en su totalidad en una partición o dividirse de igual forma en 2, 3, 4, 6 o 12 particiones (una partición por partición).
 
 ### Eliminación de réplicas
 
@@ -145,7 +151,7 @@ Para ello, basta con que mueva de nuevo el control deslizante de la réplica a u
 
 A diferencia de la eliminación de réplicas, que no requiere que haga nada más, es posible que tenga que hacer algo si usa más almacenamiento del que se puede reducir. Por ejemplo, si su solución usa tres particiones, intentar reducirla a una o dos particiones generará un error si usa más espacio de almacenamiento del que se puede almacenar en el reducido número de particiones. En este caso, las opciones con las que cuenta son eliminar índices o documentos en un índice asociado para liberar espacio o mantener la configuración actual.
 
-No existe un método de detección que indique qué particiones de índice se almacenan en particiones concretas. Cada partición proporciona un espacio de almacenamiento de aproximadamente 25 MB, de modo que será necesario reducirlo a un tamaño al que pueda ajustarse su número de particiones. Si quiere volver a una partición, las 12 particiones deberán ajustarse.
+No existe un método de detección que indique qué particiones de índice se almacenan en particiones concretas. Cada partición proporciona un espacio de almacenamiento de aproximadamente 25 MB, de modo que será necesario reducirlo a un tamaño al que pueda ajustarse su número de particiones. Si quiere volver a una partición, las 12 particiones deberán ajustarse.
 
 Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)) para ver cuánto usó en realidad.
 
@@ -200,4 +206,4 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

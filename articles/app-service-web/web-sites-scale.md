@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/25/2016" 
 	ms.author="cephalin"/>
 
 # Escalación de una aplicación web en el Servicio de aplicaciones de Azure #
 
-Para aumentar el rendimiento y la capacidad de las aplicaciones web de Microsoft Azure, puede usar el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) para escalar el plan del [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) del modo **Gratis** al modo **Compartido**, **Básico**, **Estándar** o **Premium**.
+Para aumentar el rendimiento y la capacidad de las aplicaciones web de Microsoft Azure, puede usar el [Portal de Azure](http://portal.azure.com) para escalar el plan del [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) del modo **Gratis** al modo **Compartido**, **Básico**, **Estándar** o **Premium**.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -26,18 +26,18 @@ El escalado de las aplicaciones web de Azure implica dos acciones relacionadas: 
 
 La configuración de escalado tarda solo unos segundos en aplicarse y afecta a todas las aplicaciones web del plan del Servicio de aplicaciones. No requieren que el código se cambie o que las aplicaciones tengan que volver a implementarse.
 
-Para obtener información acerca de los planes de servicio de la aplicación, consulte [¿Qué es un plan de Servicios de aplicaciones?](../app-service/web-sites-web-hosting-plan-overview.md) e [Información general detallada de planes de Servicios de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obtener información de los precios y características de planes Servicios de aplicaciones individuales, consulte [Detalles de precios del Servicio de aplicaciones](/pricing/details/web-sites/).
+Para obtener información acerca de los planes de servicio de la aplicación, consulte [¿Qué es un plan de Servicios de aplicaciones?](../app-service/app-service-how-works-readme.md) e [Información general detallada de planes de Servicios de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obtener información de los precios y características de planes Servicios de aplicaciones individuales, consulte [Detalles de precios del Servicio de aplicaciones](/pricing/details/web-sites/).
 
 > [AZURE.NOTE] Antes de cambiar una aplicación web del modo **Gratis** al modo **Básico**, **Estándar** o **Premium**, primero debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Azure. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a> 
+<a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
 ## Escalado al modo Compartido o Básico
 <!-- ===================================== -->
 
 1. En el explorador, abra el [Portal de Azure][portal].
 	
-2. En la hoja de la aplicación web, haga clic en **Toda la configuración**, en **Escalar** y, a continuación, haga clic en **Actualizar desde un plan gratuito para agregar instancias y obtener un mejor rendimiento**.
+2. En la hoja de la aplicación web, haga clic en **Toda la configuración** y en **Escalar verticalmente**.
 	
 	![Selección del plan][ChooseWHP]
 	
@@ -45,14 +45,14 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 	
 	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
 	
-5. Deslice la barra **Instancia** de izquierda a derecha para aumentar el número de instancias y, a continuación, haga clic en **Guardar** en la barra de comandos. La opción del tamaño de instancia no está disponible en el modo **Compartido**. Para obtener más información sobre los tamaños de instancias, consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes].
+5. En la configuración, haga clic en **Escalar horizontalmente**, seleccione *Recuento de instancias que elijo manualmente* en la lista desplegable, deslice la barra **Instancia** de izquierda a derecha para aumentar el número de instancias y haga clic en **Guardar** en la barra de comandos. La opción del tamaño de instancia no está disponible en el modo **Compartido**. Para obtener más información sobre los tamaños de instancias, consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes].
 	
 	![Tamaño de instancia para el modo básico][ChooseBasicInstances]
 	
 	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
 	
 <a name="scalingstandard"></a>
- <!-- ================================= -->
+<!-- ================================= -->
 ## Escalado al modo Estándar o Premium
 <!-- ================================= -->
 
@@ -60,48 +60,50 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 
 1. Para escalar al modo **Estándar** o **Premium**, siga los mismos pasos iniciales que al escalar a **Compartido** o **Básico**, a continuación, elija un modo **Estándar** o **Premium** en **Elegir el nivel de precios** y haga clic en **Seleccionar**. 
 	
-	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación y se activará el modo de **Escalado automático**.
+	La pestaña **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación y se activará el **Escalado automático**.
 	
 	![Reducción horizontal de los modos Estándar o Premium][ScaleStandard]
 	
-	Puede deslizar la barra **Instancia** para escalar manualmente en más instancias, como en el modo **Básico** como se mostró anteriormente. Sin embargo, a continuación, sabrá cómo usar el modo de **Escalado automático**.
+	Puede deslizar la barra **Instancia** para escalar manualmente en más instancias, como en el modo **Básico** como se mostró anteriormente. Sin embargo, aquí aprenderá a escalar automáticamente la aplicación.
 	
-2. En **Modo de escalado automático**, seleccione **Rendimiento** para realizar la escalación automática según las métricas de rendimiento.
+2. En **Escalar por**, seleccione **Reglas de programación y rendimiento** para escalar automáticamente la aplicación.
 	
 	![Modo de escalado automático definido en Rendimiento][Autoscale]
 	
-3. En **Rango de instancias**, mueva los dos controles deslizantes para definir el número mínimo y máximo de instancias que escalar automáticamente para el plan de Servicios de aplicaciones. Para este tutorial, mueva el control deslizante al máximo, hasta **6** instancias.
+3. En **Configuración**, haga clic en **Predeterminado, escalar 1-1**, mueva los dos controles deslizantes para definir el número mínimo y máximo de instancias que se van a escalar automáticamente para el plan de Servicios de aplicaciones. Para este tutorial, mueva el control deslizante al máximo, hasta **6** instancias.
 	
-4. Haga clic en **Guardar** en la barra de comandos.
+4. Haga clic en **Aceptar**.
 	
-4. En **Métricas de destino**, haga clic en **>** para configurar reglas de escalación automática para la métrica predeterminada.
+4. En **Configuración**, haga clic en **Porcentaje de CPU > 80 (aumentar recuento en 1)** para configurar reglas de escalado automático para la métrica predeterminada.
 	
 	![Definir conjunto de métricas][SetTargetMetrics]
 	
 	Puede configurar reglas de escalación automática para las métricas de rendimiento diferentes, incluyendo la CPU, la memoria, la cola de disco, la cola HTTP y el flujo de datos. A continuación, podrá configurar la escalación automática para el porcentaje de CPU que hace lo siguiente:
 	
-	- Escalación horizontal de 1 instancia si la CPU supera el 70% en los últimos 10 minutos
+	- Escalado horizontal de 1 instancia si la CPU supera el 80% en los últimos 10 minutos
 	- Escalación horizontal de 3 instancias si la CPU supera el 90% en los últimos 5 minutos
 	- Escalación vertical de 1 instancia si la CPU es inferior al 50% en los últimos 30 minutos 
 	
 	
-4. Deje el cuadro desplegable **Métrica** como **Porcentaje de CPU**.
+4. Deje el cuadro desplegable **Nombre de métrica** como **Porcentaje de CPU**.
 	
-5. En **Escalar reglas horizontalmente**, para configurar la primera regla, establezca **Condición** en **Mayor**, **Umbral** en **70** (%), **Tiempo transcurrido** en **10** (minutos), **Escalar horizontalmente** en **1** (instancia) y **Duración del enfriamiento** en **10** (minutos).
+5. En **Reglas de escalado vertical**, configure la primera regla. Para ello, establezca el **Operador** en **Mayor que**, el **Umbral** en **70** (%), la **Duración** en **10** (minutos), la **Agregación de tiempo** en Media, la **Acción** en **Aumentar recuento en**, el Valor en **1** (instancia) y el **Tiempo de finalización** en **10** (minutos).
 	
 	![Definir primera regla de escalado automático][SetFirstRule]
 	
 	>[AZURE.NOTE] La configuración de **Duración del enfriamiento** especifica el tiempo que tiene que esperar esta regla tras una acción de escalado anterior para volver a escalar.
 	
-6. En **Escalar reglas horizontalmente**, para configurar la segunda regla, establezca **Condición** en **Mayor**, **Umbral** en **90** (%), **Tiempo transcurrido** en **1** (minutos), **Escalar horizontalmente** en **3** (instancia) y **Duración del enfriamiento** en **1** (minutos).
+6. Haga clic en **Agregar regla** y configure la segunda regla. Para ello, establezca el **Operador** en **Mayor que**, el **Umbral** en **90** (%), la **Duración** en **1** (minutos), la **Agregación de tiempo** en Media, la **Acción** en **Aumentar recuento en**, el **Valor** en **3** (instancia) y el **Tiempo de finalización** en **1** (minutos).
+
+7. Haga clic en **Aceptar**.
 	
 	![Definir segunda regla de escalado automático][SetSecondRule]
 	
-5. En **Escalar reglas verticalmente**, para configurar la tercera regla, establezca **Condición** en **Menor**, **Umbral** en **50** (%), **Tiempo transcurrido** en **30** (minutos), **Escalar verticalmente** en **1** (instancia) y **Duración del enfriamiento** en **60** (minutos).
+5. En **Configuración**, haga clic en **Agregar regla** y configure la tercera regla. Para ello, establezca el **Operador** en **Menor que**, el **Umbral** en **50** (%), la **Duración** en **30** (minutos), la **Agregación de tiempo** en **Media**, la **Acción** en **Reducir recuento en**, el **Valor** en **1** (instancia) y el **Tiempo de finalización** en **60** (minutos).
 	
 	![Definir tercera regla de escalado automático][SetThirdRule]
 	
-7. Haga clic en **Guardar** en la barra de comandos. La regla de escalado automático ahora debe reflejarse en la hoja **Escala**.
+7. Haga clic en **Aceptar**. La regla de escalado automático ahora debe reflejarse en la hoja **Configuración de escala**.
 	
 	![Definir el resultado de la regla de escalado automático][SetRulesFinal]
 
@@ -113,7 +115,7 @@ Si tiene una o más bases de datos de SQL Server vinculadas a la aplicación web
 
 	![Base de datos vinculada][ResourceGroup]
 	
-2. En la hoja de base de datos SQL vinculada, haga clic en la parte **Nivel de precios**, seleccione uno de los niveles según sus requisitos de rendimiento y haga clic en **Seleccionar**.
+2. En la hoja de base de datos SQL vinculada, haga clic en la parte **Configuración** > **Plan de tarifa**, seleccione uno de los planes según sus requisitos de rendimiento y haga clic en **Seleccionar**.
 	
 	![Escalación de la base de datos SQL][ScaleDatabase]
 	
@@ -200,4 +202,4 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

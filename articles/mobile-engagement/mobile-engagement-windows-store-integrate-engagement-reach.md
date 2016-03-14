@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 # Integración del SDK de Cobertura de Windows Universal Apps
@@ -24,7 +24,7 @@ Debe seguir el procedimiento de integración descrito en el documento [Integraci
 
 No hace falta agregar nada. Las referencias y los recursos de `EngagementReach` ya están en el proyecto.
 
-> [AZURE.TIP]Puede personalizar las imágenes que se encuentran en la carpeta `Resources` del proyecto, especialmente el icono de marca (el valor predeterminado para el icono Engagement). En las aplicaciones universales también puede mover la carpeta `Resources` del proyecto compartido para compartir su contenido entre aplicaciones, pero tendrá que mantener el archivo `Resources\EngagementConfiguration.xml` en su ubicación predeterminada debido a que depende de la plataforma.
+> [AZURE.TIP] Puede personalizar las imágenes que se encuentran en la carpeta `Resources` del proyecto, especialmente el icono de marca (el valor predeterminado para el icono Engagement). En las aplicaciones universales también puede mover la carpeta `Resources` del proyecto compartido para compartir su contenido entre aplicaciones, pero tendrá que mantener el archivo `Resources\EngagementConfiguration.xml` en su ubicación predeterminada debido a que depende de la plataforma.
 
 ## Habilitar el Servicio de notificaciones de Windows
 
@@ -50,7 +50,7 @@ Modifique `App.xaml.cs`:
 
 	`EngagementReach.Instance.Init` se ejecuta en un subproceso dedicado. No es necesario que lo haga usted.
 
-> [AZURE.NOTE]Si está usando las notificaciones de inserción en otra parte de la aplicación, tendrá que [compartir su canal de inserción](#push-channel-sharing) con Engagement Reach.
+> [AZURE.NOTE] Si está usando las notificaciones de inserción en otra parte de la aplicación, tendrá que [compartir su canal de inserción](#push-channel-sharing) con Engagement Reach.
 
 ## Integración
 
@@ -60,7 +60,7 @@ La integración de superposición no requiere que se escriba mucho código en la
 
 Integración de WebView es más complicada de implementar. Sin embargo, si las páginas de la aplicación deben heredar de un objeto distinto de "Page", tendrá que integrar la vista web y su comportamiento.
 
-> [AZURE.TIP]Deberá considerar la posibilidad de agregar un elemento `<Grid></Grid>` en el nivel raíz para que incluya todo el contenido de la página. Para la integración de la vista web, simplemente agregue Webview como elemento secundario de esta cuadrícula. Si necesita establecer el componente de Engagement en otra parte, recuerde que debe administrar el tamaño de presentación usted mismo.
+> [AZURE.TIP] Deberá considerar la posibilidad de agregar un elemento `<Grid></Grid>` en el nivel raíz para que incluya todo el contenido de la página. Para la integración de la vista web, simplemente agregue Webview como elemento secundario de esta cuadrícula. Si necesita establecer el componente de Engagement en otra parte, recuerde que debe administrar el tamaño de presentación usted mismo.
 
 ### Integración de superposición
 
@@ -297,7 +297,7 @@ En App.xaml.cs, en "Public App(){}", agregue lo siguiente:
 
 Puede ver que la devolución de llamada de cada método devuelve un valor booleano. Engagement envía un comentario a su back-end después de enviar la inserción de datos. Si la devolución de llamada devuelve un valor falso, se enviará el comentario `exit`. De lo contrario, será `action`. Si no se establece ninguna devolución de llamada para los eventos, el comentario `drop` se devolverá a Engagement.
 
-> [AZURE.WARNING]Engagement no puede recibir varios comentarios para la inserción de datos. Si tiene previsto establecer varios controladores en un evento, tenga en cuenta que los comentarios corresponderán al último controlador enviado. En este caso, es recomendable devolver siempre el mismo valor para evitar tener comentarios confusos en el front-end.
+> [AZURE.WARNING] Engagement no puede recibir varios comentarios para la inserción de datos. Si tiene previsto establecer varios controladores en un evento, tenga en cuenta que los comentarios corresponderán al último controlador enviado. En este caso, es recomendable devolver siempre el mismo valor para evitar tener comentarios confusos en el front-end.
 
 ## Personalizar la interfaz de usuario (opcional)
 
@@ -330,7 +330,7 @@ A continuación, establezca el contenido del campo `EngagementReach.Instance.Han
 			  // Engagement Agent and Reach initialization
 			}
 
-> [AZURE.NOTE]De forma predeterminada, Engagement usa su propia implementación de `EngagementReachHandler`. No hace falta crear elementos propios. Si lo hace, tiene que invalidar todos los métodos. El comportamiento predeterminado consiste en seleccionar el objeto base de Engagement.
+> [AZURE.NOTE] De forma predeterminada, Engagement usa su propia implementación de `EngagementReachHandler`. No hace falta crear elementos propios. Si lo hace, tiene que invalidar todos los métodos. El comportamiento predeterminado consiste en seleccionar el objeto base de Engagement.
 
 ### Vista web
 
@@ -405,7 +405,7 @@ Para implementar la devolución de llamada, en App.xaml.cs, en "Public App(){}",
 
 Puede establecer la devolución de llamada en el método "Public App(){}" del archivo `App.xaml.cs`, preferentemente antes de la llamada `EngagementReach.Instance.Init()`.
 
-> [AZURE.TIP]A cada controlador lo llama el subproceso de interfaz de usuario. No tiene que preocuparse cuando se usa un objeto MessageBox u otro elemento relacionado con la interfaz de usuario.
+> [AZURE.TIP] A cada controlador lo llama el subproceso de interfaz de usuario. No tiene que preocuparse cuando se usa un objeto MessageBox u otro elemento relacionado con la interfaz de usuario.
 
 ##<a id="push-channel-sharing"></a> Uso compartido de canal de inserción
 
@@ -469,4 +469,4 @@ Ahora, para usar este protocolo, edite `App.xaml.cs` mediante el método `OnActi
 			  #endregion
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

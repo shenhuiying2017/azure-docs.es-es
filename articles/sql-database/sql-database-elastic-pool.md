@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jhubbard"
+	manager="jeffreyg"
 	editor="cgronlun"/>
 
 <tags
@@ -26,13 +26,13 @@ Para ver información detallada sobre las API y los errores, consulte [Referenci
 
 ## Cómo funciona
 
-Un patrón común de la aplicación SaaS es dar a cada cliente una base de datos. Cada cliente (base de datos) tiene unos requisitos de recursos imprevisibles (CPU, E/S y memoria resumidos con DTU). Con estas subidas y bajadas en la demanda, ¿cómo asigna recursos? Dos opciones: (1) aprovisionamiento en exceso de recursos en función del uso máximo, y pago de más. O bien, (2) aprovisionamiento por defecto para ahorrar costos, a expensas de rendimiento y satisfacción del cliente durante las horas de máxima actividad.
-
-Los grupos de bases de datos elásticas resuelven este problema.
+Un patrón común de la aplicación SaaS es dar a cada cliente una base de datos. Cada cliente (base de datos) tiene requisitos impredecibles de recursos de memoria, E/S y CPU. Con estas subidas y bajadas en la demanda, ¿cómo asigna recursos? Tradicionalmente, había dos opciones: aprovisionar en exceso los recursos según el uso máximo, y pagar de más, o bien aprovisionar por defecto para ahorrar costos, a costa de rendimiento y satisfacción del cliente durante las horas de actividad máxima. Los grupos de bases de datos elásticas resuelven este problema al garantizar que las bases de datos obtienen los recursos de rendimiento que necesitan, cuando los necesitan, al tiempo que proporcionan un mecanismo sencillo de asignación de recursos dentro de un presupuesto predecible.
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
-Los grupos de bases de datos elásticas garantizan que las bases de datos obtienen los recursos de rendimiento que necesitan y al mismo tiempo proporcionan un mecanismo simple de asignación de recursos y un presupuesto predecible. A un grupo se le asigna un número fijo de eDTU, por un precio fijo. Dentro del grupo, a las bases de datos individuales se les proporciona la flexibilidad de escalarse automáticamente dentro de unos parámetros establecidos. Con cargas elevadas, una base de datos puede consumir más eDTU para satisfacer la demanda. Las bases de datos con cargas ligeras consumen menos y las bases de datos sin carga no consumen ninguna eDTU. El aprovisionamiento de recursos para el grupo entero en lugar de para bases de datos únicas simplifica las tareas de administración. Además, cuenta con un presupuesto predecible para el grupo.
+En Base de datos SQL, la medida relativa de la capacidad de una base de datos para administrar demandas de recursos se expresa en unidades de transacción de base de datos (DTU) para bases de datos únicas y DTU elásticas (eDTU) para grupos de bases de datos elásticas. Consulte [Introducción a Base de datos SQL](sql-database-technical-overview.md#understand-dtus) para aprender más sobre las DTU y las eDTU.
+
+A un grupo se le asigna un número fijo de eDTU, por un precio fijo. Dentro del grupo, a las bases de datos individuales se les proporciona la flexibilidad de escalarse automáticamente dentro de unos parámetros establecidos. Con cargas elevadas, una base de datos puede consumir más eDTU para satisfacer la demanda. Las bases de datos con cargas ligeras consumen menos y las bases de datos sin carga no consumen ninguna eDTU. El aprovisionamiento de recursos para el grupo entero en lugar de para bases de datos únicas simplifica las tareas de administración. Además, cuenta con un presupuesto predecible para el grupo.
 
 Se pueden agregar eDTU adicionales a un grupo existente sin que la base de datos experimente tiempo de inactividad o su rendimiento se vea afectado de forma negativa. De manera similar, si ya no se necesitan eDTU adicionales, se pueden quitar de un grupo existente en cualquier momento dado.
 
@@ -86,4 +86,4 @@ No se admite la exportación de una base de datos desde un grupo. Actualmente, n
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

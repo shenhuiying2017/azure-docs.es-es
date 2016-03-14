@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Cómo administrar el contenido exclusivo de los diferentes tipos de campañas de notificaciones de inserción
@@ -230,4 +230,4 @@ La carga de mosaicos es el texto que se mostrará en el mosaico de la aplicació
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

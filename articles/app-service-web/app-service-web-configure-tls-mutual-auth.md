@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/27/2016" 
 	ms.author="naziml"/>
 
 # Configuración de la autenticación mutua de TLS para una aplicación web
 
 ## Información general ##
 Puede restringir el acceso a la aplicación web de Azure habilitando para este diferentes tipos de autenticación. Una manera de hacerlo es autenticar con un certificado de cliente cuando la solicitud sea a través de TLS/SSL. Este mecanismo se denomina autenticación mutua de TLS o autenticación de certificado de cliente, y en este artículo se detalla cómo configurar la aplicación web para que use la autenticación de certificado de cliente.
+
 > **Nota:** Si accede a su sitio a través de HTTP y no de HTTPS, no recibirá ningún certificado de cliente. Por lo tanto, si la aplicación requiere certificados de cliente, no debe permitir las solicitudes a la aplicación mediante HTTP.
-> 
+
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -181,4 +182,4 @@ El certificado de cliente que se envía a la aplicación no pasa ninguna validac
         }
     }
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

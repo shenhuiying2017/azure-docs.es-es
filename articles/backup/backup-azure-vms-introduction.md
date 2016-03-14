@@ -3,7 +3,7 @@
 	description="Consideraciones importantes al planear la realización de copias de seguridad de máquinas virtuales en Azure"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="copias de seguridad de máquinas virtuales, realizar copias de seguridad de máquinas virtuales"/>
@@ -121,4 +121,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

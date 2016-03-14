@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Integración del SDK de Windows Phone Silverlight Engagement
@@ -35,7 +35,7 @@ El SDK de Mobile Engagement para Windows Silverlight solo se puede integrar en l
 -   Windows Phone 8.0
 -   Windows Phone 8.1 Silverlight
 
-> [AZURE.NOTE]Si va a desarrollar para Windows Phone 8.1 (no Silverlight), consulte entonces el [procedimiento de integración de Windows Universal](mobile-engagement-windows-store-integrate-engagement.md).
+> [AZURE.NOTE] Si va a desarrollar para Windows Phone 8.1 (no Silverlight), consulte entonces el [procedimiento de integración de Windows Universal](mobile-engagement-windows-store-integrate-engagement.md).
 
 ##Instale el SDK de Mobile Engagement Silverlight
 
@@ -95,7 +95,7 @@ Modifique `App.xaml.cs`:
 		   EngagementAgent.Instance.OnActivated(e);
 		}
 
-> [AZURE.WARNING]Se desaconseja encarecidamente agregar la inicialización de Engagement en otro lugar de la aplicación. Sin embargo, tenga en cuenta que el método `EngagementAgent.Instance.Init` se ejecuta en un subproceso dedicado y no en el subproceso de la interfaz de usuario.
+> [AZURE.WARNING] Se desaconseja encarecidamente agregar la inicialización de Engagement en otro lugar de la aplicación. Sin embargo, tenga en cuenta que el método `EngagementAgent.Instance.Init` se ejecuta en un subproceso dedicado y no en el subproceso de la interfaz de usuario.
 
 ##Informes básicos
 
@@ -137,7 +137,7 @@ Modifique el archivo `.xaml.cs` de página:
 		  }
 		}
 
-> [AZURE.WARNING]Si la página hereda del método `OnNavigatedTo`, asegúrese de permitir la llamada `base.OnNavigatedTo(e)`. De lo contrario, no se informará la actividad. De hecho, `EngagementPage` llama a `StartActivity` dentro del método `OnNavigatedTo`.
+> [AZURE.WARNING] Si la página hereda del método `OnNavigatedTo`, asegúrese de permitir la llamada `base.OnNavigatedTo(e)`. De lo contrario, no se informará la actividad. De hecho, `EngagementPage` llama a `StartActivity` dentro del método `OnNavigatedTo`.
 
 #### Archivo XAML
 
@@ -199,7 +199,7 @@ Recomendamos que llame a `StartActivity` dentro del método `OnNavigatedTo` de s
 		   EngagementAgent.Instance.StartActivity("MyPage");
 		}
 
-> [AZURE.IMPORTANT]Asegúrese de finalizar la sesión correctamente.
+> [AZURE.IMPORTANT] Asegúrese de finalizar la sesión correctamente.
 >
 > El SDK de iOS llama automáticamente al método `EndActivity` cuando se cierra la aplicación. Por lo tanto, es **MUY** recomendable llamar al método `StartActivity` cada vez que cambie la actividad del usuario y no llamar **NUNCA** al método `EndActivity`. Este método envía un mensaje al servidor de Engagement indicando que el usuario actual ha salido de la aplicación, lo que afecta a todos los registros de la aplicación.
 
@@ -215,7 +215,7 @@ Para obtener más información, consulte [Cómo usar la API de etiquetado avanza
 
 Puede deshabilitar la característica de informes automáticos de bloqueo de Engagement. A continuación, cuando se produce una excepción no controlada, Engagement no hará nada.
 
-> [AZURE.WARNING]Si tiene previsto deshabilitar esta característica, tenga en cuenta que cuando se produzca un error no controlado en la aplicación, Engagement no enviará la información del bloqueo **NI** tampoco cerrará la sesión ni los trabajos.
+> [AZURE.WARNING] Si tiene previsto deshabilitar esta característica, tenga en cuenta que cuando se produzca un error no controlado en la aplicación, Engagement no enviará la información del bloqueo **NI** tampoco cerrará la sesión ni los trabajos.
 
 Para deshabilitar los informes automáticos de bloqueo, personalice la configuración según la manera en que la declaró:
 
@@ -244,7 +244,7 @@ El argumento es un valor en **milisegundos**. En cualquier momento, si desea vol
 
 El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta al monitor de Engagement: la duración de todas las sesiones y trabajos se redondeará al umbral de ráfaga (por lo tanto, es posible que las sesiones y los trabajos más cortos que el umbral de ráfaga no sean visibles). Se recomienda usar un umbral de ráfaga inferior a 30.000 (30 segundos). Tenga en cuenta que los registros guardados se limitan a 300 elementos. Si el envío es demasiado largo, puede perder algunos registros.
 
-> [AZURE.WARNING]El umbral de ráfaga no se puede configurar en un período inferior a un segundo. Si intenta hacerlo, el SDK mostrará un seguimiento con el error y se restablecerá automáticamente en el valor predeterminado; es decir, cero segundos. Esto hará que el SDK informe los registros en tiempo real.
+> [AZURE.WARNING] El umbral de ráfaga no se puede configurar en un período inferior a un segundo. Si intenta hacerlo, el SDK mostrará un seguimiento con el error y se restablecerá automáticamente en el valor predeterminado; es decir, cero segundos. Esto hará que el SDK informe los registros en tiempo real.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/02/2015"
-   ms.author="Deonhe"/>
+   ms.date="02/29/2016"
+   ms.author="deonhe"/>
 
 # Tutorial: Procesamiento de facturas EDIFACT mediante los Servicios de BizTalk de Azure
 Puede usar el Portal de Servicios de BizTalk para configurar e implementar los contratos X12 y EDIFACT. En este tutorial, vemos cómo crear un contrato EDIFACT para intercambiar facturas entre socios comerciales. Este tutorial se centra en una solución empresarial integral que involucra a dos socios comerciales, Northwind y Contoso, que intercambian mensajes EDIFACT.
@@ -46,7 +46,7 @@ Para completar el escenario, usamos colas de Bus de servicio para enviar la fact
 
 ## Requisitos previos
 
-*   Debe tener un espacio de nombres de Bus de servicio. Para instrucciones sobre cómo crear un espacio de nombres, consulte [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/hh690931.aspx). Supongamos que ya tiene un espacio de nombres del Bus de servicio aprovisionado, llamado **edifactbts**.
+*   Debe tener un espacio de nombres de Bus de servicio. Para instrucciones sobre cómo crear un espacio de nombres, consulte [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supongamos que ya tiene un espacio de nombres del Bus de servicio aprovisionado, llamado **edifactbts**.
 
 *   Debe tener una suscripción a Servicios de BizTalk. Para instrucciones, consulte [Creación de Servicios de BizTalk mediante el Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=302280). En este tutorial, supongamos que tiene una suscripción a Servicios de BizTalk, llamada **contosowabs**.
 
@@ -113,7 +113,7 @@ Los contratos entre socios comerciales se crean entre perfiles de negocio de soc
     3.  En la pestaña **Protocolo**, en la sección **Esquemas**, cargue el esquema **EFACT\_D93A\_INVOIC.xsd**. Este esquema está disponible con el paquete de ejemplo.
 
         ![][4]  
-    4.  En la pestaña **Transformación**, especifique los detalles de las colas de Bus de servicio. Para el contrato del lado de envío, usamos la cola **northwindreceive** para enviar la factura EDIFACT a Northwind y la cola **suspended** para enrutar los mensajes que se suspenden por tener errores durante el procesamiento. Estas colas se crean en [Paso 1: Creación de las colas de Bus de servicio](#BKMK_Queue).
+    4.  En la pestaña **Transformación**, especifique los detalles de las colas de Bus de servicio. Para el contrato del lado de envío, usamos la cola **northwindreceive** para enviar la factura EDIFACT a Northwind y la cola **suspended** para enrutar los mensajes que se suspenden por tener errores durante el procesamiento. Estas colas se crean en **Paso 1: Creación de las colas de Bus de servicio** (en este tema).
 
         ![][5]
 
@@ -129,7 +129,8 @@ Los contratos entre socios comerciales se crean entre perfiles de negocio de soc
 
     4.  En la pestaña **Ruta**, cree un filtro para asegurarse de que solo las confirmaciones de Northwind se enruten a Contoso. En **Configuración de ruta**, haga clic en **Agregar** para crear el filtro de enrutamiento.
 
-        ![][6] 1. Proporcione valores para **Nombre de regla**, **Regla de ruta** y **Destino de ruta**, como se muestra en la imagen.
+        ![][6]
+        1.  Proporcione valores para **Nombre de regla**, **Regla de ruta** y **Destino de ruta**, como se muestra en la imagen.
 
         2.  Haga clic en **Guardar**.
 
@@ -312,4 +313,4 @@ El factor más importante al trabajar con lotes es la emisión real del lote, ta
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -3,7 +3,7 @@
    description="Un webhook que permite a un cliente iniciar un runbook en Automatización de Azure desde una llamada HTTP. Este artículo describe cómo crear un webhook y cómo llamar a uno para que inicie un runbook."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren;sngun"/>
 
 # Webhooks de Automatización de Azure
@@ -194,7 +194,7 @@ Además de usar alertas de Azure como sistema de notificación, también puede i
 
 ### Contexto de alerta
 
-Piense en un recurso de Azure como una máquina virtual; el uso de la CPU de este equipo es una de las métricas clave de rendimiento. Si el uso de la CPU es del 100 % o más de una cantidad determinada durante un período largo de tiempo, es posible que quiera reiniciar la máquina virtual para corregir el problema. Esto puede resolverse configurando una regla de alerta para la máquina virtual y esta regla toma el porcentaje de la CPU como su métrica. El porcentaje de la CPU aquí solo se toma como ejemplo pero hay otras muchas métricas que se pueden configurar para sus recursos de Azure y el reinicio de la máquina virtual es una acción que se lleva a cabo para corregir este problema; puede configurar el runbook para realizar otras acciones.
+Piense en un recurso de Azure como una máquina virtual; el uso de la CPU de este equipo es una de las métricas clave de rendimiento. Si el uso de la CPU es del 100 % o más de una cantidad determinada durante un período largo de tiempo, es posible que quiera reiniciar la máquina virtual para corregir el problema. Esto puede resolverse configurando una regla de alerta para la máquina virtual y esta regla toma el porcentaje de la CPU como su métrica. El porcentaje de la CPU aquí solo se toma como ejemplo pero hay otras muchas métricas que se pueden configurar para sus recursos de Azure y el reinicio de la máquina virtual es una acción que se lleva a cabo para corregir este problema; puede configurar el runbook para realizar otras acciones.
 
 Cuando esta regla de alerta se activa y desencadena el runbook habilitado con webhook, envía el contexto de la alerta al runbook. El [Contexto de alerta](../azure-portal/insights-receive-alert-notifications.md) contiene los detalles incluidos **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** y **Timestamp** que son necesarios para que el runbook identifique el recurso en el que realizará la acción. El contexto de alerta se incrusta en la parte del cuerpo del objeto **WebhookData** enviado al runbook y se puede tener acceso a él con la propiedad **Webhook.RequestBody**.
 
@@ -272,4 +272,4 @@ El siguiente runbook de ejemplo se desencadena cuando se activa la regla de aler
 - Para más información sobre cómo ver el estado de un trabajo de Runbook, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md).
 - [Usar la automatización de Azure para realizar acciones en las alertas de Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -11,10 +11,11 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
+	ms.date="03/02/2016"
 	ms.author="ashmaka"/>
 
 # ¿Qué es Búsqueda de Azure?
+
 Búsqueda de Azure es una solución de búsqueda como servicio en la nube que delega la administración de los servidores y la infraestructura a Microsoft, dejando así un servicio listo para usar que puede completar con sus propios datos y usar para buscar en la aplicación web o móvil. Búsqueda de Azure le permite agregar fácilmente una sólida experiencia de búsqueda a las aplicaciones usando una sencilla [API de REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) o [SDK de .NET](search-howto-dotnet-sdk.md) sin necesidad de administrar la infraestructura de búsqueda o convertirse en un experto en esta materia.
 
 ## Ofrezca a los usuarios una eficaz experiencia de búsqueda
@@ -58,9 +59,9 @@ El **explorador de Búsqueda** permite emitir consultas sobre todos los índices
 ### 1\. Servicio de aprovisionamiento
 Puede poner en marcha un servicio de Búsqueda de Azure mediante el [Portal de Azure](https://portal.azure.com/) o la [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
-Dependiendo de cómo se configure el servicio, usará el nivel Gratis que se comparte con otros suscriptores de Búsqueda de Azure o el [plan de tarifa](https://azure.microsoft.com/pricing/details/search/) Estándar que ofrece recursos dedicados en exclusividad. Al aprovisionar el servicio, también se elige la región del centro de datos que hospeda el servicio.
+Según cómo se configure el servicio de búsqueda, usará el nivel Gratis que se comparte con otros suscriptores de Búsqueda de Azure, o el [nivel de pago](https://azure.microsoft.com/pricing/details/search/) que ofrece recursos dedicados en exclusividad para su servicio. Al aprovisionar el servicio, también se elige la región del centro de datos que hospeda el servicio.
 
-Cuando se utiliza la Búsqueda de Azure en el nivel Estándar, puede escalar el servicio en dos dimensiones: 1) Agregar réplicas para aumentar su capacidad a fin de manejar grandes cargas de consultas y 2) Agregar particiones para agregar almacenamiento para más documentos. Al controlar el almacenamiento de documentos y el rendimiento de consultas por separado, puede personalizar el servicio de búsqueda para sus necesidades específicas.
+Según el nivel de servicio que elija, puede escalar el servicio en dos dimensiones: 1) agregar réplicas para aumentar su capacidad a fin de manejar grandes cargas de consultas y 2) agregar particiones para agregar almacenamiento para más documentos. Al controlar el almacenamiento de documentos y el rendimiento de consultas por separado, puede personalizar el servicio de búsqueda para sus necesidades específicas.
 
 ### 2\. Creación de índice
 Para cargar el contenido en el servicio Búsqueda de Azure, primero debe definir un índice de Búsqueda de Azure. Un índice es como una tabla de base de datos que contiene los datos y puede aceptar consultas de búsqueda. El esquema de índice se define para su asignación a la estructura de los documentos que desea buscar, igual que los campos de una base de datos.
@@ -82,4 +83,4 @@ Puede probar búsqueda de Azure hoy mismo. Si ya tiene una cuenta de Azure, pued
 
 Si no tiene una cuenta de Azure, puede probar una sesión gratuita de 60 minutos sin necesidad de registrarse. Vaya a [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) y seleccione "Aplicación web". A continuación, seleccione la plantilla "ASP.NET + Azure Search" para empezar.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

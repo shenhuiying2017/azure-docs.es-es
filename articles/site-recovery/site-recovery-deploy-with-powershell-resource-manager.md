@@ -31,7 +31,8 @@ En este artículo se describe, con la ayuda de un ejemplo, cómo usar Windows Po
 
 > [AZURE.NOTE] Actualmente, los cmdlets de PowerShell de Azure Site Recovery permiten realizar configuraciones en escenarios de sitio VMM a sitio VMM, sitio VMM a sitio de Hyper-V y Azure, y sitio de Hyper-V a Azure. Próximamente se agregará compatibilidad con otros escenarios de ASR.
 
-No es necesario ser un experto en PowerShell para leer este artículo, pero en él se da por hecho que conoce los conceptos básicos, como módulos, cmdlets y sesiones. Para obtener más información acerca de Windows PowerShell, consulte [Introducción a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx). Más información acerca del [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
+No es necesario ser un experto en PowerShell para leer este artículo, pero en él se da por hecho que conoce los conceptos básicos, como módulos, cmdlets y sesiones. Para obtener más información acerca de Windows PowerShell, consulte [Introducción a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
+- Lea más sobre el [uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md)
 
 
 ## Principales características
@@ -109,7 +110,7 @@ Este artículo muestra con la ayuda de un ejemplo cómo usar Azure PowerShell co
 
 2. Cree un nuevo almacén de Servicios de recuperación de Azure como sigue:
 
-		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName <string> -Location <string>
+		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
 	Puede recuperar una lista de los almacenes existentes con el cmdlet `Get-AzureRmRecoveryServicesVault`.
 
@@ -261,4 +262,4 @@ Este artículo muestra con la ayuda de un ejemplo cómo usar Azure PowerShell co
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="02/25/2016"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar volúmenes (Update 2)
@@ -182,18 +182,32 @@ Para ver un vídeo que muestra cómo expandir un volumen, haga clic [aquí](http
 
 ## Cambiar el tipo de volumen
 
-Puede cambiar el tipo de volumen en capas por uno anclado localmente y viceversa. Normalmente, son volúmenes existentes de pequeño tamaño a los que quiere acceder con frecuencia. Sin embargo, esta conversión no debería tener lugar con frecuencia. Algunas de las razones para convertir un volumen en capas por uno volumen anclado localmente son:
+Puede cambiar el tipo de volumen en capas por uno anclado localmente y viceversa. Sin embargo, esta conversión no debería tener lugar con frecuencia. Algunas de las razones para convertir un volumen en capas por uno volumen anclado localmente son:
 
 - Garantías locales respecto a la disponibilidad de datos y el rendimiento.
 - Eliminación de problemas de conectividad y latencias en la nube.
 
-Un volumen anclado localmente está aprovisionado por completo cuando se crea. Si va a convertir un volumen en capas en uno anclado localmente, StorSimple comprueba que haya espacio suficiente en el dispositivo antes de iniciar la conversión. Si no tiene suficiente espacio, recibirá un error y se cancelará la operación.
+Normalmente, son volúmenes existentes de pequeño tamaño a los que quiere acceder con frecuencia. Un volumen anclado localmente está aprovisionado por completo cuando se crea. Si va a convertir un volumen en capas en uno anclado localmente, StorSimple comprueba que haya espacio suficiente en el dispositivo antes de iniciar la conversión. Si no tiene suficiente espacio, recibirá un error y se cancelará la operación.
 
 > [AZURE.NOTE] Antes de comenzar la conversión de un volumen en capas en uno anclado localmente, asegúrese de tener en cuenta los requisitos de espacio de las otras cargas de trabajo.
 
 Puede que desee cambiar un volumen anclado localmente por uno en capas si necesita espacio adicional para aprovisionar otros volúmenes. Al convertir el volumen anclado localmente en un volumen en capas, la capacidad disponible en el dispositivo aumenta en proporción al tamaño de la capacidad liberada. Si los problemas de conectividad impiden la conversión de un volumen local en un volumen en capas, el volumen local exhibirá propiedades de un volumen en capas hasta que finalice la conversión. Esto se debe a que algunos datos podrían haberse escrito en la nube. Estos datos escritos seguirán ocupando espacio local en el dispositivo que no se podrá liberar hasta que la operación se reinicie y finalice.
 
 >[AZURE.NOTE] La conversión de un volumen puede tardar algún tiempo y una conversión no se puede cancelar una vez que se ha iniciado. El volumen permanece en línea durante la conversión y puede realizar copias de seguridad, pero no puede expandir ni restaurar el volumen mientras dura la operación.
+
+La conversión de un volumen en capas en uno anclado localmente puede afectar de forma negativa al rendimiento del dispositivo. Además, los siguientes factores podrían aumentar el tiempo que se tarda en completar la conversión:
+
+- No hay suficiente ancho de banda.
+- El dispositivo está lleno y ya está escribiendo en la nube.
+- No hay ninguna copia de seguridad actual.
+
+Para minimizar los efectos de estos factores:
+
+- Revise su directivas de límite de ancho de banda y asegúrese de que haya disponible un ancho de banda dedicado de 40 Mbps.
+- Programe la conversión para las horas de poca actividad.
+- Realice una copia de seguridad antes de comenzar la conversión.
+
+Si va a convertir varios volúmenes (compatibles con diferentes cargas de trabajo), debe dar precedencia a la conversión de los volúmenes de mayor prioridad. Por ejemplo, debe convertir los volúmenes que hospedan máquinas virtuales o volúmenes con cargas de trabajo SQL antes que los volúmenes con cargas de trabajo de recursos compartidos de archivos.
 
 #### Para cambiar el tipo de volumen
 
@@ -285,4 +299,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

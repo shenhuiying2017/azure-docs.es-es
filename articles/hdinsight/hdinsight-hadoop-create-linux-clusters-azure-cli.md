@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/22/2016"
+   	ms.date="02/29/2016"
    	ms.author="larryfr"/>
 
 #Crear clústeres basados en Linux en HDInsight con la CLI de Azure
@@ -57,8 +57,8 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
 
 4. Cree una plantilla para el clúster de HDInsight. A continuación encontrará algunas plantillas de ejemplo básico:
 
-    * [Clúster basado en Linux, con una clave SSH pública](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-publickey)
-    * [Clúster basado en Linux, con una contraseña para la cuenta SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password)
+    * [Clúster basado en Linux, con una clave SSH pública](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey)
+    * [Clúster basado en Linux, con una contraseña para la cuenta SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)
 
     Ambas plantillas también crean la cuenta de Almacenamiento de Azure predeterminada que usa HDInsight.
 
@@ -83,7 +83,7 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
 5. Utilice la siguiente instrucción para crear un grupo de recursos vacío. Reemplace __RESOURCEGROUPNAME__ por el nombre que desea usar para este grupo. Reemplace __UBICACIÓN__ por el centro de datos que en el que quiere crear su clúster de HDInsight:
 
         azure group create RESOURCEGROUPNAME LOCATION
-    
+
     > [AZURE.NOTE] Si el nombre de la ubicación contiene espacios, escríbalo entre comillas. Por ejemplo, "Centro-Sur de EE.UU."
 
 6. Utilice el siguiente comando para crear la implementación inicial de este grupo de recursos. Reemplace __PATHTOTEMPLATE__ por la ruta de acceso al archivo de plantilla __azuredeploy.json__. Reemplace __PATHTOPARAMETERSFILE__ por la ruta de acceso al archivo de plantilla __azuredeploy.parameters.json__. Reemplace __RESOURCEGROUPNAME__ por el nombre del grupo que creó en el paso anterior:
@@ -95,7 +95,7 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
 7. La implementación puede tardar un tiempo en completarse, unos 15 minutos. Puede ver información acerca de la implementación con el siguiente comando. Reemplace __RESOURCEGROUPNAME__ por el nombre del grupo de recursos que se usó en el paso anterior:
 
         azure group log show -l RESOURCEGROUPNAME
-    
+
     Cuando finalice la implementación, el campo __Estado__ contendrá el valor __Correcto__. Si se produce un error durante la implementación, puede obtener más información sobre dicho error con el siguiente comando
 
         azure group log show -l -v RESOURCEGROUPNAME
@@ -121,4 +121,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

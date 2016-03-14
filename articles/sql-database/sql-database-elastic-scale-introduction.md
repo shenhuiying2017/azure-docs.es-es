@@ -21,7 +21,7 @@
 Las característica de la **base de datos elástica** le permiten usar los recursos prácticamente ilimitados de bases de datos de **Base de datos SQL de Azure** para crear soluciones para cargas de trabajo transaccionales y especialmente aplicaciones de Software como servicio (SaaS). Las características de la base de datos elástica se componen de lo siguiente:
 
 * Herramientas de base de datos elástica: estas dos herramientas simplifican el desarrollo y la administración de soluciones de base de datos particionada. Las herramientas son: la [biblioteca de cliente de bases de datos elástica](sql-database-elastic-database-client-library.md) y la [herramienta de división y combinación de base de datos elástica](sql-database-elastic-scale-overview-split-and-merge.md). 
-* [Grupos de base de datos elástica](sql-database-elastic-pool-guidance.md) (vista previa): un grupo es una colección de bases de datos a la que puede agregar o quitar bases de datos en cualquier momento. Las bases de datos del grupo comparten una cantidad fija de recursos (conocidos como unidades de rendimiento de base de datos o DTU). Se paga un precio fijo por los recursos, lo que le permite calcular con facilidad los costos al administrar el rendimiento. 
+* [Grupos de base de datos elástica](sql-database-elastic-pool-guidance.md) (vista previa): un grupo es una colección de bases de datos a la que puede agregar o quitar bases de datos en cualquier momento. Las bases de datos del grupo comparten una cantidad fija de recursos (conocidos como unidades de transacción de base de datos o DTU). Se paga un precio fijo por los recursos, lo que le permite calcular con facilidad los costos al administrar el rendimiento. 
 * [Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md) (vista previa): use trabajos para administrar un gran número de bases de datos de SQL de Azure. Realice fácilmente operaciones administrativas, como cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o de trabajos de recolección de telemetría de inquilinos (cliente).
 * [Consulta de Base de datos elástica](sql-database-elastic-query-overview.md) (vista previa): le permite ejecutar una consulta de Transact-SQL que abarca varias bases de datos. Esto permite la conexión con herramientas de informes, como Excel, PowerBI, Tableau, etc.
 
@@ -108,4 +108,4 @@ Para ver los detalles del grupo de bases de datos elásticas, consulte [Consider
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

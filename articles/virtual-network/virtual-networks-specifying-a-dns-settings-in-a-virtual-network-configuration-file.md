@@ -7,7 +7,7 @@
    manager="carmonm"
    editor="tysonn" 
    tags="azure-service-management" />
-<tags 
+<tags  
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -15,6 +15,7 @@
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
    ms.author="telmos" />
+
 
 # Especificación de una configuración DNS en un archivo de configuración de red virtual
 
@@ -52,6 +53,6 @@ El archivo de configuración de red puede contener los siguientes elementos. El 
 
 - Entienda el [esquema de configuración de la red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
 - Entienda el [esquema de configuración del servicio de Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
-- [Configuración de una red virtual mediante archivos de configuración de red](virtual-networks-using-network-configuration-file.md).
+- [Configuración de una red virtual mediante un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

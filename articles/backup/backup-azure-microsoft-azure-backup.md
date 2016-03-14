@@ -20,7 +20,7 @@
 # Preparación para la copia de seguridad de cargas de trabajo en Microsoft Azure
 
 > [AZURE.SELECTOR]
-- [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md)
 - [System Center DPM](backup-azure-dpm-introduction.md)
 
 En este artículo, se trata cómo preparar el entorno para hacer copias de seguridad de las cargas de trabajo con el servidor de Copia de seguridad de Azure. Con el servidor de Copia de seguridad de Azure, puede proteger cargas de trabajo de aplicaciones como máquinas virtuales de Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange y clientes Windows desde una única consola:
@@ -36,11 +36,11 @@ El primer paso para que funcione el servidor de Copia de seguridad de Azure es t
 | Ubicación | Requisitos mínimos | Instrucciones adicionales |
 | -------- | -------------------- | ----------------------- |
 | Azure | Máquina virtual de Azure IaaS<br><br>A2 Standard: 2 núcleos, 3,5 GB de RAM | Puede comenzar por una galería de imágenes sencilla de Windows Server 2012 R2 Datacenter. [La protección de cargas de trabajo de IaaS con el servidor de Copia de seguridad de Azure (DPM)](https://technet.microsoft.com/library/jj852163.aspx) presenta numerosos matices. Asegúrese de leer el artículo completo antes de implementar la máquina. |
-| Local | Máquina virtual de Hyper-V,<br> máquina virtual de VMWare<br> o un host físico<br><br>2 núcleos y 4 GB de RAM | Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Server. Obtenga más información sobre cómo funcionan [DPM y la desduplicación](https://technet.microsoft.com/library/dn891438.aspx) juntos al implementarlos en máquinas virtuales de Hyper-V. |
+| Local | Máquina virtual de Hyper-V,<br> Máquina virtual de VMWare<br> o un host físico<br><br>2 núcleos y 4 GB de RAM | Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Server. Obtenga más información sobre cómo funcionan [DPM y la desduplicación](https://technet.microsoft.com/library/dn891438.aspx) juntos al implementarlos en las máquinas virtuales de Hyper-V. |
 
 > [AZURE.NOTE] Se recomienda instalar el servidor de Copia de seguridad de Azure en una máquina con Windows Server 2012 R2 Datacenter. Muchos de los requisitos previos quedan resueltos automáticamente con la versión más reciente del sistema operativo Windows.
 
-Si planea unir este servidor a un dominio en algún momento, se recomienda que la actividad de unión a dominio se realice antes de la instalación del servidor de Copia de seguridad de Azure. *No se admite* mover una máquina del servidor de Copia de seguridad de Azure existente a un dominio nuevo después de la implementación.
+Si planea unir este servidor a un dominio en algún momento, se recomienda que la actividad de unión a dominio se realice antes de la instalación del servidor de Copia de seguridad de Azure. *No se permite* mover una máquina del servidor de Copia de seguridad de Azure existente a un dominio nuevo después de la implementación.
 
 ## 2\. Almacén de copia de seguridad
 
@@ -66,7 +66,7 @@ Para crear un almacén de copia de seguridad:
 
 6. Un mensaje confirma que el almacén se ha creado correctamente y se mostrará en la página de servicios de recuperación como activo. ![Lista de copias de seguridad](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
 
-  > [AZURE.IMPORTANT] Asegúrese de que se ha elegido la opción de redundancia de almacenamiento apropiada justo después de que se ha creado el almacén. Lea más sobre cómo [establecer la opción de redundancia de almacenamiento en el almacén de copia de seguridad](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+  > [AZURE.IMPORTANT] Asegúrese de que se ha elegido la opción de redundancia de almacenamiento apropiada justo después de que se ha creado el almacén. Obtenga más información sobre las opciones [con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) y [con redundancia local](../storage/storage-redundancy.md#locally-redundant-storage) en esta [Introducción](../storage/storage-redundancy.md).
 
 
 ## 3\. Paquete de software
@@ -85,21 +85,21 @@ De forma similar a las credenciales del almacén, puede descargar Copia de segur
 
     ![Centro de descarga 1](./media/backup-azure-microsoft-azure-backup/downloadcenter1.png)
 
-3. Seleccione todos los archivos y haga clic en **Next** (Siguiente). Descargue todos los archivos procedentes de la página de descarga de Copia de seguridad de Microsoft Azure y colóquelos en la misma carpeta. ![Centro de descarga 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+3. Seleccione todos los archivos y haga clic en **Siguiente**. Descargue todos los archivos procedentes de la página de descarga de Copia de seguridad de Microsoft Azure y colóquelos en la misma carpeta. ![Centro de descarga 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
     Puesto que el tamaño de descarga de todos los archivos juntos es de más de 3 GB, con un vínculo de descarga a 10 Mbps, se puede tardar hasta 60 minutos en completarla.
 
 
 ### Extracción del paquete de software
 
-Después de descargar todos los archivos, haga clic en **MicrosoftAzureBackupInstaller.exe**. Esto iniciará el **Asistente para instalación de Copia de seguridad de Microsoft Azure** y extraerá los archivos de instalación en una ubicación especificada por el usuario. Siga con el asistente y haga clic en el botón **Extract** (Extraer) para comenzar el proceso de extracción.
+Después de descargar todos los archivos, haga clic en **MicrosoftAzureBackupInstaller.exe**. Esto iniciará el **Asistente para instalación de Copia de seguridad de Microsoft Azure** y extraerá los archivos de instalación en una ubicación especificada por el usuario. Siga con el asistente y haga clic en el botón **Extraer** para comenzar el proceso de extracción.
 
 > [AZURE.WARNING] Se requieren al menos 4 GB de espacio libre para extraer los archivos de instalación.
 
 
 ![Asistente para instalación de Copia de seguridad de Microsoft Azure](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Una vez completado el proceso de extracción, marque la casilla para iniciar el archivo *setup.exe* recién extraído y empezar a instalar el servidor de Copia de seguridad de Microsoft Azure y, a continuación, haga clic en el botón **Finish** (Finalizar).
+Una vez completado el proceso de extracción, marque la casilla para iniciar el archivo *setup.exe* recién extraído y empezar a instalar el servidor de Copia de seguridad de Microsoft Azure y, a continuación, haga clic en el botón **Finalizar**.
 
 ### Instalación del paquete de software
 
@@ -107,11 +107,11 @@ Una vez completado el proceso de extracción, marque la casilla para iniciar el 
 
     ![Asistente para instalación de Copia de seguridad de Microsoft Azure](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-2. En la pantalla de bienvenida, haga clic en **Next** (Siguiente). Esto le lleva a la sección *Prerequisite Checks* (Comprobaciones de requisitos previos). En esta pantalla, haga clic en el botón **Check** (Comprobar) para determinar si se cumplieron los requisitos previos de hardware y software para el servidor de Copia de seguridad de Azure. Si se cumplieron todos los requisitos previos, verá un mensaje que indica que la máquina los cumple. Haga clic en el botón **Next** (Siguiente).
+2. En la pantalla de bienvenida, haga clic en **Siguiente**. Esto le lleva a la sección *Comprobaciones de requisitos previos*. En esta pantalla, haga clic en el botón **Comprobar** para determinar si se cumplieron los requisitos previos de hardware y software para el servidor de Copia de seguridad de Azure. Si se cumplieron todos los requisitos previos, verá un mensaje que indica que la máquina los cumple. Haga clic en el botón **Siguiente**.
 
     ![Servidor de Copia de seguridad Azure - Bienvenida y requisitos previos](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
-3. El servidor de Copia de seguridad de Microsoft Azure requiere SQL Server Standard y en el paquete de instalación del servidor de Copia de seguridad de Azure se incluyen los correspondientes archivos binarios de SQL Server necesarios. Cuando comience una nueva instalación del servidor de Copia de seguridad de Azure, debe elegir la opción **Install new Instance of SQL Server with this Setup** (Instalar nueva instancia de SQL Server con esta configuración) y hacer clic en el botón **Check and Install** (Comprobar e instalar). Una vez que los requisitos previos se instalen correctamente, haga clic en **Next** (Siguiente).
+3. El servidor de Copia de seguridad de Microsoft Azure requiere SQL Server Standard y en el paquete de instalación del servidor de Copia de seguridad de Azure se incluyen los correspondientes archivos binarios de SQL Server necesarios. Cuando comience una nueva instalación del servidor de Copia de seguridad de Azure, debe elegir la opción **Instalar nueva instancia de SQL Server con esta configuración** y hacer clic en el botón **Comprobar e instalar**. Una vez que los requisitos previos se instalen correctamente, haga clic en **Next** (Siguiente).
 
     ![Servidor de Copia de seguridad de Azure - Comprobación de SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -211,4 +211,4 @@ Puede usar estos artículos para mejorar la comprensión sobre la protección de
 - [Copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
 - [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

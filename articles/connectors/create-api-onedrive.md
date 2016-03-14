@@ -14,16 +14,17 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/22/2016"
-ms.author="deonhe"/>
+ms.date="02/25/2016"
+ms.author="mandia"/>
 
 # Introducción a la API de OneDrive
 
-Conéctese a OneDrive para administrar sus archivos. Puede realizar diversas acciones en archivos de OneDrive: carga, actualización, obtención y eliminación.
+Conéctese a OneDrive para administrar los archivos, incluyendo las tareas de carga, obtención y eliminación de archivos, y muchas más. La API de OneDrive puede usarse desde:
 
-La API de OneDrive puede usarse desde PowerApps Enterprise y aplicaciones lógicas.
+- PowerApps 
+- Aplicaciones lógicas 
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [API de OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01 Versión preliminar, haga clic en [API de OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
 
 Con OneDrive, puede:
 
@@ -32,7 +33,7 @@ Con OneDrive, puede:
 - Usar acciones para crear o eliminar un archivo, entre otras muchas cosas. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se crea un nuevo archivo en OneDrive, puede enviar ese archivo por correo electrónico mediante Office 365.
 - Agregue la API de OneDrive a PowerApps Enterprise. Así los usuarios pueden usar esta API en sus aplicaciones. 
 
-Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Si desea información sobre cómo agregar una API en PowerApps Enterprise, acuda a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -52,14 +53,13 @@ Cuando agregue OneDrive a PowerApps Enterprise, escriba los valores **Clave de a
 
 1. Vaya a la [página de creación de la aplicación][5] en _Centro para desarrolladores de la Cuenta Microsoft_ e inicie sesión con su _Cuenta Microsoft_.
 
-2. Escriba su **Nombre de la aplicación** acepte el contrato:  
-![Nueva aplicación OneDrive][6]
+2. Escriba su **Nombre de la aplicación** acepte el contrato: ![Nueva aplicación OneDrive][6]
 
 3. En la configuración:
 
 	1. Seleccione **Configuración de API**.  
 	2. Establezca **URL de redireccionamiento** en el valor mostrado al agregar la nueva API de OneDrive en el Portal de Azure.  
-	3. Haga clic en **Guardar** para guardar los cambios.  
+	3. **Guarde** los cambios.  
 
 	![Configuración de la API de la aplicación OneDrive][7]
 
@@ -75,8 +75,8 @@ Después de crear la conexión, especifique las propiedades de OneDrive, como la
 
 >[AZURE.TIP] Puede usar esta misma conexión en otras aplicaciones lógicas.
 
-## Referencia de API de REST de Swagger
-#### Esta documentación corresponde a la versión: 1.0
+## Referencia de la API de REST de Swagger
+Se aplica a la versión: 1.0.
 
 
 ### Obtener metadatos de archivo mediante el identificador
@@ -215,7 +215,7 @@ Copia un archivo en OneDrive. ```POST: /datasets/default/copyFile```
 
 
 ### Cuando se crea un archivo
-Desencadena un flujo al crear un archivo en una carpeta de OneDrive. ```GET: /datasets/default/triggers/onnewfile```
+Desencadena un flujo cuando se crea un nuevo archivo en una carpeta de OneDrive. ```GET: /datasets/default/triggers/onnewfile```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -232,7 +232,7 @@ Desencadena un flujo al crear un archivo en una carpeta de OneDrive. ```GET: /da
 
 
 ### Desencadena un flujo al modificar un archivo en una carpeta de OneDrive
-Desencadena un flujo al modificar un archivo en una carpeta de OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
+Desencadena un flujo cuando se modifica un archivo en una carpeta de OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -317,11 +317,11 @@ Extrae una carpeta a OneDrive. ```POST: /datasets/default/extractFolderV2```
 ## Pasos siguientes
 Después de agregar la API de OneDrive a PowerApps Enterprise, [conceda permisos a los usuarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar dicha API en sus aplicaciones.
 
-[Cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 [5]: https://account.live.com/developers/applications/create
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
 [7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -27,7 +27,7 @@ Con el conector de Slack, puede:
 
 * Usarlo para crear aplicaciones lógicas
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Hablemos de acciones y desencadenadores
 
@@ -48,6 +48,19 @@ Para usar la API de Slack, cree primero una **conexión** y después proporcione
 | ---|---|---|
 |Se necesita el cifrado de tokens|Sí|Proporcionar credenciales de Slack|
 
+Siga estos pasos para iniciar sesión en Slack y completar la configuración de la **conexión** de Slack en la aplicación lógica:
+
+1. Seleccione **Periodicidad**.
+2. Seleccione una **Frecuencia** y escriba un **Intervalo**
+3. Seleccione **Agregar una acción** ![Configurar Slack][1]  
+4. Escriba Slack en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan Slack en el nombre.
+5. Seleccione **Slack - exponer mensaje**
+6. Seleccione **Iniciar sesión en Slack**: ![Configurar Slack][2]
+7. Proporcione sus credenciales de Slack para iniciar sesión y autorizar la aplicación ![Configurar Slack][3]  
+8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** a Slack a interactuar con la aplicación lógica: ![Configurar Slack][5] 
+9. Una vez completada la autorización se le redirigirá a la aplicación lógica para terminar mediante la configuración de la sección **Slack - obtener todos los mensajes**. Agregue otros desencadenadores y acciones que necesite. ![Configurar Slack][6]
+10. Para guardar el trabajo, seleccione **Guardar** en la barra de menús superior.
+
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
@@ -66,7 +79,7 @@ Para usar la API de Slack, cree primero una **conexión** y después proporcione
 |text|cadena|yes|query|Ninguna|Texto del mensaje para enviar. Para opciones de formato, consulte https://api.slack.com/docs/formatting.|
 |nombre de usuario|cadena|no|query|Ninguna|Nombre del bot|
 |as\_user|boolean|no|query|Ninguna|Pasar true para publicar el mensaje como usuario autenticado y no como bot|
-|parse|cadena|no|query|Ninguna|Cambie la forma en que se tratan los mensajes. Para obtener información, consulte https://api.slack.com/docs/formatting.|
+|parse|cadena|no|query|Ninguna|Cambie la forma en que se tratan los mensajes. Para más información, consulte https://api.slack.com/docs/formatting.|
 |link\_names|integer|no|query|Ninguna|Buscar y vincular nombres de usuario y nombres de canal.|
 |unfurl\_links|boolean|no|query|Ninguna|Pasar true para habilitar el despliegue de contenido basado principalmente en texto.|
 |unfurl\_media|boolean|no|query|Ninguna|Pasar false para deshabilitar el despliegue de contenido multimedia.|
@@ -92,7 +105,7 @@ Para usar la API de Slack, cree primero una **conexión** y después proporcione
 
 ## Definiciones de objeto: 
 
- **Message**: mensaje de Yammer
+ **Mensaje**: mensaje de Yammer
 
 Propiedades obligatorias para Message:
 
@@ -370,7 +383,7 @@ Ninguna de las propiedades es obligatoria.
 
 
 
- **RelatedSearchResultModel**: resultados de búsqueda relacionada de Bing
+ **RelatedSearchResultModel**: resultados de búsqueda relacionados con Bing
 
 Propiedades necesarias para RelatedSearchResultModel:
 
@@ -438,7 +451,7 @@ Ninguna de las propiedades es obligatoria.
 
 
 
- **MessageItem**: mensaje de canal.
+ **MessageItem**: un mensaje de canal.
 
 Propiedades obligatorias para MessageItem:
 
@@ -461,4 +474,11 @@ Ninguna de las propiedades es obligatoria.
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+[1]: ./media/create-api-slack/connectionconfig1.png
+[2]: ./media/create-api-slack/connectionconfig2.png
+[3]: ./media/create-api-slack/connectionconfig3.png
+[4]: ./media/create-api-slack/connectionconfig4.png
+[5]: ./media/create-api-slack/connectionconfig5.png
+[6]: ./media/create-api-slack/connectionconfig6.png
+
+<!---HONumber=AcomDC_0302_2016-->

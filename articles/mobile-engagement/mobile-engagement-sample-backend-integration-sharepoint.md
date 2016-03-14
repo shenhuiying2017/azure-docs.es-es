@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement: Integración de la API
@@ -26,7 +26,7 @@ Generalmente, los usuarios usan la interfaz front-end de Azure Mobile Engagement
 
 Este tutorial recorre este escenario en el que un usuario empresarial de SharePoint rellena una lista de SharePoint con datos de marketing y un proceso automatizado recoge elementos de la lista y se conecta con Mobile Engagement mediante las API de REST disponibles para crear una campaña de marketing a partir de los datos de SharePoint.
  
-> [AZURE.IMPORTANT]En general, puede usar este ejemplo como punto de partida para comprender cómo llamar a cualquier API de REST de Mobile Engagement, porque explica con detalle los dos aspectos clave de las llamadas a las API: la autenticación y el paso de parámetros.
+> [AZURE.IMPORTANT] En general, puede usar este ejemplo como punto de partida para comprender cómo llamar a cualquier API de REST de Mobile Engagement, porque explica con detalle los dos aspectos clave de las llamadas a las API: la autenticación y el paso de parámetros.
 
 ## Integración de SharePoint
 1. Este es el aspecto de la lista de SharePoint de ejemplo. Se usan **Title**, **Category**, **NotificationTitle**, **Message** y **URL** para crear el anuncio. Hay una columna llamada **IsProcessed** que el proceso de automatización del ejemplo usa en forma de un programa de consola. Puede ejecutar esta consola del programa como un trabajo web de Azure para poder programarla o puede usar directamente el flujo de trabajo de SharePoint en el programa para crear y activar el anuncio cuando se inserta un elemento en la lista de SharePoint. En este ejemplo se usa el programa de consola que pasa por los elementos de la lista de SharePoint y crea un anuncio en Azure Mobile Engagement para cada uno de ellos y, por último, marca **IsProcessed** como true cuando el anuncio se crea correctamente.
@@ -105,7 +105,7 @@ Este tutorial recorre este escenario en el que un usuario empresarial de SharePo
             return returnValue;
         }  
 
-3. Para crear una campaña de tipo announcement, consulte la [documentación](https://msdn.microsoft.com/library/dn913754.aspx). Debe asegurarse de que está especificando la campaña `kind` como *announcement* y la [carga](https://msdn.microsoft.com/library/dn913749.aspx), y páselo como FormUrlEncodedContent.
+3. Para crear una campaña de tipo announcement, consulte la [documentación](https://msdn.microsoft.com/library/azure/mt683750.aspx). Debe asegurarse de que está especificando la campaña `kind` como *announcement* y la [carga](https://msdn.microsoft.com/library/azure/mt683751.aspx), y páselo como FormUrlEncodedContent.
 
 		static async Task<int> CreateAzMECampaign(string campaignName, string notificationTitle, 
             string notificationMessage, string notificationCategory, string actionURL)
@@ -195,7 +195,7 @@ Este tutorial recorre este escenario en el que un usuario empresarial de SharePo
 
 8. También podrá observar que el elemento de lista marcado con IsProcessed = false se ha establecido en true una vez creada la campaña de anuncio.
 
-Este ejemplo crea una campaña de anuncio simple y especifica principalmente las propiedades necesarias. Puede personalizarla mucho más en el portal usado [esta](https://msdn.microsoft.com/library/dn913749.aspx) información.
+Este ejemplo crea una campaña de anuncio simple y especifica principalmente las propiedades necesarias. Puede personalizarla mucho más en el portal usado [esta](https://msdn.microsoft.com/library/azure/mt683751.aspx) información.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-sample-backend-integration-sharepoint/sharepointlist.png
@@ -207,4 +207,4 @@ Este ejemplo crea una campaña de anuncio simple y especifica principalmente las
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

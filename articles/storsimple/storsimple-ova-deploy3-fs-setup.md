@@ -13,30 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Implementar una matriz virtual de StorSimple: Configurar un servidor de archivos (versión preliminar)
+# Implementar una matriz virtual de StorSimple: Configurar un servidor de archivos
 
 ![](./media/storsimple-ova-deploy3-fs-setup/fileserver4.png)
 
 ## Introducción 
 
-Este artículo se aplica a la matiz virtual de Microsoft Azure StorSimple (también conocido como dispositivo virtual StorSimple local o dispositivo virtual StorSimple) 1.1.1.0 (versión preliminar) únicamente. En este artículo se describe cómo realizar la instalación inicial, registrar el servidor de archivos de StorSimple, completar la instalación del dispositivo y crear y conectarse a recursos compartidos de SMB. Este es el último artículo de la serie de tutoriales de implementación necesarios para implementar completamente la matriz virtual como servidor de archivos o servidor iSCSI.
+Este artículo se aplica a la matiz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple o dispositivo virtual de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016. En este artículo se describe cómo realizar la instalación inicial, registrar el servidor de archivos de StorSimple, completar la instalación del dispositivo y crear y conectarse a recursos compartidos de SMB. Este es el último artículo de la serie de tutoriales de implementación necesarios para implementar completamente la matriz virtual como servidor de archivos o servidor iSCSI.
 
 El proceso de instalación y configuración puede tardar unos 10 minutos en completarse.
 
-> [AZURE.IMPORTANT]
-> 
-> Esta versión preliminar pública está pensada para evaluación únicamente. No se admite la instalación de esta versión preliminar en un entorno de producción.
 
 ## Requisitos previos de instalación
 
 Antes de instalar y configurar el dispositivo virtual StorSimple, asegúrese de que:
 
--   Ha aprovisionado un dispositivo virtual y se ha conectado a él según se detalla en la sección [Aprovisionar una matriz virtual de StorSimple en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o [Aprovisionar una matriz virtual de StorSimple en VMware](storsimple-ova-deploy2-provision-vmware.md).
+-   Ha aprovisionado un dispositivo virtual y se ha conectado a él según se detalla en la sección [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) (Aprovisionar una matriz virtual de StorSimple en Hyper-V) o [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md) (Aprovisionar una matriz virtual de StorSimple en VMware).
 
--   Tiene la clave de registro del servicio de StorSimple Manager que creó para administrar dispositivos virtuales StorSimple. Para obtener más información, consulte [Paso 2: Obtener la clave de registro del servicio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para la matriz virtual de StorSimple.
+-   Tiene la clave de registro del servicio de StorSimple Manager que creó para administrar dispositivos virtuales StorSimple. Para más información, consulte [Paso 2: Obtener la clave de registro del servicio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para la matriz virtual de StorSimple.
 
 -   Si este es el segundo dispositivo virtual o subsiguiente que registra en un servicio de StorSimple Manager existente, debe tener la clave de cifrado de datos del servicio. Esta clave se generó cuando el primer dispositivo se registró correctamente en este servicio. Si perdió esta clave, consulte la sección [Obtener la clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) para la matriz virtual de StorSimple.
 
@@ -53,37 +50,37 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
     `https://<ip-address of network interface>`
 
-	Use la dirección URL de conexión que anotó en el paso anterior. Verá un error que indica que hay un problema con el certificado de seguridad del sitio web. Haga clic en **Continuar a esta página web**.
+	Use la dirección URL de conexión que anotó en el paso anterior. Verá un error que indica que hay un problema con el certificado de seguridad del sitio web. Haga clic en **Continue to this webpage** (Continuar a esta página web).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  Inicie sesión en la interfaz de usuario web del dispositivo virtual como **StorSimpleAdmin**. Escriba la contraseña del administrador de dispositivos que cambió en el paso 3: Iniciar el dispositivo virtual en [Aprovisionar una matriz virtual de StorSimple en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o en [Aprovisionar una matriz virtual de StorSimple en VMware](storsimple-ova-deploy2-provision-vmware.md).
+1.  Inicie sesión en la interfaz de usuario web del dispositivo virtual como **StorSimpleAdmin**. Escriba la contraseña del administrador de dispositivos que cambió en el paso 3: Iniciar el dispositivo virtual en [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) (Aprovisionar una matriz virtual de StorSimple en Hyper-V) o en [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md) (Aprovisionar una matriz virtual de StorSimple en VMware).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
-1.  Lo llevará a la página **Inicio**. En esta página se describen los distintos parámetros necesarios para configurar y registrar el dispositivo virtual en el servicio StorSimple Manager. Tenga en cuenta que **Configuración de red**, **Configuración de proxy web** y **Configuración de hora** son opcionales. Los únicos parámetros obligatorios son **Configuración de dispositivo** y **Configuración de la nube**.
+1.  Lo llevará a la página de **inicio**. En esta página se describen los distintos parámetros necesarios para configurar y registrar el dispositivo virtual en el servicio StorSimple Manager. Tenga en cuenta que las opciones **Network settings** (Configuración de red), **Web proxy settings** (Configuración de proxy web) y **Time settings** (Configuración de hora) son opcionales. Los únicos parámetros obligatorios son **Device settings** (Configuración de dispositivo) y **Cloud settings** (Configuración de la nube).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image4.png)
 
-1.  En la página **Configuración de red** en **Interfaces de red**, DATA 0 se configurará automáticamente para usted. Cada interfaz de red se establece de forma predeterminada para obtener la dirección IP automáticamente (DHCP). Por lo tanto, una dirección IP, una subred y una puerta de enlace se asignarán automáticamente (tanto para IPv4 como para IPv6).
+1.  En la página **Network settings** (Configuración de red) en **Network interfaces** (Interfaces de red), DATA 0 se configurará automáticamente para usted. Cada interfaz de red se establece de forma predeterminada para obtener la dirección IP automáticamente (DHCP). Por lo tanto, una dirección IP, una subred y una puerta de enlace se asignarán automáticamente (tanto para IPv4 como para IPv6).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
 
 	Si agrega más de una interfaz de red durante el aprovisionamiento del dispositivo, se pueden configurar aquí. Tenga en cuenta que puede configurar la interfaz de red como IPv4 únicamente o como IPv4 e IPv6. No se admiten las configuraciones de solo IPv6.
 
-1.  Los servidores DNS son necesarios porque se utilizan cuando el dispositivo intenta comunicarse con sus proveedores de servicios de almacenamiento en la nube o para resolver el dispositivo por nombre cuando se configura como servidor de archivos. En la página **Configuración de red** en **Servidores DNS**:
+1.  Los servidores DNS son necesarios porque se utilizan cuando el dispositivo intenta comunicarse con sus proveedores de servicios de almacenamiento en la nube o para resolver el dispositivo por nombre cuando se configura como servidor de archivos. En la página **Network settings** (Configuración de red) en **DNS servers** (Servidores DNS):
 
     1.  Se configurarán automáticamente un servidor DNS principal y secundario. Si decide configurar direcciones IP estáticas, puede especificar servidores DNS. Para lograr la alta disponibilidad, se recomienda que configure un servidor DNS principal y uno secundario.
 
     2.  Haga clic en **Apply**. Esto aplicará y validará la configuración de red.
 
-2.  En la página **Configuración de dispositivo**:
+2.  En la página **Device settings** (Configuración de dispositivo):
 
-    1.  Asigne un **Nombre** exclusivo al dispositivo. Este nombre puede tener de 1 a 15 caracteres y puede contener letras, números y guiones.
+    1.  Asigne un **nombre** exclusivo al dispositivo. Este nombre puede tener de 1 a 15 caracteres y puede contener letras, números y guiones.
 
-    2.  Haga clic en el icono de **servidor de archivos** ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) para el **Tipo** del dispositivo que está creando. Un servidor de archivos le permitirá crear carpetas compartidas.
+    2.  Haga clic en el icono de **servidor de archivos** ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) para el **tipo** del dispositivo que está creando. Un servidor de archivos le permitirá crear carpetas compartidas.
 
-    3.  Como el dispositivo es un servidor de archivos, debe unir el dispositivo a un dominio. Escriba un **Nombre de dominio**.
+    3.  Como el dispositivo es un servidor de archivos, debe unir el dispositivo a un dominio. Escriba un valor en **nombre de dominio**.
 
 	1.  Haga clic en **Apply**.
 
@@ -131,7 +128,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
     1.  Introduzca la **Clave de registro del servicio** que obtuvo en [Paso 2: Obtener la clave de registro del servicio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para la matriz virtual de StorSimple.
 
-    2.  Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **Clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para más información, consulte cómo obtener la [clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
+    2.  Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **Clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para obtener más información, consulte para obtener la [clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
 
     3.  Haga clic en **Registrar**. Se reiniciará el dispositivo. Debe esperar de 2 a 3 minutos antes de que el dispositivo se registre correctamente. Una vez que se haya reiniciado el dispositivo, irá a la página de inicio de sesión.
 
@@ -195,9 +192,9 @@ Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.co
 
     3.  Seleccione un tipo de uso para el recurso compartido. El tipo de uso puede ser **En capas** o **Anclado localmente**, donde el tipo en capas es el valor predeterminado. Para las cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione un recurso compartido **Anclado localmente**. Para todos los demás datos, seleccione un recurso compartido **En capas**.
 
-	Un recurso compartido anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del recurso compartido continúen siendo locales en el dispositivo y que no se traspasan a la nube. Por otro lado, un recurso compartido en capas se aprovisiona de manera fina y se puede crear muy rápidamente. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas.
+	Un recurso compartido anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del recurso compartido continúen siendo locales en el dispositivo y que no se traspasan a la nube. Por otro lado, un recurso compartido en capas se aprovisiona de manera fina y se puede crear muy rápidamente. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas.
 
-1.  Especifique la capacidad aprovisionada para el recurso compartido. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si usa un recurso compartido en capas, el tamaño del recurso compartido debe estar entre 500 GB y 20 TB. Para un recurso compartido anclado localmente, especifique un tamaño de recurso compartido de 50 GB a 2 TB. Use la capacidad disponible como guía para aprovisionar un recurso compartido. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar recursos compartidos locales o en capas.
+1.  Especifique la capacidad aprovisionada para el recurso compartido. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si usa un recurso compartido en capas, el tamaño del recurso compartido debe estar entre 500 GB y 20 TB. Para un recurso compartido anclado localmente, especifique un tamaño de recurso compartido de 50 GB a 2 TB. Use la capacidad disponible como guía para aprovisionar un recurso compartido. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar recursos compartidos locales o en capas.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image18.png)
 
@@ -215,7 +212,7 @@ Ahora, necesitará conectarse a los recursos compartidos que creó en el paso an
 
 #### Para conectarse al recurso compartido
 
-1.  Presione ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. En la ventana Ejecutar, especifique el *\<file server name>* como ruta de acceso, reemplace *nombre del servidor de archivos* por el nombre del dispositivo que asignó a su servidor de archivos. Haga clic en **OK**.
+1.  Presione ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. En la ventana Ejecutar, especifique el *\<file server name>* como la ruta de acceso, reemplace *nombre del servidor de archivos* con el nombre del dispositivo que asignó a su servidor de archivos. Haga clic en **OK**.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image23.png)
 
@@ -235,4 +232,4 @@ Mire el vídeo para ver cómo puede configurar y registrar una matriz virtual de
 
 Obtenga más información acerca de usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

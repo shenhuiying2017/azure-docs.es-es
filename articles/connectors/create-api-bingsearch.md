@@ -15,13 +15,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Introducción a la API Búsqueda de Bing 
-Conéctese a Búsqueda de Bing para buscar noticias, vídeos y mucho más.
+Conéctese a Búsqueda de Bing para buscar noticias, vídeos y mucho más. La API de Búsqueda de Bing se puede utilizar desde:
 
-La API Búsqueda de Bing se puede usar desde PowerApps y las aplicaciones lógicas.
+- Aplicaciones lógicas 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Aplicaciones lógicas](../articles/connectors/create-api-bingsearch.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
+
 
 Con Búsqueda de Bing, puede hacer lo siguiente:
 
@@ -29,9 +35,9 @@ Con Búsqueda de Bing, puede hacer lo siguiente:
 - Usar acciones para buscar imágenes, noticias, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede buscar un vídeo y luego usar Twitter para publicar ese vídeo en una fuente de Twitter.
 - Incorporación de la API Búsqueda de Bing a PowerApps Enterprise. Así los usuarios pueden usar esta API en sus aplicaciones. 
 
-Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API en PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 Búsqueda de Bing incluye las siguientes acciones. No hay desencadenadores.
@@ -57,7 +63,7 @@ Recupera los sitios web de una búsqueda de Bing. ```GET: /Web```
 |query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
 |maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
 |startOffset|integer|no|query| Ninguna|Número de resultados que se van a omitir|
-|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Desactivado</li><li>Moderado</li><li>Estricto</li></ul>|
+|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
 |market|cadena|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
 |longitude|número|no|query| Ninguna|Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
 |latitude|número|no|query| Ninguna|Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
@@ -78,12 +84,12 @@ Recupera vídeos de una búsqueda de Bing. ```GET: /Video```
 |query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
 |maxResult|integer|no|query| Ninguna|El número máximo de resultados que se devolverán|
 |startOffset|integer|no|query|Ninguna |Número de resultados que se van a omitir|
-|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Desactivado</li><li>Moderado</li><li>Estricto</li></ul>|
+|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
 |market|cadena|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
 |longitude|número|no|query|Ninguna |Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
 |latitude|número|no|query|Ninguna |Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
-|videoFilters|cadena|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Duración: Breve</li><li>Duración: Media</li><li>Duración: Larga</li><li>Aspecto: Estándar</li><li>Aspecto: Pantalla panorámica</li><li>Resolución: Baja</li><li>Resolución: Media</li><li>Resolución: Alta</li></ul> <p>Por ejemplo: 'Duración: Breve + Resolución: Alta'</p>|
-|videoSortBy|cadena|no|query|Ninguna |Criterio de ordenación de los resultados. Valores válidos: <ul><li>Fecha</li><li>Relevancia</li></ul> <p>El criterio de ordenación de fecha implica descendente.</p>|
+|videoFilters|cadena|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>Por ejemplo: "Duration:Short+Resolution:High"|
+|videoSortBy|cadena|no|query|Ninguna |Criterio de ordenación de los resultados. Valores válidos: <ul><li>Date (Fecha)</li><li>Relevance (Relevancia)</li></ul> <p>El orden de clasificación por fecha implica un orden descendente.</p>|
 
 #### Respuesta
 |Nombre|Descripción|
@@ -100,11 +106,11 @@ Recupera las imágenes de una búsqueda de Bing. ```GET: /Image```
 |query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
 |maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
 |startOffset|integer|no|query|Ninguna |Número de resultados que se van a omitir|
-|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Desactivado</li><li>Moderado</li><li>Estricto</li></ul>|
+|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
 |market|cadena|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
 |longitude|número|no|query| Ninguna|Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
 |latitude|número|no|query|Ninguna |Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
-|imageFilters|cadena|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Tamaño: Pequeño</li><li>Tamaño: Mediano</li><li>Tamaño: Grande</li><li>Tamaño: Ancho:[ancho]</li><li>Tamaño: Alto:[alto]</li><li>Aspecto: Cuadrado</li><li>Aspecto: Ancho</li><li>Aspecto: Alto</li><li>Color: Color</li><li>Color: Monocromo</li><li>Estilo: Foto</li><li>Estilo: Gráficos</li><li>Cara: Cara</li><li>Cara: Vertical</li><li>Cara: Otros</li></ul><p>Por ejemplo: 'Tamaño: Pequeño + Aspecto: Cuadrado'</p>|
+|imageFilters|cadena|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[ancho]</li><li>Size:Height:[alto]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>Por ejemplo: "Size:Small+Aspect:Square"|
 
 #### Respuesta
 |Nombre|Descripción|
@@ -121,13 +127,13 @@ Recupera los resultados de noticias de una búsqueda de Bing. ```GET: /News```
 |query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
 |maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
 |startOffset|integer|no|query| Ninguna|Número de resultados que se van a omitir|
-|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Desactivado</li><li>Moderado</li><li>Estricto</li></ul>|
+|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
 |market|cadena|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
 |longitude|número|no|query|Ninguna |Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
 |latitude|número|no|query|Ninguna |Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
-|newsSortBy|cadena|no|query| Ninguna|Criterio de ordenación de los resultados. Valores válidos: <ul><li>Fecha</li><li>Relevancia</li></ul> <p>El criterio de ordenación de fecha implica descendente.</p>|
+|newsSortBy|cadena|no|query| Ninguna|Criterio de ordenación de los resultados. Valores válidos: <ul><li>Date (Fecha)</li><li>Relevance (Relevancia)</li></ul> <p>El orden de clasificación por fecha implica un orden descendente.</p>|
 |newsCategory|cadena|no|query| |Categoría de noticias para restringir la búsqueda (ejemplo: 'rt\_Business')|
-|newsLocationOverride|cadena|no|query|Ninguna |Invalida la detección de ubicación de Bing. Este parámetro solo es aplicable en el mercado de es-ES. El formato de entrada es Estados Unidos. /<state /> (ejemplo: 'US.WA')|
+|newsLocationOverride|cadena|no|query|Ninguna |Invalida la detección de ubicación de Bing. Este parámetro solo es aplicable en el mercado de es-ES. El formato de entrada es US./<state /> (ejemplo: "US.WA")|
 
 #### Respuesta
 |Nombre|Descripción|
@@ -144,7 +150,7 @@ Recupera sugerencias de ortografía. ```GET: /SpellingSuggestions```
 |query|cadena|yes|query| Ninguna|Texto que se va a buscar (ejemplo, 'xbox')|
 |maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
 |startOffset|integer|no|query| Ninguna|Número de resultados que se van a omitir|
-|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Desactivado</li><li>Moderado</li><li>Estricto</li></ul>|
+|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
 |market|cadena|no|query| Ninguna|Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
 |longitude|número|no|query|Ninguna |Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
 |latitude|número|no|query|Ninguna |Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
@@ -157,14 +163,14 @@ Recupera sugerencias de ortografía. ```GET: /SpellingSuggestions```
 
 
 ### Buscar relacionados    
-Recupera los resultados de búsqueda relacionados de una búsqueda de Bing. ```GET: /RelatedSearch```
+Recupera los resultados de la búsqueda relacionados de una búsqueda de Bing. ```GET: /RelatedSearch```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
 |query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
 |maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
 |startOffset|integer|no|query| Ninguna|Número de resultados que se van a omitir|
-|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Desactivado</li><li>Moderado</li><li>Estricto</li></ul>|
+|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
 |market|cadena|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
 |longitude|número|no|query|Ninguna |Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
 |latitude|número|no|query| Ninguna|Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
@@ -184,17 +190,17 @@ Recupera todos los sitios web, vídeos, imágenes, etc. de una búsqueda de Bing
 |query|cadena|yes|query|Ninguna |Texto que se va a buscar (ejemplo, 'xbox')|
 |maxResult|integer|no|query|Ninguna |El número máximo de resultados que se devolverán|
 |startOffset|integer|no|query|Ninguna |Número de resultados que se van a omitir|
-|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Desactivado</li><li>Moderado</li><li>Estricto</li></ul>|
+|adultContent|cadena|no|query|Ninguna |Filtro de contenido para adultos. Valores válidos: <ul><li>Off (Desactivado)</li><li>Moderate (Moderado)</li><li>Strict (Estricto)</li></ul>|
 |market|cadena|no|query|Ninguna |Mercado o región para restringir la búsqueda (ejemplo, es-ES)|
 |longitude|número|no|query|Ninguna |Longitud (coordenada este y oeste) para restringir la búsqueda (ejemplo, 47.603450)|
 |latitude|número|no|query|Ninguna |Latitud (coordenada norte/sur) para restringir la búsqueda (ejemplo, -122.329696)|
 |webFileType|cadena|no|query|Ninguna |Tipo de archivo para restringir la búsqueda (ejemplo, 'DOC')|
-|videoFilters|cadena|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Duración: Breve</li><li>Duración: Media</li><li>Duración: Larga</li><li>Aspecto: Estándar</li><li>Aspecto: Pantalla panorámica</li><li>Resolución: Baja</li><li>Resolución: Media</li><li>Resolución: Alta</li></ul> <p>Por ejemplo: 'Duración: Breve + Resolución: Alta'</p>|
-|videoSortBy|cadena|no|query|Ninguna |Criterio de ordenación de los resultados. Valores válidos: <ul><li>Fecha</li><li>Relevancia</li></ul> <p>El criterio de ordenación de fecha implica descendente.</p>|
-|imageFilters|cadena|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Tamaño: Pequeño</li><li>Tamaño: Mediano</li><li>Tamaño: Grande</li><li>Tamaño: Ancho:[ancho]</li><li>Tamaño: Alto:[alto]</li><li>Aspecto: Cuadrado</li><li>Aspecto: Ancho</li><li>Aspecto: Alto</li><li>Color: Color</li><li>Color: Monocromo</li><li>Estilo: Foto</li><li>Estilo: Gráficos</li><li>Cara: Cara</li><li>Cara: Vertical</li><li>Cara: Otros</li></ul><p>Por ejemplo: 'Tamaño: Pequeño + Aspecto: Cuadrado'</p>|
-|newsSortBy|cadena|no|query|Ninguna |Criterio de ordenación de los resultados. Valores válidos: <ul><li>Fecha</li><li>Relevancia</li></ul> <p>El criterio de ordenación de fecha implica descendente.</p>|
+|videoFilters|cadena|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>Por ejemplo: "Duration:Short+Resolution:High"|
+|videoSortBy|cadena|no|query|Ninguna |Criterio de ordenación de los resultados. Valores válidos: <ul><li>Date (Fecha)</li><li>Relevance (Relevancia)</li></ul> <p>El orden de clasificación por fecha implica un orden descendente.</p>|
+|imageFilters|cadena|no|query|Ninguna |Filtro de búsqueda en función del tamaño, el aspecto, el color, el estilo, la cara o cualquier combinación de estos. Valores válidos: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[ancho]</li><li>Size:Height:[alto]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>Por ejemplo: "Size:Small+Aspect:Square"|
+|newsSortBy|cadena|no|query|Ninguna |Criterio de ordenación de los resultados. Valores válidos: <ul><li>Date (Fecha)</li><li>Relevance (Relevancia)</li></ul> <p>El orden de clasificación por fecha implica un orden descendente.</p>|
 |newsCategory|cadena|no|query|Ninguna |Categoría de noticias para restringir la búsqueda (ejemplo: 'rt\_Business')|
-|newsLocationOverride|cadena|no|query|Ninguna |Invalida la detección de ubicación de Bing. Este parámetro solo es aplicable en el mercado de es-ES. El formato de entrada es Estados Unidos. /<state /> (ejemplo: 'US.WA')|
+|newsLocationOverride|cadena|no|query|Ninguna |Invalida la detección de ubicación de Bing. Este parámetro solo es aplicable en el mercado de es-ES. El formato de entrada es US./<state /> (ejemplo: "US.WA")|
 
 #### Respuesta
 |Nombre|Descripción|
@@ -280,7 +286,7 @@ Recupera todos los sitios web, vídeos, imágenes, etc. de una búsqueda de Bing
 |WebResultsTotal|integer|no|
 |ImageResultsTotal|integer|no|
 |VideoResultsTotal|integer|no|
-|NewsResultsTotal|integer|
+|NewsResultsTotal|integer|no|
 |SpellSuggestionsTotal|integer|no|
 |WebResults|array|no|
 |ImageResults|array|no|
@@ -291,8 +297,8 @@ Recupera todos los sitios web, vídeos, imágenes, etc. de una búsqueda de Bing
 
 ## Pasos siguientes
 
-Después de agregar la API Búsqueda de Bing a PowerApps Enterprise, [conceda permisos a los usuarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar la API en sus aplicaciones.
+Después de agregar la API de Búsqueda de Bing a PowerApps Enterprise, [conceda permisos a los usuarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usarla en sus aplicaciones.
 
-[Cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

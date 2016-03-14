@@ -4,7 +4,7 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -59,7 +59,7 @@ En resumen: Nombre de emisor = Nombre de identidad de servicio Clave de emisor =
 
 En el panel de navegación izquierdo también puede seleccionar **Active Directory** para recuperar los valores de control de acceso.
 
-> [AZURE.IMPORTANT]Cuando se crea un espacio de nombres del servicio de control de acceso usando **Active Directory**, **no** se crea automáticamente una identidad de servicio. Cuando aprovisiona un servicio de BizTalk, se crean automáticamente un espacio de nombres del servicio de control de acceso, una identidad de servicio llamada "owner" (nombre de emisor), una contraseña (clave de emisor) y una clave simétrica.<br /> [Uso del servicio de administración de ACS para configurar identidades de servicio](http://go.microsoft.com/fwlink/p/?LinkID=303942) proporciona más información acerca de las identidades del Servicio de control de acceso.
+> [AZURE.IMPORTANT] Cuando se crea un espacio de nombres del servicio de control de acceso usando **Active Directory**, **no** se crea automáticamente una identidad de servicio. Cuando aprovisiona un servicio de BizTalk, se crean automáticamente un espacio de nombres del servicio de control de acceso, una identidad de servicio llamada "owner" (nombre de emisor), una contraseña (clave de emisor) y una clave simétrica.<br /> [Uso del servicio de administración de ACS para configurar identidades de servicio](http://go.microsoft.com/fwlink/p/?LinkID=303942) proporciona más información acerca de las identidades del Servicio de control de acceso.
 
 
 ## Nombre de emisor y clave de emisor del bus de servicio
@@ -92,4 +92,4 @@ Otros temas acerca de los servicios de BizTalk de Azure:
 - [Servicios de BizTalk: limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

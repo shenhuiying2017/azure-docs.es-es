@@ -24,7 +24,7 @@ Use este tutorial para empezar a trabajar con el Almacén de claves de Azure par
 
 **Tiempo estimado para completar el tutorial:** 20 minutos
 
->[AZURE.NOTE]Este tutorial no incluye instrucciones sobre cómo escribir la aplicación de Azure incluida en uno de los pasos, en el que se muestra cómo autorizar a una aplicación para que use una clave o un secreto del Almacén de claves.
+>[AZURE.NOTE]  Este tutorial no incluye instrucciones sobre cómo escribir la aplicación de Azure incluida en uno de los pasos, en el que se muestra cómo autorizar a una aplicación para que use una clave o un secreto del Almacén de claves.
 >
 >Actualmente, no es posible configurar el Almacén de claves de Azure en el portal de Azure. Por el contrario, use la interfaz de la línea de comandos entre plataformas de Azure. O bien, para obtener instrucciones de Azure PowerShell, consulte [este tutorial equivalente](key-vault-get-started.md).
 
@@ -68,7 +68,7 @@ o si desea iniciar sesión escribiendo interactivamente
 
     azure login
 
->[AZURE.NOTE]El método de inicio de sesión solo funciona con la cuenta organizativa. Una cuenta profesional es un usuario administrado por su organización y definido en su inquilino de Azure Active Directory de la organización.
+>[AZURE.NOTE]  El método de inicio de sesión solo funciona con la cuenta organizativa. Una cuenta profesional es un usuario administrado por su organización y definido en su inquilino de Azure Active Directory de la organización.
 
 
 Si actualmente no tiene una cuenta profesional y usa una cuenta Microsoft para iniciar sesión en su suscripción de Azure, puede crear una fácilmente siguiendo los pasos que se indican a continuación.
@@ -153,7 +153,7 @@ Veamos la clave o el secreto que acaba de crear:
 Este paso lo haría normalmente un programador en un equipo independiente. No es específico del Almacén de claves de Azure, pero se incluye aquí a fin de que la información ofrecida sea lo más completa posible.
 
 
->[AZURE.IMPORTANT]Para finalizar el tutorial, la cuenta, el almacén y la aplicación que vaya a registrar en este paso deben estar en el mismo directorio de Azure.
+>[AZURE.IMPORTANT] Para finalizar el tutorial, la cuenta, el almacén y la aplicación que vaya a registrar en este paso deben estar en el mismo directorio de Azure.
 
 Las aplicaciones que utilizan un Almacén de claves deben autenticarse utilizando un token de Azure Active Directory. Para ello, el propietario de la aplicación debe registrarla primero en su Azure Active Directory. Al final del registro, el propietario de la aplicación obtiene los valores siguientes:
 
@@ -185,11 +185,11 @@ Para que la aplicación pueda acceder a la clave o el secreto en el almacén, us
 
 Por ejemplo, si el nombre del almacén es ContosoKeyVault y la aplicación que desea autorizar tiene el identificador de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed y desea que la aplicación tenga autorización para descifrar y firmar con claves en el almacén, ejecute lo siguiente:
 
-    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '["decrypt","sign"]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
 
 Si desea autorizar a esa misma aplicación para leer los secretos en el almacén, ejecute lo siguiente:
 
-	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["get"]'
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
 
 ## Si desea utilizar un módulo de seguridad de hardware (HSM) ##
 
@@ -256,4 +256,4 @@ Ejemplo de cómo quitar un secreto específico:
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

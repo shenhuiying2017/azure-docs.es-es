@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introducción a la API de SFTP
-Conéctese a un servidor SFTP para administrar sus archivos. Puede realizar diferentes tareas en el servidor SFTP, como cargar archivos, eliminar archivos, etc.
+Conéctese a un servidor SFTP para administrar sus archivos. Puede realizar diferentes tareas en el servidor SFTP, como cargar archivos, eliminar archivos, etc. La API de SFTP se puede usar desde:
 
-La API de SFTP se puede usar desde aplicaciones lógicas.
+- Aplicaciones lógicas
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [conector de SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-Versión preliminar, haga clic en [Conector de SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
 
 Con SFTP, puede:
 
@@ -30,7 +30,7 @@ Con SFTP, puede:
 - Usar un desencadenador cuando se actualiza un archivo.
 - Usar acciones que crean archivos, eliminan archivos, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede obtener el contenido de un archivo y después actualizar una base de datos SQL. 
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Desencadenadores y acciones
@@ -38,7 +38,7 @@ La API de SFTP tiene los siguientes desencadenadores y acciones disponibles.
 
 Desencadenadores | Acciones
 --- | ---
-<ul><li>Cuando se crea o modifica un archivo </li></ul> | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar el archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Actualizar archivo</li><li>Cuando se crea o modifica un archivo</li></ul>
+<ul><li>Cuando se crea o modifica un archivo</li></ul> | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Actualizar archivo</li><li>Cuando se crea o modifica un archivo</li></ul>
 
 Todas las API admiten datos en formato JSON y XML.
 
@@ -51,14 +51,15 @@ Cuando agregue esta API a las aplicaciones lógicas, escriba los valores siguien
 |Dirección del servidor host| Sí | Escriba el dominio completo (FQDN) o la dirección IP del servidor SFTP.|
 |Nombre de usuario| Sí | Escriba el nombre de usuario para conectarse al servidor SFTP.|
 |Password | Sí | Escriba la contraseña del nombre de usuario.|
-|Huella digital de la tecla del host del servidor SSH | Sí | Especifique la huella digital de la tecla del host pública para el servidor SSH. <br/><br/>Normalmente, el administrador del servidor puede proporcionarle esta tecla. También puede utilizar las herramientas ```WinSCP``` o ```ssh-keygen-g3 -F``` para obtener la huella digital de la tecla. | 
+|Huella digital de la tecla del host del servidor SSH | Sí | Especifique la huella digital de la tecla del host pública para el servidor SSH. <br/><br/>Normalmente, el administrador del servidor puede proporcionarle esta clave. También puede utilizar las herramientas ```WinSCP``` o ```ssh-keygen-g3 -F``` para obtener la huella digital de la clave. | 
 
 Después de crear la conexión, especifique las propiedades de SFTP, como la ruta de acceso a la carpeta o el archivo. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de SFTP en otras aplicaciones lógicas.
 
 
-## Referencia de API de REST de Swagger
+## Referencia de la API de REST de Swagger
+Se aplica a la versión: 1.0.
 
 ### Crear archivo
 Carga un archivo en SFTP. ```POST: /datasets/default/files```
@@ -249,4 +250,4 @@ Desencadena un flujo al modificar un archivo en SFTP. ```GET: /datasets/default/
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

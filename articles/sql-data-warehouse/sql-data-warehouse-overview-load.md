@@ -112,7 +112,6 @@ WITH
     FORMAT_TYPE = DELIMITEDTEXT 
 ,   FORMAT_OPTIONS  (
                         FIELD_TERMINATOR ='|' 
-                    ,   USE_TYPE_DEFAULT = TRUE
                     )
 );
 
@@ -203,4 +202,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [Documentación del Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/storage-create-storage-account/
 [Documentación de ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

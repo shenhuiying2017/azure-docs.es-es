@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/26/2016" 
 	ms.author="hawong"/>
 
 # Tutorial de Power BI para DocumentDB: visualizar datos mediante el conector de Power BI
@@ -194,4 +194,4 @@ Para compartir el informe, debe tener una cuenta en PowerBI.com.
 - Haga clic [aquí](https://support.powerbi.com/knowledgebase) para obtener más información sobre Power BI.
 - Para obtener más información sobre DocumentDB, haga clic [aquí](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -18,9 +18,9 @@
 # Implementación y administración de un dispositivo virtual de StorSimple en Azure (actualización 2)
 
 > [AZURE.SELECTOR]
-- [actualización 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [actualización 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
+- [Actualización 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Actualización 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [Versión: disponibilidad general](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Información general
 El dispositivo virtual de StorSimple es una capacidad adicional que se incluye con la solución de Microsoft Azure StorSimple. El dispositivo virtual de StorSimple se ejecuta en una máquina virtual en una red virtual de Microsoft Azure y se puede usar para realizar copias de seguridad y clonar los datos de los hosts.
@@ -37,7 +37,7 @@ El dispositivo virtual StorSimple está disponible en dos modelos: estándar 801
 | **MV de Azure** | Standard\_A3 (4 núcleos, 7 GB de memoria) | Standard\_DS3 (4 núcleos, 14 GB de memoria) |
 | **Compatibilidad de versión** | Ejecuta las versiones previas a la actualización 2 o posterior | Ejecuta las versiones de la actualización 2 o posterior |
 | **Disponibilidad en regiones** | Todas las regiones de Azure | Regiones de Azure que admiten Almacenamiento premium<br></br>Si desea obtener una lista de las regiones, consulte las [regiones admitidas para 8020](#supported-regions-for-8020). |
-| **Tipo de almacenamiento** | Usa el almacenamiento estándar de Azure <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar]() | Usa el Almacenamiento premium de Azure <br></br> Infórmese de cómo [crear una cuenta de almacenamiento premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Tipo de almacenamiento** | Usa el almacenamiento estándar de Azure <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar]() | Usa el Almacenamiento premium de Azure <br></br> Infórmese de cómo [crear una cuenta de almacenamiento premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Guía de la carga de trabajo** | Recuperación a nivel de elemento de archivos de copias de seguridad | Escenarios de desarrollo y pruebas en la nube, baja latencia, mayores cargas de trabajo de rendimiento <br></br>Dispositivo secundario para recuperación ante desastres |
  
 <sup>1</sup> *Anteriormente conocido como 1100*.
@@ -46,7 +46,7 @@ El dispositivo virtual StorSimple está disponible en dos modelos: estándar 801
 
 Las regiones de Almacenamiento premium que actualmente admiten 8020 aparecen a continuación. Esta lista se actualizará de manera periódica cada vez que Almacenamiento premium esté disponible en más regiones.
 
-| S. No. | Actualmente se admite en las regiones |
+| S. n°. | Actualmente se admite en las regiones |
 |---------------------------------------------------------|--------------------------------|
 | 1 | Central EE. UU.: |
 | 2 | Este de EE. UU. |
@@ -118,7 +118,7 @@ Realice las siguientes actualizaciones en su servicio StorSimple de Azure antes 
 
 - Agregue [registros de control de acceso](storsimple-manage-acrs.md) para las máquinas virtuales que vayan a ser servidores de host para el dispositivo virtual.
 
-- Utilice una [cuenta de almacenamiento](storsimple-manage-storage-accounts.md#add-a-storage-account) en la misma región que el dispositivo virtual. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de almacenamiento estándar o premium con el dispositivo virtual. Obtenga más información sobre cómo crear una [cuenta de almacenamiento estándar]() o una [cuenta de almacenamiento premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+- Utilice una [cuenta de almacenamiento](storsimple-manage-storage-accounts.md#add-a-storage-account) en la misma región que el dispositivo virtual. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de almacenamiento estándar o premium con el dispositivo virtual. Obtenga más información sobre cómo crear una [cuenta de almacenamiento estándar]() o una [cuenta de almacenamiento premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 - Para crear el dispositivo virtual use una cuenta diferente de la que usa para los datos. Utilizar la misma cuenta de almacenamiento puede causar un bajo rendimiento.
 
@@ -146,8 +146,7 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
 
 Antes de comenzar este procedimiento, asegúrese de que tiene una copia de la clave de cifrado de datos del servicio. La clave de cifrado de datos del servicio se creó cuando se configuró el primer dispositivo de StorSimple y se le pidió que lo guardara en una ubicación segura. Si no tiene una copia de la clave de cifrado de datos del servicio, debe ponerse en contacto con Microsoft Support para obtener ayuda.
 
-Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.
-[AZURE.INCLUDE [Configuración y registro de un dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
+Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.[AZURE.INCLUDE [Configuración y registro de un dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Paso 3: (Opcional) Modificación de la configuración del dispositivo
 
@@ -235,7 +234,7 @@ Desactivar un dispositivo virtual genera las siguientes acciones:
 
 - Se conservan las instantáneas de nube creadas para el dispositivo virtual.
 
-Para obtener un procedimiento paso a paso, consulte [Desactivar y eliminar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Para obtener un procedimiento paso a paso, consulte [Desactivación y eliminación de un dispositivo de StorSimple](storsimple-deactivate-and-delete-device.md).
 
 Tan pronto como se muestre el dispositivo como desactivado en la página de servicio del Administrador de StorSimple, puede eliminar el dispositivo virtual de la lista en la página **Dispositivos**.
 
@@ -268,7 +267,7 @@ Para obtener un procedimiento paso a paso, vaya a [Conmutación por error y recu
 
 Si ha configurado y usado previamente un dispositivo virtual de StorSimple, pero ahora desea detener la acumulación de cargos para su uso por el proceso, puede apagar el dispositivo virtual. Apagar el dispositivo virtual no elimina su sistema operativo ni los discos de datos del almacenamiento. Detiene el cargo acumulado en su suscripción, pero seguirán los cargos de almacenamiento del sistema operativo y los discos de datos.
 
-Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivar o eliminar el dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para obtener más información, consulte [Desactivar y eliminar un dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivar o eliminar el dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para más información, consulte [Desactivación y eliminación de un dispositivo de StorSimple](storsimple-deactivate-and-delete-device.md).
 
 [AZURE.INCLUDE [Apagado de un dispositivo virtual](../../includes/storsimple-shutdown-virtual-device.md)]
 
@@ -278,8 +277,8 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 ## Pasos siguientes
 
-- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar un dispositivo virtual](storsimple-manager-service-administration.md).
+- Aprenda a [usar el servicio StorSimple Manager para administrar un dispositivo virtual](storsimple-manager-service-administration.md).
  
-- Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md).
+- Sepa cómo [restaurar un volumen de StorSimple de un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

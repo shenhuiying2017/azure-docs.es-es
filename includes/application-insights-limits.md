@@ -14,6 +14,7 @@ Longitud del nombre de la propiedad | 100 | 100
 Longitud del valor de la propiedad | 1000 | 1000
 Longitud del mensaje de seguimiento y excepción | 10000 | 10000
 Longitud del nombre de métrica | 100 | 100
+Pruebas de disponibilidad | 10 | 10
 
 <sup>1</sup> Un punto de datos es un evento o valor métrico individual, con propiedades adjuntas y medidas.
 
@@ -21,4 +22,4 @@ Longitud del nombre de métrica | 100 | 100
  
 [Información acerca de precios y cuotas para Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

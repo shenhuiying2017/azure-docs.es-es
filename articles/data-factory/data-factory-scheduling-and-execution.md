@@ -243,6 +243,25 @@ Cuando haya vuelto a realizar la ejecución y el segmento 9-10AM de dataset2 est
 
 Para profundizar en la especificación de la dependencia y en el seguimiento de las dependencias para la cadena compleja de actividades y conjuntos de datos, consulte las secciones siguientes.
 
+## Encadenamiento de actividades
+Puede encadenar dos actividades haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Las actividades pueden estar en la misma canalización o en canalizaciones diferentes. La segunda actividad se ejecuta solo cuando la primera de ellas se completa correctamente.
+
+Por ejemplo, considere el siguiente caso:
+ 
+1.	La canalización P1 incluye la actividad A1 que requiere el conjunto de datos de entrada externo D1 y genera el conjunto de datos de **salida** **D2**.
+2.	La canalización P2 incluye la actividad A2 que requiere una **entrada**del conjunto de datos **D2** y genera el conjunto de datos de salida D3.
+ 
+En este escenario, la actividad A1 se ejecutará cuando los datos externos estén disponibles y se alcance la frecuencia de disponibilidad programada. La actividad A2 se ejecutará cuando estén disponibles los segmentos programados de D2 y se alcance la frecuencia de disponibilidad programada. Si se produce un error en uno de los segmentos del conjunto de datos D2, A2 no se ejecutará para ese segmento hasta que esté disponible.
+
+La Vista Diagrama tendría el aspecto siguiente:
+
+![Encadenamiento de las actividades de dos canalizaciones](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+
+La Vista Diagrama con ambas actividades en la misma canalización tendría el aspecto siguiente:
+
+![Encadenamiento de las actividades de la misma canalización](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+
+
 ## Modelado de conjuntos de datos con distintas frecuencias
 
 En los ejemplos anteriores, las frecuencias de los conjuntos de datos de entrada y salida y de la ventana de programación de actividad eran las mismas. Algunos escenarios requieren que se puedan producir resultados a una frecuencia diferente de las frecuencias de una o más entradas. Factoría de datos admite el modelado de estos escenarios.
@@ -511,12 +530,9 @@ La actividad de Hive toma las dos entradas y genera un segmento de salida cada d
 	}
 
 
-## Encadenamiento de actividades
-Puede encadenar dos actividades haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Las actividades pueden estar en la misma canalización o en canalizaciones diferentes. La segunda actividad se ejecuta solo cuando la primera de ellas se completa correctamente. Este encadenamiento se produce en el nivel de intervalo de tiempo (una unidad discreta dentro de un conjunto de datos).
-
 ## Funciones y variables del sistema de Data Factory   
 
-Consulte el artículo [Funciones y variables del sistema de Data Factory](data-factory-functions-variables.md) para consultar la lista de funciones y variables del sistema admitidas por Data Factory de Azure.
+Consulte el artículo [Funciones y variables del sistema de Data Factory](data-factory-functions-variables.md) para obtener la lista de funciones y variables del sistema admitidas por Data Factory de Azure.
 
 ## Profundización de la dependencia de datos
 
@@ -616,4 +632,4 @@ De forma similar a los conjuntos de datos que produce Factoría de datos, los se
 
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

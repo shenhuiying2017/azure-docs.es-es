@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso de la red CDN | Microsoft Azure" 
-	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso de la red CDN | Microsoft Azure"
+	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
@@ -71,7 +71,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 1. En el [Portal de administración de Azure](https://portal.azure.com), en la parte superior, haga clic en **Nuevo**. En la hoja **Nuevo**, seleccione **Medios + CDN** y, luego, **CDN**.
 
     Aparece la nueva hoja del perfil de CDN.
-    
+
     ![Nuevo perfil de CDN][new-cdn-profile]
 
 2. Escriba un nombre para su perfil de CDN.
@@ -93,15 +93,15 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 1. En el [Portal de administración de Azure](https://portal.azure.com), vaya a su perfil de CDN. Puede haberlo anclado al panel en el paso anterior. Si no lo hace, para encontrarlo, haga clic en **Examinar**, en **Perfiles de CDN** y luego haga clic en el perfil al que planea agregar el punto de conexión.
 
     Aparece la hoja del perfil de CDN.
-    
+
     ![Perfil de CDN][cdn-profile-settings]
-    
+
 2. Haga clic en el botón **Agregar extremo**.
 
     ![Botón Agregar punto de conexión][cdn-new-endpoint-button]
 
     Aparecerá la hoja **Agregar un extremo**.
-    
+
     ![Hoja Agregar punto de conexión][cdn-add-endpoint]
 
 3. Escriba un **Nombre** para este punto de conexión de red de entrega de contenido. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<EndpointName>.azureedge.net`.
@@ -154,4 +154,4 @@ Un objeto que ya está almacenado en la memoria caché de la red CDN permanecer�
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

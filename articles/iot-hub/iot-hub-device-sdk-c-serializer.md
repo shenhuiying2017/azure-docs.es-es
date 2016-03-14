@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
+     ms.date="02/23/2016"
      ms.author="obloch"/>
 
 # SDK de dispositivo IoT de Microsoft Azure para C: más información sobre el serializador
@@ -528,17 +528,25 @@ En esta sección se describe todo lo que necesita saber al enviar eventos y reci
 
 ## Configuración de macros
 
-Si está usando la biblioteca de **serializador**, una parte importante del SDK que se debe tener en cuenta se encuentra aquí:
+Si está usando la biblioteca de **serializador**, una parte importante del SDK que se debe tener en cuenta se encuentra en la biblioteca azure-c-shared-utility: Si ha clonado el repositorio Azure-iot-sdks desde GitHub con la opción recursiva, encontrará esta biblioteca de utilidad compartida aquí:
 
 ```
-.\\c\\common\\tools\\macro\_utils\_h\_generator.
+.\\c\\azure-c-shared-utility
+```
+
+Si no ha clonado la biblioteca, podrá encontrarla [aquí](https://github.com/Azure/azure-c-shared-utility).
+
+Dentro de la biblioteca de utilidad compartida, encontrará la siguiente carpeta:
+
+```
+azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
 Esta carpeta contiene una solución de Visual Studio denominada **macro\_utils\_h\_generator.sln**:
 
   ![](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.PNG)
 
-El programa de esta solución genera el archivo **macro\_utils.h** que se encuentra en el directorio .\\c\\common\\inc. Hay un archivo macro\_utils.h predeterminado incluido con el SDK. Esta solución le permite modificar algunos parámetros y luego volver a crear el archivo de encabezado en función de ellos.
+El programa de esta solución genera el archivo **macro\_utils.h**. Hay un archivo macro\_utils.h predeterminado incluido con el SDK. Esta solución le permite modificar algunos parámetros y luego volver a crear el archivo de encabezado en función de ellos.
 
 Los dos parámetros clave que se deben tener en cuenta son **nArithmetic** y **nMacroParameters**, que se definen en estas dos líneas que se encuentran en macro\_utils.tt:
 
@@ -566,13 +574,13 @@ Como se mencionó antes, **DECLARE\_MODEL** es simplemente una macro de C. El no
 
   ![](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.PNG)
 
-El parámetro **nArithmetic** tiene más que ver con el funcionamiento interno del lenguaje de macros que con su aplicación. Controla el número total de miembros que puede tener en el modelo, incluidas las macros **DECLARE\_STRUCT**. Si comienza a ver errores del compilador como este, debería intentar aumentar el valor de **nArithmetic**:
+El parámetro **nArithmetic** tiene más que ver con el funcionamiento interno del lenguaje de macros que con la aplicación. Controla el número total de miembros que puede tener en el modelo, incluidas las macros **DECLARE\_STRUCT**. Si comienza a ver errores del compilador como este, debería intentar aumentar el valor de **nArithmetic**:
 
    ![](media/iot-hub-device-sdk-c-serializer/03-nArithmeticCompilerErrors.PNG)
 
 Si desea cambiar estos parámetros, modifique los valores del archivo macro\_utils.tt, vuelva a compilar la solución macro\_utils\_h\_generator.sln y ejecute el programa compilado. Al hacerlo, se genera un nuevo archivo macro\_utils.h y se coloca en el directorio .\\common\\inc.
 
-Para poder usar la nueva versión de macro\_utils.h, quite el paquete de NuGet de **serializador** de la solución y, en su lugar, incluya el proyecto de Visual Studio de **serializador**. Esto permite a su código compilarse con el código fuente de la biblioteca de serializador. Incluye la macro\_utils.h actualizada. Si desea hacer esto para **simplesample\_amqp**, empiece quitando el paquete de NuGet para la biblioteca de serializador de la solución:
+Para poder usar la nueva versión de macro\_utils.h, quite el paquete NuGet de **serializador** de la solución y, en su lugar, incluya el proyecto de Visual Studio de **serializador**. Esto permite a su código compilarse con el código fuente de la biblioteca de serializador. Incluye la macro\_utils.h actualizada. Si desea hacer esto para **simplesample\_amqp**, empiece quitando el paquete NuGet para la biblioteca de serializador de la solución:
 
    ![](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.PNG)
 
@@ -650,12 +658,12 @@ Del mismo modo, cuando termine de trabajar con la biblioteca, la última llamada
 serializer_deinit();
 ```
 
-Por lo demás, todas las demás características enumeradas anteriormente funcionan igual en la biblioteca de **serializador** que en la biblioteca de **IoTHubClient**. Para obtener más información sobre cualquiera de estos temas, vea el [artículo anterior](iot-hub-device-sdk-c-iothubclient.md) de esta serie.
+Por lo demás, todas las demás características enumeradas anteriormente funcionan igual en la biblioteca de **serializador** que en la biblioteca de **IoTHubClient**. Para más información sobre cualquiera de estos temas, consulte el [artículo anterior](iot-hub-device-sdk-c-iothubclient.md) de esta serie.
 
 ## Pasos siguientes
 
 En este artículo se describe en detalle los aspectos únicos de la biblioteca de **serializador** contenida en el **SDK de dispositivo IoT de Azure para C**. Con la información proporcionada, habrá comprendido perfectamente cómo usar los modelos para enviar eventos y recibir mensajes del Centro de IoT.
 
-Con esto también concluye la serie de tres partes sobre cómo desarrollar aplicaciones con el **SDK de dispositivo IoT de Azure para C**. Esta información debería ser suficiente no solo para ayudarle en sus primeros pasos sino también para proporcionarle una comprensión profunda de cómo funcionan las API. Para obtener información adicional, existen algunos ejemplos en el SDK que no se tratan aquí. Por lo demás, la [documentación del SDK](https://github.com/Azure/azure-iot-sdks) es un buen recurso para obtener información adicional.
+Con esto también concluye la serie de tres partes sobre cómo desarrollar aplicaciones con el **SDK de dispositivo IoT de Azure para C**. Esta información debería ser suficiente no solo para ayudarle en sus primeros pasos sino también para proporcionarle una comprensión profunda de cómo funcionan las API. Para obtener información adicional, existen algunos ejemplos en el SDK que no se tratan aquí. Por lo demás, la [documentación del SDK](https://github.com/Azure/azure-iot-sdks) es un buen recurso para conseguir información adicional.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

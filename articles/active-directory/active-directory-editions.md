@@ -117,7 +117,8 @@ Hay varias funcionalidades de Azure Active Directory disponibles mediante las ed
 
 
 
-<br> <hr>
+<br>
+<hr>
 ## Características comunes
 #### Objetos de directorio 
 
@@ -152,7 +153,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 - [Información general sobre el Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### Inicio de sesión único (SSO)
 
 **Tipo:** Características comunes
@@ -172,7 +174,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Administración de aplicaciones con Azure Active Directory (AD)](active-directory-enable-sso-scenario.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Cambio de contraseña de autoservicio para usuarios en la nube
 
 **Tipo:** Características comunes
@@ -188,7 +191,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 - [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### Conexión (motor de sincronización que extiende los directorios locales a Azure Active Directory) 
 
 **Tipo:** Características comunes
@@ -204,7 +208,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Informes de seguridad y uso
 
 **Tipo:** Características comunes
@@ -220,7 +225,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 
-<br> <hr>
+<br>
+<hr>
 
 ## Características de las ediciones Premium y Basic
 #### Aprovisionamiento y administración del acceso basados en grupo
@@ -238,7 +244,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Uso de un grupo para administrar el acceso a las aplicaciones SaaS](active-directory-accessmanagement-group-saasapps.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Restablecimiento de contraseña de autoservicio para usuarios en la nube
 
 **Tipo:** Características de la edición Basic
@@ -254,7 +261,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Restablecimiento de contraseña de Azure AD para usuarios y administradores](active-directory-passwords.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Personalización de marca de la compañía (personalización de las páginas de inicio de sesión y del panel de acceso)
 
 **Tipo:** Características de la edición Basic
@@ -270,7 +278,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Proxy de aplicación
 
 **Tipo:** Características de la edición Basic
@@ -286,7 +295,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Contrato de nivel de servicio del 99,9 %
 
 **Tipo:** Características de la edición Basic
@@ -302,7 +312,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/)
 
-<br> <hr>
+<br>
+<hr>
 
 ## Características de la edición Premium
 #### Administración de grupos y aplicaciones de autoservicio/incorporaciones de aplicaciones de autoservicio/grupos dinámicos
@@ -350,7 +361,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [¿Qué es Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br> <hr>
+<br>
+<hr>
 #### CAL de MIM + servidor MIM 
 
 Con las licencias de Windows Server (cualquier edición), se conceden derechos de software de servidor de Microsoft Identity Manager. Puesto que Microsoft Identity Manager se ejecuta en el sistema operativo Windows Server, siempre que un servidor ejecute una copia válida y con licencia de Windows Server, Microsoft Identity Manager podrá instalarse y usarse en ese servidor. No se necesita ninguna otra licencia de servidor de Microsoft Identity Manager.
@@ -383,7 +395,8 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 - [Búsqueda de aplicaciones de nube no administradas con Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Connect Health
 
 **Tipo:** Características de la edición Premium
@@ -399,7 +412,8 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 - [Supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube](active-directory-aadconnect-health.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Sustitución automática de la contraseña para cuentas de grupo
 
 **Tipo:** Características de la edición Premium
@@ -412,7 +426,8 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 | | | ![Comprobar][12]| |
 
 
-<br> <hr>
+<br>
+<hr>
 ## Azure Active Directory Join, solo características relacionadas con Windows 10
 #### Conectar un dispositivo a Azure AD, SSO de escritorio, Microsoft Passport para Azure AD, recuperación de Bitlocker de administrador
 
@@ -448,10 +463,11 @@ Además de las características disponibles normalmente en las ediciones Free Ed
 **Características de versiones preliminares disponibles:**
 
 - [Colaboración B2B](active-directory-b2b-collaboration-overview.md)
-- Acceso condicional
 - [Unidades administrativas](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [Integración de aplicaciones de HR](active-directory-saas-workday-inbound-tutorial.md)
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
 
@@ -467,4 +483,4 @@ Además de las características disponibles normalmente en las ediciones Free Ed
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

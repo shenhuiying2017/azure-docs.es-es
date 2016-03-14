@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
@@ -49,7 +49,7 @@ Para un ejemplo de cómo mantener los datos de sesión cuando la afinidad de ses
 
 [Kit de herramientas de Azure para Eclipse][]
 
-[Creación de una aplicación Hola a todos para Azure en Eclipse][]
+[Creación de una aplicación Hello World para Azure en Eclipse][]
 
 [Instalación del Kit de herramientas de Azure para Eclipse][]
 
@@ -61,7 +61,7 @@ Para más información sobre el uso de Azure con Java, vea el [Centro de desarro
 
 [Centro de desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creación de una aplicación Hola a todos para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Creación de una aplicación Hello World para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Cómo mantener datos de sesión con la afinidad de sesión]: http://go.microsoft.com/fwlink/?LinkID=699539
 [Cómo mantener los datos de sesión con afinidad de sesión]: http://go.microsoft.com/fwlink/?LinkID=699539
 [Instalación del Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
@@ -70,4 +70,4 @@ Para más información sobre el uso de Azure con Java, vea el [Centro de desarro
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

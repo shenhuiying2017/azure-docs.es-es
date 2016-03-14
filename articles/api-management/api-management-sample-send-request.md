@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Uso del servicio de administración de API para generar solicitudes HTTP"
-   description="Aprenda a usar las directivas de solicitud y respuesta en Administración de API para llamar a servicios externos de su API"
-   services="api-management"
-   documentationCenter=""
-   authors="darrelmiller"
-   manager=""
-   editor=""/>
+	pageTitle="Uso del servicio de administración de API para generar solicitudes HTTP"
+	description="Aprenda a usar las directivas de solicitud y respuesta en Administración de API para llamar a servicios externos de su API"
+	services="api-management"
+	documentationCenter=""
+	authors="darrelmiller"
+	manager=""
+	editor=""/>
 
 <tags
-   ms.service="api-management"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/01/2016"
-   ms.author="v-darmi"/>
+	ms.service="api-management"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="02/19/2016"
+	ms.author="v-darmi"/>
 
 
 # Uso de servicios externos del servicio de administración de API de Azure
@@ -269,4 +269,4 @@ Para más información sobre las directivas [send-one-way-request](https://msdn.
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

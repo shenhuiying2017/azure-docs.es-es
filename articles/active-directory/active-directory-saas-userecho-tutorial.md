@@ -120,9 +120,9 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. En **Habilitado para SAML**, seleccione **Sí**.
 
-    b. En el Portal de Azure clásico, en la página **Configurar inicio de sesión único en UserEcho**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo. Abra el certificado descargado en el Bloc de notas, copie el contenido y, después, péguelo en el cuadro de texto **Dirección URL de inicio de sesión único de SAML**.
+    b. En el Portal de Azure clásico, en la página de diálogo Configurar inicio de sesión único en UserEcho, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión único de SAML**.
 
-    c. En el Portal de Azure clásico, en la página del cuadro de diálogo **Configurar inicio de sesión único en UserEcho**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión remoto**.
+    c. En el Portal de Azure clásico, en la página de diálogo Configurar inicio de sesión único en UserEcho, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión remoto**.
 
     d. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado X.509**.
 
@@ -253,4 +253,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

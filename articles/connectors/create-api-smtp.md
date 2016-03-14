@@ -14,22 +14,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introducción a la API de SMTP
-Conéctese a un servidor SMTP para enviar correo electrónico.
+Conéctese a un servidor SMTP para enviar correo electrónico. La API de SMTP se puede usar desde:
 
-La API de SMTP se puede usar desde las aplicaciones lógicas.
+- Aplicaciones lógicas
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [conector de SMTP](../app-service-logic/app-service-logic-connector-smtp.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-Versión preliminar, haga clic en [Conector de SMTP](../app-service-logic/app-service-logic-connector-smtp.md).
 
 Con SMTP, puede:
 
 - Compilar el flujo de negocio que incluye el envío de correo electrónico mediante SMTP. 
 - Usar una acción para enviar correo electrónico. Esta acción obtiene una respuesta y luego deja el resultado a disposición de otras acciones. Por ejemplo, cuando hay un nuevo archivo en el servidor FTP, puede seleccionar ese archivo y enviarlo por correo electrónico como datos adjuntos mediante SMTP. 
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 La API de SMTP tiene la siguiente acción disponible. No hay ningún desencadenador.
@@ -54,6 +54,7 @@ Después de crear la conexión, especifique las propiedades de SMTP, como los va
 >[AZURE.TIP] Puede usar esta misma conexión de SMTP en otras aplicaciones lógicas.
 
 ## Referencia de la API de REST de Swagger
+Se aplica a la versión: 1.0.
 
 ### Enviar correo electrónico
 Envía un correo electrónico a uno o más destinatarios. ```POST: /SendEmail```
@@ -91,6 +92,6 @@ Envía un correo electrónico a uno o más destinatarios. ```POST: /SendEmail```
 
 
 ## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

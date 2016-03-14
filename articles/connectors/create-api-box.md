@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introducción a la API de Box
-Conéctese a Box y cree y elimine archivos, entre muchas otras cosas.
+Conéctese a Box y cree y elimine archivos, entre muchas otras cosas. La API de Box puede utilizarse desde:
 
-La API de Box puede utilizarse desde aplicaciones lógicas.
+- Aplicaciones lógicas 
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Conector de Box](../app-service-logic/app-service-logic-connector-box.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Conector de Box](../app-service-logic/app-service-logic-connector-box.md).
 
 Con Box, puede hacer lo siguiente:
 
@@ -30,14 +30,14 @@ Con Box, puede hacer lo siguiente:
 - Usar desencadenadores para cuando se crea o actualiza un archivo.
 - Usar acciones que copian o eliminan archivos, entre otras muchas cosas. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se modifique un archivo en Box, puede tomar ese archivo y enviarlo por correo electrónico mediante Office 365.
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 Box incluye los siguientes desencadenadores y acciones.
 
 | Desencadenadores | Acciones|
 | --- | --- |
-|<ul><li>Cuando se crea un archivo</li><li>Cuando se modifica un archivo</li></ul> | <ul><li>Crear archivo</li><li>Cuando se crea un archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer archivo en la carpeta</li><li>Obtener contenido de archivo con el identificador</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo con el identificador</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Actualizar archivo</li><li>Cuando se modifica un archivo</li></ul>
+|<ul><li>Cuando se crea un archivo</li><li>Cuando se modifica un archivo</li></ul> | <ul><li>Crear archivo</li><li>Cuando se crea un archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer archivo en la carpeta</li><li>Obtener contenido de archivo mediante el identificador</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo mediante el identificador</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Actualizar archivo</li><li>Cuando se modifica un archivo</li></ul>
 
 Todas las API admiten datos en formato JSON y XML.
 
@@ -51,7 +51,8 @@ Después de crear la conexión, escriba las propiedades de Box. En la **referenc
 
 >[AZURE.TIP] Puede usar esta misma conexión de Box en otras aplicaciones lógicas.
 
-## Referencia de API de REST de Swagger
+## Referencia de la API de REST de Swagger
+Se aplica a la versión: 1.0.
 
 ### Crear archivo
 Carga un archivo en Box. ```POST: /datasets/default/files```
@@ -159,7 +160,7 @@ Recupera el contenido del archivo de Box mediante la ruta de acceso. ```GET: /da
 
 
 ### Obtener metadatos de archivo mediante el identificador
-Recupera los metadatos de archivo de Box mediante el identificador de archivo. ```GET: /datasets/default/files/{id}```
+Recupera los metadatos del archivo de Box mediante el identificador de archivo. ```GET: /datasets/default/files/{id}```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -173,7 +174,7 @@ Recupera los metadatos de archivo de Box mediante el identificador de archivo. `
 
 
 ### Obtener metadatos de archivo mediante la ruta de acceso
-Recupera los metadatos de archivo de Box mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
+Recupera los metadatos del archivo de Box mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -261,4 +262,4 @@ Desencadena un flujo cuando se modifica un archivo en una carpeta de Box. ```GET
 
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

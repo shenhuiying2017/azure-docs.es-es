@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple (versión preliminar)
+# Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple
 
 
 ## Información general
@@ -27,7 +27,7 @@ La conmutación por error de un dispositivo se coordina a través de la caracter
 
 ![](./media/storsimple-ova-failover-dr/image16.png)
 
-Este artículo se aplica a matrices virtuales StorSimple (versión preliminar) únicamente. Para conmutar por error un dispositivo de la serie 8000, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
+Este artículo se aplica únicamente a matrices virtuales de StorSimple. Para conmutar por error un dispositivo de la serie 8000, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 
 
 ## ¿Qué es la recuperación ante desastres?
@@ -174,4 +174,4 @@ Si no se cumple una de las comprobaciones previas, verá errores de las comproba
 
 Obtenga más información acerca de cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

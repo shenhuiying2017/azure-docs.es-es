@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Conéctese al Bus de servicio de Azure para enviar y recibir mensajes. Puede realizar acciones como enviar a la cola, enviar al tema, recibir de la cola, recibir de la suscripción, etc.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Bus de servicio de Azure](../app-service-logic/app-service-logic-connector-Azure Service Bus.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-Versión preliminar, haga clic en [Bus de servicio de Azure](../app-service-logic/app-service-logic-connector-azureservicebus.md).
 
 Con el Bus de servicio de Azure, puede:
 
@@ -56,6 +56,17 @@ Para usar la API del Bus de servicio de Azure, cree primero una **conexión** y 
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
 |ConnectionString|Sí|Proporcionar una cadena de conexión del Bus de servicio de Azure|  
+
+Siga estos pasos para crear una **conexión** de bus de servicio que, a continuación, puede usar en la aplicación lógica:
+
+1. Seleccione **Periodicidad**.
+2. Seleccione una **Frecuencia** y escriba un **Intervalo** ![Configurar Bus de servicio][1] 
+3. Seleccione **Agregar una acción** ![Configurar Bus de servicio][2]   
+4. Escriba **Bus de servicio** en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan Bus de servicio en el nombre.
+5. Seleccione **Bus de servicio - Enviar mensaje** ![Configurar Bus de servicio][3]
+7. Escriba un **Nombre de conexión** y una **Cadena de conexión** a continuación, seleccione **Crear conexión**: ![Configurar Bus de servicio][4]
+7. Una vez creada la conexión, se mostrará el diálogo **Enviar mensaje**. Escriba toda la información necesaria para enviar un mensaje. ![Configurar Bus de servicio][5]
+8. Seleccione el botón **Guardar** en el menú superior para guardar su trabajo.    
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
@@ -127,7 +138,7 @@ Para usar la API del Bus de servicio de Azure, cree primero una **conexión** y 
 
 ## Definiciones de objeto: 
 
- **ServiceBusMessage**: El mensaje consta de contenido y propiedades
+ **ServiceBusMessage**: el mensaje consta de contenido y propiedades
 
 Propiedades necesarias para ServiceBusMessage:
 
@@ -147,4 +158,11 @@ ContentTransferEncoding
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+[1]: ./media/create-api-servicebus/connectionconfig1.png
+[2]: ./media/create-api-servicebus/connectionconfig2.png
+[3]: ./media/create-api-servicebus/connectionconfig3.png
+[4]: ./media/create-api-servicebus/connectionconfig4.png
+[5]: ./media/create-api-servicebus/connectionconfig5.png
+[6]: ./media/create-api-servicebus/connectionconfig6.png
+
+<!---HONumber=AcomDC_0302_2016-->

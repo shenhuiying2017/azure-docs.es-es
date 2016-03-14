@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 #Integración de Engagement en Android
@@ -26,7 +26,7 @@
 
 Este procedimiento describe la manera más fácil de activar las funciones de Análisis y Supervisión de Engagement en su aplicación de Android.
 
-> [AZURE.IMPORTANT]El nivel mínimo de la API del SDK de Android debe ser 10 o superior (Android 2.3.3 o superior).
+> [AZURE.IMPORTANT] El nivel mínimo de la API del SDK de Android debe ser 10 o superior (Android 2.3.3 o superior).
 
 Los siguientes pasos son suficientes para activar el informe de registros necesarios para calcular todas las estadísticas relativas a Usuarios, Sesiones, Actividades, Bloqueos y Aspectos técnicos. El informe de los registros necesarios para calcular otras estadísticas, como eventos, errores y trabajos debe realizarse manualmente mediante la API de Engagement (vea [Cómo usar la API de etiquetado avanzado de Mobile Engagement en su dispositivo Android](mobile-engagement-android-use-engagement-api.md)) debido a que estas estadísticas dependen de la aplicación.
 
@@ -34,7 +34,8 @@ Los siguientes pasos son suficientes para activar el informe de registros necesa
 
 Descargue el SDK de Android [aquí](https://aka.ms/vq9mfn) Obtenga `mobile-engagement-VERSION.jar` y colóquelos en la carpeta `libs` del proyecto Android (cree la carpeta libs si aún no existe).
 
-> [AZURE.IMPORTANT]Si compila su paquete de aplicación con ProGuard, deberá mantener algunas clases. Puede usar el siguiente snippet de configuración:
+> [AZURE.IMPORTANT]
+Si compila su paquete de aplicación con ProGuard, deberá mantener algunas clases. Puede usar el siguiente snippet de configuración:
 >
 >
 			-keep public class * extends android.os.IInterface
@@ -65,11 +66,11 @@ La cadena de conexión de la aplicación se muestra en el portal de Azure.
 
 -   Cambie `<Your application name>` por el nombre de la aplicación.
 
-> [AZURE.TIP]El atributo `android:label` le permite elegir el nombre del servicio Engagement que aparecerá para los usuarios finales en la pantalla "Running services" (Servicios en ejecución) de su teléfono. Se recomienda establecer este atributo en `"<Your application name>Service"` (por ejemplo, `"AcmeFunGameService"`).
+> [AZURE.TIP] El atributo `android:label` le permite elegir el nombre del servicio Engagement que aparecerá para los usuarios finales en la pantalla "Running services" (Servicios en ejecución) de su teléfono. Se recomienda establecer este atributo en `"<Your application name>Service"` (por ejemplo, `"AcmeFunGameService"`).
 
 La especificación del atributo `android:process` garantiza que el servicio Engagement se ejecutará en su propio proceso (al ejecutarse Engagement en el mismo proceso que su aplicación, el subproceso principal y de interfaz de usuario podría tener menos capacidad de respuesta).
 
-> [AZURE.NOTE]Cualquier código que coloque en `Application.onCreate()` y otras devoluciones de llamada de aplicaciones se ejecutará para todos los procesos de la aplicación, incluido el servicio Engagement. Esto puede tener efectos secundarios no deseados (como asignaciones innecesarias de memoria y subprocesos en el proceso de Engagement o receptores o servicios de difusión duplicados).
+> [AZURE.NOTE] Cualquier código que coloque en `Application.onCreate()` y otras devoluciones de llamada de aplicaciones se ejecutará para todos los procesos de la aplicación, incluido el servicio Engagement. Esto puede tener efectos secundarios no deseados (como asignaciones innecesarias de memoria y subprocesos en el proceso de Engagement o receptores o servicios de difusión duplicados).
 
 Si anula `Application.onCreate()`, se recomienda que agregue el siguiente snippet de código al comienzo de su función `Application.onCreate()`:
 
@@ -125,7 +126,7 @@ Para activar el informe de todos los registros que necesita Engagement para calc
 			  }
 			}
 
-> [AZURE.IMPORTANT]Al usar `EngagementListActivity` o `EngagementExpandableListActivity`, asegúrese de que cualquier llamada a `requestWindowFeature(...);` se realice antes que la llamada a `super.onCreate(...);`, de lo contrario se producirá un bloqueo.
+> [AZURE.IMPORTANT] Al usar `EngagementListActivity` o `EngagementExpandableListActivity`, asegúrese de que cualquier llamada a `requestWindowFeature(...);` se realice antes que la llamada a `super.onCreate(...);`, de lo contrario se producirá un bloqueo.
 
 Proporcionamos subclases de `FragmentActivity` y `MapActivity`, sin embargo, para evitar problemas con aplicaciones que usan **ProGuard**, no las incluimos en `engagement.jar`.
 
@@ -135,7 +136,7 @@ Puede encontrar estas clases en la carpeta `src` y puede copiarlas en su proyect
 
 Si no puede o no quiere sobrecargar sus clases `Activity`, puede iniciar y finalizar sus actividades llamando a los métodos `EngagementAgent` directamente.
 
-> [AZURE.IMPORTANT]El SDK de Android nunca llama al método `endActivity()`, incluso cuando la aplicación está cerrada (en Android, las aplicaciones nunca se cierran realmente). Por tanto, es *MUY* recomendable llamar al método `startActivity()` en la devolución de llamada `onResume` de *TODAS* las actividades y al método `endActivity()` en la devolución de llamada `onPause()` de *TODAS* las actividades. Esta es la única manera de asegurarse de que las sesiones no se pierdan. Si una sesión se pierde, el servicio Engagement nunca se desconectará del back-end de Engagement (dado que el servicio permanece conectado mientras una sesión esté pendiente).
+> [AZURE.IMPORTANT] El SDK de Android nunca llama al método `endActivity()`, incluso cuando la aplicación está cerrada (en Android, las aplicaciones nunca se cierran realmente). Por tanto, es *MUY* recomendable llamar al método `startActivity()` en la devolución de llamada `onResume` de *TODAS* las actividades y al método `endActivity()` en la devolución de llamada `onPause()` de *TODAS* las actividades. Esta es la única manera de asegurarse de que las sesiones no se pierdan. Si una sesión se pierde, el servicio Engagement nunca se desconectará del back-end de Engagement (dado que el servicio permanece conectado mientras una sesión esté pendiente).
 
 Aquí tiene un ejemplo:
 
@@ -231,7 +232,7 @@ De forma predeterminada, los informes de ubicación en tiempo real solo están a
     engagementConfiguration.setBackgroundRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-> [AZURE.NOTE]Cuando la aplicación se ejecuta en segundo plano, solo se notifican las ubicaciones de red, incluso si ha habilitado el GPS.
+> [AZURE.NOTE] Cuando la aplicación se ejecuta en segundo plano, solo se notifican las ubicaciones de red, incluso si ha habilitado el GPS.
 
 El informe de ubicación en segundo plano se detendrá si el usuario reinicia su dispositivo; puede agregar esto para hacer que se reinicie automáticamente en el momento de inicio:
 
@@ -381,4 +382,4 @@ Luego, puede agregar un `CheckBoxPreference` a su diseño de preferencias como e
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->
