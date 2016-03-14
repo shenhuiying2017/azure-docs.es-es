@@ -372,7 +372,7 @@ Para configurarlo, debe actualizar el archivo courier.config en la carpeta **Con
   </repositories>
  ```
 
-En `<repositories>`, especifique la dirección URL del sitio de producción y la información de usuario. Si está usando el proveedor de pertenencia de Umbraco predeterminado, agregue el identificador del usuario de administración en la sección <user>. Si está usando un proveedor de pertenencia de Umbraco personalizado, use `<login>`,`<password>` para que el módulo Courier2 sepa cómo conectarse al sitio de producción. Para obtener más información, revise la [documentación](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) del módulo Courier.
+En `<repositories>`, especifique la dirección URL del sitio de producción y la información de usuario. Si está usando el proveedor de pertenencia de Umbraco predeterminado, agregue el identificador del usuario de administración en la sección <user>. Si está usando un proveedor de pertenencia de Umbraco personalizado, use `<login>`,`<password>` para que el módulo Courier2 sepa cómo conectarse al sitio de producción. Para obtener más información, revise la [documentación](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) del módulo Courier.
 
 De igual forma, instale el módulo Courier en el sitio de producción y configúrelo para que apunte a la aplicación web de ensayo en su archivo courier.config respectivo, tal como se muestra aquí.
 

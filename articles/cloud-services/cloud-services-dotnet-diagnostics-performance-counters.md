@@ -56,7 +56,16 @@ Azure proporciona un subconjunto de los contadores de rendimiento disponibles pa
 |ASP.NET v4.0.30319 |Solicitudes rechazadas |Contadores de rendimiento para ASP.NET|
 |Memoria |MB disponibles |Contadores de rendimiento de memoria|
 |Memoria |Bytes confirmados |Contadores de rendimiento de memoria|
-|Procesador(\_Total) |% de tiempo de procesador |Contadores de rendimiento para ASP.NET| |TCPv4 |Errores de conexión |Objeto TCP| |TCPv4 |Conexiones establecidas |Objeto TCP| |TCPv4 |Conexiones reinicializadas |Objeto TCP| |TCPv4 |Segmentos enviados/s |Objeto TCP| |Interfaz de red(*) |Bytes recibidos/s |Objeto de interfaz de red| |Interfaz de red(*) |Bytes enviados/seg. |Objeto de interfaz de red| |Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Bytes recibidos/s|Objeto de interfaz de red| |Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Bytes enviados/seg.|Objeto de interfaz de red| |Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Total de bytes por segundo|Objeto de interfaz de red|
+|Procesador(\_Total) |% de tiempo de procesador |Contadores de rendimiento para ASP.NET|
+|TCPv4 |Errores de conexión |Objeto TCP|
+|TCPv4 |Conexiones establecidas |Objeto TCP|
+|TCPv4 |Conexiones reinicializadas |Objeto TCP|
+|TCPv4 |Segmentos enviados/s |Objeto TCP|
+|Interfaz de red(*) |Bytes recibidos/s |Objeto de interfaz de red|
+|Interfaz de red(*) |Bytes enviados/seg. |Objeto de interfaz de red|
+|Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Bytes recibidos/s|Objeto de interfaz de red|
+|Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Bytes enviados/seg.|Objeto de interfaz de red|
+|Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Total de bytes por segundo|Objeto de interfaz de red|
 
 ## Creación e incorporación de contadores de rendimiento personalizados a la aplicación
 

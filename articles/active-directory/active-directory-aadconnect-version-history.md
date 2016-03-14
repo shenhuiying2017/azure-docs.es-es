@@ -36,7 +36,7 @@ Fecha de publicación: febrero de 2016
 - La actualización desde versiones anteriores no funciona si la instalación no está en la carpeta predeterminada **C:\\Archivos de programa**.
 - Si instala y anula la selección de **Iniciar el proceso de sincronización...** al final del asistente para la instalación, el programador no se habilitará al volver a ejecutar el asistente para la instalación.
 - El programador no funcionará según lo previsto en los servidores en los que el formato de fecha y hora no sea US-en. Además, impedirá que `Get-ADSyncScheduler` devuelva las horas correctas.
-- Si ha instalado una versión anterior de Azure AD Connect con AD FS como opción de inicio de sesión y actualización, no puede volver a ejecutar el asistente para la instalación.
+- Si ha instalado una versión anterior de Azure AD Connect con AD FS como opción de inicio de sesión y actualización, no puede volver a ejecutar el asistente para la instalación.
 
 ## 1\.1.105.0
 Fecha de publicación: febrero de 2016

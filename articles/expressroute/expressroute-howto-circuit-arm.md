@@ -69,7 +69,7 @@ Seleccione la suscripción en la que desea crear un circuito ExpressRoute:
 Select-AzureRmSubscription -SubscriptionId "<subscription ID>"   			
 ```
 
-**Paso 2. Obtener la lista de proveedores, ubicaciones y anchos de banda admitidos.**
+**Paso 2. Obtener la lista de proveedores, ubicaciones y anchos de banda admitidos.**
 
 Antes de crear un circuito ExpressRoute, necesita una lista de proveedores de conectividad, ubicaciones admitidas y opciones de ancho de banda. El cmdlet *Get-AzureRmExpressRouteServiceProvider* de PowerShell devuelve esta información, que más tarde se usará en otros pasos.
 
@@ -85,7 +85,7 @@ Compruebe si aparece su proveedor de conectividad. Tome nota de lo siguiente, po
 
 Ahora está listo para crear un circuito ExpressRoute.
 
-**Paso 3. Crear un circuito ExpressRoute.**
+**Paso 3. Crear un circuito ExpressRoute.**
 
 Si todavía no tiene un grupo de recursos, debe crear uno antes de crear ExpressRoute. Para ello, ejecute el siguiente comando:
 
@@ -209,7 +209,7 @@ ServiceProviderProvisioningState : Provisioned
 Status                           : Enabled
 ```
 
-**Paso 6. Comprobar periódicamente el estado y la condición de la clave del circuito.**
+**Paso 6. Comprobar periódicamente el estado y la condición de la clave del circuito.**
 
 La comprobación del estado y la condición de la clave de circuito le informa cuando el proveedor ha habilitado el circuito. Después de configurar el circuito, *ServiceProviderProvisioningState* aparece como *Provisioned* (aprovisionado), tal como se muestra en el ejemplo siguiente.
 

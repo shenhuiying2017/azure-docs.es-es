@@ -1,4 +1,12 @@
-<properties pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN mediante PowerShell | Microsoft Azure" description="Si tiene una red virtual de modelo de implementación clásica con una puerta de enlace de VPN entre entornos, puede redirigir o "forzar" todo el tráfico enlazado a Internet de nuevo a la ubicación local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carmonm" editor="" tags="azure-service-management"/>
+<properties 
+   pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN mediante PowerShell | Microsoft Azure"
+   description="Si tiene una red virtual de modelo de implementación clásica con una puerta de enlace de VPN entre entornos, puede redirigir o "forzar" todo el tráfico enlazado a Internet de nuevo a la ubicación local. "
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carmonm"
+   editor=""
+   tags="azure-service-management"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"

@@ -112,7 +112,8 @@ Los Servicios en la nube (clásicos) se pueden usar con otros recursos clásicos
 | ------- | ------- | -------- | ------ | ------ |
 | Servicios de BizTalk | Sí | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Bus de servicio | Sí | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Copia de seguridad | No | - | - | | Recuperación del sitio | No | - | - |
+| Copia de seguridad | No | - | - | 
+| Recuperación del sitio | No | - | - |
 
 ## Administración de identidad y acceso 
 

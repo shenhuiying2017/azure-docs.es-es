@@ -48,7 +48,7 @@ Si tiene dudas o problemas relacionados con [Application Insights para Visual St
 
 #### No veo todos los datos que esperaba
 
-* Abra la hoja Cuotas y precios y compruebe si el [muestreo](app-insights-sampling.md) está en funcionamiento. (La transmisión al 100 % significa que el muestreo no está en funcionamiento). El servicio Application Insights se puede configurar para que acepte únicamente una fracción de la telemetría procedente de la aplicación. Esto le ayuda a mantenerse en su cuota mensual de telemetría. 
+* Abra la hoja Cuotas y precios y compruebe si el [muestreo](app-insights-sampling.md) está en funcionamiento. (La transmisión al 100 % significa que el muestreo no está en funcionamiento). El servicio Application Insights se puede configurar para que acepte únicamente una fracción de la telemetría procedente de la aplicación. Esto le ayuda a mantenerse en su cuota mensual de telemetría. 
 
 ## No aparecen datos de uso
 

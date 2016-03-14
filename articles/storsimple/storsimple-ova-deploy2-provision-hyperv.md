@@ -116,7 +116,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  En la página **Especificar generación**, si usa un VHD, elija **Generación 1**. Si usa un VHDX (para Windows Server 2012 o posterior), elija **Generación 2**. Haga clic en **Siguiente**.
+1.  En la página **Especificar generación**, si usa un VHD, elija **Generación 1**. Si usa un VHDX (para Windows Server 2012 o posterior), elija **Generación 2**. Haga clic en **Siguiente**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 

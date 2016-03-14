@@ -191,11 +191,11 @@ Instale lo siguientes antes de ejecutar el script:
 
 Puede ejecutar el script desde la máquina local o una máquina virtual en la nube. Cuando lo ejecute desde la máquina local, es posible que se produzcan cargos de salida de datos porque el script tiene que descargar datos de las bases de datos de destino. A continuación se muestra la estimación de volumen de datos según el número de bases de datos de destino y la duración de la ejecución del script. Para ver los costes de transferencia de datos de Azure, consulte [Detalles de precios de transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/).
        
- -     1 base de datos por hora = 38 KB
- -     1 base de datos por día = 900 KB
- -     1 base de datos por semana = 6 MB
- -     100 bases de datos por día = 90 MB
- -     500 bases de datos por semana = 3 GB
+ -     1 base de datos por hora = 38 KB
+ -     1 base de datos por día = 900 KB
+ -     1 base de datos por semana = 6 MB
+ -     100 bases de datos por día = 90 MB
+ -     500 bases de datos por semana = 3 GB
 
 El script excluye determinadas bases de datos que no son buenas candidatas para la oferta de vista previa pública actual del nivel de grupo elástico estándar. Si necesita excluir bases de datos adicionales del servidor de destino, puede cambiar el script para cumplir con los criterios. De forma predeterminado, el script no compila información para lo siguiente:
 

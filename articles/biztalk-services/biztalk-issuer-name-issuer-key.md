@@ -71,7 +71,9 @@ Los servicios de adaptador de BizTalk usan el nombre y la clave de emisor de Bus
 2. En el panel de navegación izquierdo, haga clic en **Bus de servicio**.
 3. Seleccione su espacio de nombres. Seleccione **Información de conexión** en la barra de tareas. De este modo se muestra el **Emisor predeterminado** (nombre de emisor) y la **Clave predeterminada** (clave de emisor). Sus valores se pueden copiar.  
 
-En resumen: Nombre de emisor = Emisor predeterminad Clave de emisor = Clave predeterminada
+En resumen:  
+Nombre de emisor = Emisor predeterminado  
+Clave de emisor = Clave predeterminada
 
 ## Pasos siguientes
 Otros temas acerca de los servicios de BizTalk de Azure:

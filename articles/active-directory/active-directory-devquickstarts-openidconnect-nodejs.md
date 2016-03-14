@@ -243,7 +243,7 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4\. Uso de Passport para emitir solicitudes de inicio y cierre de sesión en Azure AD
+## 4. Uso de Passport para emitir solicitudes de inicio y cierre de sesión en Azure AD
 
 La aplicación ya está configurada correctamente para comunicarse con el extremo v2.0 mediante el protocolo de autenticación OpenID Connect. `passport-azure-ad` se ha ocupado de todos los detalles poco atractivos de la elaboración de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión del usuario. Ya solo falta ofrecer a los usuarios una forma de iniciar sesión, cerrar sesión y recopilar información adicional sobre el usuario con la sesión iniciada.
 

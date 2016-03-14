@@ -35,8 +35,8 @@ El primer paso para que funcione el servidor de Copia de seguridad de Azure es t
 
 | Ubicación | Requisitos mínimos | Instrucciones adicionales |
 | -------- | -------------------- | ----------------------- |
-| Azure | Máquina virtual de Azure IaaS<br><br>A2 Standard: 2 núcleos, 3,5 GB de RAM | Puede comenzar por una galería de imágenes sencilla de Windows Server 2012 R2 Datacenter. [La protección de cargas de trabajo de IaaS con el servidor de Copia de seguridad de Azure (DPM)](https://technet.microsoft.com/library/jj852163.aspx) presenta numerosos matices. Asegúrese de leer el artículo completo antes de implementar la máquina. |
-| Local | Máquina virtual de Hyper-V,<br> Máquina virtual de VMWare<br> o un host físico<br><br>2 núcleos y 4 GB de RAM | Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Server. Obtenga más información sobre cómo funcionan [DPM y la desduplicación](https://technet.microsoft.com/library/dn891438.aspx) juntos al implementarlos en las máquinas virtuales de Hyper-V. |
+| Azure | Máquina virtual de Azure IaaS<br><br>A2 Standard: 2 núcleos, 3,5 GB de RAM | Puede comenzar por una galería de imágenes sencilla de Windows Server 2012 R2 Datacenter. [La protección de cargas de trabajo de IaaS con el servidor de Copia de seguridad de Azure (DPM)](https://technet.microsoft.com/library/jj852163.aspx) presenta numerosos matices. Asegúrese de leer el artículo completo antes de implementar la máquina. |
+| Local | Máquina virtual de Hyper-V,<br> Máquina virtual de VMWare<br> o un host físico<br><br>2 núcleos y 4 GB de RAM | Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Server. Obtenga más información sobre cómo funcionan [DPM y la desduplicación](https://technet.microsoft.com/library/dn891438.aspx) juntos al implementarlos en las máquinas virtuales de Hyper-V. |
 
 > [AZURE.NOTE] Se recomienda instalar el servidor de Copia de seguridad de Azure en una máquina con Windows Server 2012 R2 Datacenter. Muchos de los requisitos previos quedan resueltos automáticamente con la versión más reciente del sistema operativo Windows.
 
@@ -87,14 +87,14 @@ De forma similar a las credenciales del almacén, puede descargar Copia de segur
 
 3. Seleccione todos los archivos y haga clic en **Siguiente**. Descargue todos los archivos procedentes de la página de descarga de Copia de seguridad de Microsoft Azure y colóquelos en la misma carpeta. ![Centro de descarga 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Puesto que el tamaño de descarga de todos los archivos juntos es de más de 3 GB, con un vínculo de descarga a 10 Mbps, se puede tardar hasta 60 minutos en completarla.
+    Puesto que el tamaño de descarga de todos los archivos juntos es de más de 3 GB, con un vínculo de descarga a 10 Mbps, se puede tardar hasta 60 minutos en completarla.
 
 
 ### Extracción del paquete de software
 
 Después de descargar todos los archivos, haga clic en **MicrosoftAzureBackupInstaller.exe**. Esto iniciará el **Asistente para instalación de Copia de seguridad de Microsoft Azure** y extraerá los archivos de instalación en una ubicación especificada por el usuario. Siga con el asistente y haga clic en el botón **Extraer** para comenzar el proceso de extracción.
 
-> [AZURE.WARNING] Se requieren al menos 4 GB de espacio libre para extraer los archivos de instalación.
+> [AZURE.WARNING] Se requieren al menos 4 GB de espacio libre para extraer los archivos de instalación.
 
 
 ![Asistente para instalación de Copia de seguridad de Microsoft Azure](./media/backup-azure-microsoft-azure-backup/extract/03.png)

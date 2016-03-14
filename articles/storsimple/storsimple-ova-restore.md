@@ -93,7 +93,7 @@ Siga estos pasos en el Portal de Azure clásico para realizar una restauración 
 
 2.  Una vez completado el trabajo de restauración, la restauración se iniciará y aparecerá otra notificación. Para supervisar el progreso de la restauración, haga clic en **Ver trabajo**. Esto le llevará a la página **Trabajos**.
 
-3.  Puede supervisar el progreso del trabajo de restauración. Cuando la restauración se haya completado al 100 %, vuelva a la página **Volúmenes** del dispositivo.
+3.  Puede supervisar el progreso del trabajo de restauración. Cuando la restauración se haya completado al 100 %, vuelva a la página **Volúmenes** del dispositivo.
 
 4.  En la lista de volúmenes del dispositivo podrá ver el volumen recién restaurado. Asimismo, verá que, al realizar la restauración, el tipo de volumen sigue siendo el mismo. Esto es, un volumen en niveles se restaurará “en niveles” y un volumen anclado localmente se restaurará como “anclado localmente”.
 

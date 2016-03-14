@@ -38,7 +38,7 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 - **Posible problema**: la configuración del fotograma clave o el tamaño de GOP no son óptimos.
 
-	**Pasos para solucionar problemas**: el intervalo de fotogramas clave o el tamaño de GOP recomendado es de 2 segundos. Algunos codificadores calculan esta configuración en el número de fotogramas, mientras que otros usan segundos. Por ejemplo: cuando se envían 30 fps, el tamaño de GOP sería de 60 fotogramas, lo que equivale a 2 segundos.
+	**Pasos para solucionar problemas**: el intervalo de fotogramas clave o el tamaño de GOP recomendado es de 2 segundos. Algunos codificadores calculan esta configuración en el número de fotogramas, mientras que otros usan segundos. Por ejemplo: cuando se envían 30 fps, el tamaño de GOP sería de 60 fotogramas, lo que equivale a 2 segundos.
 	 
 - **Posible problema**: los puertos cerrados están bloqueando la secuencia.
 

@@ -129,8 +129,8 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 
 ### Valor de bits ###
 
-- Los modos **Básico**, **Estándar** y **Premium** son compatibles con aplicaciones de 32 y 64 bits.
-- Los modos de plan **Gratis**y **Compartido** solo son compatibles con aplicaciones de 32 bits.
+- Los modos **Básico**, **Estándar** y **Premium** son compatibles con aplicaciones de 32 y 64 bits.
+- Los modos de plan **Gratis**y **Compartido** solo son compatibles con aplicaciones de 32 bits.
 
 ### Compatibilidad con el depurador ###
 

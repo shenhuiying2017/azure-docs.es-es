@@ -96,7 +96,7 @@ Las máquinas virtuales de Azure cuya copia de seguridad se realiza mediante el 
 
 *No* se le facturará en función del tamaño máximo admitido para cada disco de datos conectado a la máquina virtual, sino de los datos reales almacenados en el disco de datos. De forma similar, la factura de almacenamiento de copia de seguridad se basa en la cantidad de datos almacenados con Copia de seguridad de Azure, que es la suma de los datos reales de cada punto de recuperación.
 
-Por ejemplo, veamos una máquina virtual de tamaño estándar A2 con dos discos de datos adicionales con un tamaño máximo de 1 TB cada uno. La tabla siguiente proporciona los datos almacenados en cada uno de estos discos:
+Por ejemplo, veamos una máquina virtual de tamaño estándar A2 con dos discos de datos adicionales con un tamaño máximo de 1 TB cada uno. La tabla siguiente proporciona los datos almacenados en cada uno de estos discos:
 
 |Tipo de disco|Tamaño máximo|Datos reales presentes|
 |---------|--------|------|

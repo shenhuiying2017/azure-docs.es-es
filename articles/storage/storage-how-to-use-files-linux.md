@@ -40,11 +40,11 @@ Este es un vídeo que muestra cómo crear y usar recursos compartidos de archivo
 
 Al crear una máquina virtual de Linux en Azure, puede especificar una imagen de Linux que admita SMB 2.1 o superior de la Galería de imágenes de Azure. A continuación se muestra una lista de imágenes de Linux recomendadas:
 
-- Ubuntu Server 14.04
-- Ubuntu Server 15.04
+- Ubuntu Server 14.04
+- Ubuntu Server 15.04
 - CentOS 7.1
 - Open SUSE 13.2
-- SUSE Linux Enterprise Server 12
+- SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (Premium Image)
 
 ## Montaje del recurso compartido de archivos ##

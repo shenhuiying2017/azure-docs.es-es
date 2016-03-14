@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con Dropbox para Empresas
   
-El objetivo de este tutorial es mostrar la integración de Azure y Dropbox para Empresas. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Dropbox para Empresas.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de prueba en Dropbox para empresas
@@ -176,7 +177,8 @@ Un ciclo de aprovisionamiento de usuarios completado correctamente se indica con
 <br><br> ![Asignar usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Asignar usuarios")
 
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso.
+Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 
 

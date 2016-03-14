@@ -189,7 +189,7 @@ Tenga cuidado con el número de conjuntos de datos y actividades de copia que ll
 ## Caso práctico: copia de una instancia de SQL Server local a Blob de Azure
 **Escenario:** se crea una canalización para copiar los datos de una instancia de SQL Server local a Blob de Azure en formato CSV. Para acelerar la copia, se especifica que los archivos CSV se deben comprimir en formato BZIP2.
 
-**Análisis y pruebas:** se observa que la capacidad de proceso de la actividad de copia es inferior a 2 MB/s, mucho menor que los valores de referencia de rendimiento.
+**Análisis y pruebas:** se observa que la capacidad de proceso de la actividad de copia es inferior a 2 MB/s, mucho menor que los valores de referencia de rendimiento.
 
 **Análisis y optimización del rendimiento:** para solucionar el problema de rendimiento, primero veremos cómo se procesan y se mueven los datos:
 

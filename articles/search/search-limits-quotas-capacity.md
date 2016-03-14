@@ -44,7 +44,7 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 - Longitud máxima de dirección URL de 8 KB
 - Máximo de 1000 documentos por lote del índice de cargas de índices, combinaciones o eliminaciones
 - Máximo de 32 campos en cláusula $orderby
-- El tamaño máximo del término de búsqueda es de 32 766 bytes (32 KB menos 2 bytes) de texto con codificación UTF-8
+- El tamaño máximo del término de búsqueda es de 32 766 bytes (32 KB menos 2 bytes) de texto con codificación UTF-8
 
 ## Límites de respuestas
 

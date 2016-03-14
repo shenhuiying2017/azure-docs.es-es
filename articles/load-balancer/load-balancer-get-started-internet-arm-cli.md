@@ -63,7 +63,7 @@ Para más información sobre los componentes del equilibrador de carga con el Ad
 
 ### Paso 1
 
-Cree una red virtual llamada *NRPVnet* en la ubicación Este de EE. UU. mediante el uso de un grupo de recursos llamado *NRPRG*.
+Cree una red virtual llamada *NRPVnet* en la ubicación Este de EE. UU. mediante el uso de un grupo de recursos llamado *NRPRG*.
 
 	azure network vnet create NRPRG NRPVnet eastUS -a 10.0.0.0/16
 
@@ -82,7 +82,7 @@ Cree una dirección IP pública llamada *NRPPublicIP* para que la use un grupo d
 
 ## Crear un equilibrador de carga
 
-En el ejemplo siguiente, el comando que aparece a continuación crea un equilibrador de carga llamado *NRPlb* en el grupo de recursos *NRPRG* de la ubicación *Este de EE. UU.* de Azure.
+En el ejemplo siguiente, el comando que aparece a continuación crea un equilibrador de carga llamado *NRPlb* en el grupo de recursos *NRPRG* de la ubicación *Este de EE. UU.* de Azure.
 
 	azure network lb create NRPRG NRPlb eastus
 
@@ -145,7 +145,7 @@ Cree un sondeo de estado.
 
 **-g** -grupo de recursos **-l**: nombre del conjunto de equilibrador de carga **- n**: nombre del sondeo de estado **-p** -protocolo usado por sondeo de estado **i -**: intervalo de sondeo en segundos **- c**: número de comprobaciones
 
-### Paso 4
+### Paso 4
 
 Compruebe la configuración.
 
@@ -295,7 +295,7 @@ El resultado será el siguiente:
 
 Como la NIC *lb-nic1-be* está asociada con la regla NAT *rdp1*, es posible conectarse a *web1* con RDP a través del puerto 3441 en el equilibrador de carga.
 
-### Paso 4
+### Paso 4
 
 Cree una máquina virtual llamada *web2* y asóciela con la NIC llamada *lb-nic2-be*. Se creó una cuenta de almacenamiento llamada *web1nrp* antes de ejecutar el comando que aparece a continuación.
 

@@ -1,4 +1,11 @@
-<properties pageTitle="Versión preliminar de Azure Active Directory B2C: llamada a una API web desde una aplicación Android | Microsoft Azure" description="Este artículo le mostrará cómo crear una aplicación de "lista de tareas pendientes" para Android que llame a una API web de Node.js mediante tokens de portador de OAuth 2.0. Tanto la aplicación Android como la API web usan Azure Active Directory B2C para administrar identidades de usuario y autenticar usuarios." services="active-directory-b2c" documentationCenter="android" authors="brandwe" manager="msmbaldwin" editor=""/>
+<properties
+	pageTitle="Versión preliminar de Azure Active Directory B2C: llamada a una API web desde una aplicación Android | Microsoft Azure"
+	description="Este artículo le mostrará cómo crear una aplicación de "lista de tareas pendientes" para Android que llame a una API web de Node.js mediante tokens de portador de OAuth 2.0. Tanto la aplicación Android como la API web usan Azure Active Directory B2C para administrar identidades de usuario y autenticar usuarios."
+	services="active-directory-b2c"
+	documentationCenter="android"
+	authors="brandwe"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
