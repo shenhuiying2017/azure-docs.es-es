@@ -1,36 +1,37 @@
-## Create a backup vault for a VM
+## Creación de un almacén de copia de seguridad para una máquina virtual
 
-A backup vault is an entity that stores all the backups and recovery points that have been created over time. The backup vault also contains the backup policies that will be applied to the virtual machines being backed up.
+Un almacén de copia de seguridad es una entidad que almacena todas las copias de seguridad y los puntos de recuperación creados con el tiempo. El almacén de copia de seguridad contiene también las directivas de copia de seguridad que se aplicarán a las máquinas virtuales cuya copia de seguridad se está realizando.
 
-This image shows the relationships between the various Azure Backup entities:
-![Azure Backup entities and relationships](./media/backup-create-vault-for-vms/vault-policy-vm.png)
+La siguiente imagen muestra las relaciones entre las diversas entidades de Copia de seguridad de Azure: ![Relaciones y entidades de Copia de seguridad de Azure](./media/backup-create-vault-for-vms/vault-policy-vm.png)
 
-To create a backup vault:
+Para crear un almacén de copia de seguridad:
 
-1. Sign in to the [Azure portal](http://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure](http://manage.windowsazure.com/).
 
-2. In the Azure portal click **New** > **Hybrid Integration** > **Backup**. When you click **Backup**, you will automatically switch to the classic portal (shown after the Note).
+2. En el Portal de Azure, haga clic en **Nuevo** > **Integración híbrida** > **Copia de seguridad**. Al hacer clic en **Copia de seguridad**, cambiará automáticamente al portal clásico (que aparece después de la nota).
 
-    ![Ibiza portal](./media/backup-create-vault-for-vms/Ibiza-portal-backup01.png)
+    ![Portal de Ibiza](./media/backup-create-vault-for-vms/Ibiza-portal-backup01.png)
 
-    >[AZURE.NOTE] If your subscription was last used in the classic portal, then your subscription may open in the classic portal. In this event, to create a backup vault, click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create** (see the image below).
+    >[AZURE.NOTE] Si la suscripción se usó por última vez en el portal clásico, es posible que la suscripción se abra en el portal clásico. En este caso, para crear un almacén de copia de seguridad, haga clic en **Nuevo** > **Servicios de datos** > **Servicios de recuperación** > **Almacén de copia de seguridad** > **Creación rápida** (consulte la ilustración siguiente).
 
-    ![Create backup vault](./media/backup-create-vault-for-vms/backup_vaultcreate.png)
+    ![Crear un almacén de copia de seguridad](./media/backup-create-vault-for-vms/backup_vaultcreate.png)
 
-3. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+3. En **Nombre**, escriba un nombre descriptivo para identificar el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que tenga entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
 
-4. In **Region**, select the geographic region for the vault. The vault must be in the same region as the virtual machines that you want to protect. If you have virtual machines in multiple regions, you must create a backup vault in each region. There is no need to specify storage accounts to store the backup data--the backup vault and the Azure Backup service handle this automatically.
+4. En **Región**, seleccione la región geográfica del almacén. El almacén debe estar en la misma región que las máquinas virtuales que desea proteger. Si tiene máquinas virtuales en varias regiones, debe crear un almacén de copia de seguridad en cada región. No es necesario especificar cuentas de almacenamiento para almacenar los datos de copia de seguridad: el almacén de copia de seguridad y el servicio Copia de seguridad de Azure lo controlarán automáticamente.
 
-5. In **Subscription** select the subscription you want to associate with the backup vault. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+5. En **Suscripción**, seleccione la suscripción que desea asociar al almacén de copia de seguridad. Solo habrá varias opciones si la cuenta de su organización está asociada a varias suscripciones de Azure.
 
-5. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
+5. Haga clic en **Crear almacén**. La creación del almacén de credenciales de copia de seguridad puede tardar unos minutos. Supervise las notificaciones de estado en la parte inferior del portal.
 
-    ![Create vault toast notification](./media/backup-create-vault-for-vms/creating-vault.png)
+    ![Crear la notificación del sistema del almacén](./media/backup-create-vault-for-vms/creating-vault.png)
 
-6. A message will confirm that the vault has been successfully created. It will be listed on the **recovery services** page as **Active**. Make sure to choose the appropriate storage redundancy option right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](backup-configure-vault.md#azure-backup---storage-redundancy-options).
+6. Un mensaje confirmará que el almacén se creó correctamente. Aparecerá en la página **Servicios de recuperación** como **Activo**. Asegúrese de elegir la opción de redundancia de almacenamiento apropiada justo después de crear el almacén. Lea más sobre cómo [establecer la opción de redundancia de almacenamiento en el almacén de copia de seguridad](backup-configure-vault.md#azure-backup---storage-redundancy-options).
 
-    ![List of backup vaults](./media/backup-create-vault-for-vms/backup_vaultslist.png)
+    ![Lista de copias de seguridad](./media/backup-create-vault-for-vms/backup_vaultslist.png)
 
-7. Click the backup vault to go to the **Quick Start** page, where the instructions for backing up Azure virtual machines are shown.
+7. Haga clic en el almacén de copia de seguridad para ir a la página **Inicio rápido**, donde se muestran las instrucciones para realizar la copia de seguridad de las máquinas virtuales de Azure.
 
-    ![Virtual machine backup instructions on the Dashboard page](./media/backup-create-vault-for-vms/vmbackup-instructions.png)
+    ![Instrucciones de copia de seguridad de máquina virtual en la página del Panel](./media/backup-create-vault-for-vms/vmbackup-instructions.png)
+
+<!---HONumber=AcomDC_0302_2016-->

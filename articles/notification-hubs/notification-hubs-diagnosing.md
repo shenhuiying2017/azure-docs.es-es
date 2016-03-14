@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="02/29/2016" 
 	ms.author="wesmc"/>
 
 #Centros de notificaciones de Azure: pautas de diagnóstico
@@ -75,7 +75,7 @@ Si va a usar plantillas, asegúrese entonces de seguir las instrucciones que se 
 
 Suponiendo que el Centro de notificaciones se configuró correctamente y que las etiquetas o expresiones de etiqueta se usaron correctamente, de modo que se encontraron destinos válidos a los que enviar las notificaciones, NH activa varios lotes de procesamiento en paralelo, y cada uno de ellos envía mensajes a un conjunto de registros.
 
-> [AZURE.NOTE]Dado que realizamos el procesamiento en paralelo, no garantizamos el orden en que se entregarán las notificaciones.
+> [AZURE.NOTE] Dado que realizamos el procesamiento en paralelo, no garantizamos el orden en que se entregarán las notificaciones.
 
 Ahora el Centro de notificaciones de Azure está optimizado para un modelo de entrega de mensajes "una vez como máximo". Esto significa que intentamos una desduplicación para que ninguna notificación se entregue más de una vez a un dispositivo. Para comprobar esto, examinamos los registros y nos aseguramos de que solo se envía un mensaje por identificador de dispositivo antes de enviar realmente el mensaje al PNS. Como cada lote se envía al PNS, el cual, a su vez, acepta y valida los registros, puede que el PNS detecte un error con uno o varios de los registros de un lote, devuelva un error al Centro de notificaciones de Azure y detenga el procesamiento con la consiguiente pérdida de ese lote completamente. Esto ocurre así con APNS, que usa un protocolo de transmisión TCP. Como estamos optimizados para la entrega "una vez como máximo", no se advertirá que no hay ningún reintento con este lote erróneo puesto que no sabemos con seguridad si el PNS perdió todo el lote o solo una parte. Sin embargo, el PNS le dice al Centro de notificaciones de Azure cuál es el registro que ha ocasionado el error y, en función de esa información, quitamos ese registro de nuestra base de datos. Esto implica la posibilidad de que un lote de registros o un subconjunto de dicho lote no reciba una notificación; no obstante, dado que hemos limpiado el registro malo, la próxima vez que se intente un envío, la probabilidad de que se realice satisfactoriamente será más alta. A medida que crece la escala del número de dispositivos de destino (algunos de nuestros clientes envían notificaciones a millones de dispositivos), perder un lote desparejado aquí y allá no supone mucha diferencia en el porcentaje global de dispositivos que reciben notificaciones; sin embargo, si envía unas cuantas notificaciones y hay algunos errores de PNS, podría ver que todas o la mayoría de notificaciones no se reciben. Si observa este comportamiento de manera repetida, debe identificar los registros incorrectos y eliminarlos. Debe eliminar los registros con formato incorrecto definitivamente ya que son la causa más común de la pérdida de notificaciones. Si se trata de un entorno de prueba, también puede eliminar directamente todos los registros dado que las aplicaciones, cuando se abren en los dispositivos, reintentarán y se volverán a registrar con el Centro de notificaciones, lo que asegura que todos los registros creados de ahí en adelante serán válidos.
 
@@ -115,7 +115,7 @@ A continuación, examinaremos las diversas formas de diagnosticar y encontrar la
 
 	![][8]
  
-	> [AZURE.NOTE]Las funciones de Visual Studio para editar registros se deben usar únicamente durante las fases de desarrollo y prueba con un número limitado de registros. Si surge la necesidad de corregir sus registros en masa, considere la posibilidad de usar la función para exportar o importar registros que se describe en [Exportación e importación de registros](https://msdn.microsoft.com/library/dn790624.aspx).
+	> [AZURE.NOTE] Las funciones de Visual Studio para editar registros se deben usar únicamente durante las fases de desarrollo y prueba con un número limitado de registros. Si surge la necesidad de corregir sus registros en masa, considere la posibilidad de usar la función para exportar o importar registros que se describe en [Exportación e importación de registros](https://msdn.microsoft.com/library/dn790624.aspx).
 
 2. **Explorador de Bus de servicio**
 
@@ -179,7 +179,7 @@ Imagine que utiliza el SDK para .NET para enviar una notificación del sistema n
  
 Este mensaje indica que se han configurado credenciales no válidas en el centro de notificaciones o que existe un problema con los registros en el centro y la acción recomendada sería eliminar este registro y dejar que el cliente lo volviera a crear antes de enviar el mensaje.
  
-> [AZURE.NOTE]Tenga en cuenta que el uso de esta propiedad está muy limitado y, por tanto, solo se debe usar en entornos de desarrollo y prueba con un conjunto limitado de registros. Nosotros solo enviamos notificaciones de depuración a 10 dispositivos. También contamos con un límite en el procesamiento de envíos de depuración de 10 por minuto.
+> [AZURE.NOTE] Tenga en cuenta que el uso de esta propiedad está muy limitado y, por tanto, solo se debe usar en entornos de desarrollo y prueba con un conjunto limitado de registros. Nosotros solo enviamos notificaciones de depuración a 10 dispositivos. También contamos con un límite en el procesamiento de envíos de depuración de 10 por minuto.
 
 ###Revisar la telemetría 
 
@@ -206,7 +206,7 @@ Más detalles aquí:
 - [Acceso de telemetría mediante programación]
 - [Ejemplo de acceso de telemetría mediante API] 
 
-> [AZURE.NOTE]Varias características relacionadas con la telemetría, como **exportación o importación de registros**, **acceso a telemetría a través de API**, etc., están solamente disponibles en el nivel Estándar. Si intenta usar estas características en el nivel Gratuito o Básico, recibirá un mensaje de excepción al respecto mientras usa el SDK y un error HTTP 403 (Prohibido) cuando las usa directamente desde las API de REST. Asegúrese de que ha pasado al nivel Estándar a través del Portal de Azure clásico.
+> [AZURE.NOTE] Varias características relacionadas con la telemetría, como **exportación o importación de registros**, **acceso a telemetría a través de API**, etc., están solamente disponibles en el nivel Estándar. Si intenta usar estas características en el nivel Gratuito o Básico, recibirá un mensaje de excepción al respecto mientras usa el SDK y un error HTTP 403 (Prohibido) cuando las usa directamente desde las API de REST. Asegúrese de que ha pasado al nivel Estándar a través del Portal de Azure clásico.
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -240,4 +240,4 @@ Más detalles aquí:
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

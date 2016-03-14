@@ -12,21 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/17/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# Usar la interfaz de usuario web para administrar la matriz virtual de StorSimple (vista previa)
+# Usar la interfaz de usuario web para administrar la matriz virtual de StorSimple
 
 ![flujo del proceso de instalación](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## Información general
 
-Los tutoriales de este artículo se aplican a la matriz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple) que se ejecuta en la versión 1.1.1.0 (versión preliminar). En este artículo se describen algunos de los flujos de trabajo complejos y tareas de administración que se pueden realizar en la matriz virtual de StorSimple. Existen dos interfaces de usuario que se pueden usar para administrar la matriz virtual de StorSimple: la interfaz de usuario del servicio StorSimple Manager (denominada como portal de interfaz de usuario) y la interfaz de usuario web local del dispositivo. En este artículo nos centraremos en las tareas que puede realizar mediante la interfaz de usuario web.
-
->[AZURE.IMPORTANT] 
->
->- La matriz virtual de StorSimple se encuentra en versión preliminar y está pensada con fines de evaluación y planificación de implementación. No se admite la instalación de esta versión preliminar en un entorno de producción. 
->- Si experimenta problemas con la matriz virtual de StorSimple, publique los problemas en el [foro de MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
+Los tutoriales de este artículo se aplican a la matriz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016. En este artículo se describen algunos de los flujos de trabajo complejos y tareas de administración que se pueden realizar en la matriz virtual de StorSimple. Puede administrar la matriz virtual de StorSimple mediante la interfaz de usuario del servicio StorSimple Manager (denominada portal de interfaz de usuario) y la interfaz de usuario web local del dispositivo. En este artículo nos centraremos en las tareas que puede realizar mediante la interfaz de usuario web.
 
 Este artículo incluye los siguientes tutoriales:
 
@@ -62,7 +57,7 @@ Es posible que vea algún error cuando configure el dispositivo a través de la 
 
     ![ejecutar diagnósticos 1](./media/storsimple-ova-web-ui-admin/image29.png)
 
-2. En la parte inferior de la página, haga clic en **Ejecutar las pruebas de diagnóstico**. Con esto, iniciará las pruebas para diagnosticar los posibles problemas con la red, el dispositivo, el proxy web, la hora o la configuración de la nube. Verá una notificación que le indica que el dispositivo está ejecutando algunas pruebas.
+2. En la parte inferior de la página, haga clic en **Ejecutar pruebas de diagnóstico**. Con esto, iniciará las pruebas para diagnosticar los posibles problemas con la red, el dispositivo, el proxy web, la hora o la configuración de la nube. Verá una notificación que le indica que el dispositivo está ejecutando algunas pruebas.
 
 3. Cuando hayan terminado estas pruebas, podrá ver los resultados. En el siguiente ejemplo se muestra el resultado de las pruebas de diagnóstico. Tenga en cuenta que la configuración del proxy web no se ha realizado en este dispositivo y que, por lo tanto, no se ejecutó la prueba del proxy web. El resto de las pruebas de la configuración de red, el servidor DNS y la hora se realizaron correctamente.
 
@@ -86,7 +81,7 @@ Un paquete de registro contiene todos los registros relevantes que pueden ayudar
 
     ![crear un paquete de registro 3](./media/storsimple-ova-web-ui-admin/image33.png)
 
-3. Haga clic en **Descargar el paquete de registro**. Se descargará un paquete comprimido en su sistema.
+3. Haga clic en **Descargar paquete de registro**. Se descargará un paquete comprimido en su sistema.
 
     ![crear un paquete de registro 4](./media/storsimple-ova-web-ui-admin/image34.png)
 
@@ -136,4 +131,4 @@ Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario 
 
 Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

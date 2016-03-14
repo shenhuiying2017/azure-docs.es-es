@@ -3,8 +3,8 @@
         description="Cree un recurso compartido de archivos de Azure en la nube con este tutorial paso a paso. Administre el contenido del recurso compartido de archivos y monte un recurso compartido de archivos desde una máquina virtual (VM) de Azure que ejecute Linux o una aplicación local que admita SMB 3.0."
         services="storage"
         documentationCenter="na"
-        authors="jasontang501"
-        manager="jahogg"
+        authors="mine-msft"
+        manager="aungoo"
         editor="tysonn" />
 
 <tags ms.service="storage"
@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="02/15/2016"
-      ms.author="jutang" />
+      ms.date="02/29/2016"
+      ms.author="minet" />
 
 
 # Uso de Almacenamiento de archivos de Azure con Linux
@@ -40,11 +40,11 @@ Este es un vídeo que muestra cómo crear y usar recursos compartidos de archivo
 
 Al crear una máquina virtual de Linux en Azure, puede especificar una imagen de Linux que admita SMB 2.1 o superior de la Galería de imágenes de Azure. A continuación se muestra una lista de imágenes de Linux recomendadas:
 
-- Ubuntu Server 14.04
-- Ubuntu Server 15.04
+- Ubuntu Server 14.04
+- Ubuntu Server 15.04
 - CentOS 7.1
 - Open SUSE 13.2
-- SUSE Linux Enterprise Server 12
+- SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (Premium Image)
 
 ## Montaje del recurso compartido de archivos ##
@@ -139,4 +139,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

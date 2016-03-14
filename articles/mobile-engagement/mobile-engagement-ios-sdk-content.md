@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 #Contenido del SDK
@@ -42,4 +42,4 @@ Carpeta `src`
 
 > Controladores de visualización de Engagement y código fuente del SDK de cobertura (para usuarios avanzados que desean adaptar las clases de Engagement a sus necesidades).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Uso de directivas para administrar los recursos y controlar el acceso
@@ -46,7 +46,7 @@ Con las directivas, estos escenarios pueden conseguirse fácilmente tal como se 
 
 ## Estructura de definición de directiva
 
-La definición de la directiva se crea mediante JSON. Consta de uno o más operadores lógicos/condicionales que definen las acciones y un efecto que indica lo que ocurre cuando se cumplen las condiciones.
+La definición de la directiva se crea mediante JSON. Consta de uno o más operadores lógicos/condicionales que definen las acciones y un efecto que indica lo que ocurre cuando se cumplen las condiciones. El esquema está publicado en [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json).
 
 Básicamente, una directiva contiene lo siguiente:
 
@@ -90,15 +90,45 @@ Una condición evalúa si un **campo** o un **origen** cumple determinados crite
 
 ## Campos y orígenes
 
-Las condiciones se crean mediante el uso de campos y orígenes. Un campo representa las propiedades de la carga de solicitud de recursos. Un origen representa las características de la propia solicitud.
+Las condiciones se crean mediante el uso de campos y orígenes. Un campo representa las propiedades de la carga de solicitud de recursos que se usa para describir el estado del recurso. Un origen representa las características de la propia solicitud.
 
 Estos son los campos y orígenes admitidos:
 
-Campos: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
+Campos: **name**, **kind**, **type**, **location**, **tags**, **tags.*** y **property alias**.
 
 Orígenes: **action**.
 
+El alias de propiedad es un nombre que se puede usar en la definición de directiva para acceder a las propiedades específicas del tipo de recursos, como la configuración y la SKU. Funciona en todas las versiones de API en las que existe la propiedad. Los alias se pueden recuperar mediante la API de REST que se indica a continuación (en el futuro se agregará compatibilidad con Powershell):
+
+    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+	
+La definición de un alias se parece a lo siguiente. Como puede ver, un alias define rutas de acceso en distintas versiones de API, aunque se cambie el nombre de la propiedad.
+
+    "aliases": [
+      {
+        "name": "Microsoft.Storage/storageAccounts/sku.name",
+        "paths": [
+          {
+            "path": "Properties.AccountType",
+            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
+          }
+        ]
+      }
+    ]
+
+Actualmente, los alias admitidos son:
+
+| Nombre de alias | Descripción |
+| ---------- | ----------- |
+| {resourceType}/sku.name | Los tipos de recursos admitidos son: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.family | El tipo de recurso admitido es Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | El tipo de recurso admitido es Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort | |
+| Microsoft.Cache/Redis/shardCount | |
+
+
 Para obtener más información acerca de las acciones, vea [RBAC - Roles integrados](active-directory/role-based-access-built-in-roles.md). Actualmente, la directiva solo funciona en las solicitudes PUT.
+
 
 ## Ejemplos de definición de directivas
 
@@ -168,6 +198,35 @@ El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acc
         "effect" : "deny"
       }
     }
+
+### Uso de SKU aprobadas
+
+En el ejemplo siguiente se muestra el uso del alias de propiedad para restringir las SKU. En el ejemplo siguiente, solo se aprueba el uso de Standard\_LRS y Standard\_GRS para cuentas de almacenamiento.
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "source": "action",
+            "like": "Microsoft.Storage/storageAccounts/*"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "in": ["Standard_LRS", "Standard_GRS"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+    
 
 ### Convención de nomenclatura
 
@@ -327,4 +386,4 @@ Para ver todos los eventos relacionados con el efecto de auditoría, puede usar 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Requisitos del sistema de la matriz virtual de StorSimple (vista previa)
+# Requisitos del sistema de la matriz virtual de StorSimple
 
 ## Información general
 
@@ -34,10 +34,6 @@ La información acerca de los requisitos de sistema de StorSimple publicada en e
  
 - Para los dispositivos de la serie 7000, consulte [Requisitos de sistema de los dispositivos de la serie 5000-7000 de StorSimple](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
-> [AZURE.IMPORTANT]
-> 
-> - Esta versión preliminar pública está pensada para evaluación únicamente. No se admite la instalación de esta versión preliminar en un entorno de producción.
-> - Si tiene algún problema con la matriz virtual de StorSimple, publíquelo en el [foro de MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=StorSimple).  
 
 ## Requisitos de software
 
@@ -89,10 +85,10 @@ La siguiente tabla enumera los puertos que deben abrirse en el firewall para per
 |--------------------------|---------------|----------------|---------------------------|----------------------------------------------------------------------------------------------------------------------|
 | TCP 80 (HTTP) | Fuera | WAN | No | El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones. <br></br>El usuario puede configurar el proxy web de salida. |
 | TCP 443 (HTTPS) | Fuera | WAN | Sí | El puerto de salida se usa para tener acceso a los datos en la nube. <br></br>El usuario puede configurar el proxy web de salida. |
-| UDP 53 (DNS) | Fuera | WAN | En algunos casos; consulte las notas. | Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. <br></br> **Nota**: si implementa un servidor de archivos, le recomendamos que use el servidor DNS local.|
-| UDP 123 (NTP) | Fuera | WAN | En algunos casos; consulte las notas. | Este puerto solo es necesario si está usando un servidor NTP basado en Internet.<br></br> **Nota:** si implementa un servidor de archivos, le recomendamos que sincronice la hora con los controladores de dominio de Active Directory. |
+| UDP 53 (DNS) | Fuera | WAN | En algunos casos; consulte las notas. | Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. <br></br> **Nota**: Si implementa un servidor de archivos, le recomendamos que use el servidor DNS local.|
+| UDP 123 (NTP) | Fuera | WAN | En algunos casos; consulte las notas. | Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet.<br></br> **Nota:** Si implementa un servidor de archivos, le recomendamos que sincronice la hora con los controladores de dominio de Active Directory. |
 |TCP 9354 | Fuera | WAN | Sí | El dispositivo StorSimple usa el puerto de salida para comunicarse con el servicio StorSimple Manager.|
-| TCP 80 (HTTP) | En el | LAN | Sí | Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. <br></br> **Nota**: si obtiene acceso a la interfaz de usuario local mediante HTTP, será redireccionado automáticamente a HTTPS.|
+| TCP 80 (HTTP) | En el | LAN | Sí | Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. <br></br> **Nota**: Si obtiene acceso a la interfaz de usuario local mediante HTTP, se le redireccionará automáticamente a HTTPS.|
 | TCP 443 (HTTPS) | En el | LAN | Sí | Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local.|
 | TCP 3260 (iSCSI) | En el | LAN | No | Este puerto se utiliza para tener acceso a datos a través de iSCSI.|
 
@@ -102,4 +98,4 @@ La siguiente tabla enumera los puertos que deben abrirse en el firewall para per
 
 -   [Prepare el portal para implementar la matriz virtual de StorSimple](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

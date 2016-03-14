@@ -31,7 +31,8 @@ Vaya a [https://publish.windowsazure.com](http://publish.windowsazure.com). Cuan
   ![dibujo][img-pubportal-sol-templ-new]
 
 ### 3\. Comienzo con topologías
-Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías. Siga los pasos siguientes para definir su oferta: Creación de una topología: el "identificador de la topología" suele ser el nombre de la topología en la plantilla de solución. El identificador de la topología se usará en la dirección URL, tal como se muestra a continuación:
+Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías. Siga estos pasos para definir la oferta:
+- Creación de una topología: el "identificador de la topología" suele ser el nombre de la topología en la plantilla de solución. El identificador de la topología se usará en la dirección URL, tal como se muestra a continuación:
 
   Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
@@ -40,7 +41,9 @@ Una plantilla de solución es una "matriz" para todas sus topologías. Puede def
 - Adición de una nueva versión
 
 ### 4\. Certificación de las versiones de topología
-Cargue un archivo zip que contiene todos los archivos necesarios para realizar el aprovisionamiento de esa versión específica de la topología. Este archivo zip debe contener lo siguiente: - El archivo *mainTemplate.json* y *createUiDefinition.json* como directorio raíz. - Las plantillas vinculadas y todos los scripts necesarios.
+Cargue un archivo zip que contiene todos los archivos necesarios para realizar el aprovisionamiento de esa versión específica de la topología. Este archivo zip debe contener lo siguiente:
+- Los archivos *mainTemplate.json* y *createUiDefinition.json* en su directorio raíz.
+- Las plantillas vinculadas y todos los scripts requeridos.
 
 Después de cargar el archivo zip, haga clic en **Solicitar certificación**. El equipo de certificación de Microsoft revisará los archivos y certificará la topología.
 
@@ -67,11 +70,11 @@ Es posible que también le interesen los siguientes artículos relacionados:
 
 - Administrador de recursos de Azure: [Creación de plantillas de Azure ARM](../resource-group-authoring-templates/) y [Ejemplos sencillos de plantillas de ARM](https://github.com/rjmax/ArmExamples)
 
-- Limitaciones de cuentas de almacenamiento: [Supervisión de limitaciones de cuentas de almacenamiento](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) y [Almacenamiento Premium](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-whes-ESing-premium-storage)
+- Limitaciones de cuentas de almacenamiento: [Supervisión de limitaciones de cuentas de almacenamiento](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) y [Almacenamiento Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets-whes-ESing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2016"
-   ms.author="joaoma" />
+   ms.date="02/24/2016"
+   ms.author="telmos" />
 
 # Resolución de nombres para las máquinas virtuales e instancias de rol
 
@@ -181,4 +181,4 @@ El archivo de configuración de servicio se crea por cada servicio en la nube qu
 
 [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

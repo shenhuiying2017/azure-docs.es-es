@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
+     ms.date="02/23/2016"
      ms.author="obloch"/>
 
 # SDK de dispositivos IoT de Microsoft Azure para C: más información sobre IoTHubClient
@@ -278,4 +278,4 @@ La opción de procesamiento por lotes es importante. De forma predeterminada, la
 
 En este artículo se describe con detalle el comportamiento de la biblioteca **IoTHubClient** que se encuentra en el **SDK de dispositivo IoT de Azure para C**. Con esta información conocerá bien las capacidades de la biblioteca **IoTHubClient**. En el [siguiente artículo](iot-hub-device-sdk-c-serializer.md) se proporcionan detalles similares sobre la biblioteca del **serializador**.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

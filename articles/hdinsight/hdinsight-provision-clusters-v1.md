@@ -47,7 +47,9 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
  
 - **Sistema operativos**
 
-	Puede aprovisionar clústeres de HDInsight en uno de los dos sistemas operativos siguientes: - **HDInsight en Windows (Windows Server 2012 R2 Datacenter)**: - **HDInsight en Linux (Ubuntu 12.04 LTS para Linux)**: HDInsight ofrece la opción de configurar clústeres de Linux en Azure. Configure un clúster de Linux si conoce Linux o Unix, migrando desde una solución existente de Hadoop basado en Linux, o si desea una integración fácil con componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+	Puede aprovisionar clústeres de HDInsight en uno de los dos sistemas operativos siguientes:
+	- **HDInsight en Windows (Windows Server 2012 R2 Datacenter)**:
+	- **HDInsight en Linux (Ubuntu 12.04 LTS para Linux)**: HDInsight proporciona la opción de configurar clústeres de Linux en Azure. Configure un clúster de Linux si conoce Linux o Unix, migrando desde una solución existente de Hadoop basado en Linux, o si desea una integración fácil con componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
 
 
 - **Versión de HDInsight**
@@ -78,16 +80,25 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 	![Roles de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters-v1/HDInsight.HBase.roles.png)
 
-	Los clústeres de HBase para HDInsight se implementan con tres roles: - Servidores principales (2 nodos) - Servidores regionales (al menos 1 nodo) - Nodos principales/Zookeeper (3 nodos)
+	Los clústeres de HBase para HDInsight se implementan con tres roles:
+	- Servidores principales (2 nodos)
+	- Servidores de región (al menos 1 nodo)
+	- Nodos maestro o Zookeeper (3 nodos)
 	
 	![Roles de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters-v1/HDInsight.Storm.roles.png)
 
-	Los clústeres de Storm para HDInsight se implementan con tres roles: - Nodos Nimbus (2 nodos) - Servidores de supervisor (al menos 1 nodo) - Nodos Zookeeper (3 nodos)
+	Los clústeres de Storm para HDInsight se implementan con tres roles:
+	- Nodos Nimbus (2 nodos)
+	- Servidores de supervisor (al menos 1 nodo)
+	- Nodos Zookeeper (3 nodos)
 	
 
 	![Roles de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters-v1/HDInsight.Spark.roles.png)
 
-	Los clústeres de Spark para HDInsight se implementan con tres roles: - Nodo principal (2 nodos) - Nodo de trabajo (al menos 1 nodo) - Nodos de Zookeeper (3 nodos) (gratis para Zookeepers A1)
+	Los clústeres Spark para HDInsight se implementan con tres roles:
+	- Nodo principal (2 nodos)
+	- Nodo de trabajo (al menos 1 nodo)
+	- Nodos Zookeeper (3 nodos) (gratis para nodos Zookeeper A1)
 
 	El uso de esos nodos se factura a los clientes por la duración del clúster. La facturación comienza una vez que se crea un clúster y se detiene cuando se elimina el clúster (no es posible eliminar la asignación de los clústeres ni tampoco se pueden poner en espera) El tamaño del clúster afecta el precio del mismo. Con fines de aprendizaje, se recomienda utilizar 1 nodo de datos. Para más información sobre los precios de HDInsight, vea [HDInsight Precios](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -220,7 +231,7 @@ Puede instalar componentes adicionales o personalizar la configuración del clú
 
 	![Diagrama de la configuración de punto a sitio](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-Para obtener información sobre el uso de HDInsight con una red virtual, como por ejemplo, los requisitos de configuración específicos de la red virtual, consulte [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) (Ampliar las capacidades de HDInsight con una red virtual de Azure).
+Para más información sobre el uso de HDInsight con una red virtual, como los requisitos de configuración específicos de la red virtual, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Herramientas de aprovisionamiento
 
@@ -563,7 +574,7 @@ HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas
 
 		azure storage account create [options] <StorageAccountName>
 
-	Cuando se le pida una ubicación, seleccione aquella en la que se puede aprovisionar el clúster de HDInsight. El almacenamiento debe encontrarse en la misma ubicación que el clúster de HDInsight. Actualmente, solo las regiones **Asia oriental**, **Sudeste de Asia**, **Norte de Europa**, **Oeste de Europa**, **Este de EE. UU.**, **Oeste de EE. UU.**, **Centro y norte de EE. UU.** y **Centro y sur de EE. UU.** pueden hospedar clústeres de HDInsight.
+	Cuando se le pida una ubicación, seleccione aquella en la que se puede aprovisionar el clúster de HDInsight. El almacenamiento debe encontrarse en la misma ubicación que el clúster de HDInsight. Actualmente, solo las regiones **Asia oriental**, **Sudeste de Asia**, **Norte de Europa**, **Oeste de Europa**, **Este de EE. UU.**, **Oeste de EE. UU.**, **Centro y norte de EE. UU.** y **Centro y sur de EE. UU.** pueden hospedar clústeres de HDInsight.
 
 Para obtener información sobre la creación de una cuenta de almacenamiento de Azure mediante el Portal de Azure clásico, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md).
 
@@ -686,8 +697,9 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 
 6. Ejecute el siguiente comando en la consola para instalar los paquetes:
 
-		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 	Estos comandos agregan las bibliotecas y referencias .NET al proyecto de Visual Studio actual.
 
@@ -700,6 +712,7 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
+		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -728,6 +741,9 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 		        {
 		            var tokenCreds = GetTokenCloudCredentials();
 		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		            
+		            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+		            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 		
 		            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 		
@@ -801,4 +817,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

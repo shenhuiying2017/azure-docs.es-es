@@ -3,7 +3,7 @@
 	description="Antes de publicar un runbook en Automatización de Azure, puede probarlo para asegurarse de que funciona según lo previsto. En este artículo se describe cómo probar un runbook y ver su salida."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren" />
 
 # Prueba de un runbook en Automatización de Azure
@@ -55,4 +55,4 @@ En el portal de Azure solo se puede trabajar con [runbooks de Flujo de trabajo d
 - [Edición de runbooks de texto en Automatización de Azure](automation-edit-textual-runbook.md)
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

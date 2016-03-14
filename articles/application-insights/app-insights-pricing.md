@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="02/28/2016" 
 	ms.author="awills"/>
 
 # Administración de precios y cuotas para Application Insights
@@ -140,6 +140,17 @@ El nivel de precios determina cuánto tiempo se mantienen los datos en el portal
 * Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen en un minuto para 30 días, y en una hora o un día (en función del tipo) para al menos 13 meses.
 
 
+## Muestreo
+
+El [muestreo](app-insights-sampling.md) es un método que permite reducir el volumen de telemetría que retiene la aplicación, al mismo tiempo que se conserva la capacidad de buscar eventos relacionados durante las búsquedas de diagnósticos y se conservan los recuentos de eventos correctos. El muestreo le ayuda a mantener en su cuota mensual.
+
+Existen varias formas de muestreo. Se recomienda el [muestreo adaptable](app-insights-sampling.md), que ajusta automáticamente el volumen de telemetría que envía la aplicación. Funciona en el SDK de la aplicación web, de modo que se reduzca el tráfico de telemetría en la red. Puede usarlo si el marco de la aplicación web es .NET. Basta con que instale la última versión (beta) del SDK.
+
+Como alternativa, puede establecer el *muestreo de ingesta* en la hoja de Cuotas y precios. Este tipo de muestreo funciona en el momento en que la telemetría procedente de su aplicación entra en el servicio Application Insights. No afecta al volumen de telemetría que envía la aplicación, pero reduce el volumen que retiene el servicio.
+
+![En la hoja Cuota y precios, haga clic en el icono Ejemplos y seleccione una fracción de muestreo.](./media/app-insights-sampling/04.png)
+
+El muestreo es una manera efectiva de reducir los gastos y permanecer dentro de la cuota mensual. El algoritmo de muestreo conserva elementos relacionados con la telemetría, de modo que, por ejemplo, al usar la búsqueda se puede buscar la solicitud relacionada con una excepción determinada. El algoritmo también conserva recuentos correctos, para que pueda ver en el Explorador de métricas los valores correctos de tasas de solicitudes, tasas de excepciones y otros recuentos.
 
 
 ## Revisión de la factura de su suscripción a Azure
@@ -162,4 +173,4 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

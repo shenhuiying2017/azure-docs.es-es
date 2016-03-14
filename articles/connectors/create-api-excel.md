@@ -14,22 +14,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Introducción a la API de Excel
 
-Conéctese a Excel para insertar o eliminar una fila y mucho más.
+Conéctese a Excel para insertar o eliminar una fila y mucho más. La API de Excel se puede usar desde:
 
-La API de Excel puede usarse desde PowerApps Enterprise.
+- PowerApps
 
 Con Excel, puede:
 
 - Agregar la API de Excel a PowerApps Enterprise. A continuación, los usuarios pueden usar esta API en sus aplicaciones. 
 
-Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registrar una API en PowerApps](../power-apps/powerapps-register-from-available-apis.md).
-
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
 ## Desencadenadores y acciones
 Excel incluye la siguiente acción. No hay ningún desencadenador.
@@ -41,11 +39,10 @@ Excel incluye la siguiente acción. No hay ningún desencadenador.
 Todas las API admiten datos en formato JSON y XML.
 
 ## Referencia de la API de REST de Swagger
-#### Esta documentación es para la versión: 1.0
-
+Se aplica a la versión: 1.0.
 
 ### Inserta una fila nueva en una tabla de Excel
-**```POST: /datasets/{dataset}/tables/{table}/items```**
+```POST: /datasets/{dataset}/tables/{table}/items```
 
 
 
@@ -62,12 +59,12 @@ Todas las API admiten datos en formato JSON y XML.
 |---|---|
 |200|OK|
 |default|Error en la operación.|
-------
+
 
 
 
 ### Recupera una sola fila de una tabla de Excel
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```**
+```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -84,12 +81,12 @@ Todas las API admiten datos en formato JSON y XML.
 |---|---|
 |200|OK|
 |default|Error en la operación.|
-------
+
 
 
 
 ### Elimina una fila de una tabla de Excel
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```**
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -106,12 +103,12 @@ Todas las API admiten datos en formato JSON y XML.
 |---|---|
 |200|OK|
 |default|Error en la operación.|
-------
+
 
 
 
 ### Actualiza una fila existente en una tabla de Excel
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```**
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -129,11 +126,11 @@ Todas las API admiten datos en formato JSON y XML.
 |---|---|
 |200|OK|
 |default|Error en la operación.|
-------
 
 
 
-## Definición de objeto
+
+## Definiciones de objeto
 
 #### DataSetsMetadata
 
@@ -209,6 +206,6 @@ Todas las API admiten datos en formato JSON y XML.
 
 
 ## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Creación de una PowerApp](../power-apps/powerapps-get-started-azure-portal.md)
+[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) [¿Qué es Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

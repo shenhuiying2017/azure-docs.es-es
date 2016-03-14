@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 
@@ -174,4 +174,4 @@ Si desea insertar un anuncio solo en el subconjunto de los usuarios que han real
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

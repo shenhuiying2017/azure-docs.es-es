@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introducción a la API de FTP
-Conéctese a un servidor FTP para administrar sus archivos. Puede realizar diferentes tareas en el servidor FTP, como cargar archivos, eliminar archivos, etc.
+Conéctese a un servidor FTP administrar los archivos, lo que incluye tareas como cargar archivos, eliminar archivos, etc. La API de FTP se puede usar desde:
 
-La API de FTP se puede usar desde aplicaciones lógicas.
+- Aplicaciones lógicas
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [conector de FTP](../app-service-logic/app-service-logic-connector-ftp.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Conector de FTP](../app-service-logic/app-service-logic-connector-ftp.md).
 
 Con FTP, puede:
 
@@ -30,7 +30,7 @@ Con FTP, puede:
 - Usar un desencadenador cuando se actualiza un archivo.
 - Usar acciones que crean archivos, obtienen contenido de archivos, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede obtener el contenido de un archivo y después actualizar una base de datos SQL. 
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación a las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Desencadenadores y acciones
@@ -38,7 +38,7 @@ FTP tiene los siguientes desencadenadores y acciones disponibles.
 
 Desencadenadores | Acciones
 --- | ---
-<ul><li>Obtiene un archivo actualizado</li></ul> | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar el archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Obtener un archivo actualizado</li><li>Actualizar archivo</li></ul>
+<ul><li>Obtiene un archivo actualizado</li></ul> | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante ruta de acceso</li><li>Obtener un archivo actualizado</li><li>Actualizar archivo</li></ul>
 
 Todas las API admiten datos en formato JSON y XML.
 
@@ -51,11 +51,12 @@ Cuando agregue esta API a las aplicaciones lógicas, escriba los valores siguien
 |Nombre de usuario| Sí | Escriba el nombre de usuario para conectarse al servidor FTP.|
 |Password | Sí | Escriba la contraseña del nombre de usuario.|
 
-Después de crear la conexión, especifique las propiedades de FTP, como el archivo de origen o la carpeta de destino. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de FTP, como el archivo de origen o la carpeta de destino. La **referencia de la API de REST** de este tema describe estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de FTP en otras aplicaciones lógicas.
 
-## Referencia de API de REST de Swagger
+## Referencia de la API de REST de Swagger
+Se aplica a la versión: 1.0.
 
 ### Crear archivo
 Carga un archivo en el servidor FTP. ```POST: /datasets/default/files```
@@ -101,7 +102,7 @@ Elimina un archivo del servidor FTP. ```DELETE: /datasets/default/files/{id}```
 |default|Error en la operación.|
 
 ### Extraer carpeta
-Extrae un archivo de almacenamiento en una carpeta en el servidor FTP (ejemplo: .zip) ```POST: /datasets/default/extractFolderV2```
+Extrae un archivo de almacenamiento en una carpeta del servidor FTP (por ejemplo: .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -116,7 +117,7 @@ Extrae un archivo de almacenamiento en una carpeta en el servidor FTP (ejemplo: 
 |default|Error en la operación.|
 
 ### Obtener contenido de archivo
-Recupera el contenido del servidor FTP mediante el identificador. ```GET: /datasets/default/files/{id}/content```
+Recupera el contenido del archivo del servidor FTP mediante el identificador. ```GET: /datasets/default/files/{id}/content```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -144,7 +145,7 @@ Recupera el contenido del archivo del servidor FTP mediante la ruta de acceso. `
 
 
 ### Obtener metadatos de archivo 
-Recupera los metadatos de archivo del servidor FTP mediante el identificador de archivo. ```GET: /datasets/default/files/{id}```
+Recupera los metadatos del archivo del servidor FTP mediante el identificador de archivo. ```GET: /datasets/default/files/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -158,7 +159,7 @@ Recupera los metadatos de archivo del servidor FTP mediante el identificador de 
 
 
 ### Obtener metadatos de archivo mediante la ruta de acceso
-Recupera los metadatos de archivo del servidor FTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
+Recupera los metadatos del archivo del servidor FTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -172,7 +173,7 @@ Recupera los metadatos de archivo del servidor FTP mediante la ruta de acceso. `
 
 
 ### Obtener un archivo actualizado
-Obtener un archivo actualizado. ```GET: /datasets/default/triggers/onupdatedfile```
+Obtiene un archivo actualizado. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -244,6 +245,6 @@ Actualiza un archivo en el servidor FTP. ```PUT: /datasets/default/files/{id}```
 
 ## Pasos siguientes
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

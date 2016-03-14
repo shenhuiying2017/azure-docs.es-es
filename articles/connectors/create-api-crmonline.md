@@ -13,13 +13,18 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/23/2016"
+ms.date="03/02/2016"
 ms.author="deonhe"/>
 
 # Introducción a la API de CRM
-Conéctese a Dynamics CRM Online para crear un nuevo registro, actualizar un elemento y mucho más.
+Conéctese a Dynamics CRM Online para crear un nuevo registro, actualizar un elemento y mucho más. La API de CRM Online puede utilizarse desde:
 
-La API de CRM Online puede utilizarse desde PowerApps y las aplicaciones lógicas.
+- Aplicaciones lógicas
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Aplicaciones lógicas](../articles/connectors/create-api-crmonline.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
 
 Con CRM Online, puede hacer lo siguiente:
 
@@ -27,20 +32,21 @@ Con CRM Online, puede hacer lo siguiente:
 - Usar acciones para eliminar registros, obtener entidades y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se actualice un elemento en CRM, puede enviar un correo electrónico mediante Office 365.
 
 
-Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API en PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 La API de CRM incluye las siguientes acciones. No hay desencadenadores.
 
 | Desencadenadores | Acciones|
 | --- | --- |
-|Ninguno.| <ul><li>Crear un nuevo registro</li><li>Obtiene registros</li><li>Eliminar un registro</li><li>Obtiene un registro</li><li>Obtiene entidades</li><li>Actualizar un elemento</li></ul>
+|None| <ul><li>Crear un nuevo registro</li><li>Obtener registros</li><li>Eliminar un registro</li><li>Obtener un registro</li><li>Obtener entidades</li><li>Actualizar un elemento</li></ul>
 
 Todas las API admiten datos en formato JSON y XML.
 
 ## Creación de una conexión a CRM Online
+
 
 ### Incorporación de una configuración adicional en PowerApps
 Cuando agregue CRM Online a PowerApps Enterprise, especifique los valores para **Id. de cliente** y **Clave de la aplicación** de la aplicación de Azure Active Directory (AAD) de Dynamics CRM Online. El valor de **dirección URL de redireccionamiento** también se usa en la aplicación de CRM Online. Si no tiene una aplicación, puede usar los siguientes pasos para crearla:
@@ -65,20 +71,33 @@ Cuando agregue CRM Online a PowerApps Enterprise, especifique los valores para *
 4. En la nueva aplicación, seleccione **Configurar**.
 5. En _OAuth 2_, establezca el valor **URL de respuesta** en el valor de la URL de redireccionamiento que se muestra al agregar la API de CRM Online en el Portal de Azure: ![Configurar aplicación AAD de Contoso][12]
 
-Ahora, copie y pegue los valores de **Id. de cliente** y **Clave de la aplicación** en la configuración de CRM Online en el Portal de Azure.
+Ahora, copie y pegue los valores de **Id. de cliente** y **Clave de la aplicación** en la configuración de CRM Online, en el Portal de Azure.
 
 ### Incorporación de una configuración adicional en Aplicaciones lógicas
-Al agregar esta API a las aplicaciones lógicas, debe iniciar sesión en Dynamic CRM Online.
+Al agregar esta API a las aplicaciones lógicas, debe iniciar sesión en Dynamics CRM Online.
+
+Siga estos pasos para iniciar sesión en CRM Online y completar la configuración de la **conexión** en la aplicación lógica:
+
+1. Seleccione **Periodicidad**.
+2. Seleccione una **Frecuencia** y escriba un **Intervalo**.
+3. Seleccione **Agregar una acción** ![Configurar CRM Online][13]
+4. Escriba CRM en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan CRM en el nombre.
+5. Seleccione **Dynamics CRM Online: Crear un nuevo registro**.
+6. Seleccione **Iniciar sesión en Dynamics CRM Online**: ![Configurar CRM Online][14]
+7. Proporcione sus credenciales de CRM Online para iniciar sesión y autorizar la aplicación ![Configurar CRM Online][15].  
+8. Después de iniciar sesión, vuelva a la aplicación lógica para completar el proceso agregando otros desencadenadores y otras acciones que necesite.
+9. Para guardar el trabajo, seleccione **Guardar** en la barra de menús anterior.
+
 
 Después de crear la conexión, especifique las propiedades de CRM Online, como table o dataset. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
-## Referencia de API de REST de Swagger
-#### Esta documentación corresponde a la versión: 1.0
+## Referencia de la API de REST de Swagger
+Se aplica a la versión: 1.0.
 
 ### Crear un nuevo registro 
-Cree un nuevo registro en una entidad. ```POST: /datasets/{dataset}/tables/{table}/items```
+Crea un nuevo registro en una entidad. ```POST: /datasets/{dataset}/tables/{table}/items```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -160,7 +179,7 @@ Elimina un elemento de una lista. ```DELETE: /datasets/{dataset}/tables/{table}/
 
 
 ### Aplica un parche a un elemento de tabla existente 
-Se utiliza para actualizar parcialmente un registro existente para una entidad CRM. ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
+Se usa para actualizar parcialmente un registro existente para una entidad CRM. ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -232,7 +251,7 @@ Se usa para obtener la lista de entidades existentes en una instancia de CRM. ``
 |---|---|---|
 |value|array|no|
 
-#### Dataset
+#### DataSet
 
 |Nombre de propiedad | Tipo de datos |Obligatorio|
 |---|---|---|
@@ -268,13 +287,16 @@ Se usa para obtener la lista de entidades existentes en una instancia de CRM. ``
 
 
 ## Pasos siguientes
-Después de agregar la API de CRM Online a PowerApps Enterprise, [conceda permisos a los usuarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar la API en sus aplicaciones.
+Después de agregar la API de CRM Online a PowerApps Enterprise, [conceda permisos a los usuarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usarla en sus aplicaciones.
 
-[Cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Cree una aplicación lógica.](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 
 [9]: ./media/create-api-crmonline/aad-tenant-applications-add-appinfo.png
 [10]: ./media/create-api-crmonline/aad-tenant-applications-add-app-properties.png
 [12]: ./media/create-api-crmonline/contoso-aad-app-configure.png
+[13]: ./media/create-api-crmonline/crmconfig1.png
+[14]: ./media/create-api-crmonline/crmconfig2.png
+[15]: ./media/create-api-crmonline/crmconfig3.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

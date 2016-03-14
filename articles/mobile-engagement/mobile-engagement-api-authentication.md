@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/17/2016"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement: uso de las API para la autenticación
@@ -50,7 +50,7 @@ Cuando siga este procedimiento, anote la siguiente información, ya que la neces
 	- Haga clic en el botón **VER PUNTOS DE CONEXIÓN** de la barra inferior, copie la **DIRECCIÓN URL DE PUNTO DE CONEXIÓN DE TOKEN DE OAUTH 2.0**, denominado `https://login.microsoftonline.com/{TENANT_ID}/oauth2/token` en este documento. <br/>                                    
 2. Asigne un rol a la entidad de servicio, como lector o propietario, mediante la [CLI de Azure](../xplat-cli-install.md).
 
-	Si se encuentra en Windows, modifique su variable de entorno `PATH` para incluir `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI\bin` a fin de poder usar los comandos de Azure.
+	Si se encuentra en Windows, modifique la variable de entorno `PATH` para que incluya `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI\bin` con el fin de poder usar los comandos de Azure.
 
 	Ejecute los comandos siguientes para configurar la cuenta con la interfaz de línea de comandos (CLI) de Azure:
 
@@ -92,11 +92,9 @@ Cuando siga este procedimiento, anote la siguiente información, ya que la neces
 
 Esta es una manera alternativa de realizar los pasos mencionados anteriormente mediante un script de PowerShell.
 
-1. Obtenga la versión más reciente de Azure PowerShell.
+1. Obtenga la versión más reciente de Azure PowerShell. Consulte este [vínculo](../powershell-install-configure.md) para ver las instrucciones de descarga. 
 
-	Actualmente, la versión 1.2.1 está disponible para su descarga [aquí](https://github.com/Azure/azure-powershell/releases/tag/v1.2.1-February2016).
-
-2. Abra Windows PowerShell en modo de administrador y asegúrese de que ha instalado los [cmdlets del Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt125356.aspx).
+2. Abra Windows PowerShell en modo de administrador y asegúrese de que ha instalado los [cmdlets de Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx).
 
 		Install-Module AzureRM
 		Install-AzureRM
@@ -125,7 +123,7 @@ Esta es una manera alternativa de realizar los pasos mencionados anteriormente m
 
 	El script le pedirá un "nombre" para asignar a su valor de ServicePrincipal. Aquí puede proporcionar cualquier nombre que desee.
 
-	Una vez completado el script, este mostrará cuatro valores necesarios para autenticarse mediante programación con AD: **TenantId**, **SubscriptionId**, **ApplicationId** y **Secret**.
+	Una vez completado el script, mostrará cuatro valores necesarios para autenticarse mediante programación con AD: **TenantId**, **SubscriptionId**, **ApplicationId** y **Secret**.
 
 	Copie estos valores para su referencia. Para obtener ahora un token de acceso, usará TenantId como `{TENANT_ID}`, ApplicationId como `{CLIENT_ID}` y Secret como `{CLIENT_SECRET}`.
 
@@ -155,7 +153,7 @@ Este es un ejemplo de respuesta:
 	5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_T
 	OKEN}}
 
-Este ejemplo incluye la codificación como dirección URL de los parámetros POST, el valor de `resource` es realmente `https://management.core.windows.net/`. Tenga cuidado también al codificar como dirección URL `{CLIENT_SECRET}`, ya que puede contener caracteres especiales.
+Este ejemplo incluye la codificación de la dirección URL de los parámetros POST, el valor de `resource` es en realidad `https://management.core.windows.net/`. Tenga cuidado también al codificar la dirección URL `{CLIENT_SECRET}`, ya que puede contener caracteres especiales.
 
 Ahora, en cada llamada de API, incluya el encabezado de la solicitud de autorización:
 
@@ -182,6 +180,7 @@ Ahora que tiene un token válido, está listo para realizar las llamadas de API.
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
->[AZURE.NOTE] <br/> 1. Omita la dirección de raíz de la API, ya que era para las API anteriores.<br/> 2. Debe usar el nombre del recurso de la aplicación que es diferente del nombre de la propia aplicación.
+>[AZURE.NOTE] <br/>
+>1. Omita la dirección raíz de la API, ya que era para las API anteriores.<br/> 2. Debe usar el nombre del recurso de la aplicación que es diferente del nombre de la propia aplicación. 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

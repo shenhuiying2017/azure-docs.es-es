@@ -89,9 +89,18 @@ Copie los siguientes archivos de parámetros de prueba en la máquina del servid
 
 * [query-config-win.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-win.ini) y [query-config-nix.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-nix.ini). Estos dos archivos contienen la misma información; el archivo *win* tiene el formato de nombres de archivo y rutas de acceso de Windows y el archivo *nix* tiene el formato de nombres de archivos y rutas de acceso de Linux:
 
-  ```ini [DEFAULT] debug=true #si true, muestra los registros de consola.
+  ```ini
+  [DEFAULT]
+  debug=true #si true, muestra los registros de consola.
 
-  [RUN] pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #ruta de acceso donde se guardan los resultados de pruebas. jmx=C:\\Users\\administrator1\\testplan.jmx #ruta de acceso al plan de pruebas JMeter. machines=10.0.0.1,10.0.02,10.0.0.3 #direcciones IP de los nodos de datos de Elasticsearch separadas por comas. reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Nombre de los informes separados por comas. tests=idx1 #Nombre del índice de Elasticsearch sometido a prueba. properties=run.properties #Nombre del archivo de propiedades. ```
+  [RUN]
+  pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #ruta de acceso donde se guardan los resultados de pruebas.
+  jmx=C:\\Users\\administrator1\\testplan.jmx #ruta de acceso al plan de pruebas JMeter.
+  machines=10.0.0.1,10.0.02,10.0.0.3 #direcciones IP de los nodos de datos de Elasticsearch separadas por comas.
+  reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Nombre de los informes separados por comas.
+  tests=idx1 #Nombre del índice de Elasticsearch sometido a prueba.
+  properties=run.properties #Nombre del archivo de propiedades.
+  ```
 
   Edite este archivo para especificar las ubicaciones de los resultados de pruebas, el nombre del plan de pruebas JMeter que se va a ejecutar, las direcciones IP de los nodos de datos de Elasticsearch, los informes que contienen los datos de rendimiento sin procesar que se van a generar y el nombre (o los nombres) del índice sometido a prueba. Si el archivo *run.properties* se encuentra en una carpeta o un directorio diferente, especifique la ruta de acceso completa de este archivo.
 

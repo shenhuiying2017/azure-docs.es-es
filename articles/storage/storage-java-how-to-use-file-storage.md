@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/19/2016"
-	ms.author="jutang"/>
+	ms.date="02/29/2016"
+	ms.author="robmcm"/>
 
 # Uso del almacenamiento de archivos de Java
 
@@ -216,4 +216,4 @@ Si desea obtener más información acerca de otras API de almacenamiento de Azur
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -30,7 +30,7 @@ En este artículo se enumera todo lo que se debe hacer para preparar el entorno 
 Si ya ha realizado todos los pasos de nivel superior anteriores, puede comenzar a [realizar la copia de seguridad de las máquinas virtuales](backup-azure-backup-windows-server.md). Si no es así, siga estos pasos detallados para asegurarse de que el entorno esté listo.
 
 ## Antes de comenzar
-Para preparar el entorno para la copia de seguridad de máquinas de Windows, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
+Para preparar el entorno para la copia de seguridad de máquinas de Windows, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en tan solo unos minutos.
 
 ## Creación de un almacén de copia de seguridad
 Para hacer una copia de seguridad de archivos y datos desde una máquina de Windows o desde Data Protection Manager (DPM) en Azure o al realizar copias de seguridad de máquinas virtuales de IaaS en Azure, debe crear un almacén de copia de seguridad en la región geográfica donde quiera almacenar los datos.
@@ -53,18 +53,42 @@ Para hacer una copia de seguridad de archivos y datos desde una máquina de Wind
 
     ![Creación de almacén](./media/backup-configure-vault/creatingvault1.png)
 
-    Después de crear el almacén de copia de seguridad, verá un mensaje que indica que el almacén se ha creado correctamente. El almacén aparece también en los recursos de Servicios de recuperación como **Activo**. ![Estado de creación de almacén](./media/backup-configure-vault/backupvaultstatus1.png)
+    Después de crear el almacén de copia de seguridad, verá un mensaje que indica que el almacén se ha creado correctamente. El almacén aparece también en los recursos de Servicios de recuperación como**Activo**.
 
-> [AZURE.IMPORTANT] El mejor momento para identificar la opción de redundancia de almacenamiento es justo después de la creación del almacén y antes de que las máquinas se registren en este. Una vez que un elemento se ha registrado en el almacén, la opción de redundancia de almacenamiento está bloqueada y no se puede modificar.
->
-> **Más información acerca de cómo elegir las opciones de redundancia de almacenamiento en esta [introducción general](backup-azure-storage-redundancy-options.md).**
+    ![Estado de creación de almacén](./media/backup-configure-vault/backupvaultstatus1.png)
+
+    >[AZURE.IMPORTANT] El mejor momento para identificar la opción de redundancia de almacenamiento es justo después de la creación del almacén y antes de que las máquinas se registren en este. Una vez que un elemento se ha registrado en el almacén, la opción de redundancia de almacenamiento está bloqueada y no se puede modificar.
+
+4. Seleccione las opciones de **redundancia de almacenamiento**.
+
+    Si está usando Azure como punto de conexión de almacenamiento de copia de seguridad principal (por ejemplo, si está realizando una copia de seguridad en Azure desde un servidor de Windows), debe considerar la posibilidad de seleccionar la opción de [almacenamiento con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) (valor predeterminado).
+
+    Si está usando Azure como punto de conexión de almacenamiento de copia de seguridad terciario (por ejemplo, si emplea SCDPM para tener una copia de seguridad local y usa Azure para sus necesidades de retención a largo plazo), debería considerar la posibilidad de elegir el [almacenamiento con redundancia local](../storage/storage-redundancy.md#locally-redundant-storage). Esto reduce el costo de almacenamiento de datos en Azure, a la vez que ofrece un menor nivel de durabilidad de los datos, el cual podría ser aceptable para copias terciarias.
+
+    Puede leer más información sobre las opciones de almacenamiento con [redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) y con [redundancia local](../storage/storage-redundancy.md#locally-redundant-storage) en esta página de [información general](../storage/storage-redundancy.md).
+
+    a. Haga clic en el almacén que acaba de crear.
+
+    b. En la página Inicio rápido, seleccione **Configurar**.
+
+    ![Configurar el estado de almacén](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
+
+    c. Elija la opción de redundancia de almacenamiento adecuada.
+
+    Debe hacer clic en **Guardar** si ha seleccionado el **almacenamiento con redundancia local**, puesto que el **almacenamiento con redundancia geográfica** es la opción predeterminada.
+
+    ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
+
+    d. Haga clic en **Servicios de recuperación**, en el panel de navegación izquierdo, para volver a la lista de recursos de **Servicios de recuperación**.
+
+    ![Seleccionar almacén de copia de seguridad](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
 
 ## Descargar el archivo de credenciales de almacén
 El servidor local (cliente Windows, servidor de Windows Server o Data Protection Manager) debe autenticarse ante un almacén de copia de seguridad antes de realizar una copia de seguridad de datos en Azure. La autenticación se realiza mediante las "credenciales de almacén". El archivo de credenciales de almacén se descarga a través de un canal seguro desde el Portal de Azure y el servicio Copia de seguridad de Azure es consciente de la clave privada del certificado, que no se conserva en el portal o servicio.
 
-Para más información [sobre el uso de las credenciales de almacén para autenticarse con el servicio de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
+Obtenga más información sobre el [uso de las credenciales de almacén para autenticarse con el servicio Copia de seguridad de Azure](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
-**Para descargar el archivo de credenciales de almacén a una máquina local**:
+**Para descargar el archivo de credenciales de almacén a una máquina local:**
 
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com/).
 
@@ -107,7 +131,7 @@ Después de crear el almacén de Copia de seguridad de Azure, se debe instalar u
 
     ![Directorio temporal y caché](./media/backup-configure-vault/recovery-services-agent-setup-wizard-1.png)
 
-5. Si usa un servidor proxy para conectarse a Internet, en la pantalla **Configuración de proxy**, especifique los detalles del servidor proxy. Si utiliza a un servidor proxy autenticado, escriba los detalles de nombre y la contraseña del usuario y haga clic en **Siguiente**.
+5. Si usa un servidor proxy para conectarse a Internet, en la pantalla **Configuración de proxy**, especifique los detalles del servidor proxy. Si usa un servidor proxy autenticado, escriba los detalles de nombre y contraseña del usuario y haga clic en **Siguiente**.
 
     El agente de Copia de seguridad de Azure instala .NET Framework 4.5 y Windows PowerShell (si aún no está instalado) para completar la instalación.
 
@@ -136,9 +160,9 @@ Después de crear el almacén de Copia de seguridad de Azure, se debe instalar u
     La máquina se registra correctamente en el almacén y ahora está listo para iniciar la copia de seguridad en Microsoft Azure.
 
 ## Pasos siguientes
-- Suscribirse a una [cuenta de evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/)
-- [Cómo realizar copias de seguridad de archivos y carpetas de Windows Server o del Cliente de Windows en Azure](backup-azure-backup-windows-server.md).
+- Regístrese para obtener una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+- [Realice copias de seguridad de un servidor de Windows o una máquina cliente](backup-azure-backup-windows-server.md).
 - Si todavía tiene preguntas sin responder, eche un vistazo a [P+F de servicio de Copia de seguridad de Azure](backup-azure-backup-faq.md).
-- Visite el [foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # Introducción a la creación de un equilibrador de carga orientado a Internet con la CLI de Azure
@@ -328,4 +328,4 @@ donde **nrprg** es el grupo de recursos y **nrplb** el nombre del equilibrador d
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

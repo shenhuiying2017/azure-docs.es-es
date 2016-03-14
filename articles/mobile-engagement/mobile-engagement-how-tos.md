@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="05/12/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Cómo empezar a usar y administrar inserciones para llegar a los usuarios finales
@@ -126,12 +126,16 @@ Si elige el modo de entrega "En cualquier momento", se asegurará de llegar a lo
 ### Planeación del inicio de una campaña
 ![Shedule1][18]
 
-Es 21 de marzo y tiene un anuncio que hacer, planeado para el 22 de marzo a medianoche. No es necesario que esté delante de la interfaz para realizar una inserción. Puede planear de antemano el minuto exacto en que se enviarán notificaciones. - Desmarque la casilla de verificación "None" y seleccione una hora de inicio - Elija la fecha y la hora a la que desea iniciar la campaña de inserción.
+Es 21 de marzo y tiene un anuncio que hacer, planeado para el 22 de marzo a medianoche. No es necesario que esté delante de la interfaz para realizar una inserción. Puede planear de antemano el minuto exacto en que se enviarán las notificaciones.
+-    Desactive la casilla "Ninguna" y seleccione una hora de inicio. 
+-    Elija la fecha y la hora en que desea iniciar la campaña de inserción.
 
 ### Planeación del fin de una campaña
 ![Shedule2][19]
 
-Desea que la campaña finalice el 25 de marzo a las 15:00 h pero sabe que no estará presente para hacerlo. No es necesario que esté delante de la interfaz para realizar la inserción. Puede planear de antemano el minuto exacto en que se detendrá la campaña. - Haga clic en la casilla de verificación "None" o seleccione una hora de finalización - Elija la fecha y la hora a la que desea finalizar la campaña de inserción.
+Desea que la campaña finalice el 25 de marzo a las 15:00 h pero sabe que no estará presente para hacerlo. No es necesario que esté delante de la interfaz para realizar la inserción. Puede planear de antemano el minuto exacto en que se detendrá la campaña.
+-    Haga clic en la casilla "Ninguna" o seleccione una hora de finalización.
+-    Elija la fecha y la hora en que desea finalizar la campaña de inserción.
 
 ### Finalización de una campaña manualmente
 ![Shedule3][20]
@@ -293,4 +297,4 @@ Una vista web es un elemento emergente con contenido web. Este elemento emergent
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

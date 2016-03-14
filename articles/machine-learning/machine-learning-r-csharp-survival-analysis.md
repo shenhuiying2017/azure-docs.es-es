@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/28/2016" 
 	ms.author="zhangya"/>
 
 
@@ -81,7 +81,7 @@ Hay varias maneras de consumir el servicio de forma automática ([aquí](http://
 
 
 
-Esta prueba se interpreta de la siguiente forma. Supongamos que el objetivo de los datos es modelar el tiempo transcurrido hasta que los pacientes sometidos a algunos de los dos programas de tratamiento contra las drogas vuelven a consumir drogas. El resultado del servicio web es: para pacientes de 35 años, que se han sometido dos veces a un tratamiento anterior contra el consumo de drogas, con un largo programa de tratamiento residencial y que consumían heroína y cocaína, la probabilidad de volver a consumir drogas es del 95,64 % el día 500.
+Esta prueba se interpreta de la siguiente forma. Supongamos que el objetivo de los datos es modelar el tiempo transcurrido hasta que los pacientes sometidos a algunos de los dos programas de tratamiento contra las drogas vuelven a consumir drogas. El resultado del servicio web es: para pacientes de 35 años, que se han sometido dos veces a un tratamiento anterior contra el consumo de drogas, con un largo programa de tratamiento residencial y que consumían heroína y cocaína, la probabilidad de volver a consumir drogas es del 95,64 % el día 500.
 
 ##Creación del servicio web
 
@@ -207,4 +207,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

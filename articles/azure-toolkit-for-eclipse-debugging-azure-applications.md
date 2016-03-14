@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -30,13 +30,12 @@ Como punto de partida de este tema, vamos a usar la aplicación del tutorial [Us
 
 ## Para depurar la aplicación mientras se ejecuta en Azure ##
 
->[AZURE.WARNING]La compatibilidad actual de este kit de herramientas con la depuración remota de Java está pensada principalmente para implementaciones que se ejecuten en el emulador de proceso de Azure. Dado que la conexión de depuración no es segura, no debe habilitar la depuración remota en implementaciones de producción. Si necesita depurar una aplicación que se ejecuta en la nube de Azure, use una implementación de ensayo, pero tenga en cuenta que el acceso no autorizado a la sesión de depuración es posible si alguien conoce la dirección IP de la implementación en la nube, aunque se trate de una implementación de ensayo.
+>[AZURE.WARNING] La compatibilidad actual de este kit de herramientas con la depuración remota de Java está pensada principalmente para implementaciones que se ejecuten en el emulador de proceso de Azure. Dado que la conexión de depuración no es segura, no debe habilitar la depuración remota en implementaciones de producción. Si necesita depurar una aplicación que se ejecuta en la nube de Azure, use una implementación de ensayo, pero tenga en cuenta que el acceso no autorizado a la sesión de depuración es posible si alguien conoce la dirección IP de la implementación en la nube, aunque se trate de una implementación de ensayo.
 
 1. Compile el proyecto para realizar pruebas en el emulador: en el Project Explorer (Explorador de proyectos) de Eclipse, haga clic en **MyAzureProject**, **Properties** (Propiedades), **Azure**, y establezca **Build for** (Compilar para) en **Deployment to cloud** (Implementación en la nube).
 1. Recompile el proyecto: en el menú de Eclipse, haga clic en **Project** (Proyecto) y luego en **Build All** (Compilar todo).
 1. Implementación de la aplicación en *ensayo* de Azure
-
-    > [AZURE.IMPORTANT] Como se mencionó anteriormente, se recomienda especialmente depurar en el emulador de proceso en la mayoría de los casos y luego depurar en el entorno de ensayo solo si se requiere depuración adicional. Se recomienda no depurar en el entorno de producción.
+    >[AZURE.IMPORTANT] Como se mencionó anteriormente, se recomienda especialmente depurar en el emulador de proceso en la mayoría de los casos y luego depurar en el entorno de ensayo solo si se requiere depuración adicional. Se recomienda no depurar en el entorno de producción.
 1. Cuando la implementación esté lista en Azure, obtenga el nombre DNS para la implementación del [Portal de administración de Azure][]. Una implementación de ensayo tiene un nombre DNS en forma de http://*&lt;guid&gt;*.cloudapp.net, donde *&lt;guid&gt;* es un valor GUID que Azure asigna.
 1. En el explorador de proyectos de Eclipse, haga clic con el botón derecho en **WorkerRole1**, **Azure**, y luego en **Debugging** (Depuración).
 1. En el cuadro de diálogo **Properties for WorkerRole1 Debugging** (Propiedades para la depuración de WorkerRole1):
@@ -60,7 +59,7 @@ Como punto de partida de este tema, vamos a usar la aplicación del tutorial [Us
 1. En el cuadro de diálogo **Debug Configurations** (Depurar configuraciones), expanda **Remote Java Application** (Aplicación de Java remota) en el panel de la izquierda, seleccione **Azure Cloud (WorkerRole1)** (Nube de Azure (WorkerRole1)) y haga clic en **Debug** (Depurar).
 1. En el explorador, ejecute la aplicación de ensayo ****http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, sustituyendo el GUID de su nombre DNS por *&lt;guid&gt;*. Si un cuadro de diálogo **Confirm Perspective Switch** (Confirmar cambio de perspectiva) se lo pide, haga clic en **Yes** (Sí). La sesión de depuración debe ejecutarse ahora en la línea de código donde se estableció el punto de interrupción.
 
->[AZURE.NOTE]Si intenta iniciar una conexión de depuración remota con una implementación que tiene varias instancias de rol en ejecución, actualmente no puede controlar con qué instancia se conectará inicialmente el depurador, ya que el equilibrador de carga de Azure seleccionará una instancia aleatoriamente. Aunque una vez que conectado a esa instancia, seguirá depurando la misma instancia. Tenga en cuenta también que si hay un período de inactividad de más de cuatro minutos (por ejemplo, cuando se detiene en un punto de interrupción durante demasiado tiempo), puede que Azure cierre la conexión.
+>[AZURE.NOTE] Si intenta iniciar una conexión de depuración remota con una implementación que tiene varias instancias de rol en ejecución, actualmente no puede controlar con qué instancia se conectará inicialmente el depurador, ya que el equilibrador de carga de Azure seleccionará una instancia aleatoriamente. Aunque una vez que conectado a esa instancia, seguirá depurando la misma instancia. Tenga en cuenta también que si hay un período de inactividad de más de cuatro minutos (por ejemplo, cuando se detiene en un punto de interrupción durante demasiado tiempo), puede que Azure cierre la conexión.
 
 ## Depuración de una instancia de rol específica en una implementación de varias instancias ##
 
@@ -78,7 +77,7 @@ Cuando sepa qué número de puerto público se ha asignado a esa instancia, pued
 
 ## Solo Windows: Para depurar la aplicación mientras se ejecuta en el emulador de proceso ##
 
->[AZURE.NOTE]El emulador de Azure solo está disponible en Windows. Omita esta sección si usa un sistema operativo distinto de Windows.
+>[AZURE.NOTE] El emulador de Azure solo está disponible en Windows. Omita esta sección si usa un sistema operativo distinto de Windows.
 
 1. Compile el proyecto para realizar pruebas en el emulador: en el Project Explorer (Explorador de proyectos) de Eclipse, haga clic en **MyAzureProject**, **Properties** (Propiedades), **Azure**, y establezca **Build for** (Compilar para) en **Testing in emulator** (Pruebas en el emulador).
 1. Recompile el proyecto: en el menú de Eclipse, haga clic en **Project** (Proyecto) y luego en **Build All** (Compilar todo).
@@ -135,4 +134,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

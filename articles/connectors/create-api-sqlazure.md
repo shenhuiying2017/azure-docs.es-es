@@ -14,23 +14,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 
 # Introducción a la API de SQL Azure
 Conectarse a SQL Azure para administrar las tablas y filas, como insertar filas, obtener tablas y mucho más.
 
-Puede usarse la API de SQL Azure desde aplicaciones lógicas.
+La API de SQL Azure puede usarse desde:
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema de vista previa de 01/12/2014, haga clic en [Conector de SQL](../app-service-logic/app-service-logic-connector-sql.md).
+- Aplicaciones lógicas 
 
-Con SQL, puede:
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 01/12/2014-Versión preliminar, haga clic en [Conector de SQL](../app-service-logic/app-service-logic-connector-sql.md).
+
+Con SQL Azure puede:
 
 - Compilar el flujo de negocio en función de los datos que obtiene de SQL Azure. 
 - Usar acciones para obtener una fila, insertar una fila y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede obtener una fila de datos de SQL Azure y luego agregar datos a Excel. 
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Desencadenadores y acciones
@@ -53,7 +55,8 @@ Después de crear la conexión, especifique las propiedades de SQL, como el nomb
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
-## Referencia de la API REST
+## Referencia de la API de REST de Swagger
+Se aplica a la versión: 1.0.
 
 ### Obtener fila 
 Recupera una sola fila de una tabla SQL. ```GET: /datasets/default/tables/{table}/items/{id}```
@@ -109,7 +112,7 @@ Elimina una fila de una tabla SQL. ```DELETE: /datasets/default/tables/{table}/i
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
 |table|cadena|yes|path|Ninguna|Nombre de la tabla SQL|
-|id|cadena|yes|path|Ninguna|Identificador único de la fila que se va a eliminar.|
+|id|cadena|yes|path|Ninguna|Identificador único de la fila que se va a eliminar|
 
 #### Respuesta
 |Nombre|Descripción|
@@ -222,6 +225,6 @@ Actualiza una fila existente en una tabla SQL. ```PATCH: /datasets/default/table
 
 ## Pasos siguientes
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

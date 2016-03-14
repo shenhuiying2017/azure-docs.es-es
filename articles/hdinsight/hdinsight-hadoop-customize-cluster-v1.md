@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/26/2016" 
 	ms.author="nitinme"/>
 
 # Personalizar los clústeres de HDInsight mediante la acción de script
@@ -69,16 +69,18 @@ Nombre | Script
 	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "Uso de la acción de script para personalizar un clúster")
 	
 	<table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Nombre</td>
-		<td>Especifique un nombre para la acción de script.</td></tr>
-	<tr><td>URI de script</td>
-		<td>Especifique el URI al script invocado para personalizar el clúster.</td></tr>
-	<tr><td>Tipo de nodo</td>
-		<td>Especifique los nodos en los que se ejecuta el script de personalización. Puede elegir <b>Todos los nodos</b>, <b>Solo nodos principales</b> o <b>Solo nodos de trabajo</b>.
-	<tr><td>Parámetros</td>
-		<td>Especifique los parámetros, si lo requiere el script.</td></tr>
-</table>Puede agregar más de una acción de script para instalar varios componentes en el clúster.
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Nombre</td>
+			<td>Especifique un nombre para la acción de script.</td></tr>
+		<tr><td>URI de script</td>
+			<td>Especifique el URI al script invocado para personalizar el clúster.</td></tr>
+		<tr><td>Tipo de nodo</td>
+			<td>Especifique los nodos en los que se ejecuta el script de personalización. Puede elegir <b>Todos los nodos</b>, <b>Solo nodos principales</b> o <b>Solo nodos de trabajo</b>.
+		<tr><td>Parámetros</td>
+			<td>Especifique los parámetros, si lo requiere el script.</td></tr>
+	</table>
+
+	Puede agregar más de una acción de script para instalar varios componentes en el clúster.
 
 3. Haga clic en la marca de verificación para iniciar el aprovisionamiento del clúster.
   
@@ -176,4 +178,4 @@ Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-w
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Fases durante el aprovisionamiento del clúster"
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

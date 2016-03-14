@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="02/26/2016" 
 	ms.author="awills"/>
  
 # Preguntas: Application Insights para ASP.NET
 
-## Solución de problemas
+## Problemas de configuración
 
 *Tengo problemas con la configuración de:*
 
@@ -153,4 +153,4 @@ Puede [escribir scripts de PowerShell](app-insights-powershell.md) para crear y 
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

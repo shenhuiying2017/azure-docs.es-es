@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Uso de la importación y exportación para transferir datos al almacenamiento en blobs | Microsoft Azure"
 	description="Aprenda a crear trabajos de importación y exportación en el Portal de Azure clásico para transferir datos al almacenamiento de blobs."
-	authors="robinsh"
-	manager="carmonm"
+	authors="renashahmsft"
+	manager="aungoo"
 	editor="tysonn"
 	services="storage"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="02/29/2016"
 	ms.author="renash"/>
 
 
@@ -51,7 +51,7 @@ Cuando cree un trabajo de importación o de exportación, deberá tener también
 
 1.	**Suscripción y cuentas de almacenamiento:** tiene que disponer de una suscripción de Azure existente y una o varias cuentas de almacenamiento clásico para usar el servicio de importación y exportación. Puede usar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento clásico. Dicho de otra forma, un trabajo no puede expandirse por varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account). 
 
-  > [AZURE.NOTE] Si tiene una cuenta de almacenamiento ARM, póngase en contacto con el soporte técnico de Azure.
+  > [AZURE.NOTE] Aún no se admiten las cuentas de almacenamiento que usan el modelo ARM.
 
 2.	**Discos duros:** el servicio de importación y exportación solo admite unidades de disco duro internas SATA II/III de 3,5 pulgadas. Las unidades de disco duro hasta 8 TB son compatibles. Para los trabajos de importación, solo se procesará el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS. Es posible conectar un disco SATA II/III externo a la mayoría de los equipos con un adaptador USB SATA II/III externo.
 3.	**Cifrado BitLocker:** todos los datos almacenados en unidades de disco duro deben estar cifrados mediante BitLocker con claves de cifrado protegidas mediante contraseñas numéricas.
@@ -230,7 +230,8 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 
 - No. Todas las unidades deben estar preparadas para BitLocker.
 
-**¿Es necesario realizar alguna preparación en el disco al crear un trabajo de exportación?** - No, pero se recomiendan algunas comprobaciones previas. Compruebe el número de discos necesarios mediante el comando PreviewExport de la herramienta de importación y exportación de Azure. Para obtener más información, consulte [Previsualización del uso de la unidad para un trabajo de exportación](https://msdn.microsoft.com/library/azure/dn722414.aspx). Esto le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se va a usar. Compruebe también que puede leer o escribir en el disco duro que se va a enviar para el trabajo de exportación.
+**¿Es necesario realizar alguna preparación en el disco al crear un trabajo de exportación?**
+- No, pero se recomiendan algunas comprobaciones previas. Compruebe el número de discos necesarios mediante el comando PreviewExport de la herramienta de importación y exportación de Azure. Para más información, consulte [Vista previa de uso de disco para un trabajo de exportación](https://msdn.microsoft.com/library/azure/dn722414.aspx). Esto le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se va a usar. Compruebe también que puede leer o escribir en el disco duro que se va a enviar para el trabajo de exportación.
 
 ### Envío
 
@@ -274,9 +275,9 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 
 - Envíe solo las unidades de disco duro. No incluya elementos como cables de alimentación o cables USB.
 
-**¿Por qué en mi estado de trabajo del Portal clásico aparece *Envío* mientras que en el sitio web del transportista se muestra que el paquete está entregado?**
+**¿Por qué en mi estado de trabajo del Portal clásico aparece *Enviando* mientras que en el sitio web del transportista se muestra que el paquete está entregado?**
 
-- El estado del Portal cambia de *Envío* a *Transferencia* cuando se inicia el procesamiento de la unidad. Si la unidad ha alcanzado las instalaciones, pero no se ha iniciado el procesamiento, se mostrará el estado del trabajo como *Envío*.
+- El estado del Portal cambia de *Enviando* a *Transfiriendo* cuando se inicia el procesamiento de la unidad. Si la unidad ha llegado a las instalaciones pero no se ha iniciado el procesamiento, se mostrará el estado de trabajo *Enviando*.
 
 ## Consulte también
 
@@ -287,4 +288,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -42,8 +42,9 @@ La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamie
 1. Cree una aplicación de consola en C# mediante Visual Studio.
 2. Ejecute el siguiente comando Nuget en la Consola del administrador de paquetes NuGet:
 
-		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 6. En el Explorador de soluciones, haga doble clic en **Program.cs** para abrirlo, pegue el siguiente código y especifique valores para las variables:
 
@@ -55,6 +56,7 @@ La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamie
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
+		using Microsoft.Azure.Management.Resources;
 		
 		namespace CreateHDInsightCluster
 		{
@@ -82,7 +84,10 @@ La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamie
 		
 					var tokenCreds = GetTokenCloudCredentials();
 					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-		
+					
+					var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+					resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+					
 					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 				
 					var parameters = new ClusterCreateParameters
@@ -220,4 +225,4 @@ Se puede usar el siguiente script de Azure PowerShell para crear los componentes
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

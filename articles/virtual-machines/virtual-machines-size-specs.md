@@ -35,7 +35,7 @@ Los tamaños estándar constan de varias series: A, D, DS, G y GS. Entre las con
 
 *   Las máquinas virtuales de la serie G ofrecen la mayor cantidad de memoria y se ejecutan en hosts con procesadores de la familia Intel Xeon E5 V3.
 
-*   Las VM de las series DS y GS pueden usar Almacenamiento premium, que proporciona un almacenamiento de alto rendimiento y una baja latencia para cargas de trabajo con uso intensivo de E/S. Estas VM utilizan unidades de estado sólido (SSD) para hospedar los discos de una máquina virtual y también proporcionan una memoria caché de disco SSD local. Almacenamiento premium está disponible en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../storage-premium-storage-preview-portal.md)
+*   Las VM de las series DS y GS pueden usar Almacenamiento premium, que proporciona un almacenamiento de alto rendimiento y una baja latencia para cargas de trabajo con uso intensivo de E/S. Estas VM utilizan unidades de estado sólido (SSD) para hospedar los discos de una máquina virtual y también proporcionan una memoria caché de disco SSD local. Almacenamiento premium está disponible en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../storage/storage-premium-storage.md)
 
 *   Las máquinas virtuales de la serie A se pueden implementar en diversos procesadores y tipos de hardware. Según el hardware, el tamaño es una limitación para ofrecer un rendimiento coherente del procesador para la instancia en ejecución, independientemente del hardware en que se implementó. Con el fin de determinar el hardware físico en que se implementó este tamaño, cree una consulta para el hardware virtual desde dentro de la máquina virtual.
 
@@ -119,10 +119,10 @@ Nota: Para obtener información y algunas consideraciones sobre el uso de estos 
 
 |Tamaño |Núcleos de CPU|Memoria|NICs (Máx)|Tamaño máx. del disco|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|---|
-|Standard\_A8|8|56 GB|2| Temporal = 382 GB |16|16x500|
-|Standard\_A9|16|112 GB|4| Temporal = 382 GB |16|16x500|
-|Standard\_A10|8|56 GB|2| Temporal = 382 GB |16|16x500|
-|Standard\_A11|16|112 GB|4| Temporal = 382 GB |16|16x500|
+|Standard\_A8|8|56 GB|2| Temporal = 382 GB |16|16x500|
+|Standard\_A9|16|112 GB|4| Temporal = 382 GB |16|16x500|
+|Standard\_A10|8|56 GB|2| Temporal = 382 GB |16|16x500|
+|Standard\_A11|16|112 GB|4| Temporal = 382 GB |16|16x500|
 
 ## Nivel estándar: serie D
 
@@ -155,16 +155,16 @@ Nota: Para obtener información y algunas consideraciones sobre el uso de estos 
 
 |Tamaño |Núcleos de CPU|Memoria|NICs (Máx)|Tamaño máx. del disco|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
 |---|---|---|---|---|---|---|---|
-|Standard\_DS1 |1|3,5|1|Disco SSD local = 7 GB |2|43| 3\.200 32 MB por segundo |
-|Standard\_DS2 |2|7|2|Disco SSD local = 14 GB |4|86| 6\.400 64 MB por segundo |
-|Standard\_DS3 |4|14|4|Disco SSD local = 28 GB |8|172| 12\.800 128 MB por segundo |
-|Standard\_DS4 |8|28|8|Disco SSD local = 56 GB |16|344| 25\.600 256 MB por segundo |
-|Standard\_DS11 |2|14|2|Disco SSD local = 28 GB |4|72| 6\.400 64 MB por segundo |
-|Standard\_DS12 |4|28|4|Disco SSD local = 56 GB |8|144| 12\.800 128 MB por segundo |
-|Standard\_DS13 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 256 MB por segundo |
-|Standard\_DS14 |16|112|8|Disco SSD local = 224 GB |32|576| 50\.000 512 MB por segundo |
+|Standard\_DS1 |1|3,5|1|Disco SSD local = 7 GB |2|43| 3.200 32 MB por segundo |
+|Standard\_DS2 |2|7|2|Disco SSD local = 14 GB |4|86| 6.400 64 MB por segundo |
+|Standard\_DS3 |4|14|4|Disco SSD local = 28 GB |8|172| 12.800 128 MB por segundo |
+|Standard\_DS4 |8|28|8|Disco SSD local = 56 GB |16|344| 25.600 256 MB por segundo |
+|Standard\_DS11 |2|14|2|Disco SSD local = 28 GB |4|72| 6.400 64 MB por segundo |
+|Standard\_DS12 |4|28|4|Disco SSD local = 56 GB |8|144| 12.800 128 MB por segundo |
+|Standard\_DS13 |8|56|8|Disco SSD local = 112 GB |16|288| 25.600 256 MB por segundo |
+|Standard\_DS14 |16|112|8|Disco SSD local = 224 GB |32|576| 50.000 512 MB por segundo |
 
-**Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener información detallada, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md).
+**Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener información detallada, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
 
 ## Nivel estándar: serie G
 
@@ -180,11 +180,11 @@ Nota: Para obtener información y algunas consideraciones sobre el uso de estos 
 
 |Tamaño |Núcleos de CPU|Memoria|NICs (Máx)|Tamaño máx. del disco|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
 |---|---|---|---|---|---|---|---|
-|Standard\_GS1|2|28|1|Disco SSD local = 56 GB |4|264| 5\.000 125 MB por segundo |
-|Standard\_GS2|4|56|2|Disco SSD local = 112 GB |8|528| 10\.000 250 MB por segundo |
-|Standard\_GS3|8|112|4|Disco SSD local = 224 GB |16|1056| 20\.000 500 MB por segundo |
-|Standard\_GS4|16|224|8|Disco SSD local = 448 GB |32|2112| 40\.000 1.000 MB por segundo |
-|Standard\_GS5|32|448|8|Disco SSD local = 896 GB |64|4224| 80\.000 2.000 MB por segundo |
+|Standard\_GS1|2|28|1|Disco SSD local = 56 GB |4|264| 5.000 125 MB por segundo |
+|Standard\_GS2|4|56|2|Disco SSD local = 112 GB |8|528| 10.000 250 MB por segundo |
+|Standard\_GS3|8|112|4|Disco SSD local = 224 GB |16|1056| 20.000 500 MB por segundo |
+|Standard\_GS4|16|224|8|Disco SSD local = 448 GB |32|2112| 40.000 1.000 MB por segundo |
+|Standard\_GS5|32|448|8|Disco SSD local = 896 GB |64|4224| 80.000 2.000 MB por segundo |
 
 
 ### Consulte también
@@ -193,4 +193,4 @@ Nota: Para obtener información y algunas consideraciones sobre el uso de estos 
 
 [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

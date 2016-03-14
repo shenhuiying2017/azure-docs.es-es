@@ -3,7 +3,7 @@
 	description="Las últimas novedades sobre las herramientas de Visual Studio para Application Insights." 
 	services="application-insights" 
     documentationCenter=""
-	authors="dimazaid" 
+	authors="aruna" 
 	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
@@ -11,12 +11,31 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
-	ms.author="dimazaid"/>
+	ms.date="02/26/2016" 
+	ms.author="acearun"/>
  
-# Notas de la versión de Herramientas de Application Insights para Visual Studio 4.2
+# Notas de la versión de Herramientas de Application Insights para Visual Studio
+
+## Versión 4.3
+### Búsqueda de telemetría desde sesiones de depuración local
+Con esta versión, introducimos la capacidad para buscar la telemetría de Application Insights generada en la sesión de depuración de Visual Studio. Anteriormente, la búsqueda solo era posible si había registrado la aplicación con Application Insights. Con esta versión, la aplicación únicamente necesita que el SDK de Application Insights esté instalado para buscar la telemetría local.
+
+#### Si tiene una aplicación ASP.NET con el SDK de Application Insights
+
+- Depure la aplicación.
+- Abra Búsqueda de Application Insights de una de estas formas.
+	- Menú Ver -> Otras ventanas -> Búsqueda de Application Insights
+	- Haga clic en el botón de la barra de herramientas de Application Insights.
+	- En el Explorador de soluciones, expanda ApplicationInsights.config -> Busque la telemetría de la sesión de depuración.
+- Si aún no se ha registrado con Application Insights, se abrirá la ventana de búsqueda en el modo de telemetría de la sesión de depuración.
+- Haga clic en el icono de búsqueda para ver los datos de telemetría local.
+
+![Carga completa](./media/app-insights-release-notes-vsix/LocalSearch.png)
+
+
+
 ##Versión 4.2
-En esta versión hemos agregado características para facilitar la búsqueda de datos en el contexto de eventos, la capacidad de saltar al código desde más eventos de datos y una experiencia para enviar sin esfuerzo los datos de registro a Application Insights. Esta extensión se actualiza mensualmente, si tiene comentarios o solicitudes de características, envíelos a aidevtools@microsoft.com
+En esta versión hemos agregado características para facilitar la búsqueda de datos en el contexto de eventos, la capacidad de saltar al código desde más eventos de datos y una experiencia para enviar sin esfuerzo los datos de registro a Application Insights. Esta extensión se actualiza mensualmente; si tiene comentarios o solicitudes de funcionalidades, envíelos a aidevtools@microsoft.com.
 ###- Experiencia de registro sin un solo clic
 Si ya está usando el seguimiento de NLog, Log4Net o System.Diagnostics, no tendrá que preocuparse acerca de cómo mover todos los seguimientos a AI, ya que estamos integrando los adaptadores de registro de Application Insights con la experiencia de configuración normal. Si ya tiene uno de estos marcos de registro configurados, esto es lo que debe hacer:
 ####Si ya ha agregado Application Insights
@@ -87,4 +106,4 @@ En versiones futuras de la extensión Application Insights, agregaremos nuevas f
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

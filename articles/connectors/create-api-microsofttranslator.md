@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introducción a la API de Microsoft Translator
-Conéctese a Microsoft Translator para traducir el texto, detectar un idioma, etc.
+Conéctese a Microsoft Translator para traducir el texto, detectar un idioma, etc. La API de Microsoft Translator pueden usarse desde:
 
-Microsoft Translator puede usarse desde PowerApps Enterprise y aplicaciones lógicas.
+- PowerApps 
+- Aplicaciones lógicas 
 
 Con Microsoft Translator, puede:
 
@@ -29,9 +30,9 @@ Con Microsoft Translator, puede:
 - Usar acciones para traducir texto, detectar un idioma, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se crea un nuevo archivo en Dropbox, puede convertir el texto del archivo a otro idioma mediante Microsoft Translator.
 - Agregue la API de Microsoft Translator a PowerApps Enterprise. Así los usuarios pueden usar esta API en sus aplicaciones. 
 
-Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Para obtener información acerca de cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación a las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 Microsoft Translator incluye las siguientes acciones. No hay desencadenadores.
@@ -45,24 +46,25 @@ Todas las API admiten datos en formato JSON y XML.
 ## Creación de la conexión a Microsoft Translator
 
 ### Incorporación de una configuración adicional en PowerApps
-Cuando agregue Microsoft Translator a PowerApps Enterprise, escriba los valores **Id. de cliente** y **Secreto de cliente** de la aplicación de Microsoft Translator. Si no tiene una aplicación de traducción, puede crear una:
+Al agregar Microsoft Translator a PowerApps Enterprise, escriba los valores de **Id. de cliente** y **Secreto de cliente** de la aplicación de Microsoft Translator. Si no tiene una aplicación de traducción, puede crear una:
 
 1. Vaya a la [página del programador de Azure Data Market][5] e inicie sesión con su Cuenta de Microsoft. 
 
 2. Seleccione **Registrar su aplicación**:
 
-	1. Escriba un valor para **Id. de cliente**.
+	1. Escriba un valor en **Id. de cliente**.
 	2. Escriba el **nombre** de la aplicación.
-	3. Escriba un valor ficticio para la **dirección URL de redireccionamiento**. Por ejemplo, escriba **https://contosoredirecturl*.
+	3. Escriba un valor ficticio en la **URL de redireccionamiento**. Por ejemplo, escriba: **https://contosoredirecturl*.
 4. Escriba una **descripción**.
 	5. Seleccione **Crear**.  
 
 	![Registrar su aplicación][6]
 
-Ahora, copie y pegue los valores **Id. de cliente** y **Secreto de cliente** en la configuración de la aplicación de traducción en el portal de Azure.
+Ahora, copie y pegue los valores de **Id. de cliente** y **Secreto de cliente** en la configuración de Translator en el Portal de Azure.
 
 
-## Referencia de API de REST de Swagger
+## Referencia de la API de REST de Swagger
+Se aplica a la versión: 1.0.
 
 ### Detectar idioma    
 Detecta el idioma de origen de un texto dado. ```GET: /Detect```
@@ -79,7 +81,7 @@ Detecta el idioma de origen de un texto dado. ```GET: /Detect```
 
 
 ### Texto a voz    
-Convierte un texto determinado en voz como una transmisión de audio en formato de onda. ```GET: /Speak```
+Convierte un texto dado en voz en forma de secuencia de audio en formato de onda. ```GET: /Speak```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -144,13 +146,13 @@ No hay parámetros para esta llamada.
 
 
 ## Pasos siguientes
-Después de agregar la API de Microsoft Translator a PowerApps Enterprise, [conceda permisos a los usuarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar dicha API en sus aplicaciones.
+Después de agregar la API de Microsoft Translator a PowerApps Enterprise, [conceda a los usuarios los permisos necesarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar dicha API en sus aplicaciones.
 
-[Cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 <!--References-->
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/create-api-microsofttranslator/register-your-application.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -3,7 +3,7 @@
    description="Resume los distintos métodos que pueden usarse para iniciar un runbook de Automatización de Azure y proporciona detalles sobre cómo utilizar el Portal de Azure y Windows PowerShell."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/19/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren"/>
 
 # Inicio de un runbook en Automatización de Azure
@@ -189,4 +189,4 @@ jsmith
 
 -	La arquitectura de Runbook en el artículo actual proporciona una descripción detallada sobre los Runbooks híbridos; para obtener más información, consulte [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

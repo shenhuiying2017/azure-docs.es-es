@@ -70,7 +70,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
-### Paso 4
+### Paso 4
 
 Creación de un grupo de recursos (omitir este paso si se usa un grupo de recursos existente)
 
@@ -136,11 +136,18 @@ Cree una regla de equilibrador de carga.
 
 ### Paso 3
 
-Cree un sondeo de estado.
-
+Cree un sondeo de estado. Hay dos formas de configurar un sondeo:
+ 
+Sondeo HTTP
+	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+o
 
-### Paso 4
+Sondeo TCP
+	
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+
+### Paso 4
 
 Cree el equilibrador de carga mediante los objetos creados anteriormente.
 
@@ -169,7 +176,7 @@ Cree una NIC llamada *lb-nic2-be* y asóciela con la segunda regla NAT y el prim
 
 	$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic2-be -Location 'West US' -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 
-### Paso 4
+### Paso 4
 
 Compruebe las tarjetas NIC.
 
@@ -249,7 +256,7 @@ Cargue la interfaz de red ya creada en una variable. El nombre de variable que s
 
 	$nic =get-azurermnetworkinterface –name lb-nic1-be -resourcegroupname NRP-RG
 
-#### Paso 4
+#### Paso 4
 
 Cambie la configuración de back-end en la interfaz de red.
 
@@ -287,7 +294,7 @@ Guarde la nueva configuración mediante Set-AzureLoadBalancer
 
 ## Eliminación de un equilibrador de carga
 
-Use el comando `Remove-AzureLoadBalancer` para eliminar un equilibrador de carga creado previamente denominado "NRP-LB" en un grupo de recursos denominado "NRP-RG".
+Use el comando `Remove-AzureLoadBalancer` para eliminar un equilibrador de carga creado previamente denominado "NRP-LB" en un grupo de recursos llamado "NRP-RG".
 
 	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
@@ -295,10 +302,10 @@ Use el comando `Remove-AzureLoadBalancer` para eliminar un equilibrador de carga
 
 ## Pasos siguientes
 
-[Introducción a la configuración de un equilibrador de carga interno](load-balancer-internal-getstarted.md)
+[Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

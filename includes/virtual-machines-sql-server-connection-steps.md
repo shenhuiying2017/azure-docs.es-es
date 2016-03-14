@@ -58,7 +58,7 @@ Para obtener más información acerca de la habilitación de protocolos para el 
 
 El motor de base de datos de SQL Server no puede utilizar la autenticación de Windows sin un entorno de dominio. Para conectarse al motor de base de datos desde otro equipo, configure SQL Server para autenticación de modo mixto. La autenticación de modo mixto permite la autenticación de SQL Server y la autenticación de Windows.
 
->[AZURE.NOTE]Si ha configurado una red virtual de Azure con un entorno de dominio configurado, es posible que no sea necesario configurar la autenticación de modo mixto.
+>[AZURE.NOTE] Si ha configurado una red virtual de Azure con un entorno de dominio configurado, es posible que no sea necesario configurar la autenticación de modo mixto.
 
 1. Mientras está conectado a la máquina virtual, en la página de inicio, escriba **SQL Server 2014 Management Studio** y haga clic en el icono seleccionado.
 
@@ -124,4 +124,4 @@ Para conectarse al motor de base de datos desde otro equipo, debe crear al menos
 
 Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](http://msdn.microsoft.com/library/aa337562.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

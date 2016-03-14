@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
@@ -24,7 +24,7 @@ Para facilitar la solución de problemas de las implementaciones, puede habilita
 
 ## Habilitación del acceso remoto antes de implementar en Azure ##
 
->[AZURE.NOTE]Para habilitar el acceso remoto antes de implementar la aplicación en Azure, tiene que ejecutarse Eclipse en Windows.
+>[AZURE.NOTE] Para habilitar el acceso remoto antes de implementar la aplicación en Azure, tiene que ejecutarse Eclipse en Windows.
 
 La imagen siguiente muestra el cuadro de diálogo de propiedades **Remote Access** (Acceso remoto) que se usa para habilitar el acceso remoto.
 
@@ -85,7 +85,7 @@ Cuando la instancia de rol esté lista, podrá iniciar sesión de manera remota 
 * Otra manera de iniciar sesión de manera remota es a través del <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Portal de administración de Azure</a>:
     * Dentro de la vista **Servicios en la nube** del Portal de administración de Azure, haga clic en el servicio en la nube, en **Instancias**, en una instancia específica y luego en el botón**Conectar**. El botón **Conectar** aparece del modo siguiente en la barra de comandos: 
     ![][ic659273]  
-    >[AZURE.NOTE]Si se encuentra en un sistema operativo distinto de Windows, deberá usar un cliente de Escritorio remoto que sea compatible con el sistema operativo y seguir los pasos para configurar ese cliente con los valores del archivo RDP que descargó.
+    >[AZURE.NOTE] Si se encuentra en un sistema operativo distinto de Windows, deberá usar un cliente de Escritorio remoto que sea compatible con el sistema operativo y seguir los pasos para configurar ese cliente con los valores del archivo RDP que descargó.
     * Tras hacer clic en el botón **Conectar**, se le pedirá que abra un archivo RDP. Abra el archivo y siga las indicaciones. (También puede guardar este archivo en el equipo local y luego ejecutarlo haciendo doble clic en él para iniciar sesión de manera remota en la máquina virtual sin necesidad de ir primero al Portal de administración).
     * Cuando se le pida el nombre de usuario y la contraseña, escriba los valores que especificó para el usuario remoto y podrá iniciar sesión.
 
@@ -114,4 +114,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

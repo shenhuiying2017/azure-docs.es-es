@@ -18,7 +18,7 @@
 
 # Implementación de un grupo de recursos con la plantilla del Administrador de recursos de Azure
 
-En este tema se explica cómo usar las plantillas de Administrador de recursos de Azure para implementar sus recursos en Azure. Se muestra cómo implementar los recursos mediante el uso de PowerShell de Azure, CLI de Azure, API de REST o el Portal de Azure.
+En este tema se explica cómo usar las plantillas de Administrador de recursos de Azure para implementar sus recursos en Azure. Muestra cómo implementar los recursos mediante el uso de Azure PowerShell, CLI de Azure, API de REST o el Portal de Azure.
 
 Para ver una introducción al Administrador de recursos, vea [Información general del Administrador de recursos de Azure](./resource-group-overview.md). Para obtener más información sobre la creación de plantillas, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
@@ -284,4 +284,4 @@ Para definir parámetros de plantilla, consulte [Creación de plantillas](../res
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

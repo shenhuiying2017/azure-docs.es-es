@@ -22,7 +22,7 @@
 
 ## Información general
 
-El [almacenamiento Premium de Azure](../storage-premium-storage-preview-portal.md) es un almacenamiento de última generación que proporciona baja latencia y E/S de alto rendimiento. Funciona mejor para cargas de trabajo intensivas clave de E/S, como [máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/) de SQL Server en IaaS.
+El [almacenamiento Premium de Azure](../storage/storage-premium-storage.md) es un almacenamiento de última generación que proporciona baja latencia y E/S de alto rendimiento. Funciona mejor para cargas de trabajo intensivas clave de E/S, como [máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/) de SQL Server en IaaS.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
@@ -149,7 +149,7 @@ Una vez asignados los VHD a discos físicos en los grupos de almacenamiento, pue
 
 El nivel de rendimiento del almacenamiento depende del tamaño especificado de la máquina virtual DS* y de los tamaños del VHD. Las máquinas virtuales tienen diferentes asignaciones para el número de VHD que se pueden conectar y el ancho de banda máximo que admitirán (MB/s). Para obtener las cifras específicas del ancho de banda, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](virtual-machines-size-specs.md).
 
-El aumento de IOPS se consigue con tamaños de disco mayores. Debe tenerlo en cuenta al considerar la ruta de acceso de la migración. Para obtener más información, [vea la tabla de IOPS y tipos de discos](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whes-ESing-premium-storage).
+El aumento de IOPS se consigue con tamaños de disco mayores. Debe tenerlo en cuenta al considerar la ruta de acceso de la migración. Para obtener más información, [vea la tabla de IOPS y tipos de discos](../storage-premium-storage.md#scalability-and-performance-targets-whes-ESing-premium-storage).
 
 Por último, tenga en cuenta que las máquinas virtuales admiten diferentes anchos de banda de disco máximos para todos los discos conectados. Con una carga elevada, podría saturar el ancho de banda de disco máximo disponible para ese tamaño de rol de máquina virtual. Por ejemplo, un Standard_DS14 admitirá hasta 512 MB/s; por lo tanto, con tres discos P30 podría saturar el ancho de banda de disco de la máquina virtual. No obstante, en este ejemplo, se puede superar el límite de rendimiento en función de la combinación de E/S de lectura y escritura.
 
@@ -402,7 +402,6 @@ Debe aprovisionar tiempo donde se pueda realizar una conmutación por error manu
 1. Copie las de copias de seguridad completas y restáurelas con **NORECOVERY**.
 1. Copie los objetos dependientes “fuera de la base de datos de usuario”, como los inicios de sesión, etc.
 1. Cree un equilibrador de carga interno nuevo (ILB) o use un equilibrador de carga externo (ELB) y, a continuación, configure los extremos de carga equilibrada en ambos nodos nuevos.
-
 > [AZURE.NOTE] Compruebe que todos los nodos tienen la configuración de extremo correcta antes de continuar
 
 1. Detenga el acceso de usuario/aplicación al servidor SQL Server (si usa grupos de almacenamiento).
@@ -1118,7 +1117,7 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 	![Appendix15][25]
 
 ## Recursos adicionales
-- [Almacenamiento Premium de Azure](../storage-premium-storage-preview-portal.md)
+- [Almacenamiento Premium de Azure](../storage/storage-premium-storage.md)
 - [Máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md)
 
@@ -1149,4 +1148,4 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!-----HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0302_2016-->

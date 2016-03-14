@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/26/2016"
 	ms.author="asmalser"/>
 
 #Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory
@@ -54,9 +54,7 @@ Por ejemplo, si necesita enviar el departamento al que pertenece el usuario en s
 
 Si no hay ningún valor almacenado para el atributo seleccionado para un usuario determinado, esa notificación no se emitirá en el token.
 
-**Nota:** **user.onpremisesecurityidentifier** y **user.onpremisesamaccountname** solo se admiten al sincronizar datos de usuario desde Active Directory local mediante la versión preliminar más reciente de la herramienta AAD Connect. Puede descargar la versión preliminar de la herramienta Connect en el siguiente vínculo:
-
-http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+**Nota:** **user.onpremisesecurityidentifier** y **user.onpremisesamaccountname** solo se admiten al sincronizar datos de usuario desde Active Directory local mediante la [herramienta Azure AD Connect](active-directory-aadconnect.md).
 
 ## Artículos relacionados
 
@@ -70,4 +68,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

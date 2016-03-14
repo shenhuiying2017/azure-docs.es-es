@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Cómo crear y administrar los segmentos de usuarios para identificar patrones de uso
 
-En este artículo se describe la pestaña **SEGMENTOS** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**. Para obtener más información, consulte [Crear una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md).
+En este artículo se describe la pestaña **SEGMENTOS** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles.
 
 La sección de segmentos de la interfaz de usuario permite trabajar en la segmentación de los usuarios según los diferentes comportamientos y análisis que puede obtener de la aplicación y a los que también puede tener acceso a través de la API de segmentos. Los segmentos se calculan por primera vez 24 horas después de crearse y se vuelven a calcular cada 24 horas, según la información de análisis más reciente. Una vez que se calcula un segmento, muestra un gráfico de "Historial de día a día" cada día.
 
 
->[AZURE.NOTE]Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
+>[AZURE.NOTE] Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
 
 ## Crear segmentos
 Puede crear un segmento basándose en hasta 10 criterios en un período concreto hasta 60 días en el pasado desde la sección de análisis. Por ejemplo, puede crear un segmento basándose en las personas que han consultado ciertas páginas o buscado contenido específico dentro de la aplicación en los últimos 10 días. Esta información está disponible en la sección de análisis. Por lo tanto, se puede utilizar para crear un segmento y, a continuación, configurar una notificación de inserción para orientarla a este subconjunto para que vuelvan a la aplicación.
@@ -197,4 +197,4 @@ Cuando haya terminado de configurar su criterio, aparecerá en el embudo de segm
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

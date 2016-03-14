@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="06/18/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Guía de solución de problemas de servicio
@@ -89,4 +89,4 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
     - Use un archivo que de tamaño inferior al tamaño máximo de archivo de 35 MB.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

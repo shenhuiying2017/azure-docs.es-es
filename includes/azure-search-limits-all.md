@@ -1,30 +1,17 @@
-Resource|Free|Basic (Preview) <sup>6</sup>|S1|S2
+Recurso|Gratuito|Básico (versión preliminar) <sup>6</sup>|S1|S2
 ---|---|---|---|----
-Maximum search services|N/A|---|12 per Azure subscription|12 per Azure subscription
-Maximum storage size <sup>1</sup>|50 MB or 10,000 documents|2 GB per service|25 GB per partition or 300 GB documents per service|100 GB per partition or 1.2 TB per service
-Maximum documents hosted|10,000 total|1 million per service|15 million per partition (up to 180 million documents per service)|60 million per partition (up to 720 million documents per service)
-Maximum indexes|3|5|50|200
-Maximum indexers|3|5|50|200
-Maximum indexer datasources|3|5|50|200
-Index: maximum fields per index|1000|100 <sup>5</sup>|1000|1000
-Index: maximum scoring profiles per index|16|16|16|16
-Index: maximum functions per profile|8|8|8|8
-Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents
-Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours
-Queries per second (QPS) <sup>2</sup>|N/A|~3 per replica|~15 per replica|~60 per replica
-Scale out: maximum search units (SU) <sup>3</sup>|N/A|Up to 3 units (3 replicas and 1 partition)|36 units|36 units
-Pricing <sup>4</sup>|N/A|$75 per SU per month|$250 per SU per month|$1000 per SU per month
+Servicios máximos de búsqueda|N/D|---|12 por suscripción de Azure |12 por suscripción de Azure Tamaño máximo de almacenamiento <sup>1</sup>|50 MB o 10 000 documentos|2 GB por servicio|25 GB por partición o 300 GB de documentos por servicio|100 GB por partición o 1,2 TB por servicio Número máximo de documentos hospedados|10 000 total|1 millón por servicio|15 millones por partición (hasta 180 millones de documentos por servicio)|60 millones por partición (hasta 720 millones de documentos por servicio) Número máximo de índices|3|5|50|200 Número máximo de indexadores|3|5|50|200 Número máximo de orígenes de datos del indexador|3|5|50|200 Índice: número máximo de campos por índice|1000|100 <sup>5</sup>|1000|1000 Índice: número máximo de perfiles de puntuación por índice|16|16|16|16 Índice: número máximo de funciones por perfil|8|8|8|8 Indexadores: carga máxima de indexación por invocación|10 000 documentos|Limitado solo por número máximo de documentos|Limitado solo por el número máximo de documentos|Limitado solo por el número máximo de documentos Indexadores: número máximo de tiempo de ejecución|3 minutos|24 horas|24 horas|24 horas Consultas por segundo (QPS) <sup>2</sup>|N/A|~3 por réplica|~15 por réplica|~60 por réplica Escalar horizontalmente: número máximo de unidades de búsqueda (SU) <sup>3</sup>|N/D|Hasta 3 unidades (3 réplicas y 1 partición)|36 unidades|36 unidades Precios <sup>4</sup>|N/A|$75 por SU por mes|$250 por SU por mes|$1000 por SU por mes
 
-<sup>1</sup> Storage size is either a fixed amount or the number of documents per service, whichever comes first.
+<sup>1</sup> El tamaño de almacenamiento es una cantidad fija o el número de documentos por servicio, lo que ocurra primero.
 
-<sup>2</sup> QPS is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
+<sup>2</sup> QPS es una aproximación basada en heurística, mediante las cargas de trabajo de clientes reales y simulados para derivar valores estimados. El rendimiento QPS exacto dependerá de los datos y de la naturaleza de la consulta.
 
-<sup>3</sup> Search units are the billable unit for either a replica or a partition. You need both for both storage, indexing, and query operations. See [Capacity Planning](../articles/search/search-capacity-planning.md) for valid combinations of replicas and partitions that keep you within the maximum limit of 3 or 36 units, for Basic and Standard respectively.
+<sup>3</sup> Unidades de búsqueda son la unidad facturable para una réplica o una partición. Es necesario para las operaciones de almacenamiento, de indexación y de consulta. Consulte en [Planificación de capacidad](../articles/search/search-capacity-planning.md) las combinaciones válidas de réplicas y particiones que le mantienen dentro del límite máximo de 3 o 36 unidades, para Básico y Estándar, respectivamente.
 
-<sup>4</sup> Price is for the U.S. market, illustrating relative costs among alternative tiers. Different markets have different prices. Refer to the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for rates in other currencies. The rate is per search unit (SU). At the S1 level, a configuration of 3 search units (say 3 replicas and 1 partition) would cost $750 per month on average. If you scale down to fewer SU within the month, the bill is prorated so that you are charged only for what you use.
+<sup>4</sup> El precio está indicado para el mercado estadounidense, que muestra los costos relativos entre niveles alternativos. Los distintos mercados tienen diferentes precios. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/search/) para conocer las tasas en otras divisas. La tasa es por unidad de búsqueda (SU). En el nivel de S1, una configuración de tres unidades de búsqueda (por ejemplo, tres réplicas y una partición) costaría 750 dólares al mes como promedio. Si reduce verticalmente a menos SU dentro del mes, la factura se prorrateará para que se le cobre solo por lo que utiliza.
 
-<sup>5</sup> This is not a typo. Basic tier has a limit of 100 fields per index. It is the only tier that has this lower limit.
+<sup>5</sup> No es un error de escritura. El nivel básico tiene un límite de 100 campos por índice. Es el único nivel que tiene este límite inferior.
 
-<sup>6</sup> [Basic tier](http://aka.ms/azuresearchbasic) is available at an introductory rate of 50% off the full price during the preview period.
+<sup>6</sup> El [nivel básico](http://aka.ms/azuresearchbasic) está disponible en una tasa de introducción del 50 % del precio total durante el período de vista previa.
 
-
+<!---HONumber=AcomDC_0302_2016-->

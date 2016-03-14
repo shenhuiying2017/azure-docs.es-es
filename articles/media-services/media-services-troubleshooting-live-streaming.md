@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
-#Solución de problemas de la guía de streaming en vivo
+#Solución de problemas de la guía de streaming en vivo 
 
 En este tema se ofrecen sugerencias sobre cómo solucionar algunos problemas del streaming en vivo.
 
@@ -38,7 +38,7 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 - **Posible problema**: la configuración del fotograma clave o el tamaño de GOP no son óptimos.
 
-	**Pasos para solucionar problemas**: el intervalo de fotogramas clave o el tamaño de GOP recomendado es de 2 segundos. Algunos codificadores calculan esta configuración en el número de fotogramas, mientras que otros usan segundos. Por ejemplo: cuando se envían 30 fps, el tamaño de GOP sería de 60 fotogramas, lo que equivale a 2 segundos.
+	**Pasos para solucionar problemas**: el intervalo de fotogramas clave o el tamaño de GOP recomendado es de 2 segundos. Algunos codificadores calculan esta configuración en el número de fotogramas, mientras que otros usan segundos. Por ejemplo: cuando se envían 30 fps, el tamaño de GOP sería de 60 fotogramas, lo que equivale a 2 segundos.
 	 
 - **Posible problema**: los puertos cerrados están bloqueando la secuencia.
 
@@ -65,6 +65,12 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 	**Pasos para solucionar problemas**: vaya a la pestaña "Extremo de streaming" en la herramienta AMSE y compruebe que hay un extremo de streaming con una unidad de streaming.
 	
+###Problema: le gustaría ver los registros del codificador 
+
+- **Posible problema**: no se encuentran los registros que pueden ayudar a depurar problemas.
+
+	**Pasos para solucionar problemas**: normalmente puede encontrar los registros de Wirecast en C:C:\\Users{nombreDeUsuario}\\AppData\\Roaming\\Wirecast\\
+
 >[AZURE.NOTE] Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente la transmisión, envíe una incidencia de soporte técnico mediante el Portal de Azure clásico.
 
 ##Rutas de aprendizaje de Servicios multimedia
@@ -75,4 +81,4 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

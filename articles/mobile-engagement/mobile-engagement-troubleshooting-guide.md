@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="10/22/2015"
+   ms.date="02/26/2016"
    ms.author="piyushjo"/>
 
 # Azure Mobile Engagement: guía de solución de problemas
@@ -28,7 +28,7 @@ En general, siempre debe asegurarse de lo siguiente:
 1. Realizó todos los pasos necesarios para la integración, tal como se describe en nuestros [tutoriales de introducción](mobile-engagement-windows-store-dotnet-get-started.md).
 2. Usa la versión más reciente de los SDK de la plataforma. 
 3. Realiza pruebas tanto en un dispositivo real como en un emulador, porque algunos problemas son específicos solo del emulador. 
-4. No supera los límites de Mobile Engagement que se indican [aquí](azure-subscription-service-limits.md).
+4. No supera los límites de Mobile Engagement que se indican [aquí](../azure-subscription-service-limits.md).
 5. Si no se puede conectar con el back-end del servicio Mobile Engagement o si ve que los datos no se cargan de forma continuada, asegúrese de que no hay incidentes de servicio activos comprobándolo [aquí](https://azure.microsoft.com/status/).
 
 ## Problemas de 'Supervisar'
@@ -89,6 +89,7 @@ A continuación se incluyen instrucciones adicionales de solución de problemas 
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
 	- Asegúrese de que no falta ningún permiso o de que no está configurado incorrectamente en el archivo de manifiesto de Android.
+	- Asegúrese de que el número de proyecto que se va a agregar a la aplicación cliente procede de la misma cuenta en la que obtuvo la clave del servidor de GCM. Si los dos no coinciden, las inserciones no saldrán. 
 	- Si recibe notificaciones del sistema, pero no de aplicación, revise la [sección Especificación de un icono para las notificaciones](mobile-engagement-android-get-started.md), ya que es probable que no esté especificando el icono correcto en el archivo de manifiesto de Android. 
 	- Si envía una notificación de BigPicture y tiene servidores de imágenes externos, asegúrese de que son compatibles con "GET" y "HEAD" de HTTP.
 
@@ -120,4 +121,4 @@ Si no puede resolver el problema por sí mismo, puede realizar lo siguiente:
 	- Versión de SDK de Mobile Engagement (por ejemplo, Android SDK v2.1.0)
 	- Detalles del error con el mensaje de error exacto y el escenario
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

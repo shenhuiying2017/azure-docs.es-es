@@ -57,7 +57,7 @@ A continuación, cree un indexador que haga referencia al origen de datos y un �
 
 	{
 	  "name" : "blob-indexer",
-	  "dataSourceName" : " blob-datasource ",
+	  "dataSourceName" : "blob-datasource",
 	  "targetIndexName" : "my-target-index",
 	  "schedule" : { "interval" : "PT2H" }
 	}
@@ -209,4 +209,4 @@ AzureSearch\_SkipContent | "true" | Indica al indexador de blobs que solo indexe
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

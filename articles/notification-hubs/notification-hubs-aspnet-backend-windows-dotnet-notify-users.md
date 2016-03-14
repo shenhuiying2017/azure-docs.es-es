@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET
@@ -48,7 +48,7 @@ Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales 
 
 
 
-> [AZURE.NOTE]Si usa Servicios móviles como su servicio back-end, consulte la [versión de Servicios móviles](../mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) de este tutorial.
+> [AZURE.NOTE] Si usa Servicios móviles como su servicio back-end, consulte la [versión de Servicios móviles](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) de este tutorial.
 
 
 
@@ -387,4 +387,4 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

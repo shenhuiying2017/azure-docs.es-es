@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/25/2016" 
 	ms.author="glenga"/>
 
 # Registre la aplicación para usar la cuenta Microsoft para realizar la autenticación
@@ -31,7 +31,7 @@ Este tema indica cómo registrar su aplicación móvil para que pueda usar la cu
 
 ##Registre la aplicación Tienda Windows en el Centro de desarrollo de Windows
 
-Las aplicaciones de la Tienda Windows deben registrarse primero con el Centro de desarrollo de Windows.
+Las aplicaciones de la Tienda Windows deben registrarse primero con el Centro de desarrollo de Windows. Al registrarse, la aplicación de Windows podrá usar los comportamientos de inicio de sesión único.
 
 >[AZURE.NOTE]Las aplicaciones de Windows Phone 8, Windows Phone 8.1 Silverlight y las que no pertenezcan a Windows podrán omitir esta sección.
 
@@ -47,13 +47,17 @@ Las aplicaciones de la Tienda Windows deben registrarse primero con el Centro de
 
 6. De nuevo en la página del Centro de desarrollo de Windows de su nueva aplicación, haga clic en **Servicios** > **Notificaciones de inserción**.
 
-7. En la página **Notificaciones de inserción**, haga clic en **Sitio de Servicios Live** en **Servicios de notificaciones de Windows (WNS) y Servicios móviles de Microsoft Azure**.
+7. En la página **Notificaciones push**, haga clic en **Sitio de Servicios Live** en **Servicios de notificaciones de Windows (WNS) y Servicios móviles de Microsoft Azure**.
+ 
+	Esto muestra la página de configuración de la aplicación de la cuenta de Microsoft para su aplicación.
 
-Esto muestra la página de la cuenta de Microsoft para su aplicación. A continuación, obtendrá las credenciales de autenticación que Azure necesita para usar la autenticación de Microsoft con la aplicación.
+8. Anote el valor de **SID del paquete**. Puede guardar este SID en el Portal de Azure para habilitar el inicio de sesión único y las notificaciones push de la aplicación de Windows.
+
+A continuación, configurará la autenticación de la cuenta Microsoft para la aplicación de Windows, comenzando con el paso 4 de la sección siguiente.
 
 ## Configurar el registro de la cuenta de Microsoft y conectarse a Servicios móviles
 
-El primer paso de esta sección se aplica solo a Windows Phone 8, Windows Phone 8.1 Silverlight y aplicaciones que no sean de la Tienda Windows. Para estas aplicaciones, también puede omitir el identificador de seguridad (SID) de paquete, que solo está disponible para aplicaciones de la Tienda Windows.
+Si ya registró su aplicación de Windows en la sección anterior, puede omitir el paso 2.
 
 1. Para una aplicación que no sea de la Tienda Windows, vaya a la página [Mis aplicaciones](http://go.microsoft.com/fwlink/p/?LinkId=262039) del Centro de desarrolladores de la cuenta de Microsoft, inicie sesión con su cuenta de Microsoft (si es necesario), haga clic en **Crear aplicación**, escriba un **Nombre de la aplicación** y haga clic en **Acepto**.
 
@@ -74,7 +78,7 @@ El primer paso de esta sección se aplica solo a Windows Phone 8, Windows Phone 
    	![Configuración de la aplicación de la cuenta de Microsoft](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
 
 
-    > [AZURE.NOTE]El secreto de cliente es una credencial de seguridad importante, por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación. Solo los registros de aplicaciones de la Tienda Windows verán un campo de SID del paquete.
+    > [AZURE.NOTE] El secreto de cliente es una credencial de seguridad importante, por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación. Solo los registros de aplicaciones de la Tienda Windows verán un campo de SID del paquete.
 
 4. En el [Portal de Azure clásico], haga clic en la pestaña **Identidad** del servicio móvil, escriba el identificador de cliente, el secreto de cliente y el SID del paquete obtenido del proveedor de identidades y haga clic en **Guardar**.
 
@@ -93,4 +97,4 @@ El servicio móvil y la aplicación están ahora configurados para funcionar con
 
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

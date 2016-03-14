@@ -3,7 +3,7 @@
 	description="Consideraciones importantes al planear la realización de copias de seguridad de máquinas virtuales en Azure"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="copias de seguridad de máquinas virtuales, realizar copias de seguridad de máquinas virtuales"/>
@@ -96,7 +96,7 @@ Las máquinas virtuales de Azure cuya copia de seguridad se realiza mediante el 
 
 *No* se le facturará en función del tamaño máximo admitido para cada disco de datos conectado a la máquina virtual, sino de los datos reales almacenados en el disco de datos. De forma similar, la factura de almacenamiento de copia de seguridad se basa en la cantidad de datos almacenados con Copia de seguridad de Azure, que es la suma de los datos reales de cada punto de recuperación.
 
-Por ejemplo, veamos una máquina virtual de tamaño estándar A2 con dos discos de datos adicionales con un tamaño máximo de 1 TB cada uno. La tabla siguiente proporciona los datos almacenados en cada uno de estos discos:
+Por ejemplo, veamos una máquina virtual de tamaño estándar A2 con dos discos de datos adicionales con un tamaño máximo de 1 TB cada uno. La tabla siguiente proporciona los datos almacenados en cada uno de estos discos:
 
 |Tipo de disco|Tamaño máximo|Datos reales presentes|
 |---------|--------|------|
@@ -121,4 +121,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

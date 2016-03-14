@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="11/02/2015"
+   ms.date="02/19/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Integración de Cloud Cruiser y de las API de facturación de Microsoft Azure
@@ -219,6 +219,7 @@ Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuand
 + Consulte el artículo [Información general de Administrador de recursos de Azure](resource-group-overview.md) para obtener más información sobre Administrador de recursos de Azure.
 
 <!--Image references-->
+ 
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Ilustración 1 - Creación de una nueva colección"
 [2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Ilustración 2 - Importación de datos de la nueva colección"
 [3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Ilustración 3 - Pasos de transformación para procesar los datos recopilados a través de API de RateCard"
@@ -234,4 +235,4 @@ Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuand
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Ilustración 13 - Creación de nuevos campos para la información de etiqueta"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Ilustración 14 - Relleno de la estructura de la cuenta con la información de las búsquedas"
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

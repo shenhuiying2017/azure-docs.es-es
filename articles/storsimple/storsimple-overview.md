@@ -26,7 +26,7 @@ StorSimple usa [niveles de almacenamiento](#automatic-storage-tiering) para admi
 
 Con StorSimple Update 2, puede identificar volúmenes apropiados como *anclados localmente* para garantizar que los datos principales continúan siendo locales en el dispositivo y no se almacenan en capas en la nube. Esto le permite ejecutar cargas de trabajo que son sensibles a la latencia de la nube, como cargas de trabajo SQL y de máquina virtual, en los volúmenes anclados localmente, sin dejar de usar la nube para copia de seguridad. Para obtener más información sobre los volúmenes localmente anclados, consulte [Usar el servicio de Administrador de StorSimple para administrar volúmenes](storsimple-manage-volumes-u2.md).
 
-Update 2 también permite crear dispositivos virtuales StorSimple que se benefician de las bajas latencias y el alto rendimiento que proporciona el almacenamiento premium de Azure. Para obtener más información sobre los dispositivos virtuales premium StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-virtual-device-u1.md). Para obtener más información sobre los discos de almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage-preview-portal.md).
+Update 2 también permite crear dispositivos virtuales StorSimple que se benefician de las bajas latencias y el alto rendimiento que proporciona el almacenamiento premium de Azure. Para obtener más información sobre los dispositivos virtuales premium StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-virtual-device-u1.md). Para obtener más información sobre los discos de almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
 
 Además de la administración de almacenamiento, las características de protección de datos de StorSimple le permiten crear copias de seguridad a petición y programadas, así como almacenarlas localmente o en la nube. Las copias de seguridad se realizan en forma de instantáneas incrementales, lo que significa que se pueden crear y restaurar rápidamente. Las instantáneas en la nube pueden resultar esenciales en escenarios de recuperación ante desastres, ya que reemplazan a los sistemas de almacenamiento secundario (por ejemplo, la copia de seguridad en cinta) y le permiten restaurar los datos a su centro de datos o a sitios alternativos si es necesario.
 
@@ -99,7 +99,7 @@ El dispositivo virtual tiene las siguientes características:
 - Puede crear un número ilimitado de dispositivos virtuales en la nube y activarlas y desactivarlas según sea necesario. 
 - Puede ayudar a simular entornos locales en escenarios de recuperación ante desastres, desarrollo y pruebas, además de facilitar la recuperación de nivel de elemento a partir de copias de seguridad. 
 
-Con Update 2 y versiones posteriores, el dispositivo virtual de StorSimple está disponible en dos modelos: el dispositivo 8010 (anteriormente conocido como el modelo 1100) y el 8020. El dispositivo 8010 tiene una capacidad máxima de 30 TB. El dispositivo 8020, que aprovecha las ventajas de almacenamiento premium de Azure, tiene una capacidad máxima de 64 TB. (El almacenamiento premium de Azure almacena datos en SSD, mientras que el estándar los almacena en HDD). Tenga en cuenta que debe tener una cuenta de almacenamiento premium de Azure para usar el almacenamiento premium. Para obtener más información sobre el almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage-preview-portal.md).
+Con Update 2 y versiones posteriores, el dispositivo virtual de StorSimple está disponible en dos modelos: el dispositivo 8010 (anteriormente conocido como el modelo 1100) y el 8020. El dispositivo 8010 tiene una capacidad máxima de 30 TB. El dispositivo 8020, que aprovecha las ventajas de almacenamiento premium de Azure, tiene una capacidad máxima de 64 TB. (El almacenamiento premium de Azure almacena datos en SSD, mientras que el estándar los almacena en HDD). Tenga en cuenta que debe tener una cuenta de almacenamiento premium de Azure para usar el almacenamiento premium. Para obtener más información sobre el almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
 
 Para obtener más información sobre el dispositivo virtual StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-virtual-device-u1.md).
 
@@ -177,7 +177,7 @@ Microsoft Azure StorSimple ordena automáticamente los datos en niveles lógicos
 
 Para habilitar el acceso rápido, StorSimple almacena datos muy activos (datos activos) en SSD en el dispositivo StorSimple. Almacena datos que se usan de manera ocasional (datos semiactivos) en discos duros en el dispositivo o en los servidores del centro de datos. Mueve a la nube datos inactivos, datos de copia de seguridad y datos retenidos para fines de archivo o de cumplimiento.
 
->[AZURE.NOTE]En Update 2 o posterior, puede especificar un volumen anclado localmente, en cuyo caso los datos permanecen en el dispositivo local y no en capas en la nube.
+>[AZURE.NOTE] En Update 2 o posterior, puede especificar un volumen anclado localmente, en cuyo caso los datos permanecen en el dispositivo local y no en capas en la nube.
 
 StorSimple ajusta y reordena las asignaciones de datos y almacenamiento a medida que cambian los patrones de uso. Por ejemplo, cierta información puede volverse menos activo con el tiempo. A medida que se vuelve menos activa, migra de SSD a HDD y, a continuación, a la nube. Si esos mismos datos vuelven a activarse, se migran de vuelta al dispositivo de almacenamiento.
 
@@ -195,7 +195,7 @@ El proceso de organización en niveles del almacenamiento se produce como sigue:
 
 El aprovisionamiento fino es una tecnología de virtualización en que el almacenamiento disponible parece superar los recursos físicos. En lugar de reservar almacenamiento suficiente por adelantado, StorSimple utiliza el aprovisionamiento fino para asignar solo el espacio suficiente para cumplir con los requisitos actuales. La naturaleza elástica del almacenamiento en la nube facilita este enfoque porque StorSimple puede aumentar o disminuir el almacenamiento en la nube para cumplir con las exigencias cambiantes.
 
->[AZURE.NOTE]El aprovisionamiento de los volúmenes anclados localmente no puede ser fino. El almacenamiento asignado a un volumen sólo local se aprovisiona totalmente cuando se crea el volumen.
+>[AZURE.NOTE] El aprovisionamiento de los volúmenes anclados localmente no puede ser fino. El almacenamiento asignado a un volumen sólo local se aprovisiona totalmente cuando se crea el volumen.
 
 ### Desduplicación y compresión
 
@@ -203,7 +203,7 @@ Microsoft Azure StorSimple utiliza la desduplicación y la compresión de datos 
 
 La desduplicación disminuye la cantidad general de datos almacenados al eliminar la redundancia en el conjunto de datos almacenados. A medida que cambia la información, StorSimple omite los datos no modificados y solo captura los cambios. Además, StorSimple reduce la cantidad de datos almacenados al identificar y eliminar información innecesaria.
 
->[AZURE.NOTE]Los datos de los volúmenes anclados localmente no se desduplican ni comprimen. Sin embargo, las copias de seguridad de volúmenes localmente anclados sí se desduplican y comprimen.
+>[AZURE.NOTE] Los datos de los volúmenes anclados localmente no se desduplican ni comprimen. Sin embargo, las copias de seguridad de volúmenes localmente anclados sí se desduplican y comprimen.
 
 ## Terminología de StorSimple 
 
@@ -278,4 +278,4 @@ Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-secu
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

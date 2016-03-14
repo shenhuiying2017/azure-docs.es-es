@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/25/2016" 
 	ms.author="nitinme"/>
 
 # Uso de Hive con HDInsight para analizar registros de sitios web
@@ -47,7 +47,7 @@ En este ejemplo, usará un clúster de HDInsight para analizar archivos de regis
 	
 	Cuando se le pida, autentíquese con el nombre de usuario y la contraseña de administrador que usó cuando aprovisionó el clúster.
   
-2. En la página web que se abre, haga clic en la pestaña **Galería de introducción** y, en la categoría **Ejemplos**, haga clic en el ejemplo **Análisis de registros de sitios web**.
+2. En la página web que se abre, haga clic en la pestaña **Galería de introducción** y, a continuación, en la categoría **Soluciones con datos de ejemplo**, haga clic en el ejemplo **Análisis del registro del sitio web**.
 
 3. Siga las instrucciones que se proporcionan en la página web para finalizar el ejemplo.
 
@@ -61,4 +61,4 @@ Pruebe el siguiente ejemplo: [Análisis de datos de sensor usando Hive con HDIns
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

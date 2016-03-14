@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="02/11/2016"  
+ 	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
 
@@ -27,11 +27,25 @@ Servicios multimedia de Microsoft Azure es un servicio que acepta solicitudes HT
 
 Las siguientes consideraciones se aplican al usar REST.
 
+- Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Debe usar **Skip** y **Take** (.NET)/ **top** (REST) como se describe en [este ejemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y [este ejemplo de API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
-- Si usa JSON, DEBE establecer el encabezado Accept en el [formato JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/). OData no entiende la propiedad \_\_metadata en la solicitud, a menos que establezca el modo verbose.
+- Cuando se utiliza JSON y se especifica el uso de la palabra clave **\_\_metadata** en la solicitud (por ejemplo, para referencias a un objeto vinculado) DEBE establecer el encabezado **Accept** en [formato JSON detallado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (consulte el ejemplo siguiente). Odata no entiende la propiedad **\_\_metadata** en la solicitud, a menos que se establezca en el modo detallado.
 
-	**Accept**: application/json;odata=verbose
-- Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Debe usar **Skip** y **Take** (. NET) / **top** (REST) como se describe en estos ejemplos de [.NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y de [API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+		POST https://media.windows.net/API/Jobs HTTP/1.1
+		Content-Type: application/json;odata=verbose
+		Accept: application/json;odata=verbose
+		DataServiceVersion: 3.0
+		MaxDataServiceVersion: 3.0
+		x-ms-version: 2.11
+		Authorization: Bearer <token> 
+		Host: media.windows.net
+		
+		{
+			"Name" : "NewTestJob", 
+			"InputMediaAssets" : 
+				[{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+		. . . 
+		
 
 ## Encabezados de solicitud HTTP estándar compatibles con los Servicios multimedia
 
@@ -118,4 +132,4 @@ Anexe "?api-version=2.x" al final del URI si desea ver los metadatos en un explo
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

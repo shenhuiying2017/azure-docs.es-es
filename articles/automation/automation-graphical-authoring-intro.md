@@ -3,7 +3,7 @@
    description="Creación gráfica le permite crear runbooks para Automatización de Azure sin trabajar con el código. Este artículo brinda una introducción a la creación gráfica y todos los detalles necesarios para comenzar a crear un runbook gráfico."
    services="automation"   
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Creación gráfica en Automatización de Azure
@@ -419,4 +419,4 @@ En el ejemplo siguiente se usa la salida de una actividad llamada *Get Twitter C
 - [Operadores](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="03/01/2016"
    ms.author="tomfitz"/>
 
 # Proveedores, regiones, versiones de API y esquemas del Administrador de recursos
@@ -35,9 +35,7 @@ En las tablas siguientes se muestra qué servicios admiten la implementación y 
 | Dynamics Lifecycle Services | Sí | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (vista previa) | Sí | [Rest de Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Máquinas virtuales | Sí | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Máquinas virtuales (clásicas) | Limitado | - | - | 
-| Aplicación remota | No | - | - | 
-| Servicios en la nube (clásicos) | Limitado (ver a continuación) | - | - | - |
+| Máquinas virtuales (clásicas) | Limitado | - | - | | Aplicación remota | No | - | - | | Servicios en la nube (clásicos) | Limitado (ver a continuación) | - | - | - |
 
 Máquinas virtuales (clásicas) hace referencia a recursos que se implementaron mediante el modelo de implementación clásica, en lugar de a través del modelo de implementación del Administrador de recursos. En general, estos recursos no admiten las operaciones del Administrador de recursos, pero hay algunas operaciones que se han habilitado. Para obtener más información sobre estos modelos de implementación, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
 
@@ -90,8 +88,7 @@ Los Servicios en la nube (clásicos) se pueden usar con otros recursos clásicos
 | Almacén de Data Lake | Sí | | | |
 | HDInsights | Sí | [REST de HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Análisis de transmisiones | Sí | [REST de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| Aprendizaje automático | No | - | - | 
-| Catálogo de datos | No | - | - |
+| Aprendizaje automático | No | - | - | | Catálogo de datos | No | - | - |
 
 ## Internet de las cosas
 
@@ -153,9 +150,11 @@ Azure Active Directory funciona con el administrador de recursos para habilitar 
 
 Al implementar los recursos, con frecuencia necesitará recuperar información sobre los tipos y proveedores de recursos. Puede recuperar esta información a través de la API de REST, Azure PowerShell o CLI de Azure.
 
+Para trabajar con un proveedor de recursos, dicho proveedor debe estar registrado con su cuenta. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Sin embargo, debe registrar manualmente algunos de ellos. Los ejemplos siguientes muestran cómo obtener el estado de registro de un proveedor de recursos y cómo registrarlo, si es necesario.
+
 ### API de REST
 
-Para obtener todos los proveedores de recursos disponibles, incluidos sus tipos, ubicaciones, versiones de API y estado de registro, use la operación [Enumerar todos los proveedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+Para obtener todos los proveedores de recursos disponibles, incluidos sus tipos, ubicaciones, versiones de API y estado de registro, use la operación [Enumerar todos los proveedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx). Si necesita registrar un proveedor de recursos, consulte [Registro de una suscripción con un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 ### PowerShell
 
@@ -183,6 +182,10 @@ La salida debe ser similar a:
     sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} {20...
     ...
     
+Para registrar un proveedor de recursos, proporcione el espacio de nombres:
+
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+
 ### Azure CLI
 
 En el ejemplo siguiente se muestra cómo obtener todos los proveedores de recursos disponibles.
@@ -203,6 +206,10 @@ La salida debe ser similar a:
 Puede guardar la información para un proveedor de recursos particular en un archivo con el siguiente comando.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+Para registrar un proveedor de recursos, proporcione el espacio de nombres:
+
+    azure provider register -n Microsoft.ServiceBus
 
 ## Regiones admitidas
 
@@ -294,4 +301,4 @@ Puede abrir el archivo y buscar el elemento **apiVersions**.
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

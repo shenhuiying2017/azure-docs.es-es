@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # Especificar la configuración DNS en un archivo de configuración de servicio
@@ -29,7 +29,7 @@ Un archivo de configuración de servicio puede contener un elemento DnsServers c
         <DnsServer name="ID3" IPAddress="IPAddress3" />
       </DnsServers>
 
->[AZURE.WARNING]El atributo **nombre** en el elemento **DnsServer** solo se usa como nombre de referencia. No representa el nombre de host del servidor DNS. Cada valor del atributo **DnsServer** debe ser único en toda la suscripción de Microsoft Azure.
+>[AZURE.WARNING] El atributo **nombre** en el elemento **DnsServer** solo se usa como nombre de referencia. No representa el nombre de host del servidor DNS. Cada valor del atributo **DnsServer** debe ser único en toda la suscripción de Microsoft Azure.
 
 ## Otras referencias
 
@@ -41,4 +41,4 @@ Un archivo de configuración de servicio puede contener un elemento DnsServers c
 
 [Información acerca de la configuración de red virtual en el Portal de administración](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

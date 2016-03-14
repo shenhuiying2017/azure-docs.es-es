@@ -48,8 +48,9 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 
 6. Ejecute el siguiente comando en la consola para instalar los paquetes:
 
-        Install-Package Microsoft.Azure.Common.Authentication -pre
+        Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
+        Install-Package Microsoft.Azure.Management.Resources -Pre
 
     Estos comandos agregan las bibliotecas y referencias .NET al proyecto de Visual Studio actual.
 
@@ -63,6 +64,7 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
         using Microsoft.Azure.Common.Authentication.Models;
         using Microsoft.Azure.Management.HDInsight;
         using Microsoft.Azure.Management.HDInsight.Models;
+        using Microsoft.Azure.Management.Resources;
 
         namespace CreateHDInsightCluster
         {
@@ -100,6 +102,9 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 
                     var tokenCreds = GetTokenCloudCredentials();
                     var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+                    
+                    var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+                    var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
                     _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
@@ -358,4 +363,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

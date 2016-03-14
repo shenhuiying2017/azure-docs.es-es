@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="glenga"/>
 
 # Uso del cliente administrado para Aplicaciones móviles de Azure
@@ -582,7 +582,7 @@ El código necesario para cada plataforma es el siguiente:
 
 ## <a name="package-sid"></a>Obtención del SID de un paquete de la Tienda Windows.
 
-En aplicaciones de Windows, se necesita un SID de paquete para habilitar las notificaciones push y determinados modos de autenticación. Para obtener este valor:
+En aplicaciones de Windows, se necesita un SID de paquete para habilitar las notificaciones push. Para obtener este valor:
 
 1. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en el proyecto de la aplicación de la Tienda Windows y luego haga clic en **Tienda** > **Asociar aplicación con la Tienda...**.
 2. En el asistente, haga clic en **Siguiente**, inicie sesión con su cuenta Microsoft, escriba un nombre para la aplicación en **Reserve un nuevo nombre de aplicación** y luego haga clic en **Reservar**.
@@ -675,7 +675,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 ####Single sign-in using Microsoft Account with the Live SDK
 
-To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
+To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](app-service-mobile-how-to-configure-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
 The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend.
 
@@ -844,7 +844,7 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 
 
 <!-- URLs. -->
-[Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
+[Add authentication to your app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
@@ -854,8 +854,6 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
-[Optimistic Concurrency Tutorial]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
@@ -865,4 +863,4 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

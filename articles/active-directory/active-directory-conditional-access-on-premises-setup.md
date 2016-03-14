@@ -120,7 +120,9 @@ Esto le ayudará a integrar un inquilino de Azure AD con la versión local de Ac
   1.	Adición de dominios.
   2.	Instalar y ejecutar Azure AD Connect: para instalar Azure AD Connect, siga las instrucciones que se indican a continuación, [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso.
-  >[AZURE.NOTE] Configurar la federación con AD FS como se describe en el documento vinculado arriba.[AZURE.NOTE] No es preciso configurar las características de vista previa.
+
+  >[AZURE.NOTE] Configurar la federación con AD FS como se describe en el documento vinculado arriba.
+  >[AZURE.NOTE] No es preciso configurar las características de vista previa.
 
 
 

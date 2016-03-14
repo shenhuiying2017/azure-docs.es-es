@@ -48,7 +48,7 @@ U-SQL | Opciones de autenticación de ADLS | 1 | Pending | [@ArindamC](https://g
 
 Ámbito |Tema. | location
 ------------- | ------------- | -------------- 
-Servicio | Coordinación de la implementación de Análisis de Data Lake con otros servicios de Azure mediante plantillas ARM | [ubicación](../data-lake-analytics-manage-use-powershell.md)
+Servicio | Coordinación de la implementación de Análisis de Data Lake con otros servicios de Azure mediante plantillas ARM | [ubicación](data-lake-analytics-manage-use-powershell.md)
 
 ## Cómo enviar comentarios al trabajo pendiente
 Existen varias formas de proporcionar comentarios en el trabajo pendiente:
@@ -57,4 +57,4 @@ Existen varias formas de proporcionar comentarios en el trabajo pendiente:
 * Enviar una solicitud de incorporación de cambios en este documento al [repositorio de contenido de Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar un correo electrónico a [adlafeedback en microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

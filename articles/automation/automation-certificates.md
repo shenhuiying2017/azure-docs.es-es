@@ -3,7 +3,7 @@
    description="Los certificados se pueden almacenar de manera segura en Automatización de Azure, de manera tal que los runbooks o configuraciones de DSC pueden tener acceso a ellos para realizar la autenticación respecto de Azure y recursos de terceros. Este artículo explica los detalles de los certificados y cómo trabajar con ellos en la creación de textos y de gráficos."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Activos de certificados en Automatización de Azure
@@ -107,4 +107,4 @@ Este ejemplo utiliza el parámetro **UseConnectionObject** definido para la acti
 
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

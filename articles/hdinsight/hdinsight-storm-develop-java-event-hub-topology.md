@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/01/2016"
    ms.author="larryfr"/>
 
 # Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (Java)
@@ -52,7 +52,7 @@ En este tutorial, obtendrá información sobre cómo usar el spout y bolt de Cen
 
 ##Descripción del ejemplo
 
-El ejemplo [hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub) contiene dos topologías:
+El ejemplo [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) contiene dos topologías:
 
 __com.microsoft.example.EventHubWriter__ escribe datos aleatorios en un Centro de eventos de Azure. Los datos los genera un spout y son un identificador de dispositivo y un valor del dispositivo aleatorios. Por lo tanto simula un hardware que emite un identificador de cadena y un valor numérico.
 
@@ -280,10 +280,12 @@ Centros de eventos es el origen de datos para este ejemplo. Utilice los pasos si
 4. Seleccione **Configurar** y cree dos directivas de acceso con la información siguiente:
 
 	<table>
-<tr><th>Nombre</th><th>Permisos</th></tr>
-<tr><td>Escritor</td><td>Los métodos Send</td></tr>
-<tr><td>Lector</td><td>Escuchar</td></tr>
-</table>Después de crear los permisos, seleccione el icono **Guardar** en la parte inferior de la página. Con esto se crean las directivas de acceso compartido que se usarán para enviar (escritor) y escuchar (lector) a este Centro de eventos.
+	<tr><th>Nombre</th><th>Permisos</th></tr>
+	<tr><td>Escritor</td><td>Los métodos Send</td></tr>
+	<tr><td>Lector</td><td>Escuchar</td></tr>
+	</table>
+
+	Después de crear los permisos, seleccione el icono **Guardar** en la parte inferior de la página. Con esto se crean las directivas de acceso compartido que se usarán para enviar (escritor) y escuchar (lector) a este Centro de eventos.
 
 	![directivas](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -291,7 +293,7 @@ Centros de eventos es el origen de datos para este ejemplo. Utilice los pasos si
 
 ## Descarga y compilación del proyecto.
 
-1. Descargue el proyecto de GitHub: [hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub). Puede descargar el paquete como un archivo zip o usar [git](https://git-scm.com/) para clonar el proyecto de forma local.
+1. Descargue el proyecto de GitHub: [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub). Puede descargar el paquete como un archivo zip o usar [git](https://git-scm.com/) para clonar el proyecto de forma local.
 
 2. Use los comandos siguientes para instalar paquetes incluidos en el proyecto en el repositorio local de Maven. Estos habilitan el spout y bolt de Centro de eventos, así como la capacidad de usar HdfsBolt para escribir en Almacenamiento de Azure (WASB).
 
@@ -476,4 +478,4 @@ Para obtener más información sobre el uso de IU de Storm, vea los siguientes t
 
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

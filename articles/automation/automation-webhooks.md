@@ -3,7 +3,7 @@
    description="Un webhook que permite a un cliente iniciar un runbook en Automatización de Azure desde una llamada HTTP. Este artículo describe cómo crear un webhook y cómo llamar a uno para que inicie un runbook."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren;sngun"/>
 
 # Webhooks de Automatización de Azure
@@ -272,4 +272,4 @@ El siguiente runbook de ejemplo se desencadena cuando se activa la regla de aler
 - Para más información sobre cómo ver el estado de un trabajo de Runbook, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md).
 - [Usar la automatización de Azure para realizar acciones en las alertas de Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

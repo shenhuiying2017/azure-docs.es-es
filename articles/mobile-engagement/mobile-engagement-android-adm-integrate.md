@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 
 #Integración de ADM con Engagement
 
-> [AZURE.IMPORTANT]Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
+> [AZURE.IMPORTANT] Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
 >
 > Este documento solo es útil si integró el módulo Reach para admitir cualquier campaña. Para integrar campañas de Reach en la aplicación, lea primero Integración de Engagement Reach en Android.
 
@@ -29,7 +29,7 @@ La integración de ADM permite la inserción de la aplicación cuando tenga como
 
 Las cargas ADM insertadas en el SDK siempre contienen la clave `azme` en el objeto de datos. Por lo tanto, si usa ADM para otra finalidad en la aplicación, puede filtrar las inserciones basándose en esa clave.
 
-> [AZURE.IMPORTANT]Solo los dispositivos Kindle de Amazon que ejecutan Android 4.0.3 o versiones posteriores son compatibles con la mensajería de dispositivos de Amazon; Sin embargo, puede integrar este código de forma segura en otros dispositivos.
+> [AZURE.IMPORTANT] Solo los dispositivos Kindle de Amazon que ejecutan Android 4.0.3 o versiones posteriores son compatibles con la mensajería de dispositivos de Amazon; Sin embargo, puede integrar este código de forma segura en otros dispositivos.
 
 ##Suscribirse a ADM
 
@@ -112,4 +112,4 @@ Ahora puede seleccionar "En cualquier momento" al crear sondeos y anuncios de Re
 [integrado ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [este procedimiento]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/20/2016"
+   ms.date="02/25/2016"
    ms.author="daleche" />
 
 # Solución de problemas de roles de servicios en la nube que no se inician
@@ -71,7 +71,7 @@ Puede usar Escritorio remoto para acceder al rol y ver información más complet
 
 1. Asegúrese de que está instalado el SDK 1.3 de Azure, o una versión posterior.
 
-2. Durante la implementación de la solución con Visual Studio, elija "Configurar conexiones a Escritorio remoto...". Para más información acerca de cómo configurar la conexión a Escritorio remoto, consulte [Uso de Escritorio remoto con roles de Azure](https://msdn.microsoft.com/library/gg443832.aspx).
+2. Durante la implementación de la solución con Visual Studio, elija "Configurar conexiones a Escritorio remoto...". Para obtener más información sobre cómo configurar la conexión a Escritorio remoto, consulte [Uso de Escritorio remoto con roles de Azure](../vs-azure-tools-remote-desktop-roles.md).
 
 3. En el Portal de Microsoft Azure clásico, cuando la instancia muestre el estado **Listo**, haga clic en una de las instancias de rol.
 
@@ -167,4 +167,4 @@ Vea más [artículos de solución de problemas](..\?tag=top-support-issue&servic
 
 Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

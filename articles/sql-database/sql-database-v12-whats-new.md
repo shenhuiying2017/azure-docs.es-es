@@ -53,7 +53,7 @@ Consulte [aquí](sql-database-transact-sql-information.md) para ver el pequeño 
 ## Más rendimiento Premium, nuevos niveles de rendimiento
 
 
-En V12, aumentamos las unidades de rendimiento de base de datos (DTU) asignadas a todos los niveles de rendimiento Premium en un 25% sin ningún costo adicional. Se consiguen incluso mejoras de rendimiento mayores con nuevas características como las siguientes:
+En V12, aumentamos las unidades de transacción de base de datos (DTU) asignadas a todos los niveles de rendimiento Premium en un 25 % sin ningún costo adicional. Se consiguen incluso mejoras de rendimiento mayores con nuevas características como las siguientes:
 
 
 - Compatibilidad para [índices de almacén de columnas](http://msdn.microsoft.com/library/gg492153.aspx) en memoria.
@@ -161,4 +161,4 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 
 [Términos de uso complementarios para versiones de vista previa de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

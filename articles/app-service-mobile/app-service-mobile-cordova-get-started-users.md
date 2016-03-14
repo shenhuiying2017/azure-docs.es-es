@@ -40,7 +40,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 ##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
-1. Abra el proyecto en **Visual Studio** y, a continuación, abra el archivo <tt>www/index.html</tt> para editarlo.
+1. Abra el proyecto en **Visual Studio** y, a continuación, abra el archivo `www/index.html` para editarlo.
 
 2. Busque la etiqueta META `Content-Security-Policy` en la sección de encabezado. Debe agregar el host de OAuth a la lista de orígenes permitidos.
 
@@ -54,16 +54,17 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
     A continuación se muestra un ejemplo de Content-Security-Policy (implementado para Azure Active Directory):
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Debe reemplazar <tt>https://login.windows.net</tt> con el host de OAuth de la tabla anterior. Consulte la [documentación de Content-Security-Policy] para obtener más información sobre esta etiqueta META.
+    Debe reemplazar `https://login.windows.net` con el host de OAuth de la tabla anterior. Consulte la [documentación de Content-Security-Policy] para obtener más información sobre esta etiqueta META.
 
     Tenga en cuenta que algunos proveedores de autenticación no requieren cambios en Content-Security-Policy cuando se usa en dispositivos móviles adecuados. Por ejemplo, no se requiere ningún cambio en Content-Security-Policy cuando se usa la autenticación de Google en un dispositivo Android.
 
-3. Abra el archivo <tt>www/js/index.js</tt> para editarlo. Aunque el proyecto se compile y se ejecute únicamente con los cambios que ya se han realizado, se recomienda llamar explícitamente a un método login() para iniciar una acción de inicio de sesión. Busque el método `onDeviceReady()`. En el código de creación de cliente, agregue lo siguiente:
+3. Abra el archivo `www/js/index.js` para editarlo, busque el método `onDeviceReady()` y, en el código de creación del cliente, agregue lo siguiente:
 
         // Login to the service
-        client.login('SDK Provider_Name')
+        client.login('SDK_Provider_Name')
             .then(function () {
 
                 // BEGINNING OF ORIGINAL CODE
@@ -82,24 +83,24 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
             }, handleError);
 
-    Por ejemplo, para Azure Active Directory, use:
+    Tenga en cuenta que este código reemplaza el código existente que crea la referencia de tabla y actualiza la interfaz de usuario.
 
-        client.login('aad')
+    El método login() inicia la autenticación con el proveedor. El método login() es una función asincrónica que devuelve una promesa de JavaScript. El resto de la inicialización se coloca dentro de la respuesta de la promesa para que no se ejecute hasta que se complete el método login().
 
-    El método login() es una función asincrónica que devuelve una promesa de JavaScript. El resto de la inicialización se coloca dentro de la respuesta de la promesa para que no se ejecute hasta que se complete el método login().
+4. En el código que acaba de agregar, reemplace `SDK_Provider_Name` por el nombre de su proveedor de inicio de sesión. Por ejemplo, para Azure Active Directory, use `client.login('aad')`.
 
 4. Ejecute el proyecto. Cuando el proyecto acabe de inicializarse, la aplicación mostrará la página de inicio de sesión de OAuth del proveedor de autenticación seleccionado.
 
 ##<a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información [sobre la autenticación] con el Servicio de aplicaciones de Azure.
-* Prosiga el tutorial agregando [notificaciones de inserción] a la aplicación de Apache Cordova.
+* Prosiga el tutorial agregando [notificaciones push] a la aplicación de Apache Cordova.
 
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Introducción a Aplicaciones móviles]: app-service-mobile-cordova-get-started.md
 [documentación de Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
-[notificaciones de inserción]: app-service-mobile-cordova-get-started-push.md
+[notificaciones push]: app-service-mobile-cordova-get-started-push.md
 [sobre la autenticación]: app-service-mobile-auth.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

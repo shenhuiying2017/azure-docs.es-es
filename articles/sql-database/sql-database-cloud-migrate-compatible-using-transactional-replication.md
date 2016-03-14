@@ -29,8 +29,8 @@ La replicación transaccional es una tecnología integrada con SQL Server desde 
  - SQL Server 2014 SP1 CU3 y versiones posteriores
  - SQL Server 2014 RTM CU10 y versiones posteriores
  - SQL Server 2012 SP2 CU8 y versiones posteriores
- - SQL Server 2013 SP3 cuando se publique
+ - SQL Server 2012 SP3 
 
 También puede usar la replicación transaccional para migrar un subconjunto de la base de datos local. La publicación que se replica en Base de datos SQL de Azure puede limitarse a un subconjunto de las tablas de la base de datos que se replica. Además, para cada tabla que se replica, puede limitar los datos a un subconjunto de filas o un subconjunto de columnas.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

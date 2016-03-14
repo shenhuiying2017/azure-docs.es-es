@@ -3,7 +3,7 @@
 	description="Obtenga información sobre salidas de transformación de datos de Análisis de transmisiones de destino para opciones de almacenamiento de datos Además, puede usar Power BI para los resultados del análisis."
 	keywords="transformación de datos, resultados del análisis, opciones de almacenamiento de datos"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
-	documentationCenter=""
+	documentationCenter="" 
 	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="jeffstok"/>
 
 # Salidas de transformación de datos de Análisis de transmisiones de destino para herramientas de análisis y opciones de almacenamiento de datos
@@ -39,7 +39,7 @@ Puede usarse [Base de datos SQL de Azure](https://azure.microsoft.com/services/s
 
 ## Almacenamiento de blobs ##
 
-Almacenamiento de blobs ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube. Para obtener una introducción sobre el almacenamiento de blobs de Azure y su uso, consulte la documentación en [Uso de blobs](./articles/storage-dotnet-how-to-use-blobs.md).
+Almacenamiento de blobs ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube. Para obtener una introducción sobre el almacenamiento de blobs de Azure y su uso, consulte la documentación en [Uso de blobs](../storage/storage-dotnet-how-to-use-blobs.md).
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de blob.
 
@@ -118,7 +118,7 @@ Hay unos cuantos parámetros que son necesarios para configurar los flujos de da
 
 Puede usarse [Power BI](https://powerbi.microsoft.com/) como salida para un trabajo de Análisis de transmisiones a fin de ofrecer una amplia experiencia de visualización de los resultados del análisis. Esta capacidad puede usarse con paneles operativos, generación de informes e informes basados en métricas.
 
-> [AZURE.NOTE] En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de vista previa de Azure.
+> [AZURE.NOTE] En este momento, la creación y la configuración de salidas de Power BI solo se admiten en el Portal de Azure clásico.
 
 ### Autorización de una cuenta de Power BI
 
@@ -159,7 +159,7 @@ Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida
 
 ## Almacenamiento de tablas
 
-El [almacenamiento de tablas de Azure](./articles/storage-introduction.md) ofrece un tipo de almacenamiento de alta disponibilidad y escalabilidad masiva, de forma que las aplicaciones pueden escalarse automáticamente para ajustarse a la demanda de los usuarios. Almacenamiento de tablas es un almacén de claves/atributos NoSQL de Microsoft que puede aprovechar para datos estructurados con menos restricciones en el esquema. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz.
+El [almacenamiento de tablas de Azure](../storage/storage-introduction.md) ofrece un tipo de almacenamiento de alta disponibilidad y escalabilidad masiva, de forma que las aplicaciones pueden escalarse automáticamente para ajustarse a la demanda de los usuarios. Almacenamiento de tablas es un almacén de claves/atributos NoSQL de Microsoft que puede aprovechar para datos estructurados con menos restricciones en el esquema. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de tabla.
 
@@ -267,4 +267,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

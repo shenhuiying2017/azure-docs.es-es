@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Uso de emoticonos Emoji dentro de notificaciones push
@@ -41,7 +41,7 @@ Puede incluir emoticonos Emoji en las notificaciones de inserción en unos cuant
 7. Al ejecutar una prueba o activar el anuncio, verá una notificación con el emoticono tal y como lo especificó.
 
 	![][3] 
-	![][4] 
+	![][4]
 	![][5]
 
 <!-- Images. -->
@@ -52,4 +52,4 @@ Puede incluir emoticonos Emoji en las notificaciones de inserción en unos cuant
 [6]: ./media/mobile-engagement-use-emoji-with-push/Mac_SelectEmoji.png
 [7]: ./media/mobile-engagement-use-emoji-with-push/Windows_SelectEmoji.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0302_2016-->

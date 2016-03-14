@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Cómo usar la API de Engagement en Windows Universal
@@ -48,7 +48,7 @@ Sin embargo, las *actividades* también se pueden controlar manualmente mediante
 
 Debe llamar a `StartActivity()` cada vez que cambie la actividad de usuario. La primera llamada a esta función inicia una nueva sesión de usuario.
 
-> [AZURE.IMPORTANT]El SDK llaman automáticamente al método EndActivity cuando se cierra la aplicación. Por lo tanto, es MUY recomendable llamar al método StartActivity cada vez que cambie la actividad del usuario y NUNCA llamar al método EndActivity, ya que esto obliga la finalización de la sesión actual.
+> [AZURE.IMPORTANT] El SDK llaman automáticamente al método EndActivity cuando se cierra la aplicación. Por lo tanto, es MUY recomendable llamar al método StartActivity cada vez que cambie la actividad del usuario y NUNCA llamar al método EndActivity, ya que esto obliga la finalización de la sesión actual.
 
 #### Ejemplo
 
@@ -305,7 +305,7 @@ A continuación, agregaremos una instancia de `Person` a un dato adicional.
 			
 			EngagementAgent.Instance.SendEvent("Event", extras);
 
-> [AZURE.WARNING]Si coloca otros tipos de objetos, asegúrese de que el método ToString() se implementa para devolver una cadena legible.
+> [AZURE.WARNING] Si coloca otros tipos de objetos, asegúrese de que el método ToString() se implementa para devolver una cadena legible.
 
 ### Límites
 
@@ -360,4 +360,4 @@ En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 
 			{"birthdate":"1983-12-07","gender":"female"}
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

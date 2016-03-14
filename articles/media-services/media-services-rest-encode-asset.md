@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+	ms.date="03/01/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,8 +28,7 @@
 ##Información general
 Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Los archivos de vídeo digital son bastante grandes y pueden ser demasiado pesados para entregarlos a través de Internet o para que los dispositivos de sus clientes los muestren correctamente. La codificación es el proceso de compresión de vídeo y audio para que los clientes puedan ver el contenido multimedia.
 
-Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace. Puede especificar los detalles de las tareas de codificación mediante cadenas preestablecidas definidas para el codificador o mediante archivos de configuración preestablecidos. Para consultar los tipos de valores preestablecidos disponibles, vea [Task Presets for Media Services Standard](https://msdn.microsoft.com/es-ES/library/mt269960) (Valores preestablecidos de tareas para la edición Estándar de Servicios multimedia). Si usó un codificador de terceros, debe [validar los archivos](https://msdn.microsoft.com/library/azure/dn750842.aspx).
-
+Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el codificador integrado en Servicios multimedia (Codificador multimedia estándar). También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace. Puede especificar los detalles de las tareas de codificación mediante cadenas preestablecidas definidas para el codificador o mediante archivos de configuración preestablecidos. Para consultar los tipos de valores preestablecidos disponibles, vea [Valores preestablecidos de tareas para el Codificador multimedia estándar](http://msdn.microsoft.com/library/mt269960).
 
 Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes:
 
@@ -51,9 +50,10 @@ Si el recurso de salida tiene el almacenamiento cifrado, asegúrese de configura
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 
 >Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect_programmatically.md).
+>
+>Cuando se utiliza JSON y se especifica el uso de la palabra clave **\_\_metadata** en la solicitud (por ejemplo, para referencias a un objeto vinculado) DEBE establecer el encabezado **Accept** en [formato JSON detallado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 
-
-En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. Al codificar con el Estándar de codificador multimedia, puede usar los valores preestablecidos de configuración de tarea especificados [aquí](https://msdn.microsoft.com/es-ES/library/mt269960).
+En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. Al codificar con Codificador multimedia estándar, puede usar los valores preestablecidos de configuración de tareas especificados [aquí](http://msdn.microsoft.com/library/mt269960).
 	
 Solicitud:
 
@@ -275,4 +275,4 @@ Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [C
 
 [Obtención de una instancia de procesador multimedia](media-services-rest-get-media-processor.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

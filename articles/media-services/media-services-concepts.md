@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="02/25/2016" 
 	ms.author="juliako"/>
 
 #Conceptos de Servicios multimedia de Azure 
@@ -77,7 +77,7 @@ Observe que el permiso de lista (AccessPermissions.List) no se debe usar al crea
 
 ###Cuenta de almacenamiento
 
-Todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Una cuenta de Servicios multimedia se puede asociar con una o más cuentas de almacenamiento. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 500 TB por cuenta de almacenamiento. Servicios multimedia proporciona herramientas del nivel de SDK que le permiten administrar varias cuentas de almacenamiento y equilibrar la carga de la distribución de sus recursos durante la carga a estas cuentas según métricas o una distribución aleatoria. Para obtener más información, consulte Uso de [Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
+Todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Una cuenta de Servicios multimedia se puede asociar con una o más cuentas de almacenamiento. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 500 TB por cuenta de almacenamiento. Servicios multimedia proporciona herramientas del nivel de SDK que le permiten administrar varias cuentas de almacenamiento y equilibrar la carga de la distribución de sus recursos durante la carga a estas cuentas según métricas o una distribución aleatoria. Para obtener más información, consulte Uso de [Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
 ##Trabajos y tareas
 
@@ -85,19 +85,23 @@ Un [trabajo](https://msdn.microsoft.com/library/azure/hh974289.aspx) se usa norm
 
 Un trabajo contiene metadatos acerca del procesamiento que se realizará. Cada trabajo contiene una o varias [tareas](https://msdn.microsoft.com/library/azure/hh974286.aspx) que especifican una tarea de procesamiento atómica, sus recursos de entrada, recursos de salida, un procesador de multimedia y su configuración asociada. Las tareas dentro de un trabajo se pueden encadenar en conjunto, donde el recurso de salida de una de las tareas se indica como el recurso de entrada de la tarea siguiente. De este modo, un trabajo puede contener todos los procesos necesarios para una presentación multimedia.
 
-##<a id="encoding"></a>Codificación/empaquetado
+##<a id="encoding"></a>Codificación 
 
-###Codificación
+Servicios multimedia de Azure ofrece varias opciones para la codificación de medios en la nube.
 
-Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Los archivos de vídeo digital son bastante grandes y pueden ser demasiado pesados para entregarlos a través de Internet o para que los dispositivos de sus clientes los muestren correctamente. Las personas ven vídeos en diversos dispositivos, que van desde televisores con decodificadores y equipos de escritorio hasta tabletas y smartphones. Cada uno de estos dispositivos tiene distintos requisitos de compresión y ancho de banda. La codificación es el proceso de comprimir vídeo y audio con compresores/descompresores o códecs.
+Cuando comience con Servicios multimedia, es importante comprender la diferencia entre códecs y formatos de archivo. Los códecs son el software que implementa los algoritmos de compresión/descompresión, mientras que los formatos de archivo son contenedores que contienen el vídeo comprimido.
 
-La transcodificación es el proceso de tomar un vídeo que se ha codificado y volver a codificarlo en un formato de codificación distinto. Como la mayoría de las cámaras codifican vídeo en cierta medida, la mayoría del trabajo de codificación realizado en Servicios multimedia de Azure es, técnicamente, transcodificación.
+Servicios multimedia proporciona paquetes dinámicos que permiten entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos de streaming.
 
-###Códecs y formatos de archivo 
+Para aprovecharse de los [paquetes dinámicos](media-services-dynamic-packaging-overview.md), deberá hacer lo siguiente:
 
-Los códecs tienen dos componentes: uno para comprimir archivos multimedia digitales para su transmisión y el otro para descomprimir los archivos multimedia digitales para su reproducción. Existen códecs de audio que comprimen y descomprimen el audio y códecs de vídeo que comprimen y descomprimen vídeo. Los códecs pueden utilizar compresión sin pérdida de información o compresión con pérdida de información. Los códecs de compresión sin pérdida de información conservan toda la información cuando se produce la compresión. Cuando se descomprime el archivo, el resultado es un archivo idéntico al archivo multimedia de entrada, lo que hace que los códecs de compresión sin pérdida de información sean muy apropiados para el archivado y el almacenamiento. Los códecs con pérdida de información pierden parte de la información al codificar y generan archivos más pequeños (que el original) a costa de la calidad del vídeo, y son muy apropiados para la transmisión a través de Internet. Los dos principales códecs que el Codificador multimedia de Azure utiliza para codificar son H.264 y VC-1. Puede haber disponibles otros códecs en nuestro ecosistema de socios de codificadores.
+- Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).
+- Obtenga al menos la unidad de streaming a petición para el extremo de streaming desde el que planea entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-###Codificadores de Servicios multimedia
+Servicios multimedia admite los siguientes codificadores a petición que se describen en este artículo:
+
+- [Media Encoder Estándar](media-services-encode-asset.md#media-encoder-standard)
+- [Flujo de trabajo del Codificador multimedia](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 Para obtener información acerca de los codificadores compatibles, consulte [Codificadores](media-services-encode-asset.md).
 
@@ -248,4 +252,4 @@ En la siguiente lista se describen distintos formatos de streaming y aparecen ej
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

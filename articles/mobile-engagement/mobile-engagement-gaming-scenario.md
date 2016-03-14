@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="11/23/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo"/>
 
 #Implementación de Mobile Engagement con una aplicación de juegos
@@ -56,9 +56,9 @@ Antes de crear un programa avanzado de compromiso, el director de proyectos móv
 
 Después de 3 meses, el director de proyectos móviles ha recopilado datos suficientes para mejorar las ventas por notificación push en aplicación. Descubre que:
 
-* La primera compra generalmente se produce en el nivel 14. En el 90% de los casos, la compra es de nuevas armas legendarias por 3 USD.
+* La primera compra generalmente se produce en el nivel 14. En el 90% de los casos, la compra es de nuevas armas legendarias por 3 USD.
 * En el 80% de los casos, los usuarios que han realizado una compra siguen usando el producto y hacen más compras.
-* Los usuarios que han superado el nivel 20 empiezan a gastar más de 10 USD por semana.
+* Los usuarios que han superado el nivel 20 empiezan a gastar más de 10 USD por semana.
 * Los usuarios tienden a comprar módulos premium en los niveles 16, 24 y 32.
 
 Gracias a este análisis, el director de proyectos móviles decide crear secuencias específicas de notificaciones push para aumentar las ventas en aplicación. Crea tres secuencias push denominadas: Programa de bienvenida, Programa de ventas y Programa de inactivos. Para más información, vea los [cuadernos de estrategias](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1].
@@ -69,4 +69,4 @@ Gracias a este análisis, el director de proyectos móviles decide crear secuenc
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

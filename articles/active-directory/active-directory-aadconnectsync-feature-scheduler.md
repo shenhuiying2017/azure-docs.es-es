@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="02/26/2016"
    ms.author="andkjell"/>
 
 # Sincronización de Azure AD Connect: Programador
@@ -50,6 +50,8 @@ Para ver la configuración actual, vaya a PowerShell y ejecute `Get-ADSyncSchedu
 
 Puede modificar estos ajustes mediante `Set-ADSyncScheduler`. El parámetro IsStagingModeEnabled solo puede establecerse mediante el Asistente para instalación.
 
+La configuración del programador se almacena en Azure AD. Si tiene un servidor de almacenamiento provisional, cualquier cambio realizado en el servidor principal también afectará este servidor (a excepción de IsStagingModeEnabled).
+
 ## Inicio del programador
 De forma predeterminada, el programador se ejecutará cada 30 minutos. En algunos casos puede querer ejecutar un ciclo de sincronización entre los ciclos programados o debe ejecutar un tipo diferente.
 
@@ -59,13 +61,13 @@ De forma predeterminada, el programador se ejecutará cada 30 minutos. En alguno
 - Sincronización diferencial en todos los conectores
 - Exportación en todos los conectores
 
-Es posible que haya un cambio urgente que debe sincronizar inmediatamente para lo cual necesita ejecutar manualmente un ciclo. Si necesita ejecutar manualmente un ciclo, desde PowerShell ejecute `Start-ADSyncSyncCycle -PolicyType Delta`.
+Es posible que haya un cambio urgente que debe sincronizar inmediatamente para lo cual necesita ejecutar manualmente un ciclo. Si necesita ejecutar manualmente un ciclo, ejecute `Start-ADSyncSyncCycle -PolicyType Delta` desde PowerShell.
 
-**Ciclo de sincronización completa** Si ha realizado uno de los siguientes cambios de configuración, debe ejecutar un ciclo de sincronización completo (también conocido como sincronización inicial):
+**Ciclo de sincronización completo** Si ha realizado uno de los siguientes cambios de configuración, debe ejecutar un ciclo de sincronización completa (también conocido como sincronización inicial):
 
 - Agregó más objetos o atributos para su importación desde un directorio de origen
 - Realizó cambios en las reglas de sincronización
-- Cambió el [filtrado](active-directory-aadconnectsync-configure-filtering.md) por lo que se debe incluir un número diferente de objetos
+- Cambió el [filtrado](active-directory-aadconnectsync-configure-filtering.md) para que se incluya un número diferente de objetos
 
 Si ha realizado uno de estos cambios, debe ejecutar un ciclo de sincronización completo, para que el motor de sincronización tenga la oportunidad de volver a consolidar los espacios de conector. Un ciclo de sincronización completo incluye los pasos siguientes:
 
@@ -96,4 +98,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->
