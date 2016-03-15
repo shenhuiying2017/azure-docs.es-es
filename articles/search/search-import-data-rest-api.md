@@ -168,4 +168,4 @@ Para obtener más información sobre las acciones de documentos y las respuestas
 ## Pasos siguientes
 Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos.
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-->
