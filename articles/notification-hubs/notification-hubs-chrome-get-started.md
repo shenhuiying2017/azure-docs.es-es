@@ -495,4 +495,4 @@ En este sencillo ejemplo, difundirá notificaciones a la aplicación Chrome. Obt
 [Uso de Centros de notificaciones para notificar a los usuarios]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-->
