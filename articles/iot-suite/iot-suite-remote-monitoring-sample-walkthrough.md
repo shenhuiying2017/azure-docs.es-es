@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="10/21/2015"
+ ms.date="03/02/2016"
  ms.author="stevehob"/>
 
 # Tutorial de la solución preconfigurada de supervisión remota
@@ -58,7 +58,7 @@ Los dispositivos simulados envían las siguientes propiedades de dispositivo com
 | Latitud | Ubicación de la latitud del dispositivo |
 | Longitud | Ubicación de la longitud del dispositivo |
 
-El simulador propaga estas propiedades en los dispositivos simulados con valores de ejemplo. Cada vez que el simulador inicializa un dispositivo simulado, el dispositivo envía los metadatos previamente definidos al Centro de IoT. Tenga en cuenta que se sobrescribe a cualquier actualización de metadatos que se realiza en el portal de dispositivo.
+El simulador propaga estas propiedades en los dispositivos simulados con valores de ejemplo. Cada vez que el simulador inicializa un dispositivo simulado, el dispositivo envía los metadatos previamente definidos al Centro de IoT. Tenga en cuenta que se sobrescribe cualquier actualización de metadatos realizada en el portal de dispositivo.
 
 
 Los dispositivos simulados pueden controlar los siguientes comandos enviados desde un Centro de IoT:
@@ -78,51 +78,14 @@ La confirmación de comandos del dispositivo se proporciona a través del Centro
 
 ### Trabajos de Análisis de transmisiones de Azure
 
-**Trabajo 1: Telemetría** opera en el flujo de la telemetría del dispositivo entrante de dos formas distintas. La primera envía todos los mensajes de telemetría desde los dispositivos al almacenamiento de blobs persistente. La segunda calcula los valores de humedad medio, mínimo y máximo sobre una ventana deslizante de cinco minutos. Estos datos también se envían al almacenamiento de blobs. Este trabajo utiliza la siguiente definición de consulta:
 
-```
-WITH 
-    [StreamData]
-AS (
-    SELECT
-        *
-    FROM 
-      [IoTHubStream] 
-    WHERE
-        [ObjectType] IS NULL -- Filter out device info and command responses
-) 
-
-SELECT
-    *
-INTO
-    [Telemetry]
-FROM
-    [StreamData]
-
-SELECT
-    DeviceId,
-    AVG (Humidity) AS [AverageHumidity], 
-    MIN(Humidity) AS [MinimumHumidity], 
-    MAX(Humidity) AS [MaxHumidity], 
-    5.0 AS TimeframeMinutes 
-INTO
-    [TelemetrySummary]
-FROM
-    [StreamData]
-WHERE
-    [Humidity] IS NOT NULL
-GROUP BY
-    DeviceId, 
-    SlidingWindow (mi, 5)
-```
-
-**Trabajo 2: información de dispositivo** filtra los mensajes de información del dispositivo desde la transmisión de mensajes entrantes y los envía a un punto de conexión de Centro de eventos. Un dispositivo envía mensajes de información del dispositivo en el inicio y como respuesta a un comando **SendDeviceInfo**. Este trabajo usa la siguiente definición de consulta:
+**Trabajo 1: información de dispositivo** filtra los mensajes de información del dispositivo desde la transmisión de mensajes entrantes y los envía a un punto de conexión de Centro de eventos. Un dispositivo envía mensajes de información de dispositivo al inicio y como respuesta a un comando **SendDeviceInfo**. Este trabajo utiliza la siguiente definición de consulta:
 
 ```
 SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
 ```
 
-**Trabajo 3: reglas** evalúa los valores de telemetría de temperatura y humedad entrantes según los umbrales por dispositivo. Los valores de umbral se establecen en el editor de reglas que se incluyen en la solución. Cada par de valor/dispositivo se almacena en la marca de tiempo de un blob que se lee en Análisis de transmisiones como **datos de referencia**. El trabajo compara cualquier valor no vacío con el umbral establecido para el dispositivo. Si supera la condición '>', el trabajo tendrá como resultado un evento de **alarma** que indica que se ha superado el umbral y proporciona los valores de dispositivo, valor y marca de tiempo. Este trabajo utiliza la siguiente definición de consulta:
+**Trabajo 2: reglas** evalúa los valores de telemetría de temperatura y humedad entrantes según los umbrales por dispositivo. Los valores de umbral se establecen en el editor de reglas que se incluyen en la solución. Cada par de valor/dispositivo se almacena en la marca de tiempo de un blob que se lee en Análisis de transmisiones como **datos de referencia**. El trabajo compara cualquier valor no vacío con el umbral establecido para el dispositivo. Si supera la condición '>', el trabajo tendrá como resultado un evento de **alarma** que indica que se superó el umbral y proporciona los valores de dispositivo, valor y marca de tiempo. Este trabajo utiliza la siguiente definición de consulta:
 
 ```
 WITH AlarmsData AS 
@@ -161,6 +124,44 @@ FROM AlarmsData
 SELECT *
 INTO DeviceRulesHub
 FROM AlarmsData
+```
+
+**Trabajo 3: Telemetría** opera en el flujo de la telemetría del dispositivo entrante de dos formas distintas. La primera envía todos los mensajes de telemetría desde los dispositivos al almacenamiento de blobs persistente. La segunda calcula los valores de humedad medio, mínimo y máximo sobre una ventana deslizante de cinco minutos. Estos datos también se envían al almacenamiento de blobs. Este trabajo utiliza la siguiente definición de consulta:
+
+```
+WITH 
+    [StreamData]
+AS (
+    SELECT
+        *
+    FROM 
+      [IoTHubStream] 
+    WHERE
+        [ObjectType] IS NULL -- Filter out device info and command responses
+) 
+
+SELECT
+    *
+INTO
+    [Telemetry]
+FROM
+    [StreamData]
+
+SELECT
+    DeviceId,
+    AVG (Humidity) AS [AverageHumidity], 
+    MIN(Humidity) AS [MinimumHumidity], 
+    MAX(Humidity) AS [MaxHumidity], 
+    5.0 AS TimeframeMinutes 
+INTO
+    [TelemetrySummary]
+FROM
+    [StreamData]
+WHERE
+    [Humidity] IS NOT NULL
+GROUP BY
+    DeviceId, 
+    SlidingWindow (mi, 5)
 ```
 
 ### Procesador de eventos
@@ -224,4 +225,4 @@ Puede deshabilitar un dispositivo y, después, quitarlo:
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

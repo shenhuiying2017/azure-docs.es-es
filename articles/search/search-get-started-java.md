@@ -3,8 +3,8 @@
 	description="Cómo crear una aplicación de búsqueda hospedada en la nube en Azure con Java como lenguaje de programación."
 	services="search"
 	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
+	authors="EvanBoyle"
+	manager="pablocas"
 	editor="v-lincan"/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/11/2016"
-	ms.author="heidist"/>
+	ms.date="03/08/2016"
+	ms.author="evboyle"/>
 
 # Introducción a Búsqueda de Azure en Java
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 Aprenda a crear una aplicación de búsqueda de Java personalizada que utiliza Búsqueda de Azure para la experiencia de búsqueda. Este tutorial usa la [API de REST del servicio Búsqueda de Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir los objetos y las operaciones que se utilizan en este ejercicio.
 
@@ -59,7 +59,7 @@ La lista siguiente describe los archivos que son relevantes para este ejemplo.
 Todas las llamadas de API de REST en Búsqueda de Azure requieren que proporcione la dirección URL del servicio y una clave de API.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En la barra de salto, haga clic en **Servicio de búsqueda** para enumerar todos los servicios de Búsqueda de Azure aprovisionados para la suscripción.
+2. En la barra de acceso rápido, haga clic en **Servicio de búsqueda** para enumerar todos los servicios de Búsqueda de Azure aprovisionados para la suscripción.
 3. Seleccione el servicio que desea utilizar.
 4. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
 
@@ -203,4 +203,4 @@ Si ya Tiene alguna experiencia con Búsqueda de Azure, puede utilizar este ejemp
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

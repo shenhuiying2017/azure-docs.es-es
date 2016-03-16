@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="03/09/2016"
 	ms.author="tdykstra"/>
 
 # Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure
@@ -461,9 +461,10 @@ Si llamara ahora a la aplicación de API de nivel intermedio, intentaría llamar
  
 4. En la hoja **Configuración de la aplicación** de la aplicación de API, vaya a la sección **Configuración de la aplicación** y agregue la siguiente clave y valor:
 
-	|Clave|Valor|Ejemplo
-	|---|---|---|
-	|toDoListDataAPIURL|https://{your nombre de la aplicación de API de nivel de datos}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
+	| **Clave** | toDoListDataAPIURL |
+	|---|---|
+	| **Valor** | https://{your nombre de aplicación de API de nivel de datos}.azurewebsites.net |
+	| **Ejemplo** | https://todolistdataapi0121.azurewebsites.net |
 
 4. Haga clic en **Guardar**.
 
@@ -477,19 +478,19 @@ Si llamara ahora a la aplicación de API de nivel intermedio, intentaría llamar
 
 13. En la barra de direcciones del explorador, agregue "swagger" a la URL y presione Entrar. (La dirección URL será `http://{apiappname}.azurewebsites.net/swagger`).
 
-	El explorador muestra la misma interfaz de usuario de Swagger que vio anteriormente para ToDoListDataAPI, pero ahora `owner` no es un campo obligatorio para la operación Get, ya que la aplicación de API de nivel intermedio envía ese valor a la aplicación de API de capa de datos automáticamente. (Al realizar los tutoriales de autenticación, el nivel intermedio enviará los identificadores de usuario reales al parámetro `owner`; por ahora, incluiremos un asterisco en el código).
+	El explorador muestra la misma interfaz de usuario de Swagger que vio anteriormente para ToDoListDataAPI, pero ahora `owner` no es un campo obligatorio para la operación Get, ya que la aplicación de API de nivel intermedio envía dicho valor a la aplicación de API de capa de datos automáticamente. (Al realizar los tutoriales de autenticación, el nivel intermedio enviará los identificadores de usuario reales al parámetro `owner`; por ahora, se incluye un asterisco en el código).
 
 12. Pruebe el método Get y los otros métodos para validar que la aplicación de API de nivel intermedio llama correctamente a la aplicación de API de capa de datos.
 
 	![](./media/app-service-api-dotnet-get-started/midtierget.png)
 
-## <a id="creating"></a> Opcional: Creación de un proyecto de aplicación de API desde cero
+## <a id="creating"></a> Opcional: creación de un proyecto de aplicación de API desde cero
 
-En este tutorial descargará proyectos de ASP.NET Web API para implementar en el Servicio de aplicaciones, en lugar de crear nuevos proyectos desde cero. Para crear un proyecto que desea implementar en una aplicación de API, puede crear un proyecto de Web API típico e instalar el paquete Swashbuckle, o puede usar la plantilla **Aplicación de API de Azure** para nuevos proyectos. Para usar esa plantilla, haga clic en **Archivo > Nuevo > Proyecto > Aplicación web ASP.NET > Aplicación de API de Azure**.
+En este tutorial descargará proyectos de ASP.NET Web API para implementar en el Servicio de aplicaciones, en lugar de crear nuevos proyectos desde cero. Para crear un proyecto que desee implementar en una aplicación de API, puede crear un proyecto de Web API típico e instalar el paquete Swashbuckle, o bien puede usar la plantilla **Aplicación de API de Azure** para nuevos proyectos. Para usar dicha plantilla, haga clic en **Archivo > Nuevo > Proyecto > Aplicación web ASP.NET > Aplicación de API de Azure**.
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
-La plantilla de proyecto **Aplicación de API de Azure** es equivalente a elegir la plantilla de ASP.NET 4.5.2 **Vacía**, hacer clic en la casilla para agregar compatibilidad con Web API e instalar el paquete Swashbuckle. Además, la plantilla agrega algún código de configuración de Swashbuckle diseñado para evitar la creación de identificadores de operación de Swagger duplicados.
+La elección de la plantilla de proyecto **Aplicación de API de Azure** equivale a elegir la plantilla **Vacía** de ASP.NET 4.5.2, hacer clic en la casilla para agregar compatibilidad con Web API e instalar el paquete Swashbuckle. Además, la plantilla agrega algún código de configuración de Swashbuckle diseñado para evitar la creación de identificadores de operación de Swagger duplicados.
 
 ## Opcional: Cambio de un tipo de aplicación
 
@@ -499,11 +500,11 @@ Sin embargo, si desea cambiar la representación en el Portal, es fácil de hace
 
 1. Abra el Explorador de recursos.
 
-2. En el panel de navegación izquierdo, expanda **suscripciones** y, a continuación, expanda la suscripción con la que estuvo trabajando.
+2. En el panel de navegación izquierdo, expanda las **suscripciones** y luego expanda la suscripción con la que ha estado trabajando.
 
-4. Expanda **resourceGroups** y, a continuación, expanda el grupo de recursos con los que estuvo trabajando.
+4. Expanda **resourceGroups** y, después, expanda el grupo de recursos con el que ha estado trabajando.
 
-5. Expanda **Microsoft.Web**, expanda **sitios** y, a continuación, seleccione la aplicación de API que desea cambiar.
+5. Expanda **Microsoft.Web**, expanda los **sitios** y seleccione la aplicación de API que desea cambiar.
 
 6. Haga clic en **Editar**.
 
@@ -517,9 +518,9 @@ Sin embargo, si desea cambiar la representación en el Portal, es fácil de hace
 
 ## Opcional: Dirección URL de definición de API en plantillas del Administrador de recursos de Azure
 
-En este tutorial, vimos la dirección URL de la definición de API en Visual Studio y en el Portal de Azure. La dirección URL de la definición de API de una aplicación de API también se puede configurar mediante las [plantillas del Administrador de recursos de Azure](../powershell-install-configure.md) en herramientas de línea de comandos como [Azure PowerShell](../xplat-cli-install.md) y [CLI de Azure](../resource-group-authoring-templates.md).
+En este tutorial, vimos la dirección URL de la definición de API en Visual Studio y en el Portal de Azure. La dirección URL de la definición de API de una aplicación de API también se puede configurar mediante las [plantillas del Administrador de recursos de Azure](../powershell-install-configure.md) de las herramientas de línea de comandos como [Azure PowerShell](../xplat-cli-install.md) y la [CLI de Azure](../resource-group-authoring-templates.md).
 
-Para ver un ejemplo de una plantilla del Administrador de recursos de Azure que establece la propiedad de definición de API, abra el archivo [azuredeploy.json en el repositorio de la aplicación de ejemplo de este tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Busque la sección de la plantilla similar a la del ejemplo siguiente:
+Para ver un ejemplo de una plantilla del Administrador de recursos de Azure que establece la propiedad de definición de API, abra el archivo [azuredeploy.json del repositorio de la aplicación de ejemplo de este tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Busque la sección de la plantilla similar a la del ejemplo siguiente:
 
 		"apiDefinition": {
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
@@ -529,4 +530,4 @@ Para ver un ejemplo de una plantilla del Administrador de recursos de Azure que 
 
 En este tutorial vimos cómo crear aplicaciones de API, implementar código en ellas, generar código de cliente para ellas y consumirlas desde clientes .NET. El siguiente tutorial de la serie de introducción a Aplicaciones de API muestra cómo [consumir aplicaciones de API desde clientes de JavaScript mediante CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

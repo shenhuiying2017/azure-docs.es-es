@@ -52,7 +52,7 @@ Ahora se puede acceder a los puntos de conexión relacionados con Mesos en:
 - Marathon: `http://localhost/marathon`
 - Chronos: `http://localhost/chronos`. 
 
-De igual forma, se puede establecer comunicación con la API de REST de cada aplicación mediante este túnel: Marathon: `http://localhost/marathon/v2`. Para más información sobre las diversas API disponibles, consulte la documentación de Mesosphere para la [API de Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) y la [API de Chronos](https://mesos.github.io/chronos/docs/api.html) y la documentación de Apache de la [API del programador de Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+De igual forma, se puede establecer comunicación con la API de REST de cada aplicación mediante este túnel: Marathon: `http://localhost/marathon/v2`. Para obtener más información sobre las diversas API disponibles, consulte la documentación de Mesosphere para la [API de Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) y la [API de Chronos](https://mesos.github.io/chronos/docs/api.html), y la documentación de Apache de la [API del programador de Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ### Túnel de Swarm
 
@@ -82,7 +82,9 @@ Seleccione `SSH` y `Authentication`, y agregue el archivo de clave privada para 
 
 ![Conexión Putty](media/putty2.png)
 
-Seleccione `Tunnels` y `configure` para configurar los siguientes puertos redirigidos: - **Puerto de origen:** su preferencia (80 para Mesos y 2375 para Swarm) - **Destino:** localhost: 80 (para Mesos) o localhost: 2375 (para Swarm)
+Seleccione `Tunnels` y configure (`configure`) los siguientes puertos reenviados:
+- **Puerto de origen:** su preferencia (80 para Mesos y 2375 para Swarm).
+- **Destino:** localhost: 80 (para Mesos) o localhost:2375 (para Swarm).
 
 En el siguiente ejemplo se configura para Mesos, pero tendría un aspecto similar para Docker Swarm.
 
@@ -108,4 +110,4 @@ Implemente y administre contenedores con Mesos o Swarm.
  
 - [Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

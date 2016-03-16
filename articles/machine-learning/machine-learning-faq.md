@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
@@ -25,7 +25,7 @@ Las preguntas más frecuentes son preguntas y respuestas sobre Aprendizaje autom
 
 **¿Qué es el Aprendizaje automático de Azure?**
 
-El Aprendizaje automático de Azure es un servicio completamente administrado que sirve para crear, probar, utilizar y administrar soluciones de análisis predictivo en la nube. Con solo un explorador, puede registrarse, cargar datos e realizar inmediatamente experimentos de aprendizaje automático. Arrastre y colocación del modelado de predicción, una gran paleta de módulos y una biblioteca de plantillas de inicio convierten las tareas de Aprendizaje automático comunes en algo sencillo y rápido. Para obtener más información, consulte [Descripción general del servicio de Aprendizaje automático de Azure](/services/machine-learning/). Para obtener una introducción de aprendizaje automático que cubre los conceptos y terminología clave, consulte [Introducción al aprendizaje automático de Azure](machine-learning-what-is-machine-learning.md).
+El Aprendizaje automático de Azure es un servicio completamente administrado que sirve para crear, probar, utilizar y administrar soluciones de análisis predictivo en la nube. Con solo un explorador, puede registrarse, cargar datos e realizar inmediatamente experimentos de aprendizaje automático. Arrastre y colocación del modelado de predicción, una gran paleta de módulos y una biblioteca de plantillas de inicio convierten las tareas de Aprendizaje automático comunes en algo sencillo y rápido. Para obtener más información, consulte [Descripción general del servicio de Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/). Para obtener una introducción de aprendizaje automático que cubre los conceptos y terminología clave, consulte [Introducción al aprendizaje automático de Azure](machine-learning-what-is-machine-learning.md).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -63,21 +63,21 @@ No. Sin embargo, cada vez que se ejecuta un experimento, esa versión del gráfi
 ### Importación y exportación de datos para Aprendizaje automático
 **¿Qué orígenes de datos admite Aprendizaje automático?**
 
-Los datos se pueden cargar en Estudio de aprendizaje automático de dos formas: se pueden cargar los archivos locales como un conjunto de datos o se puede usar el módulo de lectura para importar los datos. Los archivos locales se pueden cargar mediante la incorporación de nuevos conjuntos de datos a Estudio de aprendizaje automático. Consulte [Importar datos de entrenamiento a Estudio de aprendizaje automático](machine-learning-import-data.md) para obtener más información acerca de los formatos de archivo compatibles.
+Los datos se pueden cargar en Estudio de aprendizaje automático de dos formas: se pueden cargar los archivos locales como un conjunto de datos o se puede usar el módulo de lectura para importar los datos. Los archivos locales se pueden cargar mediante la incorporación de nuevos conjuntos de datos a Estudio de aprendizaje automático. Consulte [Importar datos de entrenamiento a Estudio de aprendizaje automático](machine-learning-data-science-import-data.md) para obtener más información acerca de los formatos de archivo compatibles.
 
 
 #### <a id="ModuleLimit"></a>¿Cómo de grande puede ser el conjunto de datos para mis módulos?
 
-Los módulos en Estudio de aprendizaje automático admiten conjuntos de datos de hasta 10 GB de datos numéricos densos para casos de uso comunes. Si un módulo ocupa más de una entrada, los 10 GB serán el total de todos los tamaños de entrada. También puede realizar un muestreo de conjuntos de datos más grandes mediante consultas de Base de datos SQL de Azure o Hive o usando el procesamiento previo de Aprendizaje por recuentos, antes de la ingesta.
+Los módulos en Estudio de aprendizaje automático admiten conjuntos de datos de hasta 10 GB de datos numéricos densos para casos de uso comunes. Si un módulo ocupa más de una entrada, los 10 GB serán el total de todos los tamaños de entrada. También puede realizar un muestreo de conjuntos de datos más grandes mediante consultas de Base de datos SQL de Azure o Hive o usando el procesamiento previo de Aprendizaje por recuentos, antes de la ingesta.
 
-Los siguientes tipos de datos se pueden expandir en conjuntos de datos grandes durante la normalización de características. Están limitados a menos de 10 GB:
+Los siguientes tipos de datos se pueden expandir en conjuntos de datos grandes durante la normalización de características. Están limitados a menos de 10 GB:
 
 - Dispersos
 - Categorías
 - Cadenas
 - Datos binarios
 
-Los siguientes módulos solo admiten conjuntos de datos que tengan menos de 10 GB:
+Los siguientes módulos solo admiten conjuntos de datos que tengan menos de 10 GB:
 
 - Módulos de recomendación.
 - Módulo SMOTE.
@@ -93,8 +93,10 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 
 **¿Se pueden leer datos de Amazon S3?**
 
-Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. 
-<!--<SEE CLOUD DS PROCESS>-->
+Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al Almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, luego, utilizar el módulo [Lector][reader] para incluirlos en el experimento.
+<!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **¿Hay una capacidad integrada para usar una entrada de imagen?**
 
@@ -218,14 +220,14 @@ Cuando el modelo predictivo se ha puesto en producción, lo puede supervisar des
 Para RRS, en la respuesta del servicio web normalmente es donde se verá el resultado. También puede escribirlo en un blob. Para BES, el resultado se escribe en un blob de manera predeterminada. También puede escribir el resultado en una base de datos o una tabla con el módulo de escritor.
 
  **¿**Solamente puedo crear servicios web a partir de los modelos creados en el Estudio? No. También puede crear servicios web directamente desde los Jupyter Notebooks y RStudio.
- 
- ****¿Dónde puedo encontrar información sobre los códigos de error? Los códigos de error se describen [aquí.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
+
+ **¿Dónde puedo encontrar información sobre los códigos de error? Los códigos de error se describen [aquí.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Escalabilidad
 
 **¿Qué es la escalabilidad del servicio web?**
 
-En la actualidad, el punto de conexión predeterminado se ha aprovisionado con 20 solicitudes simultáneas de RRS por punto de conexión. Puede escalar la solicitud simultánea a 200 solicitudes por punto de conexión y puede escalar cada servicio web a 10 000 puntos de conexión por servicio web como se describe en el artículo sobre [escalar puntos de conexión de la API](machine-learning-scaling-endpoints.md). Para BES, cada punto de conexión permite el procesamiento de 40 solicitudes a la vez y se ponen en cola las solicitudes adicionales que superan este número. Estas solicitudes en cola se ejecutarán automáticamente a medida que avanza la cola.
+En la actualidad, el punto de conexión predeterminado se ha aprovisionado con 20 solicitudes simultáneas de RRS por punto de conexión. Puede escalar la solicitud simultánea a 200 solicitudes por punto de conexión y puede escalar cada servicio web a 10 000 puntos de conexión por servicio web como se describe en el artículo sobre [escalar puntos de conexión de la API](machine-learning-scaling-endpoints.md). Para BES, cada punto de conexión permite el procesamiento de 40 solicitudes a la vez y se ponen en cola las solicitudes adicionales que superan este número. Estas solicitudes en cola se ejecutarán automáticamente a medida que avanza la cola.
 
 
 **¿Los trabajos de R se reparten entre nodos?**
@@ -235,16 +237,16 @@ Nº
 
 **¿Con qué cantidad de datos puedo hacer entrenamientos?**
 
-Los módulos en Estudio de aprendizaje automático admiten conjuntos de datos de hasta 10 GB de datos numéricos densos para casos de uso comunes. Si un módulo ocupa más de una entrada, los 10 GB serán el total de todos los tamaños de entrada. También puede realizar un muestreo de conjuntos de datos más grandes mediante consultas de Base de datos SQL de Azure o Hive o usando el procesamiento previo de Aprendizaje por recuentos, antes de la ingesta.
+Los módulos en Estudio de aprendizaje automático admiten conjuntos de datos de hasta 10 GB de datos numéricos densos para casos de uso comunes. Si un módulo ocupa más de una entrada, los 10 GB serán el total de todos los tamaños de entrada. También puede realizar un muestreo de conjuntos de datos más grandes mediante consultas de Base de datos SQL de Azure o Hive o usando el procesamiento previo de Aprendizaje por recuentos, antes de la ingesta.
 
-Los siguientes tipos de datos se pueden expandir en conjuntos de datos grandes durante la normalización de características. Están limitados a menos de 10 GB:
+Los siguientes tipos de datos se pueden expandir en conjuntos de datos grandes durante la normalización de características. Están limitados a menos de 10 GB:
 
 - Dispersos
 - Categorías
 - Cadenas
 - Datos binarios
 
-Los siguientes módulos solo admiten conjuntos de datos que tengan menos de 10 GB:
+Los siguientes módulos solo admiten conjuntos de datos que tengan menos de 10 GB:
 
 - Módulos de recomendación.
 - Módulo SMOTE.
@@ -290,7 +292,7 @@ Consulte [Preguntas más frecuentes sobre la publicación y utilización de apli
 
 **¿Dónde puedo recibir entrenamiento para Aprendizaje automático de Azure?**
 
-El [Centro de Aprendizaje automático de Azure](/services/machine-learning/) contiene tutoriales de vídeo y guías de procedimientos. Estas guías paso a paso proporcionan una introducción a los servicios y un recorrido por el ciclo de vida científico de los datos consistente en importar los datos, limpiarlos, construir modelos predictivos e implementarlos en producción con el Aprendizaje automático de Azure.
+El [Centro de Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/) contiene tutoriales de vídeo y guías de procedimientos. Estas guías paso a paso proporcionan una introducción a los servicios y un recorrido por el ciclo de vida científico de los datos consistente en importar los datos, limpiarlos, construir modelos predictivos e implementarlos en producción con el Aprendizaje automático de Azure.
 
 Iremos agregando continuamente nuevo material al Centro de Aprendizaje automático. Puede enviarnos una solicitud de material de aprendizaje adicional en el Centro de Aprendizaje automático a través del [foro de comentarios de los usuarios](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 
@@ -311,4 +313,4 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

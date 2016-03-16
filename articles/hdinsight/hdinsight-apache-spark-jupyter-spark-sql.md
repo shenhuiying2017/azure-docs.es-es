@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/07/2016"
 	ms.author="nitinme"/>
 
 
@@ -23,6 +23,8 @@
 Obtenga información sobre cómo crear un clúster Apache Spark en HDInsight y después usar cuadernos de [Jupyter](https://jupyter.org) para ejecutar consultas interactivas de Spark SQL en el clúster Spark.
 
    ![Introducción al uso de Apache Spark en HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Tutorial de introducción al uso de Apache Spark en HDInsight. Pasos que se muestran: crear una cuenta de almacenamiento; crear un clúster; ejecutar instrucciones Spark SQL")
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 **Requisitos previos:**
 
@@ -52,7 +54,7 @@ En esta sección, se crea un clúster de HDInsight versión 3.3, que se basa en 
 
     ![Crear un nuevo clúster en el Portal de vista previa de Azure](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.1.png "Crear un nuevo clúster en el Portal de vista previa de Azure")
 
-3. Escriba un nombre en **Nombre de clúster**, seleccione **Hadoop** en **Tipo de clúster** y, en el menú desplegable **Sistema operativo de clúster**, seleccione **Ubuntu** y luego seleccione la versión de Spark. Si está disponible, aparece una marca de verificación verde junto al nombre de clúster.
+3. Escriba un nombre en **Nombre de clúster**, seleccione **Spark** en **Tipo de clúster** y, en el menú desplegable **Sistema operativo de clúster**, seleccione **Linux** y luego seleccione la versión de Spark. Si está disponible, aparece una marca de verificación verde junto al nombre de clúster.
 
 	![Especifique el tipo y el nombre del clúster](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.2.png "Especifique el tipo y el nombre del clúster")
 
@@ -117,7 +119,7 @@ En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark S
 * **PySpark** (para aplicaciones escritas con Python)
 * **Spark** (para aplicaciones escritas con Scala)
 
-En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponibles en los cuadernos de Jupyter con clústeres de HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) encontrará información detallada sobre las ventajas de usar el kernel de PySpark. Sin embargo, algunas de las ventajas principales de usar el kernel de PySpark son:
+En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) encontrará información detallada sobre las ventajas de usar el kernel de PySpark. Sin embargo, algunas de las ventajas principales de usar el kernel de PySpark son:
 
 * No es necesario establecer los contextos de Spark, SQL ni Hive. Se establecen automáticamente para usted.
 * Puede usar instrucciones mágicas de celda diferentes (como %%sql o %%hive) para ejecutar directamente las consultas de SQL o Hive, sin los fragmentos de código anteriores.
@@ -168,7 +170,7 @@ En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponi
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Dado que está usando un kernel de PySpark, puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para obtener más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles en los cuadernos de Jupyter con clústeres de HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Dado que está usando un kernel de PySpark, puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para obtener más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"")
@@ -183,6 +185,10 @@ En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponi
 
 
 6. Cuando haya terminado de ejecutar la aplicación, debe apagar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
+
+##Eliminación del clúster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## <a name="seealso"></a>Otras referencias
@@ -235,4 +241,4 @@ En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponi
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/12/2016"
+	ms.date="03/07/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -71,7 +71,7 @@ Cuando se habilita la sincronización de contraseñas, las directivas de complej
 
 **Directiva de expiración de contraseñas**
 
-Si un usuario está en el ámbito de sincronización de contraseñas, la contraseña de cuenta en la nube se establece en "*No caduca nunca*". Esto significa que es posible que la contraseña de un usuario expire en el entorno local, pero los usuarios pueden seguir iniciando sesión en los servicios en la nube con la contraseña expirada.
+Si un usuario está en el ámbito de sincronización de contraseñas, la contraseña de cuenta en la nube se establece en "*No caduca nunca*". Esto significa que es posible que la contraseña de un usuario expire en el entorno local, pero este puede seguir iniciando sesión en los servicios en la nube con la nueva contraseña tras el siguiente ciclo de sincronización de contraseñas.
 
 La contraseña de la nube se actualizará la próxima vez que el usuario cambie la contraseña en el entorno local.
 
@@ -159,4 +159,4 @@ No es necesario forzar una sincronización completa de todas las contraseñas, p
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

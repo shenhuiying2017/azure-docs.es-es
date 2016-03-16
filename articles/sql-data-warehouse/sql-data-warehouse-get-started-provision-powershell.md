@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/25/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creación de Almacenamiento de datos SQL con Powershell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-get-started-provision.md)
+- [Portal de Azure](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -42,7 +42,7 @@ Si no tiene configurado PowerShell, debe descargarlo y configurarlo.
 	```
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
-   
+
 ## Creación de una base de datos de Almacenamiento de datos SQL.
 Para implementar un Almacenamiento de datos SQL, utilice el cmdlet New-AzureRmSQLDatabase. Asegúrese de que cumple los siguientes requisitos previos antes de ejecutar el comando:
 
@@ -71,14 +71,14 @@ Los parámetros necesarios para este cmdlet son los siguientes:
  + **DatabaseName**: el nombre del Almacenamiento de datos SQL que está creando.
  + **ServerName**: el nombre del servidor que se usa para la creación (tiene que ser V12).
  + **ResourceGroupName**: el grupo de recursos que está usando. Para obtener los grupos de recursos que estén disponibles en su suscripción, use Get-AzureResource.
- + **Edition**: tiene que establecer la edición como "DataWarehouse" para crear un Almacenamiento de datos SQL. 
+ + **Edition**: tiene que establecer la edición como "DataWarehouse" para crear un Almacenamiento de datos SQL.
 
 Para la referencia de comandos, consulte [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx).
 
-Para las opciones de parámetros, consulte [Create Database (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt204021.aspx) (Creación de base de datos (Almacenamiento de datos SQL de Azure)).
+Para las opciones de parámetros, consulte [Create Database (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt204021.aspx) (Creación de base de datos [Almacenamiento de datos SQL de Azure]).
 
 ## Pasos siguientes
-Después de que Almacenamiento de datos SQL termine el aprovisionamiento, puede [cargar datos de ejemplo][] o averiguar cómo [desarrollar][], [cargar][] o [migrar][].
+Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, puede [cargar datos de ejemplo][] o averiguar cómo [desarrollar][], [cargar][] o [migrar][].
 
 Si está interesado en obtener más información sobre cómo administrar el Almacenamiento de datos SQL mediante la programación, consulte nuestra documentación de [Powershell][] o [API de REST][].
 
@@ -96,4 +96,4 @@ Si está interesado en obtener más información sobre cómo administrar el Alma
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Instalación y configuración de Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

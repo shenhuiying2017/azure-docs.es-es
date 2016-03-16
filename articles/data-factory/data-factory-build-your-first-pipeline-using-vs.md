@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a la Factoría de datos de Azure (Visual Studio)"
+	pageTitle="Compilación de la primera Data Factory (Visual Studio) | Microsoft Azure"
 	description="En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo mediante Visual Studio."
 	services="data-factory"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
-# Introducción a la Factoría de datos de Azure (Visual Studio)
+# Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio
 > [AZURE.SELECTOR]
 - [Información general del tutorial](data-factory-build-your-first-pipeline.md)
 - [Uso del Editor de Data Factory](data-factory-build-your-first-pipeline-using-editor.md).
@@ -256,12 +256,13 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 
 	En el código JSON de la actividad, se especifica que el script de Hive se ejecuta en el proceso que especifica el servicio vinculado **linkedServiceName**: **HDInsightOnDemandLinkedService**.
 
+	> [ACOM.NOTE] Consulte [Anatomía de una canalización](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para obtener información sobre las propiedades JSON que se usan en el ejemplo anterior. 
 3. Guarde el archivo **HiveActivity1.json**.
 
 ### Adición de partitionweblogs.hql e input.log como una dependencia 
 
 1. Haga clic con el botón derecho en **Dependencias** en la ventana del **Explorador de soluciones**, seleccione **Agregar** y haga clic en **Elemento existente**.  
-2. Navegue hasta **C:\\ADFGettingStarted**, seleccione los archivos **partitionweblogs.hql** e **input.log** y haga clic en **Agregar**. Se crearon estos dos archivos como parte de los requisitos previos de la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md).
+2. Navegue hasta **C:\ADFGettingStarted**, seleccione los archivos **partitionweblogs.hql** e **input.log** y haga clic en **Agregar**. Se crearon estos dos archivos como parte de los requisitos previos de la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md).
 
 Al publicar la solución en el paso siguiente, se carga el archivo **partitionweblogs.hql** en la carpeta de scripts del contenedor de blobs **adfgetstarted**.
 
@@ -273,7 +274,7 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 
 	![Cuadro de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
-21. En la página Configurar la factoría de datos, haga lo siguiente:
+21. En la página Configurar Data Factory, haga lo siguiente:
 	1. Seleccione la opción **Crear nueva factoría de datos**.
 	2. Escriba **FirstDataFactoryUsingVS** como **nombre**. 
 	
@@ -316,6 +317,7 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Cuando finalice el procesamiento, el segmento aparecerá con el estado **Listo**.
+
 	>[AZURE.IMPORTANT] La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).  
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -347,7 +349,7 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 ## Uso de archivos de configuración
 Puede usar archivos de configuración de Visual Studio para configurar propiedades para servicios vinculados/tablas/canalizaciones distintos para cada entorno.
 
-Considere la siguiente definición de JSON para un servicio vinculado de Almacenamiento de Azure. Para especificar la propiedad **connectionString** con distintos valores para accountname y accountkey basados en el entorno (desarrollo, prueba y producción) en el que va a implementar las entidades de Data Factory. Puede hacerlo usando el archivo de configuración independiente para cada entorno.
+Considere la siguiente definición de JSON para un servicio vinculado de Almacenamiento de Azure. Con ella, podrá especificar la propiedad **connectionString** con distintos valores para accountname y accountkey basados en el entorno (desarrollo, prueba y producción) en el que va a implementar las entidades de Data Factory. Puede hacerlo usando el archivo de configuración independiente para cada entorno.
 
 	{
 	    "name": "StorageLinkedService",
@@ -364,7 +366,7 @@ Considere la siguiente definición de JSON para un servicio vinculado de Almacen
 Agregue un archivo de configuración a cada entorno realizando los pasos siguientes:
 
 1. Haga clic con el botón derecho en el proyecto de Data Factory en la solución de Visual Studio, seleccione **Agregar** y haga clic en **Nuevo elemento**.
-2. Seleccione **Config** en la lista de plantillas instaladas de la izquierda, elija **Archivo de configuración**, escriba un **nombre** para el archivo de configuración y haga clic en **Agregar**.
+2. Seleccione **Config.** en la lista de plantillas instaladas de la izquierda, elija **Archivo de configuración**, escriba un **nombre** para el archivo de configuración y haga clic en **Agregar**.
 
 	![Adición de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
 3. Agregue parámetros de configuración y sus valores en el formato que se muestra a continuación:
@@ -434,7 +436,7 @@ Al publicar las entidades de Factoría de datos de Azure en Visual Studio, puede
 Para publicar entidades en un proyecto de Factoría de datos de Azure mediante el archivo de configuración:
 
 1. Haga clic con el botón derecho en el proyecto de Data Factory y haga clic en **Publicar** para ver el cuadro de diálogo **Publicar elementos**. 
-2. Seleccione una factoría de datos existente o especifique valores para crear una nueva en la página **Configurar factoría de datos** y haga clic en **Siguiente**.   
+2. Seleccione una Data Factory existente o especifique valores para crear una nueva en la página **Configurar Data Factory** y haga clic en **Siguiente**.   
 3. En la página **Publicar elementos**, verá una lista desplegable con las configuraciones disponibles para el campo **Seleccionar configuración de implementación**.
 
 	![Selección de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
@@ -449,4 +451,4 @@ Cuando realiza la implementación, se usan los valores del archivo de configurac
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

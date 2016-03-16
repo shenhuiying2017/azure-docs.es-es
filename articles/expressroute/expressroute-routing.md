@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2016"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -121,17 +121,21 @@ Microsoft etiquetará los prefijos anunciados a través de la configuración de 
 | **Región geopolítica** | **Región de Microsoft Azure** | **Valor de comunidad de BGP** |
 |---|---|---|
 | **Norteamérica** | | |
-| | Este de EE. UU. | 12076:51004 |
+| | Este de EE. UU. | 12076:51004 |
 | | Este de EE. UU. 2 | 12076:51005 |
-| | Oeste de EE. UU. | 12076:51006 |
+| | Oeste de EE. UU. | 12076:51006 |
 | | Centro-Norte de EE. UU | 12076:51007 |
 | | Centro-Sur de EE. UU | 12076:51008 |
-| | Central EE. UU.: | 12076:51009 |
+| | Central EE. UU.: | 12076:51009 |
+| | Centro de Canadá | 12076:51020 |
+| | Este de Canadá | 12076:51021 |
 | **Sudamérica** | | |
 | | Sur de Brasil | 12076:51014 |
 | **Europa** | | |
 | | Europa del Norte | 12076:51003 |
 | | Europa occidental | 12076:51002 |
+| | Norte del Reino Unido | 12076:51022 |
+| | Sur del Reino Unido 2 | 12076:51023 |
 | **Asia Pacífico** | | |
 | | Asia oriental | 12076:51010 |
 | | Sudeste asiático | 12076:51011 |
@@ -170,8 +174,8 @@ Microsoft no admite los valores de las comunidades de BGP que defina. Se requier
 
 - Configure su conexión ExpressRoute.
 
-	- [Creación y modificación de un circuito ExpressRoute mediante PowerShell](expressroute-howto-circuit-classic.md) o [Creación y modificación de un circuito ExpressRoute mediante el Administrador de recursos de Azure y PowerShell](expressroute-howto-circuit-arm.md)
+	- [Creación y modificación de un circuito ExpressRoute mediante PowerShell](expressroute-howto-circuit-classic.md) o [Creación y modificación de un circuito ExpressRoute mediante Azure Resource Manager y PowerShell](expressroute-howto-circuit-arm.md)
 	- [Creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell](expressroute-howto-routing-classic.md) o [Creación y modificación del enrutamiento para un circuito ExpressRoute mediante el Administrador de recursos de Azure y PowerShell](expressroute-howto-routing-arm.md)
 	- [Vinculación de la red virtual a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/16/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Carga de datos con la Factoría de datos de Azure
@@ -40,7 +40,7 @@ Para familiarizarse con Data Factory de Azure, consulte [Introducción al servic
 
 Antes de comenzar este tutorial, debe contar con los siguientes recursos.
 
-   + **Blob de Almacenamiento de Azure**: en este tutorial se usa el blob de almacenamiento de Azure como origen de datos para la canalización de Data Factory de Azure, así que debe tener uno disponible para almacenar los datos de ejemplo. Si todavía no tiene una, aprenda a [crear una cuenta de almacenamiento](../storage/storage-create-storage-account/#create-a-storage-accoun/). 
+   + **Blob de Almacenamiento de Azure**: en este tutorial se usa el blob de almacenamiento de Azure como origen de datos para la canalización de Data Factory de Azure, así que debe tener uno disponible para almacenar los datos de ejemplo. Si todavía no tiene una, aprenda a [crear una cuenta de almacenamiento](../storage/storage-create-storage-account/#create-a-storage-accoun/).
 
    + **Almacenamiento de datos SQL**: en este tutorial los datos se mueven desde el blob de almacenamiento de Azure hasta Almacenamiento de datos SQL, así que debe tener un almacén de datos en línea que esté cargado con los datos de ejemplo de AdventureWorksDW. Si no dispone de un almacén de datos, aprenda cómo se [aprovisiona uno](sql-data-warehouse-get-started-provision.md). Si tiene un almacén de datos pero no lo ha aprovisionado con los datos de ejemplo, puede [cargarlo manualmente](sql-data-warehouse-get-started-manually-load-samples.md).
 
@@ -158,7 +158,7 @@ En la sección 'Crear e implementar', haga clic en 'Más comandos' y, a continua
     "name": "<Pipeline Name>",
     "properties": {
         "description": "<Description>",
-        "activities": [ 
+        "activities": [
           {
             "type": "Copy",
     		"typeProperties": {
@@ -215,4 +215,4 @@ En estos temas se proporciona información detallada sobre Factoría de datos de
 - [Tutorial: Copia de datos de un blob de Azure a SQL Azure](../data-factory/data-factory-get-started.md). En este tutorial, creará una canalización en Factoría de datos de Azure para copiar datos desde el Blob de almacenamiento de Azure hasta Base de datos SQL Azure.
 - [Tutorial de un escenario real](../data-factory/data-factory-tutorial.md). Se trata de un tutorial detallado para el uso de Factoría de datos de Azure.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

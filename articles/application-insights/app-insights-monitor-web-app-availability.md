@@ -233,6 +233,10 @@ Abra una prueba individual para editarla o deshabilitarla.
 
 Es posible que desee deshabilitar las pruebas web mientras está realizando un mantenimiento en el servicio.
 
+## Automatización
+
+También puede [usar scripts de PowerShell para configurar una prueba web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automáticamente.
+
 ## ¿Tiene preguntas? ¿Tiene problemas?
 
 * *¿Puedo llamar el código desde mi prueba web?*
@@ -389,4 +393,4 @@ Abra los puertos 80 (http) y 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

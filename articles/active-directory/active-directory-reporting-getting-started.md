@@ -3,7 +3,7 @@
    description="Enumera los distintos informes disponibles en los informes de Azure Active Directory."
    services="active-directory"
    documentationCenter=""
-   authors="curtand"
+   authors="dhanyahk"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/10/2016"
-   ms.author="curtand;kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Introducción a los informes de Azure Active Directory
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) incluye informes de seguridad, actividad y aud
 - Inicios de sesión desde direcciones IP con actividad sospechosa
 - Actividad de inicio de sesión irregular
 - Inicios de sesión desde dispositivos posiblemente infectados
-- Usuarios con actividad de inicio de sesión erróneo.
+- Usuarios con actividad de inicio de sesión anómala
 
 ### Informes de actividad
 
@@ -98,7 +98,7 @@ Vaya a cada informe para ver los datos recopilados y los inicios de sesión proc
 
 ### Descarga de los informes como CSV
 
-Cada informe se puede descargar como archivo CSV (valores separados por comas). Puede utilizar estos archivos en Excel, PowerBI o programas de análisis de terceros para seguir analizando los datos.
+Cada informe se puede descargar como un archivo CSV (valores separados por comas). Puede utilizar estos archivos en Excel, PowerBI o programas de análisis de terceros para seguir analizando los datos.
 
 Para descargar cualquier informe como CSV, vaya hasta el informe y haga clic en "Descargar" en la parte inferior.
 
@@ -156,4 +156,4 @@ Envíe un correo electrónico a [aadreportinghelp@microsoft.com](mailto:aadrepor
 
 > [AZURE.TIP] Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

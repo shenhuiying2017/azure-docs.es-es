@@ -1,17 +1,17 @@
-<properties
-	pageTitle="Azure Site Recovery: Preguntas más frecuentes (P+F) | Microsoft Azure"
+<properties 
+	pageTitle="Azure Site Recovery: Preguntas más frecuentes (P+F) | Microsoft Azure" 
 	description="En este artículo se responde a las preguntas más frecuentes acerca de Azure Site Recovery."
-	services="site-recovery"
+	services="site-recovery" 
 	documentationCenter=""
 	authors="rayne-wiselman"
 	manager="jwhit"
 	editor=""/>
 
-<tags
+<tags 
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
 	ms.date="02/14/2016"
 	ms.author="raynew"/>
@@ -32,7 +32,7 @@ Site Recovery contribuye a su estrategia de continuidad empresarial y recuperaci
 
 ### ¿Qué se puede proteger con Site Recovery?
 
-- **Máquinas virtuales de Hyper-V**: Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de Hyper-V.
+- **Máquinas virtuales de Hyper-V**: Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de Hyper-V. 
 - **Servidores físicos**: Site Recovery puede proteger servidores físicos con Windows o Linux.
 - **Máquinas virtuales de VMware**: Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de VMware.
 
@@ -64,11 +64,11 @@ No, esto no se admite. Como solución alternativa deberá replicar el equipo com
 Puede usar Site Recovery para proteger la mayoría de las cargas de trabajo que se ejecutan en una máquina virtual o un servidor físico. Site Recovery puede ayudarle a implementar la recuperación ante desastres en función de las aplicaciones. Se integra con aplicaciones de Microsoft, incluido SharePoint, Exchange, Dynamics, SQL Server y Active Directory, y colabora estrechamente con los principales proveedores, como Oracle, SAP, IBM y Red Hat. Puede personalizar su solución de recuperación ante desastres para cada aplicación específica. [Obtenga más información](site-recovery-workload.md) acerca de la protección de la carga de trabajo.
 
 
-### ¿Se necesita siempre un servidor de System Center VMM para proteger las máquinas virtuales de Hyper-V?
+### ¿Se necesita siempre un servidor de System Center VMM para proteger las máquinas virtuales de Hyper-V? 
 
 No. Además de poder replicar máquinas virtuales de Hyper-V ubicadas a nubes de VMM, también puede replicar máquinas virtuales de Hyper-V a un entorno en el que no se haya implementado VMM. [Más información](site-recovery-hyper-v-site-to-azure.md). Tenga en cuenta que si está replicando a un centro de datos secundario, los servidores de host de Hyper-V deben administrarse en nubes de VMM.
 
-### ¿Se puede implementar Site Recovery con VMM si solo se tiene un servidor de VMM?
+### ¿Se puede implementar Site Recovery con VMM si solo se tiene un servidor de VMM? 
 
 Sí. Puede replicar máquinas virtuales de Hyper-V en la nube en el servidor de VMM a Azure o puede replicar entre nubes de VMM en el mismo servidor. Tenga en cuenta que se recomienda que para la replicación de local a local se tenga un servidor de VMM tanto en el sitio principal como en el secundario. [Más información](site-recovery-single-vmm.md)
 
@@ -90,7 +90,7 @@ Las máquinas virtuales que quiera replicar a Azure deben cumplir con los [Requi
 
 Sí. Site Recovery convierte de la generación 2 a la generación 1 durante una conmutación por error. En la conmutación por recuperación, la máquina se convierte de nuevo a la generación 2. [Más información](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
-### Si se replica a Azure ¿cómo se paga por las máquinas virtuales de Azure?
+### Si se replica a Azure ¿cómo se paga por las máquinas virtuales de Azure? 
 
 Durante una replicación normal, los datos se replican en el almacenamiento de Azure con redundancia geográfica y no es necesario pagar los cargos de máquina virtual de IaaS de Azure, lo cual proporciona una ventaja considerable. Cuando se realiza una conmutación por error a Azure, Site Recovery crea automáticamente las máquinas virtuales de IaaS de Azure, después de lo cual se le factura por los recursos de proceso que se consumen en Azure.
 
@@ -131,13 +131,13 @@ Necesitará una cuenta de almacenamiento con [almacenamiento con redundancia geo
 
 ### ¿Con qué frecuencia se pueden replicar los datos?
 - **Hyper-V:** las máquinas virtuales de Hyper-V que se estén ejecutando en Windows Server 2012 R2 se pueden replicar cada 30 segundos, 5 minutos o 15 minutos. Si ha configurado la replicación de SAN, la replicación debe ser sincrónica.
-- **VMware y servidores físicos:** en este caso no es relevante la frecuencia de replicación. La replicación será continua.
+- **VMware y servidores físicos:** en este caso no es relevante la frecuencia de replicación. La replicación será continua. 
 
 ### ¿Se puede ampliar la replicación desde el sitio de recuperación existente a otro tercer sitio?
 No se admite la replicación extendida o encadenada. Envíe los comentarios que tenga acerca de esta característica al [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/).
 
 
-### ¿Se puede hacer una replicación sin conexión la primera vez que se replique en Azure?
+### ¿Se puede hacer una replicación sin conexión la primera vez que se replique en Azure? 
 
 No es una opción admitida. Envíenos los comentarios que tenga acerca de esta característica al [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/).
 
@@ -150,7 +150,7 @@ No es una opción admitida. Envíenos los comentarios que tenga acerca de esta c
 
 Los discos dinámicos se admiten al replicar máquinas virtuales de Hyper-V. Sin embargo, no se admiten al replicar máquinas virtuales de VMware o servidores físicos. Envíenos los comentarios que tenga acerca de esta característica al [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/).
 
-### Si se realiza una conmutación por error a Azure, ¿cómo se puede tener acceso a las máquinas virtuales de Azure tras este proceso?
+### Si se realiza una conmutación por error a Azure, ¿cómo se puede tener acceso a las máquinas virtuales de Azure tras este proceso? 
 
 Es posible tener acceso a las máquinas virtuales de Azure a través de una conexión segura a Internet o a través de una VPN de sitio a sitio (o Azure ExpressRoute) si dispone de una. Las comunicaciones a través de una conexión VPN van a puertos internos de la red de Azure en la que se encuentra la máquina virtual. Las comunicaciones a través de Internet se asignan a los extremos públicos en el servicio en la nube de Azure para máquinas virtuales.
 
@@ -168,7 +168,7 @@ Puede desencadenar una conmutación por error no planeada desde el sitio secunda
 La conmutación por error no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal o bien puede utilizar los [cmdlets de Site Recovery PowerShell](https://msdn.microsoft.com/library/dn850420.aspx) para desencadenar una conmutación por error. La conmutación por recuperación también es una acción sencilla en el portal de Site Recovery. Para automatizar estos procesos, puede utilizar Orchestrator u Operations Manager locales para detectar un error de la máquina virtual y desencadenar luego la conmutación por error mediante el SDK.
 
 ### Si se replican máquinas virtuales de Hyper-V, ¿puedo limitar el ancho de banda asignado para el tráfico de replicación de Hyper-V?
-- Si va a replicar entre dos sitios locales de máquinas virtuales de Hyper-V, puede usar QoS de Windows. Este es un script de ejemplo:
+- Si va a replicar entre dos sitios locales de máquinas virtuales de Hyper-V, puede usar QoS de Windows. Este es un script de ejemplo: 
 
     	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
     	gpupdate.exe /force
@@ -219,4 +219,4 @@ Sí, es posible replicar máquinas virtuales de Hyper-V y Azure, o entre sitios 
 - Lea la [Información general sobre Site Recovery](site-recovery-overview.md)
 - Obtenga información acerca de la [Arquitectura de Site Recovery](site-recovery-components.md)  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

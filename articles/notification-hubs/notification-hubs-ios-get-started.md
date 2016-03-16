@@ -42,7 +42,7 @@ Este tutorial requiere lo siguiente:
 + Un dispositivo compatible con iOS 8 (o una versión posterior)
 + Pertenencia al programa para desarrolladores de iOS
 
-   >[AZURE.NOTE] Debido a los requisitos de configuración de las notificaciones push, debe implementar y probar estas en un dispositivo compatible con iOS (iPhone o iPad) en lugar de en el simulador de iOS.
+   > [AZURE.NOTE] Debido a los requisitos de configuración de las notificaciones push, debe implementar y probar estas en un dispositivo compatible con iOS (iPhone o iPad) en lugar de en el simulador de iOS.
 
 La realización de este tutorial es un requisito previo para todos los demás tutoriales de Centros de notificaciones para aplicaciones iOS.
 
@@ -56,7 +56,7 @@ Esta sección le guía en la creación de un nuevo centro de notificaciones y la
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li>
 <p>Haga clic en la pestaña <b>Configurar</b> en la parte superior y luego haga clic en el botón <b>Cargar</b> en los ajustes de notificaciones de Apple para cargar la huella digital del certificado. A continuación, seleccione el certificado <b>.p12</b> que exportó anteriormente y la contraseña del certificado.</p>
 <p>Asegúrese de seleccionar el modo <b>Espacio aislado</b> ya que esto es para desarrollo. Use el modo <b>Producción</b> únicamente si desea enviar notificaciones de inserción a los usuarios que compraron la aplicación en la tienda.</p>
@@ -324,7 +324,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 		}
 
 
-8. CTRL + arrastrar desde el botón **Enviar notificación** a ViewController.m para agregar una acción denominada **SendNotificationMessage** para el evento **Touch Down**. Método de actualización con el código siguiente para enviar la notificación mediante la API de REST.
+8. Presione Ctrl y arrastre desde el botón **Enviar notificación** a ViewController.m para agregar una acción denominada **SendNotificationMessage** para el evento **Touch Down**. Método de actualización con el código siguiente para enviar la notificación mediante la API de REST.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -438,7 +438,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 
 > [AZURE.NOTE] Si encuentra un error de compilación en Xcode7 sobre la compatibilidad de bitcode, debe cambiar "Configuración de compilación" -> "Habilitar Bitcode"(ENABLE\_BITCODE) a 'NO' en Xcode. El SDK de los Centros de notificaciones no es compatible con bitcode.
 
-Puede buscar todas las cargas de notificaciones posibles en la guía [Local and Push Notification Programming Guide] de Apple.
+Puede buscar todas las cargas de notificaciones posibles en la [guía de programación de notificaciones push y locales] de Apple.
 
 
 ##Prueba de la aplicación
@@ -449,7 +449,7 @@ Para probar las notificaciones push en iOS, debe implementar la aplicación en u
 
 	![][33]
 
-2. Puede enviar una notificación de prueba desde el [Portal de Azure clásico]. Si agrega código para enviar la notificación en la aplicación, pulse dentro del campo de texto para escribir un mensaje de notificación. A continuación, pulse el botón **Enviar** en el teclado, o el botón **Enviar notificación** en la vista, para enviar el mensaje de notificación.
+2. Puede enviar una notificación de prueba desde el [Portal de Azure clásico]. Si agrega código para enviar la notificación en la aplicación, pulse dentro del campo de texto para escribir un mensaje de notificación. A continuación, pulse el botón **Send** (Enviar) en el teclado, o el botón **Send Notification** (Enviar notificación) en la vista, para enviar el mensaje de notificación.
 
 	![][34]
 
@@ -507,4 +507,4 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 
 [guía de programación de notificaciones push y locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->
