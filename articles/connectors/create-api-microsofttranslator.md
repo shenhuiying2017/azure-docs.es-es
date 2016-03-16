@@ -54,8 +54,8 @@ Al agregar Microsoft Translator a PowerApps Enterprise, escriba los valores de *
 
 	1. Escriba un valor en **Id. de cliente**.
 	2. Escriba el **nombre** de la aplicación.
-	3. Escriba un valor ficticio en la **URL de redireccionamiento**. Por ejemplo, escriba: **https://contosoredirecturl*.
-4. Escriba una **descripción**.
+	3. Escriba un valor ficticio en la **URL de redireccionamiento**. Por ejemplo, escriba: *https://contosoredirecturl*.
+	4. Escriba una **descripción**.
 	5. Seleccione **Crear**.  
 
 	![Registrar su aplicación][6]
@@ -156,3 +156,4 @@ Después de agregar la API de Microsoft Translator a PowerApps Enterprise, [conc
 [6]: ./media/create-api-microsofttranslator/register-your-application.png
 
 <!---HONumber=AcomDC_0302_2016-->
+
