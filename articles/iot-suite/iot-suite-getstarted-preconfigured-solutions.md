@@ -14,7 +14,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/03/2015"
+     ms.date="03/02/2016"
      ms.author="dobett"/>
 
 # Tutorial: Introducción a las soluciones de IoT preconfiguradas
@@ -33,6 +33,8 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
 1.  Inicie sesión en [azureiotsuite.com][lnk-azureiotsuite] con sus credenciales de la cuenta de Azure y haga clic en **+** para crear una nueva solución.
 
+    > [AZURE.NOTE] Si tiene problemas con los permisos necesarios para aprovisionar una solución, eche un vistazo a [Permisos en el sitio azureiotsuite.com](iot-suite-permissions.md) para obtener instrucciones.
+
 2.  Haga clic en **Seleccionar** en el icono **Supervisión remota**.
 
 3.  Escriba un valor en **Nombre de la solución** para la solución preconfigurada de supervisión remota.
@@ -41,7 +43,21 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
 5.  Haga clic en **Crear solución** para comenzar el proceso de aprovisionamiento. Normalmente tarda varios minutos en ejecutarse.
 
+## Espere a que se complete el proceso de aprovisionamiento
+
+1. Haga clic en el icono de la solución con el estado **Aprovisionando**.
+ 
+2. Observe los **Estados de aprovisionamiento**, ya que los servicios de Azure se implementan en su suscripción de Azure.
+
+3. Una vez que se complete el aprovisionamiento, el estado cambia a **Listo**.
+
+4. Haga clic en el icono y verá los detalles de la solución en el panel derecho.
+
+¿Hay detalles que esperaría ver que no aparezcan para su solución? Envíenos sugerencias de características en la [Voz del usuario](https://feedback.azure.com/forums/321918-azure-iot).
+
 ## Visualización del panel de la solución de supervisión remota
+
+El panel de la solución permite administrar la solución implementada. Por ejemplo, puede ver la telemetría, agregar dispositivos y configurar las reglas.
 
 1.  Cuando se complete el aprovisionamiento y el icono de su solución preconfigurada indique **Listo**, haga clic en **Iniciar** para abrir el portal de su solución de supervisión remota en una nueva pestaña.
 
@@ -52,6 +68,8 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
     ![][img-dashboard]
 
 ## Visualización de la lista de dispositivos de la solución
+
+La lista de dispositivos muestra todos los dispositivos registrados en la solución. Puede ver y editar los metadatos de los dispositivos, agregar o quitar dispositivos y enviar comandos a los dispositivos.
 
 1.  Haga clic en **Dispositivos** en el menú izquierdo para mostrar la *lista de dispositivos* para esta solución.
 
@@ -64,6 +82,8 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
     ![][img-devicedetails]
 
 ## Envío de un comando a un dispositivo
+
+El panel de detalles del dispositivo muestra todos los comandos que admite el dispositivo y le permite enviar comandos a dispositivos específicos.
 
 1.  Haga clic en **Comandos** en el panel de detalles del dispositivo para el dispositivo seleccionado.
 
@@ -101,7 +121,13 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
     ![][img-runningnew]
 
+## Incorporación de un nuevo dispositivo físico
+
+Para agregar un nuevo dispositivo físico a la solución, consulte [Conexión del dispositivo a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT][lnk-connecting-devices].
+
 ## Visualización y edición de reglas de solución
+
+La solución preconfigurada aprovisiona dos reglas para SampleDevice001. Las reglas le envían una notificación mediante el icono **Historial de alarmas** del panel cuando la temperatura o la humedad superan un umbral.
 
 1.  Vuelva al panel de la solución y vea el icono **Historial de alarmas**.
 
@@ -113,11 +139,9 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
     ![][img-rules]
 
-4.  La solución preconfigurada aprovisiona dos reglas.
-
 5.  Haga clic en la regla **Temperature** en la lista de reglas para ver las propiedades de la regla.
 
-6.  Haga clic en **Editar** en el panel de propiedades de la regla.
+6.  Para modificar una regla, haga clic en **Editar** en el panel de propiedades de la regla.
 
     ![][img-displayrule]
 
@@ -135,7 +159,7 @@ Cuando haya terminado, puede eliminar la solución preconfigurada de su suscripc
 
 ## Pasos siguientes
 
-Ahora que ha creado una solución preconfigurada que funciona, puede pasar a las situaciones siguientes:
+Ahora que ha creado una solución preconfigurada que funciona, puede pasar a los tutoriales siguientes:
 
 -   [Directrices de personalización de soluciones preconfiguradas][lnk-customize]
 -   [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive]
@@ -161,5 +185,6 @@ Ahora que ha creado una solución preconfigurada que funciona, puede pasar a las
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
+[lnk-connecting-devices]: iot-suite-connecting-devices.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

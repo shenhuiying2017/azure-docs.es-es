@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/22/2015"
+   ms.date="03/08/2016"
    ms.author="shkurhek"/>
 
 # ¿Qué es Base de datos SQL? Introducción a la Base de datos SQL, detalles técnicos y una explicación de las DTU
@@ -61,4 +61,6 @@ Ahora que leyó una introducción a la Base de datos SQL y contestó a la pregun
 
 - Comience por [crear su primera base de datos](sql-database-get-started.md). Luego cree su primera aplicación en [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=AcomDC_0302_2016-->
+- Consulte un índice de los títulos y las descripciones en [All topics for Azure sql-database service](sql-database-index-all-articles.md) (Todos los temas del servicio de Base de datos de SQL de Azure).
+
+<!---HONumber=AcomDC_0309_2016-->

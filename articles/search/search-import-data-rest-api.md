@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/29/2016"
+    ms.date="03/09/2016"
     ms.author="ashmaka"/>
 
 # Importación de datos en Búsqueda de Azure con la API de REST
@@ -38,8 +38,9 @@ Al emitir solicitudes HTTP en el servicio mediante la API de REST, *cada* solici
 3. Haga clic en el icono "Claves"
 
 El servicio tendrá *claves de administración* y *claves de consulta*.
-  * Sus *claves de administración* principal y secundaria permiten conceder derechos completos para todas las operaciones, incluida la capacidad para administrar el servicio, crear y eliminar índices, indexadores y orígenes de datos. Existen dos claves, de forma que puede usar la clave secundaria si decide volver a generar la clave principal y viceversa.
-  * Las *claves de consulta* conceden acceso de solo lectura a índices y documentos y normalmente se distribuyen entre las aplicaciones cliente que emiten solicitudes de búsqueda.
+
+  - Sus *claves de administración* principal y secundaria permiten conceder derechos completos para todas las operaciones, incluida la capacidad para administrar el servicio, crear y eliminar índices, indexadores y orígenes de datos. Existen dos claves, de forma que puede usar la clave secundaria si decide volver a generar la clave principal y viceversa.
+  - Las *claves de consulta* conceden acceso de solo lectura a índices y documentos y normalmente se distribuyen entre las aplicaciones cliente que emiten solicitudes de búsqueda.
 
 Para importar datos en un índice, puede usar su clave de administración principal o la secundaria.
 
@@ -52,8 +53,7 @@ Cada objeto JSON de la matriz de "value" representa un documento que se va a ind
 --- | --- | --- | ---
 `upload` | Una acción `upload` es similar a un "upsert" donde se insertará el documento si es nuevo y se actualizará/reemplazará si ya existe. | la clave, además de cualquier otro campo que desee definir | Al actualizar o reemplazar un documento existente, cualquier campo que no esté especificado en la solicitud tendrá su campo establecido en `null`. Esto ocurre incluso cuando el campo se ha establecido previamente en un valor que no sea nulo.
 `merge` | Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. | la clave, además de cualquier otro campo que desee definir | Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. Aquí se incluyen los campos de tipo `Collection(Edm.String)`. Por ejemplo, si el documento contiene un campo `tags` con el valor `["budget"]` y ejecuta una combinación con el valor `["economy", "pool"]` para `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`.
-`mergeOrUpload` | Esta acción se comporta como `merge` si ya existe un documento con la clave especificada en el índice. Si el documento no existe, se comporta como `upload` con un nuevo documento. | la clave, además de cualquier otro campo que desee definir |- 
-`delete` | Permite quitar el documento especificado del índice. | solo la clave | Los campos que especifique se ignorarán excepto el campo clave. Si desea quitar un campo individual de un documento, use *merge* en su lugar y simplemente establezca explícitamente el campo como nulo.
+`mergeOrUpload` | Esta acción se comporta como `merge` si ya existe un documento con la clave especificada en el índice. Si el documento no existe, se comporta como `upload` con un nuevo documento. | la clave, además de cualquier otro campo que desee definir |- `delete` | Permite quitar el documento especificado del índice. | solo la clave | Los campos que especifique se ignorarán excepto el campo clave. Si desea quitar un campo individual de un documento, use `merge` en su lugar y simplemente establezca el campo explícitamente con el valor null.
 
 ## III. Construcción de la solicitud HTTP y el cuerpo de la solicitud
 Ahora que ha recopilado los valores de campo necesarios para las acciones de índice, está listo para construir la solicitud HTTP real y el cuerpo de solicitud JSON para importar sus datos.
@@ -116,7 +116,7 @@ En la dirección URL, deberá proporcionar el nombre del servicio, el nombre del
 
 En este caso, estamos usando `upload`, `mergeOrUpload` y `delete` como acciones de búsqueda.
 
-Se supone que este índice "hoteles" de ejemplo ya está relleno con varios documentos. Observe cómo no tuvimos que especificar todos los campos posibles del documento al utilizar `merge` y cómo especificamos solo la clave del documento (`hotelId`) al usar `delete`.
+Se supone que este índice "hoteles" de ejemplo ya está relleno con varios documentos. Observe cómo no tuvimos que especificar todos los campos posibles del documento al utilizar `mergeOrUpload` y cómo especificamos solo la clave del documento (`hotelId`) al usar `delete`.
 
 Además, tenga en cuenta que solo se puede incluir hasta 1000 documentos (o 16 MB) en una única solicitud de indexación.
 
@@ -163,9 +163,9 @@ Se devolverá un código de estado de `503` si ninguno de los elementos de la so
 
 > [AZURE.NOTE] En este caso, es muy recomendable que interrumpa el código de cliente y espere antes de volver a intentarlo. Esto le dará al sistema un tiempo para recuperarse, lo cual hará aumentar las posibilidades de que las solicitudes futuras se realicen correctamente. Si lo vuelve a intentar demasiado pronto solo logrará prolongar la situación.
 
-Para obtener más información sobre las acciones de documentos y las respuestas de éxito o error, consulte [esta página](https://msdn.microsoft.com/library/azure/dn798925.aspx). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [este artículo](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Para obtener más información sobre las acciones de documentos y las respuestas de éxito o error, consulte [Agregar, actualizar o eliminar documentos](https://msdn.microsoft.com/library/azure/dn798930.aspx). Para obtener más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 ## Pasos siguientes
-Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos.
+Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos. Consulte [Realización de una consulta al índice de Búsqueda de Azure con la API de REST](search-query-rest-api.md) para obtener más información.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

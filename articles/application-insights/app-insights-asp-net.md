@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/28/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 
@@ -94,7 +94,7 @@ La búsqueda de texto sin formato funciona en todos los campos de los eventos. P
 
 ### Excepciones
 
-Si ha [configurado la supervisión de excepciones](app-insights-asp-net-exception-mvc.md), los informes de excepciones se mostrarán en la ventana de búsqueda.
+Si ha [configurado la supervisión de excepciones](app-insights-asp-net-exceptions.md), los informes de excepciones se mostrarán en la ventana Búsqueda.
 
 Haga clic en una excepción para obtener un seguimiento de la pila. Si el código de la aplicación es abierto en Visual Studio, puede hacer clic para recorrer el seguimiento de la pila hasta dar con la línea correspondiente del código.
 
@@ -126,7 +126,7 @@ Abra Búsqueda para investigar solicitudes individuales y sus eventos asociados.
 
 [Más información sobre la búsqueda](app-insights-diagnostic-search.md)
 
-* *¿No hay eventos asociados?* Configure [excepciones de servidor](app-insights-asp-net-exception-mvc.md) y [dependencias](app-insights-asp-net-dependencies.md).
+* *¿No hay eventos asociados?* Configure [excepciones de servidor](app-insights-asp-net-exceptions.md) y [dependencias](app-insights-asp-net-dependencies.md).
 
 
 ## ¿No hay datos?
@@ -172,7 +172,7 @@ Esto es especialmente útil si tiene alguna [telemetría personalizada](app-insi
 ## Pasos siguientes
 
 - [Datos de página y usuario](../article/application-insights/app-insights-javascript.md#selector1)
-- [Excepciones](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [Excepciones](../article/application-insights/app-insights-asp-net-exceptions.md#selector1)
 - [Dependencias](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Disponibilidad](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
@@ -214,4 +214,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

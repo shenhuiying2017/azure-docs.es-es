@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/03/2016"
    ms.author="maroche"/>
 
 
@@ -58,4 +58,7 @@ Al igual que los metadatos extraídos del origen de datos durante el registro se
 ## Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure**, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catálogo. Cuando se ha registrado un origen de datos, los usuarios pueden proporcionar anotaciones para facilitar la detección y comprensión dentro del portal del **Catálogo de datos de Azure**.
 
-<!---HONumber=AcomDC_0224_2016-->
+## Consulte también
+- Consulte el tutorial [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo anotar orígenes de datos.
+
+<!---HONumber=AcomDC_0309_2016-->

@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [CLI de Azure](xplat-cli-azure-resource-manager.md)
 
 Administrador de recursos de Azure presenta un concepto totalmente nuevo acerca de los recursos de Azure. En lugar de crear y administrar recursos individuales, empiece por imaginar una solución entera, como un blog, una galería de fotos, un portal de SharePoint o un wiki. Use una plantilla, una representación declarativa de la solución, para crear un grupo de recursos que contiene todos los recursos que necesita para respaldar la solución. Luego, administre e implemente ese grupo de recursos como una unidad lógica.
 
@@ -34,7 +34,7 @@ Para completar este tutorial, necesita:
   + Puede [abrir una cuenta de Azure de manera gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) - Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
   
   + Puede [activar las ventajas de suscriptor de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Su suscripción a MSDN le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
-- Azure PowerShell 1.0. Para más información acerca de esta versión y cómo instalarla, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell 1.0. Para obtener más información sobre esta versión y cómo instalarla, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
 
 Este tutorial está diseñado para los principiantes de PowerShell, pero se asume que se conocen los conceptos básicos, como los módulos, los cmdlets y las sesiones.
 
@@ -358,7 +358,7 @@ Al escribir el comando, se le pide el parámetro obligatorio que falta, que es *
     (Type !? for Help.)
     administratorLoginPassword: ********
 
-Si la plantilla incluye un parámetro con un nombre que coincide con el de uno de los parámetros del comando utilizado para implementar la plantilla (como cuando incluye un parámetro denominado **ResourceGroupName** en la plantilla y este parámetro es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre de los parámetros utilizados para operaciones de implementación.
+Si la plantilla incluye un parámetro con un nombre que coincide con el de uno de los parámetros del comando utilizado para implementar la plantilla (como cuando incluye un parámetro denominado **ResourceGroupName** en la plantilla y este es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre de los parámetros utilizados para operaciones de implementación.
 
 El comando se ejecuta y devuelve mensajes cuando se crean los recursos. En última instancia, verá el resultado de la implementación.
 
@@ -442,7 +442,7 @@ Puede mover recursos existentes a un nuevo grupo de recursos. Para ver ejemplos,
 
 - Para eliminar un recurso del grupo de recursos, use el cmdlet **Remove-AzureRmResource**. Este cmdlet elimina el recurso, pero no el grupo de recursos.
 
-	Este comando quita el sitio web TestSite del grupo de recursos TestRG.
+	Este comando quita el sitio web TestSite del grupo de recursos TestRG1.
 
 		Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 
@@ -463,4 +463,4 @@ Puede mover recursos existentes a un nuevo grupo de recursos. Para ver ejemplos,
 - Para ver un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

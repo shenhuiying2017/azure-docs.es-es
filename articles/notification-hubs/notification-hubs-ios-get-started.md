@@ -42,7 +42,7 @@ Este tutorial requiere lo siguiente:
 + Un dispositivo compatible con iOS 8 (o una versión posterior)
 + Pertenencia al programa para desarrolladores de iOS
 
-   >[AZURE.NOTE] Debido a los requisitos de configuración de las notificaciones push, debe implementar y probar estas en un dispositivo compatible con iOS (iPhone o iPad) en lugar de en el simulador de iOS.
+   > [AZURE.NOTE] Debido a los requisitos de configuración de las notificaciones push, debe implementar y probar estas en un dispositivo compatible con iOS (iPhone o iPad) en lugar de en el simulador de iOS.
 
 La realización de este tutorial es un requisito previo para todos los demás tutoriales de Centros de notificaciones para aplicaciones iOS.
 
@@ -56,7 +56,7 @@ Esta sección le guía en la creación de un nuevo centro de notificaciones y la
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li>
 <p>Haga clic en la pestaña <b>Configurar</b> en la parte superior y luego haga clic en el botón <b>Cargar</b> en los ajustes de notificaciones de Apple para cargar la huella digital del certificado. A continuación, seleccione el certificado <b>.p12</b> que exportó anteriormente y la contraseña del certificado.</p>
 <p>Asegúrese de seleccionar el modo <b>Espacio aislado</b> ya que esto es para desarrollo. Use el modo <b>Producción</b> únicamente si desea enviar notificaciones de inserción a los usuarios que compraron la aplicación en la tienda.</p>
@@ -324,7 +324,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 		}
 
 
-8. CTRL + arrastrar desde el botón **Enviar notificación** a ViewController.m para agregar una acción denominada **SendNotificationMessage** para el evento **Touch Down**. Método de actualización con el código siguiente para enviar la notificación mediante la API de REST.
+8. Presione Ctrl y arrastre desde el botón **Enviar notificación** a ViewController.m para agregar una acción denominada **SendNotificationMessage** para el evento **Touch Down**. Método de actualización con el código siguiente para enviar la notificación mediante la API de REST.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -449,7 +449,7 @@ Para probar las notificaciones push en iOS, debe implementar la aplicación en u
 
 	![][33]
 
-2. Puede enviar una notificación de prueba desde el [Portal de Azure clásico]. Si agrega código para enviar la notificación en la aplicación, pulse dentro del campo de texto para escribir un mensaje de notificación. A continuación, pulse el botón **Enviar** en el teclado, o el botón **Enviar notificación** en la vista, para enviar el mensaje de notificación.
+2. Puede enviar una notificación de prueba desde el [Portal de Azure clásico]. Si agrega código para enviar la notificación en la aplicación, pulse dentro del campo de texto para escribir un mensaje de notificación. A continuación, pulse el botón **Send** (Enviar) en el teclado, o el botón **Send Notification** (Enviar notificación) en la vista, para enviar el mensaje de notificación.
 
 	![][34]
 
@@ -490,7 +490,7 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 
 <!-- URLs. -->
 [SDK de iOS versión 1.2.4 para Servicios móviles]: http://aka.ms/kymw2g
-[SDK de iOS para Servicios móviles]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -501,10 +501,10 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Introducción a las notificaciones push en Servicios móviles]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
 
-[guía de programación de notificaciones push y locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

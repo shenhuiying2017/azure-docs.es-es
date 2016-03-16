@@ -135,7 +135,9 @@ Para comprobar que se instaló el agente, abra los servicios y busque lo siguien
 Puede configurar agentes de Azure AD Connect Health para trabajar con un proxy HTTP
 
 >[AZURE.NOTE]
-- El uso de "Netsh WinHttp set ProxyServerAddress" no funcionará ya que el agente utiliza System.Net para realizar solicitudes web en lugar de los servicios HTTP de Microsoft Windows. - La dirección del proxy Http configurada se utilizará para pasar mensajes Https cifrados. - No se admiten servidores proxy autenticados (mediante HTTPBasic).
+- El uso de “Netsh WinHttp set ProxyServerAddress” no funcionará, ya que el agente utiliza System.Net para realizar solicitudes web en lugar de los servicios HTTP de Microsoft Windows.
+- Se utilizará la dirección del proxy HTTP configurada para transmitir mensajes HTTPS cifrados.
+- No se admiten los servidores proxy autenticados (mediante HTTPBasic).
 
 ### Cambio de configuración del proxy del agente de estado
 Tiene las siguientes opciones para configurar el agente de Azure AD Connect Health para utilizar a un proxy HTTP.
@@ -190,9 +192,9 @@ El parámetro de rol tiene actualmente los siguientes valores:
 
 Puede utilizar la marca - ShowResults en el comando para ver los registros detallados. Utilice el ejemplo siguiente:
 
-    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResults
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
->[AZURE.NOTE]Para poder utilizar la herramienta de conectividad, primero debe completar el registro del agente. Si no puede completar el registro del agente, compruebe que cumple todos los [requisitos](active-directory-aadconnect-health.md#requirements) para Azure AD Connect Health. Esta prueba de conectividad se realiza de forma predeterminada durante el registro del agente.
+>[AZURE.NOTE]Para poder utilizar la herramienta de conectividad, primero debe completar el registro del agente. Si no puede completar el registro del agente, asegúrese de que cumple todos los [requisitos](active-directory-aadconnect-health.md#requirements) para Azure AD Connect Health. Esta prueba de conectividad se realiza de forma predeterminada durante el registro del agente.
 
 
 ## Vínculos relacionados
@@ -204,4 +206,4 @@ Puede utilizar la marca - ShowResults en el comando para ver los registros detal
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

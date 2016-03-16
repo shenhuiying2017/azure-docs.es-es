@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/18/2016"
+	ms.date="03/09/2016"
 	ms.author="heidist"/>
 
 # Creación de un servicio Búsqueda de Azure en el Portal de Azure
@@ -25,7 +25,7 @@ Búsqueda de Azure está disponible en los niveles de precios comprendidos entre
 
 ## Incorporación de Búsqueda de Azure a una suscripción de forma gratuita
 
-Como administrador, puede agregar Búsqueda de Azure a una suscripción de Azure existente sin costo alguno al seleccionar el servicio compartido. Para comenzar su evaluación, puede registrarse para obtener una [suscripción a una evaluación gratuita](../../includes/free-trial-note.md).
+Como administrador, puede agregar Búsqueda de Azure a una suscripción de Azure existente sin costo alguno al seleccionar el servicio compartido. Para comenzar su evaluación, puede registrarse para obtener una [suscripción para una evaluación gratuita de Azure](../../includes/free-trial-note.md).
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
@@ -56,27 +56,27 @@ Como administrador, puede agregar Búsqueda de Azure a una suscripción de Azure
 Preste atención a las notificaciones de la barra de salto. Cuando el servicio esté listo para su uso, aparecerá un aviso.
 
 <a id="sub-3"></a>
-## Incorporación de un servicio de búsqueda de nivel Estándar para obtener recursos dedicados
+## Incorporación de un servicio de búsqueda de nivel Básico o Estándar para obtener recursos dedicados
 
-Muchos clientes comienzan con el servicio gratuito y después cambian al nivel Estándar para dar cabida a cargas de trabajo mayores. El nivel Estándar ofrece recursos dedicados en un centro de datos de Azure que solo usted puede usar.
+Muchos clientes comienzan con el servicio gratuito y después cambian al nivel Básico o Estándar para dar cabida a cargas de trabajo mayores. Los niveles Básico y Estándar ofrecen recursos dedicados en un centro de datos de Azure que solo usted puede usar.
 
-Las operaciones de Búsqueda de Azure requieren réplicas de almacenamiento y servicio. A diferencia del servicio gratis, que no tiene ninguna opción para agregar recursos, el nivel Estándar permite escalar verticalmente para agregar más almacenamiento o soporte de consultas al incrementar el recurso que sea más importante en sus cargas de trabajo.
+Las operaciones de Búsqueda de Azure requieren réplicas de almacenamiento y servicio. A diferencia del servicio gratis, que no tiene ninguna opción para agregar recursos, el nivel Estándar permite escalar verticalmente para agregar más almacenamiento o soporte de consultas al incrementar el recurso que sea más importante en sus cargas de trabajo. El nivel Básico también le permite escalar verticalmente, pero solo para las réplicas, con un límite máximo de tres.
 
-Para usar el nivel Estándar, debe crear un servicio de búsqueda con ese nivel de precios. Puede repetir los pasos anteriores de este artículo para crear un servicio Búsqueda de Azure. Tenga en cuenta que la configuración de recursos dedicados puede tardar unos minutos (hasta 15 minutos o más).
+Para usar el nivel Básico o Estándar, debe crear un servicio de búsqueda con ese nivel de precios. Puede repetir los pasos anteriores de este artículo para crear un servicio Búsqueda de Azure. Tenga en cuenta que la configuración de recursos dedicados puede tardar unos minutos (hasta 15 minutos o más).
 
-No hay ninguna actualización de la versión gratuita. Cambiar al modo estándar, con su potencial de escalación, requiere un servicio nuevo. Tendrá que volver a cargar los índices y documentos usados por su aplicación de búsqueda.
+No hay ninguna actualización de la versión gratuita. El cambio de niveles, con el potencial de escalación, requiere un nuevo servicio. Tendrá que volver a cargar los índices y documentos usados por su aplicación de búsqueda.
 
-El servicio Búsqueda de Azure a nivel estándar se crea con una réplica y una partición, pero se puede escalar fácilmente a niveles de recursos más altos.
+El servicio Búsqueda de Azure a nivel Básico o Estándar se crea con una réplica y una partición, pero se puede escalar fácilmente a niveles de recursos más altos.
 
 1.	Después de que se haya creado el servicio, vuelva al panel del servicio.
 
 2.	Haga clic en el icono **Escalar**.
 
-3.	Use los controles deslizantes para agregar réplicas, particiones o ambos.
+3.	Utilice los controles deslizantes para agregar réplicas, particiones o ambos para el nivel Estándar. En cuanto al nivel Básico, puede aumentar las réplicas hasta un máximo de tres.
 
 Las réplicas y las particiones adicionales se cobran en unidades de búsqueda. El total de unidades de búsqueda necesario para admitir una configuración de recursos en particular se muestra en la página, a medida que agrega recursos.
 
-Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad. Consulte [Límites de servicio en la Búsqueda de Azure](search-limits-quotas-capacity.md) para obtener ayuda para elegir las combinaciones de partición y de réplica.
+Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad. Consulte [Capacity planning](search-capacity-planning.md) (Planificación de capacidad) para obtener ayuda para elegir las combinaciones de partición y de réplica.
 
 <a id="sub-2"></a>
 ## Buscar el nombre del servicio y las claves de API del servicio Búsqueda de Azure
@@ -107,13 +107,9 @@ Ahora que se ha creado el servicio, puede realizar los pasos siguientes: crear u
 
 - [Consulta de un índice de Búsqueda de Azure mediante el Explorador de búsqueda en el Portal de Azure](search-explorer.md)
 
-- [Introducción a Búsqueda de Azure en .NET](search-get-started-dotnet.md)
-
 - [Cómo usar la Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md)
 
 - [Administración de la solución de búsqueda en Microsoft Azure](search-manage.md)
-
-
 
 
 <!--Anchors-->
@@ -127,4 +123,4 @@ Ahora que se ha creado el servicio, puede realizar los pasos siguientes: crear u
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

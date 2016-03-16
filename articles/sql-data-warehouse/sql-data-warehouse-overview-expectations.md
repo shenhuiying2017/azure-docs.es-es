@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Expectativas de la versión preliminar de Almacenamiento de datos SQL
@@ -33,7 +33,7 @@ Almacenamiento de datos SQL de Azure presenta Unidades de almacenamiento de dato
 
 Cualquier almacén de datos tiene 2 métricas de rendimiento fundamentales:
 
-- Velocidad de carga. El número de registros que se pueden cargar en el almacén de datos por segundo. Medimos específicamente el número de registros que se pueden importar a través de PolyBase, de Almacenamiento de blobs de Azure a una tabla con un índice de almacén-columna en clústeres. 
+- Velocidad de carga. El número de registros que se pueden cargar en el almacén de datos por segundo. Medimos específicamente el número de registros que se pueden importar a través de PolyBase, de Almacenamiento de blobs de Azure a una tabla con un índice de almacén-columna en clústeres.
 - Velocidad de digitalización. El número de registros que se pueden recuperar de forma secuencial del almacén de datos por segundo. Medimos específicamente el número de registros devueltos por una consulta de un índice de almacén de columnas en clústeres.
 
 
@@ -42,7 +42,7 @@ Se están midiendo algunas mejoras importantes del rendimiento y pronto se compa
 
 ## Alta confiabilidad respaldada por un Contrato de nivel de servicio
 
-### Protección de datos 
+### Protección de datos
 
 Almacenamiento de datos SQL almacena todos los datos en el Almacenamiento de Azure con blobs de redundancia geográfica. Se mantienen tres copias sincrónicas de los datos en la región de Azure local para garantizar la protección de datos transparente en caso de errores localizados (por ejemplo, errores en la unidad de almacenamiento). Además, se mantienen tres copias asincrónicas más en una región remota de Azure para garantizar la protección de los datos en caso de errores regionales (recuperación ante desastres). Las regiones locales y remotas están emparejadas para mantener latencias de sincronización aceptables (p. ej., Este de EE. UU y Oeste de EE. UU).
 
@@ -54,7 +54,7 @@ Almacenamiento de datos SQL de Azure realiza una copia de seguridad de todos los
 Las instantáneas se copian de forma asincrónica en una región de Azure remota para aumentar la capacidad de recuperación en caso de errores regionales (recuperación ante desastres).
 
 
-### Finalización de consultas 
+### Finalización de consultas
 
 Almacenamiento de datos SQL almacena los datos en uno o más nodos informáticos que almacenan cada uno algunos de los datos de usuario y controlan la ejecución de consultas en esos datos. Como parte de la arquitectura de procesamiento masivamente paralela (MPP), las consultas se ejecutan en paralelo en los nodos de cálculo. Almacenamiento de datos SQL detecta y mitiga automáticamente los errores de nodo de cálculo. Sin embargo, en la versión preliminar, es posible que una operación falle (por ejemplo, la carga o la consulta de datos) debido a errores de nodo individual. En la versión preliminar, realizamos mejoras continuas para completar correctamente las operaciones a pesar de los errores de nodo.
 
@@ -72,4 +72,4 @@ Almacenamiento de datos SQL almacena los datos en uno o más nodos informáticos
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

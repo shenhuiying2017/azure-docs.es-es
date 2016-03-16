@@ -20,7 +20,7 @@
 # Introducción a Búsqueda de Azure en el Portal
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 Este artículo es una introducción sin código a Búsqueda de Azure de Microsoft, mediante el uso de las funcionalidades integradas en el Portal.
 
@@ -44,7 +44,7 @@ Muchos clientes comienzan con el servicio gratis. Esta versión está limitada a
 
 Las consultas de búsqueda recorren en iteración un *índice* que contiene datos de búsqueda, metadatos y construcciones usados para optimizar determinados comportamientos de búsqueda. Como primer paso, definirá y rellenará un índice.
 
-Hay varias maneras de crear un índice. Si sus datos están en un almacén de datos que Búsqueda de Azure puede rastrear, como Base de datos SQL de Azure, SQL Server en una máquina virtual de Azure o DocumentDB, puede crear y rellenar un índice muy fácilmente mediante un *indexador*.
+Hay varias maneras de crear un índice. Si sus datos están en un almacén que Búsqueda de Azure puede rastrear, como Base de datos SQL de Azure, SQL Server en una máquina virtual de Azure o DocumentDB, puede crear y rellenar un índice muy fácilmente mediante un *indexador*.
 
 Para mantener esta tarea basada en el portal, se da por hecho que contamos con datos de DocumentDB que se pueden rastrear usando un indexador mediante el asistente **Importar datos**.
 
@@ -57,7 +57,7 @@ Antes de continuar, cree una [base de datos de DocumentDB de ejemplo](#apdx-samp
 
   ![][7]
 
-2. En el asistente, haga clic en **Origen de datos** > **DocumentDB** > **Nombre**, escriba un nombre para el origen de datos. Un origen de datos es un objeto de conexión en Búsqueda de Azure que puede usarse con otros indexadores. Una vez creado, queda disponible como un "origen de datos existente" en el servicio.
+2. En el asistente, haga clic en **Origen de datos** > **DocumentDB** > **Nombre** y escriba un nombre para el origen de datos. Un origen de datos es un objeto de conexión en Búsqueda de Azure que puede usarse con otros indexadores. Una vez creado, queda disponible como un "origen de datos existente" en el servicio.
 
 3. Elija su cuenta de DocumentDB existente y la base de datos y colección. Si usa los datos de ejemplo que se proporcionan, la definición del origen de datos tendrá este aspecto:
 
@@ -69,7 +69,7 @@ Haga clic en **Aceptar** para completar este paso del asistente.
 
 #### Paso 2: Definición del índice
 
-En el Asistente, haga clic en **Índice** y eche un vistazo a la superficie de diseño usada para crear un índice de Búsqueda de Azure. Como mínimo, un índice requiere un nombre y una colección de campos, con un campo marcado como clave de documento. Como estamos usando un conjunto de datos de DocumentDB, el Asistente detecta automáticamente los campos y el índice se carga previamente con los campos y asignaciones de tipo de datos.
+En el asistente, haga clic en **Índice** y eche un vistazo a la superficie de diseño usada para crear un índice de Búsqueda de Azure. Como mínimo, un índice requiere un nombre y una colección de campos, con un campo marcado como clave de documento. Como estamos usando un conjunto de datos de DocumentDB, el Asistente detecta automáticamente los campos y el índice se carga previamente con los campos y asignaciones de tipo de datos.
 
   ![][3]
 
@@ -144,7 +144,7 @@ Para más información sobre otras características que se mencionan en este art
 
 Puede probar este mismo flujo de trabajo mediante el Asistente para importar datos en otros orígenes de datos, como Base de datos SQL de Azure o SQL Server en máquinas virtuales de Azure.
 
-> [AZURE.NOTE] Recientemente anunciado es la compatibilidad del indexador para el seguimiento de Almacenamiento de blobs de Azure, pero esta característica está en versión preliminar y aún no es una opción del portal. Para probar ese indexador, debe escribir código. Consulte [Indexación de documentos en Almacenamiento de blobs de Azure con Búsqueda de Azure](search-howto-indexing-azure-blob-storage.md) para más información. <a id="apdx-sampledata"></a>
+> [AZURE.NOTE] Recientemente anunciado es la compatibilidad del indexador para el seguimiento de Almacenamiento de blobs de Azure, pero esta característica está en versión preliminar y aún no es una opción del portal. Para probar ese indexador, debe escribir código. Consulte [Indexación de documentos en Almacenamiento de blobs de Azure con Búsqueda de Azure](search-howto-indexing-azure-blob-storage.md) para obtener más información. <a id="apdx-sampledata"></a>
 
 
 ## Apéndice: Crear datos de ejemplo en DocumentDB
@@ -157,7 +157,7 @@ Las instrucciones siguientes proporcionan indicaciones generales, pero no son ex
 
 ### Crear musicstoredb para este tutorial
 
-1. [Haga clic aquí](https://github.com/HeidiSteen/azure-search-get-started-sample-data) para descargar un archivo ZIP que contiene los archivos de datos JSON de la tienda de música. Ofrecemos 246 documentos JSON para este conjunto de datos.
+1. [Haga clic aquí](https://github.com/HeidiSteen/azure-search-get-started-sample-data) para descargar un archivo ZIP que contenga los archivos de datos JSON de la tienda de música. Ofrecemos 246 documentos JSON para este conjunto de datos.
 2. Agregue DocumentDB a su suscripción y después abra el panel de servicio.
 2. Haga clic en **Agregar base de datos** para crear una base de datos nueva con un identificador de `musicstoredb`. Se mostrará en una lista de bases de datos más abajo en la página después de haberse creado.
 2. Haga clic en el nombre de la base de datos para abrir la hoja de base de datos.
@@ -184,4 +184,4 @@ Obtendrá un JSON de salida, que comienza por el número de documento 386 y term
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

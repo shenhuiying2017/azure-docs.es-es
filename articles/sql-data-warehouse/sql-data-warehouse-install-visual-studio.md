@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL
@@ -29,10 +29,10 @@ Si decide instalar Visual Studio, puede usar Visual Studio 2013 o Visual Studio 
 
 Para instalar Visual Studio 2015, siga estos pasos:
 
-1. [Descargue Visual Studio 2015](https://www.visualstudio.com/downloads) desde Visual Studio Team Services. 
+1. [Descargue Visual Studio 2015](https://www.visualstudio.com/downloads) desde Visual Studio Team Services.
 2. Siga la guía [Instalación de Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) en MSDN para elegir las configuraciones predeterminadas.
 
-## Paso 2: Descarga e instalación de la versión más reciente de SQL Server Data Tools (SSDT) 
+## Paso 2: Descarga e instalación de la versión más reciente de SQL Server Data Tools (SSDT)
 
 Si no lo tiene instalado Visual Studio, necesitará la versión más reciente de SQL Server Data Tools (SSDT) que admita Almacenamiento de datos SQL.
 
@@ -49,4 +49,4 @@ Ahora que tiene la versión más reciente de SSDT, está listo para [conectar](.
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

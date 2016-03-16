@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
@@ -127,7 +127,13 @@ Los desarrolladores de aplicaciones móviles pueden usar centros de notificacion
     + Tenga en cuenta que las aplicaciones móviles eliminan todas las etiquetas en los registros por motivos de seguridad. Trabaje con centros de notificaciones desde su back-end directamente para asociar etiquetas a dispositivos.
 3. Enviar notificaciones desde su back-end de aplicación con los centros de notificaciones
 
-Estas son algunas ventajas para los desarrolladores con esta integración:- **Los SDK de cliente de aplicaciones móviles**. Estos SDK de multiplataforma ofrecen API simples para el registro y se comunican con el centro de notificaciones vinculado con la aplicación móvil automáticamente. Los desarrolladores no necesitan revisar las credenciales de los centros de notificaciones y trabajar con un servicio adicional. + Los SDK etiquetan automáticamente el dispositivo especificado con el id. de usuario autenticado de Aplicaciones móviles para habilitar la inserción en el escenario de usuario. + Los SDK usan automáticamente el id. de instalación de Aplicaciones móviles como GUID para registrar con los centros de notificaciones, evitando a los desarrolladores el problema de mantener varios GUID de servicio. - **Modelo de instalación.** Aplicaciones móviles funciona con el modelo de inserción más reciente de los centros de notificaciones para representar todas las propiedades de inserción asociadas a un dispositivo en una instalación de JSON que se alinea con los servicios de notificación de inserción y es sencillo de usar. - **Flexibilidad.** Los desarrolladores siempre pueden elegir trabajar con los centros de notificaciones directamente, incluso con la integración implementada. - **Experiencia en integrada en el [portal de Azure].** La inserción como capacidad se representa visualmente en Aplicaciones móviles y los desarrolladores pueden trabajar fácilmente con el centro de notificaciones asociado a través de Aplicaciones móviles.
+Estas son algunas ventajas para los desarrolladores de esta integración:
+- **SDK de cliente de Aplicaciones móviles.** Estos SDK de multiplataforma ofrecen API simples para el registro y se comunican con el centro de notificaciones vinculado con la aplicación móvil automáticamente. Los desarrolladores no tienen que indagar en las credenciales de los Centros de notificaciones y trabajar con un servicio adicional.
+    + Los SDK etiquetan automáticamente el dispositivo específico con un identificador de usuario autenticado de Aplicaciones móviles para habilitar la inserción en un escenario de usuario.
+    + Los SDK utilizan automáticamente el identificador de instalación de Aplicaciones móviles como GUID para registrarse con Centros de notificaciones, lo que permite que los desarrolladores no tengan que mantener varios GUID de servicio.
+- **Modelo de instalación.** Aplicaciones móviles funciona con el modelo de inserción más reciente de los Centros de notificaciones para representar todas las propiedades de inserción asociadas a un dispositivo en una instalación de JSON que se alinea con los servicios de notificaciones push y resulta fácil de usar.
+- **Flexibilidad.** Los desarrolladores siempre pueden elegir trabajar con los Centros de notificaciones directamente, incluso con la integración implementada.
+- **Experiencia en integrada en el [Portal de Azure].** La inserción como capacidad se representa visualmente en Aplicaciones móviles y los desarrolladores pueden trabajar fácilmente con el centro de notificaciones asociado a través de Aplicaciones móviles.
 
 
 
@@ -162,7 +168,7 @@ Las referencias pertinentes para la API administrada de .NET referidas a las not
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [Aplicaciones móviles del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/documentation/articles/app-service-mobile-value-prop/
   [plantillas]: notification-hubs-templates.md
-  [portal de Azure]: https://portal.azure.com
+  [Portal de Azure]: https://portal.azure.com
   [etiquetas]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

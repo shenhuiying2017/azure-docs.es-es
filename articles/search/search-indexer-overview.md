@@ -14,18 +14,18 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/24/2016"
+	ms.date="03/09/2016"
 	ms.author="heidist"/>
 
 # Indexadores de Búsqueda de Azure
 > [AZURE.SELECTOR]
-- [Overview](search-indexer-overview.md)
+- [Información general](search-indexer-overview.md)
 - [Portal](search-import-data-portal.md)
-- [Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
-- [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [Almacenamiento de blobs (vista previa)](search-howto-indexing-azure-blob-storage.md)
+- [SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
 
-Un **indexador** de Búsqueda de Azure es un rastreador (crawler) que extrae datos y metadatos que permiten la búsqueda de un origen de datos externo y rellena un índice basado en las asignaciones de un campo a otro entre el índice y su origen de datos. Este enfoque se denomina a veces "modelo de extracción", porque el servicio extrae datos sin que sea preciso escribir código que inserte datos en un índice.
+Un **indexador** de Búsqueda de Azure es un rastreador (crawler) que extrae datos y metadatos utilizables en búsquedas de un origen de datos externo y rellena un índice basado en las asignaciones de un campo a otro entre el índice y su origen de datos. Este enfoque se denomina a veces "modelo de extracción", porque el servicio extrae datos sin que sea preciso escribir código que inserte datos en un índice.
 
 Puede utilizar un indexador como único medio para la ingesta de datos. o bien utilizar una combinación de técnicas que incluyan el uso de un indexador para cargar solo algunos de los campos en el índice.
 
@@ -39,6 +39,8 @@ Un indexador extrae datos de un **origen de datos** que contiene información co
 
 Los orígenes de datos se configuran y administran independientemente de los indexadores que los usan, lo que significa que varios indexadores pueden usar un origen de datos para cargar más de un índice a la vez.
 
-Tanto el [SDK de .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx) como la [API de REST del servicio](https://msdn.microsoft.com/library/azure/dn946891.aspx) admiten la administración de indexadores y orígenes de datos. Como alternativa, también puede configurar un indexador en el portal cuando use el Asistente para **importación de datos**.
+Tanto el [SDK de .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx) como la [API de REST del servicio](https://msdn.microsoft.com/library/azure/dn946891.aspx) admiten la administración de indexadores y orígenes de datos.
 
-<!---HONumber=AcomDC_0128_2016-->
+Como alternativa, también puede configurar un indexador en el portal cuando use el Asistente para la **importación de datos**. Diríjase a [Introducción a Búsqueda de Azure en el Portal](search-get-started-portal) para consultar un tutorial rápido que utiliza datos de ejemplo y el indexador de DocumentDB para crear y cargar un índice usando el asistente.
+
+<!---HONumber=AcomDC_0309_2016-->

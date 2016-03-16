@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Análisis de datos con Aprendizaje automático de Azure
@@ -29,16 +29,16 @@ Para seguir paso a paso este tutorial, necesita
 [Creación de un Almacenamiento de datos SQL][] muestra cómo aprovisionar una base de datos con datos de ejemplo. Si ya tiene una base de datos de Almacenamiento de datos SQL pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][].
 
 
-## Paso 1: Obtención de datos 
+## Paso 1: Obtención de datos
 Leeremos los datos de la vista dbo.vTargetMail en la base de datos AdventureWorksDW.
 
 1. Inicie sesión en [Estudio de aprendizaje automático de Microsoft Azure][] y haga clic en mis experimentos.
 2. Haga clic en **+NUEVO** y seleccione **Experimento en blanco**.
 3. Escriba un nombre para el experimento: Targeted Marketing.
 4. Arrastre el módulo **Lector** del panel de módulos al lienzo.
-5. Especifique los detalles de la base de datos de Almacenamiento de datos SQL en el panel Propiedades. 
+5. Especifique los detalles de la base de datos de Almacenamiento de datos SQL en el panel Propiedades.
 6. Especifique la **consulta** de la base de datos para leer los datos de interés.
-   
+
    ```
    SELECT [CustomerKey]
       ,[GeographyKey]
@@ -140,4 +140,4 @@ Para obtener más información sobre la creación de modelos de aprendizaje auto
 [cargar manualmente los datos de ejemplo]: sql-data-warehouse-get-started-manually-load-samples.md
 [Creación de un Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

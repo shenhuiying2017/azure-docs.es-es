@@ -28,7 +28,7 @@ Para conectarse a Servicios en la nube de Microsoft con ExpressRoute, deberá co
 ## Relación del proveedor de conectividad
 
 - Una relación con un proveedor de conectividad de la lista de compatibilidad a través de la que debe facilitarse la conectividad. Debe tener una relación de negocios existente con el proveedor de conectividad. Deberá asegurarse de que el servicio que tiene con el proveedor de conectividad es compatible con ExpressRoute.
-- Si desea utilizar un proveedor de conectividad que no está en la lista admitida, todavía puede crear una conexión con Servicios en la nube de Microsoft a través de un intercambio.
+- Si desea utilizar un proveedor de conectividad que no está en la lista de admitidos, puede crear una conexión con Servicios en la nube de Microsoft a través de un intercambio.
 	- Consulte con su proveedor de conectividad para ver si están presentes en cualquiera de las ubicaciones de intercambio que aparecen en la lista admitida.
 	- Haga que el proveedor de conectividad amplíe su red a la ubicación de intercambio que elija.
 	- Solicite un circuito ExpressRoute con el intercambio como proveedor de conectividad.
@@ -71,4 +71,4 @@ Revise los siguientes recursos para obtener más información acerca de los requ
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

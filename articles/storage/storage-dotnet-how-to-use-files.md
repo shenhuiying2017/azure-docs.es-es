@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/29/2016"
+      ms.date="03/03/2016"
       ms.author="minet" />
 
 # Introducción a Almacenamiento de archivos de Azure en Windows
@@ -255,29 +255,11 @@ Para montar el recurso compartido de archivos desde un cliente local, es preciso
 
 ## Desarrollo con almacenamiento de archivos
 
-Para trabajar mediante programación con el almacenamiento de archivos, puede usar las bibliotecas del cliente de almacenamiento para .NET y Java, o la API de REST de Almacenamiento de Azure. El ejemplo de esta sección muestra cómo trabajar con un recurso compartido de archivos mediante el uso de la [Biblioteca del cliente de Almacenamiento de Azure .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) desde una aplicación de consola simple que se ejecuta en el escritorio.
+Para trabajar mediante programación con el almacenamiento de archivos, puede usar las bibliotecas del cliente de almacenamiento para .NET y Java, o la API de REST de Almacenamiento de Azure. En el ejemplo de esta sección se muestra cómo trabajar con un recurso compartido de archivos mediante el uso de la [Biblioteca del cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/mt347887.aspx) desde una aplicación de consola simple que se ejecuta en el escritorio.
 
-### Creación de la aplicación de consola y obtención del ensamblado
+[AZURE.INCLUDE [storage-dotnet-install-library-include](../../includes/storage-dotnet-install-library-include.md)]
 
-Para crear una nueva aplicación de consola en Visual Studio e instalar el paquete NuGet de Almacenamiento de Azure:
-
-1. En Visual Studio, elija **Archivo > Proyecto nuevo** y, a continuación, elija **Windows > Aplicación de consola** en la lista de plantillas de Visual C#.
-2. Asigne un nombre a la aplicación de consola y, a continuación, haga clic en **Aceptar**.
-3. Una vez creado el proyecto, haga clic con el botón derecho en el Explorador de soluciones y elija **Administrar paquetes de NuGet**. Busque "WindowsAzure.Storage" en línea y haga clic en **Instalar** para instalar el paquete y las dependencias de Almacenamiento de Azure.
-
-### Guardar las credenciales de la cuenta de almacenamiento en el archivo app.config
-
-A continuación, guardará las credenciales en el archivo app.config del proyecto. Edite el archivo app.config de forma que su aspecto sea similar al del siguiente ejemplo, pero reemplace `myaccount` por el nombre de su cuenta de almacenamiento y `mykey` por la clave de su cuenta de almacenamiento.
-
-	<?xml version="1.0" encoding="utf-8" ?>
-	<configuration>
-	    <startup>
-	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-	    </startup>
-	    <appSettings>
-	        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
-	    </appSettings>
-	</configuration>
+[AZURE.INCLUDE [storage-dotnet-save-connection-string-include](../../includes/storage-dotnet-save-connection-string-include.md)]
 
 > [AZURE.NOTE] La versión más reciente del emulador de Almacenamiento de Azure no admite Almacenamiento de archivos. Para trabajar con el almacenamiento de archivos, el objetivo de la cadena de conexión debe ser una cuenta de almacenamiento de Azure en la nube.
 
@@ -285,8 +267,8 @@ A continuación, guardará las credenciales en el archivo app.config del proyect
 
 Abra el archivo program.cs desde el Explorador de soluciones y agregue las siguientes declaraciones de espacio de nombres en la parte superior del archivo.
 
-	using Microsoft.WindowsAzure;
-	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.Azure; // Namespace for Azure Configuration Manager
+	using Microsoft.WindowsAzure.Storage; // Namespaces for Storage Client Library
 	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
@@ -419,13 +401,13 @@ En el ejemplo siguiente se crea una directiva de acceso compartido en un recurso
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Para más información sobre la creación y uso de firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md).
+Para obtener más información sobre la creación y el uso de firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiar archivos
 
 A partir de la versión 5.x de la biblioteca de cliente de almacenamiento de Azure, puede copiar un archivo en otro, un archivo en un blob o un blob en un archivo. En las siguientes secciones, mostramos cómo realizar estas operaciones de copia mediante programación.
 
-También puede usar AzCopy para copiar un archivo en otro o para copiar un blob en un archivo o viceversa. Consulte la sección [Copiar archivos en el almacenamiento de archivos de Azure mediante AzCopy](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy).
+También puede usar AzCopy para copiar un archivo en otro o para copiar un blob en un archivo o viceversa. Consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
 > [AZURE.NOTE] Si va a copiar un blob en un archivo, o un archivo en un blob, debe usar una firma de acceso compartido (SAS) para autenticar el objeto de origen, incluso si está copiando en la misma cuenta de almacenamiento.
 
@@ -528,6 +510,55 @@ Análisis de almacenamiento de Azure admite métricas para el almacenamiento de 
 
 En el [Portal de Azure](https://portal.azure.com) es posible habilitar las métricas para Almacenamiento de archivos. También se puede habilitar mediante programación, para lo que hay que llamar a la operación establecer propiedades del servicio de archivos a través de la API de REST o una de sus análogas de la Biblioteca del cliente de almacenamiento.
 
+En el siguiente ejemplo de código se muestra cómo usar la Biblioteca del cliente de almacenamiento para .NET a fin de habilitar las métricas para Almacenamiento de archivos.
+
+En primer lugar, agregue las siguientes instrucciones `using` a su archivo program.cs, además de aquellas que agregó anteriormente:
+
+	using Microsoft.WindowsAzure.Storage.File.Protocol;
+	using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+
+Tenga en cuenta que mientras que los almacenamientos de blobs, tablas y en cola utilizan el tipo `ServiceProperties` compartido en el espacio de nombres `Microsoft.WindowsAzure.Storage.Shared.Protocol`, Almacenamiento de archivos utiliza el suyo propio, el tipo `FileServiceProperties` en el espacio de nombres `Microsoft.WindowsAzure.Storage.File.Protocol`. No obstante, se debe hacer referencia a ambos espacios de nombres en el código para que se pueda compilar.
+
+    // Parse your storage connection string from your application's configuration file.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    // Create the File service client.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    // Set metrics properties for File service.
+    // Note that the File service currently uses its own service properties type,
+    // available in the Microsoft.WindowsAzure.Storage.File.Protocol namespace.
+    fileClient.SetServiceProperties(new FileServiceProperties()
+    {
+        // Set hour metrics
+        HourMetrics = new MetricsProperties()
+        {
+            MetricsLevel = MetricsLevel.ServiceAndApi,
+            RetentionDays = 14,
+            Version = "1.0"
+        },
+        // Set minute metrics
+        MinuteMetrics = new MetricsProperties()
+        {
+            MetricsLevel = MetricsLevel.ServiceAndApi,
+            RetentionDays = 7,
+            Version = "1.0"
+        }
+    });
+
+    // Read the metrics properties we just set.
+    FileServiceProperties serviceProperties = fileClient.GetServiceProperties();
+    Console.WriteLine("Hour metrics:");
+    Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
+    Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
+    Console.WriteLine(serviceProperties.HourMetrics.Version);
+    Console.WriteLine();
+    Console.WriteLine("Minute metrics:");
+    Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
+    Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
+    Console.WriteLine(serviceProperties.MinuteMetrics.Version);
+
+
 ## Preguntas más frecuentes sobre el almacenamiento de archivos
 
 1. **¿Admite el almacenamiento de archivos la autenticación basada en Active Directory?** 
@@ -582,11 +613,11 @@ En el [Portal de Azure](https://portal.azure.com) es posible habilitar las métr
 
 13. **Revisión publicada para corregir el problema de rendimiento lento con archivos de Azure**
 
-	El equipo de Windows ha publicado recientemente una revisión para solucionar un problema de rendimiento lento cuando el cliente accede a Almacenamiento de archivos de Azure desde Windows 8.1 o Windows Server 2012 R2. Para más información, consulte el artículo de la Knowledge Base asociado, [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/es-ES/kb/3114025) (Rendimiento lento al acceder a Almacenamiento de archivos de Azure desde Windows 8.1 o Server 2012 R2).
+	El equipo de Windows ha publicado recientemente una revisión para solucionar un problema de rendimiento lento cuando el cliente accede a Almacenamiento de archivos de Azure desde Windows 8.1 o Windows Server 2012 R2. Para obtener más información, consulte el artículo de la Knowledge Base asociado, [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/es-ES/kb/3114025) (Rendimiento lento al acceder a Almacenamiento de archivos de Azure desde Windows 8.1 o Server 2012 R2).
 
 14. **Uso del Almacenamiento de archivos de Azure con IBM MQ**
 
-	IBM ha publicado un documento para guiar a los clientes de IBM MQ a la hora de configurar el Almacenamiento de archivos de Azure con su servicio. Para más información, consulte [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Configuración del administrador de colas de varias instancias de IBM MQ con el servicio de archivos de Microsoft Azure).
+	IBM ha publicado un documento para guiar a los clientes de IBM MQ a la hora de configurar el Almacenamiento de archivos de Azure con su servicio. Para obtener más información, consulte [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Configuración del administrador de colas de varias instancias de IBM MQ con el servicio de archivos de Microsoft Azure).
 
 ## Pasos siguientes
 
@@ -615,4 +646,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Visualización de datos de Almacenamiento de datos SQL con Power BI Microsoft Azure"
+   pageTitle="Visualización de datos de Almacenamiento de datos SQL con Power BI | Microsoft Azure"
    description="Visualización de datos de Almacenamiento de datos SQL con Power BI"
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualización de datos con Power BI
 
 
-> [AZURE.NOTE]Para completar este tutorial, necesita una base de datos de Almacenamiento de datos SQL que se haya cargado previamente con la base de datos de ejemplo AdventureWorksDW. [Creación de una nueva base de datos de Almacenamiento de datos SQL](sql-data-warehouse-get-started-provision.md) le muestra cómo crear una.
-> 
+> [AZURE.NOTE] Para completar este tutorial, necesita una base de datos de Almacenamiento de datos SQL que se haya cargado previamente con la base de datos de ejemplo AdventureWorksDW. [Creación de una nueva base de datos de Almacenamiento de datos SQL](sql-data-warehouse-get-started-provision.md) le muestra cómo crear una.
+>
 > Si ya tiene una base de datos de Almacenamiento de datos SQL pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][].
 
 Este tutorial muestra cómo usar Power BI para conectar con Almacenamiento de datos SQL y crear unas visualizaciones básicas.
@@ -32,7 +32,7 @@ Este tutorial muestra cómo usar Power BI para conectar con Almacenamiento de da
 Para abrir Power BI y conectarse a la base de datos AdventureWorksDW:
 
 1. Inicie sesión en el [Portal de Azure][].
-2. Haga clic en **Bases de datos SQL** y elija su base de datos de Almacenamiento de datos SQL de AdventureWorks. 
+2. Haga clic en **Bases de datos SQL** y elija su base de datos de Almacenamiento de datos SQL de AdventureWorks.
 
     ![Buscar la base de datos][1]
 
@@ -58,7 +58,7 @@ Para abrir Power BI y conectarse a la base de datos AdventureWorksDW:
 
 Ahora está listo para usar Power BI para analizar los datos de ejemplo AdventureWorksDW. Para realizar el análisis, AdventureWorksDW tiene una vista denominada AggregateSales. Esta vista contiene algunas de las métricas clave para analizar las ventas de la empresa.
 
-1. Para crear una asignación del importe de ventas según el código postal, en los campos de la derecha, haga clic en la vista AggregateSales para expandirla. A continuación, haga clic en las columnas PostalCode y SalesAmount para seleccionarlas. 
+1. Para crear una asignación del importe de ventas según el código postal, en los campos de la derecha, haga clic en la vista AggregateSales para expandirla. A continuación, haga clic en las columnas PostalCode y SalesAmount para seleccionarlas.
 
     ![Selección de AggregateSales en Power BI][6]
 
@@ -67,7 +67,7 @@ Ahora está listo para usar Power BI para analizar los datos de ejemplo Adventur
     ![Mapa Power BI][7]
 
 2. Este paso crea un gráfico de barras que muestra la cantidad de ventas por los ingresos del cliente. Para crear esto, vaya a la vista expandida de AggregateSales. Haga clic en el campo SalesAmount. Arrastre el campo de ingresos de los clientes hacia la izquierda y colóquelo en el eje.
-    
+
     ![Selección del eje en Power BI][8]
 
     Pasamos el gráfico de barras a la izquierda.
@@ -111,4 +111,4 @@ Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemp
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->
