@@ -438,7 +438,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 
 > [AZURE.NOTE] Si encuentra un error de compilación en Xcode7 sobre la compatibilidad de bitcode, debe cambiar "Configuración de compilación" -> "Habilitar Bitcode"(ENABLE\_BITCODE) a 'NO' en Xcode. El SDK de los Centros de notificaciones no es compatible con bitcode.
 
-Puede buscar todas las cargas de notificaciones posibles en la guía [Local and Push Notification Programming Guide] de Apple.
+Puede buscar todas las cargas de notificaciones posibles en la [guía de programación de notificaciones push y locales] de Apple.
 
 
 ##Prueba de la aplicación
@@ -490,7 +490,7 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 
 <!-- URLs. -->
 [SDK de iOS versión 1.2.4 para Servicios móviles]: http://aka.ms/kymw2g
-[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[SDK de iOS para Servicios móviles]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -501,10 +501,10 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Introducción a las notificaciones push en Servicios móviles]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
 
-[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[guía de programación de notificaciones push y locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
 <!---HONumber=AcomDC_0309_2016-->

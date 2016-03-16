@@ -34,8 +34,8 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 
 | Solución | Ingesta de datos | Identidad de dispositivos | Comando y control | Reglas y acciones | Análisis predictivo |
 |------------------------|-----|-----|-----|-----|-----|
-| [Supervisión remota][lnk-remote-monitoring] | Sí | Sí | Sí | Sí | - | | [Mantenimiento predictivo][lnk-predictive-maintenance] | Sí | Sí | Sí | Sí | Sí |
-
+| [Supervisión remota][lnk-remote-monitoring] | Sí | Sí | Sí | Sí | - | 
+| [Mantenimiento predictivo][lnk-predictive-maintenance] | Sí | Sí | Sí | Sí | Sí |
 - *Ingesta de datos*: entrada de datos a escala en la nube.
 - *Identidad de dispositivo*: administración de las identidades únicas de cada dispositivo conectado.
 - *Comando y control*: envío de mensajes a un dispositivo desde la nube para que el dispositivo realice alguna acción.
