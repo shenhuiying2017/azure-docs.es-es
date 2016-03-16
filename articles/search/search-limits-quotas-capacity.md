@@ -53,4 +53,4 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 
 <sup>1</sup> en Búsqueda de Azure, el cuerpo de una solicitud está sujeto a un límite superior de 16 megabytes, que impone un límite práctico en el contenido de campos individuales o colecciones que no esté restringido de algún modo por límites teóricos (consulte [Tipos de datos admitidos](https://msdn.microsoft.com/library/azure/dn798938.aspx) para más información sobre composición de campos y restricciones).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->

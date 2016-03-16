@@ -304,4 +304,4 @@ Puede abrir el archivo y buscar el elemento **apiVersions**.
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!------HONumber=AcomDC_0302_2016-->

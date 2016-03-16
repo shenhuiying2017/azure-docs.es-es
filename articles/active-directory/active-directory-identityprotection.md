@@ -80,7 +80,8 @@ Los eventos de riesgo son episodios marcados como sospechosos por Identity Prote
 | Inicios de sesión desde dispositivos infectados | Inicios de sesión desde dispositivos posiblemente infectados |
 | Inicios de sesión desde direcciones IP anónimas | Inicios de sesión desde orígenes desconocidos |
 | Inicios de sesión desde direcciones IP con actividad sospechosa |	Inicios de sesión desde direcciones IP con actividad sospechosa |
-| Inicios de sesión desde ubicaciones desconocidas | - | | Bloqueo de eventos (no en la versión preliminar pública) | - |
+| Inicios de sesión desde ubicaciones desconocidas | - | 
+| Bloqueo de eventos (no en la versión preliminar pública) | - |
 
 Los siguientes informes de actividades anómalas de Azure AD no se incluyen como eventos de riesgo en Azure AD Identity Protection y, por tanto, no estarán disponibles mediante Identity Protection. Estos informes aún están disponibles en el Portal de administración de Azure; sin embargo, dejarán de estar en uso en el futuro, ya que están siendo reemplazados por los eventos de riesgo de Identity Protection.
 
@@ -637,4 +638,4 @@ Para probar el riesgo de inicio de sesión, realice los pasos siguientes:
  - [Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview) (Presentación de Azure AD e Identity: versión preliminar de Identity Protection)
  - [Glosario de Identity Protection](active-directory-identityprotection-glossary.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->

@@ -92,7 +92,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
      3\.4. En la sección **Single sign-on** (Inicio de sesión único), seleccione **Enable single sign-on** (Habilitar inicio de sesión único) y haga clic en **More** (Más) para expandir esta sección. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Configurar inicio de sesión único")
 
-     3\.5. Copie la dirección URL a continuación de **Users can sign in by entering their email address or they can go directly to** (Los usuarios pueden iniciar sesión especificando su dirección de correo electrónico o pueden ir directamente a). <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Configurar inicio de sesión único")
+     3\.5. Copie la dirección URL a continuación de **Los usuarios pueden iniciar sesión especificando su dirección de correo electrónico o pueden ir directamente a**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Configurar inicio de sesión único")
 
      3\.6. En el portal de Azure, en el cuadro de texto de la dirección URL de **Inicio de sesión de DropBox para Empresas**, pegue la dirección URL. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Configurar inicio de sesión único")
 
@@ -188,4 +188,4 @@ Para obtener más información sobre el Panel de acceso, consulte [Introducción
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->
