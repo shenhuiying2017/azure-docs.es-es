@@ -62,8 +62,8 @@ Cuando agregue CRM Online a PowerApps Enterprise, especifique los valores para *
 
 3. En **Propiedades de la aplicación**:
 
-	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a autenticarse con AAD para PowerApps, establezca la URL de inicio de sesión en \__https://login.windows.net_.
-2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
+	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a autenticarse con AAD para PowerApps, establezca la URL de inicio de sesión en _https://login.windows.net_.
+	2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
 	3. Seleccione **Aceptar**.  
 
 	![Agregar aplicación de AAD: propiedades de la aplicación][10]
@@ -80,11 +80,14 @@ Siga estos pasos para iniciar sesión en CRM Online y completar la configuració
 
 1. Seleccione **Periodicidad**.
 2. Seleccione una **Frecuencia** y escriba un **Intervalo**.
-3. Seleccione **Agregar una acción** ![Configurar CRM Online][13]
+3. Seleccione **Agregar una acción**  
+![Configurar CRM Online][13]
 4. Escriba CRM en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan CRM en el nombre.
 5. Seleccione **Dynamics CRM Online: Crear un nuevo registro**.
-6. Seleccione **Iniciar sesión en Dynamics CRM Online**: ![Configurar CRM Online][14]
-7. Proporcione sus credenciales de CRM Online para iniciar sesión y autorizar la aplicación ![Configurar CRM Online][15].  
+6. Seleccione **Iniciar sesión en Dynamics CRM Online**:  
+![Configurar CRM Online][14]
+7. Proporcione sus credenciales de CRM Online para iniciar sesión y autorizar la aplicación
+![Configurar CRM Online][15].  
 8. Después de iniciar sesión, vuelva a la aplicación lógica para completar el proceso agregando otros desencadenadores y otras acciones que necesite.
 9. Para guardar el trabajo, seleccione **Guardar** en la barra de menús anterior.
 
@@ -300,3 +303,5 @@ Después de agregar la API de CRM Online a PowerApps Enterprise, [conceda permis
 [15]: ./media/create-api-crmonline/crmconfig3.png
 
 <!---HONumber=AcomDC_0302_2016-->
+
+

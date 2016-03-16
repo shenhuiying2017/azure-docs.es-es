@@ -91,7 +91,7 @@ En los pasos siguientes se describe el flujo de trabajo más común al usar la A
 			HTTP/1.1 301 Moved Permanently
 			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		Debe registrar las llamadas posteriores de API en https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Debe registrar las llamadas posteriores de API en https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ###Obtención de un token de acceso
 
