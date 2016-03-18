@@ -94,4 +94,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Introducción a las notificaciones de inserción]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0309_2016-->
