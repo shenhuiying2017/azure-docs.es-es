@@ -144,7 +144,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de la aplicación **Zoom **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de la aplicación **Zoom**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-zoom-tutorial/IC784705.png "Asignar usuarios")
 
@@ -154,4 +154,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!-------HONumber=AcomDC_0302_2016-->
