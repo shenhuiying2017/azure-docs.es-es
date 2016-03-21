@@ -245,7 +245,8 @@ Tenga en cuenta que hay otras formas de conseguir este efecto:
 | * | Multiplicar | 
 | / | Dividir | 
 | % | Aplicar módulo | 
-|| |`<` |Menor que 
+|| 
+|`<` |Menor que 
 |`<=`|Menor que o Igual a 
 |`>` |Mayor que 
 |`>=`|Mayor que o Igual a 
@@ -549,7 +550,7 @@ Las reglas son las mismas que en JavaScript.
 
 Las cadenas pueden incluirse entre comillas sencillas o dobles.
 
-La barra diagonal inversa (``) se utiliza para marcar los caracteres de escape como `\t` (tabulación), `\n` (nueva línea) y las instancias del carácter de comillas.
+La barra diagonal inversa (`\`) se utiliza para marcar los caracteres de escape como `\t` (tabulación), `\n` (nueva línea) y las instancias del carácter de comillas.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -842,7 +843,9 @@ Convierte una cadena a mayúsculas.
 
 ## Matrices y objetos: tipos dinámicos
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) 
+<br/>
+[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Este es el resultado de una consulta en una excepción de Application Insights. El valor de `details` es una matriz.
@@ -1147,4 +1150,4 @@ Observe que "[0]" indica la presencia de una matriz, pero no especifica el índi
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!----HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0309_2016-->
