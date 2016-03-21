@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 
@@ -46,6 +46,10 @@ Puede escribir sus propias llamadas de SDK para supervisar otras dependencias qu
 Necesita una suscripción a [Microsoft Azure](http://azure.com)
 
 ### Si la aplicación se ejecuta en su servidor IIS
+
+Si la aplicación web se ejecuta en .NET 4.6 o posterior, obtendrá el seguimiento de la dependencia de forma automática si [instala el SDK de Application Insights](app-insights-asp-net.md) en su aplicación. No necesita hacer nada más.
+
+De lo contrario, instale el Monitor de estado de Application Insights en el servidor:
 
 1. En el servidor web IIS, inicie sesión con las credenciales de administrador.
 2. Descargue y ejecute el [instalador del Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648).
@@ -91,7 +95,7 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 ### Si se trata de un proyecto de servicios en la nube de Azure
 
-[Agregar scripts a roles web y de trabajo](app-insights-cloudservices.md).
+[Agregar scripts a roles web y de trabajo](app-insights-cloudservices.md#dependencies) O [instalar .NET Framework 4.6 o posterior](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## <a name="diagnosis"></a> Diagnóstico de problemas de rendimiento de dependencia
 
@@ -185,7 +189,6 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
@@ -193,4 +196,4 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

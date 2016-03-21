@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="02/29/2016"
    ms.author="sumukhs"/>
 
 # Configuración de Reliable Services con estado
@@ -52,7 +52,7 @@ ReplicatorConfig
 |ReplicatorEndpoint|N/D|Ningún valor predeterminado: parámetro obligatorio|Dirección IP y puerto que usará el replicador principal y secundario para comunicarse con otros replicadores del conjunto de réplicas. Esto debe hacer referencia a un punto de conexión de recursos de TCP en el manifiesto de servicio. Consulte [Especificación de los recursos en un manifiesto de servicio](service-fabric-service-manifest-resources.md) para más información sobre cómo definir los recursos de punto de conexión en un manifiesto de servicio. |
 |MaxPrimaryReplicationQueueSize|Número de operaciones|8192|Número máximo de operaciones de la cola principal. Una operación se libera después de que el replicador principal reciba una confirmación de todos los replicadores secundarios. Este valor debe ser mayor que 64 y una potencia de 2.|
 |MaxSecondaryReplicationQueueSize|Número de operaciones|16384|Número máximo de operaciones de la cola secundaria. Una operación se libera después de que su estado pase a ser de alta disponibilidad mediante persistencia. Este valor debe ser mayor que 64 y una potencia de 2.|
-|CheckpointThresholdInMB|MB|200|Cantidad del espacio del archivo de registro después de que se compruebe el estado.|
+|CheckpointThresholdInMB|MB|50|Cantidad del espacio del archivo de registro después de que se compruebe el estado.|
 |MaxRecordSizeInKB|KB|1024|Tamaño del registro de mayor tamaño el replicador que puede escribir en el registro. Este valor debe ser un múltiplo de 4 y superior a 16.|
 |OptimizeLogForLowerDiskUsage|Booleano|true|Cuando su valor es true, el registro se configura para que el archivo de registro específico de la réplica se cree usando un archivo disperso de NTFS. Esto reduce el uso del espacio en disco real del archivo. Cuando su valor es false, el archivo se crea con asignaciones fijas que ofrecen el mejor rendimiento de escritura.|
 |MaxRecordSizeInKB|KB|1024|Tamaño del registro de mayor tamaño el replicador que puede escribir en el registro. Este valor debe ser un múltiplo de 4 y superior a 16.|
@@ -103,8 +103,8 @@ El valor de CheckpointThresholdInMB controla la cantidad de espacio en disco que
 
 Si establece OptimizeForLowerDiskUsage en true, el espacio del archivo de registro se sobreaprovisionará para que las réplicas activas puedan almacenar más información de estado en sus archivos de registro, mientras que las réplicas inactivas usarán menos espacio en disco. Esto permite hospedar más réplicas en un nodo. Si establece OptimizeForLowerDiskUsage en false, la información de estado se escribe en los archivos de registro más rápidamente.
 
-El parámetro MaxRecordSizeInKB define el tamaño máximo de un registro que el replicador puede escribir en el archivo de registro. En la mayoría de los casos, el tamaño predeterminado de 1024 KB del registro es óptimo. Sin embargo, si el servicio hace que elementos de datos de mayor tamaño formen parte de la información de estado, es posible que este valor se tenga que aumentar. Cambiar MaxRecordSizeInKB para que tenga un tamaño inferior a 1024 presenta pocas ventajas, ya que los registros más pequeños solamente usan el espacio necesario para el registro más pequeño. Se espera que este valor solo tenga que cambiarse en raras ocasiones.
+El parámetro MaxRecordSizeInKB define el tamaño máximo de un registro que el replicador puede escribir en el archivo de registro. En la mayoría de los casos, el tamaño predeterminado de 1024 KB del registro es óptimo. Sin embargo, si el servicio hace que elementos de datos de mayor tamaño formen parte de la información de estado, es posible que este valor se tenga que aumentar. Cambiar MaxRecordSizeInKB para que tenga un tamaño inferior a 1024 presenta pocas ventajas, ya que los registros más pequeños solamente usan el espacio necesario para el registro más pequeño. Se espera que este valor solo tenga que cambiarse en raras ocasiones.
 
 Los parámetros SharedLogId y SharedLogPath siempre se usan en conjunto para obligar a un servicio a usar un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Para reducir la contención del movimiento de encabezados, los archivos de registro compartidos deben colocarse en discos que se usen únicamente para el archivo de registro compartido. Se espera que este valor solo tenga que cambiarse en raras ocasiones.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

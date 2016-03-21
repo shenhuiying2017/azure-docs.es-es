@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="02/22/2016"
     ms.author="robmcm"/>
 
 # Uso del complemento subordinado de Azure con Jenkins Continuous Integration
@@ -41,7 +41,7 @@ Un perfil de suscripción, también conocido como configuración de publicación
 * su id. de suscripción
 * un certificado de administración para la suscripción
 
-Estos se pueden encontrar en su perfil de suscripción. Si no tiene una copia de su perfil de suscripción, puede descargarlo del [sitio de suscripción](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). A continuación se muestra un ejemplo de un perfil de suscripción.
+Estos se pueden encontrar en su [perfil de suscripción](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). A continuación se muestra un ejemplo de un perfil de suscripción.
 
 	<?xml version="1.0" encoding="utf-8"?>
 
@@ -204,4 +204,4 @@ En esta sección, creará una tarea de Jenkins que se ejecutará en un nodo subo
 
 Jenkins creará luego un nodo subordinado con la plantilla que creó en la sección anterior y ejecutará el script especificado en el paso de compilación de esta tarea.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

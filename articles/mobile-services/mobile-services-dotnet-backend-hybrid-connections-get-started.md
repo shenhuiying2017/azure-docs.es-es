@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/05/2016"
 	ms.author="glenga"/>
 
 
 # Conexión a un servidor SQL Server local desde Servicios móviles de Azure mediante conexiones híbridas
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Acceso a recursos locales mediante conexiones híbridas en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
-&nbsp;
-
-
-Es posible que al realizar la transición a la nube, su empresa no pueda migrar todos los recursos a Azure inmediatamente. Las conexiones híbridas permite que los Servicios móviles de Azure se conecten a los recursos locales. De este modo, puede hacer que los datos locales sean accesibles para los clientes móviles mediante el uso de Azure. Entre los activos admitidos se incluye cualquier recurso que se ejecute en un puerto TCP estático, como Microsoft SQL Server, MySQL, API Web HTTP y la mayoría de los servicios web personalizados. Las conexiones híbridas emplean la autorización de firma de acceso compartido (SAS) para proteger las conexiones del servicio móvil y el Administrador de conexiones híbridas a la conexión híbrida. Para obtener más información, consulte [Introducción a las conexiones híbridas](../integration-hybrid-connection-overview.md).
+Es posible que al realizar la transición a la nube, su empresa no pueda migrar todos los recursos a Azure inmediatamente. Las conexiones híbridas permite que los Servicios móviles de Azure se conecten a los recursos locales. De este modo, puede hacer que los datos locales sean accesibles para los clientes móviles mediante el uso de Azure. Entre los activos admitidos se incluye cualquier recurso que se ejecute en un puerto TCP estático, como Microsoft SQL Server, MySQL, API Web HTTP y la mayoría de los servicios web personalizados. Las conexiones híbridas emplean la autorización de firma de acceso compartido (SAS) para proteger las conexiones del servicio móvil y el Administrador de conexiones híbridas a la conexión híbrida. Para obtener más información, consulte [Introducción a las conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md).
 
 En este tutorial, aprenderá a modificar un servicio móvil back-end de .NET para usar una base de datos SQL Server local en lugar de la base de datos SQL de Azure aprovisionada con su servicio. También se admiten conexiones híbridas para un servicio móvil de back-end de JavaScript, tal y como se describe en [este artículo](http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx).
 
@@ -128,8 +126,8 @@ Ahora que ha comprobado la conexión de base de datos, deberá agregar una confi
 ##Otras referencias##
 
 + [Sitio web de conexiones híbridas](../../services/biztalk-services/)
-+ [Introducción a las conexiones híbridas](../integration-hybrid-connection-overview.md)
-+ [Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](../biztalk-dashboard-monitor-scale-tabs.md)
++ [Introducción a las conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md)
++ [Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 + [Modificación del modelo de datos de un servicio móvil back-end de .NET](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
 
 <!-- IMAGES -->
@@ -139,4 +137,4 @@ Ahora que ha comprobado la conexión de base de datos, deberá agregar una confi
 [Portal de Azure clásico]: http://manage.windowsazure.com
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

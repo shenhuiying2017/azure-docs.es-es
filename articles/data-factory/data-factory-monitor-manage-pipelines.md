@@ -19,8 +19,8 @@
 
 # Supervisión y administración de canalizaciones de la Factoría de datos de Azure
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Uso del Portal de Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Uso de la Aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
 
 El servicio Factoría de datos proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. Le ayuda a evaluar el estado de la canalización de datos de un extremo a otro rápidamente, a identificar problemas y a tomar medidas correctivas si es necesario. Visualmente, puede realizar el seguimiento del linaje de datos y las relaciones entre los datos a través de cualquiera de los orígenes y consultar una contabilización histórica completa de ejecución del trabajo, estado del sistema y dependencias desde un solo panel de supervisión.
 
@@ -275,7 +275,7 @@ En caso de que el segmento no se valide debido a un error de directiva (por ejem
 
 ### Uso de Azure PowerShell
 
-Puede volver a ejecutar errores mediante el cmdlet Set-AzureRmDataFactorySliceStatus. Consulte el tema [Set-AzureDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) para obtener información sobre la sintaxis y otros detalles del cmdlet.
+Puede volver a ejecutar errores mediante el cmdlet Set-AzureRmDataFactorySliceStatus. Consulte el tema [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) para obtener información sobre la sintaxis y otros detalles del cmdlet.
 
 **Ejemplo:** En el caso siguiente, el estado de todos los segmentos de la tabla "DAWikiAggregatedData" se establece en "En espera" en la Data Factory de Azure "WikiADF".
 
@@ -349,7 +349,7 @@ En la tabla siguiente se ofrece una lista de las operaciones y los estados (y su
 Nombre de la operación | Estado | Subestado
 -------------- | ------ | ----------
 RunStarted | Started | Iniciando
-RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
+RunFinished | Failed / Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
 OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
@@ -545,9 +545,9 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores:
+*metricName* a partir de ahora admite 2 valores:
 - FailedRuns
-- SuccessfulRuns.
+- SuccessfulRuns
 
 **Implementación de alertas:**
 
@@ -583,4 +583,4 @@ Junto con la factoría de datos, también puede mover todos los recursos relacio
 
 ![Cuadro de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,15 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # Introducción a la API de OneDrive
 
 Conéctese a OneDrive para administrar los archivos, incluyendo las tareas de carga, obtención y eliminación de archivos, y muchas más. La API de OneDrive puede usarse desde:
 
-- PowerApps 
 - Aplicaciones lógicas 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Aplicaciones lógicas](../articles/connectors/create-api-onedrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+
+&nbsp;
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01 Versión preliminar, haga clic en [API de OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
 
@@ -48,26 +54,6 @@ Todas las API admiten datos en formato JSON y XML.
 
 ## Creación de una conexión a OneDrive
 
-### Incorporación de una configuración adicional en PowerApps
-Cuando agregue OneDrive a PowerApps Enterprise, escriba los valores **Clave de aplicación** y **Secreto de la aplicación** de la aplicación de OneDrive. El valor **URL de redireccionamiento** también se usa en la aplicación de OneDrive. Si no tiene una aplicación de OneDrive, puede usar los siguientes pasos para crearla:
-
-1. Vaya a la [página de creación de la aplicación][5] en _Centro para desarrolladores de la Cuenta Microsoft_ e inicie sesión con su _Cuenta Microsoft_.
-
-2. Escriba su **Nombre de la aplicación** acepte el contrato:
-
-	![Nueva aplicación OneDrive][6]
-
-3. En la configuración:
-
-	1. Seleccione **Configuración de API**.  
-	2. Establezca **URL de redireccionamiento** en el valor mostrado al agregar la nueva API de OneDrive en el Portal de Azure.  
-	3. **Guarde** los cambios.  
-
-	![Configuración de la API de la aplicación OneDrive][7]
-
-Ahora, copie y pegue los valores **Clave de aplicación** y **Secreto de aplicación** en la configuración de OneDrive en el Portal de Azure.
-
-### Incorporación de una configuración adicional en aplicaciones lógicas
 Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a OneDrive.
 
 1. Inicie sesión en su cuenta de OneDrive.
@@ -234,7 +220,7 @@ Desencadena un flujo cuando se crea un nuevo archivo en una carpeta de OneDrive.
 
 
 ### Desencadena un flujo al modificar un archivo en una carpeta de OneDrive
-Desencadena un flujo cuando se modifica un archivo en una carpeta de OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
+Desencadena un flujo al modificar un archivo en una carpeta de OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -317,13 +303,13 @@ Extrae una carpeta a OneDrive. ```POST: /datasets/default/extractFolderV2```
 
 
 ## Pasos siguientes
-Después de agregar la API de OneDrive a PowerApps Enterprise, [conceda permisos a los usuarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar dicha API en sus aplicaciones.
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
+Volver a la [lista de API](apis-list.md).
 
 [5]: https://account.live.com/developers/applications/create
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
 [7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
    description="Informes de Azure Active Directory en vista previa pública y privada"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Vistas previas de informes de Azure Active Directory
 
@@ -29,7 +29,7 @@ Inicios de sesión tras varios errores | Disponibilidad general
 Inicios de sesión desde varias ubicaciones geográficas | Disponibilidad general
 Inicios de sesión desde direcciones IP con actividad sospechosa | Disponibilidad general
 Inicios de sesión desde dispositivos posiblemente infectados | Disponibilidad general
-Usuarios con actividad de inicio de sesión erróneo. | Vista previa pública
+Usuarios con actividad de inicio de sesión anómala | Vista previa pública
 Usuarios con credenciales perdidas | Vista previa pública
 **Informes de aplicación** |
 Actividad de aprovisionamiento de cuentas | Disponibilidad general
@@ -54,4 +54,4 @@ Uso de aplicaciones habilitadas para RMS | Vista previa pública
 **Informes de vista previa privada** |
 Actividad de inicio de sesión de todos los usuarios | Vista previa privada
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

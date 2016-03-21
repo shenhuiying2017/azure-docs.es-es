@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/02/2016"
 	ms.author="jgao"/>
 
 # Analizar los registros de HDInsight
@@ -337,6 +337,8 @@ Algunos de estos mensajes de error también podrían aparecer en el Portal de Az
 
 ## Pasos siguientes
 
-[Usar las vistas de Ambari para depurar trabajos de Tez en HDInsight](hdinsight-debug-ambari-tez-view.md) [Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md) [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
+- [Usar vistas de Ambari para depurar trabajos de Tez en HDInsight](hdinsight-debug-ambari-tez-view.md)
+- [Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux (vista previa)](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+- [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

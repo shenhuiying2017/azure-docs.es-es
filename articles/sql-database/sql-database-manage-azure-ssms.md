@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="03/07/2016" 
 	ms.author="jeffreyg"/>
 
 
@@ -21,56 +21,13 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-manage-portal.md)
+- [Portal de Azure](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-Puede usar SQL Server Management Studio (SSMS) para administrar las bases de datos y los servidores lógicos de Base de datos SQL de Azure. Este tema le guía a través de las tareas comunes con SSMS. Ya debería tener una base de datos y un servidor lógico creados en la Base de datos SQL de Azure antes de comenzar. Para empezar, lea [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md) y luego regrese.
+Puede usar SQL Server Management Studio (SSMS) para administrar las bases de datos y los servidores lógicos de Base de datos SQL de Azure. Este tema le guía a través de las tareas comunes con SSMS. Ya debería tener una base de datos y un servidor lógico creados en la Base de datos SQL de Azure antes de comenzar. Consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md) y el artículo sobre cómo [conectarse y realizar consultas mediante SSMS](sql-database-connect-query-ssms.md) para más información sobre cómo conectarse y luego ejecutar una consulta SELECT simple.
 
-Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure. Visite [Descargar SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtenerla.
-
-
-## Conectarse a un servidor lógico de Base de datos SQL
-
-Para conectarse a Base de datos SQL, debe saber el nombre del servidor de Azure. Es necesario que inicie sesión en el portal para tener acceso a esta información.
-
-1.  Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).
-
-2.  En el panel izquierdo, haga clic en **Base de datos SQL**.
-
-3.  En la página principal Bases de datos SQL, haga clic en **SERVIDORES**, en la parte superior de la página, para ver todos los servidores asociados con la suscripción. Encuentre el nombre del servidor con el que desea establecer la conexión y cópielo en el Portapapeles.
-
-	A continuación, configure el firewall de Base de datos SQL para que permita todas las conexiones desde la máquina local. Para ello, agregue la dirección IP de las máquinas locales a la lista de excepciones del firewall.
-
-1.  En la página principal Bases de datos SQL, haga clic en **SERVIDORES** y, a continuación, haga clic en el servidor al que desea conectarse.
-
-2.  Haga clic en **Configurar** en la parte superior de la página.
-
-3.  Copie la dirección IP en DIRECCIÓN IP DEL CLIENTE ACTUAL.
-
-4.  En la página Configurar, la sección **Direcciones IP permitidas** incluye tres cuadros donde puede especificar un nombre de regla y un intervalo de direcciones IP como valores iniciales y finales. Para un nombre de regla, puede escribir el nombre de su PC. Para el intervalo inicial y final, pegue la dirección IP de su PC en ambos cuadros y, a continuación, haga clic en la casilla que aparece.
-
-	El nombre de regla debe ser exclusivo. Si se trata de un equipo de desarrollo, puede escribir la dirección IP en el cuadro de inicio de intervalo de IP y en el cuadro de final de intervalo de IP. De lo contrario, puede que tenga que escribir un intervalo más amplio de direcciones IP para tener en cuenta conexiones de equipos adicionales de la organización.
- 
-5. Haga clic en **GUARDAR** en la parte inferior de la página.
-
-    **Nota:** los cambios de la configuración del firewall pueden tardar hasta cinco minutos en aplicarse.
-
-	Ya puede conectarse a Base de datos SQL con Management Studio.
-
-1.  En la barra de tareas, haga clic en **Inicio**, vaya a **Todos los programas** y a **Microsoft SQL Server 2014** y, a continuación, haga clic en **SQL Server Management Studio**.
-
-2.  En **Conectar con el servidor**, especifique el nombre completo del servidor como *nombreDeServidor*.database.windows.net. En Azure, el nombre del servidor es una cadena generada automáticamente compuesta de caracteres alfanuméricos.
-
-3.  Seleccione **Autenticación de SQL Server**.
-
-4.  En el cuadro **Inicio de sesión**, escriba el inicio de sesión de administrador de SQL Server especificado en el portal cuando creó el servidor.
-
-5.  En el cuadro **Contraseña**, escriba la contraseña especificada en el portal cuando creó el servidor.
-
-8.  Haga clic en **Conectar** para establecer la conexión.
-
-SQL Server 2014 SSMS con las actualizaciones más recientes ofrece soporte ampliado para tareas como la creación y la modificación de bases de datos SQL de Azure. Además, puede usar instrucciones Transact-SQL para realizar estas tareas. En los pasos descritos a continuación se facilitan ejemplos de tales instrucciones. Para obtener más información acerca del uso de Transact-SQL con Base de datos SQL, incluidos los detalles sobre los comandos compatibles, consulte [Referencia de Transact-SQL (Base de datos SQL)](http://msdn.microsoft.com/library/bb510741.aspx).
+Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure. Visite la página de [descarga de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtenerlo.
 
 ## Crear y administrar bases de datos SQL de Azure
 
@@ -78,7 +35,7 @@ Mientras está conectado a la base de datos **maestra**, puede crear bases de da
 
 Para abrir una ventana de consulta en Management Studio, abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, en **Nueva consulta**.
 
--   Use la instrucción **CREATE DATABASE** para crear una base de datos nueva. Para obtener más información, consulte [CREATE DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/dn268335.aspx). La instrucción siguiente crea una base de datos con el nombre **myTestDB** y especifica que se trata de una base de datos Standard S0 Edition con un tamaño máximo de 250 GB.
+-   Use la instrucción **CREATE DATABASE** para crear una base de datos nueva. Para obtener más información, consulte [CREATE DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/dn268335.aspx). La instrucción siguiente crea una base de datos con el nombre **myTestDB** y especifica que se trata de una base de datos Standard S0 Edition con un tamaño máximo de 250 GB.
 
         CREATE DATABASE myTestDB
         (EDITION='Standard',
@@ -102,7 +59,7 @@ Haga clic en **Ejecutar** para ejecutar la consulta.
 
 -   En Base de datos SQL, no se admite la instrucción **USE** para cambiar entre bases de datos. En su lugar, necesita establecer una conexión directa con la base de datos de destino.
 
->[AZURE.NOTE]Muchas de las instrucciones de Transact-SQL que crean o modifican una base de datos deben ejecutarse en su propio lote y no se pueden agrupar con otras instrucciones de Transact-SQL. Para obtener más información, consulte la información específica de las instrucciones disponible en los vínculos mencionados anteriormente.
+>[AZURE.NOTE] Muchas de las instrucciones de Transact-SQL que crean o modifican una base de datos deben ejecutarse en su propio lote y no se pueden agrupar con otras instrucciones de Transact-SQL. Para obtener más información, consulte la información específica de las instrucciones disponible en los vínculos mencionados anteriormente.
 
 ## Crear y administrar los inicios de sesión
 
@@ -155,7 +112,7 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   Calcule el tamaño de la Calcule el tamaño de la base de datos; para ello, use la vista **sys.dm\_db\_partition\_stats**. La vista **sys.dm\_db\_partition\_stats** devuelve información sobre la página y el recuento de filas para cada partición de la base de datos, que puede usar para calcular el tamaño de la base de datos. La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
+-   Calcule el tamaño de la base de datos; para ello, use la vista **sys.dm\_db\_partition\_stats**. La vista **sys.dm\_db\_partition\_stats** devuelve información sobre la página y el recuento de filas para cada partición de la base de datos, que puede usar para calcular el tamaño de la base de datos. La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
 
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
@@ -192,4 +149,4 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

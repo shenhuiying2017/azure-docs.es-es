@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -31,7 +31,7 @@ La compatibilidad de la red virtual está configurada en la hoja **Nueva caché 
 
 ![Creación de una caché en Redis][redis-cache-new-cache-menu]
 
-Para configurar la compatibilidad de redes virtuales, seleccione primero una de las caché **Premium** en la hoja **Elija su plan de tarifa**.
+Para configurar la compatibilidad de redes virtuales, seleccione primero una de las cachés **Premium** en la hoja **Elija su plan de tarifa**.
 
 ![Elegir su plan de tarifa][redis-cache-premium-pricing-tier]
 
@@ -119,4 +119,4 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

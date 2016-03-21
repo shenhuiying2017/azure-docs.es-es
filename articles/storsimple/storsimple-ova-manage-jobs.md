@@ -3,7 +3,7 @@
    description="Describe la página Trabajos del servicio StorSimple Manager y cómo usarla para hacer un seguimiento de los trabajos actuales y recientes de la máquina virtual de StorSimple."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor=""/>
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/22/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Uso del servicio StorSimple para ver los trabajos de la matriz virtual de StorSimple (vista previa)
+# Uso del servicio StorSimple Manager para ver los trabajos de la matriz virtual de StorSimple
 
 ## Información general
 
@@ -72,4 +72,4 @@ Estos errores se aplicarán a los trabajos de copia de seguridad, restauración,
 
 [Obtenga información sobre cómo usar la interfaz de usuario web local para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

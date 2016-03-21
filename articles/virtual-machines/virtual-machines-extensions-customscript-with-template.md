@@ -17,7 +17,7 @@
    ms.date="11/01/2015"
    ms.author="kundanap"/>
 
-# Uso de la extensión de scripts personalizados con plantillas del Administrador de recursos de Azure
+# Uso de la extensión de script personalizada con plantillas de Azure Resource Manager
 
 Este artículo proporciona información general sobre la escritura de plantillas del Administrador de recursos de Azure con la extensión de scripts personalizados para cargas de trabajo de arranque en una máquina virtual de Linux o Windows.
 
@@ -45,7 +45,7 @@ Las plantillas del Administrador de recursos de Azure le permiten especificar me
 
 ## Uso de la extensión de script personalizada
 
-Para realizar la implementación con plantillas, usamos la misma versión de la extensión de scripts personalizados que está disponible para las API de administración de servicios de Azure. La extensión es compatible con los mismos parámetros y escenarios que la carga de archivos en la cuenta de Almacenamiento de Azure o la ubicación de Github. La diferencia clave cuando usa plantillas es que debe especificarse la versión exacta de la extensión, al contrario de la especificación de la versión en el formato majorversion.*.
+Para realizar la implementación con plantillas, usamos la misma versión de la extensión de script personalizada que está disponible para las API de administración de servicios de Azure. La extensión es compatible con los mismos parámetros y escenarios que la carga de archivos en la cuenta de Almacenamiento de Azure o la ubicación de Github. La diferencia clave cuando usa plantillas es que debe especificarse la versión exacta de la extensión, al contrario de la especificación de la versión en el formato majorversion.*.
 
  ## Ejemplo de plantilla para una máquina virtual de Linux
 
@@ -102,4 +102,4 @@ Consulte los ejemplos siguientes para obtener ejemplos completos de configuraci�
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensión del script personalizado en una máquina virtual de Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensión de script personalizada en una máquina virtual de Windows</a>.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

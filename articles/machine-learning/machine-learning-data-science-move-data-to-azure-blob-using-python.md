@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 # Mover datos hacia y desde el almacenamiento de blobs de Azure con Python
@@ -51,7 +51,7 @@ En este documento se supone que tiene una suscripción de Azure y una cuenta de 
 
 Agregue el siguiente fragmento de código cerca de la parte superior de cualquier código de Python en el que desee obtener acceso mediante programación al almacenamiento de Azure:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 El objeto **BlobService** permite trabajar con contenedores y blobs. El código siguiente crea un objeto BlobService utilizando el nombre de la cuenta de almacenamiento y la clave de la cuenta: Reemplace el nombre de la cuenta y la clave de cuenta por la cuenta real y la clave.
 	
@@ -70,7 +70,7 @@ El siguiente código de ejemplo carga un archivo local en un contenedor:
 
 El siguiente código de ejemplo carga todos los archivos (excepto los directorios) en un directorio local para el almacenamiento de blobs:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os import listdir
 	from os.path import isfile, join
 	
@@ -95,9 +95,13 @@ El siguiente código de ejemplo carga todos los archivos (excepto los directorio
 
 ## Descargar datos del blob
 
-Utilice los siguientes métodos para descargar datos de un blob: 1. get\_blob\_to\_path 2. get\_blob\_to\_file 3. get\_blob\_to\_bytes 4. get\_blob\_to\_text
+Utilice los siguientes métodos para descargar datos de un blob:
+1. get\_blob\_to\_path
+2. get\_blob\_to\_file
+3. get\_blob\_to\_bytes
+4. get\_blob\_to\_text 
 
-Estos métodos que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
+Estos métodos que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
 El código de ejemplo siguiente descarga el contenido de un blob de un contenedor en un archivo local:
 
@@ -105,7 +109,7 @@ El código de ejemplo siguiente descarga el contenido de un blob de un contenedo
 
 El siguiente código de ejemplo descarga todos los blobs de un contenedor. Usa list\_blobs para obtener la lista de blobs disponibles del contenedor y los descarga en un directorio local.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os.path import join
 	
 	# Set parameters here
@@ -125,4 +129,4 @@ El siguiente código de ejemplo descarga todos los blobs de un contenedor. Usa l
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

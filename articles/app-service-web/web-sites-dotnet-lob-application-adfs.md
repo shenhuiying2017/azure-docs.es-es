@@ -40,7 +40,7 @@ Creará una aplicación ASP.NET básica en Aplicaciones web del Servicio de apli
 
 Necesita lo siguiente para completar este tutorial:
 
-- Una implementación de AD FS local (para obtener un tutorial de un extremo a otro del entorno de pruebas que uso, vea [Entorno de pruebas: STS independiente con AD FS en VM de Azure (solo para prueba)](TODO))
+- Una implementación de AD FS local (para obtener un tutorial de un extremo a otro del entorno de pruebas que uso, vea [Entorno de pruebas: STS independiente con AD FS en VM de Azure (solo para prueba)](https://blogs.msdn.microsoft.com/cephalin/2014/12/21/test-lab-standalone-sts-with-ad-fs-in-azure-vm-for-test-only/))
 - Permisos para crear relaciones de confianza para usuarios autenticados en la administración de AD FS
 - Visual Studio 2013
 - [SDK de Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o posterior
@@ -61,11 +61,11 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 
 	> [AZURE.NOTE] Las instrucciones de [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) muestran cómo configurar la aplicación con Azure Active Directory, pero en este tutorial lo configurará con AD FS, por lo que, en su lugar, debe seguir los pasos siguientes.
 
-3.	Abra la solución y, a continuación, Controllers\\AccountController.cs en el **Explorador de soluciones**.
+3.	Abra la solución y, a continuación, Controllers\AccountController.cs en el **Explorador de soluciones**.
 
-	Verá que el código simplemente emite un desafío de autenticación para autenticar al usuario con WS-Federation. Toda la autenticación se configura en App\_Start\\Startup.Auth.cs.
+	Verá que el código simplemente emite un desafío de autenticación para autenticar al usuario con WS-Federation. Toda la autenticación se configura en App_Start\Startup.Auth.cs.
 
-4.  Abra App\_Start\\Startup.Auth.cs. En el método `ConfigureAuth`, observe la línea:
+4.  Abra App_Start\Startup.Auth.cs. En el método `ConfigureAuth`, observe la línea:
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -79,7 +79,7 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 	-	Identificador del usuario de confianza: `https://contoso.com/MyLOBApp`
 	-	Dirección de metadatos: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-5.	En App\_Start\\Startup.Auth.cs, cambie las definiciones de cadena estática como se resalta a continuación:
+5.	En App_Start\Startup.Auth.cs, cambie las definiciones de cadena estática como se resalta a continuación:
 	<pre class="prettyprint">
 	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
 	<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
@@ -151,7 +151,7 @@ Ahora debe configurar una relación de confianza para usuario autenticado en la 
 > [AZURE.NOTE] Asegúrese de repetir los pasos siguientes para ambos entornos.
 
 4.	En su servidor de AD FS, inicie sesión con credenciales que tengan derechos de administración para AD FS.
-5.	Abra Administración de AD FS. Haga clic con el botón derecho en **AD FS\\Trusted Relationships\\Relying Party Trusts** y seleccione **Agregar relación de confianza para usuario de confianza**.
+5.	Abra Administración de AD FS. Haga clic con el botón derecho en **AD FS\Trusted Relationships\Relying Party Trusts** y seleccione **Agregar relación de confianza para usuario de confianza**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
@@ -177,7 +177,7 @@ Ahora debe configurar una relación de confianza para usuario autenticado en la 
 
 7.	En la página **Configurar identificadores**, compruebe que la dirección URL de SSL del proyecto ya aparece en la lista y haga clic en **Siguiente**. Haga clic en **Siguiente** hasta el final del asistente con las selecciones predeterminadas.
 
-	> [AZURE.NOTE] En App\_Start\\Startup.Auth.cs del proyecto de Visual Studio, este identificador se compara con el valor de <code>WsFederationAuthenticationOptions.Wtrealm</code> durante la autenticación federada. De forma predeterminada, se agrega la dirección URL de la aplicación del paso anterior como un identificador de usuario de confianza.
+	> [AZURE.NOTE] En App_Start\Startup.Auth.cs del proyecto de Visual Studio, este identificador se compara con el valor de <code>WsFederationAuthenticationOptions.Wtrealm</code> durante la autenticación federada. De forma predeterminada, se agrega la dirección URL de la aplicación del paso anterior como un identificador de usuario de confianza.
 
 8.	Ahora ha terminado de configurar la aplicación de usuario de confianza para su proyecto en AD FS. A continuación, configurará esta aplicación para enviar las notificaciones necesarias para la aplicación. El cuadro de diálogo **Editar reglas de notificación** se abre de forma predeterminada al final del Asistente para que pueda empezar inmediatamente. Vamos a configurar al menos las siguientes notificaciones (con esquemas entre paréntesis):
 
@@ -253,7 +253,7 @@ Hasta ahora, ha llevado a cabo correctamente lo siguiente:
 - AD FS ha autenticado correctamente un usuario de AD y le redirige de nuevo a la página principal de la aplicación
 - AD FS ha enviado correctamente la notificación del nombre (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) a la aplicación, como se indica por el hecho de que el nombre de usuario aparece en la esquina. 
 
-Si falta la notificación de nombre, habría visto **Hello, !**. Si echa un vistazo a Views\\Shared\_LoginPartial.cshtml, verá que usa `User.Identity.Name` para mostrar el nombre del usuario. Como se mencionó anteriormente, ASP.NET hidrata esta propiedad con la notificación del nombre de usuario autenticado, si está disponible en el token de SAML. Para ver todas las notificaciones que se envían por AD FS, coloque un punto de interrupción en Controllers\\HomeController.cs, en el método de acción de índice. Cuando se autentique el usuario, inspeccione la colección `System.Security.Claims.Current.Claims`.
+Si falta la notificación de nombre, habría visto **Hello, !**. Si echa un vistazo a Views\Shared_LoginPartial.cshtml, verá que usa `User.Identity.Name` para mostrar el nombre del usuario. Como se mencionó anteriormente, ASP.NET hidrata esta propiedad con la notificación del nombre de usuario autenticado, si está disponible en el token de SAML. Para ver todas las notificaciones que se envían por AD FS, coloque un punto de interrupción en Controllers\HomeController.cs, en el método de acción de índice. Cuando se autentique el usuario, inspeccione la colección `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -262,7 +262,7 @@ Si falta la notificación de nombre, habría visto **Hello, !**. Si echa un vist
 
 Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en la configuración de relación de confianza para usuario autenticado, ahora puede usarlas directamente en la representación `[Authorize(Roles="...")]` para controladores y acciones. En una aplicación de línea de negocio con el patrón Create-Read-Update-Delete (CRUD), puede autorizar a roles específicos para acceder a cada acción. Por ahora, solo probará esta característica en el controlador principal existente.
 
-1. Abra Controllers\\HomeController.cs.
+1. Abra Controllers\HomeController.cs.
 2. Represente los métodos de acción `About` y `Contact` similares a los siguientes, con las pertenencias a grupos de seguridad que su usuario autenticado tiene.  
 	<pre class="prettyprint">
 	<mark>[Authorize(Roles="Grupo de prueba")]</mark>
@@ -356,4 +356,4 @@ Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases 
  
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

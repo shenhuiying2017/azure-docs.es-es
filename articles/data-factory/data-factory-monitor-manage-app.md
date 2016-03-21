@@ -18,8 +18,8 @@
 
 # Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Uso del Portal de Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Uso de la Aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
 
 En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la **Aplicación de supervisión y administración**. También se ofrece información sobre cómo crear alertas y recibir notificaciones cuando se produzcan errores al usar la aplicación.
       
@@ -97,7 +97,7 @@ En la notificación emergente Ventanas de actividad y en el Explorador de ventan
 
 ![Flechas izquierda/derecha del Explorador de ventanas de actividad](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-En la parte inferior de la vista de diagrama, verá que hay botones para acercar, alejar, ajustar al tamaño, ajustar al 100 % y bloquear diseño (impide que mueva accidentalmente tablas y canalizaciones en la vista de diagrama). El botón para bloquear el diseño está activado de forma predeterminada. Puede desactivarlo y mover las entidades por el diagrama. Si lo desactiva, puede usar el último botón para colocar automáticamente las tablas y las canalizaciones. También puede acercar o alejar usando la rueda del mouse.
+En la parte inferior de la vista de diagrama, verá que hay botones para acercar, alejar, ajustar al tamaño, ajustar al 100 % y bloquear diseño (impide que mueva accidentalmente tablas y canalizaciones en la vista de diagrama). El botón para bloquear el diseño está activado de forma predeterminada. Puede desactivarlo y mover las entidades por el diagrama. Si lo desactiva, puede usar el último botón para colocar automáticamente las tablas y las canalizaciones. También puede acercar o alejar usando la rueda del mouse.
 
 ![Comandos de zoom de la vista de diagrama](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -281,7 +281,7 @@ Nombre del evento | Estado | Subestado
 -------------- | ------ | ----------
 Ejecución de actividad iniciada | Started | Iniciando
 Ejecución de actividad finalizada | Succeeded | Succeeded 
-Ejecución de actividad finalizada | Con error| Asignación de recursos con error<p>Ejecución con error</p><p>Tiempo de espera agotado </p><p>Validación con error</p><p>Abandonado</p>
+Ejecución de actividad finalizada | Con error| Asignación de recursos con error<br/><br/>Ejecución con error<br/><br/>Tiempo de espera agotado <br/><br/>Validación con error<br/><br/>Abandonado
 Creación de clúster de HDI a petición iniciada | Started | &nbsp; |
 Creación correcta de clúster de HDI a petición | Succeeded | &nbsp; |
 Clúster de HDI a petición eliminado | Succeeded | &nbsp; |
@@ -295,4 +295,4 @@ Clúster de HDI a petición eliminado | Succeeded | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -40,7 +40,16 @@ Las Aplicaciones de API ofrecen las siguientes características:
 
 Además, las características que ofrecen las Aplicaciones de API, las Aplicaciones web y las Aplicaciones móviles son intercambiables. Esto significa que una instancia de Aplicaciones de API puede aprovechar las características de desarrollo web y de dispositivos móviles y de hospedaje que ofrecen las Aplicaciones web y Aplicaciones móviles. Lo contrario también es cierto: por ejemplo, puede usar una aplicación web para hospedar una API y seguir aprovechando los metadatos de Swagger para la generación de código de cliente y CORS para el acceso entre dominios del explorador. Para más información, consulte la [información general sobre Aplicaciones web](../app-service-web/app-service-web-overview.md) y la [información general sobre aplicaciones móviles](../app-service-mobile/app-service-mobile-value-prop.md).
 
->[AZURE.NOTE]Puede usar [Administración de API de Azure](../api-management/api-management-key-concepts.md) para controlar el acceso de cliente a las API que se hospedan en aplicaciones de API del Servicio de aplicaciones. Aunque las Aplicaciones de API proporcionan servicios de autenticación, hay otras características de administración de acceso que no ofrecen, que sí ofrece la Administración de API, como la consolidación y la limitación de los puntos de conexión.
+## Aumento de Aplicaciones de API mediante la Administración de API de Azure 
+
+Aplicaciones de API y [Administración de API de Azure](../api-management/api-management-key-concepts.md) son servicios complementarios:
+
+* Administración de API se dedica a la administración de API. El usuario coloca un front-end de Administración de API en una API para supervisar y supervisar el uso, manipular la entrada y la salida, consolidar varias API en una, y así sucesivamente. Las API que se administran se pueden hospedar en cualquier lugar.
+* Aplicaciones de API se dedica al hospedaje de API. El servicio incluye características que facilitan el desarrollo y consumo de API, pero no las variantes de supervisión, limitación, manipulación o consolidación que realiza Administración de API. 
+
+Puede usar Administración de API para administrar las API que se hospedan en aplicaciones de API, o bien puede utilizar Aplicaciones de API sin administración de API.
+
+Algunas características de Administración de API y Aplicaciones de API tienen funciones similares. Por ejemplo, ambos pueden automatizar la compatibilidad con CORS. Si utiliza conjuntamente los dos servicios, podría usar Administración de API para CORS, ya que funciona como front-end para sus Aplicaciones de API.
 
 ## <a id="concepts"></a> Conceptos de Aplicaciones de API
 
@@ -57,4 +66,4 @@ Para ver una lista de problemas conocidos con aplicaciones de API, vea [la entra
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

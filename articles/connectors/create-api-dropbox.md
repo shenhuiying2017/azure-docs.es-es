@@ -28,6 +28,11 @@ Conéctese a Dropbox para administrar archivos, por ejemplo, crearlos, obtenerlo
 - [Aplicaciones lógicas](../articles/connectors/create-api-dropbox.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
+&nbsp;
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Conector de Dropbox](../app-service-logic/app-service-logic-connector-dropbox.md).
+
+
 Con Dropbox, puede hacer lo siguiente:
 
 - Compilar el flujo de negocio en función de los datos que obtiene de Dropbox. 
@@ -35,9 +40,9 @@ Con Dropbox, puede hacer lo siguiente:
 - Usar acciones para crear o eliminar un archivo, entre otras muchas cosas. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se cree un nuevo archivo en Dropbox, puede enviar ese archivo por correo electrónico mediante Office 365.
 - Agregar la API de Dropbox a PowerApps Enterprise. Así los usuarios pueden usar esta API en sus aplicaciones. 
 
-Para obtener información acerca de cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Si desea información sobre cómo agregar una API en PowerApps Enterprise, acuda a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
-Para agregar una operación a las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 Dropbox incluye los desencadenadores y las acciones siguientes.
@@ -50,36 +55,12 @@ Todas las API admiten datos en formato JSON y XML.
 
 ## Creación de la conexión a Dropbox
 
-### Incorporación de una configuración adicional en PowerApps
-Al agregar Dropbox a PowerApps Enterprise, especifique los valores de **Clave de la aplicación** y **Secreto de la aplicación** de la aplicación de Dropbox. El valor de **URL de redireccionamiento** también se usa en la aplicación de Dropbox. Si no tiene una aplicación de Dropbox, puede usar los siguientes pasos para crear una:
-
-1. Inicie sesión en [Dropbox][1].
-2. Vaya al sitio para desarrolladores de Dropbox y seleccione **Mis aplicaciones**: ![Sitio para desarrolladores de Dropbox][8]  
-3. Seleccione **Crear aplicación**: ![Aplicación de creación de Dropbox][9]  
-4. En **Crear una nueva aplicación en la plataforma de Dropbox**:  
-
-	1. En **Choose API** (Elegir API), seleccione **Dropbox API** (API de Dropbox).
-	2. En **Choose the type of access you need** (Elegir el tipo de acceso que necesita), seleccione **Full Dropbox** (Dropbox completo).  
-	3. Escriba un nombre para la aplicación.  
-
-	![Aplicación de creación de Dropbox, página 1][10]
-
-5. En la página de configuración de aplicaciones:
-
-	1. En **OAuth 2**, escriba el valor de **URL de redireccionamiento** que se muestra cuando se agrega la API de Dropbox al Portal de Azure. Seleccione **Agregar**.  
-	2. Seleccione el vínculo **Show** (Mostrar) para revelar el **secreto de la aplicación**:  
-
-	![Aplicación de creación de Dropbox, página 2][11]
-
-Ahora, copie y pegue los valores de **App Key** (Clave de aplicación) y **App Secret** (Secreto de aplicación) en la configuración de Dropbox del Portal de Azure.
-
-### Incorporación de una configuración adicional en Aplicaciones lógicas
 Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su instancia de Dropbox.
 
 1. Inicie sesión en su cuenta de Dropbox.
 2. Seleccione **Authorize** (Autorizar) y permita que sus aplicaciones lógicas se conecten a Dropbox y utilicen esta aplicación. 
 
-Después de crear la conexión, especifique las propiedades de Dropbox, como el nombre de archivo o la ruta de acceso de la carpeta. La **referencia de la API de REST** de este tema describe estas propiedades.
+Después de crear la conexión, especifique las propiedades de Dropbox, como el nombre de archivo o la ruta de acceso de la carpeta. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Dropbox en otras aplicaciones lógicas.
 
@@ -290,9 +271,10 @@ Desencadena un flujo cuando se modifica un archivo en una carpeta de Dropbox. ``
 |FileLocator|cadena|no|
 
 ## Pasos siguientes
-Después de agregar la API de Dropbox a PowerApps Enterprise, [conceda a los usuarios los permisos necesarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar la API en sus aplicaciones.
 
-[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Volver a la [lista de API](apis-list.md).
 
 
 <!--References-->
@@ -304,4 +286,4 @@ Después de agregar la API de Dropbox a PowerApps Enterprise, [conceda a los usu
 [10]: ./media/create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

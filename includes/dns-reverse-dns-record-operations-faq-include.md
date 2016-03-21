@@ -1,21 +1,20 @@
-<BR> 
-## FAQ 
-### How much do reverse DNS records cost?
-They’re free!  There is no additional cost for reverse DNS records or queries.
-### Will my reverse DNS records resolve from the internet?
-Yes. Once you set the reverse DNS property for your Cloud Service, Azure manages all the DNS delegations and DNS zones required to ensure that reverse DNS record resolves for all internet users.
-### Will a default reverse DNS record be created for my Cloud Services?
-No. Reverse DNS will be an opt-in feature. No default reverse DNS record will be created if you choose not to configure one.
-What is the format for the fully-qualified domain name (FQDN)?
-FQDNs are specified in forward order, and must be terminated by a dot (e.g., “app1.contoso.com.”).
-### What happens if the validation checks for the reverse DNS I’ve specified fail?
-Where the validation for reverse DNS checks fail, the service management operation will fail. Please correct the reverse DNS value as required, and retry.
-### Can I manage reverse DNS for my Azure Website?
-Reverse DNS is not supported for Azure Websites. Reverse DNS is supported for Azure PaaS roles and IaaS virtual machines.
-### Can I configure multiple reverse DNS records for my Cloud Service?
-No. Azure supports a single reverse DNS record for each Azure Cloud Service. Each Azure Cloud Service however can have their own reverse DNS record.
-### Can I host the ARPA zones for my Azure-assigned IPs on Azure DNS within my own subscription, or on my own authoritative DNS servers?
-No. Azure does not support the onward delegation of ARPA zones. Azure hosts the ARPA zones for all available IPs, and enables customers to create reverse DNS records within these ARPA zones.
-### Can I host ARPA zones for my ISP-assigned IP blocks on Azure DNS?
-No. Azure DNS does not currently support reverse DNS records in customers DNS zones.
+<BR>
+## P+F 
+### ¿Cuánto cuestan los registros de DNS inversos?
+Son gratuitos. No existe ningún coste adicional para las consultas o los registros de DNS inversos.
+### ¿Se resolverán mis registros de DNS inversos desde Internet?
+Sí. Cuando haya configurado la propiedad de DNS inverso para su servicio en la nube, Azure administrará todas las delegaciones y zonas DNS necesarias para garantizar que el registro de DNS inverso se resuelve para todos los usuarios de Internet.
+### ¿Se creará un registro de DNS inverso predeterminado para mis servicios en la nube?
+No. El DNS inverso será una característica opcional. Si decide no configurarla, no se creará ningún registro de DNS inverso predeterminado. ¿Cuál es el formato del nombre de dominio completo (FQDN)? Los FQDN se especifican en orden progresivo y deben terminar con un punto (p. ej., “app1.contoso.com.”).
+### ¿Qué ocurre si no se superan las comprobaciones de validación para el DNS inverso que he especificado?
+Cuando no se supera la comprobación de validación de DNS inverso, se producirá un error en la operación de administración de servicios. Corrija el valor de DNS inverso según sea necesario y vuelva a intentarlo.
+### ¿Puedo administrar el DNS inverso para mi sitio web de Azure?
+No se admite el DNS inverso para los sitios web de Azure. El DNS inverso es compatible con las máquinas virtuales de IaaS y los roles de PaaS de Azure.
+### ¿Puedo configurar varios registros de DNS inversos para mi servicio en la nube?
+No. Azure admite un único registro de DNS inverso por cada servicio en la nube de Azure. Sin embargo, cada servicio en la nube de Azure puede tener su propio registro de DNS inverso.
+### ¿Se pueden hospedar las zonas ARPA para mis IP asignadas por Azure en DNS de Azure dentro de mi propia suscripción o en mis propios servidores DNS autoritativos?
+No. Azure no admite la delegación progresiva de zonas ARPA. Azure hospeda las zonas ARPA para todas las direcciones IP disponibles y permite a los clientes crear registros de DNS inversos dentro de estas zonas.
+### ¿Puedo hospedar zonas ARPA para mis bloques IP asignados por el ISP en el DNS de Azure?
+No. El DNS de Azure no admite actualmente registros de DNS inversos en zonas DNS de los clientes.
 
+<!---HONumber=AcomDC_0309_2016-->

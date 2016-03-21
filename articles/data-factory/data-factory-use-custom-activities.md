@@ -73,14 +73,14 @@ El método tiene algunos componentes clave que debe conocer.
 ### Procedimiento: 
 1.	Cree un proyecto de biblioteca de clases .NET.
 	<ol type="a">
-	<li>Inicie <b>Visual Studio 2012</b> o <b>Visual Studio 2013</b>.</li>
-	<li>Haga clic en <b>Archivo</b>, seleccione <b>Nuevo</b> y, luego, haga clic en <b>Proyecto</b>.</li>
-	<li>Expanda <b>Plantillas</b> y seleccione <b>Visual C#</b>. En este tutorial se usa C#, pero puede usar cualquier lenguaje .NET para desarrollar la actividad personalizada.</li>
-	<li>Seleccione <b>Biblioteca de clases</b> en la lista de tipos de proyecto de la derecha.</li>
-	<li>Escriba <b>MyDotNetActivity</b> para <b>Nombre</b>.</li>
-	<li>Seleccione <b>C:\ADFGetStarted</b> para <b>Ubicación</b>.</li>
-	<li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>
-</ol>
+		<li>Inicie <b>Visual Studio 2012</b> o <b>Visual Studio 2013</b>.</li>
+		<li>Haga clic en <b>Archivo</b>, seleccione <b>Nuevo</b> y, luego, haga clic en <b>Proyecto</b>.</li>
+		<li>Expanda <b>Plantillas</b> y seleccione <b>Visual C#</b>. En este tutorial se usa C#, pero puede usar cualquier lenguaje .NET para desarrollar la actividad personalizada.</li>
+		<li>Seleccione <b>Biblioteca de clases</b> en la lista de tipos de proyecto de la derecha.</li>
+		<li>Escriba <b>MyDotNetActivity</b> para <b>Nombre</b>.</li>
+		<li>Seleccione <b>C:\ADFGetStarted</b> para <b>Ubicación</b>.</li>
+		<li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>
+	</ol>
 2.  Haga clic en <b>Herramientas</b>, seleccione <b>Administrador de paquetes de NuGet</b> y haga clic en <b>Consola del Administrador de paquetes</b>.
 3.	En la <b>Consola del Administrador de paquetes</b>, ejecute el siguiente comando para importar <b>Microsoft.Azure.Management.DataFactories</b>.
 
@@ -608,7 +608,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 	- **AssemblyName** se establece en el nombre del DLL: **MyActivities.dll**.
 	- **EntryPoint** se establece en establecido en **MyDotNetActivityNS.MyDotNetActivity**.
 	- **PackageLinkedService** se establece en **StorageLinkedService**, que apunta al almacenamiento de blobs que contiene el archivo ZIP de la actividad personalizada. Si usa diferentes cuentas de Almacenamiento de Azure para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tendrá que crear otro servicio vinculado de Almacenamiento de Azure. Este artículo se asume que usa la misma cuenta de Almacenamiento de Azure.
-	- **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato: <containerforthezip>/<nameofthezip.zip>.
+	- **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato <contenedorDelZIP>/<nombreDelZIP.zip>.
 	- La actividad personalizada toma **InputDataset** como entrada y **OutputDataset** como salida.
 	- La propiedad linkedServiceName de la actividad personalizada apunta a **HDInsightLinkedService**, que indica a Factoría de datos de Azure que la actividad personalizada debe ejecutarse en un clúster de HDInsight de Azure.
 	- La propiedad **isPaused** propiedad se establece en **false** de forma predeterminada. La canalización se ejecuta inmediatamente en este ejemplo, ya que los segmentos se inician en el pasado. Esta propiedad se puede establecer en true para pausar la canalización y se puede volver a establecer en false para reiniciarla. 
@@ -803,4 +803,4 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

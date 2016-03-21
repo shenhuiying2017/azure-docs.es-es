@@ -4,7 +4,7 @@
 	services="cache" 
 	documentationCenter=".net" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 
@@ -38,7 +38,7 @@ La caché en rol proporciona una capa de almacenamiento en caché para las aplic
 
 La caché en rol proporciona una nueva forma de ejecutar el almacenamiento en caché con la utilización de una parte de la memoria de las máquinas virtuales que hospedan las instancias de rol en los servicios en la nube de Azure (también conocidos como servicios hospedados). Si dispone de mayor flexibilidad en términos de opciones de implementación, las cachés pueden tener un gran tamaño y no presentar restricciones de cuota específicas de caché.
 
->[AZURE.IMPORTANT]A partir de Azure SDK 2.6, caché en rol utiliza Almacenamiento de Microsoft Azure SDK versión 4.3. En versiones anteriores del SDK de Azure, caché en rol utilizaba Almacenamiento de Azure SDK 1.7. Las aplicaciones que usan la caché en rol con las versiones del SDK de Azure anteriores a 2.6 deberían migrar a Azure SDK 2.6 antes de que la versión de Almacenamiento de Azure 2011-08-18 se retire el 1 de agosto de 2016. Para obtener más información, consulte [Notas de la versión del SDK 2.6 de Azure: caché en rol](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) y [Actualización de la eliminación de la versión del servicio Almacenamiento de Microsoft Azure: extensión hasta 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+>[AZURE.IMPORTANT] A partir de Azure SDK 2.6, caché en rol utiliza Almacenamiento de Microsoft Azure SDK versión 4.3. En versiones anteriores del SDK de Azure, caché en rol utilizaba Almacenamiento de Azure SDK 1.7. Las aplicaciones que usan la caché en rol con las versiones del SDK de Azure anteriores a 2.6 deberían migrar a Azure SDK 2.6 antes de que la versión de Almacenamiento de Azure 2011-08-18 se retire el 1 de agosto de 2016. Para obtener más información, consulte [Notas de la versión del SDK 2.6 de Azure: caché en rol](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) y [Actualización de la eliminación de la versión del servicio Almacenamiento de Microsoft Azure: extensión hasta 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 El almacenamiento en caché de instancias de rol presenta las siguientes ventajas:
 
@@ -375,7 +375,7 @@ Ahora que está familiarizado con los aspectos básicos de la caché en rol, uti
 [Almacenamiento de la caché de resultados de la página ASP.NET en la caché]: #store-page
 [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
  
-<!-- IMAGES -->
+<!-- IMAGES --> 
 [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
 [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
 [RoleCache3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png
@@ -410,4 +410,4 @@ Ahora que está familiarizado con los aspectos básicos de la caché en rol, uti
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

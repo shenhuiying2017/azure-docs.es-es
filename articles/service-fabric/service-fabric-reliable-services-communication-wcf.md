@@ -17,7 +17,7 @@
    ms.author="bharatn@microsoft.com"/>
 
 # Pila de comunicación basada en WCF de Reliable Services
-El marco de Reliable Services permite a los autores de servicio elegir la pila de comunicación que desean usar para su servicio. Pueden conectar la pila de comunicaciones que deseen mediante la clase **ICommunicationListener** devuelta desde los métodos [CreateServiceReplicaListeners o CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md). El marco proporciona una implementación de la pila de comunicación basada en Windows Communication Foundation (WCF) para los autores de servicio que desean usar la comunicación basada en WCF.
+El marco de Reliable Services permite a los autores de servicio elegir la pila de comunicación que desean usar para su servicio. Pueden conectar la pila de comunicaciones que deseen mediante la clase **ICommunicationListener** devuelta desde los métodos [CreateServiceReplicaListeners o CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md). El marco proporciona una implementación de la pila de comunicación basada en Windows Communication Foundation (WCF) para los autores de servicio que desean usar la comunicación basada en WCF.
 
 ## Agente de escucha de comunicación WCF
 La implementación específica de WCF de **ICommunicationListener** la proporciona la clase **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener**.
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## Escritura de clientes para la pila de comunicación de WCF
-Para que los clientes de escritura se comuniquen con los servicios mediante WCF, el marco proporciona la clase **WcfClientCommunicationFactory**, que es la implementación específica de WCF de la clase [ClientCommunicationFactoryBase](service-fabric-reliable-service-communication.md).
+Para que los clientes de escritura se comuniquen con los servicios mediante WCF, el marco proporciona la clase **WcfClientCommunicationFactory**, que es la implementación específica de WCF de la clase [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
 
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 
 * [Web API con OWIN en Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

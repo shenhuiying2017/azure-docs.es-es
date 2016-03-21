@@ -106,7 +106,7 @@ La categoría de comandos de nube a dispositivo realiza el seguimiento de los er
 
 ### Conexiones
 
-La categoría de conexiones realiza el seguimiento de eventos provocados por dispositivos que se conectan o desconectan de un Centro de IoT. El seguimiento de esta categoría resulta útil para identificar intentos de conexión no autorizados y para realizar el seguimiento de las situaciones en que una conexión se pierde para los dispositivos en las áreas de conectividad deficiente.
+La categoría Conexiones supervisa los errores cuando los dispositivos se conectan o desconectan de un Centro de IoT. El seguimiento de esta categoría resulta útil para identificar intentos de conexión no autorizados y para realizar el seguimiento de las situaciones en que una conexión se pierde para los dispositivos en las áreas de conectividad deficiente.
 
     {
          "durationMs": 1234,
@@ -139,4 +139,4 @@ Ahora que vio información general sobre la supervisión de operaciones, siga es
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

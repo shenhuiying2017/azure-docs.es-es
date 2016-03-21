@@ -76,7 +76,7 @@ Ahora vamos a centrarnos en ello.
  
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 
-4.	A continuación, haga clic en **Implementar** para iniciar el proceso de implementación. Una vez que el proceso se ejecuta hasta completarse, haga clic en el vínculo http://todoapp*XXXX*.azure.websites.net para examinar la aplicación implementada.
+4.	A continuación, haga clic en **Implementar** para iniciar el proceso de implementación. Una vez que el proceso se ejecuta hasta completarse, haga clic en el vínculo http://todoapp*XXXX*.azurewebsites.net para examinar la aplicación implementada.
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
 
@@ -305,4 +305,4 @@ Obtenga información sobre cómo [aplicar con facilidad metodologías ágiles y 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

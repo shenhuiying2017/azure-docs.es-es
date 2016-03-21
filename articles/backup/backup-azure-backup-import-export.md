@@ -3,8 +3,8 @@
    description="Descubra cómo la copia de seguridad de Azure permite enviar datos fuera de la red mediante el servicio de importación y exportación de Azure. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de importación y exportación de Azure."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="nkolli1"
+   manager="shivamg"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="01/28/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;nkolli;trinadhk"/>
 
 # Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure
 Copia de seguridad de Azure tiene muchas prestaciones eficientes integradas que permiten ahorrar costos de red y almacenamiento. Copia de seguridad de Azure no solo comprime los datos, sino que también se copia todo el contenido una sola vez y deltas/incrementales después de eso. Por lo tanto, si hay un volumen de archivos de 10TB de que se está realizando una copia de seguridad, Copia de seguridad de Azure enviará 10TB como parte de la replicación inicial (IR) y solo deltas como parte de la replicación diferencial. De esta forma, requiere el máximo ancho de banda WAN durante la IR. Para reducir la dependencia de la WAN durante la IR, Copia de seguridad de Azure admite la copia de seguridad sin conexión mediante el servicio de Importación/Exportación de Azure.
@@ -119,4 +119,4 @@ Una vez que los datos de copia de seguridad iniciales están disponibles en la c
 - Para las preguntas sobre el flujo de trabajo de importación y exportación de Azure, vea este [artículo](../storage/storage-import-export-service.md).
 - Vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la copia de seguridad sin conexión de Azure si tiene alguna pregunta sobre el flujo de trabajo.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
 	description="Enumera los atributos que se sincronizan con Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/07/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect Sync: atributos sincronizados con Azure Active Directory
 
-En este tema se enumera los atributos que se sincronizan mediante Azure AD Connect Sync.<br> Los atributos se agrupan por la aplicación de Azure AD relacionada.
+En este tema se enumera los atributos que se sincronizan mediante Azure AD Connect Sync. Los atributos se agrupan por la aplicación de Azure AD relacionada.
 
+## Atributos que sincronizar
+Una pregunta frecuente es *qué es la lista de atributos mínimos que sincronizar*. El enfoque recomendado por defecto consiste en mantener los atributos de forma predeterminada de manera que pueda crearse una GAL completa (lista global de direcciones) en la nube. En algunos casos, hay algunos atributos cuya organización no desea que se sincronicen con la nube. En este caso, comience con la lista de atributos siguientes e identifique aquellos que podrían contener PII (información de identificación personal) y no se pueden sincronizar. A continuación, anule la selección de ellos durante la instalación con la [aplicación de Azure AD y el filtrado de atributos](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+
+Al anular la selección de atributos, debe tener cuidado y solo anule la selección de aquellos que sean imposibles de sincronizar.
 
 ## Office 365 ProPlus
 
@@ -456,4 +460,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

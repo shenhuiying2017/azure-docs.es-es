@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/07/2016"
 	ms.author="billmath"/>
 
 
@@ -44,6 +44,10 @@ Si utiliza AD FS 2.0 o versiones posteriores, Office 365 y Azure AD actualizan a
 
 (tenga en cuenta que si utiliza AD FS 2.0, necesitará ejecutar primero Microsoft.Adfs.Powershell Add-Pssnapin).
 
+En el resultado, compruebe la siguiente configuración:
+	
+	AutoCertificateRollover :True
+
 Compruebe que se puede obtener acceso públicamente a los metadatos de federación, desplácese hasta la siguiente dirección URL desde un equipo de la red de Internet pública (fuera de la red corporativa):
 
 
@@ -51,7 +55,10 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 donde `(your_FS_name) ` se reemplaza por el nombre de host de servicio de federación que usa su organización, por ejemplo, fs.contoso.com. Si es capaz de comprobar ambos de estos valores correctamente, no tiene que hacer nada más.
 
-Ejemplo: https://fs.contos.com/federationmetadata/2007-06/federationmetadata.xml
+Ejemplo: https://fs.contospocom/federationmetadata/2007-06/federationmetadata.xml
+
+## Si decide actualizar el certificado manualmente
+Siempre que actualice manualmente los certificados de AD FS, debe actualizar el dominio de Office 365 con el comando de PowerShell Update-MsolFederatedDomain como se muestra en los pasos de actualización manual de las propiedades de confianza de federación de Office 365 en la sección [aquí](#if-your-metadata-is-not-publicly-accessible)
 
 ## Si la propiedad AutoCertificateRollover está establecida en False
 
@@ -77,9 +84,11 @@ Si el valor de AutocertificateRollover es True, pero los metadatos de federació
 - Para generar un nuevo certificado, ejecute el siguiente comando en un símbolo del sistema de PowerShell: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
 
 - Compruebe la actualización ejecutando de nuevo el comando siguiente: PS C:\>Get-ADFSCertificate –CertificateType token-signing
+	- Ahora deben aparecer dos certificados, uno de los cuales tiene una fecha de NotAfter de aproximadamente un año en el futuro y para el que el valor de IsPrimary es False.
+
 - A continuación, para actualizar manualmente las propiedades de confianza de federación de Office 365, siga estos pasos.
 
-Ahora deben aparecer dos certificados, uno de los cuales tiene una fecha de NotAfter de aproximadamente un año en el futuro y para el que el valor de IsPrimary es False.
+
 
 
 ### Para actualizar manualmente las propiedades de confianza de federación de Office 365, siga estos pasos.
@@ -92,4 +101,4 @@ Ahora deben aparecer dos certificados, uno de los cuales tiene una fecha de NotA
 
 >[AZURE.NOTE] Si necesita admitir varios dominios de nivel superior, por ejemplo, contoso.com y fabrikam.com, debe utilizar el modificador SupportMultipleDomain con cualquier cmdlet. Para obtener más información, vea Compatibilidad con varios dominios de nivel superior. Por último, compruebe que todos los servidores proxy de aplicación web se actualizan con el paquete acumulativo de [Windows Server de mayo de 2014](http://support.microsoft.com/kb/2955164). De lo contrario, es posible que los servidores proxy no se actualicen con el nuevo certificado y se produzca una interrupción del sistema.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

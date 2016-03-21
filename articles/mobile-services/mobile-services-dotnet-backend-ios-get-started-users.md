@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/05/2016"
 	ms.author="krisragh"/>
 
 # Incorporación de autenticación a una aplicación de Servicios móviles de Azure existente
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
-
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Incorporación de la autenticación a la aplicación iOS](../app-service-mobile/app-service-mobile-ios-get-started-users.md).
+ 
 En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades admitido. Este tutorial está basado en el [Tutorial de introducción a Servicios móviles], que debe completar primero.
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
@@ -67,4 +67,4 @@ En el siguiente tutorial, [Autorización en el servicio de usuarios de Servicios
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

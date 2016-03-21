@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/07/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -28,46 +28,47 @@ El kit de herramientas de Azure para Eclipse ofrece plantillas y funciones que p
 
 Los artículos siguientes le ayudarán a empezar a usar el kit de herramientas de Azure para Eclipse:
 
-* [Novedades del kit de herramientas de Azure para Eclipse][]
-* [Instalación del Kit de herramientas de Azure para Eclipse][]
-* [Creación de una aplicación Hola a todos para Azure en Eclipse][]
-* [Mostrar el contenido de Javadoc en Eclipse para el paquete para bibliotecas de Azure para Java][]
+* [Novedades del kit de herramientas de Azure para Eclipse]
+* [Instalación del Kit de herramientas de Azure para Eclipse]
+* [Creación de una aplicación Hola a todos para Azure en Eclipse]
+* [Creación de una aplicación web Hello World para Azure en Eclipse]
+* [Mostrar el contenido de Javadoc en Eclipse para el paquete para bibliotecas de Azure para Java]
 
 ## Configuración del proyecto de Azure ##
 
 En los artículos siguientes se muestra cómo usar el Kit de herramientas de Azure para Eclipse para configurar opciones para los proyectos de Azure:
 
-* [Propiedades del proyecto de Azure][]
-* [Propiedades de roles de Azure][]
-* [Puntos de conexión de servicio de Azure][]
-* [Lista de cuentas de almacenamiento de Azure][]
-* [Habilitar la afinidad de la sesión][]
-* [Habilitación del acceso remoto para implementaciones de Azure en Eclipse][]
+* [Propiedades del proyecto de Azure]
+* [Propiedades de roles de Azure]
+* [Puntos de conexión de servicio de Azure]
+* [Lista de cuentas de almacenamiento de Azure]
+* [Habilitar la afinidad de la sesión]
+* [Habilitación del acceso remoto para implementaciones de Azure en Eclipse]
 
 ## Uso del kit de herramientas de Azure para Eclipse ##
 
 En los artículos siguientes se muestra cómo usar el Kit de herramientas de Azure para Eclipse para agregar funcionalidad de Azure a sus proyectos de Java:
 
-* [Cómo usar el almacenamiento en caché colocado][]
-* [Cómo usar el almacenamiento en caché dedicado][]
-* [Implementación de implementaciones de gran tamaño][]
-* [Uso la biblioteca de tiempo de ejecución del servicio de Azure en JSP][]
-* [Depuración de aplicaciones de Azure en Eclipse][]
-* [Descarga SSL][]
-* [Cómo usar la descarga SSL][]
-* [Cómo mantener los datos de sesión con afinidad de sesión][]
-* [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][]
-* [Cómo usar JMS con AMQP 1.0 en Azure con Eclipse][]
+* [Cómo usar el almacenamiento en caché colocado]
+* [Cómo usar el almacenamiento en caché dedicado]
+* [Implementación de implementaciones de gran tamaño]
+* [Uso la biblioteca de tiempo de ejecución del servicio de Azure en JSP]
+* [Depuración de aplicaciones de Azure en Eclipse]
+* [Descarga SSL]
+* [Cómo usar la descarga SSL]
+* [Cómo mantener los datos de sesión con afinidad de sesión]
+* [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse]
+* [Cómo usar JMS con AMQP 1.0 en Azure con Eclipse]
 
 ## Otras referencias ##
 
-[Instalación del Kit de herramientas de Azure para Eclipse][]
+[Instalación del Kit de herramientas de Azure para Eclipse]
 
-[Creación de una aplicación Hola a todos para Azure en Eclipse][]
+[Creación de una aplicación Hola a todos para Azure en Eclipse]
 
-[Novedades del kit de herramientas de Azure para Eclipse][]
+[Novedades del kit de herramientas de Azure para Eclipse]
 
-Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure][].
+Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
 
 <!-- URL List -->
 
@@ -77,6 +78,7 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Puntos de conexión de servicio de Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Lista de cuentas de almacenamiento de Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Creación de una aplicación Hola a todos para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Creación de una aplicación web Hello World para Azure en Eclipse]: ./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md
 [Depuración de aplicaciones de Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Implementación de implementaciones de gran tamaño]: http://go.microsoft.com/fwlink/?LinkID=699536
 [Mostrar el contenido de Javadoc en Eclipse para el paquete para bibliotecas de Azure para Java]: http://go.microsoft.com/fwlink/?LinkID=699537
@@ -93,4 +95,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Uso la biblioteca de tiempo de ejecución del servicio de Azure en JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Novedades del kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

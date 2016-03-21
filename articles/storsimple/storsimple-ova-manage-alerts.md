@@ -3,7 +3,7 @@
    description="Describe las condiciones de alerta y gravedad de la matriz virtual de StorSimple y cómo usar el servicio Administrador de StorSimple para administrar las alertas."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Uso del servicio de Administrador de StorSimple para ver y administrar alertas para la matriz virtual de StorSimple (vista previa)
+# Uso del servicio de Administrador de StorSimple para ver y administrar alertas para la matriz virtual de StorSimple
 
 ## Información general
 
@@ -31,7 +31,7 @@ Puede elegir si desea recibir una notificación por correo electrónico de las c
 
 >[AZURE.NOTE] Puede escribir un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
 
-Después de habilitar la notificación por correo electrónico para un dispositivo virtual, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde **storsimple-alerts-noreply@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
+Después de habilitar la notificación por correo electrónico para un dispositivo virtual, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde *storsimple-alerts-noreply@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
 
 #### Para habilitar la notificación de alertas por correo electrónico de un dispositivo virtual
 
@@ -141,25 +141,12 @@ Las siguientes tablas enumeran algunas de las alertas de Microsoft Azure StorSim
 |:---|:---|:---|
 |El dispositivo *<device name>* no está conectado a la nube.|No se puede conectar el dispositivo con nombre con la nube. |No se puede conectar con la nube. Esto puede deberse a uno de los siguientes motivos:<ul><li>Puede haber un problema con la configuración de red en el dispositivo.</li><li>Puede haber un problema con las credenciales de la cuenta de almacenamiento.</li></ul>Para obtener más información sobre cómo solucionar problemas de conectividad, vaya a la [interfaz de usuario web local](storsimple-ova-web-ui-admin.md) del dispositivo.|
 
-#### Comportamiento de StorSimple cuando se produce un error de conectividad de la nube
-
-¿Qué sucede si se produce un error de conectividad de la nube para mi dispositivo StorSimple que se ejecuta en producción?
-
-Si se produce un error en la conectividad de la nube en el dispositivo de producción de StorSimple, según el estado del dispositivo, puede ocurrir lo siguiente:
-
-- **Para los datos locales en el dispositivo**: durante algún tiempo, no se producirá ninguna interrupción y las lecturas se seguirán atendiendo. Sin embargo, cuando el número de operaciones de E/S pendientes aumenta y excede el límite, las lecturas pueden comenzar a fallar. 
-
-	Según la cantidad de datos en el dispositivo, las escrituras seguirán también produciéndose en las primeras horas después de la interrupción de la conectividad de la nube. Las escrituras se ralentizarán y finalmente comenzarán a fallar si se interrumpe la conectividad de la nube durante varias horas. Hay almacenamiento temporal en el dispositivo para los datos que se van a insertar en la nube. Este área se vacía cuando se envían los datos. Si se produce un error en la conectividad, los datos de este área de almacenamiento no se insertarán en la nube y se producirá un error de E/S.
- 
-- **Para los datos en la nube**: en la mayoría de los errores de conectividad de la nube, se devuelve un error. Una vez restaurada la conectividad, se reanudarán las operaciones de E/S sin que el usuario tiene que incorporar el volumen en línea. En raras ocasiones, podría ser necesaria la intervención del usuario para recuperar el volumen en línea desde el Portal de Azure clásico.
- 
-- **Para las instantáneas de nube en curso**: la operación se reintenta varias veces en 4 o 5 horas y, si no se restaura la conectividad, se produce un error en las instantáneas de nube.
 
 ### Alertas de configuración
 
 |Texto de la alerta|Evento|Más información / acciones recomendadas|
 |:---|:---|:---|
-|Configuración del dispositivo virtual local no admitida.|Rendimiento lento.|La configuración actual puede provocar una degradación del rendimiento. Asegúrese de que el servidor cumple los requisitos mínimos de configuración. Para obtener más información, consulte [Requisitos de la matriz virtual de StorSimple](storsimple-ova-system-requirements.md). 
+|Configuración del dispositivo virtual local no admitida.|Rendimiento lento.|La configuración actual puede provocar una degradación del rendimiento. Asegúrese de que el servidor cumple los requisitos mínimos de configuración. Para más información, vea [Requisitos de la matriz virtual de StorSimple](storsimple-ova-system-requirements.md). 
 |Se está quedando sin espacio en disco de aprovisionamiento en <*nombre de dispositivo*>.|Advertencia de espacio en disco.|Se está agotando el espacio en disco de aprovisionamiento. Para liberar espacio, considere la posibilidad de mover cargas de trabajo a otro volumen o recurso compartido o eliminar datos.
 
 ### Alertas de errores de trabajo
@@ -195,4 +182,4 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 
 - [Obtenga más información sobre la matriz virtual de StorSimple](storsimple-ova-overview.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

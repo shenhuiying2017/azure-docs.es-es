@@ -30,4 +30,4 @@ Para crear una etiqueta DNS, primero seleccione **Máquinas virtuales** en el po
 
 	![conexión ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0309_2016-->

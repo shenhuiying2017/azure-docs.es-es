@@ -16,7 +16,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
@@ -67,4 +67,4 @@ Los sondeos personalizados permiten un control más específico sobre la supervi
 
 Como ya ha aprendido sobre la supervisión de estado de la puerta de enlace de aplicaciones, puede configurar un [sondeo de estado personalizado](application-gateway-create-probe-ps.md) para el Administrador de recursos de Azure o un [sondeo de estado personalizado](application-gateway-create-probe-classic-ps.md) para el modelo de implementación clásica de Azure.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

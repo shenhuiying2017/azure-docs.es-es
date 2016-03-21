@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 
@@ -22,7 +22,7 @@
 
 Se puede implementar una aplicación en paquete en el entorno de ensayo de Azure para probarla antes de que pase al entorno de producción, lugar desde el que se podrá obtener acceso a la aplicación por Internet. El entorno de ensayo es exactamente igual al entorno de producción, salvo que solo puede tener acceso a la aplicación de ensayo con una URL confusa que se genera mediante Azure. Una vez que haya comprobado que la aplicación funciona correctamente, se puede implementar en el entorno de producción mediante un intercambio de IP virtual (VIP).
 
-> [AZURE.NOTE]Los pasos descritos en este artículo solo se aplican a las aplicaciones Node hospedadas como un servicio en la nube de Azure.
+> [AZURE.NOTE] Los pasos descritos en este artículo solo se aplican a las aplicaciones Node hospedadas como un servicio en la nube de Azure.
 
 ## Paso 1: realizar el ensayo de una aplicación
 
@@ -52,7 +52,7 @@ Ahora puede comprobar que la aplicación funciona correctamente en el entorno de
 
 Una vez que haya comprobado la versión de actualización de una aplicación en el entorno de ensayo, puede hacer que esté disponible rápidamente en producción mediante el intercambio de las IP virtuales (VIP) de los entornos de ensayo y producción.
 
-> [AZURE.NOTE]En este paso se supone que ya ha implementado una aplicación en producción y que ha almacenado provisionalmente la versión actualizada de la aplicación.
+> [AZURE.NOTE] En este paso se supone que ya ha implementado una aplicación en producción y que ha almacenado provisionalmente la versión actualizada de la aplicación.
 
 1.  Inicie sesión en el [Portal de Azure clásico], haga clic en **Servicios en la nube**, y, a continuación, seleccione el nombre del servicio.
 
@@ -75,4 +75,4 @@ Ha realizado correctamente el ensayo de la implementación y la actualización d
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Implementación de una actualización de servicio en producción intercambiando las VIP en Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

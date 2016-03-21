@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-- [Azure CLI](cache-manage-cli.md)
+- [CLI de Azure](cache-manage-cli.md)
 
 Este tema muestra cómo realizar tareas comunes, como crear, actualizar y escalar las instancias de caché en Redis de Azure, cómo volver a generar las claves de acceso y cómo ver información acerca de las memorias caché. Para obtener una lista completa de cmdlets de PowerShell de caché en Redis de Azure, consulte [Azure Redis Cache cmdlets](https://msdn.microsoft.com/library/azure/mt634513.aspx).
 
@@ -81,7 +81,7 @@ Para crear una memoria caché en la nube de Azure Government, utilice una de las
 -	USGov Virginia
 -	USGov Iowa
 
-Para obtener más información acerca de la nube de Azure Government, consulte [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) y la [Guía para desarrolladores de Microsoft Azure Government](azure-government-developer-guide.md).
+Para obtener más información acerca de la nube de Azure Government, consulte [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) y la [Guía para desarrolladores de Microsoft Azure Government](../azure-government-developer-guide.md).
 
 ### Para conectarse a la nube de China de Azure
 
@@ -292,7 +292,7 @@ Se puede usar `Set-AzureRmRedisCache` para escalar una instancia de caché en Re
 >-	No puede escalar a una memoria caché de nivel **Premium** o desde esta.
 >-	No puede escalar desde una memoria caché **Estándar** a una **Básica**.
 >-	Puede escalar desde una memoria caché **Basic** a una memoria caché **Standard**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
->-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
+>-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
 >
 >Para más información, vea [Escalado de caché en Redis de Azure](cache-how-to-scale.md).
 
@@ -609,4 +609,4 @@ Para obtener más información acerca de Windows PowerShell con Azure, consulte 
 - [Blog de Windows PowerShell](http://blogs.msdn.com/powershell): obtenga información acerca de las nuevas características de Windows PowerShell.
 - [Blog ¡Hola, chicos del scripting!](http://blogs.technet.com/b/heyscriptingguy/): Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

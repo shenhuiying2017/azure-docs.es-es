@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
 # Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
@@ -61,7 +61,7 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 5. En el cuadro de diálogo siguiente **Configuración de la máquina virtual**:
     1. En **Servicio en la nube**, use el valor predeterminado: **Crear un nuevo servicio en la nube**.
     2. El valor de **Nombre DNS de servicio** en la nube debe ser exclusivo en cloudapp.net. Si es necesario, modifique este valor para que Azure indique que es exclusivo.
-    2. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU**.
+    2. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU**.
     2. En **Cuenta de almacenamiento**, seleccione **Usar una cuenta de almacenamiento generada automáticamente**.
     3. En **Conjunto de disponibilidad**, seleccione **(Ninguno)**.
     4. Haga clic en **Siguiente**.
@@ -521,4 +521,4 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

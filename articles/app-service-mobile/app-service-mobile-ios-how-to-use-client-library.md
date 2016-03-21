@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/07/2016"
 	ms.author="krisragh"/>
 
 # Uso de la biblioteca de cliente de iOS para Aplicaciones móviles de Azure
@@ -154,7 +154,13 @@ let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
-`MSQuery` le permite controlar varios comportamientos de consulta, incluidos los siguientes. Ejecutar una consulta `MSQuery` llamando a `readWithCompletion` en ella, como se muestra en el ejemplo siguiente. * Especificar el orden de los resultados * Limitar los campos que desea devolver * Limitar el número de registros a devolver * Especificar el recuento total de la respuesta * Especificar parámetros de cadena de consulta personalizados en la solicitud * Aplicar funciones adicionales
+`MSQuery` le permite controlar varios comportamientos de consulta, incluidos los siguientes. Ejecutar una consulta `MSQuery` llamando a `readWithCompletion` en él, tal como se muestra en el ejemplo siguiente.
+* Especificar el orden de los resultados
+* Limitar qué campos se devuelven
+* Limitar el número de registros que se devolverán
+* Especificar el recuento total en la respuesta
+* Especificar parámetros de la cadena de consulta personalizados en la solicitud
+* Aplicar funciones adicionales
 
 
 ## <a name="sorting"></a>Ordenación de datos con MSQuery
@@ -204,7 +210,7 @@ Para limitar los campos que se devolverán en una consulta, especifique los nomb
 query.selectFields = @[@"text", @"complete"];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```
 query.selectFields = ["text", "complete"]
@@ -221,7 +227,7 @@ query.parameters = @{
 };
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
@@ -248,7 +254,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
@@ -279,7 +285,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```
 if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
@@ -338,7 +344,7 @@ Para eliminar un elemento, invoque `delete` con el elemento:
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```
 table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
@@ -378,6 +384,48 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 Como mínimo, el atributo `id` debe establecerse a la hora de efectuar eliminaciones.
 
+##<a name="customapi"></a>Llamada a una API personalizada
+
+Con una API personalizada, puede exponer cualquier funcionalidad de back-end. No necesita asignar a una operación de tabla. No solo obtendrá más control sobre la mensajería, también podrá leer o establecer encabezados y cambiar el formato del cuerpo de la respuesta. Para aprender cómo crear una API personalizada en el back-end, lea [API personalizadas](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis).
+
+Para llamar a una API personalizada, llame a `MSClient.invokeAPI`, como se muestra a continuación. El contenido de la solicitud y la respuesta se tratan como JSON. Para utilizar otros tipos de medios, [use la otra sobrecarga de `invokeAPI`](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:).
+
+Para realizar una solicitud `GET` en lugar de una solicitud `POST`, establezca el parámetro `HTTPMethod` en `"GET"` y el parámetro `body` en `nil` (puesto que las solicitudes GET no tienen cuerpos de mensaje). Si la API personalizada es compatible con otros verbos HTTP, cambie `HTTPMethod` de acuerdo a ello.
+
+**Objective-C**:
+```
+    [self.client invokeAPI:@"sendEmail"
+                      body:@{ @"contents": @"Hello world!" }
+                HTTPMethod:@"POST"
+                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+                   headers:nil
+                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                    if(error) {
+                        NSLog(@"ERROR %@", error);
+                    } else {
+                        // Do something with result
+                    }
+                }];
+```
+
+**Swift**:
+
+```
+client.invokeAPI("sendEmail",
+            body: [ "contents": "Hello World" ],
+            HTTPMethod: "POST",
+            parameters: [ "to": "bill@contoso.com", "subject" : "Hi!" ],
+            headers: nil)
+            {
+                (result, response, error) -> Void in
+                if let err = error {
+                    print("ERROR ", err)
+                } else if let res = result {
+                          // Do something with result
+                }
+        }
+```
+
 ##<a name="templates"></a>Procedimiento: Registro de plantillas push para enviar notificaciones entre plataformas
 
 Para registrar plantillas, basta con pasar las plantillas con el método **client.push registerDeviceToken** en la aplicación cliente.
@@ -410,7 +458,7 @@ Las plantillas serán de tipo NSDictionary y pueden contener varias plantillas c
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
@@ -424,7 +472,7 @@ Para enviar notificaciones mediante estas plantillas registradas, trabaje con [A
 
 Al realizar una llamada a un servicio móvil, el bloque de finalización contiene un parámetro `NSError`. En caso de producirse un error, este parámetro no será nulo. En su código, debe marcar este parámetro y administrar el error según sea necesario, como se muestra en los fragmentos de código anteriores.
 
-El archivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) define las constantes `MSErrorResponseKey`, `MSErrorRequestKey` y `MSErrorServerItemKey` para obtener más datos relacionados con el error, que se pueden obtener de la siguiente manera:
+El archivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) define las constantes `MSErrorResponseKey`, `MSErrorRequestKey` y `MSErrorServerItemKey` para conseguir más datos relacionados con el error, que se pueden obtener de la siguiente manera:
 
 **Objective-C**:
 
@@ -432,7 +480,7 @@ El archivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```
 let serverItem = error.userInfo[MSErrorServerItemKey]
@@ -446,7 +494,7 @@ Además, el archivo define constantes para cada código de error, que se pueden 
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```
 if (error.code == MSErrorPreconditionFailed) {
@@ -456,9 +504,9 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Con frecuencia, esta opción es preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia UX más nativa y permite personalizaciones adicionales.
 
-1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa. Para iOS, se recomienda (aunque no es obligatorio) que el URI de redirección tenga el formato `<app-scheme>://<bundle-id>`. Para obtener más detalles, consulte el [inicio rápido de iOS para ADAL](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
+1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa. Para iOS, se recomienda (aunque no es obligatorio) que el URI de redirección tenga el formato `<app-scheme>://<bundle-id>`. Para más detalles, consulte el [inicio rápido de iOS para ADAL](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
 
-2. Instale ADAL mediante Cocoapods. Edite el perfil para incluir lo siguiente, sustituyendo **YOUR-PROJECT** por el nombre de su proyecto de Xcode:
+2. Instale ADAL mediante Cocoapods. Edite el podfile para incluir lo siguiente; sustituya **YOUR-PROJECT** por el nombre de su proyecto de Xcode:
 
 		source 'https://github.com/CocoaPods/Specs.git'
 		link_with ['YOUR-PROJECT']
@@ -467,7 +515,7 @@ y el POD:
 
 		pod 'ADALiOS'
 
-3. Mediante el Terminal, ejecute `pod install` desde el directorio que contiene el proyecto y, a continuación, abra el área de trabajo del Xcode generado (no el proyecto).
+3. Mediante el Terminal, ejecute `pod install` desde el directorio que contiene el proyecto y abra el área de trabajo del Xcode generado (no el proyecto).
 
 4. Agregue el siguiente código a la aplicación, según el lenguaje que esté utilizando. En cada caso, realice las sustituciones siguientes:
 
@@ -514,7 +562,7 @@ y el POD:
 	}
 
 
-**SWIFT**:
+**Swift**:
 
 	// add the following imports to your bridging header:
 	//     #import <ADALiOS/ADAuthenticationContext.h>
@@ -592,4 +640,4 @@ y el POD:
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

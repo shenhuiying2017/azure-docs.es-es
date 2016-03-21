@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
@@ -45,14 +45,14 @@ En primer lugar, empezaremos con la creación de un proyecto Java.
 * En la vista del explorador de proyectos de Eclipse, expanda **MyHelloWorld**. Haga clic con el botón secundario en **WebContent**, luego haga clic en **Nuevo** y, a continuación, en **JSP File**.
 * En el cuadro de diálogo **Nuevo archivo JSP**, asigne al archivo el nombre **index.jsp**. Mantenga la carpeta principal como **MyHelloWorld/WebContent**, tal como aparece a continuación:
 
-    ![][ic659262]
+    ![][ic659262].
 * En el cuadro de diálogo **Seleccionar plantilla JSP**, para este tutorial, seleccione **Nuevo archivo JSP (html)** y haga clic en **Finalizar**.
 * Cuando el archivo index.jsp se abra en Eclipse, agregue texto para que se muestre dinámicamente **Hola a todos** dentro del elemento `<body>` existente. Su contenido de `<body>` actualizado debería aparecer de la siguiente manera:
 ```
     <body>
     <b><% out.println("Hello World!"); %></b>
     </body>
-```.
+```
 * Guarde el archivo index.jsp.
 
 ## Para implementar de forma rápida y sencilla la aplicación en Azure ##
@@ -94,7 +94,7 @@ Dado que se trata de una implementación en un entorno de ensayo, el nombre DNS 
 
 Aunque este tutorial era para una implementación en el entorno de ensayo, una implementación en producción sigue los mismos pasos, excepto en el cuadro de diálogo **Publicar en Azure**, seleccione **Producción** en lugar de **Ensayo** para el **Entorno de destino**. Una implementación de producción genera una dirección URL basada en el nombre DNS que elija, en lugar de un GUID como se usa para el ensayo.
 
->[AZURE.WARNING]En este momento, ha implementado la aplicación de Azure en la nube. Sin embargo, antes de continuar, tenga en cuenta que una aplicación implementada, incluso si no se está ejecutando, seguirá a acumulando tiempo facturable para su suscripción. Por lo tanto, es muy importante que elimine las implementaciones no deseadas de su suscripción de Azure.
+>[AZURE.WARNING] En este momento, ha implementado la aplicación de Azure en la nube. Sin embargo, antes de continuar, tenga en cuenta que una aplicación implementada, incluso si no se está ejecutando, seguirá a acumulando tiempo facturable para su suscripción. Por lo tanto, es muy importante que elimine las implementaciones no deseadas de su suscripción de Azure.
 
 ## Acerca de los proyectos de implementación de Azure ##
 
@@ -123,7 +123,7 @@ Independientemente de si inició estos pasos de configuración del servidor medi
 
 ## Solo Windows: para implementar la aplicación en el emulador de proceso ##
 
->[AZURE.NOTE]El emulador de Azure solo está disponible en Windows. Omita esta sección si usa un sistema operativo distinto de Windows.
+>[AZURE.NOTE] El emulador de Azure solo está disponible en Windows. Omita esta sección si usa un sistema operativo distinto de Windows.
 
 Si ha creado un nuevo proyecto de implementación de Azure siguiendo los pasos descritos anteriormente, es decir, implícitamente, mediante la publicación de la aplicación en Azure, el JDK y los servidores de aplicaciones se configuraron para la nube, pero no para la emulación local. Para preparar el proyecto para la prueba en el emulador local, siga estos pasos:
 
@@ -194,4 +194,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

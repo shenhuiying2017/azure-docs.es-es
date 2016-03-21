@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/04/2016"
+   ms.date="03/04/2016"
    ms.author="alkohli"/>
 
 # Software de StorSimple, alta disponibilidad y requisitos de red
@@ -36,7 +36,7 @@ Los siguientes requisitos de software son para los clientes de almacenamiento qu
 | Sistemas operativos compatibles | Versión requerida | Requisitos/notas adicionales |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008R2 SP1, 2012, 2012R2 |Se admiten volúmenes iSCSI de StorSimple para utilizarlos exclusivamente en los siguientes tipos de discos de Windows:<ul><li>Volumen simple en disco básico</li><li>Volumen simple y reflejado en disco dinámico</li></ul>Se admiten el aprovisionamiento fino de Windows Server 2012 y las características ODX si usa un volumen iSCSI de StorSimple.<br><br>StorSimple puede crear volúmenes con aprovisionamiento fino y totalmente aprovisionados. No puede crear volúmenes de aprovisionamiento parcial.<br><br>El proceso de volver a formatear un volumen con aprovisionamiento fino puede tardar mucho tiempo en completarse. Se recomienda eliminar el volumen y luego crear uno nuevo en lugar de volverlo a formatear. Sin embargo, si aun así prefiere volver a formatear un volumen:<ul><li>Ejecute el siguiente comando antes de volver a formatearlo para evitar retrasos de recuperación de espacio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Después de finalizar el formato, use el siguiente comando para volver a habilitar la recuperación de espacio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique la revisión de Windows Server 2012 al equipo de Windows Server, como se describe en el artículo de KB [2878635](https://support.microsoft.com/kb/2870270).</li></ul></li></ul></ul> Si va a configurar Snapshot Manager de StorSimple o el Adaptador de StorSimple para SharePoint, vaya a los [requisitos de software para ver los componentes opcionales](#software-requirements-for-optional-components).|
-| VMWare ESX | 5\.1 y 5.5 | Admitido con VMware vSphere como cliente iSCSI La característica VAAI-block se admite con VMware vSphere en dispositivos de StorSimple. 
+| VMWare ESX | 5\.1, 5.5 y 6.0 | Admitido con VMware vSphere como cliente iSCSI La característica VAAI-block se admite con VMware vSphere en dispositivos de StorSimple. 
 | Linux RHEL/CentOS | 5 y 6 | Compatibilidad con clientes iSCSI de Linux con versiones del iniciador Open-iSCSI 5 y 6. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX no es compatible actualmente con StorSimple.
@@ -155,7 +155,7 @@ Además de los requisitos de redes anteriores, para obtener un rendimiento ópti
 
 - Aísle el tráfico iSCSI y de la nube mediante interfaces de red específicas en el dispositivo para el acceso a iSCSI y a la nube. Para obtener más información, consulte cómo [modificar interfaces de red](storsimple-modify-device-config.md#modify-network-interfaces) en el dispositivo de StorSimple.
 
-- No utilice una configuración de protocolo de agregación de vínculos (LACP) para las interfaces de red. Se trata de una configuración no admitida.
+- No utilice una configuración de Protocolo de control de adición de enlaces (LACP) para las interfaces de red. Se trata de una configuración no admitida.
 
 
 ## Requisitos de alta disponibilidad para StorSimple
@@ -261,4 +261,4 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

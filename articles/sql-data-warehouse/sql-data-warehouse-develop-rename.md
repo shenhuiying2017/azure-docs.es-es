@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Cambio de nombre en el Almacenamiento de datos SQL
@@ -26,7 +26,6 @@ Actualmente, solo puede cambiarse el nombre de tablas. La sintaxis para cambiar 
 ```
 RENAME OBJECT Customer TO NewCustomer;
 ```
-
 
 Al cambiar el nombre de una tabla, se actualizan todos los objetos y las propiedades asociados a la tabla para hacer referencia al nuevo nombre de la tabla. Por ejemplo, se actualizan las definiciones, los índices, las restricciones y los permisos de la tabla. Las vistas no se actualizan.
 
@@ -54,4 +53,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Article references-->
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

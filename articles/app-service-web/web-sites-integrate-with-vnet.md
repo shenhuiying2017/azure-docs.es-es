@@ -20,14 +20,19 @@
 
 En este documento, se describe la característica Integración con redes virtuales del Servicio de aplicaciones de Azure y se muestra cómo configurarla con aplicaciones en el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Si no conoce las redes virtuales de Azure, se trata de una funcionalidad que le permite colocar muchos de sus recursos de Azure en una red no enrutable sin conexión a Internet cuyo acceso controla. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para aprender más acerca de las redes virtuales de Azure, empiece aquí: [Información general sobre redes virtuales][VNETOverview].
 
-El Servicio de aplicaciones de Azure adopta dos formas. La primera, y la más habitual, es la de aquellos sistemas de varios inquilinos que admiten la gama completa de planes de precios. La segunda es la característica premium Entorno del Servicio de aplicaciones (ASE), que se implementa en la red virtual de un cliente. Con un entorno del Servicio de aplicaciones, normalmente no necesitará usar Integración con redes virtuales, porque el sistema ya está en la red virtual y tiene acceso a todos los recursos de esa red virtual. La única razón por la que aún usaría la característica Integración con redes virtuales con un ASE es si desea acceder a recursos de otra red virtual que no esté conectada a la red virtual que hospeda su ASE.
+El Servicio de aplicaciones de Azure adopta dos formas.
+
+1. Los sistemas multiinquilino que admiten la gama completa de planes de precios.
+1. La característica premium Entorno del Servicio de aplicaciones (ASE), que se implementa en su red virtual.  
+
+En este artículo no se explica cómo poner un ASE en una red virtual de V2. Esa posibilidad aún no está admitida y no está relacionada con este artículo. Este artículo trata sobre la habilitación de las aplicaciones para consumir los recursos de una red virtual V1 o V2.
 
 Integración con redes virtuales ofrece a su aplicación web acceso a los recursos de su red virtual, pero no concede acceso privado a su aplicación web desde la red virtual. Un escenario habitual en el que usaría esta característica es para permitir que su aplicación web acceda a una base de datos o a servicios web que se ejecutan en una máquina virtual de la red virtual de Azure. Con Integración con redes virtuales, no es necesario exponer un punto de conexión público para las aplicaciones en su máquina virtual, sino que puede usar las direcciones privadas no enrutables sin conexión a Internet en su lugar.
 
 La característica Integración con redes virtuales:
 
 - requiere un plan de precios Premium o Estándar; 
-- actualmente solo funciona con redes virtuales V1 o clásicas; 
+- funcionará con la red virtual V1(Clásica) o V2(Administrador de recursos) 
 - es compatible con TCP y UDP;
 - funciona con aplicaciones web, móviles y de API;
 - permite que una aplicación se conecte solo a una red virtual a la vez;
@@ -66,28 +71,41 @@ Si la aplicación no pertenece al plan de precios correcto, la interfaz de usuar
 ![][1]
  
 ###Habilitación de Integración con redes virtuales con una red virtual existente###
-La interfaz de usuario de Integración con redes virtuales permite seleccionar en una lista de redes virtuales V1. En la imagen siguiente, se ve que solo se puede seleccionar una red virtual. Existen varias razones por las que una red virtual estará atenuada, entre otras:
+La interfaz de usuario de Integración con red virtual le permite seleccionar en una lista de redes virtuales. Las redes virtuales de V1 indicarán su pertenencia a esta clase con la palabra "Clásica" entre paréntesis junto al nombre de la red virtual. La lista está ordenada de tal forma que las redes virtuales de V2 se muestran primero. En la imagen siguiente, se ve que solo se puede seleccionar una red virtual. Existen varias razones por las que una red virtual estará atenuada, entre otras:
 
 - la red virtual pertenece a otra suscripción a la que su cuenta tiene acceso;
 - la red virtual no tiene la conectividad de punto a sitio habilitada;
 - la red virtual carece de puerta de enlace de enrutamiento dinámico.
 
-También merece la pena mencionar que, puesto que aún no se admite la integración con redes virtuales V2, estas no aparecen en la lista.
 
 ![][2]
 
 Para habilitar la integración, basta con hacer clic en la red virtual con la que se desee integrar la aplicación. Después de seleccionar la red virtual, la aplicación se reiniciará automáticamente para que los cambios surtan efecto.
 
-Si la red virtual carece de puerta de enlace o de conectividad de punto a sitio, primero debe configurarlas. Para hacerlo, vaya al Portal de Azure y muestre la lista de redes virtuales (clásicas). Desde aquí, haga clic en la red con la que desee integrar la aplicación y haga clic en el cuadro grande bajo Essentials llamado Conexiones VPN. Aquí puede crear la VPN de punto a sitio e incluso hacer que se cree una puerta de enlace. Después de completar la experiencia de creación de la conexión de punto a sitio y la puerta de enlace, pasarán unos 30 minutos hasta que todo esté listo.
+##### Habilitación de punto a sitio en una red virtual de V1 #####
+Si la red virtual carece de puerta de enlace o de conectividad de punto a sitio, primero debe configurarlas. Para hacer esto con una red virtual de V1, vaya al [Portal de Azure][AzurePortal] y muestre la lista de redes virtuales (clásicas). Desde aquí, haga clic en la red con la que desee integrar la aplicación y haga clic en el cuadro grande bajo Essentials llamado Conexiones VPN. Aquí puede crear la VPN de punto a sitio e incluso hacer que se cree una puerta de enlace. Después de completar la experiencia de creación de la conexión de punto a sitio y la puerta de enlace, pasarán unos 30 minutos hasta que todo esté listo.
 
 ![][8]
 
-### Creación de una red virtual e integración con ella ###
-Si desea crear una nueva red virtual, tenga en cuenta que actualmente solo podrá crear una red virtual V1 o clásica. Para crear una red virtual V1 mediante la experiencia de interfaz de usuario de Integración con redes virtuales, basta con que seleccione Crear una nueva red virtual y proporcione después el nombre que desee para la red virtual y su espacio de direcciones.
+##### Habilitación de punto a sitio en una red virtual de V2 #####
 
-Tenga en cuenta que, si desea que esta red virtual se conecte a cualquiera de sus otras redes, no debe elegir un espacio de direcciones IP que se solape con esas redes.
+Para configurar una red virtual de V2 con una puerta de enlace y una conexión de punto a sitio debe usar PowerShell tal como se describe aquí, [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell][V2VNETP2S]. La interfaz de usuario que debe realizar esta funcionalidad no está aún disponible.
 
->[AZURE.NOTE] La nueva red virtual puede tardar hasta 30 minutos en estar lista, incluidas las puertas de enlace operativas. La interfaz de usuario se actualizará cuando se complete.
+### Creación de una red virtual preconfigurada ###
+Si desea crear una nueva red virtual que esté configurada con una puerta de enlace y una conexión de punto a sitio, la interfaz de usuario de redes del Servicio de aplicaciones dispone de la funcionalidad para hacerlo, pero solo para una red virtual de V2. Si desea crear una red virtual de V1 con una puerta de enlace y conexión de punto a sitio, deberá hacerlo manualmente a través de la interfaz de usuario de redes.
+
+Para crear una red virtual de V2 a través de la interfaz de usuario de Integración con red virtual, simplemente seleccione **Crear una nueva red virtual** y proporcione:
+
+- El nombre de la red virtual
+- El bloque de direcciones de la red virtual
+- Nombre de subred
+- El bloque de direcciones de la subred
+- El bloque de direcciones de la puerta de enlace
+- El bloque de direcciones de la conexión de punto a sitio
+
+Si desea que esta red virtual se conecte a cualquiera de sus otras redes, no debe elegir un espacio de direcciones IP que se solape con esas redes.
+
+>[AZURE.NOTE] La creación de una red virtual de V2 con una puerta de enlace tardará unos 30 minutos y actualmente no integra la red virtual con la aplicación. Una vez creada la red virtual con la puerta de enlace debe volver a la interfaz de usuario de Integración con red virtual de la aplicación y seleccionar la nueva red virtual.
 
 ![][3]
 
@@ -109,7 +127,6 @@ Esta característica se basa en la tecnología de VPN de punto a sitio para cone
 ![][4]
  
 Si no ha configurado un servidor DNS con su red virtual, necesitará usar direcciones IP. Cuando use direcciones IP, recuerde que la principal ventaja de esta característica es que le permite usar las direcciones privadas dentro de la red privada. Si ha configurado la aplicación para que use direcciones IP públicas para una de las máquinas virtuales, no está usando la característica Integración con redes virtuales, sino que se está comunicando a través de Internet.
-
 
 
 ##Administración de las integraciones con redes virtuales##
@@ -156,7 +173,7 @@ Con respecto a las acciones, existen dos principales. La primera es la capacidad
 
 Una de las ventajas de la característica Integración con redes virtuales es que, si la red virtual está conectada a la red local con una VPN de sitio a sitio, las aplicaciones pueden acceder a los recursos locales desde su aplicación. Pero, para que esto funcione, puede que necesite actualizar la puerta de enlace de VPN local con las rutas de su intervalo de direcciones IP de punto a sitio. En la configuración inicial de la VPN de sitio a sitio, los scripts que se usan para configurarla deberían también configurar las rutas, incluida la VPN de punto a sitio. Si agrega la VPN de punto a sitio después de crear la VPN de sitio a sitio, deberá actualizar las rutas manualmente. El procedimiento variará según la puerta de enlace y no se describe aquí.
 
->[AZURE.NOTE] Aunque la característica Integración con redes virtuales funcionará con una VPN de sitio a sitio para acceder a los recursos locales, actualmente no funcionará con una VPN ExpressRoute para hacer lo mismo.
+>[AZURE.NOTE] Aunque la característica Integración con redes virtuales funcionará con una VPN de sitio a sitio para acceder a los recursos locales, actualmente no funcionará con una VPN ExpressRoute para hacer lo mismo. Esto ocurre cuando se integra con una red virtual de V1 o de V2. Si necesita tener acceso a recursos a través de una VPN de ExpressRoute puede utilizar un ASE que se pueda ejecutar en la red virtual.
 
 ##Detalles de precios##
 Hay algunos matices sobre los precios que se deben tener en cuenta al usar la característica Integración con redes virtuales. El uso de esta característica comporta tres cargos:
@@ -265,8 +282,10 @@ Además de las diferencias funcionales, existen también diferencias de precio. 
 
 <!--Links-->
 [VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/
+[AzurePortal]: http://portal.azure.com/
 [ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
+[V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
 	description="Explica cómo ver informes de acceso y uso para proporcionar visibilidad sobre la integridad y la seguridad del directorio de su organización."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
+	authors="dhanyahk"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="kenhoff;Justinha;curtand"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 
 # Visualización de los informes de acceso y uso
@@ -99,7 +99,15 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 ## Informes de actividades anómalas
 <p>Los informes de actividades anómalas de inicio de sesión marcan actividades de inicio de sesión sospechosos en Office365, en el Portal de administración de Azure, el Panel de acceso de Azure AD, Sharepoint Online, Dynamics CRM Online y otros servicios en línea de Microsoft.</p>
 <p>Todos estos informes, excepto el informe "Inicios de sesión tras varios errores", también marcan inicios de sesión <i>federados</i> sospechosos en los servicios mencionados anteriormente, independientemente del proveedor de federación. </p>
-<p>Están disponibles los siguientes informes: </p><ul> <li>[Inicios de sesión de orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuarios con actividad de inicio de sesión erróneo](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuarios con credenciales perdidas</li></ul>
+<p>Están disponibles los siguientes informes: </p><ul>
+<li>[Inicios de sesión de orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
+<li>[Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[Inicios de sesión desde varias zonas geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li>
+<li>[Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
+<li>[Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md).</li>
+<li>[Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
+<li>[Usuarios con actividad de inicio de sesión anómala](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>
+<li>Usuarios con credenciales perdidas</li></ul>
 
 
 
@@ -246,11 +254,11 @@ Si sospecha que una cuenta de usuario puede estar en peligro o que cualquier tip
 
 - Póngase en contacto con el usuario para comprobar la actividad.
 - Restablezca la contraseña del usuario.
-- [Habilite Multi-factor Authentication](multi-factor-authentication-get-started.md) para obtener seguridad adicional
+- [Habilite Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md) para obtener seguridad adicional
 
 ## Visualización o descarga de un informe
 
-1. En el Portal de administración de Azure, haga clic en **Active Directory**, haga clic en el nombre del directorio de la organización y, a continuación, haga clic en **Informes**.
+1. En el Portal de Azure clásico, haga clic en **Active Directory**, en el nombre del directorio de su organización y luego en **Informes**.
 2. En la página Informes, haga clic en el informe que desea ver o descargar.
 
     > [AZURE.NOTE] Si es la primera vez que se usa la característica de informes de Azure Active Directory, verá un mensaje para participar. Si está de acuerdo, haga clic en el icono de marca de verificación para continuar.
@@ -260,7 +268,7 @@ Si sospecha que una cuenta de usuario puede estar en peligro o que cualquier tip
     - Últimos 7 días
     - Últimos 30 días
 4. Haga clic en el icono de marca de verificación para ejecutar el informe.
-	- Se mostrarán hasta 1000 eventos en el Portal de administración de Azure.
+	- Se mostrarán hasta 1000 eventos en el Portal de Azure clásico.
 5. Si corresponde, haga clic en **Descargar** para descargar el informe en un archivo comprimido en formato de valores separados por comas (CSV) para verlo sin conexión o con fines de archivo.
 	- Hasta 75000 eventos se incluirán en el archivo descargado.
 	- Para ver más datos, consulte la [API de informes de Azure AD](active-directory-reporting-api-getting-started.md).
@@ -278,4 +286,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/13/2016"
+   ms.date="03/08/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop basados en Windows en HDInsight con el SDK de .NET
@@ -25,7 +25,9 @@
 Aprenda a crear clústeres de HDInsight con el SDK. NET. Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 
-###Requisitos previos:
+##Requisitos previos:
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
@@ -35,7 +37,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 ## Creación de clústeres
 El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan el trabajo con HDInsight desde una aplicación .NET Framework. Siga las instrucciones siguientes para crear una aplicación de consola de Visual Studio y pegar el código para crear un clúster.
 
-La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamiento predeterminada. En el [Anexo A](#appx-a-create-dependent-components) se proporciona un script de PowerShell para crear los componentes dependientes.
+La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamiento predeterminada. En el [Apéndice A](#appx-a-create-dependent-components) se proporciona un script de PowerShell para crear los componentes dependientes.
 
 **Para crear una aplicación de consola de Visual Studio**
 
@@ -225,4 +227,4 @@ Se puede usar el siguiente script de Azure PowerShell para crear los componentes
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

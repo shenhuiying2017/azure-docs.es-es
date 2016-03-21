@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="03/09/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
@@ -607,11 +607,11 @@ También puede crear un servicio vinculado de SQL Server mediante la hoja de Ser
 7.	En la hoja **Credenciales**, haga clic en la opción **Haga clic aquí para establecer las credenciales**.
 8.	En el cuadro de diálogo **Establecer credenciales**, realice lo siguiente:
 
-	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 
+	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
 	1.	Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 
 	2.	Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO**. 
-	3.	Escriba la contraseña para el usuario para el valor **CONTRASEÑA**. 
-	4.	Haga clic en **Aceptar** para cerrar el cuadro de diálogo.  
+	3.	Escriba la contraseña para el usuario para el valor **CONTRASEÑA**.  
+	4.	Haga clic en **Aceptar** para cerrar el cuadro de diálogo. 
 4. Haga clic en **Aceptar** para cerrar la hoja **Credenciales**. 
 5. Haga clic en **Aceptar** en la hoja **Nuevo almacén de datos**. 	
 6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados.
@@ -634,19 +634,17 @@ Hay otro enfoque para establecer las credenciales mediante el Editor de la Facto
 En esta sección se explica cómo crear y registrar una puerta de enlace usando cmdlets de Azure PowerShell.
 
 1. Inicie **Azure PowerShell** en modo de administrador. 
-2. Los cmdlets de Factoría de datos de Azure están disponibles en el modo **AzureResourceManager**. Ejecute el siguiente comando para cambiar al modo **AzureResourceManager**.     
+2. Inicie sesión en su cuenta de Azure ejecutando el siguiente comando y escribiendo sus credenciales de Azure. 
 
-        switch-azuremode AzureResourceManager
-
-
+	Login-AzureRmAccount
 2. Use el cmdlet **New-AzureRmDataFactoryGateway** para crear una puerta de enlace lógica como se indica a continuación:
 
-		New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+		$MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
 	**Ejemplo de comando y salida**:
 
 
-		PS C:\> New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -658,24 +656,18 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 		LastConnectTime   :
 		ExpiryTime        :
 		ProvisioningState : Succeeded
-
-
-3. Use el cmdlet **New-AzureRmDataFactoryGatewayKey** para generar una clave de registro para la puerta de enlace recién creada y almacene la clave en una variable local **$Key**:
-
-		New-AzureRmDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
-
-	
-	**Ejemplo de comando y salida:**
-
-
-		PS C:\> $Key = New-AzureRmDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
 
 	
 4. En Azure PowerShell, cambie a la carpeta **C:\\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado a la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su máquina con la puerta de enlace lógica que creó antes.
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
 		
 		Agent registration is successful!
+
+	Puede registrar la puerta de enlace en un equipo remoto mediante el parámetro IsRegisterOnRemoteMachine. Ejemplo:
+		
+		.\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
 
 5. Use el cmdlet **Get-AzureRmDataFactoryGateway** para obtener la lista de puertas de enlace de su factoría de datos. Cuando el **Estado** es **En línea**, significa que la puerta de enlace está lista para usarla.
 
@@ -683,12 +675,19 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 
 Puede quitar una puerta de enlace con el cmdlet **Remove-AzureRmDataFactoryGateway** y actualizar la descripción de una puerta de enlace con los cmdlets **Set-AzureRmDataFactoryGateway**. Para ver la sintaxis y otros detalles de estos cmdlets, consulte la documentación de referencia de los cmdlets de Factoría de datos.
 
+## Enumeración de puertas de enlace con PowerShell
+
+	Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
+
+## Eliminación de puerta de enlace con PowerShell
+	
+	Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force 
+
 
 ## Flujo de datos de copia mediante Data Management Gateway
 Al usar una actividad de copia en una canalización de datos para introducir datos locales en la nube para su posterior procesamiento, o bien exportar los datos de resultados en la nube de nuevo a un almacén de datos local, la actividad de copia usa internamente una puerta de enlace para transferir los datos de origen de un origen de datos local a la nube y viceversa.
 
-A continuación se muestra el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos:
-![Flujo de datos mediante la puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+A continuación se muestra el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos: ![Flujo de datos mediante la puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	El desarrollador de datos crea una nueva puerta de enlace para una Factoría de datos de Azure mediante el [Portal de Azure](https://portal.azure.com) o un [cmdlet de PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	El desarrollador de datos usa el panel "Servicios vinculado" para definir un nuevo servicio vinculado para un almacén de datos local con la puerta de enlace. Como parte de la configuración de los datos de servicios vinculados el desarrollador usa la aplicación Establecer credenciales, como se muestra en el tutorial paso a paso para especificar las credenciales y los tipos de autenticación. El cuadro de diálogo de la aplicación Establecer credenciales se comunicará con el almacén de datos para probar la conexión y la puerta de enlace para guardar las credenciales.
@@ -697,4 +696,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 5.	La puerta de enlace descifra las credenciales con el mismo certificado y, a continuación, se conecta al almacén de datos local con el tipo de autenticación adecuado.
 6.	La puerta de enlace copia datos desde el almacén local a un almacenamiento en la nube o desde un almacenamiento en la nube a un almacén de datos local según cómo esté configurada la actividad de copia en la canalización de datos. Nota: Para este paso, la puerta de enlace se comunica directamente con el servicio de almacenamiento basado en la nube (Blob de Azure, SQL de Azure, etc.) a través del canal seguro (HTTPS).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

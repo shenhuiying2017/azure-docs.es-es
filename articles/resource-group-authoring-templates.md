@@ -223,8 +223,8 @@ En el ejemplo siguiente se muestra una variable que es un tipo JSON complejo y l
          }
        },
        "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize",
-       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount"
+       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
+       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
     }
 
 ## Recursos
@@ -474,4 +474,4 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

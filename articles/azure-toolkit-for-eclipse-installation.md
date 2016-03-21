@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016" 
+	ms.date="03/09/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
-# Instalación del Kit de herramientas de Azure para Eclipse #
+# Instalación del Kit de herramientas de Azure para Eclipse
 
 El kit de herramientas de Azure para Eclipse ofrece plantillas y funciones que permiten crear, desarrollar, probar e implementar aplicaciones de Azure fácilmente con el entorno de desarrollo de Eclipse. Es un proyecto de código abierto, cuyo código fuente está disponible con la licencia de Apache 2.0 del sitio del proyecto en GitHub en la siguiente dirección URL:
 
@@ -28,14 +28,14 @@ En los pasos siguientes se muestra cómo instalar el Kit de herramientas de Azur
 
 [AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-## Para instalar el Kit de herramientas de Azure para Eclipse ##
+## Para instalar el Kit de herramientas de Azure para Eclipse
 
 1. Inicie Eclipse.
-2. En Eclipse, en el menú, haga clic en <strong>Ayuda</strong> y luego en <strong>Instalar nuevo software</strong>, como se muestra en el siguiente diagrama.
-    ![][ic590123]
-3. En el cuadro de diálogo <strong>Software disponible</strong>, en el cuadro de texto <strong>Trabajar con</strong>, escriba <strong>http://dl.msopentech.com/eclipse</strong> seguido de la tecla <strong>Entrar</strong>.
-4. En el panel <strong>Nombre</strong>, active <strong>Kit de herramientas de Azure para Eclipse</strong>, y desactive <strong>Ponerse en contacto con todos los sitios de actualización durante la instalación para encontrar el software necesario</strong>. La pantalla debe parecerse a la siguiente:
-    ![][ic719482]
+2. En Eclipse, en el menú, haga clic en <strong>Ayuda</strong> y luego en <strong>Instalar nuevo software</strong>, como se muestra en el siguiente diagrama. 
+   ![Instalación del Kit de herramientas de Azure para Eclipse][ic590123]
+3. En el cuadro de diálogo <strong>Software disponible</strong>, en el cuadro de texto <strong>Trabajar con</strong>, escriba <strong>http://dl.microsoft.com/eclipse</strong> seguido de la tecla <strong>Entrar</strong>.
+4. En el panel <strong>Nombre</strong>, active <strong>Kit de herramientas de Azure para Eclipse</strong>, y desactive <strong>Ponerse en contacto con todos los sitios de actualización durante la instalación para encontrar el software necesario</strong>. La pantalla debe parecerse a la siguiente: 
+   ![Instalación del Kit de herramientas de Azure para Eclipse][ic719482]
 5. Si expande el <strong>Kit de herramientas de Azure para Eclipse</strong>, verá los siguientes elementos:
     * **Filtro de servicios de control de acceso de Azure**: este componente ofrece compatibilidad para autenticar a los usuarios de aplicación con ACS de Azure.
     * **Complemento común de Azure**: este componente contiene la funcionalidad en la que se basan los demás componentes.
@@ -49,15 +49,15 @@ En los pasos siguientes se muestra cómo instalar el Kit de herramientas de Azur
 8. En el cuadro de diálogo **Revisar licencias**, revise los términos de los contratos de licencia. Si acepta los términos de los contratos de licencia, haga clic en **Acepto los términos de los contratos de licencia** y luego haga clic en **Finalizar**. (En los pasos restantes se supone que acepta los términos de los contratos de licencia. Si no acepta los términos de los contratos de licencia, salga del proceso de instalación.)
 9. Si se le solicita que reinicie Eclipse para completar la instalación, haga clic en **Reiniciar ahora**.
 
-## Otras referencias ##
+## Otras referencias
 
-[Kit de herramientas de Azure para Eclipse][]
+[Kit de herramientas de Azure para Eclipse]
 
-[Creación de una aplicación Hola a todos para Azure en Eclipse][]
+[Creación de una aplicación Hola a todos para Azure en Eclipse]
 
-[Novedades del kit de herramientas de Azure para Eclipse][]
+[Novedades del kit de herramientas de Azure para Eclipse]
 
-Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure][].
+Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
 
 <!-- URL List -->
 
@@ -74,4 +74,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

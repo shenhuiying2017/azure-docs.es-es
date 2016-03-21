@@ -3,7 +3,7 @@
    description="Explica cómo agregar, modificar, supervisar y eliminar volúmenes de StorSimple y cómo desconectarlos en caso necesario."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/25/2016"
-   ms.author="v-sharos" />
+   ms.date="02/29/2016"
+   ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para administrar volúmenes (Update 2)
 
@@ -40,7 +40,7 @@ Si es necesario, puede cambiar un volumen local por uno en capas y viceversa. Pa
 
 Los volúmenes anclados localmente son volúmenes totalmente aprovisionados, sin capas de datos en la nube, lo que garantiza la conectividad local de los datos principales independiente de la nube. Los datos de los volúmenes anclados localmente no se desduplican ni comprimen, pero las instantáneas de dichos volúmenes se desduplican.
 
-Los volúmenes anclados localmente están totalmente aprovisionados, por lo que debe haber espacio suficiente en el dispositivo cuando los crea. Puede aprovisionar volúmenes anclados localmente hasta un tamaño máximo de 9 TB en el dispositivo StorSimple 8100 y de 24 TB en el dispositivo 8600. StorSimple reserva el resto del espacio local en el dispositivo para las instantáneas, los metadatos y el procesamiento de los datos. Puede aumentar el tamaño de un volumen anclado localmente hasta el espacio máximo disponible, pero no puede reducir el tamaño de un volumen una vez creado.
+Los volúmenes anclados localmente están totalmente aprovisionados, por lo que debe haber espacio suficiente en el dispositivo cuando los crea. Puede aprovisionar volúmenes anclados localmente hasta un tamaño máximo de 8 TB en el dispositivo StorSimple 8100 y de 20 TB en el dispositivo 8600. StorSimple reserva el resto del espacio local en el dispositivo para las instantáneas, los metadatos y el procesamiento de los datos. Puede aumentar el tamaño de un volumen anclado localmente hasta el espacio máximo disponible, pero no puede reducir el tamaño de un volumen una vez creado.
 
 Cuando se crea un volumen anclado localmente, el espacio disponible para la creación de los volúmenes en capas se reduce. Y al contrario, si tiene volúmenes en capas existentes, el espacio disponible para crear volúmenes anclados localmente será inferior a los límites máximos indicados anteriormente.
 
@@ -59,11 +59,11 @@ Para conocer la capacidad máxima aprovisionada de cada dispositivo y tipo de vo
 | | Tamaño máximo del volumen en capas | Tamaño máximo del volumen anclado localmente |
 |-------------|----------------------------|------------------------------------|
 | **Dispositivos físicos** | | |
-| 8100 | 64 TB | 9 TB |
-| 8600 | 64 TB | 24 TB |
+| 8100 | 64 TB | 8 TB |
+| 8600 | 64 TB | 20 TB |
 | **Dispositivos virtuales** | | |
 | 8010 | 30 TB | N/D |
-| 8020 | 64 TB | N/D | 
+| 8020 | 64 TB | N/D |
 
 ## La página Volúmenes
 
@@ -198,14 +198,14 @@ Puede que desee cambiar un volumen anclado localmente por uno en capas si necesi
 La conversión de un volumen en capas en uno anclado localmente puede afectar de forma negativa al rendimiento del dispositivo. Además, los siguientes factores podrían aumentar el tiempo que se tarda en completar la conversión:
 
 - No hay suficiente ancho de banda.
-- El dispositivo está lleno y ya está escribiendo en la nube.
+
 - No hay ninguna copia de seguridad actual.
 
 Para minimizar los efectos de estos factores:
 
 - Revise su directivas de límite de ancho de banda y asegúrese de que haya disponible un ancho de banda dedicado de 40 Mbps.
 - Programe la conversión para las horas de poca actividad.
-- Realice una copia de seguridad antes de comenzar la conversión.
+- Tome una instantánea de nube antes de iniciar la conversión.
 
 Si va a convertir varios volúmenes (compatibles con diferentes cargas de trabajo), debe dar precedencia a la conversión de los volúmenes de mayor prioridad. Por ejemplo, debe convertir los volúmenes que hospedan máquinas virtuales o volúmenes con cargas de trabajo SQL antes que los volúmenes con cargas de trabajo de recursos compartidos de archivos.
 
@@ -299,4 +299,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

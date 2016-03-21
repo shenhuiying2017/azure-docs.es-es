@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -51,7 +51,7 @@ Haga clic en el menú contextual del rol en el panel del Explorador de proyectos
 
 ![][ic719499]
 
->[AZURE.NOTE]Solo Windows: si se asigna a varias instancias un valor mayor que 1 y, además, se configura un servidor de aplicaciones, el kit de herramientas solo permitirá que se ejecute una instancia de rol en el emulador, independientemente de cuál sea el valor. Esto es para evitar conflictos de enlaces de puerto entre las distintas instancias del servidor (por ejemplo, que todas intenten enlazar con el puerto 8080) cuando se ejecutan en el mismo equipo. La configuración del número de instancias deseadas se mantiene, pero solo entra en vigor cuando se realiza la implementación en la nube.
+>[AZURE.NOTE] Solo Windows: si se asigna a varias instancias un valor mayor que 1 y, además, se configura un servidor de aplicaciones, el kit de herramientas solo permitirá que se ejecute una instancia de rol en el emulador, independientemente de cuál sea el valor. Esto es para evitar conflictos de enlaces de puerto entre las distintas instancias del servidor (por ejemplo, que todas intenten enlazar con el puerto 8080) cuando se ejecutan en el mismo equipo. La configuración del número de instancias deseadas se mantiene, pero solo entra en vigor cuando se realiza la implementación en la nube.
 
 <a name="caching_properties"></a>
 ### Propiedades de almacenamiento en caché ###
@@ -66,7 +66,7 @@ En la página de propiedades de **Almacenamiento en caché**, puede especificar 
 * El tamaño de la caché como un porcentaje de la memoria.
 * El nombre de la cuenta de almacenamiento para guardar el estado de la caché cuando la aplicación se ejecuta como un servicio en la nube, o bien la opción ninguno si no desea guardar el estado de la memoria caché. (El nombre de la cuenta de almacenamiento cuando la aplicación se ejecuta en el emulador de proceso.) Si establece el nombre de la cuenta de almacenamiento en **(automático)** (que es el valor predeterminado), la configuración del almacenamiento en caché usará automáticamente la cuenta de almacenamiento que se selecciona en el cuadro de diálogo **Publicar en Azure**.
 
->[AZURE.NOTE]El valor **(automático)** solo tendrá el efecto deseado solo si la implementación se publica la mediante el Asistente para publicación del kit de herramientas de Eclipse. Si se publica el archivo .cspkg de forma manual con un mecanismo externo, como el [Portal de administración de Azure][], la implementación no funcionará correctamente.
+>[AZURE.NOTE] El valor **(automático)** solo tendrá el efecto deseado solo si la implementación se publica la mediante el Asistente para publicación del kit de herramientas de Eclipse. Si se publica el archivo .cspkg de forma manual con un mecanismo externo, como el [Portal de administración de Azure][], la implementación no funcionará correctamente.
 
 El siguiente cuadro de diálogo muestra las propiedades de una memoria caché.
 
@@ -114,7 +114,7 @@ Para cada componente, se puede especificar:
 * El paso que debe seguirse al importar el componente en el proyecto de implementación de Azure cuando este se genere.
 * El paso que debe seguirse al implementar dicho componente en la nube de Azure.
 
->[AZURE.NOTE]Al especificar archivos de componente o líneas de comandos, tenga en cuenta que la implementación se publicará en una máquina virtual de Windows, por lo que los pasos personalizados deben ser válidos para cualquier sistema operativo Windows.
+>[AZURE.NOTE] Al especificar archivos de componente o líneas de comandos, tenga en cuenta que la implementación se publicará en una máquina virtual de Windows, por lo que los pasos personalizados deben ser válidos para cualquier sistema operativo Windows.
 
 Los componentes tienen las siguientes propiedades:
 
@@ -131,7 +131,7 @@ Los componentes tienen las siguientes propiedades:
 	
 * **Como:** nombre de archivo bajo el que se importará el componente en el directorio **approot** del rol y, en último término, se implementará en la nube de Azure. Deje esta propiedad en blanco para que el nombre sea el mismo que en la máquina local. (En el caso de los componentes ejecutables, es decir, aquellos en los que el método **Implementar** está establecido en **exec**, puede tratarse de una instrucción arbitraria de la línea de comandos de Windows.)
 
-	>[AZURE.IMPORTANT]Si usa caracteres de espacio para este valor, se controlarán de manera diferente en función del método de implementación. Si el método de implementación es **exec**, los espacios se interpretarán como separadores de argumentos de la línea de comandos, no como parte del nombre de archivo. En los restantes métodos de implementación, los espacios se interpretarán como parte del nombre de archivo.
+	>[AZURE.IMPORTANT] Si usa caracteres de espacio para este valor, se controlarán de manera diferente en función del método de implementación. Si el método de implementación es **exec**, los espacios se interpretarán como separadores de argumentos de la línea de comandos, no como parte del nombre de archivo. En los restantes métodos de implementación, los espacios se interpretarán como parte del nombre de archivo.
 	
 * **Implementar:** método que indica la acción que se aplica al componente cuando se inicia la implementación. Puede ser uno de los siguientes valores:
     * **copy:** el componente se copia en la ruta de acceso de destino especificada por la propiedad **Para**.
@@ -158,7 +158,7 @@ Para eliminar un componente, selecciónelo y haga clic en el botón **Quitar**de
 
 Las reglas se procesan en el orden de la lista. Utilice los botones **Subir** y **Bajar** para organizar el orden.
 
->[AZURE.NOTE]Esta función de configuración de servidor también se basa en los componentes. Estos componentes no se pueden quitar ni modificar sin quitar la configuración del servidor correspondiente. Se le preguntará al respecto al realizar cambios en dichos componentes.
+>[AZURE.NOTE] Esta función de configuración de servidor también se basa en los componentes. Estos componentes no se pueden quitar ni modificar sin quitar la configuración del servidor correspondiente. Se le preguntará al respecto al realizar cambios en dichos componentes.
 
 <a name="debugging_properties"></a>
 ### Propiedades de depuración ###
@@ -209,7 +209,7 @@ Abra el menú contextual del rol en el panel del Explorador de proyectos de Ecli
 
 Las variables de entorno están disponibles para el script de inicio al iniciar el rol.
 
->[AZURE.NOTE]Al especificar variables de entorno, tenga en cuenta que la implementación se publicará en una máquina virtual de Windows, por lo que las variables de entorno deben ser válidas para cualquier sistema operativo Windows.
+>[AZURE.NOTE] Al especificar variables de entorno, tenga en cuenta que la implementación se publicará en una máquina virtual de Windows, por lo que las variables de entorno deben ser válidas para cualquier sistema operativo Windows.
 
 Como ejemplo de variable de entorno disponible cuando se inicia el rol, cree una nueva variable de entorno haciendo clic en el botón **Agregar**. A continuación, se muestra variable de entorno denominada **MyRoleVersion** que se creó y a la que se asignó el valor **1.0**.
 
@@ -440,4 +440,4 @@ Para obtener más información sobre el uso de Azure con Java, consulte el [Cent
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

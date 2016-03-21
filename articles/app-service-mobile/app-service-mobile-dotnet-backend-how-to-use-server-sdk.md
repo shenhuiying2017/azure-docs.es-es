@@ -365,27 +365,40 @@ Para agregar notificaciones push al proyecto de servidor, extienda el objeto **M
 
 En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para más información, vea [Incorporación de notificaciones push a la aplicación](app-service-mobile-ios-get-started-push.md). Para más información sobre todo lo que puede hacer con los Centros de notificaciones, vea [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>Procedimiento: Incorporación de etiquetas a la instalación de un dispositivo para habilitar la inserción en etiquetas
+##<a name="tags"></a>Incorporación de etiquetas a la instalación de un dispositivo para habilitar la inserción dirigida
 
-Después de la sección anterior **Procedimiento: Definición de un controlador de API personalizado**, querrá configurar una API personalizada en el back-end para que funcione con los Centros de notificaciones con el fin de agregar etiquetas a la instalación de un dispositivo específico. Asegúrese de pasar el identificador de instalación almacenado en el almacenamiento local del cliente y las etiquetas que desee agregar (opcional, ya que también puede especificar etiquetas directamente en el back-end). El fragmento siguiente debe agregarse al controlador para trabajar con los Centros de notificaciones para agregar una etiqueta a un identificador de instalación de dispositivo.
+Los Centros de notificaciones permite enviar notificaciones dirigidas a registros específicos mediante el uso de etiquetas. Una etiqueta que se crea automáticamente es el identificador de instalación, que es específico de una instancia de la aplicación en un dispositivo determinado. Un registro con un identificador de instalación también se denomina una *instalación*. Puede utilizar el identificador de instalación para administrar la instalación; por ejemplo, para agregar etiquetas. Se puede acceder al identificador de instalación desde la propiedad **installationId** en **MobileServiceClient**.
 
-Mediante [NuGet de Centros de notificaciones de Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) ([referencia](https://msdn.microsoft.com/library/azure/mt414893.aspx)):
+En el ejemplo siguiente se muestra cómo usar un identificador de instalación para agregar una etiqueta a una instalación específica en los Centros de notificaciones:
 
-		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+	hub.PatchInstallation("my-installation-id", new[]
+	{
+	    new PartialUpdateOperation
+	    {
+	        Operation = UpdateOperationType.Add,
+	        Path = "/tags",
+	        Value = "{my-tag}"
+	    }
+	});
 
-		hub.PatchInstallation("my-installation-id", new[]
-		{
-		    new PartialUpdateOperation
-		    {
-		        Operation = UpdateOperationType.Add,
-		        Path = "/tags",
-		        Value = "{my-tag}"
-		    }
-		});
+Tenga en cuenta que, al crear la instalación, el back-end ignora las etiquetas proporcionadas por el cliente durante el registro de notificaciones push. Para que un cliente pueda agregar etiquetas a la instalación, debe crear una nueva API personalizada que agregue etiquetas mediante el patrón anterior. Para ver un ejemplo de un controlador de API personalizado que permite a los clientes agregar etiquetas a una instalación, consulte [Client-added push notification tags](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) (Etiquetas de notificaciones push agregadas por el cliente) en el ejemplo de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones completado para el back-end de .NET.
 
-Para insertar en estas etiquetas, trabaje con las [API de Centros de notificaciones](https://msdn.microsoft.com/library/azure/dn495101.aspx).
+##<a name="push-user"></a>Envío de notificaciones push a un usuario autenticado
 
-Además, podrá construir su API personalizada para registrar instalaciones de dispositivos con centros de notificaciones directamente en el back-end.
+Cuando un usuario autenticado se registra para las notificaciones push, se agrega automáticamente una etiqueta con el identificador de usuario al registro. Mediante el uso de esta etiqueta, puede enviar notificaciones push a todos los dispositivos registrados por un usuario específico. El código siguiente obtiene el SID del usuario que realiza la solicitud y envía una notificación push de plantilla a cada registro de dispositivo para ese usuario:
+
+    // Get the current user SID and create a tag for the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    string userTag = "_UserId:" + sid;
+
+    // Build a dictionary for the template with the item message text.
+    var notification = new Dictionary<string, string> { { "message", item.Text } };
+
+    // Send a template notification to the user ID.
+    await hub.SendTemplateNotificationAsync(notification, userTag);
+    
+Cuando se registre para notificaciones push desde un cliente autenticado, asegúrese de que la autenticación se ha completado antes de intentar el registro. Para más información, consulte [Push to users](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) (Notificación push a usuarios) en el ejemplo de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones completado para el back-end de .NET.
 
 ## Procedimientos: Depuración y solución de problemas del SDK de .NET Server
 
@@ -444,4 +457,4 @@ El servidor de ejecución local está ahora preparado para validar los tokens qu
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

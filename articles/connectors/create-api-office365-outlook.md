@@ -1,11 +1,12 @@
 <properties
-pageTitle="Incorporación de la API de Outlook de Office 365 a sus aplicaciones lógicas | Microsoft Azure"
-description="Información general de la API de Outlook de Office 365 con parámetros de la API de REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="dwrede"	
-editor="" tags="connectors" />
+	pageTitle="Incorporación de la API de Office 365 Outlook en PowerApps Enterprise o Aplicaciones lógicas | Microsoft Azure"
+	description="Información general de la API de Outlook de Office 365 con parámetros de la API de REST"
+	services=""	
+	documentationCenter="" 	
+	authors="msftman"	
+	manager="erikre"	
+	editor="" 
+	tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -13,17 +14,23 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # Introducción a la API de Outlook para Office365 
 
 Conéctese a Office 365 Outlook para obtener correo electrónico, responder a un correo electrónico, actualizar su calendario y contactos y mucho más. La API de Outlook para Office 365 puede usarse desde:
 
-- PowerApps 
 - Aplicaciones lógicas 
+- PowerApps
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema de vista previa de 2014-12-01, haga clic en [API de Office 365](../app-service-logic/app-service-logic-connector-office365.md).
+> [AZURE.SELECTOR]
+- [Aplicaciones lógicas](../articles/connectors/create-api-office365-outlook.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+
+&nbsp;
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [API de Office 365](../app-service-logic/app-service-logic-connector-office365.md).
 
 Con Office 365 Outlook, puede:
 
@@ -32,9 +39,9 @@ Con Office 365 Outlook, puede:
 - Usar acciones que respondan a un correo electrónico, creen un evento de calendario y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando hay un nuevo objeto de Salesforce, puede tomar ese objeto y actualizar los contactos de Office 365 Outlook. 
 - Agregar la API de Outlook para Office 365 a PowerApps Enterprise. A continuación, los usuarios pueden usar esta API en sus aplicaciones. 
 
-Para información sobre cómo agregar una API a PowerApps Enterprise, vaya a [Registrar una API en PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Si desea información sobre cómo agregar una API en PowerApps Enterprise, acuda a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
-Para agregar una operación en aplicaciones lógicas, vea [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 
@@ -49,63 +56,12 @@ Todas las API admiten datos en formato JSON y XML.
 
 ## Creación de una conexión a Office365
 
-### Incorporación de una configuración adicional en PowerApps
-Cuando agregue esta API a PowerApps Enterprise, escriba los valores **Clave de aplicación** y **Secreto de la aplicación** de la aplicación Azure Active Directory (AAD) de Office 365. El valor de **URL de redireccionamiento** también se usa en la aplicación de Office 365. Si no tiene una aplicación de Office 365, puede usar los siguientes pasos para crearla:
-
-1. En el [Portal de Azure][5], abra **Active Directory** y seleccione el nombre de inquilino de la organización.
-2. Seleccione la pestaña **Aplicaciones** y seleccione **Agregar**:  
-![Aplicaciones del inquilino de AAD][7].
-
-3. En **Agregar aplicación**:
-
-	1. Escriba un **Nombre** para la aplicación.  
-	2. Deje el tipo de aplicación como **Web**.  
-	3. Seleccione **Siguiente**.  
-
-	![Agregar aplicación de AAD: información de la aplicación][8]
-
-6. En **Propiedades de la aplicación**:
-
-	1. Especifique la **URL DE INICIO DE SESIÓN** de la aplicación. Dado que va a autenticarse con AAD para PowerApps, establezca la URL de inicio de sesión en _https://login.windows.net_.
-	2. Escriba un valor válido de **URI DE ID DE APLICACIÓN** para la aplicación.  
-	3. Seleccione **Aceptar**.  
-
-	![Agregar aplicación de AAD: propiedades de la aplicación][9]
-
-7. Cuando haya finalizado, se abre la nueva aplicación AAD. Seleccione **Configurar**:  
-![Aplicación AAD de Contoso][10]
-
-8. En la sección _OAuth 2_, establezca la **Dirección URL de respuesta** en el valor de la dirección URL de redireccionamiento mostrado al agregar la nueva API de Outlook para Office 365 al Portal de Azure. Seleccione **Agregar una aplicación**:  
-![Configurar aplicación AAD de Contoso][11]
-
-9. En la ventana **Permisos para otras aplicaciones**, seleccione **Office 365 Exchange Online** y seleccione **Aceptar**:  
-![Delegado de la aplicación de Contoso][12]
-
-	De nuevo en la página Configurar, tenga en cuenta que _Office 365 Exchange Online_ se agrega a la lista _Permiso para otras aplicaciones_.
-
-10. Para **Office 365 Exchange Online**, seleccione primero **Permisos delegados** y luego los siguientes permisos:
-
-	- Leer y escribir contactos de usuario
-	- Leer contactos de usuario
-	- Leer y escribir calendarios de usuario
-	- Leer calendarios de usuario
-	- Enviar correo como un usuario
-	- Leer y escribir correo de usuario
-	- Leer correo de usuario
-
-	![Permisos de delegado de la aplicación de Contoso][13]
-
-Se creará una nueva aplicación de Azure Active Directory. Puede copiar y pegar los valores de **Clave de aplicación** y **Secreto de aplicación** en la configuración de la API de Outlook para Office 365 en el Portal de Azure.
-
-Encontrará información válida sobre aplicaciones de AAD en [Cómo y por qué se agregan aplicaciones a Azure AD](../active-directory/active-directory-how-applications-are-added.md).
-
-### Incorporación de una configuración adicional en Aplicaciones lógicas
 Al agregar esta API a las aplicaciones lógicas, debe iniciar sesión en su cuenta de Office 365 Outlook y permitir que las aplicaciones lógicas se conecten a su cuenta.
 
 1. Inicie sesión en su cuenta de Office 365 Outlook.
 2. Permita que las aplicaciones lógicas se conecten a su cuenta de Office 365 y la usen. 
 
-Después de crear la conexión, especifique las propiedades de Office 365 Outlook, como la ruta de acceso a la carpeta Bandeja de entrada o el mensaje de correo. En la **Referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de Office 365 Outlook, como la ruta de acceso a la carpeta Bandeja de entrada o el mensaje de correo. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Office 365 Outlook en otras aplicaciones lógicas.
 
@@ -134,7 +90,7 @@ Desencadena un flujo cuando se inicia un evento de calendario próximo. ```GET: 
 
 
 ### Obtener correos electrónicos 
-Recupera correos electrónicos de una carpeta.  
+Recupera correos electrónicos de una carpeta.
 ```GET: /Mail```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -160,7 +116,7 @@ Recupera correos electrónicos de una carpeta.
 
 
 ### Enviar correo electrónico 
-Envía un mensaje de correo electrónico.  
+Envía un mensaje de correo electrónico.
 ```POST: /Mail```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -181,7 +137,7 @@ Envía un mensaje de correo electrónico.
 
 
 ### Eliminar correo electrónico 
-Elimina un mensaje de correo electrónico por identificador.  
+Elimina un mensaje de correo electrónico por identificador.
 ```DELETE: /Mail/{messageId}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -201,7 +157,7 @@ Elimina un mensaje de correo electrónico por identificador.
 
 
 ### Marcar como leído 
-Marca un mensaje de correo electrónico como leído.  
+Marca un mensaje de correo electrónico como leído.
 ```POST: /Mail/MarkAsRead/{messageId}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -221,7 +177,7 @@ Marca un mensaje de correo electrónico como leído.
 
 
 ### Responder al mensaje 
-Responde a un mensaje de correo electrónico.  
+Responde a un mensaje de correo electrónico.
 ```POST: /Mail/ReplyTo/{messageId}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -243,7 +199,7 @@ Responde a un mensaje de correo electrónico.
 
 
 ### Obtener datos adjuntos 
-Recupera los datos adjuntos del mensaje por identificador.  
+Recupera los datos adjuntos del mensaje por identificador.
 ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -264,7 +220,7 @@ Recupera los datos adjuntos del mensaje por identificador.
 
 
 ### Al llegar correo electrónico nuevo 
-Desencadena un flujo cuando llega un nuevo correo electrónico.  
+Desencadena un flujo cuando llega un nuevo correo electrónico.
 ```GET: /Mail/OnNewEmail```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -291,7 +247,7 @@ Desencadena un flujo cuando llega un nuevo correo electrónico.
 
 
 ### Enviar correo electrónico con opciones 
-Envíe un correo electrónico con varias opciones y espere a que el destinatario responda con una de las opciones.  
+Envía un correo electrónico con varias opciones y espera a que el destinatario responda con una de las opciones.
 ```POST: /mailwithoptions/$subscriptions```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -312,7 +268,7 @@ Envíe un correo electrónico con varias opciones y espere a que el destinatario
 
 
 ### Enviar correo electrónico de aprobación 
-Envíe un correo electrónico de aprobación y espere una respuesta del destinatario Para.  
+Envía un correo electrónico de aprobación y espera una respuesta del destinatario Para.
 ```POST: /approvalmail/$subscriptions```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -336,7 +292,7 @@ Envíe un correo electrónico de aprobación y espere una respuesta del destinat
 
 
 ### Obtener calendarios 
-Recupera calendarios.  
+Recupera calendarios.
 ```GET: /datasets/calendars/tables```
 
 No hay parámetros para esta llamada.
@@ -352,7 +308,7 @@ No hay parámetros para esta llamada.
 
 
 ### Obtención de eventos 
-Recupera elementos de un calendario.  
+Recupera elementos de un calendario.
 ```GET: /datasets/calendars/tables/{table}/items```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -372,7 +328,7 @@ Recupera elementos de un calendario.
 
 
 ### Crear evento 
-Crea un evento.  
+Crea un evento.
 ```POST: /datasets/calendars/tables/{table}/items```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -389,7 +345,7 @@ Crea un evento.
 
 
 ### Obtener evento 
-Recupera un elemento específico de un calendario.  
+Recupera un elemento específico de un calendario.
 ```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -406,7 +362,7 @@ Recupera un elemento específico de un calendario.
 
 
 ### Eliminar evento 
-Elimina un elemento de calendario.  
+Elimina un elemento de calendario.
 ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -423,7 +379,7 @@ Elimina un elemento de calendario.
 
 
 ### Actualizar evento 
-Actualiza parcialmente un elemento de calendario.  
+Actualiza parcialmente un elemento de calendario.
 ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -441,7 +397,7 @@ Actualiza parcialmente un elemento de calendario.
 
 
 ### Con nuevos elementos 
-Se desencadena cuando se crea un nuevo elemento de calendario.  
+Se desencadena cuando se crea un nuevo elemento de calendario.
 ```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -461,7 +417,7 @@ Se desencadena cuando se crea un nuevo elemento de calendario.
 
 
 ### Al actualizar elementos 
-Se desencadena cuando se modifica un elemento de calendario.  
+Se desencadena cuando se modifica un elemento de calendario.
 ```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -481,7 +437,7 @@ Se desencadena cuando se modifica un elemento de calendario.
 
 
 ### Obtener carpetas de contactos 
-Recupera carpetas de contactos.  
+Recupera carpetas de contactos.
 ```GET: /datasets/contacts/tables```
 
 No hay parámetros para esta llamada.
@@ -495,7 +451,7 @@ No hay parámetros para esta llamada.
 
 
 ### Obtener contactos 
-Recupera contactos de una carpeta de contactos.  
+Recupera contactos de una carpeta de contactos.
 ```GET: /datasets/contacts/tables/{table}/items```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -515,7 +471,7 @@ Recupera contactos de una carpeta de contactos.
 
 
 ### Crear contacto 
-Crea un contacto.  
+Crea un contacto.
 ```POST: /datasets/contacts/tables/{table}/items```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -532,7 +488,7 @@ Crea un contacto.
 
 
 ### Obtener contacto 
-Recupera un contacto específico de una carpeta de contactos.  
+Recupera un contacto específico de una carpeta de contactos.
 ```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -549,7 +505,7 @@ Recupera un contacto específico de una carpeta de contactos.
 
 
 ### Eliminar contacto 
-Elimina un contacto.  
+Elimina un contacto.
 ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -566,7 +522,7 @@ Elimina un contacto.
 
 
 ### Actualizar contacto 
-Actualiza parcialmente un contacto.  
+Actualiza parcialmente un contacto.
 ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
@@ -820,9 +776,10 @@ Actualiza parcialmente un contacto.
 
 
 ## Pasos siguientes
-Después de agregar la API de Office 365 a PowerApps Enterprise, [conceda permisos a los usuarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar dicha API en sus aplicaciones.
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Volver a la [lista de API](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -834,5 +791,4 @@ Después de agregar la API de Office 365 a PowerApps Enterprise, [conceda permis
 [12]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!---HONumber=AcomDC_0302_2016-->
-
+<!---HONumber=AcomDC_0309_2016-->

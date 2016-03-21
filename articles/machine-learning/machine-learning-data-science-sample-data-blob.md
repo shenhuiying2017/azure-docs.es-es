@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="03/04/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
@@ -34,7 +34,7 @@ Esta tarea de muestreo es un paso del [proceso de Cortana Analytics (CAP)](https
 ## Descarga y muestreado de datos
 1. Descargar los datos del almacenamiento de blobs de Azure con el servicio BLOB desde el código de Python de ejemplo siguiente: 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -77,7 +77,7 @@ Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos di
 
 2. Cargar el archivo local en un blob de Azure mediante el código de ejemplo siguiente:
 
-		from azure.storage import BlobService
+		from azure.storage.blob import BlobService
     	import tables
 
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -108,4 +108,4 @@ Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos di
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

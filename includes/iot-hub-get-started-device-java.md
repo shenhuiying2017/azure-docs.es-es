@@ -27,7 +27,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 
 4. Guarde y cierre el archivo pom.xml.
 
-5. Con un editor de texto, abra el archivo simulated-device\src\main\java\com\mycompany\app\App.java.
+5. Con un editor de texto, abra el archivo simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
 
 6. Agregue las siguientes instrucciones **import** al archivo:
 
@@ -158,4 +158,4 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

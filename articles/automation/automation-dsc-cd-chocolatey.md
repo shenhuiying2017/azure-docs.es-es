@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/04/2016"
    ms.author="golive"/>
 
 # Ejemplo de uso: implementación continua en máquinas virtuales DSC de Automatización y Chocolatey
@@ -78,7 +78,7 @@ La Galería de PowerShell está equipada para instalar recursos de DSC en su cue
 También podemos aplicar el enfoque manual. La estructura de carpetas de un módulo de integración de PowerShell para un equipo de Windows es algo diferente de la estructura de carpetas que espera la Automatización de Azure. Por tanto, es necesario hacer algunos ajustes. Pero no es difícil y solo es necesario hacerlos una vez para cada recurso (a menos que desee actualizarlo en el futuro.) Para obtener más información sobre la creación de módulos de integración de PowerShell, vea este artículo: [Creación de módulos de integración para la automatización de Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
 -   Instale el módulo que necesita en su estación de trabajo, como sigue:
-    -   Instale [Windows Management Framework, v5](http://www.microsoft.com/download/details.aspx?id=48729) (no es necesario para Windows 10).
+    -   Instale [Windows Management Framework, v5](http://aka.ms/wmf5latest) (no es necesario para Windows 10).
     -   `Install-Module  –ModuleName MODULENAME` <—toma el módulo de la Galería de PowerShell. 
 -   Copie la carpeta del módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` a una carpeta temporal. 
 -   Elimine los ejemplos y la documentación de la carpeta principal. 
@@ -185,4 +185,4 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,23 +1,22 @@
-##<a name="create-client"></a>How to: Create Client
+##<a name="create-client"></a>Creación del cliente
 
-Create a client connection by creating a `WindowsAzure.MobileServicesClient` object.  Replace `appUrl` with the URL to your Mobile App.
+Cree una conexión de cliente mediante la generación de un objeto `WindowsAzure.MobileServicesClient`. Sustituya `appUrl` por la dirección URL de la aplicación móvil.
 
 ```
 var client = WindowsAzure.MobileServicesClient(appUrl);
 ```
 
-##<a name="table-reference"></a>How to: Create Table Reference
+##<a name="table-reference"></a>Creación de una referencia de tabla
 
-To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table
+Para acceder a los datos o actualizarlos, cree una referencia a la tabla de back-end. Reemplace `tableName` por el nombre de la tabla.
 
 ```
 var table = client.getTable(tableName);
 ```
 
-##<a name="querying"></a>How to: Query a Table Reference
+##<a name="querying"></a>Consulta de una referencia de tabla
 
-Once you have a table reference, you can use it to query for data on the server.  Queries are made in a "LINQ-like" language.
-To return all data from the table, use the following:
+Una vez que tiene una referencia de tabla, puede utilizarla para consultar datos en el servidor. Las consultas se realizan en un lenguaje "similar a LINQ". Para devolver todos los datos de la tabla, utilice lo siguiente:
 
 ```
 /**
@@ -45,15 +44,13 @@ table
     .then(success, failure);
 ```
 
-The success function is called with the results.   Do not use `for (var i in results)` in
-the success function as that will iterate over information that is included in the results
-when other query functions (such as `.includeTotalCount()`) are used.
+Se llama a la función success con los resultados. No use `for (var i in results)` en la función success, dado que se efectuaría una iteración en la información incluida en los resultados al utilizar otras funciones de consulta (como `.includeTotalCount()`).
 
-For more information on the Query syntax, refer to the [Query object documentation].
+Para obtener más información sobre la sintaxis de consulta, consulte la [documentación de objetos de consulta].
 
-### Filtering Data on the server
+### Filtrado de datos en el servidor
 
-You can use a `where` clause on the table reference:
+Puede usar una cláusula `where` en la referencia de tabla:
 
 ```
 table
@@ -62,8 +59,7 @@ table
     .then(success, failure);
 ```
 
-You can also use a function that filters the object.  In this case the `this` variable is assigned to the
-current object being filtered.  The following is functionally equivalent to the prior example:
+También puede utilizar una función que filtre el objeto. En este caso, la variable `this` se asigna al objeto actual que se está filtrando. El siguiente código es funcionalmente equivalente al ejemplo anterior:
 
 ```
 function filterByUserId(currentUserId) {
@@ -76,9 +72,9 @@ table
     .then(success, failure);
 ```
 
-### Paging through data
+### Paginación mediante datos
 
-Utilize the take() and skip() methods.  For example, if you wish to split the table into 100-row records:
+Utilice los métodos take() y skip(). Por ejemplo, si desea dividir la tabla en registros de 100 filas:
 
 ```
 var totalCount = 0, pages = 0;
@@ -101,18 +97,14 @@ function loadPage(pageNum) {
 }
 ```
 
-The `.includeTotalCount()` method is used to add a totalCount field to the results object.  The
-totalCount field is filled with the total number of records that would be returned if no paging
-is used.
+El método `.includeTotalCount()` se utiliza para agregar un campo totalCount al objeto de resultados. El campo totalCount se rellena con el número total de registros que se devolverían si no se utilizara ninguna paginación.
 
-You can then use the pages variable and some UI buttons to provide a page list; use loadPage() to
-load the new records for each page.  You should implement some sort of caching to speed access to
-records that have already been loaded.
+A continuación, puede usar la variable de páginas y algunos botones de la interfaz de usuario para proporcionar una lista de páginas; utilice loadPage() para cargar los nuevos registros de cada página. Debe implementar algún tipo de almacenamiento en caché para acelerar el acceso a los registros que ya se han cargado.
 
 
-###<a name="sorting-data"></a>How to: Return data sorted
+###<a name="sorting-data"></a>Devolución de los datos ordenados
 
-Use the .orderBy() or .orderByDescending() query methods:
+Utilice los métodos de consulta .orderBy() o .orderByDescending():
 
 ```
 table
@@ -121,11 +113,11 @@ table
     .then(success, failure);
 ```
 
-For more information on the Query object, refer to the [Query object documentation].
+Para obtener más información sobre el objeto de consulta, lea la [documentación de objetos de consulta].
 
-##<a name="inserting"></a>How to: Insert Data
+##<a name="inserting"></a>Insertar datos
 
-Create a JavaScript object with the appropriate date and call table.insert() asynchronously:
+Cree un objeto de JavaScript con la fecha adecuada y llame a table.insert() de manera asincrónica:
 
 ```
 var newItem = {
@@ -140,19 +132,13 @@ table
     }, failure);
 ```
 
-On successful insertion, the inserted item is returned with the additional fields that are required
-for sync operations.  You should update your own cache with this information for later updates.
+Tras la inserción correcta, el elemento insertado se devuelve con los campos adicionales que son necesarios para las operaciones de sincronización. Debe actualizar su propia caché con esta información para actualizaciones posteriores.
 
-Note that the Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.
-In the case of dynamic schema, the schema of the table is updated on the fly, allowing you to add
-columns to the table just by specifying them in an insert or update operation.  We recommend that
-you turn off dynamic schema before moving your application to production.
+Tenga en cuenta que el SDK de servidor de Node.js para Aplicaciones móviles de Azure admite el esquema dinámico con fines de desarrollo. En el caso del esquema dinámico, el esquema de la tabla se actualiza sobre la marcha, lo que permite agregar columnas a la tabla con solo especificarlas en una operación de inserción o de actualización. Se recomienda desactivar el esquema dinámico antes de pasar la aplicación a producción.
 
-##<a name="modifying"></a>How to: Modify Data
+##<a name="modifying"></a>Modificación de datos
 
-Similar to the .insert() method, you should create an Update object and then call .update().  The update
-object must contain the ID of the record to be updated - this is obtained when reading the record or
-when calling .insert().
+De forma similar al método .insert(), debe crear un objeto Update y luego llamar a .update(). El objeto Update debe contener el identificador del registro que se va a actualizar; este se obtiene al leer el registro o al llamar a .insert().
 
 ```
 var updateItem = {
@@ -167,9 +153,9 @@ table
     }, failure);
 ```
 
-##<a name="deleting"></a>How to: Delete Data
+##<a name="deleting"></a>Eliminación de datos
 
-Call the .del() method to delete a record.  Pass the ID in an object reference:
+Llame al método .del() para eliminar un registro. Pase el identificador de una referencia de objeto:
 
 ```
 table
@@ -178,3 +164,5 @@ table
         // Record is now deleted - update your cache
     }, failure);
 ```
+
+<!---HONumber=AcomDC_0309_2016-->

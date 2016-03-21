@@ -14,15 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="03/02/2016" 
 	ms.author="kbaroni;garye" />
 
 # Uso de regresión lineal en Aprendizaje automático de Azure
 
 > *Kate Baroni* y *Ben Boatman* son arquitectos de soluciones para empresas del Centro de excelencia de Data Insights de Microsoft. En este artículo, se describe su experiencia al migrar un conjunto existente de análisis de regresión a una solución basada en la nube mediante Aprendizaje automático (ML) de Azure.
-
+ 
+&nbsp;
+  
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+ 
 ## Objetivo
 
 Nuestro proyecto se inició con dos objetivos en mente:
@@ -50,7 +52,7 @@ Seguimos estos pasos para crear nuestro experimento en Aprendizaje automático d
 
 1.	Carga del conjunto de datos como un archivo csv en Aprendizaje automático de Azure (archivo muy pequeño).
 2.	Creación de un nuevo experimento y uso del módulo [Columnas del proyecto][project-columns] para seleccionar las mismas características de datos que se usaron en Excel.   
-3.	Uso del módulo [División][split] (con el modo *Expresión relativa*) para dividir los datos en conjuntos de aprendizaje exactamente iguales, tal y como se ha realizado en Excel.  
+3.	Uso del módulo [Dividir datos][split] (con el modo *Expresión relativa*) para dividir los datos en conjuntos de aprendizaje exactamente iguales, tal y como se habría realizado en Excel.  
 4.	Realizamos experimentos con el módulo [Regresión lineal][linear-regression] (solo opciones predeterminadas), documentamos el proceso y comparamos los resultados con el modelo de regresión de Excel.
 
 ### Revisión de los resultados iniciales
@@ -61,8 +63,8 @@ Al principio, el modelo de Excel superaba claramente al de Aprendizaje automáti
 |Rendimiento| | |
 |<ul style="list-style-type: none;"><li>R cuadrado ajustado</li></ul>| 0,96 |N/D|
 |<ul style="list-style-type: none;"><li>Coeficiente de <br />determinación</li></ul>|N/D|	0,78<br />(baja precisión)|
-|Error medio absoluto |	9,5 millones de $|	19,4 millones de $|
-|Error medio absoluto (%)|	6,03 %|	12,2 %
+|Error medio absoluto |	9,5 millones de $|	19,4 millones de $|
+|Error medio absoluto (%)|	6,03 %|	12,2 %
 
 Cuando ejecutamos el proceso y los resultados para los desarrolladores y científicos de datos del equipo de Aprendizaje automático de Azure, rápidamente nos proporcionaron algunas sugerencias útiles.
 
@@ -72,30 +74,30 @@ Cuando ejecutamos el proceso y los resultados para los desarrolladores y cientí
 *  Considere la posibilidad de ajustar el parámetro Peso de regularización L2 para mejorar el rendimiento. Está establecido en 0,001 de forma predeterminada y, para nuestro pequeño conjunto de datos, lo establecimos en 0,005 para mejorar el rendimiento.    
 
 ### ¡Misterio resuelto!
-Al aplicar las recomendaciones, logramos el mismo rendimiento de línea de base en Aprendizaje automático de Azure que con Excel:   
+Al aplicar las recomendaciones, logramos el mismo rendimiento de línea de base en Aprendizaje automático de Azure que con Excel:
 
-|| Excel|ML de Azure (Inicial)|ML de Azure con mínimos cuadrados|
+|| Excel|Aprendizaje automático de Azure (inicial)|Aprendizaje automático de Azure con mínimos cuadrados|
 |---|:---:|:---:|:---:|
-|Valor etiquetado |Datos reales (numéricos)|igual|igual|
-|Aprendiz |Excel -> Análisis de datos -> Regresión|Regresión lineal|Regresión lineal|
-|Opciones del aprendiz|N/A|Predeterminado|Ordinaria de mínimos cuadrados<br />L2 = 0,005|
-|Conjunto de datos|26 filas, 3 características, 1 etiqueta Todo numérico|igual|igual|
-|División: entrenamiento|Entrenamiento de Excel en las primeras 18 filas, probado en las últimas 8 filas|igual|igual|
-|División: prueba|Fórmula de regresión de Excel aplicada a las últimas 8 filas|igual|igual|
+|Valor etiquetado |Valores reales (numéricos)|same|same|
+|Objetivo del aprendizaje |Excel -> Análisis de datos -> Regresión|Regresión lineal|Regresión lineal|
+|Opciones del objetivo del aprendizaje|N/D|Valores predeterminados|ordinaria de mínimos cuadrados<br />L2 = 0,005|
+|Conjunto de datos|26 filas, 3 características, 1 etiqueta. Todas numéricas.|same|same|
+|División: aprendizaje|Excel entrenado en las primeras 18 filas; probado en las últimas 8 filas.|same|same|
+|División: prueba|Fórmula de regresión de Excel aplicada a las últimas 8 filas.|same|same|
 |**Rendimiento**||||
-|R cuadrado ajustado|0,96|N/A||
-|Coeficiente de determinación|N/A|0,78|0,952049|
-|Error medio absoluto|9,5 millones de $|19,4 millones de $|9,5 millones de $|
-|Error medio absoluto (%)|<span style="background-color: 00FF00;"> 6,03 %</span>|12,2 %|<span style="background-color: 00FF00;"> 6,03 %</span>|
+|R cuadrado ajustado|0,96|N/D||
+|Coeficiente de determinación|N/D|0,78|0,952049|
+|Error medio absoluto |9,5 millones de $|19,4 millones de $|9,5 millones de $|
+|Error medio absoluto (%)|<span style="background-color: 00FF00;"> 6,03 %</span>|12,2 %|<span style="background-color: 00FF00;"> 6,03 %</span>|
 
 Además, los coeficientes de Excel son muy similares a los pesos de la característica en el modelo de entrenamiento de Azure:
 
-||Coeficientes de Excel |Pesos de las características de Azure |
+||Coeficientes de Excel|Ponderaciones de la característica de Azure|
 |---|:---:|:---:|
-|Intercepción/desviación|19470209,88|19328500|
+|Intersección/sesgo|19 470 209,88|19 328 500|
 |Característica A|0,832653063|0,834156|
-|Característica B|11071967,08|11007300|
-|Característica C|25383318,09|25140800|
+|Característica B|11 071 967,08|11 007 300|
+|Característica C|25 383 318,09|25 140 800|
 
 ## Pasos siguientes
 
@@ -115,7 +117,7 @@ Con el libro abierto, copie los parámetros predefinidos en la sección de pará
 ![][2]
  
 ### Optimización y otros experimentos
-Ahora que teníamos una línea de base con nuestro modelo de Excel, dimos un paso más para optimizar nuestro modelo de regresión lineal de Aprendizaje automático de Azure. Usamos el módulo [Selección de características basada en filtros][filter-based-feature-selection] para mejorar nuestra selección de datos iniciales de elementos. Ello nos ayudó a lograr una mejora del rendimiento del 4,6 % en el error medio absoluto. Para proyectos futuros, utilizaremos esta característica que nos permitirá ahorrar semanas de iteración en los atributos de los datos para buscar el conjunto correcto de características que se utilizará para el modelado.
+Ahora que teníamos una línea de base con nuestro modelo de Excel, dimos un paso más para optimizar nuestro modelo de regresión lineal de Aprendizaje automático de Azure. Usamos el módulo [Selección de características basada en filtros][filter-based-feature-selection] para mejorar nuestra selección de datos iniciales de elementos. Ello nos ayudó a lograr una mejora del rendimiento del 4,6 % en el error medio absoluto. Para proyectos futuros, utilizaremos esta característica que nos permitirá ahorrar semanas de iteración en los atributos de los datos para buscar el conjunto correcto de características que se utilizará para el modelado.
 
 A continuación, tenemos previsto incluir algoritmos adicionales como [bayesianos][bayesian-linear-regression] o [árboles de decisiones incrementados][boosted-decision-tree-regression] en nuestro experimento para comparar el rendimiento.
 
@@ -157,4 +159,4 @@ A continuación, encontrará algunos recursos que le ayudarán a trabajar con la
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

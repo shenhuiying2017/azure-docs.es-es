@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -37,7 +37,7 @@ La rotación de las claves de la cuenta de almacenamiento de Azure es un proceso
 3. Quitar y crear las tablas externas señalando al nuevo origen de datos externo
 
 Cuando haya migrado todas las tablas externas al nuevo origen de datos externo, puede realizar las tareas de limpieza:
- 
+
 1. Quitar el primer origen de datos externo
 2. Quitar la primera credencial de ámbito de base de datos en función de la clave de acceso de almacenamiento principal
 3. Iniciar sesión en Azure y volver a generar la clave de acceso principal lista para la próxima vez
@@ -47,13 +47,13 @@ Las consultas en tablas externas simplemente usan el nombre de tabla como si fue
 
 ```
 
--- Query Azure storage resident data via external table. 
+-- Query Azure storage resident data via external table.
 SELECT * FROM [ext].[CarSensor_Data]
 ;
 
 ```
 
-> [AZURE.NOTE]Una consulta acerca de una tabla externa puede producir el error *"Consulta anulada: se alcanzó el umbral de rechazo máximo al leer desde un origen externo"*. Esto indica que sus datos externos contienen registros *con modificaciones*. Un registro de datos se considera "con modificaciones" si los tipos de datos reales o el número de columnas no coincide con las definiciones de columna de la tabla externa o si los datos no se ajustan al formato de archivo externo especificado. Para corregirlo, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos estén modificados, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en CREATE EXTERNAL TABLE DDL.
+> [AZURE.NOTE] Una consulta acerca de una tabla externa puede producir el error *"Consulta anulada: se alcanzó el umbral de rechazo máximo al leer desde un origen externo"*. Esto indica que sus datos externos contienen registros *con modificaciones*. Un registro de datos se considera "con modificaciones" si los tipos de datos reales o el número de columnas no coincide con las definiciones de columna de la tabla externa o si los datos no se ajustan al formato de archivo externo especificado. Para corregirlo, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos estén modificados, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en CREATE EXTERNAL TABLE DDL.
 
 
 ## Carga de datos del almacenamiento de blobs de Azure
@@ -66,16 +66,16 @@ En este ejemplo se usa la instrucción CREATE TABLE AS SELECT para cargar datos.
 CREATE TABLE AS SELECT es una instrucción Transact-SQL de alto rendimiento que carga los datos en paralelo a todos los nodos de proceso de su Almacenamiento de datos SQL. Se desarrolló originalmente para el motor de procesamiento paralelo masivo (MPP) de Analytics Platform System y se incluye ahora en Almacenamiento de datos SQL.
 
 ```
--- Load data from Azure blob storage to SQL Data Warehouse 
+-- Load data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
-WITH 
+WITH
 (   
     CLUSTERED COLUMNSTORE INDEX
 ,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
 )
-AS 
-SELECT * 
+AS
+SELECT *
 FROM   [ext].[CarSensor_Data]
 ;
 ```
@@ -129,7 +129,7 @@ Hay varias maneras de hacerlo. A continuación se muestran dos enfoques de uso d
 ### Ejemplo sencillo para archivos pequeños
 
 A continuación se muestra un script de Powershell sencillo de una línea crea el archivo.
- 
+
 ```
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
@@ -210,4 +210,4 @@ Para obtener más información acerca de cómo mover datos al Almacenamiento de 
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 # Directivas de dispositivo de acceso condicional para servicios de Office 365
 
@@ -44,4 +44,4 @@ P: ¿Cuándo se ampliará la directiva de acceso condicional a los servicios de 
 
 R: En este momento, el acceso condicional a los servicios de Office365 se limita a las aplicaciones enriquecidas en el dispositivo. Se ha previsto ampliar la directiva de acceso condicional a los usuarios que tengan acceso a los servicios desde exploradores.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

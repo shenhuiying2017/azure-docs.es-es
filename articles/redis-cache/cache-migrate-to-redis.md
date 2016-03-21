@@ -4,7 +4,7 @@
     services="redis-cache"
     documentationCenter="na"
     authors="steved0x"
-    manager="dwrede"
+    manager="erikre"
     editor="tysonn" />
 <tags 
     ms.service="cache"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="12/03/2015"
+    ms.date="03/04/2016"
     ms.author="sdanie" />
 
 # Migración desde el Servicio de caché administrado a Caché en Redis de Azure
@@ -56,7 +56,7 @@ Caché en Redis de Microsoft Azure está disponible en los siguientes niveles:
 
 -	**Básico** – Nodo único. Varios tamaños de hasta 53 GB.
 -	**Estándar** – Principal/Réplica de dos nodos. Varios tamaños de hasta 53 GB. Contrato de nivel de servicio del 99,9 %.
--	**Premium**: principal/réplica de dos nodos con hasta 10 particiones. Varios tamaños, desde 6 GB a 530 GB (póngase en contacto con nosotros para obtener más información). Todas las características del nivel Estándar y otras más, incluida la compatibilidad con los [clústeres de Redis](cache-how-to-premium-clustering.md), la [persistencia de Redis](cache-how-to-premium-persistence.md) y la [red virtual de Azure](cache-how-to-premium-vnet.md). Contrato de nivel de servicio del 99,9 %.
+-	**Premium**: principal/réplica de dos nodos con hasta 10 particiones. Varios tamaños, desde 6 GB a 530 GB (póngase en contacto con nosotros para obtener más información). Todas las características del nivel Estándar y otras más, incluida la compatibilidad con los [clústeres de Redis](cache-how-to-premium-clustering.md), la [persistencia de Redis](cache-how-to-premium-persistence.md) y la [red virtual de Azure](cache-how-to-premium-vnet.md). Contrato de nivel de servicio del 99,9 %.
 
 Estos niveles difieren en las características y el precio. Las características se tratan más adelante en esta guía; por otro lado, para obtener más información acerca de los precios consulte [Detalles de precios de caché](https://azure.microsoft.com/pricing/details/cache/).
 
@@ -71,7 +71,7 @@ Se pueden crear cachés en Caché en Redis de Azure en el [Portal de Azure](http
 -	Para crear una caché con Azure PowerShell, consulte [Administración de Caché en Redis de Azure con Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
 -	Para crear una caché mediante la CLI de Azure, consulte [Creación y administración de Caché en Redis de Azure mediante la interfaz de línea de comandos de Azure (CLI de Azure)](cache-manage-cli.md).
 
->[AZURE.NOTE] Para usar Caché en Redis de Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
+>[AZURE.NOTE] Para usar Caché en Redis de Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
 ## Configuración de los clientes de caché
 
@@ -195,4 +195,4 @@ Caché en Redis de Azure cuenta con proveedores de estado de sesión ASP.NET y a
 
 Explore la [documentación de Caché en Redis de Azure](https://azure.microsoft.com/documentation/services/cache/), encontrará tutoriales, ejemplos, vídeos y mucho más.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

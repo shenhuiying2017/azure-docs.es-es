@@ -51,8 +51,8 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 
 	Una vez completado el experimento, hacemos clic en Crear experimento predictivo. Esto crea un experimento predictivo, guarda el modelo como un modelo entrenado y agrega los módulos de entrada y salida de servicio web como se muestra a continuación. A continuación, hacemos clic en Ejecutar.
 
-	Una vez ejecutado el experimento, al hacer clic en "Publicar servicio web", se publicará el experimento predictivo como un servicio web y se creará un punto de conexión predeterminado. El modelo de aprendizaje en este servicio web se puede actualizar, como se muestra a continuación. Los detalles de este extremo se mostrarán en la pantalla.  
-3. *Publicar el experimento de entrenamiento como un servicio web* Para volver a entrenar el modelo entrenado, necesitamos publicar el experimento de formación que hemos creado en el paso 1 anterior como un servicio web. Este servicio web necesitará un módulo de salida del servicio web conectado al módulo [Entrenar modelo][train-model] para poder generar nuevos modelos entrenados. Haga clic en el icono Experimentos en el panel izquierdo, y luego haga clic en el experimento denominado Modelo de censo para volver al experimento de entrenamiento.  
+	Una vez ejecutado el experimento, al hacer clic en "Publicar servicio web", se publicará el experimento predictivo como un servicio web y se creará un punto de conexión predeterminado. El modelo de aprendizaje en este servicio web se puede actualizar, como se muestra a continuación. Los detalles de este extremo se mostrarán en la pantalla.
+3. *Publicar el experimento de entrenamiento como un servicio web*: para volver a entrenar el modelo entrenado, necesitamos publicar el experimento de formación que creamos en el paso 1 anterior como un servicio web. Este servicio web necesitará un módulo de salida del servicio web conectado al módulo [Entrenar modelo][train-model] para poder generar nuevos modelos entrenados. Haga clic en el icono Experimentos en el panel izquierdo, y luego haga clic en el experimento denominado Modelo de censo para volver al experimento de entrenamiento.  
 
 	Ahora, agregamos una entrada de servicio web y dos módulos de salida de servicio web al flujo de trabajo. La salida del servicio web para Entrenar modelo nos ofrecerá el nuevo modelo entrenado. La salida vinculada a Evaluar modelo devolverá el resultado de la evaluación del modelo de dicho módulo.
 
@@ -61,7 +61,7 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 	![][4]
 
 	Ahora hacemos clic en el botón Implementar servicio web y luego en Sí. Esto implementará el experimento de entrenamiento como un servicio web que genera un modelo entrenado y resultados de evaluación del modelo. Aparecerá el panel del servicio web con la clave de API y la página de Ayuda de API para la ejecución por lotes. Tenga en cuenta que solo se puede usar el método de ejecución por lotes para crear modelos entrenados.  
-4. *Agregar un nuevo punto de conexión* El servicio web predictivo publicado en el paso 2 anterior se creó con un punto de conexión predeterminado. Los extremos predeterminados se mantienen sincronizados con el experimento de formación y puntuación original y, por tanto, el modelo entrenado de un extremo predeterminado no se puede reemplazar. Para crear un punto de conexión actualizable, visite el Portal de Azure clásico y haga clic en Agregar punto de conexión (más detalles [aquí](machine-learning-create-endpoint.md)).
+4. *Agregar un nuevo punto de conexión* El servicio web predictivo publicado en el paso 2 anterior es el punto de conexión de puntuación predeterminado. Los extremos predeterminados se mantienen sincronizados con el experimento de formación y puntuación original y, por tanto, el modelo entrenado de un extremo predeterminado no se puede reemplazar. Para crear un nuevo punto de conexión de puntuación con un modelo actualizable, visite el Portal de Azure clásico y haga clic en Agregar punto de conexión (más detalles [aquí](machine-learning-create-endpoint.md)). También puede agregar puntos de conexión de puntuación con el código de ejemplo proporcionado [aquí](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
 
 5. *Volver a entrenar el modelo con nuevos datos y BES* Para llamar a las API de reentrenamiento, crearemos una nueva aplicación de consola C# en Visual Studio (Nuevo -> Proyecto -> Windows Desktop -> Aplicación de consola).
 
@@ -94,9 +94,9 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 
 	Esto nos indicará si el modelo recientemente entrenado funciona lo suficientemente bien como para reemplazar el existente.
 
-7. *Actualizar modelo entrenado del punto de conexión agregado* Para completar el proceso, es preciso actualizar el modelo entrenado del punto de conexión predictivo creado en el paso 4 anterior.
+7. *Actualizar el modelo entrenado del punto de conexión agregado* Para completar el proceso, es preciso actualizar el modelo entrenado del punto de conexión (puntuación) predictivo creado en el paso 4 anterior.
 
-	(Si ha agregado el nuevo punto de conexión mediante el Portal de Azure, puede hacer clic en el nombre del nuevo punto de conexión y luego en el vínculo UpdateResource para obtener la dirección URL que necesitará para actualizar el modelo del punto de conexión).
+	(Si ha agregado el nuevo punto de conexión mediante el Portal de Azure, puede hacer clic en el nombre del nuevo punto de conexión y luego en el vínculo UpdateResource para obtener la dirección URL que necesitará para actualizar el modelo del punto de conexión. Si agregó el punto de conexión mediante código, el resultado de esa llamada tendrá la dirección URL del punto de conexión).
 
 	La salida de BES anterior muestra la información del resultado de reentrenamiento de "output1", que contiene la información de ubicación del modelo reentrenado. Ahora necesitamos tomar este modelo entrenado y actualizar el extremo de puntuación (creado en el paso 4). El código de ejemplo es el siguiente:
 
@@ -141,6 +141,8 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 	```
 
 	"apiKey" y "endpointUrl" para esta llamada están visibles en el panel del extremo. El parámetro "Name" de los recursos debe coincidir con el nombre del modelo entrenado guardado en el experimento predictivo.
+	
+	Tenga en cuenta que el token SAS expira después de 1 hora (55 minutos). Debe realizar una operación GET con el identificador de trabajo para obtener un nuevo token.
 
 	Con esta llamada realizada correctamente, se iniciará el nuevo extremo mediante un modelo reentrenado aproximadamente en 15 segundos.
 
@@ -158,4 +160,4 @@ Al usar las API de reentrenamiento, podemos actualizar el modelo entrenado de un
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

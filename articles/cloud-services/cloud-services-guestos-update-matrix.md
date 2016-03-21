@@ -420,4 +420,4 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

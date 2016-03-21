@@ -13,30 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="02/10/2016" 
 	ms.author="bradsev" />
 
 # Mover datos hacia y desde el almacenamiento de blobs de Azure con el Explorador de almacenamiento de Azure
 
 ## Introducción 
 
-El Explorador de almacenamiento de Azure es una herramienta gratuita basada en Windows para inspeccionar y modificar datos de una cuenta de almacenamiento de Azure. En este tema se describe cómo usarlo para cargar y descargar datos del Almacenamiento de blobs de Azure. Se puede descargar en el [Explorador de almacenamiento de Azure](http://azurestorageexplorer.codeplex.com/).
+El Explorador de almacenamiento de Azure es una herramienta gratuita basada en Windows para inspeccionar y modificar datos de una cuenta de almacenamiento de Azure. En este tema se describe cómo usarlo para cargar y descargar datos del Almacenamiento de blobs de Azure. Se puede descargar desde el [Explorador de almacenamiento de Azure](http://storageexplorer.com/).
 
 A continuación se ofrecen vínculos de orientación sobre las tecnologías que se usan para mover datos hacia o desde el almacenamiento de blobs de Azure:
-
+ 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
-
-
+ 
+&nbsp;
+ 
 > [AZURE.NOTE] Si está usando la máquina virtual que se configuró con los scripts ofrecidos por [Máquinas virtuales de ciencia de datos en Azure](machine-learning-data-science-virtual-machines.md),el Explorador de almacenamiento de Azure ya está instalado en la máquina virtual.
-
-> [AZURE.NOTE] Para ver una introducción completa al almacenamiento de blobs de Azure, consulte [Aspectos básicos del blob de Azure](../storage-dotnet-how-to-use-blobs.md) y [Servicio BLOB de Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+ 
+&nbsp;
+ 
+> [AZURE.NOTE] Para ver una introducción completa al almacenamiento de blobs de Azure, consulte [Aspectos básicos del blob de Azure](../storage/storage-dotnet-how-to-use-blobs.md) y [Servicio BLOB de Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Requisitos previos
 
 En este documento se supone que tiene una suscripción de Azure y una cuenta de almacenamiento y la clave de almacenamiento correspondiente para dicha cuenta. Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenamiento de Azure y la clave de cuenta.
 
 - Para configurar una suscripción de Azure, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
-- Para obtener instrucciones sobre la creación de una cuenta de almacenamiento y para obtener información de cuentas y claves, vea [Acerca de las cuentas de almacenamiento de Azure](../storage-create-storage-account.md).
+- Para obtener instrucciones sobre la creación de una cuenta de almacenamiento y para obtener información de cuentas y claves, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
 
 <a id="explorer"></a>
@@ -56,4 +59,4 @@ En los pasos siguientes se describe cómo cargar y descargar datos mediante el E
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

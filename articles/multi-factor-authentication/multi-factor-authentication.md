@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/29/2016"
+	ms.date="03/03/2016"
 	ms.author="billmath"/>
 
 # ¿Qué es Azure Multi-Factor Authentication?
@@ -108,7 +108,7 @@ Aplicación móvil como segundo factor|* | * | *
 Llamada de teléfono como segundo factor|* | * | *
 SMS como segundo factor|* | * | *
 Contraseñas de aplicación para clientes que no admiten MFA|* | * | *
-Control de administración sobre los métodos de autenticación| | | *
+Control de administración sobre los métodos de autenticación| (Vista previa pública)|(Vista previa pública) | *
 Modo de PIN| | | *
 Alerta de fraude| | | *
 Informes de MFA| | | *
@@ -120,7 +120,7 @@ IP de confianza| | | *
 Recordar MFA para dispositivos de confianza |* | * | *
 SDK de MFA| | | *
 MFA para aplicaciones locales mediante servidor MFA| | | *
-Opciones de verificación seleccionables (versión preliminar pública)|* | * | *
+
 
 
 ## Cómo conseguir Azure Multi-Factor Authentication
@@ -193,20 +193,20 @@ SMS unidireccional como segundo factor | ● | ●
 SMS bidireccional como segundo factor | | ●
 Tokens de hardware como segundo factor | | ●
 Contraseñas de aplicación para los clientes que no son compatibles con MFA | ● |  
-Control de administración sobre los métodos de autenticación | | ●
+Control de administración sobre los métodos de autenticación | (Vista previa pública) | ●
 Modo de PIN | | ●
 Alerta de fraude | ● | ●
 Informes de MFA | ● | ●
-Omisión por única vez | ● | ●
+Omisión por única vez | | ●
 Saludos personalizados para las llamadas de teléfono | ● | ●
 Identificador de llamada personalizable para llamadas telefónicas | ● | ●
 IP de confianza | ● | ●
-Recordar MFA para dispositivos de confianza (versión preliminar pública) | ● |  
+Recordar MFA para dispositivos de confianza| ● |  
 Acceso condicional | ● | ●
-Memoria caché | ● | ●
+Memoria caché | | ●
 
 Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de nube o el Servidor MFA local, ya podemos comenzar a configurar y usar Azure Multi-Factor Authentication. **Seleccione el icono que representa su opción**
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

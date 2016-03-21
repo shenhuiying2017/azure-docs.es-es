@@ -76,7 +76,7 @@ Se aceptan los siguientes tipos de archivo:
 
 ## <a name="CreateScheduledCRON"></a>Creación de un trabajo web programado utilizando una expresión CRON
 
-Esta técnica está disponible para aplicaciones web que se ejecutan en modo Estándar o Premium y requiere que la opción **AlwaysOn** esté habilitada en la aplicación.
+Esta técnica está disponible para aplicaciones web que se ejecutan en modo Básico, Estándar o Premium y requiere que la opción **AlwaysOn** esté habilitada en la aplicación.
 
 Para convertir un trabajo web a petición en un trabajo web programado, basta con incluir un archivo `settings.job` en la raíz del archivo ZIP del trabajo web. Este archivo JSON debe incluir una propiedad `schedule` con una [expresión CRON](https://en.wikipedia.org/wiki/Cron) como la siguiente.
 
@@ -239,4 +239,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

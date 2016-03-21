@@ -1,10 +1,10 @@
 <properties
    pageTitle="Tiempos de reposición de informes de Azure Active Directory | Microsoft Azure"
-   description="Cantidad de tiempo necesario para que los eventos de informes anteriores aparezcan en su Azure Active Directory"
+   description="Cantidad de tiempo necesario para que los eventos de informes anteriores aparezcan en su directorio de Azure AD"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevepo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Tiempos de reposición de informes de Azure Active Directory
 
@@ -30,7 +30,7 @@ Inicios de sesión desde varias ubicaciones geográficas | 0 días
 Inicios de sesión desde direcciones IP con actividad sospechosa | 0 días
 Inicios de sesión desde dispositivos posiblemente infectados | 0 días
 Actividad de inicio de sesión irregular | 0 días
-Usuarios con actividad de inicio de sesión erróneo. | 0 días
+Usuarios con actividad de inicio de sesión anómala | 0 días
 Usuarios con credenciales perdidas | 0 días
 Informe de auditoría | 30 días
 Actividad de restablecimiento de contraseña (Azure AD) | 0 días
@@ -48,4 +48,4 @@ Usuarios de RMS más activos | 0 días
 Uso de dispositivos RMS | 0 días
 Uso de aplicaciones habilitadas para RMS | 0 días
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

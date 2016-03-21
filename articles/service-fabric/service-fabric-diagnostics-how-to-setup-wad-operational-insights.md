@@ -31,7 +31,9 @@ Visión operativa identifica los orígenes de los diferentes tipos de registros 
 * [Administrador de recursos de Azure](https://azure.microsoft.com/resource-group-overview/)
 
 ## Requisitos previos
-Estas herramientas se usarán para realizar algunas de las operaciones en este documento: * [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/) * [Cliente del Administrador de recursos de Azure](https://github.com/projectkudu/ARMClient)
+Estas herramientas se usarán para realizar algunas de las operaciones que se describen en este documento:
+* [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/)
+* [Cliente de Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 
 ## Diferentes orígenes de registros que podría recopilar
 1. **Registros de Service Fabric:** emitidos por la plataforma a los canales ETW y EventSource estándar. Los registros pueden ser de uno de los varios tipos que hay:
@@ -123,7 +125,7 @@ Si tiene un clúster existente que no tiene Diagnósticos implementado, puede ag
                 }
             }
     },
-                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountNamee')]"
+                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
                 },
                 "protectedSettings": {
                     "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
@@ -167,7 +169,7 @@ Reemplace vmNamePrefix con el prefijo que eligió para los nombres de máquina v
 
 Después de crear los archivos JSON como se describió anteriormente, cámbielos por los específicos de su entorno. A continuación, llame al comando siguiente, pasando el nombre del grupo de recursos para el clúster de Service Fabric. Una vez que se ejecuta este comando correctamente, se implementará Diagnósticos en todas las máquinas virtuales y se iniciará la carga de los registros desde el clúster a las tablas de la cuenta de Almacenamiento de Azure especificada.
 
-Además, antes de llamar a este comando de implementación, es posible que tenga que llevar a cabo alguna tarea de configuración, como agregar su cuenta de Azure (`Add-AzureAccount`), elegir la suscripción correcta (`Select-AzureSubscription`) y cambiar al modo del Administrador de recursos (`Switch-AzureMode AzureResourceManager`).
+Además, antes de llamar a este comando de implementación, es posible que tenga que llevar a cabo alguna tarea de configuración, como agregar su cuenta de Azure (`Add-AzureAccount`), elegir la suscripción correcta (`Select-AzureSubscription`) y cambiar al modo de Resource Manager (`Switch-AzureMode AzureResourceManager`).
 
 ```ps
 
@@ -286,7 +288,7 @@ if ($existingConfig) {
 }
 ```
 
-Una vez haya configurado el área de trabajo de Visión operativa para leer desde las tablas de Azure en su cuenta de almacenamiento, inicie sesión en el portal y vaya a la pestaña **almacenamiento** del recurso de Visión operativa. Debería tener un aspecto similar al siguiente: ![Configuración de almacenamiento de Visión operativa en el Portal de Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+Cuando haya configurado el área de trabajo de Visión operativa para leer desde las tablas de Azure en su cuenta de almacenamiento, inicie sesión en el portal y vaya a la pestaña **Almacenamiento** del recurso de Visión operativa. Debería tener un aspecto similar al siguiente: ![Configuración de almacenamiento de Visión operativa en el Portal de Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Búsqueda y visualización de registros en Visión operativa
 Después de configurar el área de trabajo de Visión operativa para que lea los registros desde la cuenta de almacenamiento especificada, pueden pasar unos 10 minutos hasta que los registros aparezcan en la interfaz de usuario de Visión operativa. Para asegurarse de que haya nuevos registros generados, es conveniente implementar una aplicación de Service Fabric en el clúster ya que esto generará eventos operativos desde la plataforma Service Fabric.
@@ -325,4 +327,4 @@ Tendrá que actualizar la sección EtwEventSourceProviderConfiguration en WadCon
 ## Pasos siguientes
 Revise los eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) y [Reliable Services](service-fabric-reliable-services-diagnostics.md) para comprender más a fondo qué eventos debería examinar durante la solución de problemas.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

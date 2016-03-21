@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/29/2015"
+   ms.date="03/08/2016"
    ms.author="piyushjo"/>
 
 
 # Cómo llegar a los usuarios de su aplicación mediante notificaciones de inserción
 
-Este artículo describe la pestaña **ALCANCE** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**. Para obtener más información, consulte [Crear una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md).
+Este artículo describe la pestaña **ALCANCE** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**. Para obtener más información, consulte [Crear una cuenta de Azure Mobile Engagement](mobile-engagement-create.md).
 
 La sección de cobertura de la interfaz de usuario es la herramienta de administración de campaña de inserción en la que puede crear/editar/activar/finalizar/supervisar y obtener estadísticas de las campañas de notificaciones de inserción y funciones a las que también se puede acceder a través de la API de cobertura (y algunos elementos de la API de inserción de bajo nivel). Recuerde que tanto si está utilizando las API o la interfaz de usuario, deberá integrar Azure Mobile Engagement y la cobertura en la aplicación para cada plataforma con el SDK para poder utilizar campañas de cobertura.
 
@@ -52,7 +52,13 @@ Haga clic en **Estadísticas** para ver los detalles de una campaña de cobertur
 	4. En dispositivos iOS, los mensajes a veces no se entregan si el dispositivo tiene poca batería o si la aplicación consume demasiada energía al procesar las notificaciones remotas. Se trata de una limitación de los dispositivos iOS.   
 
 3.	**Mostrados**: especifica el número de mensajes que se muestran correctamente al usuario de la aplicación en el dispositivo en forma de una notificación push del sistema o de fuera de aplicación en el centro de notificaciones, o en forma de una notificación en aplicación dentro de la aplicación móvil. La pestaña **Avanzadas** le indicará cuántas eran notificaciones del sistema y cuántas notificaciones en aplicación.
-
+	
+	*Razones para que el recuento mostrado sea menor que el recuento entregado (esperando a que se muestre)*
+	
+	1. Si la campaña de notificación tenía una fecha de finalización, es posible que la notificación se entregara, pero en el momento de abrirla y mostrarla al usuario de la aplicación ya había expirado, por lo que nunca se mostró.   
+	2. Si la notificación es una notificación en aplicación, se muestra solo cuando el usuario abre la aplicación. Si el usuario no ha abierto la aplicación, el SDK informará de que la notificación se entregó pero no se mostrará hasta que la aplicación se abra. 
+	2. Si la notificación es una notificación en aplicación y está configurada para mostrarse en una pantalla o actividad específica, también se notificará como entregada, pero no se entregará hasta que el usuario abra la aplicación en una pantalla específica. 
+	
 4.	**Interacciones de usuario**: especifica el número de mensajes con los que ha interactuado el usuario de la aplicación e incluye los mensajes que están accionados o cerrados.
 
 	- *El usuario de la aplicación puede accionar una notificación de las siguientes formas:*
@@ -69,7 +75,7 @@ Haga clic en **Estadísticas** para ver los detalles de una campaña de cobertur
 
 5.	**Accionados**: especifica el número de mensajes que el usuario de la aplicación accionó explícitamente. Es el número más interesante ya que le indica cuántos usuarios de la aplicación estuvieron interesados en el mensaje que se expulsó en la notificación.
  
-> [AZURE.NOTE] En las plataformas iOS y Windows, si el usuario tiene abierta la aplicación y la campaña era de tipo "Cualquier hora", es posible que tanto las notificaciones en aplicación como fuera de aplicación se muestren al mismo tiempo. Como consecuencia, el número de mensajes mostrados podría ser superior al de los entregados. Si el usuario interactúa con la notificación o la acciona, incluso el número de interacciones de usuario o de mensajes accionados podría ser superior al de los entregados.
+> [AZURE.NOTE] En las plataformas iOS y Windows, si el usuario tiene abierta la aplicación y la campaña era de tipo "Cualquier hora", es posible que tanto las notificaciones en aplicación como fuera de aplicación se muestren al mismo tiempo. Como consecuencia, el número de mensajes mostrados podría ser superior al de los entregados. Si el usuario interactúa con la notificación o la resuelve, incluso el número de interacciones de usuario o de mensajes resueltos podría ser superior al de los entregados.
 
 
 ![Reach2][19]
@@ -171,4 +177,4 @@ Haga clic en **Estadísticas** para ver los detalles de una campaña de cobertur
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

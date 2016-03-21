@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="03/04/2016"
    ms.author="larryfr"/>
 
 #Uso de Vista de Hive con Hadoop en HDInsight
@@ -23,7 +23,7 @@
 
 Ambari es una utilidad de administración y supervisión proporcionada con los clústeres de HDInsight basados en Linux. Una de las características que se proporcionan a través de Ambari es una interfaz de usuario web que puede usarse para ejecutar consultas de Hive. Se trata de __Vista de Hive__, que forma parte de las Vistas Ambari proporcionadas con el clúster de HDInsight.
 
-> [AZURE.NOTE]Ambari cuenta con muchas funcionalidades que no se tratan en este documento. Para más información, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.NOTE] Ambari cuenta con muchas funcionalidades que no se tratan en este documento. Para más información, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ##Requisitos previos
 
@@ -39,7 +39,7 @@ También puede navegar directamente a Ambari yendo a https://CLUSTERNAME.azurehd
 
 ![Selección de vistas de Ambari](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png).
 
-> [AZURE.NOTE]Al acceder a Ambari, se le pedirá autenticarse en el sitio. Escriba el nombre de la cuenta del administrador (de manera predeterminada `admin`) y la contraseña que usó al crear el clúster.
+> [AZURE.NOTE] Al acceder a Ambari, se le pedirá autenticarse en el sitio. Escriba el nombre de la cuenta del administrador (de manera predeterminada `admin`) y la contraseña que usó al crear el clúster.
 
 Debería ver una página similar a la siguiente:
 
@@ -73,21 +73,21 @@ Use los pasos siguientes desde la Vista de Hive para ejecutar una consulta de Hi
 	- **STORED AS TEXTFILE LOCATION**: indica a Hive dónde se almacenan los datos (el directorio example/data) y que se almacenan como texto.
 	- **SELECT**: selecciona un número de todas las filas donde la columna t4 contiene el valor [ERROR].
 
-	>[AZURE.NOTE]Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes. La eliminación de una tabla externa *no* elimina los datos, solamente la definición de tabla.
+	>[AZURE.NOTE] Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes. La eliminación de una tabla externa *no* elimina los datos, solamente la definición de tabla.
 
 2. Use el botón __Ejecutar__, situado en la parte inferior del Editor de consultas, para iniciar la consulta. Debe volverse de color naranja y el texto cambiará a __Detener ejecución__. Debe aparecer la sección __Resultados del proceso de consulta__ bajo el Editor de consultas y mostrar información sobre el trabajo.
 
-    > [AZURE.IMPORTANT]Es posible que algunos exploradores no puedan actualizar correctamente la información de registro o los resultados. Si se ejecuta un trabajo y parece ejecutarse eternamente sin actualizar el registro o sin devolver resultados, pruebe a usar en su lugar Mozilla FireFox o Google Chrome.
-    
+    > [AZURE.IMPORTANT] Es posible que algunos exploradores no puedan actualizar correctamente la información de registro o los resultados. Si se ejecuta un trabajo y parece ejecutarse eternamente sin actualizar el registro o sin devolver resultados, pruebe a usar en su lugar Mozilla FireFox o Google Chrome.
+
 3. Cuando haya finalizado la consulta, la sección __Resultados del proceso de consulta__ mostrará los resultados de la operación. El botón __Detener ejecución__ volverá a cambiar al botón __Ejecutar__ de color verde. La pestaña __Resultados__ debe contener la información siguiente:
 
         sev       cnt
         [ERROR]   3
 
     La pestaña __Registros__ puede usarse para ver la información de registro creada por el trabajo. Puede usarlo para solucionar problemas si se produjera alguno con una consulta.
-    
-    > [AZURE.TIP]Observe el elemento desplegable __Guardar resultados__ en la esquina superior izquierda de la sección __Resultados del proceso de consulta__; úselo para descargar los resultados o guardarlos en el almacenamiento de HDInsight como un archivo CSV.
-    
+
+    > [AZURE.TIP] Observe el elemento desplegable __Guardar resultados__ en la esquina superior izquierda de la sección __Resultados del proceso de consulta__; úselo para descargar los resultados o guardarlos en el almacenamiento de HDInsight como un archivo CSV.
+
 3. Seleccione las primeras cuatro líneas de esta consulta y después elija __Ejecutar__. Observe que no hay ningún resultado cuando finaliza el trabajo. Esto es debido a que al usar el botón __Ejecutar__ cuando se selecciona parte de la consulta, solo se ejecutarán las instrucciones seleccionadas. En este caso, la selección no incluyó la instrucción final que recupera filas de la tabla. Si selecciona solo esa línea y usa __Ejecutar__, debería ver los resultados esperados.
 
 3. Use el botón __Nueva hoja de cálculo__ situado en la parte inferior del __Editor de consultas__ para crear una nueva hoja de cálculo. En la hoja de cálculo nueva, escriba las siguientes instrucciones de HiveQL:
@@ -100,7 +100,7 @@ Use los pasos siguientes desde la Vista de Hive para ejecutar una consulta de Hi
 	- **CREATE TABLE IF NOT EXISTS**: crea una tabla, si todavía no existe. Dado que la palabra clave **EXTERNAL** no es usa, se trata de una tabla interna, la que se almacena en el almacenamiento de datos de Hive y es administrada completamente por Hive. A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
 	- **STORED AS ORC**: almacena los datos en el formato Optimized Row Columnar (ORC). Se trata de un formato altamente optimizado y eficiente para almacenar datos de Hive.
 	- **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contienen [ERROR] y, a continuación, inserta los datos en la tabla **errorLogs**.
-    
+
     Use el botón __Ejecutar__ para ejecutar esta consulta. La pestaña __Resultados__ no contendrá ninguna información ya que esta consulta no devuelve filas, pero el estado debe aparecer como __CORRECTO__.
 
 ###Configuración de Hive
@@ -116,7 +116,7 @@ La opción de configuración puede usarse para cambiar varios ajustes de Hive, c
 Seleccione el icono de __Explicación visual__ a la derecha del editor.
 
 ![iconos](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplainicon.png)
-    
+
 Se trata de la vista __Explicación visual__ de la consulta, que puede ser útil para comprender el flujo de las consultas complejas. Puede ver un equivalente textual de esta vista con el botón __Explicar__ en el Editor de consultas.
 
 ![Imagen de Explicación visual](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
@@ -127,7 +127,7 @@ Seleccione el icono de __Tez__ a la derecha del editor.
 
 ![iconos](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
-Se mostrará el grafo acíclico dirigido (DAG) usado por Tez para esta consulta, si está disponible. Si desea ver el DAG para las consultas que se ejecutaron en el pasado, use la __Vista de Tez__ en su lugar.
+Se mostrará el grafo acíclico dirigido (DAG) usado por Tez para esta consulta, si está disponible. Si desea ver el DAG para las consultas que se ejecutaron en el pasado, o depurar el proceso Tez, use la [vista de Tez](hdinsight-debug-ambari-tez-view.md) en su lugar.
 
 ###Notificaciones
 
@@ -142,7 +142,7 @@ Las notificaciones son mensajes que se generan al ejecutar las consultas. Por ej
 1. Desde el Editor de consultas, cree una nueva hoja de cálculo y escriba la siguiente consulta:
 
         SELECT * from errorLogs;
-    
+
     Ejecute la consulta para comprobar que funciona. El resultado será como sigue:
 
         errorlogs.t1 	errorlogs.t2 	errorlogs.t3 	errorlogs.t4 	errorlogs.t5 	errorlogs.t6 	errorlogs.t7
@@ -151,7 +151,7 @@ Las notificaciones son mensajes que se generan al ejecutar las consultas. Por ej
         2012-02-03 	19:25:27 	SampleClass4 	[ERROR] 	incorrect 	id
 
 2. Use el botón __Guardar como__ de la parte inferior del editor. Asigne a esta consulta el nombre de __Errorlogs__ y seleccione __Aceptar__. Observe como el nombre de la hoja de cálculo cambia a __Errorlogs__.
-    
+
 3. Seleccione la pestaña __Consultas guardadas__ en la parte superior de la página de Vista de Hive. Observe que __Errorlogs__ aparece ahora como una consulta guardada. Permanecerá en esta lista hasta que lo quite. Si selecciona el nombre, se abrirá la consulta en el Editor de consultas.
 
 ##Historial de consulta
@@ -172,7 +172,7 @@ Por ejemplo, si definió una función definida por el usuario con las siguientes
 * Ruta de acceso del recurso: wasb:///myudfs.jar
 * Nombre de la UDF: myawesomeudf
 * Nombre de la clase UDF: com.myudfs.Awesome
-    
+
 Mediante el botón __Insertar UDF__ podrá mostrar una entrada llamada __myudfs__, con otra lista desplegable para cada función definida por el usuario establecida para ese recurso. En este caso, __myawesomeudf__. Al seleccionar esta entrada se agrega lo siguiente al principio de la consulta:
 
     add jar wasb:///myudfs.jar;
@@ -199,4 +199,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

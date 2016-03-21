@@ -19,11 +19,11 @@
 # Vinculación de redes virtuales a circuitos ExpressRoute
 
 > [AZURE.SELECTOR]
-- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
-- [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)
-- [Template - Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
+- [PowerShell: clásico](expressroute-howto-linkvnet-classic.md)
+- [PowerShell: administrador de recursos](expressroute-howto-linkvnet-arm.md)
+- [Plantilla: Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
-En este artículo se ofrece información general de cómo vincular redes virtuales a circuitos ExpressRoute. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción. Este artículo se aplica a redes virtuales implementadas que usan el modelo de implementación del Administrador de recursos. Si quiere vincular una red virtual que se implementó usando el modelo de implementación clásica, vea [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) (Vincular una red virtual a un circuito de ExpressRoute).
+En este artículo se ofrece información general de cómo vincular redes virtuales a circuitos ExpressRoute. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción. Este artículo se aplica a redes virtuales implementadas que usan el modelo de implementación del Administrador de recursos. Si quiere vincular una red virtual que se implementó usando el modelo de implementación clásica, consulte [Vinculación de la red virtual a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 
 **Información sobre los modelos de implementación de Azure**
@@ -32,7 +32,7 @@ En este artículo se ofrece información general de cómo vincular redes virtual
 
 ## Requisitos previos de configuración
 
-- Necesitará la versión más reciente de los módulos de Azure PowerShell, versión 1.0 o posterior. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell. 
+- Necesitará la versión más reciente de los módulos de Azure PowerShell, versión 1.0 o posterior. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell. 
 - Asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md), la de [requisitos de enrutamiento](expressroute-routing.md) y la página de [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 - Tiene que tener un circuito ExpressRoute activo. 
 	- Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite el circuito mediante el proveedor de conectividad. 
@@ -129,7 +129,7 @@ la clave de autorización es un GUID.
 El usuario del circuito puede ejecutar el siguiente cmdlet para canjear una autorización de vínculo.
 
 	$id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"	
-	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
 #### Liberación de autorizaciones de conexión
 
@@ -139,4 +139,4 @@ Puede liberar una autorización eliminando la conexión que vincula el circuito 
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

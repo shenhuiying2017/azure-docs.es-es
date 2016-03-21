@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="mbaldwin"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/17/2016"
+   ms.date="03/07/2016"
    ms.author="dhanyahk"/>
 
 # Informe de actividad de inicio de sesión de todos los usuarios de Azure Active Directory
@@ -32,4 +32,4 @@ El informe de actividad de inicio de sesión de todos los usuarios contiene todo
  >
  - El informe de actividad de inicio de sesión de todos los usuarios solo está disponible en la actualidad mediante la API de informes. Visite [Introducción a la API de informes](active-directory-reporting-api-getting-started.md) para obtener más información.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

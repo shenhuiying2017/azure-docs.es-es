@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Carga de datos de ejemplo en Almacenamiento de datos SQL
@@ -84,4 +84,4 @@ Ahora que tuvo la oportunidad de probar algunas consultas con datos de ejemplo, 
 <!--Other Web references-->
 [scripts de ejemplo de Adventure Works para Almacenamiento de datos SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

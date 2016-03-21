@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar cómo integrar @Task con Azure Active Di
 
 - Puede controlar en Azure AD quién tiene acceso a @Task.
 - Puede permitir que los usuarios inicien sesión automáticamente en @Task (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory.
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Para configurar la integración de Azure AD con @Task, necesita los siguientes e
 - Una suscripción habilitada para el inicio de sesión único en @Task
 
 
-> [AZURE.NOTE]Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -56,7 +56,7 @@ Para configurar la integración de @Task en Azure AD, deberá agregar @Task desd
 
 **Para agregar @Task desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br> ![Active Directory][1] <br>
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br> ![Active Directory][1] <br>
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -88,11 +88,11 @@ Para configurar y probar el inicio de sesión único de Azure AD con @Task, es p
 
 ### Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el portal de Azure AD y configurar el inicio de sesión único en la aplicación @Task.<br>
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación @Task.<br>
 
 **Para configurar el inicio de sesión único de Azure AD con @Task, realice los pasos siguientes:**
 
-1. En el Portal de Azure AD, en la página de integración de aplicaciones de **@Task**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br>![Configurar inicio de sesión único][6]<br>
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **@Task**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en @Task?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][7]<br>
 
@@ -117,15 +117,15 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     b. Seleccione **Service Provider ID** (Id. del proveedor de servicios).
 
-    c. En el Portal de Azure, copie la **dirección URL de inicio de sesión remoto** y luego péguela en el cuadro de texto **Login Portal URL** (Dirección URL del portal de inicio de sesión).
+    c. En el Portal de Azure clásico, copie la **dirección URL de inicio de sesión remoto** y luego péguela en el cuadro de texto **Login Portal URL** (Dirección URL del portal de inicio de sesión).
 
-    d. En el Portal de Azure, copie la **Dirección URL del servicio de cierre de sesión único** y péguela en el cuadro de texto **Dirección URL de cierre de sesión**.
+    d. En el Portal de Azure clásico, copie la **Dirección URL del servicio de cierre de sesión único** y péguela en el cuadro de texto **Dirección URL de cierre de sesión**.
 
-    e. En el Portal de Azure, copie la **dirección URL de cambio de contraseña** y péguela en el cuadro de texto **Cambiar dirección URL de contraseña**.
+    e. En el Portal de Azure clásico, copie la **dirección URL de cambio de contraseña** y péguela en el cuadro de texto **Cambiar dirección URL de contraseña**.
 
     e. Haga clic en **Guardar**.
 
-6. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Qué es Azure AD Connect][10]<br>
+6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Qué es Azure AD Connect][10]<br>
 
 7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**. <br><br>![Qué es Azure AD Connect][11]
 
@@ -133,11 +133,11 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 
 ### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
+El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**.<br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_02.png) 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_02.png) 
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -165,7 +165,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_07.png) <br>
  
-8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_08.png) <br>
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_08.png) <br>
   
     a. Anote el valor del campo **Nueva contraseña**.
 
@@ -205,7 +205,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 **Para asignar a Britta Simon a @Task, realice los pasos siguientes:**
 
-1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú de la parte superior. <br><br>![Asignar usuario][201] <br>
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior. <br><br>![Asignar usuario][201] <br>
 
 2. En la lista de aplicaciones, seleccione **@Task**. <br><br>![Asignar usuario][202] <br>
 
@@ -257,4 +257,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/23/2016"
+   ms.date="03/08/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop basados en Windows en HDInsight con Azure PowerShell
@@ -24,12 +24,14 @@
 Aprenda a crear clústeres de HDInsight con Azure PowerShell. Azure PowerShell es un módulo que ofrece cmdlet para administrar Azure con Windows PowerShell. Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 
-###Requisitos previos:
+##Requisitos previos:
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 - suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Azure PowerShell. Vea [Instalar Azure PowerShell 1.0](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- Azure PowerShell. Consulte [Instalar Azure PowerShell 1.0 y versiones posteriores](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 
 
@@ -128,11 +130,11 @@ Los siguientes procedimientos son necesarios para crear un clúster de HDInsight
 
 ## Creación de clústeres con la plantilla de ARM
 
-Puede usar Azure PowerShell para implementar una plantilla de ARM que cree un clúster de HDInsight. Consulte [Call templates using Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#call-templates-using-powershell).
+Puede usar Azure PowerShell para implementar una plantilla de ARM que cree un clúster de HDInsight. Consulte [Call templates using Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#call-templates-using-powershell) (Llamada a plantillas mediante Azure PowerShell).
 
 ##Personalización de los clústeres
 
-- Consulte [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
+- Consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
 - Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
 
@@ -154,4 +156,4 @@ En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->
