@@ -59,7 +59,8 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 
     No afectan al servicio. Esto cancela de forma efectiva la suscripción del administrador de cuenta actual y crea una nueva en la cuenta del destinatario, pero asocia los servicios subyacentes de Azure con la nueva suscripción. La Id. de la suscripción no cambia.
 
--   **¿Cómo puedo usar este mecanismo para cambiar el directorio de suscripción?** Las suscripciones de Azure se crean en el directorio al que pertenece el administrador de la cuenta. Por lo tanto, para cambiar el directorio, solo tiene que transferir la suscripción a una cuenta de usuario en el directorio de destino. Cuando el usuario completa los pasos para aceptar la transferencia, la suscripción se mueve automáticamente al directorio de destino.
+-   **¿Cómo puedo usar este mecanismo para cambiar el directorio de suscripción?**
+    Las suscripciones de Azure se crean en el directorio al que pertenece el administrador de la cuenta. Por lo tanto, para cambiar el directorio, solo tiene que transferir la suscripción a una cuenta de usuario en el directorio de destino. Cuando el usuario completa los pasos para aceptar la transferencia, la suscripción se mueve automáticamente al directorio de destino.
 
 -   **¿Si se hace cargo de la propiedad de la facturación de una suscripción de otra organización, seguirán teniendo acceso a mis recursos?**
 
@@ -70,7 +71,7 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 
     Esta lista no está completa. El destinatario debe considerar la actualización de todos los secretos asociados al servicio si es necesario restringir el acceso a sus recursos. La mayoría de los recursos se pueden actualizar como se indican a continuación:
 
-    1.   Vaya al portal de Azure: [**https://portal.azure.com*](https://portal.azure.com)
+    1.   Vaya al portal de Azure: [*https://portal.azure.com*](https://portal.azure.com)
 
     2.    Haga clic en Examinar todo - &gt; Todos los recursos
 
@@ -104,7 +105,7 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 1. Ahora es el administrador de cuenta. Revise y actualice la sección Administrador y coadministradores del servicio. Use la opción de Configuración del [Portal de Azure clásico](https://manage.windowsazure.com) para controlar los administradores. [Más información](http://go.microsoft.com/fwlink/?LinkID=533293).
 2. También puede usar el control de acceso basado en roles (RBAC) para su suscripción y sus servicios. Visite el [Portal de Azure](https://portal.azure.com). [Más información sobre RBAC](http://go.microsoft.com/fwlink/?LinkID=544802).
 3. Actualice las credenciales asociadas a los servicios de esta suscripción. Entre ellos se incluyen los siguientes:
-    - Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+    -   Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
     -	Claves de acceso para servicios como Almacenamiento. Para obtener más información, consulte [Vista, copia y regeneración de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
     -	Credenciales de acceso remoto para servicios como Máquinas virtuales de Azure
 4. Actualice las alertas de facturación para esta suscripción en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions). [Más información](http://go.microsoft.com/fwlink/?LinkID=533292).

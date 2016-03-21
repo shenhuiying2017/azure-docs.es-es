@@ -419,7 +419,7 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 
 	**Respuesta:** Si los registros tienen un campo "Id" y la operación de copia intenta insertar un registro con el mismo Id., la operación de copia genera un error.
  
-3. **Pregunta:** ¿Admite la factoría de datos el [intervalo o las particiones de datos basadas en hash](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+3. **Pregunta:** ¿Admite la factoría de datos el [intervalo o las particiones de datos basadas en hash]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
 	**Respuesta:** No. 
 4. **Pregunta:** ¿Puedo especificar más de una colección de DocumentDB para una tabla?
@@ -427,4 +427,4 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 	**Respuesta:** No. Solo se puede especificar una colección cada vez.
      
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

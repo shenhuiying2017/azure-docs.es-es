@@ -27,7 +27,7 @@ Puede usar keytool para agregar el certificado de entidad de certificación ante
 
 	`keytool -list -keystore cacerts`
 
-	Se le solicitará la contraseña del almacén. La contraseña predeterminada es **changeit**. (Si desea cambiar la contraseña, consulte la documentación de keytool en http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html). En este ejemplo se asume que el certificado con huella digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 no está en la lista y que se desea importarlo (en particular, este certificado es necesario para el servicio de API Twilio).
+	Se le solicitará la contraseña del almacén. La contraseña predeterminada es **changeit**. (Si desea cambiar la contraseña, consulte la documentación de keytool en <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>). En este ejemplo se asume que el certificado con huella digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 no está en la lista y que se desea importarlo (en particular, este certificado es necesario para el servicio de API Twilio).
 2. Obtenga el certificado de la lista de certificados que se muestra en [Certificados raíz de GeoTrust](http://www.geotrust.com/resources/root-certificates/). Haga clic con el botón derecho en el vínculo al certificado con número de serie 35:DE:F4:CF y guárdelo en la carpeta **jdk\\jre\\lib\\security**. A los efectos de este ejemplo, se ha guardado un archivo con nombre **Equifax\\_Secure\\_Certificate\\_Authority.cer**.
 3. Importe el certificado a través del siguiente comando:
 

@@ -70,7 +70,8 @@ Después de crear la conexión, especifique las propiedades de Usuarios de Offic
 Se aplica a la versión: 1.0.
 
 ### Obtener mi perfil 
-Recupera el perfil del usuario actual. ```GET: /users/me```
+Recupera el perfil del usuario actual.
+```GET: /users/me```
 
 No hay parámetros para esta llamada.
 
@@ -88,7 +89,8 @@ No hay parámetros para esta llamada.
 
 
 ### Obtener perfil de usuario 
-Recupera un perfil de usuario específico. ```GET: /users/{userId}```
+Recupera un perfil de usuario específico.
+```GET: /users/{userId}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -108,7 +110,8 @@ Recupera un perfil de usuario específico. ```GET: /users/{userId}```
 
 
 ### Obtener administrador 
-Recupera el perfil de usuario del administrador del usuario especificado. ```GET: /users/{userId}/manager```
+Recupera el perfil de usuario del administrador del usuario especificado.
+```GET: /users/{userId}/manager```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -129,7 +132,8 @@ Recupera el perfil de usuario del administrador del usuario especificado. ```GET
 
 
 ### Obtener informes directos 
-Obtiene informes directos. ```GET: /users/{userId}/directReports```
+Obtiene informes directos.
+```GET: /users/{userId}/directReports```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|

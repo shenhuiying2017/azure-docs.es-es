@@ -49,11 +49,14 @@ Todas las API admiten datos en formato JSON y XML.
 
 Al agregar esta API a las aplicaciones lógicas, debe iniciar sesión en Dynamics CRM Online. Siga estos pasos para iniciar sesión en CRM Online y completar la configuración de la **conexión** en la aplicación lógica:
 
-1. En la aplicación lógica, seleccione **Agregar una acción**: ![Configurar CRM Online][13]
+1. En la aplicación lógica, seleccione **Agregar una acción**:
+![Configurar CRM Online][13]
 4. Escriba CRM en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan CRM en el nombre.
 5. Seleccione **Dynamics CRM Online: Crear un nuevo registro**.
-6. Seleccione **Iniciar sesión en Dynamics CRM Online**: ![Configurar CRM Online][14]
-7. Proporcione sus credenciales de CRM Online para iniciar sesión y autorizar la aplicación ![Configurar CRM Online][15].  
+6. Seleccione **Iniciar sesión en Dynamics CRM Online**:
+![Configurar CRM Online][14]
+7. Proporcione sus credenciales de CRM Online para iniciar sesión y autorizar la aplicación
+![Configurar CRM Online][15].  
 8. Después de iniciar sesión, vuelva a la aplicación lógica para completar el proceso agregando otros desencadenadores y otras acciones que necesite.
 9. Para guardar el trabajo, seleccione **Guardar** en la barra de menús anterior.
 

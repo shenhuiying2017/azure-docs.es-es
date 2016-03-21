@@ -90,7 +90,8 @@ Desencadena un flujo cuando se inicia un evento de calendario próximo. ```GET: 
 
 
 ### Obtener correos electrónicos 
-Recupera correos electrónicos de una carpeta. ```GET: /Mail```
+Recupera correos electrónicos de una carpeta.
+```GET: /Mail```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -115,7 +116,8 @@ Recupera correos electrónicos de una carpeta. ```GET: /Mail```
 
 
 ### Enviar correo electrónico 
-Envía un mensaje de correo electrónico. ```POST: /Mail```
+Envía un mensaje de correo electrónico.
+```POST: /Mail```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -135,7 +137,8 @@ Envía un mensaje de correo electrónico. ```POST: /Mail```
 
 
 ### Eliminar correo electrónico 
-Elimina un mensaje de correo electrónico por identificador. ```DELETE: /Mail/{messageId}```
+Elimina un mensaje de correo electrónico por identificador.
+```DELETE: /Mail/{messageId}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -154,7 +157,8 @@ Elimina un mensaje de correo electrónico por identificador. ```DELETE: /Mail/{m
 
 
 ### Marcar como leído 
-Marca un mensaje de correo electrónico como leído. ```POST: /Mail/MarkAsRead/{messageId}```
+Marca un mensaje de correo electrónico como leído.
+```POST: /Mail/MarkAsRead/{messageId}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -173,7 +177,8 @@ Marca un mensaje de correo electrónico como leído. ```POST: /Mail/MarkAsRead/{
 
 
 ### Responder al mensaje 
-Responde a un mensaje de correo electrónico. ```POST: /Mail/ReplyTo/{messageId}```
+Responde a un mensaje de correo electrónico.
+```POST: /Mail/ReplyTo/{messageId}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -194,7 +199,8 @@ Responde a un mensaje de correo electrónico. ```POST: /Mail/ReplyTo/{messageId}
 
 
 ### Obtener datos adjuntos 
-Recupera los datos adjuntos del mensaje por identificador. ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
+Recupera los datos adjuntos del mensaje por identificador.
+```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -214,7 +220,8 @@ Recupera los datos adjuntos del mensaje por identificador. ```GET: /Mail/{messag
 
 
 ### Al llegar correo electrónico nuevo 
-Desencadena un flujo cuando llega un nuevo correo electrónico. ```GET: /Mail/OnNewEmail```
+Desencadena un flujo cuando llega un nuevo correo electrónico.
+```GET: /Mail/OnNewEmail```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -240,7 +247,8 @@ Desencadena un flujo cuando llega un nuevo correo electrónico. ```GET: /Mail/On
 
 
 ### Enviar correo electrónico con opciones 
-Envía un correo electrónico con varias opciones y espera a que el destinatario responda con una de las opciones. ```POST: /mailwithoptions/$subscriptions```
+Envía un correo electrónico con varias opciones y espera a que el destinatario responda con una de las opciones.
+```POST: /mailwithoptions/$subscriptions```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -260,7 +268,8 @@ Envía un correo electrónico con varias opciones y espera a que el destinatario
 
 
 ### Enviar correo electrónico de aprobación 
-Envía un correo electrónico de aprobación y espera una respuesta del destinatario Para. ```POST: /approvalmail/$subscriptions```
+Envía un correo electrónico de aprobación y espera una respuesta del destinatario Para.
+```POST: /approvalmail/$subscriptions```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -283,7 +292,8 @@ Envía un correo electrónico de aprobación y espera una respuesta del destinat
 
 
 ### Obtener calendarios 
-Recupera calendarios. ```GET: /datasets/calendars/tables```
+Recupera calendarios.
+```GET: /datasets/calendars/tables```
 
 No hay parámetros para esta llamada.
 
@@ -298,7 +308,8 @@ No hay parámetros para esta llamada.
 
 
 ### Obtención de eventos 
-Recupera elementos de un calendario. ```GET: /datasets/calendars/tables/{table}/items```
+Recupera elementos de un calendario.
+```GET: /datasets/calendars/tables/{table}/items```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -317,7 +328,8 @@ Recupera elementos de un calendario. ```GET: /datasets/calendars/tables/{table}/
 
 
 ### Crear evento 
-Crea un evento. ```POST: /datasets/calendars/tables/{table}/items```
+Crea un evento.
+```POST: /datasets/calendars/tables/{table}/items```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -333,7 +345,8 @@ Crea un evento. ```POST: /datasets/calendars/tables/{table}/items```
 
 
 ### Obtener evento 
-Recupera un elemento específico de un calendario. ```GET: /datasets/calendars/tables/{table}/items/{id}```
+Recupera un elemento específico de un calendario.
+```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -349,7 +362,8 @@ Recupera un elemento específico de un calendario. ```GET: /datasets/calendars/t
 
 
 ### Eliminar evento 
-Elimina un elemento de calendario. ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
+Elimina un elemento de calendario.
+```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -365,7 +379,8 @@ Elimina un elemento de calendario. ```DELETE: /datasets/calendars/tables/{table}
 
 
 ### Actualizar evento 
-Actualiza parcialmente un elemento de calendario. ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
+Actualiza parcialmente un elemento de calendario.
+```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -382,7 +397,8 @@ Actualiza parcialmente un elemento de calendario. ```PATCH: /datasets/calendars/
 
 
 ### Con nuevos elementos 
-Se desencadena cuando se crea un nuevo elemento de calendario. ```GET: /datasets/calendars/tables/{table}/onnewitems```
+Se desencadena cuando se crea un nuevo elemento de calendario.
+```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -401,7 +417,8 @@ Se desencadena cuando se crea un nuevo elemento de calendario. ```GET: /datasets
 
 
 ### Al actualizar elementos 
-Se desencadena cuando se modifica un elemento de calendario. ```GET: /datasets/calendars/tables/{table}/onupdateditems```
+Se desencadena cuando se modifica un elemento de calendario.
+```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -420,7 +437,8 @@ Se desencadena cuando se modifica un elemento de calendario. ```GET: /datasets/c
 
 
 ### Obtener carpetas de contactos 
-Recupera carpetas de contactos. ```GET: /datasets/contacts/tables```
+Recupera carpetas de contactos.
+```GET: /datasets/contacts/tables```
 
 No hay parámetros para esta llamada.
 
@@ -433,7 +451,8 @@ No hay parámetros para esta llamada.
 
 
 ### Obtener contactos 
-Recupera contactos de una carpeta de contactos. ```GET: /datasets/contacts/tables/{table}/items```
+Recupera contactos de una carpeta de contactos.
+```GET: /datasets/contacts/tables/{table}/items```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -452,7 +471,8 @@ Recupera contactos de una carpeta de contactos. ```GET: /datasets/contacts/table
 
 
 ### Crear contacto 
-Crea un contacto. ```POST: /datasets/contacts/tables/{table}/items```
+Crea un contacto.
+```POST: /datasets/contacts/tables/{table}/items```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -468,7 +488,8 @@ Crea un contacto. ```POST: /datasets/contacts/tables/{table}/items```
 
 
 ### Obtener contacto 
-Recupera un contacto específico de una carpeta de contactos. ```GET: /datasets/contacts/tables/{table}/items/{id}```
+Recupera un contacto específico de una carpeta de contactos.
+```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -484,7 +505,8 @@ Recupera un contacto específico de una carpeta de contactos. ```GET: /datasets/
 
 
 ### Eliminar contacto 
-Elimina un contacto. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
+Elimina un contacto.
+```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -500,7 +522,8 @@ Elimina un contacto. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 
 ### Actualizar contacto 
-Actualiza parcialmente un contacto. ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
+Actualiza parcialmente un contacto.
+```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|

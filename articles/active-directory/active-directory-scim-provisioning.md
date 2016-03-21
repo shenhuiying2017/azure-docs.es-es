@@ -65,7 +65,7 @@ Las aplicaciones que admiten el perfil SCIM descrito anteriormente se pueden con
 ![][2]
 
 4.	En la pantalla resultante, seleccione el segundo botón **Configurar aprovisionamiento de cuentas**.
-5.	En el campo ** Dirección URL del extremo de aprovisionamiento **, escriba la dirección URL del punto de conexión SCIM de la aplicación.
+5.	En el campo **Dirección URL del extremo de aprovisionamiento**, escriba la dirección URL del punto de conexión SCIM de la aplicación.
 6.	Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token de autenticación (opcional)**. Si se deja este campo en blanco, Azure AD incluirá un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token emitido por Azure AD.
 7.	Haga clic en **Siguiente** y haga clic en el botón **Iniciar prueba** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si fallan los intentos, se mostrará la información de diagnóstico.  
 8.	Si los intentos de conexión a la aplicación tienen éxito, haga clic en **Siguiente** en las pantallas restantes y haga clic en **Completar** para salir del cuadro de diálogo.
@@ -653,7 +653,7 @@ En el caso del ejemplo anterior de una solicitud para actualizar un usuario, el 
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-**6:** Para desaprovisionar un usuario de un almacén de identidades proporcionado por un servicio SCIM, Azure Active Directory enviará una solicitud como esta:
+**6.** Para desaprovisionar un usuario de un almacén de identidades proporcionado por un servicio SCIM, Azure Active Directory enviará una solicitud como esta:
 
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -681,7 +681,7 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 * Las solicitudes para recuperar grupos estipulan que el atributo members se excluirá de cualquier recurso proporcionado en respuesta a la solicitud.  
 * Las solicitudes para determinar si un atributo de referencia tiene un valor determinado serán solicitudes sobre el atributo members.  
 
-![][5] * Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
+![][5] *Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
 ##Artículos relacionados
 

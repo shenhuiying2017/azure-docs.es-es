@@ -124,7 +124,21 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.5.6](#1.5.6) | 8 de marzo de 2016 |--- | [1\.5.5](#1.5.5) | 2 de febrero de 2016 |--- | [1\.5.4](#1.5.4) | 1 de febrero de 2016 |--- | [1\.5.2](#1.5.2) | 26 de enero de 2016 |--- | [1\.5.2](#1.5.2) | 22 de enero de 2016 |--- | [1\.5.1](#1.5.1) | 4 de enero de 2016 |--- | [1\.5.0](#1.5.0) | 31 de diciembre de 2015 |--- | [1\.4.0](#1.4.0) | 6 de octubre de 2015 |--- | [1\.3.0](#1.3.0) | 6 de octubre de 2015 |--- | [1\.2.2](#1.2.2) | 10 de septiembre de 2015 |--- | [1\.2.1](#1.2.1) | 15 de agosto de 2015 |--- | [1\.2.0](#1.2.0) | 5 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 9 de julio de 2015 |--- | [1\.0.3](#1.0.3) | 4 de junio de 2015 |--- | [1\.0.2](#1.0.2) | 23 de mayo de 2015 |--- | [1\.0.1](#1.0.1) | 15 de mayo de 2015 |--- | [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- | 0.9.4-versión preliminar | 6 de abril de 2015 | 29 de febrero de 2016 | 0.9.3-versión preliminar | 14 de enero de 2015 | 29 de febrero de 2016 | 0.9.2-versión preliminar | 18 de diciembre de 2014 | 29 de febrero de 2016 | 0.9.1-versión preliminar | 22 de agosto de 2014 | 29 de febrero de 2016 | 0.9.0-versión preliminar | 21 de agosto de 2014 | 29 de febrero de 2016
+| [1\.4.0](#1.4.0) | 06 de octubre de 2015 |---
+| [1\.3.0](#1.3.0) | 06 de octubre de 2015 |---
+| [1\.2.2](#1.2.2) | 10 de septiembre de 2015 |---
+| [1\.2.1](#1.2.1) | 15 de agosto de 2015 |---
+| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |---
+| [1\.1.0](#1.1.0) | 09 de julio de 2015 |---
+| [1\.0.3](#1.0.3) | 04 de junio de 2015 |---
+| [1\.0.2](#1.0.2) | 23 de mayo de 2015 |---
+| [1\.0.1](#1.0.1) | 15 de mayo de 2015 |---
+| [1\.0.0](#1.0.0) | 08 de abril de 2015 |---
+| 0.9.4-prelease | 06 de abril de 2015 | 29 de fe3brero de 2016
+| 0.9.3-prelease | 14 de enero de 2015 | 29 de febrero de 2016
+| 0.9.2-prelease | 18 de diciembre de 2014 | 29 de febrero de 2016
+| 0.9.1-prelease | 22 de agosto de 2014 | 29 de febrero de 2016
+| 0.9.0-prelease | 21 de agosto de 2014 | 29 de febrero de 2016
 
 
 ## P+F

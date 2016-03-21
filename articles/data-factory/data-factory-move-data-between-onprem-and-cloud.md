@@ -104,7 +104,12 @@ En el firewall corporativo, debe configurar los siguientes dominios y puertos de
 
 | Nombres de dominio | Puertos | Descripción |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | Escuchas en Retransmisión de bus de servicio a través de TCP (requiere 443 para adquirir el token de Control de acceso) | | *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional a través de TCP | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| **.servicebus.windows.net | 443, 80 | Escuchas en Retransmisión de bus de servicio a través de TCP (requiere 443 para adquirir el token de Control de acceso) |
+| *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional a través de TCP |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
+| graph.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS |
 
 En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de salida. De lo contrario, puede configurar los puertos y dominios según corresponda en el equipo de la puerta de enlace.
 
@@ -609,7 +614,8 @@ También puede crear un servicio vinculado de SQL Server mediante la hoja de Ser
 	4.	Haga clic en **Aceptar** para cerrar el cuadro de diálogo. 
 4. Haga clic en **Aceptar** para cerrar la hoja **Credenciales**. 
 5. Haga clic en **Aceptar** en la hoja **Nuevo almacén de datos**. 	
-6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados. ![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados.
+	![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con el equipo de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión al origen de datos.
 

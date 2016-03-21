@@ -66,7 +66,7 @@ Para crear un usuario de la base de datos independiente en la Base de datos SQL 
 ## Características y limitaciones de Azure AD
 
 Los siguientes miembros de Azure Active Directory se pueden aprovisionar en Azure SQL Server:
-- Miembros nativos: un miembro creado en Azure AD en el dominio administrado o en un dominio personalizado. Para más información, vea [Incorporación de su propio nombre de dominio a Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).
+- Miembros nativos: un miembro creado en Azure AD en el dominio administrado o en un dominio personalizado. Para más información, vea [Incorporación de su propio nombre de dominio a Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).
 - Miembros de dominio federado: un miembro creado en Azure AD con un dominio federado. Para más información, vea [Microsoft Azure ahora admite la federación con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 - Miembros importados de otros directorios de Azure Active Directory que son miembros nativos o miembros de dominio federado.
 - Grupos de Active Directory creados como grupos de seguridad.
@@ -92,7 +92,7 @@ Cree un Azure Active Directory y rellénelo con usuarios y grupos. Esto incluye:
 - Federar Servicios de dominio de Active Directory local con Azure Active Directory.
 - Con la herramienta **AD FS**, en la sección **Servicio**, **Puntos de conexión**, habilite **WS-Trust 1.3** para la ruta de acceso a la dirección URL **/adfs/services/trust/13/windowstransport**.
 
-Para obtener más información, consulte [Incorporación de su propio nombre de dominio a Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [Microsoft Azure ahora admite la federación con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administración de su directorio de Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) y [Administrar Azure AD mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Para obtener más información, consulte [Incorporación de su propio nombre de dominio a Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [Microsoft Azure ahora admite la federación con Windows Server Active Directory]( https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administración de su directorio de Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) y [Administrar Azure AD mediante Windows PowerShell]( https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Asegurarse de que la base de datos está en Base de datos SQL de Azure V12.
 
@@ -335,4 +335,4 @@ Para ejemplos de código específicos y que estén relacionados con la autentica
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0309_2016-->

@@ -75,7 +75,7 @@ En el servidor de Azure AD Connect, ejecute los siguientes comandos de PowerShel
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
 
-Al ejecutar el cmdlet $aadAdminCred = Get-Credential, use el formato **user@example.com* para el nombre de usuario de la credencial que se especifica cuando aparece la ventana emergente de Get-Credential.
+Al ejecutar el cmdlet $aadAdminCred = Get-Credential, use el formato *user@example.com* para el nombre de usuario de la credencial que se especifica cuando aparece la ventana emergente de Get-Credential.
 
 Al ejecutar el cmdlet Initialize-ADSyncDomainJoinedComputerSync ..., reemplace [*nombre de cuenta del conector*] por la cuenta de dominio que se usa como la cuenta de conector de Active Directory.
 

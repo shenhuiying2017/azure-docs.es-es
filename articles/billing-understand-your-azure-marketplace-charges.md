@@ -28,7 +28,8 @@ Para ver o descargar su factura:
 
 1. Inicie sesión en el Portal de cuentas de Azure con su identificador de organización.
 2. Haga clic en **Marketplace**. La lista que aparece es una lista completa de todos los pedidos de Marketplace que se han realizado mediante su cuenta de Azure. Observe que los pedidos se agrupan mediante el nombre y el identificador de la suscripción primaria de Azure. ![Pedidos de Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
-3. Al hacer clic en cualquiera de los pedidos mostrados podrá ver la información de resumen general de ese pedido para el ciclo de facturación actual. Puede encontrar una explicación de los distintos modelos de precios en la sección de [preguntas más frecuentes de Marketplace](https://azure.microsoft.com/marketplace/faq/). ![Resumen del pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+3. Al hacer clic en cualquiera de los pedidos mostrados podrá ver la información de resumen general de ese pedido para el ciclo de facturación actual. Puede encontrar una explicación de los distintos modelos de precios en la sección de [preguntas más frecuentes de Marketplace]( https://azure.microsoft.com/marketplace/faq/). 
+![Resumen del pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 La vista de resumen contiene la siguiente información de cada pedido:
 - Precio
@@ -73,4 +74,4 @@ Para ver los gastos reales, siga estos pasos:
 1. Haga clic en **Ver cargos** en la página **HISTORIAL DE FACTURACIÓN**. Se abrirá una pestaña nueva que mostrará el [historial de pedidos](https://account.microsoft.com/billing/orders#/). Tenga en cuenta que si intenta acceder a su uso sin procesar en el portal de facturación y administración de cuentas, tendrá llamar al soporte técnico haciendo clic en el vínculo de soporte técnico de la parte inferior de la página. ![Historial de pedidos](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 2. Identifique el pedido que desea revisar y haga clic en **Detalles** para ver un desglose de los cargos, que debe incluir el subtotal, los impuestos y el total de cargos. ![Detalles de pedido](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

@@ -29,19 +29,25 @@ Agregue la API de usuarios de Office 365 al entorno del Servicio de aplicaciones
 
 1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
  
-2. Seleccione **Examinar** en la barra de tareas: ![][14]
+2. Seleccione **Examinar** en la barra de tareas:
+![][14]
 
-3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: ![][15]
+3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: 
+![][15]
 
-4. En **PowerApps**, seleccione **Administrar API**: ![Examine las APIs registradas][1]
+4. En **PowerApps**, seleccione **Administrar API**: 
+![Examine las APIs registradas][1]
 
-5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API: ![Add API][2]
+5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:
+![Add API][2]
 
 6. Escriba un **nombre** descriptivo para la API.
 	
-7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Usuarios de Office 365**: ![seleccionar la api de usuarios de Office 365][3]
+7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Usuarios de Office 365**:  
+![seleccionar la api de usuarios de Office 365][3]
 
-8. Seleccione **Configuración: Configure los ajustes necesarios**: ![establecer la configuración de la API de usuarios de Office 365][4]
+8. Seleccione **Configuración: Configure los ajustes necesarios**:  
+![establecer la configuración de la API de usuarios de Office 365][4]
 
 9. Escriba el *Id. de cliente* y el *Secreto de cliente* de la aplicación Azure Active Directory (AAD) de Office 365. Si no dispone de estos, consulte la sección "Registrar una aplicación de AAD para su uso con PowerApps" en este tema para crear el identificador y los valores secretos que necesita.
 
@@ -61,9 +67,11 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 
 	> [AZURE.NOTE] De este modo se abre Active Directory en el Portal de Azure clásico.
 
-3. Seleccione el nombre del inquilino de su organización: ![Iniciar Azure Active Directory][6]
+3. Seleccione el nombre del inquilino de su organización:  
+![Iniciar Azure Active Directory][6]
 
-4. Seleccione la pestaña **Aplicaciones** y seleccione **Agregar**: ![Aplicaciones del inquilino de AAD][7].
+4. Seleccione la pestaña **Aplicaciones** y seleccione **Agregar**:
+![Aplicaciones del inquilino de AAD][7].
 
 5. En **Agregar aplicación**:
 

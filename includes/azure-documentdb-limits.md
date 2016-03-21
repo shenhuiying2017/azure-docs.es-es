@@ -3,10 +3,10 @@ Entidad|Oferta (estándar)
 ---|---
 Cuentas de la base de datos*|5
 Número de bases de datos por cuenta de base de datos|100
-Número de usuarios por cuenta de base de datos en todas las bases de datos|500\.000
-Número de permisos por cuenta de base de datos en todas las bases de datos|2\.000.000
+Número de usuarios por cuenta de base de datos en todas las bases de datos|500.000
+Número de permisos por cuenta de base de datos en todas las bases de datos|2.000.000
 Almacenamiento anexo por cuenta de base de datos (característica de vista previa)|2 GB
-Máximo de unidades de solicitud/segundos por colección|2\.500
+Máximo de unidades de solicitud/segundos por colección|2.500
 Número de procedimientos almacenados, desencadenadores y UDF por colección* |25 cada uno
 Tiempo de ejecución máximo para el procedimiento almacenado y desencadenador|5 segundos
 Almacenamiento de documentos/colección|10 GB
