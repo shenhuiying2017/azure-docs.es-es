@@ -40,7 +40,7 @@ Creará una aplicación ASP.NET básica en Aplicaciones web del Servicio de apli
 
 Necesita lo siguiente para completar este tutorial:
 
-- Una implementación de AD FS local (para obtener un tutorial de un extremo a otro del entorno de pruebas que uso, vea [Entorno de pruebas: STS independiente con AD FS en VM de Azure (solo para prueba)](TODO))
+- Una implementación de AD FS local (para obtener un tutorial de un extremo a otro del entorno de pruebas que uso, vea [Entorno de pruebas: STS independiente con AD FS en VM de Azure (solo para prueba)](https://blogs.msdn.microsoft.com/cephalin/2014/12/21/test-lab-standalone-sts-with-ad-fs-in-azure-vm-for-test-only/))
 - Permisos para crear relaciones de confianza para usuarios autenticados en la administración de AD FS
 - Visual Studio 2013
 - [SDK de Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o posterior
@@ -356,4 +356,4 @@ Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases 
  
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

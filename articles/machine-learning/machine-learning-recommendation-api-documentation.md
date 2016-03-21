@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="03/02/2016" 
 	ms.author="LuisCa"/>
 
 #Documentación de la API de recomendación de Aprendizaje automático de Azure
@@ -885,18 +885,7 @@ OData XML
 |	apiVersion | 1\.0 |
 |||
 | Cuerpo de la solicitud | 
-<ins>Cada vez que se proporcionen identificadores de elemento para reglas de negocio, asegúrese de usar el identificador externo del elemento (el mismo identificador que usó en el archivo de catálogo)</ins><br>
-<ins>Para agregar una regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Para agregar una regla FeatureBlockList:</ins><br>
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-Para agregar una regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
-<ins>Para agregar una regla WhiteList:</ins><br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Para agregar una regla FeatureWhiteList:</ins><br>
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
-Para agregar una regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Cada vez que se proporcionen identificadores de elemento para reglas de negocio, asegúrese de usar el identificador externo del elemento (el mismo identificador que usó en el archivo de catálogo)</ins><br> <ins>Para agregar una regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Para agregar una regla FeatureBlockList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Para agregar una regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> <ins>Para agregar una regla WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Para agregar una regla FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Para agregar una regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Respuesta**:
@@ -1634,9 +1623,7 @@ Elimina todos los archivos de uso del modelo.
 código de estado HTTP: 200
 
 ##10\. Características
-En esta sección se muestra cómo recuperar información de características, como las funciones importadas y sus valores, su rango, y cuándo se ha asignado este rango. Las características se importan como parte de los datos del catálogo y luego su rango se asocia cuando se realiza una compilación de rango.
-El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones.
-El rango de características es un número no negativo. El número 0 significa que la característica no fue clasificada (sucede si se invoca esta API antes de completar la primera compilación de rango). La fecha en que se atribuye el rango se conoce como la actualización de la puntuación.
+En esta sección se muestra cómo recuperar información de características, como las funciones importadas y sus valores, su rango, y cuándo se ha asignado este rango. Las características se importan como parte de los datos del catálogo y luego su rango se asocia cuando se realiza una compilación de rango. El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones. El rango de características es un número no negativo. El número 0 significa que la característica no fue clasificada (sucede si se invoca esta API antes de completar la primera compilación de rango). La fecha en que se atribuye el rango se conoce como la actualización de la puntuación.
 
 ###10\.1. Obtener información de características (para la última compilación de rango)
 Recupera la información de características, incluida la clasificación de la última compilación correcta de rango.
@@ -3087,4 +3074,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

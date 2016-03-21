@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Crear una nueva API de Excel en el entorno del servicio de aplicaciones de la organización
+# Creación de una nueva API de Excel en PowerApps Enterprise
 
-## Crear la API en el Portal de Azure
+Agregue la API de Excel al entorno del Servicio de aplicaciones de su organización (inquilino).
 
-1. En el [Portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta profesional. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
+## Crear la API en el portal de Azure
+
+1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
  
 2. Seleccione **Examinar** en la barra de tareas: ![][4]
 
@@ -53,4 +55,4 @@ En este tema, la API de Excel ya está agregada a su servicio PowersApps Enterpr
 [4]: ./media/powerapps-create-api-excel/browseall.png
 [5]: ./media/powerapps-create-api-excel/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

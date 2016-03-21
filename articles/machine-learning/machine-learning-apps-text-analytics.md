@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/08/2016"
 	ms.author="onewth"/>
 
 
@@ -58,7 +58,7 @@ Asegúrese de incluir los encabezados correctos en la solicitud, que debería se
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-Puede encontrar la clave de su cuenta en [Microsoft Azure Marketplace ](https://datamarket.azure.com/account/keys).
+Puede encontrar la clave de su cuenta en [Microsoft Azure Marketplace ](https://datamarket.azure.com/account/keys). Tenga en cuenta que actualmente JSON solo se acepta para formatos de entrada y salida. XML no se admite.
 
 ---
 
@@ -383,4 +383,4 @@ Las propiedades de cada parte de la respuesta son las siguientes:
 | TopicId | El identificador de tema que se ha asignado al registro. |
 | Distancia | Confianza de que el registro pertenece al tema. La distancia más cercana a cero indica mayor confianza. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

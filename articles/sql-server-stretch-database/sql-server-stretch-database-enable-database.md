@@ -3,9 +3,9 @@
 	description="Obtenga información acerca de cómo configurar una base de datos para Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="03/09/2016"
 	ms.author="douglasl"/>
 
 # Habilitación de Stretch Database para una base de datos
@@ -128,6 +128,8 @@ Habilitación tablas adicionales para Stretch Database Supervisión de la migrac
 -   [Copia de seguridad y restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-backup.md)
 
 ## Consulte también
-[Identificación de bases de daos y tablas para Stretch Database](sql-server-stretch-database-identify-databases.md) [ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+[Identify databases and tables for Stretch Database by running Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) (Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor)
 
-<!---HONumber=AcomDC_0302_2016-->
+[Opciones de ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+
+<!---HONumber=AcomDC_0309_2016-->

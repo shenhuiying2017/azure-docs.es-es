@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/04/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -107,7 +107,7 @@ Si utiliza la configuración rápida, se creará una cuenta en Active Directory 
 ![Cuenta de AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Cuentas de servicio de sincronización de Azure AD Connect
-El asistente para instalación crea una cuenta de servicio local (a menos que especifique la cuenta que se desea usar en la configuración personalizada). La cuenta lleva delante **AAD\_** y se usa para el servicio de sincronización real como cuenta de ejecución. Si instala Azure AD Connect en un controlador de dominio, la cuenta se crea en el dominio. Si usa un servidor remoto que ejecuta SQL Server, la cuenta de servicio **AAD\_** debe estar ubicada en el dominio.
+El asistente para instalación crea una cuenta de servicio local (a menos que especifique la cuenta que se desea usar en la configuración personalizada). La cuenta lleva delante **AAD\_** y se usa para el servicio de sincronización real como cuenta de ejecución. Si instala Azure AD Connect en un controlador de dominio, la cuenta se crea en el dominio. Si usa un servidor remoto que ejecuta SQL Server o un proxy que requiera autenticación, la cuenta de servicio **AAD\_** debe estar ubicada en el dominio.
 
 ![Cuenta de servicio de sincronización](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
@@ -134,4 +134,4 @@ La cuenta de servicio se crea con una contraseña larga compleja que no expira. 
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

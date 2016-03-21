@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 # Análisis de datos de Twitter con Hive en HDInsight
@@ -57,7 +57,7 @@ tutorials/twitter/twitter.hql|El archivo de script de HiveQL.
 
 En este tutorial, verá las [API de streaming de Twitter][twitter-streaming-api]. La API de streaming de Twitter específica que usará es [statuses/filter][twitter-statuses-filter].
 
->[AZURE.NOTE] Un archivo que contiene 10 000 tweets y el archivo de script de Hive (que se describe en la sección siguiente) se han cargado en un contenedor de Blob público. Puede omitir esta sección si va a utilizar los archivos cargados.
+>[AZURE.NOTE] Un archivo que contiene 10 000 tweets y el archivo de script de Hive (que se describe en la sección siguiente) se han cargado en un contenedor de Blob público. Puede omitir esta sección si va a utilizar los archivos cargados.
 
 Los [datos de tweets](https://dev.twitter.com/docs/platform-objects/tweets) se almacenan en formato de notación de objetos JavaScript (JSON) que contiene una compleja estructura anidada. En lugar de escribir varias líneas de código con un lenguaje de programación convencional, puede transformar esta estructura anidada en una tabla de Hive para que se puedan realizar consultas a través de un lenguaje similar al Lenguaje de consulta estructurado (SQL) llamado HiveQL.
 
@@ -243,7 +243,7 @@ Como procedimiento de validación, puede revisar el archivo de salida, **/tutori
 
 Con Azure PowerShell, puede ejecutar varias instrucciones HiveQL a la vez, o empaquetar la instrucción de HiveQL en un archivo script. En este tutorial, creará un script de HiveQL. El archivo de script debe cargarse en el almacenamiento de blobs de Azure. En la siguiente sección, ejecutará el archivo de script con PowerShell de Azure.
 
->[AZURE.NOTE] El archivo de script de Hive y un archivo que contiene 10 000 tweets se han cargado en un contenedor de Blob público. Puede omitir esta sección si va a utilizar los archivos cargados.
+>[AZURE.NOTE] El archivo de script de Hive y un archivo que contiene 10 000 tweets se han cargado en un contenedor de Blob público. Puede omitir esta sección si va a utilizar los archivos cargados.
 
 El script de HiveQL realizará lo siguiente:
 
@@ -565,4 +565,4 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 # Creación y modificación de un circuito ExpressRoute mediante Resource Manager y PowerShell
@@ -90,7 +90,7 @@ Ahora está listo para crear un circuito ExpressRoute.
 Si todavía no tiene un grupo de recursos, debe crear uno antes de crear ExpressRoute. Para ello, ejecute el siguiente comando:
 
 ```
-New-AzureRmResourceGroup -Name “ExpressRouteResourceGroup” -Location "West US"
+New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
 
 En el ejemplo siguiente se muestra cómo crear un circuito ExpressRoute de 200 Mbps a través de Equinix en Silicon Valley. Si usa otro proveedor y otra configuración, sustituya esa información al realizar la solicitud. A continuación se muestra un ejemplo de solicitud para una nueva clave de servicio:
@@ -300,7 +300,7 @@ You can enable the ExpressRoute premium add-on for your existing circuit by usin
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-$ckt.Sku.Name = "Premium" $ckt.sku.Name = "Premium\_MeteredData"
+$ckt.Sku.Tier = "Premium" $ckt.sku.Name = "Premium\_MeteredData"
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
@@ -363,4 +363,4 @@ Después de crear el circuito, asegúrese de hacer lo siguiente:
 - [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-arm.md)
 - [Vincular la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

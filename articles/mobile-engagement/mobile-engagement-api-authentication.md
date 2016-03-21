@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Introducción a las API de autenticación de Azure Mobile Engagement"
-	description="Se trata de una guía de migración para ayudar a los clientes que estaban usando la autenticación con las API de Capptain y ahora deben autenticarse con las nuevas API de Azure Mobile Engagement." 
+	pageTitle="Autenticación con las API de REST de Mobile Engagement"
+	description="Se describe cómo autenticarse con las API de REST de Azure Mobile Engagement" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="wesmc7777"
+	authors="piyushjo"
 	manager="erikre"
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/29/2016"
+	ms.date="03/07/2016"
 	ms.author="wesmc"/>
 
-# Azure Mobile Engagement: uso de las API para la autenticación
+# Autenticación con las API de REST de Mobile Engagement
 
 ## Información general
 
@@ -183,4 +183,4 @@ Ahora que tiene un token válido, está listo para realizar las llamadas de API.
 >[AZURE.NOTE] <br/>
 >1. Omita la dirección raíz de la API, ya que era para las API anteriores.<br/> 2. Debe usar el nombre del recurso de la aplicación que es diferente del nombre de la propia aplicación. 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

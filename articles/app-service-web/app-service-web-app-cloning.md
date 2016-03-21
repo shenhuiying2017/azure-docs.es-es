@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Clonación de aplicaciones web"
-	description="Aprenda a clonar sus aplicaciones web en nuevas aplicaciones web."
+	pageTitle="Clonación de aplicaciones web con PowerShell"
+	description="Aprenda a clonar sus aplicaciones web en nuevas aplicaciones web con PowerShell."
 	services="app-service\web"
 	documentationCenter=""
 	authors="ahmedelnably"
@@ -16,9 +16,9 @@
 	ms.date="01/13/2016"
 	ms.author="ahmedelnably"/>
 
-# Clonación de aplicaciones en Servicio de aplicaciones de Azure #
+# Clonación de aplicaciones del Servicio de aplicaciones de Azure mediante PowerShell#
 
-Con el lanzamiento de Microsoft Azure PowerShell versión 1.1.0, se ha agregado una nueva opción a New-AzureRMWebApp que podría proporcionar al usuario la capacidad para clonar una aplicación web existente en una aplicación recién creada de una región diferente o de la misma. Esto permitirá que los clientes implementen fácil y rápidamente varias aplicaciones en diferentes regiones.
+Con el lanzamiento de Microsoft Azure PowerShell versión 1.1.0, se ha agregado una nueva opción a New-AzureRMWebApp que podría proporcionar al usuario la capacidad para clonar una aplicación web existente en una aplicación recién creada de una región diferente o de la misma. Esto permitirá que los clientes implementen varias aplicaciones en diferentes regiones de una forma rápida y sencilla.
 
 La clonación de aplicaciones actualmente solo se admite para los planes de Servicio de aplicaciones de nivel Premium. La nueva característica cuenta con las mismas limitaciones que la característica de copia de seguridad de aplicaciones web; consulte [Hacer copia de seguridad de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-backup.md).
 
@@ -109,9 +109,10 @@ Esta característica se encuentra actualmente en versión preliminar y estamos t
 
 
 ### Referencias ###
+- [Clonación de aplicaciones web con el Portal de Azure](app-service-web-app-cloning-portal.md)
 - [Hacer copia de seguridad de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-backup.md)
 - [Compatibilidad del Administrador de recursos de Azure con la vista previa del Administrador de tráfico de Azure](../../articles/traffic-manager/traffic-manager-powershell-arm.md)
 - [Introducción al entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md)
 - [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

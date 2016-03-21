@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/26/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Vistas de sistema
@@ -230,4 +230,4 @@ Para obtener más información de referencia, vea [Información general de refer
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

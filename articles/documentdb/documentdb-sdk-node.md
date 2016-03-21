@@ -13,36 +13,40 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/08/2016" 
 	ms.author="ryancraw"/>
 
 # SDK de DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [SDK de Node.js](documentdb-sdk-node.md)
+- [SDK de Java](documentdb-sdk-java.md)
+- [SDK de Python](documentdb-sdk-python.md)
 
 ##SDK para Node.js de DocumentDB
 
 <table>
 <tr><td>**Descargar**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 <tr><td>**Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK para Node.js](http://azure.github.io/azure-documentdb-node/)</td></tr>
-<tr><td>**Ejemplos**</td><td>[Ejemplos de código de Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
-<tr><td>**Introducción**</td><td>[Introducción al SDK para Node.js](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK de Node.js] (http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Ejemplos**</td><td>[Ejemplos de código Node.js] (https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK de Node.js] (documentdb-nodejs-get-started.md)</td></tr>
 <tr><td>**Plataforma admitida actualmente**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
 ##Notas de la versión
+###<a name="1.5.6"/>1.5.6</a>
+
+- Solucionado el error RangePartitionResolver.resolveForRead por el que no se devolvían vínculos debido a una mala concatenación de resultados
+
 ###<a name="1.5.5"/>1.5.5</a>
 
 - Valor hashParitionResolver resolveForRead() fijo: cuando ninguna clave de partición proporcionada lanzó una excepción, en lugar de devolver una lista de todos los vínculos registrados.
 
 ###<a name="1.5.4"/>1.5.4</a>
 
-- Corrige el problema [100 #](https://github.com/Azure/azure-documentdb-node/issues/100): agente dedicado de HTTPS: evitar la modificación del agente global para fines de DocumentDB. Use un agente dedicado para todas las solicitudes de lib.
+- Corrige el problema [#100](https://github.com/Azure/azure-documentdb-node/issues/100): agente dedicado de HTTPS: evitar la modificación del agente global para fines de DocumentDB. Use un agente dedicado para todas las solicitudes de lib.
 
 ###<a name="1.5.3"/>1.5.3</a>
 
@@ -120,27 +124,7 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.5.5](#1.5.5) | 2 de febrero de 2016 |--- 
-| [1\.5.4](#1.5.4) | 1 de febrero de 2016 |--- 
-| [1\.5.2](#1.5.2) | 26 de enero de 2016 |--- 
-| [1\.5.2](#1.5.2) | 22 de enero de 2016 |--- 
-| [1\.5.1](#1.5.1) | 4 de enero de 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 de diciembre de 2015 |--- 
-| [1\.4.0](#1.4.0) | 6 de octubre de 2015 |--- 
-| [1\.3.0](#1.3.0) | 6 de octubre de 2015 |--- 
-| [1\.2.2](#1.2.2) | 10 de septiembre de 2015 |--- 
-| [1\.2.1](#1.2.1) | 15 de agosto de 2015 |--- 
-| [1\.2.0](#1.2.0) | 5 de agosto 2015 |--- 
-| [1\.1.0](#1.1.0) | 9 de julio de 2015 |--- 
-| [1\.0.3](#1.0.3) | 4 de junio de 2015 |--- 
-| [1\.0.2](#1.0.2) | 23 de mayo de 2015 |--- 
-| [1\.0.1](#1.0.1) | 15 de mayo de 2015 |--- 
-| [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- 
-| 0.9.4-versión preliminar | 6 de abril de 2015 | 29 de febrero de 2016 
-| 0.9.3-versión preliminar | 14 de enero de 2015 | 29 de febrero de 2016 
-| 0.9.2-versión preliminar | 18 de diciembre de 2014 | 29 de febrero de 2016
-| 0.9.1-versión preliminar | 22 de agosto de 2014 | 29 de febrero de 2016 
-| 0.9.0-versión preliminar | 21 de agosto de 2014 | 29 de febrero de 2016
+| [1\.5.6](#1.5.6) | 8 de marzo de 2016 |--- | [1\.5.5](#1.5.5) | 2 de febrero de 2016 |--- | [1\.5.4](#1.5.4) | 1 de febrero de 2016 |--- | [1\.5.2](#1.5.2) | 26 de enero de 2016 |--- | [1\.5.2](#1.5.2) | 22 de enero de 2016 |--- | [1\.5.1](#1.5.1) | 4 de enero de 2016 |--- | [1\.5.0](#1.5.0) | 31 de diciembre de 2015 |--- | [1\.4.0](#1.4.0) | 6 de octubre de 2015 |--- | [1\.3.0](#1.3.0) | 6 de octubre de 2015 |--- | [1\.2.2](#1.2.2) | 10 de septiembre de 2015 |--- | [1\.2.1](#1.2.1) | 15 de agosto de 2015 |--- | [1\.2.0](#1.2.0) | 5 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 9 de julio de 2015 |--- | [1\.0.3](#1.0.3) | 4 de junio de 2015 |--- | [1\.0.2](#1.0.2) | 23 de mayo de 2015 |--- | [1\.0.1](#1.0.1) | 15 de mayo de 2015 |--- | [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- | 0.9.4-versión preliminar | 6 de abril de 2015 | 29 de febrero de 2016 | 0.9.3-versión preliminar | 14 de enero de 2015 | 29 de febrero de 2016 | 0.9.2-versión preliminar | 18 de diciembre de 2014 | 29 de febrero de 2016 | 0.9.1-versión preliminar | 22 de agosto de 2014 | 29 de febrero de 2016 | 0.9.0-versión preliminar | 21 de agosto de 2014 | 29 de febrero de 2016
 
 
 ## P+F
@@ -150,4 +134,4 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

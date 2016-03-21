@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="antonba"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -69,4 +69,4 @@ Después de que el servicio Administración de API se conecta a la VPN, el acces
 [Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

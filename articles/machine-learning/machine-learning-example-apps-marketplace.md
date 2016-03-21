@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/02/2016" 
 	ms.author="luisca"/>
 
 # Aplicaciones de aprendizaje automático en Azure Marketplace
@@ -51,10 +51,5 @@ Esta API puede utilizarse para analizar el texto no estructurado para tareas com
 [Documentación](machine-learning-apps-text-analytics.md)
 
  
- ##Predicción de rotación de clientes## La predicción de rotación de clientes es un servicio de análisis de rotación de clientes integrado con el Aprendizaje automático de Azure. Se ha diseñado para predecir cuándo es probable que un cliente (jugador, suscriptor, usuario, etc.) finalice su relación con una empresa o un servicio. Poder predecir qué clientes tienen un alto riesgo de dejar la relación con una empresa proporciona a esta una oportunidad de acercarse a ellos y reducir la probabilidad de que la abandonen.
 
-[Vínculo de mercado de datos](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
-
-[Documentación](https://churn.cloudapp.net/documentation)
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

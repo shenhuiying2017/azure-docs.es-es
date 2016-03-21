@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 
@@ -670,7 +670,7 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: ../powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/es-ES/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -680,4 +680,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

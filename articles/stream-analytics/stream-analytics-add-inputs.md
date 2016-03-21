@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Agrega entradas de datos a trabajos de Análisis de transmisiones | Microsoft Azure"
-	description="Obtenga información acerca de cómo enlazar un origen de datos al trabajo de Análisis de transmisiones como entrada de datos streaming desde los Centros de eventos, o bien como datos de referencia desde el almacenamiento de blogs."
+	description="Obtenga información acerca de cómo enlazar un origen de datos al trabajo de Análisis de transmisiones como entrada de datos de streaming desde los Centros de eventos, o bien como datos de referencia desde el Almacenamiento de blobs."
 	keywords="entrada de datos, datos de streaming"
 	documentationCenter=""
 	services="stream-analytics"
@@ -20,15 +20,15 @@
 />
 
 
-# Adición de entradas de datos streaming o datos de referencia a trabajos de Análisis de transmisiones
+# Adición de entradas de datos de streaming o datos de referencia a trabajos de Análisis de transmisiones
 
-Obtenga información acerca de cómo enlazar un origen de datos al trabajo de Análisis de transmisiones como entrada de datos streaming desde los Centros de eventos, o bien como datos de referencia desde el almacenamiento de blogs.
+Aprenda a enlazar un origen de datos al trabajo de Análisis de transmisiones como entrada de datos de streaming desde los Centros de eventos, o bien como datos de referencia desde el Almacenamiento de blobs.
 
-Los trabajos de Análisis de transmisiones de Azure pueden estar conectados a una entrada de datos, donde cada una define una conexión a un origen de datos existente. A medida que los datos se envían a ese origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real como datos de streaming. Análisis de transmisiones cuenta con integración de primera clase con [Centro de eventos de orígenes de Azure](https://azure.microsoft.com/services/event-hubs/) y [Almacenamiento de blobs de Azure](./storage/storage-dotnet-how-to-use-blobs.md) desde dentro y fuera de la suscripción del trabajo.
+Los trabajos de Análisis de transmisiones de Azure pueden estar conectados a una entrada de datos, donde cada una define una conexión a un origen de datos existente. A medida que los datos se envían a ese origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real como datos de streaming. Análisis de transmisiones cuenta con integración de primera clase con [Centro de eventos de orígenes de Azure](https://azure.microsoft.com/services/event-hubs/) y [Almacenamiento de blobs de Azure](../storage/storage-dotnet-how-to-use-blobs.md) desde dentro y fuera de la suscripción del trabajo.
 
 Este artículo es un paso de la [ruta de aprendizaje de Análisis de transmisiones](/documentation/learning-paths/stream-analytics/).
 
-## Entrada de datos: datos streaming y datos de referencia
+## Entrada de datos: datos de streaming y datos de referencia
 
 Hay dos tipos distintos de entradas en Análisis de transmisiones: flujos de datos y datos de referencia.
 
@@ -77,7 +77,7 @@ Para agregar una entrada a su trabajo de Análisis de transmisiones:
 
     ![Prueba de la conexión de la entrada de datos de streaming](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
 
-## Obtener ayuda con las entradas de datos streaming
+## Obtener ayuda con las entradas de datos de streaming
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
@@ -88,4 +88,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

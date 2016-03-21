@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="03/08/2016" 
 	ms.author="johnmac"/>
 
 #Niveles de rendimiento en DocumentDB
@@ -33,9 +33,9 @@ Cada colección de DocumentDB creada con una cuenta estándar se aprovisiona con
 
 Cada nivel de rendimiento tiene asociado un límite de velocidad de la unidad de solicitud (RU). Esta es la capacidad de proceso que se reservará para una colección en función de su nivel de rendimiento, el cual estará disponible para uso exclusivo de esa colección. Se pueden crear colecciones a través del [Portal de Microsoft Azure](https://portal.azure.com) o de cualquiera de los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Las API de DocumentDB permiten especificar el nivel de rendimiento de una colección.
 
-Nivel de rendimiento de colección|Capacidad de proceso reservada
+Nivel de rendimiento de una colección|Capacidad de proceso reservada
 ---|---
-S1|250 RU/s
+S1|250 RU/s
 S2|1000 RU/s
 S3|2500 RU/s
 
@@ -122,4 +122,4 @@ Para obtener más información acerca de DocumentDB, consulte la [documentación
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
@@ -74,7 +74,7 @@ Se puede tardar unos minutos en crearse su cuenta de almacenamiento. Una vez cre
 1. En el cuadro de diálogo **Cuentas de almacenamiento**, haga clic en la cuenta de almacenamiento que quiera editar y luego haga clic en **Quitar**.
 2. Haga clic en **Aceptar** cuando se pregunte si quiere quitar la cuenta de almacenamiento.
 
->[AZURE.NOTE]Al quitar la cuenta de almacenamiento mediante el cuadro de diálogo **Cuentas de almacenamiento** solo se quita de la lista de cuentas de almacenamiento que se pueden ver en Eclipse. No elimina la cuenta de almacenamiento de su suscripción de Azure. Además, la cuenta de almacenamiento podría aparecer de nuevo en la lista después de que Eclipse vuelva a cargar los detalles de su suscripción.
+>[AZURE.NOTE] Al quitar la cuenta de almacenamiento mediante el cuadro de diálogo **Cuentas de almacenamiento** solo se quita de la lista de cuentas de almacenamiento que se pueden ver en Eclipse. No elimina la cuenta de almacenamiento de su suscripción de Azure. Además, la cuenta de almacenamiento podría aparecer de nuevo en la lista después de que Eclipse vuelva a cargar los detalles de su suscripción.
 
 ## Otras referencias ##
 
@@ -100,4 +100,4 @@ Para más información sobre el uso de Azure con Java, vea el [Centro de desarro
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

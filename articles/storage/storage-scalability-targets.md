@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="02/21/2016"
+   ms.date="03/07/2016"
    ms.author="robinsh" />
 
 # Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
@@ -85,4 +85,4 @@ Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de
 - [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](storage-performance-checklist.md)
 - [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

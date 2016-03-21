@@ -23,7 +23,7 @@
 
 	1.  Haga clic en **Crear Administrador de StorSimple** para crear el servicio.
 
-		![](./media/storsimple-ova-create-new-service/image1-include.png)
+		![](./media/storsimple-ova-create-new-service/image1m-include.png)
 
 	Se le dirigirá a la página de aterrizaje del **Servicio**. La creación del servicio tardará unos minutos. Recibirá una notificación apropiada cuando el servicio se cree correctamente.
 
@@ -31,4 +31,4 @@
 
 	El estado del servicio cambiará a **Activo**.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

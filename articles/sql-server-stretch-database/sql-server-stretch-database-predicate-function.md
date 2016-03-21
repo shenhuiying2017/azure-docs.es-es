@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Escritura de una función con valores de tabla insertada para seleccionar filas que migrar (Stretch Database) | Microsoft Azure"
-	description="Aprenda a crear un predicado de filtro para seleccionar las filas que migrar."
+	pageTitle="Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database) | Microsoft Azure"
+	description="Aprenda a usar un predicado de filtro para seleccionar las filas que quiere migrar."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,7 +16,7 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Escritura de una función con valores de tabla insertada para seleccionar filas que migrar (Stretch Database)
+# Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)
 
 Si almacena los datos históricos en una tabla independiente, puede configurar Stretch Database para migrar toda la tabla. Si la tabla contiene datos históricos y actuales, por otra parte, puede especificar un predicado de filtro para seleccionar las filas que desea migrar. El predicado de filtro debe llamar a una función con valores de tabla insertada. Este tema describe cómo escribir una función con valores de tabla insertada para seleccionar filas que migrar.
 
@@ -409,4 +409,4 @@ Para comprobar el predicado de filtro aplicado a una tabla, abra la vista de cat
 ## Consulte también
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

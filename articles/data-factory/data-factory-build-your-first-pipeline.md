@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introducción a la Factoría de datos de Azure"
-	description="En este tutorial se muestra cómo crear una canalización de datos de ejemplo que transforma los datos con HDInsight de Azure."
+	pageTitle="Compilación de la primera Data Factory | Microsoft Azure"
+	description="En este tutorial se muestra cómo crear una factoría de datos con una canalización de datos que transforma los datos con HDInsight de Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Introducción a la Factoría de datos de Azure
+# Tutorial: Creación de su primera factoría de datos (Introducción)
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Información general del tutorial](data-factory-build-your-first-pipeline.md)
+- [Uso del Editor de Data Factory](data-factory-build-your-first-pipeline-using-editor.md).
+- [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Uso de la plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
 Este artículo le introduce en el creación de la primera Factoría de datos de Azure.
 
@@ -188,7 +188,7 @@ Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\\adf
 Puede usar cualquier herramienta de su elección (por ejemplo: el [Explorador de Almacenamiento de Microsoft Azure](http://storageexplorer.com/), CloudXPlorer de ClumsyLeaf Software) para realizar esta tarea. Esta sección proporciona instrucciones sobre cómo usar la herramienta AzCopy.
 	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
-	1. Descargue la [versión más reciente de [**AzCopy**](http://aka.ms/downloadazcopypr) o [la versión más reciente de vista previa](http://aka.ms/downloadazcopy). Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
+	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión más reciente de vista previa**. Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
 	2. Después de instalar AzCopy, puede agregarlo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
@@ -222,4 +222,4 @@ Ahora ya está listo para comenzar el tutorial. Haga clic en una de las pestaña
 - Visual Studio
 - Plantillas del Administrador de recursos de Azure 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

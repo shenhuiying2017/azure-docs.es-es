@@ -1,22 +1,22 @@
-<properties 
-   pageTitle="Compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos | Microsoft Azure" 
-   description="Obtenga información sobre compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos." 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos | Microsoft Azure"
+   description="Obtenga información sobre compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos."
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-database" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-database"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
-# Almacenamiento de datos SQL: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría 
+
+# Almacenamiento de datos SQL: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría
 
 
 [Auditoría](sql-data-warehouse-auditing-get-started.md) funciona con los clientes SQL que admiten el redireccionamiento de TDS.
@@ -38,6 +38,4 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 
 **Comentario:** la anterior modificación de FDQN de servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).
 
- 
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

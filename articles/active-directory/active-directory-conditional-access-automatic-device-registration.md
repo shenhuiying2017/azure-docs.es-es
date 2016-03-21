@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio
@@ -87,6 +87,8 @@ Configure el registro automático de dispositivos para sus dispositivos Windows 
 
 * [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
+* [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows 10 unidos a un dominio](active-directory-azureadjoin-devices-group-policy.md)
+
 Notas adicionales
 --------------------------------------------------------------------
 
@@ -101,5 +103,6 @@ Puede obtener más información acerca de cómo implementar el registro de dispo
 - [Información general sobre el Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 - [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 - [Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows 10 unidos a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

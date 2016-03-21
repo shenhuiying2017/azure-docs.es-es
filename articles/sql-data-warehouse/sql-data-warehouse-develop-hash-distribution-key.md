@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/09/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # La distribución hash y su efecto sobre el rendimiento de las consultas en Almacenamiento de datos SQL
@@ -70,7 +70,7 @@ Para maximizar el rendimiento y la capacidad de proceso global de las consultas,
 
 Clave de distribución hash:
 
-1. Es un valor estático, ya que no se puede actualizar la columna de hash. 
+1. Es un valor estático, ya que no se puede actualizar la columna de hash.
 2. Se usa en las cláusulas `JOIN`, `GROUP BY`, `DISTINCT` o `HAVING` de las consultas.
 2. No se usa en las cláusulas `WHERE`
 3. Tiene muchos valores diferentes, al menos 1000.
@@ -103,4 +103,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

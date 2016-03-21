@@ -19,7 +19,7 @@ Para tener la seguridad de que no se reenvía ningún mensaje fuera de la ventan
 ### Aprovisionamiento de una cuenta de almacenamiento de Azure y una cola del Bus de servicio
 Para poder utilizar la clase [EventProcessorHost], debe tener una cuenta de Almacenamiento de Azure que habilite la clase **EventProcessorHost** para que registre la información del punto de control. Puede utilizar una cuenta de almacenamiento ya existente o seguir las instrucciones que se indican en [Acerca de las cuentas de Almacenamiento de Azure] para crear una nueva. Tome nota de la cadena de conexión de la cuenta de almacenamiento.
 
-También necesitará una cola del Bus de servicio para habilitar el procesamiento confiable de los mensajes interactivos. Puede crear una cola mediante programación con una ventana de desduplicación de 1 hora, como se explica en [Utilización de las colas del Bus de servicio][Service Bus Queue], o bien utilizar el [Portal de Azure], siguiendo estos pasos:
+También necesitará una cola del Bus de servicio para habilitar el procesamiento confiable de los mensajes interactivos. Puede crear una cola mediante programación con una ventana de desduplicación de 1 hora, como se explica en [Utilización de las colas del Bus de servicio][Service Bus Queue], o bien utilizar el [Portal de Azure clásico], siguiendo estos pasos:
 
 1. Haga clic en **NUEVO** en la esquina inferior izquierda, a continuación, en **Servicios de aplicaciones**, a continuación, en **Bus de servicio**, a continuación, en **Cola** y, a continuación, en **Creación personalizada**, escriba el nombre **d2ctutorial**, seleccione una región, utilice un espacio de nombres existente o cree uno nuevo y, a continuación, en la siguiente página, seleccione **Habilitar detección de duplicados** y establezca la **ventana de tiempo del historial de detección de duplicados** en una hora. A continuación, haga clic en la marca de verificación para guardar la configuración de la cola.
 
@@ -294,7 +294,7 @@ En esta sección, escribirá una aplicación de consola de Windows que recibe lo
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Guía de programación de Centros de eventos]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Portal de Azure]: https://manage.windowsazure.com/
+[Azure Portal]: https://manage.windowsazure.com/
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 [Compilación de aplicaciones de varios con el Bus de servicio]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [Introducción al Centro de IoT]: iot-hub-csharp-csharp-getstarted.md
@@ -312,4 +312,4 @@ En esta sección, escribirá una aplicación de consola de Windows que recibe lo
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

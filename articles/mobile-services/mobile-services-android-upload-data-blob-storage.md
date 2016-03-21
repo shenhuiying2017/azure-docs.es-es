@@ -18,11 +18,11 @@
 
 # Carga de imágenes a Almacenamiento de Azure desde un dispositivo Android
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 En este tema se muestra cómo habilitar la aplicación Servicios móviles de Azure para Android para cargar imágenes en Almacenamiento de Azure.
 
@@ -426,4 +426,4 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 [Referencia conceptual de Servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

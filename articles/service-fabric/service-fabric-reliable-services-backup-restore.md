@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="03/03/2016"
    ms.author="mcoskun"/>
 
 # Copia de seguridad y restauración de Reliable Services
@@ -22,7 +22,7 @@ Azure Service Fabric es una plataforma de alta disponibilidad que replica el est
 
 Por ejemplo, un servicio podría realizar copias de seguridad en los escenarios siguientes:
 
-* En el caso de la pérdida permanente de todo un clúster de Service Fabric o de todos los nodos que ejecutan una partición determinada. Esto puede ocurrir cuando, por ejemplo, el estado no cuenta con replicación geográfica, todo el clúster se encuentra en un solo centro de datos y todo este centro de datos deja de funcionar.
+* En el caso de la pérdida permanente de todo un clúster de Service Fabric o de todos los nodos que ejecutan una partición determinada.
 
 * Errores administrativos por los cuales el estado se elimina o daña accidentalmente. Por ejemplo, esto puede ocurrir si un administrador con suficientes privilegios elimina el servicio por error.
 
@@ -158,4 +158,4 @@ El Administrador de estado confiable proporciona la capacidad de restaurar desde
 
 En primer lugar, **RestoreAsync** quita todo estado existente en la réplica principal en la que se lo llamó. Después, el Administrador de estado confiable crea todos los objetos confiables que existen en la carpeta de copia de seguridad. A continuación, se indica a los objetos confiables que restauren a partir de sus puntos de control en la carpeta de copia de seguridad. Por último, el Administrador de estado confiable recupera su propio estado de las entradas del registro en la carpeta de copia de seguridad y realiza la recuperación. Como parte del proceso de recuperación, se reproducen en los objetos confiables las operaciones a partir del "punto de partida" que tengan entradas de registro de confirmación en la carpeta de copia de seguridad. Este paso garantiza que el estado recuperado sea coherente.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

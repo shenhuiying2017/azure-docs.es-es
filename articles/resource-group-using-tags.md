@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/07/2016"
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@ Cada recurso o grupo de recursos puede tener un máximo de 15 etiquetas. El nomb
 
 ## Etiquetas de plantillas
 
-Agregar una etiqueta a los recursos durante la implementación es muy fácil. Basta con agregar el elemento **etiquetas** al recurso que va a implementar y proporcionar el nombre y el valor de la etiqueta. No es necesario que el nombre y el valor de la etiqueta existan previamente en su suscripción. Puede proporcionar hasta 15 etiquetas para cada recurso.
+Para etiquetar un recurso durante su implementación, basta con agregar el elemento **tags** al recurso que se va a implementar y especificar el nombre y valor de la etiqueta. No es necesario que el nombre y el valor de la etiqueta existan previamente en su suscripción. Puede proporcionar hasta 15 etiquetas para cada recurso.
 
 En el ejemplo siguiente se muestra una cuenta de almacenamiento con una etiqueta.
 
@@ -84,7 +84,7 @@ Actualmente, el administrador de recursos no admite el procesamiento de un objet
 
 ## Etiquetas en el portal
 
-El etiquetado de recursos y grupos de recursos en el portal es sencillo. Use el centro de exploración para navegar al recurso o grupo de recursos que le gustaría etiquetar y haga clic en la parte Etiquetas en la sección Información general que se encuentra en la parte superior de la hoja.
+No es posible agregar etiquetas a los recursos y los grupos de recursos existentes a través del portal. Use el centro de exploración para navegar al recurso o grupo de recursos que le gustaría etiquetar y haga clic en la parte Etiquetas en la sección Información general que se encuentra en la parte superior de la hoja.
 
 ![Parte de etiquetas en hojas de recursos y grupos de recursos](./media/resource-group-using-tags/tag-icon.png)
 
@@ -100,85 +100,82 @@ Ancle las etiquetas más importantes en el Panel de inicio para un acceso rápid
 
 ![Anclar etiquetas al Panel de inicio](./media/resource-group-using-tags/pin-tags.png)
 
-## Etiquetado con PowerShell
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+## Etiquetas y PowerShell
 
 Existen etiquetas directamente en los recursos y grupos de recursos, por lo que para ver qué etiquetas ya se aplican, podemos simplemente obtener un recurso o grupo de recursos con **Get-AzureRmResource** o **Get-AzureRmResourceGroup**. Comencemos con un grupo de recursos.
 
-    PS C:\> Get-AzureRmResourceGroup tag-demo
+    PS C:\> Get-AzureRmResourceGroup -Name tag-demo-group
 
-    ResourceGroupName : tag-demo
+    ResourceGroupName : tag-demo-group
+    Location          : westus
+    ProvisioningState : Succeeded
+    Tags              :
+                    Name         Value
+                    ===========  ==========
+                    Dept         Finance
+                    Environment  Production
+
+
+Este cmdlet devuelve varios bits de metadatos en el grupo de recursos, incluso qué etiquetas se han aplicado, si las hay.
+
+Al obtener los metadatos de un recurso, las etiquetas no se muestran directamente. A continuación verá que las etiquetas solo se muestran como objeto Hashtable.
+
+    PS C:\> Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
+
+    Name              : tfsqlserver
+    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
+    ResourceName      : tfsqlserver
+    ResourceType      : Microsoft.Sql/servers
+    Kind              : v12.0
+    ResourceGroupName : tag-demo-group
+    Location          : westus
+    SubscriptionId    : {guid}
+    Tags              : {System.Collections.Hashtable}
+
+Las etiquetas reales se pueden mediante la recuperación de la propiedad **Tags**.
+
+    PS C:\> (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
+    Dept: Finance
+    Environment: Production
+
+En lugar de ver las etiquetas de un recurso o grupo de recursos concretos, a menudo se desea recuperar todos los recursos o grupos de recursos que tienen una etiqueta y un valor concretos. Para obtener grupos de recursos con una etiqueta específica, use el cmdlet **Find-AzureRmResourceGroup** con el parámetro **-Tag**.
+
+    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
+    tag-demo-group
+    web-demo-group
+
+Para obtener todos los recursos con una etiqueta y un valor concretos, use el cmdlet **Find-AzureRmResource**.
+
+    PS C:\> Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
+    tfsqlserver
+    tfsqldatabase
+
+Para agregar una etiqueta a un grupo de recursos que no tiene etiquetas existentes, basta con usar el comando **Set-AzureRmResourceGroup** y especificar un objeto etiqueta.
+
+    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
+
+    ResourceGroupName : test-group
     Location          : southcentralus
     ProvisioningState : Succeeded
     Tags              :
-    Permissions       :
-                    Actions  NotActions
-                    =======  ==========
-                    *
+                    Name          Value
+                    =======       =====
+                    Dept          IT
+                    Environment   Test
+                    
+Para agregar etiquetas a un recurso que no tenga etiquetas existentes, utilice el comando **SetAzureRmResource**
 
-    Resources         :
-                    Name                             Type                                  Location
-                    ===============================  ====================================  ==============
-                    CPUHigh ExamplePlan              microsoft.insights/alertrules         eastus
-                    ForbiddenRequests tag-demo-site  microsoft.insights/alertrules         eastus
-                    LongHttpQueue ExamplePlan        microsoft.insights/alertrules         eastus
-                    ServerErrors tag-demo-site       microsoft.insights/alertrules         eastus
-                    ExamplePlan-tag-demo             microsoft.insights/autoscalesettings  eastus
-                    tag-demo-site                    microsoft.insights/components         centralus
-                    ExamplePlan                      Microsoft.Web/serverFarms             southcentralus
-                    tag-demo-site                    Microsoft.Web/sites                   southcentralus
+    PS C:\> Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
-
-Este cmdlet devuelve varios bits de metadatos en el grupo de recursos, incluso qué etiquetas se han aplicado, si las hay. Para etiquetar un grupo de recursos, simplemente use el comando **Set-AzureRmResourceGroup** y especifique un nombre y valor de etiqueta.
-
-    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
-
-    ResourceGroupName : tag-demo
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name     Value
-                    =======  =====
-                    project  tags
-                    env      demo
-
-Las etiquetas se actualizan como un todo, por lo que si va a agregar una etiqueta a un recurso que ya se ha etiquetado, deberá usar una matriz con todas las etiquetas que desee conservar. Para ello, puede seleccionar primero las etiquetas existentes y agregar una nueva.
+Las etiquetas se actualizan como un todo, por lo que si va a agregar una etiqueta a un recurso que ya se ha etiquetado, deberá usar una matriz con todas las etiquetas que desee conservar. Para ello, seleccione las etiquetas existentes, agregue una nuevo al conjunto y vuelva a aplicar todas las etiquetas.
 
     PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
-
-    ResourceGroupName : tag-demo
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name     Value
-                    =======  ========
-                    project  tags
-                    env      demo
-                    status   approved
-
+    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
 Para quitar una o varias etiquetas, simplemente guarde la matriz sin la que desea quitar.
 
 El proceso es el mismo para los recursos, excepto en el hecho que usará los cmdlets **Get-AzureRmResource** y **Set-AzureRmResource**.
-
-Para obtener grupos de recursos con una etiqueta específica, use el cmdlet **Find-AzureRmResourceGroup** con el parámetro **-Tag**.
-
-    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
-    rbacdemo-group
-    tag-demo
-
-En el caso de las versiones anteriores a Azure PowerShell 1.0, use los siguientes comandos para obtener recursos con una etiqueta específica.
-
-    PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
-    rbacdemo-group
-    tag-demo
-    PS C:\> Get-AzureResource -Tag @{ Name="env"; Value="demo" } | %{ $_.Name }
-    rbacdemo-web
-    rbacdemo-docdb
-    ...    
 
 Para obtener una lista de todas las etiquetas dentro de una suscripción usando PowerShell, use el cmdlet **Get-AzureRmTag**.
 
@@ -192,12 +189,69 @@ Puede ver las etiquetas que comienzan con hidden-" y "link:". Se trata de etique
 
 Use el cmdlet **New-AzureRmTag**para agregar nuevas etiquetas a la taxonomía. Estas etiquetas se incluirán en la característica Autocompletar, aunque todavía no se hayan aplicado a los recursos o grupos de recursos. Para quitar un nombre o valor de etiqueta, quite primero la etiqueta de los recursos con los que se pueda usar y, a continuación, use el cmdlet **Remove-AzureRmTag** para quitarla de la taxonomía.
 
-## Etiquetado con API de REST
+## CLI de Azure y etiquetas
+
+Existen etiquetas directamente en los recursos y grupos de recursos, por lo que para ver qué etiquetas están ya aplicadas, no es preciso más que obtener un grupo de recursos y sus recursos con **azure group show**.
+
+    azure group show -n tag-demo-group
+    info:    Executing command group show
+    + Listing resource groups
+    + Listing resources for the group
+    data:    Id:                  /subscriptions/{guid}/resourceGroups/tag-demo-group
+    data:    Name:                tag-demo-group
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: Dept=Finance;Environment=Production
+    data:    Resources:
+    data:
+    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
+    data:      Name    : tfsqlserver
+    data:      Type    : servers
+    data:      Location: eastus2
+    data:      Tags    : Dept=Finance;Environment=Production
+    ...
+
+Para obtener las etiquetas solo para el grupo de recursos, use una utilidad de JSON como [jq](http://stedolan.github.io/jq/download/).
+
+    azure group show -n tag-demo-group --json | jq ".tags"
+    {
+      "Dept": "Finance",
+      "Environment": "Production" 
+    }
+
+Para ver las etiquetas de un recurso concreto, utilice **azure resource show**.
+
+    azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
+    {
+      "Dept": "Finance",
+      "Environment": "Production"
+    }
+    
+A continuación se muestra cómo recuperar todos los recursos con una etiqueta y un valor concretos.
+
+    azure resource list --json | jq ".[] | select(.tags.Dept == "Finance") | .name"
+    "tfsqlserver"
+    "tfsqlserver/tfsqldata"
+
+Las etiquetas se actualizan como un todo, por lo que si va a agregar una etiqueta a un recurso que ya se ha etiquetado, será preciso que recupere todas las etiquetas existentes que desee conservar. Para establecer los valores de las etiqueta de un grupo de recursos, utilice **azure group set** y proporcione todas las etiquetas del grupo de recursos.
+
+    azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
+    info:    Executing command group set
+    ...
+    data:    Name:                tag-demo-group
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
+    ...
+    
+Para enumerar las etiquetas existentes en una suscripción, utilice **azure tag list**, mientras que para agregar una etiqueta nueva, utilice **azure tag create**. Para quitar una etiqueta de la taxonomía de una suscripción, quítela primero de los recursos con los que se pueda usar y, luego, quítela con **azure tag delete**.
+
+## Etiquetas y API de REST
 
 Tanto el portal como PowerShell usan la [API de REST del Administrador de recursos](https://msdn.microsoft.com/library/azure/dn848368.aspx) en segundo plano. Si necesita integrar el etiquetado en otro entorno, puede obtener etiquetas con un comando GET en el identificador de recurso y actualizar el conjunto de etiquetas con una llamada PATCH.
 
 
-## Etiquetado y facturación
+## Etiquetas y facturación
 
 Para los servicios compatibles, puede usar etiquetas a fin de agrupar los datos de facturación. Por ejemplo, [las máquinas virtuales integradas con el Administrador de recursos de Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md) le permiten definir y aplicar etiquetas para organizar el uso de facturación en las máquinas virtuales. Si va a ejecutar varias máquinas virtuales para organizaciones diferentes, puede usar etiquetas para agrupar el uso por centro de costo. También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
 
@@ -214,4 +268,4 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 - Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, consulte [Uso de la interfaz de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
 - Para obtener información sobre cómo usar el portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](./azure-portal/resource-group-portal.md)  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Crear una nueva API de Outlook para Office 365 en el entorno del Servicio de aplicaciones de la organización
+# Creación de una nueva API de Outlook de Office 365 en PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [Aplicaciones lógicas](../articles/connectors/create-api-office365-outlook.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+
+Agregue la API de Outlook de Office 365 al entorno del Servicio de aplicaciones de su organización (inquilino).
 
 ## Crear la API en el portal de Azure
 
@@ -39,7 +45,7 @@
 
 9. Escriba el valor de la *clave de la aplicación* y del *secreto de la aplicación* de la aplicación Azure Active Directory (AAD) de Office 365. Si no dispone de estos, consulte la sección "Registrar una aplicación de AAD para su uso con PowerApps" en este tema para crear los valores de clave y secretos que necesita.
  
-	> [AZURE.IMPORTANT]Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
+	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
 
 10. Seleccione **Aceptar** para completar los pasos.
 
@@ -54,7 +60,7 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 
 2. Seleccione **Examinar** y, a continuación, seleccione **Active Directory**.
 
-	>[AZURE.NOTE]De este modo se abre Active Directory en el Portal de Azure clásico.
+	>[AZURE.NOTE] De este modo se abre Active Directory en el Portal de Azure clásico.
 
 3. Seleccione el nombre del inquilino de su organización: ![Iniciar Azure Active Directory][6]
 
@@ -62,13 +68,17 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 
 5. En **Agregar aplicación**:
 
-	a) Escriba un **nombre** para su aplicación. b) Establezca el tipo de aplicación como **Web**. c) Seleccione **Siguiente**.
+	1. Escriba el **nombre** de la aplicación.  
+	3. Deje el tipo de aplicación como **Web**.  
+	3. Seleccione **Siguiente**.  
 
 	![Agregar aplicación de AAD: información de la aplicación][8]
 
 6. En **Propiedades de la aplicación**:
 
-	a) Introduzca la **DIRECCIÓN URL DE INICIO DE SESIÓN** de la aplicación. Puesto que va a autenticarse con AAD para PowerApps, establezca la dirección URL de inicio de sesión en \__https://login.windows.net_. b) Escriba un **Identificador URI DE ID DE APLICACIÓN** para la aplicación. c) Seleccione **Aceptar**.
+	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a realizar la autenticación con AAD para PowerApps, establezca la URL de inicio de sesión en \__https://login.windows.net_.
+2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
+	3. Seleccione **Aceptar**.  
 
 	![Agregar aplicación de AAD: propiedades de la aplicación][9]
 
@@ -94,6 +104,13 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 
 Se creará una nueva aplicación de Azure Active Directory. Puede usar esta aplicación en la configuración de la API de Outlook para Office 365 en el Portal de Azure.
 
+Encontrará información válida sobre aplicaciones de AAD en [Cómo y por qué se agregan aplicaciones a Azure AD](../active-directory/active-directory-how-applications-are-added.md).
+
+## Visualización de las API de REST
+
+Referencia de [API de REST de Outlook de Office 365](../connectors/create-api-office365-outlook.md).
+
+
 ## Resumen y pasos siguientes
 En este tema, ha agregado la API de Outlook para Office 365 a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
 
@@ -116,4 +133,4 @@ En este tema, ha agregado la API de Outlook para Office 365 a su empresa PowersA
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

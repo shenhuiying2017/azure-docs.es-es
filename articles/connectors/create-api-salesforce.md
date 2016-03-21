@@ -14,16 +14,22 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="deonhe"/>
 
 # Introducción a la API de Salesforce
 Conéctese a Salesforce y cree objetos, obtenga objetos, etc. La API de Salesforce puede usarse desde:
 
-- PowerApps 
 - Aplicaciones lógicas 
+- PowerApps
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-Versión preliminar, haga clic en [API de Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
+> [AZURE.SELECTOR]
+- [Aplicaciones lógicas](../articles/connectors/create-api-salesforce.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+
+&nbsp;
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-Versión preliminar, haga clic en [Conector de Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
 
 Con Salesforce, puede:
 
@@ -47,32 +53,6 @@ Todas las API admiten datos en formato JSON y XML.
 
 ## Creación de una conexión a Salesforce 
 
-### Incorporación de una configuración adicional en PowerApps
-Cuando agregue Salesforce a PowerApps Enterprise, escriba los valores **Clave de aplicación** y **Secreto de la aplicación** de la aplicación de Salesforce. El valor **URL de redireccionamiento** también se usa en la aplicación de Salesforce. Si no tiene una aplicación de Salesforce, puede usar los siguientes pasos para crearla:
-
-1. [Inicie sesión en la página principal del desarrollador de Salesforce][5], seleccione su perfil y seleccione **Setup (Configuración)**: ![Página principal de Salesforce][6]
-
-3. Seleccione **Crear** y, a continuación, **Aplicaciones**. En la página **Apps** (Aplicaciones), en **Connected Apps** (Aplicaciones conectadas), seleccione **New** (Nueva): ![Aplicación de creación de Salesforce][7]
-
-4. En **Nueva aplicación conectada**:
-
-	1. Escriba el valor para **Connected App Name** (Nombre de la aplicación conectada).  
-	2. Escriba el valor para **API Name** (Nombre de la API).  
-	3. Escriba el valor para **Contact Email** (Correo electrónico de contacto).  
-	4. En _API (Enable OAuth Settings)_ (API: habilitar configuración de OAuth), seleccione **Enable OAuth Settings** (Habilitar configuración de OAuth) y establezca **Callback URL** (Dirección URL de devolución de llamada) en el valor mostrado al agregar la nueva API de Salesforce en el Portal de Azure.  
-
-5. En _Ámbitos de OAuth seleccionados_, agregue los siguientes ámbitos a los **Ámbitos de OAuth seleccionados**:
-
-	- Acceder y administrar los datos de Chatter (chatter\_api)
-	- Acceder y administrar los datos (api)
-	- Permitir el acceso a su identificador único (openid)
-	- Realizar solicitudes en su nombre en cualquier momento (refresh\_token, offline\_access)
-
-6. **Guarde** los cambios: ![Aplicación nueva de Salesforce][8]
-
-Ahora, copie y pegue los valores **Clave de aplicación** y **Secreto de aplicación** en la configuración de Salesforce en el Portal de Azure.
-
-### Incorporación de una configuración adicional en aplicaciones lógicas
 Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a Salesforce.
 
 1. Inicie sesión en su cuenta de Salesforce.
@@ -275,9 +255,10 @@ Desencadena un flujo cuando se modifica un objeto en Salesforce. ```GET: /datase
 
 
 ## Pasos siguientes
-Después de agregar la API de Salesforce a PowerApps Enterprise, [conceda permisos a los usuarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar dicha API en sus aplicaciones.
 
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Volver a la [lista de API](apis-list.md).
 
 
 [5]: https://developer.salesforce.com
@@ -285,4 +266,4 @@ Después de agregar la API de Salesforce a PowerApps Enterprise, [conceda permis
 [7]: ./media/create-api-salesforce/salesforce-create-app.png
 [8]: ./media/create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

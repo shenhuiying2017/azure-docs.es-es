@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/08/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
 
 # Información general sobre rendimiento y escala
@@ -23,11 +23,14 @@ Almacenamiento de datos SQL es una plataforma de base de datos distribuida basad
 
 *La siguiente información se aplica a Almacenamiento de datos SQL de Azure en su versión preliminar. Esta información se actualizará continuamente durante la versión preliminar, ya que el servicio mejora según se avanza hacia la versión de disponibilidad general.*
 
-Nuestros objetivos para Almacenamiento de datos SQL son: rendimiento predecible y escalabilidad lineal hasta petabytes de datos; alta confiabilidad para todas las operaciones de almacenamiento de datos respaldada por un contrato de nivel de servicio (SLA); poco tiempo entre la carga y el análisis de los datos en datos relacionales y no relacionales.
+Nuestros objetivos para Almacenamiento de datos SQL son:
+-	Un rendimiento predecible y una escalabilidad lineal hasta petabytes de datos.
+-	Alta confiabilidad para todas las operaciones de almacenamiento de datos, respaldadas por un Contrato de nivel de servicio (SLA).
+-	Poco tiempo desde la carga de los datos hasta obtener información detallada sobre los datos en datos no relacionales y relacionales.
 
 Trabajaremos sin pausa en estos objetivos durante la versión preliminar para cumplirlos antes de la disponibilidad general (GA).
 
->[AZURE.NOTE]En las secciones siguientes se describe el servicio Almacenamiento de datos SQL Azure en el lanzamiento de la versión preliminar pública. Esta información se actualizará continuamente durante la versión preliminar, ya que el servicio mejora según se avanza hacia la versión de disponibilidad general.
+>[AZURE.NOTE] En las secciones siguientes se describe el servicio Almacenamiento de datos SQL Azure en el lanzamiento de la versión preliminar pública. Esta información se actualizará continuamente durante la versión preliminar, ya que el servicio mejora según se avanza hacia la versión de disponibilidad general.
 
 ## Protección de datos
 Almacenamiento de datos SQL almacena todos los datos en el Almacenamiento de Azure con blobs de redundancia geográfica. Se mantienen tres copias sincrónicas de los datos en la región de Azure local para garantizar la protección de datos transparente en caso de errores localizados (por ejemplo, errores en la unidad de almacenamiento). Además, se mantienen tres copias asincrónicas más en una región remota de Azure para garantizar la protección de los datos en caso de errores regionales (recuperación ante desastres). Las regiones locales y remotas están emparejadas para mantener latencias de sincronización aceptables (p. ej., Este de EE. UU y Oeste de EE. UU).
@@ -40,12 +43,14 @@ Almacenamiento de datos SQL es un sistema distribuido con varios componentes, do
 
 En función de los datos de telemetría recopilados, la confiabilidad de Almacenamiento de datos SQL se estima en el 98% para las cargas de trabajo de almacenamiento de datos más habituales. Esto significa que, como promedio, 2 de cada 100 consultas pueden dar error debido a errores del sistema. Este no es un SLA para la versión preliminar, más bien es un indicador de la confiabilidad esperada de las consultas que se ejecutan. Observe que la probabilidad de que una consulta dé error aumenta en función de su tiempo de ejecución (por ejemplo, una consulta que tarde más de 2 horas tiene una probabilidad mucho mayor de error que otra que tome menos de 10 minutos). Durante la versión preliminar se harán mejoras continuas para garantizar el mismo nivel de confiabilidad en las operaciones, con independencia de su tiempo de ejecución. Actualizaremos la confiabilidad esperada a medida que publicamos estas mejoras con el objetivo de ofrecer un SLA completo con el lanzamiento de disponibilidad general.
 
-Durante la versión preliminar, Almacenamiento de datos SQL puede tener hasta 5 eventos de mantenimiento al mes para la instalación de correcciones críticas. Cada evento puede provocar errores de consulta durante un periodo de hasta 2 horas dependiendo de la cantidad de DWU utilizadas en la instancia de Almacenamiento de datos SQL. Haremos todo lo posible para notificar estos eventos a los clientes con una antelación de 48 horas para permitir un planeamiento adecuado.
+Durante la versión preliminar, Almacenamiento de datos SQL se actualizará periódicamente con el fin de agregar nuevas características y de instaslar correcciones críticas. Estas actualizaciones pueden interrumpir y en este momento las actualizaciones no se realizan con una programación previsible. Si piensa que este proceso provoca demasiadas interrupciones, le animamos a [crear una incidencia de soporte técnico][] para que podemos ayudarlo a solucionar este proceso.
 
 ## Rendimiento y escalabilidad
 El servicio Almacenamiento de datos SQL presenta las unidades de almacenamiento de datos (DWU) como una abstracción de los recursos informáticos (UPC, memoria, E/S de almacenamiento) que se agregan en una serie de nodos. Aumentar el número de DWU aumenta los recursos informáticos agregados de una instancia de Almacenamiento de datos SQL. El servicio Almacenamiento de datos SQL distribuye las operaciones (por ejemplo, carga o consulta de datos) por toda la infraestructura de proceso de la instancia para aumentar o disminuir el rendimiento de las cargas y consultas a medida que el sistema se escala vertical u horizontalmente.
 
-Todo almacenamiento de datos tiene 2 métricas de rendimiento fundamentales: - **velocidad de carga**: número de registros que se cargan en el almacenamiento de datos por segundo. Medimos específicamente el número de registros que se pueden importar, a través de PolyBase, del Almacenamiento de blobs de Azure a una tabla con un índice agrupado de almacén de columnas. - **Velocidad de examen**: número de registros que se recuperan secuencialmente desde el almacén de datos por segundo. Esta métrica mide específicamente el número de registros devueltos por una consulta de una tabla con un índice agrupado de almacén de columnas.
+Cualquier almacén de datos tiene 2 métricas de rendimiento fundamentales:
+- **Velocidad de carga**: número de registros que se pueden cargar en el almacén de datos por segundo. Medimos específicamente el número de registros que se pueden importar a través de PolyBase, de Almacenamiento de blobs de Azure a una tabla con un índice de almacén-columna en clústeres.
+- **Velocidad de exploración**: número de registros que se pueden recuperar de forma secuencial del almacén de datos por segundo. Esta métrica mide específicamente el número de registros devueltos por una consulta de una tabla con un índice agrupado de almacén de columnas.
 
 Durante la versión preliminar, realizaremos mejoras continuas para aumentar estas métricas de rendimiento y asegurar que se escalan de forma predecible.
 
@@ -72,9 +77,10 @@ Consulte el artículo [Introducción al desarrollo][] para obtener orientación 
 [selección de una clave de distribución hash para una tabla]: sql-data-warehouse-develop-hash-distribution-key.md
 [estadísticas para mejorar el rendimiento]: sql-data-warehouse-develop-statistics.md
 [Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
+[crear una incidencia de soporte técnico]: sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

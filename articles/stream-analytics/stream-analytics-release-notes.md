@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notas de la versión de Análisis de transmisiones | Microsoft Azure" 
-	description="Notas de la versión de Análisis de transmisiones GA" 
+	description="Notas de la versión de Análisis de transmisiones" 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="03/03/2016" 
 	ms.author="jeffstok"/>
 
 #Notas de la versión de Análisis de transmisiones
+
+## Notas de la versión de Análisis de transmisiones del 03/03/2016 ##
+
+Esta versión contiene la siguiente actualización.
+
+Título | Descripción
+---|---
+Nuevos elementos de lenguaje de consulta de Análisis de transmisiones | SAQL incluye ahora [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Página de MSDN GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Página de MSDN TRY_CAST") y [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Página de MSDN REGEXMATCH").
 
 ## Notas de la versión de Análisis de transmisiones del 12/10/2015 ##
 
@@ -25,7 +33,7 @@ Esta versión contiene la siguiente actualización.
 Título | Descripción
 ---|---
 Actualización de la versión de API de REST | La versión de la API de REST se actualizó a la 2015-10-01. Encontrará detalles sobre MSDN en [Referencia de la API de REST de la administración de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integración del aprendizaje automático en Análisis de transmisiones](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Integración de Aprendizaje automático de Azure | Esta versión incluye compatibilidad con funciones definidas por el usuario de Aprendizaje automático de Azure. Encontrará un tutorial [aquí](stream-analytics-machine-learning-integration-tutorial.md) así como el anuncio de blog general [aquí](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+Integración de Aprendizaje automático de Azure | Esta versión incluye compatibilidad con funciones definidas por el usuario de Aprendizaje automático de Azure. Consulte el [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para más información, así como el [anuncio general del blog](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Notas de la versión de Análisis de transmisiones del 12/11/2015 ##
 
@@ -133,4 +141,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

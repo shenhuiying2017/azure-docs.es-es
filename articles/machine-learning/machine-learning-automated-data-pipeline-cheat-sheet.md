@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/02/2016"
 	ms.author="mithal;garye" />
 
 # Hoja de referencia rápida de una canalización de datos automatizada para las predicciones de aprendizaje automático de Azure
@@ -41,4 +41,4 @@ Descargar aquí la hoja de referencia rápida: **[Hoja de referencia rápida de 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

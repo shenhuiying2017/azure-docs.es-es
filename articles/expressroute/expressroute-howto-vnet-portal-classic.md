@@ -1,10 +1,10 @@
 <properties
    pageTitle="Configurar una red virtual y una puerta de enlace para ExpressRoute | Microsoft Azure"
-   description="Este artículo le guiará a través de la configuración de una red virtual (VNet) en ExpressRoute"
+   description="Este artículo le guiará en la configuración de una red virtual (VNet) de ExpressRoute mediante el modelo de implementación clásica."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,16 +14,22 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/08/2016"
    ms.author="cherylmc"/>
 
-# Configurar una red virtual en ExpressRoute
+# Configuración de una red virtual para ExpressRoute en el Portal clásico
 
-Estos pasos le guiarán a través de la configuración de una red virtual y una puerta de enlace para usarla con ExpressRoute mediante el modelo de implementación clásico y la administración de servicios. Actualmente, no tenemos documentación para configurar una red virtual para ExpressRoute con el modelo de implementación del Administrador de recursos. Cuando tengamos un artículo publicado, agregaremos a él un vínculo.
+Los pasos de este artículo le guiarán en la configuración de una red virtual y una puerta de enlace para su uso con ExpressRoute mediante el modelo de implementación clásica y el portal clásico.
 
->[AZURE.IMPORTANT]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, consulta [Modelos de implementación de Azure](../azure-classic-rm.md).
+Si busca instrucciones para el modelo de implementación de Resource Manager, puede utilizar los siguientes artículos que le guiarán a través de cómo [crear una red virtual mediante PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) y [agregar una puerta de enlace de VPN a una red virtual de Resource Manager para ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-1. Inicie sesión en el **Portal de Azure clásico**.
+**Información sobre los modelos de implementación de Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## Para configurar una red virtual y la puerta de enlace
+
+1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).
 
 2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
 
@@ -70,4 +76,4 @@ Estos pasos le guiarán a través de la configuración de una red virtual y una 
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

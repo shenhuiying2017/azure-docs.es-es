@@ -15,14 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Introducción a la API de Google Drive
 Conéctese a Google Drive para crear archivos, obtener filas, etc. La API de Google Drive puede usarse desde:
 
-- PowerApps 
 - Aplicaciones lógicas 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [Aplicaciones lógicas](../articles/connectors/create-api-googledrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
 
 Con Google Drive, puede:
 
@@ -30,9 +34,9 @@ Con Google Drive, puede:
 - Usar acciones para buscar imágenes, noticias, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede buscar un vídeo y luego usar Twitter para publicar ese vídeo en una fuente de Twitter.
 - Agregar la API de Google Drive a PowerApps Enterprise. Así los usuarios pueden usar esta API en sus aplicaciones. 
 
-Para obtener información acerca de cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API en PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-Para agregar una operación a las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Desencadenadores y acciones
@@ -47,39 +51,12 @@ Todas las API admiten datos en formato JSON y XML.
 
 ## Creación de la conexión a Google Drive
 
-### Incorporación de una configuración adicional en PowerApps
-Al agregar Google Drive a PowerApps Enterprise, especifique los valores de **Clave de la aplicación** y **Secreto de la aplicación** de la aplicación de Google Drive. El valor de **URL de redireccionamiento** también se usa en la aplicación de Google. Si no tiene una aplicación de Google Drive, puede usar los siguientes pasos para crearla:
-
-1. Inicie sesión en [Google Developers Console][5] y seleccione **Create an empty project** (Crear un proyecto vacío): ![Consola de desarrolladores de Google][6]
-
-2. Escriba las propiedades de la aplicación y seleccione **Create** (Crear).
-3. Seleccione **Use Google APIs** (Usar APIs de Google): ![Usar api de google][8]  
-4. En Overview (Visión general), seleccione **Drive API** (API de Drive): ![Información general de la API de Google Drive][9]  
-5. Seleccione **Habilitar API**: ![Habilitar la API de Google Drive][10]  
-6. Al habilitar la API de Drive, seleccione **Credenciales** y, a continuación, **Id. de cliente de OAuth 2.0**: ![Agregar credenciales][12]  
-7. Seleccione **Configurar pantalla de consentimiento**.
-8. En **OAuth consent screen** (Pantalla de autorización de OAuth), especifique un **nombre de producto** y seleccione **Save** (Guardar): ![Configurar pantalla de consentimiento][13]  
-9. En la página de creación del Id. de cliente:  
-
-	1. En **Tipo de aplicación**, seleccione **Aplicación web**.
-	2. Escriba un nombre para el cliente.
-	3. Escriba el valor de la dirección URL de redirección que se muestra cuando se agregó a la API de Google Drive en el Portal de Azure.
-	4. Seleccione **Crear**.  
-
-	![Crear Id. de cliente][14]
-
-11. Se mostrarán el identificador y el secreto de cliente de la aplicación registrada.
-
-Ahora, copie y pegue los valores de **App Key** (Clave de aplicación) y **App Secret** (Secreto de aplicación) en la configuración de la API de Google Drive del Portal de Azure.
-
-
-### Incorporación de una configuración adicional en aplicaciones lógicas
 Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a Google Drive.
 
 1. Inicie sesión en su cuenta de Google Drive.
 2. Permita que las aplicaciones lógicas se conecten a Google Drive y lo usen. 
 
-Después de crear la conexión, especifique las propiedades de Google Drive, como la ruta de acceso a la carpeta o el nombre de archivo. La **referencia de la API de REST** de este tema describe estas propiedades.
+Después de crear la conexión, especifique las propiedades de Google Drive, como la ruta de acceso a la carpeta o el nombre de archivo. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Google Drive en otras aplicaciones lógicas.
 
@@ -363,9 +340,10 @@ Actualiza una fila en una hoja de Google. ```PATCH: /datasets/{dataset}/tables/{
 
 
 ## Pasos siguientes
-Después de agregar Google Drive a PowerApps Enterprise, [conceda a los usuarios los permisos necesarios](../power-apps/powerapps-manage-api-connection-user-access.md) para usar la API en sus aplicaciones.
 
-[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Volver a la [lista de API](apis-list.md).
 
 
 <!--References-->
@@ -378,4 +356,4 @@ Después de agregar Google Drive a PowerApps Enterprise, [conceda a los usuarios
 [13]: ./media/create-api-googledrive/configure-consent-screen.png
 [14]: ./media/create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

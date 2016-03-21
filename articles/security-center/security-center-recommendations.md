@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Administración de recomendaciones de seguridad en el Centro de seguridad de Azure
@@ -72,7 +72,7 @@ Use la tabla siguiente como referencia para ayudarle a entender las recomendacio
 |Resolver el error de coincidencia de reglas de línea base|Recomienda alinear las configuraciones del SO con las líneas base recomendadas; por ejemplo, no permitir guardar las contraseñas.|
 |Aplicar actualizaciones del sistema|Recomienda implementar las actualizaciones críticas y de seguridad del sistema que falten en las máquinas virtuales (solo máquinas virtuales de Windows).|
 |Configurar ACL para puntos de conexión|Recomienda configurar listas de control de acceso para restringir el acceso de entrada a las máquinas virtuales (solo clásicas).|
-|[Agregar un firewall de aplicaciones web](security-center-add-web-application-firewall.md)|Recomienda implementar un Firewall de aplicaciones web (WAF) para los puntos de conexión web. El proceso de aprovisionamiento automático se basa en paquetes WAF (creados con el modelo de implementación del Administrador de recursos) que se implementan en una red virtual independiente. El acceso a las aplicaciones web protegidas en máquinas virtuales (clásicas) está restringido a los dispositivos WAF solo mediante NSG. Esta compatibilidad se extenderá a una implementación completamente personalizada de paquetes WAF (clásicos) en el futuro.|
+|[Agregar un firewall de aplicaciones web](security-center-add-web-application-firewall.md)|Recomienda implementar un Firewall de aplicaciones web (WAF) para los puntos de conexión web. Puede proteger varias aplicaciones web del Centro de seguridad si agrega estas aplicaciones a las implementaciones de WAF existentes. Los dispositivos WAF (creados mediante el modelo de implementación de Resource Manager) deben implementarse en una red virtual independiente. Los dispositivos WAF (creados mediante el modelo de implementación clásica) están limitados a usar un grupo de seguridad de red. Esta compatibilidad se extenderá a una implementación completamente personalizada de dispositivos WAF (clásica) en el futuro.|
 |Finalizar la configuración del firewall de aplicaciones web|Para completar la configuración de un WAF, el tráfico se debe redirigir a la aplicación del WAF. Si se sigue esta recomendación, se completarán los cambios necesarios en la configuración.|
 |[Habilitar antimalware](security-center-enable-antimalware.md)|Recomienda aprovisionar programas antimalware a las máquinas virtuales (solo máquinas virtuales de Windows).|
 |Habilitar grupos de seguridad de red en interfaces de red/subredes|Recomienda habilitar grupos de seguridad de red (NSG) en subredes e interfaces de red (solo máquinas virtuales del Administrador de recursos).|
@@ -109,7 +109,7 @@ Después de revisar todas las recomendaciones, decida cuáles son las primeras q
 ## Pasos siguientes
 En este documento, se han presentando las recomendaciones de seguridad del Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-- [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): aprenda a configurar directivas de seguridad.
+- [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 - [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 - [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
 - [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
@@ -122,4 +122,4 @@ En este documento, se han presentando las recomendaciones de seguridad del Centr
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

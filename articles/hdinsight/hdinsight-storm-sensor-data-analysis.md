@@ -24,7 +24,7 @@ Aprenda a usar Apache Storm en HDInsight para procesar datos de sensores de los 
 
 ## Requisitos previos
 
-* Una suscripción de Azure. Consulte [Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un [clúster de Apache Storm en HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
@@ -104,10 +104,12 @@ Centro de eventos es el origen de datos para este ejemplo. Utilice los pasos sig
 4. Seleccione **Configurar** y cree dos directivas de acceso con la información siguiente.
 
 	<table>
-<tr><th>Nombre</th><th>Permisos</th></tr>
-<tr><td>Dispositivos</td><td>Los métodos Send</td></tr>
-<tr><td>Storm</td><td>Escuchar</td></tr>
-</table>Después de crear los permisos, seleccione el icono **Guardar** de la parte inferior de la página. Se crean las directivas de acceso compartidas que se usarán para enviar mensajes a este centro, así como para leer mensajes de él.
+	<tr><th>Nombre</th><th>Permisos</th></tr>
+	<tr><td>Dispositivos</td><td>Los métodos Send</td></tr>
+	<tr><td>Storm</td><td>Escuchar</td></tr>
+	</table>
+
+	Después de crear los permisos, seleccione el icono **Guardar** de la parte inferior de la página. Se crean las directivas de acceso compartidas que se usarán para enviar mensajes a este centro, así como para leer mensajes de él.
 
 5. Después de guardar las directivas, use el **Generador de claves de acceso compartido** en la parte inferior de la página para recuperar la clave de las directivas **dispositivos** y **storm**. Guárdelas porque las usará más adelante.
 
@@ -399,6 +401,9 @@ Antes de ejecutar la topología, debe preparar HBase para que acepte los datos.
 
 Cuando haya iniciado la topología en el clúster de Storm y se hayan procesado los datos, puede usar el comando `scan 'SensorData'` de nuevo para comprobar que los datos se han insertado en HBase.
 
+## Eliminación de los clústeres
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Pasos siguientes
 
@@ -422,4 +427,4 @@ Ahora ha aprendido a utilizar Storm para leer datos desde el Centro de eventos y
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/07/2016" 
 	ms.author="luisca"/>
 
 # Aplicación de ejemplo de Aprendizaje automático: artículos que con frecuencia se compran juntos
@@ -21,7 +21,7 @@
 
 ## IMPORTANTE: ESTE SERVICIO ESTÁ DESUSADO
 
-La característica de Artículos que se suelen comprar juntos que ofrece este servicio ahora se ha integrado en nuestra [API Recomendaciones](http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c) más amplia. Le recomendamos que utilice las Recomendaciones en lugar de este servicio.
+**La característica Artículos que se suelen comprar juntos que ofrece este servicio se ha integrado ahora en nuestra [API Recomendaciones](http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c) más amplia. Le recomendamos que utilice Recomendaciones en lugar de este servicio.**
 
 ##Información general
 
@@ -39,4 +39,4 @@ Este servicio contiene API para crear modelos de la aplicación Frequently Bough
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

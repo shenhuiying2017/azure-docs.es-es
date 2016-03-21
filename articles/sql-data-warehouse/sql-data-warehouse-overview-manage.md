@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
 
 # Herramientas de administración para Almacenamiento de datos SQL
@@ -24,7 +24,7 @@ El [Portal de Azure clásico][] es un portal clásico basado en web donde se pue
 
 El portal incluye métricas que abarcan la configuración de DWU de rendimiento actual e histórica, la cantidad de almacenamiento que se está usando, las conexiones SQL correctas e incorrectas y un conjunto de datos y elementos visuales que permiten entender las consultas que se ejecutan en la instancia, así como los detalles de dichas consultas.
 
-## SQL Server Data Tools en Visual Studio	
+## SQL Server Data Tools en Visual Studio
 [SQL Server Data Tools][] (SSDT) en Visual Studio es una herramienta de cliente que se ejecuta en el equipo y permite conectarse a una base de datos en la nube, así como administrarla y desarrollarla. Si es un programador familiarizado con Visual Studio o con otros entornos de desarrollo integrado (IDE), pruebe a usar SSDT en Visual Studio.
 
 SSDT incluye el Explorador de SQL Server, que permite visualizar, conectar y ejecutar scripts en bases de datos de Almacenamiento de datos SQL. Para conectarse rápidamente a Almacenamiento de datos SQL, simplemente haga clic en el botón **Abrir en Visual Studio** de la barra de comandos al visualizar los detalles de la base de datos en el Portal de Azure clásico.
@@ -48,4 +48,4 @@ Para comenzar a usar estas herramientas, vaya al tema [conexión][].
 <!--Other web references-->
 [Portal de Azure clásico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

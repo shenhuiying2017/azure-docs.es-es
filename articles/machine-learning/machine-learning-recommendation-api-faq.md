@@ -3,7 +3,7 @@
 	description="Preguntas frecuentes de la API de RECOMENDACIONES de Microsoft creada con el aprendizaje automático de Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/01/2016" 
 	ms.author="luisca"/>
 
 #Preguntas más frecuentes (P+F) sobre cómo configurar y utilizar la API de recomendaciones de Aprendizaje automático
@@ -31,7 +31,12 @@ Las recomendaciones toman como entrada un elemento o un conjunto de elementos y 
 
 **¿Hay alguna limitación de uso?**
 
-Las recomendaciones tienen las siguientes limitaciones de uso: * Número máximo de modelos por suscripción: 10 * Número máximo de elementos que puede albergar un catálogo: 100.000 * El número máximo de puntos de uso que se guardan es de 5.000.000 aproximadamente. El más antiguo se eliminará si se cargan o notifican nuevos. * El tamaño máximo de los datos que se pueden enviar por correo electrónico (por ejemplo, importar datos de catálogo o importar datos de uso) es de 200 MB * El número de transacciones por segundo (TPS) para una compilación de modelo de recomendaciones que no esté activa es de 2 TPS aproximadamente. Una compilación de modelo de recomendaciones que esté activa puede contener hasta 20 TPS.
+Recomendaciones tiene las siguientes limitaciones de uso:
+* Número máximo de modelos por suscripción: 10
+* Número máximo de elementos que puede contener un catálogo: 100.000
+* El número máximo de puntos de uso que se mantienen es ~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
+* El tamaño máximo de datos que puede enviarse por correo electrónico (por ejemplo, importar datos de catálogo o importar datos de uso) es de 200 MB.
+* El número de transacciones por segundo (TPS) para una compilación de modelo de Recomendaciones que no está activa es de ~2 TPS. Una compilación de modelo de recomendaciones que esté activa puede contener hasta 20 TPS.
 
 ##Compra y facturación 
 
@@ -80,7 +85,7 @@ Para cancelar la suscripción, siga estos pasos. Si su suscripción actual es un
 
 **Nota** No hay ningún reembolso si cancela antes del final del período de facturación. Tampoco se reembolsan las transacciones no utilizadas en un período de facturación.
 
-* Acceda a la [página de oferta](https://datamarket.azure.com/dataset/amla/recommendations).
+* Vaya a la [página de oferta](https://datamarket.azure.com/dataset/amla/recommendations).
 * Inicie sesión en Marketplace si no la ha iniciado todavía.
 * Haga clic en **Cancelar** a la derecha del nombre y el estado del conjunto de datos. Puede usar esta suscripción hasta que llegue al final del período de facturación actual o hasta que se alcance el límite de la transacción, lo que ocurra primero.
 
@@ -130,4 +135,4 @@ El soporte técnico está disponible en el sitio de [Soporte técnico de Microso
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

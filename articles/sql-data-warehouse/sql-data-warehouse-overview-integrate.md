@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/01/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Aprovechamiento de otros servicios con Almacenamiento de datos SQL
@@ -30,7 +30,7 @@ Estamos trabajando para conectar con más servicios en el ecosistema de Azure.
 La integración de Power BI le permite aprovechar en gran medida la capacidad de procesamiento de Almacenamiento de datos SQL con los informes dinámicos y la visualización de Power BI. La integración de Power BI actualmente incluye:
 
 + **Conexión directa**: una conexión más avanzada con aplicación de lógica en Almacenamiento de datos SQL. Esto proporciona un análisis más rápido a mayor escala.
-+ **Open in Power BI**: el botón ‘Open in Power BI’ (Abrir en Power BI) pasa la información de la instancia a Power BI para lograr una conexión más fluida. 
++ **Open in Power BI**: el botón ‘Open in Power BI’ (Abrir en Power BI) pasa la información de la instancia a Power BI para lograr una conexión más fluida.
 
 Consulte [Integración con Power BI](./sql-data-warehouse-integrate-power-bi.md) o la [documentación de Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx) para obtener más información.
 
@@ -44,7 +44,7 @@ Consulte [Integración con Factoría de datos de Azure](./sql-data-warehouse-int
 ##Aprendizaje automático de Azure
 Aprendizaje automático de Azure es un servicio de análisis totalmente administrado que permite a los usuarios crear modelos complejos aprovechando un amplio conjunto de herramientas de predicción. Almacenamiento de datos SQL se admite como origen y destino para estos modelos con la siguiente funcionalidad:
 
-+ **Lectura de datos:** producir modelos a escala usando T-SQL en Almacenamiento de datos SQL. 
++ **Lectura de datos:** producir modelos a escala usando T-SQL en Almacenamiento de datos SQL.
 + **Escritura de datos:** confirmar los cambios de cualquier modelo en Almacenamiento de datos SQL.
 
 Consulte [Integración con Aprendizaje automático de Azure](./sql-data-warehouse-integrate-azure-machine-learning.md) o la [documentación de Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/) para obtener más información.
@@ -71,4 +71,4 @@ Consulte [Integración con Análisis de transmisiones de Azure](./sql-data-wareh
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -84,7 +84,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 	- Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS. Puede usar un número AS privado para esta configuración entre pares. Asegúrese de que no usa 65515.
 	- Un hash MD5 si opta por utilizar uno. **Esto es opcional**.
 	
-	Puede ejecutar el siguiente cmdlet para establecer la configuración entre pares privados de Azure para el circuito.
+	Puede ejecutar el siguiente cmdlet para realizar la configuración entre pares privados de Azure para el circuito.
 
 		New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
 
@@ -318,4 +318,4 @@ A continuación, [Vinculación de una red virtual a un circuito ExpressRoute](ex
 -  Para obtener más información sobre los flujos de trabajo, consulte [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
 -  Para más información sobre el emparejamiento de circuitos, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/07/2016"
    ms.author="alkohli"/>
 
 # Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en Hyper-V
 
 ![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
-## Información general 
+## Información general
 
 Este tutorial de aprovisionamiento se aplica a las matrices virtuales de Microsoft Azure StorSimple (también conocidas como dispositivos virtuales locales de StorSimple o dispositivos virtuales de StorSimple) que se ejecutan en la versión de disponibilidad general de marzo de 2016. En este tutorial se describe cómo aprovisionar una matriz virtual de StorSimple en un sistema host que ejecuta Hyper-V 2008 R2, Hyper-V 2012 o Hyper-V 2012 R2.
 
@@ -38,10 +38,10 @@ Antes de comenzar, asegúrese de que:
 -   Ha completado todos los pasos de [Preparar el portal para la matriz virtual de StorSimple](storsimple-ova-deploy1-portal-prep.md).
 
 -   Ha descargado la imagen del dispositivo virtual para Hyper-V desde el Portal de Azure. Para más información, consulte [Paso 3: Descargar la imagen del dispositivo virtual](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
-	
+
 	> [AZURE.IMPORTANT] El software que se ejecuta en la matriz virtual de StorSimple solo puede usarse junto con el servicio StorSimple Manager.
 
-### Para el dispositivo virtual StorSimple 
+### Para el dispositivo virtual StorSimple
 
 Antes de implementar un dispositivo virtual, asegúrese de que:
 
@@ -50,20 +50,20 @@ Antes de implementar un dispositivo virtual, asegúrese de que:
 -   El sistema host es capaz de utilizar los recursos siguientes para aprovisionar el dispositivo virtual:
 
 	-   Un mínimo de 4 núcleos.
-	
+
 	-   Al menos 8 GB de RAM.
-	
+
 	-   Una interfaz de red.
-	
+
 	-   Un disco virtual de 500 GB para datos del sistema.
 
-### Para la red del centro de datos 
+### Para la red del centro de datos
 
 Antes de comenzar, asegúrese de que:
 
 -   Ha revisado los requisitos de red para implementar un dispositivo virtual StorSimple y ha configurado la red del centro de datos según los requisitos. Para más información, consulte Requisitos de red en [Requisitos del sistema de la matriz virtual de StorSimple](storsimple-ova-system-requirements.md#networking-requirements).
 
-## Aprovisionamiento paso a paso 
+## Aprovisionamiento paso a paso
 
 Para aprovisionar y conectarse a un dispositivo virtual, debe realizar los pasos siguientes:
 
@@ -144,7 +144,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 
     b. Haga clic en **Siguiente**.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image8.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
 1.  Revise el **Resumen** que se le presenta. Haga clic en **Finalizar** para crear la máquina virtual.
 
@@ -160,7 +160,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 
 1.  Para cumplir los requisitos mínimos, también debe agregar un disco virtual de datos de 500 GB. En la página **Configuración**:
 
-    1.  En el panel izquierdo, seleccione **Controlador SCSI**. 
+    1.  En el panel izquierdo, seleccione **Controlador SCSI**.
     2.  En el panel derecho, seleccione **Unidad de disco duro** y haga clic en **Agregar**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image12.png)
@@ -193,9 +193,6 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image19.png)
 
-1.  Volverá a la página **Configuración**. Realice este paso únicamente si está usando un VHDX. Si usa un VHD y una máquina virtual de generación 1, omita este paso y vaya al siguiente. Ahora debe deshabilitar el arranque seguro en la máquina virtual. El arranque seguro se habilita de forma predeterminada cuando se crea una nueva máquina virtual de generación 2. En la página **Configuración** de la máquina virtual de generación 2, seleccione **Firmware** en **Hardware** y después desactive la casilla **Habilitar arranque seguro**.
-
-
 2.  Volverá a la página **Configuración**. Haga clic en **Aceptar** para cerrar la página **Configuración** y volver a la ventana Administrador de Hyper-V.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image20.png)
@@ -210,11 +207,11 @@ Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a 
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image21.png)
 
-1.  Cuando el dispositivo se esté ejecutando, selecciónelo, haga clic con el botón derecho y seleccione **Conectar**.
+1.  Cuando el dispositivo se esté ejecutando, seleccione el dispositivo, haga clic con el botón secundario y seleccione **Conectar**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image22.png)
 
-1.  Es posible que tenga que esperar entre 5 y 10 minutos para que el dispositivo esté listo. En la consola se muestra un mensaje de estado para indicar el progreso. Una vez listo el dispositivo, vaya a **Acción**. Presione `Ctrl + Alt + Delete` para iniciar sesión en el dispositivo virtual. El usuario predeterminado es *StorSimpleAdmin* y la contraseña predeterminada es *Password1*.
+1.  Es posible que tenga que esperar entre 5 y 10 minutos para que el dispositivo esté listo. En la consola se muestra un mensaje de estado para indicar el progreso. Después de que el dispositivo esté listo, vaya a **Acción**. Presione `Ctrl + Alt + Delete` para iniciar sesión en el dispositivo virtual. El usuario predeterminado es *StorSimpleAdmin* y la contraseña predeterminada es *Password1*.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image23.png)
 
@@ -236,13 +233,13 @@ Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a 
 
 1.  Los pasos 6 a 8 solo se aplican durante el arranque en un entorno sin DHCP. Si se encuentra en un entorno de DHCP, omita estos pasos y vaya al paso 9. Si arranca el dispositivo en un entorno sin DHCP, verá la siguiente pantalla.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image28.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image28m.png)
 
  	Ahora debe configurar la red.
 
-1.  Use el comando `Get-HcsIpAddress` para enumerar las interfaces de red habilitadas en el dispositivo virtual. Si el dispositivo tiene una única interfaz de red habilitada, el nombre predeterminado asignado a esta interfaz es `Ethernet`.
+1.  Utilice el comando `Get-HcsIpAddress` para enumerar las interfaces de red habilitadas en el dispositivo virtual. Si el dispositivo tiene una única interfaz de red habilitada, el nombre predeterminado asignado a esta interfaz es `Ethernet`.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image29.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image29m.png)
 
 1.  Utilice el cmdlet `Set-HcsIpAddress` para configurar la red. A continuación se muestra un ejemplo:
 
@@ -252,13 +249,13 @@ Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a 
 
 1.  Una vez que haya finalizado la instalación inicial y el dispositivo haya arrancado, verá el texto de titular del dispositivo. Anote la dirección IP y la dirección URL que se muestran en el texto del titular para administrar el dispositivo. Utilizará esta dirección IP para conectarse a la interfaz de usuario web del dispositivo virtual y completar la instalación local y el registro.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image31.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image31m.png)
 
 	Si el dispositivo no cumple los requisitos mínimos de configuración, verá un error en el texto del titular (se muestra a continuación). Debe modificar la configuración del dispositivo para que tenga los recursos adecuados para cumplir los requisitos mínimos. A continuación, puede reiniciar y conectarse al dispositivo. Consulte los requisitos mínimos de configuración en [Paso 1: Asegurarse de que el sistema host cumple los requisitos mínimos del dispositivo virtual](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
 
-Si encuentra cualquier otro error durante la configuración inicial mediante la interfaz de usuario web local, consulte los siguientes flujos de trabajo en [Usar la interfaz de usuario web para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
+Si encuentra cualquier otro error durante la configuración inicial mediante la interfaz de usuario web local, consulte los siguientes flujos de trabajo en [Administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
 
 -   Ejecute pruebas de diagnóstico para [solucionar problemas de configuración de la interfaz de usuario web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
@@ -276,4 +273,4 @@ Mire el vídeo para ver cómo puede aprovisionar una matriz virtual de StorSimpl
 
 -   [Configurar la matriz virtual de StorSimple como servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure hasta VMware | Microsoft Azure" 
+   pageTitle="Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure a VMware (heredados) | Microsoft Azure" 
    description="Este artículo describe cómo realizar una conmutación por recuperación de una máquina virtual de VMware replicada en Azure con Azure Site Recovery." 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,35 +13,49 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="storage-backup-recovery" 
-   ms.date="12/14/2015"
+   ms.date="03/06/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 # Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure hasta VMware con Azure Site Recovery (heredado)
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
-- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Mejorada](site-recovery-failback-azure-to-vmware-classic.md)
+- [Heredado](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
+El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Las máquinas se pueden replicar a Azure o a un centro de datos secundario local. Para obtener una introducción rápida, lea [¿Qué es Azure Site Recovery?](site-recovery-overview.md).
 
 ## Información general
 
-En este documento se describe cómo conmutar por recuperación máquinas virtuales de VMware y servidores físicos con Windows o Linux desde Azure a un sitio local.
+En este artículo se describe cómo conmutar por recuperación máquinas virtuales de VMware y servidores físicos con Windows o Linux desde Azure a un sitio local después de replicar desde el sitio local a Azure.
 
-Para configurar la replicación y conmutación por error en este escenario siga las instrucciones de [este artículo](site-recovery-vmware-to-azure.md). Después de una conmutación correcta de máquinas virtuales de VMware o servidores físicos en Azure con Site Recovery, las máquinas estarán disponibles en la pestaña Máquinas virtuales de Azure.
+>[AZURE.NOTE] En este artículo se describe un escenario heredado. Solo debe usar las instrucciones de este artículo si replicó a Azure usando [estas instrucciones heredadas](site-recovery-vmware-to-azure-classic-legacy.md). Si configuró la replicación mediante la [implementación mejorada](site-recovery-vmware-to-azure-classic-legacy.md), siga las instrucciones de [este artículo](site-recovery-failback-azure-to-vmware-classic.md) para conmutar por recuperación.
 
->[AZURE.NOTE]Solo puede conmutar por recuperación máquinas virtuales de VMware y servidores físicos con Windows o Linux desde Azure a máquinas virtuales de VMware en el sitio local principal. Si se realiza una conmutación por recuperación en una máquina física, la conmutación por error a Azure la convertirá en una máquina virtual de Azure y conmutación por recuperación a VMware la convertirá en una máquina virtual de VMware.
+
+## Arquitectura
 
 Este diagrama representa el escenario de conmutación por error y conmutación por recuperación. Las líneas azules son las conexiones utilizadas durante la conmutación por error. Las líneas rojas son las conexiones utilizadas durante la conmutación por recuperación. Las líneas con flechas van a través de Internet.
 
 ![](./media/site-recovery-failback-azure-to-vmware/vconports.png)
+
+## Antes de comenzar 
+
+- Debe haber conmutado por recuperación sus máquinas virtuales de VMware o servidores físicos y deben estar ejecutándose en Azure.
+- Tenga en cuenta que solo puede conmutar por recuperación máquinas virtuales de VMware y servidores físicos con Windows o Linux desde Azure a máquinas virtuales de VMware en el sitio local principal. Si se realiza una conmutación por recuperación en una máquina física, la conmutación por error a Azure la convertirá en una máquina virtual de Azure y conmutación por recuperación a VMware la convertirá en una máquina virtual de VMware.
+
+Esta es la instalación de la conmutación por recuperación:
+
+1. **Instalar los componentes de conmutación por recuperación**: es preciso instalar un servidor local de vContinuum y hacer que apunte a la máquina virtual del servidor de configuración en Azure. También instalará un servidor de procesos como una máquina virtual de Azure para enviar datos de vuelta al servidor maestro de destino local. El servidor de proceso se registra con el servidor de configuración que controló la conmutación por error. Se instala un servidor maestro de destino local. Si necesita un servidor maestro de destino de Windows, se instala automáticamente al instalar vContinuum. Si necesita Linux, tendrá que instalarlo manualmente en un servidor independiente.
+2. **Habilitar la protección y conmutación por recuperación**: después de instalar los componentes, en vContinuum deberá habilitar la protección para las máquinas virtuales de Azure que conmutaron por error. Se ejecutará una comprobación de la preparación en las máquinas virtuales y se ejecutará una conmutación por error de Azure a su sitio local. Una vez finalizada la conmutación por recuperación, se vuelven a proteger las máquinas locales para que comiencen a replicar a Azure.
+
+
 
 ## Paso 1: Instalación local de vContinuum
 
 Es preciso instalar un servidor local de vContinuum y apuntarlo hacia el servidor de configuración.
 
 1.  [Descargue vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
-2.  Una vez que lo haya descargado, descargue la versión actualizada de [vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
-3.  Ejecute el programa de instalación de la versión más reciente para instalar vContinuum. En la página **principal**, haga clic en **Siguiente**.![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+2.  Después, descargue la versión de [actualización de vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
+3. Instale la versión más reciente de vContinuum: En la página **principal**, haga clic en **Siguiente**.![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  En la primera página del asistente, especifique tanto la dirección IP como el puerto del servidor de CX. Seleccione **Use HTTPS** (Usar HTTPS).
 
 	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
@@ -84,7 +98,7 @@ Para que las máquinas virtuales de Azure puedan devolver los datos a un servido
 
 	![](./media/site-recovery-failback-azure-to-vmware/image12.png)
 
->[AZURE.NOTE]Los servidores registrados durante la conmutación por separación no se verán en las propiedades de la máquina virtual en Site Recovery. Solo se verán en la pestaña **Servidores** del servidor de configuración en que se han registrado. El servidor de procesos puede tardar aproximadamente 10-15 minutos en aparecer en la pestaña.
+>[AZURE.NOTE] Los servidores registrados durante la conmutación por separación no se verán en las propiedades de la máquina virtual en Site Recovery. Solo se verán en la pestaña **Servidores** del servidor de configuración en que se han registrado. El servidor de procesos puede tardar aproximadamente 10-15 minutos en aparecer en la pestaña.
 
 
 ## Paso 3: Instalación de un servidor de destino maestro local
@@ -136,7 +150,7 @@ Para obtener los identificadores de SCSI de los discos duros SCSI de una máquin
 
 Nota: Antes de descargar e instalar los paquetes adicionales asegúrese de que el sistema tiene conectividad a Internet.
 
-\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 Este comando descarga estos 15 paquetes desde el repositorio de CentOS 6.6 y los instala:
 
@@ -172,17 +186,17 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 Nota: Si la máquina de origen utiliza los sistemas de archivos Reiser o XFS para el raíz o el dispositivo de arranque, los siguientes paquetes deben descargarse e instalarse en el destino maestro Linux antes de la protección.
 
-\# cd /usr/local
+# cd /usr/local
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Aplicación de cambios en la configuración personalizada
 
@@ -237,7 +251,7 @@ Si por alguna razón no pudo registrar el servidor de destino maestro de Linux e
 
 Puede validar que el servidor de destino maestro se ha registrado correctamente en el servidor de configuración en el almacén de Azure Site Recovery > **Servidor de configuración** > **Detalles del servidor**.
 
->[AZURE.NOTE]Después de registrar el servidor de destino maestro, si recibe errores de configuración que indican la máquina virtual se podría haber eliminado de Azure o que los puntos de conexión no se han configurado correctamente, se debe a que aunque los puntos de conexión de Azure detectan la configuración del destino principal cuando el destino maestro se implementa en Azure, no lo hacen cuando el servidor de destino maestro servidor es local. Esto no afectará a la conmutación por recuperación y puede ignorar dichos errores.
+>[AZURE.NOTE] Después de registrar el servidor de destino maestro, si recibe errores de configuración que indican la máquina virtual se podría haber eliminado de Azure o que los puntos de conexión no se han configurado correctamente, se debe a que aunque los puntos de conexión de Azure detectan la configuración del destino principal cuando el destino maestro se implementa en Azure, no lo hacen cuando el servidor de destino maestro servidor es local. Esto no afectará a la conmutación por recuperación y puede ignorar dichos errores.
 
 
 
@@ -406,8 +420,10 @@ Una vez que la conmutación por recuperación se haya completado, puede volver a
  
 ## Pasos siguientes
 
-[Más información](site-recovery-vmware-to-azure-classic-legacy.md) acerca de la replicación de máquinas virtuales de VMware en Azure
+
+
+- [Obtenga información](site-recovery-vmware-to-azure-classic.md) sobre la replicación de máquinas virtuales de VMware y servidores físicos a Azure mediante la implementación mejorada.
 
  
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0309_2016-->

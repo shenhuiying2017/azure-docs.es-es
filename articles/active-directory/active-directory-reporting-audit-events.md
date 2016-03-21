@@ -3,8 +3,8 @@
    description="Eventos auditados que están disponibles para ver y descargar desde Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
-# Eventos del Informe de auditoría de Azure Active Directory
+# Eventos del informe de auditoría de Azure Active Directory
 
 *Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
@@ -122,4 +122,4 @@ TelephoneNumber | Número de teléfono del usuario.
 
 Los registros de auditoría son un control necesario para muchas regulaciones de conformidad. Para que los clientes que usan el Informe de auditoría de Azure Active Directory cumplan las regulaciones de conformidad, se recomienda que el cliente envíe una copia de este tema de ayuda con la copia del informe de auditoría exportado del cliente para ayudar a explicar los detalles del informe. Si el auditor desea conocer las regulaciones de conformidad que cumple actualmente Azure, diríjalo a la [página Conformidad](https://azure.microsoft.com/support/trust-center/compliance/) del Centro de confianza de Microsoft Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

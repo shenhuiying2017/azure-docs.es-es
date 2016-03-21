@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Crear una nueva API de Google Drive en el entorno del Servicio de aplicaciones de la organización
+# Creación de una nueva API de Google Drive en PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [Aplicaciones lógicas](../articles/connectors/create-api-googledrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
+
+Agregue la API de Google Drive al entorno del Servicio de aplicaciones de su organización (inquilino).
 
 ## Crear la API en el portal de Azure
 
@@ -25,7 +31,7 @@
  
 2. Seleccione **Examinar** en la barra de tareas: ![][15]
 
-3. En la lista, puede desplazarse para encontrar PowerApps o escribir en *powerapps*: ![][16]
+3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: ![][16]
 
 4. En **PowerApps**, seleccione **Administrar API**: ![Examine las APIs registradas][1]
 
@@ -39,7 +45,7 @@
 
 9. Escriba la *clave de la aplicación* y el *secreto de la aplicación* de la aplicación Google Drive. Si no dispone de estos, consulte la sección "Registrar una aplicación Google Drive para su uso con PowerApps" de este tema para crear los valores de clave y secreto que necesita.
 
-	> [AZURE.IMPORTANT]Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
+	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
 
 10. Seleccione **Aceptar** para completar los pasos.
 
@@ -70,13 +76,20 @@ Si no tiene una aplicación Google Drive existente con los valores de clave y se
 
 10. En la página de creación del Id. de cliente:
 
-	a) En **Tipo de aplicación**, seleccione **Aplicación web**. b) Escriba un nombre para el cliente. c) Establezca la dirección URL de redireccionamiento en la dirección URL de redireccionamiento que recibió cuando se agregó la nueva API de Google Drive al Portal de Azure (en este tema). d) Seleccione **Crear**.
+	1. En **Application type** (Tipo de aplicación), seleccione **Web application** (Aplicación web).  
+	2.  Escriba un nombre para el cliente.  
+	3. Utilice como URL de redireccionamiento la que ha recibido cuando agregó la nueva API de Google Drive en el Portal de Azure (en este tema).  
+	4. Seleccione **Crear**.  
 
 	![Crear Id. de cliente][14]
 
 11. Se mostrará el identificador y el secreto de cliente de la aplicación registrada.
 
 Se creará una nueva aplicación Google Drive. Puede usar esta aplicación en la configuración de la API de Google Drive en el Portal de Azure.
+
+## Visualización de las API de REST
+
+Referencia de [API de REST de Google Drive](../connectors/create-api-googledrive.md).
 
 ## Resumen y pasos siguientes
 En este tema, ha agregado la API de Google Drive a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
@@ -102,4 +115,4 @@ En este tema, ha agregado la API de Google Drive a su empresa PowersApps. A cont
 [15]: ./media/powerapps-create-api-googledrive/browseall.png
 [16]: ./media/powerapps-create-api-googledrive/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

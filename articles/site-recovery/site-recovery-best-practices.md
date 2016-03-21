@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/15/2016"
+	ms.date="03/08/2016"
 	ms.author="raynew"/>
 
 # Preparación de la implementación de Azure Site Recovery
@@ -57,15 +57,15 @@ Puede implementar Site Recovery para replicar máquinas virtuales y servidores f
 **Característica** | **Soporte técnico** | **Detalles**
 ---|---|---
 Sistema operativo host de Hyper-V | Windows Server 2012 R2 | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-Sistema operativo de hipervisor de VMware | Con un sistema operativo compatible | [Detalles](site-recovery-vmware-to-azure.md#before-you-start)
-Sistema operativo invitado | Para la replicación de Hyper-V en Azure, Site Recovery es compatible con todos los sistemas operativos [admitidos por Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Para la replicación de servidores físicos y VMware, consulte los [requisitos previos](site-recovery-vmware-to-azure.md#before-you-start) para Windows y Linux. | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Sistema operativo de hipervisor de VMware | Con un sistema operativo compatible | [Detalles](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)
+Sistema operativo invitado | Para la replicación de Hyper-V en Azure, Site Recovery es compatible con todos los sistemas operativos [admitidos por Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Para la replicación de servidores físicos y VMware, consulte los [requisitos previos](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) para Windows y Linux. | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Arquitectura del sistema operativo invitado | 64 bits | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-Tamaño del disco del sistema operativo | Hasta 1.023 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+Tamaño del disco del sistema operativo | Hasta 1.023 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Número de discos del sistema operativo | 1 | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Número de discos de datos | 16 o menos (el valor máximo es una función del tamaño de la máquina virtual que se está creando. 16 = XL) | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Tamaño de VHD del disco de datos | Hasta 1023 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Adaptadores de red | Se admiten varios adaptadores |
-Dirección IP estática | Compatible | Si la máquina virtual principal usa una dirección IP estática, puede especificar la dirección IP estática para la máquina virtual que se creará en Azure.
+Dirección IP estática | Compatible | Si la máquina virtual principal usa una dirección IP estática, puede especificar la dirección IP estática para la máquina virtual que se creará en Azure. Tenga en cuenta que no se admite la dirección IP estática de una máquina virtual de Linux que se ejecuta en Hyper-v. 
 Disco iSCSI | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 VHD compartido | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Disco FC | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
@@ -79,7 +79,7 @@ Tipo de máquina virtual | <p>Generación 1</p> <p>Generación 2 - Windows</p> |
 
 Aplique las siguientes sugerencias como ayuda para optimizar y escalar la implementación.
 
-- **Tamaño del volumen del sistema operativo**: cuando se replica una máquina virtual en Azure, el volumen del sistema operativo tiene que ser inferior a 1 TB. Si tiene más volúmenes, puede moverlos manualmente a otro disco antes de comenzar la implementación.
+- **Tamaño del volumen del sistema operativo**: cuando se replica una máquina virtual en Azure, el volumen del sistema operativo tiene que ser inferior a 1 TB. Si tiene más volúmenes, puede moverlos manualmente a otro disco antes de comenzar la implementación.
 - **Tamaño de disco de datos**: si se está replicando en Azure, podrá tener hasta 32 discos de datos en una máquina virtual, cada una con un máximo de 1 TB. Puede replicar y conmutar por error de manera eficaz una máquina virtual de ~32 TB.
 - **Límites del plan de recuperación**: Site Recovery puede escalar a miles de máquinas virtuales. Los planes de recuperación están diseñados como un modelo para las aplicaciones que deben conmutar por error entre sí por lo que se limita el número de máquinas en un plan de recuperación a 50.
 - **Límites del servicio Azure**: cada suscripción de Azure incluye un conjunto de límites predeterminados sobre núcleos, servicios en la nube, etc. Le recomendamos que ejecute una conmutación por error de prueba para validar la disponibilidad de los recursos de la suscripción. Puede modificar estos límites a través de soporte técnico de Azure.
@@ -107,4 +107,4 @@ Una vez que conoce y puede comparar los requisitos de implementación generales,
 - [Replicación de máquinas virtuales de Hyper-V a un sitio secundario con SAN](site-recovery-vmm-san.md)
 - [Replicación de máquinas virtuales de Hyper-V con un solo servidor VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

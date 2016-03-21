@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -31,7 +31,7 @@ La Exportación continua está disponible durante el período de evaluación gra
 Si aún no tiene una cuenta de almacenamiento "clásica", cree una ahora.
 
 
-1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [Portal de Azure](https://portal.azure.com).
+1. Cree una cuenta de almacenamiento en su suscripción en el [portal de Azure](https://portal.azure.com).
 
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-telemetry/030.png)
 
@@ -212,4 +212,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -24,7 +24,7 @@ Premium es un nuevo nivel destinado a las empresas que incluye todas las caracte
 ## Mejor rendimiento en comparación con el nivel Estándar o Básico
 **Mejor rendimiento respecto a los niveles Standard o Basic.** Las memorias caché de nivel Premium se implementan en hardware con procesadores más rápidos que ofrece un mejor rendimiento en comparación con el nivel Standard o Basic. Además, el rendimiento de dichas memorias caché es superior y sus latencias son más bajas.
 
-**El rendimiento de una memoria caché de nivel Premium es superior al de una memoria caché de nivel Standard del mismo tamaño .** Por ejemplo, el rendimiento de una memoria caché de 53 GB P4 (Premium) es de 250 000 solicitudes por segundo, en comparación con 150 000 para una memoria C6 (Standard).
+**El rendimiento de una memoria caché de nivel Premium es superior al de una memoria caché de nivel Standard del mismo tamaño .** Por ejemplo, el rendimiento de una memoria caché de 53 GB P4 (Premium) es de 250 000 solicitudes por segundo, en comparación con 150 000 para una memoria C6 (Standard).
 
 Consulte el artículo [P+F de Caché en Redis de Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para obtener más detalles sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché Premium.
 
@@ -34,7 +34,7 @@ El nivel Premium permite conservar los datos de la memoria caché en una cuenta 
 Para obtener instrucciones acerca de cómo configurar la persistencia, consulte [Configuración de la persistencia para una Caché en Redis de Azure de nivel Premium](cache-how-to-premium-persistence.md).
 
 ##Clúster Redis
-Si desea crear memorias caché de más de 53 GB o particionar los datos entre varios nodos de Redis, puede usar la agrupación en clústeres Redis, disponible en el nivel Premium. Cada nodo consta de un par de cachés principal-réplica administrado por Azure para ofrecer una alta disponibilidad.
+Si desea crear memorias caché de más de 53 GB o particionar los datos entre varios nodos de Redis, puede usar la agrupación en clústeres Redis, disponible en el nivel Premium. Cada nodo consta de un par de cachés principal-réplica administrado por Azure para ofrecer una alta disponibilidad.
 
 **La agrupación en clústeres de Redis proporciona una escalabilidad y un rendimiento máximos.** El rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento posible es de 250 000 * 10 = 2,5 millones de solicitudes por segundo. Consulte el artículo [P+F de Caché en Redis de Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para obtener más detalles sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché Premium.
 
@@ -54,4 +54,4 @@ Cree una memoria caché y explore las nuevas características del nivel Premium.
 -	[Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
 	description="Aplicación de ejemplo de recomendación de aprendizaje automático de Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/02/2016" 
 	ms.author="luisca"/>
 
 
-# Operaciones comunes en la API de recomendaciones de aprendizaje automático
+# Tutorial de aplicación de ejemplo de la API Recomendaciones
 
 ##Propósito
 
-Este documento muestra el uso de algunas de las API de recomendaciones de Aprendizaje automático de Azure a través de una [aplicación de ejemplo](http://1drv.ms/1xeO2F3).
+Este documento muestra el uso de algunas de las API de recomendaciones de Aprendizaje automático de Azure a través de una [aplicación de ejemplo](https://code.msdn.microsoft.com/Recommendations-144df403).
 
 Esta aplicación no está pensada para incluir todas las funcionalidades ni usa todas las API. Muestra algunas operaciones que se suelen realizar las primeras veces que se usa el servicio de recomendación de Aprendizaje automático.
 
@@ -90,4 +90,4 @@ Para obtener una descripción completa de la API, consulte la documentación de 
 La aplicación de ejemplo no está diseñada para ejecutarse en un entorno de producción. Los datos proporcionados en el catálogo son muy pequeños y no constituyen un modelo de recomendación significativo. Los datos se proporcionan como una demostración.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

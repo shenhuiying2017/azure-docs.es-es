@@ -40,7 +40,8 @@ Servicio | Movimiento de la salida del trabajo a Almacenamiento de datos SQL med
 Herramientas | Uso de herramientas de diagnóstico | 1 | Pending | [@mumian](https://github.com/mumian) | 
 U-SQL | Explicación de técnicas para realizar combinaciones JOIN basadas en intervalo | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Opciones de autenticación de ADLS | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
-
+U-SQL | Envío de trabajos de la CLI multiplataforma | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
+U-SQL | Actualizaciones de documento de referencia para REDUCE y COMBINE | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
 
 
 
@@ -57,4 +58,4 @@ Existen varias formas de proporcionar comentarios en el trabajo pendiente:
 * Enviar una solicitud de incorporación de cambios en este documento al [repositorio de contenido de Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar un correo electrónico a [adlafeedback en microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

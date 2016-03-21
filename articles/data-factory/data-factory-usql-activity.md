@@ -62,8 +62,8 @@ El código de autorización que se generó al hacer clic en el botón **Autoriza
  
 | Tipo de usuario | Expira después de |
 | :-------- | :----------- | 
-| Cuentas de usuarios NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
-| Cuentas de usuarios administradas por Azure Active Directory (AAD) | | 14 días después de la ejecución del último segmento. <p>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada catorce días.</p> |
+| Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
+| Cuentas de usuario administradas por Azure Active Directory (AAD) | 14 días después de la ejecución del último segmento. <br/><br/>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada catorce días. |
 
 Para evitar o resolver este error, será preciso que vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente.
 
@@ -257,4 +257,4 @@ ADF pasa dinámicamente los valores de los parámetros **@in** y **@out** en el 
 
 Puede especificar otro degreeOfParallelism de viz. de propiedades, prioridad, etc., también en su definición de la canalización para los trabajos que se ejecutan en el servicio Análisis de Azure Data Lake.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

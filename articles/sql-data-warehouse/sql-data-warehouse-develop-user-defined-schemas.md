@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Esquemas definidos por el usuario en el Almacenamiento de datos SQL
@@ -22,9 +22,9 @@ Los almacenamientos de datos tradicionales suelen utilizar bases de datos indepe
 
 Por el contrario, el Almacenamiento de datos SQL ejecuta la carga de trabajo completa del almacenamiento de datos dentro de una base de datos. No se permiten las combinaciones entre bases de datos. Por lo tanto, el Almacenamiento de datos SQL espera que todas las tablas que el almacenamiento utiliza se almacenen en una base de datos.
 
-> [AZURE.NOTE]El Almacenamiento de datos SQL no admite consultas entre bases de datos de cualquier tipo. En consecuencia, deben revisarse las implementaciones de almacenamiento de datos que utilizan este patrón.
+> [AZURE.NOTE] El Almacenamiento de datos SQL no admite consultas entre bases de datos de cualquier tipo. En consecuencia, deben revisarse las implementaciones de almacenamiento de datos que utilizan este patrón.
 
-## Recomendaciones 
+## Recomendaciones
 
 Se trata de recomendaciones para consolidar los límites de cargas de trabajo, seguridad, dominio y funcionales con esquemas definidos por el usuario.
 
@@ -40,7 +40,7 @@ Si ya se han utilizado los esquemas, tienen algunas opciones:
 2. Conservar los nombres de esquemas heredados anteponiendo el nombre de esquema heredado al nombre de tabla.
 3. Conservar los nombres de esquemas heredados mediante la implementación de vistas sobre la tabla en un esquema adicional para volver a crear la estructura del esquema anterior.
 
-> [AZURE.NOTE]En la primera inspección, la opción 3 puede resultar la opción más atractiva. No obstante, el problema radica en los detalles. Las vistas son de solo lectura en el Almacenamiento de datos SQL. Cualquier modificación de datos o tablas tendría que realizarse según la tabla de base. La opción 3 también introduce una capa de vistas en el sistema. Desea incorporar algunas más a pesar de que ya utiliza vistas en la arquitectura.
+> [AZURE.NOTE] En la primera inspección, la opción 3 puede resultar la opción más atractiva. No obstante, el problema radica en los detalles. Las vistas son de solo lectura en el Almacenamiento de datos SQL. Cualquier modificación de datos o tablas tendría que realizarse según la tabla de base. La opción 3 también introduce una capa de vistas en el sistema. Desea incorporar algunas más a pesar de que ya utiliza vistas en la arquitectura.
 
 
 ### Ejemplos:
@@ -108,7 +108,7 @@ FROM	[edw].customer
 ;
 ```
 
-> [AZURE.NOTE]Cualquier cambio en la estrategia de esquema necesita una revisión del modelo de seguridad de la base de datos. En muchos casos puede simplificar el modelo de seguridad mediante la asignación de permisos a nivel de esquema. Si se requieren permisos más granulares, puede utilizar funciones de base de datos.
+> [AZURE.NOTE] Cualquier cambio en la estrategia de esquema necesita una revisión del modelo de seguridad de la base de datos. En muchos casos puede simplificar el modelo de seguridad mediante la asignación de permisos a nivel de esquema. Si se requieren permisos más granulares, puede utilizar funciones de base de datos.
 
 ## Pasos siguientes
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
@@ -122,4 +122,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

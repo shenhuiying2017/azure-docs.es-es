@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Conexión a Almacenamiento de datos SQL 
+# Conexión a Almacenamiento de datos SQL
 Para conectarse a Almacenamiento de datos SQL, deberá pasar las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, también encontrará que determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.
 
 En este artículo se describen los aspectos siguientes en relación con la conexión a Almacenamiento de datos SQL:
@@ -29,9 +29,9 @@ En este artículo se describen los aspectos siguientes en relación con la conex
 ## Autenticación
 Para conectarse a Almacenamiento de datos SQL, deberá proporcionar la siguiente información:
 
-- Nombre de servidor completo 
+- Nombre de servidor completo
 - Especificar la autenticación de SQL
-- Nombre de usuario 
+- Nombre de usuario
 - Password
 - Base de datos predeterminada (opcional)
 
@@ -42,7 +42,7 @@ De forma predeterminada, su conexión se realizará a la base de datos principal
 1. Especificar la base de datos predeterminada al registrar el servidor con el Explorador de objetos de SQL Server en SSDT o en la cadena de conexión de la aplicación. Por ejemplo, incluyendo el parámetro InitialCatalog para una conexión ODBC.
 2. En primer lugar, resalte la base de datos de usuario antes de crear una sesión en SSDT.
 
-> [AZURE.NOTE]Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo de introducción a [conexiones y consultas][].
+> [AZURE.NOTE] Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo de introducción a [conexiones y consultas][].
 
 De nuevo, es importante tener en cuenta que la instrucción de Transact-SQL **USE <your DB>** no se admite para cambiar la base de datos en una conexión
 
@@ -98,7 +98,7 @@ Cada consulta se representa mediante uno o varios identificadores de solicitud. 
 Sin embargo, como Almacenamiento de datos SQL es un sistema MPP distribuido, tanto los identificadores de sesión como los de solicitud se exponen de manera algo diferente en comparación con SQL Server.
 
 Las sesiones y las solicitudes se representan con sus identificadores respectivos.
-	
+
 | Identificador | Valor de ejemplo |
 | :--------- | :------------ |
 | Id. de sesión | SID123456 |
@@ -158,4 +158,4 @@ Una vez conectado, puede empezar a diseñar las tablas. Consulte el artículo so
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

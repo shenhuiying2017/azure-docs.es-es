@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de canalizaciones predictivas con la actividad Ejecución de lotes de Aprendizaje automático de Azure | Microsoft Azure" 
+	pageTitle="Uso de las actividades de Aprendizaje automático | Microsoft Azure" 
 	description="Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Aprendizaje automático de Azure" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -773,4 +773,4 @@ También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

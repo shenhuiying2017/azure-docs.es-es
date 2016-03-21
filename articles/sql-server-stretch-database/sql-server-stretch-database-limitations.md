@@ -3,9 +3,9 @@
 	description="Obtenga información acerca de los problemas de bloqueo que se deben resolver para poder habilitar Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -92,4 +92,4 @@ En la versión de vista preliminar actual de SQL Server 2016, las tablas habilit
 ## Consulte también
 [Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) [Habilitación de Stretch Database para una base de datos](sql-server-stretch-database-enable-database.md) [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

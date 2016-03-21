@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Movimiento de datos hacia y desde DocumentDB | Factoría de datos de Azure" 
+	pageTitle="Importación de datos en DocumentDB o desde DocumentDB | Microsoft Azure" 
 	description="Obtenga información acerca de cómo mover los datos hacia y desde DocumentDB de Azure mediante Factoría de datos de Azure" 
 	services="data-factory, documentdb" 
 	documentationCenter="" 
@@ -399,15 +399,15 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 
 | **Propiedad** | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | ------------ | --------------- | ------------------ | ------------ |
-| query | Especifique la consulta para leer los datos. | Cadena de consulta compatible con DocumentDB. <p>Ejemplo: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"</p> | No <p>Si no se especifica, la instrucción SQL que se ejecuta: select <columns defined in structure> from mycollection </p>
-| nestingSeparator | Carácter especial para indicar que el documento está anidado | Cualquier carácter. <p>DocumentDB es un almacén NoSQL para documentos JSON, en el que se permiten estructuras anidadas. Factoría de datos de Azure permite al usuario indicar la jerarquía a través de nestingSeparator que es "." en los ejemplos anteriores. Con el separador, la actividad de copia generará el objeto "Name" con tres elementos secundarios First, Middle y Last, según "Name.First", "Name.Middle" y "Name.Last" en la definición de tabla.</p> | No
+| query | Especifique la consulta para leer los datos. | Cadena de consulta compatible con DocumentDB. <br/>Ejemplo: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"<br/> | No <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: select <columns defined in structure> from mycollection 
+| nestingSeparator | Carácter especial para indicar que el documento está anidado | Cualquier carácter. <br/><br/>DocumentDB es un almacén NoSQL para documentos JSON, en el que se permiten estructuras anidadas. Factoría de datos de Azure permite al usuario indicar la jerarquía a través de nestingSeparator que es "." en los ejemplos anteriores. Con el separador, la actividad de copia generará el objeto "Name" con tres elementos secundarios First, Middle y Last, según "Name.First", "Name.Middle" y "Name.Last" en la definición de tabla. | No
 
 **DocumentDbCollectionSink** admite las siguientes propiedades:
 
 | **Propiedad** | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | Un carácter especial en el nombre de columna de origen que indica que el documento anidado es necesario. <p>Ejemplo de lo anterior: Name.First en la tabla de salida produce la siguiente estructura JSON en el documento de DocumentDB:</p><p>"Name": {<br/> "First": "John"<br/>},</p> | Carácter que se usa para separar los niveles de anidamiento.<p>El valor predeterminado es . (punto).</p> | Carácter que se usa para separar los niveles de anidamiento. <p>El valor predeterminado es . (punto).</p> | No | 
-| writeBatchSize | Número de solicitudes paralelas al servicio DocumentDB para crear documentos.<p>Puede ajustar el rendimiento cuando se copian datos a y desde DocumentDB mediante esta propiedad. Puede esperar un rendimiento mejor al aumentar writeBatchSize porque se envían más solicitudes paralelas a DocumentDB. Sin embargo, deberá evitar una limitación de peticiones que puede generar el mensaje de error: "Request rate is large" (La tasa de solicitud es grande).</p><p>La limitación de peticiones se decide mediante una serie de factores, incluidos tamaño de los documentos, número de términos en los documentos, directiva de indexación de colección de destino, etc. Para las operaciones de copia, puede usar una colección mejor (por ejemplo, S3) para obtener el máximo rendimiento disponible (2.500 unidades de solicitudes por segundo).</p> | Valor entero | No |
+| nestingSeparator | Un carácter especial en el nombre de columna de origen que indica que el documento anidado es necesario. <br/>Ejemplo de lo anterior: Name.First en la tabla de salida produce la siguiente estructura JSON en el documento de DocumentDB:<br/><br/>"Name": {<br/> "First": "John"<br/>},<br/> | Carácter que se usa para separar los niveles de anidamiento.<br/>El valor predeterminado es . (punto).<br/> | Carácter que se usa para separar los niveles de anidamiento. <br/>El valor predeterminado es . (punto).<br/> | No | 
+| writeBatchSize | Número de solicitudes paralelas al servicio DocumentDB para crear documentos.<br/><br/>Puede ajustar el rendimiento cuando se copian datos a y desde DocumentDB mediante esta propiedad. Puede esperar un rendimiento mejor al aumentar writeBatchSize porque se envían más solicitudes paralelas a DocumentDB. Sin embargo, deberá evitar una limitación de peticiones que puede generar el mensaje de error: "Request rate is large" (La tasa de solicitud es grande).<br/><br/>La limitación de peticiones se decide mediante una serie de factores, incluidos tamaño de los documentos, número de términos en los documentos, directiva de indexación de colección de destino, etc. Para las operaciones de copia, puede usar una colección mejor (por ejemplo, S3) para obtener el máximo rendimiento disponible (2.500 unidades de solicitudes por segundo). | Valor entero | No |
 | writeBatchTimeout | Tiempo de espera para que la operación se complete antes de que se agote el tiempo de espera. | (Unidad = intervalo de tiempo) Ejemplo: "00:30:00" (30 minutos). | No |
  
 ## Anexo
@@ -419,7 +419,7 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 
 	**Respuesta:** Si los registros tienen un campo "Id" y la operación de copia intenta insertar un registro con el mismo Id., la operación de copia genera un error.
  
-3. **Pregunta:** ¿Admite la factoría de datos el [intervalo o las particiones de datos basadas en hash]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+3. **Pregunta:** ¿Admite la factoría de datos el [intervalo o las particiones de datos basadas en hash](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
 	**Respuesta:** No. 
 4. **Pregunta:** ¿Puedo especificar más de una colección de DocumentDB para una tabla?
@@ -427,4 +427,4 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 	**Respuesta:** No. Solo se puede especificar una colección cada vez.
      
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

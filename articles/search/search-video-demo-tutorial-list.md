@@ -14,20 +14,43 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="01/23/2016"
+	ms.date="03/08/2016"
 	ms.author="heidist"/>
 
-#Búsqueda de Azure: tutoriales, demostraciones de vídeo y ejemplos
+#Búsqueda de Azure: ejemplos de código, demostraciones, vídeos y tutoriales
 
 Póngase en marcha más rápidamente con los siguientes vídeos, demostraciones, tutoriales y aplicaciones de ejemplo.
 
+##Ejemplos de código
+
+- [**Código de ejemplo para el sitio de demostración: NYC Jobs Website**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) proporciona el código fuente para el sitio de Búsqueda de Azure de demostración activo con datos de trabajos de NYC, con ASP.NET MVC.
+
+- El [**código de ejemplo para la biblioteca de cliente de .NET**](https://github.com/Azure-Samples/search-dotnet-getting-started) es una aplicación ASP.NET MVC 5 que usa la biblioteca de cliente de .NET en operaciones de búsqueda.
+
+- El [**código de ejemplo para la API de REST**](https://github.com/Azure-Samples/search-rest-api-getting-started) proporciona código de ejemplo que muestra cómo usar la API de REST.
+
+Todos los ejemplos de código anteriores pueden encontrarse en el repositorio de Github de ejemplos de Azure, junto con otros ejemplos que muestran cómo usar Búsqueda de Azure en situaciones determinadas: [**Ejemplos de Azure > Búsqueda de Azure**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search).
+
 ##Sitios de demostración
 
-[**Demo del portal de trabajos en la ciudad de Nueva York en Búsqueda de Azure**](http://aka.ms/azjobsdemo) es un sitio web activo de ASP.NET que muestra capacidades de Búsqueda de Azure con datos procedentes de NYC Open Data Initiative.
+Estos sitios son aplicaciones web totalmente funcionales que usan Búsqueda de Azure para la experiencia de búsqueda.
+
+[**Demo del portal de trabajos en la ciudad de Nueva York en Búsqueda de Azure**](http://aka.ms/azjobsdemo) es un sitio web activo de ASP.NET que muestra capacidades de Búsqueda de Azure con datos procedentes de NYC Open Data Initiative. Esta aplicación usa la [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Puede modificar el código para probar la [sintaxis de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
 
 [**Probar el Servicio de aplicaciones + Búsqueda de Azure en aplicación combinada ASP.NET MVC**](search-tryappservice.md) es una sesión de una hora gratuita con Búsqueda de Azure que incluye datos, una aplicación web funcional y código fuente que puede modificar en línea para probar varias características de búsqueda en una aplicación ASP.NET.
 
 [**Sitio de demostración de Búsqueda de Azure**](https://searchsamples.azurewebsites.net/#/) es una colección de aplicaciones de demostración para Búsqueda de Azure. Realice una versión de prueba de aplicaciones de inventario de productos, búsqueda geográfica, búsqueda de elementos multimedia mediante Búsqueda de Azure.
+
+##Los cinco principales
+
+Estos son algunos de nuestros tutoriales y vídeos más populares para Búsqueda de Azure.
+
+- [Vídeo: Microsoft Virtual Academy introduction to Azure Search](https://mva.microsoft.com/es-ES/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps-10540?l=ADkxnd97_9304984382) (Microsoft Virtual Academy: introducción a Búsqueda de Azure) es un excelente recurso para sacar el máximo partido de Búsqueda de Azure.
+- [Vídeo: AzureCon 2015: Best Practices for Azure Search](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) (AzureCon 2015: Procedimientos recomendados para Búsqueda de Azure) ofrece consejos prácticos sobre cómo realizar el escalado horizontal, optimizar el rendimiento y conseguir una codificación eficaz al crear aplicaciones para escenarios web o móviles. 
+- El [código de ejemplo para la biblioteca de cliente de .NET](https://github.com/Azure-Samples/search-dotnet-getting-started) es una aplicación ASP.NET MVC 5 que usa la biblioteca de cliente de .NET en operaciones de búsqueda.
+- [Tutorial: Cómo usar Búsqueda de Azure desde una aplicación .NET](search-howto-dotnet-sdk.md)|Configurar y ejecutar una aplicación web de Visual Studio de ejemplo que se integra con Búsqueda de Azure.
+- [Tutorial: Introducción a Búsqueda de Azure en el portal](search-get-started-portal.md) es un tutorial basado únicamente en el portal que proporciona un índice y datos sin escribir ningún código. Este tutorial es útil para aprender a realizar tareas comunes en el portal.
+
 
 ##Vídeos
 
@@ -35,7 +58,7 @@ Vínculo|Fecha de publicación|Detalles
 ----|------------|-----------
 [Datos de Channel9 expuestos: "Analizadores personalizados, análisis de búsqueda y consultas en el portal en Búsqueda de Azure"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search)|Enero de 2016|21 minutos. Los analizadores personalizados permiten la configuración de Tokenizer y filtros de token. El análisis de búsqueda proporciona una perspectivas en términos de búsqueda especificados por los usuarios y la eficacia de su índice de búsqueda. El explorador de búsqueda es una herramienta de consulta integrada que permite realizar consultas desde dentro del portal. 
 [Datos de Channel9 expuestos: "Mejoras de Búsqueda de Azure"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements)|Noviembre de 2015|17 minutos. Recopilación de datos de StackExchange. Creación de un índice en el Portal de Azure. Obtenga ahora fuentes de datos compatibles con el rastreo de indizadores para extraer datos en un índice de Búsqueda de Azure. Analizadores de idiomas. Expresiones de consulta de Lucene.
-[¿Qué es Búsqueda de Azure?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|Octubre de 2015|¿Tiene un minuto? Vea este vídeo de introducción de un minuto y medio sobre Búsqueda de Azure.
+[¿Qué es Búsqueda de Azure?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|Octubre de 2015|¿Tiene un par de minutos? Vea este vídeo de introducción de un minuto y medio sobre Búsqueda de Azure.
 [AzureCon 2015: Procedimientos recomendados para Búsqueda de Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Septiembre de 2015|Consejos prácticos sobre cómo realizar la escalación horizontal, obtener una optimización del rendimiento y cómo conseguir una codificación eficaz al crear aplicaciones para escenarios web o móviles presentados por Pablo Castro. 
 [Compilación 2015: datos modernos](http://channel9.msdn.com/Events/Build/2015/2-663)|Junio de 2015|Pasados 29 minutos de la sesión se describe cómo se ajusta la Búsqueda de Azure en la revolución de datos moderna, presentada por Shawn Bice y Pablo Castro.
 [Compilación 2015: usar la Búsqueda de Azure para crear excelentes experiencias de búsqueda en aplicaciones web y móviles](http://channel9.msdn.com/Events/Build/2015/2-745)|Junio de 2015|1 hora. Pablo Castro presenta en la compilación 2015 de Microsoft.
@@ -55,13 +78,12 @@ Vínculo|Fecha de publicación|Detalles
 
 Tutorial|Descripción
 -----------|-----------
+[Cómo usar la Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md)|Configurar y ejecutar una aplicación web de Visual Studio de ejemplo que se integra con la Búsqueda de Azure.
 [Búsqueda de datos de StackExchange mediante Búsqueda de Azure](search-howto-stackexchange-data.md)|Búsqueda de texto completo sobre datos StackExchange en una aplicación integrada con Búsqueda de Azure.
 [Cómo utilizar la Búsqueda de Azure con D3.js para crear visualizaciones de datos interactivas](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Entrada de blog y código de ejemplo que muestra cómo agregar capacidades de búsqueda visual a su aplicación personalizada.
-[Introducción a Búsqueda de Azure en .NET](search-get-started-dotnet.md)|Obtenga información acerca de cómo trabajar con la Búsqueda de Azure en código administrado.
 [Introducción a Búsqueda de Azure en NodeJS](search-get-started-nodejs.md)|Obtenga información acerca de cómo trabajar con la Búsqueda de Azure en NodeJS.
 [Introducción a Búsqueda de Azure en Java](search-get-started-java.md)|Tutorial para los programadores de Java que usan el servidor Eclipse y Apache Tomcat para crear y ejecutar una aplicación de ejemplo que usa la búsqueda de Azure.
 [Capacidades y escenarios de la Búsqueda de Azure](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|Entrada de blog post que trata los escenarios principales habilitados por la funcionalidad actual.
-[Cómo usar la Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md)|Configurar y ejecutar una aplicación web de Visual Studio de ejemplo que se integra con la Búsqueda de Azure.
 [Cómo agregar sugerencias a las aplicaciones de búsqueda](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|Aprenda a implementar sugerencias, tarea comúnmente denominada Autocompletar. Esta demostración le guía por varios temas, incluida la creación de una aplicación MVC4 que aprovecha las sugerencias de la Búsqueda de Azure, el uso de la biblioteca de typeahead.js de Twitter para crear un componente eficaz de sugerencia automática en JavaScript y el uso de sugerencias aproximadas para que pueda devolver sugerencias aunque el usuario haya escrito la palabra incorrectamente.
 [Laboratorio virtual de TechNet: creación de una aplicación de Búsqueda de Microsoft Azure](http://go.microsoft.com/?linkid=9874663)|Laboratorio virtual que ofrece un entorno de desarrollo, herramientas, documentación y datos. Necesitará una cuenta de Azure, una suscripción de prueba o su suscripción de Azure personal, para completar el laboratorio.
 [Desarrollo de aplicaciones de búsqueda geoespacial usando Búsqueda de Azure](search-create-geospatial.md)|Usar mapas y coordenadas de Bing para admitir búsquedas geoespaciales.
@@ -69,35 +91,4 @@ Tutorial|Descripción
 [Tutorial de perfiles de puntuación](search-get-started-scoring-profiles.md)|Pruebe los perfiles de puntuación con una aplicación de consola.
 [Tutorial de la API de REST de administración de Búsqueda de Azure](search-get-started-management-api.md)|Cómo usar la API de REST de administración para aprovisionar el servicio y administrar claves de api de administrador o de consulta.
 
-##Sitios de ejemplos de código
-
-Examine estos sitios que incluyen ejemplos de código de Búsqueda de Azure:
-
-- [https://github.com/Azure-Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=+only%3Asources+search)
-- [https://github.com/AzureSearch](https://github.com/AzureSearch) 
-- [https://github.com/liamca/AzureSearchDemos](https://github.com/liamca/AzureSearchDemos)
-- [https://github.com/MicrosoftLearning/AzureSearch-MVA](https://github.com/MicrosoftLearning/AzureSearch-MVA)
-
-##Lista de ejemplos de código
-
-- El [**código de ejemplo para la biblioteca cliente .NET-2015-02-28**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) es una aplicación ASP.NET MVC 5 que usa la biblioteca cliente de .NET en operaciones de búsqueda.
-- [**Código de ejemplo para el tutorial de introducción a Búsqueda de Azure con Java**](https://github.com/Azure-Samples/search-java-getting-started)
-- [**Código de ejemplo para el tutorial de introducción a Búsqueda de Azure**](https://github.com/Azure-Samples/search-dotnet-getting-started)
-- [**Código de ejemplo para la demostración del indexador de Java**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
-- [**Código de ejemplo para la demostración del indexador de NodeJS**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
-- [**El ejemplo de sitio web de los trabajos de la ciudad de Nueva York mediante ASP.NET MVC**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) un sitio de Búsqueda de Azure de demostración en vivo sobre datos de trabajos de la ciudad de Nueva York.
-- [**search-dotnet-management-api**](https://github.com/Azure-Samples/search-dotnet-management-api/) es una aplicación de consola de Windows que usa la API de REST de administración.
-- [**El ejemplo de reconocimiento de voz mediante Cortana para Windows Phone**](https://github.com/Azure-Samples/search-dotnet-windows-phone-cortana-speech) muestra cómo usar el reconocimiento de voz desde un teléfono con Windows Phone para realizar una búsqueda en Búsqueda de Azure.
-- [**El ejemplo de recomendaciones de los productos comprados frecuentemente juntos**](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) usa Factoría de datos, Base de datos SQL, Almacenamiento de blobs y HDInsight de Active para implementar recomendaciones de productos según la frecuencia con la que se compran juntos.
-- [**AzSearchAutoScaleWeb**](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) es un código de ejemplo que muestra cómo escalar automáticamente un servicio de Búsqueda de Azure.
-- [**BabyNameJS**](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) es un archivo index.html que ofrece datos en un tutorial.
-
-En CodePlex, puede encontrar varios ejemplos más antiguos publicados durante la vista previa pública que siguen siendo relevantes en la versión actual.
-
-- [**AdventureWorks Demo**](https://azuresearchadventureworksdemo.codeplex.com/) es una aplicación ASP.NET MVC 4.
-- [**Suggestions Demo**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) es una aplicación ASP.NET MVC 4.
-- [**GeoSearch sample**](https://azuresearchgeospatial.codeplex.com/) es una aplicación ASP.NET MVC 4.
-- [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) es una aplicación de consola de Windows que carga un conjunto de filas de SQL Server desde una base de datos local insertada.
-- [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) es una aplicación de consola de Windows que define, ejecuta y actualiza un perfil de puntuación para optimizar los resultados de la búsqueda.
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

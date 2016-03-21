@@ -4,7 +4,7 @@
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 
@@ -21,6 +21,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+ 
 En este tema se muestra cómo usar Servicios móviles de Azure con un back-end de JavaScript para enviar notificaciones de inserción a una aplicación universal de Windows. Aprenderá a habilitar las notificaciones de inserción con los Centros de notificaciones de Azure en un proyecto de aplicación universal para Windows. Cuando termine, cada vez que se inserte un registro en la tabla TodoList, el servicio móvil enviará una notificación de inserción desde el back-end de JavaScript a todas las aplicaciones registradas en la Tienda Windows y la Tienda de Windows Phone. El centro de notificaciones que cree es gratuito con el servicio móvil, puede administrarse independientemente del servicio móvil y pueden utilizarlo otras aplicaciones y servicios.
 
 >[AZURE.NOTE]En este tema se muestra cómo usar las herramientas de Visual Studio 2013 Update 3 para agregar compatibilidad con las notificaciones de inserción de Servicios móviles a una aplicación universal para Windows. Se pueden seguir estos mismos pasos para agregar notificaciones de inserción de Servicios móviles a una aplicación de la Tienda Windows o de la Tienda de Windows Phone 8.1. Para agregar notificaciones de inserción a una aplicación de Windows Phone 8 o Windows Phone Silverlight 8.1, consulte esta versión de [Introducción a las notificaciones de inserción en Servicios móviles](mobile-services-javascript-backend-windows-phone-get-started-push.md).
@@ -67,13 +72,13 @@ En este tutorial hemos presentado las nociones para habilitar una aplicación de
 
 + [Enviar notificaciones de inserción a los usuarios autenticados](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>Aprenda a usar las etiquetas para enviar notificaciones de inserción desde su servicio móvil solo a un usuario autenticado.
 
-+ [Enviar notificaciones de difusión a los suscriptores](../notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
++ [Enviar notificaciones de difusión a los suscriptores](../notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
-+ [Envío de notificaciones independientes de la plataforma a los suscriptores](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde su servicio móvil sin tener que diseñar cargas específicas de plataforma en el backend.
++ [Envío de notificaciones independientes de la plataforma a los suscriptores](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde su servicio móvil sin tener que diseñar cargas específicas de plataforma en el backend.
 
 Puede obtener más información acerca de los Servicios móviles y los Centros de notificaciones en los siguientes temas:
 
-* [Centros de notificaciones de Azure - Directrices de diagnóstico](../notification-hubs-diagnosing.md) <br/>Obtenga información acerca de cómo solucionar los problemas de notificaciones de inserción.
+* [Centros de notificaciones de Azure - Directrices de diagnóstico](../notification-hubs/notification-hubs-diagnosing.md) <br/>Obtenga información acerca de cómo solucionar los problemas de notificaciones de inserción.
 
 * [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
@@ -100,4 +105,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0309_2016-->

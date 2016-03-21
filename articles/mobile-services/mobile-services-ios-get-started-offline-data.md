@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación iOS"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/05/2016"
 	ms.author="krisragh;donnam"/>
 
 # Introducción a la sincronización de datos sin conexión en Servicios móviles
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+ 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Activación de la sincronización sin conexión para la aplicación móvil iOS](../app-service-mobile/app-service-mobile-ios-get-started-offline-data.md).
 
 La sincronización sin conexión le permite ver, agregar o modificar datos en una aplicación móvil, incluso cuando no hay ninguna conexión de red. En este tutorial, aprenderá cómo puede la aplicación almacenar automáticamente los cambios de una base de datos sin conexión local y sincronizar esos cambios siempre que vuelva a conectarse.
 
@@ -275,4 +275,4 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 
 [Tutorial de introducción a Servicios móviles]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

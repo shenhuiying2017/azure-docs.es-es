@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/03/2016"
    ms.author="magoedte;bwren" />
 
 # Salidas de runbook y mensajes en la Automatización de Azure
@@ -167,7 +167,7 @@ En el ejemplo siguiente se inicia un runbook y, a continuación, se espera a que
 
 Para Runbooks gráficos, hay disponible un registro adicional en forma de seguimiento del nivel de actividad. Hay dos niveles de seguimiento: básico y detallado. En el seguimiento básico, puede ver la hora de inicio y de finalización de cada actividad en el Runbook, así como información relacionada con los reintentos de actividad, como el número de intentos y la hora de inicio de la actividad. En el seguimiento detallado, obtendrá un seguimiento básico y, además, datos de entrada y de salida para cada actividad. Tenga en cuenta que actualmente los registros de seguimiento se escriben usando el flujo detallado, por lo que debe habilitar el registro detallado cuando habilite el seguimiento. En el caso de los Runbooks gráficos con el seguimiento habilitado no es necesario registrar los registros de progreso, ya que el seguimiento básico tiene la misma finalidad y es más informativo.
 
-![Vista de secuencias de trabajos de creación de gráficos](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+![Vista de secuencias de trabajos de creación de gráficos](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
 Puede ver en la captura de pantalla anterior que, cuando se habilita el registro detallado y el seguimiento para los Runbooks gráficos, hay mucha más información disponible en la vista de secuencias de trabajos de producción. Esta información adicional puede ser esencial para solucionar problemas de producción con un Runbook. Por lo tanto, solo debería habilitarlo con este fin, y no hacerlo como regla general. Los registros de seguimiento pueden ser especialmente numerosos. Con el seguimiento de Runbooks gráficos puede obtener de dos a cuatro registros por actividad, en función de si configuró el seguimiento básico o detallado. A menos que necesite esta información para realizar un seguimiento del progreso de un Runbook para solucionar problemas, le conviene mantener el seguimiento desactivado.
 
@@ -183,11 +183,11 @@ Puede ver en la captura de pantalla anterior que, cuando se habilita el registro
 
  5. En la hoja Registro y seguimiento, en Registrar registros detallados, haga clic en **Activar** para habilitar el registro detallado. En Seguimiento del nivel de actividad, cambie el nivel de seguimiento a **Básico** o **Detallado**, en función del nivel de seguimiento que necesite.<br>
 
-    ![Hoja de registro y seguimiento de creación de gráficos](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
+    ![Hoja de registro y seguimiento de creación de gráficos](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ## Artículos relacionados
 
 - [Realizar el seguimiento de un trabajo de runbook](automation-runbook-execution.md)
 - [Runbooks secundarios](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Crear una nueva API de OneDrive en el entorno del Servicio de aplicaciones de la organización
+# Creación de una nueva API de OneDrive en PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [Aplicaciones lógicas](../articles/connectors/create-api-onedrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+
+Agregue la API de OneDrive al entorno del Servicio de aplicaciones de su organización (inquilino).
 
 ## Crear la API en el portal de Azure
 
@@ -25,7 +31,7 @@
  
 2. Seleccione **Examinar** en la barra de tareas: ![][14]
 
-3. En la lista, puede desplazarse para encontrar PowerApps o escribir en *powerapps*: ![][15]
+3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: ![][15]
 
 4. En **PowerApps**, seleccione **Administrar API**: ![Examine las APIs registradas][1]
 
@@ -39,7 +45,7 @@
 
 9. Escriba la *clave de la aplicación* y el *secreto de la aplicación* de la aplicación OneDrive. Si no dispone de estos, consulte la sección "Registrar una aplicación OneDrive para su uso con PowerApps" de este tema para crear los valores de clave y secreto que necesita.
 
-	> [AZURE.IMPORTANT]Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
+	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
 
 10. Seleccione **Aceptar** para completar los pasos.
 
@@ -55,11 +61,17 @@ Si no tiene una aplicación OneDrive existente con los valores de clave y secret
 
 3. En la página Configuración:
 
-	a) Seleccione **Configuración de la API**. b) Establezca la dirección URL de redireccionamiento en la dirección URL de redireccionamiento que recibió al agregar la nueva API de OneDrive en el Portal de Azure (en este tema). c) Seleccione **Guardar**.
+	1. Seleccione **Configuración de API**.  
+	2. Utilice como URL de redireccionamiento la que ha recibido cuando agregó la nueva API de OneDrive en el Portal de Azure (en este tema).  
+	3. Seleccione **Guardar**.  
 
 	![Configuración de la API de la aplicación OneDrive][7]
 
 Se creará una nueva aplicación OneDrive. Puede usar esta aplicación en la configuración de la API de OneDrive en el Portal de Azure.
+
+## Visualización de las API de REST
+
+Referencia de [API de REST de OneDrive](../connectors/create-api-onedrive.md).
 
 ## Resumen y pasos siguientes
 En este tema, ha agregado la API de OneDrive a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
@@ -77,4 +89,4 @@ En este tema, ha agregado la API de OneDrive a su empresa PowersApps. A continua
 [14]: ./media/powerapps-create-api-onedrive/browseall.png
 [15]: ./media/powerapps-create-api-onedrive/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

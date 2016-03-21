@@ -53,6 +53,6 @@ Para consultar temas más avanzados relacionados con Service Fabric, consulte lo
 
 - [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-- [Información general de las restricciones de ubicación](service-fabric-placement-constraint.md)
+- [Configuring cluster resource manager settings for service fabric services](service-fabric-cluster-resource-manager-configure-services.md) (Configuración del Administrador de recursos de clúster para servicios de Service Fabric)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

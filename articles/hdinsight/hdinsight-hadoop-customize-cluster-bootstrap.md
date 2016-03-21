@@ -14,12 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="03/08/2016"
 	ms.author="jgao"/>
 
 # Personalización de los clústeres de HDInsight con Bootstrap
-
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 Es probable que en ocasiones desee establecer los valores de archivos de configuración, que incluyen lo siguiente:
 
@@ -30,7 +28,7 @@ Es probable que en ocasiones desee establecer los valores de archivos de configu
 - hive-site.xml
 - oozie-site.xml
 
-Los clústeres no pueden conservar los cambios debido a la recreación de imágenes. Para obtener más información acerca de las recreación de imágenes, consulte [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx) (La instancia de rol se reinicia debido a actualizaciones del sistema operativo). Para mantener los cambios durante la vida útil de los clústeres, puede usar la personalización de clústeres de HDInsight durante el proceso de creación. Este es el método recomendado para cambiar las configuraciones de un clúster y persistir entre estos eventos de reinicio para el restablecimiento de imagen inicial de Azure. Estos cambios de configuración se aplican antes del inicio del servicio, por lo que no es necesario reiniciar los servicios.
+Los clústeres no pueden conservar los cambios debido a la recreación de imágenes. Para más información sobre la recreación de imágenes, consulte [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx) (La instancia de rol se reinicia debido a actualizaciones del sistema operativo). Para mantener los cambios durante la vida útil de los clústeres, puede usar la personalización de clústeres de HDInsight durante el proceso de creación. Este es el método recomendado para cambiar las configuraciones de un clúster y persistir entre estos eventos de reinicio para el restablecimiento de imagen inicial de Azure. Estos cambios de configuración se aplican antes del inicio del servicio, por lo que no es necesario reiniciar los servicios.
 
 Hay tres maneras de usar bootstrap:
 
@@ -68,14 +66,14 @@ El siguiente código de PowerShell personaliza una configuración de Hive:
 		-HttpCredential $httpCredential `
 		-Config $config 
 
-En el [Anexo A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample) se puede encontrar un script de PowerShell completamente en uso.
+En el [Apéndice A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample) se puede encontrar un script de PowerShell completamente en uso.
 
 **Para comprobar el cambio:**
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. En el panel izquierdo, haga clic en **Examinar** y luego haga clic en **Clústeres de HDInsight**.
 3. Haga clic en el clúster que acaba de crear mediante el script de PowerShell.
-4. Haga clic en el **Panel** desde la parte superior de la hoja para abrir la IU de Ambari.
+4. Haga clic en **Panel** desde la parte superior de la hoja para abrir la IU de Ambari.
 5. Haga clic en **Hive** en el menú izquierdo.
 6. Haga clic en **HiveServer2** en **Summary** (Resumen).
 7. Seleccione la pestaña **Configs** (Configuraciones).
@@ -251,4 +249,4 @@ Este script de PowerShell crea un clúster de HDInsight y personaliza una config
 
     #endregion
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

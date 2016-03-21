@@ -36,7 +36,7 @@ Una plantilla de solución es una "matriz" para todas sus topologías. Puede def
 
   Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Portal de vista previa de Azure: https://ms.portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
+  Portal de Azure: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 
 - Adición de una nueva versión
 
@@ -46,16 +46,6 @@ Cargue un archivo zip que contiene todos los archivos necesarios para realizar e
 - Las plantillas vinculadas y todos los scripts requeridos.
 
 Después de cargar el archivo zip, haga clic en **Solicitar certificación**. El equipo de certificación de Microsoft revisará los archivos y certificará la topología.
-
-También puede validar la experiencia de creación sin la implementación real para el cliente mediante los pasos indicados a continuación.
-
-1. Guarde el archivo *createUiDefinition.json* y genere la dirección URL absoluta. La dirección URL debe ser accesible públicamente.
-2. Codifique la dirección URL mediante la herramienta en [[http://www.url-encode-decode.com/](http://www.url-encode-decode.com/)].
-3. Reemplace el texto en negrita con la ubicación (dirección URL codificada) del archivo *createUiDefinition.json* que requiere validación.
-
-  > https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
-
-4. Copie y pegue la dirección URL en cualquier explorador y vea la experiencia del cliente del archivo createUiDefinition.json.
 
   > [AZURE.TIP] Mientras los desarrolladores trabajan en la creación de las topologías de la plantilla de solución y en conseguir que se certifiquen, el departamento comercial, de marketing o legal de su empresa puede trabajar en el contenido de marketing y legal.
 
@@ -77,4 +67,4 @@ Es posible que también le interesen los siguientes artículos relacionados:
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

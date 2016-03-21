@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Particiones de tabla en el Almacenamiento de datos SQL
@@ -109,7 +109,7 @@ AND     rp.[name]    = 'SloDWPool'
 ;
 ```
 
-> [AZURE.NOTE]Intente evitar cambiar el tamaño de las particiones por encima de la concesión de memoria proporcionada por la clase de recurso extra grande. Si las particiones crecen más allá de lo que se muestra en esta ilustración, se corre el riesgo de presionar la memoria, lo que a su vez conlleva una compresión menos óptima.
+> [AZURE.NOTE] Intente evitar cambiar el tamaño de las particiones por encima de la concesión de memoria proporcionada por la clase de recurso extra grande. Si las particiones crecen más allá de lo que se muestra en esta ilustración, se corre el riesgo de presionar la memoria, lo que a su vez conlleva una compresión menos óptima.
 
 ## Modificación de particiones
 Para cambiar particiones entre dos tablas, debe asegurarse de que las particiones se alinean en sus límites correspondientes y que las definiciones de tablas coinciden. Como las restricciones check no están disponibles para aplicar el intervalo de valores en una tabla, la tabla de origen debe contener los mismos límites de partición que la tabla de destino. Si no es el caso, la modificación de la partición generará un error porque los metadatos de la partición no estarán sincronizados.
@@ -150,7 +150,7 @@ VALUES (1,20000101,1,1,1,1,1,1);
 CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
-> [AZURE.NOTE]Al crear el objeto estadístico, nos aseguramos de que los metadatos de tabla son más precisos. Si omitimos la creación de estadísticas, el Almacenamiento de datos SQL utilizará los valores predeterminados. Para obtener detalles sobre las estadísticas, consulte las [estadísticas][].
+> [AZURE.NOTE] Al crear el objeto estadístico, nos aseguramos de que los metadatos de tabla son más precisos. Si omitimos la creación de estadísticas, el Almacenamiento de datos SQL utilizará los valores predeterminados. Para obtener detalles sobre las estadísticas, consulte las [estadísticas][].
 
 A continuación, podemos consultar el recuento de filas mediante la vista de catálogo `sys.partitions`:
 
@@ -312,7 +312,7 @@ DROP TABLE #partitions;
 
 Con este enfoque, el código de control de código fuente permanece estático y se permite que los valores de límite de partición sean dinámicos, de tal forma que evoluciona con el almacenamiento de datos con el tiempo.
 
->[AZURE.NOTE]El cambio de partición tiene algunas diferencias en comparación con SQL Server. Lea [Migración del código][] para obtener más información sobre este tema.
+>[AZURE.NOTE] El cambio de partición tiene algunas diferencias en comparación con SQL Server. Lea [Migración del código][] para obtener más información sobre este tema.
 
 
 ## Pasos siguientes
@@ -333,4 +333,4 @@ Una vez migrado correctamente el esquema de base de datos al Almacenamiento de d
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

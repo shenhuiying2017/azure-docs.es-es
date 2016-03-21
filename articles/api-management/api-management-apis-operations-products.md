@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -62,4 +62,4 @@ En Administración de API, un producto contiene una o varias API, así como una 
 [Importación de la definición de una API con operaciones]: api-management-howto-import-api.md
 [Creación y definición de configuraciones de productos avanzadas]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

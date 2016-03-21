@@ -21,7 +21,7 @@ Si ha instalado Azure Tools para Microsoft Visual Studio, puede ver datos de blo
 
 Para ver el Explorador de servidores en Visual Studio, en la barra de menús, elija **Ver**, **Explorador de servidores**. El nodo de almacenamiento muestra todas las cuentas de almacenamiento que existen en cada suscripción/certificado de Azure a los que esté conectado. Si no aparece la cuenta de almacenamiento, puede agregarla siguiendo las instrucciones [más adelante en este tema](#add-storage-accounts-by-using-server-explorer).
 
-A partir del SDK de Azure versión 2.7, también puede usar el nuevo Cloud Explorer para ver y administrar los recursos de Azure. Consulte [Administración de recursos de Azure con Cloud Explorer](https://msdn.microsoft.com/library/azure/mt185741.aspx) para obtener más información.
+A partir del SDK de Azure versión 2.7, también puede usar el nuevo Cloud Explorer para ver y administrar los recursos de Azure. Consulte [Administración de recursos de Azure con Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer) para obtener más información.
 
 
 ## Visualización y administración de recursos de almacenamiento en Visual Studio
@@ -193,7 +193,8 @@ La tabla se organiza por entidades (mostradas en filas) y propiedades (mostradas
 
     ![Agregar o editar una entidad de tabla](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
-    No es necesario que las entidades de una sola tabla compartan el mismo conjunto de propiedades (columnas). Tenga en cuenta las siguientes restricciones de visualización y edición de datos de la tabla. -No puede ver o editar datos binarios (tipo byte), pero se puede almacenar en una tabla.
+    No es necesario que las entidades de una sola tabla compartan el mismo conjunto de propiedades (columnas). Tenga en cuenta las siguientes restricciones de visualización y edición de datos de la tabla.
+    - No se pueden ver ni editar datos binarios (tipo byte), pero se pueden almacenar en una tabla.
 
     - No se pueden editar los valores **PartitionKey** ni **RowKey**, porque el almacenamiento de tablas en Azure no admite esa operación.
 
@@ -313,4 +314,4 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
 Para obtener más información sobre cómo usar los servicios de almacenamiento de Azure, vea [Acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

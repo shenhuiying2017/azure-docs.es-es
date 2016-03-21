@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="02/24/2016"
 	ms.author="dineshm"/>
 
 
@@ -22,7 +22,8 @@
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Información general  
-La [Biblioteca de cliente del Almacenamiento de Azure para Java](https://www.nuget.org/packages/WindowsAzure.Storage) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en el Almacenamiento de Azure, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con el [Almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
+
+La [Biblioteca de cliente del Almacenamiento de Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en el Almacenamiento de Azure, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con el [Almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
 
 ## Cifrado y descifrado a través de la técnica de sobres    
 El proceso de cifrado y descifrado sigue la técnica de sobres.
@@ -34,8 +35,7 @@ El cifrado mediante la técnica de sobres funciona de la siguiente manera:
 
 2.	Los datos de usuario se cifran mediante esta CEK.
 
-3.	Se encapsula la CEK (cifrada) con la clave de cifrado de clave (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en Almacén de claves de Azure.  
-La propia biblioteca de cliente de almacenamiento no tiene nunca acceso a la KEK. La biblioteca invoca el algoritmo de encapsulado de clave proporcionado por Almacén de claves. Los usuarios pueden elegir utilizar proveedores personalizados para el ajuste y desajuste clave si lo desean.  
+3.	Se encapsula la CEK (cifrada) con la clave de cifrado de clave (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en Almacén de claves de Azure. La propia biblioteca de cliente de almacenamiento no tiene nunca acceso a la KEK. La biblioteca invoca el algoritmo de encapsulado de clave proporcionado por Almacén de claves. Los usuarios pueden elegir utilizar proveedores personalizados para el ajuste y desajuste clave si lo desean.
 
 4.	A continuación, se cargan los datos cifrados en el servicio Almacenamiento de Azure. La clave encapsulada y algunos metadatos adicionales de cifrado se almacenan como metadatos (en un blob) o se interpolan con los datos cifrados (cola de mensajes y las entidades de tabla).
 
@@ -56,7 +56,7 @@ La biblioteca de cliente de almacenamiento usa [AES](http://en.wikipedia.org/wik
 ### Blobs  
 La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. En concreto, se admite el cifrado cuando los usuarios emplean los métodos **upload*** o el método **openOutputStream**. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas.
 
-Durante el cifrado, la biblioteca de cliente generará un vector de inicialización (IV) aleatorio de 16 bytes, junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes, y realiza el cifrado de sobres de los datos de blob con esta información. Posteriormente, la CEK encapsulada y algunos metadatos de cifrado adicionales se almacenan como metadatos de blob junto con el objeto blob cifrado en el servicio.
+Durante el cifrado, la biblioteca de cliente generará un vector de inicialización (IV) aleatorio de 16 bytes, junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes, y realiza el cifrado de sobres de los datos de blob con esta información. Posteriormente, la CEK encapsulada y algunos metadatos de cifrado adicionales se almacenan como metadatos de blob junto con el objeto blob cifrado en el servicio.
 
 >[AZURE.WARNING] Si está modificando o cargando sus propios metadatos para el blob, deberá asegurarse de que estos metadatos se conserven. Si carga nuevos metadatos sin estos metadatos, la CEK encapsulada, IV y otros metadatos se perderán y el contenido del blob nunca podrá recuperarse nuevamente.
 
@@ -69,11 +69,11 @@ Todos los tipos de blobs (blobs en bloques, blobs de anexión) se pueden cifrar 
 ### Colas  
 Dado que la cola de mensajes puede tener cualquier formato, la biblioteca de cliente define un formato personalizado que incluye el vector de inicialización (IV) y la clave de cifrado de contenido (CEK) cifrada en el texto del mensaje.
 
-Durante el cifrado, la biblioteca de cliente genera un vector de inicialización aleatorio de 16 bytes junto con una CEK aleatoria de 32 bytes y realiza el cifrado de sobres del texto del mensaje de cola con esta información. La CEK encapsulada y algunos metadatos de cifrado adicionales se incluyen entonces en el mensaje de cola cifrado. Este mensaje modificado (que se muestra a continuación) se almacena en el servicio.
+Durante el cifrado, la biblioteca de cliente genera un vector de inicialización aleatorio de 16 bytes junto con una CEK aleatoria de 32 bytes y realiza el cifrado de sobres del texto del mensaje de cola con esta información. La CEK encapsulada y algunos metadatos de cifrado adicionales se incluyen entonces en el mensaje de cola cifrado. Este mensaje modificado (que se muestra a continuación) se almacena en el servicio.
 
 	<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 
-Durante el descifrado, la clave encapsulada se extrae del mensaje de cola y se desencapsula. El vector de inicialización también se extrae del mensaje de cola y se utiliza junto con la clave desencapsulada para descifrar los datos de mensaje de cola. Tenga en cuenta que los metadatos de cifrado son pequeños (menos de 500 bytes), por lo que, aunque se tienen en cuenta para el límite de 64 KB para un mensaje de la cola, el impacto debería ser fácil de administrar.
+Durante el descifrado, la clave encapsulada se extrae del mensaje de cola y se desencapsula. El vector de inicialización también se extrae del mensaje de cola y se utiliza junto con la clave desencapsulada para descifrar los datos de mensaje de cola. Tenga en cuenta que los metadatos de cifrado son pequeños (menos de 500 bytes), por lo que, aunque se tienen en cuenta para el límite de 64 KB para un mensaje de la cola, el impacto debería ser fácil de administrar.
 
 ### Tablas  
 La biblioteca de cliente admite el cifrado de propiedades de entidad para operaciones de insertar y reemplazar.
@@ -84,15 +84,15 @@ El cifrado de datos de tabla funciona de la siguiente forma:
 
 1.	Los usuarios especifican las propiedades que se van a cifrar.  
 
-2.	La biblioteca de cliente genera un vector de inicialización (IV) aleatorio de 16 bytes junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes para cada entidad. Después, realiza el cifrado de sobres en las propiedades individuales que se van a cifrar derivando un nuevo vector de inicialización por propiedad. La propiedad de cifrado se almacena como datos binarios.
+2.	La biblioteca de cliente genera un vector de inicialización (IV) aleatorio de 16 bytes junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes para cada entidad. Después, realiza el cifrado de sobres en las propiedades individuales que se van a cifrar derivando un nuevo vector de inicialización por propiedad. La propiedad de cifrado se almacena como datos binarios.
 
 3.	La CEK encapsulada y algunos metadatos de cifrado adicional se almacenan posteriormente como dos propiedades reservadas adicionales. La primera propiedad reservada (\_ClientEncryptionMetadata1) es una propiedad de cadena que contiene la información sobre el vector de inicialización, la versión y la clave encapsulada. La segunda propiedad reservada (\_ClientEncryptionMetadata2) es una propiedad binaria que contiene la información sobre las propiedades que se cifran. La información de esta segunda propiedad (\_ClientEncryptionMetadata2) está ella misma cifrada.
 
-4.	A causa de estas propiedades reservadas adicionales necesarias para el cifrado, es posible que los usuarios ahora tengan solo 250 propiedades personalizadas en lugar de 252. El tamaño total de la entidad debe ser inferior a 1 MB.
+4.	A causa de estas propiedades reservadas adicionales necesarias para el cifrado, es posible que los usuarios ahora tengan solo 250 propiedades personalizadas en lugar de 252. El tamaño total de la entidad debe ser inferior a 1 MB.
 
 	Tenga en cuenta que solo se pueden cifrar las propiedades de cadena. Si hay que cifrar otros tipos de propiedades, habrá que convertirlas en cadenas. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.
 
-	Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [Encrypt] \(para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
+	Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [Encrypt] (para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
 
 ### Operaciones por lotes  
 En las operaciones por lotes, se usará la misma KEK en todas las filas de esa operación por lotes porque la biblioteca de cliente solo permite un objeto de opciones (y, por lo tanto, una directiva/KEK) por cada operación por lotes. Sin embargo, la biblioteca de cliente generará internamente un nuevo vector de inicialización aleatorio y una CEK aleatoria por cada fila del lote. Los usuarios también pueden optar por cifrar diferentes propiedades para cada operación del lote mediante la definición de este comportamiento en la resolución de cifrado.
@@ -118,8 +118,7 @@ Hay tres paquetes del Almacén de claves:
 
 2.	Usar el identificador de base del secreto como un parámetro para resolver la versión actual del secreto para el cifrado y el almacenamiento en caché de esta información localmente. Usar CachingKeyResolver para el almacenamiento en caché (los usuarios no deben implementar su propia lógica de almacenamiento en caché).
 
-3.	Utilizar la resolución de caché como una entrada al crear la directiva de cifrado.
-Puede encontrar más información acerca del uso del Almacén de claves, en los ejemplos de código de cifrado. <fix URL>
+3.	Utilizar la resolución de caché como una entrada al crear la directiva de cifrado. Puede encontrar más información acerca del uso del Almacén de claves, en los ejemplos de código de cifrado. <fix URL>
 
 ## Prácticas recomendadas  
 La compatibilidad con el cifrado solo está disponible en la biblioteca de cliente de almacenamiento para Java.
@@ -241,9 +240,11 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 
 ## Pasos siguientes  
 
-- Descargue el [paquete Maven de la Biblioteca de cliente de Almacenamiento de Azure para Java](https://github.com/Azure/azure-storage-java).  
+- Descargue el [paquete Maven de la Biblioteca de cliente de Almacenamiento de Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage).  
 - Descargue el [Código fuente de la Biblioteca de cliente de Almacenamiento de Azure para Java desde GitHub](https://github.com/Azure/azure-storage-java).   
-- Descargue los paquetes Maven [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure.
-- Consulte la [Documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md).  
+- Descargue la biblioteca Maven del Almacén de claves de Azure para los paquetes Maven de Java:
+	- Paquete [principal](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
+	- Paquete de [cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
+- Consulte la [documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md).  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -91,6 +91,8 @@ Si la aplicación tolera que una entidad del Bus de servicio no esté disponible
 
 Una cola del lado cliente duradera conserva el orden de los mensajes y protege la aplicación cliente de las excepciones en caso de que la entidad del Bus de servicio no esté disponible. Se puede usar con transacciones simples y distribuidas.
 
+> [AZURE.NOTE] Este ejemplo funciona bien en escenarios IaaS donde el disco local o disco de MSMQ se asigna a una cuenta de almacenamiento y los mensajes se almacenan de forma confiable con MSMQ. Esto no resulta adecuado para escenarios PaaS, como aplicaciones web y servicios en la nube.
+
 ## Pasos siguientes
 
 Para obtener más información acerca de la recuperación ante desastres, consulte estos artículos:
@@ -109,4 +111,4 @@ Para obtener más información acerca de la recuperación ante desastres, consul
   [Continuidad de negocio de Base de datos SQL de Azure]: ../sql-database/sql-database-business-continuity.md
   [Orientación técnica de la continuidad del negocio de Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

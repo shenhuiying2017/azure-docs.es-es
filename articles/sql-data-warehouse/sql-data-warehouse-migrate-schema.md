@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/19/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migración del esquema a Almacenamiento de datos SQL#
@@ -115,7 +115,7 @@ En lugar de:
 - **table**, convierta en tablas temporales
 - **timestamp**, vuelva a procesar el código para que use datetime2 y la función `CURRENT_TIMESTAMP`. Tenga en cuenta que no puede tener current\_timestamp como restricción DEFAULT y el valor no se actualizará automáticamente. Si tiene que migrar valores rowversion de una columna con tipo timestamp, use binary(8) o varbinary(8) para valores de versión de fila NOT NULL o NULL.
 - **varchar (max)**, use varchar(8000) o más pequeño para un mejor rendimiento
-- **uniqueidentifier**, use varbinary(16) o varchar(36) según el formato de entrada (binario o caracteres) de sus valores. Si el formato de entrada se basa en caracteres es posible realizar una optimización. Mediante la conversión de caracteres a formato binario, puede reducir el almacenamiento en columnas en más del 50 %. En tablas muy grandes, esta optimización puede ser beneficiosa.
+- **uniqueidentifier**, use varbinary(16) o varchar(36) según el formato de entrada (binario o caracteres) de sus valores. Si el formato de entrada se basa en caracteres es posible realizar una optimización. Mediante la conversión de caracteres a formato binario, puede reducir el almacenamiento en columnas en más del 50 %. En tablas muy grandes, esta optimización puede ser beneficiosa.
 - **tipos definidos por el usuario**, vuelva a convertirlos a sus tipos nativos siempre que sea posible
 - **xml**, use un varchar(8000) o más pequeño para un mejor rendimiento. Dividir en columnas si es necesario
 
@@ -123,7 +123,7 @@ Compatibilidad parcial:
 
 - Las restricciones DEFAULT solo admiten literales y constantes. No se admiten funciones ni expresiones no deterministas, tales como `GETDATE()` o `CURRENT_TIMESTAMP`.
 
-> [AZURE.NOTE]Defina las tablas para que el tamaño máximo posible de fila, incluida la longitud total de columnas de longitud variable, no supere los 32.767 bytes. Aunque puede definir una fila con datos de longitud variable que superen esta cifra, no podrá insertar datos en la tabla. Además, intente limitar el tamaño de las columnas de longitud variable para un rendimiento incluso mejor para ejecutar consultas.
+> [AZURE.NOTE] Defina las tablas para que el tamaño máximo posible de fila, incluida la longitud total de columnas de longitud variable, no supere los 32.767 bytes. Aunque puede definir una fila con datos de longitud variable que superen esta cifra, no podrá insertar datos en la tabla. Además, intente limitar el tamaño de las columnas de longitud variable para un rendimiento incluso mejor para ejecutar consultas.
 
 ## Pasos siguientes
 Una vez migrado correctamente el esquema de base de datos a SQLDW puede continuar con uno de los siguientes artículos:
@@ -145,4 +145,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

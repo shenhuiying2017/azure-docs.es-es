@@ -28,7 +28,7 @@ Esta funcionalidad puede usarse junto con la funcionalidad de [ aportación de l
 
 Existen dos casos de uso de SCIM en Azure Active Directory:
 
-* **Aprovisionamiento de usuarios y grupos para aplicaciones que admiten SCIM**: las aplicaciones compatibles con SCIM 2.0 y que son capaces de aceptar un token de portador de OAuth de Azure AD funcionarán con Azure AD inmediatamente.
+* **Aprovisionamiento de usuarios y grupos para aplicaciones que admiten SCIM**: las aplicaciones compatibles con SCIM 2.0 y que usan un token de portador de OAuth para la autenticación funcionarán con Azure AD inmediatamente.
 
 * **Creación de una solución de aprovisionamiento propia para aplicaciones que admiten otro aprovisionamiento basado en API**: para aplicaciones que no son SCIM, puede crear un punto de conexión SCIM para la traducción entre el punto de conexión SCIM de Azure AD y cualquier API que admita la aplicación para el aprovisionamiento de usuarios. Para facilitar el desarrollo de un punto de conexión SCIM, proporcionamos las bibliotecas CLI junto con ejemplos de código que muestran cómo proporcionar un punto de conexión SCIM y traducir los mensajes SCIM.
 
@@ -50,8 +50,6 @@ Azure Active Directory puede configurarse para aprovisionar automáticamente a u
 
 * Aceptar los tokens de portador de OAuth para la autorización. según la sección 2.1 del protocolo SCIM.
 
-* Admitir el uso de Azure AD como proveedor de identidades para el token OAuth (pronto compatibilidad con proveedores de identidades externos)
-
 Consulte a su proveedor de la aplicación, o la documentación que se incluye con la aplicación para ver si existen declaraciones de compatibilidad con estos requisitos.
  
 ###Introducción
@@ -67,13 +65,14 @@ Las aplicaciones que admiten el perfil SCIM descrito anteriormente se pueden con
 ![][2]
 
 4.	En la pantalla resultante, seleccione el segundo botón **Configurar aprovisionamiento de cuentas**.
-5.	En el cuadro de diálogo, escriba la dirección URL del punto de conexión SCIM de la aplicación.  
-6.	Haga clic en **Siguiente** y haga clic en el botón **Iniciar prueba** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si fallan los intentos, se mostrará la información de diagnóstico.  
-7.	Si los intentos de conexión a la aplicación tienen éxito, haga clic en **Siguiente** en las pantallas restantes y haga clic en **Completar** para salir del cuadro de diálogo.
-8.	En la pantalla resultante, seleccione el tercer botón **Asignar cuentas**. En la sección Usuarios o grupos resultante, asigne los usuarios o grupos que desee aprovisionar a la aplicación.
-9.	Una vez asignados los usuarios y grupos, haga clic en la pestaña **Configurar**, situada cerca de la parte superior de la pantalla.
-10.	En **Aprovisionamiento de cuentas**, confirme que el estado es activado. 
-11.	En **Herramientas**, haga clic en **Reiniciar aprovisionamiento de cuentas** para comenzar el proceso de aprovisionamiento.
+5.	En el campo ** Dirección URL del extremo de aprovisionamiento **, escriba la dirección URL del punto de conexión SCIM de la aplicación.
+6.	Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token de autenticación (opcional)**. Si se deja este campo en blanco, Azure AD incluirá un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token emitido por Azure AD.
+7.	Haga clic en **Siguiente** y haga clic en el botón **Iniciar prueba** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si fallan los intentos, se mostrará la información de diagnóstico.  
+8.	Si los intentos de conexión a la aplicación tienen éxito, haga clic en **Siguiente** en las pantallas restantes y haga clic en **Completar** para salir del cuadro de diálogo.
+9.	En la pantalla resultante, seleccione el tercer botón **Asignar cuentas**. En la sección Usuarios o grupos resultante, asigne los usuarios o grupos que desee aprovisionar a la aplicación.
+10.	Una vez asignados los usuarios y grupos, haga clic en la pestaña **Configurar**, situada cerca de la parte superior de la pantalla.
+11.	En **Aprovisionamiento de cuentas**, confirme que el estado es activado. 
+12.	En **Herramientas**, haga clic en **Reiniciar aprovisionamiento de cuentas** para comenzar el proceso de aprovisionamiento.
 
 Tenga en cuenta que pueden transcurrir 5 o 10 minutos antes de que el proceso de aprovisionamiento empiece a enviar solicitudes al punto de conexión SCIM. Se proporciona un resumen de intentos de conexión en la pestaña Panel de la aplicación y se pueden descargar un informe de actividad de aprovisionamiento y cualquier error de aprovisionamiento en la pestaña Informes del directorio.
 
@@ -682,7 +681,7 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 * Las solicitudes para recuperar grupos estipulan que el atributo members se excluirá de cualquier recurso proporcionado en respuesta a la solicitud.  
 * Las solicitudes para determinar si un atributo de referencia tiene un valor determinado serán solicitudes sobre el atributo members.  
 
-![][5] *Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
+![][5] * Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
 ##Artículos relacionados
 
@@ -703,4 +702,4 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

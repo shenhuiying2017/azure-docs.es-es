@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/08/2015"
+   	ms.date="03/08/2016"
    	ms.author="nitinme"/>
 
 
@@ -25,6 +25,9 @@
 El Portal de vista previa de Azure es una herramienta de administración basada en web para servicios y recursos hospedados en la nube de Microsoft Azure. Use la información de este documento para crear un clúster de HDInsight basado en Linux con el Portal de vista previa y el explorador web.
 
 ##Requisitos previos
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -96,7 +99,7 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
 
 		![Hoja de red virtual](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.6.png "Especifique detalles de red virtual")
 
-    	Para obtener información sobre el uso de HDInsight con una red virtual, como por ejemplo, los requisitos de configuración específicos de la red virtual, consulte [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) (Ampliar las capacidades de HDInsight con una red virtual de Azure).
+    	Para información sobre el uso de HDInsight con una red virtual, como los requisitos de configuración específicos de la red virtual, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 	* Haga clic en **Tiendas de metadatos externas** para especificar la base de datos SQL que quiere usar para guardar los metadatos de Hive y Oozie asociados al clúster.
     
@@ -150,7 +153,7 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
 
 ##Personalización de los clústeres
 
-- Consulte [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+- Consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 - Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md).
 
 ##Pasos siguientes
@@ -182,4 +185,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/05/2016"
+   ms.date="03/02/2016"
    ms.author="alkohli" />
 
-# Uso del servicio StorSimple Manager para administrar cuentas de almacenamiento (vista previa)
+# Usar el servicio de Administrador de StorSimple para administrar su cuenta de almacenamiento
 
 ## Información general
 
@@ -24,7 +24,7 @@ En la página **Configurar** se presentan los parámetros de servicio globales q
 - Cuentas de almacenamiento 
 - Registros de control de acceso 
 
-En este tutorial se explica cómo usar la página **Configurar** para agregar, editar o eliminar cuentas de almacenamiento para StorSimple Virtual Array. La información de este tutorial solo se aplica a la matriz StorSimple Virtual Array que ejecuta software de vista previa pública.
+En este tutorial se explica cómo usar la página **Configurar** para agregar, editar o eliminar cuentas de almacenamiento para StorSimple Virtual Array. La información de este tutorial solo se aplica a la matriz virtual de StorSimple que ejecuta el software de la versión de disponibilidad general de marzo de 2016.
 
  ![Página Configurar](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)
 
@@ -101,4 +101,4 @@ Puede editar una cuenta de almacenamiento utilizada por su dispositivo. Si edita
 
 - Obtenga más información para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

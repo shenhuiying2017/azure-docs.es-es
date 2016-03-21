@@ -3,9 +3,9 @@
 	description="Obtenga información sobre la administración y solución de problemas de Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -53,4 +53,4 @@ Para obtener sugerencias para la solución de problemas, vea [Supervisión y sol
 ## Consulte también
 [Supervisión de Stretch Database](sql-server-stretch-database-monitor.md) [Copia de seguridad y restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

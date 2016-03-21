@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de la factoría de datos" 
+	pageTitle="Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de la factoría de datos | Microsoft Azure" 
 	description="Conozca cómo puede crear, supervisar y administrar factorías de datos de Azure mediante programación con el SDK de Factoría de datos." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -394,4 +394,4 @@ La actividad de copia realiza el movimiento de datos en Data Factory de Azure y 
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

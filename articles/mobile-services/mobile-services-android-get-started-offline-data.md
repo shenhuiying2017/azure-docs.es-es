@@ -18,11 +18,12 @@
 
 # Incorporación de sincronización de datos sin conexión a la aplicación de Servicios móviles de Android
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Activar la sincronización sin conexión para la aplicación móvil de Android](../app-service-mobile/app-service-mobile-android-get-started-offline-data.md).
 
 ## Resumen
 
@@ -199,7 +200,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 * [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]
 
-* [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure] \(Nota: las demostraciones son para Windows, pero las características tratadas son aplicables a todas las plataformas)
+* [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure] (Nota: las demostraciones son para Windows, pero las características tratadas son aplicables a todas las plataformas)
 
 
 <!-- URLs. -->
@@ -223,4 +224,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [tutorial del Inicio rápido de Servicios móviles]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

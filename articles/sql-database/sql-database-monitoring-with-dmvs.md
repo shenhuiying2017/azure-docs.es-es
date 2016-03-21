@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo detectar y diagnosticar problemas comunes de rendimiento con vistas de administración dinámica para supervisar Base de datos SQL de Microsoft Azure."
    services="sql-database"
    documentationCenter=""
-   authors="BYHAM"
+   authors="carlrabeler"
    manager="jeffreyg"
    editor=""
    tags=""/>
@@ -42,9 +42,9 @@ En una instancia de SQL Server local, las vistas de administración dinámica de
 La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
 
 ```
--- Calcula el tamaño de la base de datos. SELECT 
-SELECT SUM(reserved\_page\_count)*8.0/1024
-FROM sys.dm\_db\_partition\_stats;
+-- Calculates the size of the database.
+SELECT SUM(reserved_page_count)*8.0/1024
+FROM sys.dm_db_partition_stats;
 GO
 ```
 
@@ -135,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introducción a Base de datos SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

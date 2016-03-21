@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="02/03/2016"
      ms.author="elioda"/>
 
 # Tutorial: cómo cargar archivos desde dispositivos a la nube con un centro de IoT
@@ -39,7 +39,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio 2015
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -78,14 +78,14 @@ Información adicional sobre el centro de IoT:
 
 <!-- Links -->
 
-[Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
+[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 
 [Portal de Azure]: https://portal.azure.com/
 
-[Factoría de datos de Azure]: https://azure.microsoft.com/es-ES/documentation/services/data-factory/
-[Hadoop]: https://azure.microsoft.com/es-ES/documentation/services/hdinsight/
+[Factoría de datos de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
+[Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
-[Comenzar a usar el centro de IoT]: iot-hub-csharp-csharp-getstarted.md
+[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
@@ -100,4 +100,4 @@ Información adicional sobre el centro de IoT:
 [Centro para desarrolladores de Azure]: http://www.azure.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/05/2016"
+     ms.date="02/03/2016"
      ms.author="dobett"/>
 
 # Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT
@@ -24,7 +24,7 @@ El centro de IoT de Azure es un servicio totalmente administrado que permite la 
 
 Este tutorial se basa en el código que se muestra en el tutorial [Introducción al Centro de IoT] y muestra dos patrones escalables que se pueden usar para procesar mensajes del dispositivo a la nube:
 
-- Almacenamiento confiable de mensajes de dispositivo a nube de [Almacenamiento de blobs de Azure]. Se trata de un escenario muy frecuente al implementar análisis de *ruta de acceso inactiva*, donde los datos se almacenan en blobs para su uso como entrada en los procesos de análisis impulsados por herramientas como [Factoría de datos] o la pila de [HDInsight (Hadoop)].
+- Almacenamiento confiable de mensajes de dispositivo a nube de [Almacenamiento de blobs de Azure]. Se trata de un escenario muy frecuente al implementar *análisis en frío*, donde los datos se almacenan en blobs para su uso como entrada en los procesos de análisis impulsados por herramientas como [Data Factory de Azure] o la pila de [HDInsight (Hadoop)].
 
 - Procesamiento confiable de mensajes de dispositivo a nube *interactivos*. Los mensajes de dispositivo a nube son interactivos cuando son desencadenantes inmediatos de un conjunto de acciones en el back-end de la aplicación, a diferencia de los mensajes de *punto de datos*, que se envían a un motor de análisis. Por ejemplo, una alarma procedente de un dispositivo que tiene que desencadenar la inserción de un vale en un sistema CRM es un mensaje de dispositivo a nube interactivo, a diferencia de, por ejemplo, un mensaje de telemetría que contiene muestras de temperatura, que es un mensaje de punto de datos.
 
@@ -43,15 +43,15 @@ Al final de este tutorial ejecutará tres aplicaciones de consola de Windows:
 
 > [AZURE.NOTE] El Centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java y JavaScript. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo reemplazar el dispositivo simulado de este tutorial por un dispositivo físico y, en general, sobre cómo conectar dispositivos al Centro de IoT de Azure.
 
-Este tutorial se puede aplicar directamente a otras formas de consumir mensajes compatibles con centros de eventos como, por ejemplo, proyectos de [Hadoop]. Consulte la [Guía del desarrollador del Centro de IoT de Azure] para más información.
+Este tutorial se puede aplicar directamente a otras formas de consumir mensajes compatibles con Centros de eventos como, por ejemplo, proyectos de [Hadoop]. Consulte la [Guía del desarrollador del Centro de IoT de Azure] para más información.
 
 Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio 2015.
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
-También se dan por sentados ciertos conocimientos sobre el [Almacenamiento de Azure] y el [Bus de servicio de Azure].
+También se dan por sentados ciertos conocimientos sobre [Almacenamiento de Azure] y [Bus de servicio de Azure].
 
 
 [AZURE.INCLUDE [iot-hub-process-d2c-device-csharp](../../includes/iot-hub-process-d2c-device-csharp.md)]
@@ -91,19 +91,19 @@ Información adicional sobre el centro de IoT:
 
 <!-- Links -->
 
-[Almacenamiento de blobs de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/storage-dotnet-how-to-use-blobs/
-[Factoría de datos]: https://azure.microsoft.com/es-ES/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/es-ES/documentation/services/hdinsight/
-[Hadoop]: https://azure.microsoft.com/es-ES/documentation/services/hdinsight/
-[cola del Bus de servicio]: https://azure.microsoft.com/es-ES/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[Almacenamiento de blobs de Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
+[Data Factory de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
+[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
+[Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
+[cola del Bus de servicio]: ../service-bus/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
 
-[Guía del desarrollador del Centro de IoT de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/iot-hub-devguide/#d2c
+[Guía del desarrollador del Centro de IoT de Azure]: iot-hub-devguide.md#d2c
 
-[Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/documentation/services/storage/
-[Bus de servicio de Azure]: https://azure.microsoft.com/es-ES/documentation/services/service-bus/
+[Almacenamiento de Azure]: https://azure.microsoft.com/documentation/services/storage/
+[Bus de servicio de Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 
 
 
@@ -118,4 +118,4 @@ Información adicional sobre el centro de IoT:
 [Centro para desarrolladores de Azure]: https://azure.microsoft.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

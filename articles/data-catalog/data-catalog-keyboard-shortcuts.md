@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/12/2016"
+   ms.date="03/07/2016"
    ms.author="derrickv"/>
 
 # Métodos abreviados de teclado para el Catálogo de datos de Azure
@@ -60,7 +60,7 @@ A continuación se muestran los métodos abreviados de teclado para el Catálogo
 |Incluir la casilla de verificación de perfil de datos (si está disponible).|ALT+D
 |Navegar a cada elemento de lista.|Flecha arriba o abajo
 | Jerarquía del servidor, expandir un nodo de la vista de árbol. |Flecha derecha
-| Mover los elementos seleccionados a "Objetos disponibles" o a "Objetos que se registrarán". | Barra espaciadora
+| Mover los elementos seleccionados a **Objetos disponibles** o a **Objetos que se registrarán**. | Barra espaciadora
 
 ## Página de progreso de publicación
 
@@ -77,4 +77,18 @@ A continuación se muestran los métodos abreviados de teclado para el Catálogo
 |Botón Guardar (si está habilitado)| ALT+S
 |Botón Cancelar|ALT+C
 
-<!---HONumber=AcomDC_0218_2016-->
+## Página del portal
+|Para hacer esto|Presione
+|---|---
+|Navegar| TAB y MAYÚS + TAB
+|Hacer clic en un elemento| BARRA ESPACIADORA O ENTRAR
+|Ver los detalles de una sección| BARRA ESPACIADORA O ENTRAR
+|Salir de una sección| ESC
+|Anclar/desanclar un recurso| ALT+P
+|En la página de detección, cuando un recurso tiene el foco, seleccione el recurso| BARRA ESPACIADORA O ENTRAR
+|Agregar o quitar el recurso de la selección múltiple| CTRL + BARRA ESPACIADORA O ENTRAR
+|Activar o desactivar el menú de coincidencias de búsqueda| ALT+S
+|Alternar menú **Abrir en** | ALT + O
+|Explorar el contenedor, si el recurso es un contenedor | ALT + L
+
+<!---HONumber=AcomDC_0309_2016-->

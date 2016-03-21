@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/04/2016"
    ms.author="andkjell;billmath"/>
 
 # Requisitos previos de Azure AD Connect
@@ -38,7 +38,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 - Si se implementa Servicios de federación de Active Directory, los servidores en los que se instale AD FS o el Proxy de aplicación web deben ser Windows Server 2012 R2 o versiones posteriores. [Administración remota de Windows](#windows-remote-management) debe estar habilitada en estos servidores para la instalación remota.
 - Si se implementa Servicios de federación de Active Directory, necesita [Certificados SSL](#ssl-certificate-requirements).
 - Si se implementa Servicios de federación de Active Directory, necesitará configurar la [resolución de nombres](#name-resolution-for-federation-servers).
-- Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De forma predeterminada se instala SQL Server 2012 Express LocalDB (una versión ligera de SQL Server Express) y se crea la cuenta de servicio para el servicio en el equipo local. SQL Server Express tiene un límite de tamaño de 10 GB que le permite administrar aproximadamente 100 000 objetos. Si tiene que administrar un volumen superior de objetos de directorio, es necesario que el asistente para la instalación apunte a otra instalación de SQL Server. Azure AD Connect admite todas las versiones de Microsoft SQL Server de SQL Server 2008 (con Service Pack 4) a SQL Server 2014. **No se admite** Base de datos SQL de Microsoft Azure como base de datos.
+- Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De forma predeterminada se instala SQL Server 2012 Express LocalDB (una versión ligera de SQL Server Express) y se crea la cuenta de servicio para el servicio en el equipo local. SQL Server Express tiene un límite de tamaño de 10 GB que le permite administrar aproximadamente 100 000 objetos. Si tiene que administrar un volumen superior de objetos de directorio, es necesario que el asistente para la instalación apunte a otra instalación de SQL Server. Azure AD Connect admite todas las versiones de Microsoft SQL Server de SQL Server 2008 (con Service Pack 4) a SQL Server 2014. **No se admite** Base de datos SQL de Microsoft Azure como base de datos.
 
 ### Cuentas
 - Una cuenta de administrador global de Azure AD para el directorio de Azure AD con el que desea realizar la integración. Debe ser una **cuenta profesional o educativa** y no puede ser una **cuenta Microsoft**.
@@ -66,7 +66,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
     </system.net>
 ```
 
-Si el servidor proxy requiere autenticación, la sección debe ser similar a lo siguiente.
+- Si el servidor proxy requiere autenticación, la [cuenta de servicio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) debe estar ubicada en el dominio y debe usar la ruta de instalación de la configuración personalizada para especificar una [cuenta de servicio personalizada](active-directory-aadconnect-get-started-custom.md#install-required-components). También necesita un archivo machine.config distinto; con este cambio en el archivo machine.config, el asistente para instalación y el motor de sincronización responderán a las solicitudes de autenticación del servidor proxy. En todas las páginas del asistente para instalación, excepto la página **Configurar**, se usan las credenciales del usuario que ha iniciado sesión. En la página **Configurar** al final del asistente para instalación, el contexto se cambia a la [cuenta de servicio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) que creó. La sección del archivo machine.config debería tener este aspecto.
 
 ```
     <system.net>
@@ -80,7 +80,7 @@ Si el servidor proxy requiere autenticación, la sección debe ser similar a lo 
     </system.net>
 ```
 
-Con este cambio en el archivo machine.config, el asistente para instalación y el motor de sincronización responderán a las solicitudes de autenticación del servidor proxy. En todas las páginas del asistente para instalación, excepto la página **Configurar**, se usan las credenciales del usuario que ha iniciado sesión. En la página **Configurar** al final del asistente para instalación, el contexto se cambia a la [cuenta de servicio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) que se creó. Para obtener más información sobre el [elemento de proxy predeterminado](https://msdn.microsoft.com/library/kd3cf2ex.aspx), consulte MSDN.
+Para obtener más información sobre el [elemento de proxy predeterminado](https://msdn.microsoft.com/library/kd3cf2ex.aspx), consulte MSDN.
 
 Si tiene problemas de conectividad, consulte [Solución de problemas de conectividad con Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
 
@@ -168,4 +168,4 @@ Los requisitos mínimos para equipos que ejecutan AD FS o servidores de aplicaci
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

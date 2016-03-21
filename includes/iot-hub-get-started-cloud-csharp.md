@@ -57,7 +57,7 @@ En esta sección, creará una aplicación de consola de Windows que crea una nue
 
 ## Recepción de mensajes de dispositivo a nube
 
-En esta sección, creará una aplicación de consola de Windows que lee los mensajes de dispositivo a nube del Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-processd2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. El tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] proporciona información adicional acerca de cómo procesar los mensajes desde los Centros de eventos y se puede aplicar a los puntos de conexión compatibles con Centro de eventos de Centro de IoT.
+En esta sección, creará una aplicación de consola de Windows que lee los mensajes de dispositivo a nube del Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-processd2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] se proporciona información adicional acerca de cómo procesar los mensajes desde los Centros de eventos. Dicha información se puede aplicar a los puntos de conexión compatibles con Centros de eventos de Centro de IoT.
 
 1. En Visual Studio, agregue un nuevo proyecto de aplicación de escritorio clásico de Windows de Visual C# con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **ReadDeviceToCloudMessages**.
 
@@ -112,10 +112,10 @@ En esta sección, creará una aplicación de consola de Windows que lee los mens
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-event-hubs-overview]: event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
@@ -125,4 +125,4 @@ En esta sección, creará una aplicación de consola de Windows que lee los mens
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

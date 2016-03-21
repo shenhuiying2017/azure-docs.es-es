@@ -3,7 +3,7 @@
 	description="Aprenda a usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación iOS"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,29 +13,31 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/06/2016"
 	ms.author="krisragh;donnam"/>
 
 
 # Control de conflictos con la sincronización de datos sin conexión en Servicios móviles
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 En este tema se explica cómo sincronizar los datos y controlar conflictos cuando se usan las capacidades sin conexión de Servicios móviles de Azure. Este tutorial se basa en el tutorial [Introducción a los datos sin conexión].
 
->[AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.
+>[AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.
 
 
 ## Descargar el proyecto de iOS
 
 Para este tutorial, descargue [un proyecto de Xcode actualizado desde Github](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS). Hemos usado el proyecto de Xcode desde el final del tutorial [Introducción a los datos sin conexión] como punto de partida y luego lo hemos actualizado para permitir la edición de elementos. También hemos agregado métodos y clases auxiliares, por lo que podemos agregar un controlador de conflictos en la sección siguiente.
 
-Al final de este tutorial, si ejecuta esta aplicación en dos teléfonos, cambia el mismo elemento en ambos teléfonos localmente e inserte los cambios de nuevo en el servidor. Al hacerlo, permitirá al usuario en cada teléfono elegir qué versión quiere conservar: * mantener la versión del cliente (que reemplaza la versión del servidor), * mantener la versión del servidor (que actualiza la tabla local del cliente) o *no mantener ninguna versión (cancela la inserción y deja la operación pendiente).
+Al final de este tutorial, si ejecuta esta aplicación en dos teléfonos, cambie el mismo elemento en ambos teléfonos localmente e inserte los cambios de nuevo en el servidor, así permitirá al usuario de cada teléfono elegir la versión que quiere mantener:
+  * mantener la versión de cliente (que anula la versión en el servidor),
+  * mantener la versión de servidor (que actualiza la tabla local del cliente) o
+  * no mantener ninguna versión (cancela la inserción y deja la operación pendiente).
 
 Ahora, vamos a agregar el controlador de conflictos para habilitar esta capacidad.
 
@@ -144,4 +146,4 @@ Realice el gesto de actualizar en las instancias de la aplicación arrastrando d
 [Introducción a los datos sin conexión]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

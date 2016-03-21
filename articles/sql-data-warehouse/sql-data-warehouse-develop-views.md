@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
- 
+
 # Vistas en el Almacenamiento de datos SQL
 
 Las vistas son especialmente útiles en el Almacenamiento de datos SQL. Se pueden usar de formas diferentes para mejorar la calidad de la solución.
@@ -33,7 +33,7 @@ CREATE TABLE dbo.DimDate_New
 WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
 )
-AS 
+AS
 SELECT *
 FROM   dbo.DimDate  AS prod
 UNION ALL
@@ -54,7 +54,12 @@ Las vistas son una manera inteligente de aplicar combinaciones de rendimiento op
 ## Limitaciones
 Las vistas en el almacenamiento de datos SQL son solo metadatos.
 
-En consecuencia, las siguientes opciones no se encuentran disponibles: - No hay opción de enlace de esquemas. - Las tablas de base no se pueden actualizar a través de la vista. - Las vistas no pueden crearse sobre tablas temporales. - No se admiten las sugerencias EXPAND / NOEXPAND. - No hay vistas indexadas en el Almacenamiento de datos SQL.
+Por lo tanto, no están disponibles las siguientes opciones:
+- 	No hay ninguna opción de enlace de esquema.
+- 	Las tablas base no se puede actualizar a través de la vista.
+- 	No se pueden crear vistas en tablas temporales.
+- 	No hay compatibilidad con las sugerencias EXPAND y NOEXPAND.
+- 	No hay ninguna vista indexada en Almacenamiento de datos SQL.
 
 
 ## Pasos siguientes
@@ -69,4 +74,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

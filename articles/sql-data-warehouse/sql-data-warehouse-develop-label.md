@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Uso de etiquetas para instrumentar consultas en Almacenamiento de datos SQL
@@ -37,9 +37,9 @@ Para buscar por etiqueta, puede usar la siguiente consulta que emplea las vistas
 	FROM    sys.dm_pdw_exec_requests r
 	WHERE   r.[label] = 'My Query Label'
 	;
-	``` 
+	```
 
-> [AZURE.NOTE]Es esencial que encierre entre corchetes o comillas dobles la etiqueta de la palabra al consultar. Etiqueta es una palabra reservada y producirá un error si no se ha delimitado.
+> [AZURE.NOTE] Es esencial que encierre entre corchetes o comillas dobles la etiqueta de la palabra al consultar. Etiqueta es una palabra reservada y producirá un error si no se ha delimitado.
 
 
 ## Pasos siguientes
@@ -54,4 +54,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

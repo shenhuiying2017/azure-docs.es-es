@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Bucles en Almacenamiento de datos SQL
@@ -25,10 +25,10 @@ Sin embargo, antes de profundizar en el tema, debe hacerse la siguiente pregunta
 Los cursores de avance rápido y solo lectura se pueden reemplazar fácilmente por una construcción de bucle. A continuación se muestra un ejemplo sencillo: Este código de ejemplo actualiza las estadísticas de todas las tablas de la base de datos. Mediante la iteración a través de las tablas del bucle, podemos ejecutar cada comando en una secuencia.
 
 En primer lugar, cree una tabla temporal que contenga un número de fila único usado para identificar las instrucciones individuales:
-  
+
 ```
-CREATE TABLE #tbl 
-WITH 
+CREATE TABLE #tbl
+WITH
 ( DISTRIBUTION = ROUND_ROBIN
 )
 AS
@@ -81,4 +81,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

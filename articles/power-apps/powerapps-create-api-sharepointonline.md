@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Crear una nueva API de SharePoint Online en el entorno del Servicio de aplicaciones de la organización
+# Creación de una nueva API de SharePoint Online en PowerApps Enterprise
+
+Agregue la API de SharePoint Online al entorno del Servicio de aplicaciones de su organización (inquilino).
 
 ## Crear la API en el portal de Azure
 
@@ -25,7 +27,7 @@
  
 2. Seleccione **Examinar** en la barra de tareas: ![][14]
 
-3. En la lista, puede desplazarse para encontrar PowerApps o escribir en *powerapps*: ![][15]
+3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: ![][15]
 
 4. En **PowerApps**, seleccione **Administrar API**: ![Examine las APIs registradas][1]
 
@@ -39,7 +41,7 @@
 
 9. Escriba el *Id. de cliente* y el *Secreto de la aplicación* de la aplicación Azure Active Directory (AAD) de SharePoint Online. Si no dispone de estos, consulte la sección "Registrar una aplicación de AAD para su uso con PowerApps" en este tema para crear el identificador y los valores secretos que necesita.
 
-	> [AZURE.IMPORTANT]Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
+	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
 
 10. Seleccione **Aceptar** para completar los pasos.
 
@@ -52,7 +54,7 @@ Cuando termine, se agregará una nueva API de SharePoint Online en el entorno de
 
 2. Seleccione **Examinar** y, a continuación, seleccione **Active Directory**:
 
-	> [AZURE.NOTE]De este modo se abre Active Directory en el Portal de Azure clásico.
+	> [AZURE.NOTE] De este modo se abre Active Directory en el Portal de Azure clásico.
 
 3. Seleccione el nombre del inquilino de su organización: ![Iniciar Azure Active Directory][6]
 
@@ -110,4 +112,4 @@ En este tema, ha agregado la API de SharePoint Online para su empresa PowersApps
 [14]: ./media/powerapps-create-api-sharepointonline/browseall.png
 [15]: ./media/powerapps-create-api-sharepointonline/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

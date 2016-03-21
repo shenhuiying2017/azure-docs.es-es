@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="03/02/2016"
 	ms.author="roalexan" />
 
 
@@ -26,7 +26,7 @@ En esta guía se muestra cómo empezar a usar rápidamente la Administración de
 
 ##¿Qué es la Administración de API de Azure?
 
-Administración de API de Azure es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Haga clic [aquí](https://azure.microsoft.com/services/api-management/) para obtener más información sobre Administración de API de Azure. Haga clic [aquí](api-management/api-management-get-started.md) para obtener una guía sobre cómo empezar a trabajar con Administración de API de Azure. Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.
+Administración de API de Azure es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Haga clic [aquí](https://azure.microsoft.com/services/api-management/) para obtener más información sobre Administración de API de Azure. Haga clic [aquí](../api-management/api-management-get-started.md) para obtener una guía sobre cómo empezar a trabajar con Administración de API de Azure. Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.
 
 ##¿Qué es AzureML?
 
@@ -38,7 +38,7 @@ Para completar a esta guía, necesita:
 
 * Una cuenta de Azure. Si no tiene una cuenta de Azure, haga clic [aquí](https://azure.microsoft.com/pricing/free-trial/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
 * Una cuenta de AzureML. Si no dispone de una cuenta de Aprendizaje automático de Azure, haga clic [aquí](https://studio.azureml.net/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
-* El área de trabajo, el servicio y la api\_key para un experimento de Aprendizaje automático de Azure implementado como un servicio web. Haga clic [aquí](machine-learning/machine-learning-create-experiment.md) para obtener más información sobre cómo crear un experimento de Aprendizaje automático de Azure. Haga clic [aquí](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obtener más información sobre cómo implementar un experimento de Aprendizaje automático de Azure como un servicio web. Además, el Apéndice A contiene instrucciones sobre cómo crear y probar un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web.
+* El área de trabajo, el servicio y la api\_key para un experimento de Aprendizaje automático de Azure implementado como un servicio web. Haga clic [aquí](machine-learning-create-experiment.md) para obtener más información sobre cómo crear un experimento de Aprendizaje automático de Azure. Haga clic [aquí](machine-learning-publish-a-machine-learning-web-service.md) para obtener más información sobre cómo implementar un experimento de Aprendizaje automático de Azure como un servicio web. Además, el Apéndice A contiene instrucciones sobre cómo crear y probar un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web.
 
 ##Creación de una instancia de Administración de API
 
@@ -198,7 +198,7 @@ Haga clic en **Sí** para publicar el experimento.
 
 ###Prueba del servicio web
 
-Un servicio web de AzureML consta de los extremos RRS (servicio de solicitud/respuesta) y BES (servicio de ejecución por lotes). RRS sirve para la ejecución sincrónica. BES sirve para la ejecución por lotes asincrónica. Para probar el servicio web con el origen de Python del ejemplo siguiente, puede que necesite descargar e instalar el SDK de Azure para Python (consulte: [Cómo instalar Python](python-how-to-install.md)).
+Un servicio web de AzureML consta de los extremos RRS (servicio de solicitud/respuesta) y BES (servicio de ejecución por lotes). RRS sirve para la ejecución sincrónica. BES sirve para la ejecución por lotes asincrónica. Para probar el servicio web con el origen de Python del ejemplo siguiente, puede que necesite descargar e instalar el SDK de Azure para Python (consulte: [Cómo instalar Python](../python-how-to-install.md)).
 
 También necesitará el **área de trabajo**, el **servicio** y la **api\_key** del experimento para el origen del ejemplo siguiente. Puede encontrar el área de trabajo y el servicio haciendo clic en **Solicitud/respuesta** o en **Ejecución por lotes** del experimento en el panel del servicio web.
 
@@ -384,4 +384,4 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

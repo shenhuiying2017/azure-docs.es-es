@@ -19,12 +19,13 @@
 
 # Uso de la biblioteca de cliente Android para Servicios móviles
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
-
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Uso de la biblioteca de cliente Android para Aplicaciones móviles](../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md).
+ 
 Esta guía le indica cómo enfrentarse a determinadas situaciones habituales usando un cliente Android para Servicios móviles de Azure. Entre las situaciones tratadas se encuentran la consulta, la inserción, la actualización y la eliminación de los datos, la autenticación de los usuarios, la administración de los errores y la personalización del cliente.
 
 Si no tiene experiencia en el uso de Servicios móviles, complete primero el tutorial de inicio rápido [Introducción a Servicios móviles]. Completar ese tutorial garantiza que habrá instalado Android Studio; le ayudará a configurar su cuenta y crear su primer servicio móvil para instalar el SDK de servicios móviles, que admite la versión Android 2.2 o posteriores, pero se recomienda usar la versión de Android 4.2 o posteriores.
@@ -662,7 +663,7 @@ Una API personalizada le permite definir extremos personalizados que exponen la 
 
 ##<a name="authentication"></a>Autenticación de usuarios
 
-Servicios móviles es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externas: Facebook, Google, Microsoft Account, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en el back-end. Para obtener más información, vea [Introducción a la autenticación](http://go.microsoft.com/fwlink/p/?LinkId=296316).
+Servicios móviles es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externas: Facebook, Google, Microsoft Account, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en el back-end. Para obtener más información, vea [Introducción a la autenticación](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
 Se admiten dos flujos de autenticación: un *server* flow y un *client* flow. El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo de cliente permite una mayor integración con capacidades específicas del dispositivo, como el inicio de sesión único, ya que se basa en SDK específicos del dispositivo y específicos del proveedor.
 
@@ -721,7 +722,7 @@ Estas dos primeras tareas se realizan usando el [Portal de Azure clásico](https
 
     Este código autentica al usuario con el inicio de sesión de Google. Aparecerá un diálogo que muestra el identificador del usuario autenticado. No puede continuar sin una autenticación positiva.
 
-    > [AZURE.NOTE]Si usa un proveedor de identidades que no sea Google, cambie el valor pasado al método **login** anterior a uno de los siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Si usa un proveedor de identidades que no sea Google, cambie el valor pasado al método **login** anterior a uno de los siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _WindowsAzureActiveDirectory_.
 
 
 3. Cuando ejecute la aplicación, inicie sesión con el proveedor de identidades que haya elegido.
@@ -937,4 +938,4 @@ Este método general se puede usar siempre que tengamos un objeto complejo que n
 [Introducción a Servicios móviles]: mobile-services-android-get-started.md
 [Códigos de control ASCII C0 y C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

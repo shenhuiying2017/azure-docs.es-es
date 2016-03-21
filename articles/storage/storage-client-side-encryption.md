@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="02/24/2016"
 	ms.author="lakasa"/>
 
 
@@ -249,4 +249,4 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 - Descargue los paquetes NuGet [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure.  
 - Consulte la [Documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -65,7 +65,7 @@ Para escribir una función que el SDK de WebJobs llama cuando se recibe un mensa
 
 El SDK de recibe un mensaje en el modo `PeekLock` y llama a `Complete` en el mensaje si la función finaliza correctamente, o llama a `Abandon` si se produce un error en la función. Si la ejecución de la función dura más que el tiempo de espera de `PeekLock`, el bloqueo se renovará automáticamente.
 
-El Bus de servicio hace su propio control de la cola de daños, para que no lo controle el SDK de WebJobs ni sea configurable en él.
+El Bus de servicio realiza su propia administración de la cola de daños que el SDK de WebJobs no puede controlar ni configurar.
 
 ### Mensajes en cola de cadena
 
@@ -186,4 +186,4 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con el Bus de servicio de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

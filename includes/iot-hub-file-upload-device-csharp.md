@@ -66,12 +66,12 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
     Este método usa el SDK de Almacenamiento de Azure para cargar un blob de 10 megabytes generado de forma aleatoria en el URI especificado. Consulte [Almacenamiento de Azure - Uso de blobs] para obtener más información sobre cómo cargar blobs.
 
-> [AZURE.NOTE]Observe que esta implementación del dispositivo simulado solo completa el mensaje de nube a dispositivo una vez cargado el blob. Este enfoque simplifica el procesamiento de los archivos cargados en el back-end porque la confirmación de entrega representa la disponibilidad del archivo cargado para su procesamiento. Pero, como se explica en la [Guía para desarrolladores del Centro de IoT][IoT Hub Developer Guide - C2D], un mensaje que no se completa antes del *tiempo de espera de visibilidad* (normalmente 1 minuto) se vuelve a colocar en la cola del dispositivo y el método **ReceiveAsync()** lo volverá a recibir. En escenarios donde la carga de archivos puede tardar más tiempo, tal vez sea preferible que el dispositivo simulado mantenga un almacén permanente de los trabajos de carga actuales. Esto permite al dispositivo simulado completar el mensaje de nube a dispositivo antes de que finalice la carga de archivos y luego enviar un mensaje de dispositivo a nube notificando la finalización al back-end.
+> [AZURE.NOTE] Observe que esta implementación del dispositivo simulado solo completa el mensaje de nube a dispositivo una vez cargado el blob. Este enfoque simplifica el procesamiento de los archivos cargados en el back-end, ya que la confirmación de entrega representa la disponibilidad del archivo cargado para su procesamiento. Pero, como se explica en la [Guía para desarrolladores del Centro de IoT][IoT Hub Developer Guide - C2D], un mensaje que no se completa antes del *tiempo de espera de visibilidad* (normalmente 1 minuto) se vuelve a colocar en la cola del dispositivo y el método **ReceiveAsync()** lo volverá a recibir. En escenarios donde la carga de archivos puede tardar más tiempo, tal vez sea preferible que el dispositivo simulado mantenga un almacén permanente de los trabajos de carga actuales. Esto permite al dispositivo simulado completar el mensaje de nube a dispositivo antes de que finalice la carga de archivos y, luego, enviar un mensaje de dispositivo a nube notificando de la finalización al back-end.
 
 <!-- Links -->
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Almacenamiento de Azure - Uso de blobs]: https://azure.microsoft.com/es-ES/documentation/articles/storage-dotnet-how-to-use-blobs/#upload-a-blob-into-a-container
+[Almacenamiento de Azure - Uso de blobs]: ../storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
 
 <!-- Images -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->
