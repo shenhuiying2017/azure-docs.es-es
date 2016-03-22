@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Importación de datos en Búsqueda de Azure con el Portal | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-	description="Carga de datos en un índice de Búsqueda de Azure con el Portal"
+	pageTitle="Importación de datos en Búsqueda de Azure mediante indexadores en el Portal de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
+	description="Cómo utilizar los indexadores en el Portal de Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,16 +14,10 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
+	ms.date="03/10/2016"
 	ms.author="heidist"/>
 
 # Importación de datos en Búsqueda de Azure con el Portal
-> [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST API](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 El Portal de Azure incluye un comando **Importar datos** en el panel de Búsqueda de Azure que lo guía por la ingesta de datos de Búsqueda de Azure. El comando se basa en la característica de indexadores integrados que rastrea un origen de datos existente, y crea y carga documentos basados en el conjunto de filas que se encuentra en el origen de datos.
 
@@ -51,8 +45,8 @@ Puede probar este flujo de trabajo con datos de ejemplo. Visite [Introducción a
 
 4. Haga clic en **Conectar a los datos** para especificar una definición de origen de datos usada por un indexador. Las opciones incluyen:
 	- 	El origen de datos existente hace referencia a una definición de origen de datos creada anteriormente para un indexador. Si ya tiene indexadores definidos en el servicio de búsqueda, puede volver a usar una definición de origen de datos para otra importación.
-	- 	Se usa SQL Azure para especificar una conexión de origen de datos a una Base de datos SQL en Azure o a una base de datos de SQL Server en una máquina virtual de Azure. 
-	- 	DocumentDB se usa para especificar una conexión de origen de datos para ese tipo de origen de datos. 
+	- 	Se usa SQL Azure para especificar una conexión de origen de datos a una Base de datos SQL en Azure o a una base de datos de SQL Server en una máquina virtual de Azure.
+	- 	DocumentDB se usa para especificar una conexión de origen de datos para ese tipo de origen de datos.
 
    Para SQL Azure y DocumentDB, la base de datos debe existir en la suscripción. Puede pegar una cadena de conexión si la conoce o elegir un origen de datos creado anteriormente por alguien que tenga privilegios de escritura para la suscripción.
 
@@ -71,9 +65,9 @@ Puede probar este flujo de trabajo con datos de ejemplo. Visite [Introducción a
 6. Haga clic en **Importar los datos** para ejecutar la operación de importación mediante la opción Ejecutar ahora, o configurar una programación periódica.
 
 La operación de importación de datos que acaba de completar ha creado un indexador en segundo plano. Ahora puede editar el indexador directamente para cambiar cualquiera de sus componentes.
-	
+
 ##Edición de un indexador existente
 
 En el panel de servicios, haga doble clic en el icono del indexador para mostrar una lista de todos los indexadores creados para su suscripción. Haga doble clic en uno de ellos para ejecutarlo, editarlo o eliminarlo.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

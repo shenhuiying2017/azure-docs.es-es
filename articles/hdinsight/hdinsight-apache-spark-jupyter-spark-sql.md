@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/07/2016"
+	ms.date="03/10/2016"
 	ms.author="nitinme"/>
 
 
@@ -39,82 +39,47 @@ Obtenga información sobre cómo crear un clúster Apache Spark en HDInsight y d
 	-  Desde un equipo con Windows: [Utilización de SSH con HDInsight basado en Linux (Hadoop) desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 
-## Creación de un clúster Spark en HDInsight Linux
+## Creación de un clúster de Spark
 
-En esta sección, se crea un clúster de HDInsight versión 3.3, que se basa en la versión 1.5.1 de Spark. Para obtener información acerca de las diferentes versiones de HDInsight y sus contratos de nivel de servicio, consulte la página [Control de versiones de componentes de HDInsight](hdinsight-component-versioning.md).
+En esta sección, se crea un clúster de HDInsight versión 3.3 (Spark versión 1.5.1) mediante una plantilla de ARM de Azure. Para obtener información acerca de las diferentes versiones de HDInsight y sus contratos de nivel de servicio, consulte la página [Control de versiones de componentes de HDInsight](hdinsight-component-versioning.md). Para conocer otros métodos de creación de clústeres, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
->[AZURE.NOTE] En este artículo, se proporcionan pasos para crear un clúster Apache Spark en HDInsight con los valores de configuración básica. Si quiere información sobre otras opciones de configuración del clúster (como usar almacenamiento adicional, una red virtual de Azure o una tienda de metadatos para Hive), vea [Creación de clústeres HDInsight Spark usando opciones personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
+1. Haga clic en la imagen siguiente para abrir una plantilla ARM en el Portal de Azure.         
 
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/es-ES/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    
+    La plantilla de ARM se encuentra en un contenedor de blobs público, **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*.
+   
+2. En la hoja Parámetros, escriba lo siguiente:
 
-**Para crear un clúster Spark**
-
-1. Inicie sesión en el [Portal de vista previa de Azure](https://ms.portal.azure.com/).
-
-2. Haga clic en **NUEVO**, en **Datos y análisis** y luego en **HDInsight**.
-
-    ![Crear un nuevo clúster en el Portal de vista previa de Azure](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.1.png "Crear un nuevo clúster en el Portal de vista previa de Azure")
-
-3. Escriba un nombre en **Nombre de clúster**, seleccione **Spark** en **Tipo de clúster** y, en el menú desplegable **Sistema operativo de clúster**, seleccione **Linux** y luego seleccione la versión de Spark. Si está disponible, aparece una marca de verificación verde junto al nombre de clúster.
-
-	![Especifique el tipo y el nombre del clúster](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.2.png "Especifique el tipo y el nombre del clúster")
-
-4. Si tiene más de una suscripción, haga clic en la entrada **Suscripción** para seleccionar la suscripción de Azure que se usará para el clúster.
-
-5. Haga clic en **Grupo de recursos** para ver una lista de grupos de recursos existentes y seleccione dónde crear el clúster. También puede hacer clic en **Crear nuevo** y luego escribir el nombre del nuevo grupo de recursos. Aparece una marca de verificación verde para indicar si el nuevo nombre de grupo está disponible.
-
-	> [AZURE.NOTE] Esta entrada se establece de manera predeterminada en uno de los grupos de recursos existentes, si hay alguno disponible.
-
-6. Haga clic en **Credenciales** y escriba una contraseña para el usuario administrador. También debe especificar un **nombre de usuario de SSH**. En **Tipo de autenticación SSH**, haga clic en **CONTRASEÑA** y especifique una contraseña para el usuario de SSH. Haga clic en **Seleccionar** en la parte inferior para guardar la configuración de las credenciales.
-
-	![Proporcione las credenciales del clúster](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.3.png "Proporcione las credenciales del clúster")
+    - **ClusterName**: escriba el nombre del clúster de Hadoop que va a crear.
+    - **Nombre de inicio de sesión y contraseña de clúster**: el nombre de inicio de sesión predeterminado es admin.
+    - **Nombre de usuario y contraseña de SSH**.
+    
+    Escriba estos valores. Los necesitará más adelante en el tutorial.
 
     > [AZURE.NOTE] SSH sirve para tener acceso remoto a un clúster de HDInsight mediante una línea de comandos. El nombre de usuario y la contraseña que usa aquí se emplean al conectarse al clúster a través de SSH. Además, el nombre de usuario SSH tiene que ser único, ya que crea una cuenta de usuario en todos los nodos del clúster de HDInsight. A continuación se indican algunos de los nombres de cuenta reservados para su uso en los servicios que se ejecutan en el clúster y no pueden usarse como nombre de usuario SSH:
     >
     > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
-	Para obtener más información sobre el uso de SSH con HDInsight, vea uno de los siguientes artículos:
+	> Para obtener más información sobre el uso de SSH con HDInsight, vea uno de los siguientes artículos:
 
-	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+	> * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+	> * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+    
+3\. Haga clic en **Aceptar** para guardar los parámetros.
+
+4\. En la hoja **Implementación personalizada**, haga clic en el cuadro desplegable **Grupo de recursos** y, después, haga clic en **Nuevo** para crear un grupo de recursos nuevo. El grupo de recursos es un contenedor que agrupa al clúster, a la cuenta de almacenamiento dependiente y a otros recursos vinculados.
+
+5\. Haga clic en **Condiciones legales** y, luego, en **Crear**.
+
+6\. Haga clic en **Crear**. Verá un icono nuevo llamado Envío de implementación para la implementación de plantilla. Tarda aproximadamente 20 minutos en crear un clúster y la base de datos SQL.
 
 
-7. Haga clic en **Origen de datos** para elegir un origen de datos existente para el clúster o crear uno nuevo. Cuando crea un clúster de Hadoop en HDInsight, especifica una cuenta de Almacenamiento de Azure. Se designa un contenedor de almacenamiento de blobs desde esa cuenta como el sistema de archivos predeterminado, como en el sistema de archivos distribuido de Hadoop (HDFS). De forma predeterminada, el clúster de HDInsight se crea en el mismo centro de datos que la cuenta de almacenamiento que especifica. Para obtener más información, vea [Uso del almacenamiento de blobs de Azure con HDInsight][hdinsight-storage]
 
-	![Hoja Origen de datos](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.4.png "Proporcione la configuración del origen de datos")
+## Ejecución de consultas SQL Spark mediante un cuaderno de Jupyter Notebook
 
-	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Use lo siguiente para comprender las entradas de la hoja **Origen de datos**.
-
-	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si desea especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
-
-	- **Seleccionar cuenta de almacenamiento o Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparece una marca de verificación verde.
-
-	- **Elegir contenedor predeterminado**: use esta opción para escribir el nombre del contenedor predeterminado que se usará para el clúster. Aunque se puede escribir cualquier nombre aquí, se recomienda usar el mismo nombre que el del clúster para que pueda reconocer fácilmente que el contenedor se usa para este clúster concreto.
-
-	- **Ubicación**: región geográfica en la que se encuentra la cuenta de almacenamiento o donde se creará.
-
-		> [AZURE.IMPORTANT] Al seleccionar la ubicación del origen de datos predeterminado también establece la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben encontrarse en la misma región.
-
-	Haga clic en **Seleccionar** para guardar la configuración del origen de datos.
-
-8. Haga clic en **Planes de tarifa de nodo** para mostrar información sobre los nodos que se creen para este clúster. Establezca el número de nodos de trabajo que necesita para el clúster. El costo estimado del clúster se mostrará en la hoja.
-
-	![Hoja Niveles de precios de nodo](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.5.png "Especifique el número de nodos de clúster")
-
-	Haga clic en **Seleccionar** para guardar la configuración de los precios del nodo.
-
-9. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que la opción **Anclar a Panel de inicio** está seleccionada y haga clic en **Crear**. Esto crea el clúster y agrega un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster se está creando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
-
-	| Al crear | Creación completa |
-	| ------------------ | --------------------- |
-	| ![Indicador de creación en el Panel de inicio](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioning.png) | ![Icono de clúster aprovisionado](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioned.png) |
-
-	> [AZURE.NOTE] El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de creación.
-
-10. Una vez que termine la creación, haga clic en el icono del clúster Spark desde el panel de inicio para iniciar la hoja del clúster.
-
-## <a name="jupyter"></a>Ejecución de consultas Spark SQL mediante un cuaderno de Jupyter
-
-En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark SQL en un clúster Spark. De forma predeterminada el cuaderno de Jupyter incorpora un kernel **Python2**. Los clústeres de HDInsight Spark proporcionan dos kernels adicionales que puede utilizar con el cuaderno de Jupyter. Dichos componentes son:
+En esta sección, utilice un cuaderno de Jupyter Notebook, para ejecutar consultas Spark SQL en un clúster Spark. De forma predeterminada el cuaderno de Jupyter incorpora un kernel **Python2**. Los clústeres de HDInsight Spark proporcionan dos kernels adicionales que puede utilizar con el cuaderno de Jupyter. Dichos componentes son:
 
 * **PySpark** (para aplicaciones escritas con Python)
 * **Spark** (para aplicaciones escritas con Scala)
@@ -125,7 +90,7 @@ En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponi
 * Puede usar instrucciones mágicas de celda diferentes (como %%sql o %%hive) para ejecutar directamente las consultas de SQL o Hive, sin los fragmentos de código anteriores.
 * Se visualiza automáticamente el resultado de las consultas de SQL o Hive.
 
-### Creación de un cuaderno de Jupyter con el kernel de PySpark 
+### Creación de un cuaderno de Jupyter Notebook con el kernel de PySpark 
 
 1. Desde el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ha fijado en el panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
@@ -170,10 +135,10 @@ En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponi
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Dado que está usando un kernel de PySpark, puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para obtener más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Al usar un kernel de PySpark, puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
-		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"")
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13")
 
 5. Una vez que el trabajo se completa correctamente, se muestra de forma predeterminada el resultado tabular siguiente.
 
@@ -191,7 +156,7 @@ En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponi
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-## <a name="seealso"></a>Otras referencias
+## Consulte también
 
 
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
@@ -241,4 +206,4 @@ En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponi
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

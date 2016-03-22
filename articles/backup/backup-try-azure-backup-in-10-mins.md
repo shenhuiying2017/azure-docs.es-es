@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Primer vistazo: cómo hacer una copia de seguridad de un equipo con Windows Server o un equipo cliente en Azure | Microsoft Azure"
-   description="Obtenga información acerca de cómo hacer una copia de seguridad de un equipo con Windows Server mediante Copia de seguridad de Azure mediante estos sencillos pasos"
+   pageTitle="Copia de seguridad de archivos y carpetas de Windows en Azure | Microsoft Azure"
+   description="Proteger los datos de Windows Server mediante la creación de un almacén, la instalación del Agente de Copia de seguridad y la realización de una copia de seguridad de archivos y carpetas en Azure"
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
@@ -14,25 +14,27 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="hero-article"
-	 ms.date="02/21/2016"
+	 ms.date="03/09/2016"
 	 ms.author="jimpark;"/>
 
-# Realización de copias de seguridad de archivos y carpetas de Windows Server o del Cliente de Windows en Azure
+# Primer análisis: copia de seguridad de archivos y carpetas del servidor o cliente de Windows Server en Azure
 
-En unos pocos pasos puede realizar una copia de seguridad de su equipo Windows (cliente Windows o Windows Server) en Azure. Cuando haya completado los 4 pasos que se indican a continuación, habrá:
+En unos pocos pasos puede realizar una copia de seguridad de su equipo Windows (cliente Windows o Windows Server) en Azure.
 
-- Configurado una suscripción de Azure (si es necesario).
-- Creado un almacén de copia de seguridad y descargado los componentes necesarios.
-- Preparado el servidor de Windows o el cliente mediante la instalación y registro de dichos componentes.
-- Realizado una copia de seguridad de los datos.
+Solo requiere los pasos siguientes:
+
+![Paso 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Obtener una suscripción de Azure (si es necesario).<br> ![Paso 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Crear un almacén de copia de seguridad y descargar los componentes necesarios.<br> ![Paso 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Preparar el servidor o cliente de Windows Server mediante la instalación y registro de dichos componentes.<br> ![Paso 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Proteger los datos.
+
+
+![Proceso de copia de seguridad del servidor y cliente de Windows Server](./media/backup-try-azure-backup-in-10-mins/windows-machine-backup-process.png)
 
 ## Paso 1: obtener una suscripción de Azure
 
-Si no tiene una suscripción de Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) que permite el acceso a cualquier servicio de Azure.
+Si no tiene una suscripción de Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) que le permita acceder a cualquier servicio de Azure.
 
 >[AZURE.NOTE] Puede omitir este paso si ya tiene una suscripción de Azure.
 
-## Paso 2: Creación de un almacén de copia de seguridad
+## Paso 2: Crear un almacén de copia de seguridad y descargar los componentes necesarios
 
 Para hacer una copia de seguridad de los archivos y los datos de un equipo Windows en Azure, debe crear un almacén de copia de seguridad en la región geográfica donde desea almacenar los datos.
 
@@ -44,7 +46,7 @@ Para hacer una copia de seguridad de los archivos y los datos de un equipo Windo
 
     a. En la pantalla que aparece, en el campo **Nombre**, escriba un nombre descriptivo para identificar el almacén de copia de seguridad. Escriba un nombre que tenga entre 2 y 50 caracteres. El campo debe comenzar por una letra y solo puede contener letras, números y guiones.
 
-    b. En **Región**, elija la región geográfica para el almacén de copia de seguridad. Si elige una región geográfica cerca de su ubicación, puede reducir la latencia de red al hacer una copia de seguridad en Azure.
+    b. En **Región**, elija la región geográfica del almacén de copia de seguridad. Si elige una región geográfica cerca de su ubicación, puede reducir la latencia de red al hacer una copia de seguridad en Azure.
 
     c. Haga clic en **Crear almacén**.
 
@@ -54,7 +56,7 @@ Para hacer una copia de seguridad de los archivos y los datos de un equipo Windo
 
     ![Creación de almacén](./media/backup-try-azure-backup-in-10-mins/creatingvault1.png)
 
-    Una vez creado el almacén de copia de seguridad, verá que aparece en los recursos de Servicios de recuperación como **Active** (Activo).
+    Una vez que se ha creado el almacén de copia de seguridad, lo verá en la lista de recursos de Servicios de recuperación como **Activo**.
 
     ![Estado de creación de almacén](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
@@ -62,9 +64,9 @@ Para hacer una copia de seguridad de los archivos y los datos de un equipo Windo
 
     El mejor momento para seleccionar la opción de redundancia de almacenamiento es justo después de la creación del almacén y antes de que las máquinas se registren en este. Una vez que un elemento se ha registrado en el almacén, la opción de redundancia de almacenamiento está bloqueada y no se puede modificar.
 
-    Si usa Azure como punto de conexión principal de almacenamiento de copias de seguridad (por ejemplo, realiza una copia de seguridad en Azure desde Windows Server), debería considerar seleccionar la opción [Almacenamiento con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) (predeterminada).
+    Si usa Azure como punto de conexión de almacenamiento de copias de seguridad principal (por ejemplo, si realiza una copia de seguridad en Azure desde un servidor de Windows), debe considerar la posibilidad de seleccionar la opción de [almacenamiento con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) (valor predeterminado).
 
-    Si utiliza Azure como punto de conexión terciario de almacenamiento de copias de seguridad (por ejemplo, usa SCDPM para tener una copia de seguridad local y utiliza Azure para cubrir sus necesidades de retención a largo plazo), debería considerar elegir [Almacenamiento con redundancia local](../storage/storage-redundancy.md#locally-redundant-storage). Esto reduce el costo de almacenamiento de datos en Azure, a la vez que ofrece un menor nivel de durabilidad de los datos, el cual podría ser aceptable para copias terciarias.
+    Si usa Azure como punto de conexión de almacenamiento de copias de seguridad terciario (por ejemplo, si usa SCDPM para tener una copia de seguridad local y Azure para cubrir sus necesidades de retención a largo plazo), debería considerar la posibilidad de elegir el [almacenamiento con redundancia local](../storage/storage-redundancy.md#locally-redundant-storage). Esto reduce el costo de almacenamiento de datos en Azure, a la vez que ofrece un menor nivel de durabilidad de los datos, el cual podría ser aceptable para copias terciarias.
 
     a. Haga clic en el almacén que acaba de crear.
 
@@ -74,7 +76,7 @@ Para hacer una copia de seguridad de los archivos y los datos de un equipo Windo
 
     c. Elija la opción de redundancia de almacenamiento adecuada.
 
-    Si ha seleccionado **Localmente redundante**, será preciso que haga clic en **Guardar**, ya que la opción predeterminada es **Redundancia geográfica**.
+    Si ha seleccionado **Almacenamiento con redundancia local**, haga clic en **Guardar**, ya que la opción predeterminada es **Almacenamiento con redundancia geográfica**.
 
     ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
 
@@ -96,7 +98,7 @@ Para hacer una copia de seguridad de los archivos y los datos de un equipo Windo
 
     >[AZURE.NOTE] El archivo de credenciales de almacén se utiliza solo durante el flujo de trabajo de registro y expira tras 48 horas.
 
-6. Haga clic en **Guardar** para descargar las credenciales del almacén en la carpeta de **descargas** de la cuenta local, o bien elija **Guardar como** en el menú **Guardar** para especificar una ubicación para las credenciales del almacén.
+6. Haga clic en **Guardar** para descargar las credenciales del almacén en la carpeta **Descargas** de la cuenta local, o bien elija **Guardar como** en el menú **Guardar** para especificar la ubicación de las credenciales del almacén.
 
     ![Seleccionar almacén de copia de seguridad](./media/backup-try-azure-backup-in-10-mins/save.png)
 
@@ -106,17 +108,17 @@ Para hacer una copia de seguridad de los archivos y los datos de un equipo Windo
 
     A continuación, debe descargar el agente de copia de seguridad
 
-7. Haga clic en **Servicios de recuperación**, en el panel de navegación izquierdo, y luego haga clic en el almacén de copia de seguridad que desea registrar en un servidor.
+7. Haga clic en **Servicios de recuperación**, en el panel de navegación izquierdo, y luego haga clic en el almacén de copias de seguridad que desee registrar en un servidor.
 
     ![Seleccionar almacén de copia de seguridad](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
-8. En la página Inicio rápido, haga clic en **Agente para Windows Server, System Center Data Protection Manager o cliente de Windows > Guardar** (o seleccione **Guardar como** en el menú **Guardar** para especificar la ubicación del agente).
+8. En la página Inicio rápido, haga clic en **Agente para Windows Server, System Center Data Protection Manager o cliente de Windows > Guardar** (o bien seleccione **Guardar como** en el menú **Guardar** para especificar la ubicación del agente).
 
     ![Guardar agente](./media/backup-try-azure-backup-in-10-mins/agent.png)
 
 Llegados a este punto, habrá terminado de crear un almacén de copia de seguridad y de descargar los componentes necesarios. Ahora podrá instalar el agente de copia de seguridad.
 
-## Paso 3: Instalación del agente de Copia de seguridad de Azure en su servidor o cliente de Windows
+## Paso 3: Preparar el servidor o cliente de Windows Server mediante la instalación y registro de dichos componentes
 
 1. Una vez finalizada la descarga, haga doble clic en el archivo **MARSagentinstaller.exe** desde la ubicación guardada (o puede hacer clic en **Ejecutar**, en lugar de guardar el archivo en el paso anterior).
 
@@ -128,7 +130,7 @@ Llegados a este punto, habrá terminado de crear un almacén de copia de segurid
 
     ![Directorio temporal y caché](./media/backup-try-azure-backup-in-10-mins/recovery-services-agent-setup-wizard-1.png)
 
-3. Aún puede conectarse a Internet a través de la configuración predeterminada del proxy o, si usa un servidor proxy para conectarse a Internet, en la pantalla **Configuración de proxy**, active la casilla **Utilice una configuración de proxy personalizada** y especifique los detalles del servidor proxy.
+3. Puede seguir conectándose a Internet a través de la configuración predeterminada del proxy o, si usa un servidor proxy para conectarse a Internet, en la pantalla **Configuración de proxy**, active la casilla **Utilice una configuración de proxy personalizada** y especifique los detalles del servidor proxy.
 
     Si utiliza un servidor proxy autenticado, escriba los detalles de nombre y contraseña del usuario.
 
@@ -170,9 +172,9 @@ Llegados a este punto, habrá terminado de crear un almacén de copia de segurid
 
     La máquina se registra correctamente en el almacén y ahora está listo para configurar y programar las opciones de copia de seguridad.
 
-## Paso 4: Realización de copias de seguridad de archivos y carpetas
+## Paso 4: Proteger los datos
 
-1. En el complemento MMC (que se abre automáticamente si ha dejado la casilla **Inicio del agente de Servicios de recuperación de Microsoft Azure** activada) haga clic en **Programar copia de seguridad**.
+1. En el **agente de Copia de seguridad** (que se abre automáticamente si se ha dejado la casilla **Inicio del agente de Servicios de recuperación de Microsoft Azure** activada) haga clic en **Programar copia de seguridad**.
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-try-azure-backup-in-10-mins/snap-in-schedule-backup-closeup.png)
 
@@ -184,7 +186,7 @@ Llegados a este punto, habrá terminado de crear un almacén de copia de segurid
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-try-azure-backup-in-10-mins/add-items.png)
 
-    Seleccione los elementos de los cuales desea realizar una copia de seguridad y haga clic en **Aceptar**. Copia de seguridad de Azure en Windows Server o en un cliente Windows le permite proteger archivos y carpetas.
+    Seleccione los elementos de los que desea realizar una copia de seguridad y haga clic en **Aceptar**. Copia de seguridad de Azure en Windows Server o en un cliente Windows le permite proteger archivos y carpetas.
 
     ![Elementos para la copia de seguridad de Windows Server](./media/backup-try-azure-backup-in-10-mins/added-items.png)
 
@@ -200,7 +202,7 @@ Llegados a este punto, habrá terminado de crear un almacén de copia de segurid
 
 5. Seleccione la **directiva de retención** de la copia de seguridad. Puede modificar la directiva de retención diaria, semanal, mensual y anual según sus necesidades.
 
-    >[AZURE.NOTE] La programación de copia de seguridad se explica con detalle en este [artículo](backup-azure-backup-cloud-as-tape.md).
+    >[AZURE.NOTE] La programación de copia de seguridad se explica con todo detalle en este [artículo](backup-azure-backup-cloud-as-tape.md).
 
      Haga clic en **Siguiente**.
 
@@ -208,13 +210,13 @@ Llegados a este punto, habrá terminado de crear un almacén de copia de segurid
 
 6. Elija el tipo de copia de seguridad inicial.
 
-    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. El resto de este artículo sigue el proceso de copia de seguridad automática. Si prefiere hacer una copia de seguridad sin conexión, consulte este artículo para obtener información adicional sobre el [flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md).
+    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. El resto de este artículo sigue el proceso de copia de seguridad automática. Si prefiere hacer una copia de seguridad sin conexión, consulte este artículo, donde encontrará información adicional sobre el [flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md).
 
     Haga clic en **Siguiente**.
 
     ![Copia de seguridad inicial de Windows Server](./media/backup-try-azure-backup-in-10-mins/choose-initial-backup-type.png)
 
-7. En la pantalla **Confirmación** revise la información y haga clic en **Finalizar**.
+7. En la pantalla **Confirmación**, revise la información y haga clic en **Finalizar**.
 
     ![Copia de seguridad inicial de Windows Server](./media/backup-try-azure-backup-in-10-mins/confirmation.png)
 
@@ -222,11 +224,11 @@ Llegados a este punto, habrá terminado de crear un almacén de copia de segurid
 
     ![Copia de seguridad inicial de Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-schedule-created.png)
 
-9. En el complemento MMC, haga clic en **Hacer ahora una copia de seguridad** para completar la propagación inicial a través de la red.
+9. En el **Agente de copia de seguridad**, haga clic en **Hacer ahora una copia de seguridad** para completar la propagación inicial a través de la red.
 
     ![Realizar copia de seguridad de Windows Server ahora](./media/backup-try-azure-backup-in-10-mins/snap-in-backup-now.png)
 
-10. En la pantalla **Confirmación**, revise la configuración que utilizará el asistente para realizar la copia de seguridad del equipo y haga clic en **Hacer una copia de seguridad **.
+10. En la pantalla **Confirmación**, revise la configuración que utilizará el asistente para realizar la copia de seguridad de la máquina y haga clic en **Hacer una copia de seguridad **.
 
     ![Realizar copia de seguridad de Windows Server ahora](./media/backup-try-azure-backup-in-10-mins/backup-now-confirmation.png)
 
@@ -246,4 +248,4 @@ Enhorabuena, ha realizado correctamente la copia de seguridad de los archivos y 
 - Más información acerca de la [copia de seguridad de Windows Server](backup-azure-backup-windows-server.md)
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio
@@ -22,14 +22,14 @@
 - [Uso del Editor de Data Factory](data-factory-get-started-using-editor.md).
 - [Uso de Visual Studio](data-factory-get-started-using-vs.md)
 - [Uso de PowerShell](data-factory-monitor-manage-using-powershell.md)
-
+- [Uso del Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 
 ##Apartados de este tutorial
 En este tutorial hará lo siguiente mediante Visual Studio 2013:
 
 1. Cree dos servicios vinculados: **AzureStorageLinkedService1** y **AzureSqlinkedService1**. AzureStorageLinkedService1 vincula un almacenamiento de Azure y AzureSqlLinkedService1 vincula una Base de datos SQL de Azure con la factoría de datos: **ADFTutorialDataFactoryVS**. Los datos de entrada para la canalización se encuentran en un contenedor de blob en el almacenamiento de blobs de Azure y los datos de salida se almacenarán en una tabla en la base de datos SQL de Azure. Por lo tanto, agregue estos almacenes de datos como servicios vinculados en la factoría de datos.
 2. Creará dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos. Para EmpTableFromBlob, especificará el contenedor de blob que contiene un blob con los datos de origen y para EmpSQLTable, especificará la tabla SQL que se almacenará los datos de salida. También especificará otras propiedades como la estructura de los datos, la disponibilidad de los datos, etc.
-3. Cree una canalización denominada **ADFTutorialPipeline** en ADFTutorialDataFactoryVS. La canalización dispondrá de una opción para la **actividad de copia** que copia datos de entrada del blob de Azure a la tabla de salida de Azure SQL. La actividad de copia realiza el movimiento de datos en Data Factory de Azure y la actividad funciona con un servicio disponible generalmente que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para más información acerca de la actividad de copia. 
+3. Cree una canalización denominada **ADFTutorialPipeline** en ADFTutorialDataFactoryVS. La canalización dispondrá de una opción para la **actividad de copia** que copia datos de entrada del blob de Azure a la tabla de salida de Azure SQL. La actividad de copia realiza el movimiento de datos en Data Factory de Azure y la actividad funciona con un servicio disponible generalmente que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Para más información acerca de la actividad de copia, consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md). 
 4. Cree una factoría de datos e implemente servicios vinculados, tablas y la canalización.    
 
 ## Creación e implementación de las entidades de Factoría de datos con Visual Studio 
@@ -73,9 +73,9 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService1** y
 
 #### Cree el servicio vinculado SQL de Azure.
 
-5. Haga doble clic con el botón derecho en el nodo **Servicios vinculados** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**. 
+5. Haga doble clic con el botón derecho en el nodo **Servicios vinculados ** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**. 
 6. Esta vez, seleccione **Servicios vinculados de SQL Azure** y haga clic en **Agregar**. 
-7. En el archivo **AzureSqlLinkedService1.json** reemplace **servername**, **databasename**, **username@servername** y **password** por los nombres del servidor de SQL Azure, la base de datos, la cuenta de usuario y la contraseña.
+7. En el archivo **AzureSqlLinkedService1.json** reemplace **servername**, **databasename**, ****username@servername** y **password** por los nombres del servidor de SQL Azure, la base de datos, la cuenta de usuario y la contraseña.
 8.  Guarde el archivo **AzureSqlLinkedService1.json**. 
 
 
@@ -209,7 +209,7 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 
 	![Cuadro de diálogo Publicar](./media/data-factory-get-started-using-vs/publish.png)
 
-21. En la página Configurar la factoría de datos, haga lo siguiente:
+21. En la página Configurar Data Factory, haga lo siguiente:
 	1. Seleccione la opción **Crear la nueva factoría de datos**.
 	2. Escriba **VSTutorialFactory** para **Nombre**.  
 	
@@ -229,10 +229,8 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 ## Uso del Explorador de servidores para revisar las entidades de Factoría de datos
 
 1. En **Visual Studio** haga clic en **Vista** en el menú y haga clic en **Explorador de servidores**.
-2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**.  
-	![Explorador de servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos al nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente.  
-	![Exportar factoría de datos a un proyecto de VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**.![Explorador de servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos al nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente. ![Exportar factoría de datos a un proyecto de VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Actualización de herramientas de Factoría de datos para Visual Studio
 Para actualizar las herramientas de Factoría de datos de Azure para Visual Studio, haga lo siguiente:
@@ -244,6 +242,6 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
 
 ## Otras referencias
-Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener información detallada sobre la **Actividad de copia** en Data Factory de Azure.
+Para más información acerca de la **actividad de copia** en Data Factory de Azure, consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->
