@@ -52,7 +52,7 @@ Este enfoque de *"JavaScript como un T-SQL moderno"* libera a los desarrolladore
 
 Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) y los [SDK de cliente](documentdb-sdk-dotnet.md) en muchas plataformas: .NET, Node.js y JavaScript, entre otras.
 
-**Este tutorial usa el [SDK de Node.js con objetos Q promise](http://azure.github.io/azure-documentdb-node-q/)** para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
+**Este tutorial usa el** [SDK de Node.js con objetos Q promise](http://azure.github.io/azure-documentdb-node-q/) para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
 
 ## Procedimientos almacenados
 
@@ -729,4 +729,4 @@ También puede encontrar útiles las siguientes referencias y recursos en su rut
 - [Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 - [Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016--->
