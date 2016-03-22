@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 # Bus de servicio
 
-Cuando una aplicación o servicio se ejecutan en la nube o de manera local, a menudo tienen que interactuar con otras aplicaciones o servicios. Para proporcionar una manera enormemente útil de hacerlo, Azure ofrece el Bus de servicio. En este artículo nos centramos en esta tecnología, describiendo qué es y los beneficios que ofrece.
+Cuando una aplicación o servicio se ejecutan en la nube o de manera local, a menudo tienen que interactuar con otras aplicaciones o servicios. Para proporcionar una manera enormemente útil de hacerlo, Microsoft Azure ofrece el Bus de servicio. En este artículo nos centramos en esta tecnología, describiendo qué es y los beneficios que ofrece.
 
 ## Elementos fundamentales del Bus de servicio
 
@@ -125,4 +125,4 @@ Ahora que conoce los fundamentos del Bus de servicio de Azure, siga estos víncu
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

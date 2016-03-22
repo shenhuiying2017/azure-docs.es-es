@@ -255,7 +255,9 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	La definición del tipo no determina las características que estarán disponibles para la nueva aplicación de API, aplicación web o aplicación móvil. Todas las características de la aplicación de API que se muestra en estos tutoriales están disponibles para los tres tipos. La única diferencia está en el icono y el texto que el Portal de Azure muestra para identificar el tipo de aplicación, y el orden en que se enumeran las características en algunas páginas del Portal. El Portal de Azure es una interfaz web para administrar recursos de Azure; lo verá más adelante en el tutorial.
+	<a id="apptype"></a>El tipo de aplicación no determina las características que estarán disponibles para la nueva aplicación de API, aplicación web o aplicación móvil. Todas las características de la aplicación de API que se muestra en estos tutoriales están disponibles para los tres tipos. La única diferencia está en el icono y el texto que el Portal de Azure muestra para identificar el tipo de aplicación, y el orden en que se enumeran las características en algunas páginas del Portal. El Portal de Azure es una interfaz web para administrar recursos de Azure; lo verá más adelante en el tutorial.
+
+	Para estos tutoriales, el front-end de SPA se ejecuta en una aplicación web y cada back-end de Web API se ejecuta en una aplicación de API, pero todo funcionaría igual si las tres fueran aplicaciones web o las tres aplicaciones de API. Además, una sola aplicación de API o aplicación web puede hospedar tanto el front-end de SPA como el back-end de nivel intermedio.
 
 4. Escriba un **Nombre de aplicación de API** que sea único en el dominio *azurewebsites.net*, por ejemplo, ToDoListDataAPI junto con un número para hacerlo único.
 
@@ -309,19 +311,19 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
 
 	![](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	La pestaña siguiente es **Configuración**. Aquí puede cambiar la pestaña de configuración de compilación para implementar una compilación de depuración para la [depuración remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La pestaña también ofrece varias **Opciones de publicación de archivos**:
+	La pestaña siguiente es **Configuración**. Aquí puede cambiar la pestaña de configuración de compilación para implementar una compilación de depuración para la [depuración remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La pestaña también ofrece varias **opciones de publicación de archivos**:
 
 	* Quitar archivos adicionales en el destino.
 	* Precompilar durante la publicación.
 	* Excluir archivos de la carpeta App\_Data.
 
-	Para este tutorial no necesita ninguna de ellas. Para obtener explicaciones detalladas de lo que hacen, consulte [Implementación de un proyecto web utilizando publicación con un solo clic en Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+	Para este tutorial no necesita ninguna de ellas. Para obtener explicaciones detalladas de lo que hacen, consulte [Implementación de un proyecto de aplicación web mediante Publicación con un solo clic en Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 
 14. Haga clic en **Siguiente**.
 
 	![](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
-	La pestaña **Vista previa** ofrece la posibilidad de ver qué archivos se van a copiar desde el proyecto a la aplicación de API. Al implementar un proyecto en una aplicación de API para la que ya implementó anteriormente, solo se copian los archivos modificados. Si desea ver una lista de lo que se va a copiar, haga clic en el botón **Comenzar previsualización**.
+	La pestaña **Vista previa** ofrece la posibilidad de ver qué archivos se van a copiar desde el proyecto a la aplicación de API. Al implementar un proyecto en una aplicación de API para la que ya implementó anteriormente, solo se copian los archivos modificados. Si desea ver una lista de lo que se va a copiar, haga clic en el botón **Iniciar vista previa**.
 
 15. Haga clic en **Publicar**.
 
@@ -383,11 +385,11 @@ El proyecto ToDoListAPI ya tiene el código de cliente generado, pero lo elimina
 
 	![](./media/app-service-api-dotnet-get-started/codegenmenu.png)
 
-3. En el cuadro de diálogo **Agregar cliente de API de REST**, haga clic en **URL de Swagger** y luego haga clic en **Seleccionar activo de Azure**.
+3. En el cuadro de diálogo **Agregar cliente de API de REST**, haga clic en **URL de Swagger** y luego haga clic en **Seleccionar recurso de Azure**.
 
 	![](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
 
-8. En el cuadro de diálogo **Servicio de aplicaciones**, expanda el grupo de recursos que utiliza en este tutorial y seleccione la aplicación de API y, a continuación, haga clic en **Aceptar**.
+8. En el cuadro de diálogo **Servicio de aplicaciones**, expanda el grupo de recursos que usa en este tutorial y seleccione la aplicación de API y, a continuación, haga clic en **Aceptar**.
 
 	![](./media/app-service-api-dotnet-get-started/codegenselect.png)
 
@@ -418,7 +420,7 @@ El proyecto ToDoListAPI ya tiene el código de cliente generado, pero lo elimina
 
 	El parámetro de constructor obtiene la dirección URL del punto de conexión de la configuración de la aplicación `toDoListDataAPIURL`. En el archivo Web.config, ese valor se establece en la dirección URL local de IIS Express del proyecto de API para que pueda ejecutar la aplicación localmente. Si se omite el parámetro del constructor, el punto de conexión predeterminado es la dirección URL a partir de la cual se genera el código.
 
-6. La clase de cliente se generará con un nombre diferente según el nombre de la aplicación de API; cambie este código en *Controllers\\ToDoListController.cs* para que el nombre del tipo coincida con lo que se generó en el proyecto. Por ejemplo, si asignó el nombre ToDoListDataAPI0121 a la aplicación de API, el código sería similar al del ejemplo siguiente:
+6. La clase de cliente se generará con un nombre diferente según el nombre de la aplicación de API; cambie este código en *Controllers\\ToDoListController.cs* para que el nombre del tipo coincida con el que se generó en el proyecto. Por ejemplo, si asignó el nombre ToDoListDataAPI0121 a la aplicación de API, el código sería similar al del ejemplo siguiente:
 
 		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
@@ -463,7 +465,7 @@ Si llamara ahora a la aplicación de API de nivel intermedio, intentaría llamar
 
 	| **Clave** | toDoListDataAPIURL |
 	|---|---|
-	| **Valor** | https://{your nombre de aplicación de API de nivel de datos}.azurewebsites.net |
+	| **Valor** | https://{your nombre de aplicación de API de capa de datos}.azurewebsites.net |
 	| **Ejemplo** | https://todolistdataapi0121.azurewebsites.net |
 
 4. Haga clic en **Guardar**.
@@ -484,6 +486,8 @@ Si llamara ahora a la aplicación de API de nivel intermedio, intentaría llamar
 
 	![](./media/app-service-api-dotnet-get-started/midtierget.png)
 
+Para obtener más información sobre el cliente generado, vea el [repositorio GitHub de AutoRest](https://github.com/azure/autorest). Para obtener ayuda con los problemas de uso del cliente generado, abra un [problema en el repositorio de AutoRest](https://github.com/azure/autorest/issues).
+
 ## <a id="creating"></a> Opcional: creación de un proyecto de aplicación de API desde cero
 
 En este tutorial descargará proyectos de ASP.NET Web API para implementar en el Servicio de aplicaciones, en lugar de crear nuevos proyectos desde cero. Para crear un proyecto que desee implementar en una aplicación de API, puede crear un proyecto de Web API típico e instalar el paquete Swashbuckle, o bien puede usar la plantilla **Aplicación de API de Azure** para nuevos proyectos. Para usar dicha plantilla, haga clic en **Archivo > Nuevo > Proyecto > Aplicación web ASP.NET > Aplicación de API de Azure**.
@@ -494,7 +498,7 @@ La elección de la plantilla de proyecto **Aplicación de API de Azure** equival
 
 ## Opcional: Cambio de un tipo de aplicación
 
-Como se explicó anteriormente, la única diferencia entre las aplicaciones de API, las aplicaciones web y aplicaciones móviles es la manera en que se representan en el Portal. Como todas tienen las mismas características, nunca es necesario cambiar un tipo de aplicación.
+Como se explicó [anteriormente](#apptype), la única diferencia entre las aplicaciones de API, las aplicaciones web y aplicaciones móviles es la manera en que se representan en el Portal. Como todas tienen las mismas características, nunca es necesario cambiar un tipo de aplicación.
 
 Sin embargo, si desea cambiar la representación en el Portal, es fácil de hacer. Por ejemplo, puede cambiar una de las aplicaciones de API que acaba de crear a una aplicación web; para ello, siga estos pasos.
 
@@ -518,9 +522,9 @@ Sin embargo, si desea cambiar la representación en el Portal, es fácil de hace
 
 ## Opcional: Dirección URL de definición de API en plantillas del Administrador de recursos de Azure
 
-En este tutorial, vimos la dirección URL de la definición de API en Visual Studio y en el Portal de Azure. La dirección URL de la definición de API de una aplicación de API también se puede configurar mediante las [plantillas del Administrador de recursos de Azure](../powershell-install-configure.md) de las herramientas de línea de comandos como [Azure PowerShell](../xplat-cli-install.md) y la [CLI de Azure](../resource-group-authoring-templates.md).
+En este tutorial, vimos la dirección URL de la definición de API en Visual Studio y en el Portal de Azure. La dirección URL de la definición de API de una aplicación de API también se puede configurar mediante las [plantillas de Azure Resource Manager](../powershell-install-configure.md) de las herramientas de línea de comandos como [Azure PowerShell](../xplat-cli-install.md) y la [CLI de Azure](../resource-group-authoring-templates.md).
 
-Para ver un ejemplo de una plantilla del Administrador de recursos de Azure que establece la propiedad de definición de API, abra el archivo [azuredeploy.json del repositorio de la aplicación de ejemplo de este tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Busque la sección de la plantilla similar a la del ejemplo siguiente:
+Para ver un ejemplo de una plantilla de Azure Resource Manager que establece la propiedad de definición de API, abra el archivo [azuredeploy.json del repositorio de la aplicación de ejemplo de este tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Busque la sección de la plantilla similar a la del ejemplo siguiente:
 
 		"apiDefinition": {
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
@@ -528,6 +532,6 @@ Para ver un ejemplo de una plantilla del Administrador de recursos de Azure que 
 
 ## Pasos siguientes
 
-En este tutorial vimos cómo crear aplicaciones de API, implementar código en ellas, generar código de cliente para ellas y consumirlas desde clientes .NET. El siguiente tutorial de la serie de introducción a Aplicaciones de API muestra cómo [consumir aplicaciones de API desde clientes de JavaScript mediante CORS](app-service-api-cors-consume-javascript.md).
+En este tutorial vimos cómo crear aplicaciones de API, implementar código en ellas, generar código de cliente para ellas y consumirlas desde clientes .NET. El siguiente tutorial de la serie de introducción a Aplicaciones de API muestra cómo [consumir aplicaciones de API desde clientes de JavaScript mediante CORS](app-service-api-cors-consume-javascript.md). Otros tutoriales de la serie muestran cómo implementar la autenticación y autorización.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

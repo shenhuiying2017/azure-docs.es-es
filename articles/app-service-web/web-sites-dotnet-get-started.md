@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Creación de una aplicación web de ASP.NET en Servicio de aplicaciones de Azure | Microsoft Azure"
-	description="Este tutorial muestra cómo crear un proyecto web ASP.NET en Visual Studio 2013 e implementarlo en una aplicación web en el Servicio de aplicaciones de Azure."
+	pageTitle="Creación de una aplicación web con Visual Studio | Microsoft Azure"
+	description="En este tutorial se muestra cómo crear un proyecto web de ASP.NET en Visual Studio e implementarlo en una aplicación web en el Servicio de aplicaciones de Azure."
 	services="app-service\web"
 	documentationCenter=".net"
 	authors="tdykstra"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/02/2015"
+	ms.date="03/02/2016"
 	ms.author="tdykstra"/>
 
-# Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure
+# Creación de una aplicación web de ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -40,19 +40,19 @@ Aprenderá a realizar los siguientes procedimientos:
 * Cómo implementar un proyecto web en una aplicación web de servicio de aplicación mediante Visual Studio.
 * Uso del [Portal de Azure](/overview/preview-portal/) para supervisar y administrar la aplicación web.
 
-Al final de este tutorial, la sección [Pasos siguientes](#next-steps) proporciona vínculos a otros tutoriales con información más detallada sobre cómo usar el Servicio de aplicaciones de Azure.
+Al final del tutorial, una sección [Solución de problemas](#troubleshooting) le proporciona ideas sobre qué hacer si algo no funciona y una sección [Pasos siguientes](#next-steps) proporciona vínculos a otros tutoriales que profundizan más en el uso del Servicio de aplicaciones de Azure.
 
-> [AZURE.NOTE] Ayúdenos a conformar el ámbito y el enfoque de este tutorial, si hay otros temas que le gustaría ver cubiertos aquí o en un tutorial de introducción, déjenos un comentario en [Comentarios](#comments) al final del tutorial.
+> [AZURE.NOTE] Ayúdenos a conformar el ámbito y el enfoque de este tutorial; si hay otros temas que le gustaría que se trataran aquí o en un tutorial de introducción, déjenos un comentario en [Comentarios](#comments) al final del tutorial.
 
 [AZURE.INCLUDE [Requisitos previos](../../includes/app-service-web-dotnet-get-started-prereqs.md)]
 
-## Crear un proyecto y una aplicación web
+## Creación de un proyecto web y una aplicación web en el Servicio de aplicaciones de Azure
 
-El primer paso es crear un proyecto web en Visual Studio y una aplicación web en el Servicio de aplicaciones de Azure. Cuando esté listo, implemente el proyecto a la aplicación web para que esté disponible en Internet.
+El primer paso es crear un proyecto web en Visual Studio y una aplicación web en el Servicio de aplicaciones de Azure. Cuando esté listo, implemente el proyecto en la aplicación web para que esté disponible en Internet.
 
 En el diagrama se muestra lo que se hace en los pasos de creación e implementación.
 
-![Creación e implementación](./media/web-sites-dotnet-get-started/Create_App.png)
+![Diagrama de creación e implementación de Visual Studio](./media/web-sites-dotnet-get-started/Create_App.png)
 
 1. Abra Visual Studio 2015.
 
@@ -86,7 +86,7 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 	![Cuadro de diálogo Nuevo proyecto de ASP.NET](./media/web-sites-dotnet-get-started/GS13newaspnetprojdb.png)
 
-	Con esta configuración se especifica que Visual Studio creará una aplicación web de Azure para su proyecto web.
+	Con esta configuración se indica a Visual Studio que cree una aplicación web de Azure para su proyecto web.
 
 6. Haga clic en **Aceptar**.
 
@@ -100,7 +100,9 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 	Si escribe un nombre que ya usa otro usuario, aparecerá un signo de exclamación rojo a la derecha en lugar de una marca de verificación verde y tendrá que especificar otro nombre.
 
-	Azure usará este nombre como prefijo de la dirección URL de la aplicación. La dirección URL completa se compondrá de lo que escriba aquí más *.azurewebsites.net* (como se muestra junto al cuadro de texto **Nombre de la aplicación web**). Por ejemplo, si el nombre es `MyExample810`, la dirección URL será `myexample810.azurewebsites.net`. La dirección URL debe ser única.
+	La dirección URL completa de la aplicación es el nombre más *.azurewebsites.net* (como se muestra junto al cuadro de texto **Nombre de la aplicación web**). Por ejemplo, si el nombre es `MyExample810`, la dirección URL será `myexample810.azurewebsites.net`.
+
+	La sección [Pasos siguientes](#next-steps) incluye un vínculo a un tutorial donde se explica cómo usar su propio dominio personalizado con una aplicación web de Azure.
 
 6. Al lado del cuadro **Grupo de recursos**, haga clic en **Nuevo** y escriba "MyExample" u otro nombre que prefiera.
 
@@ -114,13 +116,13 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 	La captura de pantalla muestra los valores de ejemplo de **Nombre de la aplicación web**, **Suscripción** y **Grupo de recursos**. Sus valores serán diferentes.
 
-	En los siguientes pasos se crea un plan del Servicio de aplicaciones para el nuevo grupo de recursos. Un plan del Servicio de aplicaciones especifica los recursos de proceso en los que se ejecuta la aplicación de API. Por ejemplo, si elige el nivel Gratis, la aplicación de API se ejecuta en máquinas virtuales compartidas, mientras que para algunos niveles de pago, se ejecuta en máquinas virtuales dedicadas. Para más información, consulte [Información general sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	En los siguientes pasos se crea un plan del Servicio de aplicaciones para el nuevo grupo de recursos. Un plan del Servicio de aplicaciones especifica los recursos de proceso en los que se ejecuta la aplicación de API. Por ejemplo, si elige el nivel Gratis, la aplicación de API se ejecuta en máquinas virtuales compartidas, mientras que para algunos niveles de pago, se ejecuta en máquinas virtuales dedicadas. Para más información, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 5. En el cuadro de diálogo **Configurar el plan de servicio de aplicaciones**, escriba "MyExamplePlan" u otro nombre que prefiera.
 
 5. En la lista desplegable **Ubicación**, elija la ubicación más cercana.
 
-	Esta opción especifica en qué centro de datos de Azure se ejecutará su aplicación. Para este tutorial, puede seleccionar cualquier región y no habrá una diferencia notable, Pero para una aplicación de producción, desea que el servidor esté lo más próximo posible a los clientes que acceden a él con el fin de minimizar la [latencia](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+	Esta opción especifica en qué centro de datos de Azure se ejecutará su aplicación. Para este tutorial, puede seleccionar cualquier región y no habrá una diferencia notable, Pero para una aplicación de producción, quiere que el servidor esté lo más próximo posible a los clientes que acceden a él con el fin de minimizar la [latencia](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
 5. En la lista desplegable **Tamaño**, haga clic en **Gratis**.
 
@@ -142,29 +144,31 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 	La ventana **Actividad del Servicio de aplicaciones de Azure** muestra que se ha creado la aplicación web.
 
-	![Aplicación web creada](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
+	![Aplicación web creada en la ventana Actividad del Servicio de aplicaciones de Azure](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
 	Puede ver la aplicación web en **Cloud Explorer**.
 
-	![Aplicación web creada](./media/web-sites-dotnet-get-started/siteinse.png)
+	![Aplicación web creada en Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Implementación del proyecto en la aplicación web
+## Implementación del proyecto web en la aplicación web de Azure
 
-En esta sección implementará el proyecto web en la aplicación web, como se muestra en el paso 2 del diagrama.
+En esta sección, implementará el proyecto web en la aplicación web, como se muestra en el paso 2 del diagrama.
 
-![Creación e implementación](./media/web-sites-dotnet-get-started/Create_App.png)
+![Diagrama de creación e implementación de Visual Studio](./media/web-sites-dotnet-get-started/Create_App.png)
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho y seleccione **Publicar**.
 
-	![Elija Publicar](./media/web-sites-dotnet-get-started/choosepublish.png)
+	![Selección de Publicar en el menú de Visual Studio](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	En unos segundos aparecerá el Asistente para **publicación web**. El asistente abre un *perfil de publicación* que incluye la configuración para implementar el proyecto web en la nueva aplicación web. Si desea realizar la implementación en otra aplicación web distinta, puede hacer clic en la pestaña **Perfil** ficha para crear un perfil diferente. Para este tutorial, aceptará la configuración que se implementa en la aplicación web que creó anteriormente.
+	En unos segundos aparecerá el Asistente para **publicación web**. El asistente abre un *perfil de publicación* que incluye la configuración para implementar el proyecto web en la nueva aplicación web. Si desea realizar la implementación en otra aplicación web distinta, puede hacer clic en la pestaña **Perfil** ficha para crear un perfil diferente. En este tutorial, aceptará la configuración que se implementa en la aplicación web que creó anteriormente.
+
+	El perfil de publicación incluye un nombre de usuario y una contraseña para la implementación. Estas credenciales se han generado automáticamente, pero puede cambiarlas por los valores que prefiera. Verá cómo hacerlo en la sección del tutorial que presenta el Portal de Azure. La contraseña está cifrada en un archivo oculto específico del usuario en la carpeta `Properties\PublishProfiles`.
 
 8. En la pestaña **Conexión** del Asistente para **publicación web**, haga clic en **Siguiente**.
 
-	![Conexión validada correctamente](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
+	![Acción de hacer clic en Siguiente en la pestaña Conexión del Asistente para publicación web](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
-	La pestaña siguiente es **Configuración**. Aquí puede cambiar la pestaña de configuración de compilación para implementar una compilación de depuración para la [depuración remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La pestaña también ofrece varias **Opciones de publicación de archivos**:
+	La pestaña siguiente es **Configuración**. Aquí puede cambiar la pestaña de configuración de compilación para implementar una compilación de depuración para la [depuración remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La pestaña también ofrece varias **opciones de publicación de archivos**:
 
 	* Quitar archivos adicionales en el destino.
 	* Precompilar durante la publicación.
@@ -174,25 +178,25 @@ En esta sección implementará el proyecto web en la aplicación web, como se mu
 
 10. En la pestaña **Configuración**, haga clic en **Siguiente**.
 
-	![Pestaña Settings](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
+	![Pestaña Configuración del Asistente para publicación web](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
-	Haga clic en la pestaña **Versión preliminar**. Aquí puede ver qué archivos se van a copiar desde el proyecto a la aplicación de API. Al implementar un proyecto en una aplicación de API para la que ya implementó anteriormente, solo se copian los archivos modificados. Si desea ver una lista de lo que se va a copiar, haga clic en el botón **Comenzar versión preliminar**.
+	Haga clic en la pestaña **Versión preliminar**. Aquí puede ver qué archivos se van a copiar desde el proyecto a la aplicación de API. Al implementar un proyecto en una aplicación de API para la que ya implementó anteriormente, solo se copian los archivos modificados. Si desea ver una lista de lo que se va a copiar, haga clic en el botón **Iniciar vista previa**.
 
 11. En la pestaña **Vista previa**, haga clic en **Publicar**.
 
-	![Pestaña Versión preliminar](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
+	![Pestaña Vista previa del Asistente para publicación web](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
 	Al hacer clic en **Publicar**, Visual Studio comienza el proceso de copia de los archivos en el servidor de Azure. Esto puede tardar un par de minutos.
 
 	Las ventanas **Salida** y **Actividad del Servicio de aplicaciones de Azure** muestran las acciones de implementación que se realizaron e informan de la correcta finalización de la implementación.
 
-	![Ventana de salida que informa de que la implementación se realizó correctamente](./media/web-sites-dotnet-get-started/PublishOutput.png)
+	![Ventana de salida de Visual Studio informando de que la implementación se ha realizado correctamente](./media/web-sites-dotnet-get-started/PublishOutput.png)
 
 	Tras una implementación correcta, el explorador predeterminado se abre automáticamente en la dirección URL de la aplicación web implementada y la aplicación que creó se ejecuta ahora en la nube. La dirección URL en la barra de direcciones del explorador muestra que la aplicación web se carga desde Internet.
 
 	![Aplicación Web que se ejecuta en Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-> [AZURE.TIP] Puede habilitar la barra de herramientas **Publicación en Web con un solo clic** para agilizar la implementación. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Puede usar la barra de herramientas para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el asistente para **Publicación web**. ![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+> [AZURE.TIP] Puede habilitar la barra de herramientas **Publicación en Web con un solo clic** para agilizar la implementación. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Puede usar la barra de herramientas para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el **Asistente para publicación web**. ![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## Supervisión y administración de la aplicación web en el Portal de Azure
 
@@ -202,35 +206,67 @@ El [Portal de Azure](/services/management-portal/) es una interfaz web que puede
 
 2. Haga clic en **Servicios de aplicaciones** y, a continuación, en el nombre de la aplicación web.
 
-	![Servicios de aplicaciones en el portal](./media/web-sites-dotnet-get-started/selinportal.png)
+	![Servicios de aplicaciones en el Portal de Azure](./media/web-sites-dotnet-get-started/selinportal.png)
 
 	La hoja **Aplicación web** muestra información general acerca de la configuración y las estadísticas de uso de su aplicación web. (Las ventanas que se abren a la derecha se llaman *hojas*).
 
-	![Hoja de aplicación Web](./media/web-sites-dotnet-get-started/portaldashboard.png)
+	![Hoja Aplicación web en el Portal de Azure](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
-	Por ahora, la aplicación web no ha tenido mucho tráfico y puede que no se muestre nada en el gráfico. Si explora la aplicación, actualiza la página varias veces y después actualiza la página la página del Portal, verá que aparecen algunas estadísticas.
+	La aplicación web no ha tenido mucho tráfico todavía y puede que no se muestre nada en el gráfico. Si explora la aplicación, actualiza la página varias veces y después actualiza la página la página del Portal, verá que aparecen algunas estadísticas.
 
 3. En la hoja **Configuración** se muestran más opciones para configurar su aplicación web.
 
-	![Hoja Configuración](./media/web-sites-dotnet-get-started/portalconfigure1.png)
+	![Hoja Configuración en el Portal de Azure](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-	Hay más secciones en esta hoja que se muestran en esta captura de pantalla.
+	Observe el vínculo **Credenciales de implementación** en la sección **Publicación**. Ahí es donde crea un nuevo nombre de usuario y una contraseña para la implementación. Puede especificar un nombre de usuario y una contraseña de su elección y luego escribir en su proyecto web los mismos valores de la pestaña **Conexión** situada en el **Asistente para publicación web**.
 
-4. Haga clic en **Configuración de la aplicación** de la sección **General** de la hoja **Configuración** para ver un ejemplo de los tipos de configuración que se pueden establecer en el Portal.
+	La captura de pantalla es solo una vista parcial de la hoja **Configuración**. Hay más secciones en esta hoja que las que se muestran.
+
+4. Haga clic en **Configuración de la aplicación** en la sección **General** de la hoja **Configuración** para ver un ejemplo de los tipos de configuración que se pueden realizar en el Portal.
 
 	Por ejemplo, puede controlar la versión de .NET que se usa para la aplicación web, habilitar características tales como [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) y establecer [valores de cadena de conexión](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
-	![Pestaña Configuración de aplicación web](./media/web-sites-dotnet-get-started/portalconfigure2.png)
+	![Pestaña Configurar de la aplicación web en el Portal de Azure](./media/web-sites-dotnet-get-started/portalconfigure2.png)
 
 Estas son solo algunas de las características del Portal. Puede crear nuevas aplicaciones web, eliminar las existentes, detener y reiniciar aplicaciones web, y administrar otros tipos de servicios de Azure, como bases de datos y máquinas virtuales.
+
+## Eliminación de la aplicación web de Azure
+
+Cuando ya no necesite la aplicación web que ha creado en este tutorial, puede eliminarla.
+
+Una manera fácil de eliminar la aplicación web es hacer clic en el botón **Eliminar** de la parte superior de su hoja **Aplicación web** en el Portal de Azure. Pero lo mejor es eliminar el grupo de recursos que ha creado como contenedor de la aplicación web. En este tutorial, el grupo de recursos contiene solo la aplicación web, pero normalmente un grupo de recursos contiene una colección de recursos relacionados. Por ejemplo, su aplicación web podría usar una base de datos o una cuenta de Almacenamiento de Azure que ya no se necesitan cuando la aplicación web deja de ser necesaria. Cuando se elimina un grupo de recursos, todo lo que contiene también se elimina. Para eliminar un grupo de recursos mediante el Portal de Azure, realice los pasos siguientes:
+
+1. Vaya a la página principal del [Portal de Azure](https://portal.azure.com).
+
+2. Haga clic en **Grupos de recursos**.
+
+3. En la lista de grupos de recursos, haga clic en el grupo de recursos que quiere eliminar.
+
+	Cuando aparece la hoja **Grupo de recursos**, incluye una lista de los recursos que contiene.
+
+4. En la hoja **Grupo de recursos**, haga clic en **Eliminar**.
+
+	![Eliminación de un grupo de recursos en el Portal de Azure](./media/web-sites-dotnet-get-started/delresgrp.png)
+
+## Solución de problemas
+
+Si experimenta problemas mientras avanza por este tutorial, asegúrese de que está usando la versión más reciente del SDK de Azure para. NET. Para ello, lo mejor es [descargar el SDK de Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003); si tiene instalada la versión actual, el Instalador de plataforma web le hará saber que no se necesita ninguna instalación.
+
+Si está en una red corporativa y está intentando realizar la implementación en el Servicio de aplicaciones de Azure mediante un firewall, asegúrese de que los puertos 443 y 8172 estén abiertos para Web Deploy. Si no puede abrir esos puertos, consulte la siguiente Pasos siguientes a continuación para ver otras opciones de implementación.
+
+Una vez que la aplicación web de ASP.NET se está ejecutando en el Servicio de aplicaciones de Azure, puede que quiera aprender más sobre las características de Visual Studio que simplifican la solución de problemas. Para más información sobre el registro, la depuración, etc., consulte [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Pasos siguientes
 
 En este tutorial, aprendió a crear una aplicación web sencilla e implementarla en una aplicación web de Azure. Estos son algunos temas y recursos relacionados que le permitirán saber más sobre el Servicio de aplicaciones de Azure:
 
+* Implementación de un proyecto web existente en una nueva aplicación web
+
+	Para iniciar el proceso de implementación de un proyecto web existente, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y luego haga clic en **Publicar**. Elija **Servicio de aplicaciones de Microsoft Azure** como destino de publicación. A continuación, elija una aplicación web de Azure existente como destino o haga clic en **Nueva** para crear una. Si hace clic en **Nueva** para crear una nueva, el proceso es el mismo que lo que ve aquí en este tutorial.
+
 * Otras maneras de crear aplicaciones web
 
-	Ha visto cómo crear una aplicación web mientras crea un proyecto de Visual Studio. También puede crear recursos de Azure en el proceso de implementación en Visual Studio del mismo modo que se hizo durante la creación del proyecto. También se pueden crear aplicaciones webs mediante el [Portal de Azure](https://portal.azure.com/), [cmdlets de Azure para Windows PowerShell](../powershell-install-configure.md) o la [interfaz de línea de comandos multiplataforma](../xplat-cli.md).
+	También puede crear aplicaciones web mediante el [Portal de Azure](https://portal.azure.com/), los [cmdlets de Azure para Windows PowerShell](../powershell-install-configure.md) o la [interfaz de línea de comandos multiplataforma](../xplat-cli.md).
 
 * Creación de aplicaciones de API
 
@@ -238,13 +274,7 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 * Otros métodos de implementar un proyecto web
 
-	Para obtener información sobre otras formas de implementar proyectos web en aplicaciones web, ya sea con Visual Studio o con [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Implementación de una aplicación web de Azure](web-sites-deploy.md).
-
-	Visual Studio también puede generar scripts de Windows PowerShell que puede usar para automatizar la implementación. Para obtener más información, consulte [Automatizar todo (creación de aplicaciones en la nube para el mundo real con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
-
-* Solución de problemas de aplicaciones web
-
-	Visual Studio proporciona características que facilitan la visualización de los registros de Azure conforme se generan, en tiempo real. La ejecución también se puede realizar en modo de depuración de manera remota en Azure. Para obtener más información, consulte [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+	Para más información sobre otras formas de implementar proyectos web en aplicaciones web, ya sea con Visual Studio o mediante la [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Documentación de implementación del Servicio de aplicaciones de Azure](web-sites-deploy.md).
 
 * Incorporación de un nombre de dominio personalizado y SSL
 
@@ -255,10 +285,10 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 * Cómo agregar características en tiempo real (por ejemplo, chat)
 
-	Si la aplicación web va a incluir características en tiempo real (como un servicio de chat, un juego o un tablero de cotizaciones), se puede optimizar el rendimiento usando [ASP.NET SignalR](http://www.asp.net/signalr) con el método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obtener más información, consulte [Uso de SignalR con aplicaciones web de Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
+	Si se van a utilizar características en tiempo real (como un servicio de chat, un juego o un tablero de cotizaciones), se puede optimizar el rendimiento usando [ASP.NET SignalR](http://www.asp.net/signalr) con el método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obtener más información, consulte [Uso de SignalR con aplicaciones web de Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
 
 * Selección entre Servicio de aplicaciones, Servicios en la nube y Máquinas virtuales de Azure para aplicaciones web
 
-	En Azure puede ejecutar aplicaciones web en Aplicaciones web del Servicio de aplicaciones, como se muestra en este tutorial, o bien en Servicios en la nube o en Máquinas virtuales. Para obtener más información, consulte [Comparación entre el Servicio de aplicaciones de Azure, Servicios en la nube y Máquinas virtuales](/manage/services/web-sites/choose-web-app-service/).
+	En Azure puede ejecutar aplicaciones web en Aplicaciones web del Servicio de aplicaciones, como se muestra en este tutorial, o bien en Servicios en la nube o en Máquinas virtuales. Para más información, consulte [Azure web apps, cloud services, and VMs: When to use which](/manage/services/web-sites/choose-web-app-service/) (Aplicaciones web de Azure, servicio en la nube y máquinas virtuales: cuándo usar cada uno).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

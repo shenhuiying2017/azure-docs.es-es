@@ -12,7 +12,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
@@ -96,27 +96,29 @@ Para obtener más información sobre la clave maestra de base de datos, vea [CRE
 ## <a name="Network"></a>Selección de la dirección IP
 Use la dirección IP pública de SQL Server, o escriba un intervalo de direcciones IP, para crear una regla de firewall en Azure que permita a SQL Server comunicarse con el servidor remoto de Azure.
 
+La dirección o direcciones IP que proporciona en esta página indican al servidor de Azure que permita que los datos entrantes, las consultas y las operaciones de administración iniciadas por SQL Server pasen a través del firewall de Azure. El asistente no cambia nada en la configuración del firewall en SQL Server.
+
 ![Página de selección de dirección IP del asistente para Stretch Database][StretchWizardImage7]
 
 ## <a name="Summary"></a>Resumen
-Consulte los valores que escribió y las opciones que seleccionó en el asistente. A continuación, seleccione **Finalizar** para habilitar Stretch.
+Consulte los valores que escribió y las opciones que seleccionó en el asistente. Después, seleccione **Finalizar** para habilitar Stretch.
 
 ![Página de resumen del asistente para Stretch Database][StretchWizardImage8]
 
 ## <a name="Results"></a>Resultados
 Consulte los resultados.
 
-Opcionalmente, seleccione **Monitor** para iniciar el monitor del estado de la migración de datos en Stretch Database Monitor. Para más información, vea [Supervisión y solución de problemas de migración de datos (Stretch Database)](sql-server-stretch-database-monitor.md).
+Opcionalmente, seleccione **Monitor** para iniciar el monitor del estado de la migración de datos en Stretch Database Monitor. Para más información, consulte [Supervisión y solución de problemas de migración de datos (Stretch Database)](sql-server-stretch-database-monitor.md).
 
 ## <a name="KnownIssues"></a>Solución de problemas del asistente
-**Error en el asistente de Stretch Database** Si Stretch Database aún no se ha habilitado aún en el nivel de servidor y ejecuta el asistente sin los permisos del administrador del sistema para habilitarlo, se produce un error en el asistente. Solicite al administrador del sistema que habilite Stretch Database en la instancia del servidor local y, a continuación, ejecute de nuevo el asistente. Para obtener más información, vea [Requisito previo: Permiso para habilitar Stretch Database en el servidor](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
+**Error en el asistente de Stretch Database** Si Stretch Database aún no se ha habilitado aún en el nivel de servidor y ejecuta el asistente sin los permisos del administrador del sistema para habilitarlo, se produce un error en el asistente. Solicite al administrador del sistema que habilite Stretch Database en la instancia del servidor local y, a continuación, ejecute de nuevo el asistente. Para obtener más información, consulte [Requisito previo: Permiso para habilitar Stretch Database en el servidor](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
 
 ## Pasos siguientes
 Habilitación tablas adicionales para Stretch Database Supervisión de la migración de datos y administración de tablas y bases de datos habilitadas para Stretch
 
--   [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) para habilitar tablas adicionales.
+-   [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) para habilitar las tablas adicionales
 
--   [Supervisión de Stretch Database](sql-server-stretch-database-monitor.md) para ver el estado de la migración de datos.
+-   [Supervisión de Stretch Database](sql-server-stretch-database-monitor.md) para ver el estado de la migración de datos
 
 -   [Pausa y reanudación Stretch Database](sql-server-stretch-database-pause.md)
 
@@ -125,7 +127,10 @@ Habilitación tablas adicionales para Stretch Database Supervisión de la migrac
 -   [Copia de seguridad y restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-backup.md)
 
 ## Consulte también
-[Habilitación de Stretch Database para una base de datos](sql-server-stretch-database-enable-database.md) [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
+
+[Habilitación de Stretch Database para una base de datos](sql-server-stretch-database-enable-database.md)
+
+[Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
@@ -136,4 +141,4 @@ Habilitación tablas adicionales para Stretch Database Supervisión de la migrac
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

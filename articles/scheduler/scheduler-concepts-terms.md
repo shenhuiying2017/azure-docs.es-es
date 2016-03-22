@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016" 
  ms.author="krisragh"/>
 
 # Conceptos, terminología y jerarquía de entidades de Programador
@@ -190,7 +190,7 @@ El intervalo de reintentos, especificado con el objeto **retryInterval**, es el 
 ## Consulte también
 
  [¿Qué es Programador?](scheduler-intro.md)
- 
+
  [Introducción al uso de Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
 
  [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
@@ -207,4 +207,4 @@ El intervalo de reintentos, especificado con el objeto **retryInterval**, es el 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

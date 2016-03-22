@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
@@ -61,4 +61,4 @@ El nivel premium de la red de entrega de contenido incluye todas las caracterís
 - [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
 - [Estadísticas en tiempo real](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

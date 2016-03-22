@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/10/2016"
+   ms.date="03/15/2016"
    ms.author="jgao"/>
 
 # Tutorial: Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio
@@ -106,7 +106,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 		    SELECT *
 		    FROM @searchlog;        
 
-        OUTPUT @searchlog   
+        OUTPUT @res   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
@@ -262,11 +262,15 @@ Hay dos maneras de ejecutar los archivos de C# personalizados:
 
 Puede depurar ensamblados de C# sin enviarlos y registrarlos en el servicio de análisis de Azure Data Lake. Puede establecer puntos de interrupción en el código subyacente del archivo y en un proyecto de C# al que se hace referencia.
 
-**Para depurar código local en el archivo de código subyacente** 1. Establezca puntos de interrupción en el archivo de código subyacente. 2. Presione **F5** para depurar el script localmente.
+**Para depurar el código local en el código subyacente del archivo**.
+1.	Establezca puntos de interrupción en el archivo de código subyacente. 
+2.	Presione **F5** para depurar el script localmente.
 
 El siguiente procedimiento solo funciona en Visual Studio 2015. En versiones anteriores de Visual Studio puede que necesite agregar manualmente los archivos pdb.
 
-**Para depurar el código local en un proyecto de C# al que se hace referencia** 1. Cree un proyecto de ensamblado de C# y compílelo para generar la dll de salida. 2. Registre la dll mediante una instrucción de U-SQL:
+**Para depurar el código local en un proyecto de C# al que se hace referencia**.
+1.	Cree un proyecto de ensamblado de C# y compílelo para generar la dll de salida.
+2.	Registre la dll mediante una instrucción de U-SQL:
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Establezca puntos de interrupción en el código de C#.
@@ -359,4 +363,4 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

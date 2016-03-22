@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell
@@ -22,11 +22,11 @@
 - [Uso del Editor de Data Factory](data-factory-get-started-using-editor.md).
 - [Uso de Visual Studio](data-factory-get-started-using-vs.md)
 - [Uso de PowerShell](data-factory-monitor-manage-using-powershell.md)
-
+- [Uso del Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
 
 El tutorial [Introducción a la Factoría de datos de Azure][adf-get-started] le muestra cómo crear y supervisar una factoría de datos de Azure con el [Portal de Azure][azure-portal]. En este tutorial, creará y supervisará una factoría de datos de Azure con cmdlets de PowerShell de Azure. La canalización en la factoría de datos que cree en este tutorial usa una actividad de copia para copiar los datos de un blob de Azure a una base de datos SQL de Azure.
 
-La actividad de copia realiza el movimiento de datos en Data Factory de Azure y la actividad funciona con un servicio disponible generalmente que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para más información acerca de la actividad de copia.
+La actividad de copia realiza el movimiento de datos en Data Factory de Azure y la actividad funciona con un servicio disponible generalmente que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Para más información acerca de la actividad de copia, consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
 > [AZURE.IMPORTANT] 
 Revise el artículo [Información general del tutorial](data-factory-get-started.md) y realice los pasos de requisitos previos antes de completar este tutorial.
@@ -59,7 +59,7 @@ Paso | Descripción
 [Paso 4: Crear y ejecutar una canalización](#CreateAndRunAPipeline) | En este paso, creará una canalización denominada **ADFTutorialPipeline** en Factoría de datos: **ADFTutorialDataFactoryPSH**. La canalización dispondrá de una **actividad de copia** que copia datos de un blob de Azure en una tabla de base de datos de Azure de salida.
 [Paso 5: Supervisar conjuntos de datos y canalización](#MonitorDataSetsAndPipeline) | En este paso, supervisará los conjuntos de datos y la canalización con PowerShell de Azure.
 
-## <a name="CreateDataFactory"></a>Paso 1: Creación de una factoría de datos de Azure
+## <a name="CreateDataFactory"></a>Paso 1: Crear una Data Factory de Azure
 En este paso, use PowerShell de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactoryPSH**.
 
 1. Inicie Azure PowerShell y ejecute el comando siguiente. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
@@ -425,7 +425,7 @@ En este paso, usará PowerShell de Azure para supervisar lo que está ocurriendo
 Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
 
 ## Otras referencias
-Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener información detallada sobre la **Actividad de copia** en Data Factory de Azure.
+Para más información acerca de la **actividad de copia** en Data Factory de Azure, consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -447,4 +447,4 @@ Consulte el artículo [Actividades de movimiento de datos](data-factory-data-mov
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

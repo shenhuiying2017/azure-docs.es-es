@@ -4,22 +4,23 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
-   editor="" />
+   manager="carmonm"
+   editor=""
+  tags="azure-resource-manager, azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc" />
 
 # Acerca de los dispositivos VPN para las conexiones de puerta de enlace de VPN de sitio a sitio
 
 Se requiere un dispositivo VPN para configurar una conexión VPN de sitio a sitio. Las conexiones de sitio a sitio pueden usarse para crear una solución híbrida o siempre que desee una conexión segura entre su red local y la red virtual. Este artículo trata sobre los dispositivos VPN compatibles y los parámetros de configuración. Tenga en cuenta que al configurar una conexión de sitio a sitio, una dirección IP IPv4 pública es necesaria para el dispositivo VPN.
 
-Si el dispositivo no aparece en la tabla de dispositivos VPN validados, consulte la sección de dispositivos de VPN no validados de este artículo. Es posible que el dispositivo funcione aún con Azure. Para obtener soporte con los dispositivos VPN, póngase en contacto con el fabricante.
+Si el dispositivo no aparece en la tabla de dispositivos VPN validados, consulte la sección de dispositivos VPN no validados de este artículo. Es posible que el dispositivo funcione aún con Azure. Para obtener soporte con los dispositivos VPN, póngase en contacto con el fabricante.
 
 **Elementos que hay que tener en cuenta para consultar las tablas:**
 
@@ -40,8 +41,8 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | **Proveedor** | **Familia de dispositivos** | **Versión mínima de sistema operativo** | **Basada en directivas** | **Basada en enrutamiento** |
 |---------------------------------|----------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Allied Telesis | Enrutadores VPN de la serie AR | 2\.9.2 | Próximamente | No compatible |
-| Barracuda Networks, Inc. | Barracuda NG Firewall | Barracuda NG Firewall 5.4.3 | [Barracuda NG Firewall](https://techlib.barracuda.com/display/BNGV54/How%20to%20Configure%20an%20IPsec%20Site-to-Site%20VPN%20to%20a%20Windows%20Azure%20VPN%20Gateway)| No compatible |
-| Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | No compatible |
+| Barracuda Networks, Inc. | Barracuda NextGen Firewall de la serie F | Basada en directivas: 5.4.3, basadas en enrutamiento: 6.2.0 | [Instrucciones de configuración](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) | [Instrucciones de configuración](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
+| Barracuda Networks, Inc. | Barracuda NextGen Firewall de la serie X | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | No compatible |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [Instrucciones de configuración](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | No compatible |
 | Punto de comprobación | Puerta de enlace de seguridad | R75.40, R75.40VS | [Instrucciones de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Instrucciones de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco | ASA | 8\.3 | [Ejemplos de Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | No compatible |
@@ -94,6 +95,8 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 
 ## Parámetros de IPsec
 
+>[AZURE.NOTE] Aunque los valores enumerados a continuación son compatibles con la Puerta de enlace de VPN de Azure, actualmente no hay ninguna manera de especificar o seleccionar una combinación específica en la Puerta de enlace de VPN de Azure. Debe especificar las restricciones en el dispositivo VPN local.
+
 ### Configuración de la fase 1 de IKE
 
 | **Propiedad** | **Basada en directivas** | **Puerta de enlace de VPN de alto rendimiento o estándar y basada en enrutamiento** |
@@ -102,7 +105,7 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 | Grupo Diffie-Hellman | Grupo 2 (1024 bits) | Grupo 2 (1024 bits) |
 | Método de autenticación | Clave previamente compartida | Clave previamente compartida |
 | Algoritmos de cifrado | AES256 AES128 3DES | AES256 3DES |
-| Algoritmo hash | SHA1(SHA128) | SHA1(SHA128) |
+| Algoritmo hash | SHA1(SHA128) | SHA1(SHA128), SHA2(SHA256) |
 | Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 1 | 28\.800 segundos | 28\.800 segundos |
 
 
@@ -148,4 +151,4 @@ En la tabla encontrará una lista de las ofertas de autenticación y cifrado de 
 
 - Para conectividad entre locales a través de Internet, use la configuración de la puerta de enlace de VPN de Azure predeterminada con los algoritmos de cifrado y hash de las tablas anteriores para garantizar la seguridad de su comunicación crítica.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->
