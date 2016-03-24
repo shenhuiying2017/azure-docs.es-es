@@ -247,5 +247,5 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 	- Paquete de [cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 - Consulte la [documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md).  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
 

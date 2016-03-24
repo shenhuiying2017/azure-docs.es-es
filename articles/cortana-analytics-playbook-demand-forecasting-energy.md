@@ -391,6 +391,6 @@ El siguiente diagrama muestra una arquitectura típica basada Cortana Analytics 
 
 Para más información tanto acerca de cada uno de los componentes como de la arquitectura completa, consulte la plantilla de soluciones energéticas.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
 
 
