@@ -100,4 +100,4 @@ Información adicional sobre el centro de IoT:
 [Centro para desarrolladores de Azure]: http://www.azure.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
