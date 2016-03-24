@@ -5,7 +5,7 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices](http://go
 
 2. En Visual Studio 2013, abra el proyecto descargado y examine el archivo MainPage.xaml.cs encontrado en la carpeta de proyecto GetStartedWithData.Shared.
 
-   	Observe que los objetos **TodoItem** agregados se almacenan en **ObservableCollection&lt;TodoItem&gt** en memoria.
+   	Observe que los objetos **TodoItem** agregados se almacenan en **ObservableCollection&lt;TodoItem&gt;** en memoria.
 
 3. Presione la tecla **F5** para recopilar el proyecto e iniciar la aplicación.
 
