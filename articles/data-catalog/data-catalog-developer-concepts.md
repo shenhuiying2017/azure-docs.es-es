@@ -95,7 +95,8 @@ Estas propiedades se aplican a todos los tipos de recursos de raíz y a todos lo
 |**Nombre de propiedad**|**Tipo de datos**|**Comentarios**
 |---|---|---
 |modifiedTime|DateTime|La última vez que se modificó la raíz. Esta la establece el cliente. (El servidor no mantiene este valor).
-|__id|Cadena|Identificador del elemento (solo lectura). Se garantiza que este identificador es único para el recurso en un catálogo. |__type|Cadena|El tipo de recurso (solo lectura).
+|__id|Cadena|Identificador del elemento (solo lectura). Se garantiza que este identificador es único para el recurso en un catálogo.
+|__type|Cadena|El tipo de recurso (solo lectura).
 |__\_\_creatorId|Cadena|Cadena que usa el creador del recurso para identificar el recurso de forma única.
 
 ### Propiedades de raíz comunes
@@ -240,7 +241,7 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 
 > [AZURE.NOTE]
 >
-> **__**\_\_permissions** solo se aplica a un elemento de raíz.
+> **\_\_permissions** solo se aplica a un elemento de raíz.
 >
 > El rol **Propietario** solo es aplicable a un elemento de raíz.
 >
@@ -327,3 +328,4 @@ Las solicitudes que se realicen al **Catálogo de datos de Azure (ADC)** pueden 
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
 <!---HONumber=AcomDC_0316_2016-->
+
