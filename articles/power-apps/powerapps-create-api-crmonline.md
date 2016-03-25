@@ -81,8 +81,8 @@ Cuando termine, se agregará una nueva API de Dynamics CRM Online en el entorno 
 
 6. En **Propiedades de la aplicación**:
 
-	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a realizar la autenticación con AAD para PowerApps, establezca la URL de inicio de sesión en \__https://login.windows.net_.
-2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
+	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a realizar la autenticación con AAD para PowerApps, establezca la URL de inicio de sesión en _https://login.windows.net_.
+	2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
 	3. Seleccione **Aceptar**.  
 
 	![Agregar aplicación de AAD: propiedades de la aplicación][10]
