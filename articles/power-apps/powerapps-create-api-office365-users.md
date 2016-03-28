@@ -29,19 +29,19 @@ Agregue la API de usuarios de Office 365 al entorno del Servicio de aplicaciones
 
 1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
  
-2. Seleccione **Examinar** en la barra de tareas:
+2. Seleccione **Examinar** en la barra de tareas:  
 ![][14]
 
-3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: 
-![][15]
+3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*:  
+![][15]  
 
-4. En **PowerApps**, seleccione **Administrar API**: 
+4. En **PowerApps**, seleccione **Administrar API**:    
 ![Examine las APIs registradas][1]
 
-5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:
+5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:  
 ![Add API][2]
 
-6. Escriba un **nombre** descriptivo para la API.
+6. Escriba un **nombre** descriptivo para la API.  
 	
 7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Usuarios de Office 365**:  
 ![seleccionar la api de usuarios de Office 365][3]
@@ -51,7 +51,7 @@ Agregue la API de usuarios de Office 365 al entorno del Servicio de aplicaciones
 
 9. Escriba el *Id. de cliente* y el *Secreto de cliente* de la aplicación Azure Active Directory (AAD) de Office 365. Si no dispone de estos, consulte la sección "Registrar una aplicación de AAD para su uso con PowerApps" en este tema para crear el identificador y los valores secretos que necesita.
 
-	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
+	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.  
 
 10. Seleccione **Aceptar** para completar los pasos.
 
@@ -70,7 +70,7 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 3. Seleccione el nombre del inquilino de su organización:  
 ![Iniciar Azure Active Directory][6]
 
-4. Seleccione la pestaña **Aplicaciones** y seleccione **Agregar**:
+4. Seleccione la pestaña **Aplicaciones** y seleccione **Agregar**:  
 ![Aplicaciones del inquilino de AAD][7].
 
 5. En **Agregar aplicación**:
@@ -81,17 +81,19 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 
 	![Agregar aplicación de AAD: información de la aplicación][8]
 
-6. En **Propiedades de la aplicación**:
+6. En **Propiedades de la aplicación**:  
 
 	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a realizar la autenticación con AAD para PowerApps, establezca la URL de inicio de sesión en \__https://login.windows.net_.
-2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
+	2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
 	3. Seleccione **Aceptar**.  
 
 	![Agregar aplicación de AAD: propiedades de la aplicación][9]
 
-7. Cuando se finalice correctamente, se le redirigirá a la nueva aplicación de AAD. Seleccione **Configurar**: ![Aplicación AAD de Contoso][10]
+7. Cuando se finalice correctamente, se le redirigirá a la nueva aplicación de AAD. Seleccione **Configurar**:  
+![Aplicación AAD de Contoso][10]
 
-8. Establezca la **Dirección URL de respuesta** de la sección _OAuth 2_ en la dirección URL de redireccionamiento que recibió cuando se agregó la nueva API de usuarios de Office 365 en el Portal de Azure (en este tema). Seleccione **Agregar una aplicación**: ![Configurar aplicación AAD de Contoso][11]
+8. Establezca la **Dirección URL de respuesta** de la sección _OAuth 2_ en la dirección URL de redireccionamiento que recibió cuando se agregó la nueva API de usuarios de Office 365 en el Portal de Azure (en este tema). Seleccione **Agregar una aplicación**:  
+[Configurar aplicación AAD de Contoso][11]
 
 9. En la ventana **Permisos para otras aplicaciones**, seleccione **API unificada de Office 365 (vista previa)** y seleccione **Aceptar**.
 

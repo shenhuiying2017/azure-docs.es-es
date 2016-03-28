@@ -99,7 +99,7 @@ Ahora puede usar Excel para filtrar y ordenar según sea necesario. Obviamente, 
 2. En el menú **Ver**, haga clic en **Cloud Explorer**. También puede hacer clic simplemente en **CTRL+\\, CTRL+X**.
 3. En **Cloud Explorer**, seleccione **Tipos de recursos**. La otra opción disponible es **Grupos de recursos**.
 4. Expanda **Cuentas de almacenamiento**, la cuenta de almacenamiento predeterminada de su clúster y **Tablas**.
-5. Haga doble clic en **hadoopservicelog**.
+5. Haga doble clic en hadoopservicelog.
 6. Agregue un filtro. Por ejemplo:
 	
 		TraceLevel eq 'ERROR'
@@ -341,4 +341,4 @@ Algunos de estos mensajes de error también podrían aparecer en el Portal de Az
 - [Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux (vista previa)](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 - [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

@@ -35,7 +35,8 @@ En la columna **Estado** se encuentra la información más importante, puesto qu
 | --- | --- |
 | stopped-* | No se ha podido completar la ejecución. Por ejemplo, si el sistema remoto está inactivo y no se puede contactar. |
 | stopped-error-limit | Se han generado más de 5000 errores. La ejecución se ha detenido automáticamente debido al elevado número de errores. |
-| completed-*-errors | La ejecución se ha completado, pero hay errores (menos de 5000) que deben investigarse. | | completed-*-warnings | La ejecución se ha completado, pero algunos datos no tienen el estado esperado. Si se producen errores, es posible que se trate únicamente de un síntoma. Le recomendamos que primero resuelva los errores y que luego investigue las advertencias. |
+| completed-*-errors | La ejecución se ha completado, pero hay errores (menos de 5000) que deben investigarse. | 
+| completed-*-warnings | La ejecución se ha completado, pero algunos datos no tienen el estado esperado. Si se producen errores, es posible que se trate únicamente de un síntoma. Le recomendamos que primero resuelva los errores y que luego investigue las advertencias. |
 | Correcto | No hay ningún problema. |
 
 Cuando seleccione una fila, la parte inferior se actualizará para mostrar los detalles de la ejecución. En el extremo izquierdo de la parte inferior, es posible que aparezca una lista con la información **Paso #**. Solo aparecerá si tiene varios dominios en el bosque; cada dominio estará representado por un paso. El nombre de dominio puede encontrarse bajo el encabezado **Partición**. En **Synchronization Statistics (Estadísticas de sincronización)** puede encontrar más información acerca del número de cambios que se han procesado. Puede hacer clic en los vínculos para obtener una lista de los objetos modificados. Si hay objetos con un error, estos que se mostrarán en **Synchronization Errors (Errores de sincronización)**.
@@ -56,4 +57,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
