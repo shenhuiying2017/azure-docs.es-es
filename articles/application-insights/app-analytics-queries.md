@@ -671,13 +671,13 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 
 **Argumentos**
 
-* *Tabla1*, *Tabla2*...
+* *Tabla1*, *Tabla2* ...
  *  El nombre de una tabla, como `events`; o
  *  Una expresión de consulta como `(events | where id==42)`
  *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `E*` podría formar la unión de todas las tablas en la base de datos cuyos nombres comienzan con `E`.
 * `kind`: 
- * `inner` - El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
- * `outer` - El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
+ * `inner` -El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
+ * `outer` -El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
 * `withsource=`* ColumnName: * si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
 
 **Devoluciones**

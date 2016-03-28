@@ -115,4 +115,4 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

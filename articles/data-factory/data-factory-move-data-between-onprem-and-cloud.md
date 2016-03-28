@@ -104,7 +104,12 @@ En el firewall corporativo, debe configurar los siguientes dominios y puertos de
 
 | Nombres de dominio | Puertos | Descripción |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | Escuchas en Retransmisión de bus de servicio a través de TCP (requiere 443 para adquirir el token de Control de acceso) | | *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional a través de TCP | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| **.servicebus.windows.net | 443, 80 | Escuchas en Retransmisión de bus de servicio a través de TCP (requiere 443 para adquirir el token de Control de acceso) |
+| *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional a través de TCP |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
+| graph.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS |
 
 En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de salida. De lo contrario, puede configurar los puertos y dominios según corresponda en el equipo de la puerta de enlace.
 
@@ -677,7 +682,8 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureRmDataFactoryGatew
 ## Flujo de datos de copia mediante Data Management Gateway
 Al usar una actividad de copia en una canalización de datos para introducir datos locales en la nube para su posterior procesamiento, o bien exportar los datos de resultados en la nube de nuevo a un almacén de datos local, la actividad de copia usa internamente una puerta de enlace para transferir los datos de origen de un origen de datos local a la nube y viceversa.
 
-A continuación se muestra el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos: ![Flujo de datos mediante la puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+A continuación se muestra el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos:
+![Flujo de datos mediante la puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	El desarrollador de datos crea una nueva puerta de enlace para una Factoría de datos de Azure mediante el [Portal de Azure](https://portal.azure.com) o un [cmdlet de PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	El desarrollador de datos usa el panel "Servicios vinculado" para definir un nuevo servicio vinculado para un almacén de datos local con la puerta de enlace. Como parte de la configuración de los datos de servicios vinculados el desarrollador usa la aplicación Establecer credenciales, como se muestra en el tutorial paso a paso para especificar las credenciales y los tipos de autenticación. El cuadro de diálogo de la aplicación Establecer credenciales se comunicará con el almacén de datos para probar la conexión y la puerta de enlace para guardar las credenciales.
@@ -686,4 +692,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 5.	La puerta de enlace descifra las credenciales con el mismo certificado y, a continuación, se conecta al almacén de datos local con el tipo de autenticación adecuado.
 6.	La puerta de enlace copia datos desde el almacén local a un almacenamiento en la nube o desde un almacenamiento en la nube a un almacén de datos local según cómo esté configurada la actividad de copia en la canalización de datos. Nota: Para este paso, la puerta de enlace se comunica directamente con el servicio de almacenamiento basado en la nube (Blob de Azure, SQL de Azure, etc.) a través del canal seguro (HTTPS).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

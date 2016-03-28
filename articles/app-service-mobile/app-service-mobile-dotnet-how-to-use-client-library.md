@@ -83,7 +83,8 @@ La siguiente sección describe cómo buscar y recuperar registros y modificar lo
 
 Todo el código que obtiene acceso a datos o los modifica en una tabla de back-end llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando al método [GetTable] en una instancia de `MobileServiceClient` del modo indicado a continuación:
 
-    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable =
+		client.GetTable<TodoItem>();
 
 Este es el modelo de serialización con tipo. También se admite un modelo de serialización sin tipo. El siguiente código [crea una referencia a una tabla sin tipo]\:
 
@@ -108,7 +109,8 @@ En esta sección se describe cómo generar consultas al back-end de la aplicaci�
 
 El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función [Where] aplica un predicado de filtrado de filas a la consulta en relación con la tabla.
 
-	// This query filters out completed TodoItems and items without a timestamp.
+	// This query filters out completed TodoItems and
+	// items without a timestamp.
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
@@ -127,7 +129,8 @@ La función que se pasa al método `Where` puede disponer de un número arbitrar
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false && todoItem.Text != null)
+	   .Where(todoItem => todoItem.Complete == false
+		   && todoItem.Text != null)
 	   .ToListAsync();
 
 Será traducida por el SDK de servidor a una consulta SQL similar a la siguiente:

@@ -83,4 +83,4 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 <!-- URLs. -->
 [Agregar autenticación a la aplicación de Servicios móviles existente]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

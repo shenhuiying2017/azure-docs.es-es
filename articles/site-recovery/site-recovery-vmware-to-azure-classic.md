@@ -236,13 +236,13 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 ## Paso 5: Instalación del servidor de administración
 > [AZURE.TIP] Asegúrese de poder tener acceso a estas direcciones URL desde el servidor de administración:
 >
-- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
-- https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi
-- https://www.msftncsi.com/ncsi.txt
+- *.hypervrecoverymanager.windowsazure.com
+- *.accesscontrol.windows.net
+- *.backup.windowsazure.com
+- *.blob.core.windows.net
+- *.store.core.windows.net
+- http://dev.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
+- http://www.msftncsi.com/ncsi.txt
 
 
 
@@ -303,7 +303,10 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 	![Resumen](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] Debe instalarse el proxy del agente del servicio de recuperación de Microsoft Azure. Una vez completada la instalación, inicie una aplicación denominada "Shell de servicios de recuperación de Microsoft Azure" en el menú Inicio de Windows. En la ventana de comandos que se abre, ejecute el siguiente conjunto de comandos para definir la configuración del servidor proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName dominio\\nombre de usuario -ProxyPassword $pwd net stop obengine net start obengine
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName dominio\\nombre de usuario -ProxyPassword $pwd
+	net stop obengine
+	net start obengine
 	 
 
 
@@ -458,7 +461,8 @@ Los instaladores están disponibles en C:\\Program Files (x86)\\Microsoft Azure 
 Sistema operativo de origen | Archivo de instalación del servicio de movilidad
 --- | ---
 Windows Server 64 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -753,4 +757,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Conozca más sobre la conmutación por recuperación](site-recovery-failback-azure-to-vmware-classic.md) para que las máquinas a las que se realizó la conmutación por error y que se ejecutan en Azure vuelvan al entorno local.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

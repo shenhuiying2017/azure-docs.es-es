@@ -301,4 +301,4 @@ Para obtener información sobre cómo trasladar recursos de un grupo de recursos
 ## Pasos siguientes
 -	Para más información sobre cómo trabajar con los comandos de Redis, vea [¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->
