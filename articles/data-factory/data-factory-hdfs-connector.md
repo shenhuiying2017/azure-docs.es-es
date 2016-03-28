@@ -212,7 +212,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | authenticationType | Windows o de forma anónima. | Sí |
 | gatewayName | Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse a HDFS. | Sí |   
 
-Para más información acerca de cómo configurar las credenciales para un sistema HDFS local, consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Para obtener más información sobre cómo configurar las credenciales para un sistema HDFS local, consulte la sección sobre la [configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
 ### Uso de autenticación anónima
 
@@ -265,7 +265,7 @@ fileName | Especifique el nombre del archivo en **folderPath** si quiere que la 
 partitionedBy | partitionedBy se puede usar para especificar un folderPath dinámico, un nombre de archivo para datos de series temporales. Por ejemplo, folderPath se parametriza por cada hora de datos. | No
 fileFilter | Especifique el filtro que se va a usar para seleccionar un subconjunto de archivos de folderPath, en lugar de todos los archivos. <br/><br/>Los valores permitidos son: * (varios caracteres) y ? (un solo carácter).<br/><br/>Ejemplo 1: "fileFilter": "*. log"<br/>Ejemplo 2: "fileFilter": 2014-1-?. txt"<br/><br/>**Nota**: fileFilter es aplicable a un conjunto de datos de FileShare de entrada | No
 | compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate** y **BZip2** y los niveles admitidos son: **óptimo** y **más rápido**. Tenga en cuenta que esta vez no se admite la configuración de compresión de los datos que se encuentran en **AvroFormat**. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
-| formato | Se admiten dos tipos de formatos: **TextFormat** y **AvroFormat**. Deberá establecer la propiedad type en format en cualquiera de estos valores. Cuando el formato es TextFormat, puede especificar propiedades opcionales adicionales para format. Consulte la sección [Especificación de TextFormat](#specifying-textformat) a continuación para obtener más detalles. | No
+| formato | Se admiten tres tipos de formato: **TextFormat**, **AvroFormat** y **JsonFormat**. Deberá establecer la propiedad type en format en cualquiera de estos valores. Cuando el formato es TextFormat, puede especificar propiedades opcionales adicionales para format. Consulte la sección [Especificación de TextFormat](#specifying-textformat) a continuación para obtener más detalles. Consulte la sección [Especificación de JsonFormat](#specifying-jsonformat) si utiliza dicho formato. | No 
 
 
 > [AZURE.NOTE] filename y fileFilter no pueden usarse simultáneamente.
@@ -309,12 +309,12 @@ Si se establece el formato en **TextFormat**, puede especificar las siguientes p
 | -------- | ----------- | -------- |
 | columnDelimiter | El carácter que se usa como separador de columnas en un archivo. Actualmente solo se permite un carácter. Esta etiqueta es opcional. El valor predeterminado es coma (,). | No |
 | rowDelimiter | El carácter que se usa como separador de filas en un archivo. Actualmente solo se permite un carácter. Esta etiqueta es opcional. El valor predeterminado es cualquiera de los siguientes: ["\\r\\n", "\\r", "\\n"]. | No |
-| escapeChar | El carácter especial que se usa para anular el delimitador de columna que se muestra en el contenido. Esta etiqueta es opcional. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<br/>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: "Hello, world"), puede definir '$' como carácter de escape y usar la cadena "Hello$, world" en el origen.<br/><br/>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla.<br/> | No | 
-| quoteChar | El carácter especial que se usa para poner entre comillas el valor de la cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. Esta etiqueta es opcional. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<br/><br/>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: <Hello  world>), puede definir ‘"’ como comillas y usar la cadena <"Hello, world"> en el origen. Esta propiedad es aplicable a las tablas de entrada y de salida.<br/><br/>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla. | No |
-| nullValue | Los caracteres que se usan para representar un valor nulo en el contenido del archivo de blob. Esta etiqueta es opcional. El valor predeterminado es “\\N”.<br/><br/>Por ejemplo, basándose en el ejemplo anterior , "NaN" en el blob se traducirá como valor nulo al copiar en, por ejemplo, SQL Server. | No |
+| escapeChar | El carácter especial que se usa para anular el delimitador de columna que se muestra en el contenido. Esta etiqueta es opcional. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<br/><br/>Por ejemplo, si utiliza la coma (,) como delimitador de columna, pero quiere usar el carácter de coma en el texto (por ejemplo: “Hello, world”), puede definir ‘$’ como carácter de escape y usar la cadena “Hello$, world” en el origen.<br/><br/>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla. | No | 
+| quoteChar | El carácter especial que se usa para poner entre comillas el valor de la cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. Esta etiqueta es opcional. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<br/><br/>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: <Hello  world>), puede definir ‘"’ como comillas y usar la cadena <"Hello, world"> en el origen. Esta propiedad se aplica a las tablas de entrada y de salida.<br/><br/>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla. | No |
+| nullValue | Los caracteres que se usan para representar un valor nulo en el contenido del archivo de blob. Esta etiqueta es opcional. El valor predeterminado es “\\N”.<br/><br/>Según el ejemplo anterior, “NaN” en el blob se traducirá como valor NULL al copiarse en SQL Server, por ejemplo. | No |
 | encodingName | Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, vea: Propiedad [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift\_jis. El valor predeterminado es: UTF-8. | No | 
 
-#### Muestras
+#### Ejemplo de TextFormat
 En el ejemplo siguiente se muestran algunas de las propiedades de formato de TextFormat.
 
 	"typeProperties":
@@ -345,6 +345,8 @@ Si se establece el formato en AvroFormat, no es preciso especificar propiedades 
 
 Para usar el formato Avro en una tabla de Hive, puede consultar [Tutorial de Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
+[AZURE.INCLUDE [data-factory-json-format](../../includes/data-factory-json-format.md)]
+
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## Propiedades de tipo de actividad de copia de HDFS
@@ -353,7 +355,7 @@ Para obtener una lista completa de las secciones y propiedades disponibles para 
 
 Por otro lado, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad y, en caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-En caso de actividad de copia si el origen es del tipo **FileSystemSource**, estarán disponibles las propiedades siguientes en la sección typeProperties:
+En caso de actividad de copia, si el origen es del tipo **FileSystemSource**, estarán disponibles las propiedades siguientes en la sección typeProperties:
 
 **FileSystemSource** admite las siguientes propiedades:
 
@@ -365,4 +367,4 @@ En caso de actividad de copia si el origen es del tipo **FileSystemSource**, est
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

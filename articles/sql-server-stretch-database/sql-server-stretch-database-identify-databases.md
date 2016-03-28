@@ -61,6 +61,11 @@ Habilite Stretch Database.
 -   Para habilitar Stretch Database en otra **tabla** cuando Stretch ya está habilitado en la base de datos, consulte [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md).
 
 ## Consulte también
-[Limitaciones de área expuesta y problemas de bloqueo de Stretch Database](sql-server-stretch-database-limitations.md), [Habilitación de Stretch Database para una base de datos](sql-server-stretch-database-enable-database.md) y [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+[Limitaciones de área expuesta y problemas de bloqueo de Stretch Database](sql-server-stretch-database-limitations.md)
+
+[Habilitación de Stretch Database para una base de datos](sql-server-stretch-database-enable-database.md)
+
+[Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

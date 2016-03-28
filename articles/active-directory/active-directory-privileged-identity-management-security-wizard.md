@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Asistente para seguridad de Privileged Identity Management de Azure"
-   description="La primera vez que utilice la extensión de Privileged Identity Management de Azure, aparecerá un asistente para seguridad. En este artículo se describen los pasos para usar al asistente."
+   pageTitle="Asistente para seguridad de Privileged Identity Management de Azure AD"
+   description="La primera vez que use la extensión de Privileged Identity Management de Azure Active Directory, aparecerá un asistente para seguridad. En este artículo se describen los pasos para usar al asistente."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/08/2016"
    ms.author="kgremban"/>
 
-# Asistente para seguridad de Privileged Identity Management de Azure
+# Asistente para seguridad de Privileged Identity Management de Azure AD
 
 La primera vez que ejecute Privileged Identity Management (PIM) de Azure, aparecerá un asistente. El asistente le ayuda a comprender los riesgos de seguridad de identidades con privilegios y cómo usar Privileged Identity Management para reducirlos.
 
@@ -32,7 +32,7 @@ Al hacer clic en **ADMINISTRE LA SUPERFICIE EXPUESTA A ATAQUES DE LOS ADMINISTRA
 
 Tiene tres opciones para cambiar la ventana de tiempo de un administrador global.
 
-1.  Haga clic en el botón **Convertir todos en temporales** para convertir todos los administradores globales en temporales.
+1.  Haga clic en el botón **Convertir todos en temporales** para convertir todos los administradores globales en temporales. Elija esta opción solo si todos los administradores tienen cuentas organizativas y se han registrado para Azure MFA.
 
 2.  Haga clic en el botón **Convertir todos en permanentes** para convertir todos los administradores globales en permanentes.
 
@@ -52,13 +52,13 @@ A fin de que los administradores puedan recibir correo electrónico cuando los r
 
 ## Exigencia de Multi-Factor Authentication
 
-Si quiere que se exija a los administradores que usen MFA para iniciar sesión en sus cuentas y solicitar una extensión de su rol, habilite MFA haciendo clic en el botón **Habilitar**. También puede deshabilitar esta característica más tarde.
+Si quiere que se exija a los administradores que usen MFA para iniciar sesión en sus cuentas y solicitar una extensión de su rol, habilite MFA haciendo clic en el botón **Habilitar**.
 
 <!--For more information about MFA and PIM, click here. PLACEHOLDER: NEED LINK TO MFA DOC.-->
 
 Seleccione los roles a los que se aplicará esta configuración. Haga clic en **Aceptar**.
 
-> [AZURE.WARNING] Es importante que en este momento tenga más de un administrador de seguridad. Si hay solo un administrador de seguridad que no está establecido como permanente y no tiene MFA configurado, el usuario no podrá administrar PIM en absoluto después de que expire la asignación de roles.
+> [AZURE.WARNING] En este momento es importante que tenga más de un administrador de seguridad con una cuenta de organización (no una cuenta Microsoft). Si hay solo un administrador de seguridad que no está establecido como permanente y no tiene MFA configurado, el usuario no podrá administrar PIM en absoluto si la cuenta se elimina.
 
 Haga clic en el botón **Aceptar** cuando haya terminado.
 
@@ -67,4 +67,4 @@ Una vez realizados los cambios, ya no se mostrará el asistente. Pero se puede a
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

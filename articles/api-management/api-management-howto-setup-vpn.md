@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/14/2016"
 	ms.author="antonba"/>
 
 # Configuración de conexiones VPN en Administración de API de Azure
@@ -48,11 +48,25 @@ Después de que el servicio Administración de API se conecta a la VPN, el acces
 
 ![Agregar una API desde VPN][api-management-setup-vpn-add-api]
 
+## Puertos necesarios para la compatibilidad con VPN de Administración de API
+
+Cuando la instancia del servicio de Administración de API se hospeda en una red virtual, se usan los puertos de la tabla siguiente. Si estos puertos están bloqueados, puede que el servicio no funcione correctamente. Tener bloqueados uno o varios de estos puertos es el problema más común de una configuración incorrecta cuando se usa Administración de API con una red virtual.
+
+| Puertos | Dirección | Protocolo de transporte | Propósito | Origen/destino |
+|------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|
+| 80, 443 | Entrada | TCP | Comunicación de cliente con Administración de API | INTERNET/VIRTUAL\_NETWORK |
+| 80 443 | Salida | TCP | Dependencia de Administración de API en Almacenamiento de Azure y Bus de servicio de Azure | VIRTUAL\_NETWORK/INTERNET |
+| 1433 | Salida | TCP | Dependencias de Administración de API de SQL | VIRTUAL\_NETWORK/INTERNET |
+| 9350, 9351, 9352, 9353, 9354 | Salida | TCP | Dependencias de Administración de API de Bus de servicio | VIRTUAL\_NETWORK/INTERNET |
+| 5671 | Salida | AMQP | Dependencia de Administración de API para registrar en la directiva del centro de eventos | VIRTUAL\_NETWORK/INTERNET |
+| 6381, 6382, 6383 | Entrante o saliente | UDP | Dependencias de Administración de API de Caché en Redis | VIRTUAL\_NETWORK/VIRTUAL\_NETWORK |
+| 445 | Salida | TCP | Dependencia de Administración de API en el recurso compartido de archivos de Azure para GIT | VIRTUAL\_NETWORK/INTERNET |
+
 
 ## <a name="related-content"> </a>Contenido relacionado
 
 
-* [Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio][]
+* [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico][]
 * [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
@@ -66,7 +80,7 @@ Después de que el servicio Administración de API se conecta a la VPN, el acces
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 [Portal de Azure clásico ]: https://manage.windowsazure.com/
 
-[Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
+[Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

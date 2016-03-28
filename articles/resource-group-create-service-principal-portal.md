@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Creación de aplicación de Active Directory y entidad de servicio mediante el portal
@@ -77,9 +77,17 @@ Al tener acceso a la aplicación mediante programación, necesitará el id. de l
   
    ![id. de cliente][5]
 
-En algunos casos, debe pasar el id. del inquilino con su solicitud de autenticación. Para recuperar el id. de inquilino, seleccione **Ver puntos de conexión** en la parte inferior de la pantalla y recupere el id. como se muestra a continuación.
+En algunos casos, debe pasar el id. del inquilino con su solicitud de autenticación. En el caso de las aplicaciones web y las aplicaciones de Web API, para recuperar el identificador de inquilino, seleccione **Ver puntos de conexión** en la parte inferior de la pantalla y recupere el identificador como se muestra a continuación.
 
    ![id. de inquilino](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+Los puntos de conexión no están disponibles para las aplicaciones de cliente nativo. En su lugar, puede recuperar el identificador de inquilino mediante PowerShell:
+
+    PS C:\> Get-AzureRmSubscription
+
+O de la CLI de Azure:
+
+    azure account show --json
 
 ## Creación de una clave de autenticación
 
@@ -108,15 +116,15 @@ La aplicación está ahora lista y la entidad de servicio creada en el inquilino
 
 ## Establecimiento de permisos delegados
 
-Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado sesión, debe conceder a la aplicación el permiso delegado para tener acceso a otras aplicaciones. Esto se puede hacer en la sección de **permisos para otras aplicaciones** de la pestaña **Configurar**. De forma predeterminada, ya hay habilitado un permiso delegado para Azure Active Directory. Deje este permiso delegado sin cambios.
+Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado sesión, debe conceder a la aplicación el permiso delegado para tener acceso a otras aplicaciones. Esto se puede hacer en la sección **permisos para otras aplicaciones** de la pestaña **Configurar**. De forma predeterminada, ya hay habilitado un permiso delegado para Azure Active Directory. Deje este permiso delegado sin cambios.
 
 1. Seleccione **Agregar aplicación**.
 
-2. En la lista, seleccione **API de administración de servicios de Azure**.
+2. En la lista, seleccione la **API de administración de servicios de Microsoft Azure**.
 
       ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. Agregue el permiso delegado **Acceso a la Administración de servicios de Azure (vista previa)** a la API de administración de servicios.
+3. Agregue el permiso delegado **Acceso a Azure Service Management (versión preliminar)** a Service Management API
 
        ![seleccionar permiso](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
@@ -124,7 +132,7 @@ Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado 
 
 ## Configuración de aplicación multiinquilino
 
-Si los usuarios de otros directorios de Azure Active Directory pueden dar su consentimiento a la aplicación e iniciar sesión en ella, debe habilitar los servicios multiinquilino. En la pestaña **Configurar**, establezca **La aplicación es multiempresa** en **Sí**.
+Si los usuarios de otros directorios de Azure Active Directory pueden dar su consentimiento a la aplicación e iniciar sesión en ella, debe habilitar los servicios multiinquilino. En la pestaña **Configurar**, establezca **La aplicación es multiinquilino** en **Sí**.
 
 ![multiinquilino](./media/resource-group-create-service-principal-portal/multi-tenant.png)
 
@@ -229,4 +237,4 @@ Puede pasar el token en el encabezado de la solicitud con el código siguiente:
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="03/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar cómo integrar SciQuest Spend Director c
 
 - Puede controlar en Azure AD quién tiene acceso a SciQuest Spend Director. 
 - Puede permitir que los usuarios inicien sesión automáticamente en SciQuest Spend Director (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory.
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Para configurar la integración de Azure AD con SciQuest Spend Director, necesit
 - Una suscripción de SciQuest Spend Director habilitada para el inicio de sesión único
 
 
-> [AZURE.NOTE]Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -56,7 +56,7 @@ Para configurar la integración de SciQuest Spend Director en Azure AD, deberá 
 
 **Para agregar SciQuest Spend Director desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br> ![Active Directory][1]
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br> ![Active Directory][1]
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -82,11 +82,11 @@ Para configurar y probar el inicio de sesión único de Azure AD con SciQuest Sp
 
 ### Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el portal de Azure AD y configurar el inicio de sesión único en la aplicación de SciQuest Spend Director.<br>
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación de SciQuest Spend Director.<br>
 
 **Para configurar el inicio de sesión único de Azure AD con SciQuest Spend Director, realice los pasos siguientes:**
 
-1. En el portal de Azure AD, en la página de integración de aplicaciones de **SciQuest Spend Director**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.<br><br>![Configurar inicio de sesión único][8]
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **SciQuest Spend Director**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.<br><br> ![Configurar inicio de sesión único][8]
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en SciQuest Spend Director?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, luego , haga clic en **Siguiente**.<br><br> ![Inicio de sesión único de Azure AD][9]
 
@@ -102,18 +102,18 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 5. Póngase en contacto con el soporte técnico de SciQuest para habilitar este método de autenticación mediante los datos descargados anteriores.
 
-6. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.<br><br>![Qué es Azure AD Connect][15]
-10. En la página **Confirmación del inicio de sesión único**, haga clic en **Completa**.<br><br>![¿Qué es Azure AD Connect?][16]
+6. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**. <br><br>![Qué es Azure AD Connect][15]
+10. En la página **Confirmación del inicio de sesión único**, haga clic en **Completa**.<br><br>[¿Qué es Azure AD Connect?][16]
 
 
 
 
 ### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure llamado Britta Simon.
+El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br>![Qué es Azure AD Connect][100] 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br>![Qué es Azure AD Connect][100] 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.<br><br>![Qué es Azure AD Connect][101] 
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. <br><br>![Qué es Azure AD Connect][102] 
@@ -150,7 +150,7 @@ El objetivo de esta sección es permitir que Britta Simon utilice el inicio de s
 
 **Para asignar a Britta Simon a SciQuest Spend Director, realice los pasos siguientes:**
 
-1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú de la parte superior.<br> <br><br>![Qué es Azure AD Connect][201]
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.<br> <br><br>![Qué es Azure AD Connect][201]
 2. En la lista de aplicaciones, seleccione **SciQuest gastar Director**. <br><br>![Qué es Azure AD Connect][202]
 1. En el menú de la parte superior, haga clic en **Usuarios**.<br> <br><br>![Qué es Azure AD Connect][203]
 1. En la lista Usuarios, seleccione **Britta Simon**. <br><br>![Qué es Azure AD Connect][204]
@@ -195,4 +195,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

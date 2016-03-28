@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/11/2016" 
 	ms.author="awills"/>
 
 
@@ -47,10 +47,23 @@ Vamos a mostrar los resultados con la presentación de gráficos de barras y con
 
 Parece que nuestra aplicación es más popular en Hyderabad a la hora del almuerzo y de acostarse. (Y debemos investigar esos 500 códigos).
 
-El lenguaje tiene muchas de las funcionalidades de SQL y muchas más. Al igual que en SQL, puede filtrar datos, agrupar registros, y ordenar y combinar tablas. También puede realizar cálculos en los campos. A diferencia de SQL, estas funciones se dividen en operaciones diferentes y, en lugar de anidar consultas, se canalizan los datos de una operación a la siguiente de una forma muy intuitiva. Esto facilita la redacción de consultas muy complejas.
+
+También hay operaciones estadísticas potentes:
+
+![](./media/app-analytics/025.png)
 
 
->[AZURE.NOTE] Se recomienda empezar por el [paseo por el lenguaje](app-analytics-tour.md).
+El lenguaje tiene muchas características atractivas:
+
+* [Filtre](app-analytics-queries.md) la telemetría de la aplicación sin procesar mediante los campos, incluidas sus métricas y propiedades personalizadas.
+* [Una](app-analytics-queries.md#join-operator) varias tablas: ponga en correlación las solicitudes con las vistas de página, llamadas de dependencia, excepciones y seguimiento de registros.
+* [Agregaciones](app-analytics-aggregations.md) estadísticas potentes.
+* Son tan eficaces como SQL, pero mucho más fáciles de usar para las consultas complejas: en lugar de anidar instrucciones, canaliza los datos de una operación básica a la siguiente.
+* Visualizaciones inmediatas y potentes.
+
+
+
+>[AZURE.NOTE] Se recomienda empezar por la [introducción al lenguaje](app-analytics-tour.md).
 
 
 ## Conexión a los datos de Application Insights
@@ -66,4 +79,4 @@ Abra Analytics desde la [hoja de información general](app-insights-dashboards.m
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,24 +1,24 @@
-<properties 
- pageTitle="Alta disponibilidad y confiabilidad de Programador" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Alta disponibilidad y confiabilidad de Programador"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
- 
+
+
 # Alta disponibilidad y confiabilidad de Programador
 
-## Alta disponibilidad de Programador de Azure
+## Alta disponibilidad de Programador de Azure
 
 Como servicio principal de la plataforma Azure, Programador de Azure tiene una alta disponibilidad y presenta implementación de servicio con redundancia geográfica y replicación geográfica regional de trabajos.
 
@@ -30,7 +30,7 @@ Programador de Azure está disponible a través de la interfaz de usuario en pr�
 
 No solo el front-end de Programador de Azure está disponible para solicitudes de administración, sino que su propio trabajo también se replica geográficamente. Cuando hay una interrupción en una región, Programador de Azure conmuta por error y garantiza que el trabajo se ejecuta en otro centro de datos en la región geográfica emparejada.
 
-Por ejemplo, si creó un trabajo en la zona Centro-Sur de EE. UU., Programador de Azure replica automáticamente ese trabajo en la zona Centro-Norte de EE. UU. Cuando hay un error en la zona Centro-Sur de EE. UU., Programador de Azure garantiza que el trabajo se ejecuta en la zona Centro-Norte de EE. UU. [La lista de regiones de Azure emparejadas está disponible aquí](https://msdn.microsoft.com/library/azure/dn758204.aspx).
+Por ejemplo, si creó un trabajo en la zona Centro-Sur de EE. UU., Programador de Azure replica automáticamente ese trabajo en la zona Centro-Norte de EE. UU. Cuando hay un error en la zona Centro-Sur de EE. UU., Programador de Azure garantiza que el trabajo se ejecuta en la zona Centro-Norte de EE. UU. [La lista de regiones de Azure emparejadas está disponible aquí](https://msdn.microsoft.com/library/azure/dn758204.aspx).
 
 ![][1]
 
@@ -42,9 +42,9 @@ Programador de Azure garantiza su propia alta disponibilidad y adopta un enfoque
 
 ### Directiva de reintentos configurable a través de "retryPolicy"
 
-Programador de Azure le permite configurar una directiva de reintentos. De manera predeterminada, si se produce un error en un trabajo, Programador intenta ejecutar el trabajo otras cuatro veces, a intervalos de 30 segundos. Puede volver a configurar esta directiva de reintentos para que sea más agresiva (por ejemplo, diez veces, a intervalos de 30 segundos) o más flexible (por ejemplo, dos veces, a intervalos diarios).
+Programador de Azure le permite configurar una directiva de reintentos. De manera predeterminada, si se produce un error en un trabajo, Programador intenta ejecutar el trabajo otras cuatro veces, a intervalos de 30 segundos. Puede volver a configurar esta directiva de reintentos para que sea más agresiva (por ejemplo, diez veces, a intervalos de 30 segundos) o más flexible (por ejemplo, dos veces, a intervalos diarios).
 
-Como ejemplo de cuándo esto puede resultar de ayuda, puede crear un trabajo que se ejecute una vez por semana e invoca un extremo HTTP. Si el extremo HTTP está inactivo durante algunas horas cuando se ejecute el trabajo, es posible que no quiera esperar una semana más para que el trabajo se vuelva a ejecutar, puesto que incluso la directiva predeterminada de reintentos producirá un error. En estos casos, puede volver a configurar la directiva de reintentos estándar para que vuelva a intentar ejecutarlo cada tres horas (por ejemplo), en lugar de cada 30 segundos.
+Como ejemplo de cuándo esto puede resultar de ayuda, puede crear un trabajo que se ejecute una vez por semana e invoca un extremo HTTP. Si el extremo HTTP está inactivo durante algunas horas cuando se ejecute el trabajo, es posible que no quiera esperar una semana más para que el trabajo se vuelva a ejecutar, puesto que incluso la directiva predeterminada de reintentos producirá un error. En estos casos, puede volver a configurar la directiva de reintentos estándar para que vuelva a intentar ejecutarlo cada tres horas (por ejemplo), en lugar de cada 30 segundos.
 
 Para obtener información sobre cómo configurar una directiva de reintentos, vea [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
@@ -63,7 +63,7 @@ Para obtener información sobre cómo configurar un extremo alternativo, consult
 ## Otras referencias
 
  [¿Qué es Programador?](scheduler-intro.md)
- 
+
  [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
 
  [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
@@ -79,12 +79,10 @@ Para obtener información sobre cómo configurar un extremo alternativo, consult
  [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
- 
- 
+
+
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

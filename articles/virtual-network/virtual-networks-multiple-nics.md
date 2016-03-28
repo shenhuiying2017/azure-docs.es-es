@@ -33,6 +33,7 @@ Actualmente, tener varias NIC tiene los siguientes límites y restricciones:
 - Solo se permiten los siguientes valores en un servicio en la nube único (implementaciones clásicas) o en un grupo de recursos (Administrador de recursos de implementación): 
 	- Todas las máquinas virtuales de ese servicio en la nube deben tener varias NIC habilitadas o 
 	- Todas las máquinas virtuales de ese servicio en la nube deben tener cada una sola NIC 
+	- Además, no se puede actualizar una máquina virtual que no cuente con ninguna interfaz de red secundaria para que tenga interfaces de red secundarias y viceversa.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
  
@@ -265,4 +266,4 @@ En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento prede
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación del Administrador de recursos](virtual-network-deploy-multinic-arm-template.md).
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación clásica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

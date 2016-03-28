@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/14/2016" 
 	ms.author="sdanie"/>
 
 
 # Guardado y configuración del servicio Administración de API mediante Git
+
+>[AZURE.IMPORTANT] La configuración Git de Administración de API está actualmente en versión preliminar. Aunque es completa funcionalmente, es una versión preliminar porque buscamos activamente comentarios acerca de esta característica. Es posible que hagamos cambios importantes en respuesta a los comentarios de los clientes, por lo que recomendamos no depender de la característica en entornos de producción. Si tiene comentarios o preguntas, háganoslo saber en `apimgmt@microsoft.com`.
 
 Cada instancia del servicio Administración de API mantiene una base de datos de configuración que contiene información sobre la configuración y los metadatos de la instancia del servicio. Es posible hacer cambios en la instancia del servicio; para ello, modifique un valor del portal para editores con un cmdlet de PowerShell o realice una llamada de API de REST. Pero esto no es todo, también puede administrar la configuración de la instancia del servicio con Git, con lo que se posibilitan escenarios de administración de servicio como los siguientes:
 
@@ -43,13 +45,17 @@ Este artículo describe cómo habilitar y usar Git para administrar la configura
 
 ## Para habilitar el acceso de Git
 
-Para configurar el acceso de Git, haga clic en el menú **Seguridad** y navegue hasta la pestaña **Repositorio de configuración**.
+Puede ver rápidamente el estado de la configuración Git en el icono de Git, en la esquina superior derecha del portal del editor. En este ejemplo, el acceso de Git no todavía se ha habilitado.
+
+![Estado de Git][api-management-git-icon-enable]
+
+Para ver y configurar las opciones de configuración Git, puede hacer clic en el icono de Git o haga clic en el menú **Seguridad** y vaya a la pestaña **Repositorio de configuraciones**.
 
 ![Habilitar GIT][api-management-enable-git]
 
 Para habilitar el acceso de Git, active la casilla **Habilitar acceso de Git**.
 
-Tras unos instantes, el cambio se guarda y se muestra un mensaje de confirmación.
+Tras unos instantes, el cambio se guarda y se muestra un mensaje de confirmación. Tenga en cuenta que el icono de Git cambia de color para indicar que el acceso de Git está habilitado, y ahora el mensaje de estado indica que hay cambios sin guardar en el repositorio. Esto es porque la base de datos de configuración del servicio de Administración de API aún no se ha guardado en el repositorio.
 
 ![GIT habilitado][api-management-git-enabled]
 
@@ -85,13 +91,13 @@ La contraseña se genera en la parte inferior de la pestaña **Repositorio de co
 
 ![Generar contraseña][api-management-generate-password]
 
-Para generar una contraseña, primero asegúrese de que el campo **Expiración** refleje la fecha y la hora de caducidad deseada y luego haga clic en **Generar token**.
+Para generar una contraseña, primero asegúrese de que el campo **Expiración** refleja la fecha y la hora de caducidad deseada y luego haga clic en **Generar token**.
 
 ![Password][api-management-password]
 
 >[AZURE.IMPORTANT] Anote esta contraseña. Una vez que salga de esta página, la contraseña no se volverá a mostrar.
 
-En los ejemplos siguientes se usa la herramienta Git Bash desde [Git para Windows](http://www.git-scm.com/downloads), pero puede utilizar cualquier herramienta de Git con la que esté familiarizado.
+En los ejemplos siguientes se usa la herramienta Git Bash desde [Git para Windows](http://www.git-scm.com/downloads), pero puede usar cualquier herramienta de Git con la que esté familiarizado.
 
 Abra su herramienta Git en la carpeta deseada y ejecute el siguiente comando para clonar el repositorio de git en el equipo local, usando para ello el comando incluido en el portal para editores.
 
@@ -103,7 +109,7 @@ Si recibe algún error, pruebe a modificar su comando `git clone` para incluir e
 
 	git clone https://username:password@bugbashdev4.scm.azure-api.net/
 
-Si de este modo aparece un error, pruebe a codificar como dirección URL la parte de la contraseña del comando. Una manera rápida de hacer esto es abrir Visual Studio y emitir el siguiente comando en la **Ventana Inmediato**. Para abrir la **Ventana Inmediato**, abra cualquier solución o proyecto en Visual Studio (o cree una nueva aplicación de consola vacía) y elija **Windows**, **Inmediato** desde el menú **Depurar**.
+Si de este modo aparece un error, pruebe a codificar como dirección URL la parte de la contraseña del comando. Una manera rápida de hacer esto es abrir Visual Studio y emitir el siguiente comando en la **Ventana Inmediato**. Para abrir la **Ventana Inmediato**, abra cualquier solución o proyecto en Visual Studio (o cree una nueva aplicación de consola vacía) y elija **Ventanas**, **Inmediato** desde el menú **Depurar**.
 
 	?System.NetWebUtility.UrlEncode("password from publisher portal")
 
@@ -111,7 +117,7 @@ Utilice la contraseña codificada junto con su nombre de usuario y ubicación de
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-Una vez que se clone el repositorio, podrá ver y trabajar con él en el sistema de archivos local. Para obtener más información, consulte [File and folder structure overview of local Git repository](#file-and-folder-structure-overview-of-local-git-repository) (Información general de estructura de archivo y carpeta del repositorio local de Git).
+Una vez que se clone el repositorio, podrá ver y trabajar con él en el sistema de archivos local. Para obtener más información, consulte [File and folder structure overview of local Git repository](#file-and-folder-structure-overview-of-local-git-repository) (Información general de la estructura de archivos y carpetas del repositorio local de Git).
 
 ## Para actualizar su repositorio local con la configuración de instancia de servicio más reciente
 
@@ -221,14 +227,14 @@ El valor final, `$ref-policy`, se asigna al archivo de instrucciones de directiv
 La carpeta `apis` contiene una carpeta para cada API de la instancia de servicio que contiene los elementos siguientes.
 
 -	`apis<api name>\configuration.json`: es la configuración de la API y contiene información acerca de la dirección URL del servicio back-end y las operaciones. Se trata de la misma información que se devolvería si se llamase a [Obtener una API específica](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) con `export=true` en formato `application/json`.
--	`apis<api name>\api.description.html`: es la descripción de la API y corresponde a la propiedad `description` de la [entidad API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
+-	`apis<api name>\api.description.html`: es la descripción de la API y corresponde a la propiedad `description` de la [entidad de API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
 -	`apis<api name>\operations`: esta carpeta contiene archivos `<operation name>.description.html` que se asignan a las operaciones de la API. Cada archivo contiene la descripción de una única operación en la API que se asigna a la propiedad `description` de la [entidad de operación](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) en la API de REST.
 
 ### carpeta de grupos
 
 La carpeta `groups` contiene una carpeta para cada grupo definido en la instancia de servicio.
 
--	`groups<group name>\configuration.json`: es la configuración para el grupo. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un grupo específico](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) .
+-	`groups<group name>\configuration.json`: es la configuración para el grupo. Se trata de la misma información que se devolvería si se llamase a la operación [Obtener un grupo específico](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup).
 -	`groups<group name>\description.html`: es la descripción del grupo y se corresponde con la propiedad `description` de la [entidad de servicio](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### carpeta de directivas
@@ -244,7 +250,7 @@ La carpeta `policies` contiene las instrucciones de directiva para la instancia 
 
 La carpeta `portalStyles` contiene la configuración y las hojas de estilo para las personalizaciones del portal para desarrolladores de la instancia de servicio.
 
--	`portalStyles\configuration.json`: contiene los nombres de las hojas de estilos utilizadas por el portal de desarrolladores
+-	`portalStyles\configuration.json`: contiene los nombres de las hojas de estilos usadas por el portal de desarrolladores
 -	`portalStyles<style name>.css`: cada archivo `<style name>.css` contiene estilos para el portal para desarrolladores (`Preview.css` y `Production.css` de forma predeterminada).
 
 ### carpeta de productos
@@ -266,12 +272,12 @@ La carpeta `templates` contiene la configuración para las [plantillas de correo
 Para obtener información sobre otras formas de administrar la instancia de servicio, consulte:
 
 -	Administrar la instancia de servicio con los siguientes cmdlets de PowerShell
-	-	[Azure API Management Deployment Management Cmdlets](https://msdn.microsoft.com/library/azure/mt619282.aspx) (Cmdlets de administración de la implementación de Administración de API de Azure)
-	-	[Azure API Management Service Management Cmdlets](https://msdn.microsoft.com/library/azure/mt613507.aspx) (Cmdlets de administración del servicio Administración de API de Azure)
+	-	[Azure API Management Deployment Management Cmdlets (Cmdlets de administración de la implementación de Administración de API de Azure)](https://msdn.microsoft.com/library/azure/mt619282.aspx)
+	-	[Azure API Management Service Management Cmdlets (Cmdlets de administración del servicio Administración de API de Azure)](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 -	Administrar la instancia de servicio en el portal para editores
 	-	[Administración de su primera API en Administración de API de Azure](api-management-get-started.md)
 -	Administrar la instancia de servicio mediante la API de REST
-	-	[API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx) (API de REST de Administración de API)
+	-	[API Management REST API (API de REST de Administración de API)](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
@@ -286,5 +292,6 @@ Para obtener información sobre otras formas de administrar la instancia de serv
 [api-management-configuration-deploy]: ./media/api-management-configuration-repository-git/api-management-configuration-deploy.png
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
+[api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

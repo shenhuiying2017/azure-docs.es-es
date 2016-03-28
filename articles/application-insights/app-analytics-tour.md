@@ -33,7 +33,7 @@ Abra Analytics desde la [hoja de información general](app-insights-dashboards.m
 
 ![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Analytics.](./media/app-analytics/001.png)
 
-## Recuento (count) de filas
+## [Recuento](app-analytics-aggregations.md#count) de filas (count)
 
 Las métricas como contadores de rendimiento se almacenan en una tabla llamada métricas. Cada fila es un punto de datos de telemetría procedente del SDK de Application Insights en una aplicación. Para averiguar el tamaño de la tabla, canalizaremos su contenido a un operador que sencillamente cuenta las filas:
 
@@ -50,9 +50,9 @@ Este es el resultado:
 ![](./media/app-analytics-tour/010.png)
 
 	
-`Count` es uno de los muchos [operadores de consulta](app-analytics-queries.md) que podemos organizar en una canalización, filtrado, reforma y unión de datos en varias fases.
+[`Count`](app-analytics-aggregations.md#count) es uno de los muchos [operadores de consulta](app-analytics-queries.md) que podemos organizar en una canalización, filtrado, reforma y unión de datos en varias fases.
 	
-## Take: Mostrarme n filas
+## [Take](app-analytics-aggregations.md#take): Mostrarme n filas
 
 
 Veamos algunos datos: ¿Qué hay en un ejemplo de 5 filas?
@@ -75,7 +75,7 @@ Expanda cualquier elemento para ver los detalles:
 ![Seleccione Table (Tabla) y use Configure Columns (Configurar columnas).](./media/app-analytics-tour/040.png)
 
 
-## Top y sort
+## [Top](app-analytics-aggregations.md#top) y [sort](app-analytics-aggregations.md#sort)
 
 `take` resulta útil para obtener un ejemplo rápido de un resultado, pero muestra filas de la tabla sin ningún orden determinado. Para obtener una vista ordenada, use `top` (para un ejemplo) o `sort` (toda la tabla).
 
@@ -86,26 +86,26 @@ Muéstrame las primeras n filas, ordenadas por una columna en particular:
 	requests | top 10 by timestamp desc 
 ```
 
-* *Sintaxis:* La mayoría de los operadores tienen parámetros de palabra clave como `by`.
-* `desc` = orden descendente, `asc` = ascendente.
+* *Sintaxis:* la mayoría de los operadores tienen parámetros de palabra clave como `by`.
+* `desc` = orden descendente, `asc` = orden ascendente.
 
 ![](./media/app-analytics-tour/260.png)
 
-`top...` es una manera más eficiente más de decir `sort ... | take...`. Podríamos haber escrito:
+`top...` es una manera más eficiente de decir `sort ... | take...`. Podríamos haber escrito:
 
 ```AIQL
 
 	requests | sort by timestamp desc | take 10
 ```
 
-El resultado sería el mismo, pero se ejecutaría un poco más lento. (También podría escribir `order`, que es un alias de `sort`.)
+El resultado sería el mismo, pero se ejecutaría un poco más lento. (También podría escribir `order`, que es un alias de `sort`).
 
 Los encabezados de columna en la vista de tabla también pueden utilizarse para ordenar los resultados en la pantalla. Pero por supuesto, si ha usado `take` o `top` para recuperar solo parte de una tabla, solamente reordenará los registros que ha recuperado.
 
 
-## Project: Seleccionar, cambiar el nombre y calcular columnas
+## [Project](app-analytics-aggregations.md#project): seleccionar, cambiar el nombre y calcular columnas
 
-Use `project` para seleccionar solamente las columnas que desea:
+Use [`project`](app-analytics-aggregations.md#project) para seleccionar solamente las columnas que desea:
 
 ```AIQL
 
@@ -133,14 +133,14 @@ También puede cambiar el nombre de las columnas y definir otras nuevas:
 En la expresión escalar:
 
 * `%` es el operador de módulo habitual. 
-* `1d` (es decir, el dígito uno y luego una 'd') es un literal de intervalo de tiempo que significa un día. A continuación se indican algunos literales de intervalo de tiempo más: `12h`, `30m`, `10s` y `0.01s`.
+* `1d` (es decir, el dígito uno y luego una "d") es un literal de intervalo de tiempo que significa un día. A continuación se indican algunos literales de intervalo de tiempo más: `12h`, `30m`, `10s` y `0.01s`.
 * `floor` (alias `bin`) redondea un valor a la baja al múltiplo más cercano del valor base que se proporciona. Por tanto, `floor(aTime, 1s)` redondea un tiempo a la baja al segundo más cercano.
 
-Las [expresiones](app-analytics-scalars.md) pueden incluir todos los operadores habituales (`+`, `-`, ...) y hay una amplia gama de funciones útiles.
+Las [expresiones](app-analytics-scalars.md) pueden incluir todos los operadores habituales (`+`, `-`...) y hay una amplia gama de funciones útiles.
 
-## Extend: Calcular columnas
+## [Extend](app-analytics-aggregations.md#extend): calcular columnas
 
-Si solo desea agregar columnas a las ya existentes, use `extend`:
+Si solo desea agregar columnas a las ya existentes, use [`extend`](app-analytics-aggregations.md#extend):
 
 ```AIQL
 
@@ -149,9 +149,9 @@ Si solo desea agregar columnas a las ya existentes, use `extend`:
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-El uso de `extend` es menos detallado que `project` si desea conservar todas las columnas existentes.
+El uso de [`extend`](app-analytics-aggregations.md#extend) es menos detallado que [`project`](app-analytics-aggregations.md#project) si desea conservar todas las columnas existentes.
 
-## Summarize: Agregar grupos de filas
+## [Summarize](app-analytics-aggregations.md#summarize): agregar grupos de filas
 
 Al examinar un ejemplo de una tabla, podemos ver los campos en los que se informa de los diferentes datos de telemetría. Por ejemplo, `exception | take 20` rápidamente nos muestra que se informa de los mensajes de excepción en un campo llamado `outerExceptionType`.
 
@@ -170,7 +170,7 @@ Pero en lugar de penetrar a través de instancias individuales, vamos preguntar 
 
 Hay una amplia gama de [funciones de agregación](app-analytics-aggregations.md) y puede utilizar varias de ellas en un operador de resumen para generar varias columnas calculadas.
 
-Por ejemplo, vamos a mostrar las solicitudes HTTP para las que se producen estas excepciones. De nuevo, mediante la inspección de un ejemplo de la tabla de excepciones, observará que las rutas de acceso de las solicitudes HTTP se notifican en una columna llamada `operation_Name`.
+Por ejemplo, vamos a mostrar las solicitudes HTTP para las que se producen estas excepciones. De nuevo, mediante la inspección de un ejemplo de la tabla de excepciones, observará que las rutas de acceso de las solicitudes HTTP se indican en una columna llamada `operation_Name`.
 
 ```AIQL
 
@@ -214,7 +214,7 @@ Podemos hacerlo mejor que la vista de la tabla. Echemos un vistazo a los resulta
 Tenga en cuenta que aunque no ordenamos los resultados por tiempo (como puede ver en la visualización de la tabla), la visualización del gráfico siempre muestra las fechas en el orden correcto.
 
 
-## Where: Filtrado sobre una condición
+## [Where](app-analytics-aggregations.md#where): filtrado sobre una condición
 
 Si ha configurado la supervisión de Application Insights tanto para el [cliente](app-insights-javascript.md) como para el servidor de la aplicación, parte de la telemetría de la base de datos procede de los exploradores.
 
@@ -232,9 +232,9 @@ Veamos solo las excepciones de las que informan los exploradores:
 
 El operador `where` toma una expresión booleana. He aquí algunos puntos clave:
 
- * `and`, `or`: Operadores booleanos
- * `==`, `<>`: Igual que y no igual que
- * `=~`, `!=`: Cadena que no distingue entre mayúsculas y minúsculas igual que y no igual que. Hay muchos más operadores de comparación de cadenas.
+ * `and`, `or`: operadores booleanos
+ * `==`, `<>`: igual que y no igual que
+ * `=~`, `!=`: cadena que no distingue entre mayúsculas y minúsculas igual que y no igual que. Hay muchos más operadores de comparación de cadenas.
 
 Lea todo sobre [expresiones escalares](app-analytics-scalars.md).
 
@@ -350,14 +350,14 @@ Dividir el gráfico por estado:
 
 La última línea es necesaria para convertir a fecha y hora (actualmente, el eje x de un gráfico de líneas solo puede ser una fecha y hora).
 
-La cláusula `where` excluye las sesiones monoestables (sessionDuration == 0) y establece la longitud del eje x.
+La cláusula `where` excluye las sesiones únicas (sessionDuration == 0) y establece la longitud del eje x.
 
 
 ![](./media/app-analytics-tour/290.png)
 
 
 
-## Percentiles
+## [Percentiles](app-analytics-aggregations.md#percentiles)
 
 ¿Qué intervalos de duraciones cubren diferentes porcentajes de sesiones?
 
@@ -403,9 +403,9 @@ Para obtener un desglose independiente para cada país, simplemente tiene que co
 ![](./media/app-analytics-tour/190.png)
 
 
-## Join
+## [Join](app-analytics-aggregations.md#join)
 
-Tenemos acceso a tres tablas: métrica, excepciones y evento. `event` contiene informes de solicitud, vistas de página, eventos personalizados, etc.
+Tenemos acceso a varias tablas, incluidas las solicitudes y las excepciones.
 
 Para encontrar las excepciones relacionadas con una solicitud que devolvió una respuesta de error, podemos combinar las tablas en `session_Id`:
 
@@ -422,7 +422,7 @@ Es recomendable usar `project` para seleccionar solo las columnas que necesitamo
 
 
 
-## Let: Asignar un resultado a una variable
+## [Let](app-analytics-aggregations.md#let): asignar un resultado a una variable
 
 Use [let](./app-analytics-syntax.md#let-statements) para separar las partes de la expresión anterior. Los resultados no cambian:
 
@@ -441,4 +441,4 @@ Use [let](./app-analytics-syntax.md#let-statements) para separar las partes de l
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

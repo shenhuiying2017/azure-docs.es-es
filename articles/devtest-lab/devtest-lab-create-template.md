@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Create VM templates | Microsoft Azure"
-	description="Learn how to create VM templates from VHD images"
+<properties
+	pageTitle="Creación de una imagen personalizada del laboratorio DevTest desde un archivo VHD | Microsoft Azure"
+	description="Aprenda a crear una imagen personalizada desde un archivo VHD, que puede utilizarse para crear VM en un laboratorio de DevTest"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,48 +13,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="03/13/2016"
 	ms.author="tarcher"/>
 
-# Crear plantillas de máquina virtual
+# Creación de una imagen personalizada del laboratorio DevTest desde un archivo VHD
 
 ## Información general
 
-Una vez que haya [creado un laboratorio](devtest-lab-create-lab.md), puede [agregar máquinas virtuales a ese laboratorio](devtest-lab-add-vm-with-artifacts.md) desde una lista de plantillas de máquina virtual. En este artículo obtendrá información sobre cómo cargar y configurar un archivo de imagen de disco duro Virtual (VHD) como una plantilla desde la que creará sus máquinas virtuales. Si no está familiarizado con las imágenes de disco duro virtual, consulte el artículo [Creación y carga de un VHD de Windows Server en Azure](/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md) para información sobre cómo crear una imagen de VHD. Una vez que haya creado u obtenido acceso a una imagen de VHD, este artículo le guiará sobre cómo cargarla y crear una plantilla a partir de ella.
+Una vez que haya [creado un laboratorio DevTest](devtest-lab-create-lab.md), puede [agregar máquinas virtuales (VM) a ese laboratorio](devtest-lab-add-vm-with-artifacts.md). Cuando cree una VM, deberá especificar una *base*, que puede ser una *imagen personalizada* o una *imagen de Marketplace*. En este artículo, aprenderá a crear una imagen personalizada desde un archivo VHD. Tenga en cuenta que necesitará acceso a un archivo VHD válido para realizar todos los pasos de este artículo.
 
-## Creación de una plantilla de VM
+## Creación de una imagen personalizada
 
-1. Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
 
-1. En la lista de laboratorios, pulse en el laboratorio que quiera.
+1. En la lista de laboratorios, pulse el laboratorio que desee.
 
-1. En la hoja del laboratorio, pulse en **Configuración**.
+1. Se mostrará la hoja **Configuración** del laboratorio seleccionado.
 
-    ![Configuración del laboratorio](./media/devtest-lab-create-template/lab-blade-settings.png)
+1. En la hoja **Configuración** del laboratorio, pulse **Imágenes personalizadas**.
 
-1. En la hoja **Configuración** del laboratorio, pulse en **Plantillas**.
+    ![Opción de imágenes personalizadas](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
-    ![Opción de plantillas](./media/devtest-lab-create-template/lab-blade-settings-templates.png)
+1. En la hoja **Imágenes personalizadas**, pulse **+ Imágenes personalizadas**.
 
-1. En la hoja **Plantillas**, pulse en **+ Plantilla**.
+    ![Adición de imágenes personalizadas](./media/devtest-lab-create-template/add-custom-image.png)
 
-    ![Agregar plantilla](./media/devtest-lab-create-template/add-template.png)
+1. Escriba el nombre de la imagen personalizada. Este nombre se muestra en la lista de imágenes base al crear una nueva máquina virtual.
 
-1. En la hoja **Agregar plantilla**:
+1. Escriba la descripción de la imagen personalizada. Esta descripción se muestra en la lista de imágenes base al crear una nueva máquina virtual.
 
-	1. Escriba el nombre de la plantilla. Este nombre se muestra en la lista de plantillas al crear una nueva máquina virtual.
+1. Pulse **Archivo VHD**.
 
-	1. Escriba la descripción de la plantilla. Esta descripción se muestra en la lista de plantillas al crear una nueva máquina virtual.
+1. Si tiene acceso a un archivo VHD que no aparece, agréguelo siguiendo las instrucciones en la sección [Carga de un archivo VHD](#upload-a-vhd-file) y vuelva aquí cuando termine.
 
-	1. Pulse en **Imagen**.
+1. Seleccione el archivo VHD deseado.
 
-	1. Si la imagen que quiere no aparece en la lista y quiere agregarla, vaya a la sección [Agregar una nueva imagen de plantilla](#add-a-new-template-image) y vuelva aquí cuando haya terminado.
-
-	1. Seleccione la imagen que quiera.
-
-	1. Pulse en **Aceptar** para cerrar la hoja **Agregar plantilla**.
+1. Pulse **Aceptar** para cerrar la hoja **Archivo VHD**.
 
 1. Pulse en **Configuración del sistema operativo**.
 
@@ -62,28 +58,24 @@ Una vez que haya [creado un laboratorio](devtest-lab-create-lab.md), puede [agre
 
 1. Si se selecciona **Windows**, especifique a través de la casilla si se ha ejecutado *Sysprep* en el equipo.
 
-1. Escriba un **Nombre de usuario** para la máquina.
-
-1. Escriba una **Contraseña** para la máquina. **Nota:** la contraseña aparecerá en texto no cifrado.
-
 1. Pulse en **Aceptar** para cerrar la hoja **Configuración del sistema operativo**.
 
-1. Especifique la **Ubicación**.
+1. Pulse **Aceptar** para crear la imagen personalizada.
 
-1. Pulse **Aceptar** para crear la plantilla.
+1. Vaya a la sección [Pasos siguientes](#next-steps).
 
-##Agregar una nueva imagen de plantilla
+##Carga de un archivo VHD
 
-Para agregar una nueva imagen de plantilla, deberá tener acceso a un archivo de imagen VHD.
+Para agregar una nueva imagen personalizada, deberá tener acceso a un archivo VHD.
 
-1. En la hoja **Agregar imagen de plantilla**, pulse en **Cargar una imagen con PowerShell**.
+1. En la hoja **Archivo VHD**, pulse **Cargar un archivo VHD con PowerShell**.
 
     ![Cargar imagen](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
-1. En la siguiente hoja se muestran instrucciones para modificar y ejecutar un script de PowerShell que carga en su suscripción de Azure un archivo de imagen de disco duro virtual. **Nota:** este proceso puede durar bastante tiempo, en función del tamaño del archivo de imagen y de la velocidad de conexión.
+1. En la siguiente hoja se muestran instrucciones para modificar y ejecutar un script de PowerShell que carga en su suscripción de Azure un archivo VHD. **Nota:** este proceso puede durar bastante tiempo, en función del tamaño del archivo VHD y de la velocidad de conexión.
 
 ##Pasos siguientes
 
-Una vez que haya agregado una plantilla de máquina virtual para usarla al crear una máquina virtual, el siguiente paso consiste en [agregar una máquina virtual a su laboratorio de DevTest](devtest-lab-add-vm-with-artifacts).
+Una vez que haya agregado una imagen personalizada para usarla al crear una máquina virtual, el siguiente paso consiste en [agregar una máquina virtual a su laboratorio de DevTest](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -112,7 +112,7 @@ Puede ejecutar una de la nube desde <https://github.com/Azure/azure-iot-remote-m
 
 1. Cree un nuevo directorio de AAD en el [Portal de administración de Azure][lnk-classic-portal].
 
-2. Vaya a <https://github.com/Azure/azure-iot-remote-monitoring>. Para más información sobre las implementaciones de la nube, consulte [Implementaciones de la nube][lnk-wiki-clouddeployment].
+2. Vaya a <https://github.com/Azure/azure-iot-remote-monitoring>.
 
 3. Ejecute `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (por ejemplo, `build.cmd cloud debug myRMSolution`)
 
@@ -140,10 +140,9 @@ Si está seguro de que tiene una suscripción de Azure, valide la asignación de
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
-[lnk-assign-app-roles]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Manually-setting-up-roles-and-assigning-permissions-in-Azure-Active-Directory-(AAD)#assigning-users-to-the-roles
+[lnk-assign-app-roles]: https://azure.microsoft.com/documentation/articles/active-directory-application-manifest/
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-[lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

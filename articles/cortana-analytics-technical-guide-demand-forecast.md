@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen"/>
+	ms.author="inqiu;yijichen"/>
 
 # Guía técnica de la plantilla de solución Previsión de demanda de energía de Cortana Analytics
 
@@ -25,8 +25,6 @@ Las plantillas de soluciones están diseñadas para acelerar el proceso de creac
 El proceso de implementación le guiará a través de varios pasos para configurar las credenciales de la solución. Asegúrese de que registra estas credenciales: nombre de la solución, nombre de usuario y contraseña que proporcionó durante la implementación.
 
 El objetivo de este documento es explicar la arquitectura de referencia y los diferentes componentes aprovisionados en su suscripción como parte de esta plantilla de solución. El documento trata también sobre cómo reemplazar los datos de ejemplo con datos reales para poder ver detalles y predicciones a partir de sus propios datos. Además, el documento explica las partes de la plantilla de solución que deberán modificarse si desea personalizar la solución con sus propios datos. Se proporcionan instrucciones sobre cómo crear el panel de Power BI para esta plantilla de solución al final.
-
->[AZURE.TIP] Puede descargar e imprimir una [versión en PDF de este documento](http://github.com/yijichen/document-public/raw/master/Demand%20Forecasting%20for%20Engery%20Solution%20Template.pdf).
 
 ## **Idea general**
 
@@ -99,7 +97,7 @@ La consulta de [Análisis de transmisiones de Azure](https://azure.microsoft.com
 
 -   Mediante el inicio de sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/).
 
--   Mediante la búsqueda de los trabajos de Análisis de transmisiones ![](media\cortana-analytics-technical-guide-demand-forecast\icon-stream-analytics.png) que se generaron cuando se implementó la solución. En el primer caso se insertan datos en el almacenamiento de blobs (por ejemplo, mytest1streaming432822asablob) y en el segundo caso se insertan datos en Power BI (por ejemplo, mytest1streaming432822asapbi).
+-   Mediante la búsqueda de los trabajos de Análisis de transmisiones ![](media\cortana-analytics-technical-guide-demand-forecast\icon-stream-analytics.png) que se hayan generado al implementar la solución. En el primer caso se insertan datos en el almacenamiento de blobs (por ejemplo, mytest1streaming432822asablob) y en el segundo caso se insertan datos en Power BI (por ejemplo, mytest1streaming432822asapbi).
 
 
 -   Seleccionar
@@ -126,7 +124,7 @@ En esta sección se describen las [canalizaciones](data-factory\data-factory-cre
 
 ![](media\cortana-analytics-technical-guide-demand-forecast\ADF2.png)
 
-Cinco de las canalizaciones de esta factoría contienen scripts de [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) que se utilizan para particionar y agregar los datos. Tenga en cuenta que los scripts se encontrarán en la cuenta de [Almacenamiento de Azure](https://azure.microsoft.com/services/storage/) creada durante la instalación. Su ubicación será: demandforecasting\\\script\\\hive\\\ (o https://[Your el nombre de la solución].blob.core.windows.net/demandforecasting).
+Cinco de las canalizaciones de esta factoría contienen scripts de [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) que se utilizan para particionar y agregar los datos. Tenga en cuenta que los scripts se encontrarán en la cuenta de [Almacenamiento de Azure](https://azure.microsoft.com/services/storage/) creada durante la instalación. Su ubicación será: demandforecasting\\\script\\\hive\\\ (o https://[El nombre de la solución].blob.core.windows.net/demandforecasting).
 
 Al igual que las consultas de [Análisis de transmisiones de Azure](#azure-stream-analytics-1), los scripts de [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) tienen un conocimiento implícito acerca del formato de los datos entrantes, por lo que estas consultas tendrían que modificarse en función del formato de los datos y de los requisitos de la [ingeniería de características](machine-learning\machine-learning-feature-selection-and-engineering.md).
 
@@ -157,13 +155,13 @@ Esta [canalización](data-factory\data-factory-create-pipelines.md) contiene var
 -	Una actividad [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) que llama al experimento de Aprendizaje automático de Azure que hace que los resultados se coloquen en un único blob del Almacenamiento de Azure.
 
 #### *CopyScoredResultRegionXPipeline*
-Esta [canalización](data-factory\data-factory-create-pipelines.md) contienen una única actividad: una actividad [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que mueve los resultados del experimento de Aprendizaje automático de Azure desde la canalización ***MLScoringRegionXPipeline*** respectiva a la base de datos SQL de Azure que se aprovisionó como parte de la instalación de la plantilla de solución.
+Esta [canalización](data-factory\data-factory-create-pipelines.md) contienen una única actividad: una actividad [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que mueve los resultados del experimento de Aprendizaje automático de Azure desde la canalización ***MLScoringRegionXPipeline*** respectiva a la base de datos SQL de Azure que se haya aprovisionado como parte de la instalación de la plantilla de solución.
 
 #### *CopyAggDemandPipeline*
-Esta [canalización](data-factory\data-factory-create-pipelines.md) contienen una única actividad: una actividad [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que mueve los datos de demanda continua agregados desde ***LoadHistoryDemandDataPipeline*** hasta la base de datos SQL de Azure que se aprovisionó como parte de la instalación de la plantilla de solución.
+Esta [canalización](data-factory\data-factory-create-pipelines.md) contienen una única actividad: una actividad [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que mueve los datos de demanda continua agregados desde ***LoadHistoryDemandDataPipeline*** hasta la base de datos SQL de Azure que se haya aprovisionado como parte de la instalación de la plantilla de solución.
 
 #### *CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
-Estas [canalizaciones](data-factory\data-factory-create-pipelines.md) contienen una única actividad: una actividad [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que mueve los datos de referencia de una región, subestación o topología, que se cargan en un blob de Almacenamiento de Azure como parte de la instalación de la plantilla de solución, a la base de datos SQL de Azure que se aprovisionó como parte dicho proceso.
+Estas [canalizaciones](data-factory\data-factory-create-pipelines.md) contienen una única actividad: una actividad [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) que mueve los datos de referencia de una región, subestación o topología, que se cargan en un blob de Almacenamiento de Azure como parte de la instalación de la plantilla de solución, a la base de datos SQL de Azure que se haya aprovisionado como parte de dicha instalación.
 
 ### Aprendizaje automático de Azure
 El experimento de [Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/) usado en esta solución proporciona la predicción de demanda de la región. El experimento es específico del conjunto de datos consumido y, por tanto, requiere la modificación o el reemplazo específico de los datos que se han aportado.
@@ -173,11 +171,11 @@ Una vez iniciado el Generador de datos, la canalización comienza a hidratarse y
 
 1. Comprobar los datos del Almacenamiento de blobs de Azure.
 
-	Uno de los trabajos de Análisis de transmisiones escribe los datos entrantes sin procesar en Almacenamiento de blobs. Si hace clic en el componente **Almacenamiento de blobs de Azure** de su solución desde la pantalla en la que implementó correctamente la solución y después hace clic en **Abrir** en el panel derecho, irá al [Portal de administración de Azure](https://portal.azure.com). Una vez allí, haga clic en **Blobs**. En el siguiente panel, verá una lista de contenedores. Haga clic en **"energysadata"**. En el siguiente panel, verá la carpeta **"demandongoing"**. Dentro de la carpeta rawdata, verá carpetas con nombres como date=2016-01-28, etc. Si ve estas carpetas, significa que los datos sin procesar se están generando en el equipo y almacenando en Almacenamiento de blobs correctamente. Verá archivos que deben tener tamaños finitos en MB en esas carpetas.
+	Uno de los trabajos de Análisis de transmisiones escribe los datos entrantes sin procesar en Almacenamiento de blobs. Si hace clic en el componente **Almacenamiento de blobs de Azure** de su solución desde la pantalla en la que haya implementado correctamente la solución y después hace clic en **Abrir** en el panel derecho, irá al [Portal de administración de Azure](https://portal.azure.com). Una vez allí, haga clic en **Blobs**. En el siguiente panel, verá una lista de contenedores. Haga clic en **"energysadata"**. En el siguiente panel, verá la carpeta **"demandongoing"**. Dentro de la carpeta rawdata, verá carpetas con nombres como date=2016-01-28, etc. Si ve estas carpetas, significa que los datos sin procesar se están generando en el equipo y almacenando en Almacenamiento de blobs correctamente. Verá archivos que deben tener tamaños finitos en MB en esas carpetas.
 
 2. Comprobar los datos de Base de datos SQL de Azure.
 
-	El último paso de la canalización es escribir los datos (por ejemplo, predicciones del aprendizaje automático) en Base de datos SQL. Es posible que deba esperar hasta dos horas para que los datos aparezcan en Base de datos SQL. Una manera de supervisar la cantidad de datos disponibles en la base de datos SQL es mediante el [Portal de administración de Azure](https://manage.windowsazure.com/). En el panel izquierdo, busque y haga clic en BASES DE DATOS SQL ![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon2.png). A continuación, busque su base de datos (es decir, demo123456db) y haga clic en ella. En la siguiente página, en la sección **"Conectar con una base de datos"**, haga clic en **"Ejecutar consultas Transact-SQL en la base de datos SQL"**.
+	El último paso de la canalización es escribir los datos (por ejemplo, predicciones del aprendizaje automático) en Base de datos SQL. Es posible que deba esperar hasta dos horas para que los datos aparezcan en Base de datos SQL. Una manera de supervisar la cantidad de datos disponibles en la base de datos SQL es mediante el [Portal de administración de Azure](https://manage.windowsazure.com/). En el panel izquierdo, busque y haga clic en BASES DE DATOS SQL ![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon2.png). A continuación, busque su base de datos (es decir, demo123456db) y haga clic en ella. En la siguiente página, en la sección **"Conectar con la base de datos"**, haga clic en **"Ejecutar consultas Transact-SQL en la base de datos SQL"**.
 
 	Aquí, puede hacer clic en Nueva consulta y consultar el número de filas (por ejemplo, "select count(*) from DemandRealHourly). Conforme crece la base de datos, el número de filas de la tabla debería aumentar.
 
@@ -204,7 +202,7 @@ Los siguientes pasos le guiarán por los pasos para visualizar la salida de dato
 
 	- Busque el trabajo de análisis de transmisiones en el [Portal de administración de Azure](https://manage.windowsazure.com). El nombre del trabajo debe ser: SuNombreDeSolución + "streamingjob" + número aleatorio + "asapbi" (es decir, demostreamingjob123456asapbi).
 
-	- Configure la salida de la consulta ASA que es **PBIoutput**. Asegúrese de que el valor de **Alias de salida** sea igual que el de la consulta. Puede asignar a **Nombre de conjunto de datos** y **Nombre de tabla** el nombre **'EnergyStreamData'**. Cuando haya agregado la salida, haga clic en **"Iniciar"** en la parte inferior de la página para iniciar el trabajo de Análisis de transmisiones. Recibirá un mensaje de confirmación (*por ejemplo,*, "Se ha iniciado correctamente el trabajo de Análisis de transmisiones myteststreamingjob12345asablob").
+	- Configure la salida de la consulta ASA que es **PBIoutput**. Asegúrese de que el valor de **Alias de salida** sea igual que el de la consulta. Puede asignar a los campos **Nombre de conjunto de datos** y **Nombre de tabla** el nombre **"EnergyStreamData"**. Cuando haya agregado la salida, haga clic en **"Iniciar"** en la parte inferior de la página para iniciar el trabajo de Análisis de transmisiones. Recibirá un mensaje de confirmación (*por ejemplo*, "Se ha iniciado correctamente el trabajo de análisis de transmisiones myteststreamingjob12345asablob").
 
 2. Inicie sesión en [Power BI en línea](http://www.powerbi.com).
 
@@ -213,11 +211,11 @@ Los siguientes pasos le guiarán por los pasos para visualizar la salida de dato
     -   Asegúrese de que el panel ***Visualizaciones*** está abierto y se muestra en el lado derecho de la pantalla.
 
 3. Cree el icono "Demanda por marca de hora":
-	-	Haga clic en el conjunto de datos **'EnergyStreamData'** en la sección Conjuntos de datos del panel izquierdo.
+	-	Haga clic en el conjunto de datos **"EnergyStreamData"** en la sección Conjuntos de datos del panel izquierdo.
 
 	-	Haga clic en el icono **"Gráfico de líneas"** ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
 
-	-	Haga clic en 'EnergyStreamData' en el panel **Campos**.
+	-	Haga clic en "EnergyStreamData" en el panel **Campos**.
 
 	-	Haga clic en **"Marca de hora"** y asegúrese de que se muestra en "Eje". Haga clic en **"Carga"** y asegúrese de que se muestra en "Valores".
 
@@ -254,17 +252,17 @@ En la canalización de datos de análisis en frío, el objetivo principal es obt
 
 	-	En la carpeta **"DemandForecastingDataGeneratorv1.0"** que ha descargado, haga doble clic en el archivo **‘Power BI Template\\DemandForecastPowerBI.pbix’**. Las visualizaciones iniciales se basan en datos ficticios. **Nota:** Si ve un mensaje de error, asegúrese de que ha instalado la versión más reciente de Power BI Desktop.
 
-		Cuando abra el archivo, en la parte superior, haga clic en **'Editar consultas'**. En la ventana emergente, haga doble clic en **'Origen'** en el panel derecho. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		Cuando abra el archivo, en la parte superior, haga clic en **"Editar consultas"**. En la ventana emergente, haga doble clic en **"Origen"** en el panel derecho. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
-	-   En la ventana emergente, reemplace **"Servidor"** y **"Base de datos"** por sus propios nombres de servidor y base de datos y después haga clic en **"Aceptar"**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**SuNombreDeSolución.database.windows.net, 1433**). Ignore los mensajes de advertencia que aparezcan en la pantalla.
+	-   En la ventana emergente, reemplace **"Servidor"** y **"Base de datos"** por los nombres de su servidor y su base de datos y después haga clic en **"Aceptar"**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**SuNombreDeSolución.database.windows.net, 1433**). Ignore los mensajes de advertencia que aparezcan en la pantalla.
 
-	-   En la siguiente ventana emergente, verá dos opciones en el panel izquierdo (**Windows** y **Base de datos**). Haga clic en **"Base de datos"**, escriba su **"Nombre de usuario"** y **"Contraseña"** (que es el nombre de usuario y la contraseña que escribió la primera vez que implementó la solución y creó una base de datos SQL de Azure). En ***Seleccionar en qué nivel hay que aplicar estos valores***, active la opción de nivel de base de datos. Luego, haga clic en **"Conectar"**.
+	-   En la siguiente ventana emergente, verá dos opciones en el panel izquierdo (**Windows** y **Base de datos**). Haga clic en **"Base de datos"**, escriba su **"Nombre de usuario"** y **"Contraseña"** (que es el nombre de usuario y la contraseña que escribió la primera vez que implementó la solución y creó una base de datos SQL de Azure). En ***Seleccionar en qué nivel hay que aplicar estos valores***, active la opción de nivel de base de datos. Haga clic en **"Conectar"**.
 
 	-   Una vez que se le dirija a la página anterior, cierre la ventana. Aparecerá un mensaje. Haga clic en **Aplicar**. Finalmente, haga clic en el botón **Guardar** para guardar los cambios. El archivo de Power BI ha establecido ya la conexión con el servidor. Si las visualizaciones están vacías, asegúrese de borrar todas las selecciones para poder visualizar todos los datos haciendo clic en el icono de borrador de la esquina superior derecha de las leyendas. Utilice el botón Actualizar para reflejar los nuevos datos en las visualizaciones. Inicialmente, solo verá los datos de inicialización en las visualizaciones ya que la Factoría de datos está programada para actualizarse cada 3 horas. Después de 3 horas, verá nuevas predicciones reflejadas en las visualizaciones al actualizar los datos.
 
 3. (Opcional) Publique el panel de análisis en frío en [Power BI en línea](http://www.powerbi.com/). Tenga en cuenta que este paso necesita una cuenta de Power BI (o la cuenta de Office 365).
 
-	-   Haga clic en **"Publicar"**, algunos segundos más tarde aparecerá una ventana con una marca de verificación verde y un mensaje para indicar que la publicación en Power BI se ha realizado correctamente. Haga clic en el vínculo "Abrir demoprediction.pbix en Power BI". Para ver instrucciones detalladas, consulte [Publicar desde Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
+	-   Haga clic en **"Publicar"**; algunos segundos más tarde aparecerá una ventana con una marca de verificación verde y un mensaje para indicar que la publicación en Power BI se ha realizado correctamente. Haga clic en el vínculo "Abrir demoprediction.pbix en Power BI". Para ver instrucciones detalladas, consulte [Publicar desde Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
 
 	-   Para crear un nuevo panel, haga clic en el signo **+** junto a la sección **Paneles** del panel izquierdo. Escriba el nombre "Demostración de previsión de demanda" para este nuevo panel.
 
@@ -279,7 +277,7 @@ En la canalización de datos de análisis en frío, el objetivo principal es obt
 
 	-   Expanda la sección **Programar actualización**. Active "Mantener los datos actualizados".
 
-	-   Programe la actualización según sus necesidades. Para más información, consulte [Actualizar datos en Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+	-   Programe la actualización según sus necesidades. Para obtener más información, consulte [Actualizar datos en Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 
 ## **Herramientas de estimación de costos**
@@ -290,4 +288,4 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

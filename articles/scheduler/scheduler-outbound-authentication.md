@@ -1,20 +1,20 @@
-<properties 
- pageTitle="Autenticación saliente de Programador" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Autenticación saliente de Programador"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # Autenticación saliente de Programador
 
 Puede que los trabajos de Programador tengan que llamar a servicios que requieren autenticación. De este modo, un servicio llamado puede determinar si el trabajo de Programador puede tener acceso a sus recursos. Algunos de estos servicios incluyen otros servicios de Azure, Salesforce.com, Facebook y sitios web personalizados que sean seguros.
@@ -56,7 +56,7 @@ Cuando se envía una solicitud con información de autenticación, la respuesta 
 La solicitud de ejemplo siguiente realiza una solicitud PUT que incorpora autenticación `ClientCertificate`. La solicitud es la siguiente:
 
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -98,7 +98,7 @@ Una vez enviada esta solicitud, la respuesta es la siguiente:
 	x-ms-servedbyregion: ussouth2
 	X-AspNet-Version: 4.0.30319
 	X-Powered-By: ASP.NET
-	 
+
 
 	{
 	  "id": "testScheduler",
@@ -155,7 +155,7 @@ Cuando se envía una solicitud con información de autenticación, la respuesta 
 
 La solicitud de ejemplo siguiente realiza una solicitud PUT que incorpora autenticación `Basic`. La solicitud es la siguiente:
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -236,7 +236,7 @@ Al agregar autenticación mediante el modelo `ActiveDirectoryOAuth`, especifique
 |_type_ |Obligatorio. Tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor debe ser `ActiveDirectoryOAuth`.|
 |_tenant_ |Obligatorio. Identificador del inquilino de Azure AD.|
 |_audience_ |Obligatorio. Se establece en https://management.core.windows.net/.|
-|_clientId_ |Obligatorio. Proporcione el identificador de cliente para la aplicación de Azure AD.|
+|_clientId_ |Obligatorio. Proporcione el identificador de cliente para la aplicación de Azure AD.|
 |_secret_ |Obligatorio. Secreto del cliente que solicita el token.|
 
 ### Determinación del identificador del inquilino
@@ -253,13 +253,13 @@ Cuando se envía una solicitud con información de autenticación, la respuesta 
 |_type_ |Tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`.|
 |_tenant_ |Identificador del inquilino de Azure AD. |
 |_audience_ |Se establece en https://management.core.windows.net/.|.
-|_clientId_ |Identificador de cliente para la aplicación de Azure AD.|
+|_clientId_ |Identificador de cliente para la aplicación de Azure AD.|
 
 ## Ejemplo de solicitud y respuesta en autenticación de ActiveDirectoryOAuth
 
 La solicitud de ejemplo siguiente realiza una solicitud PUT que incorpora autenticación `ActiveDirectoryOAuth`. La solicitud es la siguiente:
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -336,10 +336,10 @@ Una vez enviada esta solicitud, la respuesta es la siguiente:
 	}
 
 ## Otras referencias
- 
+
 
  [¿Qué es Programador?](scheduler-intro.md)
- 
+
  [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
 
  [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
@@ -354,10 +354,4 @@ Una vez enviada esta solicitud, la respuesta es la siguiente:
 
  [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
 
-
-  
-
- 
-  
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

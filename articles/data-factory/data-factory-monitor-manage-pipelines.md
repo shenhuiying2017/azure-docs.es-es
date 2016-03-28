@@ -378,6 +378,8 @@ Una vez completada correctamente la implementación del grupo de recursos, verá
 	Parameters        :
 	Outputs           :
 
+> [AZURE.NOTE] Puede usar la API de REST [Crear regla de alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para crear una regla de alerta. La carga de JSON es similar al ejemplo anterior de JSON.
+
 #### Recuperación de la lista de implementaciones del grupo de recursos de Azure
 Para recuperar la lista de implementaciones del grupo de recursos de Azure implementado, use el cmdlet **Get-AzureRmResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
 
@@ -545,7 +547,7 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite 2 valores:
+*metricName* admite a partir de ahora 2 valores:
 - FailedRuns
 - SuccessfulRuns
 
@@ -575,7 +577,7 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 También puede usar el cmdlet **Add-AlertRule** para implementar una regla de alertas. Consulte el tema [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obtener información detallada y ejemplos.
 
 ## Desplazamiento de una factoría de datos a una suscripción o un grupo de recursos diferentes
-Puede mover una factoría de datos a un grupo de recursos o una suscripción diferentes con el botón **Mover** de la barra de comandos que aparece en la página principal de la factoría de datos.
+Puede mover una Data Factory a un grupo de recursos o una suscripción diferentes con el botón **Mover** de la barra de comandos que aparece en la página principal de su Data Factory.
 
 ![Mover factoría de datos](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
@@ -583,4 +585,4 @@ Junto con la factoría de datos, también puede mover todos los recursos relacio
 
 ![Cuadro de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

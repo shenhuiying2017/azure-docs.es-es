@@ -24,7 +24,7 @@
 
 
 
-## Operador `summarize`
+## Operador summarize
 
 Crea una tabla que agrega el contenido de la tabla de entrada.
 
@@ -42,19 +42,19 @@ Crea una tabla que agrega el contenido de la tabla de entrada.
 ### Sintaxis
 
     T | summarize
-         [  [Column =] Aggregation [`,` ...]]
+         [  [ Column = ] Aggregation [ , ... ]]
          [ by
-            [Column =] GroupExpression [`,` ...]]
+            [ Column = ] GroupExpression [ , ... ]]
 
 **Argumentos**
 
 * *Column:* nombre opcional para una columna de resultados. El valor predeterminado es un nombre derivado de la expresión.
 * *Aggregation:* una llamada a una función de agregación como `count()` o `avg()`, con nombres de columna como argumentos. Consulte la lista de funciones de agregación a continuación.
-* *GroupExpression:* una expresión sobre las columnas, que proporciona un conjunto de valores distintos. Normalmente se trata de un nombre de columna que ya proporciona un conjunto limitado de valores, o `bin()` con una columna numérica o temporal como argumento. 
+* *GroupExpression:* una expresión sobre las columnas que proporciona un conjunto de valores específicos. Normalmente se trata de un nombre de columna que ya proporciona un conjunto limitado de valores, o `bin()` con una columna numérica o temporal como argumento. 
 
-Si proporciona una expresión numérica o temporal sin utilizar `bin()`, AI Analytics la aplica automáticamente con un intervalo de `1h` para horas, o `1.0` para números.
+Si proporciona una expresión numérica o temporal sin utilizar `bin()`, AI Analytics la aplica automáticamente con un intervalo de `1h` para tiempo, o `1.0` para números.
 
-Si no proporciona un valor *GroupExpression,* toda la tabla se resume en una única fila de salida.
+Si no proporciona un valor *GroupExpression*, toda la tabla se resume en una única fila de salida.
 
 Debe utilizar un tipo simple, no un tipo dinámico, en la cláusula `by`. Por ejemplo, la conversión `tostring` es esencial aquí:
 
@@ -82,10 +82,11 @@ Si desea agrupar por un valor escalar continuado como un número o una hora, se 
 
     requests
     | summarize count() 
-      by duration_range=bin(duration, 1)
+      by bin(duration, 1000)/1000
 
 ![result](./media/app-analytics-aggregations/04.png)
 
+(El campo de duración de la solicitud es un número en milisegundos).
  
 ## Sugerencias
 
@@ -171,7 +172,7 @@ requests
 | sort by max_pop_tod asc
 ```
 
-## FUNCIONES DE AGREGACIÓN
+## AGREGACIONES
 
 ## cualquiera 
 
@@ -191,6 +192,7 @@ traces
 | top 10 by count_level desc 
 ```
 
+<a name="argmin"></a> <a name="argmax"></a>
 ## argmin, argmax
 
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
@@ -334,7 +336,7 @@ Devuelve una estimación del número de valores distintos de *Expr* en el grupo.
 *Accuracy*, si se especifica, controla el equilibrio entre velocidad y precisión.
 
  * `0` = el cálculo menos preciso y más rápido.
- * `1` el valor predeterminado, que equilibra la precisión y tiempo de cálculo; error en torno al 0,8 %.
+ * `1` = el valor predeterminado, que equilibra la precisión y tiempo de cálculo; error en torno al 0,8 %.
  * `2` = el cálculo más preciso y más lento; error en torno al 0,4 %.
 
 **Ejemplo**
@@ -384,6 +386,8 @@ Calcula el mínimo de *Expr*.
 
 **Sugerencia**: Esto le ofrece el valor mínimo o máximo por sí mismo; por ejemplo, el precio más alto o más bajo. Sin embargo, si desea otras columnas de la fila (como el nombre del proveedor con el precio más bajo, por ejemplo), use [argmin o argmax](#argmin-argmax).
 
+
+<a name="percentile"></a> <a name="percentiles"></a>
 ## percentile, percentiles
 
     percentile(Expression, Percentile)
@@ -459,4 +463,4 @@ Devuelve la suma de *Expr* en el grupo.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

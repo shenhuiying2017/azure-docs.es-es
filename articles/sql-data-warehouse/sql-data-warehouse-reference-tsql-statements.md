@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/08/2016"
    ms.author="barbkess;sonyama"/>
 
 #Temas de Transact-SQL
@@ -115,16 +115,16 @@
 
 
 ## Pasos siguientes
-Para más ejemplos TSQL, vea la [información general sobre desarrollo de Almacenamiento de datos SQL][].
+Para obtener más ejemplos de TSQL, consulte [Temas de referencia de Almacenamiento de datos SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre desarrollo de Almacenamiento de datos SQL]: sql-data-warehouse-overview-reference.md
+[Temas de referencia de Almacenamiento de datos SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

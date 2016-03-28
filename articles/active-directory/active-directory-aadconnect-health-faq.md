@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath;vakarand"/>
 
 
@@ -43,7 +43,7 @@ Los números siguientes son una aproximación.
 - Consumo de memoria: hasta 10 % de la memoria total del sistema
 - Uso de ancho de banda de la red: ~1 MB por cada 1000 solicitudes de ADFS
 
->[AZURE.NOTE] En caso de que el agente no se pueda comunicar con Azure, el agente almacenará los datos localmente, hasta un límite máximo definido. Cuando el agente alcance el límite, si el agente no ha podido cargar los datos en el servicio, las nuevas transacciones de ADFS sobrescribirán cualquier transacción "en caché" como "menos atendida recientemente".
+>[AZURE.NOTE]En caso de que el agente no se pueda comunicar con Azure, el agente almacenará los datos localmente, hasta un límite máximo definido. Cuando el agente alcance el límite, si el agente no ha podido cargar los datos en el servicio, las nuevas transacciones de ADFS sobrescribirán cualquier transacción "en caché" como "menos atendida recientemente".
 
 - Almacenamiento en búfer local para el agente de AD Health: ~20 MB
 - Almacenamiento de datos requerido para canal de auditoría
@@ -92,6 +92,11 @@ Las alertas de Azure AD Connect Health se resuelven con una condición de aciert
 
 Deberá abrir los puertos 80, 443 y 5671 TCP/UDP para que el agente de Azure AD Connect Health pueda comunicarse con los extremos de servicio de Azure AD Health.
 
+
+**P: ¿Por qué veo dos servidores con el mismo nombre en el Portal de Azure AD Connect Health?**
+
+Cuando quita un agente de un servidor, el servidor no se quita del Portal de Azure AD Connect automáticamente. Por lo tanto, si quita de forma manual un agente de un servidor o quita el propio servidor, necesitará eliminar manualmente la entrada del servidor desde el Portal de Azure AD Connect Health. Para obtener más información, consulte [Eliminar un servidor o una instancia de servidor.](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance) Además, si reemplazó un servidor o creó un nuevo servidor con los mismos detalles (como el nombre de la máquina), pero no quitó el servidor del Portal de Azure AD Connect Health y, a continuación, instaló el agente en el servidor nuevo, es posible que ahora vea dos entradas para el servidor. En este caso, debería eliminar la entrada que pertenece al servidor anterior de forma manual. Normalmente, los datos de esta entrada estarán obsoletos.
+
 ## Vínculos relacionados
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -101,4 +106,4 @@ Deberá abrir los puertos 80, 443 y 5671 TCP/UDP para que el agente de Azure AD 
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

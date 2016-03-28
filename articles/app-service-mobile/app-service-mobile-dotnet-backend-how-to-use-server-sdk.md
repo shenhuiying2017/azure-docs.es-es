@@ -5,7 +5,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure
@@ -160,7 +160,7 @@ En esta sección se muestra cómo publicar el proyecto de back-end de .NET desde
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## Cómo definir un controlador de tabla
+##<a name="define-table-controller"></a> Cómo definir un controlador de tabla
 
 Un controlador de tabla proporciona acceso a datos de entidad en un almacén de datos basado en tabla, como la base de datos SQL o el almacenamiento de tablas de Azure. Los controladores de tabla se heredan de la clase genérica **TableController**, en la que el tipo genérico es una entidad del modelo que representa el esquema de tabla, de la siguiente manera:
 
@@ -217,6 +217,7 @@ El servicio Aplicaciones móviles utiliza la autenticación del Servicio de apli
 + [Cómo agregar autenticación a un proyecto de servidor](#add-auth)
 + [Procedimiento: Uso de autenticación personalizada en la aplicación](#custom-auth)
 + [Procedimiento: Recuperación de la información de usuario de autenticado](#user-info)
++ [Cómo restringir el acceso a datos para los usuarios autorizados](#authorize)
 
 ### <a name="add-auth"></a>Procedimiento: Incorporación de la autenticación a un proyecto de servidor
 
@@ -324,6 +325,9 @@ El código siguiente llama al método de extensión **GetAppServiceIdentityAsync
 
 Tenga en cuenta que debe agregar una instrucción using a `System.Security.Principal` para que el método de extensión **GetAppServiceIdentityAsync** funcione.
 
+###<a name="authorize"></a>Cómo restringir el acceso a datos para los usuarios autorizados
+
+A menudo se quiere restringir los datos que se devuelven a un usuario autenticado específico. Este tipo de partición de datos se realiza mediante la inclusión de una columna de id. de usuario en la tabla y el almacenamiento del SID del usuario cuando se insertan los datos.
 
 ## Cómo agregar notificaciones push a un proyecto de servidor
 
@@ -365,9 +369,9 @@ Para agregar notificaciones push al proyecto de servidor, extienda el objeto **M
 
 En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para más información, vea [Incorporación de notificaciones push a la aplicación](app-service-mobile-ios-get-started-push.md). Para más información sobre todo lo que puede hacer con los Centros de notificaciones, vea [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>Incorporación de etiquetas a la instalación de un dispositivo para habilitar la inserción dirigida
+##<a name="tags"></a>Cómo incorporar etiquetas a la instalación de un dispositivo para habilitar la inserción dirigida
 
-Los Centros de notificaciones permite enviar notificaciones dirigidas a registros específicos mediante el uso de etiquetas. Una etiqueta que se crea automáticamente es el identificador de instalación, que es específico de una instancia de la aplicación en un dispositivo determinado. Un registro con un identificador de instalación también se denomina una *instalación*. Puede utilizar el identificador de instalación para administrar la instalación; por ejemplo, para agregar etiquetas. Se puede acceder al identificador de instalación desde la propiedad **installationId** en **MobileServiceClient**.
+Los Centros de notificaciones permite enviar notificaciones dirigidas a registros específicos mediante el uso de etiquetas. Una etiqueta que se crea automáticamente es el identificador de instalación, que es específico de una instancia de la aplicación en un dispositivo determinado. Un registro con un id. de instalación también se denomina una *instalación*. Puede utilizar el identificador de instalación para administrar la instalación; por ejemplo, para agregar etiquetas. Se puede acceder al id. de instalación desde la propiedad **installationId** en **MobileServiceClient**.
 
 En el ejemplo siguiente se muestra cómo usar un identificador de instalación para agregar una etiqueta a una instalación específica en los Centros de notificaciones:
 
@@ -383,7 +387,7 @@ En el ejemplo siguiente se muestra cómo usar un identificador de instalación p
 
 Tenga en cuenta que, al crear la instalación, el back-end ignora las etiquetas proporcionadas por el cliente durante el registro de notificaciones push. Para que un cliente pueda agregar etiquetas a la instalación, debe crear una nueva API personalizada que agregue etiquetas mediante el patrón anterior. Para ver un ejemplo de un controlador de API personalizado que permite a los clientes agregar etiquetas a una instalación, consulte [Client-added push notification tags](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) (Etiquetas de notificaciones push agregadas por el cliente) en el ejemplo de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones completado para el back-end de .NET.
 
-##<a name="push-user"></a>Envío de notificaciones push a un usuario autenticado
+##<a name="push-user"></a>Cómo enviar notificaciones push a un usuario autenticado
 
 Cuando un usuario autenticado se registra para las notificaciones push, se agrega automáticamente una etiqueta con el identificador de usuario al registro. Mediante el uso de esta etiqueta, puede enviar notificaciones push a todos los dispositivos registrados por un usuario específico. El código siguiente obtiene el SID del usuario que realiza la solicitud y envía una notificación push de plantilla a cada registro de dispositivo para ese usuario:
 
@@ -397,7 +401,7 @@ Cuando un usuario autenticado se registra para las notificaciones push, se agreg
 
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
-    
+
 Cuando se registre para notificaciones push desde un cliente autenticado, asegúrese de que la autenticación se ha completado antes de intentar el registro. Para más información, consulte [Push to users](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) (Notificación push a usuarios) en el ejemplo de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones completado para el back-end de .NET.
 
 ## Procedimientos: Depuración y solución de problemas del SDK de .NET Server
@@ -457,4 +461,4 @@ El servidor de ejecución local está ahora preparado para validar los tokens qu
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

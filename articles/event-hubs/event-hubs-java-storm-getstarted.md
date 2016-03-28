@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -79,7 +79,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 
    	![][22]
 
-> [AZURE.NOTE]Solo en este tutorial, use Storm en modo local para fines de desarrollo. Consulte [Introducción a Storm en HDInsight][] y la documentación oficial de [Apache Storm][] para obtener más información sobre los patrones y las implementaciones de Storm.
+> [AZURE.NOTE] Solo en este tutorial, use Storm en modo local para fines de desarrollo. Consulte [Introducción a Storm en HDInsight][] y la documentación oficial de [Apache Storm][] para obtener más información sobre los patrones y las implementaciones de Storm.
 
 ## Pasos siguientes
 
@@ -110,4 +110,4 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

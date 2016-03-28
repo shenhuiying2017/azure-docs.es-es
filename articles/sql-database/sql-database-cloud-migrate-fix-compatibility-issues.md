@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Solucionar problemas de compatibilidad de bases de datos de SQL Server antes de la migración a la Base de datos SQL
@@ -21,9 +21,9 @@
 Si determina que la Base de datos SQL Server de origen no es compatible, tiene varias opciones para corregir los problemas de compatibilidad de bases de datos identificados anteriormente.
 
 > [AZURE.SELECTOR]
-- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
-- Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+- Uso del [Asistente para migración a SQL Azure](sql-database-cloud-migrate-fix-compatibility-issues.md)
+- Usar [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- Usar [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
 
 ## Uso del Asistente para migración a SQL de Azure
 
@@ -31,10 +31,10 @@ Use la herramienta de CodePlex del [Asistente para migración de SQL Azure](http
 
  ![Diagrama de migración de SAMW](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
 
-  >[AZURE.NOTE]Tenga en cuenta que no todos los esquemas incompatibles que se pueden detectar por el asistente se pueden corregir por sus transformaciones integradas. El script incompatible que no se pueda resolver se notificará como un error, con comentarios insertados en el script generado. Si se detectan numerosos errores, use Visual Studio o SQL Server Management Studio para analizar y corregir cada error que no se pudo corregir con el Asistente para migración de SQL Server.
+  > [AZURE.NOTE] Tenga en cuenta que no todos los esquemas incompatibles que se pueden detectar por el asistente se pueden corregir por sus transformaciones integradas. El script incompatible que no se pueda resolver se notificará como un error, con comentarios insertados en el script generado. Si se detectan numerosos errores, use Visual Studio o SQL Server Management Studio para analizar y corregir cada error que no se pudo corregir con el Asistente para migración de SQL Server.
 
 ## Siguiente paso: seleccionar el método de migración y realizar la migración
 
 [Seleccione el método de migración](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

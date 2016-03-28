@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
 #Notas de la versión
+
+##4\.2.0 (03/11/2016)
+
+- El SDK tiene una licencia de MIT.
+- Permite especificar un identificador de dispositivo personalizado en el tiempo de inicialización del SDK.
 
 ##4\.1.5 (02/01/2016)
 
@@ -65,4 +70,4 @@
 -   Mejoras de seguridad.
 -   Seguimiento de SmartAd y Google Play eliminados.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

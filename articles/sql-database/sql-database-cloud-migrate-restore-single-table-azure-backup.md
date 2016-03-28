@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="daleche"/>
 
 
-# Cómo restaurar una única tabla de la copia de seguridad de Base de datos SQL de Azure
+# Restauración de una única tabla a partir de una copia de seguridad de Base de datos SQL de Azure
 
 Puede pasarle que haya modificado algunos datos por error en una base de datos SQL y ahora desee recuperar la única tabla afectada. En este artículo se describe cómo restaurar una única tabla de una base de datos de una de las copias de seguridad que Base de datos SQL de Azure realiza automáticamente, en función del nivel de rendimiento que haya seleccionado.
 
@@ -67,4 +67,4 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 ## Paso de comprobación
 1. Consulte y pruebe la tabla copiada recientemente para asegurarse de que los datos estén intactos. Tras la confirmación, puede deshacerse de la tabla a la que ha cambiado el nombre en la sección **Pasos de preparación** (por ejemplo, &lt;nombre de la tabla&gt;\_old).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

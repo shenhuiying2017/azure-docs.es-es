@@ -3,8 +3,8 @@
 	description="Muestra ejemplos de plantillas del Administrador de recursos de Azure que aclaran los procedimientos recomendados."
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # Ejemplos contextuales de procedimientos recomendados para la implementación de plantillas
 
@@ -250,8 +250,8 @@ Por último, puede que se quiera garantizar que determinados recursos no se elim
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas](resource-group-authoring-templates.md).
+- Para obtener información sobre cómo crear plantillas, vea [Creación de plantillas](resource-group-authoring-templates.md).
 - Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 - Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -128,8 +128,6 @@ Para activar el informe de todos los registros que necesita Engagement para calc
 
 > [AZURE.IMPORTANT] Al usar `EngagementListActivity` o `EngagementExpandableListActivity`, asegúrese de que cualquier llamada a `requestWindowFeature(...);` se realice antes que la llamada a `super.onCreate(...);`, de lo contrario se producirá un bloqueo.
 
-Proporcionamos subclases de `FragmentActivity` y `MapActivity`, sin embargo, para evitar problemas con aplicaciones que usan **ProGuard**, no las incluimos en `engagement.jar`.
-
 Puede encontrar estas clases en la carpeta `src` y puede copiarlas en su proyecto. Las clases también están en **JavaDoc**.
 
 ### Método alternativo: llamar a `startActivity()` y `endActivity()` manualmente
@@ -382,4 +380,4 @@ Luego, puede agregar un `CheckBoxPreference` a su diseño de preferencias como e
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

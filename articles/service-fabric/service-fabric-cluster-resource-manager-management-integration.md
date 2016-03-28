@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Administrador de recursos de clúster de Service Fabric: integración de la administración"
+   pageTitle="Administrador de recursos de clúster de Service Fabric: integración de la administración | Microsoft Azure"
    description="Una visión general de los puntos de integración entre el Administrador de recursos de clúster y la administración de Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 
-# Integración de la administración
+# Integración del Administrador de recursos de clúster con la administración de clústeres de Service Fabric
 El Administrador de recursos no es el componente principal de Service Fabric que controla las operaciones de administración (como las actualizaciones de aplicaciones) pero sí ayuda. Para empezar, el Administrador de recursos realiza el seguimiento del estado deseado del clúster y de los servicios que contiene desde una perspectiva de distribución de recursos y equilibrio y efectúa cambios mediante el subsistema de Service Fabric cuando las cosas van mal. Otra parte de la integración tiene que ver con el modo en que funcionan las actualizaciones; en concreto, en su transcurso, algunas cosas sobre cómo funciona el Administrador de recursos cambian y se invocan algunos comportamientos especiales. Trataremos ambos temas a continuación.
 
 ## Integración del mantenimiento
@@ -78,6 +78,7 @@ Sin embargo, supongamos que quiere crear un servicio o que el Administrador de r
 2.	Los requisitos del servicio están mal configurados de forma que son imposibles de satisfacer.
 
 En cada una de estas condiciones, verá un informe de mantenimiento del Administrador de recursos con información para ayudarle a determinar qué es lo que pasa y por qué no se puede colocar el servicio. A este proceso lo llamamos "secuencia de eliminación de restricciones". En su transcurso, recorremos las restricciones configuradas que afectan al servicio y vemos qué eliminan. Así, cuando los servicios no se pueden colocar, puede ver qué nodos se eliminaron y por qué. Vamos a hablar sobre cada una de las diferentes restricciones que puede ver en estos informes de mantenimiento y qué es lo que comprueban. Tenga en cuenta que casi nunca verá estos nodos de eliminación de restricciones dado que, de forma predeterminada, están en el nivel de software o de optimización (como hemos indicado anteriormente). Podría verlas si se voltean o se tratan como restricciones de hardware, por lo que las presentamos aquí para que tenga la información más completa posible:
+
 -	ReplicaExclusionStatic y ReplicaExclusionDynamic: son restricciones internas que indican que durante la búsqueda hemos determinado que dos réplicas se deberían colocar en el nodo (lo cual no se permite). ReplicaExclusionStatic y ReplicaExclusionDynamic son casi exactamente la misma regla. La restricción ReplicaExclusionDynamic dice "no hemos podido colocar esta réplica aquí porque la única solución propuesta ya había colocado aquí una réplica". Esta exclusión es diferente de la exclusión ReplicaExclusionStatic que no indica un conflicto propuesto sino uno real: ya hay una réplica en el nodo. ¿Resulta confuso? Sí. ¿Importa mucho? No. Basta con decir que si está viendo una secuencia de eliminación de restricciones que contiene la restricción ReplicaExclusionStatic o ReplicaExclusionDynamic, el Administrador de recursos considera que no hay suficientes nodos para colocar todas las réplicas. Las restricciones siguientes normalmente pueden decirnos cómo es que estamos acabando con tan pocos nodos en el primer lugar.
 -	PlacementConstraint: si ve este mensaje, significa que eliminamos algunos nodos porque no coincidían con las restricciones de selección de ubicación del servicio. Realizamos el seguimiento de las restricciones de selección de ubicación configuradas actualmente como parte de este mensaje.
 -	NodeCapacity: si ve esta restricción, significa que no pudimos colocar las réplicas en los nodos indicados porque de hacerlo el nodo habría sobrepasado su capacidad.
@@ -100,9 +101,7 @@ Otra cosa que sucede durante las actualizaciones es que el Administrador de recu
 ### Reglas relajadas
 Normalmente, durante las actualizaciones, querrá que la operación se complete aunque el clúster esté bastante restringido o lleno. Aunque ya hemos habado de cómo hacemos esto, durante las actualizaciones es más importante incluso ya que normalmente tendrá entre un 5 y un 20 por ciento del clúster inactivo en el momento en que la actualización se implementa en el clúster y esa carga de trabajo tiene que ir a alguna parte. Y aquí es donde entra en juego la noción de capacidades almacenadas en búfer que mencionamos anteriormente; aunque la capacidad almacenada en búfer se respeta durante el funcionamiento normal, el Administrador de recursos llenará hasta la capacidad total durante las actualizaciones.
 
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
-- [Introducing the Service Fabric cluster resource manager](service-fabric-cluster-resource-manager-introduction.md) (Introducción al Administrador de recursos de clúster de Service Fabric)
+- Empiece desde el principio y [obtenga una introducción al Administrador de recursos de clúster de Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

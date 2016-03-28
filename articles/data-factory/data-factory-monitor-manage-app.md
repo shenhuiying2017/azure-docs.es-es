@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2016" 
+	ms.date="03/14/2016" 
 	ms.author="spelluru"/>
 
 # Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración
@@ -24,7 +24,7 @@
 En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la **Aplicación de supervisión y administración**. También se ofrece información sobre cómo crear alertas y recibir notificaciones cuando se produzcan errores al usar la aplicación.
       
 ## Iniciar la Aplicación de supervisión y administración 
-Para iniciar la Aplicación de supervisión y administración, haga clic en el icono **Aplicación de supervisión** en la hoja **DATA FACTORY** de su factoría de datos.
+Para iniciar la Aplicación de supervisión y administración, haga clic en el icono **Supervisión y administración**, situado en la hoja **DATA FACTORY** de su Data Factory.
 
 ![Icono de supervisión de la página principal de Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
@@ -32,21 +32,24 @@ La Aplicación de supervisión y administración debería iniciarse en una pesta
 
 ![Aplicación de supervisión y administración](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
+> [AZURE.NOTE] Si no ve la ventana de actividad en la lista de la parte inferior, haga clic en el botón **Actualizar** de la barra de herramientas para actualizar dicha lista. Además, establezca los valores pertinentes para los filtros **Hora de inicio** y **Hora de finalización**.
+
 ## Descripción de la Aplicación de supervisión y administración
-Hay tres pestañas (**Explorador de recursos**, **Vistas de supervisión** y **Alertas**) a la izquierda, y la primera pestaña (Explorador de recursos) está seleccionada de forma predeterminada.
+Hay tres pestañas (**Explorador de recursos**, **Vistas de supervisión** y **Alertas**) a la izquierda, y la primera pestaña (Explorador de recursos) está seleccionada de manera predeterminada.
 
 ### Explorador de recursos
-En el panel izquierdo se encuentra la **vista de árbol** del Explorador de recursos; en el panel central se encuentran la **vista de diagrama** en la parte superior y la lista de **Ventanas de actividad** en la parte inferior, y en el panel derecho se encuentran las pestañas **Propiedades**/**Explorador de ventanas de actividad**.
+En el panel izquierdo se encuentra la **vista de árbol** del Explorador de recursos; en el panel central se encuentran la **vista de diagrama** en la parte superior y la lista **Ventanas de actividad** en la parte inferior, y en el panel derecho se encuentran las pestañas **Propiedades**/**Explorador de ventanas de actividad**.
 
 Puede ver todos los recursos (canalizaciones, conjuntos de datos, servicios vinculados) de la factoría de datos en una vista de árbol. Al seleccionar un objeto en el Explorador de recursos, observará lo siguiente:
 
 - La entidad de Data Factory asociada se resaltará en la vista de diagrama.
-- Las ventanas de actividad asociadas (haga clic [aquí](data-factory-scheduling-and-execution.md) para obtener información sobre las ventanas de actividad) se resaltarán en la lista Ventanas de actividad en la parte inferior.  
+- Las ventanas de actividad asociadas (haga clic [aquí](data-factory-scheduling-and-execution.md) para obtener información sobre las ventanas de actividad) se resaltarán en la lista Ventanas de actividad de la parte inferior.  
 - Las propiedades del objeto seleccionado aparecen en la ventana Propiedades, en el panel derecho. 
+- La definición de JSON del objeto seleccionado, si procede. Por ejemplo: un servicio vinculado, un conjunto de datos o una canalización. 
 
 ![Explorador de recursos](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para obtener información conceptual detallada sobre la ventana de actividad.
+Consulte el artículo sobre [programación y ejecución](data-factory-scheduling-and-execution.md) para obtener información conceptual detallada sobre la ventana de actividad.
 
 ### Vista de diagrama
 La Vista de diagrama de una factoría de datos ofrece un panel único para supervisar y administrar la factoría de datos y sus recursos. Cuando seleccione una entidad de Data Factory (conjunto de datos o canalización) en la vista de diagrama, observará lo siguiente:
@@ -79,13 +82,21 @@ En la vista de canalización abierta o cerrada, al hacer clic en un conjunto de 
 
 ![Notificación emergente de Ventanas de actividad](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
-Puede hacer clic en una ventana de actividad para ver los detalles en la ventana **Propiedad** en el panel derecho.
+Puede hacer clic en una ventana de actividad para ver los detalles de ella en la ventana **Propiedad** del panel derecho.
 
 ![Propiedades de la ventana de actividad](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
-En el panel derecho, cambie a la pestaña **Explorador de ventanas de actividad** para ver más detalles.
+En el panel derecho, cambie a la pestaña **Explorador de ventanas de actividad** para ver más información.
 
 ![Explorador de ventanas de actividad](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+
+También verá las **variables resueltas** de cada intento de ejecución de actividad en la sección **Intentos**.
+
+![Variables resueltas](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
+
+Cambie a la pestaña **Script** para ver la definición del script de JSON del objeto seleccionado.
+
+![Tabla de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 Puede ver las ventanas de actividad en tres lugares:
 
@@ -170,7 +181,7 @@ Las ventanas de actividad pueden estar en uno de los siguientes estados:
 </table>
 
 
-Al hacer clic en una ventana de actividad de la lista, podrá ver detalles de dicha ventana en el Explorador de ventanas de actividad o en la ventana Propiedades de la derecha.
+Al hacer clic en una ventana de actividad de la lista, podrá ver detalles de dicha ventana en el **Explorador de ventanas de actividad** o en la ventana **Propiedades** de la derecha.
 
 ![Explorador de ventanas de actividad](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
@@ -187,7 +198,7 @@ Muestra propiedades del elemento seleccionado en el Explorador de recursos en la
 
 ### Explorador de ventanas de actividad
 
-La ventana Explorador de ventanas de actividad está en el panel del extremo derecho de la Aplicación de supervisión y administración. Muestra detalles de la ventana de actividad seleccionada en la notificación emergente Ventanas de actividad o en la lista Ventanas de actividad.
+La ventana **Explorador de ventanas de actividad** se encuentra en el panel del extremo derecho de la Aplicación de supervisión y administración. Muestra detalles de la ventana de actividad seleccionada en la notificación emergente Ventanas de actividad o en la lista Ventanas de actividad.
 
 ![Explorador de ventanas de actividad](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
@@ -195,17 +206,21 @@ Puede cambiar a una ventana de actividad diferente haciendo clic en ella en la v
 
 Puede usar los botones de la barra de herramientas del panel inferior para **volver a ejecutar** la ventana de actividad o para **actualizar** los detalles en el panel.
 
+### Script 
+Puede usar la pestaña **Script** para ver la definición de JSON de la entidad de Data Factory seleccionada (servicio vinculado, conjunto de datos y canalización).
+
+![Tabla de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## Usar vistas de sistema
-La Aplicación de supervisión y administración incluye vistas de sistema predefinidas (**Ventanas de actividad recientes**, **Ventanas de actividad con error**, **Ventanas de actividad en curso**) que permiten ver las ventanas de actividad recientes, las que contienen errores o las que están en curso de su factoría de datos.
+La Aplicación de supervisión y administración incluye vistas de sistema predefinidas (**Ventanas de actividad recientes**, **Ventanas de actividad con error**, **Ventanas de actividad en curso**) que permiten ver las ventanas de actividad recientes, las que contienen errores o las que están en curso de su Data Factory.
 
-Cambie a la pestaña **Vistas de supervisión** de la izquierda haciendo clic encima de ella.
+Cambie a la pestaña **Vistas de supervisión** de la izquierda haciendo clic en ella.
 
 ![Pestaña Vistas de supervisión](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
 Hay tres vistas de sistema admitidas en este momento. Seleccione una opción para ver las ventanas de actividad recientes, las ventanas de actividad con error o las ventanas de actividad en curso en la lista Ventanas de actividad (en la parte inferior del panel central).
 
-Al seleccionar la opción **Ventanas de actividad recientes**, verá todas las ventanas de actividad recientes en orden descendente según la **hora del último intento**.
+Si selecciona la opción **Ventanas de actividad recientes**, verá todas las ventanas de actividad recientes en orden descendente según la **hora del último intento**.
 
 Puede usar la vista **Ventanas de actividad con error** para ver todas las ventanas de actividad que contengan errores de la lista. Seleccione una ventana de actividad con error de la lista para ver los detalles en la ventana **Propiedades** o en el **Explorador de ventanas de actividad**. También puede descargar los registros de una ventana de actividad con error.
 
@@ -241,7 +256,7 @@ Puede usar la misma ventana emergente para borrar filtros. Para borrar todos los
 ### Volver a ejecutar las ventanas de actividad seleccionadas
 Seleccione una ventana de actividad, haga clic en la flecha abajo del primer botón de la barra de comandos y seleccione **Volver a ejecutar** o **Volver a ejecutar con canal de subida en la canalización**. Al seleccionar la opción **Volver a ejecutar con canal de subida en la canalización**, también se vuelven a ejecutar todas las ventanas de actividad con canal de subida. ![Volver a ejecutar una ventana de actividad](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-También puede seleccionar varias ventanas de actividad en la lista y volver a ejecutarlas al mismo tiempo. Puede filtrar las ventanas de actividad según el estado (por ejemplo, **Con error**) y después volver a ejecutar las ventanas de actividad con error después de corregir el problema que hace que se produzca un error en las ventanas de actividad. Vea la siguiente sección para obtener más información sobre el filtrado de ventanas de actividad en la lista.
+También puede seleccionar varias ventanas de actividad en la lista y volver a ejecutarlas al mismo tiempo. Puede filtrar las ventanas de actividad según el estado (por ejemplo, **Con error**) y, después, volver a ejecutar las ventanas de actividad con error tras corregir el problema que hace que se produzca un error en las ventanas de actividad. Vea la siguiente sección para obtener más información sobre el filtrado de ventanas de actividad en la lista.
 
 ### Pausar y reanudar varias canalizaciones
 Puede seleccionar al mismo tiempo dos o más canalizaciones (mediante la tecla CTRL) y usar los botones de la barra de comandos (resaltados con un rectángulo rojo en la imagen siguiente) para pausarlas o reanudarlas a la vez.
@@ -258,14 +273,14 @@ La página de alertas le permite crear una alerta nueva, así como ver, editar o
 1. Haga clic en **Agregar alerta** para agregar una alerta. Verá la página Detalles. 
 
 	![Crear alertas: página de detalles](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-1. Especifique el **nombre** y la **descripción** de la alerta y haga clic en **Siguiente**. Debería ver la página **Filtros**.
+1. Especifique el **nombre** y la **descripción** de la alerta y haga clic en **Siguiente**. Verá la página **Filtros**.
 
 	![Crear alertas: página de filtros](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
 
-	También puede **agregar** eventos de alerta, tal y como se muestra a continuación:
+	También puede **agregar** eventos de alerta, tal y como se muestra abajo:
 
 	![Agregar alertas](./media/data-factory-monitor-manage-app/AggregateAlerts.png)
-2. Seleccione el **evento**, el **estado** y el **subestado** (opcional) sobre los que desea que el servicio Data Factory le alerte y haga clic en **Siguiente**. Debería ver la página **Destinatarios**.
+2. Seleccione el **evento**, el **estado** y el **subestado** (opcional) sobre los que quiere que el servicio Data Factory le alerte y haga clic en **Siguiente**. Verá la página **Destinatarios**.
 
 	![Crear alertas: página de destinatarios](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
 3. Seleccione la opción **Administradores de suscripciones de correo electrónico** o escriba un **correo electrónico de administrador adicional** y haga clic en **Finalizar**. Debería ver la alerta en la lista. 
@@ -281,7 +296,7 @@ Nombre del evento | Estado | Subestado
 -------------- | ------ | ----------
 Ejecución de actividad iniciada | Started | Iniciando
 Ejecución de actividad finalizada | Succeeded | Succeeded 
-Ejecución de actividad finalizada | Con error| Asignación de recursos con error<br/><br/>Ejecución con error<br/><br/>Tiempo de espera agotado <br/><br/>Validación con error<br/><br/>Abandonado
+Ejecución de actividad finalizada | Con error| Asignación de recursos errónea<br/><br/>Ejecución errónea<br/><br/>Tiempo de espera agotado <br/><br/>Validación errónea<br/><br/>Abandonado
 Creación de clúster de HDI a petición iniciada | Started | &nbsp; |
 Creación correcta de clúster de HDI a petición | Succeeded | &nbsp; |
 Clúster de HDI a petición eliminado | Succeeded | &nbsp; |
@@ -295,4 +310,4 @@ Clúster de HDI a petición eliminado | Succeeded | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

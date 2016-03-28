@@ -155,7 +155,7 @@ Cuando una solicitud de una aplicación cliente se ha enrutado correctamente a u
 
 - **Las acciones GET, PUT, DELETE, HEAD y PATCH deben ser idempotentes**.
 
-	El código que implementa estas solicitudes no debe imponer efectos secundarios. La misma solicitud repetida en el mismo recurso debe dar como resultado el mismo estado. Por ejemplo, si se envían varias solicitudes DELETE al mismo URI, deben tener el mismo efecto, aunque el código de estado HTTP de los mensajes de respuesta puede ser diferente (la primera solicitud DELETE podría devolver el código de estado 204 (sin contenido), mientras que una solicitud DELETE posterior podría devolver el código de estado 404 (no encontrado)).
+	El código que implementa estas solicitudes no debe imponer efectos secundarios. La misma solicitud repetida en el mismo recurso debe dar como resultado el mismo estado. Por ejemplo, si se envían varias solicitudes DELETE al mismo URI, deben tener el mismo efecto aunque el código de estado HTTP de los mensajes de respuesta puede ser diferente. Es decir, la primera solicitud DELETE podría devolver el código de estado 204 (sin contenido), mientras que una solicitud DELETE posterior podría devolver el código de estado 404 (no encontrado).
 
 > [AZURE.NOTE] En el artículo [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) del blog de Jonathan Oliver se ofrece una visión general de la idempotencia y cómo se relaciona con las operaciones de administración de datos.
 
@@ -955,7 +955,7 @@ La misma API web pueden usarla muchas aplicaciones cliente que se ejecuten en cu
 
 	6. Mientras se ejecuta la tarea, el cliente puede continuar realizando su propio procesamiento. Puede enviar periódicamente una solicitud al URI _/polling/{guid}_ donde _{guid}_ es el GUID devuelto en el mensaje de respuesta 202 de la API web.
 
-	7. La API web en el URI _/polling{guid}_ consulta el estado de la tarea correspondiente en la tabla y devuelve un mensaje de respuesta con el código de estado HTTP 200 (correcto) que contiene este estado (_Running_, _Complete_ o _Failed_). Si la tarea se ha completado o ha producido un error, el mensaje de respuesta también puede incluir los resultados del procesamiento o la información disponible sobre el motivo del error.
+	7. La API web en el URI _/polling/{guid}_ consulta el estado de la tarea correspondiente en la tabla y devuelve un mensaje de respuesta con el código de estado HTTP 200 (correcto) que contiene este estado (_Running_, _Complete_ o _Failed_). Si la tarea se ha completado o ha producido un error, el mensaje de respuesta también puede incluir los resultados del procesamiento o la información disponible sobre el motivo del error.
 
 	Si prefiere implementar notificaciones, entre las opciones disponibles figuran:
 
@@ -1152,4 +1152,4 @@ Puede usar esta información para determinar si una operación o API web determi
 - En la página [Comprobar código utilizando pruebas unitarias](https://msdn.microsoft.com/library/dd264975.aspx) del sitio web de Microsoft se ofrece información detallada sobre la creación y administración de las pruebas unitarias con Visual Studio.
 - En la página [Ejecutar pruebas de rendimiento en la aplicación](https://msdn.microsoft.com/library/dn250793.aspx) del sitio web de Microsoft se describe cómo usar Visual Studio Ultimate para crear un proyecto de pruebas de carga y rendimiento web.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

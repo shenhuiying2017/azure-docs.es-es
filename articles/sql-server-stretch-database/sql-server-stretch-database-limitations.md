@@ -81,7 +81,9 @@ En la versión de vista preliminar actual de SQL Server 2016, las tablas habilit
 
 -   No se pueden ejecutar las operaciones UPDATE ni DELETE en una tabla habilitada para Stretch.
 
--   No se puede realizar una operación INSERT en la tabla de Base de datos SQL de Azure remota.
+-   No se puede realizar una operación INSERT de forma remota en una tabla habilitada para Stretch en un servidor vinculado.
+
+-   No se puede utilizar la replicación con una tabla habilitada para Stretch.
 
 -   No se puede crear un índice para una vista que incluya tablas habilitadas para Stretch.
 
@@ -90,6 +92,11 @@ En la versión de vista preliminar actual de SQL Server 2016, las tablas habilit
 -   Los filtros en los índices no se propagan a la tabla remota.
 
 ## Consulte también
-[Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) [Habilitación de Stretch Database para una base de datos](sql-server-stretch-database-enable-database.md) [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+[Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor](sql-server-stretch-database-identify-databases.md)
+
+[Habilitación de Stretch Database para una base de datos](sql-server-stretch-database-enable-database.md)
+
+[Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

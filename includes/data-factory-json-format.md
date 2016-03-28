@@ -1,19 +1,19 @@
-### Specifying JsonFormat
+### Especificación de JsonFormat
 
-If the format is set to **JsonFormat**, you can specify the following **optional** properties in the **Format** section.
+Si se establece el formato en **JsonFormat**, puede especificar las siguientes propiedades **opcionales** en la sección **format**.
 
-| Property | Description | Required |
+| Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- |
-| filePattern | Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is: **setOfObjects**. See sections below for details about these patterns.| No |
-| encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. | No | 
-| nestingSeparator | Character that is used to separate nesting levels. The **default** value is **. (dot)**. | No | 
+| filePattern | Indica el patrón de los datos almacenados en cada archivo JSON. Estos son los valores permitidos: **setOfObjects** y **arrayOfObjects**. El valor **predeterminado** es **setOfObjects**. Vea las secciones siguientes para obtener más información sobre estos patrones.| No |
+| encodingName | Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, vea el artículo sobre la propiedad [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift\_jis. El valor **predeterminado** es **UTF-8**. | No | 
+| nestingSeparator | Carácter que se usa para separar los niveles de anidamiento. El valor **predeterminado** es **. (punto)**. | No | 
 
 
-#### setOfObjects file pattern
+#### Patrón de archivos setOfObjects
 
-Each file contains single object, or line-delimited/concatenated multiple objects. When this option is chosen in an output dataset, copy will produce a single JSON file with each object per line (line-delimited).
+Cada archivo contiene un único objeto o bien varios objetos concatenados/delimitados por líneas. Si se elige esta opción en un conjunto de datos de salida, la copia generará un único archivo JSON con cada objeto por línea (delimitado por líneas).
 
-**single object** 
+**Objeto único**
 
 	{
 		"time": "2015-04-29T07:12:20.9100000Z",
@@ -24,7 +24,7 @@ Each file contains single object, or line-delimited/concatenated multiple object
 		"switch2": "Germany"
 	}
 
-**line-delimited JSON** 
+**JSON delimitado por líneas**
 
 	{"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
 	{"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
@@ -32,7 +32,7 @@ Each file contains single object, or line-delimited/concatenated multiple object
 	{"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"789037573","callingnum2":"789044691","switch1":"UK","switch2":"Australia"}
 	{"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789044691","switch1":"US","switch2":"Australia"}
 
-**concatenated JSON**
+**JSON concatenado**
 
 	{
 		"time": "2015-04-29T07:12:20.9100000Z",
@@ -60,9 +60,9 @@ Each file contains single object, or line-delimited/concatenated multiple object
 	}
 
 
-#### arrayOfObjects file pattern. 
+#### Patrón de archivos arrayOfObjects 
 
-Each file contains an array of objects. 
+Cada archivo contiene una matriz de objetos.
 
 	[
 	    {
@@ -123,9 +123,9 @@ Each file contains an array of objects.
 	    }
 	]
 
-### JsonFormat example
+### Ejemplo de JsonFormat
 
-If you have a JSON file with the following content:  
+Si tiene un archivo JSON con el siguiente contenido:
 
 	{
 		"Id": 1,
@@ -136,13 +136,13 @@ If you have a JSON file with the following content:
 		"Tags": ["Data Factory”, "Azure"]
 	}
 
-and you want to copy it into a an Azure SQL table in the following format: 
+y quiere copiarlo en una tabla de SQL de Azure con el formato siguiente:
 
-Id	| Name.First | Name.Middle | Name.Last | Tags
+Id | Name.First | Name.Middle | Name.Last | Etiquetas
 --- | ---------- | ----------- | --------- | ----
-1 | John | null | Doe | ["Data Factory”, "Azure"]
+1 | John | null | Doe | ["Data Factory", "Azure"]
 
-The input dataset with JsonFormat type is defined as follows: (partial definition with only the relevant parts)
+El conjunto de datos de entrada con el tipo JsonFormat se define de la siguiente manera: (definición parcial en la que solo se ilustran las secciones relevantes).
 
 	"properties": {
 		"structure": [
@@ -165,14 +165,15 @@ The input dataset with JsonFormat type is defined as follows: (partial definitio
 		}
 	}
 
-If the structure is not defined, the Copy Activity flattens the structure by default and copy every thing. 
+Si no se define la estructura, la actividad de copia aplana la estructura de manera predeterminada y copia todos los elementos.
 
-#### Supported JSON structure
-Note the following: 
+#### Estructura JSON admitida
+Tenga en cuenta lo siguiente:
 
-- Each object with a collection of name/value pairs will be mapped to one row of data in a tabular format. Objects can be nested and you can define how to flatten the structure in a dataset with the  nesting separator (.) by default. See the [JsonFormat example](#jsonformat-example) section above for an example.  
-- If the structure is not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object. 
-- If the JSON input has an array, the Copy Activity converts the entire array value into a string. You can choose to skip it by using [column mapping or filtering](#column-mapping-with-translator-rules).
-- If there are duplicate name at the same level, the Copy Activity will pick the last one.
-- Property names are case sensitive. Two properties with same name but different casing will be treated as two separate properties. 
+- Cada objeto con una colección de pares nombre-valor se asignará a una fila de datos en formato de tabla. Es posible anidar objetos y puede definir cómo aplanar la estructura del conjunto de datos con el separador de anidado (.) de manera predeterminada. Consulte la sección [Ejemplo de JsonFormat](#jsonformat-example) de arriba para ver un ejemplo.  
+- Si no se define la estructura en el conjunto de datos de Data Factory, la actividad de copia detecta el esquema del primer objeto y aplana el objeto en su conjunto. 
+- Si la entrada JSON tiene una matriz, la actividad de copia convierte el valor de toda la matriz en una cadena. Puede optar por omitir este paso mediante el [filtrado o la asignación de columnas](#column-mapping-with-translator-rules).
+- Si hay algún nombre duplicado en el mismo nivel, la actividad de copia elegirá el último.
+- Los nombres de propiedad distinguen entre mayúsculas y minúsculas. Dos propiedades con el mismo nombre, pero con distintas mayúsculas y minúsculas se considerarán propiedades independientes. 
 
+<!---HONumber=AcomDC_0316_2016-->

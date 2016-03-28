@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="03/10/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de la versión de los componentes de Hadoop en HDInsight de Azure
+
+## Notas de la versión del 10/03/2016 de HDinsight
+
+Los números de versión completos de los clústeres de HDInsight implementados con esta versión son:
+
+* HDInsight (Windows) 2.1.10.859.2123216 (HDP 1.3.12.0-01795: sin cambios)
+* HDInsight (Windows) 3.0.6.859.2123216 (HDP 2.0.13.0-2117: sin cambios)
+* HDInsight (Windows) 3.1.4.859.2123216 (HDP 2.1.15.0-2374: sin cambios)
+* HDInsight (Windows) 3.2.7.859.2123216 (HDP 2.2.9.1-7)
+* HDInsight (Windows) 3.3.0.859.2123216 (HDP 2.3.3.1-5: sin cambios)
+* HDInsight (Linux) 3.2.1000.7076817 (HDP 2.2.9.1-8)
+* HDInsight (Linux) 3.3.1000.7076817 (HDP 2.3.3.1-7)
+* SDK 1.5.8
+
+Esta versión contiene las siguientes actualizaciones.
+
+| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versiones actualizadas de HDInsight para todos los clústeres de HDInsight | Con esta versión, hemos actualizado las versiones de HDInsight para todos los clústeres de HDInsight.| Servicio | Todo| N/D
 
 ## Notas de la versión del 27/01/2016 de HDInsight
 
@@ -1184,7 +1203,19 @@ Esta revisión corrigió una pérdida de memoria en Templeton que afectaba a los
 
 * Hemos proporcionado una nueva configuración de memoria para la implementación predeterminada del clúster de HDInsight. La configuración de memoria predeterminada anterior no tenía en cuenta correctamente la guía para el número de núcleos de CPU que se implementaban. Estos nuevos valores de memoria deberían proporcionar mejores resultados (según las recomendaciones de Hortonworks). Para cambiarlos, consulte la documentación de referencia del SDK sobre cómo cambiar la configuración del clúster. En la tabla siguiente se desglosa la nueva configuración de memoria que usa el clúster de HDInsight predeterminado de 4 núcleos de CPU (8 contenedores). (También se proporcionan entre paréntesis los valores que se usaban antes de esta versión).
 
-<table border="1"> <tr><th>Componente</th><th>Asignación de memoria</th></tr> <tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (anteriormente, 512 MB)</td></tr> <tr><td> yarn.scheduler.maximum-allocation</td><td>6144 MB (sin cambiar)</td></tr> <tr><td>yarn.nodemanager.resource.memory</td><td>6144 MB (sin cambiar)</td></tr> <tr><td>mapreduce.map.memory</td><td>768 MB (anteriormente, 512 MB)</td></tr> <tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (anteriormente, -Xmx410m)</td></tr> <tr><td>mapreduce.reduce.memory</td><td>1536 MB (anteriormente, 1024 MB)</td></tr> <tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (anteriormente, -Xmx819m)</td></tr> <tr><td>yarn.app.mapreduce.am.resource</td><td>768 MB (anteriormente, 1024 MB)</td></tr> <tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (anteriormente, -Xmx819m)</td></tr> <tr><td>mapreduce.task.io.sort</td><td>256 MB (anteriormente, 200 MB)</td></tr> <tr><td>tez.am.resource.memory</td><td>1536 MB (sin cambiar)</td></tr>
+<table border="1">
+<tr><th>Componente</th><th>Asignación de memoria</th></tr>
+<tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (antes 512 MB)</td></tr>
+<tr><td> yarn.scheduler.maximum-allocation</td><td>6144 MB (sin cambios)</td></tr>
+<tr><td>yarn.nodemanager.resource.memory</td><td>6144 MB (sin cambios)</td></tr>
+<tr><td>mapreduce.map.memory</td><td>768 MB (antes 512 MB)</td></tr>
+<tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (antes -Xmx410m)</td></tr>
+<tr><td>mapreduce.reduce.memory</td><td>1536 MB (antes 1024 MB)</td></tr>
+<tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (antes -Xmx819m)</td></tr>
+<tr><td>yarn.app.mapreduce.am.resource</td><td>768 MB (antes 1024 MB)</td></tr>
+<tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (antes -Xmx819m)</td></tr>
+<tr><td>mapreduce.task.io.sort</td><td>256 MB (antes 200 MB)</td></tr>
+<tr><td>tez.am.resource.memory</td><td>1536 MB (sin cambios)</td></tr>
 
 </table><br>
 
@@ -1206,7 +1237,7 @@ Respecto al mensaje de error de Azure PowerShell y el SDK de HDInsight: "*El cl�
 
 ## Notas de la versión del 21/08/2014
 
-* Vamos a agregar la siguiente configuración de WebHCat (HIVE-7155) que establece el límite de memoria predeterminado para un trabajo de controlador Templeton en un 1 GB. (El valor predeterminado anterior era 512 MB).
+* Vamos a agregar la siguiente configuración de WebHCat (HIVE-7155) que establece el límite de memoria predeterminado para un trabajo de controlador Templeton en un 1 GB. (El valor predeterminado anterior era 512 MB).
 
 	 templeton.mapper.memory.mb (=1024)
 
@@ -1238,7 +1269,11 @@ Estos problemas de compatibilidad se han resuelto en las últimas versiones del 
 * Se están quitando HDInsight versión 1.6 (HDP 1.1 y Hadoop 1.0.3) y HDInsight versión 2.1 (HDP1.3 y Hadoop 1.2) del portal de Azure. Sin embargo, puede seguir creando clústeres de Hadoop para estas versiones mediante el cmdlet de Azure PowerShell, [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx), o mediante el [SDK de HDInsight](http://msdn.microsoft.com/library/azure/dn469975.aspx). Consulte la página de [versiones de componentes de HDInsight](../hdinsight-component-versioning/) para obtener más información.
 * Hortonworks Data Platform (HDP) cambia en esta versión:
 
-<table border="1"> <tr><th>HDP</th><th>Cambios</th></tr> <tr><td>HDP 1.3 / HDI 2.1</td><td>Sin cambios</td></tr> <tr><td>HDP 2.0 / HDI 3.0</td><td>Sin cambios</td></tr> <tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
+<table border="1">
+<tr><th>HDP</th><th>Cambios</th></tr>
+<tr><td>HDP 1.3 / HDI 2.1</td><td>Sin cambios</td></tr>
+<tr><td>HDP 2.0 / HDI 3.0</td><td>Sin cambios</td></tr>
+<tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
 
 
 </table><br>
@@ -1295,9 +1330,30 @@ Las tiendas de metadatos Oozie se asocian a clústeres específicos y no se pued
 
 **Puertos**: los puertos usados por el servicio HDInsight han cambiado. Los números de puerto que se estuvieron usando estaban dentro del intervalo de puertos transitorio del sistema operativo Windows. Los puertos se asignan automáticamente desde un intervalo transitorio predefinido en comunicaciones basadas en protocolo de Internet de corta duración. El nuevo conjunto de números de puerto de servicio de Hortonworks Data Platform (HDP) permitidos están fuera de este intervalo para evitar conflictos que podrían surgir con los puertos que usan los servicios que se ejecutan en el nodo principal. Los nuevos números de puerto no deben provocar ningún cambio brusco. Los números usados son los siguientes:
 
- **HDInsight 1.6 (HDP 1.1)** <table border="1"> <tr><th>Nombre</th><th>Valor</th></tr> <tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr> <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr> <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr> <tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr> <tr><td>dfs.secondary.http.address</td><td>0.0.0.0:30090</td></tr> <tr><td>mapred.job.tracker.http.address</td><td>jobtrackerhost:30030</td></tr> <tr><td>mapred.task.tracker.http.address</td><td>0.0.0.0:30060</td></tr> <tr><td>mapreduce.history.server.http.address</td><td>0.0.0.0:31111</td></tr> <tr><td>templeton.port</td><td>30111</td></tr> </table><br>
+ **HDInsight 1.6 (HDP 1.1)** <table border="1">
+<tr><th>Nombre</th><th>Valor</th></tr>
+<tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr>
+<tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
+<tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
+<tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr>
+<tr><td>dfs.secondary.http.address</td><td>0.0.0.0:30090</td></tr>
+<tr><td>mapred.job.tracker.http.address</td><td>jobtrackerhost:30030</td></tr>
+<tr><td>mapred.task.tracker.http.address</td><td>0.0.0.0:30060</td></tr>
+<tr><td>mapreduce.history.server.http.address</td><td>0.0.0.0:31111</td></tr>
+<tr><td>templeton.port</td><td>30111</td></tr>
+</table><br>
 
- **HDInsight 3.1 y 3.0 (HDP 2.1 y 2.0)** <table border="1"> <tr><th>Nombre</th><th>Valor</th></tr> <tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr> <tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr> <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr> <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr> <tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr> <tr><td>dfs.namenode.secondary.http-address</td><td>0.0.0.0:30090</td></tr> <tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr> <tr><td>templeton.port</td><td>30111</td></tr> </table><br>
+ **HDInsight 3.1 y 3.0 (HDP 2.1 y 2.0)** <table border="1">
+<tr><th>Nombre</th><th>Valor</th></tr>
+<tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr>
+<tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr>
+<tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
+<tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
+<tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr>
+<tr><td>dfs.namenode.secondary.http-address</td><td>0.0.0.0:30090</td></tr>
+<tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr>
+<tr><td>templeton.port</td><td>30111</td></tr>
+</table><br>
 
 ###Dependencias
 
@@ -1399,7 +1455,7 @@ Se han realizado los siguientes cambios de versión entre HDInsight 2.x (HDP1.x)
 
 
 ### Controladores
-El controlador Java Database Connnectivity (JDBC) para SQL Server se usa de forma interna mediante HDInsight y no se usa para realizar operaciones externas. Si desea conectarse a HDInsight mediante Conectividad abierta de bases de datos (ODBC), utilice Microsoft Hive ODBC Driver. Para obtener más información, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](../hdinsight-connect-excel-hive-odbc-driver.md).
+El controlador Java Database Connnectivity (JDBC) para SQL Server se usa de forma interna mediante HDInsight y no se usa para realizar operaciones externas. Si desea conectarse a HDInsight mediante Conectividad abierta de bases de datos (ODBC), utilice Microsoft Hive ODBC Driver. Para obtener más información, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Corrección de errores
@@ -1441,4 +1497,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

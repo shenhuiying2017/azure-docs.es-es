@@ -20,13 +20,10 @@
 
 Estos artículos contienen información de referencia sobre Almacenamiento de datos SQL.
 
-[Elementos del lenguaje Transact-SQL][]
-
-[Instrucciones de Transact-SQL][]
-
-[Vistas del sistema Transact-SQL][]
-
-[Cmdlets de PowerShell][]
+- [Elementos del lenguaje Transact-SQL][]
+- [Instrucciones de Transact-SQL][]
+- [Vistas del sistema Transact-SQL][]
+- [Cmdlets de PowerShell][]
 
 
 
@@ -45,4 +42,4 @@ Para obtener información de desarrollo, consulte [Introducción al desarrollo][
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

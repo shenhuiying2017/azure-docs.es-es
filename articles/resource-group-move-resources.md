@@ -29,22 +29,22 @@ En este tema se muestra cómo trasladar recursos de un grupo de recursos a otro.
 Hay varias consideraciones importantes que deben tenerse en cuenta antes de mover un recurso:
 
 1. No puede cambiar la ubicación del recurso. Si se mueve un recurso, solo se mueve a un nuevo grupo de recursos. El nuevo grupo de recursos puede tener una ubicación diferente, pero no cambia la ubicación del recurso.
-2. El proveedor de recursos del recurso que se mueve debe estar registrado en la suscripción de destino. Podría encontrar este problema al mover un recurso a una nueva suscripción que nunca se ha utilizado el suscripción con ese tipo de recurso. Por ejemplo, si mueve una instancia del servicio de administración de API a una suscripción que no ha registrado el proveedor de recursos **Microsoft.ApiManagement**, el movimiento no se realizará correctamente. Para obtener información sobre cómo comprobar el estado de registro y registrar proveedores de recursos, consulte [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](../resource-manager-supported-services/#resource-providers-and-types).
-2. El grupo de recursos de destino debe contener únicamente los recursos que comparten el mismo ciclo de vida de aplicación que los recursos que se van a mover.
-3. Si usa Azure PowerShell o la CLI de Azure, asegúrese de que está usando la versión más reciente. Para actualizar su versión, ejecute el Instalador de plataforma web de Microsoft y compruebe si hay disponible una nueva versión. Para más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) e [Instalación de la CLI de Azure](xplat-cli-install.md).
-4. La operación de traslado puede tardar en completarse y durante ese tiempo el símbolo del sistema esperará hasta que se haya completado la operación.
-5. Al mover los recursos, el grupo de origen y el grupo de destino se bloquean durante la operación. Las operaciones de escritura y eliminación están bloqueadas en los grupos hasta que se completa el movimiento.
+2. No todos los servicios admiten actualmente la capacidad de traslado de recursos. Consulte la siguiente lista para obtener más información sobre los servicios que admiten el traslado de recursos.
+3. El proveedor de recursos del recurso que se mueve debe estar registrado en la suscripción de destino. Podría encontrar este problema al mover un recurso a una nueva suscripción que nunca se ha utilizado el suscripción con ese tipo de recurso. Por ejemplo, si mueve una instancia del servicio de administración de API a una suscripción que no ha registrado el proveedor de recursos **Microsoft.ApiManagement**, el traslado no se realizará correctamente. Para obtener más información sobre cómo comprobar el estado de registro y registrar proveedores de recursos, consulte [Tipos y proveedores de recursos](../resource-manager-supported-services/#resource-providers-and-types).
+4. El grupo de recursos de destino debe contener únicamente los recursos que comparten el mismo ciclo de vida de aplicación que los recursos que se van a mover.
+5. Si usa Azure PowerShell o la CLI de Azure, asegúrese de que está usando la versión más reciente. Para actualizar su versión, ejecute el Instalador de plataforma web de Microsoft y compruebe si hay disponible una nueva versión. Para más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) e [Instalación de la CLI de Azure](xplat-cli-install.md).
+6. La operación de traslado puede tardar en completarse y durante ese tiempo el símbolo del sistema esperará hasta que se haya completado la operación.
+7. Al mover los recursos, el grupo de origen y el grupo de destino se bloquean durante la operación. Las operaciones de escritura y eliminación están bloqueadas en los grupos hasta que se completa el movimiento.
 
-## Servicios admitidos
-
-No todos los servicios admiten actualmente la capacidad de traslado de recursos.
+## Servicios compatibles con el traslado
 
 Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y a una nueva suscripción son:
 
 - Administración de API
-- Aplicaciones del Servicio de aplicaciones (consulte [Limitaciones del Servicio de aplicaciones](#app-service-limitations) más abajo)
+- Aplicaciones del Servicio de aplicaciones (consulte [App Service limitations](#app-service-limitations) [Limitaciones del Servicio de aplicaciones] más abajo)
 - Automatización
 - Lote
+- Servicio CDN
 - Factoría de datos
 - DocumentDB
 - Clústeres de HDInsight
@@ -54,7 +54,9 @@ Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y 
 - Visión operativa
 - Caché en Redis
 - Search
-- Servidor de Base de datos de SQL (consulte [Limitaciones de Base de datos SQL](#sql-database-limitations) más abajo)
+- Servidor de Base de datos SQL (consulte [SQL Database limitations](#sql-database-limitations) [Limitaciones de Base de datos SQL] más abajo)
+
+## Servicios parcialmente compatibles con el traslado
 
 Los servicios que admiten el traslado a un nuevo grupo de recursos, pero no una nueva suscripción son:
 
@@ -62,6 +64,8 @@ Los servicios que admiten el traslado a un nuevo grupo de recursos, pero no una 
 - Almacenamiento (clásico)
 - Redes virtuales
 - Servicios en la nube
+
+## Servicios no compatibles con el traslado
 
 Los servicios que actualmente no permiten trasladar un recurso son:
 
@@ -119,7 +123,7 @@ En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los 
 
 Algunos recursos se pueden mover a través del portal; sin embargo, no todos los proveedores de recursos que admiten dicha proporcionan esa funcionalidad a través del portal.
 
-Para mover un recurso, selecciónelo y, después, seleccione el botón **Mover**.
+Para mover un recurso, selecciónelo y, después, haga clic en el botón **Mover**.
 
 ![mover recurso](./media/resource-group-move-resources/move-resources.png)
 
@@ -133,4 +137,4 @@ Especifique el lugar al que desea mover el recurso. Si deben moverse otros recur
 - [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)
 - [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

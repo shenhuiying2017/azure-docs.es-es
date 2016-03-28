@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016" 
+	ms.date="03/11/2016" 
 	ms.author="jeannt"/>
 
 # Análisis del el abandono de clientes mediante el Aprendizaje automático de Azure
@@ -100,7 +100,7 @@ Los siguientes diagramas ilustran los datos usados.
 *Ilustración 7: Características extraídas de la fuente de datos*
 > Tenga en cuenta que estos datos son privados y, por tanto, no se pueden compartir el modelo y los datos. Sin embargo, para un modelo similar utilizando los datos disponibles públicamente, vea este experimento de ejemplo en la [Galería de análisis de Cortana](http://gallery.azureml.net/): [abandono de clientes de telecomunicaciones](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
-> Para obtener más información acerca de cómo se puede implementar un modelo de análisis de renovación con Cortana Analytics Suite, también se recomienda el visionado de [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) de Wee Hyong Tok, Senior Program Manager.
+> Para obtener más información acerca de cómo se puede implementar un modelo de análisis de renovación con Cortana Analytics Suite, también se recomienda el visionado de [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del director del programa, Wee Hyong Tok.
 > 
 
 ###Algoritmos usados en el prototipo
@@ -174,9 +174,9 @@ En la siguiente tabla se resume el rendimiento de los algoritmos:
 
 *Tabla 1. Rendimiento general (precisión) de los algoritmos*
 
-**LR**|	**BT**|	**AP**|	**SVM**|
---|--|--|--|
-Modelo promedio|	El mejor modelo|	Déficit de rendimiento|	Modelo promedio
+| LR|BT|AP|SVM|
+|---|---|---|---|
+|Modelo promedio|El mejor modelo|Déficit de rendimiento|Modelo promedio|
 
 Los modelos hospedados en Machine Learning Studio superaron en rendimiento a SAS en un 15-25% en cuanto a velocidad de ejecución, pero en cuanto a precisión, estaban a la par.
 
@@ -219,9 +219,9 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 
 [3] [CRISP-DM 1.0: Guía de minería de datos paso a paso](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](Marketing de macrodatos: Atraer más eficazmente a los clientes e impulsar el valor) (http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Marketing de Big Data: Atraer más eficazmente a los clientes e impulsar el valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco churn model template] (Modelo de plantilla de renovación Telco) (http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) en la Galería de Cortana Analytics
+[5] [Plantilla de modelo de renovación de Telco] (http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) en la Galería de Cortana Analytics
 ##Anexo
 
 ![][10]
@@ -240,4 +240,4 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

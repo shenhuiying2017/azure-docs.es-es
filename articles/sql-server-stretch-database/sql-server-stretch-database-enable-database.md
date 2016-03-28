@@ -128,8 +128,9 @@ Habilitación tablas adicionales para Stretch Database Supervisión de la migrac
 -   [Copia de seguridad y restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-backup.md)
 
 ## Consulte también
+
 [Identify databases and tables for Stretch Database by running Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) (Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor)
 
 [Opciones de ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

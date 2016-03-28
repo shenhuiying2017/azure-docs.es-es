@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/22/2016"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
-# Solucionar problemas de compatibilidad de bases de datos de SQL Server con SSDT antes de la migración a la Base de datos SQL
+# Solucionar problemas de compatibilidad de bases de datos de SQL Server antes de la migración a la Base de datos SQL
 
 Si determina que la Base de datos SQL Server de origen no es compatible, tiene varias opciones para corregir los problemas de compatibilidad de bases de datos identificados anteriormente.
 
 > [AZURE.SELECTOR]
-- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
-- Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-SSMS.md)
+- Uso del [Asistente para migración a SQL Azure](sql-database-cloud-migrate-fix-compatibility-issues.md)
+- Usar [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- Usar [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-SSMS.md)
 
 ## Uso de SQL Server Data Tools para Visual Studio
 
@@ -37,4 +37,4 @@ Use SQL Server Data Tools para Visual Studio ("SSDT") para importar el esquema d
 
 [Seleccione el método de migración](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

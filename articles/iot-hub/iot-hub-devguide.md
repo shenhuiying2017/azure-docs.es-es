@@ -288,29 +288,7 @@ Las credenciales de seguridad, como las claves simétricas, nunca se envían en 
 
 > [AZURE.NOTE] El proveedor de recursos del Centro de IoT de Azure se protege mediante la suscripción de Azure, igual que todos los proveedores en el [Administrador de recursos de Azure][lnk-azure-resource-manager].
 
-#### Formato del token de seguridad <a id="tokenformat"></a>
-
-El token de seguridad tiene el formato siguiente:
-
-	SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}
-
-Estos son los valores esperados:
-
-| Valor | Descripción |
-| ----- | ----------- |
-| {signature} | Una cadena de firma HMAC-SHA256 con el formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: La clave se descodifica en base64 y se utiliza como clave para realizar el cálculo de HMAC-SHA256. |
-| {resourceURI} | Prefijo URI (por segmento) de los puntos de conexión a los que se puede acceder con este token. Por ejemplo, `/events` |
-| {expiry} | Cadenas UTF8 para el número de segundos transcurridos desde el tiempo 00:00:00 UTC el 1 de enero de 1970. |
-| {URL-encoded-resourceURI} | Codificación de dirección URL en minúsculas del URI del recurso en minúsculas |
-| {policyName} | El nombre de la directiva de acceso compartido a la que hace referencia este token. Ausente en el caso de los token que hacen referencia a las credenciales del registro de dispositivos. |
-
-**Nota sobre el prefijo**: el prefijo URI se calcula por segmento y no por carácter. Por ejemplo `/a/b` es un prefijo de `/a/b/c` pero `/a/bc`.
-
-Puede encontrar las implementaciones del algoritmo de firma en el dispositivo IoT y los SDK del servicio:
-
-* [SDK de servicios IoT para Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth)
-* [SDK de dispositivos IoT para Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth)
-* [SDK de dispositivos y servicios IoT para Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js)
+Consulte el artículo [IoT Hub security tokens][lnk-sas-tokens] (Tokens de seguridad del Centro de IoT) para obtener más información sobre cómo crear y utilizar tokens de seguridad.
 
 #### Detalles específicos de protocolo
 
@@ -327,13 +305,13 @@ Para SASL PLAIN, el **nombre de usuario** puede ser:
 * `{policyName}@sas.root.{iothubName}` en el caso de los tokens de nivel de centro.
 * `{deviceId}` en el caso de los tokens con ámbito de dispositivo.
 
-En ambos casos el campo de contraseña contiene el token, tal como se describe en la sección [Formato de tokens](#tokenformat).
+En ambos casos el campo de contraseña contiene el token, como se describe en el artículo [IoT Hub security tokens][lnk-sas-tokens] (Tokens de seguridad del Centro de IoT).
 
 Al utilizar MQTT, el paquete CONNECT tiene deviceId como ClientId, {iothubhostname}/{deviceId} en el campo Nombre de usuario y un token SAS en el campo Contraseña. {iothubhostname} debe ser el CName completo del Centro de IoT (por ejemplo, contoso.azure-devices.net).
 
 ##### Ejemplo: #####
 
-Nombre de usuario (DeviceId distingue mayúsculas de minúsculas): `iothubname.azure-devices.net/DeviceId`
+Nombre de usuario (DeviceId distingue entre mayúsculas y minúsculas): `iothubname.azure-devices.net/DeviceId`
 
 Contraseña (generar SAS con el explorador del dispositivo): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -348,14 +326,14 @@ Cuando se usa SASL PLAIN, un cliente que se conecta a un Centro de IoT puede usa
 
 ### Control de las credenciales de nivel de centro
 
-Puede restringir el ámbito de las directivas de seguridad de nivel de centro mediante la creación de tokens con un URI de recurso restringido. Por ejemplo, el punto de conexión para enviar mensajes de dispositivo a la nube desde un dispositivo es **/devices/{deviceId}/events**. También puede usar una directiva de acceso compartido de nivel de centro con permisos **DeviceConnect** para firmar un token cuyo resourceURI sea **/devices/{deviceId}**, de forma que se crea un token que solo se puede usar para enviar dispositivos en nombre del dispositivo **deviceId**.
+Puede restringir el ámbito de las directivas de seguridad de nivel de centro mediante la creación de tokens con un URI de recurso restringido. Por ejemplo, el punto de conexión para enviar mensajes de dispositivo a la nube desde un dispositivo es **/devices/{deviceId}/messages/events**. También puede usar una directiva de acceso compartido de nivel de centro con permisos **DeviceConnect** para firmar un token cuyo resourceURI sea **/devices/{deviceId}**, de forma que se cree un token que solo se puede usar para enviar dispositivos en nombre del dispositivo **deviceId**.
 
-Se trata de un mecanismo similar a la [directiva de publicador de Centros de eventos][lnk-event-hubs-publisher-policy] y permite que se implementen métodos de autenticación personalizados, tal como se explica en la sección de seguridad de [Diseño de la solución][lnk-guidance-security].
+Se trata de un mecanismo similar a la [directiva de publicador de Centros de eventos][lnk-event-hubs-publisher-policy], y permite que se implementen métodos de autenticación personalizados, tal como se explica en la sección de seguridad de [Diseño de la solución][lnk-guidance-security].
 
 ## Mensajería
 
 El Centro de IoT proporciona primitivas de mensajería para comunicarse:
-- [Nube a dispositivo](#c2d): desde un back-end de aplicación (*service* o *nube*).
+- [Nube a dispositivo](#c2d): desde un back-end de aplicación (*servicio* o *nube*).
 - [Dispositivo a la nube](#d2c): desde un dispositivo a un back-end de aplicación.
 
 Las propiedades básicas de la funcionalidad de mensajería del Centro de IoT son la confiabilidad y durabilidad de los mensajes. Esto permite la resistencia a la conectividad intermitente en el dispositivo y a los picos de carga del procesamiento de eventos en la nube. El Centro de IoT implementa *al menos una vez* garantías de entrega para la mensajería de dispositivo a la nube y de nube a dispositivo.
@@ -386,14 +364,14 @@ Es el conjunto de propiedades del sistema en los mensajes del Centro de IoT.
 | Ack | Se usa en los mensajes de nube a dispositivo para solicitar a Centro de IoT que genere mensajes de comentarios debido al consumo del mensaje por el dispositivo. Valores posibles: **none** (valor predeterminado): no se genera ningún mensaje de comentarios, **positive**: recibe un mensaje de comentarios si el mensaje expiró, **negative**: recibe un mensaje de comentarios si el mensaje expiró (o se alcanzó el número máximo de entregas) sin que se complete en el dispositivo y **full**: comentarios positivos y negativos. Para obtener más información, consulte [Comentarios de mensajes](#feedback). |
 | ConnectionDeviceId | Establecido por Centro de IoT en los mensajes de dispositivo a la nube. Contiene el **deviceId** del dispositivo que envió el mensaje. |
 | ConnectionDeviceGenerationId | Establecido por Centro de IoT en los mensajes de dispositivo a la nube. Contiene el **generationId** (como se indica en [Propiedades de identidad de dispositivos](#deviceproperties)) del dispositivo que envió el mensaje. |
-| ConnectionAuthMethod | Establecido por Centro de IoT en los mensajes de dispositivo a la nube. Información sobre el método de autenticación usado para autenticar el dispositivo que envía el mensaje. Para más información, consulte [Propiedades contra la suplantación](#antispoofing).|
+| ConnectionAuthMethod | Establecido por Centro de IoT en los mensajes de dispositivo a la nube. Información sobre el método de autenticación usado para autenticar el dispositivo que envía el mensaje. Para obtener más información, consulte [Propiedades contra la suplantación](#antispoofing).|
 
 ### Elección del protocolo de comunicación <a id="amqpvshttp"></a>
 
 El Centro de IoT admite los protocolos [AMQP][lnk-amqp], AMQP sobre WebSockets, MQTT, y HTTP/1 para las comunicaciones del dispositivo. A continuación se muestra una lista de las consideraciones con respecto a sus usos.
 
 * **Patrón de nube a dispositivo**. HTTP/1 no cuenta con una forma eficaz de implementar la inserción de servidor. Por lo tanto, cuando se usa HTTP/1, los dispositivos sondean los mensajes de nube a dispositivo en el Centro de IoT. Esto resulta muy ineficaz tanto para el dispositivo como para el Centro de IoT. Las directrices actuales, cuando se utiliza HTTP/1, indican que cada dispositivo sondee cada 25 minutos o más. Por otro lado, AMQP y MQTT admiten la inserción de servidor al recibir mensajes de nube a dispositivo, lo que permite inserciones inmediatas de mensajes desde el Centro de IoT al dispositivo. Si le preocupa la latencia de entrega, es mucho mejor usar el protocolo AMQP o MQTT. Por otro lado, para los dispositivos apenas conectados, HTTP/1 funciona también.
-* **Puertas de enlace de campo**. Cuando se utiliza HTTP/1 y MQTT, no puede conectar varios dispositivos (cada uno con sus propias credenciales por dispositivo) con la misma conexión TLS. Se supone que estos protocolos no son óptimos para implementar [escenarios de puerta de enlace de campo][lnk-azure-gateway-guidance] porque requieren una conexión TLS entre la puerta de enlace de campo y el Centro de IoT para cada dispositivo conectado a la puerta de enlace de campo.
+* **Puertas de enlace de campo**. Cuando se utiliza HTTP/1 y MQTT, no puede conectar varios dispositivos (cada uno con sus propias credenciales por dispositivo) con la misma conexión TLS. Se supone que estos protocolos no son óptimos para implementar [escenarios de puerta de enlace de campo][lnk-azure-gateway-guidance] porque requieren una conexión TLS entre la aquella y el Centro de IoT para cada dispositivo conectado a la puerta de enlace de campo.
 * **Dispositivos con bajos recursos**. Las bibliotecas MQTT y HTTP/1 tienen una superficie menor que las bibliotecas AMQP. Por ello, si el dispositivo tiene pocos recursos (por ejemplo, menos de 1 MB de RAM), estos protocolos pueden ser la única implementación de protocolo disponible.
 * **Cruce seguro de red**. El estándar MQTT escucha en el puerto 8883. Esto podría producir problemas en las redes que están cerradas para los protocolos que no son HTTP. HTTP y AMQP (sobre WebSockets) están disponibles para usarse en este escenario.
 * **Tamaño de carga**. AMQP y MQTT son protocolos binarios, que son mucho más compactos que HTTP/1.
@@ -408,7 +386,7 @@ Centro de IoT implementa el protocolo MQTT v3.1.1 con las siguientes limitacione
   * **QoS 2 no se admite**: cuando un cliente de dispositivo publica un mensaje con **QoS 2**, el Centro de IoT cierra la conexión de red. Cuando un cliente de dispositivo se suscribe a un tema con **QoS 2**, el Centro de IoT concede el máximo QoS de nivel 1 en el paquete **SUBACK**.
   * **Conservar**: si un cliente de dispositivo publica un mensaje con el indicador RETAIN establecido en 1, el Centro de IoT agrega la propiedad de aplicación **x-opt-retain** al mensaje. Esto significa que el Centro de IoT no conserva el mensaje, sino que lo pasa a la aplicación de back-end.
 
-Como consideración final, debe revisar la [Puerta de enlace del protocolos de IoT de Azure][lnk-azure-protocol-gateway], que permite implementar una puerta de enlace de protocolo personalizado de alto rendimiento que interactúa directamente con el Centro de IoT. La puerta de enlace de protocolos de IoT de Azure le permite personalizar el protocolo del dispositivo para dar cabida a las implementaciones de MQTT de Brownfield u otros protocolos personalizados. La desventaja de este planteamiento es el requisito de autohospedar y operar una puerta de enlace de protocolo personalizado.
+Como consideración final, debe revisar la sección [Puerta de enlace de protocolos de IoT de Azure][lnk-azure-protocol-gateway], que le explica cómo implementar una puerta de enlace de protocolo personalizado de alto rendimiento que interactúa directamente con el Centro de IoT. La puerta de enlace de protocolos de IoT de Azure le permite personalizar el protocolo del dispositivo para dar cabida a las implementaciones de MQTT de Brownfield u otros protocolos personalizados. La desventaja de este planteamiento es el requisito de autohospedar y operar una puerta de enlace de protocolo personalizado.
 
 ### Dispositivo a nube <a id="d2c"></a>
 
@@ -419,7 +397,7 @@ El Centro de IoT implementa la mensajería de dispositivo a la nube de manera mu
 Esta implementación tiene las implicaciones siguientes:
 
 * De forma similar a los *eventos* de los centros de eventos, los mensajes de dispositivo a nube son duraderos y se conservan en un Centro de IoT hasta 7 días (consulte [Opciones de configuración de dispositivo a nube](#d2cconfiguration)).
-* Los mensajes de dispositivo a la nube se fragmentan en un conjunto fijo de particiones que se establece en el momento de creación (consulte [Opciones de configuración de dispositivo a nube](#d2cconfiguration)).
+* Los mensajes de dispositivo a la nube se fragmentan en un conjunto fijo de particiones que se establece en el momento de la creación (consulte [Opciones de configuración de dispositivo a nube](#d2cconfiguration)).
 * De igual forma que los centros de eventos, los clientes que leen mensajes de dispositivo a nube tienen que administrar particiones y puntos de control. Consulte [Centros de eventos: consumo de eventos][lnk-event-hubs-consuming-events].
 * Al igual que los eventos de los centros de eventos, los mensajes de dispositivo a nube pueden tener como máximo 256 Kb y se pueden agrupar en lotes para optimizar los envíos. Los lotes pueden tener un tamaño máximo de 256 Kb y como máximo 500 mensajes.
 
@@ -430,7 +408,7 @@ Sin embargo, hay algunas diferencias importantes entre los mensajes de dispositi
 * El Centro de IoT no admite la partición arbitraria con un valor **PartitionKey**. Los mensajes de dispositivo a la nube se dividen en función de su **deviceId** de origen.
 * El escalado de un Centro de IoT es ligeramente diferente en el caso de los centros de eventos. Para obtener más información, consulte [Escalado de un Centro de IoT][lnk-guidance-scale].
 
-Tenga en cuenta que esto no significa que puede sustituir Centro de IoT en Centros de eventos en todas las situaciones. Por ejemplo, en algunos cálculos de procesamiento de eventos, podría ser necesario volver a crear particiones de eventos con respecto a un campo o propiedad diferentes antes de analizar los flujos de datos. En esta situación, puede usar un Centro de eventos para desacoplar las dos partes de la canalización de procesamiento de la transmisión. Para más información, vea *Particiones* en [Información general de los Centros de eventos de Azure][lnk-eventhub-partitions].
+Tenga en cuenta que esto no significa que puede sustituir Centro de IoT en Centros de eventos en todas las situaciones. Por ejemplo, en algunos cálculos de procesamiento de eventos, podría ser necesario volver a crear particiones de eventos con respecto a un campo o propiedad diferentes antes de analizar los flujos de datos. En esta situación, puede usar un Centro de eventos para desacoplar las dos partes de la canalización de procesamiento de la transmisión. Para obtener más información, consulte *Particiones* en [Información general de los Centros de eventos de Azure][lnk-eventhub-partitions].
 
 Para obtener información detallada sobre cómo usar la mensajería de dispositivo a nube, consulte [API y SDK del Centro de IoT][lnk-apis-sdks].
 
@@ -440,7 +418,7 @@ Para obtener información detallada sobre cómo usar la mensajería de dispositi
 
 En muchos casos, además de los puntos de datos de telemetría, los dispositivos también envían mensajes y solicitudes que requieren la ejecución y el control de la capa de lógica de negocio de la aplicación. Por ejemplo, alertas críticas que deben desencadenar una acción específica en el back-end o respuestas de dispositivo a los comandos enviados desde el back-end.
 
-Vea [Procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-guidance-d2c-processing] para obtener más información sobre la mejor manera de procesar este tipo de mensajes.
+Consulte el artículo sobre el [procesamiento de dispositivo a la nube][lnk-guidance-d2c-processing] para obtener más información sobre la mejor manera de procesar este tipo de mensajes.
 
 #### Opciones de configuración de dispositivo a nube <a id="d2cconfiguration"></a>
 
@@ -491,13 +469,13 @@ En el diagrama siguiente se detalla el gráfico de estado del ciclo de vida de u
 
 ![Ciclo de vida de los mensajes de nube a dispositivo][img-lifecycle]
 
-Cuando el servicio envía un mensaje, se considera que está *En cola*. Cuando un dispositivo desea *recibir* un mensaje, el Centro de IoT *bloquea* el mensaje (establece el estado en **Invisible**), para permitir que otros subprocesos del mismo dispositivo empiecen a recibir otros mensajes. Cuando un subproceso de un dispositivo finaliza el procesamiento, lo notifica al Centro de IoT y *finaliza* el mensaje.
+Cuando el servicio envía un mensaje, se considera que está *En cola*. Cuando un dispositivo quiere *recibir* un mensaje, el Centro de IoT *bloquea* el mensaje (establece el estado en **Invisible**), para permitir que otros subprocesos del mismo dispositivo empiecen a recibir otros mensajes. Cuando un subproceso de un dispositivo finaliza el procesamiento, lo notifica al Centro de IoT *finalizando* el mensaje.
 
 Un dispositivo también puede:
-- *Rechazar* el mensaje, lo que hace que el Centro de IoT lo establezca en el estado **con problemas de entrega**.
-- *Abandonar* el mensaje, lo que hace que el Centro de IoT vuelva a poner el mensaje en la cola con el estado establecido en **en cola**.
+- *Rechazar* el mensaje, lo que hace que el Centro de IoT lo establezca en el estado **Procesado como correo devuelto**.
+- *Abandonar* el mensaje, lo que hace que el Centro de IoT vuelva a poner el mensaje en la cola con el estado establecido en **En cola**.
 
-Podría producirse un error en el subproceso al procesar un mensaje sin notificar a Centro de IoT. En este caso, los mensajes pasan automáticamente del estado **Invisible** al estado **En cola** después de un *tiempo de espera de visibilidad (o bloqueo)* con un valor predeterminado de un minuto. Un mensaje puede pasar entre los estados **En cola** e **Invisible** durante un número especificado de veces en la propiedad *Número máximo de entregas* en un Centro de IoT. Después de ese número de transiciones, el Centro de IoT establece el estado del mensaje en **Procesado como correo devuelto**. De igual forma, el Centro de IoT establece el estado de un mensaje en **Procesado como correo devuelto** después de su fecha de expiración (consulte [Período de vida](#ttl)).
+Podría producirse un error en el subproceso al procesar un mensaje sin notificar a Centro de IoT. En este caso, los mensajes pasan automáticamente del estado **Invisible** al estado **En cola** después de un *tiempo de espera de visibilidad (o bloqueo)* con un valor predeterminado de un minuto. Un mensaje puede pasar entre los estados **En cola** e **Invisible** durante un número de veces especificado en la propiedad *Número máximo de entregas* en el Centro de IoT. Después de ese número de transiciones, el Centro de IoT establece el estado del mensaje en **Procesado como correo devuelto**. De igual forma, el Centro de IoT establece el estado de un mensaje en **Procesado como correo devuelto** después de su fecha de expiración (consulte [Período de vida](#ttl)).
 
 Para ver un tutorial sobre los mensajes de nube a dispositivo, consulte [Introducción a los mensajes de nube a dispositivo del Centro de IoT de Azure][lnk-getstarted-c2d-tutorial]. Para consultar temas de referencia sobre cómo las diferentes API y SDK exponen la funcionalidad de dispositivo de nube, vea [API y SDK del Centro de IoT][lnk-apis-sdks].
 
@@ -507,17 +485,19 @@ Para ver un tutorial sobre los mensajes de nube a dispositivo, consulte [Introdu
 
 Cada mensaje de nube a dispositivo tiene una fecha de expiración. La puede establecer explícitamente el servicio (en la propiedad **ExpiryTimeUtc**), o bien el Centro de IoT usando el *período de vida* predeterminado especificado como una propiedad del Centro de IoT. Consulte [Opciones de configuración de nube a dispositivo](#c2dconfiguration).
 
+> [AZURE.NOTE] Una forma habitual de aprovechar la expiración de mensajes consiste en establecer valores cortos de período de vida con el objetivo de evitar enviar mensajes a dispositivos desconectados. Así se consigue el mismo resultado que con mantener el estado de la conexión de los dispositivos, con la diferencia de que la primera opción resulta mucho más eficiente. También es posible hacer que el Centro de IoT le notifique, solicitando acuses de recibo de mensajes, de qué dispositivos pueden recibir mensajes y cuáles no se encuentran conectados o presentan errores.
+
 #### Comentarios de mensaje <a id="feedback"></a>
 
 Cuando envía un mensaje de nube a dispositivo, el servicio puede solicitar la entrega de los comentarios de cada mensaje en relación con el estado final de ese mensaje.
 
-- Si establece la propiedad **Ack** en **positive**, el Centro de IoT genera un mensaje de comentarios únicamente si el mensaje de nube a dispositivo alcanza el estado **Completado**.
-- Si establece la propiedad **Ack** en **negative**, el Centro de IoT genera un mensaje de comentarios únicamente si el mensaje de nube a dispositivo alcanza el estado **Procesado como correo devuelto**.
-- Al establecer la propiedad **Ack** en **full**, el Centro de IoT genera un mensaje de comentarios en cualquier caso.
+- Si establece la propiedad **Ack** en **positive**, el Centro de IoT genera un mensaje de realimentación únicamente si el mensaje de nube a dispositivo alcanza el estado **Completado**.
+- Si establece la propiedad **Ack** en **negative**, el Centro de IoT genera un mensaje de realimentación únicamente si el mensaje de nube a dispositivo alcanza el estado **Procesado como correo devuelto**.
+- Al establecer la propiedad **Ack** en **full**, el Centro de IoT genera un mensaje de realimentación en cualquier caso.
 
-> [AZURE.NOTE] Si **Ack** es **full** y no se recibe ningún mensaje de comentarios, significa que el mensaje ha expirado y el servicio no puede saber qué ha ocurrido con el mensaje original. En la práctica, un servicio debe asegurarse de que puede procesar el comentario antes de que expire. El tiempo de expiración máximo es de dos días, por lo tanto, debe haber tiempo suficiente para poner en funcionamiento el servicio en caso de error.
+> [AZURE.NOTE] Si **Ack** es **full** y no se recibe ningún mensaje de realimentación, significa que el mensaje ha expirado y el servicio no puede saber qué ha ocurrido con el mensaje original. En la práctica, un servicio debe asegurarse de que puede procesar el comentario antes de que expire. El tiempo de expiración máximo es de dos días, por lo tanto, debe haber tiempo suficiente para poner en funcionamiento el servicio en caso de error.
 
-Como se explica en [Puntos de conexión](#endpoints), el Centro de IoT ofrece comentarios a través de un punto de conexión orientado a servicios (**/messages/servicebound/feedback**) como mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de nube a dispositivo y tienen el mismo [ciclo de vida del mensaje](#message lifecycle). Siempre que sea posible, los comentarios del mensaje se realizan por lotes en un único mensaje, con el formato siguiente.
+Como se explica en [Puntos de conexión](#endpoints), el Centro de IoT ofrece realimentación a través de un punto de conexión orientado a servicios (**/messages/servicebound/feedback**) como mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de nube a dispositivo y tienen el mismo [ciclo de vida del mensaje](#message lifecycle). Siempre que sea posible, los comentarios del mensaje se realizan por lotes en un único mensaje, con el formato siguiente.
 
 Cada mensaje recuperado por un dispositivo desde el punto de conexión de comentarios tiene las siguientes propiedades:
 
@@ -571,7 +551,7 @@ Cada Centro de IoT muestra las siguientes opciones de configuración para la men
 | feedback.ttlAsIso8601 | Retención de mensajes de comentarios del límite de servicio. | Intervalo de ISO\_8601 hasta 2D (1 minuto como mínimo). Valor predeterminado: 1 hora. |
 | feedback.maxDeliveryCount | Número máximo de entregas para la cola de comentarios. | De 1 a 100. Valor predeterminado: 100. |
 
-Para más información, vea [Administración de Centros de IoT a través del portal de Azure][lnk-manage].
+Para obtener más información, consulte [Administración de Centros de IoT a través del portal de Azure][lnk-manage].
 
 ## Cuotas y limitación <a id="throttling"></a>
 
@@ -590,14 +570,14 @@ A continuación se muestra la lista de las limitaciones aplicadas. Los valores h
 | Limitación | Valor por centro |
 | -------- | ------------- |
 | Operaciones de registro de identidad (crear, recuperar, enumerar, actualizar y eliminar) | 100/min/unidad, hasta 5.000/min |
-| Conexiones de dispositivos | 120/seg/unidad (para S2), 12/seg/unidad (para S1). <br/>Mínimo de 100/s. <br/> Por ejemplo, dos unidades S1 se corresponden con 2*12 = 24/s, pero tendrá al menos 100/s en las unidades. Con nueve unidades S1 tiene 108/s (9 * 12) en las unidades. |
-| Envíos de dispositivo a nube | 120/seg/unidad (para S2), 12/seg/unidad (para S1). <br/>Mínimo de 100/s. <br/> Por ejemplo, dos unidades S1 se corresponden con 2*12 = 24/s, pero tendrá al menos 100/s en las unidades. Con nueve unidades S1 tiene 108/s (9 * 12) en las unidades. |
+| Conexiones de dispositivos | 120/seg/unidad (para S2), 12/seg/unidad (para S1). <br/>Mínimo de 100/s. <br/> Por ejemplo, dos unidades S1 se equivalen a 2*12 = 24/s, pero tendrá al menos 100/s en las unidades. Con nueve unidades S1 tiene 108/s (9 * 12) en las unidades. |
+| Envíos de dispositivo a nube | 120/seg/unidad (para S2), 12/seg/unidad (para S1). <br/>Mínimo de 100/s. <br/> Por ejemplo, dos unidades S1 se equivalen a 2*12 = 24/s, pero tendrá al menos 100/s en las unidades. Con nueve unidades S1 tiene 108/s (9 * 12) en las unidades. |
 | Envíos de nube a dispositivo | 100/min/unidad |
 | Recepciones de nube a dispositivo | 1000/min/unidad |
 
 **Nota**. En cualquier momento, es posible aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en un Centro de IoT.
 
-**Importante**: las operaciones de registro de identidad están diseñadas para su uso en tiempo de ejecución en escenarios de aprovisionamiento y administración de dispositivos. La lectura o actualización de un gran número de identidades de dispositivos se admite mediante [trabajos de importación y exportación](#importexport).
+**Importante**: Las operaciones de registro de identidad están diseñadas para su uso en tiempo de ejecución en escenarios de aprovisionamiento y administración de dispositivos. La lectura o actualización de un gran número de identidades de dispositivos se respalda mediante [trabajos de importación y exportación](#importexport).
 
 ## Pasos siguientes
 
@@ -621,6 +601,7 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
+[lnk-sas-tokens]: iot-hub-sas-tokens
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -653,4 +634,4 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

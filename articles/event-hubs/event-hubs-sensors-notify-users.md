@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/16/2015"
+   ms.date="03/08/2016"
    ms.author="spyros;sethm" />
 
 # Notificación a los usuarios sobre los datos recibidos de los sensores o de otros sistemas
@@ -25,7 +25,7 @@ En otro escenario, imagine que dirige un centro de alojamiento de mascotas y que
 
 ![][2]
 
-El problema radica en cómo obtener información crítica cuando se cumplen determinadas condiciones, y no cuando consulta un informe estático. Si utiliza un [Centro de eventos de Azure][] o un [Centro de IoT][] para recibir datos de dispositivos o aplicaciones empresariales como [Dynamics AX][], tiene varias opciones para procesarlos. Puede consultarlos en un sitio web, analizarlos, almacenarlos y usarlos para desencadenar los comandos para realizar alguna acción. Para ello, puede usar herramientas eficaces como [Sitios web Azure][], [SQL Azure][], [HDInsight][], [Cortana Analytics Suite][], [Conjunto de IoT][], [Aplicaciones lógicas][] o [Centros de notificaciones de Azure][]. Pero a veces lo único que desea hacer es enviar datos a alguien con una sobrecarga mínima. Para mostrarle cómo hacerlo con el uso mínimo de código, hemos proporcionado nuevo ejemplo, [AppToNotifyUsers][]. Las opciones incluidas son el correo electrónico (SMTP), los SMS y el teléfono.
+El problema radica en cómo obtener información crítica cuando se cumplen determinadas condiciones, y no cuando consulta un informe estático. Si utiliza un [Centro de eventos de Azure][] o un [Centro de IoT de Azure][] para recibir datos de dispositivos o aplicaciones empresariales como [Dynamics AX][], tiene varias opciones para procesarlos. Puede consultarlos en un sitio web, analizarlos, almacenarlos y usarlos para desencadenar los comandos para realizar alguna acción. Para ello, puede usar herramientas eficaces como [Sitios web Azure][], [SQL Azure][], [HDInsight][], [Cortana Analytics Suite][], [Conjunto de IoT][], [Aplicaciones lógicas][] o [Centros de notificaciones de Azure][]. Pero a veces lo único que desea hacer es enviar datos a alguien con una sobrecarga mínima. Para mostrarle cómo hacerlo con el uso mínimo de código, hemos proporcionado nuevo ejemplo, [AppToNotifyUsers][]. Las opciones incluidas son el correo electrónico (SMTP), los SMS y el teléfono.
 
 ## Estructura de la aplicación
 
@@ -64,13 +64,12 @@ Si desea implementar la solución para notificar a los usuarios sobre los datos 
 
 [tutorial de Centros de eventos]: event-hubs-csharp-ephcs-getstarted.md
 [Centro de IoT de Azure]: https://azure.microsoft.com/services/iot-hub/
-[Centro de IoT]: https://azure.microsoft.com/services/iot-hub/
 [Centros de eventos de Azure]: https://azure.microsoft.com/services/event-hubs/
 [Centro de eventos de Azure]: https://azure.microsoft.com/services/event-hubs/
-[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [AppToNotifyUsers]: https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications
-[Dynamics AX]: http://www.microsoft.com/es-ES/dynamics/erp-ax-overview.aspx
+[Dynamics AX]: http://www.microsoft.com/dynamics/erp-ax-overview.aspx
 [Sitios web Azure]: https://azure.microsoft.com/services/app-service/web/
 [SQL Azure]: https://azure.microsoft.com/services/sql-database/
 [HDInsight]: https://azure.microsoft.com/services/hdinsight/
@@ -83,4 +82,4 @@ Si desea implementar la solución para notificar a los usuarios sobre los datos 
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

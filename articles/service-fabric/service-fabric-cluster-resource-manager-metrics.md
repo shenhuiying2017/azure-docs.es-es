@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Administración de métricas con Azure Service Fabric Cluster Resource Manager"
+   pageTitle="Administración de métricas con el Administrador de recursos de clúster de Service Fabric de Azure | Microsoft Azure"
    description="Aprenda cómo configurar y usar las métricas en Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Métricas
+# Administración de consumo y carga de recursos en Service Fabric con métricas
 "Métricas" es el término genérico en Service Fabric para los recursos por los que se interesan sus servicios. Por lo general, una métrica es todo lo que desea administrar en un recurso en relación con el rendimiento de los servicios.
 
 En todos los ejemplos anteriores ha habido referencias implícitas a las métricas; algunos ejemplos de métricas son memoria, disco y uso de CPU. Estas son métricas físicas, recursos que corresponden a los recursos físicos en el nodo que es necesario a administrar. Las métricas también pueden ser lógicas, como "MyWorkQueueDepth", cosas definidas por la aplicación y que corresponden a un cierto nivel de consumo de recursos (pero donde la aplicación realmente no lo sabe o sabe cómo medirlo).
@@ -109,7 +109,7 @@ Ahora que ha visto cómo definir sus propias métricas, se cubrirán las distint
 ## Carga
 Carga es el concepto general de la cantidad de una determinada métrica que alguna instancia del servicio o réplica consume en un nodo específico.
 
-### Carga predeterminada
+## Carga predeterminada
 La carga predeterminada es la cantidad de carga que Resource Manager debe suponer que cada instancia del servicio o réplica de este servicio consumirá hasta que reciba alguna actualización de las instancias del servicio o réplicas reales. Para los servicios más sencillos, es una definición estática que nunca se actualiza dinámicamente y, por tanto, se utilizará mientras dure el servicio. Esto funciona muy bien para un planeamiento simple de la capacidad, porque es exactamente lo que estamos acostumbrados a hacer: dedicar algunos recursos a ciertas cargas de trabajo, pero la ventaja es que al menos ahora se funciona teniendo en mente los microservicios, en los que los recursos en realidad no se asignan estáticamente a cargas de trabajo concretas y en los que las personas no están en el bucle de toma de decisiones.
 
 Se permite que los servicios con estado especifiquen la carga predeterminada para sus réplicas principales y secundarias; siendo realistas, para muchos servicios estos números son diferentes debido a las diferentes cargas de trabajo ejecutadas por las réplicas principales y secundarias, y puesto que las principales suelen servir las lecturas y escrituras (así como la mayoría de la carga de procesamiento), la carga predeterminada para una réplica principal es mayor que para las secundarias.
@@ -117,7 +117,6 @@ Se permite que los servicios con estado especifiquen la carga predeterminada par
 Suponga que ha estado ejecutando el servicio durante un tiempo y ha notado que algunas instancias o réplicas del servicio consumen muchos más recursos que otras, o bien que su consumo varía a lo largo del tiempo; quizás están asociadas a un cliente determinado o quizás solo corresponden a las cargas de trabajo que varían a lo largo del día, como el tráfico de mensajería o las transacciones de la bolsa. En cualquier caso, ve que no hay un "número único" que pueda usar para la carga sin que se quede fuera una cantidad considerable. También observa que al quedar fuera de su estimación inicial, Service Fabric asigna demasiados o demasiado pocos recursos a su servicio y, por tanto, tiene nodos infrautilizados o usados en exceso. ¿Qué debe hacer? Bueno, el servicio podría informar acerca de la carga sobre la marcha.
 
 ## Carga dinámica
-
 Los informes de carga dinámica permiten réplicas o instancias para ajustar su asignación o el uso de métricas comunicado en el clúster a lo largo de su duración. Normalmente, una instancia o una réplica del servicio que esté pasiva y no realice ningún trabajo informará que utilizan pocos recursos, mientras que las réplicas o instancias ocupadas comunicarán que están utilizando más recursos. Este nivel general de rotación en el clúster permite reorganizar las instancias y réplicas del servicio del clúster sobre la marcha para garantizar que los servicios y las instancias reciben los recursos que necesitan; de hecho, los servicios ocupados pueden reclamar recursos de otras réplicas o instancias que están actualmente pasivas o con menos trabajo. La generación de informes de carga sobre la marcha puede realizarse mediante el método ReportLoad, disponible en ServicePartition como una propiedad en StatefulService base. En su servicio, el código sería similar al siguiente:
 
 Código:
@@ -128,6 +127,7 @@ this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory",
 
 Las instancias y réplicas del servicio solo comunican la carga de las métricas para las que se han configurado. La lista de métricas se establece cuando se crea cada servicio. Si una instancia o una réplica del servicio intenta informar de la carga para una métrica para la que no está configurada, Service Fabric registra el informe pero lo ignora, lo que significa que no se usará al calcular o informar sobre el estado del clúster. Esto es práctico porque permite una mayor experimentación; el código puede medir e informar sobre todo lo que sabe, y el operador puede configurar, modificar y actualizar las reglas de equilibrio de los recursos para ese servicio sobre la marcha, sin tener que cambiar el código. Esto puede incluir, por ejemplo, deshabilitar una métrica con un informe de errores, reconfigurar las ponderaciones de métricas según el comportamiento o habilitar una nueva métrica solo después de que el código ya se haya implementado y validado.
 
+## Combinación de valores de carga predeterminados e informes de carga dinámica
 ¿Tiene sentido tener una carga predeterminada especificada para un servicio que va a notificar la carga dinámicamente? Por supuesto. En este caso, la carga predeterminada actúa como una estimación hasta que los informes reales empiezan a aparecer en la instancia o la réplica del servicio real. Esto es muy útil porque proporciona a Resource Manager algo con lo que trabajar al colocar la réplica o la instancia en el momento de creación; la carga predeterminada termina como una estimación inicial que permite a Resource Manager colocar las instancias o las réplicas del servicio en lugares adecuados desde el principio. Si no se proporcionara información, la colocación sería aleatoria y es casi seguro que habría que mover cosas tan pronto como los informes de carga real empezaran a llegar.
 
 Tome el ejemplo anterior y vea lo que sucede cuando se agrega cierta carga personalizada y cuando después de crear el servicio se actualiza dinámicamente. En este ejemplo, se usará "Memoria" como ejemplo y se supondrá que se ha creado inicialmente el servicio con estado con el comando siguiente:
@@ -145,6 +145,7 @@ El aspecto de un diseño del clúster podría ser similar a este:
 ![Clúster equilibrado con métricas predeterminadas y personalizadas][Image2]
 
 Algunas cosas que debe tener en cuenta:
+
 -	Puesto que las réplicas o instancias utilizan la carga predeterminada del servicio hasta que informan de su propia carga, se sabe que las réplicas dentro de la partición 1 del servicio con estado no han comunicado su propia carga
 -	Las réplicas secundarias dentro de una partición pueden tener su propia carga
 -	En general las métricas son bastante buenas, con la diferencia entre la carga máxima y mínima en un nodo (para Memoria, la métrica personalizada que más interesa) de solo un factor de 1,75 (el nodo con mayor carga para la memoria es N3, con la menor es N2 y 28/16 = 1,75); bastante equilibrada.
@@ -155,7 +156,7 @@ Hay algunas cosas que es necesario explicar
 -	¿Cuándo se produce el equilibrio?
 -	¿Qué significa que la ponderación de Memoria es alta?
 
-## Ponderaciones de métricas
+## Pesos de métrica
 Las ponderaciones de métricas son lo que permite que dos servicios diferentes informen de las mismas métricas, pero se vea la importancia de equilibrar esas métricas de manera diferente. Por ejemplo, suponga un motor de análisis en memoria y una base de datos persistente; probablemente ambos se preocupan de la métrica "Memoria", pero el servicio en memoria probablemente no tiene que preocuparse mucho la métrica "Disco", que puede consumir un poco de él, pero no es esencial para el rendimiento del servicio. Poder realizar un seguimiento de las mismas métricas entre diferentes servicios está muy bien, ya que es lo que permite que Resource Manager realice un seguimiento del consumo real en el clúster, se asegure de que los nodos no exceden su capacidad, etc.
 
 Las ponderaciones de métricas permiten a Resource Manager tomar decisiones reales sobre cómo equilibrar el clúster cuando no hay ninguna respuesta perfecta (lo que tarda mucho tiempo). Las métricas pueden tener cuatro niveles diferentes de ponderación: cero, baja, media o alta. Una métrica con una ponderación de cero no aporta nada a la hora de considerar si las cosas están equilibradas o no, pero su carga contribuye a aspectos como la medición de la capacidad.
@@ -183,17 +184,16 @@ En el ejemplo inferior se han distribuido las réplicas en función del equilibr
 
 Al tener en cuenta las ponderaciones de métricas, el equilibrio global se calcula en función del promedio de las ponderaciones de métricas. Un servicio se equilibra con respecto a sus propias ponderaciones de métricas.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
-- [Información acerca de la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md)
-- [Información acerca de las métricas de desfragmentación](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [Obtenga información acerca de cómo Cluster Resource Manager equilibra la carga en el clúster](service-fabric-cluster-resource-manager-balancing.md)
-- [Introducción a Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-- [Más información sobre los costos del movimiento de servicios](service-fabric-cluster-resource-manager-movement-cost.md)
+- Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones del Administrador de recursos de clúster disponibles. [Más información sobre cómo configurar los servicios](service-fabric-cluster-resource-manager-configure-services.md).
+- Definir las métricas de desfragmentación es una manera de consolidar la carga en los nodos en lugar de distribuirla. Para saber cómo configurar la desfragmentación, consulte [este artículo](service-fabric-cluster-resource-manager-defragmentation-metrics.md).
+- Para más información sobre cómo el Administrador de recursos de clúster administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md).
+- Empiece desde el principio y [obtenga una introducción al Administrador de recursos de clúster de Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
+- El costo del movimiento es una forma de señalizar al Administrador de recursos de clúster que determinados servicios son más caros de mover que otros. Para más información sobre el costo del movimiento, consulte [este artículo](service-fabric-cluster-resource-manager-movement-cost.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

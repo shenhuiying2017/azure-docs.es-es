@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Particiones de tabla en el Almacenamiento de datos SQL
@@ -22,6 +22,9 @@ Para migrar las definiciones de las particiones de SQL Server al Almacenamiento 
 
 - Quite esquemas y funciones de partición de SQL Server, ya que esto se administra automáticamente al crear la tabla.
 - Defina las particiones al crear la tabla. Simplemente especifique puntos límite de partición y, si desea que el punto límite sea eficaz, `RANGE RIGHT` o `RANGE LEFT`.
+
+NOTA: Para obtener más información sobre particiones en SQL Server, consulte [Tablas e índices con particiones](https://msdn.microsoft.com/library/ms190787.aspx).
+
 
 ### Tamaño de la partición
 El Almacenamiento de datos de SQL ofrece a un DBA varias opciones para tipos de tabla: montón, índice agrupado (CI) e índice de almacén de columnas en clúster (CCI). Para cada uno de estos tipos de tabla, el DBA también puede crear particiones en la tabla, lo que significa dividirla en varias secciones para mejorar el rendimiento. Sin embargo, la creación de una tabla con demasiadas particiones puede provocar realmente degradaciones del rendimiento o errores de consultas en algunas circunstancias. Estas cuestiones son especialmente ciertas para las tablas de CCI. Para que la creación de particiones sea útil, es importante para un administrador de bases de datos comprender cuándo se deben usar las particiones y el número de particiones que se crearán. Estas instrucciones están diseñadas para ayudar a los administradores de bases de datos a tomar las mejores decisiones para sus escenarios.
@@ -333,4 +336,4 @@ Una vez migrado correctamente el esquema de base de datos al Almacenamiento de d
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/10/2016"
 	ms.author="markvi"/>
 
 #Flujos de Azure Active Directory Identity Protection
@@ -89,7 +89,7 @@ Cuando un administrador ha configurado una directiva de riesgo de inicio de sesi
 
  
 ## Inicios de sesión peligrosos bloqueados
-Los administradores también pueden elegir establecer una directiva de seguridad de riesgo de inicio de sesión para bloquear a los usuarios al iniciar sesión en función del nivel de riesgo. Para ser desbloqueados, los usuarios finales deben ponerse en contacto con un administrador o el departamento de soporte técnico, o bien pueden intentar iniciar sesión desde una ubicación o dispositivo conocidos. La recuperación automática mediante la resolución de la autenticación multifactor no es una opción en este caso. <br><br> ![Corrección](./media/active-directory-identityprotection-flows/130.png "Corrección") <br>
+Los administradores también pueden elegir establecer una directiva de seguridad de riesgo de inicio de sesión para bloquear a los usuarios al iniciar sesión en función del nivel de riesgo. Para ser desbloqueados, los usuarios finales deben ponerse en contacto con un administrador o el departamento de soporte técnico, o bien pueden intentar iniciar sesión desde una ubicación o dispositivo conocidos. La recuperación automática al resolver la autenticación multifactor no es una opción en este caso. <br><br> ![Corrección](./media/active-directory-identityprotection-flows/200.png "Corrección") <br>
 
 
 
@@ -158,4 +158,4 @@ Si se bloquea el inicio de sesión de los usuarios en peligro, un administrador 
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

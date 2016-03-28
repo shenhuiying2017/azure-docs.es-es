@@ -3,8 +3,8 @@
 	description="Enterprise Library está diseñado para simplificar muchas tareas para programas cliente de servicios en la nube, incluida la integración de la lógica de reintento en caso de errores transitorios."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # Ejemplo de código: lógica de reintento de Enterprise Library 6, en C&#x23; para conectarse a Base de datos SQL
@@ -326,4 +326,4 @@ SELECT TOP 3
 
 - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

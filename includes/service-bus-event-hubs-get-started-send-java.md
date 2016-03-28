@@ -1,8 +1,8 @@
 ## Envío de mensajes a Centros de eventos
 
-En esta sección se escribirá una aplicación de consola Java para enviar eventos al Centro de eventos. Usaremos el proveedor de JMS AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de Java, como se muestra [aquí](../service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Para obtener más información, consulte la [documentación de Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) y el [servicio de mensajería de Java](http://www.oracle.com/technetwork/java/jms/index.html).
+En esta sección se escribirá una aplicación de consola Java para enviar eventos al Centro de eventos. Usaremos el proveedor de JMS AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de Java, como se muestra [aquí](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Para obtener más información, consulte la [documentación de Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) y el [servicio de mensajería de Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
-1. En Eclipse, instale el [Kit de herramientas de Azure para Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). Incluye las bibliotecas de cliente de Qpid JMS AMQP.
+1. En Eclipse, instale el [Kit de herramientas de Azure para Eclipse](../articles/azure-toolkit-for-eclipse.md). Incluye las bibliotecas de cliente de Qpid JMS AMQP.
 
 2. En Eclipse, cree un nuevo proyecto de Java denominado **Remitente**.
 
@@ -92,4 +92,4 @@ En esta sección se escribirá una aplicación de consola Java para enviar event
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

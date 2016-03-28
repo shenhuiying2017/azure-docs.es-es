@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/12/2015"   
+	ms.date="03/08/2016"   
 	ms.author="adsolank"/>
 
 
@@ -221,4 +221,4 @@ El método siguiente carga un archivo multimedia como un recurso y crea un traba
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

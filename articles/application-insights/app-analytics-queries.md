@@ -545,6 +545,11 @@ Por ejemplo, el resultado de `reduce by city` podría incluir:
 | París | 27163 |
 
 
+## Directiva render
+
+    T | render [ table | timechart  | barchart | piechart ]
+
+Render indica cómo mostrar la tabla de la capa de presentación. Debe ser el último elemento de la canalización. Es una alternativa cómoda a usar los controles de la pantalla, lo que le permite guardar una consulta con un método de presentación determinado.
 
 
 ## Operador sort 
@@ -561,7 +566,7 @@ Ordena las filas de la tabla de entrada en una o más columnas.
 
 **Argumentos**
 
-* *T:* la tabla de entrada para ordenar.
+* *T:* la entrada de tabla que se va a ordenar.
 * *Column:* columna de *T* por la que se ordena. El tipo de los valores tiene que ser numérico, fecha, hora o cadena.
 * `asc` Ordenar por orden ascendente, de bajo a alto. El valor predeterminado es `desc`, descendente de alto a bajo.
 
@@ -572,7 +577,7 @@ Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
 ```
-Todas las filas en la tabla Traces que tienen un determinado `ActivityId`, ordenados por su marca de tiempo.
+Todas las filas en la tabla Traces que tienen un determinado valor `ActivityId`, ordenados por su marca de tiempo.
 
 ## Operador summarize
 
@@ -589,7 +594,7 @@ Una tabla que muestra el número, la duración media de las solicitudes y el con
 
 Una tabla que muestra cuántos elementos tienen precios en cada intervalo [0,10.0], [10.0,20.0], y así sucesivamente. Este ejemplo tiene una columna para el recuento y otra para el intervalo de precios. El resto de columnas de entrada se ignoran.
 
-[Más ejemplos](app-analytics-aggregations.md)
+[Más ejemplos](app-analytics-aggregations.md).
 
 
 
@@ -603,12 +608,12 @@ Una tabla que muestra cuántos elementos tienen precios en cada intervalo [0,10.
 **Argumentos**
 
 * *Column:* nombre opcional para una columna de resultados. El valor predeterminado es un nombre derivado de la expresión.
-* *Aggregation:* una llamada a una [función de agregación](app-analytics-aggregations.md) como `count()` o `avg()`, con nombres de columna como argumentos. Consulte la lista de [funciones de agregación](app-analytics-aggregations.md).
+* *Aggregation:* una llamada a una [función de agregación](app-analytics-aggregations.md) como `count()` o `avg()`, con nombres de columna como argumentos. Consulte la [lista de funciones de agregación](app-analytics-aggregations.md).
 * *GroupExpression:* una expresión sobre las columnas que proporciona un conjunto de valores específicos. Normalmente se trata de un nombre de columna que ya proporciona un conjunto limitado de valores, o `bin()` con una columna numérica o temporal como argumento. 
 
 Si proporciona una expresión numérica o temporal sin utilizar `bin()`, AI Analytics la aplica automáticamente con un intervalo de `1h` para tiempo, o `1.0` para números.
 
-Si no proporciona un valor *GroupExpression,* toda la tabla se resume en una única fila de salida.
+Si no proporciona un valor *GroupExpression*, toda la tabla se resume en una única fila de salida.
 
 
 
@@ -644,7 +649,7 @@ Devuelve los primeros registros *N* ordenados por las columnas especificadas.
 
 * *NumberOfRows:* el número de filas de *T* para devolver.
 * *Sort\_expression:* una expresión para ordenar las filas. Suele ser un nombre de columna. Puede especificar más de una sort\_expression.
-* `asc` o `desc` (predeterminado) puede aparecer para controlar si la selección se hace desde "abajo" o desde "arriba" del intervalo.
+* `asc` o `desc` (valor predeterminado) puede aparecer para controlar si la selección se hace desde "abajo" o desde "arriba" del intervalo.
 
 
 **Sugerencias**
@@ -666,13 +671,13 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 
 **Argumentos**
 
-* *Tabla1*, *Tabla2* ...
+* *Tabla1*, *Tabla2*...
  *  El nombre de una tabla, como `events`; o
  *  Una expresión de consulta como `(events | where id==42)`
  *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `E*` podría formar la unión de todas las tablas en la base de datos cuyos nombres comienzan con `E`.
 * `kind`: 
- * `inner` -El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
- * `outer` -El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
+ * `inner` - El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
+ * `outer` - El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
 * `withsource=`* ColumnName: * si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
 
 **Devoluciones**
@@ -725,7 +730,7 @@ Filtra una tabla para el subconjunto de filas que cumplen un predicado.
 **Argumentos**
 
 * *T*: la entrada tabular cuyos registros se van a filtrar.
-* *Predicate:* A [expresión](app-analytics-scalars.md#boolean) `boolean` sobre las columnas de *T*. Se evalúa para cada fila en *T*.
+* *Predicate:* una [expresión](app-analytics-scalars.md#boolean) `boolean` sobre las columnas de *T*. Se evalúa para cada fila en *T*.
 
 **Devoluciones**
 
@@ -735,11 +740,11 @@ Filas en *T* para las que *Predicate* es `true`.
 
 Para obtener el rendimiento más rápido:
 
-* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante sobre la tabla, `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una [instrucción `let` ](app-analytics-syntax.md#let-statements).)
+* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante sobre la tabla, `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una [instrucción `let`](app-analytics-syntax.md#let-statements)).
 
     Por ejemplo, se prefiere `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
-* **Simplest terms first**: si tiene varias cláusulas unidas con `and`, coloca primero las cláusulas que implican una sola columna. Por lo que `Timestamp > ago(1d) and OpId == EventId` es mejor que al revés.
+* **Coloque primero los términos más simples**: si tiene varias cláusulas unidas con `and`, coloque primero las cláusulas que impliquen una sola columna. Así pues, es mejor usar `Timestamp > ago(1d) and OpId == EventId` que ordenarlo al revés.
 
 
 **Ejemplo**
@@ -761,4 +766,4 @@ Observe que colocamos la comparación entre dos columnas al final, ya que no pue
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -134,7 +134,7 @@ Al crear un nuevo back-end de aplicación móvil de Node.js mediante la hoja **I
 
 2. Siga los pasos de [Habilitación del repositorio de aplicaciones web](../app-service-web/web-sites-publish-source-control.md#Step4) a fin de habilitar el repositorio de Git para el sitio del back-end, y tome nota del nombre de usuario y de la contraseña de la implementación.
 
-3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git**.
+3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git **.
 
 4.  Ejecute el comando `git clone` en una herramienta de línea de comandos compatible con Git mediante la URL de clonación de Git e introduzca la contraseña cuando sea necesario, como en el ejemplo siguiente:
 
@@ -379,7 +379,7 @@ Una vez creado el back-end de la aplicación móvil, puede conectar una base de 
 
 7. En la hoja **Agregar conexión de datos**, haga clic en **Base de datos SQL - Configurar los valores obligatorios** > **Crear una base de datos nueva**. Escriba el nombre de la base de datos nueva en el campo **Nombre**.
 
-8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
+8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor ** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
 
 	![Creación de una Base de datos SQL de Azure][6]
 
@@ -642,23 +642,23 @@ El código siguiente muestra cómo utilizar el objeto de inserción para enviar 
 	    // Send a push notification using APNS.
         context.push.apns.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error. 
-	        }           
+                // Do something or log the error.
+	        }
         });
     }
 
 Al crear un registro de inserción de plantillas desde el cliente, puede enviar un mensaje de inserción de plantilla a dispositivos en todas las plataformas compatibles. El código siguiente muestra cómo enviar una notificación de plantilla:
 
 	// Define the template payload.
-	var payload = '{"messageParam": "This is a template payload."}'; 
+	var payload = '{"messageParam": "This is a template payload."}';
 
     // Only do the push if configured
     if (context.push) {
 		// Send a template notification.
         context.push.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -671,8 +671,8 @@ Cuando un usuario autenticado se registra para las notificaciones push, se agreg
 		// Send a notification to the current user.
         context.push.send(context.user.id, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -815,12 +815,10 @@ El SDK de aplicaciones móviles de Azure permite el acceso a todo el contexto a 
     api.get.access = 'authenticated';
     module.exports = api;
 
-
-
 ## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>Depuración, diagnóstico y solución de problemas de Aplicaciones móviles de Azure
 
+El Servicio de aplicaciones de Azure proporciona varias técnicas de depuración y de solución de problemas para las aplicaciones Node.js. Consulte los siguientes artículos para empezar a solucionar problemas de su back-end móvil de Node.js.
 
-El Servicio de aplicaciones de Azure proporciona varias técnicas de depuración y de solución de problemas para las aplicaciones Node.js. Todas estas técnicas están disponibles:
 - [Supervisión de Aplicaciones web en el Servicio de aplicaciones de Azure]
 - [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure]
 - [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio]
@@ -872,7 +870,7 @@ El Portal de Azure le permite editar archivos de script de back-end de Node.js e
 [3]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-config.png
 [4]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-authconfig.png
 [5]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-newuser-1.png
-[6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
+[6]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/dotnet-backend-create-db.png
 
 <!-- URLs -->
 [Inicio rápido de cliente de Android]: app-service-mobile-android-get-started.md
@@ -914,4 +912,4 @@ El Portal de Azure le permite editar archivos de script de back-end de Node.js e
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->
