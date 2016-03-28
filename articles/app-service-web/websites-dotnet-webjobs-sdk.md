@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="03/14/2016" 
 	ms.author="tdykstra"/>
 
 # Qué es el SDK de WebJobs de Azure
@@ -180,4 +180,4 @@ Para obtener información acerca del SDK de WebJobs, consulte [Recursos recomend
 Para obtener información sobre las últimas mejoras del SDK de WebJobs, consulte las [notas de la versión](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

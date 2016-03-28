@@ -1,6 +1,6 @@
 <properties
    pageTitle="Descripción del clúster del equilibrador de recursos| Microsoft Azure"
-   description="Descripción de un clúster de Service Fabric mediante la especificación de dominios de error, dominios de actualización, propiedades de nodo y capacidades de nodo en el equilibrador de recursos."
+   description="Descripción de un clúster de Service Fabric mediante la especificación de dominios de error, dominios de actualización, propiedades de nodo y capacidades de nodo en el Administrador de recursos de clúster."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,22 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 # Descripción de un clúster de Service Fabric
-
 Service Fabric Cluster Resource Manager proporciona varios mecanismos para describir un clúster. Durante el tiempo de ejecución, Resource Manager proporciona esta información para garantizar la alta disponibilidad de los servicios que se ejecutan en el clúster y para asegurarse de que los recursos del clúster se estén usando de la forma adecuada.
 
 ## Conceptos clave
 Las características de Cluster Resource Manager que describen un clúster son:
+
 - Dominios de error
 - Dominios de actualización
 - Propiedades del nodo
 - Capacidades de nodo
 
-### Dominios de error
-
+## Dominios de error
 Un dominio de error es cualquier área de error coordinado. Una única máquina constituye un dominio de error (ya que ella sola puede dejar de funcionar por muchas razones diferentes, desde errores en el sistema de alimentación hasta unidades averiadas o un firmware de NIC defectuoso). Varias máquinas conectadas al mismo conmutador Ethernet se encuentran en el mismo dominio de error, al igual que aquellas que estén conectadas a una sola fuente de energía.
 
 Si estuviera configurando su propio clúster, debería tener en cuenta todas estas diferentes áreas de error y asegurarse de que los dominios de error estuvieran configurados correctamente para que Service Fabric supiera dónde es seguro colocar servicios. En realidad, aquí "seguro" quiere decir inteligente; no conviene colocar servicios de tal forma que la pérdida de un dominio de error haga que el servicio deje de funcionar. En el entorno de Azure, aprovechamos la información sobre dominios de error proporcionada por Resource Manager y el controlador de tejido de Azure para configurar correctamente los nodos del clúster en su nombre. En el gráfico siguiente (figura 7), como ejemplo sencillo, aparecen coloreadas todas las entidades que dan lugar de forma razonable a un dominio de error, así como todos los distintos dominios de error resultantes. En este ejemplo, tenemos centros de datos (DC), bastidores (R) y servidores blade (B). Posiblemente, si cada servidor blade contiene más de una máquina virtual, podría haber otra capa en la jerarquía de dominios de error.
@@ -45,8 +44,7 @@ Si estuviera configurando su propio clúster, debería tener en cuenta todas est
 
  ![Dos diseños de clúster distintos][Image2]
 
-### Dominios de actualización
-
+## Dominios de actualización
 Los dominios de actualización son otra característica que ayuda a Service Fabric Resource Manager a comprender el diseño del clúster para poder prever errores con antelación. Los dominios de actualización definen áreas (en realidad, conjuntos de nodos) que dejarán de funcionar a la vez durante una actualización.
 
 Los dominios de actualización son muy similares a los dominios de error, pero con algunas diferencias clave. En primer lugar, los dominios de actualización se definen normalmente mediante una directiva, mientras que los dominios de error se definen rigurosamente en función de las áreas de errores coordinados (y, por lo tanto, normalmente en función del diseño de hardware del entorno). En cambio, en el caso de los dominios de actualización, es posible decidir cuántos se quieren. Otra diferencia es que los dominios de actualización (al menos en la actualidad) no son jerárquicos, sino que son más una simple etiqueta que una jerarquía.
@@ -159,7 +157,7 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 Las restricciones de colocación (junto con muchas otras propiedades de las que hablaremos) se especifican para cada instancia de servicio diferente. Las actualizaciones siempre asumen el lugar o sobrescriben lo que se especificó antes.
 
-### Capacity
+## Capacity
 Uno de los trabajos más importantes de cualquier organizador es ayudar a administrar el consumo de recursos del clúster. Lo último que le interesa si está intentando ejecutar servicios de forma eficaz es un montón de nodos que están activos (lo que conlleva contención de recursos y un rendimiento deficiente) mientras que otros están pasivos (desperdicio de recursos). Pero pensemos en algo aún más básico que el equilibrio (que trataremos en breve); ¿que hay de garantizar que los nodos no se queden sin recursos en primer lugar?
 
 Resulta que Service Fabric representa los recursos como algo llamado "métricas". Las métricas son cualquier recurso físico o lógico que desee describir a Service Fabric. Algunos ejemplos de métricas son elementos como "WorkQueueDepth" o "MemoryInMb". Las métricas se diferencian de las restricciones y las propiedades de nodo en que las propiedades de nodo son generalmente descriptores estáticos de los nodos en sí, mientras que las métricas se refieren a los recursos físicos que los servicios consumen cuando se están ejecutando en un nodo. Así que una propiedad sería algo como HasSSD y se podría establecer en true o false, pero la cantidad de espacio que está disponible en esa unidad SSD (y que los servicios consumen) sería una métrica como "DriveSpaceInMb". La capacidad en el nodo establecería "DriveSpaceInMb" en la cantidad total de espacio no reservado en la unidad y los servicios notificarían qué cantidad de la métrica usaron durante el tiempo de ejecución.
@@ -204,8 +202,7 @@ ClusterManifest.xml
 
 También es posible que la carga de un servicio cambie de forma dinámica. En este caso, es posible que la colocación actual de una instancia o una réplica deje de ser válida, ya que el uso combinado de todas las réplicas e instancias de ese nodo supera su capacidad. Hablaremos después sobre este escenario en que la carga puede cambiar dinámicamente, pero en lo que respecta a la capacidad, se controla de la misma manera: la administración de recursos de Service Fabric se inicia automáticamente y reduce el uso de capacidad del nodo mediante el movimiento de una o varias réplicas o instancias de ese nodo a otros. Al hacer esto, Resource Manager intenta minimizar el costo de todos los movimientos (volveremos a la noción de costo más adelante).
 
-###Capacidad del clúster
-
+##Capacidad del clúster
 Entonces, ¿cómo se impide que el clúster en general se llene demasiado? Bueno, con la carga dinámica realmente no hay mucho que se pueda hacer (ya que los servicios pueden tener un pico de carga con independencia de las acciones realizadas por Resource Manager; un clúster con espacio de sobra hoy puede quedarse corto cuando se haga famoso mañana), pero existen algunos controles preparados para evitar errores básicos. Lo primero que se puede hacer es evitar la creación de nuevas cargas de trabajo que harían que el clúster se llenara.
 
 Supongamos que va a crear un simple servicio sin estado y que tiene cierta carga asociada (más adelante, se trata la notificación de cargas predeterminadas y dinámicas). Para este servicio, digamos que le interesa un recurso (por ejemplo, DiskSpace) y que de forma predeterminada va a consumir 5 unidades de DiskSpace para cada instancia del servicio. Debería crear 3 instancias del servicio. Estupendo. Eso significa que necesitamos 15 unidades de DiskSpace en el clúster para poder siquiera crear estas instancias de servicio. Service Fabric está continuamente calculando la capacidad total y el consumo de cada métrica, por lo que se puede tomar una decisión fácilmente y rechazar la llamada para crear el servicio si el espacio es insuficiente.
@@ -251,11 +248,11 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
-- [Información acerca de la arquitectura de Cluster Resource Manager](service-fabric-cluster-resource-manager-architecture.md)
-- [Información acerca de las métricas de desfragmentación](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [Introducción a Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- Para más información sobre el flujo de información y la arquitectura dentro del Administrador de recursos de clúster, consulte [este artículo ](service-fabric-cluster-resource-manager-architecture.md).
+- Definir las métricas de desfragmentación es una manera de consolidar la carga en los nodos en lugar de distribuirla. Para saber cómo configurar la desfragmentación, consulte [este artículo](service-fabric-cluster-resource-manager-defragmentation-metrics.md).
+- Empiece desde el principio y [obtenga una introducción al Administrador de recursos de clúster de Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
+- Para más información sobre cómo el Administrador de recursos de clúster administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
@@ -265,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

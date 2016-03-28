@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2016" 
+	ms.date="03/10/2016" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -91,6 +91,17 @@ Al abrir el almacén de blobs, verá un contenedor con un conjunto de archivos b
 ![Inspección del almacén de blobs con una herramienta apropiada](./media/app-insights-export-telemetry/04-data.png)
 
 La fecha y hora son UTC e indican cuándo se depositó la telemetría en el almacén, no la hora en que se generó. De modo que si escribe código para descargar los datos, se puede mover linealmente a través de los datos.
+
+Este es el formato de la ruta de acceso:
+
+
+    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+  
+Where
+
+-	`blobCreationTimeUtc` es la hora de creación del blob en el almacenamiento provisional interno
+-	`blobDeliveryTimeUtc` es la hora de copia del blob en el almacenamiento de destino de exportación
+
 
 
 ## <a name="format"></a> Formato de datos
@@ -212,4 +223,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -3,8 +3,8 @@
 	description="Muestra los enfoques recomendados para usar objetos complejos a fin de compartir datos de estado con plantillas vinculadas y plantillas del Administrador de recursos de Azure"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/26/2016"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # Uso compartido del estado en las plantillas del Administrador de recursos de Azure
 
@@ -389,4 +389,4 @@ Dentro de la plantilla principal, puede usar esos datos con la sintaxis siguient
 - [Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
 - [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

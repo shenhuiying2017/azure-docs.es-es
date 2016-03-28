@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/15/2016"
 	ms.author="jgao"/>
 
 # Analizar los registros de HDInsight
@@ -99,22 +99,22 @@ Ahora puede usar Excel para filtrar y ordenar según sea necesario. Obviamente, 
 2. En el menú **Ver**, haga clic en **Cloud Explorer**. También puede hacer clic simplemente en **CTRL+\\, CTRL+X**.
 3. En **Cloud Explorer**, seleccione **Tipos de recursos**. La otra opción disponible es **Grupos de recursos**.
 4. Expanda **Cuentas de almacenamiento**, la cuenta de almacenamiento predeterminada de su clúster y **Tablas**.
-5. Haga doble clic en hadoopservicelog.
+5. Haga doble clic en **hadoopservicelog**.
 6. Agregue un filtro. Por ejemplo:
 	
 		TraceLevel eq 'ERROR'
 
 	![Registros de Hadoop de HDInsight: elegir columnas](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
 
-	Para obtener más información sobre cómo construir filtros, consulte [Construcción de cadenas de filtro para el Diseñador de tablas](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+	Para obtener más información sobre cómo construir filtros, consulte [Construcción de cadenas de filtro para el Diseñador de tablas](../vs-azure-tools-table-designer-construct-filter-strings.md).
  
 ##Registros escritos en el almacenamiento de blobs de Azure
 
-[Los registros que se escriben en las tablas de Azure](#log-written-to-azure-tables) proporcionan un nivel de información sobre lo que ocurre en un clúster de HDInsight. Sin embargo, estas tablas no proporcionan registros de nivel de tarea, que pueden ser útiles para obtener detalles sobre los problemas cuando se producen. Para proporcionar este nivel de detalle superior, los clústeres de HDInsight están configurados para escribir registros de tareas en su cuenta de almacenamiento de blobs para cualquier trabajo que se envíe a través de Templeton. En la práctica, esto hace referencia a los trabajos enviados mediante los cmdlets de Microsoft Azure PowerShell o las API de envío de trabajos de .NET, no a los trabajos enviados a través de RDP o el acceso de línea de comandos al clúster.
+[Los registros que se escriben en las tablas de Azure](#log-written-to-azure-tables) proporcionan cierto nivel de información sobre lo que ocurre en un clúster de HDInsight. Sin embargo, estas tablas no proporcionan registros de nivel de tarea, que pueden ser útiles para obtener detalles sobre los problemas cuando se producen. Para proporcionar este nivel de detalle superior, los clústeres de HDInsight están configurados para escribir registros de tareas en su cuenta de almacenamiento de blobs para cualquier trabajo que se envíe a través de Templeton. En la práctica, esto hace referencia a los trabajos enviados mediante los cmdlets de Microsoft Azure PowerShell o las API de envío de trabajos de .NET, no a los trabajos enviados a través de RDP o el acceso de línea de comandos al clúster.
 
 Para ver los registros, consulte [Acceso a registros de aplicación de YARN en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Para obtener más información sobre los registros de aplicación, consulte [Simplifying user-logs management and access in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/) (Simplificar la administración de registros de usuario y el acceso en YARN).
+Para obtener más información sobre los registros de aplicación, consulte [Simplifying user-logs management and access in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/) (Simplificación de la administración de registros de usuario y el acceso en YARN).
  
  
 ## Visualización de los registros de trabajo y del estado del clúster
@@ -341,4 +341,4 @@ Algunos de estos mensajes de error también podrían aparecer en el Portal de Az
 - [Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux (vista previa)](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 - [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -22,14 +22,14 @@
 Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si agrega Búsqueda de Azure a un plan de tarifa **Gratis**, **Básico** o **Estándar**.
 
 - El plan **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure. Es una opción sin costo adicional para los suscriptores existentes que permite experimentar con el servicio antes de registrarse para obtener recursos dedicados. 
-- El plan **Básico (vista preliminar)** proporciona recursos de proceso dedicados para cargas de trabajo de producción a escala más pequeña. Este plan está actualmente en vista preliminar y se ofrece a un [precio reducido](https://azure.microsoft.com/pricing/details/search/).
-- El plan **Estándar** funciona en equipos dedicados que solo usa su servicio, con más capacidad de almacenamiento y de procesamiento en todos los niveles, incluida la configuración mínima. El plan Estándar se incluye en dos niveles (S1 y S2). 
+- El plan **Básico (vista preliminar)** proporciona recursos de proceso dedicados para cargas de trabajo de producción a escala más pequeña. Este nivel está actualmente en versión preliminar y se ofrece una [tarifa reducida del 50 % durante este período](https://azure.microsoft.com/pricing/details/search/).
+- El plan **Estándar** se ejecuta en máquinas dedicadas, con más almacenamiento y capacidad de procesamiento en cada nivel, incluida la configuración mínima. El plan Estándar se incluye en dos niveles (S1 y S2). 
+
+Todos los niveles se pueden [aprovisionar en el portal](search-create-service-portal.md), a excepción de S2, que requiere una incidencia de soporte técnico. Envíe un correo electrónico a azuresearch_contact@microsoft.com para empezar a trabajar con S2.
 
 ## Límites de los niveles
 
 [AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-all.md)]
-
-> [AZURE.NOTE] Las consultas por segundo (QPS) son variables, especialmente en el servicio compartido, ya que el rendimiento se basa en ancho de banda disponible y la competición por los recursos del sistema. Los recursos de proceso y almacenamiento de Azure que atienden su servicio compartido se comparten entre varios suscriptores, por lo que el número de QPS de su solución variará en función de cuántas cargas de trabajo se ejecuten al mismo tiempo. En el nivel Estándar, puede calcular el número de QPS con más precisión porque tiene control sobre más parámetros. Consulte la sección de procedimientos recomendados en [Administrar la solución de búsqueda](search-manage.md) para obtener instrucciones sobre cómo calcular el número de QPS para las cargas de trabajo.
 
 ## Límites de la clave de API
 
@@ -53,4 +53,10 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 
 <sup>1</sup> en Búsqueda de Azure, el cuerpo de una solicitud está sujeto a un límite superior de 16 megabytes, que impone un límite práctico en el contenido de campos individuales o colecciones que no esté restringido de algún modo por límites teóricos (consulte [Tipos de datos admitidos](https://msdn.microsoft.com/library/azure/dn798938.aspx) para más información sobre composición de campos y restricciones).
 
-<!----HONumber=AcomDC_0302_2016-->
+## Consultas por segundo
+
+Aunque se proporcionan cálculos aproximados en la página de precios y en el gráfico de [límites de nivel](#TierLimits) mostrado anteriormente, las consultas reales por segundo (QPS) son difíciles de determinar, en especial en el servicio compartido gratuito donde el rendimiento se basa en el ancho de banda disponible y en la competición por los recursos del sistema. Los recursos de proceso y almacenamiento que respaldan el servicio compartido se comparten entre varios suscriptores, de modo que el número de QPS de su solución siempre variará según cuántas otras cargas de trabajo se estén ejecutando al mismo tiempo
+
+En el nivel Estándar, puede calcular el número de QPS con más precisión porque tiene control sobre más parámetros. Consulte la sección de procedimientos recomendados en [Administración del servicio de búsqueda en Microsoft Azure](search-manage.md) para obtener instrucciones sobre cómo calcular el número de QPS para las cargas de trabajo.
+
+<!---HONumber=AcomDC_0316_2016-->

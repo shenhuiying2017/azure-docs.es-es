@@ -4,8 +4,8 @@
 	keywords="código de error de SQL, acceder a SQL, error de conexión de base de datos, códigos de error de SQL"
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -15,8 +15,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/06/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas.
@@ -211,9 +211,7 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 |40651|16|No se pudo crear el servidor porque la suscripción <subscription-id> está deshabilitada.|
 |40652|16|No se puede mover ni crear un servidor. La suscripción <subscription-id> excederá la cuota|
 |40671|17|Error de comunicación entre la puerta de enlace y el servicio de administración. Inténtelo de nuevo más tarde.|
-|40852|16|No se puede abrir la base de datos '%.*ls' del servidor '%.*ls' solicitada por el inicio de sesión. Solo se permite el acceso a la base de datos mediante una cadena de conexión habilitada para seguridad. Para obtener acceso a esta base de datos, modifique sus cadenas de conexión que contienen 'secure' en el FQDN del servidor. -'server name'.database.windows.net debe modificarse para 'server name'.database.`secure`.windows.net.| 
-|45168|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones DB CRUD simultáneas para un único servidor (por ejemplo, crear base de datos). El servidor especificado en el mensaje de error ha superado el número máximo de conexiones simultáneas. Inténtelo de nuevo más tarde.| 
-|45169|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones CRUD de servidor simultáneas para una única suscripción (por ejemplo, crear servidor). La suscripción especificada en el mensaje de error ha superado el número máximo de conexiones simultáneas y se denegó la solicitud. Inténtelo de nuevo más tarde.|
+|40852|16|No se puede abrir la base de datos '%.*ls' del servidor '%.*ls' solicitada por el inicio de sesión. Solo se permite el acceso a la base de datos mediante una cadena de conexión habilitada para seguridad. Para obtener acceso a esta base de datos, modifique sus cadenas de conexión que contienen 'secure' en el FQDN del servidor. -'server name'.database.windows.net debe modificarse para 'server name'.database.`secure`.windows.net.| |45168|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones DB CRUD simultáneas para un único servidor (por ejemplo, crear base de datos). El servidor especificado en el mensaje de error ha superado el número máximo de conexiones simultáneas. Inténtelo de nuevo más tarde.| |45169|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones CRUD de servidor simultáneas para una única suscripción (por ejemplo, crear servidor). La suscripción especificada en el mensaje de error ha superado el número máximo de conexiones simultáneas y se denegó la solicitud. Inténtelo de nuevo más tarde.|
 
 
 ## Vínculos relacionados
@@ -221,4 +219,4 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 - [Instrucciones y limitaciones generales de Base de datos SQL de Azure](sql-database-general-limitations.md)
 - [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

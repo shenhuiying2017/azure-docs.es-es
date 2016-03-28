@@ -19,34 +19,11 @@
 #Arquitectura de aplicaciones en Microsoft Azure
 Recursos para la creación de aplicaciones que usan Microsoft Azure. Esto incluye herramientas para ayudarle a dibujar diagramas para describir visualmente sistemas de software.
 
-
-
-##Patrones de diseño de arquitectura de Azure
-Microsoft publica la serie de patrones de diseño de arquitectura para ayudarle a crear sus propios diseños personalizados. Los patrones están diseñados como guías de arquitectura concisas que pueden combinarse para proporcionar orientación sobre cómo aprovechar mejor la plataforma Microsoft Azure para resolver las necesidades de su organización.
-
-
-[Información general](../azure-architectures-cpif-overview/)-[Redes híbridas](../azure-architectures-cpif-infrastructure-hybrid-networking/)-[Procesamiento por lotes fuera del sitio](../azure-architectures-cpif-foundation-offsite-batch-processing-tier/)-[Capa de datos multisitio](../azure-architectures-cpif-foundation-multi-site-data-tier/)-[Capa web con equilibrio de carga global](../azure-architectures-cpif-foundation-global-load-balanced-web-tier/)-[Capa de búsqueda de Azure](../azure-architectures-cpif-foundation-azure-search-tier/)
- 
-Cada patrón contiene
- 
-- Una descripción del servicio
-- Una lista de los servicios de Azure necesarios para aprovechar el patrón
-- Diagramas de arquitectura
-- Dependencias de arquitectura
-- Limitaciones o consideraciones del diseño que pueden influir en el patrón
-- Interfaces y extremos
-- Antipatrones
-- Consideraciones sobre la arquitectura de alto nivel de clave, como disponibilidad y resistencia, SLA compuestos para servicios usados, escala y rendimiento y consideraciones operativas y sobre costos.
-
-![Patrones de diseño de arquitectura de Azure](./media/architecture-overview/AzureArchPatterns.jpg)
-
-
 ##Póster de patrones de diseño
+
 Microsoft Patterns and Practices ha publicado el libro [Cloud Design Patterns](http://msdn.microsoft.com/library/dn568099.aspx) que está disponible en MSDN y como descarga PDF. También hay disponible un póster de gran formato en el que se enumeran todos los patrones.
 
 ![Póster de patrones de nube de Patterns and Practices](./media/architecture-overview/PnPPatternPosterThumb.jpg)
-
-
 
 ##Curso de certificación de arquitectura de Microsoft
 
@@ -79,7 +56,7 @@ La plantilla también está disponible fuera del curso.
 
 - [Ver el vídeo de entrenamiento](http://aka.ms/3dBlueprintTemplateVideo) primero para saber lo que puede hacer   
 - Descargar la [plantilla de Visio de proyectos 3D de Microsoft](http://aka.ms/3DBlueprintTemplate)
-- Descargar los [símbolos de nube y empresariales](#drawing-symbol-and-icon-sets) para utilizar con la plantilla 3D. 
+- Descargue los [símbolos empresariales y de la nube](#drawing-symbol-and-icon-sets) para usarlos con la plantilla 3D. 
 
 Envíenos un correo electrónico a [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) si tiene preguntas específicas no respondidas en los materiales de entrenamiento o para proporcionarnos sus comentarios. La facilidad de uso es uno de los objetivos principales de la plantilla; háganos saber lo que está bien y qué le causa problemas.
 
@@ -108,4 +85,4 @@ Microsoft publica varios pósteres e infografías relacionados con la arquitectu
 
 ![Infografías de arquitectura de Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

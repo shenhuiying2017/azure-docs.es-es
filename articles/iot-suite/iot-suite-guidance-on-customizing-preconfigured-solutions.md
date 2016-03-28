@@ -28,10 +28,7 @@ El código fuente de su solución preconfigurada está disponible en Github en l
 - Supervisión remota: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 - Mantenimiento predictivo: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
-El código fuente de las soluciones preconfiguradas se proporciona para demostrar los patrones y los procedimientos que se usan para implementar la funcionalidad de extremo a extremo de una solución de IoT mediante el conjunto de aplicaciones de IoT de Azure. En el sitio wiki de GitHub encontrará orientación sobre la creación e implementación desde la línea de comandos para cada solución preconfigurada:
-
-- [Wiki de supervisión remota](https://github.com/Azure/azure-iot-remote-monitoring/wiki)
-- [Wiki de mantenimiento predictivo](https://github.com/Azure/azure-iot-predictive-maintenance/wiki)
+El código fuente de las soluciones preconfiguradas se proporciona para demostrar los patrones y los procedimientos que se usan para implementar la funcionalidad de extremo a extremo de una solución de IoT mediante el conjunto de aplicaciones de IoT de Azure. Puede encontrar más información sobre cómo crear e implementar las soluciones en los repositorios de GitHub.
 
 ## Administración de permisos en una solución preconfigurada
 El portal de cada solución preconfigurada se crea como una nueva aplicación de Azure Active Directory. Puede administrar los permisos para el portal de su solución (aplicación de AAD) de la siguiente manera:
@@ -40,11 +37,11 @@ El portal de cada solución preconfigurada se crea como una nueva aplicación de
 2. Vaya a la aplicación de AAD seleccionando **Aplicaciones que tiene mi compañía** y, después, haga clic en la marca de verificación.
 3. Vaya a **Usuarios** y asigne los miembros de su inquilino de Azure Active Directory a un rol. 
 
-De forma predeterminada, la aplicación se aprovisiona con los roles **Administrador**, **Solo lectura** y **Implícito de solo lectura**. **Implícito de solo lectura** se concede a los usuarios que son miembros del inquilino de Azure Active Directory, pero no se han asignado a un rol. Puede modificar [RolePermissions.cs](https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs) una vez bifurcado el repositorio de GitHub y, después, volver a implementar la solución.
+De manera predeterminada, la aplicación se aprovisiona con los roles **Administrador**, **Solo lectura** e **Implícito de solo lectura**. **Implícito de solo lectura** se concede a los usuarios que son miembros del inquilino de Azure Active Directory, pero que no se les ha asignado a un rol. Puede modificar [RolePermissions.cs](https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs) una vez bifurcado el repositorio de GitHub y, después, volver a implementar la solución.
 
 ## Cambio de las reglas previamente configuradas
 
-La solución de supervisión remota incluye tres trabajos de [Análisis de transmisiones de Azure](https://azure.microsoft.com/services/stream-analytics/) para implementar la información del dispositivo, la telemetría y la lógica de reglas que se muestran para la solución.
+La solución de supervisión remota incluye tres trabajos de [análisis de transmisiones de Azure](https://azure.microsoft.com/services/stream-analytics/) para implementar la información del dispositivo, la telemetría y la lógica de reglas que se muestran para la solución.
 
 Los tres trabajos de análisis de transmisiones y su sintaxis se describen detalladamente en el [Tutorial de la solución preconfigurada de supervisión remota](iot-suite-remote-monitoring-sample-walkthrough.md).
 
@@ -86,10 +83,10 @@ Los [SDK de IoT de Azure](https://github.com/Azure/azure-iot-sdks) proporcionan 
 
 ## Pasos siguientes
 
-¿Tiene una personalización que le gustaría que se tratara en este documento? Agregue las sugerencias de características a [User Voice](https://feedback.azure.com/forums/321918-azure-iot), comente este artículo más adelante o envíenos un correo electrónico a iotsolhelp@microsoft.com.
+¿Tiene una personalización que le gustaría que se tratara en este documento? Agregue las sugerencias de características en el [foro de IoT de Azure](https://feedback.azure.com/forums/321918-azure-iot), comente este artículo abajo o envíenos un correo electrónico a iotsolhelp@microsoft.com.
 
 Para obtener más información sobre los dispositivos de IoT, consulte el [sitio para desarrolladores de IoT de Azure](https://azure.microsoft.com/develop/iot/), donde encontrará documentación y vínculos.
 
 [SDK de dispositivo de IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

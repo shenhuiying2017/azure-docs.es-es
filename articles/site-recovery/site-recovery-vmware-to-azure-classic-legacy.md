@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 # Replicación de máquinas virtuales de VMware y servidores físicos en Azure Site Recovery (heredada)
@@ -197,7 +197,7 @@ Observe lo siguiente:
 **Componente** | **Requisitos** | **Detalles**
 --- | --- | --- 
 **Cuenta de Azure** | Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](pricing/free-trial/).
-**Almacenamiento de Azure** | <p>Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados</p><p>La cuenta debe ser una [cuenta con almacenamiento con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) o bien [una cuenta de almacenamiento premium](../storage/storage-premium-storage.md).</p><p>Debe estar en la misma región que el servicio Azure Site Recovery y asociarse a la misma suscripción.</p><p>Para obtener más información, consulte [Introducción al almacenamiento de Microsoft Azure](../storage/storage-introduction.md)</p>
+**Almacenamiento de Azure** | <p>Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados</p><p>La cuenta debe ser una [cuenta con almacenamiento con redundancia geográfica estándar](../storage/storage-redundancy.md#geo-redundant-storage) o bien [una cuenta de almacenamiento premium](../storage/storage-premium-storage.md).</p><p>Debe estar en la misma región que el servicio Azure Site Recovery y asociarse a la misma suscripción. No admitimos el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.</p><p>Para obtener más información lea [Introducción a Almacenamiento de Microsoft Azure](../storage/storage-introduction.md)</p>.
 **Red virtual de Azure** | Necesitará una red virtual en la que se implementarán el servidor de configuración y el servidor de destino principal. Debe estar en la misma región y suscripción que el almacén de Azure Site Recovery. Si desea replicar datos a través de una conexión VPN o ExpressRoute, la red virtual de Azure debe estar conectada a su red local a través de una conexión de ExpressRoute o una VPN de sitio a sitio.
 **Recursos de Azure** | Asegúrese de que tiene recursos de Azure suficientes para implementar todos los componentes. Obtenga más información en [Límites de suscripción de Azure](../azure-subscription-service-limits.md).
 **Máquinas virtuales de Azure** | <p>Las máquinas virtuales que desea proteger deben cumplir los [requisitos previos de Azure](site-recovery-best-practices.md).</p><p>**Recuento de disco**: se pueden admitir un máximo de 31 discos en un único servidor protegido</p><p>**Tamaños de disco**: la capacidad de disco individual no debe superar 1023 GB</p><p>**Agrupación en clústeres**: no se admiten servidores de clúster</p><p>**Arranque**: el arranque Unified Extensible Firmware Interface(UEFI)/Extensible Firmware Interface(EFI) no es compatible</p><p>**Volúmenes**: los volúmenes cifrados de Bitlocker no se admiten</p><p> **Nombres de servidor**: los nombres deben contener entre 1 y 63 caracteres (letras, números y guiones). El nombre debe comenzar con una letra o un número y terminar con una letra o un número. Después de proteger un equipo, puede modificar el nombre de Azure.</p>
@@ -219,11 +219,11 @@ El gráfico resume los pasos de implementación.
 
 Tiene dos opciones para configurar la conectividad de red entre el sitio local y la red virtual de Azure en la que se implementan los componentes de infraestructura (servidor de configuración, servidores de destino maestros). Deberá decidir qué opción de conectividad de red usar para poder implementar su servidor de configuración. Debe elegir esta opción en el momento de la implementación. No puede cambiarse más adelante.
 
-**Internet pública:** la comunicación y la replicación de datos entre los servidores locales (servidor de procesos, máquinas protegidas) y los servidores de componentes de infraestructura de Azure (servidor de configuración, servidor de destino maestro) se realiza mediante una conexión SSL/TLS segura entre el entorno local y los puntos de conexión públicos de los servidores de configuración y de destino maestros. (La única excepción es la conexión entre el servidor de procesos y el servidor de destino maestro en el puerto TCP 9080 que es sin cifrar. Solo se intercambia en esta conexión la información de control relacionada con el protocolo de replicación usado para configurar la replicación.)
+**Internet pública:** La comunicación y la replicación de datos entre los servidores locales (servidor de procesos, máquinas protegidas) y los servidores de componentes de infraestructura de Azure (servidor de configuración, servidor de destino maestro) se realiza mediante una conexión SSL/TLS segura entre el entorno local y los puntos de conexión públicos de los servidores de configuración y de destino maestros. (La única excepción es la conexión entre el servidor de procesos y el servidor de destino maestro en el puerto TCP 9080 que es sin cifrar. Solo se intercambia en esta conexión la información de control relacionada con el protocolo de replicación usado para configurar la replicación.)
 
 ![Diagrama de implementación Internet](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
-**VPN:** la comunicación y la replicación de datos entre los servidores locales (servidor de procesos, máquinas protegidas) y los servidores de componentes de infraestructura de Azure (servidor de configuración, servidor de destino maestro) se realiza mediante una conexión VPN entre su red local y la red virtual de Azure en la que están implementados el servidor de configuración y los servidores de destino maestros. Asegúrese de que su red local esté conectada a la red virtual de Azure mediante una conexión de ExpressRoute o una conexión VPN de sitio a sitio.
+**VPN:** La comunicación y la replicación de datos entre los servidores locales (servidor de procesos, máquinas protegidas) y los servidores de componentes de infraestructura de Azure (servidor de configuración, servidor de destino maestro) se realiza mediante una conexión VPN entre su red local y la red virtual de Azure en la que están implementados el servidor de configuración y los servidores de destino maestros. Asegúrese de que su red local esté conectada a la red virtual de Azure mediante una conexión de ExpressRoute o una conexión VPN de sitio a sitio.
 
 ![Diagrama de implementación VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
@@ -698,6 +698,8 @@ Agregue las máquinas como sigue:
 	![Agregar servidor V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
 4. En **Especificar recursos de destino**, seleccione los servidores de destino maestros y el almacenamiento que se va a usar para la replicación y seleccione si se debe usar la configuración para todas las cargas de trabajo. Seleccione [cuenta de almacenamiento Premium](../storage/storage-premium-storage.md) al configurar la protección para las cargas de trabajo que requieren un alto rendimiento de E/S y baja latencia uniformes para hospedar cargas de trabajo intensivas de E/S. Si quiere usar una cuenta de almacenamiento premium para los discos de cargas de trabajo, necesitará utilizar el destino principal de la serie DS. No puede usar discos de almacenamiento premium con máquinas virtuales que no sean de serie DS.
 
+	>[AZURE.NOTE] No admitimos el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+
 	![Servidor vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
 5. En **Especificar cuentas**, seleccione la cuenta que desea usar para instalar Mobility Service en equipos protegidos. Las credenciales de cuenta son necesarias para la instalación automática de Mobility Service. Si no puede seleccionar una cuenta, asegúrese configurar una tal y como se describe en el paso 2. Tenga en cuenta que Azure no puede tener acceso a esta cuenta. En Windows Server, la cuenta debe tener privilegios de administrador en el servidor de origen. Para Linux, la cuenta debe ser raíz.
@@ -805,4 +807,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0316_2016-->

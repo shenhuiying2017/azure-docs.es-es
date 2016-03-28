@@ -21,7 +21,7 @@
 
 > [AZURE.IMPORTANT] Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
 >
-> Este documento solo es útil si integró el módulo Reach para admitir cualquier campaña. Para integrar campañas de Reach en la aplicación, lea primero Integración de Engagement Reach en Android.
+> Este documento es útil solo si ya integró el módulo de cobertura y el plan para insertar dispositivos de Amazon. Para integrar campañas de Reach en la aplicación, lea primero Integración de Engagement Reach en Android.
 
 ##Introducción
 
@@ -102,14 +102,11 @@ Asegúrese de tener los permisos siguientes en el `AndroidManifest.xml` (antes d
 
 ##Conceder credenciales de OAuth de Engagement
 
-Envíe sus credenciales de OAuth (Id. de cliente y secreto de cliente) en $/\\#application/YOUR\\_APPID/native-push.
-
-Ahora puede seleccionar "En cualquier momento" al crear sondeos y anuncios de Reach.
-
+Envíe sus credenciales de OAuth (Id. de cliente y secreto de cliente) en el Portal de interacción.
 
 [<https://developer.amazon.com/sdk/adm/credentials.html>]: https://developer.amazon.com/sdk/adm/credentials.html
 [biblioteca de cliente ADM]: https://developer.amazon.com/sdk/adm/setup.html
 [integrado ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [este procedimiento]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -84,7 +84,7 @@ Pero Azure Active Directory Identity Protection es más de una herramienta de su
 
 ### Eventos de riesgo
 
-Los eventos de riesgo son episodios marcados como sospechosos por Identity Protection, e indican que es posible que se haya puesto en peligro una identidad. Para ver una lista completa de eventos de riesgo, consulte [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types) (Tipos de eventos de riesgo detectados por Azure Active Directory Identity Protection).
+Los eventos de riesgo son episodios marcados como sospechosos por Identity Protection, e indican que es posible que se haya puesto en peligro una identidad. Para ver una lista completa de eventos de riesgo, consulte [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md) (Tipos de eventos de riesgo detectados por Azure Active Directory Identity Protection).
 
 Algunos de estos eventos de riesgo han estado disponibles mediante los informes de actividades anómalas de Azure AD en el Portal de administración de Azure. En la tabla siguiente se enumeran los distintos tipos de eventos de riesgo y el correspondiente informe de **actividades anómalas de Azure AD**. Microsoft seguirá invirtiendo en este espacio y planea mejorar continuamente la precisión de la detección de eventos de riesgo existentes y agregar nuevos tipos de evento de riesgo de forma constante.
 
@@ -97,7 +97,7 @@ Algunos de estos eventos de riesgo han estado disponibles mediante los informes 
 | Inicios de sesión desde dispositivos infectados | Inicios de sesión desde dispositivos posiblemente infectados |
 | Inicios de sesión desde direcciones IP anónimas | Inicios de sesión desde orígenes desconocidos |
 | Inicios de sesión desde direcciones IP con actividad sospechosa |	Inicios de sesión desde direcciones IP con actividad sospechosa |
-| Inicios de sesión desde ubicaciones desconocidas | - |
+| Inicios de sesión desde ubicaciones desconocidas | - | 
 | Bloqueo de eventos (no en la versión preliminar pública) | - |
 
 Los siguientes informes de actividades anómalas de Azure AD no se incluyen como eventos de riesgo en Azure AD Identity Protection y, por tanto, no estarán disponibles mediante Identity Protection. Estos informes aún están disponibles en el Portal de administración de Azure; sin embargo, dejarán de estar en uso en el futuro, ya que están siendo reemplazados por los eventos de riesgo de Identity Protection.
@@ -132,8 +132,8 @@ Normalmente su viaje a través de Identity Protection empieza en el panel de Ide
 
 El panel proporciona acceso a:
  
-- Informes, como **Usuarios marcados como de riesgo**, **Eventos de riesgo** y **Puntos vulnerables**.
-- Opciones como la configuración de **Directivas de seguridad**, **Notificaciones** y el **registro de la autenticación multifactor**.
+- Informes, como **Usuarios marcados como de riesgo**, **Eventos de riesgo** y **Vulnerabilidades**.
+- Opciones como la configuración de sus **directivas de seguridad**, **notificaciones** y el **registro de la autenticación multifactor**.
  
 
 Normalmente es el punto de partida para la investigación, que es el proceso de revisión de las actividades, los registros y otra información pertinente relacionada con un evento de riesgo para decidir si son necesarios pasos de mitigación o de corrección, y cómo se ha puesto en peligro la identidad así como comprender cómo se utilizaba la identidad en peligro.
@@ -231,15 +231,15 @@ Una directiva de seguridad de riesgo del usuario es una directiva de acceso cond
 
 Azure AD Identity Protection ayuda a administrar la mitigación y corrección de usuarios marcados como de riesgo al permitirle:
 
-- Configurar los usuarios y grupos a los que se aplica la directiva. <br><br> ![Directiva de riesgo de usuario](./media/active-directory-identityprotection/501.png "Directiva de riesgo de usuario") <br>
+- Configurar los usuarios y grupos a los que se aplica la directiva: <br><br> ![Directiva de riesgo de usuario](./media/active-directory-identityprotection/501.png "Directiva de riesgo de usuario") <br>
 
-- Establecer el umbral de nivel de riesgo del usuario (bajo, medio o alto) que desencadena un cambio de contraseña. <br><br> ![Directiva de riesgo de usuario](./media/active-directory-identityprotection/502.png "Directiva de riesgo de usuario") <br>
+- Establecer el umbral de nivel de riesgo del usuario (bajo, medio o alto) que desencadena un cambio de contraseña: <br><br> ![Directiva de riesgo de usuario](./media/active-directory-identityprotection/502.png "Directiva de riesgo de usuario") <br>
 
-- Establecer el umbral de nivel de riesgo del usuario (bajo, medio o alto) que desencadena el bloqueo de un usuario. <br><br> ![Directiva de riesgo de usuario](./media/active-directory-identityprotection/503.png "Directiva de riesgo de usuario") <br>
+- Establecer el umbral de nivel de riesgo del usuario (bajo, medio o alto) que desencadena el bloqueo de un usuario: <br><br> ![Directiva de riesgo de usuario](./media/active-directory-identityprotection/503.png "Directiva de riesgo de usuario") <br>
 
-- Cambiar el estado de la directiva. <br><br> ![Registro MFA](./media/active-directory-identityprotection/403.png "Registro MFA") <br>
+- Cambiar el estado de la directiva: <br><br> ![Registro MFA](./media/active-directory-identityprotection/403.png "Registro MFA") <br>
 
-- Revisar y evaluar el impacto de un cambio antes de activarlo. <br><br> ![Directiva de riesgo de usuario](./media/active-directory-identityprotection/504.png "Directiva de riesgo de usuario") <br>
+- Revisar y evaluar el impacto de un cambio antes de activarlo: <br><br> ![Directiva de riesgo de usuario](./media/active-directory-identityprotection/504.png "Directiva de riesgo de usuario") <br>
 
 
 Elegir un umbral **Alto** reduce el número de veces que una directiva se desencadena y minimiza el impacto en los usuarios. Sin embargo, excluye los usuarios marcados con un riesgo **Bajo** y **Medio** por la directiva, lo que puede no proteger las identidades o los dispositivos que antes fueron sospechosos o que se sabe que estuvieron en peligro.
@@ -248,11 +248,11 @@ Al establecer la directiva:
 
 - Excluya a los usuarios que es probable que generen una gran cantidad de falsos positivos (desarrolladores, analistas de seguridad).
 
-- Excluya a los usuarios que tengan configuraciones regionales en las que no es práctico habilitar la directiva (por ejemplo, no tienen acceso al departamento de soporte técnico).
+- Excluya a los usuarios que tengan configuraciones regionales en las que no resulte práctico habilitar la directiva (por ejemplo, no tienen acceso al departamento de soporte técnico).
 
-- Utilice un umbral **Alto** durante la puesta en servicio inicial de la directiva, o bien si debe reducir al mínimo los desafíos vistos por los usuarios finales.
+- Utilice un umbral **Alto** durante la puesta en servicio inicial de la directiva, o bien si debe minimizar los desafíos que ven los usuarios finales.
 
-- Utilice un umbral **Bajo** si su organización requiere una mayor seguridad. Seleccionar un umbral **Bajo** presenta desafíos adicionales de inicio de sesión del usuario, pero aumenta la seguridad.
+- Utilice un umbral **Bajo** si su organización requiere un mayor grado de seguridad. Seleccionar un umbral **Bajo** presenta desafíos adicionales de inicio de sesión del usuario, pero aumenta la seguridad.
 
 El valor predeterminado recomendado para la mayoría de las organizaciones es configurar una regla para un umbral **Medio** con el fin de lograr un equilibrio entre la facilidad de uso y la seguridad.
 
@@ -260,7 +260,7 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 
 - [Flujo de recuperación de cuentas en peligro](active-directory-identityprotection-flows.md#compromised-account-recovery).  
 
-- [Flujo de cuentas en peligro bloqueadas](active-directory-identityprotection-flows.md#Compromised-account-blocked).
+- [Flujo de cuentas en peligro bloqueadas](active-directory-identityprotection-flows.md#compromised-account-blocked).
 
 
 **Para abrir el cuadro de diálogo de configuración relacionado, siga estos pasos**:
@@ -279,7 +279,7 @@ Los administradores pueden establecer una directiva de seguridad de riesgo del u
 
 El bloqueo de un inicio de sesión:
  
-- Previene la generación de nuevos eventos de riesgo del usuario para el usuario afectado.
+- Evita la generación de nuevos eventos de riesgo del usuario para el usuario afectado.
 
 - Permite a los administradores corregir manualmente los eventos de riesgo que afectan a la identidad del usuario y restaurarla a un estado seguro.
 
@@ -301,30 +301,30 @@ Una directiva de seguridad de riesgo de inicio de sesión es una directiva de ac
 
 Azure AD Identity Protection ayuda a administrar la mitigación de inicios de sesión peligrosos al permitir:
 
-- Configurar los usuarios y grupos a los que se aplica la directiva. <br><br> ![Directiva de riesgo de inicio de sesión](./media/active-directory-identityprotection/701.png "Directiva de riesgo de inicio de sesión") <br>
+- Configurar los usuarios y grupos a los que se aplica la directiva: <br><br> ![Directiva de riesgo de inicio de sesión](./media/active-directory-identityprotection/701.png "Directiva de riesgo de inicio de sesión") <br>
 
-- Establecer el umbral de nivel de riesgo de inicio de sesión (bajo, medio o alto) que desencadena un desafío de autenticación multifactor para los inicios de sesión afectados. <br><br> ![Directiva de riesgo de inicio de sesión](./media/active-directory-identityprotection/702.png "Directiva de riesgo de inicio de sesión") <br>
+- Establecer el umbral de nivel de riesgo de inicio de sesión (bajo, medio o alto) que desencadena un desafío de autenticación multifactor para los inicios de sesión afectados: <br><br> ![Directiva de riesgo de inicio de sesión](./media/active-directory-identityprotection/702.png "Directiva de riesgo de inicio de sesión") <br>
 
-- Establecer el umbral de nivel de riesgo de inicio de sesión (bajo, medio o alto) que bloquea los inicios de sesión afectados. <br><br> ![Directiva de riesgo de inicio de sesión](./media/active-directory-identityprotection/703.png "Directiva de riesgo de inicio de sesión") <br>
+- Establecer el umbral de nivel de riesgo de inicio de sesión (bajo, medio o alto) que bloquea los inicios de sesión afectados: <br><br> ![Directiva de riesgo de inicio de sesión](./media/active-directory-identityprotection/703.png "Directiva de riesgo de inicio de sesión") <br>
 
-- Cambiar el estado de la directiva. <br><br> ![Registro MFA](./media/active-directory-identityprotection/403.png "Registro MFA") <br>
+- Cambiar el estado de la directiva: <br><br> ![Registro MFA](./media/active-directory-identityprotection/403.png "Registro MFA") <br>
 
-- Revisar y evaluar el impacto de un cambio antes de activarlo. <br><br> ![Directiva de riesgo de inicio de sesión](./media/active-directory-identityprotection/704.png "Directiva de riesgo de inicio de sesión") <br>
+- Revisar y evaluar el impacto de un cambio antes de activarlo: <br><br> ![Directiva de riesgo de inicio de sesión](./media/active-directory-identityprotection/704.png "Directiva de riesgo de inicio de sesión") <br>
 
  
 Elegir un umbral **Alto** reduce el número de veces que una directiva se desencadena y minimiza el impacto en los usuarios.<br> Sin embargo, excluye los usuarios marcados con un riesgo **Bajo** y **Medio** por la directiva, lo que podría no impedir que un atacante aprovechara una identidad en peligro.
 
 Al establecer la directiva:
 
-- Excluya a los usuarios que no tengan o no puedan la autenticación multifactor.
+- Excluya a los usuarios que no tengan o no puedan tener la autenticación multifactor.
 
-- Excluya a los usuarios que tengan configuraciones regionales en las que no es práctico habilitar la directiva (por ejemplo, no tienen acceso al departamento de soporte técnico).
+- Excluya a los usuarios que tengan configuraciones regionales en las que no resulte práctico habilitar la directiva (por ejemplo, no tienen acceso al departamento de soporte técnico).
 
 - Excluya a los usuarios que es probable que generen una gran cantidad de falsos positivos (desarrolladores, analistas de seguridad).
 
-- Utilice un umbral **Alto** durante la puesta en servicio inicial de la directiva, o bien si debe reducir al mínimo los desafíos vistos por los usuarios finales.
+- Utilice un umbral **Alto** durante la puesta en servicio inicial de la directiva, o bien si debe minimizar los desafíos que ven los usuarios finales.
 
-- Utilice un umbral **Bajo** si su organización requiere una mayor seguridad. Seleccionar un umbral **Bajo** presenta desafíos adicionales de inicio de sesión del usuario, pero aumenta la seguridad.
+- Utilice un umbral **Bajo** si su organización requiere un mayor grado de seguridad. Seleccionar un umbral **Bajo** presenta desafíos adicionales de inicio de sesión del usuario, pero aumenta la seguridad.
 
 El valor predeterminado recomendado para la mayoría de las organizaciones es configurar una regla para un umbral **Medio** con el fin de lograr un equilibrio entre la facilidad de uso y la seguridad.
 
@@ -336,16 +336,16 @@ La directiva de riesgo de inicio de sesión:
 
 En la página **Eventos de riesgo** de la consola de Identity Protection se enumeran todos los eventos:
 
-- A los que se aplicó esta directiva
+- A los que se aplicó esta directiva.
 - Puede revisar la actividad y determinar si la acción era apropiada o no. 
 
 Para obtener información general de la experiencia de usuario relacionada, consulte:
 
-- [Recuperación de inicios de sesión peligrosos](active-directory-identityprotection-flows.md#risky-sign-in-recovery)  
+- [Recuperación de inicios de sesión peligrosos](active-directory-identityprotection-flows.md#risky-sign-in-recovery) 
 
 - [Inicios de sesión peligrosos bloqueados](active-directory-identityprotection-flows.md#risky-sign-in-blocked)
 
-- [Registro de autenticación multifactor durante un inicio de sesión peligroso](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).
+- [Registro de la autenticación multifactor durante un inicio de sesión peligroso](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in)
 
 
 
@@ -373,13 +373,13 @@ Para obtener más detalles, consulte [Qué es Azure Multi-Factor Authentication]
 
 Azure AD Identity Protection ayuda a administrar la puesta en servicio del registro de autenticación multifactor al configurar una directiva que le permite:
 
-- Ver el estado actual del registro. <br><br> ![Registro MFA](./media/active-directory-identityprotection/603.png "Registro MFA") <br>
+- Ver el estado actual del registro: <br><br> ![Registro MFA](./media/active-directory-identityprotection/603.png "Registro MFA") <br>
 
-- Configurar los usuarios y grupos a los que se aplica la directiva. <br><br> ![Registro MFA](./media/active-directory-identityprotection/601.png "Registro MFA") <br>
+- Configurar los usuarios y grupos a los que se aplica la directiva: <br><br> ![Registro MFA](./media/active-directory-identityprotection/601.png "Registro MFA") <br>
 
-- Definir cuánto tiempo pueden omitir el registro. <br><br> ![Registro MFA](./media/active-directory-identityprotection/602.png "Registro MFA") <br>
+- Definir cuánto tiempo pueden omitir el registro: <br><br> ![Registro MFA](./media/active-directory-identityprotection/602.png "Registro MFA") <br>
 
-- Cambiar el estado de la directiva. <br><br> ![Registro MFA](./media/active-directory-identityprotection/403.png "Registro MFA") <br>
+- Cambiar el estado de la directiva: <br><br> ![Registro MFA](./media/active-directory-identityprotection/403.png "Registro MFA") <br>
 
 Para obtener información general de la experiencia de usuario relacionada, consulte:
 
@@ -410,4 +410,4 @@ Para obtener información general de la experiencia de usuario relacionada, cons
  - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md) (Guía de Azure Active Directory Identity Protection)
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md) (Glosario de Azure Active Directory Identity Protection)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

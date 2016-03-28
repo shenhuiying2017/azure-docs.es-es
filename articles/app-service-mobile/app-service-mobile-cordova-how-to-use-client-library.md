@@ -47,9 +47,42 @@ Se admiten dos flujos de autenticación: un flujo de servidor y un flujo de clie
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-##<a name="register-for-push"></a>Registro de notificaciones push
+###<a name="configure-external-redirect-urls"></a>Cómo configurar su servicio de aplicaciones móviles para URL de redireccionamiento externas
 
-Instale [phonegap-plugin-push] para administrar las notificaciones push. Este complemento se puede agregar fácilmente mediante el comando `cordova plugin add` en la línea de comandos, o por medio del instalador de complementos Git dentro de Visual Studio. El siguiente código de la aplicación de Apache Cordova registrará el dispositivo para notificaciones push:
+Varios tipos de aplicaciones de Apache Cordova utilizan una función de bucle invertido para controlar los flujos de la interfaz de usuario de OAuth. Esto conlleva problemas, ya que el servicio de autenticación solo sabe cómo utilizar el servicio de manera predeterminada. A modo de ejemplo, se puede mencionar el uso del emulador Ripple, la ejecución local del servicio o en un Servicio de aplicaciones de Azure distinto, pero con un redireccionamiento a dicho servicio para llevar a cabo la autenticación, o bien usar la característica Live Reload de Ionic. Siga estas instrucciones para agregar los ajustes locales a la configuración:
+
+1. Inicie sesión en el [Portal de Azure].
+2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y haga clic en el nombre de la aplicación móvil.
+3. Haga clic en **Herramientas**.
+4. Haga clic en la opción **Explorador de recursos** del menú OBSERVAR y, después, en **Ir**. Se abrirá una nueva ventana o pestaña.
+5. Expanda los nodos **config**, **authsettings** de su sitio en el panel de navegación izquierdo.
+6. Haga clic en **Editar**.
+7. Busque el elemento "allowedExternalRedirectUrls". Estará establecido en NULL. Cambie su configuración a la siguiente:
+
+         "allowedExternalRedirectUrls": [
+             "http://localhost:3000",
+             "https://localhost:3000"
+         ],
+
+    Sustituya las URL por las de su servicio. Por ejemplo: "http://localhost:3000" (para el servicio de muestra Node.js) o "http://localhost:4400" (para el servicio de Ripple). Sin embargo, estos no son más que ejemplos. Es decir, su situación puede ser distinta, incluso si debe configurar los servicios mencionados en los ejemplos.
+8. Haga clic en el botón **Lectura/escritura** situado en la esquina superior derecha de la pantalla.
+9. Haga clic en el botón verde **PUT**.
+
+La configuración se guardará en este momento. No cierre la ventana del explorador hasta que la configuración haya terminado de guardarse. También tendrá que agregar estas URL de bucle invertido a la configuración de CORS:
+
+1. Inicie sesión en el [Portal de Azure].
+2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y haga clic en el nombre de la aplicación móvil.
+3. Se abrirá automáticamente la hoja Configuración. En caso contrario, haga clic en **Toda la configuración**.
+4. Haga clic en la opción **CORS** del menú API.
+5. Escriba la dirección URL que quiera agregar en el cuadro proporcionado y presione Intro.
+6. Escriba las direcciones URL adicionales que necesite.
+7. Haga clic en **Guardar** para guardar la configuración.
+
+Los nuevos ajustes tardarán aproximadamente entre 10 y 15 segundos en surtir efecto.
+
+##<a name="register-for-push"></a>Cómo registrarse para recibir notificaciones push
+
+Instale [phonegap-plugin-push] para administrar las notificaciones push. Este complemento se puede agregar fácilmente mediante el comando `cordova plugin add` en la línea de comandos o por medio del instalador de complementos Git dentro de Visual Studio. El siguiente código de la aplicación de Apache Cordova registrará el dispositivo para notificaciones push:
 
 ```
 var pushOptions = {
@@ -91,9 +124,10 @@ pushHandler.on('error', function (error) {
 Use el SDK de Centros de notificaciones para enviar notificaciones push desde el servidor. Nunca debe enviar notificaciones push directamente desde los clientes ya que esta acción podría usarse para desencadenar un ataque por denegación de servicio contra Centros de notificaciones o el PNS.
 
 <!-- URLs. -->
+[Portal de Azure]: https://portal.azure.com
 [Creación de una aplicación de Apache Cordova]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
-[Incorporación de autenticación a la aplicación de Servicios móviles]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [complemento de Apache Cordova para Aplicaciones móviles de Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [su primera aplicación de Apache Cordova]: http://cordova.apache.org/#getstarted
@@ -101,6 +135,6 @@ Use el SDK de Centros de notificaciones para enviar notificaciones push desde el
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentación de objetos de consulta]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

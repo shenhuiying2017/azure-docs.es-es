@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 
@@ -38,7 +38,7 @@ Asegúrese de que tiene todo lo que necesita antes de comenzar.
 ### Requisitos previos de Azure
 
 - Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](pricing/free-trial/).
-- Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción. [Más información sobre Almacenamiento de Azure](../storage/storage-introduction.md).
+- Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción. No admitimos el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.[Más información sobre el Almacenamiento de Azure](../storage/storage-introduction.md).
 - Necesitará una red virtual de Azure para que las máquinas virtuales de Azure se conecten a una red al conmutar por error desde el sitio principal.
 
 ### Requisitos previos de Hyper-V
@@ -50,7 +50,7 @@ Asegúrese de que tiene todo lo que necesita antes de comenzar.
 
 ### Requisitos previos de las máquinas virtuales
 
-Las máquinas virtuales que quiera proteger deben cumplir los [requisitos previos de máquinas virtuales](site-recovery-best-practices.md#virtual-machines).
+Las máquinas virtuales que quiere proteger deben cumplir los [requisitos previos para las máquinas virtuales](site-recovery-best-practices.md#virtual-machines).
 
 ### Requisitos previos del proveedor y del agente
 
@@ -187,6 +187,9 @@ Los parámetros son:
 
 	![Crear una cuenta de almacenamiento](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
 
+>[AZURE.NOTE] No admitimos el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+
+
 ## Paso 5: Creación y configuración de grupos de protección
 
 Los grupos de protección son agrupaciones lógicas de máquinas virtuales que desea proteger con la misma configuración de protección. Aplique la configuración de protección a un grupo de protección y esa configuración se aplicará a todas las máquinas virtuales que agregue al grupo.
@@ -206,7 +209,7 @@ Los grupos de protección son agrupaciones lógicas de máquinas virtuales que d
 	![Grupo de protección](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_ProtectionGroup4.png)
 
 
-## Paso 6: Habilitación de la protección de máquinas virtuales
+## Paso 6: Habilitación de la protección de máquinas virtuales
 
 
 Agregue máquinas virtuales a grupos de protección para habilitar su protección.
@@ -295,4 +298,4 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0316_2016-->

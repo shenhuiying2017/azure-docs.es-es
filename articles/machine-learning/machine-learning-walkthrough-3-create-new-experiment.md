@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="03/09/2016" 
 	ms.author="garye"/>
 
 
@@ -83,7 +83,7 @@ Para ello, utilizamos el módulo [Dividir datos][split].
 
 1.	Busque el módulo [Dividir datos][split], arrástrelo al lienzo y conéctelo al último módulo [Editor de metadatos][metadata-editor].
 2.	De manera predeterminada, la proporción de división es 0,5 y se establece el parámetro **División aleatoria**. Esto significa que una mitad aleatoria de los datos saldrá a través de un puerto del módulo [Dividir datos][split] y la otra mitad por el otro. Puede cambiar estos ajustes, así como el parámetro **Valor de inicialización aleatorio**, para cambiar la división entre datos de entrenamiento y de prueba. Para este ejemplo, lo dejaremos como está.
-	> [AZURE.TIP] La propiedad **Fracción de filas del primer conjunto de datos de salida** determina la cantidad de datos que salen a través del puerto de salida de la izquierda. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.  
+	> [AZURE.TIP] La propiedad **Fracción de filas del primer conjunto de datos de salida** determina la cantidad de datos que salen a través del puerto de salida de la izquierda. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.  
 3. Haga doble clic en el módulo [Dividir datos][split] y escriba el comentario "Dividir 50% de los datos de entrenamiento y pruebas". 
 
 Podemos utilizar las salidas del módulo [Dividir datos][split] como deseemos, pero vamos a optar por utilizar la salida de la izquierda como datos de entrenamiento y la salida de la derecha como datos de pruebas.
@@ -131,4 +131,4 @@ Para obtener más información sobre cómo usar los scripts de R en sus experime
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

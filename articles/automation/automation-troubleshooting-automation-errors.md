@@ -75,9 +75,7 @@ Este artículo explica algunos de los errores comunes que se pueden producir al 
 
 **Motivo del error:** Si su runbook es un flujo de trabajo de PowerShell almacena objetos complejos en un formato deserializado, para conservar el estado del runbook si se suspende el flujo de trabajo.
 
-**Sugerencias para solucionar el problema:**
-
-Cualquiera de las siguientes tres alternativas solucionará este problema:
+**Sugerencias para solucionar el problema:** Cualquiera de las siguientes tres alternativas solucionará este problema:
 
 1. Si canaliza objetos complejos de un cmdlet a otro, encapsule estos cmdlets en un InlineScript.  
 2. En lugar de pasar el objeto complejo entero, pase solamente el nombre o valor del mismo que necesite.  
@@ -139,9 +137,7 @@ Cualquiera de las siguientes tres alternativas solucionará este problema:
 
 - El cmdlet **New-AzureRmAutomationModule** se está usando para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo usando una URL de acceso público.
 
-**Sugerencias para solucionar el problema:**
-
-cualquiera de las siguientes alternativas solucionará este problema:
+**Sugerencias para solucionar el problema:** cualquiera de las siguientes alternativas solucionará este problema:
 
 - Asegúrese de que el módulo sigue el formato siguiente: NombreMódulo.zip **->** NombreMódulo o número de versión **->** (NombreMódulo.psm1, NombreMódulo.psd1)
 
@@ -167,7 +163,7 @@ cualquiera de las siguientes alternativas solucionará este problema:
     - Para asignar una configuración de nodo a un nodo mediante un cmdlet de PowerShell, use el cmdlet **AzureRmAutomationDscNode Set**.
 
 
-### Escenario: no se produjeron configuraciones de nodo (archivos mof) al compilarse una configuración
+### Escenario: no se produjeron configuraciones de nodo (archivos MOF) al compilarse una configuración
 
 **Error:** el trabajo de compilación de DSC se suspendió con el error "La compilación finalizó correctamente, pero no se generaron archivos .mof de configuración de nodo".
 
@@ -176,7 +172,7 @@ cualquiera de las siguientes alternativas solucionará este problema:
 **Sugerencias para solucionar el problema:** cualquiera de las siguientes alternativas solucionará este problema:
 
 - Asegúrese de que la expresión junto a la palabra clave **Node** en la definición de configuración no se está evaluando como $null.  
-- Si se pasan datos de configuración al compilar la configuración, asegúrese de que se pasan los valores esperados que la configuración necesita de [configurationData](automation-dsc-compile.md#configurationdata).
+- Si se pasan datos de configuración al compilar la configuración, asegúrese de que se pasan los valores esperados que la configuración necesita de [ConfigurationData](automation-dsc-compile.md#configurationdata).
 
 
 ### Escenario: el informe de nodo de DSC se queda bloqueado en el estado "en curso"
@@ -210,4 +206,4 @@ Si ha seguido los pasos de la solución de problemas anteriores y necesita ayuda
 
 - Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

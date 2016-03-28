@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Equilibrio del clúster con el Administrador de recursos de clúster de Service Fabric de Azure"
+   pageTitle="Equilibrio del clúster con el Administrador de recursos de clúster de Service Fabric de Azure | Microsoft Azure"
    description="Una introducción al equilibrio del clúster con el Administrador de recursos de clúster de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Equilibrio de su clúster de Service Fabric
+# Equilibrio del clúster de Service Fabric
 El Administrador de recursos de clúster de Service Fabric permite informar de la carga dinámica, reaccionar a los cambios y generar planes de equilibrio. Sin embargo, ¿cuándo se hace esto? ¿Qué desencadena realmente la vuelta al equilibrio en el clúster si los servicios se colocan de acuerdo con sus valores de carga predeterminados cuando se crean? Hay varios controles relacionados con esto.
 
 El primer conjunto de controles que rigen el equilibrio es un conjunto de temporizadores que determinan la frecuencia con que el Administrador de recursos de clúster examina el estado del clúster para ver lo que es necesario solucionar. Estos temporizadores están relacionados con las distintas etapas del trabajo que siempre hacen. Dichos componentes son:
@@ -25,6 +25,7 @@ El primer conjunto de controles que rigen el equilibrio es un conjunto de tempor
 2.	Comprobaciones de restricciones: en esta etapa se comprueban y corrigen las infracciones (reglas) de las distintas restricciones de selección de ubicación dentro del sistema. Ejemplos de reglas son asegurarse de que los nodos no sobrepasan la capacidad y que las restricciones de selección de ubicación de un servicio se cumplen (más información al respecto más adelante).
 3.	Equilibrio: en esta etapa se comprueba si el reequilibrio proactivo es necesario según el nivel de equilibrio deseado configurado para distintas métricas y, en caso afirmativo, se intenta encontrar una disposición en el clúster que sea más equilibrada.
 
+## Configuración de pasos y temporizadores del Administrador de recursos de clúster
 Cada una de estas distintas etapas está controlada por un temporizador diferente que dictamina su frecuencia. Por ejemplo, si solo quiere tratar con la colocación de nuevas cargas de trabajo de servicio en el clúster cada hora (a fin de procesarlas por lote), pero quiere comprobaciones periódicas de equilibrio cada unos cuantos segundos, puede hacerlo. Cada vez que se dispara un temporizador, se establece un indicador que dice que debemos ocuparnos de esa parte de los deberes del Administrador de recursos y se selecciona en la siguiente limpieza general mediante la máquina de estados (por eso estas configuraciones se definen como "intervalos mínimos"). De manera predeterminada, el Administrador de recursos examina su estado y aplica actualizaciones cada décima de segundo, define los indicadores de selección de ubicación y comprobación de restricciones cada segundo y el indicador de equilibrio cada cinco segundos.
 
 ClusterManifest.xml:
@@ -60,7 +61,10 @@ En este sencillo ejemplo cada servicio solo consume una unidad de algunos métri
 
 ![Acciones de ejemplo de umbral de equilibrio][Image2]
 
-Observe que el objetivo explícito no es estar por debajo del umbral de equilibrio; los umbrales de equilibrio son solo el desencadenador. Aunque los nodos están relativamente desequilibrados, la cantidad total de carga en el clúster es baja. Esto puede ser debido simplemente a la hora del día o porque el clúster es nuevo y se acaba de arrancar. En cualquier caso, es posible que no quiera pasarse el tiempo equilibrando ya que tampoco hay mucho que ganar; gastará recursos de red y de procesos para que las cosas funcionen. Existe otro control dentro del Administrador de recursos, conocido como Umbral de actividad, que le permite especificar algún límite inferior para la actividad: si ningún nodo tiene al menos esta carga, el equilibrio no se desencadenará incluso si se cumple el umbral de equilibrio. Como ejemplo, supongamos que tenemos informes con los siguientes totales de consumo en estos nodos. Supongamos también que conservamos nuestro umbral de equilibrio de 3, pero ahora también tenemos un umbral de actividad de 1536. En el primer caso, aunque el clúster está desequilibrado según el umbral de equilibrio, ningún nodo satisface el umbral mínimo de actividad, por lo que dejamos que las cosas sigan su curso. En el ejemplo de abajo, el Nodo1 supera con creces el umbral de actividad, así que no se realizará ningún equilibrio.
+Observe que el objetivo explícito no es estar por debajo del umbral de equilibrio; los umbrales de equilibrio son solo el desencadenador.
+
+## Umbrales de actividad
+En ocasiones, aunque los nodos están relativamente desequilibrados, la cantidad de carga total en el clúster es baja. Esto puede ser debido simplemente a la hora del día o porque el clúster es nuevo y se acaba de arrancar. En cualquier caso, es posible que no quiera pasarse el tiempo equilibrando ya que tampoco hay mucho que ganar; gastará recursos de red y de procesos para que las cosas funcionen. Existe otro control dentro del Administrador de recursos, conocido como Umbral de actividad, que le permite especificar algún límite inferior para la actividad: si ningún nodo tiene al menos esta carga, el equilibrio no se desencadenará incluso si se cumple el umbral de equilibrio. Como ejemplo, supongamos que tenemos informes con los siguientes totales de consumo en estos nodos. Supongamos también que conservamos nuestro umbral de equilibrio de 3, pero ahora también tenemos un umbral de actividad de 1536. En el primer caso, aunque el clúster está desequilibrado según el umbral de equilibrio, ningún nodo satisface el umbral mínimo de actividad, por lo que dejamos que las cosas sigan su curso. En el ejemplo de abajo, el Nodo1 supera con creces el umbral de actividad, así que no se realizará ningún equilibrio.
 
 ![Ejemplo de umbral de actividad][Image3]
 
@@ -87,11 +91,10 @@ El Administrador de recursos calcula automáticamente qué servicios están rela
 
 ![Equilibrio conjunto de los servicios][Image5]
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
-- [Más información sobre las métricas](service-fabric-cluster-resource-manager-metrics.md)
-- [Más información sobre las limitaciones del Administrador de recursos](service-fabric-cluster-resource-manager-advanced-throttling.md)
-- [Más información sobre los costos del movimiento de servicios](service-fabric-cluster-resource-manager-movement-cost.md)
+- Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
+- El costo del movimiento es una forma de señalizar al Administrador de recursos de clúster que determinados servicios son más caros de mover que otros. Para más información sobre el costo del movimiento, consulte [este artículo](service-fabric-cluster-resource-manager-movement-cost.md).
+- El Administrador de recursos de clúster presenta varias limitaciones que se pueden configurar para ralentizar la renovación del clúster. Aunque no son normalmente necesarias, si las necesita, puede encontrar información sobre ellas [aquí](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
@@ -100,4 +103,4 @@ El Administrador de recursos calcula automáticamente qué servicios están rela
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

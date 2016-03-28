@@ -51,6 +51,9 @@ Para obtener sugerencias para la solución de problemas, vea [Supervisión y sol
 -   Las condiciones de red pueden reducirse. Póngase en contacto con el administrador de red para obtener información sobre los problemas recientes o interrupciones.
 
 ## Consulte también
-[Supervisión de Stretch Database](sql-server-stretch-database-monitor.md) [Copia de seguridad y restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+[Supervisión de la base de datos de Stretch](sql-server-stretch-database-monitor.md)
+
+[Copia de seguridad y restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-backup.md)
+
+<!---HONumber=AcomDC_0316_2016-->

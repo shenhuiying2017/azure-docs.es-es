@@ -27,6 +27,8 @@
 
 Para ayudarle a aprender a usar Hadoop en Windows y a empezar a usar HDInsight, en este tutorial se muestra cómo ejecutar una consulta de Hive en datos no estructurados en un clúster de Hadoop y, a continuación, analizar los resultados en Microsoft Excel.
 
+>[AZURE.NOTE] La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para obtener más información sobre clústeres basados en Linux, vea [Tutorial de Hadoop: Introducción al uso de Hadoop basado en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+
 Supongamos que tiene un gran conjunto de datos no estructurados y que quiere ejecutar una consulta de Hive en él para extraer alguna información significativa. Eso es exactamente lo que vamos a hacer en este tutorial. Siga los pasos siguientes para lograrlo:
 
    !["Tutorial de Hadoop: Creación de una cuenta; creación de un clúster de Hadoop; envío de una consulta de Hive; análisis de datos en Excel.][image-hdi-getstarted-flow]
@@ -255,4 +257,4 @@ En este tutorial de Hadoop, ha aprendido a crear un clúster de Hadoop en Window
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

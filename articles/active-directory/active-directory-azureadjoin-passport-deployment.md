@@ -54,7 +54,7 @@ Ejecute el siguiente comando de PowerShell:
 Para usar el inicio de sesión/Microsoft Hello basado en certificado de Passport for Work, configure el perfil de certificado (**Activos y compatibilidad** -> **Configuración de cumplimiento** -> **Acceso a los recursos de la compañía** -> **Perfiles de certificado**). Seleccione una plantilla que tenga el uso mejorado de clave de inicio de sesión de la tarjeta inteligente.
 
 ## Configuración de una tarea programada para la evaluación de certificados de solicitud
-Esta tarea programada es una solución a corto plazo. Los administradores necesitan crear una tarea programada que escuche para la creación de un contenedor de Passport for Work y solicite una evaluación de certificados. La tarea programada se desencadena cuando se habilita el contenedor Passport for Work. La tarea reduce el retraso en la configuración del contenedor y el PIN y su disponibilidad para su uso en el siguiente inicio de sesión.
+Esta tarea programada es una solución a corto plazo. Los administradores tienen que crear una tarea programada que escuche la creación de un contenedor de Passport for Work y, después, solicite una evaluación de certificados. La tarea programada se desencadena cuando se habilita el contenedor Passport for Work. La tarea reduce el retraso en la configuración del contenedor y el PIN y su disponibilidad para su uso en el siguiente inicio de sesión.
 
 **Para crear la tarea programada, puede usar la interfaz de usuario o usar el comando siguiente:**
 
@@ -118,4 +118,4 @@ Este es el xml de ejemplo:
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

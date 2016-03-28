@@ -52,7 +52,7 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - Para Azure PowerShell 1.0, use la versión del Administrador de recursos de comandos. Estos comandos tienen el formato *verb-AzureRm*, tal como se muestra a continuación.
+  - Para Azure PowerShell 1.0, use la versión del Administrador de recursos de comandos. Estos comandos tienen el formato *Verb-AzureRmNoun*, tal como se muestra a continuación.
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -101,7 +101,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - Para Azure PowerShell 1.0, use la versión de Administración de servicios de comandos. Estos nombres de comandos **no** tienen el formato *verb-AzureRm*, tal como se muestra a continuación.
+  - Para Azure PowerShell 1.0, use la versión de Administración de servicios de comandos. Estos nombres de comandos tienen el formato *Verb-AzureNoun*, tal como se muestra a continuación.
 
             PS C:\> Get-AzureDeployment
 
@@ -111,7 +111,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
     ![tipo clásico](./media/resource-manager-deployment-model/classic-type.png)
 
-Todavía puede usar el portal para administrar los recursos creados a través de la implementación clásica.
+Todavía puede usar el Portal de Azure para administrar los recursos creados a través de la implementación clásica.
 
 Aquí se encuentran los componentes y sus relaciones para la administración de servicios de Azure.
 
@@ -125,7 +125,7 @@ El Administrador de recursos agregó el concepto del grupo de recursos. Cada rec
 - Puede implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente.
 - Puede utilizar plantillas declarativas para definir la implementación.
 - Puede definir las dependencias entre recursos de modo que se implementen en el orden correcto.
-- Puede aplicar control de acceso a todos los servicios del grupo de recursos al integrarse de forma nativa Control de acceso basado en rol (RBAC) en la plataforma de administración.
+- Puede aplicar control de acceso a todos los recursos del grupo de recursos, ya que Control de acceso basado en rol (RBAC) está integrado de forma nativa en la plataforma de administración.
 - Puede aplicar etiquetas a los recursos para organizar de manera lógica todos los recursos en su suscripción.
 
 
@@ -155,9 +155,9 @@ Los recursos creados en el modelo de implementación clásica no son compatibles
      ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
     ...
 
-Sin embargo, si ejecuta el comando Get-AzureVM, solo conseguirá las máquinas virtuales que se crearon con el Administrador de recursos.
+Sin embargo, si ejecuta el comando Get-AzureRmVM, solo conseguirá las máquinas virtuales que se crearon con el Administrador de recursos.
 
-    PS C:\> Get-AzureVM -ResourceGroupName ExampleGroup
+    PS C:\> Get-AzureRmVM -ResourceGroupName ExampleGroup
     ...
     Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
     Name     : ExampleResourceVM
@@ -169,7 +169,7 @@ Al trabajar con los recursos creados a través del Administrador de recursos, de
 
 ## Consideraciones para las máquinas virtuales
 
-Hay algunas consideraciones importantes al trabajar en máquinas virtuales.
+Hay algunas consideraciones importantes al trabajar con máquinas virtuales.
 
 - Las máquinas virtuales implementadas con el modelo de implementación clásica no pueden incluirse en una red virtual implementada con el Administrador de recursos.
 - Las máquinas virtuales implementadas con el modelo de implementación del Administrador de recursos deben incluirse en una red virtual.
@@ -188,4 +188,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para obtener información sobre cómo crear plantillas de implementación declarativas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0316_2016-->

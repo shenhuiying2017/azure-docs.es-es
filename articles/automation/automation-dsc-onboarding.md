@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="02/26/2016"
+   ms.date="03/15/2016"
    ms.author="coreyp"/>
 
 # Incorporación de máquinas para administrarlas con DSC de Automatización de Azure
@@ -103,7 +103,7 @@ Para buscar la dirección URL de registro y la clave de la cuenta de Automatizac
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.14 `
+     -Version 2.15 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
@@ -188,9 +188,9 @@ La máquina desde la que se ejecuta este comando debe tener instalada la versió
 6.  Mediante el Portal de Azure o los cmdlets, compruebe que las máquinas que vaya a incorporar aparezcan ahora como nodos de DSC registrados en su cuenta de Automatización de Azure.
 
 ##Generación de metaconfiguraciones de DSC
-Para incorporar genéricamente cualquier máquina a DSC de Automatización de Azure, se puede generar una metaconfiguración de DSC que, cuando se aplique, indique al agente de DSC de la máquina que extraiga de DSC de Automatización de Azure o informe allí. Las metaconfiguraciones de DSC para DSC de Automatización de Azure se pueden generar con una configuración de DSC de PowerShell o con los cmdlets de PowerShell de Automatización de Azure.
+Para incorporar genéricamente cualquier máquina a DSC de Automatización de Azure, se puede una metaconfiguración de DSC que, cuando se aplique, indique al agente de DSC de la máquina que extraiga de DSC de Automatización de Azure o informe allí. Las metaconfiguraciones de DSC para DSC de Automatización de Azure se pueden generar con una configuración de DSC de PowerShell o con los cmdlets de PowerShell de Automatización de Azure.
 
-**Nota:** las metaconfiguraciones de DSC contienen los secretos necesarios para incorporar una máquina a una cuenta de Automatización para administración. Asegúrese de proteger adecuadamente cualquier metaconfiguración de DSC que cree o elimínela tras su uso.
+**Nota:** las metaconfiguraciones de DSC contienen los secretos necesarios para incorporar una máquina a una cuenta de Automatización para administración. Asegúrese de proteger adecuadamente cualquier metaconfiguración de DSC que cree o elimínelos tras su uso.
 
 ###Uso de una configuración de DSC
 1.	Abra PowerShell ISE como administrador en una máquina de su entorno local. La máquina debe tener instalada la versión más reciente de [WMF 5](http://aka.ms/wmf5latest).
@@ -313,7 +313,7 @@ Para incorporar genéricamente cualquier máquina a DSC de Automatización de Az
 5.	Ejecute el script. Ahora debería tener una carpeta llamada **DscMetaConfigs** en el directorio de trabajo que contenga las metaconfiguraciones de DSC de PowerShell para las máquinas que quiere incorporar.
 
 ###Uso de los cmdlets de Automatización de Azure
-Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell coinciden con su caso de uso, y quiere incorporar máquinas de modo que ambas extraigan de DSC de Automatización de Azure y notifiquen allí, los cmdlets de Automatización de Azure ofrecen un método simplificado de generar las configuraciones de DSC necesarias:
+Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell coinciden con su caso de uso, y quiere incorporar máquinas de modo que ambas extraigan de DSC de automatización de Azure y notifiquen allí, los cmdlets de Automatización de Azure ofrecen un método simplificado de generar las configuraciones de DSC necesarias:
 
 1.	Abra la consola de PowerShell o PowerShell ISE como administrador en una máquina de su entorno local.
 
@@ -374,4 +374,4 @@ El nuevo registro se puede realizar tal y como registró el nodo inicialmente, c
 * [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

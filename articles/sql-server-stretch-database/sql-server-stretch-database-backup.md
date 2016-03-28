@@ -17,7 +17,7 @@
 	ms.author="douglasl"/>
 
 
-# Copia de seguridad y restauración de bases de datos habilitadas para Stretch 
+# Copia de seguridad y restauración de bases de datos habilitadas para Stretch
 
 Para realizar la copia de seguridad y la restauración de bases de datos habilitadas para Stretch, puede seguir usando los métodos que utiliza actualmente. Para obtener más información acerca de la copia de seguridad y la restauración de SQL Server, consulte [Copias de seguridad y restauración de Bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
 
@@ -59,7 +59,12 @@ Después de volver a establecer la conexión, Stretch Database intenta conciliar
 ![Stretch Database después de la copia de seguridad][StretchBackupImage4]
 
 ## Consulte también
-[Administración y solución de problemas de Stretch Database](sql-server-stretch-database-manage.md) [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) [Copia de seguridad y restauración de Bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
+
+[Administración y solución de problemas de Stretch Database](sql-server-stretch-database-manage.md)
+
+[sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+
+[Copia de seguridad y restauración de bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
 <!--Image references-->
 [StretchBackupImage1]: ./media/sql-server-stretch-database-backup/StretchDBBackup1.png
@@ -67,4 +72,4 @@ Después de volver a establecer la conexión, Stretch Database intenta conciliar
 [StretchBackupImage3]: ./media/sql-server-stretch-database-backup/StretchDBBackup3.png
 [StretchBackupImage4]: ./media/sql-server-stretch-database-backup/StretchDBBackup4.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

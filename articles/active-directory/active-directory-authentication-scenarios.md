@@ -138,7 +138,7 @@ Cada uno de los escenarios incluidos en este documento incluye una subsección e
 
 ## Tipos de aplicaciones y escenarios
 
-Cada uno de los escenarios que se describen en este documento puede desarrollarse con varios lenguajes y plataformas. Todos están respaldados por ejemplos de código completo que están disponibles en nuestra [guía de ejemplos de código](active-directory-code-samples.md) o directamente en los [repositorios de ejemplos de GitHub](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory) correspondientes. Además, si la aplicación necesita un determinado fragmento o segmento de un escenario de un extremo a otro, dicha funcionalidad se podrá agregar de manera independiente en la mayoría de los casos. Por ejemplo, si tiene una aplicación nativa que llama a una API web, puede agregar fácilmente una aplicación web que también llame a la API web. En el diagrama siguiente se ilustran estos escenarios y tipos de aplicación, además de cómo pueden agregarse distintos componentes:
+Cada uno de los escenarios que se describen en este documento puede desarrollarse con varios lenguajes y plataformas. Todos van acompañados de ejemplos de código completos, disponibles en nuestra [guía de ejemplos de código](active-directory-code-samples.md) o directamente en los [repositorios de ejemplos de GitHub](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory) correspondientes. Además, si la aplicación necesita un determinado fragmento o segmento de un escenario de un extremo a otro, dicha funcionalidad se podrá agregar de manera independiente en la mayoría de los casos. Por ejemplo, si tiene una aplicación nativa que llama a una API web, puede agregar fácilmente una aplicación web que también llame a la API web. En el diagrama siguiente se ilustran estos escenarios y tipos de aplicación, además de cómo pueden agregarse distintos componentes:
 
 ![Tipos de aplicaciones y escenarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
@@ -322,9 +322,11 @@ Cuando la aplicación nativa usa su código de autorización para obtener un tok
 ### Aplicación web a Web API
 
 
-En esta sección se describe una aplicación web que necesita obtener recursos de una API web. En este escenario, existen dos tipos de identidad que la aplicación web puede usar para autenticar y llamar a la API web: una identidad de aplicación o una identidad de usuario delegado. Para el tipo de identidad de aplicación, en este escenario se usan credenciales de cliente de OAuth 2.0 concedidas para autenticarse como aplicación y obtener acceso a la API web. Cuando se usa una identidad de aplicación, la API web solo puede detectar que la aplicación web la llama, ya que la API web no recibe ninguna información sobre el usuario. Si la aplicación recibe información sobre el usuario, se enviará mediante el protocolo de aplicación, sin la firma de Azure AD. La API web confía en que la aplicación web autenticó al usuario. Por ello, este patrón se conoce como subsistema de confianza.
+En esta sección se describe una aplicación web que necesita obtener recursos de una API web. En este escenario, existen dos tipos de identidad que la aplicación web puede usar para autenticar y llamar a la API web: una identidad de aplicación o una identidad de usuario delegado.
 
-Para el tipo de identidad de usuario delegado, este escenario se puede conseguir de dos maneras: concesión de código de autorización OpenID Connect y OAuth 2.0 con un cliente confidencial. La aplicación web obtiene un token de acceso para el usuario, que demuestra a la API web que el usuario se autenticó correctamente ante la aplicación web y que la aplicación web pudo obtener una identidad de usuario delegado para llamar a la API web. Este token de acceso se envía en la respuesta a la API web, que autoriza al usuario y devuelve el recurso deseado.
+*Identidad de aplicación:* en este escenario se usan credenciales de cliente de OAuth 2.0 concedidas para autenticarse como aplicación y obtener acceso a la API web. Cuando se usa una identidad de aplicación, la API web solo puede detectar que la aplicación web la llama, ya que la API web no recibe ninguna información sobre el usuario. Si la aplicación recibe información sobre el usuario, se enviará mediante el protocolo de aplicación, sin la firma de Azure AD. La API web confía en que la aplicación web autenticó al usuario. Por ello, este patrón se conoce como subsistema de confianza.
+
+*Identidad de usuario delegado:* este escenario se puede conseguir de dos maneras: concesión de código de autorización OpenID Connect y OAuth 2.0 con un cliente confidencial. La aplicación web obtiene un token de acceso para el usuario, que demuestra a la API web que el usuario se autenticó correctamente ante la aplicación web y que la aplicación web pudo obtener una identidad de usuario delegado para llamar a la API web. Este token de acceso se envía en la respuesta a la API web, que autoriza al usuario y devuelve el recurso deseado.
 
 #### Diagrama
 
@@ -467,4 +469,4 @@ Cuando la primera aplicación usa su código de autorización para obtener un to
 
 [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

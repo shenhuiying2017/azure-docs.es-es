@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/10/2016" 
 	ms.author="riande"/>
 
 # Crear una aplicación ASP.NET MVC con la autenticación y Base de datos SQL e implementar al Servicio de aplicaciones de Azure
@@ -445,7 +445,7 @@ En esta sección, agregará un usuario local y el rol *canEdit* a la base de dat
 
 	![imagen de código](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Este código crea un nuevo rol llamado *canEdit*, crea un nuevo usuario local *user1@contoso.com* y agrega *user1@contoso.com* al rol *canEdit*. Para obtener más información, consulte los [tutoriales de ASP.NET Identity](http://www.asp.net/identity/overview/features-api) en el sitio de ASP.NET.
+	Este código crea un nuevo rol llamado *canEdit*, crea un nuevo usuario local **user1@contoso.com* y agrega **user1@contoso.com* al rol *canEdit*. Para obtener más información, consulte los [tutoriales de ASP.NET Identity](http://www.asp.net/identity/overview/features-api) en el sitio de ASP.NET.
 
 ## Uso de código temporal para agregar a los nuevos usuarios que inician sesión a través de redes sociales al rol canEdit  ##
 
@@ -509,8 +509,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 1. Abra el archivo *App\_Start\\FilterConfig.cs* y reemplace el método *RegisterGlobalFilters* con el siguiente código (que agrega los dos filtros):
 
-		public static void
-		RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 		    filters.Add(new HandleErrorAttribute());
 		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
@@ -581,7 +580,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 1. Haga clic en los enlaces **Acerca de** o **Contacto**. Se le redirigirá a la página de inicio de sesión porque los usuarios anónimos no pueden ver esas páginas.
 
-1. Haga clic en el vínculo **Registrar como nuevo usuario** y agregue un usuario local con el correo electrónico *joe@contoso.com*. Compruebe que *Joe* pueda ver las páginas principal, About y Contact.
+1. Haga clic en el vínculo **Registrar como nuevo usuario** y agregue un usuario local con el correo electrónico **joe@contoso.com*. Compruebe que *Joe* pueda ver las páginas principal, About y Contact.
 
 	![login](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -589,9 +588,9 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 1. Haga clic en un vínculo de edición de la página y se le redirigirá a la página de inicio de sesión (porque no se agrega un nuevo usuario local al rol *canEdit*).
 
-1. Inicie sesión como *user1@contoso.com* con la contraseña "P\_assw0rd1" (el "0" en "word" es un cero). Se le redirigirá a la página de edición que seleccionó anteriormente.
+1. Inicie sesión como **user1@contoso.com* con la contraseña "P\_assw0rd1" (el "0" en "word" es un cero). Se le redirigirá a la página de edición que seleccionó anteriormente.
 
-	Si no puede iniciar sesión con esa cuenta y contraseña, pruebe a copiar la contraseña del código fuente y luego pegarla. Si todavía no puede iniciar sesión, consulte la columna **UserName** de la tabla **AspNetUsers** para comprobar que se agregó *user1@contoso.com*.
+	Si no puede iniciar sesión con esa cuenta y contraseña, pruebe a copiar la contraseña del código fuente y luego pegarla. Si todavía no puede iniciar sesión, consulte la columna **UserName** de la tabla **AspNetUsers** para comprobar que se agregó **user1@contoso.com*.
 
 1. Compruebe que pueda modificar los datos.
 
@@ -615,7 +614,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 1. Haga clic en **Publicar**.
 
-1. Inicie sesión como *user1@contoso.com* (con la contraseña "P\_assw0rd1") y compruebe que puede editar los datos.
+1. Inicie sesión como **user1@contoso.com* (con la contraseña "P\_assw0rd1") y compruebe que puede editar los datos.
 
 1. Cierre sesión.
 
@@ -699,7 +698,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 	![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Observe que el identificador de la cuenta de Google con la que se registró estará incluido en el rol **canEdit**, al igual que el identificador de *user1@contoso.com*. Estos deberían ser los únicos usuarios del rol **canEdit**. (Esto se comprobará en el paso siguiente).
+1. Observe que el identificador de la cuenta de Google con la que se registró estará incluido en el rol **canEdit**, al igual que el identificador de **user1@contoso.com*. Estos deberían ser los únicos usuarios del rol **canEdit**. (Esto se comprobará en el paso siguiente).
 
 	![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -707,7 +706,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 	![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. Compruebe que **UserId** procede de *user1@contoso.com* y la cuenta de Google que registró.
+3. Compruebe que **UserId** procede de **user1@contoso.com* y la cuenta de Google que registró.
 
 ## Solución de problemas
 
@@ -798,4 +797,4 @@ Este tutorial es obra de [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twi
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

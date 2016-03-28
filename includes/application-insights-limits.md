@@ -7,8 +7,8 @@ Otros puntos de datos de sesión por mes | 5 millones | 50 millones<sup>2</sup>
 Velocidad de datos del seguimiento o registro | 200 dp/s | 500 dp/s
 Velocidad de datos de excepción | 50 dp/s | 50 dp/s
 Velocidad de datos de otra telemetría | 200 dp/s | 500 dp/s
-Retención de datos sin procesar |7 días| 30 días
-Retención de datos agregados | 13 meses | sin límite
+Retención de datos sin procesar | 7 días
+Retención de datos agregados | 90 días
 Recuento de nombres de propiedades a través de la aplicación | 100 | 100
 Longitud del nombre de la propiedad | 100 | 100
 Longitud del valor de la propiedad | 1000 | 1000
@@ -22,4 +22,4 @@ Pruebas de disponibilidad | 10 | 10
  
 [Información acerca de precios y cuotas para Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

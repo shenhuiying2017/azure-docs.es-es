@@ -27,7 +27,7 @@ En esta guía se identifican muchas áreas en las que la planificación es la cl
 
 Este artículo está adaptado del contenido de la entrada de blog [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) (Directrices de implementación de Azure). Gracias a Santiago Cánepa (Director de desarrollo de aplicaciones de Microsoft) y Hugo Salcedo (Director de desarrollo de aplicaciones de Microsoft) por su material original.
 
-> [AZURE.NOTE]Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, consulte [Acerca de las redes virtuales regionales y los grupos de afinidad](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE] Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, vea [Redes virtuales regionales y grupos de afinidad](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Convenciones de nomenclatura
 
@@ -165,10 +165,10 @@ Las cuentas de almacenamiento están vinculadas a objetivos de escalabilidad. Ve
 
 Azure crea máquinas virtuales con un disco del sistema operativo, un disco temporal y ninguno o varios discos de datos opcionales. Tanto el disco del sistema operativo como los discos de datos son blobs en páginas de Azure, mientras que el disco temporal se almacena localmente en el nodo en que reside el equipo. Esto hace que el disco temporal no sea apto para datos que deben mantenerse durante un reciclaje del sistema, ya que el equipo podría migrarse en modo silencioso de un nodo a otro, con lo que se perderían los datos de dicho disco. No almacene nada en la unidad temporal.
 
-Los discos del sistema operativo y los discos de datos tienen un tamaño máximo de 1023 GB, ya que el tamaño máximo de un blob es de 1024 gigabytes (GB) y debe contener los metadatos (pie de página) del archivo VHD (un GB equivale a 1024<sup>3</sup> bytes). Puede implementar la creación de bandas en el disco en Windows para superar este límite.
+Los discos del sistema operativo y los discos de datos tienen un tamaño máximo de 1023 GB, ya que el tamaño máximo de un blob es de 1024 gigabytes (GB) y debe contener los metadatos (pie de página) del archivo VHD (un GB son 1024<sup>3</sup> bytes). Puede implementar la creación de bandas en el disco en Windows para superar este límite.
 
 ### Discos con bandas
-Además de ofrecer la posibilidad de crear discos de más de 1023 GB, en muchos casos la creación de bandas en los discos de datos mejorará el rendimiento, ya que permite que varios blobs respalden el almacenamiento de un solo volumen. Con la creación de bandas, las operaciones de E/S necesarias para escribir y leer datos de un único disco lógico se realizan en paralelo.
+Además de ofrecer la posibilidad de crear discos de más de 1023 GB, en muchos casos la creación de bandas en los discos de datos mejorará el rendimiento, ya que permite que varios blobs respalden el almacenamiento de un solo volumen. Con la creación de bandas, las operaciones de E/S necesarias para escribir y leer datos de un único disco lógico se realizan en paralelo.
 
 Azure impone límites en la cantidad de discos de datos y el ancho de banda disponible, en función del tamaño de la máquina virtual. Para obtener más información, vea [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
 
@@ -212,7 +212,7 @@ Los servicios en la nube son un pilar fundamental en la administración de servi
 
 En el caso de IaaS, los servicios en la nube ofrecen una funcionalidad similar, aunque en la mayoría de los casos la funcionalidad de equilibrador de carga se usa para reenviar el tráfico de los puertos TCP o UDP específicos desde Internet a las diversas máquinas virtuales dentro de ese servicio en la nube.
 
-> [AZURE.NOTE]Los servicios en la nube no existen en el Administrador de recursos de Azure. Para obtener una introducción a las ventajas del Administrador de recursos, vea [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+> [AZURE.NOTE] Los servicios en la nube no existen en el Administrador de recursos de Azure. Para obtener una introducción a las ventajas del Administrador de recursos, vea [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Los nombres del servicio en la nube son especialmente importantes en IaaS, ya que Azure los usa como parte de la convención predeterminada de nomenclatura de los discos. El nombre del servicio en la nube solo puede contener letras, números y guiones. El primer y el último carácter del campo deben ser una letra o un número.
 
@@ -274,7 +274,7 @@ Número de máquinas virtuales necesarias | Número de bits de host necesarios |
 28-59 | 6 | /26
 60-123 | 7 | /25
 
-> [AZURE.NOTE]Para las subredes locales normales, el número máximo de direcciones de host para una subred con n bits de host es 2<sup>n</sup> – 2. Para una subred de Azure, el número máximo de direcciones de host para una subred con n bits de host es 2<sup>n</sup> – 5 (2 más 3 para las direcciones que Azure usa en cada subred).
+> [AZURE.NOTE] Para las subredes locales normales, el número máximo de direcciones de host para una subred con n bits de host es 2<sup>n</sup> – 2. Para una subred de Azure, el número máximo de direcciones de host para una subred con n bits de host es 2<sup>n</sup> – 5 (2 más 3 para las direcciones que Azure usa en cada subred).
 
 Si elige un tamaño de subred demasiado pequeño, tendrá que volver a numerar y a implementar las máquinas virtuales en la subred.
 
@@ -356,7 +356,7 @@ El diseño resultante incluirá:
 
 Todo lo anterior seguirá estas convenciones de nomenclatura de Contoso:
 
-- Contoso usa [carga de trabajo de TI]-[ubicación]-[recurso de Azure] como prefijo. En este ejemplo, “azfae” (motor de análisis financiero de Azure) es el nombre de la carga de trabajo de TI y “use” (Este de EE. UU. 2) es la ubicación, ya que la mayoría de los clientes iniciales de Contoso se encuentran en la costa Este de Estados Unidos.
+- Contoso usa [carga de trabajo de TI]-[ubicación]-[recurso de Azure] como prefijo. En este ejemplo, “azfae” (motor de análisis financiero de Azure) es el nombre de la carga de trabajo de TI y “use” (Este de EE. UU. 2) es la ubicación, ya que la mayoría de los clientes iniciales de Contoso se encuentran en la costa Este de Estados Unidos.
 - Las cuentas de almacenamiento usan contosoazfaeusesa[descripción]. Tenga en cuenta que se agregó contoso al prefijo para proporcionar exclusividad y que los nombres de cuentas de almacenamiento no admiten el uso de guiones.
 - Las redes virtuales usan AZFAE-USE-VN[número].
 - Los conjuntos de disponibilidad usan azfae-use-as-[rol].
@@ -436,10 +436,8 @@ Esta configuración incluye:
 
 [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../storage-scalability-targets.md)
 
-[Marco de integración de plataformas en la nube (patrones de arquitectura de Azure)](../azure-architectures-cpif-overview.md)
-
 [Diagrama de arquitectura de referencia de extensión del centro de datos](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 [Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

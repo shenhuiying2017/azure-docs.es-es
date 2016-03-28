@@ -46,4 +46,4 @@ Después de configurar las alertas, el centro de cuentas enumera y muestra cuán
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0316_2016-->

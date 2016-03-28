@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Privileged Identity Management de Azure: Inicio de incorporación de un rol de usuario"
-   description="Obtenga información sobre cómo agregar roles a identidades con privilegios con la extensión de Privileged Identity Management de Azure."
+   pageTitle="Privileged Identity Management de Azure AD: Inicio de la incorporación de un rol de usuario"
+   description="Aprenda a agregar roles a identidades con privilegios con la extensión de Privileged Identity Management de Azure Active Directory."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/08/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management de Azure: Incorporación o eliminación de un rol de usuario
+# Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario
 
 ## Adición o eliminación de un rol de usuario
-Hay varias maneras de navegar a la hoja **Agregar usuarios administrados** de la interfaz de PIM. A continuación se muestra la secuencia de clics para cada una:
+Hay varias maneras de navegar a la hoja **Agregar usuarios administrados** de la interfaz de Privileged Identity Management (PIM). A continuación se muestra la secuencia de clics para cada una:
 
 - Panel > Usuarios en roles de administrador > Agregar o quitar
 - Panel > Resumen de roles > Lista de todos los usuarios > Agregar o quitar
@@ -34,6 +34,9 @@ Una vez que haya navegado a la hoja **Agregar usuarios administrados**:
 4. Seleccione el usuario en la lista y haga clic en **Listo**.
 5. Haga clic en **Aceptar** para guardar la selección. El usuario que seleccionó aparecerá en la lista y el rol será temporal.
 6. Si quiere que el rol sea permanente, haga clic en el usuario en la lista. La información del usuario aparecerá en una nueva hoja. Seleccione **convertir en permanente** en el menú de información de usuario.
+
+    Debe hacerlo si el usuario no se puede registrar en Azure Multi-Factor Authentication (MFA) o si usa una cuenta Microsoft. Los administradores temporales deben registrarse en MFA durante la activación.
+
 7. Haga clic en **Activar** para iniciar una solicitud de activación de este rol para el usuario. En el campo de texto **Motivo de la solicitud**, escriba el motivo de la solicitud de activación. En este momento, el rol se activará automáticamente para este usuario y se enviará una notificación a los administradores globales.
 
 ## Eliminación de un usuario de un rol
@@ -46,4 +49,4 @@ Una vez que haya navegado a la hoja **Agregar usuarios administrados**:
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

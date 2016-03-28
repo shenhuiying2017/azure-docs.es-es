@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Administración de precios y cuotas para Application Insights
@@ -136,8 +136,8 @@ Si alcanza los valores de limitación, puede hacer alguna de estas cosas:
 El nivel de precios determina cuánto tiempo se mantienen los datos en el portal y, por tanto, cuánto tiempo hacia atrás puede establecer los intervalos de tiempo.
 
 
-* Puntos de datos sin procesar (es decir, instancias que puede inspeccionar en Búsqueda de diagnóstico): entre 7 y 30 días.
-* Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen en un minuto para 30 días, y en una hora o un día (en función del tipo) para al menos 13 meses.
+* Puntos de datos sin procesar (es decir, instancias que puede inspeccionar en Búsqueda de diagnóstico): entre 7 días.
+* Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen con un nivel de detalle de un minuto durante 30 días, y una hora o un día (en función del tipo) durante 90 días.
 
 
 ## Muestreo
@@ -173,4 +173,4 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

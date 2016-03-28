@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Recopilación, retención y almacenamiento de datos en Application Insights 
@@ -80,6 +80,8 @@ Si desarrolla la aplicación mediante Visual Studio, ejecútela en modo de depur
 
 ![](./media/app-insights-data-retention-privacy/06-vs.png)
 
+También existe una vista más legible en la ventana Diagnóstico.
+
 En el caso de las páginas web, abra la ventana de depuración del explorador.
 
 ![Presione F12 y abra la pestaña Red.](./media/app-insights-data-retention-privacy/08-browser.png)
@@ -94,9 +96,9 @@ Sí, es posible, solo es preciso escribir un [complemento de procesador de telem
 
 Depende de su [plan de precios](https://azure.microsoft.com/pricing/details/application-insights/).
 
-Puntos de datos sin procesar (es decir, elementos que se pueden examinar en búsqueda de diagnóstico): entre 7 y 30 días.
+Puntos de datos sin procesar (es decir, elementos que puede examinar en Búsqueda de diagnóstico): 7 días. Si necesita mantener los datos más tiempo, puede usar la [exportación continua](app-insights-export-telemetry.md) para copiarlos a una cuenta de almacenamiento.
 
-Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen en un minuto para 30 días, y en una hora o un día (en función del tipo) para al menos 13 meses.
+Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen con un nivel de detalle de un minuto durante 30 días, y una hora o un día (en función del tipo) durante al menos 90 días.
 
 
 ## ¿Quién puede acceder a los datos?
@@ -116,7 +118,7 @@ Microsoft usa los datos con el fin exclusivo de proporcionarle el servicio.
 
 #### ¿Pueden almacenarse en otro sitio, por ejemplo, en Europa? 
 
-* Todavía no. 
+* No en este momento. 
 
 ## ¿Están seguros mis datos?  
 
@@ -191,7 +193,7 @@ Acción del usuario | Clases de datos recopilados (ver tabla siguiente)
 [Agregar el SDK de Application Insights a un proyecto web de .NET][greenbrown] | ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Solicitudes<br/>**Excepciones**<br/>Sesión<br/>usuarios
 [Instalar monitor de estado en IIS][redfield]<br/>[Agregar la extensión AI a una aplicación web o máquina virtual de Azure][azure]|Dependencias<br/>ServerContext<br/>Inferidos<br/>Contadores de rendimiento
 [Agregar el SDK de Application Insights a una aplicación web de Java][java]|ServerContext<br/>Inferidos<br/>Solicitud<br/>Sesión<br/>usuarios
-[Agregar el SDK de JavaScript a una página web][client]|ClientContext <br/>Inferidos<br/>Página<br/>Rendimiento del cliente<br/>AJAX
+[Agregar el SDK de JavaScript a una página web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
 [Agregar el SDK a una aplicación de la Tienda Windows][windows]|DeviceContext<br/>Usuarios<br/>Datos de bloqueo
 [Definir propiedades predeterminadas][apiproperties]|**Propiedades** en todos los eventos estándar y personalizados
 [Llamar a TrackMetric][api]|Valores numéricos<br/>**Propiedades**
@@ -265,4 +267,4 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/08/2016"
+	ms.date="03/15/2016"
 	ms.author="heidist"/>
 
 #Búsqueda de Azure: ejemplos de código, demostraciones, vídeos y tutoriales
@@ -79,16 +79,14 @@ Vínculo|Fecha de publicación|Detalles
 Tutorial|Descripción
 -----------|-----------
 [Cómo usar la Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md)|Configurar y ejecutar una aplicación web de Visual Studio de ejemplo que se integra con la Búsqueda de Azure.
-[Búsqueda de datos de StackExchange mediante Búsqueda de Azure](search-howto-stackexchange-data.md)|Búsqueda de texto completo sobre datos StackExchange en una aplicación integrada con Búsqueda de Azure.
 [Cómo utilizar la Búsqueda de Azure con D3.js para crear visualizaciones de datos interactivas](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Entrada de blog y código de ejemplo que muestra cómo agregar capacidades de búsqueda visual a su aplicación personalizada.
 [Introducción a Búsqueda de Azure en NodeJS](search-get-started-nodejs.md)|Obtenga información acerca de cómo trabajar con la Búsqueda de Azure en NodeJS.
 [Introducción a Búsqueda de Azure en Java](search-get-started-java.md)|Tutorial para los programadores de Java que usan el servidor Eclipse y Apache Tomcat para crear y ejecutar una aplicación de ejemplo que usa la búsqueda de Azure.
 [Capacidades y escenarios de la Búsqueda de Azure](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|Entrada de blog post que trata los escenarios principales habilitados por la funcionalidad actual.
 [Cómo agregar sugerencias a las aplicaciones de búsqueda](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|Aprenda a implementar sugerencias, tarea comúnmente denominada Autocompletar. Esta demostración le guía por varios temas, incluida la creación de una aplicación MVC4 que aprovecha las sugerencias de la Búsqueda de Azure, el uso de la biblioteca de typeahead.js de Twitter para crear un componente eficaz de sugerencia automática en JavaScript y el uso de sugerencias aproximadas para que pueda devolver sugerencias aunque el usuario haya escrito la palabra incorrectamente.
 [Laboratorio virtual de TechNet: creación de una aplicación de Búsqueda de Microsoft Azure](http://go.microsoft.com/?linkid=9874663)|Laboratorio virtual que ofrece un entorno de desarrollo, herramientas, documentación y datos. Necesitará una cuenta de Azure, una suscripción de prueba o su suscripción de Azure personal, para completar el laboratorio.
-[Desarrollo de aplicaciones de búsqueda geoespacial usando Búsqueda de Azure](search-create-geospatial.md)|Usar mapas y coordenadas de Bing para admitir búsquedas geoespaciales.
 [Sincronizar datos de SQL Server con la Búsqueda de Azure](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|Entrada de blog en el que se explica cómo cargar datos de bases de datos relacionales de SQL Server en un índice de Búsqueda de Azure.
 [Tutorial de perfiles de puntuación](search-get-started-scoring-profiles.md)|Pruebe los perfiles de puntuación con una aplicación de consola.
 [Tutorial de la API de REST de administración de Búsqueda de Azure](search-get-started-management-api.md)|Cómo usar la API de REST de administración para aprovisionar el servicio y administrar claves de api de administrador o de consulta.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

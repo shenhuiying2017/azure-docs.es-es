@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Supervisión del almacenamiento en memoria de XTP | Microsoft Azure"
-	description="Estimar y supervisar el uso y la capacidad del almacenamiento en memoria de XTP; resolver el error de capacidad 41805"
+	description="Estimar y supervisar el uso y la capacidad del almacenamiento en memoria de XTP; resolver el error de capacidad 41823"
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
@@ -20,7 +20,7 @@
 
 # Supervisión del almacenamiento OLTP en memoria
 
-Al usar [In-Memory OLTP](sql-database-in-memory.md), los datos de tablas con optimización para memoria y las variables de tabla residen en el almacenamiento OLTP en memoria. Cada nivel de servicio Premium tiene un tamaño máximo de almacenamiento en memoria, que se documenta en el artículo [Niveles de servicio de Base de datos SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Una vez que se supera este límite, insertar y actualizar las operaciones pueden producir errores (con error 41805). En ese momento se necesita eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
+Al usar [In-Memory OLTP](sql-database-in-memory.md), los datos de tablas con optimización para memoria y las variables de tabla residen en el almacenamiento OLTP en memoria. Cada nivel de servicio Premium tiene un tamaño máximo de almacenamiento en memoria, que se documenta en el artículo [Niveles de servicio de Base de datos SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Una vez que se supera ese límite, las operaciones de inserción y actualización pueden empezar a producir errores (con el error 41823). En ese momento se necesita eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
 
 ## Determinación de si los datos se ajustan dentro del límite de almacenamiento en memoria
 
@@ -43,11 +43,11 @@ O bien, use la siguiente consulta para mostrar el uso del almacenamiento en memo
     select xtp_storage_percent from sys.dm_db_resource_stats
 
 
-## Corrección de situaciones de falta de memoria - Error 41805
+## Corrección de situaciones de falta de memoria (error 41823)
 
-Resultados de falta de memoria durante la ejecución en las operaciones de inserción, actualización y creación con el mensaje de error 41805.
+Si el sistema se queda sin memoria, las operaciones INSERT, UPDATE y CREATE no se llevarán a cabo, y se mostrará el mensaje de error 41823.
 
-El mensaje de error 41805 indica que las variables de tabla y las tablas optimizadas para memoria han superado el tamaño máximo.
+El mensaje de error 41823 indica que las variables de tabla y las tablas optimizadas para memoria han superado el tamaño máximo.
 
 Para resolver este error, haga uno de los siguientes:
 
@@ -58,4 +58,4 @@ Para resolver este error, haga uno de los siguientes:
 ## Pasos siguientes
 Obtenga más información acerca de [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

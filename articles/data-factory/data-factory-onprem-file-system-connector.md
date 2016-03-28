@@ -442,7 +442,7 @@ contraseña | Especifique la contraseña del usuario (identificador de usuario).
 encryptedCredential | Especifique las credenciales cifradas que puede obtener con la ejecución del cmdlet New-AzureRmDataFactoryEncryptValue<br/><br/>** Nota: ** tiene que usar Azure PowerShell, versión 0.8.14 o posterior para usar cmdlets como New-AzureRmDataFactoryEncryptValue con el parámetro type establecido en OnPremisesFileSystemLinkedService | No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato)
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servidor de archivos local. | Sí
 
-Vea [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para más información acerca de cómo configurar las credenciales para un origen de datos de Sybase local.
+Vea [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para más información acerca de cómo configurar las credenciales para un origen de datos de Sybase local.
 
 **Ejemplo: uso de nombre de usuario y contraseña en texto sin formato**
 	
@@ -608,4 +608,4 @@ false | mergeFiles | Para una carpeta de origen Folder1 con la siguiente estruct
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

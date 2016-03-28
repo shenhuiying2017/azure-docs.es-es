@@ -22,115 +22,115 @@ En este artículo se proporciona una introducción de alto nivel sobre las carac
 
 ## **General**
 
-1. **Encuentre SDK para las principales plataformas.** Encontrará SDK disponibles para las principales plataformas: iOS, Android, Windows universal, Windows Phone Silverlight, Kindle o Cordova. Proporcionamos SDK fáciles de integrar y documentación útil para que comience a trabajar en cualquier plataforma de su elección. 
+- **Encuentre SDK para las principales plataformas.** Encontrará SDK disponibles para las principales plataformas: iOS, Android, Windows universal, Windows Phone Silverlight, Kindle o Cordova. Proporcionamos SDK fáciles de integrar y documentación útil para que comience a trabajar en cualquier plataforma de su elección. 
 
-2. **Portal de SaaS independiente.** Le facilita el acceso al equipo de marketing, sin que tenga que pasar por el Portal de administración de Azure.
+- **Portal de SaaS independiente.** Le facilita el acceso al equipo de marketing, sin que tenga que pasar por el Portal de administración de Azure.
 
-3. **Disponibilidad de API de REST abiertas.** Para permitir la integración y la automatización con sistemas de CRM, CMS y TI mediante API de plataforma abierta, proporcionamos API de REST abiertas y SDK de .NET para que pueda usar estas API, que permiten una fácil integración y automatización con Mobile Engagement. Consulte [aquí] más información (mobile-engagement-api-authentication.md).
+- **Disponibilidad de API de REST abiertas.** Para permitir la integración y la automatización con sistemas de CRM, CMS y TI mediante API de plataforma abierta, proporcionamos API de REST abiertas y SDK de .NET para que pueda usar estas API, que permiten una fácil integración y automatización con Mobile Engagement. Consulte [aquí] más información (mobile-engagement-api-authentication.md).
 
-4. **Conector de Power BI disponible.** También puede extraer los gráficos de análisis clave a un panel de Power BI. Consulte esta [guía](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-azure-mobile/).
+- **Conector de Power BI disponible.** También puede extraer los gráficos de análisis clave a un panel de Power BI. Consulte esta [guía](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-azure-mobile/).
 
-5. **Garantía de seguridad y privacidad** Dado que Azure Mobile Engagement forma parte de la familia de Azure, sigue todos los procedimientos recomendados estándar de seguridad y privacidad que se esperan de un servicio en la nube.
+- **Garantía de seguridad y privacidad** Dado que Azure Mobile Engagement forma parte de la familia de Azure, sigue todos los procedimientos recomendados estándar de seguridad y privacidad que se esperan de un servicio en la nube.
 
 ## **Análisis accionable**
 
-1. **Supervise datos en tiempo real** Puede realizar un seguimiento del análisis en tiempo real con el módulo Supervisar, que muestra en tiempo real detalles como sesiones, eventos, errores y bloqueos. Eche un vistazo a este [artículo](mobile-engagement-concepts.md) para entender los conceptos básicos. 
+- **Supervise datos en tiempo real** Puede realizar un seguimiento del análisis en tiempo real con el módulo Supervisar, que muestra en tiempo real detalles como sesiones, eventos, errores y bloqueos. Eche un vistazo a este [artículo](mobile-engagement-concepts.md) para entender los conceptos básicos. 
 
 	![][1]
 
 	![][2]
 
-2. **Consulte datos agregados** También obtendrá una vista más completa de los datos de análisis agregados con nuestro módulo Análisis, que permite filtrar fácilmente los datos en función de la versión de la aplicación y los períodos de tiempo.
+- **Consulte datos agregados** También obtendrá una vista más completa de los datos de análisis agregados con nuestro módulo Análisis, que permite filtrar fácilmente los datos en función de la versión de la aplicación y los períodos de tiempo.
 
 	![][3]
 
-3. **Obtenga información sobre los usuarios y el patrón de retención.**
+- **Obtenga información sobre los usuarios y el patrón de retención.**
 
 	![][4]
 
-4. **Obtenga información sobre la procedencia de los usuarios y el tiempo que pasan en la pantalla.**
+- **Obtenga información sobre la procedencia de los usuarios y el tiempo que pasan en la pantalla.**
 
 	![][5]
 	
 	![][6]
 
-5. **Averigüe qué pantallas visitan los usuarios de la aplicación y cómo puede optimizar la ruta de acceso de usuario.** Esto les ayuda a detectar las pantallas y las características que usted desea que detecten.
+- **Averigüe qué pantallas visitan los usuarios de la aplicación y cómo puede optimizar la ruta de acceso de usuario.** Esto les ayuda a detectar las pantallas y las características que usted desea que detecten.
 
 	![][7]
 	
 	![][8]
 
-6. **Obtenga información sobre los eventos más frecuentes de su aplicación y entienda el proceso empresarial en función de dichos eventos.**
+- **Obtenga información sobre los eventos más frecuentes de su aplicación y entienda el proceso empresarial en función de dichos eventos.**
 
 	![][9]
 
-7. **Realice un seguimiento de los errores comunes y los bloqueos y obtenga información para el equipo de desarrollo.**
+- **Realice un seguimiento de los errores comunes y los bloqueos y obtenga información para el equipo de desarrollo.**
 
 	![][10]
 	
 	![][11]
 
-8. **Comprenda a qué dispositivos y redes acceden los usuarios desde su aplicación, con el fin de optimizarla.**
+- **Comprenda a qué dispositivos y redes acceden los usuarios desde su aplicación, con el fin de optimizarla.**
 
 	![][12]
 	
 ## **Notificaciones push específicas y personalizadas**
 
-1. **Cree un segmento basado en los datos recopilados.** Para ello, puede usar cualquiera de los datos de evento, sesión, actividad, trabajo, bloqueo, error o etiqueta.
+- **Cree un segmento basado en los datos recopilados.** Para ello, puede usar cualquiera de los datos de evento, sesión, actividad, trabajo, bloqueo, error o etiqueta.
 
 	![][13]
 
 	![][14]
 
-2. **Realice un seguimiento del historial de los segmentos creados día a día.**
+- **Realice un seguimiento del historial de los segmentos creados día a día.**
 
 	![][15]
 
-3. **Envíe notificaciones específicas.** Puede enviarlas usando los criterios más habituales, como los usuarios más antiguos o más recientes, o bien enviarlas a un segmento personalizado que haya creado.
+- **Envíe notificaciones específicas.** Puede enviarlas usando los criterios más habituales, como los usuarios más antiguos o más recientes, o bien enviarlas a un segmento personalizado que haya creado.
 
 	![][16]
 
-4. **Envíe notificaciones push fuera de aplicación o del sistema y basadas en HTML enriquecido, según corresponda en su caso.**
+- **Envíe notificaciones push fuera de aplicación o del sistema y basadas en HTML enriquecido, según corresponda en su caso.**
 
 	![][17]
 
 	![][18]
 
-5. **Oriente las notificaciones en aplicación para que se muestren en una pantalla o una actividad concretas de la aplicación.**
+- **Oriente las notificaciones en aplicación para que se muestren en una pantalla o una actividad concretas de la aplicación.**
 
 	![][19]
 
-6. **Especifique la acción que debe producirse cuando el usuario hace clic en una notificación.** Puede ser algo tan sencillo como abrir una página web o navegar dentro de la aplicación a una pantalla específica al hacer clic en la notificación.
+- **Especifique la acción que debe producirse cuando el usuario hace clic en una notificación.** Puede ser algo tan sencillo como abrir una página web o navegar dentro de la aplicación a una pantalla específica al hacer clic en la notificación.
 
 	![][20]
 	
-7. **Envíe notificaciones localizadas.** De esta forma, podrá dirigirse a los usuarios de la aplicación en el idioma en el que se sientan más a gusto.
+- **Envíe notificaciones localizadas.** De esta forma, podrá dirigirse a los usuarios de la aplicación en el idioma en el que se sientan más a gusto.
 
 	![][21]
 
-8. **Especifique una hora de inicio y de finalización para las campañas.**
+- **Especifique una hora de inicio y de finalización para las campañas.**
 
 	![][22]
 
-9. **Pruebe las notificaciones fácilmente.** Para ello, registre un dispositivo de prueba y envíe la notificación de prueba solo a este dispositivo.
+- **Pruebe las notificaciones fácilmente.** Para ello, registre un dispositivo de prueba y envíe la notificación de prueba solo a este dispositivo.
 
 	![][23]
 
-10. **Configure fácilmente una notificación en aplicación para que aparezca como una encuesta o un sondeo rápidos.**
+- **Configure fácilmente una notificación en aplicación para que aparezca como una encuesta o un sondeo rápidos.**
 
 	![][24]
 	
-11. **Obtenga estadísticas sobre las campañas de inserción para las notificaciones.** De esta forma, se hará una idea del grado de éxito de sus notificaciones.
+- **Obtenga estadísticas sobre las campañas de inserción para las notificaciones.** De esta forma, se hará una idea del grado de éxito de sus notificaciones.
 
 	![][25]
 
-12. **Personalice fácilmente sus notificaciones e imprímales carácter mediante etiquetas o información de aplicación y emojis.**
+- **Personalice fácilmente sus notificaciones e imprímales carácter mediante etiquetas o información de aplicación y emojis.**
 
 	![][26]
 
 	![][27]
 
-13. **Establezca límites para las notificaciones push para no enviar notificaciones no deseadas a los usuarios.** Así podrá evitar enviar demasiadas notificaciones push a los usuarios de la aplicación, ya que podrían considerarlas no deseadas. Para ello resulta útil la funcionalidad para limitar las notificaciones push, ya que permite configurar los límites de inserción para cada segmento.
+- **Establezca límites para las notificaciones push para no enviar notificaciones no deseadas a los usuarios.** Así podrá evitar enviar demasiadas notificaciones push a los usuarios de la aplicación, ya que podrían considerarlas no deseadas. Para ello resulta útil la funcionalidad para limitar las notificaciones push, ya que permite configurar los límites de inserción para cada segmento.
 
 	![][28]
 
@@ -164,4 +164,4 @@ En este artículo se proporciona una introducción de alto nivel sobre las carac
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

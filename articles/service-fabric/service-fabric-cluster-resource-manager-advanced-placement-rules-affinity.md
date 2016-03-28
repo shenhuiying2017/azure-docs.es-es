@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Service Fabric Cluster Resource Manager: afinidad"
+   pageTitle="Administrador de recursos de clúster de Service Fabric: afinidad | Microsoft Azure"
    description="Información general sobre las reglas y directivas de colocación adicionales para los servicios de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Afinidad
+# Configuración y uso de la afinidad de servicio en Service Fabric
 
 La afinidad es una de esas cosas que, al menos a primera vista, no parece muy lógico en un entorno de microservicios. Esto se debe a que no tiene mucho sentido en un entorno de microservicios. La afinidad es un control que se proporciona principalmente para facilitar la transición de aplicaciones grandes y monolíticas al mundo de la nube y los microservicios.
 
@@ -48,25 +48,24 @@ La afinidad se representa mediante uno de varios esquemas de correlación y tien
 
 ![Modos de afinidad y consecuencias][Image1]
 
-#### Estado de mejor esfuerzo deseado
+### Estado de mejor esfuerzo deseado
 Existen algunas diferencias entre las arquitecturas monolíticas y las de afinidad. Casi todas se reducen al hecho de que una relación de afinidad es la mejor opción: como son fundamentalmente servicios diferentes, pueden producir errores de forma independiente, por poner un ejemplo. Otras cosas pueden hacer que las diferentes réplicas del servicio se separen, como las limitaciones de capacidad.
 
 
-#### Cadenas frente a estrellas
+### Cadenas frente a estrellas
 Actualmente no es posible crear cadenas de relaciones de afinidad. Esto significa que un servicio que es un elemento secundario de una relación de afinidad no puede ser un elemento primario de otra relación de afinidad. Como resultado, si desea crear este tipo de relación, debe crearla como una estrella, en vez de como una cadena. Para ello, haga que el elemento secundario más bajo se convierta en el elemento primario del elemento secundario "central".
 
 ![Cadenas frente a estrellas en el contexto de las relaciones de afinidad][Image2]
 
 Otra cuestión que debe tener en cuenta sobre las relaciones de afinidad en la actualidad es que son direccionales. Se trata de algo sutil, pero en realidad significa que la regla de "afinidad" solo requiere que el elemento secundario se encuentre en el mismo lugar que el elemento primario. En caso de que el elemento primario deba conmutar por error repentinamente a otro nodo (o cualquier otra acción limitada que obligue a mover solo el elemento primario), Resource Manager no pensará que se ha producido un error hasta que se dé cuenta de que el elemento secundario no está ubicado junto a un elemento primario; la relación no se aplicará inmediatamente.
 
-#### Compatibilidad con particiones
+### Compatibilidad con particiones
 Lo último que debe tener en cuenta sobre la afinidad es que no se admiten relaciones de afinidad en caso de que el elemento primario esté particionado. Esto es algo que se podría admitir finalmente, pero actualmente no es el caso.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
-- [Obtenga información sobre la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md)
+- Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones del Administrador de recursos de clúster disponibles. [Más información sobre cómo configurar los servicios](service-fabric-cluster-resource-manager-configure-services.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

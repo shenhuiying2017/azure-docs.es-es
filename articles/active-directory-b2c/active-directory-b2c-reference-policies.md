@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/15/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: marco de directiva extensible
@@ -119,5 +119,27 @@ Para habilitar la edición de perfiles en su aplicación, deberá crear una dire
 
     > [AZURE.NOTE]
     Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+    
+## Crear una directiva de restablecimiento de contraseña
 
-<!---HONumber=AcomDC_0224_2016-->
+Para habilitar en su aplicación el restablecimiento de contraseña específica, debe crear una directiva de restablecimiento de contraseña. Tenga en cuenta que la opción de restablecimiento de contraseña de todos los inquilinos especificada [aquí](active-directory-b2c-reference-sspr.md) sigue siendo aplicable para las directivas de inicio de sesión. Esta directiva describe las experiencias que tendrán los consumidores durante el restablecimiento de contraseña y el contenido de los tokens que recibirá la aplicación al finalizar correctamente.
+
+1. [Siga estos pasos para desplazarse a la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Haga clic en **Directivas de restablecimiento de contraseña**.
+3. Haga clic en **+Agregar** en la parte superior de la hoja.
+4. El **Nombre** determina el nombre de la directiva de restablecimiento de contraseña usada por su aplicación. Por ejemplo, escriba "SSPR".
+5. Haga clic en **Proveedores de identidades** y seleccione "Restablecer la contraseña usando la dirección de correo electrónico". Haga clic en **Aceptar**.
+6. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens a su aplicación después de una experiencia de restablecimiento de contraseña correcta. Por ejemplo, seleccione "Id. de objeto del usuario".
+7. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C\_1\_SSPR**" (el fragmento **B2C\_1\_** se agrega automáticamente) en la hoja **Directivas de restablecimiento de contraseña**.
+8. Para abrir la directiva, haga clic en "**B2C\_1\_SSPR**".
+9. Seleccione "Aplicación Contoso B2C" en el menú desplegable **Aplicaciones** y `https://localhost:44321/` en el menú desplegable **Dirección URL de respuesta/URI de redireccionamiento**.
+10. Haga clic en **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá recorrer la experiencia del usuario de restablecimiento de contraseña en su aplicación.
+
+    > [AZURE.NOTE]
+    Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+
+## Recursos adicionales
+
+- [Configuración de token, sesión e inicio de sesión único](active-directory-b2c-token-session-sso.md).
+
+<!---HONumber=AcomDC_0316_2016-->
