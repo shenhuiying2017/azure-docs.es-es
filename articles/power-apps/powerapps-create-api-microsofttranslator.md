@@ -27,7 +27,7 @@ Agregue la API de Microsoft Translator al entorno del Servicio de aplicaciones d
 
 ## Crear la API en el portal de Azure
 
-1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@*SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
+1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
  
 2. Seleccione **Examinar** en la barra de tareas:  
 ![][7]
@@ -41,7 +41,7 @@ Agregue la API de Microsoft Translator al entorno del Servicio de aplicaciones d
 5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:  
 ![Add API][2]
 
-6. Escriba un **nombre** descriptivo para la API.  
+6. Escriba un **nombre** descriptivo para la API.
 	
 7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Microsoft Translator**:  
 ![seleccionar la api de Microsoft Translator][3]
@@ -49,7 +49,7 @@ Agregue la API de Microsoft Translator al entorno del Servicio de aplicaciones d
 8. Seleccione **Configuración: Configure los ajustes necesarios**:  
 ![establecer la configuración de la API de Microsoft Translator][4]
 
-9. Escriba el *Id. de cliente* y el *Secreto de cliente* de la aplicación Microsoft Translator. Si no dispone de estos, consulte la sección "Registrar una aplicación Microsoft Translator para su uso con PowerApps" en este tema para crear el identificador y los valores secretos que necesita. 
+9. Escriba el *Id. de cliente* y el *Secreto de cliente* de la aplicación Microsoft Translator. Si no dispone de estos, consulte la sección "Registrar una aplicación Microsoft Translator para su uso con PowerApps" en este tema para crear el identificador y los valores secretos que necesita.
 
 9. Seleccione **Aceptar** para completar los pasos.
 
@@ -58,14 +58,14 @@ Cuando termine, se agregará una nueva API de Microsoft Translator al entorno de
 
 ## Opcional: registrar una aplicación Microsoft Translator para su uso con PowerApps
 
-Si no tiene una aplicación Microsoft Translator existente con los valores de Id. y secreto, use los pasos siguientes para crear la aplicación y obtenga los valores que necesita. 
+Si no tiene una aplicación Microsoft Translator existente con los valores de Id. y secreto, use los pasos siguientes para crear la aplicación y obtenga los valores que necesita.
 
 
 1. Vaya a la [página del programador de Azure Data Market][5] e inicie sesión con su Cuenta de Microsoft. 
 
 2. Seleccione **Registrar**.
 
-3. En **Registrar su aplicación**:  
+3. En **Registrar su aplicación**:
 
 	1. Escriba un valor en **Id. de cliente**.  
 	2. Escriba el **nombre** de la aplicación.  
@@ -75,14 +75,14 @@ Si no tiene una aplicación Microsoft Translator existente con los valores de Id
 
 	![Registrar su aplicación][6]
 
-Se creará una nueva aplicación Microsoft Translator. Puede usar esta aplicación en la configuración de la API de Microsoft Translator en el Portal de Azure. 
+Se creará una nueva aplicación Microsoft Translator. Puede usar esta aplicación en la configuración de la API de Microsoft Translator en el Portal de Azure.
 
 ## Visualización de las API de REST
 
 Referencia de [API de REST de Microsoft Translator](../connectors/create-api-microsofttranslator.md).
 
 ## Resumen y pasos siguientes
-En este tema, ha agregado la API de Microsoft Translator a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones: 
+En este tema, ha agregado la API de Microsoft Translator a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
 
 [Agregar una conexión y conceder acceso a los usuarios](powerapps-manage-api-connection-user-access.md)
 
@@ -97,6 +97,6 @@ En este tema, ha agregado la API de Microsoft Translator a su empresa PowersApps
 [7]: ./media/powerapps-create-api-microsofttranslator/browseall.png
 [8]: ./media/powerapps-create-api-microsofttranslator/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
 
 

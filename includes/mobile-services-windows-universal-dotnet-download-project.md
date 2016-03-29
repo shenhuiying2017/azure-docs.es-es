@@ -1,7 +1,7 @@
 
 Este tutorial se basa en la [aplicación GetStartedWithMobileServices](http://go.microsoft.com/fwlink/p/?LinkID=510826), que es un proyecto de aplicación universal de Windows en Visual Studio 2013. La interfaz de usuario de esta aplicación es idéntica a la de la aplicación generada por el inicio rápido de Servicios móviles, con la excepción de que los elementos agregados se almacenan localmente en la memoria.
 
-1. Descargue la versión C# de la aplicación de muestra GetStartedWithMobileServices desde el [sitio de ejemplos de código para desarrolladores]. 
+1. Descargue la versión C# de la aplicación de muestra GetStartedWithMobileServices desde el [sitio de ejemplos de código para desarrolladores](http://go.microsoft.com/fwlink/p/?LinkID=510826).
 
 2. En Visual Studio 2013, abra el proyecto descargado y examine el archivo MainPage.xaml.cs encontrado en la carpeta de proyecto GetStartedWithData.Shared.
 
@@ -21,4 +21,4 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices](http://go
 
 6. Repita los pasos 3 y 4 para comprobar que la muestra se comporta del mismo modo.
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->
