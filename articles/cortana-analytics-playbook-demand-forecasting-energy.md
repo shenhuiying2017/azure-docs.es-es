@@ -296,7 +296,7 @@ En esta sección enumeramos algunas de las características de datos comunes que
 
 **Característica dependiente:** la característica dependiente es la columna de datos que deseamos que nuestro modelo prediga. Con el [aprendizaje automático supervisado](https://en.wikipedia.org/wiki/Supervised_learning), primero es preciso que entrenemos el modelo mediante las características dependientes (que también se denominan etiquetas). Esto permite que el modelo aprenda los patrones de los datos asociados con la característica dependiente. En previsión de la demanda de energía normalmente deseamos predecir la demanda real y, por tanto, la usaríamos como característica dependiente.
 
-**Tratamiento de los valores que faltan:** durante la fase de preparación de los datos, necesitaríamos determinar la mejor estrategia para tratar los valores que faltan. Esto se realiza principalmente mediante los diversos [métodos de imputación de datos] estadísticos(https://en.wikipedia.org/wiki/Imputation_(statistics)). En el caso de una previsión de la demanda de energía, lo habitual es que los valores que faltan se imputen mediante una media móvil de los puntos de datos disponibles anteriores.
+**Tratamiento de los valores que faltan:** durante la fase de preparación de los datos, necesitaríamos determinar la mejor estrategia para tratar los valores que faltan. Esto se realiza principalmente mediante los diversos [métodos de imputación de datos](https://en.wikipedia.org/wiki/Imputation_(statistics)) estadísticos. En el caso de una previsión de la demanda de energía, lo habitual es que los valores que faltan se imputen mediante una media móvil de los puntos de datos disponibles anteriores.
 
 **Normalización de datos:** la normalización de datos es otro tipo de transformación que se usa para poner todos los datos numéricos, como la previsión de la demanda, en una escala similar. Esto es algo que suele ayudar a mejorar la precisión del modelo. Para realizar dicha normalización, lo habitual es dividir el valor real entre el intervalo de los datos. Esto reducirá verticalmente el valor original a un intervalo menor, normalmente entre -1 y 1.
 
@@ -384,4 +384,4 @@ El siguiente diagrama muestra una arquitectura típica basada Cortana Analytics 
 
 Para más información tanto acerca de cada uno de los componentes como de la arquitectura completa, consulte la plantilla de soluciones energéticas.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->
