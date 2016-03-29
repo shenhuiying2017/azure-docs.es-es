@@ -312,7 +312,7 @@ Para implementar y distribuir en Azure una aplicación de niveles múltiples bas
 
 La tabla siguiente proporciona una comparación del desarrollo web tradicional con Servicios en la nube de Azure y Aplicaciones web de Azure con respecto a SQL Server en Máquinas virtuales de Azure. La tabla incluye Aplicaciones web de Azure, ya que SQL Server se puede usar en VM de Azure como origen de datos de Aplicaciones web de Azure a través de su dirección IP virtual pública o el nombre DNS.
 
-|Desarrollo web tradicional en Máquinas virtuales de Azure|Servicios en la nube de Azure|Hospedaje web con Aplicaciones web de Azure|
+||Desarrollo web tradicional en Máquinas virtuales de Azure|Servicios en la nube de Azure|Hospedaje web con Aplicaciones web de Azure|
 |---|---|---|---|
 |**Migración de aplicaciones desde el sistema local**|Las aplicaciones existentes tal cual.|Las aplicaciones necesitan roles web y de trabajo.|Las aplicaciones existentes tal cual, pero adecuadas para aplicaciones web independientes y servicios web que requieren una escalabilidad rápida.|
 |**Desarrollo e implementación**|Visual Studio, WebMatrix, Visual Web Developer, Web Deploy, FTP, TFS, Administrador de IIS y PowerShell.|Visual Studio, SDK de Azure, TFS y PowerShell. Cada servicio en la nube tiene dos entornos en los que se pueden implementar el paquete y la configuración del servicio: almacenamiento provisional y producción. Puede implementar un servicio en la nube en el entorno de ensayo para probarlo antes de pasar a producción.|Visual Studio, WebMatrix, Visual Web Developer, FTP, GIT, BitBucket, CodePlex, DropBox, GitHub, Mercurial, TFS, Web Deploy y PowerShell.|
