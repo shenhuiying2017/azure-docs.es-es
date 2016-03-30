@@ -25,7 +25,7 @@ Agregue la API de SQL Server al entorno del Servicio de aplicaciones de su organ
 
 ## Crear la API en el portal de Azure
 
-1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa. 
+1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@*SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa. 
 2. Seleccione **Examinar** en la barra de tareas: ![][14]  
 3. En la lista, puede desplazarse para encontrar PowerApps o escribir en *powerapps*: ![][15]  
 4. En **PowerApps**, seleccione **Administrar APIs**.
@@ -80,4 +80,4 @@ En este tema, ha agregado la API de SQL Server para conectarse a SQL Server loca
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

@@ -27,7 +27,7 @@ Agregue la API de usuarios de Office 365 al entorno del Servicio de aplicaciones
 
 ## Crear la API en el portal de Azure
 
-1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
+1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@*SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
  
 2. Seleccione **Examinar** en la barra de tareas:  
 ![][14]
@@ -93,7 +93,7 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 ![Aplicación AAD de Contoso][10]
 
 8. Establezca la **Dirección URL de respuesta** de la sección _OAuth 2_ en la dirección URL de redireccionamiento que recibió cuando se agregó la nueva API de usuarios de Office 365 en el Portal de Azure (en este tema). Seleccione **Agregar una aplicación**:  
-[Configurar aplicación AAD de Contoso][11]
+![Configurar aplicación AAD de Contoso][11]
 
 9. En la ventana **Permisos para otras aplicaciones**, seleccione **API unificada de Office 365 (vista previa)** y seleccione **Aceptar**.
 
@@ -128,4 +128,4 @@ En este tema ha agregado la API de Usuarios de Office 365 a su empresa PowersApp
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
