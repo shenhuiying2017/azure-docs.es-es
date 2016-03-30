@@ -79,7 +79,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 1. Navegue al proyecto de cliente en la solución del servicio móvil, en Visual Studio o en Xamarin Studio.
 
-2. Presione el botón **Run** para compilar el proyecto e iniciar la aplicación. Se le solicitará que seleccione un emulador o un dispositivo USB conectado.
+2. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación. Se le solicitará que seleccione un emulador o un dispositivo USB conectado.
 
 	> [AZURE.NOTE] Para poder ejecutar el proyecto en el emulador de Android, debe definir al menos un dispositivo virtual de Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.
 

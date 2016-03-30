@@ -40,7 +40,8 @@ Las reglas de grupo de seguridad de red contienen las siguientes propiedades:
 |---|---|---|---|
 |**Name**|Nombre de la regla|Debe ser único dentro de la región.<br/>Puede contener letras, números, caracteres de subrayado, puntos y guiones.<br/>Debe comenzar con una letra o un número.<br/>Debe terminar con una letra, un número o un carácter de subrayado.<br/>Puede tener hasta 80 caracteres.|Puede tener varias reglas dentro de un grupo de seguridad de red, de modo que asegúrese de seguir una convención de nomenclatura que le permita identificar la función de cada una.|
 |**Protocolo**|Protocolo que debe coincidir con la regla|TCP, UDP o *.|El uso de * como protocolo incluye ICMP (solo tráfico este oeste), así como UDP y TCP, y puede reducir el número de reglas necesarias. <br/>Al mismo tiempo, el uso de * podría ser un enfoque demasiado amplio, así que asegúrese de usarlo solamente cuando sea realmente necesario.|
-|**Intervalo de puertos de origen**|Intervalo del puerto de origen que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65635) o * (para todos los puertos).|Los puertos de origen podrían ser transitorios. A menos que el programa de cliente use un puerto específico, use "*" en la mayoría de los casos.<br/>Pruebe a usar intervalos de puertos tanto como sea posibles para evitar tener que usar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar por una coma |**Intervalo de puertos de destino**|Intervalo del puerto de destino que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65535) o * (para todos los puertos).|Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que usar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar por una coma
+|**Intervalo de puertos de origen**|Intervalo del puerto de origen que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65635) o * (para todos los puertos).|Los puertos de origen podrían ser transitorios. A menos que el programa de cliente use un puerto específico, use "*" en la mayoría de los casos.<br/>Pruebe a usar intervalos de puertos tanto como sea posibles para evitar tener que usar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar por una coma 
+|**Intervalo de puertos de destino**|Intervalo del puerto de destino que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65535) o * (para todos los puertos).|Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que usar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar por una coma
 |**Prefijo de dirección de origen**|Prefijo o etiqueta de la dirección de origen que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#Default-Tags) o * (para todas las direcciones).|Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas.|
 |**Prefijo de dirección de destino**|Prefijo o etiqueta de la dirección de destino que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#Default-Tags) o * (para todas las direcciones).|Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas.|
 |**Dirección**|Dirección del tráfico que debe coincidir con la regla|entrada o salida|Las reglas de entrada y salida se procesan por separado, en función de la dirección.|
@@ -249,9 +250,9 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP de Internet|Permitir|100|INTERNET|**|*|3389|TCP|
+|permitir RDP de Internet|Permitir|100|INTERNET|*|\*|3389|TCP|
 
->[AZURE.NOTE] Observe que el intervalo de direcciones de origen para esta regla es **Internet** y no la dirección IP virtual del equilibrador de carga; el puerto de origen es *****, no 500001. No confunda reglas NAT, reglas de equilibrio de carga y reglas de grupo de seguridad de red. Las reglas de grupo de seguridad de red siempre se relacionan con el origen y el destino final de tráfico, **NO** con el equilibrador de carga entre los dos.
+>[AZURE.NOTE] Observe que el intervalo de direcciones de origen para esta regla es **Internet** y no la dirección IP virtual del equilibrador de carga; el puerto de origen es **\***, no 500001. No confunda reglas NAT, reglas de equilibrio de carga y reglas de grupo de seguridad de red. Las reglas de grupo de seguridad de red siempre se relacionan con el origen y el destino final de tráfico, **NO** con el equilibrador de carga entre los dos.
 
 ### Grupo de seguridad de red para las NIC de administración en BackEnd
 
@@ -259,7 +260,7 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP de front-end|Permitir|100|192\.168.1.0/24|**|*|3389|TCP|
+|permitir RDP de front-end|Permitir|100|192\.168.1.0/24|*|\*|3389|TCP|
 
 ### Grupo de seguridad de red para las NIC de acceso a la base de datos en el back-end
 
@@ -267,7 +268,7 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir SQL del front-end|Permitir|100|192\.168.1.0/24|**|*|1433|TCP|
+|permitir SQL del front-end|Permitir|100|192\.168.1.0/24|*|\*|1433|TCP|
 
 Puesto que algunos de los grupos de seguridad de red mencionados anteriormente deben estar asociados a NIC individuales, este escenario se deberá implementar como una implementación del Administrador de recursos. Observe cómo se combinan las reglas para el nivel de subred y NIC, según cómo deban aplicarse.
 
