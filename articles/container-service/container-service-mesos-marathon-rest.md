@@ -46,9 +46,9 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Implementación de un contenedor de Docker
+## Implementación de un contenedor con formato Docker
 
-Los contenedores de Docker se implementan a través de Marathon mediante un archivo json que describe la implementación deseada. En el ejemplo siguiente, se implementará el contenedor nginx y se enlazará el puerto 80 del agente de Mesos al puerto 80 del contenedor.
+Los contenedores con formato Docker se implementan a través de Marathon mediante un archivo json que describe la implementación deseada. En el ejemplo siguiente, se implementará el contenedor nginx y se enlazará el puerto 80 del agente de Mesos al puerto 80 del contenedor.
 
 ```json
 {
@@ -69,7 +69,7 @@ Los contenedores de Docker se implementan a través de Marathon mediante un arch
 }
 ```
 
-Para implementar un contenedor de Docker, cree su propio archivo json o utilice el ejemplo proporcionado aquí: [Demostración de ACS de Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json) y almacénelo en una ubicación accesible. A continuación, ejecute el siguiente comando, especificando el nombre del archivo json, para implementar el contenedor.
+Para implementar un contenedor con formato Docker, cree su propio archivo json o utilice el ejemplo proporcionado aquí: [Demostración de ACS de Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json) y almacénelo en una ubicación accesible. A continuación, ejecute el siguiente comando, especificando el nombre del archivo json, para implementar el contenedor.
 
 ```
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
@@ -87,7 +87,7 @@ Ahora, si consulta Marathon sobre las aplicaciones, esta nueva aplicación se mo
 curl localhost/marathon/v2/apps
 ```
 
-## Escalado de un contenedor de Docker
+## Escalado de los contenedores
 
 La API de Marathon también puede utilizarse para escalar horizontalmente implementaciones de aplicaciones o reducirlas verticalmente. En el ejemplo anterior se implementó una instancia de una aplicación. Vamos a escalar esta instancia horizontalmente a tres instancias. Para ello, cree un archivo json con el siguiente texto json y almacénelo en una ubicación accesible.
 
@@ -119,7 +119,7 @@ Para recopilar información sobre el clúster de Mesos, como los nombres y los e
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Los contenedores de Docker se implementan a través de Marathon mediante un archivo json que describe la implementación deseada. En el ejemplo siguiente, se implementará el contenedor nginx y se enlazará el puerto 80 del agente de Mesos al puerto 80 del contenedor.
+Los contenedores con formato Docker se implementan a través de Marathon mediante un archivo json que describe la implementación deseada. En el ejemplo siguiente, se implementará el contenedor nginx y se enlazará el puerto 80 del agente de Mesos al puerto 80 del contenedor.
 
 ```json
 {
@@ -160,4 +160,4 @@ Ejecute el comando siguiente para escalar la aplicación horizontalmente.
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

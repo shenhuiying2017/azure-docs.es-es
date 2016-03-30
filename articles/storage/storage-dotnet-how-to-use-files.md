@@ -210,8 +210,9 @@ Cuando un cliente accede al almacenamiento de archivos, la versión SMB que se u
 
 Para mostrar cómo montar un recurso compartido de archivos de Azure, ahora crearemos una máquina virtual de Azure en la que se ejecuta Windows y accederemos a ella de forma remota para montar el recurso compartido.
 
-1. En primer lugar, cree una máquina virtual de Azure nueva según las instrucciones de [Creación de una máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-tutorial.md).
-2. A continuación, acceda de forma remota a la máquina virtual según las instrucciones de [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-arm-log-on-windows-vm.md) (Inicio de sesión en una máquina virtual de Windows mediante el Portal de Azure).
+
+1. En primer lugar, cree una máquina virtual de Azure nueva según las instrucciones de [Creación de una máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+2. Después, acceda de forma remota a la máquina virtual según las instrucciones de [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-log-on.md) (Inicio de sesión en una máquina virtual de Windows mediante el Portal de Azure).
 3. Abra una ventana de PowerShell en la máquina virtual.
 
 ### Persistencia de las credenciales de la cuenta de almacenamiento para la máquina virtual
@@ -646,4 +647,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

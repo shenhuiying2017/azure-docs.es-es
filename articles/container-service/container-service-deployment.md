@@ -45,7 +45,7 @@ AGENTVMSIZE | Especifica el tamaño de las máquinas virtuales del agente. Tenga
 ADMINUSERNAME | Este es el nombre de usuario que se usará para una cuenta en cada una de las máquinas virtuales y los conjuntos de escalado de máquinas virtuales en el clúster de ACS.
 ORCHESTRATORTYPE| Seleccione el orquestador que desea usar en el clúster de ACS.
 MASTERCOUNT | Este es el número de máquinas virtuales para configurar como patrones para el clúster. Puede seleccionar 1, pero esto no proporcionará ningún resistencia en el clúster y solo se recomienda para la realización de pruebas. El número recomendado para un clúster de producción sería 3 o 5. 
-SSHRSAPUBLICKEY | Es necesario utilizar SSH para la autenticación con las máquinas virtuales. Es aquí donde agrega la clave pública. Es muy importante que tenga cuidado al pegar el valor de la clave en este cuadro. Algunos editores insertarán saltos de línea en el contenido, esto partirá la clave. Compruebe que la clave no tiene saltos de línea y que incluye el prefijo 'ssh-rsa' y el sufijo 'username@domain'. Debería ser algo similar a ' ssh rsa AAAAB3Nz... SNIPPEDCONTENT... UcyupgH azureuser@linuxvm'. Si necesita crear una clave SSH puede encontrar instrucciones para [Windows](../virtual-machines/virtual-machines-windows-use-ssh-key.md) y [Linux](../virtual-machines/virtual-machines-linux-use-ssh-key.md) en el sitio de documentación de Azure.
+SSHRSAPUBLICKEY | Es necesario utilizar SSH para la autenticación con las máquinas virtuales. Es aquí donde agrega la clave pública. Es muy importante que tenga cuidado al pegar el valor de la clave en este cuadro. Algunos editores insertarán saltos de línea en el contenido, esto partirá la clave. Compruebe que la clave no tiene saltos de línea y que incluye el prefijo 'ssh-rsa' y el sufijo 'username@domain'. Debería ser algo similar a ' ssh rsa AAAAB3Nz... SNIPPEDCONTENT... UcyupgH azureuser@linuxvm'. Si necesita crear una clave SSH, puede encontrar instrucciones para [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) y [Linux](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) en el sitio de documentación de Azure.
   
 Una vez que haya establecido los valores adecuados para los parámetros, haga clic en Aceptar. A continuación, proporcione un nombre de grupo de recursos, seleccione una región y revise y acepte los términos legales.
 
@@ -113,7 +113,7 @@ Esta versión del comando requiere que el usuario defina los parámetros de form
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
  ```
 
-También puede proporcionar un archivo de parámetros con el formato json usando el conmutador `-e`:
+También puede proporcionar un archivo de parámetros con formato json mediante el modificador `-e`:
 
  ```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON'
@@ -161,7 +161,7 @@ Si está familiarizado con PowerShell, sabe que puede recorrer los parámetros d
 A continuación se muestra el comando completo con parámetros incluidos. Puede proporcionar sus propios valores para los nombres de los recursos.
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
+New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
  
 ## Pasos siguientes
@@ -173,4 +173,4 @@ Ahora que tiene un clúster funcionando, consulte los siguientes documentos para
 
  
 
-<!----HONumber=AcomDC_0224_2016--->
+<!---HONumber=AcomDC_0323_2016-->

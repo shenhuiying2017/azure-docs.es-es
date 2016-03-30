@@ -23,7 +23,7 @@
 **Base de datos única**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-get-started.md)
+- [Portal de Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -34,7 +34,7 @@ Este tutorial de Base de datos SQL muestra cómo crear una primera Base de datos
 
 Necesitará una cuenta de Azure y una suscripción antes de empezar. Si no tiene una, suscríbase para [una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE] Este tutorial de Base de datos SQL describe la configuración de la base de datos mediante el sistema de administración de base de datos relacional de Microsoft (RDBMS) en la nube, Base de datos SQL de Azure. Otra opción consiste en ejecutar un servidor SQL Server en una máquina virtual de Azure. Consulte en [Descripción de Base de datos SQL de Azure y SQL Server en Máquinas virtuales de Azure](data-management-azure-sql-database-and-sql-server-iaas.md) una comparación rápida, o bien consulte [Aprovisionamiento de una máquina virtual de SQL Server](virtual-machines-provision-sql-server.md) para comenzar a usar una máquina virtual.
+> [AZURE.NOTE] Este tutorial de Base de datos SQL describe la configuración de la base de datos mediante el sistema de administración de base de datos relacional de Microsoft (RDBMS) en la nube, Base de datos SQL de Azure. Otra opción consiste en ejecutar un servidor SQL Server en una máquina virtual de Azure. Consulte en [Descripción de Base de datos SQL de Azure y SQL Server en Máquinas virtuales de Azure](data-management-azure-sql-database-and-sql-server-iaas.md) una comparación rápida, o bien consulte [Aprovisionamiento de una máquina virtual de SQL Server](../virtual-machines/virtual-machines-windows-classic-portal-sql.md) para comenzar a usar una máquina virtual.
 
 ## Paso 1: Iniciar sesión y comenzar a configurar la Base de datos SQL.
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
@@ -117,4 +117,4 @@ Ahora que completó este tutorial de Base de datos SQL y que creó una base de d
 
 - Si desea mover las bases de datos de SQL Server locales a Azure, consulte [Migrar una base de datos a Base de datos SQL de Azure](sql-database-cloud-migrate.md) para obtener más información.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

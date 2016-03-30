@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/14/2016" 
+	ms.date="03/17/2016" 
 	ms.author="cephalin"
 />
 	
 # Introducción a las aplicaciones web en el Servicio de aplicaciones de Azure
 
-Este tutorial le ayuda a empezar a trabajar rápidamente con la implementación de aplicaciones web en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). Con apenas intervención de su parte, podrá:
+Este tutorial le ayuda a empezar a trabajar rápidamente con la implementación de aplicaciones web en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). Con poca intervención por su parte, podrá:
 
 - Implementar una aplicación web de ejemplo (elija entre ASP.NET, PHP, Node.js, Java o Python).
 - Visualizar la aplicación en ejecución en cuestión de segundos.
@@ -34,8 +34,8 @@ Para completar este tutorial, necesita:
 
 - Git. Puede descargar la binarios de instalación [aquí](http://www.git-scm.com/downloads). Debería poder ejecutar `git --version` desde el terminal de línea de comandos de su elección. 
 - Conocimientos básicos de Git.
-- CLI de Azure. Las instrucciones de instalación se pueden encontrar [aquí](../xplat-cli-install.md).
-- Una cuenta de Microsoft Azure. Si aún no tiene una, puede [registrarse en una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o bien [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- CLI de Azure. Las instrucciones de instalación se pueden encontrar [aquí](../xplat-cli-install.md). Debería poder ejecutar `azure --version` desde el terminal de línea de comandos de su elección.
+- Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o bien [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Para ver el Servicio de aplicaciones de Azure en acción antes de registrarse en una cuenta de Azure, vaya a la [prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí podrá crear inmediatamente una aplicación de inicio de corta duración en el Servicio de aplicaciones. No se requiere tarjeta de crédito y no se establece ningún compromiso.
 
@@ -43,21 +43,21 @@ Para completar este tutorial, necesita:
 
 Vamos a implementar una aplicación web en el Servicio de aplicaciones de Azure.
 
-1. Abra un símbolo del sistema de Windows, un shell de Linux o un terminal de OS X y utilice el comando `CD` para cambiar a un directorio de trabajo, luego clone la aplicación de ejemplo de este modo:
+1. Abra un nuevo símbolo del sistema de Windows, un shell de Linux o un terminal de OS X y utilice el comando `CD` para cambiar a un directorio de trabajo, luego clone la aplicación de ejemplo de este modo:
 
         git clone <github_sample_url>
 
-    En *&lt;github\_sample\_url>*, use una de las siguientes direcciones URL, según el marco de trabajo que prefiera:
+    En *&lt;github\_sample\_url>*, use una de las siguientes direcciones URL, según la plataforma que prefiera:
 
-    - ASP.NET: [https://github.com/azure-appservice-samples/aspnet-get-started.git](https://github.com/azure-appservice-samples/aspnet-get-started.git)
-    - PHP (CodeIgniter): [https://github.com/azure-appservice-samples/php-get-started.git](https://github.com/azure-appservice-samples/php-get-started.git)
-    - Node.js (Express): [https://github.com/azure-appservice-samples/nodejs-get-started.git](https://github.com/azure-appservice-samples/nodejs-get-started.git) 
-    - Python (Django): [https://github.com/azure-appservice-samples/python-get-started.git](https://github.com/azure-appservice-samples/python-get-started.git)
-    - Java: [https://github.com/azure-appservice-samples/java-get-started.git](https://github.com/azure-appservice-samples/java-get-started.git)
+    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
+    - PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
+    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git) 
+    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
+    - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
 
-2. Escriba `CD` para cambiar a la raíz del proyecto de la aplicación de ejemplo. Por ejemplo,
+2. `CD` en el directorio raíz de la aplicación de ejemplo. Por ejemplo,
 
-        cd aspnet-get-started
+        cd app-service-web-dotnet-get-started
 
 3. Inicie sesión en Azure de la manera siguiente:
 
@@ -65,11 +65,11 @@ Vamos a implementar una aplicación web en el Servicio de aplicaciones de Azure.
     
     Siga las indicaciones para continuar el inicio de sesión en un explorador con una cuenta de Microsoft que tenga su suscripción de Azure.
 
-4. Cree el recurso de aplicación del Servicio de aplicaciones en Azure con un nombre de aplicación único con el comando siguiente. La dirección URL de la aplicación web será http://&lt;app_name>. azurewebsites.net.
+4. Cree el recurso de aplicación del Servicio de aplicaciones en Azure con un nombre de aplicación único con el comando siguiente. La dirección URL de la aplicación web será http://&lt;app_name>.azurewebsites.net.
 
         azure site create --git <app_name> 
       
-    >[AZURE.NOTE] Si nunca ha configurado credenciales de implementación para su suscripción de Azure, se le solicitará que las cree. El Servicio de aplicaciones usa estas credenciales, y no las credenciales de su cuenta de Azure, solo en implementaciones de Git e inicios de sesión FTP.
+    >[AZURE.NOTE] Si nunca ha configurado credenciales de implementación para su suscripción de Azure, se le solicitará que las cree. El Servicio de aplicaciones usa estas credenciales, no las de su cuenta de Azure, solo en implementaciones de Git e inicios de sesión FTP.
     
     Ahora no solo se crea la aplicación en Azure, sino que su directorio actual también se inicializa con Git y se conecta a la nueva aplicación del Servicio de aplicaciones como un Git remoto. Puede dirigirse a la dirección URL de la aplicación para ver la bonita página HTML predeterminada, pero de hecho ahora vamos a obtener allí su propio código.
 
@@ -93,15 +93,15 @@ Si ve el mensaje de error: `Site <app_name> does not exist or has no hostnames`,
 
 ## Realización de actualizaciones en la aplicación
 
-De la misma manera en que ha implementado su aplicación en Azure la primera vez, ahora puede usar Git para efectuar inserciones desde la raíz del proyecto (repositorio) con el fin de realizar una actualización en el sitio activo. Por ejemplo, cada vez que quiera insertar nuevos cambios que haya probado localmente, solo tiene que ejecutar los siguientes comandos desde la raíz del proyecto (repositorio):
+Ahora puede usar Git para efectuar inserciones desde la raíz del proyecto (repositorio) con el fin de realizar una actualización en el sitio activo. Esto se hace del mismo modo que cuando implementó la aplicación en Azure por primera vez. Por ejemplo, cada vez que quiera insertar un nuevo cambio que ha probado localmente, solo tiene que ejecutar los siguientes comandos desde la raíz del proyecto (repositorio):
     
     git add .
-    git commit -m "<you_message>"
+    git commit -m "<your_message>"
     git push azure master
 
 ## Otras maneras de realizar la implementación
 
-Existen varias maneras de implementar la aplicación web, y la implementación de Git desde el repositorio local es solo una de ellas. Existe una implementación con un asistente intuitivo en Visual Studio, una implementación continua directamente desde GitHub, la sincronización de contenido desde DropBox, así como muchas otras opciones, como el método FTP con el que los desarrolladores están familiarizados. Para más información sobre las opciones de implementación, consulte [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md) (Implementación de la aplicación en el Servicio de aplicaciones de Azure).
+Existen varias maneras de implementar la aplicación web, y la implementación de Git desde un repositorio local es solo una de ellas. Puede implementar directamente desde Visual Studio, continuamente desde GitHub, sincronizar desde OneDrive o DropBox, cargar archivos mediante FTP, etc. Para más información sobre las opciones de implementación, consulte [Documentación de implementación del Servicio de aplicaciones de Azure](../app-service-web/web-sites-deploy.md).
 
 ## Visualización de la aplicación en el Portal de Azure
 
@@ -121,13 +121,13 @@ La hoja de la aplicación del Servicio de aplicaciones presenta numerosas opcion
 - Reinicie la aplicación.
 - Haga clic en el vínculo **Grupo de recursos** para ver todos los recursos implementados en el grupo de recursos.
 - Haga clic en **Configuración** > **Propiedades** para ver otra información sobre la aplicación.
-- Haga clic en **Herramientas** para tener acceso a herramientas útiles de supervisión y solución de problemas.  
+- Haga clic en **Herramientas** para acceder a herramientas útiles de supervisión y solución de problemas.  
 
 ## Pasos siguientes
 
-Lleve la aplicación que ha implementado al siguiente nivel. Protéjala con autenticación. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con uno cuantos clics. Consulte [Get started with Azure App Service - Part 2](app-service-web-get-started-2.md) (Introducción al Servicio de aplicaciones de Azure: parte 2).
+Lleve la aplicación que ha implementado al siguiente nivel. Protéjala con autenticación. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con uno cuantos clics. Consulte [Introducción al Servicio de aplicaciones de Azure: parte 2](app-service-web-get-started-2.md).
 
-O bien, siga explorando cómo crear una aplicación web para el Servicio de aplicaciones desde cero:
+Si lo prefiere, siga explorando cómo crear una aplicación web para el Servicio de aplicaciones con una plataforma de idioma específica:
 
 - [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](web-sites-dotnet-get-started.md)
 - [Creación de una aplicación web de PHP en Servicio de aplicaciones de Azure](web-sites-php-mysql-deploy-use-git.md)
@@ -135,10 +135,10 @@ O bien, siga explorando cómo crear una aplicación web para el Servicio de apli
 - [Creación de una aplicación web de Java en el Servicio de aplicaciones de Azure](web-sites-java-get-started.md)
 - [Creación de una aplicación web de Python en el Servicio de aplicaciones de Azure](web-sites-python-ptvs-django-mysql.md)
 
-También existe numeroso contenido que le muestra el abanico de aplicaciones que puede crear en el Servicio de aplicaciones de Azure, como aplicaciones web, back-ends de aplicación móvil y aplicaciones de API.
+También puede encontrar numeroso contenido sobre el abanico de aplicaciones que puede crear en el Servicio de aplicaciones de Azure, como aplicaciones web, back-ends de aplicación móvil y aplicaciones de API.
 
-- [Create web apps](/documentation/learning-paths/appservice-webapps/) (Creación de aplicaciones web)
-- [Create mobile apps](/documentation/learning-paths/appservice-mobileapps/) (Creación de aplicaciones móviles)
-- [Create API apps](../app-service-api/app-service-api-apps-why-best-platform.md) (Creación de aplicaciones de API)
+- [Create web apps (Creación de aplicaciones web)](/documentation/learning-paths/appservice-webapps/)
+- [Create mobile apps (Creación de aplicaciones móviles)](/documentation/learning-paths/appservice-mobileapps/)
+- [Create API apps (Creación de aplicaciones de API)](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

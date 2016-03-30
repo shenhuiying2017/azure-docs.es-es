@@ -3,7 +3,7 @@
 	description="Tutorial en el que se muestra cómo crear una aplicación web PHP que almacena datos en MySQL y cómo usar la implementación de FTP en Azure." 
 	services="app-service\web" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP" 
 	ms.topic="hero-article" 
 	ms.date="01/12/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 #Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante FTP
@@ -46,11 +46,11 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 
 1. Inicie sesión en el [Portal de Azure][management-portal].
-2. Haga clic en el icono **+Nuevo** situado en la parte superior izquierda del Portal de Azure.
+2. Haga clic en el icono **+Nuevo** de la parte superior izquierda del Portal de Azure.
 
 	![Crear un sitio web de Azure][new-website]
 
-3. Escriba **Aplicación web + MySQL** en la búsqueda y haga clic en **Aplicación web + MySQL**.
+3. En la búsqueda, escriba **Aplicación web + MySQL** y haga clic en **Aplicación web + MySQL**.
 
 	![Crear un sitio web personalizado][custom-create]
 
@@ -303,4 +303,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

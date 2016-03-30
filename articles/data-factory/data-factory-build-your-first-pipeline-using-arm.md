@@ -39,7 +39,7 @@ Además de los requisitos previos que se enumeran en el tema de información gen
 > [AZURE.IMPORTANT]
 Para realizar el tutorial de este artículo, debe completar los pasos de los requisitos previos que encontrará en la [introducción a Data Factory de Azure](data-factory-build-your-first-pipeline.md).
 
-## Paso 1: Creación de la plantilla de ARM
+## Creación de la plantilla de ARM
 
 Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\\ADFGetStarted** con el siguiente contenido:
 
@@ -103,7 +103,7 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
                                 "clusterSize": 4,
                                 "version":  "3.2",
             					"timeToLive": "00:05:00",
-                                "osType": "linux",
+                                "osType": "windows",
             					"linkedServiceName": "[variables('storageLinkedServiceName')]",
     						}
 	                    }
@@ -220,7 +220,7 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 
 Tenga en cuenta lo siguiente:
 
-- Data Factory crea automáticamente un clúster de HDInsight **basado en Linux** con el anterior código JSON. También puede crear un clúster de HDInsight **basado en Windows**. Para más información, consulte la sección [Servicios vinculados de procesos](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+- Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON anterior. También podría hacer que cree un clúster de HDInsight **basado en Linux**. Para más información, consulte la sección [Servicios vinculados de procesos](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 - Puede usar **su propio clúster de HDInsight**, en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 - El clúster de HDInsight crea un **contenedor predeterminado** en el Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado a petición de HDInsight se crea un clúster de HDInsight cada vez tenga que procesarse un segmento, a menos que haya un clúster existente activo (**timeToLive**) y se elimina cuando finaliza el procesamiento.
 
@@ -230,7 +230,7 @@ Para más información, consulte la sección [Servicio vinculado a petición de 
 
 > [AZURE.NOTE] En [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json) puede encontrar otro ejemplo de plantilla de ARM para crear una Data Factory de Azure.
 
-## Paso 2: Implementación de las entidades de Factoría de datos mediante la plantilla ARM
+## Creación de Data Factory
 
 1. Inicie **Azure PowerShell** y ejecute el comando siguiente. 
 	- Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utilizó para iniciar sesión en el Portal de Azure.  
@@ -239,7 +239,7 @@ Para más información, consulte la sección [Servicio vinculado a petición de 
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
-## Supervisar la canalización
+## Supervisión de la canalización
  
 1.	Después de iniciar sesión en el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar todo -> Fábricas de datos](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	En la hoja **Factorías de datos**, haga clic en la factoría de datos (**TutorialFactoryARM**) que creó.	
@@ -256,4 +256,4 @@ Para más información, consulte la sección [Servicio vinculado a petición de 
 10. Cuando el segmento se encuentre en el estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** de Almacenamiento de blobs.  
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

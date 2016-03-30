@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/04/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc"/>
 
 # Configuración de una conexión entre dos redes virtuales mediante Azure Resource Manager y PowerShell
@@ -23,13 +23,18 @@
 - [Portal de Azure clásico](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-Este artículo lo guiará por los pasos para crear una conexión entre redes virtuales mediante el modelo de implementación de **Resource Manager** y PowerShell. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias.
+Este artículo le guiará a través de los pasos necesarios para crear una conexión entre redes virtuales mediante el modelo de implementación de Resource Manager y PowerShell. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias.
 
-[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 **Información sobre los modelos de implementación de Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**Modelos de implementación y herramientas para la conexión de red virtual a red virtual**
+
+En ambos modelos de implementación se puede configurar una conexión de red virtual a red virtual a través de varias herramientas distintas. Consulte la tabla siguiente para obtener más información. Esta tabla se actualiza cada vez que hay nuevos artículos, nuevos modelos de implementación y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde la tabla.
+
+[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 
 ## Acerca de conexiones de red virtual a red virtual
@@ -73,7 +78,7 @@ Puede que desee conectar redes virtuales por las siguientes razones:
 
 - El tráfico entre dos redes virtuales viaja por la red de Microsoft, no por Internet.
 
-- El tráfico entre dos redes virtuales dentro de la misma región es gratuito en ambos sentidos; si las redes virtuales se encuentran en regiones diferentes, el tráfico se cobra según las tarifas de transferencia de datos de salida entre redes virtuales en función de las regiones de origen. Consulte los detalles en la [página de información de precios](https://azure.microsoft.com/pricing/details/vpn-gateway/).
+- El tráfico entre dos redes virtuales dentro de la misma región es gratuito en ambos sentidos; si las redes virtuales se encuentran en regiones diferentes, el tráfico se cobra según las tarifas de transferencia de datos de salida entre redes virtuales en función de las regiones de origen. Consulte la página [Precios de Puerta de enlace VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) para más detalles.
 
 
 ## ¿Qué serie de pasos debo seguir?
@@ -98,7 +103,7 @@ Esta configuración se aplica a las redes virtuales que están en la misma suscr
 
 ### Antes de empezar
 
-- Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [créditos por suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
+- Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
 	
 - Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
 
@@ -307,7 +312,7 @@ Después de configurar TestVNet1, debe repetir los pasos para crear TestVNet4. S
 
 	Después de unos minutos, la conexión debería haberse establecido.
 
-## <a name ="Verify"/>Comprobación de la conexión entre dos redes virtuales
+## <a name ="Verify"/>Comprobación de la conexión de red virtual a red virtual
 
 En los ejemplos siguientes se muestra cómo comprobar la conexión. Asegúrese de cambiar los valores para que coincidan con los de su entorno.
 
@@ -318,11 +323,11 @@ Para comprobar una conexión VPN en el Portal de Azure, vaya a **Puertas de enla
 
 ### Para comprobar la conexión mediante el uso de PowerShell
 
-También es posible comprobar que la conexión se realizó correctamente con *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Puede usar el siguiente ejemplo y cambiar los valores para que coincidan con los suyos. Cuando se le pida, seleccione A para ejecutar todo.
+También se puede verificar que la conexión se realizó correctamente con *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Puede usar el siguiente ejemplo y cambiar los valores para que coincidan con los suyos. Cuando se le pida, seleccione A para ejecutar todo.
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 -Debug
 
-Cuando el cmdlet haya finalizado, desplázate para ver los valores. En el ejemplo de salida de PowerShell siguiente, el estado de conexión aparece como *Connected* y se ven los bytes de entrada y salida.
+Cuando el cmdlet haya finalizado, desplázate para ver los valores. En el ejemplo de salida de PowerShell a continuación, el estado de conexión aparece como *Connected* y se ven los bytes de entrada y salida.
 
 
 
@@ -356,7 +361,7 @@ En los pasos de configuración siguientes se agrega una conexión adicional entr
 
 ![VNet2VNet en distintas suscripciones](./media/vpn-gateway-vnet-vnet-rm-ps/differentsubscription.png)
 
-Las instrucciones que siguen son continuación de los pasos anteriores ya explicados. Debe completar el [paso 1](#Step1) y el [paso 2](#Step2) para crear y configurar TestVNet1 y la puerta de enlace de VPN para TestVNet1. Si solo va a conectar redes virtuales en distintas suscripciones, no es necesario que se preocupe por los pasos 3 y 4 del ejercicio anterior; puede ir directamente al paso 5.
+Las instrucciones que siguen son continuación de los pasos anteriores ya explicados. Tiene que completar el [paso 1](#Step1) y el [paso 2](#Step2) para crear y configurar TestVNet1 y la puerta de enlace de VPN para TestVNet1. Si solo va a conectar redes virtuales en distintas suscripciones, no es necesario que se preocupe por los pasos 3 y 4 del ejercicio anterior; puede ir directamente al paso 5.
 
 ### Paso 5: Comprobación de los intervalos de direcciones IP adicionales
 
@@ -519,10 +524,10 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 
 5. Comprobación de la conexión
 
-	Después de completar estos pasos, puede comprobar la conexión mediante los métodos descritos en [Comprobación de la conexión entre dos redes virtuales](#Verify).
+	Después de completar estos pasos, puede comprobar la conexión mediante los métodos descritos en [Comprobación de la conexión de red virtual a red virtual](#Verify).
 
 ## Pasos siguientes
 
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-tutorial.md) para ver los pasos.
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

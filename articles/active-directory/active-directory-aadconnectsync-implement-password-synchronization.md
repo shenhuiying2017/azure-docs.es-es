@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/07/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -90,7 +90,7 @@ Si el usuario cambia la contraseña local de nuevo, la nueva contraseña se sinc
 
 Si usa la configuración rápida cuando instala Azure AD Connect se habilitará de forma predeterminada la sincronización de contraseñas.
 
-Si usa la configuración personalizada al instalar AD Azure Connect, habilita la sincronización de contraseñas en la página de inicio de sesión de usuario. ![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
+Si usa la configuración personalizada al instalar AD Azure Connect, habilita la sincronización de contraseñas en la página de inicio de sesión de usuario. ![usersignin](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
 Si selecciona usar **Federación con AD FS**, opcionalmente puede habilitar la sincronización de contraseñas como una copia de seguridad en caso de que se produzca un error en la infraestructura de AD FS. También puede habilitarla si piensa usa Servicios de dominio de Azure Active Directory.
 
@@ -116,13 +116,17 @@ Para obtener información sobre la seguridad y FIPS, consulte [AAD Password Sync
 
 Inicie **Administrador del servicio de sincronización**, abra **Conectores**, seleccione el usuario en el que está ubicado el conector de Active Directory, seleccione **Espacio del conector de búsqueda** y busque el usuario que desea.
 
-![csuser](./media/active-directory-aadsync-implement-password-synchronization/cspasswordsync.png)
+![csuser](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
 
 En el usuario, seleccione la pestaña **linaje** y asegúrese de que al menos una regla de sincronización muestra la **sincronización de contraseñas** como **True**. Con la configuración predeterminada, sería la regla de sincronización denominada **In from AD - User AccountEnabled**.
 
+También debería [seguir al usuario](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) a través del metaverso hasta el espacio de Azure AD Connector y asegurarse de que también hay una regla de salida con **Sincronización de contraseñas** establecida en **True**. En la configuración predeterminada, sería la regla de sincronización denominada **Out to AAD - User Join**.
+
+![csuser2](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+
 Para ver los detalles de la sincronización de contraseñas del objeto, haga clic en el botón **Registro..** en la parte inferior de esta página. Esto producirá en la página una vista histórica de estado de sincronización de contraseñas del usuario de la semana pasada.
 
-![registro de objetos](./media/active-directory-aadsync-implement-password-synchronization/csobjectlog.png)
+![registro de objetos](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
 La columna de estado puede tener los valores siguientes y también indica el problema y por qué no se sincroniza una contraseña.
 
@@ -159,4 +163,4 @@ No es necesario forzar una sincronización completa de todas las contraseñas, p
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

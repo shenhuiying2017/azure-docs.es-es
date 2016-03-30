@@ -1,9 +1,9 @@
 ## Cómo crear una red virtual mediante PowerShell
 Para crear una red virtual mediante PowerShell, siga estos pasos.
 
-1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../articles/powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 	
-3. Si es necesario, cree un nuevo grupo de recursos, como se muestra a continuación. En este escenario, cree un grupo de recursos denominado *TestRG*. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md).
+3. Si es necesario, cree un nuevo grupo de recursos, como se muestra a continuación. En este escenario, cree un grupo de recursos denominado *TestRG*. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](../articles/resource-group-overview.md).
 
 		New-AzureRmResourceGroup -Name TestRG -Location centralus
 
@@ -49,7 +49,7 @@ Para crear una red virtual mediante PowerShell, siga estos pasos.
 
 		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
-	>[AZURE.TIP]Puede combinar los pasos 4 y 5 mediante la ejecución de **$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP] Puede combinar los pasos 4 y 5 mediante la ejecución de **$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
 6. Agregue una subred a la nueva variable de red virtual, como se muestra a continuación.
 
@@ -137,4 +137,4 @@ Para crear una red virtual mediante PowerShell, siga estos pasos.
 		                      }
 		                    ]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

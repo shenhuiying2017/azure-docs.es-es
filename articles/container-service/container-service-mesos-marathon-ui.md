@@ -37,7 +37,7 @@ Para ver la interfaz de usuario de Marathon, vaya a http://localhost/Marathon. D
 
 ![Creación de una implementación](media/ui2.png)
 
-## Implementación de un contenedor de Docker
+## Implementación de un contenedor con formato Docker
 
 Para utilizar Marathon para iniciar un nuevo contenedor en el clúster de Mesos, haga clic en el botón `Create Application`. El formulario Nueva aplicación se utiliza para definir los parámetros de la aplicación o contenedor. En este ejemplo, se implementará un sencillo contenedor Nginx. Escriba la siguiente información. Haga clic en Crear cuando haya terminado.
  
@@ -56,11 +56,11 @@ De nuevo en la página principal de Marathon, puede ver el estado de implementac
 
 ![Creación de una implementación](media/ui4.png)
 
-Si regresa a la aplicación de Mesos http://localhost/Mesos), verá que se está ejecutando una tarea, en este caso un contenedor de Docker en el clúster de Mesos. También puede ver el nodo del clúster en el que se está ejecutando la tarea.
+Si regresa a la aplicación de Mesos http://localhost/Mesos), verá que se está ejecutando una tarea, en este caso un contenedor con formato Docker en el clúster de Mesos. También puede ver el nodo del clúster en el que se está ejecutando la tarea.
 
 ![Creación de una implementación](media/ui5.png)
 
-## Escalado de un contenedor de Docker
+## Escalado de los contenedores
 
 La interfaz de usuario web de Marathon también puede utilizarse para escalar el recuento de instancias de un contenedor. Para ello, vaya a la página de Marathon, seleccione el contenedor que desea escalar y haga clic en el botón `scale`. En la ventana Escalar aplicación, escriba el número de instancia del contenedor que desea y seleccione `Scale Application`.
 
@@ -70,4 +70,4 @@ Una vez completada la operación de escalado, verá varias instancias de la mism
 
 ![Creación de una implementación](media/ui8.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

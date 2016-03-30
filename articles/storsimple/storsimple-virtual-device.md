@@ -18,9 +18,9 @@
 # Implementar y administrar un dispositivo virtual StorSimple en Azure
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
+- [Actualización 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Actualización 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [Versión: disponibilidad general](../articles/storsimple/storsimple-virtual-device.md)
 
 ## Información general
 
@@ -77,7 +77,7 @@ Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes pr
 
 >[AZURE.IMPORTANT] **Asegúrese de que la red virtual está en la misma región que las cuentas de almacenamiento en la nube que va a usar con el dispositivo virtual.**
 
-- Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-about.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos:
+- Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-linux-about.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos:
 	- Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado.
 	- Ejecutarse en la misma red virtual como el dispositivo virtual.
 	- Ser capaz de conectarse al destino iSCSI del dispositivo virtual a través de la dirección IP interna del dispositivo virtual.
@@ -292,11 +292,11 @@ Realice los pasos siguientes para crear un punto de conexión público en el dis
 
 - Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que se utiliza como dispositivo virtual.
 
-- Haga clic en **Puntos de conexión**. En la página Puntos de conexión aparecen todos los extremos para la máquina virtual.
+- Haga clic en **Extremos**. En la página Puntos de conexión aparecen todos los extremos para la máquina virtual.
 
 - Haga clic en **Agregar**. Aparecerá el cuadro de diálogo Agregar Puntos de conexión. Haga clic en la flecha para continuar.
 
-- Para el **Nombre**, escriba el siguiente nombre para el Puntos de conexión: **WinRMHttps**.
+- Para el **Nombre**, escriba el siguiente nombre para el extremo: **WinRMHttps**.
 
 - En **Protocolo**, especifique **TCP**.
 
@@ -391,4 +391,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 Para administrar el dispositivo virtual, vea la lista detallada de flujos de trabajo en [Administración del dispositivo StorSimple mediante el servicio StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

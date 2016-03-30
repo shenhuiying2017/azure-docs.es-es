@@ -111,6 +111,10 @@ El modelo de aplicaciones de API anterior tenía API para descubrir otras aplica
 3. Crear su propia aplicación de API de detección y hacer que otras aplicaciones de API se registren con la aplicación de detección en el inicio.
 4. Durante la implementación, rellene los valores de configuración de todas las aplicaciones de API (y clientes) con los puntos de conexión de las otras aplicaciones de API. Esto es viable en implementaciones de plantilla y gracias a que las aplicaciones de API ahora permiten controlar la dirección URL.
 
+## Uso de Aplicaciones de API con Aplicaciones lógicas
+
+El nuevo modelo de Aplicaciones de API funciona bien con el [esquema de Aplicaciones lógicas, versión 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+
 ## Pasos siguientes
 
 Para más información, consulte los artículos de la [sección Documentación de Aplicaciones de API](https://azure.microsoft.com/documentation/services/app-service/api/). Se han actualizado para reflejar el nuevo modelo de Aplicaciones de API. Además, visite los foros para obtener más información e instrucciones sobre la migración:
@@ -118,4 +122,4 @@ Para más información, consulte los artículos de la [sección Documentación d
 - [Foro de MSDN](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps)
 - [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

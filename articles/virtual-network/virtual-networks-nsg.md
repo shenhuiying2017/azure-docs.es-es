@@ -40,12 +40,11 @@ Las reglas de grupo de seguridad de red contienen las siguientes propiedades:
 |---|---|---|---|
 |**Name**|Nombre de la regla|Debe ser único dentro de la región.<br/>Puede contener letras, números, caracteres de subrayado, puntos y guiones.<br/>Debe comenzar con una letra o un número.<br/>Debe terminar con una letra, un número o un carácter de subrayado.<br/>Puede tener hasta 80 caracteres.|Puede tener varias reglas dentro de un grupo de seguridad de red, de modo que asegúrese de seguir una convención de nomenclatura que le permita identificar la función de cada una.|
 |**Protocolo**|Protocolo que debe coincidir con la regla|TCP, UDP o *.|El uso de * como protocolo incluye ICMP (solo tráfico este oeste), así como UDP y TCP, y puede reducir el número de reglas necesarias. <br/>Al mismo tiempo, el uso de * podría ser un enfoque demasiado amplio, así que asegúrese de usarlo solamente cuando sea realmente necesario.|
-|**Intervalo de puertos de origen**|Intervalo del puerto de origen que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 100-2.000) o * (para todos los puertos).|Intente usar intervalos de puertos tanto como sea posible para evitar la necesidad de varias reglas.|
-|**Intervalo de puertos de destino**|Intervalo del puerto de destino que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 100-2.000) o * (para todos los puertos).|Intente usar intervalos de puertos tanto como sea posible para evitar la necesidad de varias reglas.|
-|**Prefijo de dirección de origen**|Prefijo o etiqueta de la dirección de origen que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#Default-Tags) o * (para todas las direcciones).|Considere el uso de intervalos, etiquetas y * para reducir el número de reglas.|
-|**Prefijo de dirección de destino**|Prefijo o etiqueta de la dirección de destino que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#Default-Tags) o * (para todas las direcciones).|Considere el uso de intervalos, etiquetas y * para reducir el número de reglas.|
+|**Intervalo de puertos de origen**|Intervalo del puerto de origen que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65635) o * (para todos los puertos).|Los puertos de origen podrían ser transitorios. A menos que el programa de cliente use un puerto específico, use "*" en la mayoría de los casos.<br/>Pruebe a usar intervalos de puertos tanto como sea posibles para evitar tener que usar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar por una coma |**Intervalo de puertos de destino**|Intervalo del puerto de destino que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65535) o * (para todos los puertos).|Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que usar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar por una coma
+|**Prefijo de dirección de origen**|Prefijo o etiqueta de la dirección de origen que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#Default-Tags) o * (para todas las direcciones).|Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas.|
+|**Prefijo de dirección de destino**|Prefijo o etiqueta de la dirección de destino que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#Default-Tags) o * (para todas las direcciones).|Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas.|
 |**Dirección**|Dirección del tráfico que debe coincidir con la regla|entrada o salida|Las reglas de entrada y salida se procesan por separado, en función de la dirección.|
-|**Prioridad**|Las reglas se comprueban en orden de prioridad; una vez que se aplica una regla, no se prueba la coincidencia de más reglas.|Número entre 100 y 65535.|Considere la posibilidad de crear prioridades de salto de reglas por 100 para cada regla, para dejar que las nuevas reglas se interpongan entre las existentes.|
+|**Prioridad**|Las reglas se comprueban en orden de prioridad; una vez que se aplica una regla, no se prueba la coincidencia de más reglas.|Número entre 100 y 4096.|Considere la posibilidad de crear prioridades de salto de reglas por 100 para cada regla, para dejar que las nuevas reglas se interpongan entre las existentes.|
 |**Access**|Tipo de acceso que se debe aplicar si coincide con la regla|permitir o denegar|Tenga en cuenta que si no se encuentra una regla de permiso para un paquete, el paquete se descarta.|
 
 Contiene dos tipos de reglas: de entrada y de salida. La prioridad de una regla debe ser única dentro de cada conjunto.
@@ -68,7 +67,7 @@ Las etiquetas predeterminadas son identificadores proporcionados por el sistema 
 
 Todos los grupos de seguridad de red contienen un conjunto de reglas predeterminadas. No se pueden eliminar las reglas predeterminadas, pero dado que tienen asignada la mínima prioridad, pueden reemplazarse por las reglas que cree.
 
-Como se muestra en las siguientes reglas predeterminadas, se permite el tráfico que se origina y termina en una red virtual en las direcciones tanto de entrada como de salida. A pesar de que la conectividad a Internet está permitida para la dirección de salida, está bloqueada para la dirección de entrada de manera predeterminada. Hay una regla predeterminada para permitir que el equilibrador de carga de Azure sondee el estado de las máquinas virtuales y las instancias de rol. Puede invalidar esta regla si no va a usar un conjunto con equilibrio de carga.
+Como se muestra en las siguientes reglas predeterminadas, el tráfico que se origina y termina en una red virtual se permite en las direcciones tanto de entrada como de salida. A pesar de que la conectividad a Internet está permitida para la dirección de salida, está bloqueada para la dirección de entrada de manera predeterminada. Hay una regla predeterminada para permitir que el equilibrador de carga de Azure sondee el estado de las máquinas virtuales y las instancias de rol. Puede invalidar esta regla si no va a usar un conjunto con equilibrio de carga.
 
 **Reglas predeterminadas de entrada**
 
@@ -98,14 +97,22 @@ Puede asociar un grupo de seguridad de red a máquinas virtuales, NIC y subredes
 
 - **Asociación de un grupo de seguridad de red a una subred (todas las implementaciones)** Al asociar un grupo de seguridad de red a una subred, las reglas de acceso de red del grupo de seguridad de red se aplican a todos los recursos IaaS y PaaS de la subred.
 
-Puede asociar grupos de seguridad de red diferentes a una máquina virtual (o NIC, según el modelo de implementación) y a la subred a la que está enlazada una NIC o máquina virtual. Cuando esto sucede, todas las reglas de acceso de red se aplican al tráfico en el orden siguiente:
+Puede asociar grupos de seguridad de red diferentes a una máquina virtual (o NIC, según el modelo de implementación) y a la subred a la que está enlazada una NIC o máquina virtual. Cuando esto sucede, todas las reglas de acceso de red se aplican al tráfico, por prioridad en cada grupo de seguridad de red, en el orden siguiente:
 
 - **Tráfico de entrada**
-	1. El grupo de seguridad de red se aplica a la subred.
-	2. El grupo de seguridad de red se aplica a la NIC (Administrador de recursos) o a la máquina virtual (clásica).
+	1. El grupo de seguridad de red se aplica a la subred. 
+	
+        Si el grupo de seguridad de red de la subred tiene una regla de coincidencia para denegar el tráfico, el paquete se quitará aquí.
+	2. El grupo de seguridad de red se aplica a la NIC (Administrador de recursos) o a la máquina virtual (clásica). 
+	   
+        Si el grupo de seguridad de red de la máquina virtual o la NIC tiene una regla de coincidencia para denegar el tráfico, el paquete se quitará en la máquina virtual o la NIC, aunque el grupo de seguridad de red de la subred tenga una regla de coincidencia para permitir el tráfico.
 - **Tráfico de salida**
-	1. El grupo de seguridad de red se aplica a la NIC (Administrador de recursos) o a la máquina virtual (clásica).
+	1. El grupo de seguridad de red se aplica a la NIC (Administrador de recursos) o a la máquina virtual (clásica). 
+	  
+        Si el grupo de seguridad de red de la máquina virtual o la NIC tiene una regla de coincidencia para denegar el tráfico, el paquete se quitará aquí.
 	2. El grupo de seguridad de red se aplica a la subred.
+	   
+           Si el grupo de seguridad de red de la subred tiene una regla de coincidencia para denegar el tráfico, el paquete se quitará aquí, aunque el grupo de seguridad de red de la máquina virtual o la NIC tenga una regla de coincidencia para permitir el tráfico.
 
 ![ACL de grupos de seguridad de red](./media/virtual-network-nsg-overview/figure2.png)
 
@@ -117,12 +124,12 @@ Puede implementar los NSG en el modelo clásico o en los modelos de implementaci
 |Herramienta de implementación|Clásico|Resource Manager|
 |---|---|---|
 |Portal clásico|![No][red]|![No][red]|
-|Portal de Azure|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Sí][green]</a>|
+|Portal de Azure|![Sí][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Sí][green]</a>|
 |PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Sí][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Sí][green]</a>|
 |Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Sí][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Sí][green]</a>|
 |Plantilla ARM|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Sí][green]</a>|
 
-|**Clave**|Compatible con ![Sí][green]. Haga clic para leer el artículo.|No compatible con ![No][red].|
+|**Clave**|![Sí][green] Se admite. Haga clic para leer el artículo.|![No][red] No se admite.|
 |---|---|---|
 
 ## Planificación
@@ -133,7 +140,7 @@ Antes de implementar los grupos de seguridad de red, deberá responder a las sig
 
 2. ¿Están los recursos por los que desea filtrar el tráfico entrante y saliente conectados a subredes de redes virtuales existentes o se van a conectar a nuevas redes virtuales o subredes?
  
-Para más información sobre la planeación de la seguridad de red en Azure, lea los [procedimientos recomendados para los servicios en la nube y la seguridad de red](../best-practices-network-security.md).
+Para más información sobre cómo planear la seguridad de red en Azure, lea los [procedimientos recomendados para los servicios en la nube y la seguridad de red](../best-practices-network-security.md).
 
 ## Consideraciones de diseño
 
@@ -165,7 +172,7 @@ También debe tener en cuenta las reglas especiales que se enumeran a continuaci
 
 ### Tráfico ICMP
 
-Las reglas de los grupos de seguridad de red actuales solo permiten los protocolos *TCP* o *UDP*. No hay una etiqueta específica para *ICMP*. Sin embargo, el tráfico ICMP se permite dentro de una red virtual de manera predeterminada gracias a las reglas de red virtual de entrada que permiten el tráfico desde y hacia cualquier puerto y protocolo dentro de la red virtual.
+Las reglas de los grupos de seguridad de red actuales solo permiten los protocolos *TCP* o *UDP*. No hay una etiqueta específica para *ICMP*. Sin embargo, el tráfico ICMP se permite dentro de una red virtual de manera predeterminada gracias a las reglas de red virtual de entrada (regla predeterminada 65500 de entrada) que permiten el tráfico desde y hacia cualquier puerto y protocolo dentro de la red virtual.
 
 ### Subredes
 
@@ -242,9 +249,9 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP de Internet|Permitir|100|INTERNET|*|\*|3389|TCP|
+|permitir RDP de Internet|Permitir|100|INTERNET|**|*|3389|TCP|
 
->[AZURE.NOTE] Observe que el intervalo de direcciones de origen para esta regla es **Internet** y no la dirección IP virtual del equilibrador de carga; el puerto de origen es **\***, no 500001. No confunda reglas NAT, reglas de equilibrio de carga y reglas de grupo de seguridad de red. Las reglas de grupo de seguridad de red siempre se relacionan con el origen y el destino final de tráfico, **NO** con el equilibrador de carga entre los dos.
+>[AZURE.NOTE] Observe que el intervalo de direcciones de origen para esta regla es **Internet** y no la dirección IP virtual del equilibrador de carga; el puerto de origen es *****, no 500001. No confunda reglas NAT, reglas de equilibrio de carga y reglas de grupo de seguridad de red. Las reglas de grupo de seguridad de red siempre se relacionan con el origen y el destino final de tráfico, **NO** con el equilibrador de carga entre los dos.
 
 ### Grupo de seguridad de red para las NIC de administración en BackEnd
 
@@ -252,7 +259,7 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP de front-end|Permitir|100|192\.168.1.0/24|*|\*|3389|TCP|
+|permitir RDP de front-end|Permitir|100|192\.168.1.0/24|**|*|3389|TCP|
 
 ### Grupo de seguridad de red para las NIC de acceso a la base de datos en el back-end
 
@@ -260,7 +267,7 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir SQL del front-end|Permitir|100|192\.168.1.0/24|*|\*|1433|TCP|
+|permitir SQL del front-end|Permitir|100|192\.168.1.0/24|**|*|1433|TCP|
 
 Puesto que algunos de los grupos de seguridad de red mencionados anteriormente deben estar asociados a NIC individuales, este escenario se deberá implementar como una implementación del Administrador de recursos. Observe cómo se combinan las reglas para el nivel de subred y NIC, según cómo deban aplicarse.
 
@@ -274,4 +281,4 @@ Puesto que algunos de los grupos de seguridad de red mencionados anteriormente d
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

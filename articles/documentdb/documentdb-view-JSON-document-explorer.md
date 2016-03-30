@@ -158,4 +158,4 @@ Para más información acerca de la gramática de SQL de DocumentDB compatible c
 
 La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarle durante su aprendizaje de DocumentDB.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

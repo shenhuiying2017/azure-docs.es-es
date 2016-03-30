@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="spelluru"/>
 
 # Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio
@@ -32,7 +32,7 @@ En este artículo, aprenderá a usar Microsoft Visual Studio para crear su prime
 1. **Debe** leer la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md) del artículo y completar los pasos de los requisitos previos antes de continuar.
 2. Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para más información del servicio, le recomendamos que consulte el artículo [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).  
 
-## Tutorial: Creación e implementación de las entidades de Factoría de datos con Visual Studio 
+## Creación e implementación de entidades de Data Factory  
 
 ### Requisitos previos
 
@@ -44,7 +44,7 @@ Debe tener lo siguiente instalado en el equipo:
 	
 	
 
-### Creación del proyecto de Visual Studio 
+## Creación de un proyecto de Visual Studio 
 1. Inicie **Visual Studio 2013** o **Visual Studio 2015**. Haga clic en **Archivo**, seleccione **Nuevo** y, luego, haga clic en **Proyecto**. Debe aparecer el cuadro de diálogo **Nuevo proyecto**.  
 2. En el cuadro de diálogo **Nuevo proyecto**, seleccione la plantilla **DataFactory** y haga clic en **Proyecto vacío de Factoría de datos**.   
 
@@ -54,7 +54,7 @@ Debe tener lo siguiente instalado en el equipo:
 
 	![Explorador de soluciones](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
-### Crear servicios vinculados
+## Crear servicios vinculados
 Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada para generar datos de salida. Especificará el nombre y la configuración de la factoría de datos más adelante al publicar la solución de Factoría de datos.
 
 En este paso, vinculará su cuenta de Almacenamiento de Azure y el clúster de HDInsight de Azure a petición con su factoría de datos. La cuenta de Almacenamiento de Azure contendrá los datos de entrada y salida de la canalización de este ejemplo. Para ejecutar el script de Hive especificado en la actividad de la canalización en este ejemplo, se usa el servicio vinculado de HDInsight. Debe identificar qué datos de almacén o servicios de proceso se usan en el escenario y vincular dichos servicios con la factoría de datos mediante la creación de servicios vinculados.
@@ -110,10 +110,10 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 	Consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información. 
 4. Guarde el archivo **HDInsightOnDemandLinkedService1.json**.
 
-### Creación de conjuntos de datos
+## Creación de conjuntos de datos
 En este paso, creará conjuntos de datos que representen los datos de entrada y salida para el procesamiento de Hive. Estos conjuntos de datos hacen referencia al servicio **AzureStorageLinkedService1** que creó anteriormente en este tutorial. El servicio vinculado apunta a una cuenta de Almacenamiento de Azure y los conjuntos de datos especifican el contenedor, la carpeta y el nombre de archivo en el almacenamiento que contiene los datos de entrada y salida.
 
-#### Creación del conjunto de datos de entrada
+#### Creación de un conjunto de datos de entrada
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Tablas**, seleccione **Agregar** y haga clic en **Nuevo elemento**. 
 2. Seleccione **Blob de Azure** en la lista, cambie el nombre del archivo a **InputDataSet.json** y haga clic en **Agregar**.
@@ -192,7 +192,7 @@ Ahora, va a crear el conjunto de datos de salida que representa los datos de sal
 4. Guarde el archivo **OutputDataset.json**.
 
 
-### Creación de la primera canalización
+### Creación de una canalización
 En este paso, creará la primera canalización con una actividad **HDInsightHive**. Tenga en cuenta que el segmento de entrada está disponible mensualmente (frecuencia: mes, intervalo: 1), el segmento de salida se genera mensualmente y la propiedad de programador también se establece en mensual para la actividad (consulte a continuación). La configuración del conjunto de datos de salida y la del programador de la actividad deben coincidir. En este momento, el conjunto de datos de salida es lo que impulsa la programación, por lo que debe crear un conjunto de datos de salida incluso si la actividad no genera ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada. Al final de esta sección se explican las propiedades usadas en el siguiente JSON.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Canalizaciones**, seleccione **Agregar** y haga clic en **Nuevo elemento**. 
@@ -256,13 +256,13 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 
 	En el código JSON de la actividad, se especifica que el script de Hive se ejecuta en el proceso que especifica el servicio vinculado **linkedServiceName**: **HDInsightOnDemandLinkedService**.
 
-	> [ACOM.NOTE] Consulte [Anatomía de una canalización](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para obtener información sobre las propiedades JSON que se usan en el ejemplo anterior. 
+	> [AZURE.NOTE] Consulte en la sección [Anatomía de una canalización](data-factory-create-pipelines.md#anatomy-of-a-pipeline) las propiedades JSON que se usan en el ejemplo anterior. 
 3. Guarde el archivo **HiveActivity1.json**.
 
 ### Adición de partitionweblogs.hql e input.log como una dependencia 
 
 1. Haga clic con el botón derecho en **Dependencias** en la ventana del **Explorador de soluciones**, seleccione **Agregar** y haga clic en **Elemento existente**.  
-2. Navegue hasta **C:\ADFGettingStarted**, seleccione los archivos **partitionweblogs.hql** e **input.log** y haga clic en **Agregar**. Se crearon estos dos archivos como parte de los requisitos previos de la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md).
+2. Navegue hasta **C:\\ADFGettingStarted**, seleccione los archivos **partitionweblogs.hql** e **input.log** y haga clic en **Agregar**. Se crearon estos dos archivos como parte de los requisitos previos de la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md).
 
 Al publicar la solución en el paso siguiente, se carga el archivo **partitionweblogs.hql** en la carpeta de scripts del contenedor de blobs **adfgetstarted**.
 
@@ -289,11 +289,10 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
 25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
  
-## Paso 4: Supervisión de la canalización
+## Supervisión de la canalización
 
 6. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y realice lo siguiente:
-	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
-		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos. 
 7. En la página principal de la factoría de datos, haga clic en **Diagrama**.
   
@@ -317,7 +316,6 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Cuando finalice el procesamiento, el segmento aparecerá con el estado **Listo**.
-
 	>[AZURE.IMPORTANT] La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).  
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -328,7 +326,7 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 
 Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
 
-## Uso del Explorador de servidores para revisar las entidades de Factoría de datos
+## Uso del Explorador de servidores para ver las entidades de Data Factory
 
 1. En **Visual Studio** haga clic en **Vista** en el menú y haga clic en **Explorador de servidores**.
 2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. El estado de esta operación se verá en la ventana **Lista de tareas de Factoría de datos**.
@@ -366,7 +364,7 @@ Considere la siguiente definición de JSON para un servicio vinculado de Almacen
 Agregue un archivo de configuración a cada entorno realizando los pasos siguientes:
 
 1. Haga clic con el botón derecho en el proyecto de Data Factory en la solución de Visual Studio, seleccione **Agregar** y haga clic en **Nuevo elemento**.
-2. Seleccione **Config.** en la lista de plantillas instaladas de la izquierda, elija **Archivo de configuración**, escriba un **nombre** para el archivo de configuración y haga clic en **Agregar**.
+2. Seleccione **Config.** en la lista de plantillas instaladas de la izquierda, seleccione **Archivo de configuración**, escriba un **nombre** para el archivo de configuración y haga clic en **Agregar**.
 
 	![Adición de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
 3. Agregue parámetros de configuración y sus valores en el formato que se muestra a continuación:
@@ -436,8 +434,8 @@ Al publicar las entidades de Factoría de datos de Azure en Visual Studio, puede
 Para publicar entidades en un proyecto de Factoría de datos de Azure mediante el archivo de configuración:
 
 1. Haga clic con el botón derecho en el proyecto de Data Factory y haga clic en **Publicar** para ver el cuadro de diálogo **Publicar elementos**. 
-2. Seleccione una Data Factory existente o especifique valores para crear una nueva en la página **Configurar Data Factory** y haga clic en **Siguiente**.   
-3. En la página **Publicar elementos**, verá una lista desplegable con las configuraciones disponibles para el campo **Seleccionar configuración de implementación**.
+2. Seleccione una instancia de Data Factory existente o especifique valores para crear una nueva en la página **Configurar Data Factory** y haga clic en **Siguiente**.   
+3. En la página **Publicar elementos**, verá una lista desplegable con las configuraciones disponibles para el campo **Sele+ccionar configuración de implementación**.
 
 	![Selección de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
 
@@ -451,4 +449,4 @@ Cuando realiza la implementación, se usan los valores del archivo de configurac
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/06/2016"
+	ms.date="03/22/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: registro e inicio de sesión de consumidores en las aplicaciones
@@ -37,18 +37,19 @@ Puede escribir la aplicación para el servicio Azure Active Directory B2C de dos
 Vuelva a esta sección a menudo para conocer los cambios futuros en la versión de vista previa de Azure Active Directory B2C. También enviaremos tweets acerca de las actualizaciones mediante @AzureAD.
 
 - Obtenga información sobre nuestro [marco extensible de directivas](active-directory-b2c-reference-policies.md) y sobre los tipos de directivas que puede crear y usar en sus aplicaciones.
-- [Limitaciones y restricciones de la versión preliminar](active-directory-b2c-limitations.md) actual.
+- Agregue un marcador a nuestra [página de estado de servicio](active-directory-b2c-service-health.md) para ver notificaciones sobre problemas de servicio menores, el estado y las mitigaciones. Continúe también con la supervisión del [panel de estado de Azure](https://azure.microsoft.com/status/).
+- [Limitaciones y restricciones de la versión preliminar](active-directory-b2c-limitations.md).
 
 ## Artículos de procedimientos
 
 Aprenda a usar determinadas características de vista previa de Azure Active Directory B2C:
 
-- Configure las cuentas de [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Cuenta Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) y [LinkedIn](active-directory-b2c-setup-li-app.md) para usarlas en las aplicaciones orientadas al consumidor.
+- Configure las cuentas de [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) y [LinkedIn](active-directory-b2c-setup-li-app.md) para usarlas en las aplicaciones orientadas al consumidor.
 - [Uso de atributos personalizados para recopilar información sobre los consumidores](active-directory-b2c-reference-custom-attr.md).
-- [Habilitación de Azure Multi-Factor Authentication en las aplicaciones orientadas al consumidor](active-directory-b2c-reference-mfa.md).
-- [Configuración del restablecimiento de contraseña de autoservicio para los consumidores](active-directory-b2c-reference-sspr.md).
-- [Personalización de la apariencia de las páginas de registro, de inicio de sesión y de otras páginas orientadas al consumidor](active-directory-b2c-reference-ui-customization.md) a las que presta servicio Azure Active Directory B2C.
-- [Uso de la API Graph de Azure Active Directory para crear, leer, actualizar y eliminar consumidores mediante programación](active-directory-b2c-devquickstarts-graph-dotnet.md) en el directorio de Azure Active Directory B2C.
+- [Versión preliminar de Azure Active Directory B2C: Habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor](active-directory-b2c-reference-mfa.md).
+- [Versión preliminar de Azure Active Directory B2C: configuración del autoservicio de restablecimiento de contraseña para los consumidores](active-directory-b2c-reference-sspr.md).
+- [Versión preliminar de Azure Active Directory B2C: personalización de la interfaz de usuario de Azure AD B2C](active-directory-b2c-reference-ui-customization.md), incluidas las páginas de registro, de inicio de sesión y de otras páginas orientadas al consumidor a las que atiende Azure Active Directory B2C.
+- [Versión preliminar de Azure AD B2C: uso de la API Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) para crear, leer, actualizar y eliminar consumidores mediante programación en el inquilino de Azure Active Directory B2C.
 
 ## Pasos siguientes
 
@@ -56,11 +57,11 @@ Estos vínculos serán útiles para explorar el servicio en profundidad:
 
 - Consulte la [información de precios de Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 - Obtenga ayuda acerca del desbordamiento de pila con las etiquetas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
-- Envíenos sus ideas sobre la versión preliminar mediante [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/); ¡queremos conocerlas! Use la frase "AzureADB2C:" en el título de la entrada para que podamos encontrarla.
+- Envíenos sus ideas sobre la versión preliminar mediante [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/); ¡queremos conocerlas! Use la frase "AzureADB2C:" en el título de la entrada para que podamos encontrarla.
 - Azure Active Directory B2C es compatible con los protocolos estándar del sector, OpenID Connect y OAuth 2.0, mediante el modelo de registro de aplicaciones que llamamos "Modelo de aplicaciones v2.0".
   - [Referencia de protocolos del modelo de aplicaciones v2.0](active-directory-b2c-reference-protocols.md)
   - [Referencia de tokens del modelo de aplicaciones v2.0](active-directory-b2c-reference-tokens.md)
-- Lea las [P+F sobre Azure Active Directory B2C](active-directory-b2c-faqs.md).
-- [Presentación de solicitudes de soporte técnico para Azure Active Directory B2C](active-directory-b2c-support.md).
+- Lea [Versión preliminar de Azure Active Directory B2C: preguntas más frecuentes](active-directory-b2c-faqs.md).
+- [Versión preliminar de Azure Active Directory B2C: presentación de solicitudes de soporte técnico](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->
