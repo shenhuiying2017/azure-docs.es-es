@@ -27,7 +27,7 @@ Agregue la API de Dynamics CRM Online al entorno del Servicio de aplicaciones de
 
 ## Crear la API en el portal de Azure
 
-1. En el [portal de Azure](https://portal.azure.com), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
+1. En el [portal de Azure](https://portal.azure.com), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@*SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
 
 2. Seleccione **Examinar** en la barra de tareas:
 ![][1]
@@ -122,4 +122,4 @@ En este tema, ha agregado la API de Dynamics CRM Online para su empresa PowersAp
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

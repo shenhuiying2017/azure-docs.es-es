@@ -95,7 +95,7 @@ Debe seguir el conjunto de instrucciones indicado más abajo para realizar la in
 1. Llame a la API con los siguientes parámetros y asegúrese de sustituir TENANT\_ID, CLIENT\_ID y CLIENT\_SECRET:
 
 	- **URL de solicitud** como **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-- **Encabezado Content-Type HTTP** como *application/x-www-form-urlencoded*
+	- **Encabezado Content-Type HTTP** como *application/x-www-form-urlencoded*
 	- **Cuerpo de la solicitud HTTP** como *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	La siguiente es una solicitud de ejemplo:
@@ -154,4 +154,4 @@ Ahora que tiene un token válido, está listo para realizar las llamadas de API.
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->
