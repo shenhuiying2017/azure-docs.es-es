@@ -678,7 +678,7 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 * `kind`: 
  * `inner` -El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
  * `outer` -El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
-* `withsource=`* ColumnName: * si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
+* `withsource=`*ColumnName:* si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
 
 **Devoluciones**
 
