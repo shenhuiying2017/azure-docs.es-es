@@ -52,7 +52,19 @@ Admite .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.30\_201603-01 | ** 8 de abril de 2016 | Tras 4.32 | TBD | | WA-GUEST-OS-4.29\_201602-01 | 12 de marzo de 2016 | Tras 4.31 | Por determinar | | WA-GUEST-OS-4.28\_201601-01 | 12 de febrero de 2016 | Tras 4.30 | Por determinar | | WA-GUEST-OS-4.27\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | Por determinar | | ~~WA-GUEST-OS-4.26\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | Por determinar | | ~~WA-GUEST-OS-4.26\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | Por determinar | | ~~WA-GUEST-OS-4.25\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | Por determinar | | ~~WA-GUEST-OS-4.24\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | Por determinar | | ~~WA-GUEST-OS-4.23\_201508-02~~ | 9 de septiembre de 2015 | 6 de diciembre de 2015 | Por determinar | | ~~WA-GUEST-OS-4.22\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | Por determinar | | ~~WA-GUEST-OS-4.21\_201506-01~~ | 9 de julio de 2015 | Oct 9 2015 | Por determinar | | ~~WA-GUEST-OS-4.20\_201505-02~~ | 12 de junio de 2015 | Sep 7 2015 | Por determinar | | ~~WA-GUEST-OS-4.19\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | Por determinar |
+| WA-GUEST-OS-4.30\_201603-01 | * 8 de abril de 2016 | Tras 4.32 | Por determinar |
+| WA-GUEST-OS-4.29\_201602-01 | 12 de marzo de 2016 | Tras 4.31 | Por determinar |
+| WA-GUEST-OS-4.28\_201601-01 | 12 de febrero de 2016 | Tras 4.30 | Por determinar |
+| WA-GUEST-OS-4.27\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | Por determinar |
+| ~~WA-GUEST-OS-4.26\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | Por determinar |
+| ~~WA-GUEST-OS-4.26\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | Por determinar |
+| ~~WA-GUEST-OS-4.25\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | Por determinar |
+| ~~WA-GUEST-OS-4.24\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | Por determinar |
+| ~~WA-GUEST-OS-4.23\_201508-02~~ | 9 de septiembre de 2015 | 6 de diciembre de 2015 | Por determinar |
+| ~~WA-GUEST-OS-4.22\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | Por determinar |
+| ~~WA-GUEST-OS-4.21\_201506-01~~ | 9 de julio de 2015 | Oct 9 2015 | Por determinar |
+| ~~WA-GUEST-OS-4.20\_201505-02~~ | 12 de junio de 2015 | Sep 7 2015 | Por determinar |
+| ~~WA-GUEST-OS-4.19\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | Por determinar |
 
 ## Lanzamientos de la familia 3
 
@@ -64,7 +76,19 @@ Admite .NET 4.0, 4.5
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.37\_201603-01 | ** 8 de abril de 2016 | Tras 3.39 | Por determinar | | WA-GUEST-OS-3.36\_201602-01 | 12 de marzo de 2016 | Tras 3.38 | Por determinar | | WA-GUEST-OS-3.35\_201601-01 | 12 de febrero de 2016 | Tras 3.37 | Por determinar | | WA-GUEST-OS-3.34\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | Por determinar | | ~~WA-GUEST-OS-3.33\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | Por determinar | | ~~WA-GUEST-OS-3.33\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | Por determinar | | ~~WA-GUEST-OS-3.32\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | Por determinar | | ~~WA-GUEST-OS-3.31\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | Por determinar | | ~~WA-GUEST-OS-3.30\_201508-02~~ | Sep 9 2015 | Dec 6 2015 | Por determinar | | ~~WA-GUEST-OS-3.29\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | Por determinar | | ~~WA-GUEST-OS-3.28\_201506-01~~ | 9 de julio de 2015 | 9 de octubre de 2015 | Por determinar | | ~~WA-GUEST-OS-3.27\_201505-02~~ | 12 de junio de 2015 | 7 de septiembre de 2015 | Por determinar | | ~~WA-GUEST-OS-3.26\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | Por determinar |
+| WA-GUEST-OS-3.37\_201603-01 | * 8 de abril de 2016 | Tras 3.39 | Por determinar |
+| WA-GUEST-OS-3.36\_201602-01 | 12 de marzo de 2016 | Tras 3.38 | Por determinar |
+| WA-GUEST-OS-3.35\_201601-01 | 12 de febrero de 2016 | Tras 3.37 | Por determinar |
+| WA-GUEST-OS-3.34\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | Por determinar |
+| ~~WA-GUEST-OS-3.33\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | Por determinar |
+| ~~WA-GUEST-OS-3.33\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | Por determinar |
+| ~~WA-GUEST-OS-3.32\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | Por determinar |
+| ~~WA-GUEST-OS-3.31\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | Por determinar |
+| ~~WA-GUEST-OS-3.30\_201508-02~~ | Sep 9 2015 | Dec 6 2015 | Por determinar |
+| ~~WA-GUEST-OS-3.29\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | Por determinar |
+| ~~WA-GUEST-OS-3.28\_201506-01~~ | 9 de julio de 2015 | 9 de octubre de 2015 | Por determinar |
+| ~~WA-GUEST-OS-3.27\_201505-02~~ | 12 de junio de 2015 | 7 de septiembre de 2015 | Por determinar |
+| ~~WA-GUEST-OS-3.26\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | Por determinar |
 
 
 ## Lanzamientos de la familia 2
@@ -77,7 +101,19 @@ Admite .NET 3.5, 4.0
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.49\_201603-01 | ** 8 de abril de 2016 | Tras 2.51 | Por determinar | | WA-GUEST-OS-2.48\_201602-01 | 12 de marzo de 2016 | Tras 2.50 | Por determinar | | WA-GUEST-OS-2.47\_201601-01 | 12 de febrero de 2016 | Tras 2.49 | Por determinar | | WA-GUEST-OS-2.46\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | Por determinar | | ~~WA-GUEST-OS-2.45\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | Por determinar | | ~~WA-GUEST-OS-2.45\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | Por determinar | | ~~WA-GUEST-OS-2.44\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | Por determinar | | ~~WA-GUEST-OS-2.43\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | Por determinar | | ~~WA-GUEST-OS-2.42\_201508-02~~ | 9 de septiembre de 2015 | 6 de diciembre de 2015 | Por determinar | | ~~WA-GUEST-OS-2.41\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | Por determinar | | ~~WA-GUEST-OS-2.40\_201506-01~~ | 9 de julio de 2015 | 9 de octubre de 2015 | Por determinar | | ~~WA-GUEST-OS-2.39\_201505-02~~ | 12 de junio de 2015 | 7 de septiembre de 2015 | Por determinar | | ~~WA-GUEST-OS-2.38\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | Por determinar |
+| WA-GUEST-OS-2.49\_201603-01 | * 8 de abril de 2016 | Tras 2.51 | Por determinar |
+| WA-GUEST-OS-2.48\_201602-01 | 12 de marzo de 2016 | Tras 2.50 | Por determinar |
+| WA-GUEST-OS-2.47\_201601-01 | 12 de febrero de 2016 | Tras 2.49 | Por determinar |
+| WA-GUEST-OS-2.46\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | Por determinar |
+| ~~WA-GUEST-OS-2.45\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | Por determinar |
+| ~~WA-GUEST-OS-2.45\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | Por determinar |
+| ~~WA-GUEST-OS-2.44\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | Por determinar |
+| ~~WA-GUEST-OS-2.43\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | Por determinar |
+| ~~WA-GUEST-OS-2.42\_201508-02~~ | 9 de septiembre de 2015 | 6 de diciembre de 2015 | Por determinar |
+| ~~WA-GUEST-OS-2.41\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | Por determinar |
+| ~~WA-GUEST-OS-2.40\_201506-01~~ | 9 de julio de 2015 | 9 de octubre de 2015 | Por determinar |
+| ~~WA-GUEST-OS-2.39\_201505-02~~ | 12 de junio de 2015 | 7 de septiembre de 2015 | Por determinar |
+| ~~WA-GUEST-OS-2.38\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | Por determinar |
 
 ## Actualizaciones de revisiones de MSRC
 La lista de revisiones que se incluyen con cada lanzamiento del SO invitado mensual está disponible [aquí][patches].
