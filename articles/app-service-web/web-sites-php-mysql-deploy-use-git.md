@@ -3,9 +3,9 @@
 	description="Tutorial en el que se muestra cómo crear una aplicación web PHP que almacena datos en MySQL y usar la implementación de Git en Azure."
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"
+	editor=""
 	tags="mysql"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="PHP"
 	ms.topic="hero-article"
 	ms.date="02/09/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git
 
@@ -325,4 +325,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

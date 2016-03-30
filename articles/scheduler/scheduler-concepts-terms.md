@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016" 
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Conceptos, terminología y jerarquía de entidades de Programador
@@ -23,9 +23,8 @@ En la tabla siguiente se describen los recursos principales expuestos o utilizad
 
 |Recurso | Descripción |
 |---|---|
-|**Servicio en la nube**|Conceptualmente, un servicio en la nube representa una aplicación. Una suscripción puede tener varios servicios en la nube.|
 |**Colección de trabajos**|Una colección de trabajos contiene un grupo de trabajos y mantiene configuraciones, cuotas y aceleradores compartidos por los trabajos de la colección. La colección de trabajos la crea el propietario de la suscripción y agrupa los trabajos en función de los límites de uso o de aplicación. Está limitado a una región. También permite la aplicación de cuotas para restringir el uso de todos los trabajos de la colección. Las cuotas incluyen MaxJobs y MaxRecurrence.|
-|**Trabajo**|Un trabajo define una única acción periódica, con estrategias simples o complejas para su ejecución. Las acciones pueden incluir solicitudes HTTP o de cola de almacenamiento.|
+|**Trabajo**|Un trabajo define una única acción periódica, con estrategias simples o complejas para su ejecución. Las acciones pueden incluir solicitudes HTTP, de cola de almacenamiento, de cola de bus de servicio o de tema de bus de servicio.|
 |**Historial de trabajos**|Un historial de trabajos representa los detalles de una ejecución de un trabajo. Contiene los trabajos realizados correctamente y los errores, así como los detalles de las respuestas.|
 
 ## Administración de entidades de Programador
@@ -34,14 +33,13 @@ En un nivel superior, el Programador y la API de administración de servicio exp
 
 |Capacidad|Descripción y dirección URI|
 |---|---|
-|**Administración de servicios en la nube**|GET, PUT y DELETE permiten la creación y modificación de servicios en la nube <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}`</p>|
-|**Administración de la colección de trabajos**|GET, PUT y DELETE permiten la creación y modificación de las colecciones de trabajos y trabajos que contienen. Una colección de trabajos es un contenedor para trabajos, asignaciones para cuotas y configuración compartida. Ejemplos de cuotas, descritos más adelante, son el número máximo de trabajos y un intervalo menor de periodicidad. <p>PUT y DELETE: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/jobcollections/{jobCollectionName}`</p><p>GET: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}`</p>
-|**Administración de trabajos**|GET, PUT, POST, PATCH y DELETE permiten la creación y modificación de trabajos. Todos los trabajos deben pertenecer a una colección de trabajos que ya existe, así que no hay ninguna creación implícita.<p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}`</p>|
-|**Administración del historial de trabajos**|GET admite la recuperación de 60 días de historial de ejecución de trabajos, como el tiempo de trabajo transcurrido y los resultados de la ejecución del trabajo. Agrega compatibilidad de parámetros de cadena de consulta para filtrar basándose en el estado y la situación. <P>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}/history`</p>|
+|**Administración de la colección de trabajos**|GET, PUT y DELETE permiten la creación y modificación de las colecciones de trabajos y trabajos que contienen. Una colección de trabajos es un contenedor para trabajos, asignaciones para cuotas y configuración compartida. Ejemplos de cuotas, descritos más adelante, son el número máximo de trabajos y un intervalo menor de periodicidad. <p>PUT y DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
+|**Administración de trabajos**|GET, PUT, POST, PATCH y DELETE permiten la creación y modificación de trabajos. Todos los trabajos deben pertenecer a una colección de trabajos que ya existe, así que no hay ninguna creación implícita.<p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
+|**Administración del historial de trabajos**|GET admite la recuperación de 60 días de historial de ejecución de trabajos, como el tiempo de trabajo transcurrido y los resultados de la ejecución del trabajo. Agrega compatibilidad de parámetros de cadena de consulta para filtrar basándose en el estado y la situación. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
 
 ## Tipos de trabajo
 
-Hay dos tipos de trabajos: los trabajos HTTP (incluidas trabajos HTTPS que admiten SSL) y los trabajos de cola de almacenamiento. Los trabajos HTTP son perfectos si dispone de un extremo de una carga de trabajo o servicio existente. Puede usar trabajos de cola de almacenamiento para enviar mensajes a colas de almacenamiento, por lo que dichos trabajos son ideales para cargas de trabajo que utilizan colas de almacenamiento.
+Hay varios tipos de trabajos: trabajos HTTP (incluidos trabajos HTTPS que admiten SSL), trabajos de cola de almacenamiento, trabajos de cola de bus de servicio y trabajos de tema de bus de servicio. Los trabajos HTTP son perfectos si dispone de un extremo de una carga de trabajo o servicio existente. Puede usar trabajos de cola de almacenamiento para enviar mensajes a colas de almacenamiento, por lo que dichos trabajos son ideales para cargas de trabajo que utilizan colas de almacenamiento. De forma similar, los trabajos de bus de servicio son ideales para cargas de trabajo que usan temas y colas de bus de servicio.
 
 ## La entidad "Trabajo" en detalle
 
@@ -131,7 +129,7 @@ Examinemos cada uno de ellos en detalle:
 
 ## action y errorAction
 
-"action" es la acción que se invoca en cada repetición y describe un tipo de invocación del servicio. La acción es lo que se ejecutará en la programación especificada. El programador admite acciones HTTP y de cola de almacenamiento.
+"action" es la acción que se invoca en cada repetición y describe un tipo de invocación del servicio. La acción es lo que se ejecutará en la programación especificada. El Programador admite acciones HTTP, de cola de almacenamiento, de cola de bus de servicio y de tema de bus de servicio.
 
 La acción en el ejemplo anterior es una acción http. A continuación se muestra un ejemplo de una acción de cola de almacenamiento:
 
@@ -146,6 +144,15 @@ La acción en el ejemplo anterior es una acción http. A continuación se muestr
 					"My message body",
 			},
 	}
+
+A continuación se muestra un ejemplo de una acción de tema de bus de servicio.
+
+  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+
+A continuación se muestra un ejemplo de una acción de cola de bus de servicio.
+
+
+  "action": { "serviceBusQueueMessage": { "queueName": "q1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
 "errorAction" es el controlador de errores, la acción que se invoca cuando se produce un error en la acción primaria. Puede usar esta variable para llamar a un extremo de control de errores o para enviar una notificación al usuario. Esto puede usarse para llegar a un extremo secundario en caso de que el principal no esté disponible (por ejemplo, en caso de un desastre en el sitio del extremo) o se puede usar para notificar a un extremo de control de errores. Igual que la acción primaria, la acción de error puede ser una lógica simple o compuesta basada en otras acciones. Para obtener información sobre cómo crear un token de SAS, consulte [Crear y usar una firma de acceso compartido](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
@@ -207,4 +214,4 @@ El intervalo de reintentos, especificado con el objeto **retryInterval**, es el 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

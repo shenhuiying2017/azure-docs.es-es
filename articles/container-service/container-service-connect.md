@@ -1,6 +1,6 @@
 <properties
    pageTitle="Conexión a un clúster del servicio Contenedor de Azure | Microsoft Azure"
-   description="Conéctese a un clúster del servicio Contenedor de Azure mediante un túnel SSH."
+   description="Conexión a un clúster del servicio Contenedor de Azure mediante un túnel de SSH."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -8,7 +8,7 @@
    editor=""
    tags="acs, azure-container-service"
    keywords="Docker, contenedores, microservicios, Mesos, Azure"/>
-   
+
 <tags
    ms.service="container-service"
    ms.devlang="na"
@@ -17,97 +17,97 @@
    ms.workload="na"
    ms.date="02/16/2016"
    ms.author="rogardle"/>
-   
+
 
 # Conexión a un clúster del servicio Contenedor de Azure
 
-Los clústeres de Mesos y Swarm implementados por el servicio Contenedor de Azure exponen puntos de conexión de REST, sin embargo, estos puntos de conexión no están abiertos al mundo exterior. Para administrar estos puntos de conexión, se debe crear un túnel SSH. Cuando se haya establecido un túnel SSH, puede ejecutar comandos contra los puntos de conexión y ver la interfaz de usuario del clúster a través de un explorador en su propio sistema. Este documento le guiará en la creación de un túnel SSH en Linux, OSX y Windows.
+Los clústeres de Mesos y Swarm que implementa el servicio Contenedor de Azure exponen los puntos de conexión REST. Sin embargo, estos puntos de conexión no están abiertos al mundo exterior. Para administrar dichos puntos de conexión, es preciso crear un túnel de Secure Shell (SSH). Cuando se haya establecido un túnel SSH, puede ejecutar comandos contra los puntos de conexión y ver la interfaz de usuario del clúster a través de un explorador en su propio sistema. Este documento le guía en la creación de un túnel de SSH en Linux, OSX y Windows.
 
-> Aunque puede crear una sesión de SSH con un sistema de administración del clúster, no se recomienda. Trabajar directamente en un sistema de administración tiene el riesgo de que la configuración se puede cambiar de forma involuntaria.
+>[AZURE.NOTE] Puede crear una sesión de SSH con un sistema de administración de clústeres. Sin embargo, no es aconsejable. Si se trabaja directamente en un sistema de administración, es preciso asumir el riesgo de que se produzcan cambios involuntarios en la configuración.
 
-## Túnel SSH en Linux y OSX
+## Creación de un túnel de SSH en Linux u OS X
 
-Lo primero que hay que hacer es buscar el nombre DNS público de los patrones con equilibrio de carga. Para ello, expanda el grupo de recursos de forma que se muestre cada recurso. Busque y seleccione la dirección IP pública del patrón. Se abrirá una hoja que contiene información sobre la dirección IP pública, que incluirá el nombre DNS. Guarde este nombre para usarlo más adelante. <br />
+Lo primero que se hace al crear un túnel de SSH en Linux u OS X es buscar el nombre DNS público de los patrones de carga equilibrada. Para ello, expanda el grupo de recursos de forma que se muestren todos los recursos. Busque y seleccione la dirección IP pública del patrón. Se abrirá una hoja que contiene información acerca de la dirección IP pública, que incluye el nombre DNS. Guarde este nombre para usarlo más adelante. <br />
 
-![Conexión Putty](media/pubdns.png)
+![Nombre DNS público](media/pubdns.png)
 
 Ahora, abra un shell y ejecute el siguiente comando, donde:
 
-**PORT** es el puerto del punto de conexión que desea exponer. Para Swarm es 2375 y para Mesos el puerto 80. **USERNAME** es el nombre de usuario proporcionado cuando se implementa el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó cuando implementó el clúster. **REGION** es la región en la que está ubicado el grupo de recursos.
+**PORT** es el puerto del punto de conexión que desea exponer. En el caso de Swarm, es el 2375. En el caso de Mesos, utilice el puerto 80. **USERNAME** es el nombre de usuario que se especificó cuando se implementó el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó al implementar el clúster. **REGION** es la región en la que está ubicado el grupo de recursos.
 
 ```
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
 ```
 ### Túnel de Mesos
 
-Para abrir un túnel a los puntos de conexión relacionados con Mesos, ejecute un comando parecido al siguiente.
+Para abrir un túnel a los puntos de conexión relacionados con Mesos, ejecute un comando similar al siguiente:
 
 ```
 ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-Ahora se puede acceder a los puntos de conexión relacionados con Mesos en:
+Ya puede acceder a los puntos de conexión relacionados con Mesos en:
 
 - Mesos: `http://localhost/mesos`
 - Marathon: `http://localhost/marathon`
-- Chronos: `http://localhost/chronos`. 
+- Chronos: `http://localhost/chronos`
 
-De igual forma, se puede establecer comunicación con la API de REST de cada aplicación mediante este túnel: Marathon: `http://localhost/marathon/v2`. Para obtener más información sobre las diversas API disponibles, consulte la documentación de Mesosphere para la [API de Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) y la [API de Chronos](https://mesos.github.io/chronos/docs/api.html), y la documentación de Apache de la [API del programador de Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+De igual forma, se puede acceder a las API de REST de cada aplicación a través de este túnel: Marathon: `http://localhost/marathon/v2`. Para más información acerca de las distintas API disponibles, consulte [Marathon REST API](https://mesosphere.github.io/marathon/docs/rest-api.html) (API de REST de Marathon) en la documentación de Mesosphere. Consulte la [Chronos Rest API](https://mesos.github.io/chronos/docs/api.html) (API de REST de Chronos) y [Scheduler HTTP API](http://mesos.apache.org/documentation/latest/scheduler-http-api/) (API de HTTP de programador) en la documentación de Apache.
 
 ### Túnel de Swarm
 
-Para abrir un túnel al punto de conexión de Swarm, ejecute un comando parecido al siguiente.
+Para abrir un túnel al punto de conexión de Swarm, ejecute un comando parecido al siguiente:
 
 ```
 ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-Ahora puede establecer la variable de entorno DOCKER\_HOST de la manera siguiente y seguir usando la CLI de Docker de la manera habitual.
+Ya puede establecer la variable de entorno DOCKER\_HOST como se indica a continuación y seguir usando la interfaz de línea de comandos (CLI) de Docker de la manera habitual.
 
 ```
 export DOCKER_HOST=:2375
 ```
 
-## Túnel SSH en Windows
+## Creación de un túnel de SSH en Windows
 
-Existen varias opciones para crear túneles SSH en Windows. En este documento encontrará información detallada sobre el uso de Putty.
+Existen varias opciones para crear túneles de SSH en Windows. En este documento se describirá cómo usar PuTTY para hacerlo.
 
-Descargue Putty en el sistema Windows y ejecute la aplicación.
+Descargue PuTTY en el sistema Windows y ejecute la aplicación.
 
-Escriba un nombre de host formado por el nombre de usuario de administrador de clústeres y el nombre DNS público del primer patrón en el clúster. El nombre de host se parecerá a este: `adminuser@PublicDNS`. Escriba 2200 para el puerto.
+Escriba un nombre de host que conste del nombre de usuario de administrador de clústeres y el nombre DNS público del primer patrón del clúster. El valor de **Nombre de host** se parecerá a este: `adminuser@PublicDNS`. Escriba 2200 en el campo **Puerto**.
 
-![Conexión Putty](media/putty1.png)
+![Configuración 1 de PuTTY](media/putty1.png)
 
-Seleccione `SSH` y `Authentication`, y agregue el archivo de clave privada para la autenticación.
+Seleccione `SSH` y `Authentication`. Agregue el archivo de clave privada para la autenticación.
 
-![Conexión Putty](media/putty2.png)
+![Configuración 2 de PuTTY](media/putty2.png)
 
-Seleccione `Tunnels` y configure (`configure`) los siguientes puertos reenviados:
-- **Puerto de origen:** su preferencia (80 para Mesos y 2375 para Swarm).
-- **Destino:** localhost: 80 (para Mesos) o localhost:2375 (para Swarm).
+Seleccione `Tunnels` y configure los siguientes puertos reenviados:
+- **Puerto de origen:** su preferencia (use 80 para Mesos o 2375 para Swarm).
+- **Destino:** use localhost:80 para Mesos o localhost:2375 para Swarm.
 
-En el siguiente ejemplo se configura para Mesos, pero tendría un aspecto similar para Docker Swarm.
+En el siguiente ejemplo se configura para Mesos, pero su aspecto sería similar para Docker Swarm.
 
-> El puerto 80 no se debe estar usando al crear este túnel.
+>[AZURE.NOTE] El puerto 80 no debe estar en uso cuando se cree este túnel.
 
-![Conexión Putty](media/putty3.png)
+![Configuración 3 de PuTTY](media/putty3.png)
 
-Cuando haya terminado, guarde la configuración de conexión y conecte la sesión de Putty. Cuando se conecte, la configuración del puerto se podrá ver en el registro de eventos de Putty.
+Cuando haya terminado, guarde la configuración de conexión y conecte la sesión de PuTTY. Cuando se conecte, podrá ver la configuración del puerto en el registro de eventos de PuTTY.
 
-![Conexión Putty](media/putty4.png)
+![Registro de eventos de PuTTY](media/putty4.png)
 
-Cuando se haya configurado el túnel para Mesos, puede tener acceso al punto de conexión relacionado en:
+Cuando haya configurado el túnel para Mesos, podrá acceder al punto de conexión relacionado en:
 
 - Mesos: `http://localhost/mesos`
 - Marathon: `http://localhost/marathon`
-- Chronos: `http://localhost/chronos`. 
+- Chronos: `http://localhost/chronos`
 
-Cuando el túnel se haya configurado para Docker Swarm, se podrá acceder al clúster de Swarm mediante la CLI de Docker. Primero deberá configurar una variable de entorno de Windows denominada `DOCKER_HOST` con un valor de ` :2375`.
+Cuando haya configurado el túnel para Docker y enjambre, podrá acceder al clúster de Swarm a través de la CLI de Docker. Primero será preciso que configure una variable de entorno de Windows denominada `DOCKER_HOST` cuyo valor será ` :2375`.
 
 ## Pasos siguientes
- 
+
 Implemente y administre contenedores con Mesos o Swarm.
- 
+
 - [Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

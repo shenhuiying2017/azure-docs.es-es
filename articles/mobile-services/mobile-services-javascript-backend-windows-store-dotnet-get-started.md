@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="02/10/2016"
+	ms.date="03/16/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para ver la versión equivalente de este tema en Aplicaciones móviles, consulte [Creación de una aplicación para Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md).
 
 En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube para una aplicación universal de Windows con Servicios móviles de Azure. Las soluciones de aplicaciones universales de Windows incluyen proyectos para aplicaciones tanto de la Tienda Windows 8.1 como de la Tienda de Windows Phone 8.1 y un proyecto común compartido. Para obtener más información, consulte [Generación de aplicaciones universales dirigidas a Windows y a Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
@@ -99,4 +100,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Portal de Azure clásico]: https://manage.windowsazure.com/
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

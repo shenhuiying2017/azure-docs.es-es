@@ -28,7 +28,7 @@ En este tutorial, utilizará el Asistente para copia de Data Factory para crear 
 
 > [AZURE.IMPORTANT] Antes de realizar este tutorial lea todo el artículo [Tutorial: Copia de datos de Almacenamiento de blobs de Azure a Base de datos SQL de Azure](data-factory-get-started.md) y complete los pasos de los requisitos previos.
 
-## <a name="CreateDataFactory"></a>Paso 1: Crear una Data Factory de Azure
+## Creación de Data Factory
 En este paso, utilice el Portal de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactory**.
 
 1.	Después de iniciar sesión en el [Portal de Azure](https://portal.azure.com), haga clic en **+ NUEVO** en la esquina inferior izquierda, seleccione **Análisis de datos** en la hoja **Crear** y haga clic en **Factoría de datos** en la hoja **Análisis de datos**. 
@@ -60,11 +60,11 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 
     ![Página principal de Factoría de datos](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Creación de una canalización mediante el Asistente para copia
+## Creación de una canalización
 
 1. En la página principal de Data Factory, haga clic en el icono **Copiar datos** para iniciar el **Asistente para copia**. 
 2. En la página **Propiedades**:
-	1. Escriba **CopyFromBlobToAzureSql** en **Nombre de tarea**
+	1. Escriba **CopyFromBlobToAzureSql** en **Nombre de tarea**.
 	2. Escriba una **descripción** (opcional).
 	3. Anote la **fecha y hora de inicio** y la **fecha y hora de finalización**. Cambie la **fecha y hora de finalización** para que sea al día siguiente de la **fecha y hora de inicio**. 
 	3. Haga clic en **Siguiente**.  
@@ -85,7 +85,7 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 	3. Haga clic en **Siguiente**. 
 
 	![Herramienta de copia: Elegir el archivo o la carpeta de entrada](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. En la página **Configuración de formato de archivo** página, seleccione los valores **predeterminados** y haga clic en **Siguiente**.
+7. En la página **Configuración de formato de archivo**, seleccione los valores **predeterminados** y haga clic en **Siguiente**.
 
 	![Herramienta de copia: Configuración de formato de archivo](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. En la página Almacén de datos de destino, haga clic en el icono **Base de datos SQL de Azure** y haga clic en **Siguiente**.
@@ -99,13 +99,13 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 
 	![Herramienta de copia: Asignación de tabla](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. En la página **Asignación de esquema**, haga clic en **Siguiente**.
-11. Revise la información en la página **Resumen** y haga clic en **Finalizar**. Se crearán dos servicios vinculados, dos conjuntos de datos (entrada y salida) y una canalización en la factoría de datos (desde donde se inició al Asistente para copia). 
+11. Revise la información de la página **Resumen** y haga clic en **Finalizar**. Se crearán dos servicios vinculados, dos conjuntos de datos (entrada y salida) y una canalización en la factoría de datos (desde donde se inició al Asistente para copia). 
 12. En la página **Implementación correcta**, haga clic en **Haga clic aquí para supervisar canalización de copia**.
 
 	![Herramienta de copia: Implementación correcta](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-13. Utilice las instrucciones de [Supervisar y administrar canalización mediante Aplicación de supervisión](data-factory-monitor-manage-app.md) para obtener información acerca de cómo supervisar la canalización que acaba de crear.
+13. Utilice las instrucciones de [Supervisar y administrar canalización mediante Aplicación de supervisión](data-factory-monitor-manage-app.md) para más información acerca de cómo supervisar la canalización que acaba de crear.
 
 	![Aplicación de supervisión](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
   
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

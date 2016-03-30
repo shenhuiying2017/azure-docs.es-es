@@ -25,7 +25,7 @@ Si quiere comenzar inmediatamente a utilizar Stretch Database, consulte [Get sta
 ## ¿Cuáles son las ventajas de Stretch Database?
 Stretch Database ofrece las siguientes ventajas:
 
-**Disponibilidad rentable para datos inactivos**. Stretch activa y desactiva datos transaccionales dinámicamente desde SQL Server en Microsoft Azure mediante SQL Server Stretch Database. A diferencia del almacenamiento habitual de datos inactivos, los datos siempre están en línea y disponibles para la consulta. Puede proporcionar escalas de tiempo de retención de datos más largas sin romper el banco de tablas grandes como la del Historial de pedidos del cliente. Se beneficia del bajo costo de Azure en lugar de escalar un almacenamiento local costoso. Le permite elegir el plan de tarifa y configurar opciones en el Portal de Azure para mantener el control sobre el precio y la velocidad de acceso a los datos. Escalado o reducción vertical según sea necesario. Visite la página [Precios de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/) para conocer los detalles.
+**Disponibilidad rentable para datos inactivos**. Stretch activa y desactiva datos transaccionales dinámicamente desde SQL Server en Microsoft Azure mediante SQL Server Stretch Database. A diferencia del almacenamiento habitual de datos inactivos, los datos siempre están en línea y disponibles para la consulta. Puede proporcionar escalas de tiempo de retención de datos más largas sin romper el banco de tablas grandes como la del Historial de pedidos del cliente. Se beneficia del bajo costo de Azure en lugar de escalar un almacenamiento local costoso. Le permite elegir el plan de tarifa y configurar opciones en el Portal de Azure para mantener el control sobre los costos. Escalado o reducción vertical según sea necesario. Para obtener información detallada, visite la página de [precios de SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 
 **No se requieren cambios en consultas o aplicaciones**. Acceda a los datos de SQL Server sin problemas independientemente de que esté trabajando de forma local o en la nube. Establezca la directiva que determina dónde se almacenan los datos y SQL Server controlará el movimiento de datos en segundo plano. La tabla completa siempre está en línea y lista para consultarla. Stretch Database no requiere ningún cambio en las consultas existentes ni en las aplicaciones y la ubicación de los datos es completamente transparente para la aplicación.
 
@@ -123,4 +123,4 @@ Stretch Database no cambia el modelo de permisos de una base de datos ya existen
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

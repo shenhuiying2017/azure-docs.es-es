@@ -124,7 +124,6 @@ Un trabajo es una colección de tareas y especifica cómo se realiza el cálculo
 	- Lote de Azure puede detectar tareas que hayan generado errores y probar a ejecutarlas de nuevo. Se puede especificar el **número máximo de reintentos de tarea** como una restricción, incluso si una tarea se reintenta siempre o no se reintenta nunca. Volver a intentar una tarea significa que la tarea se vuelve a poner en cola para ejecutarse de nuevo.
 - Las tareas se pueden agregar al trabajo mediante la aplicación cliente, o bien se puede especificar una [tarea del Administrador de trabajos](#jobmanagertask). Una tarea del Administrador de trabajos usa la API de Lote y contiene la información necesaria para crear las tareas que se requieren para un trabajo. Estas tareas se ejecutan en uno de los nodos de ejecución del grupo. El servicio Lote controla específicamente las tareas del Administrador de trabajos: las pone en cola en cuanto se crea el trabajo y las reinicia si se produce un error. Se requiere una tarea del Administrador de trabajos para los trabajos creados con una programación de trabajos, ya que es la única manera de definir las tareas antes de que se cree una instancia del trabajo. Puede encontrar más información sobre las tareas del Administrador de trabajos a continuación.
 
-
 ### <a name="task"></a>Tarea
 
 Una tarea es una unidad de cálculo que está asociada a un trabajo y se ejecuta en un nodo. Las tareas se asignan a un nodo para su ejecución o se ponen en cola hasta que quede libre un nodo. Una tarea usa los siguientes recursos:
@@ -186,13 +185,21 @@ Para obtener más información sobre las tareas de preparación y liberación de
 
 #### <a name="multiinstance"></a>Tareas de instancias múltiples
 
-Una [tarea de instancias múltiples](batch-mpi.md) es aquella que está configurada para ejecutarse simultáneamente en varios nodos de proceso. Con tareas de instancias múltiples, puede habilitar escenarios de informática de alto rendimiento como, por ejemplo, la interfaz de paso de mensajes (MPI) que requiere tener un grupo de nodos de ejecución asignados juntos para procesar una carga de trabajo única.
+Una [tarea de instancias múltiples](batch-mpi.md) es aquella que está configurada para ejecutarse simultáneamente en varios nodos de proceso. Con tareas de instancias múltiples, puede habilitar escenarios de informática de alto rendimiento como, por ejemplo, la interfaz de paso de mensajes (MPI) que requiere tener un grupo de nodos de proceso asignados juntos para procesar una carga de trabajo única.
 
 Para obtener información detallada sobre la ejecución de trabajos de MPI en el servicio Lote mediante la biblioteca .NET de Lote, consulte [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure](batch-mpi.md).
 
 #### <a name="taskdep"></a>Dependencias de tareas
 
-Las dependencias de tareas, como su nombre implica, permiten especificar que una tarea depende de la finalización de una o varias tareas adicionales antes de su ejecución. La tarea "de bajada" puede consumir el resultado de la tarea "de subida", o quizás dependa de que la tarea de subida haya realizado una inicialización. En este escenario, puede especificar que el trabajo utilice dependencias de tareas y luego, en cada tarea que dependa de otra (o de muchas otras), especifique las tareas de las que depende de dicha tarea.
+Las dependencias de tareas, como el propio nombre implica, permiten especificar que una tarea depende de que se completen otras tareas antes de su ejecución. Esta característica proporciona compatibilidad con aquellas situaciones en las que una tarea "de bajada" consume el resultado de una tarea "del canal de subida", o cuando una tarea del canal de subida realiza alguna inicialización requerida por una tarea de bajada. Para utilizar esta característica, primero debe habilitar las dependencias de tareas en su trabajo de Lote. Luego, en cada tarea que dependa de otra (o de muchas otras), especifique las tareas de las que depende dicha tarea.
+
+Con las dependencias de tareas, se pueden configurar escenarios como los siguientes:
+
+* *taskB* depende de *taskA* (la ejecución de *taskB* no se iniciará hasta que *taskA* se ha completado)
+* *taskC* depende de ambos, *taskA* y *taskB*
+* *taskD* depende de un intervalo de tareas, como las tareas *1* a *10*, antes ejecutarse
+
+Consulte el código de ejemplo [TaskDependencies][github_sample_taskdeps] del repositorio de GitHub [azure-batch-samples][github_samples]. En él, verá cómo configurar tareas que dependen de otras tareas mediante la biblioteca [.NET de Lote][batch_net_api].
 
 ### <a name="jobschedule"></a>Trabajos programados
 
@@ -200,11 +207,11 @@ Las programaciones de trabajos permiten crear tareas recurrentes dentro del serv
 
 ### <a name="appkg"></a>Paquetes de aplicación
 
-La característica [paquetes de aplicación](batch-application-packages.md) permite administrar y implementar fácilmente aplicaciones en nodos de proceso de los grupos. Con paquetes de aplicación, puede cargar y administrar fácilmente varias versiones de las aplicaciones que ejecutan las tareas, incluidos los archivos binarios y archivos auxiliares, y luego, implementar automáticamente una o varias de estas aplicaciones en los nodos de proceso del grupo.
+La característica [paquetes de aplicación](batch-application-packages.md) permite administrar y implementar fácilmente aplicaciones en los nodos de proceso de los grupos. Con paquetes de aplicación, puede cargar y administrar fácilmente varias versiones de las aplicaciones que ejecutan las tareas, incluidos los archivos binarios y archivos auxiliares, y luego, implementar automáticamente una o varias de estas aplicaciones en los nodos de proceso del grupo.
 
 Lote administra los detalles del trabajo con Almacenamiento de Azure en segundo plano para almacenar e implementar de forma segura los paquetes de aplicación en los nodos de proceso, por lo que tanto el código como la sobrecarga de administración se pueden simplificar.
 
-Para más información acerca de la característica de paquetes de aplicación, consulte [Application deployment with Azure Batch application packages](batch-application-packages.md) (Implementación de aplicaciones con paquetes de aplicación de Lote de Azure).
+Para más información acerca de la característica paquetes de aplicación, consulte [Application deployment with Azure Batch application packages](batch-application-packages.md) (Implementación de aplicaciones con paquetes de aplicación de Lote de Azure).
 
 ## <a name="files"></a>Archivos y directorios
 
@@ -237,7 +244,7 @@ Un enfoque combinado, usado normalmente para controlar la carga variable pero co
 
 ## <a name="scaling"></a>Escalado de aplicaciones
 
-Con el [escalado automático](batch-automatic-scaling.md) puede hacer que el servicio Lote ajuste dinámicamente el número de nodos de proceso en un grupo según la carga de trabajo actual y el uso de los recursos de su escenario de proceso. Esto le permite reducir el costo general de la ejecución de la aplicación usando solo los recursos que necesita, y liberando los que no. Puede especificar la configuración del escalado automático para un grupo cuando se crea o habilitar el escalado más adelante, y puede actualizar la configuración del escalado en un grupo habilitado para escalado automático.
+Con el [escalado automático](batch-automatic-scaling.md). el servicio Lote puede ajustar dinámicamente el número de nodos de proceso de un grupo según la carga de trabajo actual y el uso de los recursos del escenario de proceso. Esto le permite reducir el costo general de la ejecución de la aplicación usando solo los recursos que necesita, y liberando los que no. Puede especificar la configuración del escalado automático para un grupo cuando se crea o habilitar el escalado más adelante, y puede actualizar la configuración del escalado en un grupo habilitado para escalado automático.
 
 El escalado automático se realiza mediante la especificación de una **fórmula de escalado automático** para un grupo. El servicio Lote usa esta fórmula para determinar el número objetivo de nodos del grupo para el siguiente intervalo de escalado (un intervalo que puede especificar).
 
@@ -337,7 +344,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 	Reiniciar el nodo a veces puede solucionar problemas latentes tales como procesos bloqueados. Tenga en cuenta que si su grupo usa una tarea de inicio o el trabajo usa una tarea de preparación de trabajo, se ejecutarán cuando el nodo se reinicie.
 
-- **Restablecer imagen inicial del nodo** ([REST][rest_reimage] | [.NET][net_reimage])
+- **Restablecer la imagen inicial del nodo** ([REST][rest_reimage] | [.NET][net_reimage])
 
 	Esto reinstala el sistema operativo en el nodo. Al igual que al reiniciar un nodo, las tareas de inicio y las tareas de preparación del trabajo se vuelven a ejecutar después de restablecer la imagen inicial del nodo.
 
@@ -347,9 +354,9 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 - **Deshabilitar la programación de tareas en el nodo** ([REST][rest_offline] | [.NET][net_offline])
 
-	Esto desconecta el nodo para que no se le asigne ninguna tarea adicional, pero permite que el nodo permanezca en ejecución y en el grupo. Esto permite seguir investigando la causa de los errores sin perder los datos de la tarea con errores, y sin que el nodo produzca más errores en la tarea. Por ejemplo, puede deshabilitar la programación de tareas en el nodo, luego iniciar una sesión remota para examinar los registros de eventos del nodo o solucionar otros problemas. Una vez que haya terminado la investigación, puede volver a conectar el nodo mediante la habilitación de la programación de tareas ([REST][rest_online], [.NET][net_online]), o bien realizar una de las otras acciones mencionadas anteriormente.
+	Esto desconecta el nodo para que no se le asigne ninguna tarea adicional, pero permite que el nodo permanezca en ejecución y en el grupo. Esto permite seguir investigando la causa de los errores sin perder los datos de la tarea con errores, y sin que el nodo produzca más errores en la tarea. Por ejemplo, puede deshabilitar la programación de tareas en el nodo, luego iniciar una sesión remota para examinar los registros de eventos del nodo o solucionar otros problemas. Una vez que haya terminado la investigación, puede volver a conectar el nodo, para lo que debe habilitar la programación de tareas ([REST][rest_online], [.NET][net_online]), o bien realizar una de las otras acciones mencionadas anteriormente.
 
-> [AZURE.IMPORTANT] Con cada acción anterior (reiniciar, restablecer la imagen inicial, quitar, deshabilitar la programación de tareas), puede especificar cómo se controlan las tareas que se están ejecutando en el nodo al realizar la acción. Por ejemplo, cuando se deshabilita la programación de tareas en un nodo con la biblioteca de cliente .NET de Lote, puede especificar un valor de enumeración [DisableComputeNodeSchedulingOption][net_offline_option] para especificar si se terminarán las tareas en ejecución (**Terminate**), si se volverán a poner en la cola para su programación en otros nodos (**Requeue**) o si se permitirá que las tareas en ejecución se completen antes de realizar la acción (**TaskCompletion**).
+> [AZURE.IMPORTANT] Con cada acción anterior (reiniciar, restablecer la imagen inicial, quitar, deshabilitar la programación de tareas), puede especificar cómo se controlan las tareas que se están ejecutando en el nodo al realizar la acción. Por ejemplo, cuando deshabilita la programación de tareas en un nodo con la biblioteca de cliente .NET de Lote, puede especificar un valor de enumeración [DisableComputeNodeSchedulingOption][net_offline_option] para especificar si se terminarán las tareas en ejecución (**Terminate**), si se volverán a poner en la cola para su programación en otros nodos (**Requeue**) o si se permitirá que las tareas en ejecución se completen antes de realizar la acción (**TaskCompletion**).
 
 ## Pasos siguientes
 
@@ -366,6 +373,8 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -392,7 +401,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/es-ES/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
@@ -402,4 +411,4 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

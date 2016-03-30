@@ -308,7 +308,7 @@ Creará dos interfaces de red, una para cada máquina virtual. En lugar de tener
 ```
 
 ## Máquina virtual
-Aprenderá a crear dos máquinas virtuales con la función copyIndex(), como hizo al crear las [interfaces de red](#network-interface). La creación de la máquina virtual depende de la cuenta de almacenamiento, la interfaz de red y el conjunto de disponibilidad. Esta máquina virtual se creará a partir de una imagen de Marketplace, tal y como se define en la propiedad `storageProfile`. `imageReferece` se usa para definir el editor de la imagen, la oferta, la sku y la versión. Por último, se configura un perfil de diagnóstico para habilitar los diagnósticos para la máquina virtual.
+Aprenderá a crear dos máquinas virtuales con la función copyIndex(), como hizo al crear las [interfaces de red](#network-interface). La creación de la máquina virtual depende de la cuenta de almacenamiento, la interfaz de red y el conjunto de disponibilidad. Esta máquina virtual se creará a partir de una imagen de Marketplace, tal y como se define en la propiedad `storageProfile`. `imageReference` se usa para definir el editor de la imagen, la oferta, la sku y la versión. Por último, se configura un perfil de diagnóstico para habilitar los diagnósticos para la máquina virtual.
 
 Para buscar las propiedades pertinentes para una imagen de Marketplace, consulte el artículo [Búsqueda de máquinas virtuales](./virtual-machines/resource-groups-vm-searching.md). Para las imágenes publicadas por otros proveedores, deberá especificar otra propiedad llamada `plan`. Encontrará un ejemplo en [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) en la galería de inicio rápido.
 
@@ -503,4 +503,4 @@ Ha terminado de crear la plantilla y está listo para la implementación.
 - Para más información sobre la estructura de la plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para obtener información sobre cómo implementar una plantilla, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

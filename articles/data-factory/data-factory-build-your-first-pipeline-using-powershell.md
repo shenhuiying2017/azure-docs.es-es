@@ -47,7 +47,7 @@ Si usa Azure PowerShell de una **versión inferior a 1.0**, deberá usar los cmd
 Consulte [Deprecation of Switch AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) (Degradación de Switch AzureMode en Azure PowerShell) para conocer más detalles.
 
 
-## Paso 1: Creación de la factoría de datos
+## Creación de Data Factory
 
 En este paso, utilice Azure PowerShell para crear una Factoría de datos de Azure llamada **FirstDataFactoryPSH**. Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada para generar datos de salida. Comencemos con la creación de la factoría de datos en este paso.
 
@@ -70,7 +70,7 @@ En este paso, utilice Azure PowerShell para crear una Factoría de datos de Azur
 
 Antes de crear una canalización, debe crear algunas entidades de factoría de datos primero. En primer lugar debe crear servicios vinculados para vincular los almacenes de datos y procesos con su almacén de datos, a continuación, definir los conjuntos de datos de entrada y salida para representar los datos en los almacenes de datos vinculados y, finalmente, crear la canalización con una actividad que utilice estos conjuntos de datos.
 
-## Paso 2: Creación de servicios vinculados 
+## Crear servicios vinculados 
 En este paso, vinculará su cuenta de Almacenamiento de Azure y el clúster de HDInsight de Azure a petición con su factoría de datos. La cuenta de Almacenamiento de Azure contendrá los datos de entrada y salida de la canalización de este ejemplo. Para ejecutar el script de Hive especificado en la actividad de la canalización en este ejemplo, se usa el servicio vinculado de HDInsight. Debe identificar qué datos de almacén o servicios de proceso se usan en el escenario y vincular dichos servicios con la factoría de datos mediante la creación de servicios vinculados.
 
 ### Creación de un servicio vinculado de Almacenamiento de Azure
@@ -147,10 +147,10 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 
-## Paso 3: Creación de conjuntos de datos
+## Creación de conjuntos de datos
 En este paso, creará conjuntos de datos que representen los datos de entrada y salida para el procesamiento de Hive. Estos conjuntos de datos hacen referencia al servicio **StorageLinkedService** que ha creado anteriormente en este tutorial. El servicio vinculado apunta a una cuenta de Almacenamiento de Azure y los conjuntos de datos especifican el contenedor, la carpeta y el nombre de archivo en el almacenamiento que contiene los datos de entrada y salida.
 
-### Creación del conjunto de datos de entrada
+### Creación de un conjunto de datos de entrada
 1. Cree un archivo JSON con el nombre **InputTable.json** en la carpeta **C:\\ADFGetStarted** con el siguiente contenido:
 
 		{
@@ -223,7 +223,7 @@ Ahora, va a crear el conjunto de datos de salida que representa los datos de sal
 
 		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
-## Paso 3: Creación de la primera canalización
+## Creación de una canalización
 En este paso, creará la primera canalización con una actividad **HDInsightHive**. Tenga en cuenta que el segmento de entrada está disponible mensualmente (frecuencia: mes, intervalo: 1), el segmento de salida se genera mensualmente y la propiedad de programador también se establece en mensual para la actividad (consulte a continuación). La configuración del conjunto de datos de salida y la del programador de la actividad deben coincidir. En este momento, el conjunto de datos de salida es lo que impulsa la programación, por lo que debe crear un conjunto de datos de salida incluso si la actividad no genera ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada. Al final de esta sección se explican las propiedades usadas en el siguiente JSON.
 
 
@@ -290,7 +290,7 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Enhorabuena, ya creó correctamente su primera canalización con Azure PowerShell.
 
-### <a name="MonitorDataSetsAndPipeline"></a> Supervisión de los conjuntos de datos y la canalización
+## Supervisión de la canalización
 En este paso, se usará Azure PowerShell para supervisar lo que está ocurriendo en una factoría de datos de Azure.
 
 1. Ejecute **Get-AzureRmDataFactory** y asigne el resultado a la variable **$df**.
@@ -356,4 +356,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

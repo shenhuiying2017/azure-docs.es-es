@@ -3,7 +3,7 @@
 	description="Obtenga información sobre cómo crear una nueva aplicación web de Azure para un blog de WordPress mediante el Portal de Azure."
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="hero-article"
 	ms.date="02/08/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # Creación de una aplicación web de WordPress en el Servicio de aplicaciones de Azure
 
@@ -126,4 +126,4 @@ Para obtener más información sobre cómo trabajar con las aplicaciones web del
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

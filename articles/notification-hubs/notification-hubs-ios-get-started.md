@@ -39,7 +39,7 @@ El código completo de este tutorial se puede encontrar [en GitHub](https://gith
 
 Este tutorial requiere lo siguiente:
 
-+ [SDK de iOS versión 2.x para Servicios móviles]
++ [SDK de iOS versión 1.2.4 para Servicios móviles]
 + La versión más reciente de [Xcode]
 + Un dispositivo compatible con iOS 8 (o una versión posterior)
 + Pertenencia al [programa para desarrolladores de Apple](https://developer.apple.com/programs/)
@@ -86,7 +86,7 @@ Su centro de notificaciones está ahora configurado para funcionar con APNS, y t
 
    	![Xcode: perfil de aprovisionamiento][9]
 
-4. Descargue el [SDK de iOS versión 2.x para Servicios móviles] y descomprima el archivo. En XCode, haga clic con el botón derecho en el proyecto y haga clic en la opción **Add Files to** (Agregar archivos a) para agregar la carpeta **WindowsAzureMessaging.framework** al proyecto de XCode. Seleccione **Copy items if needed** (Copiar elementos si es necesario) y luego haga clic en **Add** (Agregar).
+4. Descargue el [SDK de iOS versión 1.2.4 para Servicios móviles] y descomprima el archivo. En XCode, haga clic con el botón derecho en el proyecto y haga clic en la opción **Add Files to** (Agregar archivos a) para agregar la carpeta **WindowsAzureMessaging.framework** al proyecto de XCode. Seleccione **Copy items if needed** (Copiar elementos si es necesario) y luego haga clic en **Add** (Agregar).
 
 	>[AZURE.NOTE] El SDK de los Centros de notificaciones no es compatible con bitcode en Xcode 7. Debe establecer **Enable Bitcode** (Habilitar Bitcode) en **No** en **Build Options** (Opciones de compilación) en el proyecto.
 
@@ -486,8 +486,7 @@ Para más información general sobre los Centros de notificaciones, consulte [In
 
 
 <!-- URLs. -->
-[Mobile Services iOS SDK version 1.2.4]: http://aka.ms/kymw2g
-[SDK de iOS versión 2.x para Servicios móviles]: https://github.com/Azure/azure-mobile-services/blob/master/CHANGELOG.ios.md#sdk-downloads
+[SDK de iOS versión 1.2.4 para Servicios móviles]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -506,4 +505,4 @@ Para más información general sobre los Centros de notificaciones, consulte [In
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

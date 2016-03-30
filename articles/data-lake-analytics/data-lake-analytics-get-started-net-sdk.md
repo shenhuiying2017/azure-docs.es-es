@@ -157,7 +157,7 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
                     WaitForNewline("Source data file prepared.", "Submitting a job.");
 
                     // Submit the job
-                    string jobId = SubmitJobByPath(localFolderPath + "SampleUSQLScript.txt", "My First ADLA Job");
+                    Guid jobId = SubmitJobByPath(localFolderPath + "SampleUSQLScript.txt", "My First ADLA Job");
                     WaitForNewline("Job submitted.", "Waiting for job completion.");
 
                     // Wait for job completion
@@ -290,9 +290,9 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
 
                 // Submit a U-SQL job by providing script contents.
                 // Returns the job ID
-                public static string SubmitJobByScript(string script, string jobName)
+                public static Guid SubmitJobByScript(string script, string jobName)
                 {
-                    var jobId = Guid.NewGuid().ToString();
+                    var jobId = Guid.NewGuid();
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties);
 
@@ -302,11 +302,11 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
                 }
 
                 // Submit a U-SQL job by providing a path to the script
-                public static string SubmitJobByPath(string scriptPath, string jobName)
+                public static Guid SubmitJobByPath(string scriptPath, string jobName)
                 {
                     var script = File.ReadAllText(scriptPath);
 
-                    var jobId = Guid.NewGuid().ToString();
+                    var jobId = Guid.NewGuid();
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1000, degreeOfParallelism: 1);
 
@@ -315,7 +315,7 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
                     return jobId;
                 }
 
-                public static JobResult WaitForJob(string jobId)
+                public static JobResult WaitForJob(Guid jobId)
                 {
                     var jobInfo = _adlaJobClient.Job.Get(jobId, _adlaAccountName);
                     while (jobInfo.State != JobState.Ended)
@@ -373,4 +373,4 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
 - Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general sobre Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

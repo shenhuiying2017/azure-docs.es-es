@@ -46,7 +46,7 @@ Seleccione las tablas que desee habilitar para Stretch.
 |**Extendida**|Indica si la tabla ya está habilitada.|
 |**Filas**|Especifica el número de filas de la tabla.|
 |**Tamaño (KB)**|Especifica el tamaño de la tabla en KB.|
-|**Migrar**|En CTP 3.1 a través de RC0, solo puede migrar una tabla completa mediante el asistente. Si desea especificar un predicado para seleccionar las filas que migrar desde una tabla que contenga los datos históricos y actuales, ejecute la instrucción ALTER TABLE para especificar un predicado después de salir del asistente. Para más información, vea [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrar**|En CTP 3.1 a través de RC1, solo puede migrar una tabla completa mediante el asistente. Si desea especificar un predicado para seleccionar las filas que migrar desde una tabla que contenga los datos históricos y actuales, ejecute la instrucción ALTER TABLE para especificar un predicado después de salir del asistente. Para más información, vea [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 
 ## <a name="Configure"></a>Configuración de la implementación de Azure
 
@@ -141,4 +141,4 @@ Habilitación tablas adicionales para Stretch Database Supervisión de la migrac
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

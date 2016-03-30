@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Orientar un dominio de Internet de la compañía a un dominio del Administrador de tráfico de Azure
 
-Para que el nombre de dominio de la empresa apunte a un nombre de dominio del Administrador de tráfico, modifique el registro de recursos DNS del servidor DNS de Internet para que use el tipo de registro CNAME, que asigna el nombre de dominio de la empresa al nombre de dominio del perfil de Administrador de tráfico. Puede ver el nombre de dominio del Administrador de tráfico en la sección **General** de la página Configuración del perfil del Administrador de tráfico.
+Para que el nombre de dominio de la empresa apunte a un nombre de dominio del Administrador de tráfico, modifique el registro de recursos DNS del servidor DNS de Internet para que use el tipo de registro CNAME, que asigna el nombre de dominio de la empresa al nombre de dominio del perfil de Administrador de tráfico. Puede ver el nombre de dominio del Administrador de tráfico en la sección **General** de la página Configuración del perfil del Administrador de tráfico.
 
 Por ejemplo, para que el nombre de dominio de la empresa www.contoso.com apunte al nombre de dominio del Administrador de tráfico contoso.trafficmanager.net, debe actualizar el registro de recursos DNS para que sea el siguiente:
 
@@ -35,4 +35,4 @@ Todas las solicitudes de tráfico de *www.contoso.com* se redirigirán ahora a *
 
 [Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

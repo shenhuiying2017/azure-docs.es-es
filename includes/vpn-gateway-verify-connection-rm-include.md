@@ -1,6 +1,6 @@
 ### Para comprobar la conexión mediante el uso del Portal de Azure
 
-Para comprobar una conexión VPN en el Portal de Azure, vaya a **Puertas de enlace de red virtual** -> ***haga clic en el nombre de su puerta de enlace*** -> **Configuración** -> **Conexiones**. Para ver más información en la hoja **Conexión**, seleccione el nombre de la conexión.
+Puede comprobar una conexión VPN en el Portal de Azure, para ello vaya a **Puertas de enlace de red virtual** -> ***haga clic en el nombre de la puerta de enlace*** -> **Configuración** -> **Conexiones**. Para ver más información en la hoja **Conexión**, seleccione el nombre de la conexión.
 
 ### Para comprobar la conexión mediante el uso de PowerShell
 
@@ -37,4 +37,4 @@ También es posible comprobar que la conexión se realizó correctamente; para e
 	    "egressBytesTransferred": 4142431
 	  }
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

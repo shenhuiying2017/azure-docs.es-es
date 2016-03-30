@@ -16,7 +16,7 @@ En esta sección, creará una aplicación de consola de Java que crea una nueva 
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.2</version>
     </dependency>
     ```
     
@@ -228,4 +228,4 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

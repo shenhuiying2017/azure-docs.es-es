@@ -63,4 +63,4 @@ Ahora que leyó una introducción a la Base de datos SQL y contestó a la pregun
 
 - Consulte un índice de los títulos y las descripciones en [All topics for Azure sql-database service](sql-database-index-all-articles.md) (Todos los temas del servicio de Base de datos de SQL de Azure).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -31,7 +31,7 @@ En este artículo, aprenderá a usar el [Portal de Azure](https://portal.azure.c
 1. **Debe** leer la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md) del artículo y completar los pasos de los requisitos previos antes de continuar.
 2. Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para más información del servicio, le recomendamos que consulte el artículo [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).  
 
-## Paso 1: Creación de la factoría de datos
+## Creación de Data Factory
 Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada para generar datos de salida. Comencemos con la creación de la factoría de datos en este paso.
 
 1.	Después de iniciar sesión en el [Portal de Azure](https://portal.azure.com/), siga estos pasos:
@@ -61,7 +61,7 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
 
 Antes de crear una canalización, debe crear algunas entidades de factoría de datos primero. En primer lugar debe crear servicios vinculados para vincular los almacenes de datos y procesos con su almacén de datos, a continuación, definir los conjuntos de datos de entrada y salida para representar los datos en los almacenes de datos vinculados y, finalmente, crear la canalización con una actividad que utilice estos conjuntos de datos.
 
-## Paso 2: Creación de servicios vinculados
+## Crear servicios vinculados
 En este paso, vinculará su cuenta de Almacenamiento de Azure y el clúster de HDInsight de Azure a petición con su factoría de datos. La cuenta de Almacenamiento de Azure contendrá los datos de entrada y salida de la canalización de este ejemplo. Para ejecutar el script de Hive especificado en la actividad de la canalización en este ejemplo, se usa el servicio vinculado de HDInsight. Debe identificar qué datos de almacén o servicios de proceso se usan en el escenario y vincular dichos servicios con la factoría de datos mediante la creación de servicios vinculados.
 
 ### Creación de un servicio vinculado de Almacenamiento de Azure
@@ -75,12 +75,12 @@ En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría d
 	![Servicio vinculado de Almacenamiento de Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Debería ver el script JSON para crear un servicio vinculado de Almacenamiento de Azure en el editor. 
-4. Reemplace **account name** por el nombre de la cuenta de Almacenamiento de Azure y **account key** por la clave de acceso de la cuenta de Almacenamiento de Azure. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+4. Reemplace **accountname** por el nombre de la cuenta de almacenamiento de Azure y **accountkey** por la clave de acceso de la cuenta de almacenamiento de Azure. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 5. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
 	![Botón Implementar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Después de que el servicio vinculado se implemente correctamente, la ventana **Borrador 1** desaparecerá y verá **StorageLinkedService** en la vista de árbol de la izquierda. 
+   Después de que el servicio vinculado se implemente correctamente, la ventana **Borrador 1** desaparecerá y verá **AzureStorageLinkedService** en la vista de árbol de la izquierda. 
    ![Servicio vinculado de Almacenamiento en el menú](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
@@ -100,7 +100,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "linkedServiceName": "StorageLinkedService"
+		      "linkedServiceName": "AzureStorageLinkedService"
 		    }
 		  }
 		}
@@ -124,14 +124,14 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
 	Consulte la sección [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obtener más información.
 3. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado. 
-4. Confirme que **StorageLinkedService** y **HDInsightOnDemandLinkedService** aparecen en la vista de árbol de la izquierda.
+4. Confirme que **AzureStorageLinkedService** y **HDInsightOnDemandLinkedService** aparecen en la vista de árbol de la izquierda.
 
 	![Vista de árbol con servicios vinculados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
-## Paso 3: Creación de conjuntos de datos
-En este paso, creará conjuntos de datos que representen los datos de entrada y salida para el procesamiento de Hive. Estos conjuntos de datos hacen referencia al servicio **StorageLinkedService** que ha creado anteriormente en este tutorial. El servicio vinculado apunta a una cuenta de Almacenamiento de Azure y los conjuntos de datos especifican el contenedor, la carpeta y el nombre de archivo en el almacenamiento que contiene los datos de entrada y salida.
+## Creación de conjuntos de datos
+En este paso, creará conjuntos de datos que representen los datos de entrada y salida para el procesamiento de Hive. Estos conjuntos de datos hacen referencia al servicio **AzureStorageLinkedService1** que creó anteriormente en este tutorial. El servicio vinculado apunta a una cuenta de Almacenamiento de Azure y los conjuntos de datos especifican el contenedor, la carpeta y el nombre de archivo en el almacenamiento que contiene los datos de entrada y salida.
 
-### Creación del conjunto de datos de entrada
+### Creación de un conjunto de datos de entrada
 
 1. En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Almacenamiento de blobs de Azure**.
 
@@ -142,7 +142,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 			"name": "AzureBlobInput",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "input.log",
 		            "folderPath": "adfgetstarted/inputdata",
@@ -165,7 +165,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 	| Propiedad | Descripción |
 	| :------- | :---------- |
 	| type | La propiedad type se establece en AzureBlob porque los datos residen en Almacenamiento de blobs de Azure. |  
-	| linkedServiceName | hace referencia a StorageLinkedService que creó anteriormente. |
+	| linkedServiceName | Hace referencia al servicio AzureStorageLinkedService que creó anteriormente. |
 	| fileName | Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este caso, se procesa solo el archivo input.log. |
 	| type | Los archivos de registro están en formato de texto, por tanto, usaremos TextFormat. | 
 	| columnDelimiter | Las columnas de los archivos de registro están delimitadas por , (coma). |
@@ -186,7 +186,7 @@ Ahora, va a crear el conjunto de datos de salida que representa los datos de sal
 		  "name": "AzureBlobOutput",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adfgetstarted/partitioneddata",
 		      "format": {
@@ -207,10 +207,10 @@ Ahora, va a crear el conjunto de datos de salida que representa los datos de sal
 
 	![Vista de árbol con servicios vinculados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
-## Paso 4: Creación de la primera canalización
+## Creación de una canalización
 En este paso, creará la primera canalización con una actividad **HDInsightHive**. Tenga en cuenta que el segmento de entrada está disponible mensualmente (frecuencia: mes, intervalo: 1), el segmento de salida se genera mensualmente y la propiedad de programador también se establece en mensual para la actividad (consulte a continuación). La configuración del conjunto de datos de salida y la del programador de la actividad deben coincidir. En este momento, el conjunto de datos de salida es lo que impulsa la programación, por lo que debe crear un conjunto de datos de salida incluso si la actividad no genera ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada. Al final de esta sección se explican las propiedades usadas en el siguiente JSON.
 
-1. En el **Editor de la Factoría de datos**, haga clic en el botón de puntos suspensivos **(...)** y, a continuación, en **Nueva canalización**.
+1. En el **Editor de Data Factory**, haga clic en el botón de puntos suspensivos **(...) Más comandos** y, después, en **Nueva canalización**.
 	
 	![Botón Nueva canalización](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copie y pegue el fragmento de código siguiente en la ventana Borrador 1.
@@ -226,7 +226,7 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 		                "type": "HDInsightHive",
 		                "typeProperties": {
 		                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-		                    "scriptLinkedService": "StorageLinkedService",
+		                    "scriptLinkedService": "AzureStorageLinkedService",
 		                    "defines": {
 		                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
 		                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -254,15 +254,15 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2014-02-01T00:00:00Z",
-		        "end": "2014-02-02T00:00:00Z",
+		        "start": "2016-02-01T00:00:00Z",
+		        "end": "2016-02-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}
  
 	En el fragmento de código JSON, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
 	
-	El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de Almacenamiento de Azure (especificada mediante la propiedad scriptLinkedService, llamada **StorageLinkedService**) en una carpeta denominada **script** del contenedor **adfgetstarted**.
+	El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de Almacenamiento de Azure (especificada mediante la propiedad scriptLinkedService, llamada **AzureStorageLinkedService**) en una carpeta denominada **script** del contenedor **adfgetstarted**.
 
 	La sección **defines** se usa para especificar la configuración de tiempo de ejecución que se pasará al script de Hive como valores de configuración de Hive (por ejemplo, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
@@ -270,15 +270,19 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 
 	En el código JSON de la actividad, se especifica que el script de Hive se ejecuta en el proceso que especifica el servicio vinculado **linkedServiceName**: **HDInsightOnDemandLinkedService**.
 
-	> [ACOM.NOTE] Consulte [Anatomía de una canalización](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para obtener información sobre las propiedades JSON que se usan en el ejemplo anterior.
+	> [AZURE.NOTE] Consulte en la sección [Anatomía de una canalización](data-factory-create-pipelines.md#anatomy-of-a-pipeline) las propiedades JSON que se usan en el ejemplo anterior.
 
-3. Confirme que el archivo input.log aparece en la carpeta adfgetstarted/inputdata en el Almacenamiento de blobs de Azure y haga clic en **Implementar** en la barra de comandos para implementar la canalización. Dado que las horas de **inicio** y **fin** están establecidas en el pasado y **isPaused** está establecido en false, la canalización (actividad en la canalización) se ejecutará inmediatamente después de implementar.
+3. Confirme lo siguiente:
+	1. El archivo **input.log** existe en la carpeta **inputdata** del contenedor **adfgetstarted** en el Almacenamiento de blobs de Azure.
+	2. El archivo **partitionweblogs.hql** existe en la carpeta **script** del contenedor **adfgetstarted** en el Almacenamiento de blobs de Azure. Complete los pasos de los requisitos previos en la [información general del tutorial](data-factory-build-your-first-pipeline.md) si no ve estos archivos. 
+	3. Confirme que ha reemplazado **storageaccountname** por el nombre de la cuenta de almacenamiento en la canalización JSON. 
+2. Haga clic en **Implementar** en la barra de comandos para implementar la canalización. Dado que las horas de **inicio** y **fin** están establecidas en el pasado y **isPaused** está establecido en false, la canalización (actividad en la canalización) se ejecutará inmediatamente después de implementar. 
 4. Confirme que la canalización aparece en la vista de árbol.
 
 	![Vista de árbol con canalización](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 5. Enhorabuena, ya creó correctamente su primera canalización.
 
-## Paso 4: Supervisión de la canalización
+## Supervisión de la canalización
 
 6. Haga clic en **X** para cerrar las hojas del Editor de la Factoría de datos y volver a la hoja de la Factoría de datos y, a continuación, haga clic en **Diagrama**.
   
@@ -301,8 +305,7 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 12. En la **Vista de diagrama**, haga doble clic en el conjunto de datos **AzureBlobOutput**. Verá que el segmento se está procesando.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Cuando finalice el procesamiento, el segmento aparecerá con el estado **Listo**.  
-
+9. Cuando finalice el procesamiento, el segmento aparecerá con el estado **Listo**.
 	>[AZURE.IMPORTANT] La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).  
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
@@ -325,4 +328,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->
