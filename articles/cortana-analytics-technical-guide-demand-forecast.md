@@ -231,7 +231,7 @@ Los siguientes pasos le guiarán por los pasos para visualizar la salida de dato
 ### Configuración del panel de análisis en frío
 En la canalización de datos de análisis en frío, el objetivo principal es obtener la previsión de la demanda de cada región. Power BI se conecta a una Base de datos SQL de Azure como su origen de datos, donde se almacenan los resultados de predicción.
 
-> [AZURE.NOTE] (1) Tarda unas horas en recopilar los resultados de previsión suficientes para el panel. Recomendamos iniciar este proceso entre dos y tres horas después de iniciar el generador de datos. 2) En este paso, el requisito previo es descargar e instalar el software gratuito [Power BI Desktop](https://powerbi.microsoft.com/desktop).
+> [AZURE.NOTE] \(1) Tarda unas horas en recopilar los resultados de previsión suficientes para el panel. Recomendamos iniciar este proceso entre dos y tres horas después de iniciar el generador de datos. 2) En este paso, el requisito previo es descargar e instalar el software gratuito [Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 
 
@@ -288,4 +288,4 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

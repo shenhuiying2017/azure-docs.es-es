@@ -39,8 +39,8 @@ Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestr
 
 
 <!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
+[Servicio de aplicaciones]: app-service-choose-me.md
+[Servicios en la nube]: cloud-services-choose-me.md
+[Máquinas virtuales]: #tellmevm
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
