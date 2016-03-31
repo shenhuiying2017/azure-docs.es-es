@@ -135,6 +135,6 @@ Use el SDK de Centros de notificaciones para enviar notificaciones push desde el
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
+[documentación de objetos de consulta]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
 
 <!----HONumber=AcomDC_0316_2016-->
