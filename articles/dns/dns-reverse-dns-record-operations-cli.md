@@ -60,4 +60,4 @@ Puede quitar una propiedad DNS inversa de una dirección IP pública existente u
 
 [AZURE.INCLUDE [P+F](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]
 
-<!----HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->
