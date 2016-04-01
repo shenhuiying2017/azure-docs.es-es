@@ -251,4 +251,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 - [Uso del almacenamiento de colas de Python](storage-python-how-to-use-queue-storage.md)
 - [Uso del Almacenamiento de archivos desde Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
