@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Referencia técnica del conector de Windows PowerShell
@@ -22,7 +22,7 @@ En este artículo se describe el conector de Windows PowerShell. El artículo se
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Debe usar la revisión 4.1.3461.0 o posterior ([KB2870703](https://support.microsoft.com/kb/2870703)).
+    -   Debe usar la revisión 4.1.3671.0 o posterior ([KB3092178](https://support.microsoft.com/kb/3092178)).
 
 Para MIM2016 y FIM2010R2, el conector está disponible como descarga desde el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -201,7 +201,7 @@ El script debe devolver un único objeto [OpenImportConnectionResults][oicres] a
 
 **Import Data**
 
-El conector llama al script de importación de datos hasta que el script indique que ya no hay más datos para importar y el servicio de sincronización no necesita solicitar ninguna importación completa de objetos durante una importación diferencial. El conector de Windows PowerShell tiene un tamaño de página de 9 999 objetos. Si el script va a devolver más de 9 999 objetos para importar, debe admitir la paginación. El conector expone una propiedad de datos personalizados que se puede usar para almacenar una marca de agua, de tal forma que cada vez que se llame al script, este reanuda la importación de objetos donde se quedó.
+El conector llama al script de importación de datos hasta que el script indique que ya no hay más datos para importar y el servicio de sincronización no necesita solicitar ninguna importación completa de objetos durante una importación diferencial. El conector de Windows PowerShell tiene un tamaño de página de 9 999 objetos. Si el script va a devolver más de 9 999 objetos para importar, debe admitir la paginación. El conector expone una propiedad de datos personalizados que se puede usar para almacenar una marca de agua, de tal forma que cada vez que se llame al script, este reanuda la importación de objetos donde se quedó.
 
 El script de importación de datos recibe los parámetros siguientes del conector:
 
@@ -370,4 +370,4 @@ Sustituya el nombre del conector de Windows PowerShell por el marcador de posici
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

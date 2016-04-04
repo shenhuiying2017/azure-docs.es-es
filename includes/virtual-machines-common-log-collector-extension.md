@@ -1,28 +1,29 @@
 
-Diagnosing issues with an Microsoft Azure cloud service requires collecting the service’s log files on virtual machines as the issues occur. You can use the AzureLogCollector extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs.
-> [AZURE.NOTE]Descriptions for most of the logged information can be found at http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+El diagnóstico de problemas con un servicio en la nube de Microsoft Azure requiere la recopilación de archivos de registro del servicio en máquinas virtuales cuando se producen los problemas. Puede usar la extensión AzureLogCollector a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del Servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales.
+> [AZURE.NOTE]Puede encontrar descripciones para la mayoría de la información registrada en http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 
-There are two modes of collection dependent on the types of files to be collected.
-- Azure Guest Agent Logs only (GA). This collection mode includes all the logs related to Azure guest agents and other Azure components.
-- All Logs (Full). This collection mode will collect all files in GA mode plus:
+Existen dos modos de recopilación que dependen de los tipos de archivos que se van a recopilar.
+- Solo los registros del agente invitado de Azure (disponibilidad general). Este modo de recopilación incluye todos los registros relacionados con los agentes invitados y otros componentes de Azure.
+- Todos los registros (completo). Este modo de recopilación recopilará todos los archivos en modo GA además de:
 
-  - system and application event logs
+  - los registros de eventos de aplicación y del sistema
   
-  - HTTP error logs
+  - registros de errores HTTP
   
-  - IIS Logs
+  - Registros IIS
   
-  - Setup logs
+  - Registros de configuración
   
-  - other system logs
+  - otros registros del sistema
 
-In both collection modes, additional data collection folders can be specified by using a collection of the following structure:
+En ambos modos de recopilación, pueden especificarse carpetas de recopilación de datos adicionales mediante una colección de la estructura siguiente:
 
-- **Name**: The name of the collection, which will be used as the name of subfolder inside the zip file to be collected.
+- **Name**: el nombre de la colección, que se usará como el nombre de la subcarpeta dentro del archivo zip que se va a recopilar.
 
-- **Location**: The path to the folder on the virtual machine where file will be collected.
+- **Location**: la ruta de acceso a la carpeta en la máquina virtual donde se recopilará el archivo.
 
-- **SearchPattern**: The pattern of the names of files to be collected. Default is “*”
+- **SearchPattern**: el patrón de los nombres de archivos que se van a recopilar. El valor predeterminado es "*".
 
-- **Recursive**: if the files will be collected recursively under the folder.
-
+- **Recursive**: si los archivos se recopilarán de forma recursiva en la carpeta.
+
+<!---HONumber=AcomDC_0323_2016-->

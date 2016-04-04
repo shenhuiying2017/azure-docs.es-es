@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management de Azure AD: Inicio de la incorporación de un rol de usuario"
+   pageTitle="Incorporación o eliminación de un rol de usuario | Microsoft Azure"
    description="Aprenda a agregar roles a identidades con privilegios con la extensión de Privileged Identity Management de Azure Active Directory."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario
@@ -49,4 +49,4 @@ Una vez que haya navegado a la hoja **Agregar usuarios administrados**:
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

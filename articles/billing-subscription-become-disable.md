@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2015"
+	ms.date="03/08/2016"
 	ms.author="genli"/>
 
 # ¿Qué he de hacer si se desactiva mi suscripción de Azure?
@@ -43,4 +43,4 @@ Si no puede acceder al portal, envíe la solicitud de soporte técnico desde el 
 
 Para más información, vea [Cómo crear una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management de Azure: Realización de una revisión de seguridad"
+   pageTitle="Realización de una revisión de seguridad | Microsoft Azure"
    description="Obtenga información sobre cómo agregar roles a identidades con privilegios con la extensión de Privileged Identity Management de Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management de Azure: Realización de una revisión de seguridad
+# Privileged Identity Management de Azure AD: Realización de una revisión de seguridad
 
 
 Resulta muy fácil revisar el acceso con privilegios una vez [iniciada una revisión de seguridad](active-directory-privileged-identity-management-how-to-start-security-review.md).
@@ -60,4 +60,4 @@ Puede exportar una revisión para su uso con Excel u otros programas que puedan 
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

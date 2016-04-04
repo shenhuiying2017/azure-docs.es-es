@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Instalación de la actualización 1.2 en el dispositivo StorSimple | Microsoft Azure"
    description="Explica cómo instalar la actualización 1.2 de la serie StorSimple 8000 en un dispositivo de la serie StorSimple 8000."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="03/21/2016"
    ms.author="alkohli" />
 
 # Instalación la actualización 1.2 en el dispositivo StorSimple
@@ -39,64 +39,48 @@ En función de la versión que se está ejecutando en el dispositivo, puede dete
 </br>
 
 > [AZURE.IMPORTANT]
- 
+
 > -  Es posible que no vea la actualización 1.2 de inmediato porque hacemos una implementación por fases de las actualizaciones. Busque actualizaciones de nuevo en unos días ya que estarán disponibles pronto.
-> - Esta actualización incluye un conjunto de comprobaciones previas manuales y automáticas para determinar el estado del dispositivo en cuanto a la conectividad de la red y el estado del hardware. Estas comprobaciones previas se realizan solo si aplica las actualizaciones desde el Portal de Azure clásico. 
+> - Esta actualización incluye un conjunto de comprobaciones previas manuales y automáticas para determinar el estado del dispositivo en cuanto a la conectividad de la red y el estado del hardware. Estas comprobaciones previas se realizan solo si aplica las actualizaciones desde el Portal de Azure clásico.
 > - Se recomienda instalar las actualizaciones de software y de los controladores mediante el Portal de Azure clásico. Solo debe ir a la interfaz de Windows PowerShell del dispositivo (para instalar actualizaciones) si, en el Portal, se produce un error en las comprobaciones de la puerta de enlace anteriores a la actualización. Las actualizaciones pueden tardar 5-10 horas en instalarse (incluidas las actualizaciones de Windows). Las actualizaciones en modo de mantenimiento deben instalarse mediante la interfaz de Windows PowerShell del dispositivo. Como las actualizaciones en modo de mantenimiento son perturbadoras, generarán un tiempo de inactividad para el dispositivo.
 
-## Preparación de las actualizaciones
-Deberá realizar los siguientes pasos antes de buscar y aplicar la actualización:
+[AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-1. Tome una instantánea de la nube de los datos del dispositivo.
+## Instalación de la actualización 1.2 mediante el Portal de Azure clásico
 
-2. Las direcciones IP fijas del controlador son enrutables y se pueden conectar a Internet. Estas direcciones IP fijas se usarán para atender las actualizaciones en el dispositivo. Para comprobarlo, ejecute el siguiente cmdlet en cada controlador de la interfaz de Windows PowerShell del dispositivo:
+Realice los pasos siguientes para actualizar el dispositivo a [Update 1.2](storsimple-update1-release-notes.md). Use este procedimiento solo si tiene una puerta de enlace configurada en la interfaz de red DATA 0 del dispositivo.
 
- 	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
- 
-	**Salida de ejemplo para la conexión de prueba cuando los IP fijos pueden conectarse a Internet**
+[AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-	    
-		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
-	    
-	    Source	  Destination 	IPV4Address      IPV6Address
-	    ----------------- -----------  -----------
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	
-		Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+12. Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 1.2 (6.3.9600.17584)**. También se debe modificar **Fecha de última actualización:**. También verá que hay disponibles actualizaciones en modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones).
 
-	    Source	  Destination 	  IPV4Address    IPV6Address
-	    ----------------- -----------  -----------
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
+    Las actualizaciones del modo de mantenimiento provocan interrupciones con tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo.
 
-Después de haber completado correctamente estas comprobaciones previas manuales, puede buscar e instalar las actualizaciones.
+    ![Página de mantenimiento](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Página de mantenimiento")
 
-## Instalación de la actualización 1.2 mediante el Portal de Azure clásico 
+13. Descargue las actualizaciones en el modo de mantenimiento mediante los pasos enumerados en [Descargar revisiones](#to-download-hotfixes) para buscar y descargar KB3063416, que instala las actualizaciones de firmware del disco (el resto de actualizaciones ya deben estar instaladas).
 
-Use este procedimiento solo si tiene una puerta de enlace configurada en la interfaz de red DATA 0 del dispositivo. Realice los pasos siguientes para actualizar el dispositivo.
+13. Siga los pasos enumerados en [Instalar y comprobar las revisiones del modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfixes) para instalar las actualizaciones del modo de mantenimiento.
 
-[AZURE.INCLUDE [storsimple-install-update-via-portal](../../includes/storsimple-install-update-via-portal.md)]
+14. En el Portal de Azure clásico, desplácese hasta la página **Mantenimiento** y, en la parte inferior de la página, haga clic en **Buscar actualizaciones** para comprobar si hay actualizaciones de Windows; a continuación, haga clic en **Instalar actualizaciones**. Habrá terminado cuando se instalen correctamente todas las actualizaciones.
 
-## Instale la actualización 1.2 en un dispositivo que tenga una puerta de enlace configurada para una interfaz de red que no sea DATA 0 
 
-Debe usar este procedimiento solo si la comprobación de la puerta de enlace es incorrecta al intentar instalar las actualizaciones mediante el Portal de Azure clásico. Se produce un error en la comprobación porque tiene una puerta de enlace asignada a una interfaz de red que no es DATA 0 y el dispositivo está ejecutando una versión de software antes de la actualización 1. Si el dispositivo no tiene una puerta de enlace en una interfaz de red que no sea DATA 0, puede actualizar el dispositivo directamente desde el Portal de Azure clásico. Consulte [Instalación de la actualización 1.2 mediante el Portal de Azure clásico](#install-update-12-via-the-azure-portal).
+
+## Instale la actualización 1.2 en un dispositivo que tenga una puerta de enlace configurada para una interfaz de red que no sea DATA 0
+
+Debe usar este procedimiento solo si la comprobación de la puerta de enlace es incorrecta al intentar instalar las actualizaciones mediante el Portal de Azure clásico. Se produce un error en la comprobación porque tiene una puerta de enlace asignada a una interfaz de red que no es DATA 0 y el dispositivo está ejecutando una versión de software antes de la actualización 1. Si el dispositivo no tiene una puerta de enlace en una interfaz de red que no sea DATA 0, puede actualizar el dispositivo directamente desde el Portal de Azure clásico. Consulte [Instalación de la actualización 1.2 mediante el Portal de Azure clásico](#install-update-1.2-via-the-azure-classic-portal).
 
 Las versiones de software que se pueden actualizar con este método son actualización 0.1, actualización 0.2 y actualización 0.3.
 
 
 > [AZURE.IMPORTANT]
-> 
+>
 > - Si el dispositivo está ejecutando la versión de lanzamiento (GA), [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para que le ayude con la actualización.
 > - Este procedimiento debe realizarse una sola vez para aplicar la actualización 1.2. Puede usar el Portal de Azure clásico para aplicar las actualizaciones posteriores.
 
 Si el dispositivo ejecuta el software previo a la actualización 1 y tiene una puerta de enlace establecida para una interfaz de red que no sea DATA 0, la actualización 1.2 se puede aplicar de las dos maneras siguientes:
 
-- **Opción 1**: Descargar la actualización y aplicarla mediante el cmdlet `Start-HcsHotfix` desde la interfaz de Windows PowerShell del dispositivo. Éste es el método recomendado. **No use este método para aplicar la actualización 1.2 si el dispositivo ejecuta la actualización 1.0 o la actualización 1.1.** 
+- **Opción 1**: Descargar la actualización y aplicarla mediante el cmdlet `Start-HcsHotfix` desde la interfaz de Windows PowerShell del dispositivo. Éste es el método recomendado. **No use este método para aplicar la actualización 1.2 si el dispositivo ejecuta la actualización 1.0 o la actualización 1.1.**
 
 - **Opción 2**: quitar la configuración de la puerta de enlace e instalar la actualización directamente desde el Portal de Azure clásico.
 
@@ -106,6 +90,14 @@ En las siguientes secciones, se proporcionan instrucciones detalladas de cada un
 ## Opción 1: Use Windows PowerShell para StorSimple para aplicar la actualización 1.2 como una revisión
 
 Solo debe usar este procedimiento si ejecuta la actualización 0.1, 0.2 y 0.3 y si la comprobación de la puerta de enlace produce un error al intentar instalar actualizaciones desde el Portal de Azure clásico. Si está ejecutando la versión de lanzamiento (GA), [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para actualizar el dispositivo.
+
+Para instalar Update 1.2 como una revisión, descargue e instale las revisiones siguientes:
+
+| Orden | KB | Descripción | Tipo de actualización |
+|--------|-----------|-------------------------|------------- |
+| 1 | KB3063418 | Actualización de software | Normal |
+| 2 | KB3043005 | Actualización del controlador SAS LSI | Normal |
+| 3 | KB3063416 | Firmware del disco | Mantenimiento |
 
 Antes de utilizar este procedimiento para aplicar la actualización, asegúrese de que:
 
@@ -119,36 +111,18 @@ Realice los pasos siguientes para aplicar la actualización 1.2. **Las actualiza
 ## Opción 2: use el Portal de Azure clásico para aplicar la actualización 1.2 después de quitar la configuración de la puerta de enlace
 
 Este procedimiento solo se aplica a los dispositivos StorSimple que ejecutan una versión del software anterior a la actualización 1 y tienen una puerta de enlace establecida en una interfaz de red que no sea DATA 0. Deberá borrar la configuración de la puerta de enlace antes de aplicar la actualización.
- 
+
 La actualización puede tardar unas horas en completarse. Si los hosts se encuentran en subredes diferentes, la eliminación de la configuración de la puerta de enlace de las interfaces de iSCSI podría provocar un tiempo de inactividad. Para reducir el tiempo de inactividad, se recomienda configurar DATA 0 para el tráfico iSCSI.
- 
+
 Realice los pasos siguientes para deshabilitar la interfaz de red con la puerta de enlace y, a continuación, aplique la actualización.
- 
+
 [AZURE.INCLUDE [storsimple-install-update-option2](../../includes/storsimple-install-update-option2.md)]
 
-## Solución de errores en actualización
-
-**¿Qué ocurre si ve una notificación que indica que se ha producido un error en las comprobaciones previas a la actualización?**
-
-Si se produce un error en la comprobación previa, asegúrese de que ha examinado la barra de notificación detallada en la parte inferior de la página. Esto proporciona una guía para saber en qué comprobación previa se ha producido el error. La siguiente ilustración muestra una instancia en la que aparece dicha notificación. En este caso, ni la comprobación de mantenimiento del controlador ni la comprobación de mantenimiento de los componentes de hardware han resultado satisfactorias. En la sección **Estado del hardware**, puede ver que los componentes de **Controller 0** y **Controller 1** necesitan atención.
- 
-  ![Error de comprobación previa](./media/storsimple-install-update-1/HCS_PreUpdateCheckFailed-include.png)
-
-Es preciso asegurarse de que ambos controladores funcionan correctamente y están en línea. También necesitará asegurarse de que en la página de mantenimiento se muestra que todos los componentes de hardware del dispositivo StorSimple están en buen estado. A continuación, puede intentar instalar las actualizaciones. Si no puede corregir los problemas de los componentes de hardware, deberá ponerse en contacto con el servicio de soporte técnico de Microsoft para los pasos siguientes.
-
-**¿Qué sucede si recibe el mensaje de error "Las actualizaciones no se pudieron instalar" y la recomendación es hacer referencia a la guía de solución de problemas de actualización para determinar la causa del error?**
-
-Una causa probable podría ser que no tiene conectividad con los servidores de Microsoft Update. Esta es una comprobación manual que se debe realizar. Si se pierde la conexión con servidor de actualizaciones, se producirá un error en el trabajo de actualización. Para comprobar la conectividad, ejecute el siguiente cmdlet desde la interfaz de Windows PowerShell del dispositivo StorSimple:
-
- `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
-
-Ejecute el cmdlet en ambos controladores.
- 
-Si ha comprobado que existe conectividad y sigue apareciendo este problema, póngase en contacto con servicio de soporte técnico de Microsoft para los pasos siguientes.
+[AZURE.INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
 
 ## Pasos siguientes
 
 Obtenga más información sobre el [lanzamiento de la actualización 1.2](storsimple-update1-release-notes.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

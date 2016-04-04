@@ -31,7 +31,7 @@ Con esta flexibilidad, Programador de Azure le permite admitir una amplia varied
 -	Procesamiento de imágenes; por ejemplo, todos los días laborables, fuera de las horas pico, hay que utilizar la informática en la nube para comprimir las imágenes cargadas durante ese día.
 
 
-En este artículo se describen ejemplos de trabajos que se pueden crear con Programador de Azure. Se proporcionan los datos JSON que describen cada programación. Si se usa la [API de REST de Programador](https://msdn.microsoft.com/library/azure/dn528946.aspx), puede usar este mismo JSON para [crear un trabajo de Programador de Azure](https://msdn.microsoft.com/library/azure/dn528937.aspx).
+En este artículo se describen ejemplos de trabajos que se pueden crear con Programador de Azure. Se proporcionan los datos JSON que describen cada programación. Si se usa la [API de REST de Programador](https://msdn.microsoft.com/library/mt629143.aspx), puede usar este mismo JSON para [crear un trabajo de Programador de Azure](https://msdn.microsoft.com/library/mt629145.aspx).
 
 ## Escenarios admitidos
 
@@ -52,7 +52,7 @@ Las referencias a fecha/hora en los trabajos de Programador de Azure siguen la [
 
 ## Uso de JSON y API de REST para crear programaciones
 
-Para crear una programación simple con los ejemplos JSON en este artículo y la API de REST de Programador de Azure, [cree primero un servicio en la nube](https://msdn.microsoft.com/library/azure/dn528943.aspx), [después, cree una colección de trabajos](https://msdn.microsoft.com/library/azure/dn528940.aspx) y, [finalmente, cree un trabajo](https://msdn.microsoft.com/library/azure/dn528937.aspx). Cuando se crea un trabajo, puede especificar la programación y periodicidad mediante JSON como en el extracto siguiente:
+Para crear una programación simple mediante la [API de REST del Programador de Azure](https://msdn.microsoft.com/library/mt629143), primero [registre su suscripción con un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx) (el nombre del proveedor para el Programador es _Microsoft.Scheduler_); después, [cree una colección de trabajos](https://msdn.microsoft.com/library/mt629159.aspx), y finalmente, [cree un trabajo](https://msdn.microsoft.com/library/mt629145.aspx). Cuando se crea un trabajo, puede especificar la programación y periodicidad mediante JSON como en el extracto siguiente:
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -197,4 +197,4 @@ Todas las programaciones siguientes asumen que el _intervalo_ está establecido 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

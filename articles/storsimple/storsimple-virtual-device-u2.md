@@ -46,7 +46,7 @@ El dispositivo virtual StorSimple está disponible en dos modelos: estándar 801
 
 Las regiones de Almacenamiento premium que actualmente admiten 8020 aparecen a continuación. Esta lista se actualizará de manera periódica cada vez que Almacenamiento premium esté disponible en más regiones.
 
-| S. No. | Actualmente se admite en las regiones |
+| S. n°. | Actualmente se admite en las regiones |
 |---------------------------------------------------------|--------------------------------|
 | 1 | Central EE. UU.: |
 | 2 | Este de EE. UU. |
@@ -103,7 +103,7 @@ Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes pr
 - Para el dispositivo virtual, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si usa Almacenamiento premium, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Más información sobre las [regiones que actualmente admiten 8020](#supported-regions-for-8020).
 - Puede usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. Si el nombre del servidor DNS no es válido o si el servidor DNS no es capaz de resolver las direcciones IP correctamente, no se podrá crear el dispositivo virtual.
 - Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados. 
-- Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-about.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos: 							
+- Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-linux-about.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos: 							
 	- Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado.
 	- Ejecutarse en la misma red virtual como el dispositivo virtual.
 	- Ser capaz de conectarse al destino iSCSI del dispositivo virtual a través de la dirección IP interna del dispositivo virtual.
@@ -146,8 +146,7 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
 
 Antes de comenzar este procedimiento, asegúrese de que tiene una copia de la clave de cifrado de datos del servicio. La clave de cifrado de datos del servicio se creó cuando se configuró el primer dispositivo de StorSimple y se le pidió que lo guardara en una ubicación segura. Si no tiene una copia de la clave de cifrado de datos del servicio, debe ponerse en contacto con Microsoft Support para obtener ayuda.
 
-Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.
-[AZURE.INCLUDE [Configuración y registro de un dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
+Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.[AZURE.INCLUDE [Configuración y registro de un dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Paso 3: (Opcional) Modificación de la configuración del dispositivo
 
@@ -282,4 +281,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
  
 - Sepa cómo [restaurar un volumen de StorSimple de un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

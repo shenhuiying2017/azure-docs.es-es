@@ -142,7 +142,7 @@ dataNodeSize | Especifica el tamaño del nodo de datos. El valor predeterminado 
 zookeeperNodeSize | Especifica el tamaño del nodo de Zoo Keeper. El valor predeterminado es: Pequeño. | No
  
 #### Especificación de tamaños de nodo
-Vea el artículo [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-size-specs.md#size-tables) para valores de cadena que tiene que especificar para las propiedades anteriores. Los valores deben ser conformes a los **CMDLET y API** a los que se hace referencia en el artículo. Como puede ver en el artículo, el nodo de datos de tamaño grande (valor predeterminado) tiene 7 GB de memoria, que es posible que no sea lo suficientemente bueno para su escenario.
+Vea el artículo [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) para valores de cadena que tiene que especificar para las propiedades anteriores. Los valores deben ser conformes a los **CMDLET y API** a los que se hace referencia en el artículo. Como puede ver en el artículo, el nodo de datos de tamaño grande (valor predeterminado) tiene 7 GB de memoria, que es posible que no sea lo suficientemente bueno para su escenario.
 
 Si quiere crear nodos de trabajo y principales de tamaño D4, tiene que especificar **Standard\_D4** como el valor de las propiedades headNodeSize y dataNodeSize.
 
@@ -177,7 +177,6 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 	      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
 	      "userName": "admin",
 	      "password": "<password>",
-	      "location": "WestUS",
 	      "linkedServiceName": "MyHDInsightStoragelinkedService"
 	    }
 	  }
@@ -191,7 +190,6 @@ type | La propiedad type se debe establecer en **HDInsight**. | Sí
 clusterUri | El URI del clúster de HDInsight. | Sí
 nombre de usuario | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí
 contraseña | Especifique la contraseña para la cuenta de usuario. | Sí
-location | Especifique la ubicación del clúster de HDInsight (por ejemplo: WestUS). | Sí
 linkedServiceName | Nombre del servicio vinculado para el almacenamiento de blobs usado por este clúster de HDInsight. | Sí
 
 ## Servicio vinculado de Lote de Azure
@@ -299,14 +297,14 @@ subscriptionId | Identificador de suscripción de Azure. | No (si no se especifi
 resourceGroupName | Nombre del grupo de recursos de Azure. | No (si no se especifica, se usa el grupo de recursos de la factoría de datos).
 sessionId | Identificador de sesión de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Esto se genera automáticamente en el Editor de Factoría de datos. | Sí
 
-El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Cuando el **token de autenticación expira**, puede aparecer el siguiente mensaje de error: Error de operación de credencial: invalid\_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
+El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: Error de operación de credencial: invalid\_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
 
 | Tipo de usuario | Expira después de |
 | :-------- | :----------- | 
 | Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
 | Cuentas de usuario administradas por Azure Active Directory (AAD) | 14 días después de la ejecución del último segmento. <br/><br/>90 días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada 14 días. |
  
-Para evitar o resolver este error, será preciso que vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades sessionId y authorization mediante programación, para lo que usará el código de la sección siguiente.
+Para evitar o resolver este error, tendrá que volver a dar la autorización con el botón **Autorizar** cuando el **token expire**, así como implementar de nuevo el servicio vinculado. También puede generar valores para las propiedades sessionId y authorization mediante programación, para lo que usará el código de la sección siguiente.
 
 ### Para generar los valores de sessionId y authorization mediante programación 
 El código siguiente genera los valores de **sessionId** y **authorization**.
@@ -334,11 +332,11 @@ El código siguiente genera los valores de **sessionId** y **authorization**.
         }
     }
 
-Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas sobre las clases [AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+Para obtener más información sobre las clases de Factoría de datos que se usan en el código, vea los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
  
 
 ## Servicio vinculado SQL de Azure
 
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Vea el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para más información sobre este servicio vinculado.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

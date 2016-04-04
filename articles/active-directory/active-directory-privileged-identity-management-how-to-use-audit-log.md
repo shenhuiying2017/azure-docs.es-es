@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management de Azure: Cómo usar el registro de auditoría"
+   pageTitle="Cómo utilizar el registro de auditoría | Microsoft Azure"
    description="Obtenga información sobre cómo usar el registro de auditoría en la extensión de Privileged Identity Management de Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management de Azure: Cómo utilizar el registro de auditoría
+# Privileged Identity Management de Azure AD: Cómo utilizar el registro de auditoría
 
 Puede utilizar el registro de auditoría de Privileged Identity Management (PIM) para ver todas las asignaciones de usuario y las activaciones comprendidas en un período de tiempo determinado.
 
@@ -56,4 +56,4 @@ Una vez establecidos todos los filtros para el registro de auditoría, haga clic
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

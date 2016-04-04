@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/21/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,12 +64,12 @@ Para configurar la integración de Degreed en Azure AD, deberá agregar Degreed 
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **Degreed**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_01.png)<br>
-7. En el panel de resultados, seleccione **Degreed** y después haga clic en **Completar** para agregar la aplicación. <br><br>
+7. En el panel de resultados, seleccione **Degreed** y, después, haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_02.png)<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Degreed con una usuaria de prueba llamada "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Degreed para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Degreed.<br> Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Degreed.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Degreed para un usuario de Azure AD. Es decir, hay que establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Degreed.<br> Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** de Degreed.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Degreed, es preciso completar los siguientes bloques de creación:
 
@@ -89,7 +89,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Degreed**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Degreed?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_03.png) <br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Degreed?**, seleccione **Inicio de sesión único de Azure AD** y, después, haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_03.png) <br>
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_04.png) <br>
 
@@ -106,7 +106,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. Haga clic en **Siguiente**.
 
 
-5. Para configurar el inicio de sesión único de su aplicación, póngase en contacto con el equipo de soporte técnico de Degreed a través de [admin@degreed.com](mailto:admin@degreed.com) y adjunte el archivo de metadatos a su correo electrónico.
+5. Para configurar el inicio de sesión único en su aplicación, póngase en contacto con el equipo de soporte técnico de Degreed a través de [admin@degreed.com](mailto:admin@degreed.com) y adjunte el archivo de metadatos a su correo electrónico.
 
 
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
@@ -188,7 +188,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 ### Prueba del inicio de sesión único
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el Panel de acceso.<br> Al hacer clic en el icono de Degreed en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Degreed.
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.<br> Al hacer clic en el icono de Degreed en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Degreed.
 
 
 ## Recursos adicionales
@@ -216,4 +216,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

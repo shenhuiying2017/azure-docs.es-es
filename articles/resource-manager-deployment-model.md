@@ -32,7 +32,7 @@ Sin embargo, algunos proveedores de recursos ofrecen dos versiones del recurso (
 - **Almacenamiento**: admite cuentas de almacenamiento requeridas que almacenan los discos duros virtuales para máquinas virtuales, incluido su sistema operativo y discos de datos adicionales.
 - **Red**: admite NIC requeridos, direcciones IP de máquinas virtuales y subredes de redes virtuales y equilibradores de carga opcionales, direcciones IP de equilibradores de carga y grupos de seguridad de red.
 
-Para estos tipos de recursos, debe ser consciente de la versión que utiliza, ya que variarán las operaciones admitidas. Para obtener más detalles acerca de la transición de recursos de procesos, almacenamiento y redes, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Para estos tipos de recursos, debe ser consciente de la versión que utiliza, ya que variarán las operaciones admitidas. Para obtener más detalles acerca de la transición de recursos de procesos, almacenamiento y redes, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 ## Características del Administrador de recursos
 
@@ -44,7 +44,7 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Para recursos de proceso, almacenamiento y red, puede usar el Administrador de recursos o la implementación clásica. Select **Administrador de recursos**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -93,7 +93,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
+        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -177,9 +177,9 @@ Hay algunas consideraciones importantes al trabajar con máquinas virtuales.
 
 Si puede permitirse disponer de tiempo de inactividad para las máquinas virtuales, puede realizar la transición desde la implementación clásica hasta el administrador de recursos con los [scripts PowerShell de ASM2ARM](https://github.com/fullscale180/asm2arm).
 
-Para obtener una lista de los comandos de la CLI de Azure equivalentes al realizar la transición desde la implementación clásica al Administrador de recursos, consulte [Comandos equivalentes del Administrador de recursos y de Administración de servicios para las operaciones de VM](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
+Para obtener una lista de los comandos de la CLI de Azure equivalentes al realizar la transición desde la implementación clásica al Administrador de recursos, consulte [Comandos equivalentes del Administrador de recursos y de Administración de servicios para las operaciones de VM](./virtual-machines/virtual-machines-linux-cli-manage.md).
 
-Para obtener más detalles acerca de la transición de recursos de procesos, almacenamiento y redes, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Para obtener más detalles acerca de la transición de recursos de procesos, almacenamiento y redes, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 Para obtener información sobre cómo conectar redes virtuales de diferentes modelos de implementación, consulte [Conexión de redes virtuales clásicas a redes virtuales nuevas](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
@@ -188,4 +188,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para obtener información sobre cómo crear plantillas de implementación declarativas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

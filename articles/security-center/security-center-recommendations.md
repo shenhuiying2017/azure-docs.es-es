@@ -38,7 +38,7 @@ En [Establecimiento de directivas de seguridad en el Centro de seguridad de Azur
 - Activar la recopilación de datos.
 - Elegir las recomendaciones que verá como parte de la directiva de seguridad.
 
-Las recomendaciones de directiva actuales se centran en las actualizaciones del sistema, las reglas de línea de base, los programas antimalware, las [ACL para puntos de conexión](../virtual-machines/virtual-machines-set-up-endpoints.md), los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) en subredes y las interfaces de red, la auditoría de bases de datos SQL, el cifrado de datos transparente de bases de datos SQL y los firewalls de aplicaciones web. [Establecimiento de directivas de seguridad](security-center-policies.md) proporciona una descripción de cada opción de recomendación.
+Las recomendaciones de directiva actuales se centran en las actualizaciones del sistema, las reglas de línea de base, los programas antimalware, las [ACL para puntos de conexión](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) en subredes y las interfaces de red, la auditoría de bases de datos SQL, el cifrado de datos transparente de bases de datos SQL y los firewalls de aplicaciones web. [Establecimiento de directivas de seguridad](security-center-policies.md) proporciona una descripción de cada opción de recomendación.
 
 ### Supervisión de recomendaciones
 Después de establecer una directiva de seguridad, el Centro de seguridad analiza el estado de seguridad de los recursos, con el fin de identificar vulnerabilidades potenciales. El icono **Recomendaciones** de la hoja **Centro de seguridad** permite conocer el número total de recomendaciones que identifica el Centro de seguridad.
@@ -122,4 +122,4 @@ En este documento, se han presentando las recomendaciones de seguridad del Centr
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

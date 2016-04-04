@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Precios y facturación de Bus de servicio | Microsoft Azure"
-   description="Información general de la estructura de precios de Bus de servicio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Precios y facturación de Bus de servicio | Microsoft Azure"
+    description="Información general de la estructura de precios de Bus de servicio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Precios y facturación de Bus de servicio
 
 Bus de servicio está disponible en los niveles Básico, Estándar y [Premium](service-bus-premium-messaging.md). Puede elegir un nivel de servicio para cada espacio de nombres del servicio Bus de servicio que cree y esta selección de nivel se aplica a todas las colas, temas/suscripciones, retransmisiones y Centros de eventos creados dentro de ese espacio de nombres.
 
->[AZURE.NOTE]Para más información sobre los precios actuales de Bus de servicio, consulte las [P+F de precios de Bus de servicio](service-bus-pricing-faq.md).
+>[AZURE.NOTE] Para obtener más información sobre los precios actuales del bus de servicio, consulte la [página de precios](https://azure.microsoft.com/pricing/details/service-bus/) y las [P+F de precios del bus de servicio](service-bus-pricing-faq.md).
 
 Bus de servicio usa los siguientes dos medidores para colas y temas/suscripciones:
 
@@ -67,17 +67,17 @@ Los siguientes precios están vigentes desde el 1 de noviembre de 2014:
 
 |Básica|Coste|
 |---|---|
-|Operaciones|0,05 $ por cada millón de operaciones|
+|Operaciones|0,05 $ por cada millón de operaciones|
 
 |Estándar|Coste|
 |---|---|
 |Cargo base|10 $/mes|
 |Los 12,5 millones de operaciones primeras al mes|Se incluye|
-|De 12,5 a 100 millones de operaciones en un mes|0,80 $ por cada millón de operaciones|
-|De 100 a 2.500 millones de operaciones en un mes|0,50 $ por cada millón de operaciones|
-|Por encima de 2.500 millones de operaciones en un mes|0,20 $ por cada millón de operaciones|
+|De 12,5 a 100 millones de operaciones en un mes|0,80 $ por cada millón de operaciones|
+|De 100 a 2.500 millones de operaciones en un mes|0,50 $ por cada millón de operaciones|
+|Por encima de 2.500 millones de operaciones en un mes|0,20 $ por cada millón de operaciones|
 
->[AZURE.NOTE]El nivel Premium se encuentra actualmente en vista previa y el precio siguiente refleja un descuento del 50 % en la versión de vista previa.
+>[AZURE.NOTE] El nivel Premium se encuentra actualmente en vista previa y el precio siguiente refleja un descuento del 50 % en la versión de vista previa.
 
 |Premium|Coste|
 |---|---|
@@ -98,9 +98,9 @@ El nivel Básico incluye 100 conexiones asíncronas (y está estrictamente limit
 |De 100.000 a 500.000 en un mes|0,025 $ por conexión y mes|
 |Más de 500.000 en un mes|0,015 $ por conexión y mes|
 
->[AZURE.NOTE]Se incluyen 1.000 conexiones asíncronas con el nivel de mensajería Estándar (en el cargo base) y se pueden compartir entre todas las colas, los temas/las suscripciones y los Centros de eventos dentro de la suscripción de Azure asociada.
+>[AZURE.NOTE] Se incluyen 1.000 conexiones asíncronas con el nivel de mensajería Estándar (en el cargo base) y se pueden compartir entre todas las colas, los temas/las suscripciones y los Centros de eventos dentro de la suscripción de Azure asociada.
 
->[AZURE.NOTE]La facturación se basa en el número máximo de conexiones concurrentes y se prorratea por horas, basándose en 744 horas al mes.
+>[AZURE.NOTE] La facturación se basa en el número máximo de conexiones concurrentes y se prorratea por horas, basándose en 744 horas al mes.
 
 |Nivel Premium
 |---|
@@ -145,8 +145,10 @@ Sí. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, i
 
 ## Pasos siguientes
 
-Para más información sobre los precios de Bus de servicio, consulte las [P+F de precios de Bus de servicio](service-bus-pricing-faq.md).
+- Para obtener más información sobre los precios del bus de servicio, consulte la [página de precios del bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
+
+- Consulte las [P+F de precios del bus de servicio](service-bus-pricing-faq.md) para ver algunas preguntas frecuentes comunes relacionadas con los precios y la facturación del bus de servicio.
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

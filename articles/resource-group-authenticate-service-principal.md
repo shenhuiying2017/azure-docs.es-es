@@ -120,7 +120,7 @@ En estos pasos se supone que ha configurado un Almacén de claves y un secreto q
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Obtenga su aplicación de Active Directory. Tendrá que especificar el identificador de la aplicación al iniciar sesión.
+2. Obtenga su aplicación de Active Directory. Necesitará el identificador de la aplicación al iniciar sesión.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -231,7 +231,7 @@ Ha creado una aplicación de Active Directory y una entidad de servicio para esa
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Proporcionar un certificado a través de un script automatizado de PowerShell
 
-1. Obtenga su aplicación de Active Directory. Tendrá que especificar el identificador de la aplicación al iniciar sesión.
+1. Obtenga su aplicación de Active Directory. Necesitará el identificador de la aplicación al iniciar sesión.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -517,4 +517,4 @@ Para obtener más información acerca del uso de certificados y la CLI de Azure,
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

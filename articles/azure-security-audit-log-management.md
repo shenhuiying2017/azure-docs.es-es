@@ -108,7 +108,7 @@ El diagrama siguiente muestra un flujo de datos de alto nivel para la recopilaci
 
 ![][1]
 
-Diagnósticos de Azure mueve registros desde las aplicaciones de Servicios en la nube del cliente y [Máquinas virtuales de Azure](virtual-machines-about.md) a Almacenamiento de Azure. En función de un formato de registro, algunos datos se almacenan en tablas de Azure y otros en blobs. Los datos que se recopilan en [Almacenamiento de Azure](storage-introduction.md) se descargarán a sistemas de SIEM locales mediante el uso de la biblioteca de clientes de Almacenamiento de Azure para supervisión y análisis.
+Diagnósticos de Azure mueve registros desde las aplicaciones de Servicios en la nube del cliente y [Máquinas virtuales de Azure](virtual-machines/virtual-machines-linux-about.md) a Almacenamiento de Azure. En función de un formato de registro, algunos datos se almacenan en tablas de Azure y otros en blobs. Los datos que se recopilan en [Almacenamiento de Azure](storage-introduction.md) se descargarán a sistemas de SIEM locales mediante el uso de la biblioteca de clientes de Almacenamiento de Azure para supervisión y análisis.
 
 Además, se puede utilizar HDInsight para realizar un posterior análisis de los datos en la nube. A continuación, aparecen algunos ejemplos de la recopilación de datos de seguridad que utilizan Diagnósticos de Azure.
 
@@ -218,7 +218,7 @@ Tanto **PartitionKey** como **RowKey** identifican de forma exclusiva todas las 
 
 - Una marca de tiempo es un valor de fecha/hora que se mantiene en el servidor para hacer un seguimiento de la última modificación de una entidad.
 
->[AZURE.NOTE] El tamaño máximo de fila en una tabla de Almacenamiento de Azure está limitado a 1 MB. Una cuenta de almacenamiento puede contener hasta 200 TB de datos provenientes de blobs, colas y tablas si la cuenta se creó después de junio de 2012. Por lo tanto, el tamaño de la tabla puede llegar a 200 TB si los blobs y las colas no ocupan espacio de almacenamiento. Las cuentas creadas antes de junio de 2012 tienen un límite de 100 TB.
+>[AZURE.NOTE] El tamaño máximo de fila en una tabla de Almacenamiento de Azure está limitado a 1 MB. Una cuenta de almacenamiento puede contener hasta 200 TB de datos provenientes de blobs, colas y tablas si la cuenta se creó después de junio de 2012. Por lo tanto, el tamaño de la tabla puede llegar a 200 TB si los blobs y las colas no ocupan espacio de almacenamiento. Las cuentas creadas antes de junio de 2012 tienen un límite de 100 TB.
 
 Explorador de almacenamiento también le ofrece la opción de editar los datos de la tabla. Haga doble clic en una fila determinada en la vista Tabla para abrir la ventana Editar entidad, como se muestra a continuación:
 
@@ -614,4 +614,4 @@ Los recursos siguientes proporcionan información general sobre Microsoft Azure 
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

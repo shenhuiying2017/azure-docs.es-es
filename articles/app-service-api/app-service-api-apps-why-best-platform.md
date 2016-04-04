@@ -34,7 +34,7 @@ Las Aplicaciones de API ofrecen las siguientes características:
 
 - **Integración con visual Studio**: existen herramientas dedicadas en Visual Studio que permiten optimizar las tareas de creación, implementación, consumo, depuración y administración de las aplicaciones de API. Para más información, consulte [Anuncio de la versión 2.8.1 del SDK de Azure para .NET](/blog/announcing-azure-sdk-2-8-1-for-net/).
 
-- **Integración con aplicaciones lógicas**: las [aplicaciones lógicas del Servicio de aplicaciones](../app-service-logic/app-service-logic-what-are-logic-apps.md) pueden consumir las aplicaciones de API que cree. Aprenda a hacerlo en [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md). Para obtener información sobre los cambios continuos en la manera en que las aplicaciones de API se integran con las aplicaciones lógicas, consulte [Aplicaciones de API del Servicio de aplicaciones: lo que ha cambiado](app-service-api-whats-changed.md).
+- **Integración con aplicaciones lógicas**: las [aplicaciones lógicas del Servicio de aplicaciones](../app-service-logic/app-service-logic-what-are-logic-apps.md) pueden consumir las aplicaciones de API que cree. Para más información, consulte [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md) y [Nueva versión de esquema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 - **La API existente puede incorporarse tal cual**: no es necesario realizar ningún cambio en el código de las API existentes para aprovechar las características de las aplicaciones de API, solo tiene que implementar el código en una aplicación de API. La API puede usar cualquier lenguaje o marco admitido por el Servicio de aplicaciones, como ASP.NET y C#, Java, PHP, Node.js y Python.
 
@@ -64,4 +64,4 @@ Para empezar a trabajar con Aplicaciones de API, siga uno de los tutoriales de [
 
 Para plantear preguntas sobre Aplicaciones de API, cree un hilo en el [foro de Aplicaciones de API](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/17/2016"
 	ms.author="glenga"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para más información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Agregar notificaciones push a la aplicación de Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-push.md).
 
 ##Información general
 Este tema muestra cómo puede usar Servicios móviles de Azure para enviar notificaciones de inserción a una aplicación de Xamarin.Android. En este tutorial aprenderá a agregar notificaciones de inserción con el servicio de mensajería en la nube de Google (GCM) al proyecto [Introducción a Servicios móviles]. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
@@ -45,7 +45,7 @@ Ya debe tener instalados los componentes [Xamarin.Android] y [Servicios móviles
 
 ##<a id="update-scripts"></a>Actualización del script de inserción registrado para enviar notificaciones
 
->[AZURE.TIP]En los pasos siguientes se muestra cómo actualizar el script registrado para la operación de inserción en la tabla TodoItem del Portal de Azure clásico. También puede acceder a este script de servicios móviles y editarlo directamente en Visual Studio, en el nodo de Azure del Explorador de servidores.
+>[AZURE.TIP] En los pasos siguientes se muestra cómo actualizar el script registrado para la operación de inserción en la tabla TodoItem del Portal de Azure clásico. También puede acceder a este script de servicios móviles y editarlo directamente en Visual Studio, en el nodo de Azure del Explorador de servidores.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -72,11 +72,11 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 * [Introducción a la autenticación](mobile-services-android-get-started-users.md) <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
-* [¿Qué son los Centros de notificaciones?](../notification-hubs-overview.md) <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
+* [¿Qué son los Centros de notificaciones?](../notification-hubs/notification-hubs-overview.md) <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
 
 * [Depuración de aplicaciones de los Centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga orientación sobre la solución de problemas y la depuración de soluciones de los Centros de notificaciones.
 
-* [Uso de la biblioteca de cliente .NET para Servicios móviles](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Obtenga más información sobre cómo usar Servicios móviles con código C# para Xamarin.
+* [Uso de la biblioteca de cliente .NET para Servicios móviles](mobile-services-dotnet-how-to-use-client-library.md) <br/>Obtenga más información sobre cómo usar Servicios móviles con código C# para Xamarin.
 
 * [Referencia de scripts de servidor de Servicios móviles](mobile-services-how-to-use-server-scripts.md) <br/>Obtenga más información sobre cómo implementar lógica empresarial al servicio móvil.
 
@@ -87,4 +87,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Xamarin.Android]: http://xamarin.com/download/
 [Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

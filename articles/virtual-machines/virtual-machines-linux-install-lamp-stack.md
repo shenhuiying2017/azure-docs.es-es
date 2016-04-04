@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Instalación de la pila LAMP en una máquina virtual con Linux | Microsoft Azure"
 	description="Aprenda a instalar la pila LAMP en una máquina virtual de Linux en Azure."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -105,7 +105,7 @@ Instalación
 
 		- CentOS y Oracle: `sudo service httpd restart`
 
-	- Apache escucha en el puerto 80 de manera predeterminada. Tal vez necesite abrir un extremo para acceder a su servidor Apache de manera remota. Para obtener información más detallada, consulte la documentación sobre la [configuración de extremos](virtual-machines-set-up-endpoints.md).
+	- Apache escucha en el puerto 80 de manera predeterminada. Tal vez necesite abrir un extremo para acceder a su servidor Apache de manera remota. Para obtener información más detallada, consulte la documentación sobre la [configuración de extremos](virtual-machines-windows-classic-setup-endpoints.md).
 
 	- Ahora ya puede comprobar si Apache funciona y proporciona contenido. En su explorador, vaya a `http://[MYSERVICE].cloudapp.net`, donde **[MYSERVICE]** es el nombre del servicio en la nube en el que reside su máquina virtual. Es posible que en algunas distribuciones reciba la bienvenida con una página web predeterminada que sencillamente diga "Funciona". En otras puede tal vez vea una página web más completa con enlaces a documentación y contenido adicional para configurar el servidor Apache.
 
@@ -122,11 +122,11 @@ Instalación
 
 ##Lecturas adicionales
 
-Suponga que desea automatizar estos pasos para implementar aplicaciones en máquinas virtuales remotas Linux. Para ello, puede usar la extensión de Linux CustomScript. Consulte [Implementación de una aplicación LAMP con la extensión CustomScript para Linux](virtual-machines-linux-script-lamp.md).
+Suponga que desea automatizar estos pasos para implementar aplicaciones en máquinas virtuales remotas Linux. Para ello, puede usar la extensión de Linux CustomScript. Consulte [Implementación de una aplicación LAMP con la extensión CustomScript para Linux](virtual-machines-linux-classic-lamp-script.md).
 
 Existen muchos recursos para instalar una pila LAMP en Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -627,7 +627,6 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 - [Uso de Sqoop con Hadoop en HDInsight][hdinsight-use-sqoop]
 - [Uso de Hive con Hadoop en HDInsight][hdinsight-use-hive]
 - [Uso de Pig con Hadoop en HDInsight][hdinsight-use-pig]
-- [Desarrollo de trabajos de streaming de Hadoop C# para HDInsight][hdinsight-develop-streaming-jobs]
 - [Desarrollo de programas de MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -653,7 +652,6 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
@@ -680,4 +678,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

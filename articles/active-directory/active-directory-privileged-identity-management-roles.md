@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management de Azure: Roles"
+   pageTitle="Roles de PIM | Microsoft Azure"
    description="Obtenga información sobre los roles que se usan para identidades con privilegios con la extensión de Privileged Identity Management de Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management de Azure: Roles
+# Privileged Identity Management de Azure AD: Roles
 
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
@@ -57,4 +57,4 @@ Para obtener más información sobre los roles de Office 365, Exchange Online, S
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

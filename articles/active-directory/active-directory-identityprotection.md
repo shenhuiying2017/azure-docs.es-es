@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -35,7 +35,7 @@ La versión preliminar de Azure Active Directory Identity Protection presenta la
 
 - Las directivas de seguridad no funcionan en los dominios federados.
 
-- No se detectan los eventos de riesgo para los dominios federados.
+- Los eventos de riesgo son los únicos que se detectan para aplicaciones que se federan con Azure Active Directory
 
 ##Introducción
 
@@ -97,8 +97,7 @@ Algunos de estos eventos de riesgo han estado disponibles mediante los informes 
 | Inicios de sesión desde dispositivos infectados | Inicios de sesión desde dispositivos posiblemente infectados |
 | Inicios de sesión desde direcciones IP anónimas | Inicios de sesión desde orígenes desconocidos |
 | Inicios de sesión desde direcciones IP con actividad sospechosa |	Inicios de sesión desde direcciones IP con actividad sospechosa |
-| Inicios de sesión desde ubicaciones desconocidas | - | 
-| Bloqueo de eventos (no en la versión preliminar pública) | - |
+| Inicios de sesión desde ubicaciones desconocidas | - | | Bloqueo de eventos (no en la versión preliminar pública) | - |
 
 Los siguientes informes de actividades anómalas de Azure AD no se incluyen como eventos de riesgo en Azure AD Identity Protection y, por tanto, no estarán disponibles mediante Identity Protection. Estos informes aún están disponibles en el Portal de administración de Azure; sin embargo, dejarán de estar en uso en el futuro, ya que están siendo reemplazados por los eventos de riesgo de Identity Protection.
 
@@ -410,4 +409,4 @@ Para obtener información general de la experiencia de usuario relacionada, cons
  - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md) (Guía de Azure Active Directory Identity Protection)
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md) (Glosario de Azure Active Directory Identity Protection)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

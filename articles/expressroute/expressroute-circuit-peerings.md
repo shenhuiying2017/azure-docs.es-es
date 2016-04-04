@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 # Circuitos ExpressRoute y dominios de enrutamiento
@@ -69,12 +69,12 @@ Para obtener más información sobre los servicios admitidos, los costos y los d
 
 La tabla siguiente comparan los tres dominios de enrutamiento.
 
-|**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**|
+||**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**|
 |---|---|---|---|
 |**Número máximo de prefijos admitidos por emparejamiento**|4000 de forma predeterminada, 10.000 con ExpressRoute Premium|200|200|
 |**Intervalos de direcciones IP admitidas**|Cualquier dirección IPv4 válida de la WAN.|Direcciones IPv4 públicas propiedad suya o de su proveedor de conectividad.|Direcciones IPv4 públicas propiedad suya o de su proveedor de conectividad.|
-|**Requisitos del número de sistema autónomo (AS)**|Números de sistema autónomo (AS) públicos y privados El cliente debe se propietario del número de sistema autónomo (AS) público. | Números de sistema autónomo (AS) públicos y privados El cliente debe se propietario del número de sistema autónomo (AS) público.| Solo números de sistema autónomo (AS) públicos. El número de sistema autónomo (AS) debe validarse con los registros de enrutamiento para validar la propiedad.|
-|**Direcciones IP de la interfaz de enrutamiento**|Direcciones IP públicas y de RFC1918|Direcciones IP públicas registradas para los clientes en los registros de enrutamiento.| Direcciones IP públicas registradas para los clientes en los registros de enrutamiento.|
+|**Requisitos del número de sistema autónomo (AS)**|Números de sistema autónomo (AS) públicos y privados Debe ser propietario del número de sistema autónomo (AS) público. | Números de sistema autónomo (AS) públicos y privados Sin embargo, debe proporcionar el número de sistema autónomo (AS) público para validar la propiedad de las direcciones IP públicas.| Números de sistema autónomo (AS) públicos y privados Sin embargo, debe proporcionar el número de sistema autónomo (AS) público para validar la propiedad de las direcciones IP públicas.|
+|**Direcciones IP de la interfaz de enrutamiento**|Direcciones IP públicas y de RFC1918|Direcciones IP públicas registradas para usted en los registros de enrutamiento.| Direcciones IP públicas registradas para usted en los registros de enrutamiento.|
 |**Compatibilidad con Hash MD5**| Sí|Sí|Sí|
 
 Puede elegir habilitar uno o varios de los dominios de enrutamiento como parte de su circuito ExpressRoute. Puede elegir colocar todos los dominios de enrutamiento en la misma VPN si quiere combinarlos en un único dominio de enrutamiento. También puede colocarlos en diferentes dominios de enrutamiento, como en el diagrama. La configuración recomendada es que el emparejamiento privado esté conectado directamente a la red principal y que los vínculos de emparejamiento público y de Microsoft estén conectados a la red perimetral.
@@ -90,4 +90,4 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 	- [Configuración del enrutamiento (emparejamientos de circuitos)](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

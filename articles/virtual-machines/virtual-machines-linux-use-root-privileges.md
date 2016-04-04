@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Uso de privilegios raíz en máquinas virtuales de Linux | Microsoft Azure" 
 	description="Aprenda a usar privilegios raíz en una máquina virtual de Linux en Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -55,4 +55,4 @@ En este caso **no** se solicitará la contraseña al usuario. Después de presio
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

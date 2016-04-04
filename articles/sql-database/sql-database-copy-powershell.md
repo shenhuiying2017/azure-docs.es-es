@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Creación de una copia de una base de datos SQL de Azure con PowerShell | Microsoft Azure" 
+    pageTitle="Copia de una Base de datos SQL de Azure con PowerShell | Microsoft Azure" 
     description="Crear copia de una base de datos SQL de Azure con PowerShell" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,27 +10,27 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/20/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creación de una base de datos SQL de Azure con PowerShell
+# Copia de una Base de datos SQL de Azure con PowerShell
 
 **Base de datos única**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Portal de Azure](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 
 
 En los siguientes pasos se muestra cómo copiar una base de datos SQL con PowerShell. La operación de copia de base de datos copia una base de datos SQL en una nueva base de datos mediante el cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx). La copia es una copia de seguridad de instantánea de la base de datos que crea en el mismo servidor o en un servidor diferente.
 
-> [AZURE.NOTE]La Base de datos SQL de Azure crea y mantiene automáticamente copias de seguridad para cada base de datos de usuario. Para obtener detalles, vea [Información general sobre la continuidad del negocio](sql-database-business-continuity.md).
+> [AZURE.NOTE] La Base de datos SQL de Azure crea y mantiene automáticamente copias de seguridad para cada base de datos de usuario. Para obtener detalles, vea [Información general sobre la continuidad del negocio](sql-database-business-continuity.md).
 
 Cuando se completa el proceso de copia, la nueva base de datos es una base de datos totalmente operativa que es independiente de la base de datos de origen. La nueva base de datos es transaccionalmente coherente con la base de datos de origen en el momento en que se completa la copia. El nivel de rendimiento y el nivel de servicio (nivel de precios) de la copia de base de datos son los mismos que la base de datos de origen. Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Los inicios de sesión, usuarios y permisos pueden administrarse de forma independiente.
 
@@ -42,7 +42,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 - Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
 - Una Base de datos SQL de Azure. Si no tiene ninguna base de datos SQL, siga los pasos de este artículo para crear una: [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md).
-- Azure PowerShell. Puede descargar e instalar los módulos de Azure PowerShell mediante la ejecución del [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell. Puede descargar e instalar los módulos de Azure PowerShell mediante la ejecución del [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -144,6 +144,6 @@ Después de ejecutar **Start-AzureSqlDatabaseCopy**, puede comprobar el estado d
 
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

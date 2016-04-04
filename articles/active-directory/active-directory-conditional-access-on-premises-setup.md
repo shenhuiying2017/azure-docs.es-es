@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configuración del acceso condicional local mediante el Registro de dispositivos de Azure Active Directory | Microsoft Azure"
-	description="Guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2."
+	description="Guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -12,14 +12,14 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.topic="article"
+	ms.date="03/18/2016"
 	ms.author="femila"/>
 
 
 # Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory
 
-Los dispositivos de propiedad personal de los usuarios pueden marcarse como conocidos para la organización exigiendo a los usuarios la unión de sus dispositivos al área de trabajo para el servicio Registro de dispositivos de Azure Active Directory. A continuación, se ofrece una guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2.
+Los dispositivos de propiedad personal de los usuarios pueden marcarse como conocidos para la organización exigiendo a los usuarios la unión de sus dispositivos al área de trabajo para el servicio Registro de dispositivos de Azure Active Directory. A continuación, se ofrece una guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2.
 
 > [AZURE.NOTE]
 Se requiere licencia de Azure AD Premium o de Office 365 al usar dispositivos registrados en directivas de acceso condicional del servicio Registro de dispositivos de Azure Active Directory. Esto incluye las directivas que exigen los Servicios de federación de Active Directory (AD FS) con recursos locales.
@@ -80,7 +80,7 @@ Siga la lista de comprobación mostrada a continuación para habilitar y configu
 
 | Tarea | Referencia |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Implemente el dominio de Servicios de dominio de Active Directory con las extensiones de esquema de Windows Server 2012 R2. No es preciso actualizar los controladores de dominio a Windows Server 2012 R2. El único requisito es la actualización del esquema. | [Actualizar el esquema de Servicios de dominio de Active Directory] (#Upgrade your Active Directory Domain Services Schema) |
+| Implemente el dominio de Servicios de dominio de Active Directory con las extensiones de esquema de Windows Server 2012 R2. No es preciso actualizar los controladores de dominio a Windows Server 2012 R2. El único requisito es la actualización del esquema. | [Actualizar el esquema de Servicios de dominio de Active Directory] (#Upgrade your Active Directory Domain Services Schema) |
 | Los dispositivos detectarán el servicio Registro de dispositivos de Azure Active Directory buscando registros DNS conocidos. Debe configurar el DNS de su compañía para que los dispositivos puedan detectar el servicio Registro de dispositivos de Azure Active Directory. | [Preparación de dispositivos de soporte de Active Directory] (#Prepare your Active Directory to support devices) |
 
 
@@ -120,9 +120,7 @@ Esto le ayudará a integrar un inquilino de Azure AD con la versión local de Ac
   1.	Adición de dominios.
   2.	Instalar y ejecutar Azure AD Connect: para instalar Azure AD Connect, siga las instrucciones que se indican a continuación, [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso.
-
-  >[AZURE.NOTE] Configurar la federación con AD FS como se describe en el documento vinculado arriba.
-  >[AZURE.NOTE] No es preciso configurar las características de vista previa.
+  >[AZURE.NOTE] Configurar la federación con AD FS como se describe en el documento vinculado arriba.[AZURE.NOTE] No es preciso configurar las características de vista previa.
 
 
 
@@ -251,4 +249,4 @@ Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no 
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

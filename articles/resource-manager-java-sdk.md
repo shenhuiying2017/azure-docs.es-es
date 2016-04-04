@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="03/16/2016"
    ms.author="navale;tomfitz;"/>
    
 # SDK del Administrador de recursos de Azure para Java
    
-Los SDK de versión preliminar del Administrador de recursos de Azure (ARM) están disponibles para varios idiomas y plataformas. Cada una de estas implementaciones de idioma están disponibles a través de sus administradores de paquetes del ecosistema y GitHub.
+Los SDK de versión preliminar del Administrador de recursos de Azure (ARM) están disponibles para varios idiomas y plataformas. Cada una de estas implementaciones de lenguajes están disponibles a través de sus administradores de paquetes del ecosistema y GitHub.
 
-En cada uno de estos SDK se genera el código desde [las especificaciones de la API de REST de Azure](https://github.com/azure/azure-rest-api-specs). Estas especificaciones son de código abierto y están basadas en la especificación de Swagger v2. El código del SDK se genera a través de un proyecto de código abierto denominado [AutoRest](https://github.com/azure/autorest). AutoRest transforma estas especificaciones de la API de REST en bibliotecas de cliente en varios idiomas. Si en los SDK no hay ningún aspecto del código generado que quiera mejorar, todo el conjunto de herramientas para crear los SDK está abierto, disponible libremente y se basa en el formato de especificación de API ampliamente adoptado.
+El código de cada uno de estos SDK se genera en [Azure RESTful API specifications](https://github.com/azure/azure-rest-api-specs) (Especificaciones de la API de RESTful de Azure). Estas especificaciones son de código abierto y están basadas en la especificación de Swagger v2. El código del SDK se genera mediante un proyecto de código abierto denominado [AutoRest](https://github.com/azure/autorest). AutoRest transforma estas especificaciones de la API de RESTful en bibliotecas de clientes en múltiples lenguajes. Si en los SDK no hay ningún aspecto del código generado que quiera mejorar, todo el conjunto de herramientas para crear los SDK está abierto, disponible libremente y se basa en el formato de especificación de API ampliamente adoptado.
 
 El SDK de Java del Administrador de recursos de Azure se hospeda en el [repositorio del SDK de Java de Azure](https://github.com/azure/azure-sdk-for-java) de GitHub. Tenga en cuenta que, en el momento de escribir este artículo, el SDK se encuentra en versión preliminar. Están disponibles los siguientes paquetes:
 
@@ -74,14 +74,17 @@ Usará la versión 0.9.1 del paquete de utilidades.
 
 ## Autenticación
 
-La autenticación de ARM se controla mediante Azure Active Directory (AD). Para conectarse a cualquier API, primero debe autenticarse con Azure AD para recibir un token de autenticación que se pueda trasladar a cada solicitud. Para obtener este token, en primer lugar debe crear lo que se denomina una aplicación de Azure AD y una entidad de servicio que se usará para iniciar la sesión. Siga las instrucciones paso a paso que encontrará en [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](./resource-group-create-service-principal-portal.md).
+La autenticación para ARM se controla mediante Azure Active Directory (AD). Para conectarse a cualquier API, primero debe autenticarse con Azure AD para recibir un token de autenticación que pueda pasar a cada solicitud. Para obtener este token, primero debe crear lo que se denomina una aplicación de Azure AD y una entidad de servicio que se usará para iniciar la sesión. Siga las instrucciones paso a paso que encontrará en [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](./resource-group-create-service-principal-portal.md).
 
 Después de crear la entidad de servicio, debe tener:
-* Id. de cliente (GUID)
-* Secreto del cliente (cadena)
-* Id. de inquilino (GUID) o nombre de dominio (cadena) Cuando tenga estos valores, puede obtener un token de acceso de Active Directory, válido durante una hora.
 
-El SDK de Java incluye una clase auxiliar AuthHelper que crea el token de acceso, una vez que haya proporcionado el identificador de cliente, el secreto y el identificador de inquilino. En el siguiente ejemplo, en la clase [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java), usa el método *getAccessTokenFromServicePrincipalCredentials* de AuthHelper para obtener el token de acceso:
+* Identificador de cliente (GUID)
+* Secreto del cliente (cadena)
+* Identificador de inquilino (GUID) o nombre de dominio (cadena)
+
+Cuando tenga estos valores, puede obtener un token de acceso de Active Directory, válido durante una hora.
+
+El SDK de Java incluye una clase auxiliar AuthHelper que crea el token de acceso, una vez que haya proporcionado el identificador de cliente, el secreto y el identificador de inquilino. En el siguiente ejemplo, en la clase [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java), se usa el método *getAccessTokenFromServicePrincipalCredentials* de AuthHelper para obtener el token de acceso:
 
 ```java
 public static Configuration createConfiguration() throws Exception {
@@ -100,7 +103,7 @@ public static Configuration createConfiguration() throws Exception {
 ```
 
 ## Creación de una máquina virtual 
-El paquete de utilidades incluye una clase auxiliar [ComputeHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ComputeHelper.java) para crear una máquina virtual. Puede encontrar algunos ejemplos para trabajar con máquinas virtuales en el paquete de azure-mgmt-samples del [proceso](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/compute).
+El paquete de utilidades incluye una clase auxiliar [ComputeHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ComputeHelper.java) para crear una máquina virtual. Puede encontrar algunos ejemplos para trabajar con máquinas virtuales en el paquete azure-mgmt-samples, en [compute](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/compute).
 
 A continuación se muestra un flujo simple para crear una máquina virtual. En este ejemplo, la clase auxiliar creará el almacenamiento y la red como parte de la creación de la máquina virtual:
 
@@ -155,10 +158,51 @@ DeploymentExtended deployment = ResourceHelper.createTemplateDeploymentFromURI(
         "1.0.0.0",
         parameters);
 ```
+## Lista de todas las máquinas virtuales
+No hace falta que use las clases auxiliares (aunque pueden facilitarle las cosas), pero puede usar directamente las clases de servicio para cada proveedor de recursos. En este ejemplo se enumeran algunos de los recursos en la suscripción autenticada. Para cada grupo de recursos, busque las máquinas virtuales y las direcciones IP asociadas a ellas.
 
-Encontrará más ejemplos en los paquetes de ejemplos de [templatedeployments](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/templatedeployments).
+```java
+// authenticate and get access token
+Configuration config = createConfiguration();
+ResourceManagementClient resourceManagementClient = ResourceManagementService.create(config);
+ComputeManagementClient computeManagementClient = ComputeManagementService.create(config);
+NetworkResourceProviderClient networkResourceProviderClient = NetworkResourceProviderService.create(config);
+
+// list all resource groups     
+ArrayList<ResourceGroupExtended> resourceGroups = resourceManagementClient.getResourceGroupsOperations().list(null).getResourceGroups();
+for (ResourceGroupExtended resourcesGroup : resourceGroups) {
+   String rgName = resourcesGroup.getName();
+   System.out.println("Resource Group: " + rgName);
+   
+   // list all virtual machines
+   ArrayList<VirtualMachine> vms = computeManagementClient.getVirtualMachinesOperations().list(rgName).getVirtualMachines();
+   for (VirtualMachine vm : vms) {
+      System.out.println("    VM: " + vm.getName());
+      // list all nics
+      ArrayList<NetworkInterfaceReference> nics = vm.getNetworkProfile().getNetworkInterfaces();
+      for (NetworkInterfaceReference nicReference : nics) {
+         String[] nicURI = nicReference.getReferenceUri().split("/");
+         NetworkInterface nic = networkResourceProviderClient.getNetworkInterfacesOperations().get(rgName, nicURI[nicURI.length - 1]).getNetworkInterface();
+         System.out.println("        NIC: " + nic.getName());
+         System.out.println("        Is primary: " + nic.isPrimary());
+         ArrayList<NetworkInterfaceIpConfiguration> ips = nic.getIpConfigurations();
+
+         // find public ip address
+         for (NetworkInterfaceIpConfiguration ipConfiguration : ips) {
+               System.out.println("        Private IP address: " + ipConfiguration.getPrivateIpAddress());
+               String[] pipID = ipConfiguration.getPublicIpAddress().getId().split("/");
+               PublicIpAddress pip = networkResourceProviderClient.getPublicIpAddressesOperations().get(rgName, pipID[pipID.length - 1]).getPublicIpAddress();
+               System.out.println("        Public IP address: " + pip.getIpAddress());
+         }
+      }
+}  
+```
+
+Encontrará más ejemplos en los paquetes de ejemplos en [templatedeployments](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/templatedeployments).
 
 ## Lecturas adicionales y ayuda
-SDK de Azure para la documentación de Java: [documentos de Java](http://azure.github.io/azure-sdk-for-java/) Si se producen errores con el SDK, envíe el problema a través de la pestaña [Issues](https://github.com/Azure/azure-sdk-for-java/issues) (Problemas) o consulte las preguntas de [StackOverflow sobre el SDK de Java de Azure](http://stackoverflow.com/questions/tagged/azure-java-sdk).
+Documentación del SDK de Azure para Java: [documentos de Java](http://azure.github.io/azure-sdk-for-java/)
 
-<!---HONumber=AcomDC_0316_2016-->
+Si se producen errores con el SDK, envíe el problema a través de [Issues](https://github.com/Azure/azure-sdk-for-java/issues) (Problemas) o consulte [Azure Java SDK en StackOverflow](http://stackoverflow.com/questions/tagged/azure-java-sdk).
+
+<!---HONumber=AcomDC_0323_2016-->

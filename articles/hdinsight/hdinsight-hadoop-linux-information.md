@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # Información sobre el uso de HDInsight en Linux
@@ -45,25 +45,25 @@ Esto devuelve un documento JSON que describe el servicio y, luego, jq extrae sol
 
 	La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
-	> [AZURE.IMPORTANT]A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, cierta funcionalidad se basa en tener acceso a nodos a través del nombre de dominio interno que usa el clúster. Debido a que se trata de un nombre de dominio interno y no público, recibirá errores de "servidor no encontrado" al intentar tener acceso a algunas características a través de Internet.
+	> [AZURE.IMPORTANT] A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, cierta funcionalidad se basa en tener acceso a nodos a través del nombre de dominio interno que usa el clúster. Debido a que se trata de un nombre de dominio interno y no público, recibirá errores de "servidor no encontrado" al intentar tener acceso a algunas características a través de Internet.
 	>
 	> Para usar la funcionalidad completa de la interfaz de usuario de la web Ambari, usa un túnel SSH para delegar el tráfico web al nodo principal del clúster. Consulte [Uso de la tunelización SSH para tener acceso a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
-	> [AZURE.NOTE]Realice la autenticación con el usuario y la contraseña del administrador de clúster.
+	> [AZURE.NOTE] Realice la autenticación con el usuario y la contraseña del administrador de clúster.
 	>
 	> La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
 * **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
 
-	> [AZURE.NOTE]Realice la autenticación con el usuario y la contraseña del administrador de clúster.
+	> [AZURE.NOTE] Realice la autenticación con el usuario y la contraseña del administrador de clúster.
 	>
 	> La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
 * **SSH** - &lt;nombre del clúster>-ssh.azurehdinsight.net en el puerto 22 o 23. El puerto 22 se usa para conectarse al nodo principal 0, mientras que el 23 se usa para conectarse al nodo principal 1. Para obtener más información sobre los nodos principales, consulte [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
-	> [AZURE.NOTE]Solo puede tener acceso a los nodos principales del clúster a través de SSH desde un equipo cliente. Una vez conectado, puede tener acceso a los nodos de trabajo mediante el uso de SSH desde el nodo principal.
+	> [AZURE.NOTE] Solo puede tener acceso a los nodos principales del clúster a través de SSH desde un equipo cliente. Una vez conectado, puede tener acceso a los nodos de trabajo mediante el uso de SSH desde el nodo principal.
 
 ## Ubicaciones de archivo
 
@@ -102,7 +102,7 @@ Durante la creación del clúster, seleccionó usar un contenedor y una cuenta d
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
-    > [AZURE.NOTE]Esto devolverá la primera configuración aplicada al servidor (`service_config_version=1`), la que contendrá esta información. Si recupera un valor que se modificó después de la creación del clúster, es posible que deba enumerar las versiones de configuración y recuperar la más reciente.
+    > [AZURE.NOTE] Esto devolverá la primera configuración aplicada al servidor (`service_config_version=1`), la que contendrá esta información. Si recupera un valor que se modificó después de la creación del clúster, es posible que deba enumerar las versiones de configuración y recuperar la más reciente.
 
     Esto devolverá un valor similar al siguiente, donde __CONTAINER__ es el contenedor predeterminado y __ACCOUNTNAME__ es el nombre de la cuenta de almacenamiento de Azure:
 
@@ -114,7 +114,7 @@ Durante la creación del clúster, seleccionó usar un contenedor y una cuenta d
     
     Esto devolverá el nombre del grupo de recursos de la cuenta.
     
-    > [AZURE.NOTE]Si este comando no devuelve nada, debe cambiar la CLI de Azure al modo Administrador de recursos de Azure y ejecutar el comando de nuevo. Para cambiar al modo Administrador de recursos de Azure, use el siguiente comando:
+    > [AZURE.NOTE] Si este comando no devuelve nada, debe cambiar la CLI de Azure al modo Administrador de recursos de Azure y ejecutar el comando de nuevo. Para cambiar al modo Administrador de recursos de Azure, use el siguiente comando:
     >
     > `azure config mode arm`
     
@@ -219,7 +219,6 @@ Las acciones de script son scripts de Bash que se ejecutan durante el aprovision
 * [Giraph.](hdinsight-hadoop-giraph-install-linux.md)
 * [R](hdinsight-hadoop-r-scripts-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
-* [Spark](hdinsight-hadoop-spark-install-linux.md)
 
 Para obtener información sobre el desarrollo de sus propias acciones de script, consulte [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
@@ -229,7 +228,7 @@ Algunas tecnologías de Hadoop se proporcionan en archivos jar independientes co
 
 Por ejemplo, si desea usar la versión más reciente de [DataFu](http://datafu.incubator.apache.org/), puede descargar un archivo jar que contiene el proyecto y cargarlo en el clúster de HDInsight. A continuación, siga las instrucciones que aparecen en la documentación de DataFu sobre el uso con Pig o Hive.
 
-> [AZURE.IMPORTANT]Algunos componentes que son archivos jar independientes se proporcionan con HDInsight, pero no están en la ruta de acceso. Si está buscando un componente específico, puede utilizar lo siguiente para buscarlo en el clúster:
+> [AZURE.IMPORTANT] Algunos componentes que son archivos jar independientes se proporcionan con HDInsight, pero no están en la ruta de acceso. Si está buscando un componente específico, puede utilizar lo siguiente para buscarlo en el clúster:
 >
 > ```find / -name *componentname*.jar 2>/dev/null```
 >
@@ -237,7 +236,7 @@ Por ejemplo, si desea usar la versión más reciente de [DataFu](http://datafu.i
 
 Si el clúster le proporciona una versión de un componente como un archivo jar independiente, pero desea utilizar una versión diferente, puede cargar una nueva versión del componente en el clúster y probar a usarla en sus trabajos.
 
-> [AZURE.WARNING]Los componentes proporcionados con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
+> [AZURE.WARNING] Los componentes proporcionados con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
 >
 > Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Además, los proyectos de Apache tienen sitios del proyecto en [http://apache.org](http://apache.org), por ejemplo, [Hadoop](http://hadoop.apache.org/) y [Spark](http://spark.apache.org/).
 
@@ -247,4 +246,4 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

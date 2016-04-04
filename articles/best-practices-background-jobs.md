@@ -192,7 +192,7 @@ Tenga en cuenta los siguientes puntos a la hora de decidir si va a implementar t
 ### Más información
 
 - [Máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/) en Azure
-- [Preguntas más frecuentes sobre Máquinas virtuales de Azure](virtual-machines-questions.md)
+- [Preguntas más frecuentes sobre Máquinas virtuales de Azure](virtual-machines/virtual-machines-linux-classic-faq.md)
 
 ## Consideraciones de diseño
 
@@ -317,4 +317,4 @@ Las tareas en segundo plano deben ofrecer un rendimiento suficiente como para as
 - [Colas de Azure y colas de Bus de servicio: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Cómo habilitar diagnósticos en un Servicio en la nube](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

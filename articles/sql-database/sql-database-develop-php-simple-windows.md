@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/18/2016"
 	ms.author="meetb"/>
 
 
@@ -135,10 +135,10 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 - Confirmar la transacción si la inserción y actualización se realizaron correctamente y revertir la transacción si uno de ellos no lo ha sido
 
 
-		function Transactions()
+	function Transactions()
+	{
+		try
 		{
-			try
-			{
 			$conn = OpenConnection();
 
 			if (sqlsrv_begin_transaction($conn) == FALSE)
@@ -172,7 +172,7 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 		{
 			echo("Error!");
 		}
-		}
+	}
 
 
 ## Pasos siguientes
@@ -180,4 +180,4 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 
 Para obtener más información sobre el uso y la instalación de PHP, vea [Acceso a bases de datos de SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

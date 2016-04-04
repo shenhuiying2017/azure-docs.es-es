@@ -1,4 +1,5 @@
 
+
 <properties
 	pageTitle="Flujo de código de autorización de Azure AD v2.0 OAuth | Microsoft Azure"
 	description="Creación de aplicaciones web mediante la implementación del protocolo de autenticación OAuth 2.0 de Azure AD."
@@ -13,7 +14,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
@@ -275,4 +276,4 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | trace\_id | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos. |
 | correlation\_id | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos entre componentes. |
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

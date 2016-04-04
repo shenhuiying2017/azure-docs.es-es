@@ -32,10 +32,10 @@ Se puede instalar el SDK de JavaScript para Aplicaciones móviles de Azure con e
 npm install azure-mobile-apps-client --save
 ```
 
-Una vez instalado, la biblioteca se encuentra en `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.js`. Copie este archivo en su área web.
+Una vez instalado, la biblioteca se encuentra en `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`. Copie este archivo en su área web.
 
 ```
-<script src="path/to/MobileServices.Web.js"></script>
+<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 La biblioteca también puede utilizarse como un módulo ES2015, en entornos de CommonJS, como Browserify y Webpack, y como una biblioteca AMD. Por ejemplo:
@@ -103,7 +103,7 @@ Use el SDK de Centros de notificaciones para enviar notificaciones push desde el
 <!-- URLs. -->
 [inicio rápido de Aplicaciones móviles de Azure]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
-[Incorporación de autenticación a la aplicación de Servicios móviles]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [your first Apache Cordova app]: http://cordova.apache.org/#getstarted
@@ -111,6 +111,6 @@ Use el SDK de Centros de notificaciones para enviar notificaciones push desde el
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentación de objetos de consulta]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

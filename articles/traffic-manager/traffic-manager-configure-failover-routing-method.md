@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Configuración del método de enrutamiento de conmutación por error
@@ -38,7 +38,7 @@ Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del mét
 
 [Hacer que un dominio de Internet de la empresa indique un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md)
 
-[Métodos de enrutamiento del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
+[Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md)
 
 [Configuración del método de enrutamiento round robin](traffic-manager-configure-round-robin-routing-method.md)
 
@@ -52,4 +52,4 @@ Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del mét
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

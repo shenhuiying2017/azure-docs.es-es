@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="03/22/2016"
    ms.author="yurid"/>
 
 #Prácticas recomendadas para actualizaciones de software en IaaS de Microsoft Azure
@@ -99,7 +99,7 @@ Algunas opciones de copia de seguridad de IaaS de Azure incluyen:
 
 -   [Protección de cargas de trabajo de IaaS de Azure con Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Copia de seguridad de máquinas virtuales de Azure](../backup/backup-azure-vms.md)
+-   [Copia de seguridad de máquinas virtuales de Azure](./backup/backup-azure-vms.md)
 
 ### Supervisión
 
@@ -119,4 +119,4 @@ Además de las consideraciones generales explicadas en este artículo, también 
 
 Use las instrucciones descritas en este artículo para determinar las mejores opciones sobre actualizaciones de software para máquinas virtuales dentro de IaaS de Azure. Hay muchas similitudes entre las prácticas recomendadas de actualización de software en un centro de datos tradicional y en IaaS de Azure, por lo tanto, se recomienda evaluar las directivas de actualización de software actuales para incluir máquinas virtuales de Azure y aplicar las prácticas recomendadas relevantes de este artículo en el proceso de actualización de software global.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -55,7 +55,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 Además, se ejecutarán tareas de instancias múltiples *solo* en nodos de los **grupos creados después del 14 de diciembre de 2015**.
 
-> [AZURE.TIP] Cuando se utilizan los [nodos de proceso de tamaño A8 o A9](./../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) del grupo de Lote, la aplicación de MPI puede aprovechar la red de acceso directo a memoria remota (RDMA) de alto rendimiento y baja latencia de Azure. Puede ver la lista completa de tamaños de nodos de proceso disponibles para los grupos de Lote en [Tamaños de los servicios en la nube](./../cloud-services/cloud-services-sizes-specs.md).
+> [AZURE.TIP] Cuando se utilizan los [nodos de proceso de tamaño A8 o A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) del grupo de Lote, la aplicación de MPI puede aprovechar la red de acceso directo a memoria remota (RDMA) de alto rendimiento y baja latencia de Azure. Puede ver la lista completa de tamaños de nodos de proceso disponibles para los grupos de Lote en [Tamaños de los servicios en la nube](./../cloud-services/cloud-services-sizes-specs.md).
 
 ### Uso de StartTask para la instalación de la aplicación de MPI
 
@@ -247,4 +247,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Información general de instancias múltiples"
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

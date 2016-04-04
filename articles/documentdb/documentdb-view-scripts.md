@@ -117,4 +117,4 @@ Más información sobre programación del lado servidor de DocumentDB en el art�
 
 La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) es también un recurso útil para guiarle durante su aprendizaje de DocumentDB.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

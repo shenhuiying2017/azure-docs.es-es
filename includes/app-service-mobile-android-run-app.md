@@ -1,5 +1,5 @@
 
-1. Visite el [Portal de Azure]. Haga clic en **Examinar todo** > **Aplicaciones móviles** > el back-end que acaba de crear. En la configuración de la aplicación de móvil, haga clic en **Inicio rápido** > **Android)**. En **Configurar la aplicación de cliente**, haga clic en **Descargar**. Así se descarga un proyecto de Android completo para que una aplicación previamente configurada pueda conectarse al back-end. 
+1. Visite el [Portal de Azure]. Haga clic en **Examinar todo** > **Aplicaciones móviles** > el back-end que acaba de crear. En la configuración de la aplicación de móvil, haga clic en **Inicio rápido** > **Android)**. En **Configurar la aplicación cliente**, haga clic en **Descargar**. Así se descarga un proyecto de Android completo para que una aplicación previamente configurada pueda conectarse al back-end. 
 
 2. Abra el proyecto mediante **Android Studio** con **Importar proyecto (Eclipse ADT, Gradle, etc.)**. Asegúrese de que realice esta selección de importación para evitar los errores del JDK.
 
@@ -11,4 +11,4 @@
 
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Preguntas más frecuentes sobre la competición de Aprendizaje automático | Microsoft Azure"
-	description="Preguntas más frecuentes sobre las competiciones de Aprendizaje automático de Microsoft Azure."
+	description="Preguntas más frecuentes sobre las competiciones de Microsoft Cortana Analytics Suite."
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -16,7 +16,7 @@
 	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# Preguntas más frecuentes sobre la competición de Aprendizaje automático de Microsoft Azure
+# Preguntas más frecuentes sobre las competiciones de Microsoft Cortana Analytics Suite
 
 **¿Dónde puedo exponer preguntas generales sobre la ciencia de datos?**
 
@@ -70,4 +70,4 @@ Microsoft comprobará los resultados del marcador privado y, a continuación, no
 
 Si ganado una competición, debe firmar un formulario de consentimiento, licencia y declaración de idoneidad. En este formulario vuelven a aparecer las normas de la competición. Los ganadores deben rellenar un formulario de impuestos W-9, o bien un formulario W-8BEN si no son contribuyentes de los Estados Unidos.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

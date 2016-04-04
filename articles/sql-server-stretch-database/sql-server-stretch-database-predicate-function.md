@@ -20,11 +20,11 @@
 
 Si almacena los datos históricos en una tabla independiente, puede configurar Stretch Database para migrar toda la tabla. Si la tabla contiene datos históricos y actuales, por otra parte, puede especificar un predicado de filtro para seleccionar las filas que desea migrar. El predicado de filtro debe llamar a una función con valores de tabla insertada. Este tema describe cómo escribir una función con valores de tabla insertada para seleccionar filas que migrar.
 
-En CTP 3.1 a través de RC0, la opción de especificar un predicado no está disponible en el asistente para habilitar una base de datos para Stretch. Tendrá que usar la instrucción ALTER TABLE para configurar Stretch Database con esta opción. Para obtener más información, vea [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+En CTP 3.1 a través de RC1, la opción de especificar un predicado no está disponible en el asistente para habilitar una base de datos para Stretch. Tendrá que usar la instrucción ALTER TABLE para configurar Stretch Database con esta opción. Para obtener más información, vea [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 Si no especifica un predicado de filtro, se migra toda la tabla.
 
-> [IMPORTANTE] Si proporciona un predicado de filtro que tiene un rendimiento insuficiente, la migración de datos también lo tendrá. Stretch Database aplica el predicado de filtro a la tabla con el operador CROSS APPLY.
+    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
 ## Requisitos básicos para la función con valores de tabla insertada
 La función con valores de tabla insertada necesaria para una función de filtro de Stretch Database es similar al ejemplo siguiente.
@@ -39,13 +39,13 @@ RETURN	SELECT 1 AS is_eligible
 ```
 Los parámetros para la función deben tener identificadores para las columnas de la tabla.
 
-La vinculación del esquema es necesaria para evitar que las columnas que utilizan el predicado de filtro se quite o altere.
+La vinculación del esquema es necesaria para evitar que las columnas que utiliza el predicado de filtro se quiten o modifiquen.
 
 ### Valor devuelto
 Si la función devuelve un resultado no vacío, la fila es elegible para migrarse; de lo contrario (es decir, si la función no devuelve ninguna fila), la fila no es elegible para la migración.
 
 ### Condiciones
-El & lt;*predicado*& gt; puede constar de una condición o varias condiciones combinadas con el operador lógico AND.
+El &lt;*predicado*&gt; puede constar de una condición o varias condiciones combinadas con el operador lógico AND.
 
 ```
 <predicate> ::= <condition> [ AND <condition> ] [ ...n ]
@@ -68,9 +68,9 @@ Una condición primitiva puede realizar una de las siguientes comparaciones.
 }
 ```
 
--   Compare un parámetro de función con una expresión constante. Por ejemplo: `@column1 < 1000`.
+-   Comparar un parámetro de función con una expresión constante. Por ejemplo: `@column1 < 1000`.
 
-    Este es un ejemplo en el que se comprueba si el valor de una columna *date* es & lt; 1\\/1\\/2016.
+    Este es un ejemplo en el que se comprueba si el valor de una columna *date* es &lt; 1/1/2016.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -87,9 +87,9 @@ Una condición primitiva puede realizar una de las siguientes comparaciones.
     ) )
     ```
 
--   Aplique el operador IS NULL o IS NOT NULL a un parámetro de función.
+-   Aplicar el operador IS NULL o IS NOT NULL a un parámetro de función.
 
--   Use el operador IN para comparar un parámetro de función con una lista de valores constantes.
+-   Usar el operador IN para comparar un parámetro de función con una lista de valores constantes.
 
     En este ejemplo se comprueba si el valor de una columna *shipment\_status* es `IN (N'Completed', N'Returned', N'Cancelled')`.
 
@@ -118,7 +118,7 @@ Se admiten los siguientes operadores de comparación.
 ```
 
 ### Expresiones constantes
-Las constantes que se usan en un predicado de filtro pueden ser cualquier expresión determinista que se puede evaluarse cuando se defina la función. Las expresiones constantes pueden contener lo siguiente.
+Las constantes que se usan en un predicado de filtro pueden ser cualquier expresión determinista que se pueda evaluar cuando se defina la función. Las expresiones constantes pueden contener lo siguiente.
 
 -   Literales. Por ejemplo: `N’abc’, 123`.
 
@@ -269,7 +269,7 @@ No puede usar subconsultas o funciones no deterministas como RAND() o GETDATE().
     		WHERE (@column1 BETWEEN 1 AND 200 OR @column1 = 300) AND @column2 > 1000
     GO
     ```
-    La función anterior es equivalente a la función siguiente después de reemplazar el operador BETWEEN por a expresión AND equivalente. Esta función no es válida porque las condiciones primitivas solo pueden usar el operador lógico OR.
+    La función anterior es equivalente a la función siguiente después de reemplazar el operador BETWEEN por la expresión AND equivalente. Esta función no es válida porque las condiciones primitivas solo pueden usar el operador lógico OR.
 
     ```tsql
     CREATE FUNCTION dbo.fn_example11(@column1 int, @column2 int)
@@ -305,7 +305,7 @@ Después de vincular la función con la tabla como un predicado, se cumple lo si
 -   Las columnas usadas por la función cuentan con una vinculación de esquema. No puede modificar estas columnas si la tabla usa la función como predicado de filtro.
 
 ## Eliminación de un predicado de filtro de una tabla
-Para migrar toda la tabla en lugar de las filas seleccionadas, quite el FILTER\_PREDICATE existente estableciéndolo en nulo. Por ejemplo:
+Para migrar toda la tabla en lugar de las filas seleccionadas, quite el valor de FILTER\_PREDICATE existente estableciendo dicho parámetro en null. Por ejemplo:
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -404,10 +404,10 @@ GO
 No puede quitar la función con valores de tabla insertada si la tabla está usando la función como predicado de filtro.
 
 ## Comprobación del predicado de filtro aplicado a una tabla
-Para comprobar el predicado de filtro aplicado a una tabla, abra la vista de catálogo **sys.remote\_data\_archive\_tables** y compruebe el valor de la columna **filter\_predicate**. Si el valor es null, la tabla completa es elegible para el archivado. Para obtener más información, vea [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+Para comprobar el predicado de filtro aplicado a una tabla, abra la vista de catálogo **sys.remote\_data\_archive\_tables** y verifique el valor de la columna **filter\_predicate**. Si el valor es null, la tabla completa es elegible para el archivado. Para obtener más información, consulte [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## Consulte también
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

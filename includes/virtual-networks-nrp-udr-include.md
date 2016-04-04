@@ -54,8 +54,8 @@ Tabla de ruta de ejemplo en formato JSON:
 
 ### Recursos adicionales
 
-- Obtenga más información acerca de las [Rutas definidas por el usuario](virtual-networks-udr-overview.md).
+- Obtenga más información acerca de las [Rutas definidas por el usuario](../articles/virtual-network/virtual-networks-udr-overview.md).
 - Lea la [documentación de referencia de la API de REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) para obtener información sobre las tablas de ruta.
 - Lea la [documentación de la API de REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) de las rutas definidas por el usuario (UDR).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

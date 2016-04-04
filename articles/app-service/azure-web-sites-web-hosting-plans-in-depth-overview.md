@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/15/2016" 
 	ms.author="byvinyal"/>
 
 #Introducción detallada sobre los planes del Servicio de aplicaciones de Azure#
@@ -49,7 +49,7 @@ Por último, si desea crear una nueva aplicación en otra región distinta y dic
 
 ## Creación de un plan del Servicio de aplicaciones
 
-No se puede crear un plan de Servicio de aplicaciones. Sin embargo, puede crear un nuevo plan explícitamente durante la creación de la aplicación.
+Puede crear un **plan del Servicio de aplicaciones** vacío desde la experiencia de exploración del **plan del Servicio de aplicaciones** o como parte de la creación de la aplicación.
 
 Para ello, en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), haga clic en **NUEVO**, seleccione **Web y móvil** y luego elija **Aplicaciones web**, **Aplicaciones móviles**, **Aplicaciones lógicas** o **Aplicaciones de API**. ![][createWebApp]
 
@@ -61,15 +61,24 @@ Para crear un nuevo plan de Servicio de aplicaciones, haga clic en **+ Crear nue
  
 ## Cambio de una aplicación a un plan del Servicio de aplicaciones diferente
 
-Puede mover una aplicación a un plan distinto del Servicio de aplicaciones en el [Portal de Azure](https://portal.azure.com). Las aplicaciones pueden moverse entre planes de la misma región geográfica.
+Puede mover una aplicación a un plan distinto del Servicio de aplicaciones en el [Portal de Azure](https://portal.azure.com). Las aplicaciones pueden moverse entre los planes, siempre y cuando estos se encuentren en el mismo grupo de recursos y región geográfica.
 
-Para mover una aplicación a otro plan, navegue hasta la aplicación que desea mover y, a continuación, haga clic en **Cambiar plan del Servicio de aplicaciones**.
+Para mover una aplicación a otro plan, vaya a la aplicación que desea mover. En el menú de configuración, busque **Cambiar plan del Servicio de aplicaciones**.
  
-De esta forma se abrirá la hoja del plan del Servicio de aplicaciones. Llegados a este punto, puede elegir un plan existente o bien crear uno nuevo. Los planes de una ubicación geográfica diferente aparecen atenuados y no se pueden seleccionar.
+De esta forma se abrirá el selector del plan del Servicio de aplicaciones. Llegados a este punto, puede elegir un plan existente o bien crear uno nuevo. Se muestran únicamente los planes válidos (es decir, los que están en el mismo grupo de recursos y ubicación geográfica).
 
 ![][change]
 
-Tenga en cuenta que cada plan tiene su propio nivel de precios. Cuando mueve un sitio de un nivel **Gratis** a un nivel **Estándar**, la aplicación podrá aprovechar todas las características y recursos del nivel **Estándar**.
+Tenga en cuenta que cada plan tiene su propio nivel de precios. Por ejemplo, cuando mueve un sitio de un nivel **Gratis** a un nivel **Estándar**, la aplicación podrá aprovechar todas las características y recursos del nivel **Estándar**.
+
+## Clonación de una aplicación en un plan del Servicio de aplicaciones diferente
+Si desea mover la aplicación a una región diferente, una alternativa es clonar la aplicación. La clonación hará una copia de su aplicación en un plan del Servicio de aplicaciones nuevo o existente o en un entorno del Servicio de aplicaciones de cualquier región.
+
+ ![][appclone]
+ 
+Encontrará la opción **Clonar aplicación** en el menú **Herramientas**.
+
+La clonación tiene algunas limitaciones, como puede ver [aquí](../app-service-web/app-service-web-app-cloning-portal.md)
 
 ## Escalación de un plan del Servicio de aplicaciones
 
@@ -77,9 +86,9 @@ Existen tres formas de escalar un plan:
 
 - Cambie el **nivel de precios** del plan. Por ejemplo, un plan del nivel **Básico** puede convertirse al nivel **Estándar** o **Premium** y todas las aplicaciones asociadas a dicho plan podrán aprovechar las características que se ofrecen en el nuevo nivel de servicio.
 - Cambiar el **tamaño de instancia** de un plan. Por ejemplo, un plan de nivel **Básico** que use instancias **pequeñas** puede cambiarse para usar instancias **grandes**. Todas las aplicaciones asociadas a dicho plan podrán aprovechar la memoria y los recursos de CPU adicionales que ofrece el tamaño de instancia más grande.
-- Cambio del **recuento de instancias** del plan. Por ejemplo, un plan **Estándar** escalado a 3 instancias puede escalarse hasta 10 instancias y un plan **Premium** (vista previa) puede escalarse hasta 20 instancias (con algunas restricciones). Todas las aplicaciones asociadas a dicho plan podrán aprovechar la memoria y los recursos de CPU adicionales que ofrece el mayor recuento de instancias.
+- Cambio del **recuento de instancias** del plan. Por ejemplo, un plan **Estándar** escalado horizontalmente a 3 instancias puede escalarse hasta 10 instancias, y un plan **Premium** puede escalarse hasta 20 instancias. Todas las aplicaciones asociadas a dicho plan podrán aprovechar la memoria y los recursos de CPU adicionales que ofrece el mayor recuento de instancias.
 
-En la imagen siguiente se ven las hojas **Plan del Servicio de aplicaciones** y **Nivel de precios**. Al hacer clic en la parte **Nivel de precios** de la hoja **Plan del Servicio de aplicaciones** se expande la hoja **Nivel de precios**, donde puede cambiar el nivel de precios y el tamaño de instancia del plan.
+Puede cambiar el plan de tarifa y el tamaño de la instancia haciendo clic en el elemento **Escalar verticalmente** en la configuración de la aplicación o del plan del Servicio de aplicaciones. Los cambios se aplicarán al **plan del Servicio de aplicaciones** y afectarán a todas las aplicaciones que hospede.
  
  ![][pricingtier]
 
@@ -96,5 +105,6 @@ Los planes del Servicio de aplicaciones representan un conjunto de característi
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+[appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

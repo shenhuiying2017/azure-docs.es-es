@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
 # Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga 
 
-El Administrador de recursos de Azure (ARM) es el nuevo marco de administración de servicios en Azure. El Equilibrador de carga de Azure puede administrarse ahora mediante las herramientas y las API basadas en el Administrador de recursos de Azure. Para obtener más información sobre el Administrador de recursos de Azure, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-preview-portal-using-resource-groups.md).
+El Administrador de recursos de Azure (ARM) es el nuevo marco de administración de servicios en Azure. El Equilibrador de carga de Azure puede administrarse ahora mediante las herramientas y las API basadas en el Administrador de recursos de Azure.
 
 ## Conceptos
 
@@ -46,7 +46,7 @@ Las plantillas incluyen Máquinas virtuales, Redes virtuales, Conjuntos de dispo
 
 [Más información sobre las plantillas](http://go.microsoft.com/fwlink/?LinkId=544798)
 
-[Más información sobre los recursos de red](../resource-groups-networking)
+[Más información sobre los recursos de red](../virtual-network/resource-groups-networking)
 
 Las plantillas que usan el Equilibrador de carga de Azure se pueden encontrar en un [repositorio de GitHub](https://github.com/Azure/azure-quickstart-templates) que hospeda un conjunto de plantillas generadas por la comunidad.
 
@@ -65,15 +65,15 @@ Los [cmdlets de Redes de Azure](https://msdn.microsoft.com/library/azure/mt16351
 
 - [Cómo crear un Equilibrador de carga mediante el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-ps.md)
 
-- [Uso de CLI de Azure con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager)
+- [Uso de CLI de Azure con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md)
 
 - [API de REST del Equilibrador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
 ## Pasos siguientes
 
-También puede [empezar a crear un equilibrador de carga orientado a Internet](load-balancer-get-started-internet-arm-ps.md) y configurar el tipo de [modo de distribución](load-balancer-distribution-mode.md) para un comportamiento especifico del tráfico de red del equilibrador de carga.
+También puede [empezar a crear un equilibrador de carga orientado a Internet](load-balancer-get-started-internet-arm-ps.md) y configurar el tipo de [modo de distribución](load-balancer-distribution-mode.md) para un comportamiento especifico de tráfico de red del equilibrador de carga.
 
-Si la aplicación necesita mantener conexiones activas para servidores detrás de un equilibrador de carga, puede obtener más información acerca de la [configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Le ayudará a conocer el comportamiento de conexión del tiempo de inactividad cuando se usa el Equilibrador de carga de Azure.
+Si la aplicación necesita mantener conexiones activas para servidores detrás de un equilibrador de carga, obtenga información sobre la [configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Le ayudará a conocer el comportamiento de conexión del tiempo de inactividad cuando se usa el Equilibrador de carga de Azure.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,19 +1,19 @@
 
 
 
-This topic describes how to:
+En este tema se describe cómo:
 
-- Inject data into an Azure virtual machine when it is being provisioned.
+- Inyectar datos en una máquina virtual de Azure cuando se está aprovisionando.
 
-- Retrieve it for both Windows and Linux.
+- Recuperarlos tanto para Windows como para Linux.
 
-- Use special tools available on some systems to detect and handle custom data automatically.
+- Usar herramientas especiales disponibles en algunos sistemas para detectar y administrar datos personalizados automáticamente.
 
-> [AZURE.NOTE] This article describes how custom data can be injected by using a VM created with the Azure Service Management API. To see how to use the Azure Resource Management API, see [the example template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> [AZURE.NOTE] En este artículo se describe cómo se pueden insertar datos personalizados mediante una máquina virtual creada con la API de Administración de servicios de Azure. Para ver cómo se usa la API de Administración de recursos de Azure, consulte [la plantilla de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
-## Injecting custom data into your Azure virtual machine
+## Inyección de datos personalizados en su máquina virtual de Azure
 
-This feature is currently supported only in the [Azure Command-Line Interface](https://github.com/Azure/azure-xplat-cli). Although you may use any of the options for the `azure vm create` command, the following demonstrates one very basic approach.
+Esta característica solamente se admite actualmente en la [interfaz de la línea de comandos de Azure](https://github.com/Azure/azure-xplat-cli). Aunque puede usar cualquiera de las opciones para el comando `azure vm create`, a continuación se muestra una perspectiva muy básica.
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -24,37 +24,39 @@ This feature is currently supported only in the [Azure Command-Line Interface](h
 ```
 
 
-## Using custom data in the virtual machine
+## Uso de datos personalizados en la máquina virtual
 
-+ If your Azure virtual machine is a Windows-based virtual machine, then the custom data file is saved to `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Although it was base64-encoded to transfer from the local computer to the new virtual machine, it is automatically decoded and can be opened or used immediately.
++ Si la máquina virtual de Azure es una máquina virtual Windows, el archivo de datos personalizado se guarda en `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Aunque se codificara con base64 para transferirla del equipo local a la nueva máquina virtual, se descodifica automáticamente y se puede abrir o usar de inmediato.
 
-   > [AZURE.NOTE] If the file exists, it is overwritten. The security on the directory is set to **System:Full Control** and **Administrators:Full Control**.
+   > [AZURE.NOTE] Si el archivo existe se sobrescribe. La seguridad en el directorio se establece en **Sistema: Control total** y **Administradores: Control total**.
 
-+ If your Azure virtual machine is a Linux-based virtual machine, then the custom data file will be located in the following two places. The data will be base64-encoded, so you will need to decode the data first.
++ Si la máquina virtual de Azure es una máquina virtual Linux, el archivo de datos personalizados se ubicará en los dos lugares siguientes. Los datos estarán codificados con base64, por lo que deberá descifrarlos en primer lugar.
 
-    + At `/var/lib/waagent/ovf-env.xml`
-    + At `/var/lib/waagent/CustomData`
+    + En `/var/lib/waagent/ovf-env.xml`
+    + En `/var/lib/waagent/CustomData`
 
 
 
-## Cloud-init on Azure
+## Cloud-init en Azure
 
-If your Azure virtual machine is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. Or if your custom data file is a script, then cloud-init can simply execute it.
+Si la máquina virtual de Azure procede de una imagen de Ubuntu o CoreOS, puede usar CustomData para enviar una cloud-config a cloud-init. O bien, si el archivo de datos personalizados es un script, cloud-init puede simplemente ejecutarlo.
 
 ### Ubuntu Cloud Images
 
-In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent user guide](virtual-machines-linux-agent-user-guide.md) for more information.
+En la mayoría de las imágenes de Linux de Azure, debe modificar "/etc/waagent.conf" para configurar el disco de recursos temporal y el archivo de intercambio. Consulte la [Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md) para obtener más información.
 
-However, on the Ubuntu Cloud Images, you must use cloud-init to configure the resource disk (that is, the "ephemeral" disk) and swap partition. See the following page on the Ubuntu wiki for more details: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+Sin embargo, en Ubuntu Cloud Images, debe usar cloud-init para configurar el disco de recursos (es decir, el disco "efímero") y la partición de intercambio. Consulte la siguiente página en la wiki de Ubuntu para obtener más detalles: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps: Using cloud-init
+## Pasos siguientes: uso de cloud-init
 
-For further information, see the [cloud-init documentation for Ubuntu](https://help.ubuntu.com/community/CloudInit).
+Para obtener más información, consulte la [documentación de cloud-init para Ubuntu](https://help.ubuntu.com/community/CloudInit).
 
 <!--Link references-->
-[Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
+[Referencia de la API de REST de administración de servicios: Agregar rol](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Azure Command-line Interface](https://github.com/Azure/azure-xplat-cli)
+[Interfaz de línea de comandos de Azure](https://github.com/Azure/azure-xplat-cli)
+
+<!---HONumber=AcomDC_0323_2016-->

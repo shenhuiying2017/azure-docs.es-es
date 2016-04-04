@@ -9,7 +9,7 @@ Hay varias formas de cifrado que puede aprovechar:
 
 Los siguientes scripts de Transact-SQL proporcionan ejemplos para cada una de estas áreas.
 
->[AZURE.NOTE]Cada ejemplo se basa en los dos requisitos previos: una clave asimétrica del Almacén de claves denominada **CONTOSO\_KEY** y una credencial creada por la característica de integración de AKV llamada **Azure\_EKM\_TDE\_cred**.
+>[AZURE.NOTE] Cada ejemplo se basa en los dos requisitos previos: una clave asimétrica del Almacén de claves denominada **CONTOSO\_KEY** y una credencial creada por la característica de integración de AKV llamada **Azure\_EKM\_TDE\_cred**.
 
 ### Cifrado de datos transparente (TDE)
 1. Cree un inicio de sesión de SQL Server que el motor de base de datos usará para TDE, después agréguele la credencial.
@@ -93,6 +93,6 @@ Este script crea una clave simétrica protegida por la clave asimétrica en el A
 ## Recursos adicionales
 Para más información sobre cómo usar estas características de cifrado, vea [Uso de la administración extensible de claves con las características de cifrado de SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Tenga en cuenta que en los pasos descritos en este artículo se supone que ya tiene SQL Server en ejecución en una máquina virtual de Azure. De lo contrario, vea [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../articles/virtual-machines/virtual-machines-provision-sql-server.md) Para otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, vea [Información general sobre SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+Tenga en cuenta que en los pasos descritos en este artículo se supone que ya tiene SQL Server en ejecución en una máquina virtual de Azure. De lo contrario, vea [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../articles/virtual-machines/virtual-machines-windows-classic-portal-sql.md) Para otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, vea [Información general sobre SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

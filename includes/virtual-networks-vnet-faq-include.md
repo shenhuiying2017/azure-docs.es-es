@@ -20,7 +20,7 @@ Use las redes virtuales para:
 
 ### ¿Cómo sé si necesito una red virtual?
 
-Visite [Información general sobre redes virtuales](virtual-networks-overview.md) para ver una tabla de decisiones que le ayude a decidir la mejor opción de diseño de red para usted.
+Visite [Información general sobre redes virtuales](../articles/virtual-network/virtual-networks-overview.md) para ver una tabla de decisiones que le ayude a decidir la mejor opción de diseño de red para usted.
 
 ### ¿Cómo empiezo?
 
@@ -40,9 +40,13 @@ Sí. Las redes virtuales se pueden usar sin emplear la conectividad de sitio a s
 
 Puede emplear las siguientes herramientas para crear o configurar una red virtual:
 
-- Puede usar el Portal de administración. Consulte [Administración de las propiedades de la red virtual (VNet)](virtual-networks-settings.md).
+- Portal de Azure (para redes virtuales clásicas y del Administrador de recursos).
 
-- Puede usar un archivo de configuración de red (netcfg). Consulte [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
+- Un archivo de configuración de red (netcfg; solo para redes virtuales clásicas). Consulte [Configuración de una red virtual con un archivo de configuración de red](../articles/virtual-network/virtual-networks-using-network-configuration-file.md).
+
+- PowerShell (para redes virtuales clásicas y del Administrador de recursos).
+
+- CLI de Azure (para redes virtuales clásicas y del Administrador de recursos).
 
 ### ¿Qué intervalos de direcciones puedo usar en mis redes virtuales?
 
@@ -50,7 +54,7 @@ Puede usar los intervalos de direcciones IP públicas y cualquier intervalo de d
 
 ### ¿Puedo tener direcciones IP públicas en mis redes virtuales?
 
-Sí. Para obtener más información acerca de los intervalos de direcciones IP públicas, consulte [Espacio de direcciones IP públicas en una red virtual (VNet)](virtual-networks-public-ip-within-vnet.md). Tenga en cuenta que sus direcciones IP públicas no estarán accesibles directamente desde Internet.
+Sí. Para obtener más información acerca de los intervalos de direcciones IP públicas, consulte [Espacio de direcciones IP públicas en una red virtual (VNet)](../articles/virtual-network/virtual-networks-public-ip-within-vnet.md). Tenga en cuenta que sus direcciones IP públicas no estarán accesibles directamente desde Internet.
 
 ### ¿Existe algún límite en el número de subredes de mi red virtual?
 
@@ -70,7 +74,7 @@ No. Las redes virtuales son superposiciones de nivel 3. Azure no admite ninguna 
 
 ### ¿Puedo especificar directivas de enrutamiento personalizadas en mis redes virtuales y subredes?
 
-Sí. Puede usar el enrutamiento definido por usuario (UDR). Para obtener más información acerca de UDR, visite [Rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
+Sí. Puede usar el enrutamiento definido por usuario (UDR). Para obtener más información acerca de UDR, visite [Rutas definidas por el usuario y reenvío IP](../articles/virtual-network/virtual-networks-udr-overview.md).
 
 ### ¿Las redes virtuales admiten la multidifusión o la difusión?
 
@@ -118,13 +122,13 @@ No. Una red virtual está limitada a una única región.
 
 ### ¿Puedo conectar una red virtual a otra red virtual en Azure?
 
-Sí. Puede crear una comunicación de red virtual a red virtual mediante API de REST o Windows PowerShell. Consulte [Configuración de una conexión de red virtual a red virtual](virtual-networks-configure-vnet-to-vnet-connection.md).
+Sí. Puede crear una comunicación de red virtual a red virtual mediante API de REST o Windows PowerShell.
 
 ## resolución de nombres DNS
 
 ### ¿Qué opciones de DNS hay para las redes virtuales?
 
-Use la tabla de decisiones de la página [Resolución de nombres para las máquinas virtuales e instancias de rol](virtual-networks-name-resolution-for-vms-and-role-instances.md); le guiará por todas las opciones de DNS disponibles.
+Use la tabla de decisiones de la página [Resolución de nombres para las máquinas virtuales e instancias de rol](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md); le guiará por todas las opciones de DNS disponibles.
 
 ### ¿Puedo especificar servidores DNS para una red virtual?
 
@@ -171,11 +175,11 @@ Sí. Puede implementar cualquier distribución de Linux compatible con Azure.
 
 ### ¿Qué dirección IP recibirá mi máquina virtual?
 
-- **Dirección IP interna**: si implementa una máquina virtual en una red virtual, la máquina virtual recibe una dirección IP interna de un grupo de direcciones IP internas que especifique. Las máquinas virtuales se comunican dentro de las redes virtuales mediante direcciones IP internas. Aunque Azure asigna una dirección IP interna dinámica, puede solicitar una dirección estática para su máquina virtual. Para obtener más información acerca de direcciones IP internas, visite [Establecimiento de una dirección IP privada interna estática](virtual-networks-reserved-private-ip.md).
+- **Dirección IP interna**: si implementa una máquina virtual en una red virtual, la máquina virtual recibe una dirección IP interna de un grupo de direcciones IP internas que especifique. Las máquinas virtuales se comunican dentro de las redes virtuales mediante direcciones IP internas. Aunque Azure asigna una dirección IP interna dinámica, puede solicitar una dirección estática para su máquina virtual. Para obtener más información acerca de direcciones IP internas, visite [Establecimiento de una dirección IP privada interna estática](../articles/virtual-network/virtual-networks-reserved-private-ip.md).
 
-- **VIP**: la máquina virtual también está asociada a una VIP, aunque una VIP nunca se asigna directamente a la máquina virtual. Una VIP es una dirección IP pública que se puede asignar al servicio en la nube. Si lo desea, puede reservar a una VIP para el servicio en la nube. Consulte [IP pública reservada](virtual-networks-reserved-public-ip.md).
+- **VIP**: la máquina virtual también está asociada a una VIP, aunque una VIP nunca se asigna directamente a la máquina virtual. Una VIP es una dirección IP pública que se puede asignar al servicio en la nube. Si lo desea, puede reservar a una VIP para el servicio en la nube.
 
-- **ILPIP**: también puede configurar una dirección IP pública de nivel de instancia (ILPIP). Las ILPIP se asocian directamente a la máquina virtual en lugar de al servicio en la nube. Para obtener más información acerca de las ILPIP, visite [Dirección IP pública de nivel de instancia](virtual-networks-instance-level-public-ip.md).
+- **ILPIP**: también puede configurar una dirección IP pública de nivel de instancia (ILPIP). Las ILPIP se asocian directamente a la máquina virtual en lugar de al servicio en la nube. Para obtener más información acerca de las ILPIP, visite [Dirección IP pública de nivel de instancia](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 
 ### ¿Puedo reservar una dirección IP interna para una máquina virtual que crearé más adelante?
 
@@ -197,7 +201,7 @@ Nada. Las direcciones IP (tanto la VIP pública como la dirección IP interna) p
 
 ### ¿Puedo mover las máquinas virtuales de una subred a otra subred en una red virtual sin volver a implementarla?
 
-Sí. Puede encontrar más información [aquí](virtual-networks-move-vm-role-to-subnet.md):
+Sí. Puede encontrar más información [aquí](../articles/virtual-network/virtual-networks-move-vm-role-to-subnet.md):
 
 ### ¿Puedo configurar una dirección MAC estática para mi máquina virtual?
 
@@ -222,13 +226,13 @@ Solo se admiten servicios de proceso en las redes virtuales. Los servicios de pr
 Sí. Puede implementar Aplicaciones web dentro de una red virtual con ASE (Entorno del Servicio de aplicaciones). Además, Aplicaciones web puede conectarse con seguridad y tener acceso a recursos de la red virtual de Azure si ha realizado la configuración de la conexión de punto a sitio para la red virtual. Para obtener más información, consulte los temas siguientes:
 
 
-- [Creación de Aplicaciones web en un entorno del Servicio de aplicaciones](app-service-web-how-to-create-a-web-app-in-an-ase.md)
+- [Creación de Aplicaciones web en un entorno del Servicio de aplicaciones](../articles/app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
 - [Integración de la red virtual con Aplicaciones web](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
 - [Uso de la integración de la red virtual y de conexiones híbridas con Aplicaciones web](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
-- [Integración de su aplicación web con una red virtual de Azure](web-sites-integrate-with-vnet.md)
+- [Integración de su aplicación web con una red virtual de Azure](../articles/app-service-web/web-sites-integrate-with-vnet.md)
 
 ### ¿Puedo implementar servicios en la nube con roles web y de trabajo (PaaS) en una red virtual?
 
@@ -266,4 +270,4 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

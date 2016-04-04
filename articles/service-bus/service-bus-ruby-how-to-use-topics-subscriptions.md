@@ -63,7 +63,7 @@ También puede encontrar esta clave si inicia sesión en el [Portal de Azure cl�
 
 ## Creación de una aplicación de Ruby
 
-Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configuración de la aplicación para usar el Bus de servicio
 
@@ -237,4 +237,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
  
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

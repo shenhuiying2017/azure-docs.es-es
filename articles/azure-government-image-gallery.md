@@ -55,10 +55,10 @@ Microsoft Open Technologies, Inc.|Oracle Database 11g R2 y WebLogic Server 11g S
 Microsoft Open Technologies, Inc.|Oracle Database 11g R2 y WebLogic Server 11g Enterprise Edition en Windows Server 2008 R2|Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) proporciona características completas para administrar fácilmente el procesamiento de transacciones más exigentes, intel...|Windows|128 GB
 Microsoft Open Technologies, Inc.|Oracle Database 11g R2 Standard Edition en Windows Server 2008 R2|Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) es una solución de administración de datos completa, asequible y es ideal para empresas medianas. Recomendación...|Windows|128 GB
 Grupo de Microsoft SQL Server|SQL Server 2014 RTM Enterprise en Windows Server 2012 R2|Esta imagen contiene la versión completa de SQL Server. Se recomienda usar un tamaño de máquina virtual de A3 o superior. Esta imagen se ha preconfigurado para Azure, incluida la activación del CEIP...|Windows|127 GB
-Grupo de Microsoft SQL Server|SQL Server 2012 SP2 Enterprise en Windows Server 2012|Esta imagen contiene la versión completa de SQL Server. Algunos componentes de SQL Server requieren su instalación y configuración para poder usarlos. Se recomienda usar un tamaño de máquina virtual de A3 o superior.|Windows|127 GB
+Grupo de Microsoft SQL Server|SQL Server 2012 SP2 Enterprise en Windows Server 2012|Esta imagen contiene la versión completa de SQL Server. Algunos componentes de SQL Server requieren su instalación y configuración para poder usarlos. Se recomienda usar un tamaño de máquina virtual de A3 o superior.|Windows|127 GB
 Grupo de Microsoft SQL Server|SQL Server 2014 RTM Enterprise en Windows Server 2012 R2|Esta imagen contiene la versión completa de SQL Server. Se recomienda usar un tamaño de máquina virtual de A3 o superior. Esta imagen se ha preconfigurado para Azure, incluida la activación del CEIP...|Windows|127 GB
 Grupo de Microsoft SQL Server|SQL Server 2014 RTM Standard en Windows Server 2012 R2|Esta imagen contiene la versión completa de SQL Server. Se recomienda usar un tamaño de máquina virtual de A2 o superior. Esta imagen se ha preconfigurado para Azure, incluida la activación del CEIP...|Windows|127 GB
-Grupo de Microsoft SQL Server|SQL Server 2012 SP2 Standard en Windows Server 2012|Algunos componentes de SQL Server requieren su instalación y configuración para poder usarlos. Se recomienda usar un tamaño de máquina virtual de A2 o superior. Esta imagen se ha preconfigurado para Azure...|Windows|127 GB
+Grupo de Microsoft SQL Server|SQL Server 2012 SP2 Standard en Windows Server 2012|Algunos componentes de SQL Server requieren su instalación y configuración para poder usarlos. Se recomienda usar un tamaño de máquina virtual de A2 o superior. Esta imagen se ha preconfigurado para Azure...|Windows|127 GB
 Grupo de Microsoft SQL Server|SQL Server 2014 RTM Standard en Windows Server 2012 R2|Esta imagen contiene la versión completa de SQL Server. Se recomienda usar un tamaño de máquina virtual de A2 o superior. Esta imagen se ha preconfigurado para Azure, incluida la activación del CEIP...|Windows|127 GB
 Grupo de servidores de Microsoft Windows|Windows Server 2012 R2 Datacenter, junio de 2014|En el núcleo de la visión del SO en la nube de Microsoft, Windows Server 2012 R2 aporta la experiencia a Microsoft de ofrecer servicios en la nube a escala global en su infraestructura. Ofrece rendimiento de clase empresarial...|Windows|128 GB
 Grupo de servidores de Microsoft Windows|Windows Server 2012 Datacenter, junio de 2014|Windows Server 2012 incorpora la experiencia de Microsoft a la hora de crear y utilizar nubes públicas, lo que resulta en una plataforma de servidor dinámico y altamente disponible. Ofrece una escalable, dinámica y...|Windows|128 GB
@@ -83,7 +83,7 @@ Oracle|Oracle Database 12.1.0.1 Standard Edition en Oracle Linux 6.4.0.0.0|Oracl
 SUSE|SUSE Linux Enterprise Server 11 SP3|Ejecute con seguridad las cargas de trabajo de producción en SUSE Linux Enterprise Server en Microsoft Azure, sabiendo que los niveles de servicio están garantizados y que reciben ayuda de los ingenieros de Microsoft y de SUSE, si...|Linux|30 GB
 SUSE|SUSE Linux Enterprise Server 11 SP3 (Premium Image)|Ejecute con seguridad las cargas de trabajo de producción en SUSE Linux Enterprise Server en Microsoft Azure, sabiendo que los niveles de servicio están garantizados y que reciben ayuda de los ingenieros de Microsoft y de SUSE, si...|Linux|30 GB
 SUSE|SUSE Linux Enterprise Server 12 (Premium Image)|Ejecute con seguridad las cargas de trabajo de producción en SUSE Linux Enterprise Server en Microsoft Azure, sabiendo que los niveles de servicio están garantizados y que reciben ayuda de los ingenieros de Microsoft y de SUSE, si...|Linux|30 GB
-SUSE|SUSE Linux Enterprise Server 12|Ejecute con seguridad las cargas de trabajo de producción en SUSE Linux Enterprise Server en Microsoft Azure, sabiendo que los niveles de servicio están garantizados y que reciben ayuda de los ingenieros de Microsoft y de SUSE, si...|Linux|30 GB
+SUSE|SUSE Linux Enterprise Server 12|Ejecute con seguridad las cargas de trabajo de producción en SUSE Linux Enterprise Server en Microsoft Azure, sabiendo que los niveles de servicio están garantizados y que reciben ayuda de los ingenieros de Microsoft y de SUSE, si...|Linux|30 GB
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
 
@@ -93,15 +93,15 @@ Los recursos siguientes deben proporcionar más información al implementar desd
 
 ###Otros recursos: 
 
-- [Implementación de una máquina virtual Windows](../virtual-machines/virtual-machines-windows-tutorial.md)
+- [Implementación de una máquina virtual Windows](virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-- [Implementación de una máquina virtual Linux](../virtual-machines/virtual-machines-linux-tutorial.md)
+- [Implementación de una máquina virtual Linux](virtual-machines/virtual-machines-linux-cli-create.md)
 
 - [Preguntas más frecuentes sobre máquinas virtuales](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
-- [Crear y cargar su propio VHD](../virtual-machines-create-upload-vhd-windows-server/)
+- [Crear y cargar su propio VHD](virtual-machines-create-upload-vhd-windows-server/)
 
-- [Capturar imagen de máquina virtual Linux](../virtual-machines/virtual-machines-linux-capture-image.md)
+- [Capturar imagen de máquina virtual Linux](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
@@ -114,8 +114,8 @@ Los recursos siguientes deben proporcionar más información al implementar desd
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

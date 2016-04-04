@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Operadores y consultas en Application Insights Analytics" 
-	description="Referencia para los operadores que se usan para realizar consultas en Application Insights Analytics, la potente herramienta de búsqueda de Application Insights." 
+	pageTitle="Operadores y consultas de la herramienta Analytics de Application Insights" 
+	description="Referencia para los operadores que se usan con el fin de realizar consultas en Analytics, la eficaz herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
-# Sintaxis de consulta en Application Insights Analytics
+# Funciones de consultas de Analytics
 
 
-[Application Insights Analytics](app-analytics.md) es un potente motor de búsqueda para la telemetría de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Application Insights, AIQL.
+[Analytics](app-analytics.md) es una eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -611,7 +611,7 @@ Una tabla que muestra cuántos elementos tienen precios en cada intervalo [0,10.
 * *Aggregation:* una llamada a una [función de agregación](app-analytics-aggregations.md) como `count()` o `avg()`, con nombres de columna como argumentos. Consulte la [lista de funciones de agregación](app-analytics-aggregations.md).
 * *GroupExpression:* una expresión sobre las columnas que proporciona un conjunto de valores específicos. Normalmente se trata de un nombre de columna que ya proporciona un conjunto limitado de valores, o `bin()` con una columna numérica o temporal como argumento. 
 
-Si proporciona una expresión numérica o temporal sin utilizar `bin()`, AI Analytics la aplica automáticamente con un intervalo de `1h` para tiempo, o `1.0` para números.
+Si proporciona una expresión numérica o temporal sin utilizar `bin()`, Analytics la aplica automáticamente con un intervalo de `1h` para horas o `1.0` para números.
 
 Si no proporciona un valor *GroupExpression*, toda la tabla se resume en una única fila de salida.
 
@@ -671,14 +671,14 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 
 **Argumentos**
 
-* *Tabla1*, *Tabla2* ...
+* *Tabla1*, *Tabla2*...
  *  El nombre de una tabla, como `events`; o
  *  Una expresión de consulta como `(events | where id==42)`
  *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `E*` podría formar la unión de todas las tablas en la base de datos cuyos nombres comienzan con `E`.
 * `kind`: 
- * `inner` -El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
- * `outer` -El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
-* `withsource=`*ColumnName:* si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
+ * `inner` - El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
+ * `outer` - El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
+* `withsource=`* ColumnName: * si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
 
 **Devoluciones**
 
@@ -766,4 +766,4 @@ Observe que colocamos la comparación entre dos columnas al final, ya que no pue
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

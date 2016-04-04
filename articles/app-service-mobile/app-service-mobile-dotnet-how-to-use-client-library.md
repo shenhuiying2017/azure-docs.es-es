@@ -83,8 +83,7 @@ La siguiente sección describe cómo buscar y recuperar registros y modificar lo
 
 Todo el código que obtiene acceso a datos o los modifica en una tabla de back-end llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando al método [GetTable] en una instancia de `MobileServiceClient` del modo indicado a continuación:
 
-    IMobileServiceTable<TodoItem> todoTable =
-		client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 
 Este es el modelo de serialización con tipo. También se admite un modelo de serialización sin tipo. El siguiente código [crea una referencia a una tabla sin tipo]\:
 
@@ -109,8 +108,7 @@ En esta sección se describe cómo generar consultas al back-end de la aplicaci�
 
 El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función [Where] aplica un predicado de filtrado de filas a la consulta en relación con la tabla.
 
-	// This query filters out completed TodoItems and
-	// items without a timestamp.
+	// This query filters out completed TodoItems and items without a timestamp.
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
@@ -129,8 +127,7 @@ La función que se pasa al método `Where` puede disponer de un número arbitrar
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false
-		   && todoItem.Text != null)
+	   .Where(todoItem => todoItem.Complete == false && todoItem.Text != null)
 	   .ToListAsync();
 
 Será traducida por el SDK de servidor a una consulta SQL similar a la siguiente:
@@ -473,7 +470,7 @@ Si está usando un proveedor de identidades diferente al de Facebook, cambie el 
 
 En un flujo de servidor, el Servicio de aplicaciones de Azure administra el flujo de autenticación de OAuth 2.0. Para ello, muestra la página de inicio de sesión del proveedor seleccionado y genera un token de autenticación del Servicio de aplicaciones después de que se realice un inicio de sesión correcto con el proveedor de identidades. El [método LoginAsync] devuelve [MobileServiceUser], que proporciona el valor [UserId] del usuario autenticado y el valor [MobileServiceAuthenticationToken] como un token de web JSON (JWT). El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación](#caching).
 
-###Flujo de cliente
+###<a name="client-flow"></a>Flujo de cliente
 
 La aplicación también puede ponerse en contacto de manera independiente con el proveedor de identidades y proporcionar el token devuelto al Servicio de aplicaciones para la autenticación. Este flujo de cliente le permite proporcionar una experiencia de inicio de sesión único para los usuarios o recuperar datos de usuario adicionales del proveedor de identidades.
 
@@ -512,7 +509,7 @@ En la forma más simplificada, puede usar el flujo de cliente como se muestra en
 
 ####Inicio de sesión único mediante Cuenta Microsoft con el SDK de Live
 
-Para autenticar usuarios, debe registrar la aplicación en el Centro para desarrolladores de la cuenta de Microsoft. A continuación, debe conectar este registro con el back-end de Aplicaciones móviles. Complete los pasos de [Registro de la aplicación para usar un inicio de sesión de cuenta Microsoft] a fin de crear un registro de cuenta Microsoft y conectarlo al back-end de Aplicaciones móviles. Si dispone de ambas versiones de la aplicación, Tienda Windows y Windows Phone 8/Silverlight, registre primero la versión de Tienda Windows.
+Para autenticar usuarios, debe registrar la aplicación en el Centro para desarrolladores de la cuenta de Microsoft. A continuación, debe conectar este registro con el back-end de Aplicaciones móviles. Complete los pasos de [Registro de la aplicación para usar un inicio de sesión de cuenta Microsoft para realizar la autenticación] con el fin de crear un registro de cuenta Microsoft y conectarlo al back-end de la aplicación móvil. Si dispone de ambas versiones de la aplicación, Tienda Windows y Windows Phone 8/Silverlight, registre primero la versión de Tienda Windows.
 
 El siguiente código se autentica mediante el SDK de Live y usa el token devuelto para iniciar sesión en el back-end de Aplicaciones móviles.
 
@@ -600,9 +597,9 @@ En las aplicaciones de Windows Phone, puede almacenar en caché los datos y cifr
 
 ### <a name="adal"></a>Autenticación de usuarios con la biblioteca de autenticación de Active Directory
 
-Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Con frecuencia, esta opción es preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia de usuario más nativa y permite personalizaciones adicionales.
+Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Con frecuencia, esta opción es preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia UX más nativa y permite personalizaciones adicionales.
 
-1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Active Directory]. Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
+1. Configure el back-end de la aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory]. Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
 
 2. En Visual Studio o Xamarin Studio, abra el proyecto y agregue una referencia al paquete NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Al buscar, incluya las versiones preliminares.
 
@@ -610,11 +607,11 @@ Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para i
 
 * Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debe ser https://login.windows.net/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
 
-* Reemplace **INSERT-RESOURCE-ID-HERE** por el identificador de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzadas** en **Configuración de Azure Active Directory** en el portal.
+* Reemplace **INSERT-RESOURCE-ID-HERE** por el id. de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzado**, opción **Configuración de Azure Active Directory** del portal.
 
-* Reemplace **INSERT-CLIENT-ID-HERE** por el identificador de cliente que copió de la aplicación cliente nativa.
+* Reemplace **INSERT-CLIENT-ID-HERE** por el id. de cliente que copió de la aplicación cliente nativa.
 
-* Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio, mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+* Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
 
 El código necesario para cada plataforma es el siguiente:
 
@@ -711,7 +708,7 @@ Los siguientes temas tratan sobre las notificaciones push:
 * [Obtención del SID de un paquete de la Tienda Windows](#package-sid)
 * [Registro con plantillas multiplataforma](#register-xplat)
 
-###<a name="register-for-push"></a>Registro de notificaciones push
+###<a name="register-for-push"></a>Cómo registrar notificaciones push
 
 El cliente de Aplicaciones móviles permite registrar las notificaciones push con Centros de notificaciones de Azure. Al registrar, se obtiene un identificador del servicio de notificaciones push (PNS) específico de la plataforma. A continuación, proporcione este valor junto con las etiquetas cuando se cree el registro. El código siguiente registra la aplicación de Windows para las notificaciones push en el Servicio de notificaciones de Windows.(WNS):
 
@@ -749,7 +746,7 @@ Las aplicaciones de Xamarin requieren código adicional para poder registrar una
 
 ###<a name="register-xplat"></a>Procedimiento: Registro de plantillas push para enviar notificaciones entre plataformas
 
-Para registrar plantillas, use el método `RegisterAsync()` con las plantillas, como se indica a continuación:
+Para registrar plantillas, use el método `RegisterAsync()` con ellas tal y como se indica a continuación:
 
         JObject templates = myTemplates();
         MobileService.GetPush().RegisterAsync(channel.Uri, templates);
@@ -806,7 +803,7 @@ Cuando se produce un error en el back-end, el SDK de cliente provocará una exce
 		}
 	}
 
-Encontrará otro ejemplo sobre cómo trabajar con condiciones de error en el [Ejemplo de archivos de Aplicaciones móviles]. Aquí, el ejemplo [LoggingHandler] proporciona un controlador delegado de registro (ver a continuación) para registrar las solicitudes realizadas al back-end. Esto proporciona una manera más fácil de depurar aplicaciones de Xamarin, en lugar de depender de Fiddler.
+Encontrará otro ejemplo sobre cómo trabajar con condiciones de error en esta página de [ejemplos de archivos de aplicaciones móviles]. Aquí, el ejemplo [LoggingHandler] proporciona un controlador delegado de registro (ver a continuación) para registrar las solicitudes realizadas al back-end. Esto proporciona una manera más fácil de depurar aplicaciones de Xamarin, en lugar de depender de Fiddler.
 
 ###<a name="headers"></a>Personalización de encabezados de solicitud
 
@@ -863,8 +860,8 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 [Define Tables using a Dynamic Schema]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
 [Agregar notificaciones de inserción a la aplicación]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Registro de la aplicación para usar un inicio de sesión de cuenta Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Registro de la aplicación para usar un inicio de sesión de cuenta Microsoft para realizar la autenticación]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [Referencia de cliente de .NET para aplicaciones móviles de Azure]: https://msdn.microsoft.com/es-ES/library/azure/mt419521(v=azure.10).aspx
@@ -902,7 +899,7 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [API de Centros de notificaciones]: https://msdn.microsoft.com/library/azure/dn495101.aspx
-[Ejemplo de archivos de Aplicaciones móviles]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
+[ejemplos de archivos de aplicaciones móviles]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 [repositorio de GitHub de ejemplos de Azure]: https://github.com/Azure-Samples
 
@@ -914,4 +911,4 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 [SymbolSource]: http://www.symbolsource.org/
 [Instrucciones de SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

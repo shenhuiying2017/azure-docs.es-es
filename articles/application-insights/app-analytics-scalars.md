@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Expresiones escalares en Application Insights Analytics" 
-	description="Números, cadenas, expresiones dinámicas y tipos en Application Insights Analytics, la herramienta de búsqueda eficaz para Application Insights." 
+	pageTitle="Expresiones escalares de la herramienta Analytics de Application Insights" 
+	description="Números, cadenas, expresiones dinámicas y tipos de Analytics, la eficaz herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,31 +12,27 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Expresiones escalares en Application Insights Analytics
+# Expresiones escalares de Analytics
 
 
-[Application Insights Analytics](app-analytics.md) es un potente motor de búsqueda para la telemetría de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Application Insights Analytics, AIQL.
+[Analytics](app-analytics.md) es una eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ---
 
-[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
-<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) 
-<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) 
-<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) 
-| [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) <br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) <br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
 
 
-"Escalar" hace referencia a valores como números o cadenas que pueden ocupar una sola celda en una tabla AIQL. Las expresiones escalares se crean a partir de operadores y funciones escalares y se corresponden con valores escalares. `sqrt(score)/100 > target+2` es una expresión escalar.
+"Escalar" hace referencia a valores como números o cadenas que pueden ocupar una sola celda en una tabla. Las expresiones escalares se crean a partir de operadores y funciones escalares y se corresponden con valores escalares. `sqrt(score)/100 > target+2` es una expresión escalar.
 
 "Escalar" también incluye matrices y objetos compuestos, que también se pueden almacenar en una sola celda de la base de datos.
 
@@ -44,9 +40,7 @@ Las expresiones escalares son distintas de las [consultas](app-analytics-queries
 
 ## Escalares
 
-[casts](#casts) | [comparisons](#scalar-comparisons)
-<br/>
-[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Los tipos admitidos son:
 
@@ -164,9 +158,7 @@ Esta función devuelve el valor de *ifTrue* si *predicate* equivale a `true`, o 
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a> 
-<a name="isnotnull"/></a> 
-<a name="notnull"/></a>
+<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
 ### isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
@@ -194,7 +186,7 @@ Verdadero o falso dependiendo de si el valor es null o not null.
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("[]")|false
+|parsejson("")|false
 |parsejson("{}")|false
 
 **Ejemplo**
@@ -226,8 +218,7 @@ Tenga en cuenta que hay otras formas de conseguir este efecto:
 
 ## Números
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
-| [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Literales numéricos
 
@@ -241,17 +232,7 @@ Tenga en cuenta que hay otras formas de conseguir este efecto:
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar | 
-| * | Multiplicar | 
-| / | Dividir | 
-| % | Aplicar módulo | 
-|| 
-|`<` |Menor que 
-|`<=`|Menor que o Igual a 
-|`>` |Mayor que 
-|`>=`|Mayor que o Igual a 
-|`<>`|No igual a 
-|`!=`|No igual a
+| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o Igual a |`>` |Mayor que |`>=`|Mayor que o Igual a |`<>`|No igual a |`!=`|No igual a
 
 
 
@@ -550,7 +531,7 @@ Las reglas son las mismas que en JavaScript.
 
 Las cadenas pueden incluirse entre comillas sencillas o dobles.
 
-La barra diagonal inversa (`\`) se utiliza para marcar los caracteres de escape como `\t` (tabulación), `\n` (nueva línea) y las instancias del carácter de comillas.
+La barra diagonal inversa (``) se utiliza para marcar los caracteres de escape como `\t` (tabulación), `\n` (nueva línea) y las instancias del carácter de comillas.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -558,7 +539,7 @@ La barra diagonal inversa (`\`) se utiliza para marcar los caracteres de escape 
 
 ### Literales de cadena ofuscados
 
-Los literales de cadena ofuscados son cadenas que AI Analytics ocultará al generar la cadena (por ejemplo, al realizar el seguimiento). El proceso de ofuscación reemplaza todos los caracteres ofuscados por un carácter inicial (`*`).
+Los literales de cadena ofuscados son cadenas que Analytics ocultará al generar la cadena (por ejemplo, al realizar el seguimiento). El proceso de ofuscación reemplaza todos los caracteres ofuscados por un carácter inicial (`*`).
 
 Para formar un literal de cadena ofuscado, anteponga `h` o "H". Por ejemplo:
 
@@ -843,9 +824,7 @@ Convierte una cadena a mayúsculas.
 
 ## Matrices y objetos: tipos dinámicos
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) 
-<br/>
-[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Este es el resultado de una consulta en una excepción de Application Insights. El valor de `details` es una matriz.
@@ -859,7 +838,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Pero use `arraylength` y otras funciones AIQL (¡no ".length"!).
+* Sin embargo, use `arraylength` y otras funciones de Analytics (no ".length").
 
 **Casting**: en algunos casos es necesario convertir un elemento que se extrae de un objeto, ya que puede variar en su tipo. Por ejemplo, `summarize...to` necesita un tipo específico:
 
@@ -1079,7 +1058,7 @@ En el ejemplo siguiente, cuando `context_custom_metrics` es un `string` con esta
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-A continuación, el siguiente fragmento de AIQL recupera el valor de la ranura `duration` en el objeto, y desde ahí recupera dos ranuras, `duration.value` y `duration.min` (`118.0` y `110.0`, respectivamente).
+Después, el siguiente fragmento recupera el valor de la ranura `duration` del objeto, y desde ahí recupera dos ranuras, `duration.value` y `duration.min` (`118.0` y `110.0` respectivamente).
 
 ```AIQL
 T
@@ -1150,4 +1129,4 @@ Observe que "[0]" indica la presencia de una matriz, pero no especifica el índi
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

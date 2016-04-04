@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="03/17/2016" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -220,10 +220,31 @@ Puede usar cualquiera de los comandos enumerados en [Comandos de Redis](http://r
 
 -	Si tiene una caché Estándar o Premium, puede ejecutar comandos de Redis mediante la [Consola de Redis](cache-configure.md#redis-console). Esto ofrece una manera segura de ejecutar comandos de Redis en el portal de Azure.
 -	Use las herramientas de línea de comandos de Redis. Para usarlas, realizará los siguientes pasos.
-	-	Descargue las [herramientas de línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
+	-	Descargue las [herramientas de línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/).
 	-	Conexión a la memoria caché mediante `redis-cli.exe`. Pase el extremo de caché mediante que el modificador -h y la clave mediante - a, tal como se muestra en el ejemplo siguiente.
 		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
 	-	Tenga en cuenta que las herramientas de línea de comandos de Redis no funcionan con el puerto SSL, pero puede usar una utilidad como `stunnel` para conectar de forma segura las herramientas al puerto SSL siguiendo las instrucciones de la publicación del blog [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (Comunicación del proveedor de estado de la sesión de ASP.NET para la versión de vista previa de Redis).
+
+<a name="cache-emulator"></a>
+## ¿Hay un emulador local para Azure Redis Cache?
+
+No hay ningún emulador local para Azure Redis Cache, pero puede ejecutar la versión MSOpenTech de redis server.exe desde las [Herramientas de la línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/) de su máquina local y conectarse a ella para obtener una experiencia similar a un emulador de la memoria caché local, tal y como se muestra en el ejemplo siguiente.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+	    return ConnectionMultiplexer.Connect("127.0.0.1");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
+
+Si lo desea, también puede configurar un archivo [redis.conf](http://redis.io/topics/config) para que coincida con mayor precisión con la [configuración de caché predeterminada](cache-configure.md#default-redis-server-configuration) del servicio en línea Caché en Redis de Azure.
 
 <a name="cache-common-patterns"></a>
 ## ¿Cuáles son algunas consideraciones y patrones comunes de la memoria caché?
@@ -282,4 +303,4 @@ La retirada de la Caché en rol se establece para el 30 de noviembre de 2016.
 
 [valor de configuración "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -17,9 +17,9 @@
 
 # Ejemplos de configuración de enrutadores para configurar y administrar NAT
 
-Esta página proporciona ejemplos de configuración de NAT para enrutadores Cisco serie ASA y Juniper serie MX. Solo pretenden ser ejemplos de carácter informativo y no se deben usar tal cual. Puede trabajar con el proveedor para elaborar las configuraciones adecuadas para la red.
+En esta página se proporcionan ejemplos de configuración de NAT para enrutadores Cisco serie ASA y Juniper serie SRX. Solo pretenden ser ejemplos de carácter informativo y no se deben usar tal cual. Puede trabajar con el proveedor para elaborar las configuraciones adecuadas para la red.
 
->[AZURE.IMPORTANT]Los ejemplos de esta página pretenden tener un carácter meramente informativo. Debe trabajar con los equipos técnico y de ventas del proveedor y su equipo de red para elaborar las configuraciones adecuadas que satisfagan sus necesidades. Microsoft no dará soporte técnico en problemas relacionados con las configuraciones que aparecen en esta página. Debe ponerse en contacto con el fabricante del dispositivo para problemas de soporte técnico.
+>[AZURE.IMPORTANT] Los ejemplos de esta página pretenden tener un carácter meramente informativo. Debe trabajar con los equipos técnico y de ventas del proveedor y su equipo de red para elaborar las configuraciones adecuadas que satisfagan sus necesidades. Microsoft no dará soporte técnico en problemas relacionados con las configuraciones que aparecen en esta página. Debe ponerse en contacto con el fabricante del dispositivo para problemas de soporte técnico.
 
 Los ejemplos de configuración de enrutadores siguientes se aplican a emparejamientos públicos de Azure y Microsoft. No debe configurar NAT para emparejamiento privado de Azure. Si desea más información, consulte [Emparejamientos de ExpressRoute](expressroute-circuit-peerings.md) y [Requisitos de NAT de ExpressRoute](expressroute-nat.md).
 
@@ -78,7 +78,7 @@ Comandos NAT:
 	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## Enrutadores Juniper serie MX 
+## Enrutadores Juniper serie SRX 
 
 ### 1\. Creación de interfaces Ethernet redundantes para el clúster
 
@@ -319,4 +319,4 @@ Consulte ejemplos en la página [Ejemplos de configuración de enrutamiento ](ex
 
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

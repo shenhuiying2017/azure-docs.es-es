@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Tabla de contenido de procedimientos de Azure AD Privileged Identity Management"
+   pageTitle="Introducción a Azure AD Privileged Identity Management"
    description="Aprenda a administrar identidades con privilegios con la extensión Azure Active Directory Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/09/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Introducción a Azure AD Privileged Identity Management
@@ -37,4 +37,4 @@
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

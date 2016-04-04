@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="03/10/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffstok"
 />
 
@@ -27,7 +27,7 @@ Los trabajos de Análisis de transmisiones admiten varios métodos de salida, y 
 
 ## Autorización de una cuenta del Almacén de Data Lake
 
-1.  Cuando se selecciona el Almacén de Data Lake como una salida en el Portal de administración de Azure, se le pedirá que autorice el uso de su Almacén de Data Lake existente o solicite acceso a la vista previa del Almacén de Data Lake mediante el Portal de vista previa de Azure.
+1.  Cuando se selecciona el Almacén de Data Lake como una salida en el Portal de administración de Azure, se le pedirá que autorice el uso de su Almacén de Data Lake existente o pida acceso a la vista previa del Almacén de Data Lake mediante el Portal de Azure clásico.
 
     ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)
 
@@ -92,4 +92,4 @@ Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

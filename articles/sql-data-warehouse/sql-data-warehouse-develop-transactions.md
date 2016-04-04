@@ -23,6 +23,33 @@ Como cabe esperar, el Almacenamiento de datos SQL ofrece soporte para todas las 
 ## Niveles de aislamiento de transacciones
 El Almacenamiento de datos SQL implementa las transacciones ACID. Sin embargo, el aislamiento de la compatibilidad transaccional está limitado a `READ UNCOMMITTED` y no puede cambiarse. Puede implementar una serie de métodos para evitar lecturas de datos sucios si esto le plantea alguna preocupación. Los métodos más populares utilizan CTAS y la modificación de particiones de tabla (que suele conocerse como un patrón de ventana deslizante) para evitar que los usuarios consulten datos que aún se encuentran en fase de preparación. Las vistas que filtran los datos previamente también constituyen un enfoque popular.
 
+## Tamaño de la transacción
+Una transacción de modificación de datos única tiene un tamaño limitado. Actualmente, el límite se aplica "por distribución". Por tanto, para obtener la cifra total debemos multiplicar el límite por el recuento de distribución. Para aproximar el número máximo de filas de la transacción, divida el extremo de la distribución entre el tamaño total de cada columna. Para las columnas de longitud variable, en lugar de utilizar el tamaño máximo, tenga en cuenta la longitud media de la columna.
+
+En la tabla siguiente se han considerado estas hipótesis:
+* Se ha producido una distribución uniforme de los datos 
+* La longitud media de la fila es de 250 bytes
+
+| DWU | Extremo por distribución (GiB) | Número de distribuciones | Tamaño máximo de la transacción (GiB) | Número de filas por distribución | Máximo de filas por transacción |
+| ------ | -------------------------- | ----------------------- | -------------------------- | ----------------------- | ------------------------ |
+| DW100 | 1 | 60 | 60 | 4 000 000 | 240 000 000 |
+| DW200 | 1\.5 | 60 | 90 | 6\.000.000 | 360 000 000 |
+| DW300 | 2\.25 | 60 | 135 | 9 000 000 | 540 000 000 |
+| DW400 | 3 | 60 | 180 | 12 000 000 | 720 000 000 |
+| DW500 | 3,75 | 60 | 225 | 15 000 000 | 900 000 000 |
+| DW600 | 4\.5. | 60 | 270 | 18 000 000 | 1 080 000 000 |
+| DW1000 | 7\.5 | 60 | 450 | 30 000 000 | 1 800 000 000 |
+| DW1200 | 9 | 60 | 540 | 36 000 000 | 2 160 000 000 |
+| DW1500 | 11,25 | 60 | 675 | 45 000 000 | 2 700 000 000 |
+| DW2000 | 15 | 60 | 900 | 60 000 000 | 3 600 000 000 |
+
+Se aplica el límite de tamaño de la transacción por transacción u operación. No se aplica en todas las transacciones simultáneas. Por tanto, cada transacción puede escribir esta cantidad de datos en el registro.
+
+Para optimizar y minimizar la cantidad de datos que se escriben en el registro, consulte el artículo sobre [prácticas recomendadas relacionadas con las transacciones][].
+
+> [AZURE.WARNING] El tamaño máximo de la transacción solo se puede conseguir para las tablas de distribución HASH o ROUND\_ROBIN donde la propagación de los datos es uniforme. Si la transacción está escribiendo datos de forma sesgada en las distribuciones, es posible que el límite se alcance antes de que la transacción llegue al máximo de su tamaño.
+<!--REPLICATED_TABLE-->
+
 ## Estado de las transacciones
 El Almacenamiento de datos SQL usa la función XACT\_STATE() para notificar una transacción errónea con el valor -2. Esto significa que se ha producido un error en la transacción y que está marcada para reversión únicamente.
 
@@ -107,9 +134,10 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Article references-->
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
+[prácticas recomendadas relacionadas con las transacciones]: sql-data-warehouse-develop-best-practices-transactions.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

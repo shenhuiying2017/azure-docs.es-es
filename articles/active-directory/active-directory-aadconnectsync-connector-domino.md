@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Referencia técnica del conector de Lotus Domino
@@ -22,7 +22,7 @@ En este artículo, se describe el conector de Lotus Domino. El artículo se apli
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Debe usar la revisión 4.1.3461.0 o posterior ([KB2870703](https://support.microsoft.com/kb/2870703)).
+    -   Debe usar la revisión 4.1.3671.0 o posterior ([KB3092178](https://support.microsoft.com/kb/3092178)).
 
 Para MIM2016 y FIM2010R2, el conector está disponible como descarga desde el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -314,7 +314,7 @@ El objeto de persona representa a los usuarios de la organización y las unidade
     2. Usuario móvil (un usuario normal que incluye todos los archivos de base de datos móvil)
     3. Contactos (usuarios sin archivo de identificación)
 
-Las personas (a excepción de los contactos) se pueden agrupar además en usuarios de EE. UU. y usuarios de fuera de EE. UU. de acuerdo con el valor de la propiedad \_MMS\_IDRegType. Se trata de las personas que usan al cliente de Notes para acceder a los servidores de Lotus Domino y a la base de datos, y que tienen una identificación de Notes y un documento de persona. Si usan el correo de Notes, también tendrán un archivo de correo. El usuario debe estar registrado para activarse. Para obtener más información, consulte:
+Las personas (a excepción de los contactos) se pueden agrupar además en usuarios de EE. UU. y usuarios de fuera de EE. UU. de acuerdo con el valor de la propiedad \_MMS\_IDRegType. Se trata de las personas que usan al cliente de Notes para acceder a los servidores de Lotus Domino y a la base de datos, y que tienen una identificación de Notes y un documento de persona. Si usan el correo de Notes, también tendrán un archivo de correo. El usuario debe estar registrado para activarse. Para obtener más información, consulte:
 
 - [Setting up Notes users](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_SETTING_UP_NOTES_USERS.html)
 - [User Registration](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_REGISTERING_USERS.html)
@@ -539,4 +539,4 @@ En Domino, existen varias maneras de extender el esquema para que aparezca como 
 
 -	Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

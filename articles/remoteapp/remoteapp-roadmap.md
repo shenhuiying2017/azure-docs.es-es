@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="03/08/2016"
+    ms.date="03/23/2016"
     ms.author="elizapo" />
 
 # Novedades de Azure RemoteApp
 
 Siempre estamos trabajando para mejorar Azure RemoteApp basándonos en sus comentarios. A continuación presentamos los momentos en que se prevé la disponibilidad de futuras características.
 
-|Característica|Entre enero y marzo de 2016|Abril y junio de 2016|
+|Característica|Abril y junio de 2016|Julio y septiembre de 2016|
 |-----------|-------|-------|
 |Aplicación de Azure RemoteApp disponible tanto en el [Portal de Azure clásico](http://manage.windowsazure.com) como en el [Portal de Azure](https://portal.azure.com) |X | |
 |Aplicación universal de Windows 10 con Continuum para Azure RemoteApp - Versión preliminar|X| |
@@ -47,4 +47,4 @@ Otras mejoras agregadas anteriormente este año:
 - Disponibilidad en centros de datos australianos
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

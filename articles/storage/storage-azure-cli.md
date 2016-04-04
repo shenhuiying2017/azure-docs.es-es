@@ -25,7 +25,7 @@ En esta guía, exploraremos cómo usar la [Interfaz de línea de comandos de Azu
 
 En esta guía se supone que conoce los conceptos básicos de Almacenamiento de Azure. La guía incluye varios scripts que muestran cómo se usa la CLI de Azure con Almacenamiento de Azure. Antes de ejecutar cada script, asegúrese de que ha actualizado las variables del mismo según su configuración.
 
-> [AZURE.NOTE] La guía proporciona ejemplos de comandos y scripts de la CLI de Azure que se ejecutan en el modo Administración de servicios de Azure (ASM). Para ver los comandos de la CLI de Azure para el almacenamiento en el modo administración de recursos de Azure (ARM), consulte [Uso de la CLI de Azure para Mac, Linux y Windows con la administración de recursos de Azure](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects).
+> [AZURE.NOTE] La guía proporciona ejemplos de comandos y scripts de la CLI de Azure que se ejecutan en el modo Administración de servicios de Azure (ASM). Para ver los comandos de la CLI de Azure para el almacenamiento en el modo administración de recursos de Azure (ARM), consulte [Uso de la CLI de Azure para Mac, Linux y Windows con la administración de recursos de Azure](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects).
 
 ## Introducción de 5 minutos a Almacenamiento de Azure y a la CLI de Azure
 
@@ -191,7 +191,7 @@ El siguiente ejemplo carga un archivo de **~/temp/samplefile.txt** en el directo
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
-Tenga en cuenta que los archivos del recurso compartido pueden tener un tamaño máximo de 1 TB.
+Tenga en cuenta que los archivos del recurso compartido pueden tener un tamaño máximo de 1 TB.
 
 ### Enumeración de los archivos de la raíz o directorio compartidos
 
@@ -221,4 +221,4 @@ A continuación encontrará algunos artículos relacionados y recursos para obte
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

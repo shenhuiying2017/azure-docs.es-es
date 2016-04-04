@@ -508,7 +508,6 @@ En este tutorial de MapReduce, ha instalado un Emulador de HDInsight (un espacio
 
 - [Introducción al uso de HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Desarrollo de programas de MapReduce de Java para HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Desarrollo de programas de MapReduce de streaming de Hadoop C# para HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Notas de la versión del emulador de HDInsight](hdinsight-emulator-release-notes.md)
 - [Foro de MSDN para el análisis de HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
@@ -528,7 +527,6 @@ En este tutorial de MapReduce, ha instalado un Emulador de HDInsight (un espacio
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
 [Powershell-install-configure]: powershell-install-configure.md
@@ -538,4 +536,4 @@ En este tutorial de MapReduce, ha instalado un Emulador de HDInsight (un espacio
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

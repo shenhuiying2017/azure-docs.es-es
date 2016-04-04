@@ -49,7 +49,7 @@ Para obtener instrucciones sobre cómo hacerlo, vea [Creación de un certificado
 
 Cada suscripción de Azure se identifica por un valor GUID, conocido como el identificador de suscripción. Utilice los pasos siguientes para encontrar este valor.
 
-1. Visite el [portal de Azure] [portal de vista previa].
+1. Visite el [Portal de Azure][preview-portal].
 
 2. En la barra de la izquierda del portal, seleccione __EXAMINAR TODO__ y después seleccione __Suscripciones__ en la hoja __Examinar__.
 
@@ -64,23 +64,23 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 3. Para el nuevo proyecto, escriba o seleccione los valores siguientes.
 
 	<table>
-<tr>
-<th>Propiedad</th>
-<th>Valor</th>
-</tr>
-<tr>
-<th>Categoría</th>
-<th>Plantillas/Visual C#/Windows</th>
-</tr>
-<tr>
-<th>Plantilla</th>
-<th>Aplicación de consola</th>
-</tr>
-<tr>
-<th>Nombre</th>
-<th>SubmitPigJob</th>
-</tr>
-</table>
+	<tr>
+	<th>Propiedad</th>
+	<th>Valor</th>
+	</tr>
+	<tr>
+	<th>Categoría</th>
+	<th>Plantillas/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>Plantilla</th>
+	<th>Aplicación de consola</th>
+	</tr>
+	<tr>
+	<th>Nombre</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
 4. Haga clic en **Aceptar** para crear el proyecto.
 5. En el menú **Herramientas**, seleccione **Administrador de paquetes de biblioteca** o **Administrador de paquetes de Nuget** y, a continuación, seleccione **Consola del administrador de paquetes**.
 6. Ejecute el siguiente comando en la consola para instalar los paquetes de SDK de .NET.
@@ -122,7 +122,6 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
                     // Define the Pig job
                     var parameters = new PigJobSubmissionParameters()
                     {
-                        UserName = ExistingClusterUsername,
                         Query = queryString,
                     };
         
@@ -155,7 +154,7 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
-* [Uso de MapReduce con Hadoop en HDInsight ](hdinsight-use-mapreduce.md) 
-[portal de vista previa]: https://portal.azure.com/
+* [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
+[preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

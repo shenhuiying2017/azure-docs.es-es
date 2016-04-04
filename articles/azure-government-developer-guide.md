@@ -124,8 +124,8 @@ Si está interesado en obtener más información sobre Azure Government, consult
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

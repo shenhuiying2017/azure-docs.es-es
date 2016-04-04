@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Implementar una máquina virtual con una dirección IP pública estática mediante la CLI de Azure
@@ -106,7 +106,7 @@ Antes de crear una máquina virtual, necesitará un grupo de recursos, red virtu
 		    --subnet-id $subnetId \
 		    --public-ip-name $pipName
 
->[AZURE.TIP]El primer comando anterior usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) y [manipulación de cadenas](http://tldp.org/LDP/abs/html/string-manipulation.html) (más concretamente, la eliminación de subcadenas).
+>[AZURE.TIP] El primer comando anterior usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) y [manipulación de cadenas](http://tldp.org/LDP/abs/html/string-manipulation.html) (más concretamente, la eliminación de subcadenas).
 
 5. Cree una cuenta de almacenamiento para hospedar la unidad del sistema operativo de la máquina virtual.
 
@@ -227,4 +227,4 @@ Después de realizar los cambios necesarios y comprender el script anterior, eje
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -32,7 +32,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **Autenticación**, mediante el comando siguiente:
 
 		azure login
-	Para obtener más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](xplat-cli-connect.md).
+	Para obtener más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
 - **Cambiar al modo de Administrador de recursos de Azure** con el siguiente comando:
 
 		azure config mode arm
@@ -214,4 +214,4 @@ La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes
 - [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

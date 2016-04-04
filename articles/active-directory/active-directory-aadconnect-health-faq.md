@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="samueld"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
-	ms.author="billmath;vakarand"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 
 # Preguntas más frecuentes sobre Azure AD Connect Health
@@ -43,7 +43,7 @@ Los números siguientes son una aproximación.
 - Consumo de memoria: hasta 10 % de la memoria total del sistema
 - Uso de ancho de banda de la red: ~1 MB por cada 1000 solicitudes de ADFS
 
->[AZURE.NOTE] En caso de que el agente no se pueda comunicar con Azure, el agente almacenará los datos localmente, hasta un límite máximo definido. Cuando el agente alcance el límite, si el agente no ha podido cargar los datos en el servicio, las nuevas transacciones de ADFS sobrescribirán cualquier transacción "en caché" como "menos atendida recientemente".
+>[AZURE.NOTE]En caso de que el agente no se pueda comunicar con Azure, el agente almacenará los datos localmente, hasta un límite máximo definido. Cuando el agente alcance el límite, si el agente no ha podido cargar los datos en el servicio, las nuevas transacciones de ADFS sobrescribirán cualquier transacción "en caché" como "menos atendida recientemente".
 
 - Almacenamiento en búfer local para el agente de AD Health: ~20 MB
 - Almacenamiento de datos requerido para canal de auditoría
@@ -106,4 +106,4 @@ Cuando quita un agente de un servidor, el servidor no se quita del Portal de Azu
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

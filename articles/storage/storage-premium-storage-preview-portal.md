@@ -37,7 +37,7 @@ La siguiente es una lista de las cosas importantes que deben tenerse en cuenta a
 
 - Para usar Almacenamiento premium, debes tener una cuenta de Almacenamiento premium. Para obtener información sobre cómo crear una cuenta de Almacenamiento premium, consulte [Creación y uso de una cuenta de Almacenamiento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
-- Almacenamiento premium está disponible en el [Portal de Azure](https://portal.azure.com) y es accesible a través de las siguientes bibliotecas de SDK: [API de REST de almacenamiento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versión 2014-02-14 o posterior; [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx) versión 2014-10-01 o posterior; y [Azure PowerShell](../install-configure-powershell.md) versión 0.8.10 o posterior.
+- Almacenamiento premium está disponible en el [Portal de Azure](https://portal.azure.com) y es accesible a través de las siguientes bibliotecas de SDK: [API de REST de almacenamiento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versión 2014-02-14 o posterior; [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx) versión 2014-10-01 o posterior; y [Azure PowerShell](../powershell-install-configure.md) versión 0.8.10 o posterior.
 
 - Para una lista de regiones que admiten actualmente almacenamiento Premium, vea [Servicios de Azure por región](https://azure.microsoft.com/regions/#services).
 
@@ -45,7 +45,7 @@ La siguiente es una lista de las cosas importantes que deben tenerse en cuenta a
 
 - Una cuenta de Almacenamiento premium es almacenamiento con redundancia local (LRS) y mantiene tres copias de los datos en una única región. Para consideraciones relativas a la replicación geográfica al usar Almacenamiento premium, consulte la sección [Instantáneas y copia de blob al Almacenamiento premium](#snapshots-and-copy-blob-whes-ESing-premium-storage) en este artículo.
 
-- Si quiere usar una cuenta de Almacenamiento premium para los discos de VM, necesitará usar la serie DS o GS de VM. Puede usar discos de Almacenamiento estándar y premium con la serie DS o GS de VM. Pero no puede usar discos de Almacenamiento premium con series que no sean DS o GS de VM. Para obtener información sobre los tamaños y tipos de disco de máquina virtual de Azure disponibles, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../virtual-machines/virtual-machines-size-specs.md).
+- Si quiere usar una cuenta de Almacenamiento premium para los discos de VM, necesitará usar la serie DS o GS de VM. Puede usar discos de Almacenamiento estándar y premium con la serie DS o GS de VM. Pero no puede usar discos de Almacenamiento premium con series que no sean DS o GS de VM. Para obtener información sobre los tamaños y tipos de disco de máquina virtual de Azure disponibles, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../virtual-machines/virtual-machines-linux-sizes.md).
 
 - El proceso para configurar los discos de Almacenamiento Premium para una máquina virtual es similar al de los discos de Almacenamiento Estándar. Deberá elegir la opción de Almacenamiento premium más adecuada para sus discos y máquina virtual de Azure. El tamaño de la máquina virtual debe ser el adecuado para su carga de trabajo en función de las características de rendimiento de las ofertas Premium. Para obtener más información, consulte [Objetivos de escalabilidad y rendimiento al usar Almacenamiento premium](#scalability-and-performance-targets-whes-ESing-premium-storage).
 
@@ -63,17 +63,17 @@ Azure usa la cuenta de almacenamiento como un contenedor para el sistema operati
 
 Para información sobre cómo migrar las máquinas virtuales existentes al Almacenamiento premium, vea [Migrar al Almacenamiento premium de Azure](storage-migration-to-premium-storage.md).
 
-Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta de Almacenamiento premium mediante un tipo de cuenta *Premium\_LRS*. Para ello, puede usar el [Portal de Azure](https://portal.azure.com), [Azure PowerShell](../install-configure-powershell.md) o la [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obtener instrucciones detalladas, consulte [Creación y uso de una cuenta de Almacenamiento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta de Almacenamiento premium mediante un tipo de cuenta *Premium\_LRS*. Para ello, puede usar el [Portal de Azure](https://portal.azure.com), [Azure PowerShell](../powershell-install-configure.md) o la [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obtener instrucciones detalladas, consulte [Creación y uso de una cuenta de Almacenamiento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 ### Notas importantes:
 
-- Para obtener información sobre los límites de capacidad y de ancho de banda de la vista previa de las cuentas de Almacenamiento premium, consulte la sección [Objetivos de escalabilidad y rendimiento al usar Almacenamiento premium](#scalability-and-performance-targets-whes-ESing-premium-storage). Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Por ejemplo, si quiere conectar discos de 51 terabytes (TB) a diferentes máquinas virtuales, distribúyalos entre dos cuentas de almacenamiento ya que 35 TB es el límite de una sola cuenta de Almacenamiento premium. Asegúrese de que una sola cuenta de Almacenamiento premium no tenga nunca más de 35 TB de discos aprovisionados.
+- Para obtener información sobre los límites de capacidad y de ancho de banda de la vista previa de las cuentas de Almacenamiento premium, consulte la sección [Objetivos de escalabilidad y rendimiento al usar Almacenamiento premium](#scalability-and-performance-targets-whes-ESing-premium-storage). Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Por ejemplo, si quiere conectar discos de 51 terabytes (TB) a diferentes máquinas virtuales, distribúyalos entre dos cuentas de almacenamiento ya que 35 TB es el límite de una sola cuenta de Almacenamiento premium. Asegúrese de que una sola cuenta de Almacenamiento premium no tenga nunca más de 35 TB de discos aprovisionados.
 - De forma predeterminada, la directiva de almacenamiento en caché de los discos es "Solo lectura" para todos los discos de datos Premium y "Lectura y Escritura" para el disco de sistema operativo Premium conectado a la máquina virtual. Se recomienda esta opción de configuración para lograr el rendimiento óptimo de E/S de la aplicación. Para discos de datos de solo escritura o de gran cantidad de escritura (por ejemplo, archivos de registro de SQL Server), deshabilite el almacenamiento en caché de disco para lograr un mejor rendimiento de la aplicación.
 - Asegúrese de que hay suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco. Por ejemplo, una máquina virtual STANDARD\_DS1 tiene un ancho de banda dedicado de 32 MB por segundo disponible para el tráfico de disco de Almacenamiento premium. Esto significa que un disco de Almacenamiento premium P10 conectado a esta máquina virtual solo puede tener hasta 32 MB por segundo, pero no hasta los 100 MB por segundo que puede proporcionar el disco P10. De forma similar, una máquina virtual STANDARD\_DS13 puede llegar hasta 256 MB por segundo en todos los discos. Actualmente, la máquina virtual más grande de la serie DS es STANDARD\_DS14 y puede proporcionar hasta 512 MB por segundo en todos los discos. La VM más grande de la serie GS es STANDARD\_GS5 y puede proporcionar hasta 2000 MB por segundo en todos los discos.
 
 	Tenga en cuenta que estos límites son para el tráfico de disco por sí solo, sin incluir los aciertos de caché y el tráfico de red. Hay un ancho de banda independiente disponible para el tráfico de red de máquina virtual, que es diferente del ancho de banda dedicado para discos de Almacenamiento premium.
 
-	Para la última información sobre el número máximo de E/S por segundo y el rendimiento (ancho de banda) de las máquinas virtuales de las series DS y GS, vea [Tamaños de máquinas virtuales y servicios en la nube de Azure](../virtual-machines/virtual-machines-size-specs.md). Para información acerca de los discos del Almacenamiento premium y sus E/S por segundo y límites de rendimiento, vea la tabla que encontrará en la sección [Objetivos de escalabilidad y rendimiento al usar el Almacenamiento premium](#scalability-and-performance-targets-whes-ESing-premium-storage) de este artículo.
+	Para la última información sobre el número máximo de E/S por segundo y el rendimiento (ancho de banda) de las máquinas virtuales de las series DS y GS, vea [Tamaños de máquinas virtuales y servicios en la nube de Azure](../virtual-machines/virtual-machines-linux-sizes.md). Para información acerca de los discos del Almacenamiento premium y sus E/S por segundo y límites de rendimiento, vea la tabla que encontrará en la sección [Objetivos de escalabilidad y rendimiento al usar el Almacenamiento premium](#scalability-and-performance-targets-whes-ESing-premium-storage) de este artículo.
 
 > [AZURE.NOTE] Los aciertos de caché no están limitados por las E/S o rendimiento asignados del disco. Es decir, cuando se utiliza un disco de datos con la configuración de caché de solo lectura en una VM de la serie DS o GS, las lecturas que se atienden desde la memoria caché no están sujetas a los límites de disco de Almacenamiento premium. Por lo tanto, podría obtener un rendimiento muy alto desde un disco si la carga de trabajo es fundamentalmente de lectura. Tenga en cuenta que la caché depende de límites de E/S por segundo o de rendimiento independientes a nivel de la máquina virtual en función del tamaño de dicha máquina. Las máquinas virtuales de la serie DS tienen aproximadamente 4000 E/S por segundo y 33 MB/seg. por núcleo de caché y E/S de SSD locales.
 
@@ -125,11 +125,11 @@ Cuando aprovisiona un disco con una cuenta de Almacenamiento premium, la cantida
 
 > [AZURE.NOTE] Asegúrese de que haya suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco, tal como se explica en la sección [Uso de Almacenamiento Premium para discos](#using-premium-storage-for-disks) mostrada anteriormente en este artículo. De lo contrario, el rendimiento y las E/S por segundo del disco estarán obligados a reducir los valores basándose en los límites de la máquina virtual en vez de en los límites de disco que se mencionan en la tabla anterior.
 
-Azure asigna el tamaño de disco (redondeado) a la opción de disco de Almacenamiento premium más cercana según se especifica en la tabla. Por ejemplo, un disco de 100 GB se clasifica como una opción P10, puede realizar hasta 500 unidades de E/S por segundo y dispone de un rendimiento de hasta 100 MB por segundo. De forma similar, un disco de 400 GB se clasifica como una opción P20, puede realizar hasta 2300 unidades de E/S por segundo y dispone de un rendimiento de hasta 150 MB por segundo.
+Azure asigna el tamaño de disco (redondeado) a la opción de disco de Almacenamiento premium más cercana según se especifica en la tabla. Por ejemplo, un disco de 100 GB se clasifica como una opción P10, puede realizar hasta 500 unidades de E/S por segundo y dispone de un rendimiento de hasta 100 MB por segundo. De forma similar, un disco de 400 GB se clasifica como una opción P20, puede realizar hasta 2300 unidades de E/S por segundo y dispone de un rendimiento de hasta 150 MB por segundo.
 
-El tamaño de la unidad de entrada y salida (E/S) es de 256 KB. Si el tamaño de los datos transferidos es inferior a 256 KB, se considera una sola unidad de E/S. Los tamaños de E/S más grandes se cuentan como varias operaciones de E/S con un tamaño de 256 KB. Por ejemplo, una E/S de 1100 KB se cuenta como cinco unidades de E/S.
+El tamaño de la unidad de entrada y salida (E/S) es de 256 KB. Si el tamaño de los datos transferidos es inferior a 256 KB, se considera una sola unidad de E/S. Los tamaños de E/S más grandes se cuentan como varias operaciones de E/S con un tamaño de 256 KB. Por ejemplo, una E/S de 1100 KB se cuenta como cinco unidades de E/S.
 
-El límite de rendimiento incluye escrituras en el disco, así como lecturas desde ese disco que no se sirven desde la memoria caché. Por ejemplo, la suma de las lecturas y de las escrituras que no son de caché debe ser inferior o igual a 100 MB por segundo para un disco P10. De forma similar, por ejemplo, un único disco P10 puede tener 100 MB por segundo de lecturas que no son de caché o 100 MB por segundo de escrituras, o 60 MB por segundo de lecturas con 40 MB de escrituras por segundo.
+El límite de rendimiento incluye escrituras en el disco, así como lecturas desde ese disco que no se sirven desde la memoria caché. Por ejemplo, la suma de las lecturas y de las escrituras que no son de caché debe ser inferior o igual a 100 MB por segundo para un disco P10. De forma similar, por ejemplo, un único disco P10 puede tener 100 MB por segundo de lecturas que no son de caché o 100 MB por segundo de escrituras, o 60 MB por segundo de lecturas con 40 MB de escrituras por segundo.
 
 Al crear los discos de Azure, seleccione la oferta de disco de Almacenamiento premium más adecuada según las necesidades de su aplicación en cuanto a capacidad, rendimiento, escalabilidad y picos de carga.
 
@@ -168,13 +168,13 @@ La aplicación puede lograr la menor latencia cuando se ha diseñado para evitar
 En los ejemplos siguientes se muestra cómo calcular los niveles de limitación:
 
 ### Ejemplo 1:
-La aplicación hizo 495 E/S de tamaño de disco de 16 KB (que es igual a 495 unidades de E/S) en un segundo en un disco P10. Si intenta una E/S de 2 MB en el mismo segundo, el total de unidades de E/S es igual a 495 + 8. Esto es porque una E/S de 2 MB resulta en 2048 KB / 256 KB = 8 unidades de E/S cuando el tamaño de la unidad de E/S es de 256 KB. Puesto que la suma de 495 + 8 supera el límite IOPS de 500 para el disco, se produce la limitación.
+La aplicación hizo 495 E/S de tamaño de disco de 16 KB (que es igual a 495 unidades de E/S) en un segundo en un disco P10. Si intenta una E/S de 2 MB en el mismo segundo, el total de unidades de E/S es igual a 495 + 8. Esto es porque una E/S de 2 MB resulta en 2048 KB / 256 KB = 8 unidades de E/S cuando el tamaño de la unidad de E/S es de 256 KB. Puesto que la suma de 495 + 8 supera el límite IOPS de 500 para el disco, se produce la limitación.
 
 ### Nota:
-Todos los cálculos se basan en el tamaño de una unidad de E/S de 256 KB.
+Todos los cálculos se basan en el tamaño de una unidad de E/S de 256 KB.
 
 ### Ejemplo 2:
-La aplicación hizo 400 E/S de tamaño de disco de 256 KB en un disco P10. El ancho de banda total consumido es (400 * 256) / 1024 = 100 MB/s. Observe que el límite de rendimiento de un disco P10 es de 100 MB por segundo. Si la aplicación intenta realizar más operaciones de E/S en ese segundo, se limita porque supera el límite asignado.
+La aplicación hizo 400 E/S de tamaño de disco de 256 KB en un disco P10. El ancho de banda total consumido es (400 * 256) / 1024 = 100 MB/s. Observe que el límite de rendimiento de un disco P10 es de 100 MB por segundo. Si la aplicación intenta realizar más operaciones de E/S en ese segundo, se limita porque supera el límite asignado.
 
 ### Ejemplo 3:
 Tiene una máquina virtual DS4 con dos discos P30 conectados. Cada disco P30 es capaz de tener un rendimiento de 200 MB por segundo. Sin embargo, una máquina virtual DS4 tiene una capacidad de ancho de banda de disco total de 256 MB por segundo. Por lo tanto, no puede dirigir los discos conectados al máximo rendimiento en esta máquina virtual DS4 al mismo tiempo. Para resolver este problema, puede mantener el tráfico de 200 MB por segundo en un disco y 56 MB por segundo en el otro disco. Si la suma del disco tráfico supera los 256 MB por segundo, el tráfico de disco queda limitado.
@@ -190,7 +190,7 @@ Si un disco está conectado a una máquina virtual, no se permiten determinadas 
 ### Notas importantes:
 
 - El número de instantáneas de un único blob está limitado a 100. Una instantánea puede tomarse cada 10 minutos como máximo.
-- La capacidad máxima para las instantáneas por cuenta de Almacenamiento premium es de 10 TB. Tenga en cuenta que la capacidad de instantáneas solo se refiere a la cantidad total de datos de instantáneas; no incluye datos en el blob de base.
+- La capacidad máxima para las instantáneas por cuenta de Almacenamiento premium es de 10 TB. Tenga en cuenta que la capacidad de instantáneas solo se refiere a la cantidad total de datos de instantáneas; no incluye datos en el blob de base.
 - Para mantener copias con redundancia geográfica, puede copiar instantáneas desde una cuenta de almacenamiento premium a una cuenta de almacenamiento estándar con redundancia geográfica con AzCopy o Copy Blob. Para obtener más información, consulte [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md) y [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 - Para obtener más información acerca de cómo realizar operaciones REST en blobs en página en las cuentas de Almacenamiento premium, consulte [Uso de operaciones de servicios BLOB con Almacenamiento premium de Azure](http://go.microsoft.com/fwlink/?LinkId=521969) en MSDN library.
 
@@ -205,63 +205,64 @@ Consulte a continuación instrucciones importantes para configurar las máquinas
 - Para discos de Almacenamiento premium con caché de configuración "ReadWrite", deben habilitarse las barreras para la durabilidad de las escrituras.
 - Para que las etiquetas de volumen persistan después de reiniciar la VM, debe actualizar/etc/fstab con las referencias UUID a los discos. Consulte también [Acoplamiento de un disco de datos a una máquina virtual de Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk).
 
-Las siguientes son las distribuciones de Linux que se validan con Almacenamiento premium. Se recomienda actualizar las máquinas virtuales al menos a una de estas versiones (o posteriores) para mejorar el rendimiento y la estabilidad con Almacenamiento premium. Además, algunas de las versiones requieren el LIS más reciente (Linux Integration Services v4.0 para Microsoft Azure). Siga el vínculo proporcionado para su descarga e instalación. Seguiremos agregando más imágenes a la lista según vayamos completando validaciones adicionales. Tenga en cuenta que nuestras validaciones demostraron que el rendimiento varía para estas imágenes y también depende de las características de carga de trabajo y la configuración de las imágenes. Se optimizan diferentes imágenes para distintos tipos de cargas de trabajo. 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> 
-<tbody> 
-<tr> 
-	<td><strong>Distribución</strong></td> 
-	<td><strong>Versión</strong></td> 
-	<td><strong>Kernel admitido</strong></td> 
-	<td><strong>Imagen admitida</strong></td> 
-</tr> 
-<tr> 
-	<td rowspan="4"><strong>Ubuntu</strong></td> 
-	<td>12.04</td> 
-	<td>3.2.0-75.110</td> 
-	<td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-es-es-30GB</td> 
+Las siguientes son las distribuciones de Linux que se validan con Almacenamiento premium. Se recomienda actualizar las máquinas virtuales al menos a una de estas versiones (o posteriores) para mejorar el rendimiento y la estabilidad con Almacenamiento premium. Además, algunas de las versiones requieren el LIS más reciente (Linux Integration Services v4.0 para Microsoft Azure). Siga el vínculo proporcionado para su descarga e instalación. Seguiremos agregando más imágenes a la lista según vayamos completando validaciones adicionales. Tenga en cuenta que nuestras validaciones demostraron que el rendimiento varía para estas imágenes y también depende de las características de carga de trabajo y la configuración de las imágenes. Se optimizan diferentes imágenes para distintos tipos de cargas de trabajo.
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr>
+	<td><strong>Distribución</strong></td>
+	<td><strong>Versión</strong></td>
+	<td><strong>Kernel compatible</strong></td>
+	<td><strong>Imagen compatible</strong></td>
 </tr>
-<tr> 
-	<td>14.04</td> 
-	<td>3.13.0-44.73</td> 
-	<td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-es-es-30GB</td> 
-</tr> 
-<tr> 
-	<td>14.10</td> 
-	<td>3.16.0-29.39</td> 
-	<td>Ubuntu-14\_10-amd64-server-20150202-es-es-30GB</td> 
-</tr> 
-<tr> 
-	<td>15.04</td> 
-	<td>3.19.0-15</td> 
-	<td>Ubuntu-15\_04-amd64-server-20150422-es-es-30GB</td> 
-</tr> 
-<tr> 
-	<td><strong>SUSE</strong></td> 
-	<td>SLES 12</td> 
-	<td>3.12.36-38.1</td> 
-	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> 
-</tr> 
-<tr> 
-	<td><strong>CoreOS</strong></td> 
-	<td>584.0.0</td> 
-	<td>3.18.4</td> 
-	<td>CoreOS 584.0.0</td> 
-</tr> 
-<tr> 
-	<td rowspan="2"><strong>CentOS</strong></td> 
-	<td>6.5, 6.6, 7.0</td> 
-	<td></td> 
+<tr>
+	<td rowspan="4"><strong>Ubuntu</strong></td>
+	<td>12.04</td>
+	<td>3.2.0-75.110</td>
+	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-es-ES-30GB</td>
+</tr>
+<tr>
+	<td>14.04</td>
+	<td>3.13.0-44.73</td>
+	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-es-ES-30GB</td>
+</tr>
+<tr>
+	<td>14.10</td>
+	<td>3.16.0-29.39</td>
+	<td>Ubuntu-14_10-amd64-server-20150202-es-ES-30GB</td>
+</tr>
+<tr>
+	<td>15.04</td>
+	<td>3.19.0-15</td>
+	<td>Ubuntu-15_04-amd64-server-20150422-es-ES-30GB</td>
+</tr>
+<tr>
+	<td><strong>SUSE</strong></td>
+	<td>SLES 12</td>
+	<td>3.12.36-38.1</td>
+	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
+</tr>
+<tr>
+	<td><strong>CoreOS</strong></td>
+	<td>584.0.0</td>
+	<td>3.18.4</td>
+	<td>CoreOS 584.0.0</td>
+</tr>
+<tr>
+	<td rowspan="2"><strong>CentOS</strong></td>
+	<td>6.5, 6.6, 6.7, 7.0</td>
+	<td></td>
 	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 requerido</a>
-	</td> 
-</tr> 
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 necesarios </a> </br>
+		* Vea la nota siguiente.
+	</td>
+</tr>
 <tr>
 	<td>7.1</td>
 	<td>3.10.0-229.1.2.el7</td>
 	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.0 recomendado</a> <br/> 
-		*Vea la nota a continuación 
-	</td> 
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 recomendados </a> <br/>
+		* Vea la nota siguiente.
+	</td>
 </tr>
 
 <tr>
@@ -275,7 +276,7 @@ Las siguientes son las distribuciones de Linux que se validan con Almacenamiento
 	<td></td>
 	<td>Póngase en contacto con soporte técnico para obtener más información</td>
 </tr>
-</tbody> 
+</tbody>
 </table>
 
 
@@ -323,12 +324,12 @@ En esta sección se muestra cómo crear una cuenta de Almacenamiento premium med
 
 5.	En la hoja **Cuenta de almacenamiento**, mantenga los valores predeterminados de **Grupo de recursos**, **Suscripción**, **Ubicación** y **Diagnósticos**. Haga clic en **Crear**.
 
-Para obtener un tutorial completo del entorno de Azure, consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de vista previa de Azure](../virtual-machines-windows-tutorial-azure-preview.md).
+Para obtener un tutorial completo del entorno de Azure, consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
 ### Creación de una máquina virtual de Azure mediante Almacenamiento premium a través de Azure PowerShell
 Este ejemplo de PowerShell muestra cómo crear una nueva cuenta de Almacenamiento premium y conectar un disco de datos que use esa cuenta a una nueva máquina virtual de Azure.
 
-1. Configure el entorno de PowerShell siguiendo los pasos que se indican en [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).
+1. Configure el entorno de PowerShell siguiendo los pasos que se indican en [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 2. Inicie la consola de PowerShell, conéctese a su suscripción y ejecute el cmdlet siguiente de PowerShell en la ventana de la consola. Tal como se muestra en la instrucción de PowerShell, deberá especificar el parámetro **Type** como **Premium\_LRS** al crear una cuenta de Almacenamiento premium.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
@@ -388,10 +389,10 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 - [Uso de operaciones de servicios BLOB con Almacenamiento premium de Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Migrar a Almacenamiento premium de Azure](storage-migration-to-premium-storage.md).
-- [Creación de una máquina virtual que ejecuta Windows](../virtual-machines-windows-tutorial-azure-preview.md)
-- [Tamaños de máquinas virtuales y servicios en la nube de Azure](../virtual-machines/virtual-machines-size-specs.md)
+- [Creación de una máquina virtual que ejecuta Windows](../virtual-machines-windows-hero-tutorial-azure-preview.md)
+- [Tamaños de máquinas virtuales y servicios en la nube de Azure](../virtual-machines/virtual-machines-linux-sizes.md)
 - [Documentación de almacenamiento](https://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

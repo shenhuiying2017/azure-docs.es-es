@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implementación clásica](load-balancer-get-started-ilb-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -83,7 +83,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 ### Creación de un grupo de recursos para el equilibrador de carga
 
-### Paso 4
+### Paso 4
 
 Creación de un grupo de recursos (omitir este paso si se usa un grupo de recursos existente)
 
@@ -120,7 +120,7 @@ Cree un grupo de direcciones IP front-end con la dirección IP privada 10.0.2.5 
 
 	$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 
-### Paso 2 
+### Paso 2 
 
 Configure un grupo de direcciones back-end que se usará para recibir el tráfico entrante del grupo de IP front-end:
 
@@ -241,7 +241,7 @@ Resultado esperado:
 
 Use el comando Add-AzureRmVMNetworkInterface para asignar el NIC a una máquina virtual.
 
-Encontrará instrucciones paso a paso para crear una máquina virtual y asignarla a un NIC en el artículo [Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), opción 4 o 5.
+Encontrará instrucciones paso a paso para crear una máquina virtual y asignarla a un NIC en el artículo [Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example), opción 4 o 5.
 
 O bien, si ya tiene una máquina virtual creada, puede agregar la interfaz de red con los pasos siguientes:
 
@@ -263,7 +263,7 @@ Cargue la interfaz de red ya creada en una variable. El nombre de variable que s
 
 	$nic=Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 
-#### Paso 4
+#### Paso 4
 
 Cambie la configuración de back-end en la interfaz de red.
 
@@ -316,4 +316,4 @@ Use el comando Remove-AzureRmLoadBalancer para eliminar un equilibrador de carga
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

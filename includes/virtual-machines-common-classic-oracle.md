@@ -1,36 +1,38 @@
 
  
 
-Set up your first or next dev/test or production Oracle database running on a virtual machine in Azure infrastructure services. Take advantage of ease of configuration and the ability to quickly expand the Oracle database workload to include new capacity.
+Configure la primera o siguiente base de datos Oracle de desarrollo o prueba, o producción en una máquina virtual en servicios de infraestructura de Azure. Aproveche la facilidad de configuración y la capacidad para ampliar rápidamente la carga de trabajo de la base de datos de Oracle para incluir nueva capacidad.
 
-## Oracle virtual machine images
+## Imágenes de máquinas virtuales de Oracle
 
-See [List of Oracle virtual machine images](../articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md) for the latest set of Windows-based and Linux-based virtual machine images.
+Vea [Lista de imágenes de máquinas virtuales de Oracle](../articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md) para ver el último conjunto de imágenes de máquinas virtuales basadas en Windows y Linux.
 
-## Considerations for Windows-based virtual machines
+## Consideraciones para máquinas virtuales basadas en Windows
 
-See [Miscellaneous considerations for Oracle virtual machine images](../articles/virtual-machines/virtual-machines-windows-classic-oracle-considerations.md) to understand limitations for Oracle software on Windows Server-based Azure virtual machines.
+Vea [Consideraciones variadas sobre las imágenes de máquina virtual de Oracle](../articles/virtual-machines/virtual-machines-windows-classic-oracle-considerations.md) para conocer las limitaciones del software Oracle en máquinas virtuales de Azure con Windows Server.
 
-## Oracle database virtual machine
+## Máquina virtual de base de datos de Oracle
 
-[Creating an Oracle database virtual machine in Azure](../articles/virtual-machines/virtual-machines-windows-classic-create-oracle-database.md) steps you through virtual machine creation, database creation, and configuration of popular options.
+[Creación de una máquina virtual de Base de datos de Oracle en Azure](../articles/virtual-machines/virtual-machines-windows-classic-create-oracle-database.md) sirve de guía para la creación de máquinas virtuales, la creación de bases de datos y la configuración de las opciones más usadas.
 
 ## Oracle WebLogic Server 12c
 
-[Creating an Oracle WebLogic Server 12c virtual machine in Azure](../articles/virtual-machines/virtual-machines-windows-create-oracle-weblogic-server-12c.md) steps you through the creation of an Azure virtual machine based on the Oracle WebLogic Server 12c image running on Windows Server 2012.
+[Creación de una máquina virtual Oracle WebLogic Server 12c en Azure](../articles/virtual-machines/virtual-machines-windows-create-oracle-weblogic-server-12c.md) sirve de guía para la creación de una máquina virtual de Azure basada en la imagen de Oracle WebLogic Server 12c que se ejecuta en Windows Server 2012.
 
-## Oracle WebLogic Server 12c and Oracle Database 12c
+## Oracle WebLogic Server 12c y Oracle Database 12c
 
-[Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure](../articles/virtual-machines/virtual-machines-windows-create-oracle-weblogic-server-12c-database.md) steps you through virtual machine and database creation and configuration.
+[Creación de una máquina virtual Oracle WebLogic Server 12c y Oracle Database 12c en Azure](../articles/virtual-machines/virtual-machines-windows-create-oracle-weblogic-server-12c-database.md) sirve de guía para la creación y configuración de máquinas virtuales y bases de datos.
 
-## Prepare an Oracle Linux virtual machine
+## Preparación de una máquina virtual Oracle Linux
 
-[Prepare an Oracle Linux virtual machine for Azure](../articles/virtual-machines/virtual-machines-linux-prepare-oracle.md) steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.
+[Preparación de una máquina virtual Oracle Linux para Azure](../articles/virtual-machines/virtual-machines-linux-prepare-oracle.md) sirve de guía para los requisitos previos y la creación de máquinas virtuales para Oracle Linux 6.4+ y Oracle Linux 7.0+.
 
-## Oracle Data Guard
+## Protección de datos de Oracle
 
-[Configuring Oracle Data Guard for Azure](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-data-guard.md) steps you through configuration of the standby environment and the listener.
+[Configuración de la protección de datos de Oracle para Azure](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-data-guard.md) sirve de guía para la configuración del entorno en espera y del agente de escucha.
 
 ## Oracle GoldenGate
 
-[Configuring Oracle GoldenGate for Azure](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-goldengate.md) steps you through database and replication setup.
+[Configuración de Oracle GoldenGate para Azure](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-goldengate.md) sirve de guía para la configuración de bases de datos y replicación.
+
+<!---HONumber=AcomDC_0323_2016-->

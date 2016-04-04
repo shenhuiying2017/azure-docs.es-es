@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/25/2016"
+   ms.date="03/18/2016"
    ms.author="mbaldwin" />
 
 # API Graph de Azure Active Directory
@@ -50,6 +50,13 @@ La API Graph ofrece las siguientes características:
 
 - **Extensiones de directorio**: si va a desarrollar una aplicación que necesite leer o escribir propiedades únicas para objetos de directorio, puede registrar y usar valores de extensión con la API Graph. Por ejemplo, si su aplicación necesita una propiedad de usuario de Skype para cada usuario, puede registrar la nueva propiedad en el directorio para que esté disponible en todos los objetos de usuario. Para obtener más información, consulte [Extensiones de esquema de directorio de la API de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
+- **Protección con ámbitos de permiso**: API Graph de AAD expone ámbitos de permiso que permiten el acceso protegido o consentido a datos de AAD y admiten diversos tipos de aplicación de cliente, incluidos los siguientes:
+ - Aquellos con una interfaz de usuario que reciben acceso delegado a los datos a través de una autorización del usuario con sesión iniciada (delegado).
+  - Aquellos que usan el control de acceso basado en roles definido por las aplicaciones, como clientes de servicio o demonio (roles de aplicación).
+
+    Tanto los ámbitos de permiso delegados como los de roles de aplicación representan un privilegio que se expone mediante API Graph, y las aplicaciones cliente pueden solicitarlos a través de las [características de permisos de registro de aplicación en el Portal de Azure clásico](https://manage.windowsazure.com). Los clientes pueden comprobar los ámbitos de permiso que se les han concedido inspeccionando la notificación de ámbito ("scp") recibida en el token de acceso para los permisos delegados y la notificación de roles ("roles") para los permisos de roles de aplicación. Obtenga más información sobre los [ámbitos de permiso de API Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
+
+
 ## Escenarios
 
 La API Graph admite muchos escenarios de aplicación. Los siguientes escenarios son los más comunes:
@@ -66,4 +73,4 @@ La API Graph admite muchos escenarios de aplicación. Los siguientes escenarios 
 
 [Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

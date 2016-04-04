@@ -47,7 +47,7 @@ Para obtener más detalles sobre las cadenas de conexión, vea [Configuración d
 
 Algunas bibliotecas de cliente de almacenamiento de Azure, como la biblioteca Xamarin, solo admiten la autenticación con un token de firma de acceso compartido (SAS). Necesitará crear este token SAS mediante una herramienta o aplicación que admite la autenticación de clave compartida. Una forma sencilla de generar el token SAS es mediante Azure PowerShell:
 
-1. Instale Azure PowerShell si todavía no lo ha hecho. Se recomienda usar la versión más reciente de los cmdlets de Azure PowerShell. Vea [Instalación y configuración de Azure PowerShell](../articles/powershell-install-configure.md#Install) para obtener instrucciones de instalación.
+1. Instale Azure PowerShell si todavía no lo ha hecho. Se recomienda usar la versión más reciente de los cmdlets de Azure PowerShell. Vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md#Install) para obtener instrucciones de instalación.
 
 2. Abra Azure PowerShell y ejecute los comandos siguientes. No olvide reemplazar *ACCOUNT\_NAME* y *ACCOUNT\_KEY==* con sus propias credenciales. Reemplace *CONTAINER\_NAME* por el nombre que desee.
 
@@ -154,7 +154,7 @@ Para ver la lista de opciones, escriba `/help` en el símbolo del sistema.
 | **Iniciar** | Inicia el emulador de almacenamiento. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: inicia el emulador en el proceso actual en lugar de crear un nuevo proceso. |
 | **Detención** | Detiene el emulador de almacenamiento. | `AzureStorageEmulator stop` | |
 | **Estado** | Imprime el estado del emulador de almacenamiento. | `AzureStorageEmulator status` | |
-| **Borrar** | Borra los datos de todos los servicios especificados en la línea de comandos. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: borra datos de blobs. <br/>*cola*: borra los datos de la cola. <br/>*tabl*: borra los datos de la tabla. <br/>*todos*: borra todos los datos de todos los servicios. |
+| **Borrar** | Borra los datos de todos los servicios especificados en la línea de comandos. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: borra datos de blobs. <br/>*cola *: borra los datos de la cola. <br/>*tabl *: borra los datos de la tabla. <br/>*todos*: borra todos los datos de todos los servicios. |
 | **Init** | Realiza una inicialización única para configurar el emulador. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server nombre del servidor\\nombre de la instancia*: especifica el servidor que hospeda la instancia de SQL. <br/>*-sqlinstance instanceName*: especifica el nombre de la instancia SQL que se va a usar en la instancia del servidor predeterminada. <br/>*-forcecreate*: fuerza la creación de la base de datos SQL, incluso si ya existe. <br/>*-inprocess*: realiza la inicialización en el proceso actual en lugar de generar un nuevo proceso. Tiene que iniciar el proceso actual con permisos elevados para realizar la inicialización. |
                                                                                                                   
 ## Diferencias entre el emulador de almacenamiento y el almacenamiento de Azure
@@ -232,4 +232,4 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 - La versión 2013-08-15 de los servicios de almacenamiento de Azure ahora es totalmente compatible. (Anteriormente esta versión solo era compatible con versión la versión 2.2.1 Preview del emulador de almacenamiento.)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

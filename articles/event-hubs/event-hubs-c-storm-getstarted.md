@@ -30,7 +30,7 @@ En este tutorial, obtendrá información sobre cómo insertar mensajes en un Cen
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines/virtual-machines-linux-tutorial.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
++ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines/virtual-machines-linux-cli-create.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
 
 + Un entorno de desarrollo de Java configurado para ejecutar [Maven](http://maven.apache.org/). Para este tutorial, asumimos que vamos a trabajar con [Eclipse](https://www.eclipse.org/).
 
@@ -111,4 +111,4 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

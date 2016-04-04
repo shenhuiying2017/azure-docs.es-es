@@ -21,7 +21,7 @@
 
 Esta característica funciona para aplicaciones web ASP.NET y de Java, hospedadas en la nube o en sus propios servidores. También funciona para cualquier aplicación que genere telemetría de solicitudes, por ejemplo, si tiene un rol de trabajo que llama a [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-Después de configurar [Application Insights para su proyecto](app-insights-get-started.md), y siempre que la aplicación genere una cantidad mínima determinada de datos de telemetría, el diagnóstico proactivo tarda 24 horas en familiarizarse con el comportamiento normal de la aplicación. Después, se activará y podrá enviar alertas.
+Después de configurar [Application Insights para su proyecto](app-insights-get-started.md), y siempre que la aplicación genere una cantidad mínima determinada de datos de telemetría, el diagnóstico proactivo en tiempo casi real tarda 24 horas en familiarizarse con el comportamiento normal de la aplicación. Después, se activará y podrá enviar alertas.
 
 Esta es una alerta de ejemplo:
 
@@ -51,7 +51,7 @@ Si se instrumenta el servicio con estos datos de telemetría, el analizador busc
 
 El análisis resultante se le envía como una alerta, a no ser que configurara lo contrario.
 
-Al igual que sucede con las [alertas que establece manualmente](app-insights-alerts.md), puede inspeccionar el estado de la alerta y configurarla en la hoja Alertas del recurso de Application Insights. Pero, a diferencia de otras alertas, no tiene que instalar ni configurar un diagnóstico proactivo en tiempo casi real. Si lo desea, puede deshabilitarla o cambiar sus direcciones de correo electrónico de destino.
+Al igual que sucede con las [alertas que establece manualmente](app-insights-alerts.md), puede inspeccionar el estado de la alerta y configurarla en la hoja Alertas del recurso de Application Insights. No obstante, a diferencia de otras alertas, no tiene que instalar ni configurar un diagnóstico proactivo en tiempo casi real. Si lo desea, puede deshabilitarla o cambiar sus direcciones de correo electrónico de destino.
 
 ## Clasificación y diagnóstico de una alerta
 
@@ -138,4 +138,4 @@ El diagnóstico proactivo NRT complementa a otras características diferentes pe
 
 *Estamos muy interesados en saber lo que piensa sobre esto. Envíe sus comentarios a* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

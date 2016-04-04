@@ -5,12 +5,12 @@ Recurso| Límite predeterminado | Límite máximo
 Redes virtuales por suscripción | 50 | 100
 Sitios de red local por suscripción | 20 | póngase en contacto con el soporte técnico
 Servidores DNS por red virtual | 20 | 100
-Máquinas virtuales e instancias de rol por red virtual | 2048 | 2048
+Direcciones IP privadas por red virtual | 4096 | 4096
 Conexiones TCP concurrentes para una máquina virtual o instancia de rol | 500 KB | 500 KB 
 Grupos de seguridad de red (NSG) | 100 | 200
 Reglas de NSG por NSG | 200 | 400
 Tablas de rutas definidas por el usuario | 100 | 200
-Rutas definidas por el usuario por tabla de ruta | 100 | 500
+Rutas definidas por el usuario por tabla de ruta | 100 | 400
 Direcciones IP públicas (dinámicas) | 5 | póngase en contacto con el soporte técnico
 Direcciones IP públicas reservadas | 20 | póngase en contacto con el soporte técnico
 VIP pública por implementación | 5 | póngase en contacto con el soporte técnico
@@ -26,13 +26,13 @@ Recurso| Límite predeterminado | Límite máximo
 --- | --- | ---
 Redes virtuales por suscripción | 50 | 500
 Servidores DNS por red virtual | 9 | 25
-Máquinas virtuales e instancias de rol por red virtual | 2048 | 2048
+Direcciones IP privadas por red virtual | 4096 | 4096
 Conexiones TCP concurrentes para una máquina virtual o instancia de rol | 500 KB |500 KB
-Interfaces de red (NIC) | 300 | 1000
+Interfaces de red (NIC) | 300 | 10000
 Grupos de seguridad de red (NSG) | 100 | 400
 Reglas de NSG por NSG | 200 | 500
 Tablas de rutas definidas por el usuario | 100 | 400
-Rutas definidas por el usuario por tabla de ruta | 100 | 500
+Rutas definidas por el usuario por tabla de ruta | 100 | 400
 Direcciones IP públicas (dinámicas) | 60 | póngase en contacto con el soporte técnico
 Direcciones IP públicas reservadas | 20 | póngase en contacto con el soporte técnico
 Equilibradores de carga (interno y accesibles desde Internet) | 100 | póngase en contacto con el soporte técnico
@@ -43,4 +43,4 @@ Puertas de enlace de aplicaciones | 50 | 50
 
 Si necesita que los límites sean superiores a lo establecido de manera predeterminada, póngase en contacto con el soporte técnico.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

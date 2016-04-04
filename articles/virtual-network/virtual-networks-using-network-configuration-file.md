@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
-	ms.date="12/07/2015"
+	ms.date="03/15/2016"
 	ms.author="telmos"/>
 
 # Configuración de una red virtual con un archivo de configuración de red
@@ -45,7 +45,7 @@ Al exportar, todos los ajustes de las redes virtuales en su suscripción se escr
 
 1. En el **Portal de administración**, en el panel de navegación de la parte inferior izquierda, haga clic en **Nuevo**.
 2. Haga clic en **Servicios de red** -> **Red virtual** -> **Importar configuración**.
-3. En la página **Importar el archivo de configuración de red**, busque el archivo de configuración de red y, a continuación, haga clic en la flecha **Siguiente**.
+3. En la página **Importación del archivo de configuración de red**, busque el archivo de configuración de red y, a continuación, haga clic en la flecha **Siguiente**.
 4. En la página **Creando su red**, verá información en pantalla que muestra las secciones de la configuración de red que cambiarán o se crearán. Si está de acuerdo con los cambios, haga clic en la marca de verificación para continuar con la actualización o la creación de la red virtual. 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

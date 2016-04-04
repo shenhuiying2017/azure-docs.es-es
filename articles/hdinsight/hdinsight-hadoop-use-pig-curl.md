@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 #Ejecución de trabajos de Pig con Hadoop en HDInsight con Curl
@@ -25,7 +25,7 @@ En este documento, aprenderá a utilizar Curl para ejecutar trabajos de Pig Lati
 
 CURL sirve para demostrar cómo se puede interactuar con HDInsight mediante solicitudes HTTP sin procesar para ejecutar, supervisar y recuperar los resultados de los trabajos de Pig. Esto funciona mediante la API de REST de WebHCat (antes conocida como Templeton) que proporciona el clúster de HDInsight.
 
-> [AZURE.NOTE]Si ya está familiarizado con el uso de servidores de Hadoop basados en Linux, pero no conoce HDInsight, consulte [Información sobre el uso de HDInsight en Linux](hdinsight-hadoop-linux-information.md).
+> [AZURE.NOTE] Si ya está familiarizado con el uso de servidores de Hadoop basados en Linux, pero no conoce HDInsight, consulte [Información sobre el uso de HDInsight en Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Requisitos previos
 
@@ -39,7 +39,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 ##<a id="curl"></a>Ejecución de trabajos de Pig con Curl
 
-> [AZURE.NOTE]Al usar Curl o cualquier otra comunicación REST con WebHCat, debe proporcionar el nombre de usuario y la contraseña del administrador del clúster de HDInsight para autenticar las solicitudes. También debe usar el nombre del clúster como parte del identificador uniforme de recursos (URI) que se usa para enviar las solicitudes al servidor.
+> [AZURE.NOTE] Al usar Curl o cualquier otra comunicación REST con WebHCat, debe proporcionar el nombre de usuario y la contraseña del administrador del clúster de HDInsight para autenticar las solicitudes. También debe usar el nombre del clúster como parte del identificador uniforme de recursos (URI) que se usa para enviar las solicitudes al servidor.
 >
 > En el caso de los comandos que aparecen en esta sección, reemplace **USERNAME** por el usuario para autenticación en el clúster y **PASSWORD** por la contraseña de la cuenta de usuario. Reemplace **CLUSTERNAME** por el nombre del clúster.
 >
@@ -72,7 +72,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
         * **execute**: las instrucciones de Pig Latin que se ejecutarán.
         * **statusdir**: el directorio donde se escribirá el estado de este trabajo.
 
-    > [AZURE.NOTE]Observe que los espacios en las instrucciones de Pig Latin se reemplazan por el carácter `+` cuando se utilizan con Curl.
+    > [AZURE.NOTE] Observe que los espacios en las instrucciones de Pig Latin se reemplazan por el carácter `+` cuando se utilizan con Curl.
 
     Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo, por ejemplo:
 
@@ -84,7 +84,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 	Si se completó el trabajo, el estado será **SUCCEEDED**.
 
-    > [AZURE.NOTE]Esta solicitud de Curl devuelve un documento de notación de objetos JavaScript (JSON) con información acerca del trabajo; jq se usa para recuperar solo el valor de estado.
+    > [AZURE.NOTE] Esta solicitud de Curl devuelve un documento de notación de objetos JavaScript (JSON) con información acerca del trabajo; jq se usa para recuperar solo el valor de estado.
 
 ##<a id="results"></a>Visualización de resultados
 
@@ -98,7 +98,7 @@ Para descargar un archivo, use lo siguiente:
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob usando los parámetros `-a` y `-k` o bien, definir las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**.
+> [AZURE.NOTE] Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob usando los parámetros `-a` y `-k` o bien, definir las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**.
 
 ##<a id="summary"></a>Resumen
 
@@ -118,4 +118,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

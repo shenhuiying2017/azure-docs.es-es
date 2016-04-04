@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/21/2016"
    ms.author="sngun; v-reagie"/>
 
 # Sugerencias para la solución de problemas para errores comunes de Automatización de Azure
@@ -105,7 +105,7 @@ Este artículo explica algunos de los errores comunes que se pueden producir al 
 
 **Sugerencias para solucionar el problema:** cualquiera de las siguientes alternativas solucionará este problema:
 
-- Compruebe que ha escrito correctamente el nombre del cmdlet y verifique que la ruta de acceso al cmdlet es correcta.  
+- Compruebe que ha escrito correctamente el nombre del cmdlet.  
 
 - Asegúrese de que el cmdlet existe en su cuenta de Automatización y de que no hay ningún conflicto. Para comprobar si está presente el cmdlet, abra un runbook en modo de edición y busque el cmdlet que desea encontrar en la biblioteca o ejecute **Get-Command ``<CommandName>``**. Una vez que haya comprobado que el cmdlet está disponible para la cuenta y que no hay conflictos de nombres con otros cmdlets o runbooks, agréguelo al lienzo y asegúrese de que está utilizando un parámetro válido establecido en su runbook.
 
@@ -206,4 +206,4 @@ Si ha seguido los pasos de la solución de problemas anteriores y necesita ayuda
 
 - Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

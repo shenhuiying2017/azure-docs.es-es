@@ -30,7 +30,7 @@ Programador de Azure está disponible a través de la interfaz de usuario en pr�
 
 No solo el front-end de Programador de Azure está disponible para solicitudes de administración, sino que su propio trabajo también se replica geográficamente. Cuando hay una interrupción en una región, Programador de Azure conmuta por error y garantiza que el trabajo se ejecuta en otro centro de datos en la región geográfica emparejada.
 
-Por ejemplo, si creó un trabajo en la zona Centro-Sur de EE. UU., Programador de Azure replica automáticamente ese trabajo en la zona Centro-Norte de EE. UU. Cuando hay un error en la zona Centro-Sur de EE. UU., Programador de Azure garantiza que el trabajo se ejecuta en la zona Centro-Norte de EE. UU. [La lista de regiones de Azure emparejadas está disponible aquí](https://msdn.microsoft.com/library/azure/dn758204.aspx).
+Por ejemplo, si creó un trabajo en la zona Centro-Sur de EE. UU., Programador de Azure replica automáticamente ese trabajo en la zona Centro-Norte de EE. UU. Cuando hay un error en la zona Centro-Sur de EE. UU., Programador de Azure garantiza que el trabajo se ejecuta en la zona Centro-Norte de EE. UU. [Para obtener una explicación detallada de las funciones de replicación geográfica de Azure, consulte este tema.](../sql-database/sql-database-business-continuity-design.md)
 
 ![][1]
 
@@ -56,7 +56,7 @@ Por ejemplo, en el diagrama siguiente, Programador de Azure sigue su directiva d
 
 ![][2]
 
-Tenga en cuenta que se aplica la misma directiva de reintentos a la acción original y la acción de error alternativa. También es posible que el tipo de acción de la acción de error alternativa sea distinto del tipo de acción de la acción principal. Por ejemplo, mientras que la acción principal puede que invoque un extremo HTTP, es posible que la acción de error sea en su lugar una acción de la cola de almacenamiento que sí realiza el registro de errores.
+Tenga en cuenta que se aplica la misma directiva de reintentos a la acción original y la acción de error alternativa. También es posible que el tipo de acción de la acción de error alternativa sea distinto del tipo de acción de la acción principal. Por ejemplo, mientras que la acción principal puede ser invocar un extremo HTTP, es posible que la acción de error sea una acción de la cola de almacenamiento, la cola del bus de servicio o el tema de bus de servicio que sí realiza el registro de errores.
 
 Para obtener información sobre cómo configurar un extremo alternativo, consulte [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
@@ -85,4 +85,4 @@ Para obtener información sobre cómo configurar un extremo alternativo, consult
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

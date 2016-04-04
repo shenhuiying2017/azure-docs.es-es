@@ -41,7 +41,7 @@ Automatización de Azure es un servicio administrado de Microsoft Azure que le p
 
 Un recurso de DSC es un módulo de código con capacidades específicas, como la administración de redes, Active Directory o SQL Server. El recurso de DSC de Chocolatey sabe cómo acceder a un servidor NuGet (entre otros), descargar paquetes, instalar paquetes, etc. Existen muchos otros recursos de DSC en la [Galería de PowerShell](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title). Estos módulos se instalan en el servidor de extracción de DSC de Automatización de Azure (manualmente) para que se puedan usar con sus configuraciones.
 
-Las plantillas de ARM proporcionan una forma declarativa de generar la infraestructura: como las redes, las subredes, la seguridad de red y el enrutamiento, los equilibradores de carga, las NIC, las máquinas virtuales, etc. En este [artículo](../resource-manager-deployment-model.md), se compara el modelo de implementación de ARM (declarativo) con el de Administración de servicios de Azure (ASM o clásico), que es imperativo. Este otro [artículo](../virtual-machines\virtual-machines-azurerm-versus-azuresm.md) trata acerca de los proveedores de recursos principales, procesos, redes y almacenamiento.
+Las plantillas de ARM proporcionan una forma declarativa de generar la infraestructura: como las redes, las subredes, la seguridad de red y el enrutamiento, los equilibradores de carga, las NIC, las máquinas virtuales, etc. En este [artículo](../resource-manager-deployment-model.md), se compara el modelo de implementación de ARM (declarativo) con el de Administración de servicios de Azure (ASM o clásico), que es imperativo. Este otro [artículo](../virtual-machines/virtual-machines-windows-compare-deployment-models.md) trata acerca de los proveedores de recursos principales, procesos, redes y almacenamiento.
 
 Una característica clave de una plantilla de ARM es su capacidad para instalar una extensión de máquina virtual en la máquina virtual cuando se aprovisiona. Una extensión de máquina virtual posee capacidades específicas, como ejecutar un script personalizado, instalar software antivirus o ejecutar un script de configuración de DSC. Existen muchos otros tipos de extensiones de máquina virtual.
 
@@ -185,4 +185,4 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

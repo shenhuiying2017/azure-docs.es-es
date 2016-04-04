@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Referencia de la directiva de Administración de API de Azure
@@ -59,7 +59,7 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 	-	[Convertir JSON a XML][] \: convierte el cuerpo de solicitud o respuesta de JSON a XML.
 	-	[Convertir XML a JSON][] \: convierte el cuerpo de solicitud o respuesta de XML a JSON.
 	-	[Buscar y reemplazar la cadena en el cuerpo][]\: encuentra una subcadena de solicitud o de respuesta y la reemplaza por una subcadena diferente.
-	-	[Enmascarar URL en el contenido][]\: reescribe (enmascara) vínculos en el cuerpo de respuesta y en el encabezado de la ubicación para que apunten al vínculo equivalente a través de la puerta de enlace.
+	-	[Enmascarar URL en el contenido][]\: reescribe (enmascara) vínculos en el cuerpo de respuesta para que apunten al vínculo equivalente a través de la puerta de enlace.
 	-	[Establecer el servicio back-end][]\: cambia el servicio back-end para una solicitud entrante.
 	-	[Establecer cuerpo][] -establece el cuerpo del mensaje para las solicitudes entrantes y salientes.
 	-	[Establecer encabezado HTTP][]\: asigna un valor a un encabezado de respuesta o de solicitud existente o agrega un nuevo encabezado de este tipo.
@@ -119,4 +119,4 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

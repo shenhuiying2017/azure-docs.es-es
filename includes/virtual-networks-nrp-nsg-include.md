@@ -15,10 +15,7 @@ Una regla de seguridad es un recurso secundario de un Grupo de seguridad de red 
 |Propiedad|Descripción|Valores de ejemplo|
 |---|---|---|
 |**descripción**|Descripción de la regla|Permite el tráfico entrante para todas las máquinas virtuales en la subred X|
-|**protocolo**|Protocolo que debe coincidir con la regla|TCP, UDP o *|
-|**sourcePortRange**|Intervalo del puerto de origen que debe coincidir con la regla|80, 100-200, *|
-|**destinationPortRange**|Intervalo del puerto de destino que debe coincidir con la regla|80, 100-200, *|
-|**sourceAddressPrefix**|Prefijo de la dirección de origen que debe coincidir con la regla|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
+|**protocolo**|Protocolo que debe coincidir con la regla|TCP, UDP o *| |**sourcePortRange**|Intervalo del puerto de origen que debe coincidir con la regla|80, 100-200, *| |**destinationPortRange**|Intervalo del puerto de destino que debe coincidir con la regla|80, 100-200, *| |**sourceAddressPrefix**|Prefijo de la dirección de origen que debe coincidir con la regla|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**destinationAddressPrefix**|Prefijo de la dirección de destino que debe coincidir con la regla|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**dirección**|Dirección del tráfico que debe coincidir con la regla|entrada o salida|
 |**prioridad**|Prioridad de la regla. Las reglas se comprueban según su orden de prioridad; una vez se aplica una regla, no se prueban más reglas para realizar la coincidencia.|10, 100, 65000|
@@ -68,12 +65,12 @@ Grupo de seguridad de red de ejemplo en formato JSON:
 	}
 
 ### Reglas de seguridad predeterminadas
-Las reglas de seguridad predeterminadas tienen las mismas propiedades disponibles en las reglas de seguridad. Existen para proporcionar una conexión básica entre aquellos recursos que tengan los Grupos de seguridad de red aplicados. Asegúrese de saber qué [reglas de seguridad predeterminadas](./virtual-networks-nsg.md#Default-Rules) existen.
+Las reglas de seguridad predeterminadas tienen las mismas propiedades disponibles en las reglas de seguridad. Existen para proporcionar una conexión básica entre aquellos recursos que tengan los Grupos de seguridad de red aplicados. Asegúrese de saber qué [reglas de seguridad predeterminadas](../articles/virtual-network/virtual-networks-nsg.md#Default-Rules) existen.
 
 ### Recursos adicionales
 
-- Obtenga más información acerca de los [Grupos de seguridad de red](virtual-networks-nsg.md).
+- Obtenga más información acerca de los [Grupos de seguridad de red](../articles/virtual-network/virtual-networks-nsg.md).
 - Lea la [documentación de referencia de la API de REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) para obtener información sobre los Grupos de seguridad de red.
 - Lea la [documentación de referencia de la API de REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) para obtener información sobre las reglas de seguridad.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

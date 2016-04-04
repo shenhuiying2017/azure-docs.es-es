@@ -59,7 +59,7 @@ Lo que genera el siguiente resultado:
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE] Si no tiene una cuenta de Azure, verá un mensaje de error que indica que necesita un otro tipo de cuenta. Para crear una a partir su cuenta de Azure actual, consulte [Crear una identidad profesional o educativa en Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE] Si no tiene una cuenta de Azure, verá un mensaje de error que indica que necesita un otro tipo de cuenta. Para crear una a partir su cuenta de Azure actual, consulte [Crear una identidad profesional o educativa en Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
 Abra [https://aka.ms/devicelogin](https://aka.ms/devicelogin) en un explorador y escriba el código proporcionado en la salida del comando.
 
@@ -345,7 +345,7 @@ Ahora que tiene una cuenta de DocumentDB, el siguiente paso es crear una base de
 
 Después de crear la base de datos, tendrá que [agregar una o más colecciones](documentdb-create-collection.md) a ella y después [agregar documentos](documentdb-view-json-document-explorer.md) a las colecciones.
 
-Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en los documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) en el Portal de vista previa, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en sus documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) del portal, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 Para obtener más información acerca de DocumentDB, explore estos recursos:
 
@@ -354,4 +354,4 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

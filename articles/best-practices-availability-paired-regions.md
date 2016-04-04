@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-    ms.service="backup"
+    ms.service="site-recovery"
     ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/12/2016"
+    ms.date="03/20/2016"
     ms.author="raynew"/>
 
 # Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
@@ -34,8 +34,8 @@ Ilustración 1: Diagrama de pareja regional de Azure
 | Geography | Regiones emparejadas | |
 | :-------------| :-------------   | :-------------   |
 | Norteamérica | Centro-Norte de EE. UU | Centro-Sur de EE. UU |
-| Norteamérica | Este de EE. UU. | Oeste de EE. UU. |
-| Norteamérica | Este de EE. UU. - 2 | Centro de EE. UU. |
+| Norteamérica | Este de EE. UU. | Oeste de EE. UU. |
+| Norteamérica | Este de EE. UU. - 2 | Centro de EE. UU. |
 | Europa | Europa del Norte | Europa occidental |
 | Asia | Sudeste de Asia | Asia oriental |
 | China | Este de China | Norte de China |
@@ -64,7 +64,7 @@ Como se indica en la ilustración 2.
 
 ![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Proceso de Azure (Paas)**: debe aprovisionar recursos de procesos adicionales de antemano para asegurarse de que haya recursos disponibles en otra región durante un desastre. Para obtener más información, consulte [Guía técnica sobre continuidad empresarial de Azure](https://msdn.microsoft.com/library/azure/hh873027.aspx).
 
-![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Almacenamiento de Azure**: el almacenamiento con redundancia geográfica (GRS) se configura de manera predeterminada cuando se crea una cuenta de Almacenamiento de Azure. Con GRS, los datos se replican automáticamente tres veces dentro de la región primaria y tres veces en la región emparejada. Para obtener más información, consulte [Opciones de redundancia de Almacenamiento de Azure](../storage/storage-redundancy.md).
+![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Almacenamiento de Azure**: el almacenamiento con redundancia geográfica (GRS) se configura de manera predeterminada cuando se crea una cuenta de Almacenamiento de Azure. Con GRS, los datos se replican automáticamente tres veces dentro de la región primaria y tres veces en la región emparejada. Para obtener más información, consulte [Opciones de redundancia de Almacenamiento de Azure](storage/storage-redundancy.md).
 
 
 ![3Green](./media/best-practices-availability-paired-regions/3Green.png) **Bases de datos SQL de Azure**: con la replicación geográfica estándar de SQL de Azure puede configurar la replicación asincrónica de transacciones en una región emparejada. Con la replicación geográfica Premium, puede configurar la replicación en cualquier región del mundo; sin embargo, se recomienda implementar estos recursos en una región emparejada para la mayoría de los escenarios de recuperación ante desastres. Para obtener más información, consulte [Replicación geográfica en Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn783447.aspx).
@@ -85,4 +85,4 @@ Como se indica en la ilustración 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residencia de datos**: una región reside dentro de la misma ubicación geográfica que su pareja (a excepción del Sur de Brasil) con el objeto de cumplir los requisitos de residencia de datos para fines de jurisdicción de impuestos y aplicación de la ley.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

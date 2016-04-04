@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="03/18/2016"
 	ms.author="dastrock"/>
 
-# ¿Debo usar el punto de conexión v2.0? 
+# ¿Debo usar el punto de conexión v2.0?
 
 Al crear aplicaciones que se integran con Azure Active Directory, necesitará decidir si los protocolos de autenticación y el punto de conexión v2.0 cubrirán sus necesidades. El modelo de aplicaciones original de Azure AD sigue siendo totalmente compatible y, en algunos aspectos, tiene más características que v2.0. Sin embargo, el punto de conexión v2.0 [introduce importantes ventajas](active-directory-v2-compare.md) para los desarrolladores que pueden convencerle de usar el nuevo modelo de programación. Con el tiempo, v2.0 crecerá para abarcar todas las características de Azure AD, para que solo necesite usar el punto de conexión v2.0.
 
@@ -74,13 +74,15 @@ Si desea utilizar el punto de conexión v2.0 en una aplicación de producción, 
 
 - Si está creando una aplicación web, puede utilizar sin ningún riesgo nuestro software intermedio del lado del servidor disponible con carácter general, para realizar el inicio de sesión y la validación de tokens. Incluye el software intermedio OWIN Open ID Connect para ASP.NET y nuestro complemento NodeJS Passport. También hay ejemplos de código con este software intermedio disponibles en nuestra sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started).
 - Para otras plataformas y aplicaciones nativas y móviles, también puede integrarse con el punto de conexión v2.0 directamente enviando y recibiendo mensajes de protocolo en el código de su aplicación. Los protocolos v2.0 OpenID Connect y OAuth [se han documentado explícitamente](active-directory-v2-protocols.md) para ayudarle a realizar dicha integración.
-- Por último, puede usar las bibliotecas de código abierto de Open ID Connect y OAuth para integrarse con el punto de conexión v2.0. El protocolo v2.0 debe ser compatible con muchas bibliotecas de código abierto de los protocolos sin cambios importantes. La disponibilidad de estas bibliotecas varía según la plataforma y el lenguaje, y en los sitios web de [OpenID Connect](http://openid.net/connect/) y [OAuth 2.0](http://oauth.net/2/) se mantiene una lista de las implementaciones populares. A continuación se muestran las bibliotecas de código abierto del cliente y ejemplos que se han probado con el punto de conexión v2.0. Tenga en cuenta que características como el [Registro de clientes dinámico de OpenID Connect](https://openid.net/specs/openid-connect-registration-1_0.html) y los puntos de conexión de validación de tokens no son compatibles todavía y puede ser necesario que estén deshabilitadas en la biblioteca para que funcionen con el punto de conexión v2: 
+- Por último, puede usar las bibliotecas de código abierto de Open ID Connect y OAuth para integrarse con el punto de conexión v2.0. El protocolo v2.0 debe ser compatible con muchas bibliotecas de código abierto de los protocolos sin cambios importantes. La disponibilidad de estas bibliotecas varía según la plataforma y el lenguaje, y en los sitios web de [OpenID Connect](http://openid.net/connect/) y [OAuth 2.0](http://oauth.net/2/) se mantiene una lista de las implementaciones populares. A continuación se muestran las bibliotecas de cliente de código abierto y ejemplos probados con el punto de conexión v2.0.
 
   - [Servidor de identidades de Java WSO2](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Federación Java Gluu](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
   - [Cliente básico de PHP OpenID Connect](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Ejemplo de OpenID Connect para Android](https://github.com/learning-layers/android-openid-connect)
+  - [Cliente de OAuth2 para iOS](https://github.com/nxtbgthng/OAuth2Client)
+  - [Cliente de OAuth2 para Android](https://github.com/wuman/android-oauth-client)
+  - [Cliente de OpenID Connect para Android](https://github.com/kalemontes/OIDCAndroidLib)
 
 ## Restricciones en los protocolos
 El punto de conexión v2.0 solo es compatible con OpenID Connect y OAuth 2.0. Sin embargo, no se han incorporado todas las características y capacidades de cada protocolo en el punto de conexión v2.0. Estos son algunos ejemplos:
@@ -88,7 +90,7 @@ El punto de conexión v2.0 solo es compatible con OpenID Connect y OAuth 2.0. Si
 - OpenID Connect `end_sesssion_endpoint`
 - Concesión de las credenciales del cliente OAuth 2.0
 
-Para comprender mejor el alcance de la funcionalidad del protocolo compatible con el punto de conexión v2.0, lea nuestra [referencia de los protocolos OpenID Connect y OAuth 2.0](active-directory-v2-protocols.md).
+Para comprender mejor el alcance de la funcionalidad del protocolo compatible con el punto de conexión v2.0, lea nuestra [referencia de protocolos de v2.0: OAuth 2.0 y OpenID Connect](active-directory-v2-protocols.md).
 
 ## Características avanzadas de Azure AD para desarrolladores
 Hay un conjunto de características para desarrolladores en el servicio de Azure Active Directory que todavía no son compatibles para el punto de conexión v2.0, incluidos:
@@ -96,4 +98,4 @@ Hay un conjunto de características para desarrolladores en el servicio de Azure
 - Notificaciones de grupo para usuarios de Azure AD
 - Roles de aplicación y notificaciones de rol
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

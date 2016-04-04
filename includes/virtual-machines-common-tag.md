@@ -1,62 +1,62 @@
 
 
 
-This article describes different ways to tag a virtual machine in Azure through the Azure Resource Manager. Tags are user-defined Key/Value pairs which can be placed directly on a resource or a resource group. Azure currently supports up to 15 tags per resource and resource group. Tags may be placed on a resource at the time of creation or added to an existing resource. Please note, tags are supported for resources created via the Azure Resource Manager only.
+En este artículo se describen diferentes maneras de etiquetar una máquina virtual en Azure por medio del Administrador de recursos de Azure. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 15 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Tenga en cuenta que las etiquetas solamente son compatibles para los recursos creados mediante el Administrador de recursos de Azure.
 
-## Tagging a Virtual Machine through Templates
+## Etiquetado de una máquina virtual mediante plantillas
 
-First, let’s look at tagging through templates. [This template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) places tags on the following resources: Compute (Virtual Machine), Storage (Storage Account), and Network (Public IP Address, Virtual Network, and Network Interface).
+En primer lugar, veamos el etiquetado a través de plantillas. [Esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) coloca etiquetas en los siguientes recursos: proceso (máquina virtual), almacenamiento (cuenta de almacenamiento) y red (dirección IP pública, red virtual e interfaz de red).
 
-Click the **Deploy to Azure** button from the [template link](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). This will navigate to the [Azure portal](https://portal.azure.com/) where you can deploy this template.
+Haga clic en el botón **Implementar en Azure** del [vínculo de la plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Esto le remitirá al [Portal de Azure](https://portal.azure.com/), donde puede implementar esta plantilla.
 
-![Simple deployment with Tags](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
+![Implementación sencilla con etiquetas](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-This template includes the following tags: *Department*, *Application*, and *Created By*. You can add/edit these tags directly in the template if you would like different tag names.
+Esta plantilla incluye las siguientes etiquetas: *Department*, *Application* y *Created By*. Estas etiquetas se pueden agregar o modificar directamente en la plantilla si se desea cambiar sus nombres.
 
-![Azure tags in a template](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
+![Etiquetas de Azure en una plantilla](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
-As you can see, the tags are defined as Key/Value pairs, separated by a colon (:). The tags must be defined in this format:
+Como puede ver, las etiquetas se definen como pares de clave-valor, separados por dos puntos (:). Las etiquetas deben definirse con este formato:
 
         “tags”: {
             “Key1” : ”Value1”,
             “Key2” : “Value2”
         }
 
-Save the template file after you finish editing it with the tags of your choice.
+Guarde el archivo de plantilla cuando termine de modificarlo con las etiquetas que prefiera.
 
-Next, in the **Edit Parameters** section, you can fill out the values for your tags.
+A continuación, en la sección **Editar parámetros**, puede rellenar los valores de las etiquetas.
 
-![Edit Tags in Azure portal](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
+![Editar etiquetas en el Portal de Azure](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
 
-Click **Create** to deploy this template with your tag values.
-
-
-## Tagging through the Portal
-
-After creating your resources with tags, you can view, add, and delete tags in the portal.
-
-Select the tags icon to view your tags:
-
-![Tags icon in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
-
-Add a new tag through the portal by defining your own Key/Value pair, and save it.
-
-![Add new Tag in Azure portal](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
-
-Your new tag should now appear in the list of tags for your resource.
-
-![New Tag saved in Azure portal](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+Haga clic en **Crear** para implementar esta plantilla con sus valores de etiqueta.
 
 
-## Tagging with PowerShell
+## Etiquetado a través del portal
 
-To create, add, and delete tags through PowerShell, you first need to set up your [PowerShell environment with Azure Resource Manager][]. Once you have completed the setup, you can place tags on Compute, Network, and Storage resources at creation or after the resource is created via PowerShell. This article will concentrate on viewing/editing tags placed on Virtual Machines.
+Después de crear los recursos con etiquetas, puede ver, agregar y eliminar etiquetas en el portal.
 
-First, navigate to a Virtual Machine through the `Get-AzureVM` cmdlet.
+Seleccione el icono de etiquetas para ver las etiquetas:
+
+![Icono de etiquetas en el Portal de Azure](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
+
+Para agregar una nueva etiqueta desde el portal, defina su propio par de clave-valor y guárdela.
+
+![Agregar etiqueta nueva en el Portal de Azure](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
+
+La nueva etiqueta debería aparecer en la lista de etiquetas del recurso.
+
+![Etiqueta nueva guardada en el Portal de Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+
+
+## Etiquetado con PowerShell
+
+Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso configurar el [entorno de PowerShell con Administrador de recursos de Azure][]. Una vez completada la configuración, puede colocar etiquetas en los recursos de proceso, red y almacenamiento tanto al crear el recurso a través de PowerShell como después de haberlo creado. En este artículo se centrará en la visualización y edición de etiquetas en máquinas virtuales.
+
+En primer lugar, navegue a una máquina virtual a través del cmdlet `Get-AzureVM`.
 
         PS C:\> Get-AzureVM -ResourceGroupName "MyResourceGroup" -Name "MyWindowsVM"
 
-If your Virtual Machine already contains tags, you will then see all the tags on your resource:
+Si la máquina virtual ya contiene etiquetas, verá todas ellas en el recurso:
 
         Tags : {
                 "Application": "MyApp1",
@@ -65,13 +65,13 @@ If your Virtual Machine already contains tags, you will then see all the tags on
                 "Environment": "Production"
                }
 
-If you would like to add tags through PowerShell, you can use the `Set-AzureResource` command. Note when updating tags through PowerShell, tags are updated as a whole. So if you are adding one tag to a resource that already has tags, you will need to include all the tags that you want to be placed on the resource. Below is an example of how to add additional tags to a resource through PowerShell Cmdlets.
+Si desea agregar etiquetas a través de PowerShell, puede usar el comando `Set-AzureResource`. Tenga en cuenta que si actualiza las etiquetas a través de PowerShell, se actualizan todas ellas en conjunto. Por tanto, si va a agregar una etiqueta a un recurso que ya tiene etiquetas, tendrá que incluir todas las etiquetas que desea colocar en el recurso. A continuación se muestra un ejemplo de cómo agregar etiquetas adicionales a un recurso mediante los cmdlets de PowerShell.
 
-This first cmdlet sets all of the tags placed on *MyWindowsVM* to the *tags* variable, using the `Get-AzureResource` and `Tags` function. Note that the parameter `ApiVersion` is optional; if not specified, the latest API version of the resource provider is used. 
+Este primer cmdlet establece todas las etiquetas colocadas en *MyWindowsVM* con la variable *tags*, para lo que emplea las funciones `Get-AzureResource` y `Tags`. Tenga en cuenta que el parámetro `ApiVersion` es opcional; si no se especifica, se utilizará la última versión de API del proveedor de recursos.
 
         PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
-The second command displays the tags for the given variable.
+El segundo comando muestra las etiquetas de la variable especificada.
 
         PS C:\> $tags
 
@@ -86,15 +86,15 @@ The second command displays the tags for the given variable.
         Value		Production
         Name		Environment
 
-The third command adds an additional tag to the *tags* variable. Note the use of the **+=** to append the new Key/Value pair to the *tags* list.
+El tercer comando agrega una etiqueta adicional a la variable *tags*. Observe el uso de **+=** para anexar el nuevo par de clave-valor a la lista de *tags*.
 
         PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
 
-The fourth command sets all of the tags defined in the *tags* variable to the given resource. In this case, it is MyWindowsVM.
+El cuarto comando establece todas las etiquetas definidas en la variable *tags* en el recurso especificado. En este caso, es MyWindowsVM.
 
         PS C:\> Set-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview -Tag $tags
 
-The fifth command displays all of the tags on the resource. As you can see, *Location* is now defined as a tag with *MyLocation* as the value.
+El quinto comando muestra todas las etiquetas en el recurso. Como puede ver, *Location* está definido como una etiqueta, con *MyLocation* como valor.
 
         PS C:\> (Get-AzureResource -ResourceName "MyWindowsVM" -ResourceGroupName "MyResourceGroup" -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -111,60 +111,62 @@ The fifth command displays all of the tags on the resource. As you can see, *Loc
         Value		MyLocation
         Name		Location
 
-To learn more about tagging through PowerShell, check out the [Azure Resource Cmdlets][].
+Para más información sobre el etiquetado a través de PowerShell, consulte los [cmdlets de recursos de Azure][].
 
 
-## Tagging with Azure CLI
+## Etiquetado con la CLI de Azure
 
-Tagging is also supported for resources that are already created through the Azure CLI. To begin, set up your [Azure CLI environment][]. Log in to your subscription through the Azure CLI and switch to ARM mode. You can view all properties for a given Virtual Machine, including the tags, using this command:
+El etiquetado también es compatible con los recursos creados a través de la CLI de Azure. Para comenzar, configure el [entorno de la CLI de Azure][]. Inicie sesión en su suscripción a través de la CLI de Azure y cambie al modo ARM. Con este comando es posible ver todas las propiedades de una máquina virtual dada, incluidas las etiquetas:
 
         azure vm show -g MyResourceGroup -n MyVM
 
-Unlike PowerShell, if you are adding tags to a resource that already contains tags, you do not need to specify all tags (old and new) before using the `azure vm set` command. Instead, this command allows you to append a tag to your resource. To add a new VM tag through the Azure CLI, you can use the `azure vm set` command along with the tag parameter **-t**:
+A diferencia de PowerShell, si va a agregar etiquetas a un recurso que ya contiene etiquetas, no necesitará especificar todas las etiquetas (antiguas y nuevas) antes de utilizar el comando `azure vm set`. En su lugar, este comando permite anexar una etiqueta al recurso. Para agregar una nueva etiqueta de máquina virtual a través de la CLI de Azure, puede usar el comando `azure vm set` junto con el parámetro de etiqueta **-t**:
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
-To remove all tags, you can use the **–T** parameter in the `azure vm set` command.
+Para quitar todas las etiquetas, puede usar el parámetro **-T** en el comando `azure vm set`.
 
         azure vm set – g MyResourceGroup –n MyVM -T
 
 
-Now that we have applied tags to our resources via PowerShell, Azure CLI, and the Portal, let’s take a look at the usage details to see the tags in the billing portal.
+Ahora que hemos aplicado etiquetas a nuestros recursos a través de PowerShell, la CLI de Azure y el portal, echemos un vistazo a los detalles de uso para ver las etiquetas del portal de facturación.
 
 
-## Viewing your tags in the usage details
+## Visualización de etiquetas en los detalles de uso
 
-Tags placed on Compute, Network, and Storage resources through the Azure Resource Manager will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
+Las etiquetas colocadas en los recursos de proceso, red y almacenamiento a través del Administrador de recursos de Azure se rellenarán en los detalles de uso del [portal de facturación](https://account.windowsazure.com/).
 
-Click on **Download usage details** to view the usage details in your subscription.
+Haga clic en **Descargar detalles de uso** para ver los detalles de uso de la suscripción.
 
-![Usage details in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-usage-details.png)
+![Detalles de uso en el Portal de Azure](./media/virtual-machines-common-tag/azure-portal-tags-usage-details.png)
 
-Select your billing statement and the **Version 2** usage details:
+Seleccione el extracto de facturación y los detalles de uso de la **versión 2**:
 
-![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag/azure-portal-version2-usage-details.png)
+![Detalles de uso de la vista previa de la versión 2 en el Portal de Azure](./media/virtual-machines-common-tag/azure-portal-version2-usage-details.png)
 
-From the usage details, you can see all of the tags in the **Tags** column:
+En los detalles de uso puede ver todas las etiquetas en la columna de **etiquetas**:
 
-![Tags column in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-column.png)
+![Columna de etiquetas en el Portal de Azure](./media/virtual-machines-common-tag/azure-portal-tags-column.png)
 
-By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
-
-
-## Additional resources
-
-* [Azure Resource Manager Overview][]
-* [Using Tags to organize your Azure Resources][]
-* [Understanding your Azure Bill][]
-* [Gain insights into your Microsoft Azure resource consumption][]
+Mediante el análisis de estas junto con el uso, las organizaciones podrán obtener nuevos puntos de vista en sus datos de consumo.
 
 
+## Recursos adicionales
+
+* [Información general del Administrador de recursos de Azure][]
+* [Uso de etiquetas para organizar los recursos de Azure][]
+* [Comprender la factura de Azure][]
+* [Obtención de información sobre el consumo de recursos de Microsoft Azure][]
 
 
-[PowerShell environment with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
-[Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
-[Azure Resource Manager Overview]: ../resource-group-overview.md
-[Using Tags to organize your Azure Resources]: ../resource-group-using-tags.md
-[Understanding your Azure Bill]: ../billing-understand-your-bill.md
-[Gain insights into your Microsoft Azure resource consumption]: ../billing-usage-rate-card-overview.md
+
+
+[entorno de PowerShell con Administrador de recursos de Azure]: ../powershell-azure-resource-manager.md
+[cmdlets de recursos de Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx
+[entorno de la CLI de Azure]: ./xplat-cli-azure-resource-manager.md
+[Información general del Administrador de recursos de Azure]: ../resource-group-overview.md
+[Uso de etiquetas para organizar los recursos de Azure]: ../resource-group-using-tags.md
+[Comprender la factura de Azure]: ../billing-understand-your-bill.md
+[Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
+
+<!---HONumber=AcomDC_0323_2016-->
