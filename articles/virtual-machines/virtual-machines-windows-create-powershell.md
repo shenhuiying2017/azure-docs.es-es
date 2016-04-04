@@ -40,7 +40,7 @@ En estos pasos se sigue un enfoque consistente en atar cabos para crear conjunto
 
 Hay dos opciones principales para la instalación, [Galería de PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) y [WebPI](http://aka.ms/webpi-azps). WebPI recibirá actualizaciones mensuales. La Galería de PowerShell recibirá actualizaciones de forma continua.
 
-Para más información, consulte [Azure Powershell 1.0](https://azure.microsoft.com/es-ES/blog/azps-1-0/).
+Para más información, consulte [Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 ## Paso 2: Establecimiento de la suscripción
 
@@ -393,4 +393,4 @@ Este es el conjunto de comandos de Azure PowerShell para crear esta máquina vir
 
 [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

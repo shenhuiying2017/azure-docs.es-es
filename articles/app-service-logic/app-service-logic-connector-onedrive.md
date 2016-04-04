@@ -51,7 +51,8 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de OneDriv
 	![][2]
 4.	Puede quitar la aplicación de la API del conector de OneDrive en el editor haciendo clic en "Conector de OneDrive". Haga clic en el botón Autorizar. Proporcione la credenciales de Microsoft (si no ha iniciado sesión automáticamente). Haga clic en "Sí" para permitir el acceso.
 
-	![][3] ![][4]
+	![][3]
+	![][4]
 
 5.	Ahora puede usar el conector de OneDrive en el flujo. Actualmente, los desencadenadores no están disponibles en el conector de OneDrive. Las acciones disponibles son: Obtener archivo, Cargar un archivo, Eliminar archivo y Listar archivos.
 

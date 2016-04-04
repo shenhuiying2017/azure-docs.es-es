@@ -390,7 +390,8 @@ El nivel de registro se define de la siguiente forma:
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
- Todos los mensajes de registro se envían a logcat, además de las devoluciones de llamada de registro personalizadas. Un registro de logcat se puede obtener en formato de archivo de la siguiente forma:
+ Todos los mensajes de registro se envían a logcat, además de las devoluciones de llamada de registro personalizadas. 
+ Un registro de logcat se puede obtener en formato de archivo de la siguiente forma:
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"

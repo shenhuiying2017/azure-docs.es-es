@@ -49,7 +49,7 @@ Para obtener instrucciones sobre cómo hacerlo, vea [Creación de un certificado
 
 Cada suscripción de Azure se identifica por un valor GUID, conocido como el identificador de suscripción. Utilice los pasos siguientes para encontrar este valor.
 
-1. Visite el [Portal de Azure][preview-portal].
+1. Visite el [portal de Azure] [portal de vista previa].
 
 2. En la barra de la izquierda del portal, seleccione __EXAMINAR TODO__ y después seleccione __Suscripciones__ en la hoja __Examinar__.
 
@@ -155,6 +155,6 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
-[preview-portal]: https://portal.azure.com/
+[portal de vista previa]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_0323_2016-->

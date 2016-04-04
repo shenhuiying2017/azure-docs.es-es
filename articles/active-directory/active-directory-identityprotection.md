@@ -97,7 +97,8 @@ Algunos de estos eventos de riesgo han estado disponibles mediante los informes 
 | Inicios de sesión desde dispositivos infectados | Inicios de sesión desde dispositivos posiblemente infectados |
 | Inicios de sesión desde direcciones IP anónimas | Inicios de sesión desde orígenes desconocidos |
 | Inicios de sesión desde direcciones IP con actividad sospechosa |	Inicios de sesión desde direcciones IP con actividad sospechosa |
-| Inicios de sesión desde ubicaciones desconocidas | - | | Bloqueo de eventos (no en la versión preliminar pública) | - |
+| Inicios de sesión desde ubicaciones desconocidas | - | 
+| Bloqueo de eventos (no en la versión preliminar pública) | - |
 
 Los siguientes informes de actividades anómalas de Azure AD no se incluyen como eventos de riesgo en Azure AD Identity Protection y, por tanto, no estarán disponibles mediante Identity Protection. Estos informes aún están disponibles en el Portal de administración de Azure; sin embargo, dejarán de estar en uso en el futuro, ya que están siendo reemplazados por los eventos de riesgo de Identity Protection.
 
@@ -372,13 +373,21 @@ Para obtener más detalles, consulte [Qué es Azure Multi-Factor Authentication]
 
 Azure AD Identity Protection ayuda a administrar la puesta en servicio del registro de autenticación multifactor al configurar una directiva que le permite:
 
-- Ver el estado actual del registro: <br><br> ![Registro MFA](./media/active-directory-identityprotection/603.png "Registro MFA") <br>
+- Ver el estado actual del registro: 
+<br><br> 
+![Registro MFA](./media/active-directory-identityprotection/603.png "Registro MFA") <br>
 
-- Configurar los usuarios y grupos a los que se aplica la directiva: <br><br> ![Registro MFA](./media/active-directory-identityprotection/601.png "Registro MFA") <br>
+- Configurar los usuarios y grupos a los que se aplica la directiva: 
+<br><br> 
+![Registro MFA](./media/active-directory-identityprotection/601.png "Registro MFA") <br>
 
-- Definir cuánto tiempo pueden omitir el registro: <br><br> ![Registro MFA](./media/active-directory-identityprotection/602.png "Registro MFA") <br>
+- Definir cuánto tiempo pueden omitir el registro: 
+<br><br> 
+![Registro MFA](./media/active-directory-identityprotection/602.png "Registro MFA") <br>
 
-- Cambiar el estado de la directiva: <br><br> ![Registro MFA](./media/active-directory-identityprotection/403.png "Registro MFA") <br>
+- Cambiar el estado de la directiva: 
+<br><br> 
+![Registro MFA](./media/active-directory-identityprotection/403.png "Registro MFA") <br>
 
 Para obtener información general de la experiencia de usuario relacionada, consulte:
 
@@ -394,7 +403,9 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 
 1. En la hoja **Azure AD Identity Protection**, haga clic en **Configuración**. <br><br> ![Registro MFA](./media/active-directory-identityprotection/401.png "Registro MFA") <br>
 
-2. En la sección **Multi-Factor Authentication**, haga clic en **Registro**. <br><br> ![Registro MFA](./media/active-directory-identityprotection/402.png "Registro MFA") <br>
+2. En la sección **Multi-Factor Authentication**, haga clic en **Registro**. 
+<br><br> 
+![Registro MFA](./media/active-directory-identityprotection/402.png "Registro MFA") <br>
 
 
 

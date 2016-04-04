@@ -15,7 +15,10 @@ Una regla de seguridad es un recurso secundario de un Grupo de seguridad de red 
 |Propiedad|Descripción|Valores de ejemplo|
 |---|---|---|
 |**descripción**|Descripción de la regla|Permite el tráfico entrante para todas las máquinas virtuales en la subred X|
-|**protocolo**|Protocolo que debe coincidir con la regla|TCP, UDP o *| |**sourcePortRange**|Intervalo del puerto de origen que debe coincidir con la regla|80, 100-200, *| |**destinationPortRange**|Intervalo del puerto de destino que debe coincidir con la regla|80, 100-200, *| |**sourceAddressPrefix**|Prefijo de la dirección de origen que debe coincidir con la regla|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
+|**protocolo**|Protocolo que debe coincidir con la regla|TCP, UDP o *| 
+|**sourcePortRange**|Intervalo del puerto de origen que debe coincidir con la regla|80, 100-200, *| 
+|**destinationPortRange**|Intervalo del puerto de destino que debe coincidir con la regla|80, 100-200, *| 
+|**sourceAddressPrefix**|Prefijo de la dirección de origen que debe coincidir con la regla|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**destinationAddressPrefix**|Prefijo de la dirección de destino que debe coincidir con la regla|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**dirección**|Dirección del tráfico que debe coincidir con la regla|entrada o salida|
 |**prioridad**|Prioridad de la regla. Las reglas se comprueban según su orden de prioridad; una vez se aplica una regla, no se prueban más reglas para realizar la coincidencia.|10, 100, 65000|
