@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 #Creación de rutas definidas por el usuario (UDR) en la CLI de Azure
@@ -52,9 +52,12 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 		data:    Provisioning state              : Succeeded
 		info:    network route-table create command OK
 
-	Parámetros:- **-g (o --resource-group)**. Nombre del grupo de recursos donde se creará el grupo de seguridad de red En este escenario, *TestRG*. - **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario, *westus*. - **-n (o --name)**. Nombre del nuevo grupo de seguridad de red. En este escenario, *NSG-FrontEnd*.
+	Parámetros:
+	- **-g (or --resource-group)**. Nombre del grupo de recursos donde se creará el grupo de seguridad de red En este escenario, *TestRG*.
+	- **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario, *TestRG*.
+	- **-n (o --name)**. Nombre del nuevo grupo de seguridad de red. En este escenario, *NSG-FrontEnd*.
 
-4. Ejecute el comando **`azure network route-table route create`** para crear una ruta en la tabla de rutas creada anteriormente para enviar todo el tráfico destinado a la subred back-end (192.168.2.0/24) a la máquina virtual **FW1** (192.168.0.4).
+4. Ejecute el comando **`azure network route-table route create`** para crear una ruta en la tabla de rutas creada anteriormente para enviar todo el tráfico destinado a la subred back-end (192.168.2.0/24) a la VM **FW1** (192.168.0.4).
 
 		azure network route-table route create -g TestRG -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -y VirtualAppliance -p 192.168.0.4
 
@@ -73,7 +76,11 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 		data:    Address prefix                  : 192.168.2.0/24
 		info:    network route-table route create command OK
 
-	Parámetros: - **-r (o --route-table-name)**. Nombre de la tabla de rutas a la que se agregará la ruta. Para nuestro escenario, *UDR-FrontEnd*.- **- a (o --address-prefix)**. Prefijo de dirección de la subred a la que se destinan los paquetes. Para nuestro escenario, *192.168.2.0/24*. - **-t (o --next-hop-type)**. Tipo de objeto al que se enviará el tráfico. Los valores posibles son *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* o *None*. - **-p (o --next-hop-ip-address**). Dirección IP para el próximo salto. En este escenario, *192.168.0.4*.
+	Parámetros:
+	- **-r (o --route-table-name)**. Nombre de la tabla de rutas a la que se agregará la ruta. En este escenario, *UDR-FrontEnd*.
+	- **-a (o --address-prefix)**. Prefijo de dirección de la subred a la que se destinan los paquetes. En este escenario, *192.168.2.0/24*.
+	- **-y (o --next-hop-type)**. Tipo de objeto al que se enviará el tráfico. Los valores posibles son *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* o *None*.
+	- **-p (o --next-hop-ip-address**). Dirección IP para el próximo salto. En este escenario, *192.168.0.4*.
 
 5. Ejecute el comando **`azure network vnet subnet set`** para asociar la tabla de rutas creada anteriormente a la subred **FrontEnd**.
 
@@ -103,7 +110,8 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 		data:    
 		info:    network vnet subnet set command OK
 
-	Parámetros: - **-t (o --vnet-name)**. Nombre de la red virtual donde se encuentra la subred. En este escenario, *TestVNet*.
+	Parámetros:
+	- **-e (o --vnet-name)**. Nombre de la red virtual donde se encuentra la subred. En este escenario, *TestVNet*.
  
 ## Creación de la ruta definida por el usuario para la subred back-end
 Para crear la tabla de rutas y la ruta necesaria para la subred back-end según el escenario anterior, siga estos pasos.
@@ -191,4 +199,4 @@ Para habilitar el reenvío IP en la NIC usada por **FW1**, siga estos pasos.
 
 	- **-f (o --enable-ip-forwarding)**. *true* o *false*.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -35,7 +35,7 @@ La versión preliminar de Azure Active Directory Identity Protection presenta la
 
 - Las directivas de seguridad no funcionan en los dominios federados.
 
-- No se detectan los eventos de riesgo para los dominios federados.
+- Los eventos de riesgo son los únicos que se detectan para aplicaciones que se federan con Azure Active Directory
 
 ##Introducción
 
@@ -373,13 +373,21 @@ Para obtener más detalles, consulte [Qué es Azure Multi-Factor Authentication]
 
 Azure AD Identity Protection ayuda a administrar la puesta en servicio del registro de autenticación multifactor al configurar una directiva que le permite:
 
-- Ver el estado actual del registro: <br><br> ![Registro MFA](./media/active-directory-identityprotection/603.png "Registro MFA") <br>
+- Ver el estado actual del registro: 
+<br><br> 
+![Registro MFA](./media/active-directory-identityprotection/603.png "Registro MFA") <br>
 
-- Configurar los usuarios y grupos a los que se aplica la directiva: <br><br> ![Registro MFA](./media/active-directory-identityprotection/601.png "Registro MFA") <br>
+- Configurar los usuarios y grupos a los que se aplica la directiva: 
+<br><br> 
+![Registro MFA](./media/active-directory-identityprotection/601.png "Registro MFA") <br>
 
-- Definir cuánto tiempo pueden omitir el registro: <br><br> ![Registro MFA](./media/active-directory-identityprotection/602.png "Registro MFA") <br>
+- Definir cuánto tiempo pueden omitir el registro: 
+<br><br> 
+![Registro MFA](./media/active-directory-identityprotection/602.png "Registro MFA") <br>
 
-- Cambiar el estado de la directiva: <br><br> ![Registro MFA](./media/active-directory-identityprotection/403.png "Registro MFA") <br>
+- Cambiar el estado de la directiva: 
+<br><br> 
+![Registro MFA](./media/active-directory-identityprotection/403.png "Registro MFA") <br>
 
 Para obtener información general de la experiencia de usuario relacionada, consulte:
 
@@ -395,7 +403,9 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 
 1. En la hoja **Azure AD Identity Protection**, haga clic en **Configuración**. <br><br> ![Registro MFA](./media/active-directory-identityprotection/401.png "Registro MFA") <br>
 
-2. En la sección **Multi-Factor Authentication**, haga clic en **Registro**. <br><br> ![Registro MFA](./media/active-directory-identityprotection/402.png "Registro MFA") <br>
+2. En la sección **Multi-Factor Authentication**, haga clic en **Registro**. 
+<br><br> 
+![Registro MFA](./media/active-directory-identityprotection/402.png "Registro MFA") <br>
 
 
 
@@ -410,4 +420,4 @@ Para obtener información general de la experiencia de usuario relacionada, cons
  - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md) (Guía de Azure Active Directory Identity Protection)
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md) (Glosario de Azure Active Directory Identity Protection)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

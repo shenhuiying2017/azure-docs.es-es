@@ -213,7 +213,9 @@ En esta sección se tratan algunas de las tareas de diagnóstico avanzado que pu
 ### Requisitos previos
 Para realizar algunas de las tareas de diagnóstico que se describen en esta sección, debe tener acceso a una herramienta de administración para bases de datos SQL, como **SQL Server Management Studio** o la funcionalidad de administración integrada en el **Portal de Azure clásico**.
 
-SQL Server Management Studio es una aplicación de Windows gratuita que ofrece las funciones más avanzadas. Si no tiene acceso a una máquina Windows (por ejemplo si utiliza un sistema Mac), plantéese aprovisionar una máquina virtual en Azure tal y como se muestra en [Creación de una máquina virtual que ejecuta Windows Server](../virtual-machines/virtual-machines-windows-tutorial.md) y después conéctese remotamente a ella. Si intenta utilizar la máquina virtual principalmente con la finalidad de ejecutar SQL Server Management Studio, una instancia de tipo **Básico A0** (anteriormente "Extrapequeño") debe ser suficiente.
+
+SQL Server Management Studio es una aplicación de Windows gratuita que ofrece las funciones más avanzadas. Si no tiene acceso a una máquina Windows (por ejemplo si utiliza un sistema Mac), plantéese aprovisionar una máquina virtual en Azure tal y como se muestra en [Creación de una máquina virtual que ejecuta Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md) y después conéctese remotamente a ella. Si intenta utilizar la máquina virtual principalmente con la finalidad de ejecutar SQL Server Management Studio, una instancia de tipo **Básico A0** (anteriormente "Extrapequeño") debe ser suficiente.
+
 
 El Portal de Azure clásico ofrece una experiencia de administración integrada que, aunque es más limitada, está disponible sin una instalación local.
 
@@ -492,4 +494,4 @@ Para analizar el plan de consulta en el **Portal de administración de bases de 
 <!-- BLOG LINKS -->
 [¿Cuánto cuesta esa clave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Una infraestructura de actualización para imágenes de Red Hat Enterprise Linux | Microsoft Azure"
    description="Presenta el servicio de actualización de yum para una instancia de Red Hat Enterprise Linux a petición en Azure"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="KylieLiang"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="01/13/2016"
+   ms.date="03/18/2016"
    ms.author="kyliel"/>
 
 # Una infraestructura de actualización para imágenes de Red Hat Enterprise Linux
@@ -28,9 +28,9 @@ La lista del repositorio yum, que se administra mediante RHUI, se configura en l
 ## Regiones donde se implementa RHUI
 RHUI se implementa en todas las regiones públicas que se muestran en el [panel de estado de Azure](https://azure.microsoft.com/status/). Esto significa que puede obtener el servicio de actualización de yum sin ningún cargo adicional en estas regiones. Esta información se actualizará en el futuro.
 
-## Obtención de actualizaciones desde un repositorio de actualización local (por ejemplo, Red Hat Network Satellite)
+## Obtención de actualizaciones desde el otro repositorio de actualización (por ejemplo, Red Hat Network Satellite)
 
-Para obtener actualizaciones desde un repositorio de actualización local, debe tener una licencia de Red Hat Cloud Access y una suscripción existente de Red Hat en Azure.
+Para obtener actualizaciones desde el otro repositorio de actualización, debe tener una licencia de Red Hat Cloud Access y una suscripción existente de Red Hat en Azure.
 
 A continuación, debe anular el registro de RHUI y volver a registrarse en su infraestructura de actualización local. A continuación, se muestran los pasos detallados.
 
@@ -53,4 +53,4 @@ A continuación, debe anular el registro de RHUI y volver a registrarse en su in
 ## Pasos siguientes
 Ahora que entiende el funcionamiento de RHUI en Azure, puede crear una imagen de RHEL desde [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/) y usar `yum update` en su instancia de RHEL.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

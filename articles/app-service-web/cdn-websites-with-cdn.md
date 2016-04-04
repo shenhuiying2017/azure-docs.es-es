@@ -539,7 +539,6 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 		    }
 		}
 		return true;
-            }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -573,7 +572,6 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

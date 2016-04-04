@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="03/16/2016"
+    ms.date="03/21/2016"
     ms.author="markvi"/>
 
 #Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory
@@ -23,6 +23,7 @@ Para ayudarle a integrar todas las aplicaciones en la nube (SaaS) con Azure Acti
 Para obtener una lista completa de las aplicaciones SaaS que fueron previamente integradas en Azure AD, consulte [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ##Lista de tutoriales
+
 
 | Logotipo| Nombre de la aplicación |
 | --- | --- |
@@ -72,6 +73,7 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_CornerstoneOnDemand.jpg)| [Cornerstone OnDemand](https://go.microsoft.com/fwLink/?LinkID=512745&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Coupa.jpg)| [Coupa](https://go.microsoft.com/fwLink/?LinkID=510267&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_CSStars.jpg)| [CS Stars](https://go.microsoft.com/fwLink/?LinkID=530245&clcid=0x409)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Degreed.jpg)| [Degreed](https://go.microsoft.com/fwLink/?LinkID=733455&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Directions.jpg)| [Direcciones de Microsoft](https://go.microsoft.com/fwLink/?LinkID=522557&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_DocuSign.jpg)| [Docusign](https://go.microsoft.com/fwLink/?LinkID=403254&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Domo.jpg)| [Domo](https://go.microsoft.com/fwLink/?LinkID=708692&clcid=0x409)|
@@ -216,4 +218,4 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

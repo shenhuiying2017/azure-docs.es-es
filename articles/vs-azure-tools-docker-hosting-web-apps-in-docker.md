@@ -168,7 +168,7 @@ El siguiente procedimiento es para la comunicación con un host de Docker que se
 
 Ahora que tiene un host de Docker, puede emitir comandos de Docker en él. Para obtener más información sobre Docker, consulte la [documentación de Docker](https://docs.docker.com/) y el [tutorial en línea de Docker](https://www.docker.com/tryit/).
 
-Para obtener información acerca del uso de la extensión de la máquina virtual de Docker para Linux en Azure, consulte [Extensión de máquina virtual Docker para Linux en Azure](/virtual-machines/virtual-machines-docker-vm-extension.md).
+Para obtener información acerca del uso de la extensión de la máquina virtual de Docker para Linux en Azure, consulte [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines/virtual-machines-linux-dockerextension.md).
 
 Para obtener información sobre los problemas con el uso de Docker en Visual Studio, consulte [Solución de problemas de Docker](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 
@@ -182,4 +182,4 @@ Para obtener información sobre los problemas con el uso de Docker en Visual Stu
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -32,10 +32,10 @@ Se puede instalar el SDK de JavaScript para Aplicaciones móviles de Azure con e
 npm install azure-mobile-apps-client --save
 ```
 
-Una vez instalado, la biblioteca se encuentra en `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.js`. Copie este archivo en su área web.
+Una vez instalado, la biblioteca se encuentra en `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`. Copie este archivo en su área web.
 
 ```
-<script src="path/to/MobileServices.Web.js"></script>
+<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 La biblioteca también puede utilizarse como un módulo ES2015, en entornos de CommonJS, como Browserify y Webpack, y como una biblioteca AMD. Por ejemplo:
@@ -113,4 +113,4 @@ Use el SDK de Centros de notificaciones para enviar notificaciones push desde el
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [documentación de objetos de consulta]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

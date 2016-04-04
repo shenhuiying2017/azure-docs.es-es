@@ -1,210 +1,207 @@
-When you create a VM, restart stopped (deallocated) VMs, or resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations -- even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
+Cuando se crea o se cambia el tamaño de una VM (máquina virtual), o bien se reinician las detenidas (desasignadas), Microsoft Azure asigna recursos de proceso a la suscripción. En ocasiones, es posible que reciba errores al realizar estas operaciones incluso antes de llegar a los límites de la suscripción de Azure. En este artículo se explican las causas de algunos de los errores de asignación más comunes y se sugieren posibles soluciones. La información también puede ser útil si tiene pensado realizar la implementación de sus servicios.
 
-The "General troubleshooting steps" section lists steps to address common issues. The "Detailed troubleshooting steps" section provides resolution steps by specific error message. Before you get started, here is some background information to understand how allocation works and why allocation failure happens.
+En la sección "Pasos generales para solucionar problemas" se describen los pasos necesarios para resolver problemas habituales. En la sección “Pasos de la solución de problemas detallada” se ofrecen los pasos de resolución por mensaje de error específico. Antes de empezar, le ofrecemos información de contexto que explica cómo funciona la asignación y por qué se producen errores de asignación.
 
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
-## Background information
-### How allocation works
-The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible that certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster." Diagram 1 below illustrates the case of a normal allocation that is attempted in multiple clusters. Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or availability set is hosted.
-![Allocation Diagram](./media/virtual-machines-common-allocation-failure/Allocation1.png)
+Si su problema con Azure no se trata en este artículo, visite los [foros de Azure en MSDN y Stack Overflow](https://azure.microsoft.com/support/forums/). Puede registrar su problema en estos foros o en @AzureSupport en Twitter. También puede presentar una solicitud de soporte técnico de Azure seleccionando **Obtener soporte** en el sitio de [Soporte técnico de Azure](https://azure.microsoft.com/support/options/).
+## Información de contexto
+### Cómo funciona la asignación
+Los servidores de los centros de datos de Azure están particionados en clústeres. Normalmente, se intenta una solicitud de asignación en varios clústeres, pero es posible que determinadas restricciones de la solicitud de asignación obliguen a la plataforma de Azure a intentar la solicitud en solo un clúster. En este artículo, nos referiremos a dicha solicitud como "anclada a un clúster". En el diagrama número 1 que puede ver a continuación, se ilustra el caso de una asignación normal que se intenta en varios clústeres; En el diagrama 2 se muestra el caso de una asignación que está anclada al clúster 2, porque ahí es donde se hospeda el servicio en la nube CS\_1 o el conjunto de disponibilidad. ![Diagrama de asignación](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
-### Why allocation failures happen
-When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resources. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
+### ¿Por qué se producen errores de asignación?
+Cuando una solicitud de asignación está anclada a un clúster, existe una posibilidad menor de encontrar recursos libres dado que el grupo de recursos disponible es más pequeño. Además, si la solicitud de asignación está anclada a un clúster pero el tipo de recurso que solicita no se admite en ese clúster, la solicitud dará error aunque el clúster tenga recursos libres. En el diagrama 3 a continuación se ilustra el caso en el que una asignación anclada da error porque el único clúster candidato no tiene recursos libres. En el diagrama 4 se ilustra el caso en el que una asignación anclada da error porque el único clúster candidato no admite el tamaño de VM solicitado, a pesar de que el clúster tiene recursos libres.
 
-![Pinned Allocation Failure](./media/virtual-machines-common-allocation-failure/Allocation2.png)
+![Error de asignaciones ancladas](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
-## General troubleshooting steps
-### Troubleshoot common allocation failures in the classic deployment model
+## Pasos generales para solucionar problemas
+### Solución de problemas de errores de asignación comunes en el modelo de implementación clásica
 
-These steps can help resolve many allocation failures in virtual machines:
+Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en las máquinas virtuales.
 
-- Resize the VM to a different VM size.<br>
-	Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+- Cambie el tamaño de la máquina virtual por uno diferente.<br> Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > Su máquina virtual > **Configuración** > **Tamaño**. Para información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 
-- Delete all VMs from the cloud service and re-create VMs.<br>
-	Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
+- Elimine todas las VM del servicio en la nube y vuelva a crearlas.<br> Haga clic en **Examinar todo** > **Máquinas virtuales (clásico) ** > Su máquina virtual > **Eliminar**. A continuación, haga clic en **Nuevo** > **Proceso** > [Imagen de la máquina virtual].
 
-### Troubleshoot common allocation failures in the Azure Resource Manager deployment model
+### Solución de problemas de errores de asignación comunes en el modelo de implementación del Administrador de recursos de Azure
 
-These steps can help resolve many allocation failures in virtual machines:
+Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en las máquinas virtuales.
 
-- Stop (deallocate) all VMs in the same availability set, then restart each one.<br>
-	To stop: Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
+- Detenga o desasigne todas las VM que se encuentren en el mismo conjunto de disponibilidad y, luego, reinícielas.<br> Para ello, haga clic en **Grupos de recursos** > Su grupo de recursos > **Recursos** > Su conjunto de disponibilidad > **Máquinas virtuales** > Su máquina virtual > **Detener**.
 
-	After all VMs stop, select the first VM and click **Start**.
+	Una vez detenidas todas las VM, seleccione la primera y haga clic en **Iniciar**.
 
-## Detailed troubleshooting steps
-### Troubleshoot specific allocation failure scenarios in the classic deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+## Pasos de la solución de problemas detallada
+### Solución de problemas de escenarios de errores de asignación específicos en el modelo de implementación clásica
+A continuación se presentan los escenarios de asignación comunes que ocasionan que una solicitud de asignación quede anclada. Nos dedicaremos a cada escenario más adelante en este artículo.
 
-- Resize a VM or add VMs or role instances to an existing cloud service
-- Restart partially stopped (deallocated) VMs
-- Restart fully stopped (deallocated) VMs
-- Staging/production deployments (platform as a service only)
-- Affinity group (VM/service proximity)
-- Affinity-group-based virtual network
+- Cambio del tamaño de una VM o incorporación de VM o instancias de rol a un servicio en la nube existente.
+- Reinicio de las VM detenidas (desasignadas) parcialmente.
+- Reinicio de las VM detenidas (desasignadas) completamente.
+- Implementaciones de ensayo o producción (solo plataforma como servicio).
+- Grupo de afinidad (proximidad de la VM o el servicio).
+- Red virtual basada en un grupo de afinidad
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+Cuando reciba un error de asignación, compruebe si alguno de los escenarios descritos se aplica en su caso. Use el error de asignación que devuelve la plataforma de Azure para identificar el escenario correspondiente. Si la solicitud está anclada, quite algunas de las restricciones de anclaje para abrir su solicitud a más clústeres y aumente así la posibilidad de que la asignación se realice correctamente.
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, try a different VM size. Otherwise, the only option is to remove the pinning constraint.
+En general, mientras el error no indique que "no se admite el tamaño de VM solicitado", siempre puede volver a intentarlo más adelante, cuando se hayan liberado suficientes recursos en el clúster para dar cabida a la solicitud. Si el problema tiene que ver con que el tamaño de la VM solicitado no se admite, pruebe con una VM diferente. De lo contrario, la única opción es quitar la restricción anclada.
 
-Two common failure scenarios are related to affinity groups. In the past, an affinity group was used to provide close proximity to VMs/service instances, or it was used to enable the creation of a virtual network. With the introduction of regional virtual networks, affinity groups are no longer required to create a virtual network. With the reduction of network latency in Azure infrastructure, the recommendation to use affinity groups for VM/service proximity has changed.
+Dos escenarios comunes de error están relacionados con los grupos de afinidad. Antes, un grupo de afinidad se usaba para proporcionar una estrecha proximidad a las VM o a las instancias de servicio, o bien para permitir la creación de redes virtuales. Con la introducción de las redes virtuales regionales, los grupos de afinidad ya no son necesarios para crear una red virtual. Al reducirse la latencia de red en la infraestructura de Azure, ha cambiado la recomendación de usar grupos de afinidad para la proximidad de las VM o servicios.
 
-Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
-![Pinned Allocation Taxonomy](./media/virtual-machines-common-allocation-failure/Allocation3.png)
+En el diagrama 5 a continuación se presenta la taxonomía de los escenarios de asignación (anclados). ![Taxonomía de asignaciones ancladas](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
+> [AZURE.NOTE] El error que se muestra en cada escenario de asignación está en forma abreviada. Consulte la [Búsqueda de cadenas de error] (#Búsqueda de cadenas de error) para obtener cadenas de error detalladas.
 
-#### Allocation scenario: Resize a VM or add VMs or role instances to an existing cloud service
+#### Escenario de asignación: cambio del tamaño de una VM o incorporación de VM o instancias de rol a un servicio en la nube existente.
 **Error**
 
-Upgrade_VMSizeNotSupported or GeneralError
+Upgrade\_VMSizeNotSupported o GeneralError
 
-**Cause of cluster pinning**
+**Causa de anclaje del clúster**
 
-A request to resize a VM or add a VM or a role instance to an existing cloud service has to be attempted at the original cluster that hosts the existing cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+Las solicitudes para cambiar el tamaño de una VM o agregar una VM o una instancia de rol a un servicio en la nube existente se tienen que intentar realizar en el clúster original que hospeda dicho servicio en la nube. La creación de un nuevo servicio en la nube permite que la plataforma de Azure encuentre otro clúster que tenga recursos libres o uno que admita el tamaño de VM solicitado.
 
-**Workaround**
+**Solución alternativa**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new cloud service to host the new VM and add the new cloud service to the regional virtual network where the existing VMs are running. If your existing cloud service does not use a regional virtual network, you can still create a new virtual network for the new cloud service, and then connect your [existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Si el error es Upgrade\_VMSizeNotSupported *, pruebe con otro tamaño de máquina virtual. Si el uso de un tamaño de VM diferente no es una opción, pero es aceptable el uso de una dirección IP virtual (VIP) distinta, cree un nuevo servicio en la nube para hospedar la nueva VM y agréguelo a la red virtual regional donde se ejecutan las VM existentes. Aunque su servicio en la nube no use una red virtual regional, puede crear una nueva para el nuevo servicio en la nube y, a continuación, conectar la [red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Obtenga más información sobre las [redes virtuales regionales](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. Similar to the above scenario, add the desired compute resource through creating a new cloud service (note that the new cloud service has to use a different VIP) and use a regional virtual network to connect your cloud services.
+Si el error es GeneralError*, es probable que el tipo de recurso (por ejemplo, un tamaño determinado de VM) sea compatible con el clúster pero que este no tenga recursos libres en ese momento. De forma parecida a como se ha indicado anteriormente, agregue el recurso de proceso deseado mediante la creación de un nuevo servicio en la nube (tenga en cuenta que el nuevo servicio en la nube tiene que usar otra dirección IP virtual) y use la red virtual regional para conectarse a los servicios en la nube.
 
-#### Allocation scenario: Restart partially stopped (deallocated) VMs
+#### Escenario de asignación: reinicio de las VM detenidas (desasignadas) parcialmente.
 
 **Error**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**Causa de anclaje del clúster**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in a cloud service. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated cloud service is equivalent to adding VMs to an existing cloud service. The allocation request has to be attempted at the original cluster that hosts the existing cloud service. Creating a different cloud service allows the Azure platform to find another cluster that has free resource or supports the VM size that you requested.
+La desasignación parcial indica que se detuvieron (desasignaron) una o varias VM de un servicio en la nube, pero no todas. Al detener (desasignar) una VM, se liberan los recursos asociados. Por lo tanto, reiniciar esa VM detenida (desasignada) implica una nueva solicitud de asignación. Reiniciar las VM en un servicio en la nube desasignado parcialmente es equivalente a agregarlas a un servicio en la nube existente. Las solicitud de asignación se debe intentar realizar en el clúster original que hospeda el servicio en la nube. La creación de otro servicio en la nube permite a la plataforma de Azure encontrar otro clúster que tenga recursos libres o uno que admita el tamaño de máquina virtual solicitado.
 
-**Workaround**
+**Solución alternativa**
 
-If it's acceptable to use a different VIP, delete the stopped (deallocated) VMs (but keep the associated disks) and add the VMs back through a different cloud service. Use a regional virtual network to connect your cloud services:
-- If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
-- If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Si es aceptable el uso de una dirección IP virtual diferente, elimine las VM detenidas (desasignadas), pero mantenga los discos asociados, y vuelva agregar las VM mediante un servicio en la nube diferente. Use una red virtual regional para conectarse a los servicios en la nube:
+- Si el servicio en la nube existente usa una red virtual regional, agregue el nuevo servicio en la nube a la misma red virtual.
+- Si el servicio en la nube no usa una red virtual regional, cree una nueva para el nuevo servicio en la nube y, a continuación, [conecte la red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Obtenga más información sobre las [redes virtuales regionales](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-#### Allocation scenario: Restart fully stopped (deallocated) VMs
+#### Escenario de asignación: reinicio de las VM detenidas (desasignadas) completamente.
 **Error**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**Causa de anclaje del clúster**
 
-Full deallocation means that you stopped (deallocated) all VMs from a cloud service. The allocation requests to restart these VMs have to be attempted at the original cluster that hosts the cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+La desasignación completa indica que detuvo (desasignó) todas las VM de un servicio en la nube. Las solicitudes de asignación para reiniciar estas VM se deben intentar realizar en el clúster original que hospeda el servicio en la nube. La creación de un nuevo servicio en la nube permite que la plataforma de Azure encuentre otro clúster que tenga recursos libres o uno que admita el tamaño de VM solicitado.
 
-**Workaround**
+**Solución alternativa**
 
-If it's acceptable to use a different VIP, delete the original stopped (deallocated) VMs (but keep the associated disks) and delete the corresponding cloud service (the associated compute resources were already released when you stopped (deallocated) the VMs). Create a new cloud service to add the VMs back.
+Si es aceptable el uso de una dirección IP virtual diferente, elimine las VM originales detenidas (desasignadas), pero mantenga los discos asociados, y elimine el servicio en la nube correspondiente (los recursos de proceso asociados ya se liberaron cuando detuvo [desasignó] las VM). Cree un nuevo servicio en la nube para volver a agregar las VM.
 
-#### Allocation scenario: Staging/production deployments (platform as a service only)
+#### Escenario de asignación: implementaciones de ensayo o producción (solo plataforma como servicio).
 **Error**
 
-New_General* or New_VMSizeNotSupported*
+New\_General* o New\_VMSizeNotSupported*
 
-**Cause of cluster pinning**
+**Causa de anclaje del clúster**
 
-The staging deployment and the production deployment of a cloud service are hosted in the same cluster. When you add the second deployment, the corresponding allocation request will be attempted in the same cluster that hosts the first deployment.
+Las implementaciones de ensayo y de producción de un servicio en la nube se hospedan en el mismo clúster. Cuando se agrega la segunda implementación, la solicitud de asignación correspondiente se intenta en el mismo clúster que hospeda la primera implementación.
 
-**Workaround**
+**Solución alternativa**
 
-Delete the first deployment and the original cloud service and redeploy the cloud service. This action may land the first deployment in a cluster that has enough free resources to fit both deployments or in a cluster that supports the VM sizes that you requested.
+Elimine la primera implementación y el servicio en la nube original y vuelva implementar el servicio en la nube. Esta acción puede conseguir la primera implementación en un clúster que tenga suficientes recursos libres para ajustarse a ambas implementaciones, o bien en un clúster que admita los tamaños de VM solicitados.
 
-#### Allocation scenario: Affinity group (VM/service proximity)
+#### Escenario de asignación: grupo de afinidad (proximidad de la VM o el servicio)
 **Error**
 
-New_General* or New_VMSizeNotSupported*
+New\_General* o New\_VMSizeNotSupported*
 
-**Cause of cluster pinning**
+**Causa de anclaje del clúster**
 
-Any compute resource assigned to an affinity group is tied to one cluster. New compute resource requests in that affinity group are attempted in the same cluster where the existing resources are hosted. This is true whether the new resources are created through a new cloud service or through an existing cloud service.
+Cualquier recurso de proceso asignado a un grupo de afinidad está asociado a un clúster. Las nuevas solicitudes de recursos de proceso de ese grupo de afinidad se intentan llevar a cabo en el mismo clúster en el que están hospedados los recursos existentes. Esto es así con independencia de que los nuevos recursos se creen mediante un servicio en la nube nuevo o existente.
 
-**Workaround**
+**Solución alternativa**
 
-If an affinity group is not necessary, do not use an affinity group, or group your compute resources into multiple affinity groups.
+Si no es necesario un grupo de afinidad, no lo use, o bien intente agrupar los recursos de proceso en varios grupos de afinidad.
 
-#### Allocation scenario: Affinity-group-based virtual network
+#### Escenario de asignación: red virtual basada en un grupo de afinidad
 **Error**
 
-New_General* or New_VMSizeNotSupported*
+New\_General* o New\_VMSizeNotSupported*
 
-**Cause of cluster pinning**
+**Causa de anclaje del clúster**
 
-Before regional virtual networks were introduced, you were required to associate a virtual network with an affinity group. As a result, compute resources placed into an affinity group are bound by the same constraints as described in the "Allocation scenario: Affinity group (VM/service proximity)" section above. The compute resources are tied to one cluster.
+Antes de que se presentaran las redes virtuales regionales, era necesario asociar una red virtual a un grupo de afinidad. Como consecuencia, los recursos de proceso colocados en un grupo de afinidad se rigen por las mismas restricciones que se han descrito en la sección anterior "Escenario de asignación: grupo de afinidad (proximidad de la VM o el servicio)". Es decir, los recursos de proceso están asociados a un clúster.
 
-**Workaround**
+**Solución alternativa**
 
-If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Si no necesita ningún grupo de afinidad, cree una red virtual regional para los recursos nuevos que vaya a agregar y, luego, [conecte la red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Obtenga más información sobre las [redes virtuales regionales](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
+Asimismo, puede [migrar la red virtual basada en un grupo de afinidad a una red virtual regional](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) y después volver a agregar los recursos deseados.
 
-### Troubleshoot specific allocation failure scenarios in the Azure Resource Manager deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+### Solución de problemas de escenarios de errores de asignación específicos en el modelo de implementación del Administrador de recursos de Azure
+A continuación se presentan los escenarios de asignación comunes que ocasionan que una solicitud de asignación quede anclada. Nos dedicaremos a cada escenario más adelante en este artículo.
 
-- Resize a VM or add VMs or role instances to an existing cloud service
-- Restart partially stopped (deallocated) VMs
-- Restart fully stopped (deallocated) VMs
+- Cambio del tamaño de una VM o incorporación de VM o instancias de rol a un servicio en la nube existente.
+- Reinicio de las VM detenidas (desasignadas) parcialmente.
+- Reinicio de las VM detenidas (desasignadas) completamente.
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned to an existing cluster, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+Cuando reciba un error de asignación, compruebe si alguno de los escenarios descritos se aplica en su caso. Use el error de asignación que devuelve la plataforma de Azure para identificar el escenario correspondiente. Si la solicitud está anclada a un clúster existente, quite algunas de las restricciones de anclaje para abrir su solicitud a más clústeres y aumentar así la posibilidad de que la asignación se realice correctamente.
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, see below for workarounds.
+En general, mientras el error no indique que "no se admite el tamaño de VM solicitado", siempre puede volver a intentarlo más adelante, cuando se hayan liberado suficientes recursos en el clúster para dar cabida a la solicitud. Si el problema tiene que ver con que el tamaño de VM solicitado no se admite, consulte las posibles soluciones a continuación.
 
-#### Allocation scenario: Resize a VM or add VMs to an existing availability set
+#### Escenario de asignación: cambio del tamaño de una VM o incorporación de VM o instancias de rol a un conjunto de disponibilidad existente.
 **Error**
 
-Upgrade_VMSizeNotSupported* or GeneralError*
+Upgrade\_VMSizeNotSupported* o GeneralError*
 
-**Cause of cluster pinning**
+**Causa de anclaje del clúster**
 
-A request to resize a VM or add a VM to an existing availability set has to be attempted at the original cluster that hosts the existing availability set. Creating a new availability set allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+La solicitud para cambiar el tamaño de una VM o agregarla a un conjunto de disponibilidad existente se tiene que intentar en el clúster original que hospeda dicho conjunto. La creación de un nuevo conjunto de disponibilidad permite que la plataforma de Azure encuentre otro clúster que tenga recursos libres o uno que admita el tamaño de VM solicitado.
 
-**Workaround**
+**Solución alternativa**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, stop all VMs in the availability set. You can then change the size of the virtual machine that will allocate the VM to a cluster that supports the desired VM size.
+Si el error es Upgrade\_VMSizeNotSupported *, pruebe con otro tamaño de máquina virtual. Si el uso de un tamaño de VM diferente no es una opción, detenga toda las VM del conjunto de disponibilidad. De esta forma podrá cambiar el tamaño de la máquina virtual que se asignará a un clúster que admita el tamaño deseado.
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. If the VM can be part of a different availability set, create a new VM in a different availability set (in the same region). This new VM can then be added to the same virtual network.  
+Si el error es GeneralError*, es probable que el tipo de recurso (por ejemplo, un tamaño determinado de VM) sea compatible con el clúster pero que este no tenga recursos libres en ese momento. Si la VM puede formar parte de un conjunto de disponibilidad diferente, cree una nueva en otro conjunto de disponibilidad (en la misma región). Esta nueva VM se puede agregar luego a la misma red virtual.
 
-#### Allocation scenario: Restart partially stopped (deallocated) VMs
-**Error**
-
-GeneralError*
-
-**Cause of cluster pinning**
-
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in an availability set. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated availability set is equivalent to adding VMs to an existing availability set. The allocation request has to be attempted at the original cluster that hosts the existing availability set.
-
-**Workaround**
-
-Stop all VMs in the availability set before restarting the first one. This will ensure that a new allocation attempt is run and that a new cluster can be selected that has available capacity.
-
-#### Allocation scenario: Restart fully stopped (deallocated)
+#### Escenario de asignación: reinicio de las VM detenidas (desasignadas) parcialmente.
 **Error**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**Causa de anclaje del clúster**
 
-Full deallocation means that you stopped (deallocated) all VMs in an availability set. The allocation request to restart these VMs will target all clusters that support the desired size.
+La desasignación parcial indica que se detuvieron (desasignaron) una o varias VM de un conjunto de disponibilidad, pero no todas. Al detener (desasignar) una VM, se liberan los recursos asociados. Por lo tanto, reiniciar esa VM detenida (desasignada) implica una nueva solicitud de asignación. Reiniciar las VM en un conjunto de disponibilidad desasignado parcialmente es equivalente a agregarlas a uno conjunto de disponibilidad existente. Las solicitud de asignación se debe intentar realizar en el clúster original que hospeda el conjunto de disponibilidad.
 
-**Workaround**
+**Solución alternativa**
 
-Select a new VM size to allocate. If this does not work, please try again later.
+Detenga todas las VM del conjunto de disponibilidad antes de reiniciar la primera de ellas. De esta forma se garantiza que hay un nuevo intento de asignación en marcha y que se puede seleccionar un nuevo clúster que tenga capacidad disponible.
 
-## Error string lookup
-**New_VMSizeNotSupported***
+#### Escenario de asignación: reinicio de las VM detenidas (desasignadas) completamente
+**Error**
 
-"The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."
+GeneralError*
 
-**New_General***
+**Causa de anclaje del clúster**
 
-"Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an affinity group, or it targets a virtual network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+La desasignación completa indica que detuvo (desasignó) todas las VM de un conjunto de disponibilidad. La solicitud de asignación para reiniciar estas VM se dirigirá a todos los clústeres que admitan el tamaño deseado.
 
-**Upgrade_VMSizeNotSupported***
+**Solución alternativa**
 
-"Unable to upgrade the deployment. The requested VM size XXX may not be available in the resources supporting the existing deployment. Please try again later, try with a different VM size or smaller number of role instances, or create a deployment under an empty hosted service with a new affinity group or no affinity group binding."
+Seleccione un nuevo tamaño de VM para asignar. Si esto no funciona, vuelva a intentarlo más tarde.
+
+## Búsqueda de cadenas de error
+**New\_VMSizeNotSupported***
+
+El tamaño de VM (o la combinación de tamaños de VM) que se necesita en esta implementación no se puede aprovisionar debido a restricciones en las solicitudes de implementación. Si es posible, intente relajar las restricciones como los enlaces de red virtual, intente realizar la implementación en un servicio hospedado que no tenga ninguna otra implementación y en otro grupo de afinidad o sin grupo de afinidad, o bien intente realizar la implementación en otra región.
+
+**New\_General***
+
+Error en la asignación: no se pudieron satisfacer las restricciones de la solicitud. La nueva implementación del servicio solicitada está enlazada a un grupo de afinidad, su destino es una red virtual o hay una implementación existente bajo este servicio hospedado. Todas estas condiciones restringen la nueva implementación a recursos específicos de Azure. Inténtelo de nuevo más tarde o pruebe a reducir el tamaño de la máquina virtual o el número de instancias de rol. También puede quitar, si es posible, las restricciones mencionadas o intentar realizar la implementación en otra región.
+
+**Upgrade\_VMSizeNotSupported***
+
+No se puede actualizar la implementación. Es posible que el tamaño de la máquina virtual solicitada XXX no esté disponible entre los recursos que son compatibles con la implementación existente. Inténtelo más tarde, con otro tamaño de VM o con menos instancias de rol, o bien cree una implementación en un servicio hospedado vacío con un nuevo grupo de afinidad o sin enlazar ningún grupo de afinidad.
 
 **GeneralError***
 
-"The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
+"Se produjo un error interno en el servidor. Vuelva a intentar realizar la solicitud" o "Error al producir una asignación para el servicio".
+
+<!---HONumber=AcomDC_0323_2016-->

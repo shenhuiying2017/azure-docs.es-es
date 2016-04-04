@@ -36,7 +36,7 @@ La instalación de Azure PowerShell 1.0 y versiones posteriores desde WebPI es i
 
 > [AZURE.NOTE] Si ha instalado los módulos de Azure de la Galería de PowerShell, el instalador los quitará automáticamente. Esto tiene por objeto evitar confusiones sobre los módulos que ha instalado y dónde se encuentran. Los módulos de la Galería de PowerShell normalmente se instalarán en **%ProgramFiles%\\WindowsPowerShell\\Modules**. En cambio, el instalador de WebPI instalará los módulos de Azure en **%ProgramFiles%\\Microsoft SDKs\\Azure\\PowerShell**. **PowerShellGet** desinstalará módulos y dejará los archivos .dll bloqueados y sus carpetas si hay cargada una dependencia del módulo cuando se desinstala. Si se produce un error durante la instalación, elimine las carpetas de Azure* de su carpeta **%ProgramFiles%\\WindowsPowerShell\\Modules**.
 
-Si ha instalado Azure PowerShell a través de la Galería de PowerShell y en su lugar desea usar la instalación de WebPI, dicha instalación quitará automáticamente los cmdlets instalados desde la galería.
+Si ha instalado Azure PowerShell a través de la Galería de PowerShell y en su lugar desea usar la instalación de WebPI, dicha instalación quitará automáticamente los cmdlets instalados desde la Galería.
 
 > [AZURE.NOTE] Existe un problema conocido con **$env: PSModulePath** de PowerShell que se produce cuando la instalación se realiza desde WebPI. Si el equipo requiere un reinicio debido a actualizaciones del sistema u otras instalaciones, puede hacer que **$env: PSModulePath** no incluya la ruta de acceso donde está instalado Azure PowerShell. Para corregir esto, reinicie el equipo.
 
@@ -133,17 +133,17 @@ Inicie sesión en su cuenta profesional o educativa:
 
 > [AZURE.NOTE] Este método de inicio de sesión no interactivo solo funciona con una cuenta profesional o educativa. Una cuenta profesional o educativa es un usuario bajo la administración del trabajo o de la escuela y que está definido en la instancia de Azure Active Directory para el trabajo o la escuela. Si actualmente no tiene una cuenta profesional o educativa y usa una cuenta Microsoft para iniciar sesión en su suscripción de Azure, puede crear una fácilmente siguiente los pasos que se indican a continuación.
 
-> 1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com) y haga clic en **Active Directory**.
+> 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) y haga clic en **Active Directory**.
 
 > 2. Si no hay ningún directorio, seleccione **Crear su directorio** y proporcione la información que se le pida.
 
 > 3. Seleccione su directorio y agregue un nuevo usuario. Este usuario nuevo puede iniciar sesión con una cuenta profesional o educativa. Durante la creación del usuario, se le proporcionará una dirección de correo electrónico para el usuario y una contraseña temporal. Guarde esta información, la usará en el paso 5 que viene a continuación.
 
-> 4. En el portal de administración, seleccione **Configuración** y, a continuación, **Administradores**. Seleccione **Agregar** y agregue el usuario nuevo como coadministrador. Esto permite que la cuenta profesional o educativa administre su suscripción de Azure.
+> 4. En el Portal de Azure clásico, seleccione **Configuración** y, después, **Administradores**. Seleccione **Agregar** y agregue el usuario nuevo como coadministrador. Esto permite que la cuenta profesional o educativa administre su suscripción de Azure.
 
-> 5. Finalmente, cierre sesión en el portal de Azure y, a continuación, vuelva a iniciarla usando la cuenta profesional o educativa. Si es la primera vez que inicia sesión con esta cuenta, se le pedirá que cambie la contraseña.
+> 5. Finalmente, cierre sesión en el Portal de Azure y, después, vuelva a iniciarla usando la cuenta profesional o educativa. Si es la primera vez que inicia sesión con esta cuenta, se le pedirá que cambie la contraseña.
 
-> Para obtener más información acerca del inicio de sesión en Microsoft Azure con una cuenta profesional o educativa, consulte [Inicio de sesión en Azure como una organización](sign-up-organization.md).
+> Para obtener más información acerca del inicio de sesión en Microsoft Azure con una cuenta profesional o educativa, consulte [Inicio de sesión en Azure como una organización](/active-directory/sign-up-organization.md).
 
 > Para obtener más información acerca de la autenticación y la administración de la suscripción en Azure, consulte [Administrar cuentas, suscripciones y roles administrativos](http://go.microsoft.com/fwlink/?LinkId=324796).
 
@@ -178,4 +178,4 @@ Para más información sobre los cmdlets, consulte [Referencia de cmdlets de Azu
 
 Para ver scripts de ejemplo e instrucciones que le ayuden a aprender a usar scripting para administrar Azure, visite el [Centro de scripts](http://go.microsoft.com/fwlink/p/?LinkId=321940).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management de Azure AD: Cambio o visualización de la configuración predeterminada de un rol"
+   pageTitle="Cambio o visualización de la configuración predeterminada de un rol | Microsoft Azure"
    description="Obtenga información sobre cómo cambiar la configuración predeterminada de identidades con privilegios con la extensión de Privileged Identity Management de Azure Active Directory."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/10/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Privileged Identity Management de Azure AD: Cambio o visualización de la configuración de activación predeterminada de un rol
@@ -52,4 +52,4 @@ Para obtener más información sobre cómo usar MFA con PIM, vea [Exigencia de M
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

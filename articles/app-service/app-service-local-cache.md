@@ -105,7 +105,7 @@ Vea la sección anterior sobre las prácticas recomendadas cuando use caché loc
  
 ### ¿Cómo puedo saber si mi sitio ha cambiado para usar caché local? 
 
-Si usa la característica de caché local con entornos de ensayo, la operación de intercambio no se completará hasta que la memoria caché local se haya calentado. Para comprobar si el sitio se ejecuta en caché local, puede comprobar la variable de entorno del proceso de trabajo `WEBSITE_LOCALCACHE_READY`. Use estas instrucciones para acceder a la variable de entorno del proceso de trabajo en varias instancias.
+Si usa la característica de caché local con entornos de ensayo, la operación de intercambio no se completará hasta que la memoria caché local se haya calentado. Para comprobar si el sitio se ejecuta en la memoria caché local, puede comprobar la variable de entorno del proceso de trabajo WEBSITE\_LOCALCACHE\_READY. Siga las instrucciones de la página de la [variable de entorno del proceso de trabajo](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) para acceder a las variables de entorno del proceso de trabajo en varias instancias.
  
 ### Acabo de publicar nuevos cambios, pero mi aplicación web no parece tenerlos. ¿Por qué? 
 Si la aplicación web usa caché local, debe reiniciar su sitio para obtener los cambios más recientes. ¿No desea eso en un sitio de producción? Consulte las opciones de ranura anteriores.
@@ -118,4 +118,4 @@ Con caché local, los registros y las carpetas de datos tienen un aspecto difere
 
 La memoria caché local ayuda a evitar que la aplicación web relacionada con el almacenamiento se reinicie. Sin embargo, la aplicación web todavía puede sufrir reinicios durante actualizaciones de infraestructura de la VM planeadas. Los reinicios totales de aplicación experimentados con la memoria caché local habilitada deben ser menos.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

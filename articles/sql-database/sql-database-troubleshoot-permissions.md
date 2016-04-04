@@ -29,12 +29,12 @@ Use este tema para pasos rápidos, para conceder y quitar el acceso a una Base d
 - Vea [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md).
 
 ##Para crear usuarios de bases de datos independientes en la base de datos de usuario
-- Use la instrucción [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) y vea Base de datos independiente [Usuarios - Conversión de la base de datos en portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+- Use la instrucción [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) y consulte [Usuarios de base de datos independiente - Conversión de la base de datos en portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Para autenticar usuarios de bases de datos independientes con Azure Active Directory
-- Vea [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md).
+- Consulte [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md).
 
 ## Para crear inicios de sesión adicionales para usuarios con privilegios elevados en la base de datos maestra virtual
 -Use la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) y vea la sección Administración de inicios de sesión de [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md) para más información.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

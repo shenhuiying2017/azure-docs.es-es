@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Selección de nombres de usuario para Linux | Microsoft Azure" 
 	description="Aprenda a seleccionar nombres de usuario para una máquina virtual de Linux en Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -251,4 +251,4 @@ A continuación, se indican los nombres de usuario que debería evitar al realiz
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

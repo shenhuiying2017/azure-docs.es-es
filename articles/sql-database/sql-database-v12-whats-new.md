@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/08/2016" 
+	ms.date="03/21/2016" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,7 @@ La información más reciente sobre los límites de recursos de Base de datos SQ
 Uno de los principales objetivos de Base de datos SQL V12 era mejorar la compatibilidad con Microsoft SQL Server 2014 y mantenerla a medida que se publican nuevas versiones de SQL Server. Entre otros ámbitos, V12 logra la paridad con SQL Server en el importante campo de la programación. Por ejemplo:
 
 
-- [Funciones de ventana](http://msdn.microsoft.com/library/bb934097.aspx), con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Funciones de ventana](http://msdn.microsoft.com/library/ms189798.aspx), con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
 
 - [Índices XML](http://msdn.microsoft.com/library/bb934097.aspx) e [Índices XML selectivos](http://msdn.microsoft.com/library/jj670104.aspx)
 
@@ -166,4 +166,4 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 
 [Términos de uso complementarios para versiones de vista previa de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Introducción al conector de Microsoft SQL y su incorporación a las aplicaciones lógicas
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview de SQL Azure, haga clic en [API de SQL Azure](../connectors/create-api-sqlazure.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview de SQL Azure, haga clic en [API de SQL Azure](../connectors/connectors-create-api-sqlazure.md).
 
 Conéctese a un servidor SQL Server o a una Base de datos SQL de Azure local para crear y cambiar información o datos. Los conectores pueden utilizarse en aplicaciones lógicas para recuperar, procesar o insertar datos como parte de un “flujo de trabajo”. Al utilizar el conector de SQL en su flujo de trabajo, puede conseguir distintos escenarios. Por ejemplo, puede:
 
@@ -124,7 +124,7 @@ Puede probar la aplicación lógica mediante la adición de un nuevo registro en
 
 Consulta SQL | Compatible | No compatible
 --- | --- | ---
-Cláusula WHERE | <ul><li>Operadores: AND, OR, =, <>, <, <=, >, >= y LIKE</li><li>Se pueden combinar varias subcondiciones mediante ‘(‘ y ‘)’</li><li>Literales de cadena, fecha/hora (entre comillas simples), números (solo deben contener caracteres numéricos)</li><li>Debe estar de forma estricta en un formato de expresión binaria, como ((operando operador operando) AND/OR (operando operador operando))*</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas las funciones integradas como ADD(), MAX(), NOW(), POWER(), etc.</li><li>Operadores matemáticos como *, -, +, etc.</li><li>Concatenaciones de cadenas con +.</li><li>Todas las combinaciones</li><li>IS NULL e IS NOT Null</li><li>Cualquier número con caracteres no numéricos, como números hexadecimales</li></ul>
+Cláusula WHERE | <ul><li>Operadores: AND, OR, =, <>, <, <=, >, >= y LIKE</li><li>Se pueden combinar varias subcondiciones mediante ‘(‘ y ‘)’</li><li>Literales de cadena, fecha/hora (entre comillas simples), números (solo deben contener caracteres numéricos)</li><li>Debe estar de forma estricta en un formato de expresión binaria, como ((operando operador operando) AND/OR (operando operador operando))**</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas las funciones integradas como ADD(), MAX(), NOW(), POWER(), etc.</li><li>Operadores matemáticos como *, -, +, etc.</li><li>Concatenaciones de cadenas con +.</li><li>Todas las combinaciones</li><li>IS NULL e IS NOT Null</li><li>Cualquier número con caracteres no numéricos, como números hexadecimales</li></ul> 
 Campos (en consulta Select) | <ul><li>Nombres de columna válidos separados por coma. No se permiten prefijos de nombre de tabla (el conector funciona en una tabla cada vez).</li><li>Los nombres se pueden escapar con ‘[‘ y ‘]’</li></ul> | <ul><li>Palabras clave como TOP, DISTINCT, etc. en</li><li>Alias como calle + ciudad + código postal COMO dirección</li><li>Todas las funciones integradas, como ADD(), MAX(), NOW(), POWER(), etc.</li><li>Operadores matemáticos, como *, -, +, etc.</li><li>Concatenaciones de cadenas mediante +</li></ul>
 
 #### Sugerencias
@@ -163,4 +163,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

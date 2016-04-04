@@ -60,11 +60,11 @@ Con [PowerShell](powershell-install-configure.md) puede usar una línea de coman
 - **Cmdlets de PowerShell con una plantilla del Administrador de recursos de Azure:** puede usar PowerShell para crear recursos de Azure con una plantilla del Administrador de recursos de Azure. Las plantillas se pueden guardar y modificar para crear versiones. Lea el artículo [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md) para obtener más información. Existen varias [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para soluciones comunes que también se pueden descargar y modificar.
 
 ## CLI
-Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux mediante la CLI. Lea el artículo [Instalación de la CLI de Azure](xplat-cli-install.md) para instalar la CLI en el sistema operativo que prefiera. Como en el caso de PowerShell, existen distintos comandos que deben usarse en función de que se estén creando recursos con el modelo de implementación [Administrador de recursos](xplat-cli-azure-resource-manager.md) o [Clásico (administración de servicios)](virtual-machines/virtual-machines-command-line-tools.md).
+Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux mediante la CLI. Lea el artículo [Instalación de la CLI de Azure](xplat-cli-install.md) para instalar la CLI en el sistema operativo que prefiera. Como en el caso de PowerShell, existen distintos comandos que deben usarse en función de que se estén creando recursos con el modelo de implementación [Administrador de recursos](xplat-cli-azure-resource-manager.md) o [Clásico (administración de servicios)](./virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md).
 
 ## Pasos siguientes
 
 - Obtenga más información sobre el [Administrador de recursos de Azure](resource-group-overview.md).
 - Aprenda a [diseñar plantillas](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

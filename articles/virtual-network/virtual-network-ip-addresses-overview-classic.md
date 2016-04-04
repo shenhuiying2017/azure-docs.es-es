@@ -61,7 +61,7 @@ Las direcciones IP públicas estáticas (reservadas) se usan habitualmente en lo
 >[AZURE.NOTE] Cuando se crea una máquina virtual clásica, Azure crea un *servicio en la nube* de contenedor, que tiene una dirección IP virtual (VIP). Cuando la creación se realiza a través del portal, este configura un *punto de conexión* RDP o SSH predeterminado para que se pueda conectar a la máquina virtual a través de la VIP del servicio en la nube. Se puede reservar esta VIP del servicio en la nube lo que, efectivamente, brinda una dirección IP reservada para conectarse a la máquina virtual. Puede configurar más puntos de conexión para abrir puertos adicionales.
 
 ### Instancias de rol PaaS y máquinas virtuales IaaS
-Puede asignar una dirección IP pública directamente a una [máquina virtual](../virtual-machines/virtual-machines-about.md) IaaS o una instancia de rol PaaS dentro de un servicio en la nube. Esto se conoce como dirección IP pública a nivel de instancia ([ILPIP](virtual-networks-instance-level-public-ip.md)). Esta dirección IP pública solo puede ser dinámica.
+Puede asignar una dirección IP pública directamente a una [máquina virtual](../virtual-machines/virtual-machines-linux-about.md) IaaS o una instancia de rol PaaS dentro de un servicio en la nube. Esto se conoce como dirección IP pública a nivel de instancia ([ILPIP](virtual-networks-instance-level-public-ip.md)). Esta dirección IP pública solo puede ser dinámica.
 
 >[AZURE.NOTE] Esto es distinto de la VIP del servicio en la nube, que es un contenedor para las máquinas virtuales IaaS o las instancias de rol PaaS, debido a que un servicio en la nube puede contener varias máquinas virtuales IaaS o instancias de rol PaaS, expuestas todas a través de la misma VIP de servicio en la nube.
 
@@ -166,4 +166,4 @@ A continuación, se muestra una comparación de las características de direccio
 ## Pasos siguientes
 - [Implemente una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-classic-pportal.md) mediante el portal clásico.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

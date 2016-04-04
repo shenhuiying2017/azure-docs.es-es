@@ -32,7 +32,7 @@
 
 Esta guía muestra cómo crear un equilibrador de carga de Internet basado en el escenario anterior.
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../../articles/xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 
 2. Ejecute el comando **azure config mode** para cambiar al modo clásico, como se muestra a continuación.
 
@@ -135,7 +135,7 @@ Tendrá que eliminar el punto de conexión asociado al conjunto de equilibrador 
 
 ## Pasos siguientes
 
-[Introducción a la configuración de un equilibrador de carga interno](load-balancer-internal-getstarted.md)
+[Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
@@ -143,4 +143,4 @@ Tendrá que eliminar el punto de conexión asociado al conjunto de equilibrador 
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

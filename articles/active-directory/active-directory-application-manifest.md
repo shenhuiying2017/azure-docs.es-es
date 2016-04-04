@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/18/2015"
+   ms.date="03/16/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Descripción del manifiesto de aplicación de Azure Active Directory
@@ -104,7 +104,7 @@ Ahora que el manifiesto está guardado, puede otorgar a una aplicación cliente 
 
 1. Primero, vaya a la página "Configurar" de la aplicación cliente a la que desea agregar acceso a la nueva API y haga clic en el botón "Agregar aplicación".
 2. A continuación, aparecerá la lista de aplicaciones (API) de recursos registrado en el inquilino. Haga clic en el signo de la suma (+) junto al nombre de la aplicación de recursos para seleccionarla.  
-3. A continuación, haga clic en la marca de verificación de la esquina inferior derecha. 
+3. A continuación, haga clic en la marca de verificación de la esquina inferior derecha.
 4. Cuando vuelva a la sección "Agregar aplicación" de la página de configuración de su cliente, verá la nueva aplicación de recursos en la lista. Si mantiene el mouse sobre la sección "Permisos delegados" a la derecha de esa fila, verá aparecer una lista desplegable. Haga clic en la lista y seleccione el nuevo permiso para poder agregarlo a la lista de permisos solicitados del cliente. Nota: Este permiso nuevo se almacenará en la configuración de identidad de la aplicación cliente, en la propiedad de colección "requiredResourceAccess".
 
 ![Permisos para otras aplicaciones][PERMS-TO-OTHER-APPS]
@@ -145,4 +145,4 @@ Use la siguiente sección de comentarios DISQUS para proporcionar comentarios y 
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -23,7 +23,7 @@
 <BR>
 [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implementación clásica](load-balancer-get-started-ilb-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -45,7 +45,9 @@ Puede obtener más información acerca de los componentes del equilibrador de ca
 
 ## Configurar la CLI para utilizar el Administrador de recursos
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto en que se selecciona la cuenta y suscripción de Azure.
+
 
 2. Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
@@ -126,7 +128,7 @@ Parámetros usados:
 
 Después de definir una dirección IP de front-end y un grupo de direcciones de back-end, puede crear reglas de equilibradores de carga, reglas NAT de entrada y personalizar sondeos de estado.
 
-### Paso 4
+### Paso 4
 
 
 Crear una regla de equilibrador de carga para el equilibrador de carga interno. Siguiendo el escenario anterior, el comando crea una regla de equilibrador de carga que escucha al puerto 1433 en el grupo de servidores front-end y envía tráfico de red con equilibrio de carga al grupo de direcciones de back-end usando también el puerto 1433.
@@ -234,7 +236,7 @@ Cree una máquina virtual llamada *DB1* y asóciela con la NIC llamada *lb-nic1-
 
 >[AZURE.IMPORTANT] Las máquinas virtuales en un equilibrador de carga deben estar en el mismo conjunto de disponibilidad. Use `azure availset create` para crear un conjunto de disponibilidad.
 
-### Paso 4
+### Paso 4
 
 Cree una máquina virtual llamada *DB2* y asóciela con la NIC llamada *lb-nic2-be*. Se creó una cuenta de almacenamiento llamada *web1nrp* antes de ejecutar el comando que aparece a continuación.
 
@@ -256,4 +258,4 @@ Donde **nrprg** es el grupo de recursos y **ilbset** el nombre del equilibrador 
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

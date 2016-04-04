@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Introducción a la creación de un equilibrador de carga accesible desde Internet (clásico) en el Portal de Azure clásico
@@ -42,8 +42,8 @@ Para equilibrar la carga del tráfico de red de Internet entre las máquinas vir
 
 4.	En la página **Especifique los detalles del punto de conexión **:
 	- En **Nombre**, escriba un nombre para el punto de conexión o seleccione uno de la lista de puntos de conexión predefinidos para protocolos comunes.
-	-  En **Protocolo**, seleccione el protocolo que requiere el tipo de punto de conexión, TCP o UDP, según sea necesario.
- 	-  En **Puerto público y puerto privado**, escriba los números de puerto que desee que utilice la máquina virtual, según sea necesario. Puede utilizar el puerto privado y las reglas de firewall en la máquina virtual para redirigir el tráfico de la manera más adecuada para su aplicación. El puerto privado puede ser el mismo que el puerto público. Por ejemplo, para un extremo para tráfico web (HTTP), puede asignar el puerto 80 al puerto público y el privado.
+	-  En **Protocol**, seleccione el protocolo que requiere el tipo de extremo, TCP o UDP, según sea necesario.
+ 	-  En **Public Port y Private Port**, escriba los números de puerto que desee que utilice la máquina virtual, según sea necesario. Puede utilizar el puerto privado y las reglas de firewall en la máquina virtual para redirigir el tráfico de la manera más adecuada para su aplicación. El puerto privado puede ser el mismo que el puerto público. Por ejemplo, para un extremo para tráfico web (HTTP), puede asignar el puerto 80 al puerto público y el privado.
 
 5.	Haga clic en **Crear un conjunto de carga equilibrada** y, luego, en la flecha derecha.
 
@@ -61,10 +61,10 @@ Para equilibrar la carga del tráfico de red de Internet entre las máquinas vir
 
 ## Pasos siguientes
 
-[Introducción a la configuración de un equilibrador de carga interno](load-balancer-internal-getstarted.md)
+[Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

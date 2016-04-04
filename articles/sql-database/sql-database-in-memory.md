@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/17/2016"
 	ms.author="jodebrui"/>
 
 
@@ -28,6 +28,8 @@ En este tema se resaltan dos demostraciones, una para In-Memory OLTP y otra para
 - Leer el código para entender el escenario y para ver cómo crear y usar los objetos de In-Memory.
 
 > [AZURE.VIDEO azure-sql-database-in-memory-technologies]
+
+- [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/library/mt694156.aspx) (Inicio rápido 1: tecnologías OLTP en memoria para que T-SQL funcione de forma más rápida) es otro artículo que le ayudará a empezar a trabajar.
 
 #### In-Memory OLTP
 
@@ -277,7 +279,8 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 Para ejecutar la línea de comandos ostress.exe anterior:
 
 
-1. Restablezca el contenido de los datos de la base de datos mediante la ejecución del siguiente comando en SSMS para eliminar todos los datos que se insertaron en las ejecuciones anteriores: ```
+1. Restablezca el contenido de los datos de la base de datos mediante la ejecución del siguiente comando en SSMS para eliminar todos los datos que se insertaron en las ejecuciones anteriores:
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -302,7 +305,8 @@ Cuando finaliza ostress.exe, escribe la duración de la ejecución como la últi
 Una vez que tenga el resultado de la ejecución de \_inmem, realice los pasos siguientes para la ejecución de \_ondisk:
 
 
-1. Restablezca la base de datos mediante la ejecución del siguiente comando en SSMS para eliminar todos los datos insertó la ejecución anterior: ```
+1. Restablezca la base de datos mediante la ejecución del siguiente comando en SSMS para eliminar todos los datos insertó la ejecución anterior:
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -315,7 +319,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Resultados de la comparación esperados
 
-Las pruebas de la salida de In-Memory demostraron tener un rendimiento **9 veces** mejor en esta carga de trabajo simplista, con ostress ejecutándose en una VM de Azure que está en la misma región de Azure que la base de datos.
+Las pruebas de la salida de In-Memory demostraron tener un rendimiento **9 veces** mejor en esta carga de trabajo simplista, con ostress ejecutándose en una VM de Azure ubicada en la misma región de Azure que la base de datos.
 
 
 
@@ -529,4 +533,4 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 
 - [Supervisión del almacenamiento en memoria](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

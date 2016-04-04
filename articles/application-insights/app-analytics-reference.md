@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Material de referencia para Application Analytics" 
-	description="Expresiones regulares de Application Analytics, la potente herramienta de búsqueda de Application Insights." 
+	pageTitle="Material de referencia para Analytics en Application Insights" 
+	description="Expresiones regulares de Analytics, la eficaz herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-# Material de referencia
+# Application Insights: material de referencia de Analytics
 
-[Application Analytics](app-analytics.md) es un potente motor de búsqueda para la telemetría de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Application Analytics, CSL.
-
+[Analytics](app-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -34,7 +33,7 @@ También muestra la sintaxis aceptada por PCRE, PERL y VIM.
 
 ||
 |---|---
-|Caracteres individuales: |
+|Caracteres individuales: | 
 |. |cualquier carácter, incluida posiblemente la nueva línea (s=true) 
 |[xyz] |clase de caracteres 
 |[^xyz] |clase de caracteres negada 
@@ -416,4 +415,4 @@ También muestra la sintaxis aceptada por PCRE, PERL y VIM.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

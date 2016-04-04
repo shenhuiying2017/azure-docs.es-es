@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="03/21/2016"
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde el almacén de Azure Data Lake mediante la Factoría de datos de Azure
@@ -58,7 +58,7 @@ El ejemplo copia los datos pertenecientes a una serie temporal desde un almacena
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -69,7 +69,7 @@ El ejemplo copia los datos pertenecientes a una serie temporal desde un almacena
 El procedimiento siguiente proporciona los pasos para crear un servicio vinculado del Almacén de Azure Data Lake con el Editor de la Factoría de datos.
 
 1. Haga clic en **Nuevo almacén de datos** en la barra de comandos y seleccione **Almacén de Azure Data Lake**.
-2. En el editor de JSON, especifique el identificador URI de Data Lake en la propiedad **datalakeUri**.
+2. En el editor de JSON, en la propiedad **dataLakeStoreUri**, especifique el URI de Data Lake.
 3. Haga clic en el botón **Autorizar** de la barra de comandos. Aparecerá una ventana emergente.
 
 	![Botón Autorizar](./media/data-factory-azure-data-lake-connector/authorize-button.png)
@@ -235,7 +235,7 @@ El ejemplo copia los datos pertenecientes a una serie temporal desde un almacén
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -405,7 +405,7 @@ Puede vincular una cuenta de Almacenamiento de Azure a una Factoría de datos de
 | Propiedad | Descripción | Obligatorio |
 | :-------- | :----------- | :-------- |
 | type | La propiedad type debe establecerse en: **AzureDataLakeStore** | Sí |
-| dataLakeUri | Especifica información sobre la cuenta de Almacén de Azure Data Lake. Tiene el formato siguiente: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sí |
+| dataLakeStoreUri | Especifica información sobre la cuenta de Almacén de Azure Data Lake. Tiene el formato siguiente: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sí |
 | authorization | Haga clic en el botón **Autorizar** del **Editor de la Factoría de datos** y escriba sus credenciales. De esta forma, se asigna la dirección URL de autorización generada automáticamente a esta propiedad. | Sí |
 | sessionId | Identificador de sesión OAuth de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Se genera automáticamente al usar el Editor de la Factoría de datos. | Sí |  
 | accountName | Nombre de la cuenta de Data Lake. | No |
@@ -608,4 +608,4 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

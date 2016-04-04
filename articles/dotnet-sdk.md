@@ -63,7 +63,7 @@ Esto permite trabajar con recursos de Azure, principalmente Servicios en la nube
 
 * [Crear, abrir y publicar proyectos de servicio en la nube](cloud-services/cloud-services-dotnet-get-started.md).
 * [Crear paquetes de implementación para proyectos de servicio en la nube](http://msdn.microsoft.com/library/ff683672.aspx).
-* [Crear Máquinas virtuales de Azure durante la creación de nuevos proyectos web](virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md).
+* [Crear Máquinas virtuales de Azure durante la creación de nuevos proyectos web](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md).
 * [Crear scripts de PowerShell durante la creación de nuevas máquinas virtuales](http://msdn.microsoft.com/library/dn642480.aspx).
 * [Ver y administrar la configuración del proyecto de servicio en la nube en las ventanas de propiedades del proyecto de Visual Studio](http://msdn.microsoft.com/library/ee405486.aspx).
 * Ver y administrar [servicios en la nube](http://msdn.microsoft.com/library/ff683675.aspx), [máquinas virtuales](http://msdn.microsoft.com/library/jj131259.aspx) y [Bus de servicio](http://msdn.microsoft.com/library/jj149828.aspx) en el Explorador de servidores. 
@@ -186,4 +186,4 @@ Para obtener el código fuente del SDK de Azure para .NET, incluidas las bibliot
 
 Para obtener documentación de referencia de las bibliotecas de cliente de Azure, consulte la [referencia de Azure .NET](/documentation/api/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

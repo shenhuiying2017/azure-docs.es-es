@@ -1,23 +1,25 @@
-### VPN type for the Resource Manager deployment model
+### Tipo de VPN para el modelo de implementación de Resource Manager
 
-|      | **Route-based**    | **Policy-based** |
+| | **Basada en enrutamiento** | **Basada en directivas** |
 |-----------------------------------|--------------------|------------------|
-| **Site-to-Site**                  | yes                | yes              |
-| **VNet-to-VNet**                  | yes                | no               |
-| **Multi-Site**                    | yes                | no               |
-| **S2S and ExpressRoute coexist**  | not yet available  | no               |
-| **Point-to-Site**                 | yes                | no               |
-| **Classic to Resource Manager**   | yes                | no               |
+| **De sitio a sitio** | yes | yes |
+| **De red virtual a red virtual** | yes | no |
+| **Multisitio** | yes | no |
+| **S2S y ExpressRoute coexisten** | todavía no disponible | no |
+| **De punto a sitio** | yes | no |
+| **Clásico a Resource Manager** | yes | no |
 
 
-### VPN type for the classic deployment model
+### Tipo de VPN para el modelo de implementación clásica
 
 
-|       | **Dynamic**        | **Static**   |
+| | **Dinámica** | **Estática** |
 |---------------------------------------------|--------------------|--------------|
-| **Site-to-Site**                            | yes                | yes          |
-| **VNet-to-VNet**                            | yes                | no           |
-| **Multi-Site**                              | yes                | no           |
-| **S2S and ExpressRoute coexist**            | yes                | no           |
-| **Point-to-Site**                           | yes                | no           |
-| **Classic to Resource Manager**             | yes                | no           |
+| **De sitio a sitio** | yes | yes |
+| **De red virtual a red virtual** | yes | no |
+| **Multisitio** | yes | no |
+| **S2S y ExpressRoute coexisten** | yes | no |
+| **De punto a sitio** | yes | no |
+| **Clásico a Resource Manager** | yes | no |
+
+<!---HONumber=AcomDC_0323_2016-->

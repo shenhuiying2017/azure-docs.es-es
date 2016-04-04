@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/22/2016"
    ms.author="erihur"/>
 
 
@@ -251,6 +251,8 @@ Además de algunos campos nuevos y cambios de nombres en la versión 2 de csv, h
 ## Más recursos
 Vaya a la sección **Administrar cuentas, suscripciones y roles administrativos**, en [Administrar los servicios](https://msdn.microsoft.com/library/azure/dn578292.aspx) para ver algunos vínculos muy útiles:
 
+- [Preguntas más frecuentes sobre suscripciones y facturación de Azure](billing-subscription-faq.md)
+
 - [Administrar el método de pago](https://msdn.microsoft.com/library/azure/dn736054.aspx)
 
 - [Editar información de pago de una tarjeta de crédito existente](https://msdn.microsoft.com/library/azure/dn736053.aspx)
@@ -265,4 +267,4 @@ Vaya a la sección **Administrar cuentas, suscripciones y roles administrativos*
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Administrar el control de acceso basado en roles con Windows PowerShell"
+	pageTitle="Guía de control de acceso basado en rol para PowerShell"
 	description="Administrar el control de acceso basado en roles con Windows PowerShell"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Administrar el control de acceso basado en roles con Windows PowerShell
+# Guía de control de acceso basado en rol para PowerShell
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [CLI de Azure](role-based-access-control-xplat-cli.md)
 
 
@@ -61,8 +61,6 @@ Como RBAC solo funciona con el Administrador de recursos de Azure, lo primero qu
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-Para más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md).
-
 Para conectarse a sus suscripciones de Azure, escriba:
 
     PS C:\> Add-AzureAccount
@@ -75,8 +73,6 @@ Si tiene varias suscripciones y quiere cambiar a otra, use los comandos siguient
     PS C:\> Get-AzureSubscription
     # Use the subscription name to select the one you want to work on.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
-
-Para más información, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 ## Comprobar asignaciones de roles existentes
 
@@ -96,7 +92,7 @@ También puede comprobar las asignaciones de roles existentes para una definici�
 Esto devolverá todas las asignaciones de roles para un usuario determinado de su inquilino de AD, que tiene una asignación de rol de "Owner" para el grupo de recursos "group1". La asignación de rol puede venir de dos sitios:
 
 1. Una asignación de rol de "Owner" al usuario para el grupo de recursos.
-2. Una asignación de rol de "Owner" al usuario para el elemento primario del grupo de recursos (en este caso, la suscripción) porque, si tiene permisos en un nivel primario, tendrá los mismos permisos en todos los niveles secundarios.
+2. Una asignación de rol de "Owner" al usuario para el elemento primario del grupo de recursos (en este caso, la suscripción). Si asigna permisos en un nivel primario, todos los elementos secundarios tendrán los mismos permisos.
 
 Todos los parámetros de este cmdlet son opcionales. Puede combinarlos para comprobar asignaciones de roles con distintos filtros.
 
@@ -104,34 +100,36 @@ Todos los parámetros de este cmdlet son opcionales. Puede combinarlos para comp
 
 Para crear una asignación de rol, tiene que pensar en lo siguiente:
 
-A quién quiere asignar el rol: puede usar los siguientes cmdlets de Azure Active Directory para ver qué usuarios, grupos y entidades de seguridad de servicio tiene en su inquilino de AD.
+- A quién quiere asignar el rol: puede usar los siguientes cmdlets de Azure Active Directory para ver qué usuarios, grupos y entidades de seguridad de servicio tiene en su inquilino de AD.  
 
+	```
     PS C:\> Get-AzureADUser
 	PS C:\> Get-AzureADGroup
 	PS C:\> Get-AzureADGroupMember
 	PS C:\> Get-AzureADServicePrincipal
+	```
 
-Qué rol quiere asignar: puede usar el cmdlet siguiente para ver las definiciones de rol compatibles.
+- Qué rol quiere asignar: puede usar el cmdlet siguiente para ver las definiciones de rol compatibles.
 
-    PS C:\> Get-AzureRoleDefinition
+    `PS C:\> Get-AzureRoleDefinition`
 
-Qué ámbito quiere asignar: tiene tres niveles de ámbitos
-  - La suscripción actual
-  - Un grupo de recursos; para obtener una lista de grupos de recursos, escriba `PS C:\> Get-AzureResourceGroup`
-  - Un recurso; para obtener una lista de recursos, escriba `PS C:\> Get-AzureResource`
+- Qué ámbito quiere asignar: tiene tres niveles de ámbitos
+	- La suscripción actual
+	- Un grupo de recursos. Para obtener una lista de grupos de recursos, escriba `PS C:\> Get-AzureResourceGroup`
+	- Un recurso. Para obtener una lista de recursos, escriba `PS C:\> Get-AzureResource`
 
 Luego use `New-AzureRoleAssignment` para crear una asignación de rol. Por ejemplo:
 
-	#This will create a role assignment at the current subscription level for a user as a reader.
+	#Create a role assignment at the current subscription level for a user as a reader.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-	#This will create a role assignment at a resource group level.
+	#Create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-	#This will create a role assignment for a group at a resource group level.
+	#Create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-	#This will create a role assignment at a resource level.
+	#Create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
@@ -145,7 +143,7 @@ Después de comprobar que su cuenta tiene asignaciones de roles, puede ver los p
 
 Esos dos cmdlets solo devolverán los grupos de recursos o los recursos donde tiene permiso de lectura. También le mostrarán los permisos que tiene.
 
-Si intenta ejecutar otros cmdlets, como `New-AzureResourceGroup`, obtendrá un error de acceso denegado si no tiene el permiso.
+Si trata de ejecutar otros cmdlets, como `New-AzureResourceGroup`, obtendrá un error de acceso denegado si no tiene el permiso.
 
 ## Pasos siguientes
 
@@ -160,4 +158,4 @@ Si quiere más información sobre cómo administrar el control de acceso basado 
 - [Configuración del control de acceso basado en roles mediante CLI de Azure](role-based-access-control-xplat-cli.md)
 - [Solución de problemas de control de acceso basado en roles](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

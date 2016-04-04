@@ -65,6 +65,8 @@ En la versión preliminar actual de SQL Server 2016, los siguientes elementos ha
 
 -   Restricciones de clave externa que hacen referencia a la tabla
 
+    La tabla en la que no se puede habilitar la base de datos de Stretch es la que hace referencia a una restricción de clave externa- En una relación de elementos primarios y secundarios (por ejemplo, Orders y Order Details), es la tabla primaria (Orders).
+
 **Índices**
 -   Índices de texto completo
 
@@ -74,7 +76,7 @@ En la versión preliminar actual de SQL Server 2016, los siguientes elementos ha
 
 -   Vistas indexadas que hacen referencia a la tabla
 
-## <a name="Caveats"></a>Limitaciones y salvedades para las tablas habilitadas para Stretch
+## <a name="Caveats"></a>Limitaciones y salvedades de las tablas habilitadas para Stretch
 En la versión de vista preliminar actual de SQL Server 2016, las tablas habilitadas para Stretch tienen las siguientes limitaciones o salvedades.
 
 -   No se exige la unicidad en las restricciones UNIQUE ni PRIMARY KEY en una tabla habilitada para Stretch.
@@ -99,4 +101,4 @@ En la versión de vista preliminar actual de SQL Server 2016, las tablas habilit
 
 [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

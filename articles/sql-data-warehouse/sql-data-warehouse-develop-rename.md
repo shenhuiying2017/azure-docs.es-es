@@ -3,7 +3,7 @@
    description="Sugerencias para cambiar el nombre de tablas en el Almacenamiento de datos SQL de Azure para desarrollar soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="jrowlandjones"
    manager="barbkess"
    editor=""/>
 
@@ -24,14 +24,14 @@ Aunque SQL Server permite cambiar el nombre de base de datos mediante el procedi
 Actualmente, solo puede cambiarse el nombre de tablas. La sintaxis para cambiar el nombre de una tabla es:
 
 ```
-RENAME OBJECT Customer TO NewCustomer;
+RENAME OBJECT dbo.Customer TO NewCustomer;
 ```
 
 Al cambiar el nombre de una tabla, se actualizan todos los objetos y las propiedades asociados a la tabla para hacer referencia al nuevo nombre de la tabla. Por ejemplo, se actualizan las definiciones, los índices, las restricciones y los permisos de la tabla. Las vistas no se actualizan.
 
 ## Cambio de nombre de una tabla externa
 
-Si se cambia el nombre de una tabla externa, cambia el nombre de tabla en PDW de SQL Server. No afecta a la ubicación de los datos externos de la tabla.
+Si se cambia el nombre de una tabla externa, cambia el nombre de tabla en Almacenamiento de datos SQL. No afecta a la ubicación de los datos externos de la tabla.
 
 ## Cambio del esquema de una tabla
 Si se pretende cambiar el esquema al que un objeto pertenece, esto se consigue mediante ALTER SCHEMA:
@@ -42,7 +42,7 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 
 ## El cambio de nombre de una tabla exige el bloqueo exclusivo de la tabla.
 
-Es importante recordar que no se puede cambiar el nombre de una tabla mientras se usa. El cambio de nombre de una tabla requiere un bloqueo exclusivo en la tabla. Si la tabla se está usando, puede que tenga que terminar la sesión en que se usa la tabla. Para terminar una sesión deberá usar el comando [KILL](https://msdn.microsoft.com/library/ms173730.aspx). Tenga cuidado al usar ```KILL```, ya que al terminar la sesión se revertirá cualquier trabajo no confirmado. Las sesiones de Almacenamiento de datos SQL llevan el prefijo 'SID'. Tendrá que incluirlo con el número de sesión al invocar el comando KILL. Por ejemplo, ```KILL 'SID1234'```.
+Es importante recordar que no se puede cambiar el nombre de una tabla mientras se usa. El cambio de nombre de una tabla requiere un bloqueo exclusivo en la tabla. Si la tabla se está usando, puede que tenga que terminar la sesión en que se usa la tabla. Para terminar una sesión deberá usar el comando [KILL](https://msdn.microsoft.com/library/ms173730.aspx). Tenga cuidado al usar ```KILL```, ya que al terminar la sesión se revertirá cualquier trabajo no confirmado. Las sesiones de Almacenamiento de datos SQL llevan el prefijo 'SID'. Tendrá que incluirlo con el número de sesión al invocar el comando KILL. Por ejemplo, ```KILL 'SID1234'```. Consulte el artículo sobre conexiones para más información sobre [sesiones]
 
 
 ## Pasos siguientes
@@ -52,5 +52,6 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Article references-->
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
+[sesiones]: sql-data-warehouse-develop-connections.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

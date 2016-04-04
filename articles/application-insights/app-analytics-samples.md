@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Ejemplos de consultas en Application Insights Analytics" 
-	description="Ejemplos de consultas en Application Insights Analytics, la potente herramienta de búsqueda de Application Insights." 
+	pageTitle="Ejemplos de consultas de la herramienta Analytics de Application Insights" 
+	description="Ejemplos de consultas de la herramienta Analytics de Application Insights, la eficaz herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
-# Muestras para Application Insights Analytics
+# Muestras de Analytics de Application Insights
 
-[Application Insights Analytics](app-analytics.md) es un potente motor de búsqueda para la telemetría de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Application Insights Analytics, AIQL. También se ofrece un [recorrido por el lenguaje](app-analytics-tour.md), opción recomendada para empezar.
+[Analytics](app-analytics.md) es un eficaz motor de búsqueda para los datos de telemetría de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics. También se ofrece un [recorrido por el lenguaje](app-analytics-tour.md), opción recomendada para empezar.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -29,7 +29,7 @@ Es necesario conocer qué debe hacer y qué no debe hacer para que las consultas
 
 SÍ
 
--	Usar primero filtros de tiempo. Application Insights Analytics está muy optimizado para el uso de filtros de tiempo.
+-	Usar primero filtros de tiempo. La herramienta Analytics de Application Insights está muy optimizada para utilizar filtros de tiempo.
 -	Ponga los filtros que espera que descarten la mayor cantidad de datos al principio de la consulta (justo después de los filtros de tiempo)
 -	Compruebe que la mayoría de los filtros aparecen al principio de la consulta (antes de empezar a utilizar "extend"). 
 -	Use preferentemente la palabra clave "has" en lugar de "contains" al buscar tokens completos. "has" ofrece mejores rendimientos, ya que no tiene que buscar subcadenas.
@@ -104,7 +104,7 @@ Events
 
 La combinación unirá cada hora de inicio con todas las horas de detención desde la misma dirección IP de cliente. Por tanto, en primer lugar quitamos las coincidencias con horas de detención anteriores.
 
-A continuación, agrupamos por hora de inicio e IP para obtener un grupo para cada sesión. Debemos suministrar una función `bin` para el parámetro StartTime: si no lo hacemos, AI Analytics usará automáticamente intervalos de 1 hora, lo cual hará coincidir algunas horas de inicio con horas de detención incorrectas.
+A continuación, agrupamos por hora de inicio e IP para obtener un grupo para cada sesión. Debemos suministrar una función `bin` para el parámetro StartTime: en caso contrario, Analytics usará automáticamente intervalos de 1 hora, con lo que algunas horas de inicio coincidirían con las horas de detención incorrectas.
 
 `argmin` recoge la fila con la menor duración de cada grupo, y el parámetro `*` se pasa a través de todas las demás columnas, aunque agrega el prefijo "min\_" a cada nombre de columna.
 
@@ -264,7 +264,7 @@ Esto se puede representar como un gráfico de barras o un gráfico de tiempo.
 
 ## Tipos de combinación
 
-El tipo exacto del operador de unión se especifica con la palabra clave de variante. En este momento, AI Analytics admite seis tipos de operadores de combinación: combinación interna con desduplicación del lado izquierdo (valor predeterminado), combinación interna estándar, externa izquierda, externa derecha y anticombinación izquierda.
+El tipo exacto del operador de unión se especifica con la palabra clave de variante. En este momento, Analytics admite seis tipos de operadores de combinación: combinación interna con desduplicación del lado izquierdo (valor predeterminado), combinación interna estándar, externa izquierda, externa derecha y anticombinación izquierda.
  
 Tipo de combinación predeterminado (variante no especificada) Usemos dos tablas de ejemplo para explicar el funcionamiento de la combinación:
  
@@ -310,7 +310,7 @@ y el resultado de la combinación sería:
 
 Tenga en cuenta que las claves "a" y "d" no aparecen en la salida, ya que no había ninguna clave coincidente en los lados izquierdo y derecho.
  
-Históricamente, esta fue la primera implementación de la combinación compatible con la versión inicial de AI Analytics; resulta útil en los escenarios habituales de análisis de registro/seguimiento donde se desea poner en correlación dos eventos (donde cada uno de ellos coincide con determinados criterios de filtrado) bajo el mismo identificador de correlación, y obtener todas las repeticiones del fenómeno que estamos buscando, omitiendo varias apariciones de los registros de seguimiento contribuyentes.
+Esta fue la primera implementación de la combinación compatible con la versión inicial de Analytics. Resulta útil en los escenarios habituales de análisis de registro o seguimiento donde se desea poner en correlación dos eventos (donde cada uno de ellos coincide con determinados criterios de filtrado) bajo el mismo identificador de correlación, así como obtener todas las repeticiones del fenómeno que estamos buscando omitiendo varias apariciones de los registros de seguimiento contribuyentes.
  
 ### Combinación interna (variante=inner) 
 
@@ -437,4 +437,4 @@ JobHistory
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

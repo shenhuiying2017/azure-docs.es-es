@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/11/2016"
+   ms.date="03/17/2016"
    ms.author="jonatul"/>
 
 # Importación y exportación de un archivo de zona DNS
@@ -176,4 +176,4 @@ Al igual que con la importación de zona, en primer lugar necesita iniciar la se
 
 Este comando llamará al servicio DNS de Azure para enumerar los conjuntos de registros de la zona y exportar los resultados a un archivo de zona compatible con BIND.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

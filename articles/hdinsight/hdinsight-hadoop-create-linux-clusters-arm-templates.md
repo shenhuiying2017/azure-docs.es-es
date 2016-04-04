@@ -132,7 +132,7 @@ Para obtener una introducción sobre el uso de Visual Studio con grupos de recur
 ##Pasos siguientes
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
-- Para consultar un ejemplo de cómo implementar los recursos a través de la biblioteca cliente de .NET, consulte [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](../virtual-machines/arm-template-deployment.md).
+- Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](../virtual-machines/virtual-machines-windows-csharp-template.md) (Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
 - Para obtener un ejemplo detallado de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](../solution-dev-test-environments.md).
 - Para obtener información sobre las secciones de la plantilla de Azure Resource Manager, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
@@ -311,4 +311,4 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
     }
     }
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

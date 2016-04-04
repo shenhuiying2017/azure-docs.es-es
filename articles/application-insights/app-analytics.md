@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Analytics: la eficaz herramienta de búsqueda de Application Insights" 
-	description="Información general de Application Analytics, la eficaz herramienta de búsqueda de Application Insights." 
+	pageTitle="Analytics: la eficaz herramienta de búsqueda de Application Insights" 
+	description="Información general de Analytics, la eficaz herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
 
-# Application Insights Analytics: información general del lenguaje
+# Analytics de Application Insights
 
 
-[Application Insights Analytics](app-analytics.md) es un eficaz motor de consultas para su telemetría de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Application Insights, AIQL.
+[Analytics](app-analytics.md) es una eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
-Una consulta típica de AIQL consiste en una tabla de *origen* seguida por una serie de *operadores* separados por `|`.
+Una consulta típica de AIQL consiste en una tabla de *origen* seguida de una serie de *operadores* separados por `|`.
 
 Por ejemplo, vamos a averiguar a qué hora del día prueban los ciudadanos de Hyderabad nuestra aplicación web. Y ya puestos, veamos qué códigos de resultados se devuelven a sus solicitudes HTTP.
 
@@ -79,4 +79,4 @@ Abra Analytics desde la [hoja de información general](app-insights-dashboards.m
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

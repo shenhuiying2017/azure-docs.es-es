@@ -25,7 +25,7 @@
 
 Cada solicitud realizada en el servicio Programador devuelve un encabezado de respuesta denominado **x-ms-request-id**. Este encabezado contiene un valor opaco que identifica de forma única la solicitud.
 
-Si una solicitud genera error sistemáticamente y se ha comprobado que la solicitud está formulada correctamente, se puede usar este valor para notificar el error a Microsoft. En el informe, incluya el valor ofx-ms-request-id, la hora aproximada en que se realizó la solicitud, el identificador de la suscripción, el servicio en la nube, la colección de trabajos o el trabajo, así como el tipo de operación que intenta realizar la solicitud.
+Si una solicitud genera error sistemáticamente y se ha comprobado que la solicitud está formulada correctamente, se puede usar este valor para notificar el error a Microsoft. En el informe, incluya el valor ofx-ms-request-id, la hora aproximada en que se realizó la solicitud, el identificador de la suscripción, la colección de trabajos o el trabajo, así como el tipo de operación que intenta realizar la solicitud.
 
 ## Códigos de error y de estado de Programador
 
@@ -70,4 +70,4 @@ Las operaciones de API pueden devolver también información adicional de error 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure (Portal de Azure clásico)" 
-	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos en el Portal de Azure clásico." 
+	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure (Portal de Azure)" 
+	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos en el Portal de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/31/2016" 
+	ms.date="03/17/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Medición de la eficacia de una campaña de marketing  
+# Tutorial: desplazamiento y procesamiento de archivos de registro mediante Factoría de datos de Azure (Portal de Azure)  
 Contoso es una empresa de juegos que crea juegos para varias plataformas: consolas de juegos, dispositivos portátiles y PC. Estos juegos generan muchos registros y el objetivo de Contoso es recopilar y analizar estos registros para obtener información sobre las preferencias del cliente, los datos demográficos, el comportamiento de uso, etc. para identificar oportunidades de venta mejorada y venta cruzada, desarrollar características nuevas y atractivas para impulsar el crecimiento empresarial y ofrecer una experiencia mejor a los clientes.
 
 En este tutorial, creará canalizaciones de Factoría de datos para evaluar la eficacia de una campaña de marketing que Contoso ha lanzado recientemente; para ello, se recopilan registros de ejemplo, se procesan y se enriquecen estos registros con datos de referencia y se transforman los datos. El tutorial incluye las tres canalizaciones siguientes:
@@ -60,18 +60,19 @@ El flujo de trabajo completo se muestra a continuación:
 1. **PartitionGameLogsPipeline** lee los eventos de juegos sin procesar de un almacenamiento de blobs (RawGameEventsTable) y crea particiones basadas en el año, el mes y el día (PartitionedGameEventsTable).
 2. **EnrichGameLogsPipeline** combina eventos de juegos con particiones (tabla PartitionedGameEvents, que es un resultado de PartitionGameLogsPipeline) con código geográfico (RefGetoCodeDictionaryTable) y enriquece los datos asignando una dirección IP a la ubicación geográfica correspondiente (EnrichedGameEventsTable).
 3. La canalización **AnalyzeMarketingCampaignPipeline** aprovecha los datos enriquecidos (EnrichedGameEventTable generada por EnrichGameLogsPipeline) y los procesa con los datos de publicidad (RefMarketingCampaignnTable) para crear el resultado final de la eficacia de la campaña de marketing, que se copia en la base de datos SQL de Azure (MarketingCampainEffectivensessSQLTable) y en un almacenamiento de blobs de Azure (MarketingCampaignEffectivenessBlobTable) para su análisis.
+
+En este tutorial, realizará los siguientes pasos:
     
-## Tutorial: Creación, implementación y supervisión de flujos de trabajo
-1. [Paso 1: Carga de scripts y datos de ejemplo](#MainStep1). En este paso, cargará todos los datos de ejemplo (incluidos todos los registros y datos de referencia) y los flujos de trabajo ejecutarán los scripts Hive/Pig. Los scripts que ejecuta también crean una base de datos SQL de Azure (denominada MarketingCampaigns), tablas, tipos definidos por el usuario y procedimientos almacenados.
-2. [Paso 2: Creación de una factoría de datos de Azure](#MainStep2). En este paso, creará una factoría de datos de Azure denominada LogProcessingFactory.
-3. [Paso 3: Creación de servicios vinculados](#MainStep3). En este paso, creará los siguientes servicios vinculados: 
+1. [Cargar los scripts y datos de ejemplo](#upload-sample-data-and-scripts). En este paso, cargará todos los datos de ejemplo (incluidos todos los registros y datos de referencia) y los flujos de trabajo ejecutarán los scripts Hive/Pig. Los scripts que ejecuta también crean una base de datos SQL de Azure (denominada MarketingCampaigns), tablas, tipos definidos por el usuario y procedimientos almacenados.
+2. [Cree una factoría de datos de Azure](#create-data-factory). En este paso, creará una factoría de datos de Azure denominada LogProcessingFactory.
+3. [Crear servicios vinculados](#create-linked-services). En este paso, creará los siguientes servicios vinculados: 
 	
 	- 	**StorageLinkedService**. Vincula la ubicación de almacenamiento de Azure que contiene eventos de juegos sin procesar, eventos de juegos con particiones, eventos de juegos enriquecidos, información efectiva de campañas de marketing, datos de código geográfico de referencia y datos de campaña de marketing de referencia a LogProcessingFactory   
 	- 	**AzureSqlLinkedService**. Vincula una base de datos SQL de Azure que contiene información de eficacia de campaña de marketing. 
 	- 	**HDInsightStorageLinkedService**. Vincula un almacenamiento de blobs de Azure asociado al clúster de HDInsight al que hace referencia HDInsightLinkedService. 
 	- 	**HDInsightLinkedService**. Vincula un clúster de Azure HDInsight a LogProcessingFactory. Este clúster se usa para realizar el procesamiento pig y hive en los datos. 
  		
-4. [Paso 4: Creación de tablas](#MainStep4). En este paso, creará las tablas siguientes:
+4. [Crear conjuntos de datos](#create-datasets) En este paso, creará las tablas siguientes:
 	
 	- **RawGameEventsTable**. Esta tabla especifica la ubicación de los datos de eventos de juego sin procesar en el almacenamiento de blobs de Azure definido por StorageLinkedService (adfwalkthrough/logs/rawgameevents/). 
 	- **PartitionedGameEventsTable**. Esta tabla especifica la ubicación de los datos de eventos de juego con particiones en el almacenamiento de blobs de Azure definido por StorageLinkedService (adfwalkthrough/logs/partitionedgameevents/). 
@@ -82,7 +83,7 @@ El flujo de trabajo completo se muestra a continuación:
 	- **MarketingCampaignEffectivenessBlobTable**. Esta tabla especifica la ubicación de los datos de eficacia de la campaña de marketing en el almacenamiento de blobs de Azure definido por StorageLinkedService (adfwalkthrough/marketingcampaigneffectiveness/). 
 
 	
-5. [Paso 5: Creación y programación de canalizaciones](#MainStep5). En este paso, creará los siguientes procesos:
+5. [Crear y programar canalizaciones](#create-pipelines). En este paso, creará los siguientes procesos:
 	- **PartitionGameLogsPipeline**. Este proceso lee los eventos de juegos sin procesar de un almacenamiento de blobs (RawGameEventsTable) y crea particiones basadas en el año, el mes y el día (PartitionedGameEventsTable). 
 
 
@@ -99,9 +100,9 @@ El flujo de trabajo completo se muestra a continuación:
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Paso 6: Supervisión de las canalizaciones y los segmentos de datos](#MainStep6) En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure clásico.
+6. [Supervisar las canalizaciones](#monitor-pipelines). En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure clásico.
 
-## <a name="MainStep1"></a> Paso 1: Carga de scripts y datos de ejemplo
+## Cargue los scripts y datos de ejemplo.
 En este paso, cargará todos los datos de ejemplo (incluidos todos los registros y datos de referencia) y los scripts Hive y Pig, que se invocan mediante los flujos de trabajo. Los scripts que ejecuta también crean una base de datos SQL de Azure llamada **MarketingCampaigns**, tablas, tipos definidos por el usuario y procedimientos almacenados.
 
 Las tablas, los tipos definidos por el usuario y procedimientos almacenados se utilizan al mover los resultados de la eficacia de la campaña de marketing desde el almacenamiento de blobs de Azure para la base de datos SQL de Azure.
@@ -154,7 +155,7 @@ Las tablas, los tipos definidos por el usuario y procedimientos almacenados se u
 		6/6/2014 11:54:36 AM 3. Created ‘MarketingCampaigns’ Azure SQL database and tables.
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
-## <a name="MainStep2"></a> Paso 2: Creación de una factoría de datos de Azure
+## Creación de Data Factory
 En este paso, creará una factoría de datos de Azure llamada **LogProcessingFactory**.
 
 1.	Tras iniciar sesión en el [Portal de Azure][azure-portal], haga clic en **NUEVO** en la esquina inferior izquierda, seleccione **Análisis de datos** en la hoja **Crear** y haga clic en **Factoría de datos**, en la hoja **Análisis de datos**. 
@@ -190,7 +191,7 @@ En este paso, creará una factoría de datos de Azure llamada **LogProcessingFac
  
 	El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre de la factoría de datos "LogProcessingFactory" no está disponible**, cambie el nombre (por ejemplo, yournameLogProcessingFactory). Use este nombre en lugar de LogProcessingFactory mientras sigue los pasos de este tutorial.
  
-## <a name="MainStep3"></a> Paso 3: Creación de servicios vinculados
+## Crear servicios vinculados
 
 > [AZURE.NOTE] En este artículo se usa el Portal de Azure clásico, concretamente el Editor de la Factoría de datos, para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso de Azure PowerShell][adftutorial-using-powershell] si desea realizar este tutorial con Azure PowerShell.
 
@@ -273,7 +274,7 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 2. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
 
-## <a name="MainStep4"></a> Paso 4: Creación de tablas
+## Creación de conjuntos de datos
  
 En este paso creará las tablas de Factoría de datos siguientes:
 
@@ -304,7 +305,7 @@ La imagen anterior muestra los procesos en la fila central y las tablas de las f
 	1. MarketingCampaignEffectivenessSQLTable.json
 	
 
-## <a name="MainStep5"></a> Paso 5: Creación y programación de canalizaciones
+## Creación de canalizaciones
 En este paso, creará los siguientes procesos:
 
 - PartitionGameLogsPipeline
@@ -350,7 +351,7 @@ En este paso, creará los siguientes procesos:
 **¡Enhorabuena!** Ha creado la factoría de datos de Azure, servicios vinculados, procesos y tablas, y ha iniciado el flujo de trabajo.
 
 
-## <a name="MainStep6"></a> Paso 6: Supervisión de las canalizaciones y los segmentos de datos 
+## Supervisión de canalizaciones 
 
 1.	Si no tiene la hoja **FACTORÍA DE DATOS** para el **LogProcessingFactory** abierto, puede hacer lo siguiente:
 	1.	Haga clic en **LogProcessingFactory** en el **Panel de inicio**. Al crear la factoría de datos, se selecciona automáticamente la opción **Agregar al Panel de inicio**.
@@ -483,4 +484,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

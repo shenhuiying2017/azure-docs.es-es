@@ -709,8 +709,7 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 * [Uso de Oozie con HDInsight][hdinsight-use-oozie]
 * [Uso de Sqoop con HDInsight][hdinsight-use-sqoop]
 * [Uso de Pig con HDInsight][hdinsight-use-pig]
-* [Desarrollo de programas MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
-* [Desarrollo de programas de streaming de Hadoop C# para HDInsight][hdinsight-develop-streaming]
+* [Desarrollo de programas de MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
 
 
 
@@ -730,7 +729,6 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
@@ -742,4 +740,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

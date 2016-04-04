@@ -57,7 +57,7 @@ Algunos pasos se comparten entre los distintos tipos de soluciones. En este art�
 
 - [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Creación de una imagen de máquina virtual local](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](../virtual-machines-windows-tutorial/)
+- [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](../virtual-machines-windows-hero-tutorial/)
 
 **Servicios de datos**
 
@@ -82,4 +82,4 @@ Algunos pasos se comparten entre los distintos tipos de soluciones. En este art�
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Métodos de enrutamiento del Administrador de tráfico
@@ -54,7 +54,7 @@ Los siguientes pasos numerados se corresponden con los números de la ilustraci�
 
 ## Método de enrutamiento de tráfico de Round robin
 
-Un patrón de enrutamiento de tráfico habitual es proporcionar un conjunto de extremos idénticos y enviar tráfico a cada uno por el método round robin. El método round robin divide el tráfico en varios extremos. Selecciona un extremo en buen estado de forma aleatoria y no enviará tráfico a los servicios que se detecten que no están en funcionamiento. Para obtener más información, consulte [Supervisión del Administrador de tráfico](../traffic-manager-monitoring.md).
+Un patrón de enrutamiento de tráfico habitual es proporcionar un conjunto de extremos idénticos y enviar tráfico a cada uno por el método round robin. El método round robin divide el tráfico en varios extremos. Selecciona un extremo en buen estado de forma aleatoria y no enviará tráfico a los servicios que se detecten que no están en funcionamiento. Para obtener más información, consulte [Supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
 
 La Figura 2 muestra un ejemplo del método de enrutamiento de tráfico de round robin para un conjunto de extremos.
 
@@ -130,4 +130,4 @@ Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint 
 [Agregación de un extremo](traffic-manager-endpoints.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

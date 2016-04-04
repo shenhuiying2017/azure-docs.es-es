@@ -288,7 +288,7 @@ Las credenciales de seguridad, como las claves simétricas, nunca se envían en 
 
 > [AZURE.NOTE] El proveedor de recursos del Centro de IoT de Azure se protege mediante la suscripción de Azure, igual que todos los proveedores en el [Administrador de recursos de Azure][lnk-azure-resource-manager].
 
-Consulte el artículo [IoT Hub security tokens][lnk-sas-tokens] (Tokens de seguridad del Centro de IoT) para obtener más información sobre cómo crear y utilizar tokens de seguridad.
+Consulte el artículo [Using IoT Hub security tokens][lnk-sas-tokens] (Uso de tokens de seguridad del Centro de IoT) para más información sobre cómo crear y utilizar tokens de seguridad.
 
 #### Detalles específicos de protocolo
 
@@ -305,7 +305,7 @@ Para SASL PLAIN, el **nombre de usuario** puede ser:
 * `{policyName}@sas.root.{iothubName}` en el caso de los tokens de nivel de centro.
 * `{deviceId}` en el caso de los tokens con ámbito de dispositivo.
 
-En ambos casos el campo de contraseña contiene el token, como se describe en el artículo [IoT Hub security tokens][lnk-sas-tokens] (Tokens de seguridad del Centro de IoT).
+En ambos casos, el campo de contraseña contiene el token, como se describe en el artículo [Using IoT Hub security tokens][lnk-sas-tokens] (Uso de tokens de seguridad del Centro de IoT).
 
 Al utilizar MQTT, el paquete CONNECT tiene deviceId como ClientId, {iothubhostname}/{deviceId} en el campo Nombre de usuario y un token SAS en el campo Contraseña. {iothubhostname} debe ser el CName completo del Centro de IoT (por ejemplo, contoso.azure-devices.net).
 
@@ -601,7 +601,7 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
-[lnk-sas-tokens]: iot-hub-sas-tokens
+[lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -634,4 +634,4 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

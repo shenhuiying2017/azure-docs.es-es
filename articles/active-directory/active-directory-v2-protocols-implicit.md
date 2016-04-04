@@ -119,7 +119,8 @@ error=access_denied
 ## Validar el id\_token
 Recibir un solo id\_token no es suficiente para autenticar al usuario; debe validar la firma del id\_token y comprobar las notificaciones en el token según los requisitos de su aplicación. El punto de conexión v2.0 usa [tokens web JSON (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
 
-Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es enviar el `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma del id\_token, se le solicitará que compruebe algunas notificaciones: Consulte la [referencia de los tokens de v2.0](active-directory-v2-tokens.md) para obtener más información, incluidas las secciones [Validación de los tokens](active-directory-v2-tokens.md#validating-tokens) e [Información importante acerca de la sustitución de la clave de firma](active-directory-v2-tokens.md#validating-tokens). Se recomienda hacer uso de una biblioteca para analizar y validar los tokens. Hay al menos una disponible para la mayoría de los lenguajes y las plataformas. <!--TODO: Improve the information on this-->
+Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es enviar el `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma del id\_token, se le solicitará que compruebe algunas notificaciones: Consulte la [referencia de los tokens de v2.0](active-directory-v2-tokens.md) para obtener más información, incluidas las secciones [Validación de los tokens](active-directory-v2-tokens.md#validating-tokens) e [Información importante acerca de la sustitución de la clave de firma](active-directory-v2-tokens.md#validating-tokens). Se recomienda hacer uso de una biblioteca para analizar y validar los tokens. Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
+<!--TODO: Improve the information on this-->
 
 Se recomienda que valide notificaciones adicionales según su escenario. Algunas validaciones comunes incluyen:
 
@@ -235,4 +236,4 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

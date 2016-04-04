@@ -51,7 +51,8 @@ En primer lugar, cree una aplicación en el [Portal de registro de aplicaciones]
 Anota el valor de **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
 
 ## Instalación de adal.js
-Para comenzar, vaya al proyecto que ha descargado e instale adal.js. Si tiene [bower](http://bower.io/) instalado, solo puede ejecutar este comando. Para los errores de coincidencia de la versión de dependencia, elija la versión superior. ```
+Para comenzar, vaya al proyecto que ha descargado e instale adal.js. Si tiene [bower](http://bower.io/) instalado, solo puede ejecutar este comando. Si aparecen errores de coincidencia en relación con la versión de dependencia, elija la versión superior.
+```
 bower install adal-angular#experimental
 ```
 
@@ -228,4 +229,4 @@ Para obtener más información sobre el punto de conexión v2.0, regrese a nuest
 - [Azure AD en Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentación de Azure AD en [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

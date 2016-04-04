@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Entorno de prueba de nube híbrida simulado | Microsoft Azure" 
 	description="Cree un entorno de nube híbrida simulado para profesionales de TI o pruebas de desarrollo con dos redes virtuales de Azure y una conexión de red virtual a red virtual." 
-	services="virtual-network" 
+	services="virtual-machines-windows" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
@@ -50,7 +50,7 @@ Si todavía no dispone de una suscripción a Azure, puede registrarse para obten
 
 ## Fase 1: configuración de la red virtual TestLab
 
-Use las instrucciones que encontrará en el [Entorno de prueba de la configuración base](virtual-machines-base-configuration-test-environment-resource-manager.md) para configurar los equipos DC1, APP1 y CLIENT1 en una red virtual de Azure denominada TestLab.
+Use las instrucciones que encontrará en el [Entorno de prueba de la configuración base](virtual-machines-windows-test-config-env.md) para configurar los equipos DC1, APP1 y CLIENT1 en una red virtual de Azure denominada TestLab.
 
 Después, inicie un símbolo del sistema de Azure PowerShell.
 
@@ -213,6 +213,6 @@ Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
 ## Pasos siguientes
 
-- [Agregue una nueva máquina virtual](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) a la subred TestVNET, como un Microsoft SQL Server en ejecución.
+- [Agregar una nueva máquina virtual](virtual-machines-windows-create-powershell.md) a la subred TestVNET, como una instancia de Microsoft SQL Server en ejecución.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

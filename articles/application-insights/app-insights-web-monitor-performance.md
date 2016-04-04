@@ -53,7 +53,7 @@ Haga clic en un gráfico para elegir las métricas mostradas o para agregar un n
 
 ![Haga clic en un gráfico para elegir las métricas](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE]**Desactive todas las métricas** para ver una selección completa de las opciones disponibles. Las métricas se organizan en grupos. Cuando se selecciona un miembro de un grupo, solo aparecen los demás miembros de dicho grupo.
+> [AZURE.NOTE] **Desactive todas las métricas** para ver una selección completa de las opciones disponibles. Las métricas se organizan en grupos. Cuando se selecciona un miembro de un grupo, solo aparecen los demás miembros de dicho grupo.
 
 
 ## <a name="metrics"></a>¿Qué significa todo esto? Informes y mosaicos de rendimiento
@@ -111,6 +111,8 @@ Si selecciona una métrica, se deshabilitarán las demás que no pueden aparecer
 ## Contadores de rendimiento del sistema
 
 Algunas de las métricas entre las que puede elegir son [contadores de rendimiento](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows proporciona una amplia variedad de ellos, pero también puede definir los suyos propios.
+
+(Para las aplicaciones hospedadas en Azure, consulte [Envío de diagnósticos de Azure a Application Insights](app-insights-azure-diagnostics.md)).
 
 Este ejemplo muestra los contadores de rendimiento que están disponibles de forma predeterminada. [Agregamos un gráfico aparte](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador y asignamos nombre al gráfico [guardándolo como favorito](app-insights-metrics-explorer.md#editing-charts-and-grids):
 
@@ -199,4 +201,4 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

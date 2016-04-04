@@ -19,7 +19,7 @@
 
 # Consideraciones de rendimiento sobre el Administrador de tráfico
 
-En esta página se explican las consideraciones de rendimiento relacionadas con el uso de Administrador de tráfico. Escenarios como: tiene un sitio web en la región de EE. UU. y uno en Asia. Uno de ellos presenta problemas en la comprobación de estado de los sondeos de Administrador de tráfico, todos los usuarios se enviarán a la región que funciona correctamente y el comportamiento podría parecer un problema de rendimiento. Sin embargo, sería un comportamiento esperado si consideramos la distancia con respecto a la solicitud del usuario.
+En esta página se explican las consideraciones de rendimiento relacionadas con el uso de Administrador de tráfico. Escenarios como: tiene un sitio web en la región de EE. UU. y uno en Asia. Uno de ellos presenta problemas en la comprobación de estado de los sondeos de Administrador de tráfico, todos los usuarios se enviarán a la región que funciona correctamente y el comportamiento podría parecer un problema de rendimiento. Sin embargo, sería un comportamiento esperado si consideramos la distancia con respecto a la solicitud del usuario.
 
   
 
@@ -75,7 +75,7 @@ http://www.digwebinterface.com: es similar al sitio de watchmouse, pero este mue
 ## Pasos siguientes
 
 
-[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
+[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-routing-methods.md)
 
 [Pruebe la configuración del Administrador de tráfico](traffic-manager-testing-settings.md)
 
@@ -84,4 +84,4 @@ http://www.digwebinterface.com: es similar al sitio de watchmouse, pero este mue
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

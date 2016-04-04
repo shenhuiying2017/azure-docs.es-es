@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Instrucciones de Application Analytics" 
-	description="Consultas, expresiones e instrucciones let en Application Analytics, la eficaz herramienta de búsqueda de Application Insights." 
+	pageTitle="Instrucciones de la herramienta Analytics de Application Insights" 
+	description="Consultas, expresiones e instrucciones Let de Analytics, la eficaz herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Instrucciones de Application Analytics
+# Instrucciones de Analytcis de Application Insights
 
-[Application Analytics](app-analytics.md) es un motor de búsqueda muy eficaz para la telemetría de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Application Analytics, CSL.
-
+[Analytics](app-analytics.md) es una eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ## Modelo de datos
 
-En CSL:
+En AIQL:
 
 * Una *base de datos* contiene cero o varios elementos denominados *tablas*.
 * Una *tabla* contiene:
@@ -67,7 +66,7 @@ En CSL, hay cuatro tipos de instrucciones:
 
 ### Consultas de datos
   
-Solicitudes de solo lectura sobre los datos almacenados en Application Analytics. Por ejemplo:
+Solicitudes de solo lectura relacionadas con los datos almacenados en Analytics. Por ejemplo:
 
 * `event`: devuelve todos los registros de la tabla denominada "event".
 * `event | count`: devuelve el número de registros de "event".
@@ -269,4 +268,4 @@ Los parámetros de las funciones con nombre deben ser valores escalares.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

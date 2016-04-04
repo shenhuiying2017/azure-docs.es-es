@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2016"
+	ms.date="03/21/2016"
 	ms.author="tarcher"/>
 
 # Incorporación de una máquina virtual con artefactos a un Laboratorio de desarrollo y pruebas
@@ -38,7 +38,7 @@ En este artículo se muestra cómo crear una máquina virtual en el laboratorio 
 
 1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
 
-1. En la lista de laboratorios, pulse el laboratorio en el que desea crear la nueva máquina virtual.
+1. En la lista de laboratorios, pulse aquel en el que desea crear la nueva máquina virtual.
 
 1. En la hoja del laboratorio, pulse **+ Máquina virtual de laboratorio** tal como se muestra en la ilustración siguiente. ![Hoja principal del Laboratorio de desarrollo y pruebas](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
 
@@ -60,7 +60,7 @@ En este artículo se muestra cómo crear una máquina virtual en el laboratorio 
 
 1. Pulse **Tamaño de máquina virtual** y seleccione uno de los elementos predefinidos que especifican los núcleos del procesador, el tamaño de RAM y el tamaño de la unidad de disco duro de la máquina virtual que se va a crear.
 
-1. Pulse **Red virtual** y seleccione la red virtual deseada.
+1. Pulse **Red virtual** y seleccione la que desee.
 
 1. Pulse **Subred** y seleccione la subred.
 
@@ -123,4 +123,4 @@ Los siguientes pasos muestran cómo ver o modificar los parámetros de un artefa
 - Una vez creada la máquina virtual, puede conectarse a la máquina virtual pulsando **Conectar** en la hoja de la máquina virtual.
 - Para descubrir cómo crear artefactos, vea el artículo [Aprenda a crear sus propios artefactos para usarlos con laboratorios de desarrollo y pruebas](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -18,12 +18,12 @@
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para más información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Adición de la autenticación a la aplicación Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md).
 
 <p>En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación Xamarin.Android. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.</p>
 
@@ -107,7 +107,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
             await RefreshItemsFromTableAsync();
         }
 
-5. A continuación, llame al nuevo método **CreateTable** de **OnCreate** después de la llamada a **Authenticate** que se agregó en el paso 2:
+5. A continuación, llame al nuevo método **CreateTable** de **OnCreate** después de la llamada a **Authenticate** que se agregó en el paso 2:
 
 		await CreateTable();
 
@@ -143,4 +143,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 [Autorización de usuarios con scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

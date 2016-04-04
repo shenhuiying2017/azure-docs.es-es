@@ -50,8 +50,9 @@ Representa los datos que se pueden generar por diversos orígenes, como aplicaci
 
 A continuación, se muestran las herramientas que se pueden usar:
  
-* [Storm en HDInsight de Azure](../hdinsight/hdinsight-storm-write-data-lake-store.md). Se pueden escribir los datos directamente en el Almacén de Data Lake desde el clúster de Storm.
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost): se pueden recibir eventos desde Centros de eventos y, después, escribirlos en el Almacén de Data Lake mediante [SDK para .NET del Almacén de Data Lake](data-lake-store-get-started-net-sdk.md).
+* [Análisis de transmisiones de Azure](../stream-analytics-data-lake-output): los eventos que se recopilan en los Centros de eventos pueden escribirse en Azure Data Lake con una salida de Azure Data Lake Store.
+* [Storm de Azure HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md): se pueden escribir los datos directamente en el Almacén de Data Lake desde el clúster de Storm.
+* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost): se pueden recibir eventos desde Centros de eventos y, después, escribirlos en el Almacén de Data Lake mediante el [SDK para .NET del Almacén de Data Lake](data-lake-store-get-started-net-sdk.md).
 
 ### Datos relacionales
 
@@ -84,11 +85,11 @@ La mayoría de los tipos de clúster de HDInsight (Hadoop, HBase, Storm) admiten
 
 Para cargar conjuntos de datos cuyo tamaño oscila en varios terabytes, el uso de los métodos descritos anteriormente puede a veces resultar lento y costoso. En tales casos, puede utilizar las opciones siguientes.
 
-* **Carga "sin conexión" de los datos**. Puede usar el [servicio de importación y exportación de Azure](../storage/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure, donde los datos se cargarán en un blob de Almacenamiento de Azure. Después, puede usar [Data Factory de Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) o la [herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para mover datos de los blobs de Almacenamiento de Azure al Almacén de Data Lake.
+* **Carga "sin conexión" de los datos**. Puede usar el [servicio de importación y exportación de Azure](../storage/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure, que se cargarán en un blob de Almacenamiento de Azure. Después, puede usar [Factoría de datos de Azure](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) o la [herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para mover datos de los blobs de Almacenamiento de Azure al Almacén de Data Lake.
 
 	>[AZURE.NOTE] Al utilizar el servicio de importación y exportación, el tamaño de los archivos en los discos que se envían al centro de datos de Azure no debe ser mayor que 200 GB.
 
-* **Uso de Azure ExpressRoute**. Azure ExpressRoute permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura de un entorno local. Esto ofrece una opción confiable para transferir grandes cantidades de datos. Para más información, consulte la [documentación de Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+* **Uso de Azure ExpressRoute**. Azure ExpressRoute permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura de un entorno local. Esto ofrece una opción confiable para transferir grandes cantidades de datos. Para obtener más información, consulte la [documentación de Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## Procesamiento de los datos almacenados en el Almacén de Data Lake
 
@@ -130,7 +131,7 @@ Puede utilizar una combinación de servicios para crear representaciones visuale
 
 ![Visualización de datos en el Almacén de Data Lake](./media/data-lake-store-data-scenarios/visualize-data.png "Visualización de datos en el Almacén de Data Lake")
 
-* Puede comenzar con [Data Factory de Azure para mover los datos desde el Almacén de Data Lake al Almacenamiento de datos SQL de Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
-* Después, puede [integrar Power BI con Almacenamiento de datos SQL de Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) para crear una representación visual de los datos.
+* Puede comenzar con [Factoría de datos de Azure para mover datos desde el Almacén de Data Lake al Almacenamiento de datos SQL de Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores).
+* Después, puede [integrar Power BI con el Almacenamiento de datos SQL de Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) para crear una representación visual de los datos.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

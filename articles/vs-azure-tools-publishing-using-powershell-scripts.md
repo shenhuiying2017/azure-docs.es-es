@@ -37,7 +37,7 @@ Tiene a su disposición herramientas y recursos adicionales para trabajar con Po
 
 ## Generación de los scripts de publicación
 
-Puede generar los scripts de publicación para una máquina virtual que hospeda el sitio web al crea un nuevo proyecto siguiendo [estas instrucciones](/virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md). También puede [generar scripts de publicación para aplicaciones web en el Servicio de aplicaciones de Azure](/app-service-web/web-sites-dotnet-get-started.md).
+Puede generar los scripts de publicación para una máquina virtual que hospeda el sitio web al crea un nuevo proyecto siguiendo [estas instrucciones](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md). También puede [generar scripts de publicación para aplicaciones web en el Servicio de aplicaciones de Azure](/app-service-web/web-sites-dotnet-get-started.md).
 
 ## Scripts que genera Visual Studio
 
@@ -351,4 +351,4 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 Obtenga más información sobre el scripting de PowerShell leyendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) y vea otros scripts de Azure PowerShell en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

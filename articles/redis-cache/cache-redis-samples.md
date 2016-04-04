@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Ejemplos de Caché en Redis de Azure 
@@ -41,9 +41,7 @@ Para obtener más información, consulte la documentación de [StackExchange.Red
 
 [Uso de Caché en Redis de Azure con Python](cache-python-get-started.md) muestra cómo comenzar a usar Caché en Redis de Azure con Python y el cliente r[edis-py](https://github.com/andymccurdy/redis-py).
 
-El [ejemplo PHP](https://msdn.microsoft.com/library/azure/dn690470.aspx#PHPExample) muestra cómo comenzar a usar Caché en Redis de Azure con PHP y el cliente [predis](https://github.com/nrk/predis).
-
-[Trabajar con objetos .NET en la memoria caché](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects) muestra una forma de serializar objetos .NET de forma que pueda realizar operaciones de escritura y lectura con ellos en una instancia de Caché en Redis de Azure.
+[Trabajar con objetos .NET en la memoria caché](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) muestra una forma de serializar objetos .NET de forma que pueda realizar operaciones de escritura y lectura con ellos en una instancia de Caché en Redis de Azure.
 
 ## Uso de Caché en Redis como un backplane de escalado horizontal para ASP.NET SignalRen
 
@@ -76,4 +74,4 @@ El ejemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) es el Hello World d
 
 El ejemplo [Supervisión del ancho de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite supervisar el ancho de banda utilizado en el cliente. Para medir el ancho de banda, ejecute el ejemplo en el equipo cliente de la caché, realice llamadas a la memoria caché y observe el ancho de banda notificado por el ejemplo de supervisión de ancho de banda.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

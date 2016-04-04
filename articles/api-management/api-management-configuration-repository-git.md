@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="03/21/2016" 
 	ms.author="sdanie"/>
 
 
@@ -117,7 +117,7 @@ Utilice la contraseña codificada junto con su nombre de usuario y ubicación de
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-Una vez que se clone el repositorio, podrá ver y trabajar con él en el sistema de archivos local. Para obtener más información, consulte [File and folder structure overview of local Git repository](#file-and-folder-structure-overview-of-local-git-repository) (Información general de la estructura de archivos y carpetas del repositorio local de Git).
+Una vez que se clone el repositorio, podrá ver y trabajar con él en el sistema de archivos local. Para más información, consulte [Referencia de estructura de archivo y carpeta del repositorio local de Git](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## Para actualizar su repositorio local con la configuración de instancia de servicio más reciente
 
@@ -279,6 +279,9 @@ Para obtener información sobre otras formas de administrar la instancia de serv
 -	Administrar la instancia de servicio mediante la API de REST
 	-	[API Management REST API (API de REST de Administración de API)](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
+## Vea un vídeo de introducción.
+
+> [AZURE.VIDEO configuration-over-git]
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
@@ -294,4 +297,4 @@ Para obtener información sobre otras formas de administrar la instancia de serv
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

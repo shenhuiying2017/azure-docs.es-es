@@ -233,7 +233,7 @@ Resultado esperado:
 
 Use el cmdlet `Add-AzureRmVMNetworkInterface` para asignar las tarjetas NIC a distintas máquinas virtuales.
 
-Puede encontrar instrucciones sobre cómo crear una máquina virtual y asignar una NIC en [Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) con la opción 5 del ejemplo.
+Puede encontrar instrucciones sobre cómo crear una máquina virtual y asignar una NIC en [Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example) con la opción 5 del ejemplo.
 
 
 O bien, si ya tiene una máquina virtual creada, puede agregar la interfaz de red con los pasos siguientes:
@@ -308,4 +308,4 @@ Use el comando `Remove-AzureLoadBalancer` para eliminar un equilibrador de carga
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

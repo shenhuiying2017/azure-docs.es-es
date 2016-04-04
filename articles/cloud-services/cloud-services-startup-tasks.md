@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/21/2016" 
 ms.author="adegeo"/>
 
 
@@ -21,7 +21,7 @@ ms.author="adegeo"/>
 
 Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo.
 
->[AZURE.NOTE]Las tareas de inicio no son aplicables a las máquinas virtuales, solo a los roles web y de trabajo del servicio en la nube.
+>[AZURE.NOTE] Las tareas de inicio no son aplicables a las máquinas virtuales, solo a los roles web y de trabajo del servicio en la nube.
 
 ## Cómo funcionan las tareas de inicio
 
@@ -46,7 +46,7 @@ A continuación se enumera el procedimiento de inicio de rol en Azure:
     - Las tareas con el valor **simple** se ejecutan sincrónicamente, una a una.
     - Las tareas con los valores **background** y **foreground** se inician de forma asincrónica, paralelas a la tarea de inicio.  
        
-    > [AZURE.WARNING]Puede que IIS no se haya configurado por completo durante la fase de la tarea de inicio en el proceso de inicio, por lo que los datos específicos de rol pueden no estar disponibles. Las tareas de inicio que requieren datos específicos de la role tienen que usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+    > [AZURE.WARNING] Puede que IIS no se haya configurado por completo durante la fase de la tarea de inicio en el proceso de inicio, por lo que los datos específicos de rol pueden no estar disponibles. Las tareas de inicio que requieren datos específicos de la role tienen que usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
 
 3. Se inicia el proceso de host de rol y se crea el sitio en IIS.
 
@@ -82,7 +82,7 @@ ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
 EXIT /B 0
 ```
 
-> [AZURE.NOTE]En Visual Studio, la propiedad **Copiar en el directorio de salida** para el archivo por lotes de inicio debe establecerse en **Copiar siempre** para asegurarse de que el archivo por lotes de inicio se implementa debidamente en el proyecto en Azure (**approot\\bin** para los roles Web y **approot** para los roles de trabajo).
+> [AZURE.NOTE] En Visual Studio, la propiedad **Copiar en el directorio de salida** para el archivo por lotes de inicio debe establecerse en **Copiar siempre** para asegurarse de que el archivo por lotes de inicio se implementa debidamente en el proyecto en Azure (**approot\\bin** para los roles Web y **approot** para los roles de trabajo).
 
 ## Descripción de los atributos de la tarea
 
@@ -101,13 +101,13 @@ A continuación se describen los atributos del elemento **Task** en el archivo [
 
 - **elevated** la tarea de inicio se ejecuta con privilegios de administrador. Esto permite a las tareas de inicio instalar programas, realizar cambios en la configuración de IIS, realizar cambios en el registro y otras tareas de nivel de administrador, sin aumentar el nivel de privilegio del propio rol.
 
-> [AZURE.NOTE]No es preciso que el nivel de privilegios de la tarea de inicio sea el mismo que el del propio rol.
+> [AZURE.NOTE] No es preciso que el nivel de privilegios de la tarea de inicio sea el mismo que el del propio rol.
 
 **taskType** - especifica la manera en que se ejecuta una tarea de inicio.
 
 - **simple** Las tareas se ejecutan sincrónicamente, una a una, en el orden especificado en el archivo [ServiceDefinition.csdef]. Cuando una tarea de inicio **simple**finaliza con un **errorlevel** de cero, se ejecuta la siguiente tarea de inicio **simple**. Si no hay más tareas de inicio con el valor **simple** para ejecutarse, se iniciará el propio rol.   
 
-    > [AZURE.NOTE]Si la tarea **simple** finaliza con un valor **errorlevel** distinto de cero, se bloqueará la instancia. Las subsiguientes tareas de inicio **simple** y el propio rol no se iniciarán.
+    > [AZURE.NOTE] Si la tarea **simple** finaliza con un valor **errorlevel** distinto de cero, se bloqueará la instancia. Las subsiguientes tareas de inicio **simple** y el propio rol no se iniciarán.
 
     Para asegurarse de que el archivo por lotes finaliza con un valor **errorlevel** de cero, ejecute el comando `EXIT /B 0` al final del proceso de archivo por lotes.
 
@@ -123,7 +123,7 @@ Hay dos tipos de variables de entorno para las tareas de inicio; variables de en
 
 Las variables de entorno estáticas usan el atributo **value** del elemento [Variable]. El ejemplo anterior crea la variable de entorno **MyVersionNumber** que tiene un valor estático de "**1.0.0.0**". Otro ejemplo sería crear una variable de entorno **StagingOrProduction** para la que pueda establecer manualmente los valores de "**staging**"o"**production**" para realizar acciones de inicio diferentes en función del valor de la variable de entorno **StagingOrProduction**.
 
-Las variables de entorno que se basan en los miembros de la clase RoleEnvironment no usan el atributo **value** del elemento [Variable]. En su lugar, el elemento secundario [RoleInstanceValue], con el valor de atributo **xPath** adecuado, se usa para crear una variable de entorno basándose en un miembro específico de la clase [RoleEnvironment]. Los valores del atributo **xPath** para acceder a distintos valores [RoleEnvironment] pueden encontrarse en [Valores xPath en Azure](https://msdn.microsoft.com/library/azure/hh404006.aspx).
+Las variables de entorno que se basan en los miembros de la clase RoleEnvironment no usan el atributo **value** del elemento [Variable]. En su lugar, el elemento secundario [RoleInstanceValue], con el valor de atributo **xPath** adecuado, se usa para crear una variable de entorno basada en un miembro específico de la clase [RoleEnvironment]. Los valores del atributo **xPath** para acceder a distintos valores [RoleEnvironment] pueden encontrarse [aquí](cloud-services-role-config-xpath.md).
 
 
 
@@ -163,4 +163,4 @@ Aprenda a realizar algunas [tareas de inicio comunes](cloud-services-startup-tas
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

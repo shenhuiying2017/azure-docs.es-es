@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/10/2016" 
+    ms.date="03/17/2016" 
     ms.author="b-hoedid"/>
 
 # Notificaciones para los recursos de DocumentDB nuevos o modificados con Aplicaciones lógicas
@@ -624,7 +624,7 @@ La acción siguiente es guardar los documentos en [Almacenamiento de blobs de Az
 
 Se genera el código a partir de la acción en el diseñador. No tiene que modificar el código.
 
-Si no está familiarizado con el uso de la API de blobs de Azure, vea [Introducción a la API de Almacenamiento de blobs de Azure](../connectors/create-api-azureblobstorage.md).
+Si no está familiarizado con el uso de la API de blobs de Azure, consulte [Get started with the Azure blob storage API](../connectors/connectors-create-api-azureblobstorage.md) (Introducción a la API de Almacenamiento de blobs de Azure).
 
 #### Operaciones
 
@@ -1156,4 +1156,4 @@ Descargue y use el código de la Aplicación lógica proporcionado en [Github](h
 
 Para obtener más información sobre DocumentDB, visite la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

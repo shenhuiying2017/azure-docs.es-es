@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Un paseo por Application Insights Analytics" 
-	description="Ejemplos breves de todas las principales consultas de Application Insights Analytics, la potente herramienta de búsqueda de Application Insights." 
+	pageTitle="Un paseo por Analytics de Application Insights" 
+	description="Ejemplos breves de todas las principales consultas de Analytics, la potente herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Un paseo por Application Insights Analytics
+# Un paseo por Analytics de Application Insights
 
 
-Application Insights Analytics es un potente motor de búsqueda de diagnósticos para la telemetría de [Application Insights](app-insights-overview.md).
+[Analytics](app-analytics.md) es una eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -31,9 +31,9 @@ Recorramos algunas preguntas básicas para comenzar.
 
 Abra Analytics desde la [hoja de información general](app-insights-dashboards.md) de su aplicación en Application Insights:
 
-![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Analytics.](./media/app-analytics/001.png)
+![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-analytics/001.png)
 
-## [Recuento](app-analytics-aggregations.md#count) de filas (count)
+## [Count](app-analytics-aggregations.md#count): contar filas
 
 Las métricas como contadores de rendimiento se almacenan en una tabla llamada métricas. Cada fila es un punto de datos de telemetría procedente del SDK de Application Insights en una aplicación. Para averiguar el tamaño de la tabla, canalizaremos su contenido a un operador que sencillamente cuenta las filas:
 
@@ -50,9 +50,9 @@ Este es el resultado:
 ![](./media/app-analytics-tour/010.png)
 
 	
-[`Count`](app-analytics-aggregations.md#count) es uno de los muchos [operadores de consulta](app-analytics-queries.md) que podemos organizar en una canalización, filtrado, reforma y unión de datos en varias fases.
+[`Count`](app-analytics-aggregations.md#count) es uno de los muchos [operadores de consulta](app-analytics-queries.md) que podemos organizar en una canalización, filtrado, reforma y combinación de datos en varias fases.
 	
-## [Take](app-analytics-aggregations.md#take): Mostrarme n filas
+## [Take](app-analytics-aggregations.md#take): mostrarme n filas
 
 
 Veamos algunos datos: ¿Qué hay en un ejemplo de 5 filas?
@@ -133,10 +133,10 @@ También puede cambiar el nombre de las columnas y definir otras nuevas:
 En la expresión escalar:
 
 * `%` es el operador de módulo habitual. 
-* `1d` (es decir, el dígito uno y luego una "d") es un literal de intervalo de tiempo que significa un día. A continuación se indican algunos literales de intervalo de tiempo más: `12h`, `30m`, `10s` y `0.01s`.
+* `1d` (es decir, el dígito uno y luego una "d") es un literal de intervalo de tiempo que significa un día. A continuación se indican otros literales de intervalo de tiempo: `12h`, `30m`, `10s` y `0.01s`.
 * `floor` (alias `bin`) redondea un valor a la baja al múltiplo más cercano del valor base que se proporciona. Por tanto, `floor(aTime, 1s)` redondea un tiempo a la baja al segundo más cercano.
 
-Las [expresiones](app-analytics-scalars.md) pueden incluir todos los operadores habituales (`+`, `-`...) y hay una amplia gama de funciones útiles.
+Las [expresiones](app-analytics-scalars.md) pueden incluir todos los operadores habituales (`+`, `-`, etc.) y hay una amplia gama de funciones útiles.
 
 ## [Extend](app-analytics-aggregations.md#extend): calcular columnas
 
@@ -165,12 +165,12 @@ Pero en lugar de penetrar a través de instancias individuales, vamos preguntar 
 
 ![](./media/app-analytics-tour/210.png)
 
-`Summarize` agrupa las filas que tienen los mismos valores en los campos con nombre en la cláusula `by`, produciendo una sola fila de resultados para cada grupo. En este caso, hay una fila para cada tipo de excepción. La función de agregación `count()` cuenta las filas de cada grupo, proporcionando una columna en el resultado.
+`Summarize` agrupa las filas que tienen los mismos valores en los campos con nombre en la cláusula `by`, lo que produce una sola fila de resultados para cada grupo. En este caso, hay una fila para cada tipo de excepción. La función de agregación `count()` cuenta las filas de cada grupo, lo que proporciona una columna en el resultado.
 
 
-Hay una amplia gama de [funciones de agregación](app-analytics-aggregations.md) y puede utilizar varias de ellas en un operador de resumen para generar varias columnas calculadas.
+Hay una amplia gama de [funciones de agregación](app-analytics-aggregations.md) y puede usar varias en un operador de resumen para generar varias columnas calculadas.
 
-Por ejemplo, vamos a mostrar las solicitudes HTTP para las que se producen estas excepciones. De nuevo, mediante la inspección de un ejemplo de la tabla de excepciones, observará que las rutas de acceso de las solicitudes HTTP se indican en una columna llamada `operation_Name`.
+Por ejemplo, vamos a mostrar las solicitudes HTTP para las que se producen estas excepciones. Si examina un ejemplo de la tabla de excepciones, observará que las rutas de acceso de las solicitudes HTTP se indican en una columna llamada `operation_Name`.
 
 ```AIQL
 
@@ -188,7 +188,7 @@ El resultado de un resumen tiene:
 
 * cada columna con nombre en `by`;
 * más una columna para cada expresión de agregación;
-* una fila para cada combinación de `by` valores.
+* una fila para cada combinación de valores `by`.
 
 
 ## Resumen por valores escalares
@@ -214,7 +214,7 @@ Podemos hacerlo mejor que la vista de la tabla. Echemos un vistazo a los resulta
 Tenga en cuenta que aunque no ordenamos los resultados por tiempo (como puede ver en la visualización de la tabla), la visualización del gráfico siempre muestra las fechas en el orden correcto.
 
 
-## [Where](app-analytics-aggregations.md#where): filtrado sobre una condición
+## [Where](app-analytics-aggregations.md#where): filtrado de una condición
 
 Si ha configurado la supervisión de Application Insights tanto para el [cliente](app-insights-javascript.md) como para el servidor de la aplicación, parte de la telemetría de la base de datos procede de los exploradores.
 
@@ -236,7 +236,7 @@ El operador `where` toma una expresión booleana. He aquí algunos puntos clave:
  * `==`, `<>`: igual que y no igual que
  * `=~`, `!=`: cadena que no distingue entre mayúsculas y minúsculas igual que y no igual que. Hay muchos más operadores de comparación de cadenas.
 
-Lea todo sobre [expresiones escalares](app-analytics-scalars.md).
+Lea toda la información disponible sobre las [expresiones escalares](app-analytics-scalars.md).
 
 ### Filtrado de eventos
 
@@ -248,7 +248,7 @@ Buscar solicitudes incorrectas:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` tiene el tipo de cadena, por lo que debemos [convertirla](app-analytics-scalars.md#casts) para una comparación numérica.
+`responseCode` tiene el tipo de cadena, por lo que debemos [convertirlo](app-analytics-scalars.md#casts) para una comparación numérica.
 
 Resumir las diferentes respuestas:
 
@@ -290,7 +290,7 @@ Use varios valores en un cláusula `summarize by` para crear una fila independie
 
 ![](./media/app-analytics-tour/090.png)
 
-Para mostrar varias líneas en un gráfico, haga clic en **Split by (Dividir por)** y elija una columna.
+Para mostrar varias líneas en un gráfico, haga clic en **Dividir por** y elija una columna.
 
 ![](./media/app-analytics-tour/100.png)
 
@@ -350,7 +350,7 @@ Dividir el gráfico por estado:
 
 La última línea es necesaria para convertir a fecha y hora (actualmente, el eje x de un gráfico de líneas solo puede ser una fecha y hora).
 
-La cláusula `where` excluye las sesiones únicas (sessionDuration == 0) y establece la longitud del eje x.
+La cláusula `where` excluye las sesiones únicas (sessionDuration==0) y establece la longitud del eje x.
 
 
 ![](./media/app-analytics-tour/290.png)
@@ -436,9 +436,9 @@ Use [let](./app-analytics-syntax.md#let-statements) para separar las partes de l
     | take 30
 ```
 
-> Sugerencia: En el cliente de AI Analytics, no incluya líneas en blanco entre las partes de esto. Asegúrese de ejecutar todo.
+> Sugerencia: en el cliente de Analytics, no incluya líneas en blanco entre las partes. Asegúrese de ejecutar todo.
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

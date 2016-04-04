@@ -164,10 +164,10 @@ Antes de cambiar el tipo VPN de puerta de enlace, asegúrese de comprobar que el
 
 Puede obtener más información sobre conectividad entre entornos de red virtual en este artículo: [Información acerca de la conectividad entre entornos de red virtual](vpn-gateway-cross-premises-options.md).
 
-Puede agregar máquinas virtuales a la red virtual. Vea [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
+Puede agregar máquinas virtuales a la red virtual. Vea [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
 Si quiere configurar una conexión VPN de punto a sitio, vea [Configuración de una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

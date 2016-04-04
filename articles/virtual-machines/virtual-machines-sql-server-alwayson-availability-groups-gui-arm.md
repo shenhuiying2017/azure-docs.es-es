@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Configuración del Administrador de recursos de Azure para Grupos de disponibilidad AlwaysOn | Microsoft Azure"
 	description="Cree un grupo de disponibilidad AlwaysOn con máquinas virtuales de Azure en el modo Administrador de recursos de Azure. Este tutorial usa principalmente la interfaz de usuario para crear automáticamente toda la solución."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-resource-manager" />
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
@@ -20,8 +20,8 @@
 
 > [AZURE.SELECTOR]
 - [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portal - Clásico](virtual-machines-windows-classic-portal-sql-availability.md)
+- [PowerShell: clásico](virtual-machines-windows-classic-ps-sql-availability.md)
 
 <br/>
 
@@ -52,13 +52,13 @@ Todos los recursos de esta solución pertenecen a un único grupo de recursos.
 
 En este tutorial se da por hecho lo siguiente:
 
-- Ya tiene una cuenta de Azure. Si no tiene una, [suscríbase para una cuenta de prueba](http://azure.microsoft.com/pricing/free-trial/).
+- Ya tiene una cuenta de Azure. Si no tiene ninguna, [suscríbase para obtener una cuenta de prueba](http://azure.microsoft.com/pricing/free-trial/).
 
-- Ya sabe cómo aprovisionar una máquina virtual de SQL Server desde la galería de máquina virtual mediante la interfaz gráfica de usuario (GUI). Para obtener más información, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-provision-sql-server.md).
+- Ya sabe cómo aprovisionar una máquina virtual de SQL Server desde la galería de máquina virtual mediante la interfaz gráfica de usuario (GUI). Para obtener más información, consulte [Provisioning a SQL Server virtual machine on Azure](virtual-machines-windows-classic-portal-sql.md) (Aprovisionamiento de una máquina virtual de SQL Server en Azure).
 
 - Ya tiene un conocimiento sólido de los Grupos de disponibilidad AlwaysOn. Para obtener más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] Si tiene interés en el uso de los Grupos de disponibilidad AlwaysOn con SharePoint, consulte también [Configuración de grupos de disponibilidad AlwaysOn de SQL Server 2012 para SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] Si tiene interés en usar los grupos de disponibilidad AlwaysOn con SharePoint, consulte también [Configuración de grupos de disponibilidad AlwaysOn de SQL Server 2012 para SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
 
 En este tutorial se usará el Portal de Azure para:
 
@@ -77,22 +77,22 @@ Azure ofrece una galería de imágenes para toda la solución. Para encontrar la
 1. 	Inicie sesión en el Portal de Azure con su cuenta.
 1.	En el Portal de Azure, haga clic en **+Nuevo**. El portal abrirá la hoja Nuevo. 
 1.	En la hoja Nuevo, busque **AlwaysOn**. ![Buscar la plantilla de AlwaysOn](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/16-findalwayson.png)
-1.	En los resultados de búsqueda localice **Clúster AlwaysOn de SQL Server**. ![Plantilla de AlwaysOn](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/17-alwaysontemplate.png)
-1.	En **Seleccionar un modelo de implementación**, elija **Administrador de recursos**.
+1.	En los resultados de búsqueda, localice **Clúster AlwaysOn de SQL Server**. ![Plantilla de AlwaysOn](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/17-alwaysontemplate.png)
+1.	En **Seleccionar un modelo de implementación**, elija **Resource Manager**.
 
 ### Aspectos básicos
 
-Haga clic en **Básico** y configure lo siguiente:
+Haga clic en **Básico** y configure las siguientes opciones:
 
-- **Nombre de usuario del administrador**: es una cuenta de usuario con permisos de administrador de dominio y un miembro del rol de servidor fijo sysadmin de SQL Server en ambas instancias de SQL Server. En este tutorial use **DomainAdmin**. 
+- **Nombre de usuario del administrador**: es una cuenta de usuario con permisos de administrador de dominio y un miembro del rol de servidor fijo sysadmin de SQL Server en ambas instancias de SQL Server. Use **DomainAdmin** en este tutorial. 
 
-- **Contraseña**: es la contraseña para la cuenta de administrador de dominio. Utilice una contraseña compleja. Confirme la contraseña.
+- **Contraseña**: es la contraseña de la cuenta de administrador del dominio. Utilice una contraseña compleja. Confirme la contraseña.
 
 - **Suscripción**: es la suscripción que Azure facturará para ejecutar todos los recursos implementados para el grupo de disponibilidad AlwaysOn. Puede especificar otra suscripción si la cuenta tiene varias suscripciones.
  
-- **Grupo de recursos**: es el nombre del grupo al que pertenecerán todos los recursos de Azure creados por este tutorial. En este tutorial use **SQL-HA-RG**. Para obtener más información, consulte (información general del Administrador de recursos de Azure)[resource-group-overview.md/#resource-groups].
+- **Grupo de recursos**: es el nombre del grupo al que pertenecerán todos los recursos de Azure creados en este tutorial. Use **SQL-HA-RG** en este tutorial. Para obtener más información, consulte (información general del Administrador de recursos de Azure)[resource-group-overview.md/#resource-groups].
 
-- **Ubicación**: es la región de Azure donde se crearán los recursos para este tutorial. Seleccione una región de Azure para hospedar la infraestructura.
+- **Ubicación**: es la región de Azure en la que se crearán los recursos para este tutorial. Seleccione una región de Azure para hospedar la infraestructura.
 
 A continuación se muestra el aspecto de la hoja **Básico**:
 
@@ -104,17 +104,17 @@ A continuación se muestra el aspecto de la hoja **Básico**:
 
 Esta plantilla de la galería de Azure crea un nuevo dominio con nuevos controladores de dominio. También crea una nueva red y dos subredes. La plantilla no permite la creación de los servidores en una red virtual o dominio existente. El siguiente paso es configurar el dominio y la red.
 
-En la hoja **Configuración de dominio y red** revise los valores predefinidos para la configuración del dominio y de la red:
+En la hoja **Configuración de dominio y red**, revise los valores predefinidos para la configuración del dominio y de la red:
 
-- **Nombre de dominio raíz del bosque**: es el nombre de dominio que se usará para el dominio de AD que va a hospedar el clúster. En este tutorial use **contoso.com**. 
+- **Nombre de dominio raíz del bosque**: es el nombre de dominio que se usará para el dominio de AD que va a hospedar el clúster. Use **contoso.com** en este tutorial. 
 
-- **Nombre de red virtual**: es el nombre de red para la red virtual de Azure. En este tutorial use **autohaVNET**.
+- **Nombre de red virtual**: es el nombre de la red virtual de Azure. Use **autohaVNET** en este tutorial.
 
-- **Nombre de subred del controlador de dominio**: es el nombre de una parte de la red virtual que hospeda el controlador de dominio. En este tutorial use **subnet-1**. Esta subred usará el prefijo de dirección **10.0.0.0/24**.
+- **Nombre de subred del controlador de dominio**: es el nombre de una sección de la red virtual que hospeda el controlador de dominio. Use **subnet-1** en este tutorial. Esta subred usará el prefijo de dirección **10.0.0.0/24**.
 
-- **Nombre de subred de SQL Server**: es el nombre de una parte de la red virtual que hospeda servidores SQL Server y el testigo del recurso compartido de archivos. En este tutorial use **subnet-2**. Esta subred usará el prefijo de dirección **10.0.1.0/26**.
+- **Nombre de subred de SQL Server**: es el nombre de una sección de la red virtual que hospeda los servidores de SQL Server y el testigo del recurso compartido de archivos. Use **subnet-2** en este tutorial. Esta subred usará el prefijo de dirección **10.0.1.0/26**.
 
-Para obtener más información acerca de redes virtuales, consulte [Información general sobre redes virtuales](virtual-networks-overview.md).
+Para obtener más información sobre las redes virtuales en Azure, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 
 **Configuración de red y dominio** debe tener este aspecto:
 
@@ -126,13 +126,13 @@ Si es necesario, puede cambiar estos valores. En este tutorial usamos los valore
 
 ###Configuración de grupos de disponibilidad
 
-En **Configuración de grupo de disponibilidad** revise los valores preestablecidos para el grupo de disponibilidad y el agente de escucha.
+En **Configuración de grupo de disponibilidad**, revise los valores preestablecidos del grupo de disponibilidad y el agente de escucha.
 
-- **Nombre del grupo de disponibilidad**: es el nombre de recurso de clúster para el grupo de disponibilidad. En este tutorial use **Contoso-ag**. 
+- **Nombre del grupo de disponibilidad**: es el nombre del recurso de clúster para el grupo de disponibilidad. Use **Contoso-ag** en este tutorial. 
 
-- **Nombre de agente de escucha de grupo de disponibilidad**: lo usa el clúster y el equilibrador de carga interno. Los clientes que se conectan a SQL Server pueden usar este nombre para conectarse a la réplica de la base de datos adecuada. En este tutorial use **Contoso-listener**.
+- **Nombre de escucha de grupo de disponibilidad**: lo usan el clúster y el equilibrador de carga interno. Los clientes que se conectan a SQL Server pueden usar este nombre para conectarse a la réplica de la base de datos adecuada. Use **Contoso-listener** en este tutorial.
 
--  **Puerto de escucha de grupo de disponibilidad**: especifica el puerto TCP que utilizará el agente de escucha de SQL Server. En este tutorial use el puerto predeterminado **1433**.
+-  **Puerto de escucha de grupo de disponibilidad**: especifica el puerto TCP que usará el agente de escucha de SQL Server. Use el puerto predeterminado, **1433**, en este tutorial.
 
 Si es necesario, puede cambiar estos valores. En este tutorial use los valores preestablecidos.
 
@@ -142,31 +142,31 @@ Si es necesario, puede cambiar estos valores. En este tutorial use los valores p
 
 ###Tamaño de VM y configuración de almacenamiento
 
-En **Tamaño de VM y configuración de almacenamiento** elija un tamaño de máquina virtual de SQL Server y revise otras configuraciones.
+En **Tamaño de VM y configuración de almacenamiento**, elija un tamaño de máquina virtual de SQL Server y revise el resto de las configuraciones.
 
-- **Tamaño de máquina virtual de SQL Server**: es el tamaño de la máquina virtual de Azure para ambos servidores SQL Server. Elija un tamaño de máquina virtual adecuado para la carga de trabajo. Si va a crear este entorno para el tutorial, use **DS2**. Para cargas de trabajo de producción elija un tamaño de máquina virtual que pueda admitir la carga de trabajo. Muchas cargas de trabajo de producción requerirán **DS4** o superior. La plantilla creará dos máquinas virtuales de este tamaño e instalará SQL Server en cada uno de ellas. Para más información, consulte [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
+- **Tamaño de máquina virtual de SQL Server**: es el tamaño de la máquina virtual de Azure para ambos servidores de SQL Server. Elija un tamaño de máquina virtual adecuado para la carga de trabajo. Si va a crear este entorno para el tutorial, use **DS2**. Para cargas de trabajo de producción elija un tamaño de máquina virtual que pueda admitir la carga de trabajo. Muchas cargas de trabajo de producción necesitarán **DS4** o superior. La plantilla creará dos máquinas virtuales de este tamaño e instalará SQL Server en cada uno de ellas. Para obtener más información, consulte [Sizes for virtual machines](virtual-machines-linux-sizes.md) (Tamaños de máquinas virtuales).
 
->[AZURE.NOTE]Azure instalará Enterprise Edition de SQL Server. El costo depende de la edición y el tamaño de la máquina virtual. Para obtener información detallada acerca de los costos actuales, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+>[AZURE.NOTE]Azure instalará Enterprise Edition de SQL Server. El costo depende de la edición y el tamaño de la máquina virtual. Para obtener información detallada sobre los costos actuales, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-- **Tamaño de la máquina virtual del controlador de dominio**: es el tamaño de la máquina virtual para los controladores de dominio. En este tutorial use **D2**.
+- **Tamaño de la máquina virtual del controlador de dominio**: es el tamaño de la máquina virtual para los controladores de dominio. Use **D2** en este tutorial.
 
-- **Tamaño de la máquina virtual del testigo del recurso compartido de archivos**: es el tamaño de la máquina virtual para el testigo del recurso compartido de archivos. En este tutorial use **A1**.
+- **Tamaño de la máquina virtual del testigo del recurso compartido de archivos**: es el tamaño de la máquina virtual para el testigo del recurso compartido de archivos. Use **A1** en este tutorial.
 
-- **Cuenta de almacenamiento SQL**: es el nombre de la cuenta de almacenamiento para contener los datos de SQL Server y los discos del sistema operativo. En este tutorial use **alwaysonsql01**.
+- **Cuenta de almacenamiento SQL**: es el nombre de la cuenta de almacenamiento en la que se ubicarán los datos de SQL Server y los discos del sistema operativo. Use **alwaysonsql01** en este tutorial.
 
-- **Cuenta de almacenamiento de controladores de dominio**: es el nombre de la cuenta de almacenamiento para los controladores de dominio. En este tutorial use **alwaysondc01**.
+- **Cuenta de almacenamiento de controladores de dominio**: es el nombre de la cuenta de almacenamiento para los controladores de dominio. Use **alwaysondc01** en este tutorial.
 
-- **Tamaño de disco de datos de SQL Server**: es el tamaño (en TB) del disco de datos de SQL Server en TB. Especifique un número entre 1 y 4 Este es el tamaño del disco de datos que se adjuntará a cada servidor SQL Server. En este tutorial use **1**.
+- **Tamaño de disco de datos de SQL Server**: es el tamaño (en TB) del disco de datos de SQL Server. Especifique un número entre 1 y 4 Este es el tamaño del disco de datos que se adjuntará a cada servidor SQL Server. Use **1** en este tutorial.
 
-- **Optimización de almacenamiento**: establece una configuración de almacenamiento específica para las máquinas virtuales de SQL Server según el tipo de carga de trabajo. Todos los servidores SQL Server en este escenario usan almacenamiento premium con caché de host de disco de Azure establecida en solo lectura. Además, puede optimizar la configuración de SQL Server para la carga de trabajo eligiendo una de estas tres configuraciones:
+- **Optimización de almacenamiento**: establece una configuración de almacenamiento específica para las máquinas virtuales de SQL Server en función del tipo de carga de trabajo. Todos los servidores SQL Server en este escenario usan almacenamiento premium con caché de host de disco de Azure establecida en solo lectura. Además, puede optimizar la configuración de SQL Server para la carga de trabajo eligiendo una de estas tres configuraciones:
 
-    - **Carga de trabajo general**: no establece una configuración específica. 
+    - **Carga de trabajo general**: no establece ninguna configuración específica. 
 
-    - **Procesamiento transaccional**: establece la marca de seguimiento 1117 y 1118.
+    - **Procesamiento transaccional**: establece las marcas de seguimiento 1117 y 1118.
 
-    - **Almacenamiento de datos**: establece la marca de seguimiento 1117 y 610.
+    - **Almacenamiento de datos**: establece las marcas de seguimiento 1117 y 610.
 
-En este tutorial use **Carga de trabajo general**.
+Use **Carga de trabajo general** en este tutorial.
 
 ![Configuración de almacenamiento del tamaño de VM](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
 
@@ -190,22 +190,22 @@ Para obtener información adicional sobre el espacio de almacenamiento y los blo
 
 - [Copias de seguridad de Windows Server y bloques de almacenamiento](http://technet.microsoft.com/library/dn390929.aspx)
 
-Para obtener más información sobre prácticas recomendadas para la configuración de SQL Server, consulte [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-performance-best-practices.md).
+Para obtener más información sobre prácticas recomendadas para configurar SQL Server, consulte [Performance best practices for SQL Server in Azure virtual machines](virtual-machines-windows-classic-sql-perf.md) (Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure).
 
 
 ###Configuración de SQL Server
 
-En **Configuración de SQL Server** revise y modifique el prefijo del nombre de VM de SQL Server, la versión de SQL Server, la contraseña y la cuenta de servicio de SQL Server, y la programación de mantenimiento de aplicación de revisión automática de SQL.
+En **Configuración de SQL Server**, revise y modifique el prefijo del nombre de VM de SQL Server, la versión de SQL Server, la cuenta de servicio y la contraseña de SQL Server y la programación de mantenimiento de aplicación de revisión automática de SQL.
 
-- **Prefijo de nombre de SQL Server**: se utiliza para crear un nombre para cada servidor SQL Server. En este tutorial use **Contoso-ag**. Los nombres de SQL Server serán *Contoso-ag-0* y *Contoso-ag-1*. 
+- **Prefijo de nombre de SQL Server**: se usa para crear un nombre para cada servidor de SQL Server. Use **Contoso-ag** en este tutorial. Los nombres de SQL Server serán *Contoso-ag-0* y *Contoso-ag-1*. 
 
-- **Versión de SQL Server**: es la versión de SQL Server. En este tutorial use **SQL Server 2014**. También puede elegir **SQL Server 2012** o **SQL Server 2016**.
+- **Versión de SQL Server**: es la versión de SQL Server. Use **SQL Server 2014** en este tutorial. También puede elegir **SQL Server 2012** o **SQL Server 2016**.
 
-- **Nombre de usuario de la cuenta del servicio SQL Server**: es el nombre de cuenta de dominio para el servicio SQL Server. En este tutorial use **sqlservice**.
+- **Nombre de usuario de la cuenta del servicio SQL Server**: es el nombre de la cuenta de dominio para el servicio de SQL Server. Use **sqlservice** en este tutorial.
 
-- **Contraseña**: es la contraseña de la cuenta del servicio SQL Server. Utilice una contraseña compleja. Confirme la contraseña.
+- **Contraseña**: es la contraseña de la cuenta del servicio de SQL Server. Utilice una contraseña compleja. Confirme la contraseña.
 
-- **Programación de mantenimiento para aplicar revisiones automáticas de SQL**: identifica el día de la semana que Azure aplicará revisiones automáticamente en los servidores SQL Server. En este tutorial escriba **Domingo**.
+- **Programación de mantenimiento para aplicar revisiones automáticas de SQL**: identifica el día de la semana en que Azure aplicará revisiones automáticamente a los servidores de SQL Server. Use **Domingo** en este tutorial.
 
 - **Hora de inicio del mantenimiento de aplicación de revisiones automáticas de SQL**: es la hora del día de la región de Azure a la que se iniciará la aplicación de revisiones automática.
 
@@ -221,7 +221,7 @@ Azure valida la configuración en la página de resumen. También puede descarga
 
 ###Comprar
 
-Esta hoja final contiene **términos de uso** y la **política de privacidad**. Revise esta información. Cuando esté listo para que Azure comience a crear las máquinas virtuales y todos los recursos necesarios para el grupo de disponibilidad AlwaysOn, haga clic en **Crear**.
+Esta hoja final contiene los **términos de uso** y la **política de privacidad**. Revise esta información. Cuando esté listo para que Azure comience a crear las máquinas virtuales y el resto de los recursos necesarios para el grupo de disponibilidad AlwaysOn, haga clic en **Crear**.
  
 El Portal de Azure creará el grupo de recursos y todos los recursos.
 
@@ -241,23 +241,23 @@ Para la RDP al controlador de dominio principal, siga estos pasos:
 
 1.	Haga clic en **Recursos**.
 
-1.	En la hoja **Recursos**, haga clic en **ad-primary-dc** que es el nombre del equipo de la máquina virtual del controlador de dominio principal.
+1.	En la hoja **Recursos**, haga clic en **ad-primary-dc**, que es el nombre del equipo de la máquina virtual del controlador de dominio principal.
 
 1.	En la hoja de **ad-primary-dc**, haga clic en **Conectar**. El explorador le preguntará si desea abrir o guardar el objeto de conexión remota. Haga clic en **Abrir**. ![Conectarse al controlador de dominio](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/13-ad-primary-dc-connect.png)
-1.	**Conexión a Escritorio remoto** puede advertirle de que el publicador de esta conexión remota no se puede identificar. Haga clic en **Conectar**.
+1.	**Conexión a Escritorio remoto**: puede advertirle de que no se puede identificar el publicador de esta conexión remota. Haga clic en **Conectar**.
 
-1.	Seguridad de Windows le pide que escriba sus credenciales para conectarse a la dirección IP del controlador de dominio principal. Haga clic en **Usar otra cuenta**. Para **Nombre de usuario**, escriba **contoso\\DomainAdmin**. Esta es la cuenta que eligió para el nombre de usuario del administrador. Utilice la contraseña compleja que eligió al configurar la plantilla.
+1.	Seguridad de Windows le pide que escriba sus credenciales para conectarse a la dirección IP del controlador de dominio principal. Haga clic en **Usar otra cuenta**. En **Nombre de usuario**, escriba **contoso\\DomainAdmin**. Esta es la cuenta que eligió para el nombre de usuario del administrador. Utilice la contraseña compleja que eligió al configurar la plantilla.
 
-1.	**Escritorio remoto** puede advertirle de que no se pudo autenticar el equipo remoto debido a problemas con su certificado de seguridad. Le mostrará el nombre del certificado de seguridad. Si ha seguido el tutorial, el nombre será **ad-principal-dc.contoso.com**. Haga clic en **Sí**.
+1.	**Escritorio remoto**: puede advertirle de que no se pudo autenticar el equipo remoto debido a problemas con su certificado de seguridad. Le mostrará el nombre del certificado de seguridad. Si ha seguido el tutorial, el nombre será **ad-primary-dc.contoso.com**. Haga clic en **Sí**.
 
 Ahora está conectado al controlador de dominio principal. Para la RDP a SQL Server, siga estos pasos:
 
 1.	En el controlador de dominio, abra **Conexión a Escritorio remoto**. 
 
-1.	Para **Equipo**, escriba el nombre de uno de los servidores SQL Server. En este tutorial escriba **sqlserver-0**.
+1.	En **Equipo**, escriba el nombre de uno de los servidores de SQL Server. Escriba **sqlserver-0** en este tutorial.
 
 1.	Utilice la misma cuenta de usuario y contraseña que usó para RDP para el controlador de dominio.
 
 Ahora está conectado con RDP a SQL Server. Puede abrir SQL Server Management Studio, conectarse a la instancia predeterminada de SQL Server y comprobar que el grupo de disponibilidad AlwaysOn está configurado.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

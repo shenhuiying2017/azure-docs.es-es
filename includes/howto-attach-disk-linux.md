@@ -1,11 +1,11 @@
 
-Para obtener más detalles acerca de los discos, consulte [Acerca de los discos y discos duros virtuales para máquinas virtuales](virtual-machines-disks-vhds.md).
+Para obtener más detalles acerca de los discos, consulte [Acerca de los discos y discos duros virtuales para máquinas virtuales](virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Acoplamiento de un disco vacío
 El acoplamiento de un disco vacío supone el método más sencillo de agregar un disco de datos, porque Azure crea el archivo .vhd en su lugar y lo almacena en la cuenta de almacenamiento.
 
-1.  Abre la interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows y conéctate a tu suscripción de Azure. Para más información, consulta el tema [Conexión a Azure desde la CLI de Azure](../articles/xplat-cli-connect.md).
+1.  Abre la interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows y conéctate a tu suscripción de Azure. Para más información, consulta el tema [Conexión a Azure desde la CLI de Azure](../xplat-cli-connect.md).
 
 2.  Escribe `azure config
  	mode asm` para asegurarte de que estás en modo de administración de servicios de Azure, que es el valor predeterminado.
@@ -33,7 +33,7 @@ El acoplamiento de un disco vacío supone el método más sencillo de agregar un
 
 El acoplamiento de un disco existente requiere que disponga de un .vhd disponible en la cuenta de almacenamiento.
 
-1. 	Abre la interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows y conéctate a tu suscripción de Azure. Para más información, consulta el tema [Conexión a Azure desde la CLI de Azure](../articles/xplat-cli-connect.md).
+1. 	Abre la interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows y conéctate a tu suscripción de Azure. Para más información, consulta el tema [Conexión a Azure desde la CLI de Azure](../xplat-cli-connect.md).
 
 2.  Asegárate de que estás en modo de administración de servicios de Azure, que es el valor predeterminado. Si cambiaste el modo de administración de recursos, simplemente vuelve atrás escribiendo `azure config mode asm`.
 
@@ -93,4 +93,4 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 > [AZURE.NOTE]
 Después de conectar un disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar el disco para el almacenamiento.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

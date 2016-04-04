@@ -55,11 +55,11 @@ public class CalculatorActor : StatelessActor, ICalculatorActor
 
 Dado que las invocaciones de método y sus respuestas tienen como resultado final solicitudes de red en el clúster, los argumentos y el tipo de resultado de la tarea que devuelve deben ser serializables por parte de la plataforma. En particular, deben ser [serializables mediante contrato de datos](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-> [AZURE.TIP]El tiempo de ejecución de Service Fabric Actors emite algunos [eventos y contadores de rendimiento relacionados con los métodos de actor](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
+> [AZURE.TIP] El tiempo de ejecución de Service Fabric Actors emite algunos [eventos y contadores de rendimiento relacionados con los métodos de actor](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
 
-Es conveniente comentar las siguientes reglas relativas a métodos de interfaz de actor: 
-- No se pueden sobrecargar los métodos de la interfaz de actor. 
-- Los métodos de la interfaz de actor no pueden contener parámetros out, ref u optional.
+Conviene destacar las siguientes reglas que pertenecen a los métodos de interfaz de actor:
+- No se pueden sobrecargar los métodos de interfaz de actor.
+- Los métodos de interfaz de actor no deben tener parámetros out, ref u opcionales.
 
 ## Comunicación con actores
 ### El proxy de actor
@@ -72,22 +72,22 @@ ICalculatorActor calculatorActor = ActorProxy.Create<ICalculatorActor>(actorId, 
 double result = calculatorActor.AddAsync(2, 3).Result;
 ```
 
-Tenga en cuenta que los dos tipos de datos que se usan para crear el objeto de proxy de actor son el identificador del actor y el nombre de la aplicación. El identificador del actor es un identificador que identifica de forma única al actor, mientras que el nombre de la aplicación identifica a la [Aplicación de Service Fabric](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors) en que se implementa el actor.
+Tenga en cuenta que los dos tipos de datos que se usan para crear el objeto de proxy de actor son el identificador del actor y el nombre de la aplicación. El identificador de actor identifica de forma única al actor, mientras que el nombre de la aplicación identifica la [Aplicación de Service Fabric](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors) en la que se implementa el actor.
 
 ### Duración del actor
 
-Los actores de Service Fabric son virtuales, lo que significa que su duración no está vinculada a su representación en memoria. Como resultado, no es necesario crearlas ni destruirlas explícitamente. El tiempo de ejecución de los actores activa automáticamente un actor la primera vez que recibe una solicitud para ese actor. Si no se usa un actor durante un período determinado, el tiempo de ejecución de actores recopila el objeto en memoria como elemento no utilizado. También mantendrá conocimientos de la existencia del actor por si es necesario reactivarlo más adelante. Para obtener más información, vea [Ciclo de vida de un actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md).
+Los actores de Service Fabric son virtuales, lo que significa que su duración no está vinculada a su representación en memoria. Como resultado, no es necesario crearlas ni destruirlas explícitamente. El tiempo de ejecución de los actores activa automáticamente un actor la primera vez que recibe una solicitud para ese actor. Si no se usa un actor durante un período determinado, el tiempo de ejecución de actores recopila el objeto en memoria como elemento no utilizado. También mantendrá conocimientos de la existencia del actor por si es necesario reactivarlo más adelante. Para obtener más información, vea [Ciclo de vida de actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md).
 
 ### Transparencia de ubicación y conmutación por error automática
 
-Para proporcionar una alta confiabilidad y escalabilidad, Service Fabric distribuye actores en el clúster y los migra automáticamente desde los nodos con errores hasta las correctos según sea necesario. La clase `ActorProxy` del cliente realiza la resolución necesaria para localizar el actor mediante el identificador [partición](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) y abre un canal de comunicación con él. `ActorProxy` también reintenta ubicar el actor en caso de que se produzcan errores de comunicación y conmutaciones por error. Esto garantiza que los mensajes se entregarán de manera confiable a pesar de la presencia de errores. Pero esto también significa que es posible que la implementación de un actor reciba mensajes duplicados del mismo cliente.
+Para proporcionar una alta confiabilidad y escalabilidad, Service Fabric distribuye actores en el clúster y los migra automáticamente desde los nodos con errores hasta las correctos según sea necesario. La clase `ActorProxy` del cliente realiza la resolución necesaria para localizar el actor mediante el identificador [partición](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) y abre un canal de comunicación con él. `ActorProxy` también vuelve a intentar ubicar el actor en caso de que se produzcan errores de comunicación y conmutaciones por error. Esto garantiza que los mensajes se entregarán de manera confiable a pesar de la presencia de errores. Pero esto también significa que es posible que la implementación de un actor reciba mensajes duplicados del mismo cliente.
 
 ## Simultaneidad
 ### Acceso basada en turnos
 
 El tiempo de ejecución de los actores ofrece un modelo simple basado en turnos para obtener acceso a los métodos de actor. Esto significa que no puede haber más un subproceso activo dentro del código del actor en ningún momento.
 
-Un turno consiste en la ejecución completa de un método de actor en respuesta a la solicitud de otros actores o clientes, o la ejecución completa de la devolución de llamada de un [temporizador o recordatorio](service-fabric-reliable-actors-timers-reminders.md). Aunque estos métodos y devoluciones de llamada son asincrónicos, el tiempo de ejecución de los actores no los intercala. Un turno debe completarse por completo antes de que se permita uno nuevo. En otras palabras, la devolución de llamada de un método de actor, un temporizador o recordatorio que se esté ejecutando se debe completar totalmente antes de que se permita una llamada a un método o una devolución de llamada nuevas. Un método o una devolución de llamada se consideran finalizadas si la ejecución ha devuelto desde el método o la devolución de llamada y la tarea devuelta por el método o la devolución de llamada ha terminado. Merece la pena resaltar que la simultaneidad basada en turnos se respeta incluso entre devoluciones de llamada, temporizadores y métodos diferentes.
+Un turno es la ejecución completa de un método de actor en respuesta a la solicitud de otros actores o clientes, o la ejecución completa de la devolución de llamada de un [temporizador o recordatorio](service-fabric-reliable-actors-timers-reminders.md). Aunque estos métodos y devoluciones de llamada son asincrónicos, el tiempo de ejecución de los actores no los intercala. Un turno debe completarse por completo antes de que se permita uno nuevo. En otras palabras, la devolución de llamada de un método de actor, un temporizador o recordatorio que se esté ejecutando se debe completar totalmente antes de que se permita una llamada a un método o una devolución de llamada nuevas. Un método o una devolución de llamada se consideran finalizadas si la ejecución ha devuelto desde el método o la devolución de llamada y la tarea devuelta por el método o la devolución de llamada ha terminado. Merece la pena resaltar que la simultaneidad basada en turnos se respeta incluso entre devoluciones de llamada, temporizadores y métodos diferentes.
 
 El tiempo de ejecución de los actores impone la simultaneidad basada en turnos mediante la adquisición de un bloqueo por actor al principio de un turno y su liberación al final del turno. Por lo tanto, la simultaneidad basada en turnos se aplica por actor y no para todos los actores. Las devoluciones de llamada de los métodos de actor, los temporizadores y los recordatorios se pueden ejecutar simultáneamente en nombre de los diferentes actores.
 
@@ -105,7 +105,7 @@ El diagrama anterior sigue estas convenciones:
 Los puntos siguientes sobre el diagrama anterior son relevantes:
 
 - Cuando *Method1* se ejecuta en nombre de *ActorId2* en respuesta a la solicitud de cliente *xyz789*, llega otra solicitud de cliente (*abc123*) que también requiere que *Method1* lo ejecute *ActorId2*. Sin embargo, la segunda ejecución de *Method1* no comienza hasta que se haya completado la ejecución anterior. De forma similar, un recordatorio que haya registrado *ActorId2* se activa cuando *Method1* se ejecuta en respuesta a la solicitud de cliente *xyz789*. La devolución de llamada del recordatorio se ejecuta solo después de que las dos ejecuciones de *Method1* se hayan completado. Todo esto se debe a la simultaneidad basada en turnos que se exige para *ActorId2*.
-- De forma similar, también se aplica la simultaneidad basada en turnos para *ActorId1*, como se muestra en la ejecución de *Method1*, *Method2* y la devolución de llamada del temporizador en nombre de *ActorId1* suceden en serie.
+- De forma similar, también se aplica la simultaneidad basada en turnos para *ActorId1*, como se muestra en la ejecución de *Method1*, la ejecución de *Method2* y la devolución de llamada del temporizador en nombre de *ActorId1*, que suceden en serie.
 - La ejecución de *Method1* en nombre de *ActorId1* se superpone con su ejecución en nombre de *ActorId2*. Esto es así porque solo se exige la simultaneidad basada en turnos dentro de un actor y no para todos los actores.
 - En algunas ejecuciones de métodos y devoluciones de llamada, el elemento `Task` que devuelve el método o la devolución de llamada se completa después de la devolución del método. En otras palabras, `Task` ya se ha completado antes de la devolución del método o la devolución de llamada. En ambos casos, el bloqueo por actor se libera solo después de la devolución del método o la devolución de llamada, y `Task` finaliza.
 
@@ -158,7 +158,7 @@ El estado del actor se conserva en recolecciones de elementos no utilizados y co
 > [AZURE.NOTE] Vea el artículo sobre las [notas de serialización de Reliable Actors](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) para obtener información detallada sobre cómo se deben definir las interfaces y los tipos de estado de los actores.
 
 #### proveedores de estado de actor
-Un proveedor de estado de actor proporciona el almacenamiento y la recuperación del estado. Los proveedores de estado se puede configurar por actor o para todos los actores dentro de un ensamblado, mediante el atributo específico de proveedor de estado. Cuando se activa un actor, su estado se carga en memoria. Cuando se completa un método de actor, el tiempo de ejecución de actores guarda automáticamente el estado modificado mediante una llamada a un método en el proveedor de estado. Si se produce un error durante la operación de **almacenamiento**, el tiempo de ejecución de los actores crea una nueva instancia de actor y carga el último estado coherente desde el proveedor de estados.
+Un proveedor de estado de actor proporciona el almacenamiento y la recuperación del estado. Los proveedores de estado se puede configurar por actor o para todos los actores dentro de un ensamblado, mediante el atributo específico de proveedor de estado. Cuando se activa un actor, su estado se carga en memoria. Cuando se completa un método de actor, el tiempo de ejecución de actores guarda automáticamente el estado modificado mediante una llamada a un método en el proveedor de estado. Si se produce un error durante la operación de **guardado**, el tiempo de ejecución de los actores crea una nueva instancia de actor y carga el último estado coherente desde el proveedor de estados.
 
 De forma predeterminada, los actores con estado usan el proveedor de estado de actor de almacén de pares clave-valor, que se integra en el almacén de pares clave-valor proporcionado por la plataforma Service Fabric. Para obtener más información, vea el tema sobre [opciones de proveedores de estado](service-fabric-reliable-actors-platform.md#actor-state-provider-choices).
 
@@ -199,4 +199,4 @@ Las devoluciones de llamada de temporizador se pueden marcar con el atributo `Re
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->
