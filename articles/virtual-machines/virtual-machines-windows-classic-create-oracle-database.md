@@ -200,4 +200,4 @@ Ahora que ha configurado la máquina virtual y que ha creado su base de datos, c
 
 -	[Oracle Database DBA 12c versión 1 de dos días](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
