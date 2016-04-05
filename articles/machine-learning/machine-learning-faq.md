@@ -225,7 +225,7 @@ Para RRS, en la respuesta del servicio web normalmente es donde se verá el resu
 
  **¿**Solamente puedo crear servicios web a partir de los modelos creados en el Estudio? No. También puede crear servicios web directamente desde los Jupyter Notebooks y RStudio.
 
- ****¿Dónde puedo encontrar información sobre los códigos de error? Los códigos de error se describen [aquí.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
+ **¿Dónde puedo encontrar información sobre los códigos de error? Los códigos de error se describen [aquí.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Escalabilidad
 
