@@ -32,10 +32,10 @@ Una vez conectado al clúster de ACS, se puede acceder a Mesos y las API de REST
 
 ## Recopilación de información de Mesos y Marathon
 
-Antes de implementar contenedores en el clúster de Mesos, recopile información sobre dicho clúster, como los nombres y el estado actual de los agentes de Mesos. Para ello, consulte el punto de conexión `master/slaves` en un patrón de Mesos. Si todo va bien, verá una lista de agentes de Mesos y varias propiedades para cada uno.
+Antes de implementar contenedores en el clúster de Mesos, recopile información sobre dicho clúster, como los nombres y el estado actual de los agentes de Mesos. Para ello, consulte el punto de conexión `master/slaves` en la API de REST de Mesos. Si todo va bien, verá una lista de agentes de Mesos y varias propiedades para cada uno.
 
 ```bash
-curl http://localhost/master/slaves
+curl http://localhost/mesos/master/slaves
 ```
 
 Ahora, utilice el punto de conexión `/apps` de Marathon para buscar las implementaciones actuales de aplicaciones en el clúster de Mesos. Si se trata de un nuevo clúster, verá una matriz vacía para las aplicaciones.
@@ -160,4 +160,4 @@ Ejecute el comando siguiente para escalar la aplicación horizontalmente.
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/23/2016"
+	 ms.date="03/24/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # P+F de servicio de Copia de seguridad de Azure
@@ -38,7 +38,7 @@ En este artículo encontrará una lista de las preguntas más frecuentes (y sus 
 |Windows Server 2008 R2 SP1 |64 bits|	Standard, Enterprise, Datacenter, Foundation|
 |Windows Server 2008 SP2 |64 bits|	Standard, Enterprise, Datacenter, Foundation|
 
-**P2. ¿Dónde puedo descargar el agente de Copia de seguridad de Azure más reciente?** <br/> R2. El agente más reciente para realizar copias de seguridad de Windows Server, System Center DPM o el cliente de Windows se puede descargar de [aquí](http://aka.ms/azurebackup_agent). Si desea hacer copia de seguridad de una máquina virtual, utilice al agente de máquina virtual (que instala automáticamente la extensión correcta). El agente de la máquina virtual ya está presente en las máquinas virtuales que se crean desde la Galería de Azure.
+**P2. ¿Dónde puedo descargar el agente de Copia de seguridad de Azure más reciente?** <br/> R2. El agente más reciente para realizar copias de seguridad de Windows Server, System Center DPM o el cliente de Windows se puede descargar de [aquí](http://aka.ms/azurebackup_agent). Si desea hacer una copia de seguridad de una máquina virtual, utilice el agente de máquina virtual (que instala automáticamente la extensión adecuada). El agente de la máquina virtual ya está presente en las máquinas virtuales que se crean desde la Galería de Azure.
 
 **P3. ¿Qué versión de servidor SCDPM es compatible?** <br/> R3. Se recomienda que instale el agente de Copia de seguridad de Azure [más reciente](http://aka.ms/azurebackup_agent) en el paquete acumulativo de actualizaciones de SCDPM más reciente (UR6 desde julio de 2015).
 
@@ -54,7 +54,7 @@ En este artículo encontrará una lista de las preguntas más frecuentes (y sus 
 
 **P9. ¿Cómo registro mi servidor en otro centro de datos?**<br/> R9. Los datos de copia de seguridad se envían al centro de datos del servicio de copia de seguridad en el que está registrado. La forma más sencilla de cambiar el centro de datos es desinstalar el agente y volver a instalarlo y registrarlo en un nuevo centro de datos.
 
-**P10. ¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?** R10. Al cambiar el nombre de un servidor, se detienen todas las copias de seguridad configuradas actualmente. Será preciso que registre el nuevo nombre del servidor en el almacén de copia de seguridad. Dado que se trata de un nuevo registro, la primera operación de copia de seguridad es una copia de seguridad completa, no una copia de seguridad incremental. Si necesita recuperar datos cuya copia de seguridad se realizó anteriormente en el almacén con el nombre del servidor antiguo, puede hacerlo mediante la opción [**Otro servidor**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) del Asistente para **recuperar datos**.
+**P10. ¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?** R10. Al cambiar el nombre de un servidor, se detienen todas las copias de seguridad configuradas actualmente. Debe registrar el nuevo nombre del servidor con el almacén de copia de seguridad. Cuando se crea un nuevo registro, la primera operación de copia de seguridad es una copia de seguridad completa y no una copia de seguridad incremental. Si necesita recuperar datos cuya copia de seguridad se realizó anteriormente en el almacén con el nombre del servidor antiguo, puede hacerlo mediante la opción [**Otro servidor**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) del Asistente para **recuperar datos**.
 
 
 **P11. ¿Desde qué tipos de unidades puedo realizar copias de seguridad de archivos y carpetas?** <br/> R11. La copia de seguridad no se puede realizar del siguiente conjunto de unidades/volúmenes de disco:
@@ -89,9 +89,9 @@ En este artículo encontrará una lista de las preguntas más frecuentes (y sus 
 
 **P17. ¿Funciona el agente de Copia de seguridad de Azure en un servidor que usa la desduplicación de Windows Server 2012?** <br/>A17: Sí. El servicio del agente convierte los datos desduplicados en datos normales cuando prepara la operación de copia de seguridad. Luego optimiza los datos para la copia de seguridad, los cifra y los envía al servicio de copia de seguridad en línea.
 
-**P18. Si se cancela un trabajo de copia de seguridad una vez que se ha iniciado, ¿se eliminan los datos de copia de seguridad transferidos?** <br/> R18. No. El almacén de copia de seguridad almacena los datos de los que se ha realizado la copia de seguridad transferidos hasta el momento de la cancelación. Copia de seguridad de Azure usa un mecanismo para agregar ocasionalmente agregar puntos de control a los datos de copia de seguridad durante la copia de seguridad. Gracias a dichos puntos de control en los datos de copia de seguridad el siguiente proceso de copia de seguridad puede validar la integridad de los archivos. La siguiente copia de seguridad desencadenada sería incremental respecto a los datos de los que se haya creado una copia de seguridad anteriormente. Las copias de seguridad incrementales permiten usar mejor el ancho de banda, por lo que no es necesario transferir los mismos datos una y otra vez.
+**P18. Si se cancela un trabajo de copia de seguridad una vez que se ha iniciado, ¿se eliminan los datos de copia de seguridad transferidos?** <br/> R18. No. El almacén de copia de seguridad almacena los datos de los que se ha realizado la copia de seguridad transferidos hasta el momento de la cancelación. Copia de seguridad de Azure usa un mecanismo para agregar ocasionalmente agregar puntos de control a los datos de copia de seguridad durante la copia de seguridad. Debido a que hay puntos de control en los datos de copia de seguridad, el siguiente proceso de copia de seguridad puede validar la integridad de los archivos. La siguiente copia de seguridad desencadenada sería incremental respecto a los datos de los que se haya creado una copia de seguridad anteriormente. Las copias de seguridad incrementales permiten usar mejor el ancho de banda, por lo que no es necesario transferir los mismos datos una y otra vez.
 
-**P19. ¿Por qué aparece la advertencia "Las copias de seguridad de Azure no se han configurado para este servidor" aunque programé previamente copias de seguridad periódicas?** <br/> A19. Esta advertencia aparecerá cuando la configuración de la programación de copia de seguridad almacenada en el servidor local no es la misma que la del almacén de copia de seguridad. Cuando el servidor o la configuración se recuperan a un estado válido conocido, las programaciones de copia de seguridad pueden perder la sincronización. Si recibe esta advertencia, **vuelva a configurar la directiva de copia de seguridad** y elija [Ejecutar copia de seguridad ahora](backup-azure-backup-windows-server.md) para volver a sincronizar el servidor local con Azure.
+**P19. ¿Por qué aparece la advertencia "Las copias de seguridad de Azure no se han configurado para este servidor" aunque programé previamente copias de seguridad periódicas?** <br/> R19: Esta advertencia se produce cuando la configuración de programación de la copia de seguridad almacenada en el servidor local no es la misma que la configuración del almacén de copia de seguridad. Cuando el servidor o la configuración se recuperan a un estado válido conocido, las programaciones de copia de seguridad pueden perder la sincronización. Si recibe esta advertencia, **vuelva a configurar la directiva de copia de seguridad** y elija [Ejecutar copia de seguridad ahora](backup-azure-backup-windows-server.md) para volver a sincronizar el servidor local con Azure.
 
 **P20. ¿Qué reglas de firewall que hay que configurar para Copia de seguridad de Azure?** <br/>R20. Para una protección completa tanto de los datos locales que se transfieren a Azure como de los datos de la carga de trabajo que se transfieren a Azure, se recomienda permitir que el firewall se comunique con las direcciones URL siguientes:
 
@@ -105,7 +105,7 @@ En este artículo encontrará una lista de las preguntas más frecuentes (y sus 
 
 **P22. ¿Puedo instalar el agente de Copia de seguridad de Azure en una máquina virtual de Azure para realizar la copia de seguridad de los archivos y carpetas que hay en un almacenamiento temporal proporcionado por la máquina virtual de Azure?** <br/> R22. Puede instalar al agente de Copia de seguridad de Azure en el SO invitado de Windows y realizar una copia de seguridad de los archivos y carpetas en un almacenamiento temporal. Sin embargo, tenga en cuenta que las copias de seguridad dejarán de funcionar cuando se borren los datos del almacenamiento temporal. Además, si se han eliminado los datos del almacenamiento temporal, la restauración solo se podrá realizar en un almacenamiento no volátil.
 
-**P23. ¿Qué longitud tiene la ruta de acceso de archivo que se puede especificar como parte de la directiva de Copia de seguridad de Azure mediante el agente de Copia de seguridad de Azure?** <br/> R23. El agente de Copia de seguridad de Azure usa NTFS. La [API de Windows limita la especificación de la longitud de la ruta de acceso de archivo](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). En caso de copia de seguridad de archivos cuyas rutas de acceso tengan una longitud mayor que las especificadas por la API de Windows, los clientes pueden elegir hacer una copia de seguridad de la carpeta primaria o de la unidad de disco de los archivos de la copia de seguridad.
+**P23. ¿Qué longitud tiene la ruta de acceso de archivo que se puede especificar como parte de la directiva de Copia de seguridad de Azure mediante el agente de Copia de seguridad de Azure?** <br/> R23. El agente de Copia de seguridad de Azure usa NTFS. La [especificación de longitud de la ruta de acceso del archivo está limitada por la API de Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Si tiene una ruta de acceso de archivo mayor que las permitidas por la API de Windows, puede realizar la copia de seguridad de la carpeta primaria o de la unidad de disco donde se encuentran los archivos que desea.
 
 ** P24. ¿Qué caracteres se permiten en la ruta de acceso de archivo de la directiva de Copia de seguridad de Azure mediante el agente de Copia de seguridad de Azure?** <br/> R24. El agente de Copia de seguridad de Azure usa NTFS. Permite [caracteres compatibles con NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) como parte de la especificación de los archivos.
 
@@ -145,9 +145,9 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 
 **P7. ¿Se transfiere una copia incremental para las directivas de retención programadas?** <br/> R7. No, la copia incremental se envía en el momento mencionado en la página de programación de copia de seguridad. Los puntos que se pueden retener se determinan según la directiva de retención.
 
-**P8. Si se conserva la copia de seguridad durante un período prolongado, ¿se tarda mucho tiempo en recuperar los datos (por ejemplo ,el punto más antiguo)?** <br/> R8. No, el tiempo necesario para la recuperación del último punto o del punto más antiguo es el mismo. Cada punto de recuperación se comporta como un punto completo.
+**P8. Si se conserva una copia de seguridad durante un período prolongado, ¿se tarda más tiempo en recuperar un punto de datos más antiguo?** <br/> R8. No: el tiempo de recuperación del punto de datos más antiguo o más reciente es el mismo. Cada punto de recuperación se comporta como un punto completo.
 
-**P9. Si cada punto de recuperación es como un punto completo, ¿afecta esto al almacenamiento de copia de seguridad facturable total?**<br/> R9. Los productos con un punto de retención a largo plazo típicos almacenan los datos de copia de seguridad como puntos completos. Los puntos completos no son *eficientes* para el almacenamiento, pero resultan más fáciles y rápidos de restaurar. Las copias incrementales son *eficientes* para el almacenamiento, pero requieren que se restaure una cadena de datos, lo que afecta al tiempo de recuperación. La arquitectura de almacenamiento único de la Copia de seguridad de Azure ofrece lo mejor de ambas opciones, al almacenar datos de forma óptima para restauraciones más rápidas e incurrir en costes de almacenamiento bajo. Este enfoque del almacenamiento de datos garantiza que el ancho de banda de entrada y salida se utiliza de manera eficiente. Tanto la cantidad de almacenamiento de datos como el tiempo necesario para recuperar los datos se reducen al mínimo.
+**P9. Si cada punto de recuperación es como un punto completo, ¿afecta esto al almacenamiento de copia de seguridad facturable total?**<br/> R9. Los productos con un punto de retención a largo plazo típicos almacenan los datos de copia de seguridad como puntos completos. Los puntos completos no son *eficientes* para el almacenamiento, pero resultan más fáciles y rápidos de restaurar. Las copias incrementales son *eficientes* para el almacenamiento, pero requieren que se restaure una cadena de datos, lo que afecta al tiempo de recuperación. La arquitectura de almacenamiento de Copia de seguridad de Azure le ofrece lo mejor de ambos mundos ya que permite almacenar de forma óptima datos para conseguir restauraciones más rápidas e incurrir en pocos costos de almacenamiento. Este enfoque del almacenamiento de datos garantiza que el ancho de banda de entrada y salida se utiliza de manera eficiente. Tanto la cantidad de almacenamiento de datos como el tiempo necesario para recuperar los datos se reducen al mínimo.
 
 **P10. ¿Hay un límite en el número de puntos de recuperación que se pueden crear?**<br/> R10. No. Hemos eliminado los límites a los puntos de recuperación. Puede crear tantos puntos de recuperación como desee.
 
@@ -172,25 +172,24 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 
 ## Memoria caché de copia de seguridad
 
-**P1. ¿Cómo se cambia la ubicación de la memoria caché especificada para el agente de Copia de seguridad de Azure?**<br/>
-
-1. Detenga el módulo de copia de seguridad, para lo que debe ejecutar el siguiente comando en un símbolo del sistema con privilegios elevados:
+**P1. ¿Cómo se cambia la ubicación de la memoria caché especificada para el agente de Copia de seguridad de Azure?**<br/> R1. Vaya secuencialmente a través de la lista de viñetas siguiente para cambiar la ubicación de la caché.
+- Detenga el módulo de copia de seguridad, para lo que debe ejecutar el siguiente comando en un símbolo del sistema con privilegios elevados:
 
   ```PS C:\> Net stop obengine```
 
-2. Copie la carpeta de que el espacio de la memoria caché a otra unidad con espacio suficiente. Debe copiar los archivos de la carpeta del espacio en caché, en lugar de moverlos. El espacio en caché original se puede eliminar después de confirmar que las copias de seguridad funcionan con el espacio en caché nuevo.
+- No mueva los archivos. En su lugar, copie la carpeta de espacio en caché en otra unidad con espacio suficiente. El espacio en caché original se puede eliminar después de confirmar que las copias de seguridad funcionan con el espacio en caché nuevo.
 
-3. Actualice las siguientes entradas del Registro con la ruta de acceso a la nueva carpeta del espacio en caché.<br/>
+- Actualice las siguientes entradas del Registro con la ruta de acceso a la nueva carpeta del espacio en caché.<br/>
 
 |Ruta de acceso del Registro | Clave del Registro | Valor |
 | ------ | ------- | ------|
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Nueva ubicación de la carpeta de la memoria caché* |
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Nueva ubicación de la carpeta de la memoria caché* |
 
-4. Reinicie el módulo de copia de seguridad, para lo que debe ejecutar el siguiente comando en un símbolo del sistema con privilegios elevados:
+- Reinicie el módulo de copia de seguridad, para lo que debe ejecutar el siguiente comando en un símbolo del sistema con privilegios elevados:
 
   ```PS C:\> Net start obengine```
 
   Una vez que la creación de la copia de seguridad se haya completado correctamente en la nueva ubicación de la memoria caché, puede quitar la carpeta de la memoria caché original.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

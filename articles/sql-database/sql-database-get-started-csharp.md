@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Prueba de la Base de datos SQL: uso de C# para crear una Base de datos SQL | Microsoft Azure" 
-	description="Pruebe la Base de datos SQL para desarrollar aplicaciones SQL y C# y crear una Base de datos SQL de Azure con C# mediante la biblioteca de Base de datos SQL para. NET." 
+<properties
+	pageTitle="Prueba de la Base de datos SQL: uso de C# para crear una Base de datos SQL | Microsoft Azure"
+	description="Pruebe la Base de datos SQL para desarrollar aplicaciones SQL y C# y crear una Base de datos SQL de Azure con C# mediante la biblioteca de Base de datos SQL para. NET."
 	keywords="probar sql,sql c#"   
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="hero-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="01/22/2016"
+   ms.tgt_pltfrm="csharp"
+   ms.workload="data-management"
+   ms.date="03/24/2016"
    ms.author="sstein"/>
 
-# Prueba de Base de datos SQL: Use C&#x23; para crear una Base de datos SQL con la biblioteca de Base de datos SQL para .NET 
+# Prueba de Base de datos SQL: Use C&#x23; para crear una Base de datos SQL con la biblioteca de Base de datos SQL para .NET
 
 **Base de datos única**
 
@@ -26,13 +26,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-
-
-Aprenda a usar los comandos C# para crear una Base de datos SQL de Azure con la [biblioteca de Base de datos SQL de Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-
-Probará la Base de datos SQL mediante la creación de una Base de datos única con SQL y C#. Para crear un grupo de bases de datos elásticas, consulte [Creación de un grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md).
-
-Los fragmentos de código individuales se dividen por motivos de claridad y una aplicación de consola de ejemplo reúne todos los comandos en la sección de la parte inferior de este artículo.
+Aprenda a usar los comandos C# para crear una Base de datos SQL de Azure con la [biblioteca de Base de datos SQL de Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Probará la Base de datos SQL mediante la creación de una Base de datos única con SQL y C#. Para crear grupos de bases de datos elásticas, consulte [Creación de un grupo de bases de datos elásticas](sql-database-elastic-pool-create-portal.md). Los fragmentos de código individuales se dividen por motivos de claridad y una aplicación de consola de ejemplo reúne todos los comandos en la sección de la parte inferior de este artículo.
 
 La biblioteca de Base de datos SQL de Azure para .NET ofrece una API basada en el [Administrador de recursos de Azure](../resource-group-overview.md) que encapsula la [API de REST de Base de datos SQL basada en el Administrador de recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Esta biblioteca cliente sigue el patrón común para las bibliotecas de cliente basada en el Administrador de recursos. El Administrador de recursos requiere grupos de recursos y la autenticación con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
@@ -45,7 +39,7 @@ La biblioteca de Base de datos SQL de Azure para .NET ofrece una API basada en e
 Necesitará lo siguiente para completar los pasos de este artículo:
 
 - Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
-- Visual Studio. Para obtener una copia gratuita de Visual Studio, consulte la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+- Visual Studio. Para obtener una copia gratis de Visual Studio, consulte la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 
 ## Instalación de las bibliotecas necesarias
@@ -120,7 +114,7 @@ Se requiere el nombre de dominio para su código. Para identificar de manera sen
 Encontrará información adicional sobre el uso de Azure Active Directory para la autenticación en [esta útil entrada de blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
-### Recuperar el token de acceso para el usuario actual 
+### Recuperar el token de acceso para el usuario actual
 
 La aplicación cliente debe recuperar el token de acceso de la aplicación para el usuario actual. La primera vez que un usuario ejecuta este código se le pedirá que escriba sus credenciales de usuario y el token resultante se almacenará en caché localmente. Las ejecuciones posteriores recuperarán el token de la memoria caché y solo pedirán al usuario que inicie sesión si el token ha expirado.
 
@@ -154,7 +148,7 @@ Con el Administrador de recursos, todos los recursos se deben crear en un grupo 
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -169,7 +163,7 @@ Con el Administrador de recursos, todos los recursos se deben crear en un grupo 
         }
 
 
-## Creación de un servidor 
+## Creación de un servidor
 
 Las bases de datos SQL se incluye en servidores. El nombre de servidor debe ser único globalmente entre todos los servidores SQL de Azure de manera que obtendrá un error aquí si el nombre del servidor ya existe. También debe tener en cuenta que este comando puede tardar varios minutos en completarse.
 
@@ -223,7 +217,7 @@ En el ejemplo siguiente se crea una regla que abre el acceso al servidor desde c
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -284,7 +278,7 @@ En el ejemplo siguiente se crea un grupo de recursos, un servidor, una regla de 
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    
+
     namespace SqlDbConsoleApp
     {
     class Program
@@ -295,13 +289,13 @@ En el ejemplo siguiente se crea un grupo de recursos, un servidor, una regla de 
         static string redirectUri = "<Azure App redirectURI>";
         static string domainName = "<domain>";
 
-        // You create these values 
+        // You create these values
         static string resourceGroupName = "<your resource group name>";
         static string location = "<Azure data center location>";
 
         static string serverName = "<your server name>";
         static string administratorLogin = "<your server admin>";
-        
+
         // store your password securely!
         static string administratorPassword = "<your server admin password>";
         static string serverVersion = "12.0";
@@ -340,7 +334,7 @@ En el ejemplo siguiente se crea un grupo de recursos, un servidor, una regla de 
             Console.WriteLine("Creating database...");
 
             DatabaseCreateOrUpdateResponse dbResponse = CreateDatabase();
-            Console.WriteLine("Status: " + dbResponse.Status.ToString() 
+            Console.WriteLine("Status: " + dbResponse.Status.ToString()
                 + " Code: " + dbResponse.StatusCode.ToString());
 
             Console.WriteLine("Press enter to exit...");
@@ -351,7 +345,7 @@ En el ejemplo siguiente se crea un grupo de recursos, un servidor, una regla de 
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -386,7 +380,7 @@ En el ejemplo siguiente se crea un grupo de recursos, un servidor, una regla de 
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -463,4 +457,4 @@ Ahora que probó la Base de datos SQL y configuró una base de datos con C#, est
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -115,9 +115,9 @@ Cuando tenga un cliente que llame a la API en nombre de los usuarios, puede prot
 Empiece instalando la canalización de autenticación de OAuth de OWIN:
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
-PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
-PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TaskService
+PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TaskService
+PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
 ### Escribir los detalles de B2C
@@ -233,4 +233,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -31,7 +31,7 @@ Todos los tipos de aplicaciones se basan en la plataforma de aplicación web esc
 * Creación rápida de aplicaciones: empiece empezar desde cero o elija un paquete de software de código abierto de Azure Marketplace. 
 * Implementación continua: implemente automáticamente el nuevo código de soluciones de control de código fuente populares como TFS, GitHub y BitBucket, y sincronice el contenido desde servicios de almacenamiento en línea como OneDrive y DropBox.
 * Pruebas en producción: cree sin problemas entornos de preproducción y administre la parte del tráfico que va a ellos. Depure en la nube cuando sea necesario y revierta si se encuentran problemas.
-* Ejecutar tareas asincrónicas y trabajos por lotes: ejecute código en un proceso en segundo plano o active el código en función de eventos (como mensajes de inicio en una cola de Almacenamiento de Azure) y a las horas programadas (CRON).
+* Ejecute tareas asincrónicas y trabajos por lotes: ejecute código en un proceso en segundo plano o active el código basado en eventos (como los mensajes que llegan a una cola de almacenamiento de Azure) y horas programadas (CRON).
 * Escalar la aplicación: use una de las numerosas opciones para escalar su servicio horizontal y verticalmente automáticamente según el tráfico y el uso de los recursos. Configure entornos privados dedicados a las aplicaciones   
 * Mantener la aplicación: aproveche muchas de las características de depuración y diagnóstico para anticiparse a los problemas y resolverlos eficazmente en tiempo real (con características como la resolución automática de problemas y la depuración en directo) o después del hecho mediante el análisis de los registros y los volcados de memoria.
  
@@ -39,4 +39,4 @@ Juntas, las funcionalidades de Servicio de aplicaciones permiten a los desarroll
 
 [AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

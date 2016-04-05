@@ -7,7 +7,14 @@
 	manager="erikre"
 	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/18/2016"" ms.author="juliako"/>
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+ 	ms.date="03/28/2016" 
+	ms.author="juliako"/>
 
 
 #Uso de cifrado dinámico común de PlayReady o Widevine
@@ -623,4 +630,4 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 
 [Anuncio de los servicios de entrega de licencias de Google Widevine en Servicios multimedia de Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

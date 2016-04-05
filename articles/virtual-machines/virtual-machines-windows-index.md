@@ -195,7 +195,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Solución de problemas de errores de la extensión de máquina virtual de Azure](virtual-machines-windows-extensions-troubleshoot.md)
 
-[Solución de problemas de implementaciones de grupo de recursos en Azure](resource-group-deploy-debug.md)
+[Solución de problemas de implementaciones de grupo de recursos en Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-windows-troubleshoot-app-connection.md)
 
@@ -375,4 +375,4 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de una VM en Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0323_2016---->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,10 +1,10 @@
-<properties 
-    pageTitle="Creación de un grupo de bases de datos elásticas (PowerShell) | Microsoft Azure" 
-    description="Aprenda a usar PowerShell para escalar horizontalmente los recursos de la Base de datos SQL de Azure mediante la creación de un grupo de bases de datos elásticas para administrar varias bases de datos." 
-	services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Creación de un grupo de bases de datos elásticas (PowerShell) | Microsoft Azure"
+    description="Aprenda a usar PowerShell para escalar horizontalmente los recursos de la Base de datos SQL de Azure mediante la creación de un grupo de bases de datos elásticas escalable para administrar varias bases de datos."
+	services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
     ms.devlang="NA"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="03/15/2016"
+    ms.workload="data-management"
+    ms.date="03/27/2016"
     ms.author="sstein"/>
 
-# Creación de un grupo de bases de datos elásticas (PowerShell) 
+# Creación de un grupo de bases de datos elásticas con PowerShell
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](sql-database-elastic-pool-create-portal.md)
@@ -33,16 +33,14 @@ Para ver los códigos de error comunes, consulte [Códigos de error para las apl
 
 Debe ejecutar Azure PowerShell 1.0 o superior. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
+## Creación de un grupo
 
-
-## Creación de un grupo de bases de datos elásticas
-
-El cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) crea un grupo de bases de datos elásticas.
+El cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) crea un grupo.
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-## Creación de una nueva base de datos elástica en un grupo de bases de datos elásticas
+## Creación de una nueva base de datos elástica en un grupo
 
 Para crear una nueva base de datos directamente dentro de un grupo, use el cmdlet [AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) y establezca el parámetro **ElasticPoolName**.
 
@@ -51,7 +49,7 @@ Para crear una nueva base de datos directamente dentro de un grupo, use el cmdle
 
 
 
-## Desplazamiento de una base de datos independiente a un grupo de bases de datos elásticas
+## Desplazamiento de una base de datos independiente a un grupo
 
 Para mover una base de datos existente a un grupo, use el cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) y establezca el parámetro **ElasticPoolName**.
 
@@ -59,9 +57,9 @@ Para mover una base de datos existente a un grupo, use el cmdlet [Set-AzureRmSql
 
 
 
-## Creación de un grupo de bases de datos elásticas de ejemplo de PowerShell
+## Creación de un ejemplo de PowerShell de grupo
 
-Este script creará un nuevo servidor, por lo que cuando se le solicite un nombre de usuario y una contraseña, escriba un inicio de sesión y una contraseña del administrador para el nuevo servidor (y no las credenciales de Azure).
+Este script crea un nuevo servidor, por lo que cuando se le solicite un nombre de usuario y una contraseña, escriba un inicio de sesión y una contraseña del administrador para el nuevo servidor (y no las credenciales de Azure).
 
     $subscriptionId = '<your Azure subscription id>'
     $resourceGroupName = '<resource group name>'
@@ -72,7 +70,7 @@ Este script creará un nuevo servidor, por lo que cuando se le solicite un nombr
 
     Login-AzureRmAccount
     Set-AzureRmContext -SubscriptionId $subscriptionId
-    
+
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $location -ServerVersion "12.0"
     New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
@@ -86,11 +84,11 @@ Este script creará un nuevo servidor, por lo que cuando se le solicite un nombr
 ## Pasos siguientes
 
 - [Administración del grupo](sql-database-elastic-pool-manage-powershell.md)
-- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos facilitan la ejecución de scripts de T-SQL con cualquier número de bases de datos en el grupo.
+- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos en el grupo.
 
 
 ## Referencia de bases de datos elásticas
 
 Para más información acerca de grupos y bases de datos elásticas, consulte [Referencia de grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

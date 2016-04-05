@@ -117,6 +117,10 @@ Sí, puede usar su código R existente en Estudio de aprendizaje automático y e
 
 No, no es compatible. Sin embargo, sí se puede utilizar código Phyton y R para definir un módulo.
 
+**¿Cuántos módulos puedo ejecutar en paralelo en mi experimento?**
+
+Puede ejecutar hasta 4 módulos en paralelo en un experimento.
+
 
 ### Procesamiento de datos
 
@@ -164,7 +168,7 @@ Actualmente, solo se pueden crear nuevos módulos personalizados en R.
 
 **¿Qué paquetes de R están disponibles en Estudio de aprendizaje automático?**
 
-Estudio de aprendizaje automático admite en la actualidad más de 400 paquetes de CRAN R, y la lista sigue creciendo. Consulte [Ampliación de experimentos con R](machine-learning-extend-your-experiment-with-r.md) para conocer la forma de obtener la lista de paquetes R admitidos. Si el paquete que desea no está en la lista, especifique el nombre del paquete en el [foro de comentarios de los usuarios](http://go.microsoft.com/fwlink/?LinkId=404231).
+Estudio de aprendizaje automático admite en la actualidad más de 400 paquetes de CRAN R y aquí está la [lista actual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos los paquetes incluidos. Consulte [Ampliación de experimentos con R](machine-learning-extend-your-experiment-with-r.md) para averiguar cómo recuperar esta lista. Si el paquete que desea no está en la lista, especifique el nombre del paquete en el [foro de comentarios de los usuarios](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **¿Es posible crear un módulo personalizado de R?**
 
@@ -221,7 +225,7 @@ Para RRS, en la respuesta del servicio web normalmente es donde se verá el resu
 
  **¿**Solamente puedo crear servicios web a partir de los modelos creados en el Estudio? No. También puede crear servicios web directamente desde los Jupyter Notebooks y RStudio.
 
- **¿Dónde puedo encontrar información sobre los códigos de error? Los códigos de error se describen [aquí.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
+ ****¿Dónde puedo encontrar información sobre los códigos de error? Los códigos de error se describen [aquí.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Escalabilidad
 
@@ -313,4 +317,4 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

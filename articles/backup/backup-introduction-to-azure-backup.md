@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="03/28/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # ¿Qué es la Copia de seguridad de Azure?
@@ -32,7 +32,7 @@ Las soluciones de copia de seguridad tradicionales han evolucionado para tratar 
 | Varias opciones de almacenamiento | Elija el almacenamiento de copia de seguridad según las necesidades: <li>Un blob en bloques de almacenamiento con redundancia local resulta adecuado para los clientes a los que les preocupa el precio y, al mismo tiempo, ayuda a proteger los datos contra errores de hardware locales. <li>Un blob en bloques de almacenamiento con replicación geográfica proporciona tres copias más en un centro de datos emparejado. Esto ayuda a garantizar la alta disponibilidad de los datos de copia de seguridad incluso en el caso de un desastre en el nivel de sitio de Azure. |
 | Transferencia de datos ilimitada | No se aplica ningún cargo por transferencia de datos de salida (saliente) durante una operación de restauración desde el almacén de Copia de seguridad. La entrada de datos a Azure también es gratis. Funciona con el servicio de importación, en aquellos lugares en que está disponible. |
 | Cifrado de datos | El cifrado de datos permite la transmisión y el almacenamiento seguros de los datos del cliente en la nube pública. La frase de contraseña de cifrado se almacena en el origen y nunca se transmite o se almacena en Azure. La clave de cifrado es necesaria para restaurar datos, y solo el cliente tiene acceso completo a los datos en el servicio. |  
-| Copia de seguridad coherente con la aplicación | Las copias de seguridad coherentes con la aplicación en Windows ayudan a garantizar que no se necesitan correcciones en el momento de la restauración, lo que reduce el objetivo de tiempo de recuperación y permite a los clientes volver a un estado de ejecución de manera más rápida. |
+| Copia de seguridad coherente con la aplicación | En Windows, las copias de seguridad coherentes con la aplicación, ayudan a garantizar que no se necesitarán correcciones en el momento de la restauración, lo que reduce el tiempo de recuperación de forma palpable. Esto permite a los clientes volver a un estado de ejecución de forma más rápida. |
 | Retención a largo plazo | En lugar de pagar por soluciones de copia de seguridad en cinta fuera del sitio, los clientes pueden realizar copias de seguridad en Azure, lo que proporciona una atractiva solución similar a la cinta a un bajo costo. |
 
 ## Componentes de Copia de seguridad de Azure
@@ -54,9 +54,9 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Componente | Ventajas | Limitaciones | Granularidad de recuperación |
 | --- | --- | --- | --- |
 | Agente de Copia de seguridad de Azure (MARS) | <li>Puede hacer copias de seguridad de los archivos y carpetas de una máquina con el sistema operativo Windows, ya sea física o virtual (las máquinas virtuales pueden estar en cualquier lugar local o en Azure)<li>No se requiere ningún servidor de copia de seguridad independiente<li>Utiliza el almacén de Copia de seguridad de Azure | <li>Copia de seguridad tres veces al día/restauración a nivel de archivo<li>Restauración solo a nivel de archivo, carpeta o volumen, sin reconocimiento de aplicaciones<li>No es compatible con Linux | archivos, carpetas y volúmenes |
-| System Center Data Protection Manager | <li>Instantáneas con reconocimiento de aplicaciones (VSS)<li>Total flexibilidad con respecto al momento de realizar copias de seguridad<li>Granularidad de recuperación (todos)<li>Puede usar el almacén de Copia de seguridad de Azure<li>Compatibilidad con Linux (si se hospeda en Hyper-V) | <li>Falta de compatibilidad heterogénea (copia de seguridad de máquinas virtuales de VMware, copia de seguridad de cargas de trabajo de Oracle). | archivos, carpetas, volúmenes,<br>máquinas virtuales y aplicaciones |
-| Servidor de Copia de seguridad de Microsoft Azure | <li>Instantáneas con reconocimiento de aplicaciones (VSS)<li>Total flexibilidad con respecto al momento de realizar copias de seguridad<li>Granularidad de recuperación (todos)<li>Puede usar el almacén de Copia de seguridad de Azure<li>Compatibilidad con Linux (si se hospeda en Hyper-V)<li>No requiere licencia de System Center | <li>Falta de compatibilidad heterogénea (copia de seguridad de máquinas virtuales de VMware, copia de seguridad de cargas de trabajo de Oracle).<li>Siempre requiere una suscripción de Azure<li>No admite la copia de seguridad en cinta | archivos, carpetas, volúmenes,<br>máquinas virtuales y aplicaciones |
-| Copia de seguridad de máquina virtual de IaaS de Azure | <li>Copias de seguridad nativas para Windows/Linux<li>No se requiere instalar un agente específico<li>Copia de seguridad de nivel de tejido sin necesidad de infraestructura de copia de seguridad<li>Usa el almacén de Copia de seguridad de Azure | <li>Copia de seguridad una vez al día y restauración a nivel de disco<li>No se pueden realizar copias de seguridad locales | Máquinas virtuales<br>Discos individuales |
+| System Center Data Protection Manager | <li>Instantáneas con reconocimiento de aplicaciones (VSS)<li>Total flexibilidad con respecto al momento de realizar copias de seguridad<li>Granularidad de recuperación (todos)<li>Puede usar el almacén de Copia de seguridad de Azure<li>Compatibilidad con Linux (si se hospeda en Hyper-V) | <li>Falta de soporte heterogéneo (copia de seguridad de máquina virtual de VMware, copia de seguridad de carga de trabajo de Oracle). | archivos, carpetas, volúmenes,<br>máquinas virtuales y aplicaciones |
+| Servidor de Copia de seguridad de Microsoft Azure | <li>Instantáneas con reconocimiento de aplicaciones (VSS)<li>Total flexibilidad con respecto al momento de realizar copias de seguridad<li>Granularidad de recuperación (todos)<li>Puede usar el almacén de Copia de seguridad de Azure<li>Compatibilidad con Linux (si se hospeda en Hyper-V)<li>No requiere licencia de System Center | <li>Falta de soporte heterogéneo (copia de seguridad de máquina virtual de VMware, copia de seguridad de carga de trabajo de Oracle).<li>Siempre se requiere una suscripción de Azure activa<li>No se admite la copia de seguridad en cinta | archivos, carpetas, volúmenes,<br>máquinas virtuales y aplicaciones |
+| Copia de seguridad de máquina virtual de IaaS de Azure | <li>Copias de seguridad nativas de Windows/Linux<li>No se requiere la instalación de ningún agente específico<li>Copia de seguridad de nivel de tejido sin necesidad de ninguna infraestructura de copia de seguridad<li>Utiliza el almacén de Copia de seguridad de Azure | <li>Copia de seguridad o restauración en el nivel de disco una vez al día<li>No puede realizar copias de seguridad locales | Máquinas virtuales<br>Discos individuales |
 
 ## ¿De qué aplicaciones y cargas de trabajo puedo hacer copias de seguridad?
 
@@ -69,8 +69,7 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
-| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
-| Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
+| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) | | Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
 
 ## Compatibilidad con ARM y Linux
 
@@ -84,7 +83,7 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Funcionalidad
-En estas cinco tablas se resume cómo se controla la funcionalidad Copia de seguridad en cada componente.
+Estas cinco tablas resumen cómo se controla la funcionalidad de copia de seguridad en cada componente.
 
 ### Almacenamiento
 
@@ -102,13 +101,13 @@ En estas cinco tablas se resume cómo se controla la funcionalidad Copia de segu
 El almacén de Copia de seguridad es el destino de almacenamiento preferido en todos los componentes. System Center DPM y el servidor de Copia de seguridad también proporcionan la opción de tener una copia en el disco local. Sin embargo, solo System Center DPM ofrece la opción de escribir datos en un dispositivo de almacenamiento en cinta.
 
 #### Copia de seguridad incremental
-Con independencia del almacenamiento de destino (disco, cinta, almacén de copia de seguridad), cada componente admite la copia de seguridad incremental. La copia de seguridad incremental ayuda a garantizar que las copias de seguridad se realizan con una utilización eficiente del tiempo y el almacenamiento. Para ello, solo se transfieren al almacenamiento de destino los cambios realizados desde la última copia de seguridad.
+Cada componente admite la copia de seguridad incremental independientemente del tipo de almacenamiento de destino (disco, cinta, almacén de copia de seguridad). La copia de seguridad incremental garantiza que las copias de seguridad sean eficaces desde el punto de vista del almacenamiento y del tiempo, transfiriendo solo los cambios realizados desde la última copia de seguridad.
 
 #### Compresión
 Las copias de seguridad se comprimen para reducir el espacio de almacenamiento necesario. El único componente que no utiliza compresión es la extensión de VM. Con la extensión de VM, todos los datos de copia de seguridad se copian desde la cuenta de almacenamiento del cliente hasta el almacén de copia de seguridad en la misma región sin comprimirlos. Aunque la falta de compresión aumenta ligeramente el almacenamiento consumido, permite tiempos de restauración más rápidos.
 
 #### Desduplicación
-La desduplicación se admite en System Center DPM y el servidor de Copia de seguridad cuando se [implementa en una máquina virtual de Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La desduplicación se realiza en el nivel de host mediante la desduplicación de Windows Server en los discos duros virtuales (VHD) conectados a la máquina virtual como almacenamiento de copia de seguridad.
+La desduplicación se admite en System Center DPM y el servidor de Copia de seguridad cuando se [implementa en una máquina virtual de Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La desduplicación se realiza en el nivel de host mediante la desduplicación de Windows Server en discos duros virtuales (VHD) que están conectados a la máquina virtual como almacenamiento de copia de seguridad.
 
 >[AZURE.WARNING] La desduplicación no está disponible en Azure para ninguno de los componentes de Copia de seguridad. Cuando System Center DPM y el Servidor de Copia de seguridad se implementan en Azure, los discos de almacenamiento conectados a la VM no se pueden desduplicar.
 
@@ -156,10 +155,10 @@ La realización de copias de seguridad de máquinas virtuales de Azure requiere 
 
 Dado que la extensión de VM lee directamente los datos de la cuenta de Almacenamiento de Azure a través de la red de almacenamiento, no es necesario optimizar este tráfico. Dado que el tráfico fluye a través de la red de almacenamiento local en el centro de datos de Azure, existe una mínima necesidad de compresión debido a consideraciones de ancho de banda.
 
-Para los clientes que protegen sus datos en un servidor de copia de seguridad (DPM o servidor de Copia de seguridad), el tráfico desde el servidor principal hasta el servidor de copia de seguridad se puede comprimir para ahorrar ancho de banda.
+Si está realizando una copia de seguridad de los datos en un servidor de copia de seguridad (DPM o servidor de copia de seguridad), se puede comprimir el tráfico desde el servidor principal al servidor de copia de seguridad para ahorrar ancho de banda.
 
 #### Limitación de la red
-El agente de Copia de seguridad de Azure proporciona funcionalidad de limitación que permite controlar cómo se utiliza el ancho de banda de red durante la transferencia de datos. Esto puede resultar de ayuda si necesita realizar una copia de seguridad de los datos durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación de la transferencia de datos se aplica a las actividades de copia de seguridad y restauración.
+El agente de Copia de seguridad de Azure proporciona la funcionalidad de limitación, que le permite controlar cómo se utiliza el ancho de banda de red durante la transferencia de datos. La limitación puede resultar útil si necesita realizar una copia de seguridad de datos durante horas de trabajo, pero no desea que el proceso de copia de seguridad interfiera con otro tráfico de Internet. La limitación en la transferencia de datos se aplica a actividades de copia de seguridad y restauración.
 
 ### Copia de seguridad y retención
 
@@ -182,7 +181,7 @@ El archivo de credenciales de almacén se usa solo durante el flujo de trabajo d
 ## ¿Qué diferencias hay entre Copia de seguridad de Azure y Azure Site Recovery?
 Muchos clientes confunden la recuperación de copias de seguridad y la recuperación ante desastres. Ambas capturan datos y proporcionan la semántica de restauración, pero la propuesta de valor principal es diferente.
 
-Copia de seguridad de Azure realiza una copia de seguridad de datos local y en la nube. Azure Site Recovery coordina la replicación de la máquina virtual y el servidor físico, la conmutación por error y la conmutación por recuperación. Los dos servicios son importantes, ya que todas las soluciones de recuperación ante desastres necesitan que los datos se mantengan seguros y recuperables (Copia de seguridad) *y* que las cargas de trabajo estén disponibles y accesibles (Recuperación del sitio) cuando se produzcan interrupciones.
+Copia de seguridad de Azure realiza una copia de seguridad de datos local y en la nube. Azure Site Recovery coordina la replicación de la máquina virtual y el servidor físico, la conmutación por error y la conmutación por recuperación. Ambos servicios son importantes porque la solución de recuperación ante desastres debe mantener los datos seguros y recuperables (Copia de seguridad) *y* mantener las cargas de trabajo disponibles (Site Recovery) cuando se producen interrupciones.
 
 Los siguientes conceptos le ayudarán a tomar decisiones importantes en torno a la copia de seguridad y la recuperación ante desastres.
 
@@ -199,7 +198,7 @@ Probar Copia de seguridad de Azure. Si desea obtener instrucciones, consulte uno
 - [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins.md)
 - [Probar copia de seguridad de máquina virtual de Azure](backup-azure-vms-first-look.md)
 
-Dado que estos tutoriales le ayudan a hacer copias de seguridad rápidamente, le muestran solo la ruta de acceso más directa para la realización de copias de seguridad de los datos. Para más información acerca del tipo de copia de seguridad que desea hacer, consulte:
+Dado que estos tutoriales le ayudan a hacer copias de seguridad rápidamente, le muestran solo la ruta de acceso más directa para la realización de copias de seguridad de los datos. Para más información sobre el tipo de copia de seguridad que desea realizar, consulte:
 
 - [Copia de seguridad de máquina con Windows](backup-configure-vault.md)
 - [Copia de seguridad de cargas de trabajo de aplicaciones](backup-azure-microsoft-azure-backup.md)
@@ -211,4 +210,4 @@ Dado que estos tutoriales le ayudan a hacer copias de seguridad rápidamente, le
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

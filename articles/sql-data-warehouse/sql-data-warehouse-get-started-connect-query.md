@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conexión y realización de consultas con Visual Studio
@@ -34,7 +34,7 @@ Este tutorial muestra cómo conectarse y realizar consultas en un Almacenamiento
 
 ## Obtención del nombre completo del servidor de Azure SQL Server
 
-Para conectarse a la base de datos, necesita el nombre completo del servidor ( ***servername**.database.windows.net* ) que contiene la base de datos a la que quiere conectarse.
+Para conectarse a la base de datos, necesita el nombre completo del servidor (****servername**.database.windows.net*) que contiene la base de datos a la que quiere conectarse.
 
 1. Vaya al [Portal de Azure](https://portal.azure.com).
 2. Vaya a la base de datos a la que quiere conectarse.
@@ -69,13 +69,13 @@ Ahora que registramos el servidor, continuemos y escribamos una consulta.
 
 3. Escriba el siguiente código en la ventana de consulta:
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. Ejecute la consulta.
 
-	Para ejecutar la consulta, haga clic en la flecha verde o use la combinación de teclas `CTRL`+`SHIFT`+`E`.
+   Para ejecutar la consulta, haga clic en la flecha verde o use la combinación de teclas `CTRL`+`SHIFT`+`E`.
 
 ## Pasos siguientes
 
@@ -91,4 +91,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [conectarse con PowerB
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="03/28/2016"
 	ms.author="deonhe"/>
 
 # Lista de API administradas
@@ -52,7 +52,7 @@ Existen dos tipos de desencadenadores:
 Las API también pueden utilizarse como acciones dentro de sus aplicaciones. Las acciones resultan útiles para buscar datos que luego se pueden utilizar en la ejecución de la aplicación. Por ejemplo, puede que necesite buscar datos de clientes de una base de datos SQL al procesar un pedido. O bien, puede que necesite escribir, actualizar o eliminar datos en una tabla de destino. Para ello, puede usar las acciones proporcionadas por las API. Las acciones se asignan a las operaciones que se definen en los metadatos de Swagger.
 
 
-[Novedades](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) [Qué es PowerApps Enterprise y cómo empezar](../power-apps/powerapps-get-started-azure-portal.md)
+[Novedades](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Compilación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Introducción a PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Migración de las aplicaciones lógicas existentes a la última versión de esquema](connectors-schema-migration.md)
 
 <!--API Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Conéctese a un blob de Azure para administrar archivos en el contenedor de blobs."
@@ -105,4 +105,4 @@ Las API también pueden utilizarse como acciones dentro de sus aplicaciones. Las
 [twittericon]: ./media/apis-list/twittericon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

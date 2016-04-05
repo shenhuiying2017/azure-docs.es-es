@@ -3,7 +3,7 @@
    description="Introducción a la conexión a Almacenamiento de datos SQL y ejecución de algunas consultas."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conexión y consultas con SQLCMD
@@ -45,17 +45,17 @@ Para conectarse a la base de datos, necesita el nombre completo del servidor (**
 
 ## Conexión a Almacenamiento de datos SQL con sqlcmd
 
-Para conectarse a una instancia específica de Almacenamiento de datos SQL cuando use sqlcmd, deberá abrir el símbolo del sistema y escribir **sqlcmd**, seguido de la cadena de conexión de la base de datos de Almacenamiento de datos SQL. La cadena de conexión deberá tener los siguientes parámetros:
+Para conectarse a una instancia específica de Almacenamiento de datos SQL cuando use sqlcmd, deberá abrir el símbolo del sistema y escribir **sqlcmd**, seguido de la cadena de conexión de la base de datos de Almacenamiento de datos SQL. La cadena de conexión deberá tener los siguientes parámetros obligatorios:
 
++ **Servidor (-S):** servidor con el formato `<`Nombre del servidor`>`.database.windows.net
++ **Base de datos (-d):** el nombre de la base de datos.
 + **Usuario (-U):** usuario de servidor con el formato `<`usuario`>`
 + **Contraseña (-P):** la contraseña asociada con el usuario.
-+ **Servidor (-S):** servidor con el formato `<`Nombre del servidor`>`.database.windows.net
-+ **Base de datos (-D):** el nombre de la base de datos.
 + **Habilitar identificadores entre comillas (-I):** los identificadores entre comillas deben estar habilitados para poder conectarse a una instancia de Almacenamiento de datos SQL.
 
 Por lo tanto, para ello, debe escribir lo siguiente:
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 ```
 
@@ -63,9 +63,9 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 Después de la conexión, puede emitir cualquier instrucción Transact-SQL en la instancia.
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
-1> SELECT COUNT(*) FROM dbo.FactInternetSales;
+1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
@@ -83,4 +83,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [conectarse con PowerB
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

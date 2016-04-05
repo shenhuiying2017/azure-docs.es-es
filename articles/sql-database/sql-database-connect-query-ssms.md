@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/21/2016"
+	ms.date="03/25/2016"
 	ms.author="sstein" />
 
 # Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo
@@ -42,9 +42,11 @@ Al trabajar con Base de datos SQL, debe usar la versión más reciente de SSMS. 
 
 	![SQL Server Management Studio: conexión a un servidor de Base de datos SQL](./media/sql-database-connect-query-ssms/1-connect.png)
 
+5. Si todavía no ha establecido una conexión a Azure, SSMS le pedirá la información de inicio de sesión de Azure.
+
 ### Si se produce un error en la conexión
 
-La razón más común de los errores de conexión son los errores en el nombre del servidor (recuerde, *&lt;;servername>* es el nombre del servidor lógico, no el de la base de datos), el nombre de usuario o contraseña, así como el servidor que no permite conexiones por motivos de seguridad. Si se conecta por primera vez o se produce un error en la conexión debido a una configuración de IP modificada, la [versión más reciente de SSMS](https://msdn.microsoft.com/library/mt238290.aspx) le pedirá la información de inicio de sesión de Azure y, a continuación, creará la regla de firewall en Azure para usted. Si está utilizando una versión anterior, se notificará la dirección IP en un mensaje de error y deberá agregar esta dirección IP a la regla de firewall del servidor en Azure. Asegúrese de que la configuración de firewall del servidor permite las conexiones desde la dirección IP de su equipo local y la dirección IP que utiliza el cliente SSMS. A veces son diferentes. Para obtener más información, consulte [Configuración del firewall (Base de datos SQL de Azure)](sql-database-configure-firewall-settings.md).
+La razón más común de los errores de conexión son los errores en el nombre del servidor (recuerde, <*nombreDeServidor>* es el nombre del servidor lógico, no el de la base de datos), el nombre de usuario o contraseña, así como el servidor que no permite conexiones por motivos de seguridad. Si se conecta por primera vez o se produce un error en la conexión debido a una configuración de IP modificada, la [versión más reciente de SSMS](https://msdn.microsoft.com/library/mt238290.aspx) le pedirá la información de inicio de sesión de Azure y, a continuación, creará la regla de firewall en Azure para usted. Si está utilizando una versión anterior, se notificará la dirección IP en un mensaje de error y deberá agregar esta dirección IP a la regla de firewall del servidor en Azure. Asegúrese de que la configuración de firewall del servidor permite las conexiones desde la dirección IP de su equipo local y la dirección IP que utiliza el cliente SSMS. A veces son diferentes. Para obtener más información, consulte [Configuración del firewall (Base de datos SQL de Azure)](sql-database-configure-firewall-settings.md).
 
 ## Ejecutar consultas de ejemplo
 
@@ -75,4 +77,4 @@ Puede usar instrucciones T-SQL para crear y administrar bases de datos en Azure 
 
 Si no está familiarizado con T-SQL, consulte [Tutorial: Escribir instrucciones Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) y [Referencia de Transact-SQL (motor de base de datos)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

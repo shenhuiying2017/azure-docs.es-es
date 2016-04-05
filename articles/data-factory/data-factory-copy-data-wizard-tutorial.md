@@ -63,6 +63,8 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 ## Creación de una canalización
 
 1. En la página principal de Data Factory, haga clic en el icono **Copiar datos** para iniciar el **Asistente para copia**. 
+
+	> [AZURE.NOTE] Si ve que el explorador web está atascado en "Autorizando...", deshabilite o desactive la opción **Bloquear cookies y datos de sitios de terceros** o déjela habilitada y cree una excepción para **login.microsoftonline.com** e intente iniciar de nuevo el asistente.
 2. En la página **Propiedades**:
 	1. Escriba **CopyFromBlobToAzureSql** en **Nombre de tarea**.
 	2. Escriba una **descripción** (opcional).
@@ -76,7 +78,7 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 5. En la página **Especificar cuenta de Almacenamiento de blobs de Azure**:
 	1. Escriba **AzureStorageLinkedService** en **Nombre de servicio vinculado**.
 	2. Confirme que **De suscripciones de Azure** es el valor de **Método de selección de cuenta**. 
-	3. Seleccione una **cuenta de Almacenamiento de Azure** en la lista de cuentas de Almacenamiento de Azure disponibles en la suscripción que seleccionó. También puede elegir especificar la configuración de la cuenta de almacenamiento manualmente, para lo que debe seleccionar la opción **Especificar manualmente** en **Método de selección de cuenta** y luego haga clic en **Siguiente**. 
+	3. Seleccione una **cuenta de Almacenamiento de Azure** en la lista de cuentas de Almacenamiento de Azure disponibles en la suscripción que seleccionó. También puede elegir especificar la configuración de la cuenta de almacenamiento manualmente, para lo que debe seleccionar la opción **Especificar manualmente** en **Método de selección de cuenta** y luego hacer clic en **Siguiente**. 
 
 	![Herramienta de copia: Especificar cuenta de Almacenamiento de blobs de Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
 6. En la página **Elegir el archivo o la carpeta de entrada**:
@@ -90,7 +92,7 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 	![Herramienta de copia: Configuración de formato de archivo](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. En la página Almacén de datos de destino, haga clic en el icono **Base de datos SQL de Azure** y haga clic en **Siguiente**.
 9. En la página **Especificar la base de datos SQL de Azure**:
-	1. Escriba **AzureSqlLinkedService** en **Nombre de servicio vinculado**. 
+	1. Escriba **AzureSqlLinkedService** en el campo **Nombre de servicio vinculado**. 
 	2. Confirme que en **Método de selección de servidor y base de datos** se ha seleccionado la opción **De suscripciones de Azure**.
 	3. Seleccione **Nombre de servidor** y **Base de datos**.
 	4. En **Nombre de usuario** y **Contraseña**, escriba los valores pertinentes.
@@ -108,4 +110,4 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 	![Aplicación de supervisión](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

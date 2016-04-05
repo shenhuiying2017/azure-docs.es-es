@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="03/25/2016"
    ms.author="larryfr"/>
 
 #Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows
@@ -121,7 +121,11 @@ Para obtener más información acerca del uso de este comando, consulte [Aprovis
 
 	![interfaz de putty, seleccionar clave privada](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
-3. En **Category** (Categoría), seleccione **Session** (Sesión). En la pantalla **Basic options for your PuTTY session** (Opciones básicas de la sesión de PuTTY), escriba la dirección SSH del servidor de HDInsight en el campo **Host name (or IP address)** (Nombre de host (o dirección IP)). La dirección SSH es el nombre de su clúster, seguido de **-ssh.azurehdinsight.net**. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.
+3. En **Category** (Categoría), seleccione **Session** (Sesión). En la pantalla **Basic options for your PuTTY session** (Opciones básicas de la sesión de PuTTY), escriba la dirección SSH del servidor de HDInsight en el campo **Host name (or IP address)** (Nombre de host (o dirección IP)). Hay dos posibles direcciones SSH que puede utilizar al conectarse a un clúster:
+
+    * __Dirección de nodo principal__: para conectarse al nodo principal del clúster, utilice el nombre del clúster y, a continuación, **-ssh.azurehdinsight.net**. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.
+    
+    * __Dirección de nodo perimetral__: si se va a conectar a un servidor de R en un clúster de HDInsight, puede conectarse al nodo perimetral del servidor de R mediante la dirección __RServer.CLUSTERNAME.ssh.azurehdinsight.net__, donde CLUSTERNAME es el nombre del clúster. Por ejemplo, __RServer.mycluster.ssh.azurehdinsight.net__.
 
 	![interfaz de putty con dirección ssh introducida](./media/hdinsight-hadoop-linux-use-ssh-windows/puttyaddress.png)
 
@@ -229,4 +233,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -64,8 +64,9 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 |**Cologix** | Compatible | Próximamente | Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | Compatible | Ámsterdam, Dublín, Londres |
 | **Comcast** | Compatible | No compatible | Silicon Valley, Washington DC |
-| **CoreSite** | Compatible | Compatible | Los Ángeles | 
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Compatible | Compatible | Los Ángeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Ámsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Ángeles, Melbourne, Nueva York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapur, Sidney, Tokio, Toronto, Washington DC |
+| **euNetworks** | Compatible | Compatible | Ámsterdam |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Compatible | Compatible | Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Compatible | Compatible | Ámsterdam, Londres, Singapur, Washington DC |
 | **Internet Solutions - Cloud Connect** | Compatible | Compatible | Ámsterdam y Londres |
@@ -134,6 +135,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 
 |**Proveedor de conectividad**|**Exchange**|**Ubicaciones de emparejamiento**|
 |---|---|---|
+|**Alaska Communications**|Equinix|Seattle|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 ## Integradores de sistemas de ExpressRoute
@@ -152,4 +154,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->
