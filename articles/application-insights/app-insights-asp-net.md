@@ -70,7 +70,7 @@ El comando realizó estos pasos (que podría [hacer manualmente](app-insights-st
 
 Si no inicia sesión en Azure inicialmente, el SDK se instalará sin necesidad de conectarlo a un recurso. Podrá ver y buscar la telemetría de Application Insights en la ventana de búsqueda de Visual Studio mientras realiza la depuración. Puede llevar a cabo los demás pasos más adelante.
 
-## <a name="run"></a> Ejecución del proyecto
+## <a name="run"></a> Depure el proyecto
 
 Ejecute la aplicación con F5 y pruébela. Abra varias páginas para generar telemetría.
 
@@ -81,6 +81,16 @@ En Visual Studio, verá un recuento de los eventos que se han registrado.
 Haga clic en este botón para abrir la búsqueda de diagnóstico.
 
 
+
+## Depuración de telemetría
+
+### Concentrador de diagnósticos
+
+El concentrador de diagnósticos (en Visual Studio 2015 o posterior) muestra los datos de telemetría del servidor de Application Insights cuando se generan. Esto funciona incluso si solo ha optado por instalar el SDK, sin conectarlo a un recurso del Portal de Azure.
+
+![Abra la ventana Herramientas de diagnóstico e inspeccione los eventos de Application Insights.](./media/app-insights-asp-net/31.png)
+
+
 ### Búsqueda de diagnóstico
 
 La ventana de búsqueda muestra los eventos que se han registrado. (Si inició la sesión en Azure al configurar Application Insights, podrá buscar los mismos eventos en el portal.)
@@ -89,24 +99,49 @@ La ventana de búsqueda muestra los eventos que se han registrado. (Si inició l
 
 La búsqueda de texto sin formato funciona en todos los campos de los eventos. Por ejemplo, buscar parte de la dirección URL de una página; o el valor de una propiedad, como la ciudad del cliente; o palabras específicas en un registro de seguimiento.
 
+También puede abrir la pestaña de elementos relacionados para ayudar a diagnosticar las solicitudes con errores o las excepciones.
 
-[Más información sobre la búsqueda](app-insights-diagnostic-search.md)
+
+![](./media/app-insights-asp-net/41.png)
+
+
 
 ### Excepciones
 
-Si ha [configurado la supervisión de excepciones](app-insights-asp-net-exceptions.md), los informes de excepciones se mostrarán en la ventana Búsqueda.
+Si ha [configurado la supervisión de excepciones](app-insights-asp-net-exceptions.md), los informes de excepciones se mostrarán en la ventana de búsqueda.
 
 Haga clic en una excepción para obtener un seguimiento de la pila. Si el código de la aplicación es abierto en Visual Studio, puede hacer clic para recorrer el seguimiento de la pila hasta dar con la línea correspondiente del código.
 
 
 
-## <a name="monitor"></a> Apertura de Application Insights
+
+### Supervisión local
+
+
+
+(Desde Visual Studio 2015 Update 2) Si no ha configurado el SDK para enviar datos de telemetría al portal de Application Insights (para que no haya ninguna clave de instrumentación en ApplicationInsights.config), la ventana diagnóstico mostrará los datos de telemetría de la sesión de depuración más reciente.
+
+Esto es conveniente si ya ha publicado una versión anterior de la aplicación. No quiere que los datos de telemetría de las sesiones de depuración se mezclen con los datos de telemetría en el portal de Application Insights de la aplicación publicada.
+
+También es útil si tiene algunos [datos de telemetría personalizados](app-insights-api-custom-events-metrics.md) que desea depurar antes de enviarlos al portal.
+
+
+* *En primer lugar, configuré totalmente Application Insights para enviar datos de telemetría al portal. Pero ahora me gustaría ver los datos de telemetría solo en Visual Studio.*
+
+ * En la configuración de la ventana de búsqueda, hay una opción para buscar diagnósticos locales, incluso si la aplicación envía datos de telemetría al portal.
+ * Para detener el envío de datos de telemetría al portal, comente la línea `<instrumentationkey>...` de ApplicationInsights.config. Cuando esté listo para enviar de nuevo datos de telemetría al portal, quite los comentarios.
+
+
+
+## <a name="monitor"></a> Visualización de los datos de telemetría en el portal de Application Insights
+
+El portal de Application Insights es donde verá los datos de telemetría una vez que se publique la aplicación y durante la depuración querrá comprobar que envía los datos correctamente.
 
 Abra el recurso de Application Insights en el [Portal de Azure][portal].
 
 ![Haga clic con el botón secundario en el proyecto y abra el Portal de Azure](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-Si no inició sesión en Azure cuando agregó Application Ingsights a esta aplicación, hágalo ahora. Seleccione **Configurar Application Insights** Eso le permitirá seguir viendo la telemetría desde la aplicación activa después de haberla implementado. La telemetría aparecerá en el portal de Application Insights.
+Si no inició sesión en Azure cuando agregó Application Ingsights a esta aplicación, hágalo ahora. Seleccione **Configurar Application Insights**. Eso le permitirá seguir viendo la telemetría desde la aplicación activa después de haberla implementado. La telemetría aparecerá en el portal de Application Insights.
 
 ### Métricas: datos agregados
 
@@ -151,21 +186,6 @@ Si se trabaja en modo de depuración, la telemetría se agiliza a través de la 
 Consulte [este apartado de la solución de problemas](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [AZURE.NOTE] Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
-
-
-## Depuración de telemetría
-
-### Concentrador de diagnósticos
-
-El concentrador de diagnósticos (en Visual Studio 2015 o posterior) muestra los datos de telemetría del servidor de Application Insights cuando se generan. Esto funciona incluso si solo ha optado por instalar el SDK, sin conectarlo a un recurso del Portal de Azure.
-
-![Abra la ventana Herramientas de diagnóstico e inspeccione los eventos de Application Insights.](./media/app-insights-asp-net/31.png)
-
-Esto es especialmente útil si tiene alguna [telemetría personalizada](app-insights-api-custom-events-metrics.md) que desee depurar antes de enviarla al portal.
-
-* *En primer lugar, he configurado completamente Application Insights para enviar la telemetría al portal. Pero ahora me gustaría ver los datos de telemetría solo en Visual Studio.*
-
-    Convierta en comentario la línea `<instrumentationkey>...` de ApplicationInsights.config. Cuando esté listo para enviar de nuevo datos de telemetría al portal, quite los comentarios.
 
 
 
@@ -214,4 +234,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

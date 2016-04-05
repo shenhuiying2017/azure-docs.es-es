@@ -42,7 +42,10 @@ El ejemplo siguiente muestra una subred de puerta de enlace con el nombre Gatewa
 
 ## <a name="gwtype"></a>Tipos de puerta de enlace
 
-El tipo de puerta de enlace especifica cómo se conecta la puerta de enlace y es un valor de configuración necesario para el modelo de implementación de Resource Manager. No confunda el tipo de puerta de enlace con el tipo de VPN, que especifica el tipo de enrutamiento de la VPN. Los valores disponibles de GatewayType son: *Vpn* y *ExpressRoute*.
+El tipo de puerta de enlace especifica cómo se conecta la puerta de enlace y es un valor de configuración necesario para el modelo de implementación de Resource Manager. No confunda el tipo de puerta de enlace con el tipo de VPN, que especifica el tipo de enrutamiento de la VPN. Los valores disponibles para `-GatewayType` son:
+
+- VPN
+- ExpressRoute
 
 
 Este ejemplo del modelo de implementación de Resource Manager especifica -GatewayType como *Vpn*. Al crear una puerta de enlace, debe asegurarse de que el tipo de puerta de enlace es el correcto para su configuración.
@@ -57,7 +60,7 @@ Cuando se crea una puerta de enlace de VPN, debe especificar la SKU de puerta de
 - Standard
 - HighPerformance
 
-El ejemplo siguiente especifica GatewaySku como *Standard*.
+El ejemplo siguiente especifica `-GatewaySku` como *Standard*.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
 
@@ -78,9 +81,22 @@ Hay dos tipos de VPN:
 
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-Este ejemplo del modelo de implementación de Resource Manager especifica -VpnType como *RouteBased*. Al crear una puerta de enlace, debe asegurarse de que el tipo de VPN es el correcto para su configuración.
+Este ejemplo del modelo de implementación de Resource Manager especifica `-VpnType` como *RouteBased*. Al crear una puerta de enlace, debe asegurarse de que el tipo de VPN es el correcto para su configuración.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+## <a name="connectiontype"></a>Tipos de conexión
+
+Cada configuración requiere un tipo de conexión específico. Los valores disponibles de Powershell de Resource Manager para `-ConnectionType` son:
+
+- IPsec
+- Vnet2Vnet
+- ExpressRoute
+- VPNClient
+
+En el siguiente ejemplo, vamos a crear una conexión de sitio a sitio, que requiere que el tipo de conexión "IPsec".
+
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
 ## <a name="lng"></a>Puertas de enlace de red local
@@ -122,4 +138,4 @@ Consulte el artículo [Preguntas más frecuentes sobre la puerta de enlace de VP
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

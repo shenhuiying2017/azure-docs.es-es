@@ -20,8 +20,8 @@
 # Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux
 
 > [AZURE.SELECTOR]
-- [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 
 Aprenda a crear clústeres de [Hadoop](http://hadoop.apache.org/) basados en Linux en HDInsight y a ejecutar trabajos de Hive en HDInsight. [Apache Hive](https://hive.apache.org/) es el componente más popular del ecosistema de Hadoop. Actualmente, HDInsight incluye cuatro tipos de clúster: [Hadoop](hdinsight-hadoop-introduction), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) y [Storm](hdinsight-storm-overview.md). Cada uno de estos tipos de clúster es compatible con un conjunto de componentes diferente. Los cuatro tipos de clúster son compatibles con Hive. Para ver una lista de los componentes compatibles con HDInsight, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight](hdinsight-component-versioning.md).
 
@@ -161,4 +161,4 @@ Si desea información sobre cómo crear o administrar un clúster de HDInsight, 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

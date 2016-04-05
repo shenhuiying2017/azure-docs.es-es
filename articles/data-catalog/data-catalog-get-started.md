@@ -18,7 +18,7 @@
 
 # Introducción al Catálogo de datos de Azure
 
-Este artículo es un tutorial integral de los escenarios y las funcionalidades de la versión preliminar pública del **Catálogo de datos de Azure**. Cuando se haya registrado para la versión preliminar, siga estos pasos para crear un Catálogo de datos y registrar, anotar y detectar los orígenes de datos.
+Este artículo es un resumen integral de los escenarios y funcionalidades del **Catálogo de datos de Azure**. Cuando se haya registrado para el servicio, siga estos pasos para crear un Catálogo de datos y registrar, anotar y detectar los orígenes de datos.
 
 ## Requisitos previos de tutoriales
 
@@ -256,6 +256,6 @@ En este ejercicio ha explorado las funcionalidades de administración del **Cat�
 
 ## Resumen
 
-En este tutorial ha explorado las funcionalidades esenciales de la versión preliminar del **Catálogo de datos de Azure**, incluido el registro, la anotación, la detección y la administración de orígenes de datos empresariales. Ahora que ha completado el tutorial, ha llegado el momento de comenzar. Puede empezar hoy mismo por registrar los orígenes de datos en los que confían usted y su equipo, e invitando a compañeros a usar el catálogo.
+En este tutorial ha explorado las funcionalidades esenciales del **Catálogo de datos de Azure**, incluido el registro, la anotación, la detección y la administración de orígenes de datos empresariales. Ahora que ha completado el tutorial, ha llegado el momento de comenzar. Puede empezar hoy mismo por registrar los orígenes de datos en los que confían usted y su equipo, e invitando a compañeros a usar el catálogo.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

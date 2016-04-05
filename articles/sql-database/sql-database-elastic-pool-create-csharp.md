@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Creación de un grupo de bases de datos elásticas (C#) | Microsoft Azure"
-    description="Use técnicas de desarrollo de bases de datos de C# para crear un grupo de bases de datos elásticas de la Base de datos SQL de Azure, para así poder compartir recursos entre una gran cantidad de bases de datos."
+    pageTitle="Creación de un grupo de bases de datos elásticas con C# | Microsoft Azure"
+    description="Use técnicas de desarrollo de bases de datos de C# para crear un grupo de bases de datos elásticas escalable en la Base de datos SQL de Azure, para así poder compartir recursos entre muchas bases de datos."
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/22/2016"
+    ms.date="03/24/2016"
     ms.author="sstein"/>
 
-# Creación de un grupo de bases de datos elásticas (C&#x23;)
+# Creación de un grupo de bases de datos elásticas con C&#x23;
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](sql-database-elastic-pool-create-portal.md)
@@ -30,14 +30,14 @@ Para ver los códigos de error comunes, consulte [Códigos de error para las apl
 
 > [AZURE.NOTE] Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12. Si tiene un servidor de Base de datos SQL V11, puede [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server-portal.md) en un solo paso.
 
-En los ejemplos se usa la [Biblioteca de administración de SQL](https://msdn.microsoft.com/library/azure/mt349017.aspx) para .NET por lo que necesita instalar la biblioteca. Puede instalarla ejecutando el siguiente comando en la [consola del administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
+En los ejemplos se utiliza la [Biblioteca de administración de SQL](https://msdn.microsoft.com/library/azure/mt349017.aspx) para .NET, por lo que necesita instalar la biblioteca. Puede instalarla ejecutando el siguiente comando en la [consola del administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
 
 
 
-## Creación de un grupo de bases de datos elásticas
+## Creación de un grupo
 
 
     // Create elastic pool: configure create or update parameters and properties explicitly
@@ -56,7 +56,7 @@ En los ejemplos se usa la [Biblioteca de administración de SQL](https://msdn.mi
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Movimiento de una base de datos existente a un grupo de bases de datos elásticas
+## Mueva una base de datos existente a un grupo
 
 
     // Retrieve current database properties
@@ -82,7 +82,7 @@ En los ejemplos se usa la [Biblioteca de administración de SQL](https://msdn.mi
 
 
 
-## Creación de una nueva base de datos en un grupo de bases de datos elásticas
+## Creación de una nueva base de datos en un grupo
 
 
     // Create a database: configure create or update parameters and properties explicitly
@@ -105,7 +105,7 @@ En los ejemplos se usa la [Biblioteca de administración de SQL](https://msdn.mi
 
 
 
-## Creación de un grupo de bases de datos elásticas de ejemplo de C&#x23;
+## Cree un ejemplo de grupo con C&#x23;
 
 
 Las bibliotecas siguientes son necesarias para ejecutar este ejemplo. Puede instalarlas ejecutando los siguientes comandos en la [consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
@@ -145,7 +145,7 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
         static string adminPassword = "<server password (store it securely!)>";
         static string serverVersion = "12.0";
 
-        // elastic database pool variables
+        // pool variables
         static string elasticPoolName = "<pool name>";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -168,7 +168,7 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -270,7 +270,7 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
 ## Pasos siguientes
 
 - [Administración del grupo](sql-database-elastic-pool-manage-csharp.md)
-- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos facilitan la ejecución de scripts de T-SQL con cualquier número de bases de datos en el grupo.
+- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos en el grupo.
 
 
 ## Recursos adicionales
@@ -280,4 +280,4 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
 - [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Referencias acerca del grupo de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

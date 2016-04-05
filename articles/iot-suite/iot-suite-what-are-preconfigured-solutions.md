@@ -36,6 +36,7 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 |------------------------|-----|-----|-----|-----|-----|
 | [Supervisión remota][lnk-remote-monitoring] | Sí | Sí | Sí | Sí | - | 
 | [Mantenimiento predictivo][lnk-predictive-maintenance] | Sí | Sí | Sí | Sí | Sí |
+
 - *Ingesta de datos*: entrada de datos a escala en la nube.
 - *Identidad de dispositivo*: administración de las identidades únicas de cada dispositivo conectado.
 - *Comando y control*: envío de mensajes a un dispositivo desde la nube para que el dispositivo realice alguna acción.
@@ -114,6 +115,8 @@ En esta solución preconfigurada, el portal de la solución forma parte tanto de
 
 ## Pasos siguientes
 
+Para más información sobre las arquitecturas de solución de IoT, consulte [Microsoft Azure IoT services: Reference Architecture (Servicios de IoT de Microsoft Azure: Arquitectura de referencia)][lnk-refarch].
+
 Examine estos recursos para obtener más información sobre las soluciones IoT preconfiguradas:
 
 - [Introducción a las soluciones de IoT preconfiguradas][lnk-preconf-get-started]
@@ -132,5 +135,6 @@ Examine estos recursos para obtener más información sobre las soluciones IoT p
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

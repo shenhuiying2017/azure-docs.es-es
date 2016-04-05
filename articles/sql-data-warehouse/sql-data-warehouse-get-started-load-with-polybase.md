@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -53,20 +53,20 @@ Para preparar un archivo de texto de ejemplo:
 
 1. Abra el Bloc de notas y copie las siguientes líneas de datos en un nuevo archivo. Guárdelo en un directorio temporal local como %temp%\\DimDate2.txt.
 
-    ```
-    20150301,1,3
-    20150501,2,4
-    20151001,4,2
-    20150201,1,3
-    20151201,4,2
-    20150801,3,1
-    20150601,2,4
-    20151101,4,2
-    20150401,2,4
-    20150701,3,1
-    20150901,3,1
-    20150101,1,3
-    ```
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
 
 ### B. Búsqueda del punto de conexión del servicio BLOB
 
@@ -141,7 +141,7 @@ El ejemplo de este paso usa estas instrucciones Transact-SQL para crear una tabl
 Ejecute esta consulta en la base de datos de Almacenamiento de datos SQL. Se creará una tabla externa denominada DimDate2External en el esquema dbo que apunta a los datos de ejemplo de DimDate2.txt del almacenamiento de blobs de Azure.
 
 
-```
+```sql
 -- A: Create a master key.
 -- Only necessary if one does not already exist.
 -- Required to encrypt the credential secret in the next step.
@@ -208,14 +208,19 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ```
 
-## Paso 4: Carga de datos en Almacenamiento de datos SQL
+
+En el Explorador de objetos de SQL Server de Visual Studio, se puede ver el formato del archivo externo, el origen de datos externo y la tabla DimDate2External.
+
+![Vea la tabla externa](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
+
+## Paso 3: Carga de datos en Almacenamiento de datos SQL
 
 Una vez creada la tabla externa, puede cargar los datos en una tabla nueva o insertarlos en una tabla existente.
 
 - Para cargar los datos en una tabla nueva, ejecute la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][]. La nueva tabla hereda las columnas designadas en la consulta. Los tipos de datos de las columnas coincidirán con los tipos de datos de la definición de la tabla externa.
 - Para cargar los datos en una tabla existente, use la instrucción [INSERT...SELECT (Transact-SQL)][].
 
-```
+```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE dbo.DimDate2
@@ -228,21 +233,16 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-
-En el Explorador de objetos de SQL Server de Visual Studio, se puede ver el formato del archivo externo, el origen de datos externo y la tabla DimDate2External.
-
-![Vea la tabla externa](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
-
-## Paso 5: Creación de estadísticas de los datos recién cargados
+## Paso 4: Crear estadísticas de los datos recién cargados
 
 Almacenamiento de datos SQL no crea ni actualiza automáticamente las estadísticas. Por lo tanto, para lograr un rendimiento elevado de las consultas, es importante crear estadísticas de todas las columna de cada tabla después de la primera carga. También es importante actualizar las estadísticas si se realizan cambios significativos en los datos.
 
-En este ejemplo se crean estadísticas con una sola columna de la nueva tabla DimDate2External.
+En este ejemplo se crean estadísticas con una sola columna de la nueva tabla DimDate2.
 
-```
+```sql
 CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
 CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
-create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
 Para más información, consulte [Estadísticas][].
@@ -286,4 +286,4 @@ Para más información que debe conocer cuando desarrolle una solución que use 
 [Create Database Scoped Credential (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

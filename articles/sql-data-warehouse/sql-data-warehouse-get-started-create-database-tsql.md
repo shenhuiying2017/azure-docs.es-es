@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creación de una base de datos de Almacenamiento de datos SQL mediante Transact-SQL (TSQL)
@@ -38,17 +38,45 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 
 En este artículo no se aborda cómo configurar correctamente Visual Studio ni cómo conectarse con él. Para obtener una descripción completa de cómo llevarlo a cabo, consulte la documentación de [Conexión y consultas][]. Para comenzar, abra el Explorador de objetos de SQL Server en Visual Studio y conéctese al servidor que va a usar para crear la base de datos de Almacenamiento de datos SQL. Una vez hecho esto, podrá crear un Almacenamiento de datos SQL ejecutando el comando siguiente en la base de datos maestra:
 
-        CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+```sql
+CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+```
 
 ## Creación de una base de datos con sqlcmd
 
 También puede crear un Almacenamiento de datos SQL; para ello, abra la línea de comandos y ejecute lo siguiente:
 
-        sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+```sql
+sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+```
 
-Cuando se ejecutan las instrucciones TSQL anteriores, tenga en cuenta que los parámetros MAXSIZE y SERVICE\_OBJECTIVE determinarán el tamaño de almacenamiento inicial y el proceso asignado a la instancia de Almacenamiento de datos. MAXSIZE aceptará los tamaños siguientes y se recomienda elegir un tamaño grande para tener espacio para el futuro: 250 GB, 500 GB, 750 GB, 1.024 GB, 5.120 GB, 10.240 GB, 20.480 GB, 30.720 GB, 40.960 GB, 51.200 GB.
+Cuando se ejecuten las instrucciones TSQL anteriores, tenga en cuenta los parámetros `MAXSIZE` y `SERVICE_OBJECTIVE` ya que estos determinarán el tamaño de almacenamiento inicial y el proceso asignado a la instancia de Almacenamiento de datos. `MAXSIZE` aceptará los siguientes tamaños y es recomendable elegir un tamaño grande para permitir espacio para el crecimiento: 2
 
-SERVICE\_OBJECTIVE indicará el número de DWU con las que se iniciará la instancia y aceptará los valores siguientes: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000. Para obtener información sobre el impacto de la facturación de estos parámetros, consulte nuestra [página de precios][].
++ 50 GB
++ 500 GB
++ 750 GB
++ 1\.024 GB
++ 5\.120 GB
++ 10\.240 GB
++ 20\.480 GB
++ 30\.720 GB
++ 40\.960 GB
++ 51\.200 GB
+
+`SERVICE_OBJECTIVE` indica el número de DWU con el que se iniciará la instancia y aceptará los valores siguientes:
+
++ DW100
++ DW200
++ DW300
++ DW400
++ DW500
++ DW600
++ DW1000
++ DW1200
++ DW1500
++ DW2000
+
+Para obtener información sobre el impacto de la facturación de estos parámetros, consulte nuestra [página de precios][].
 
 ## Pasos siguientes
 Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, puede [cargar datos de ejemplo][] o averiguar cómo [desarrollar][], [cargar][] o [migrar][].
@@ -61,4 +89,4 @@ Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, pue
 [cargar datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [página de precios]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

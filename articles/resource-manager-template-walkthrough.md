@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/14/2016"
+   ms.date="03/29/2016"
    ms.author="navale;tomfitz"/>
    
 # Tutorial de la plantilla de Azure Resource Manager
 
-Este tema le guiará por los pasos para crear una plantilla de Resource Manager. Se da por hecho que está familiarizado con los servicios de Azure que desea implementar, pero no sabe cómo podría representar esa infraestructura en una plantilla. Creará una plantilla basada en la [plantilla de dos máquinas virtuales con equilibrador de carga y reglas de equilibrio de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) en la [galería de inicio rápido](https://github.com/Azure/azure-quickstart-templates), pero las técnicas pueden aplicarse a cualquier plantilla que necesite crear.
+Este tema le guiará por los pasos para crear una plantilla de Resource Manager. Creará una plantilla basada en la [plantilla de dos máquinas virtuales con equilibrador de carga y reglas de equilibrio de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) en la [galería de inicio rápido](https://github.com/Azure/azure-quickstart-templates). Las técnicas que aprenda pueden aplicarse a cualquier plantilla que necesite crear.
 
 Echemos un vistazo a una arquitectura común:
 
@@ -310,7 +310,7 @@ Creará dos interfaces de red, una para cada máquina virtual. En lugar de tener
 ## Máquina virtual
 Aprenderá a crear dos máquinas virtuales con la función copyIndex(), como hizo al crear las [interfaces de red](#network-interface). La creación de la máquina virtual depende de la cuenta de almacenamiento, la interfaz de red y el conjunto de disponibilidad. Esta máquina virtual se creará a partir de una imagen de Marketplace, tal y como se define en la propiedad `storageProfile`. `imageReference` se usa para definir el editor de la imagen, la oferta, la sku y la versión. Por último, se configura un perfil de diagnóstico para habilitar los diagnósticos para la máquina virtual.
 
-Para buscar las propiedades pertinentes para una imagen de Marketplace, consulte el artículo [Búsqueda de máquinas virtuales](./virtual-machines/resource-groups-vm-searching.md). Para las imágenes publicadas por otros proveedores, deberá especificar otra propiedad llamada `plan`. Encontrará un ejemplo en [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) en la galería de inicio rápido.
+Para buscar las propiedades pertinentes para una imagen de Marketplace, consulte los artículos [Select Linux virtual machine images](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) (Seleccionar imágenes de máquina virtual de Linux) o [Select Windows virtual machine images](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) (Seleccionar imágenes de máquina virtual de Windows). Para las imágenes publicadas por otros proveedores, deberá especificar otra propiedad llamada `plan`. Encontrará un ejemplo en [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) en la galería de inicio rápido.
 
 
 ```json
@@ -500,7 +500,7 @@ En la sección variables, puede definir los valores que se usan en más de un lu
 
 Ha terminado de crear la plantilla y está listo para la implementación.
 
-- Para más información sobre la estructura de la plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
-- Para obtener información sobre cómo implementar una plantilla, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
+- Para más información sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
+- Para más información sobre cómo implementar una plantilla, consulte [Implementación de un grupo de recursos con la plantilla de Azure Resource Manager](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

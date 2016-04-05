@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 
@@ -34,7 +34,7 @@ Todo el mundo tiene una opinión. Y eso es algo bueno. El **Catálogo de datos d
 Cada una de estas perspectivas es importante, y el **Catálogo de datos de Azure** aplica un enfoque de micromecenazgo a los metadatos que permite que cada una se capture y utilice para ofrecer una visión completa de los orígenes de datos registrados. Mediante el portal del **Catálogo de datos de Azure**, cada usuario puede agregar y modificar sus propias anotaciones, a la vez que puede ver las anotaciones que otros usuarios han proporcionado.
 
 ## Distintos tipos de anotaciones
-Durante la vista previa del **Catálogo de datos de Azure**, se admiten los siguientes tipos de anotaciones:
+La búsqueda del **Catálogo de datos de Azure** admite los siguientes tipos de anotaciones:
 
 | Anotación | Notas |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,4 +61,4 @@ Al registrar un origen de datos con el **Catálogo de datos de Azure**, se consi
 ## Consulte también
 - Consulte el tutorial [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo anotar orígenes de datos.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

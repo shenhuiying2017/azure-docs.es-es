@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/25/2016"
    ms.author="larryfr"/>
 
 #Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X
@@ -116,11 +116,15 @@ Para obtener más información acerca del uso de este comando, consulte [Aprovis
 
 Desde una sesión de terminal, use el comando SSH para conectarse al nodo principal del clúster proporcionando el nombre de usuario y la dirección:
 
-* **Dirección SSH**: el nombre del clúster, seguido de **-ssh.azurehdinsight.net**. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.
+* **Dirección SSH**: hay dos direcciones que se pueden utilizar para conectarse a un clúster mediante SSH:
+
+    * **Conexión al nodo principal**: el nombre del clúster, seguido de **-ssh.azurehdinsight.net**. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.
+    
+    * **Conexión con el nodo perimetral**: si el clúster es el servidor de R en HDInsight, el clúster también contendrá un nodo perimetral al que se puede acceder mediante **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, donde __CLUSTERNAME__ es el nombre del clúster.
 
 * **Nombre de usuario**: el nombre de usuario SSH que proporcionó al crear el clúster.
 
-En el siguiente ejemplo se conectará al clúster **mycluster** como el usuario **me**:
+En el siguiente ejemplo se conectará al nodo principal 0 de **mycluster** como el usuario **yo**:
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -132,7 +136,7 @@ Si utilizó una clave SSH protegida con una frase de contraseña, se le pedirá 
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Si no se especifica ningún puerto, SSH establecerá el puerto 22 como predeterminado, lo cual provocará la conexión al nodo principal 0 en el clúster de HDInsight. Si usa el puerto 23, se conectará al nodo principal 1. Para más información sobre los nodos principales, vea [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
+Si se va a conectar utilizando la dirección de conexión al nodo principal y no se especifica ningún puerto, SSH establecerá el puerto 22 como predeterminado, lo cual provocará la conexión al nodo principal 0 en el clúster de HDInsight. Si usa el puerto 23, se conectará al nodo principal 1. Para más información sobre los nodos principales, vea [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conexión a los nodos de trabajo
 
@@ -239,4 +243,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

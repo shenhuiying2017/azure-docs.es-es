@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # Visualización, edición, creación y carga de documentos JSON con el Explorador de documentos de DocumentDB
@@ -158,4 +158,4 @@ Para más información acerca de la gramática de SQL de DocumentDB compatible c
 
 La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarle durante su aprendizaje de DocumentDB.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

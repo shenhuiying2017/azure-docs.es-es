@@ -461,6 +461,6 @@ Puede mover recursos existentes a un nuevo grupo de recursos. Para ver ejemplos,
 - Para más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
 - Para obtener información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md).
 - Para ver un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./virtual-machines/resource-group-deploy-debug.md).
+- Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

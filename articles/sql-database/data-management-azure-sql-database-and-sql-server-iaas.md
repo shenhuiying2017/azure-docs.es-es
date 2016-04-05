@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/02/2016"
+	ms.date="03/25/2016"
 	ms.author="jeffreyg"/>
 
 # Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)
@@ -82,7 +82,7 @@ En la siguiente tabla se resumen las principales características de Base de dat
       <li type=round>Aplicaciones de SQL Server que requieren acceso a recursos locales (como, por ejemplo, Active Directory) desde Azure a través de un túnel seguro.
       <li type=round>Cuando se requiere un entorno de TI personalizado con derechos administrativos completos.
       <li type=round>Escenarios de desarrollo rápido y pruebas cuando no se desea comprar hardware de SQL Server de no producción local.
-      <li type=round>Recuperación ante desastres para aplicaciones de SQL Server locales mediante [Copia de seguridad y restauración de SQL Server con el servicio de almacenamiento Blob de Microsoft Azure](http://msdn.microsoft.com/library/jj919148.aspx) o [réplicas AlwaysOn en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).
+      <li type=round>Recuperación ante desastres para aplicaciones de SQL Server locales mediante [Copia de seguridad y restauración de SQL Server con el servicio de almacenamiento Blob de Microsoft Azure](http://msdn.microsoft.com/library/jj919148.aspx) o réplicas AlwaysOn en Máquinas virtuales de Azure.
       <li type=round>Bases de datos grandes con más de 1&#160;TB de tamaño.
       </ul></td>
 </tr>
@@ -187,7 +187,7 @@ Elija **Base de datos SQL de Azure**, si:
 
 - Desea que Microsoft realice operaciones de administración comunes en las bases de datos y requiere contratos de nivel de servicio de disponibilidad más seguros para las bases de datos.
 
-Consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md) para comenzar.
+
 
 Elija **SQL Server en Máquinas virtuales de Azure** si:
 
@@ -195,8 +195,13 @@ Elija **SQL Server en Máquinas virtuales de Azure** si:
 
 - Tiene recursos de TI existentes, requiere derechos administrativos completos sobre SQL Server y precisa de plena compatibilidad con SQL Server local. Este enfoque permite minimizar costes de desarrollo o modificaciones de aplicaciones existentes con la flexibilidad de ejecutar la mayoría de las aplicaciones. Además, ofrece control total de la configuración de la máquina virtual, el sistema operativo y la base de datos.
 
-Consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-classic-portal-sql.md) para comenzar.
+
 
 > [AZURE.NOTE] ¿Desea probar SQL Server 2016 CTP2? Suscríbase a Microsoft Azure y, a continuación, acceda [aquí](http://aka.ms/sql2016vm "aquí") para crear una máquina virtual con SQL Server 2016 CTP2 ya instalado.
 
-<!---HONumber=AcomDC_0323_2016-->
+## Pasos siguientes
+- Consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md) para una introducción a Base de datos SQL.
+- Consulte [Precio de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/)
+- Consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) para una introducción a SQL Server en máquinas virtuales de Azure.
+
+<!---HONumber=AcomDC_0330_2016-->
