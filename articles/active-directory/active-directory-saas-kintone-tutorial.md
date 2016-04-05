@@ -155,7 +155,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Kintone **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Kintone**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-kintone-tutorial/IC785891.png "Asignar usuarios")
 
@@ -165,4 +165,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->
