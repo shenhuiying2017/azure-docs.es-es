@@ -13,7 +13,7 @@ Las plantillas del Administrador de recursos de Azure le permiten especificar me
 ### Requisitos previos
 
 1. Descargue las herramientas de la línea de comandos de Azure para su sistema operativo [aquí](https://azure.microsoft.com/downloads/).
-2. Si los scrips se ejecutarán en una máquina virtual existente, asegúrese de que el agente de máquina virtual está habilitado en dicha VM; en caso contrario, siga las instrucciones para Linux (virtual-machines-linux-classic-manage extensions.md) o Windows (virtual-machines-windows-classic-manage extensions.md) para instalar una.
+2. Si los scrips se ejecutarán en una máquina virtual existente, asegúrese de que el agente de máquina virtual está habilitado en dicha VM; en caso contrario, siga las instrucciones para [Linux](virtual-machines-linux-classic-manage extensions.md) o [Windows](virtual-machines-windows-classic-manage extensions.md) para instalar una.
 3. Cargue las secuencias de comandos que desea ejecutar en la máquina virtual para el almacenamiento de Azure. Las secuencias de comandos pueden proceder de un único contenedor de almacenamiento o de varios.
 4. También pueden cargarse los scripts en una cuenta de GitHub.
 5. La secuencia de comandos debe crearse de forma tal que la secuencia de comandos de entrada que inicia la extensión inicie, a su vez, otras secuencias de comandos.
@@ -22,4 +22,4 @@ Las plantillas del Administrador de recursos de Azure le permiten especificar me
 
 Para realizar la implementación con plantillas, usamos la misma versión de la extensión de scripts personalizados que está disponible para las API de administración de servicios de Azure. La extensión es compatible con los mismos parámetros y escenarios que la carga de archivos en la cuenta de Almacenamiento de Azure o la ubicación de Github. La diferencia clave cuando usa plantillas es que debe especificarse la versión exacta de la extensión, al contrario de la especificación de la versión en el formato majorversion.*.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

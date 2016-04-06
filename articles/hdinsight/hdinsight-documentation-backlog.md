@@ -29,7 +29,8 @@ Automatización | Actualización del artículo sobre [creación de un clúster S
 Automatización | Actualización del artículo sobre [creación de un clúster de Storm y ejecución de los ejemplos de inicio de Storm](hdinsight-apache-storm-tutorial-get-started-linux.md) para usar una plantilla ARM | 1 | [Completado](hdinsight-apache-storm-tutorial-get-started-linux.md#create-a-storm-cluster) | [@mumian](https://github.com/mumian) |- 
 Automatización | Actualización del artículo sobre el [uso de Sqoop con clúster de HDInsight con SSH](hdinsight-use-sqoop-mac-linux.md) para usar una plantilla ARMA| 1 | [Completado](hdinsight-use-sqoop.md#create-cluster-and-sql-database) | [@mumian](https://github.com/mumian) |- 
 Automatización | Actualización del artículo sobre [análisis de los datos de sensor mediante clústeres de Apache Storm](hdinsight-storm-sensor-data-analysis.md) para usar una plantilla ARM | 2 | Pendiente | [@mumian](https://github.com/mumian) | - 
-Almacenamiento | Artículo que explica WASB y Almacén de Data Lake como opciones de almacenamiento | 1 | Pendiente | [@mumian](https://github.com/mumian) | - Rendimiento | Directrices de ajuste de rendimiento para aplicaciones MapReduce | 1 | Pendiente | [@blackmist](https://github.com/blackmist) | - 
+Almacenamiento | Artículo que explica WASB y Almacén de Data Lake como opciones de almacenamiento | 1 | Pendiente | [@mumian](https://github.com/mumian) | - 
+Rendimiento | Directrices de ajuste de rendimiento para aplicaciones MapReduce | 1 | Pendiente | [@blackmist](https://github.com/blackmist) | - 
 Rendimiento |Directrices de ajuste del rendimiento para Spark |1 | Pendiente | [@nitinme](https://github.com/nitinme) | -
 
 
@@ -39,4 +40,4 @@ Existen varias formas de proporcionar comentarios en el trabajo pendiente:
 * Agregar un comentario a continuación.
 * Enviar una solicitud de incorporación de cambios en este documento al [repositorio de contenido de Azure](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->
