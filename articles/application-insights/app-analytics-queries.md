@@ -306,7 +306,7 @@ La columna expandida siempre tiene el tipo dinámico. Usar una conversión como 
 Se admiten dos modos de expansiones de contenedor de propiedades:
 
 * `bagexpansion=bag`: los contenedores de propiedades se expanden en contenedores de propiedades de entrada única. Esta es la expansión predeterminada.
-* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`* key*`,`*value*`]`, que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
+* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`*key*`,`*value*`]`, que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
 
 **Ejemplos**
 
