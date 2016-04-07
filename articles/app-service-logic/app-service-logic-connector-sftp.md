@@ -65,7 +65,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 	- **Ruta de la carpeta:**: especifique la ruta de acceso a la carpeta desde la que es necesario recuperar los archivos.
 	- **El tipo de archivo: texto o binario**: seleccione el tipo de archivo.
 	- **Máscara de archivo**: especifique la máscara de archivo que se va a aplicar para recuperar los archivos. '*' recupera todos los archivos de la carpeta especificada.
-- **Máscara para excluir archivo**: especifique la máscara de archivo que se aplicará para excluir archivos. Si también se ha establecido la propiedad "Máscara de archivo", primero se aplicará la máscara para excluir archivo.
+	- **Máscara para excluir archivo**: especifique la máscara de archivo que se aplicará para excluir archivos. Si también se ha establecido la propiedad "Máscara de archivo", primero se aplicará la máscara para excluir archivo.
 
 
 	![][9]  
@@ -107,4 +107,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
