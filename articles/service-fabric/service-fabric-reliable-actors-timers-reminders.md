@@ -3,7 +3,7 @@
    description="Introducción a los temporizadores y avisos de Reliable Actors de Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 

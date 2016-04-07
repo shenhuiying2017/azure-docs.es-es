@@ -3,7 +3,7 @@
    description="Explica el ciclo de vida y la recolección de elementos no utilizados en Reliable Actors de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
