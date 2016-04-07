@@ -61,12 +61,12 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 ## Uso del conector de SMTP en la aplicación lógica
 Una vez creado el conector, ahora puede usar el conector de SMTP como acción para la aplicación lógica. Para ello, siga estos pasos:
 
-1.	Creación de una nueva aplicación lógica: 
-	![][2]
-2.	Abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configurar el flujo de trabajo: 
-	![][3]
-3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo: 
-	![][4]
+1.	Creación de una nueva aplicación lógica:  
+![][2]
+2.	Abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configurar el flujo de trabajo:  
+![][3]
+3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo:  
+![][4]
 4.	Seleccione el conector de SMTP para agregarlo automáticamente al diseñador de flujo de trabajo.
 
 Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. Seleccione la acción **Enviar correo electrónico** y configure las propiedades de entrada:
@@ -102,4 +102,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
