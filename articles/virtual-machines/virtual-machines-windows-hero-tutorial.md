@@ -117,4 +117,4 @@ Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro s
 * Automatice la implementación y administración de las máquinas virtuales y las cargas de trabajo con las [plantillas de Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 * También puede [crear rápidamente una máquina virtual de Linux](virtual-machines-linux-quick-create-cli.md) mediante la CLI de Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
