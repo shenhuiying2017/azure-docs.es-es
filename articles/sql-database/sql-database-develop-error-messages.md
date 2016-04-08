@@ -128,7 +128,7 @@ En la tabla siguiente se muestran los errores causados por un uso excesivo de re
 |40544|20|La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles.|
 |40549|16|La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción.|
 |40550|16|La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción.|
-|40551|16|La sesión ha terminado debido al uso excesivo de `TEMPDB`. Intente modificar la consulta para reducir el uso de espacio de la tabla temporal.<br/><br/>*Sugerencia: * si usa objetos temporales, puede ahorrar espacio en la base de datos `TEMPDB` si quita los objetos temporales cuando la sesión ya no los necesite.|
+|40551|16|La sesión ha terminado debido al uso excesivo de `TEMPDB`. Intente modificar la consulta para reducir el uso de espacio de la tabla temporal.<br/><br/>*Sugerencia:* si usa objetos temporales, puede ahorrar espacio en la base de datos `TEMPDB` si quita los objetos temporales cuando la sesión ya no los necesite.|
 |40552|16|La sesión ha terminado debido al excesivo uso de espacio del registro de transacciones. Intente modificar menos filas en una sola transacción.<br/><br/>*Sugerencia:* si realiza inserciones masivas con la utilidad `bcp.exe` o la clase `System.Data.SqlClient.SqlBulkCopy`, intente usar las opciones `-b batchsize`o `BatchSize` para limitar el número de filas copiadas al servidor en cada transacción. Si está volviendo a crear un índice con la instrucción `ALTER INDEX`, intente usar la opción `REBUILD WITH ONLINE = ON`.|
 |40553|16|La sesión ha terminado debido al uso excesivo de la memoria. Intente modificar su consulta para procesar menos filas.<br/><br/>*Sugerencia:* la reducción del número de operaciones `ORDER BY` y `GROUP BY` en el código de Transact-SQL reduce los requisitos de memoria de la consulta.|
 
@@ -241,4 +241,4 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 - [Instrucciones y limitaciones generales de Base de datos SQL de Azure](sql-database-general-limitations.md)
 - [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
