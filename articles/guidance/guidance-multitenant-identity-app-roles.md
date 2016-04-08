@@ -178,4 +178,5 @@ Existen muchos ejemplos para este enfoque. Por ejemplo, vea [Crear una aplicaci�
 [Authorization in a web app using Azure AD application roles & role claims (Autorización en una aplic. web con roles de aplicación de Azure AD y notificaciones de rol)]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims
 [aplicación de ejemplo]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016 for CC test approve-->
+<!---HONumber=AcomDC_0302_2016 for CC test reject-->
