@@ -10,7 +10,7 @@ Cada máquina virtual tiene un disco de sistema operativo acoplado. Está regist
 
 El disco temporal se crea automáticamente. En las máquinas virtuales de Windows, este disco se etiqueta como unidad D: y se usa para almacenar el archivo pagefile.sys. En las máquinas virtuales de Linux, el disco es normalmente /dev/sdb y es formateado y montado en /mnt/resource por el agente de Linux de Azure.
 
->[AZURE.WARNING] No almacene datos en el disco temporal. Proporciona almacenamiento temporal para aplicaciones y procesos y está destinado únicamente a almacenar datos como archivos de páginas o de intercambio. Para reasignar este disco para una máquina virtual de Windows, vea [Cambio de la letra de unidad del disco temporal de Windows](virtual-machines-windows-classic-change-drive-letter.md).
+>[AZURE.WARNING] No almacene datos en el disco temporal. Proporciona almacenamiento temporal para aplicaciones y procesos y está destinado únicamente a almacenar datos como archivos de páginas o de intercambio. Para reasignar este disco para una máquina virtual de Windows, vea [Cambio de la letra de unidad del disco temporal de Windows](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
 
 Para obtener más información sobre cómo usa Azure el disco temporal, consulte [Descripción de la unidad temporal en máquinas virtuales de Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
@@ -18,7 +18,7 @@ Para obtener más información sobre cómo usa Azure el disco temporal, consulte
 
 Un disco de datos es un disco duro virtual que se adjunta a una máquina virtual para almacenar los datos de la aplicación u otros datos que necesita mantener. Los discos de datos se registran como unidades SCSI y se etiquetan con una letra elegida por usted. Cada disco de datos tiene una capacidad máxima de 1023 GB. El tamaño de la máquina virtual determina cuántos discos de datos puede conectar y el tipo de almacenamiento que puede usar para hospedar los discos.
 
->[AZURE.NOTE] Para obtener más detalles acerca de las capacidades de las máquinas virtuales, consulte [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md).
+>[AZURE.NOTE] Para obtener más detalles acerca de las capacidades de las máquinas virtuales, consulte [Tamaños de máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 Azure crea un disco del sistema operativo cuando se crea una máquina virtual desde una imagen. Si usa una imagen que incluye discos de datos, Azure también crea los discos de datos al crear la máquina virtual. (Puede usar una imagen de Azure, de un socio o una proporcionada por usted). De lo contrario, agregue discos de datos después de crear la máquina virtual.
 
@@ -26,7 +26,7 @@ Puede agregar discos de datos a una máquina virtual en cualquier momento adjunt
 
 ## Acerca de los discos duros virtuales
 
-Los discos duros virtuales usados en Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. (El almacenamiento Premium está disponible en determinadas regiones). Para obtener información detallada sobre blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](https://msdn.microsoft.com/library/ee691964.aspx). Para obtener más información acerca del Almacenamiento premium, consulte [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
+Los discos duros virtuales usados en Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. (El almacenamiento Premium está disponible en determinadas regiones). Para obtener información detallada sobre blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](https://msdn.microsoft.com/library/ee691964.aspx). Para obtener más información acerca del Almacenamiento premium, consulte [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../articles/storage/storage-premium-storage.md).
 
 Azure admite discos fijos, en formato VHD. El formato fijo coloca el disco lógico linealmente dentro del archivo, de manera que el desplazamiento de disco X se almacena en el desplazamiento de blob X. Un pequeño pie de página al final del blob describe las propiedades del VHD. El formato fijo a menudo desaprovecha el espacio porque la mayoría de discos contienen grandes rangos sin utilizar. Sin embargo, Azure almacena los archivos .vhd en un formato disperso; así pues, se beneficia de las ventajas de los discos fijos y dinámicos al mismo tiempo. Para obtener más información, consulte [Introducción a discos duros virtuales](https://technet.microsoft.com/library/dd979539.aspx).
 
@@ -38,4 +38,4 @@ Para poder eliminar un archivo .vhd de origen, deberá quitar la concesión elim
 
 >[AZURE.WARNING] Si elimina un archivo .vhd de origen del almacenamiento o elimina la cuenta de almacenamiento, Microsoft no puede recuperar esos datos por usted.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

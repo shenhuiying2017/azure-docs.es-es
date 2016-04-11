@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/14/2015" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 
@@ -115,7 +115,7 @@ Las imágenes de la galería se actualizan periódicamente, así que respire tra
 
 Con esta opción, solo se usan las herramientas estándar de Windows para aplicar actualizaciones a la imagen. Para Office 365 ProPlus, use la Herramienta de implementación de Office para descargar e instalar las últimas actualizaciones o versiones de Office 365 ProPlus.
 
-> [AZURE.IMPORTANT]No olvide deshabilitar las actualizaciones automáticas de Office 365 ProPlus.
+> [AZURE.IMPORTANT] No olvide deshabilitar las actualizaciones automáticas de Office 365 ProPlus.
 
 ¿Necesita más información sobre el uso de la Herramienta de implementación de Office para las actualizaciones?
 
@@ -123,4 +123,4 @@ Con esta opción, solo se usan las herramientas estándar de Windows para aplica
 - [Implementación y actualización de Office 365 ProPlus mediante la Herramienta de implementación de Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Configuración de las opciones de actualización de Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="03/25/2016"
 	ms.author="szark"/>
 
 # Preparación de una máquina virtual SLES u openSUSE para Azure
@@ -180,4 +180,4 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 ## Pasos siguientes
 Ya está listo para usar el disco duro virtual de SUSE para crear nuevas máquinas virtuales de Azure. Si esta es la primera vez que está cargando el archivo .vhd en Azure, vea los pasos 2 y 3 de [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

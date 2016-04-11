@@ -6,7 +6,7 @@ En esta guía se identifican muchas áreas en las que la planificación es la cl
 
 Este artículo está adaptado del contenido de la entrada de blog [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) (Directrices de implementación de Azure). Gracias a Santiago Cánepa (Director de desarrollo de aplicaciones de Microsoft) y Hugo Salcedo (Director de desarrollo de aplicaciones de Microsoft) por su material original.
 
-> [AZURE.NOTE] Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, vea [Redes virtuales regionales y grupos de afinidad](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE] Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, vea [Redes virtuales regionales y grupos de afinidad](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Convenciones de nomenclatura
 
@@ -140,7 +140,7 @@ Almacenamiento de Azure es una parte integral de muchas soluciones de Azure. Alm
 
 Existen dos tipos de cuentas de almacenamiento disponibles en Azure. Una cuenta de almacenamiento estándar proporciona acceso al almacenamiento de blobs (que se usa para almacenar discos de máquinas virtuales de Azure), al almacenamiento de tablas, de colas y de archivos. El almacenamiento Premium está diseñado para aplicaciones de alto rendimiento, como servidores SQL Server en un clúster de AlwaysOn, y actualmente solo admite discos de máquina virtual de Azure.
 
-Las cuentas de almacenamiento están vinculadas a objetivos de escalabilidad. Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#storage-limits) para familiarizarse con los límites actuales de almacenamiento de Azure. Vea también [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](../storage-scalability-targets.md).
+Las cuentas de almacenamiento están vinculadas a objetivos de escalabilidad. Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../articles/azure-subscription-service-limits.md#storage-limits) para familiarizarse con los límites actuales de almacenamiento de Azure. Vea también [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](../articles/storage/storage-scalability-targets.md).
 
 Azure crea máquinas virtuales con un disco del sistema operativo, un disco temporal y ninguno o varios discos de datos opcionales. Tanto el disco del sistema operativo como los discos de datos son blobs en páginas de Azure, mientras que el disco temporal se almacena localmente en el nodo en que reside el equipo. Esto hace que el disco temporal no sea apto para datos que deben mantenerse durante un reciclaje del sistema, ya que el equipo podría migrarse en modo silencioso de un nodo a otro, con lo que se perderían los datos de dicho disco. No almacene nada en la unidad temporal.
 
@@ -149,7 +149,7 @@ Los discos del sistema operativo y los discos de datos tienen un tamaño máximo
 ### Discos con bandas
 Además de ofrecer la posibilidad de crear discos de más de 1023 GB, en muchos casos la creación de bandas en los discos de datos mejorará el rendimiento, ya que permite que varios blobs respalden el almacenamiento de un solo volumen. Con la creación de bandas, las operaciones de E/S necesarias para escribir y leer datos de un único disco lógico se realizan en paralelo.
 
-Azure impone límites en la cantidad de discos de datos y el ancho de banda disponible, en función del tamaño de la máquina virtual. Para obtener más información, vea [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md).
+Azure impone límites en la cantidad de discos de datos y el ancho de banda disponible, en función del tamaño de la máquina virtual. Para obtener más información, vea [Tamaños de máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 Si usa la creación de bandas en discos de datos de Azure, tenga en cuenta las siguientes directrices:
 
@@ -409,15 +409,15 @@ Esta configuración incluye:
 
 ## Recursos adicionales
 
-[Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#storage-limits)
+[Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md)
+[Tamaños de máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-sizes.md)
 
-[Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../storage-scalability-targets.md)
+[Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../articles/storage/storage-scalability-targets.md)
 
 [Diagrama de arquitectura de referencia de extensión del centro de datos](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 
 [Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

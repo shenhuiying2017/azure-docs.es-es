@@ -3,6 +3,7 @@
 	description="Instrucciones de implementación para habilitar Microsoft Passport en su organización."
 	services="active-directory"
 	documentationCenter=""
+	keywords="configurar Microsoft Passport, Microsoft Passport para la implementación de Work"
 	authors="femila"
 	manager="stevenpo"
 	editor=""
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -25,8 +26,8 @@ Una vez conectados dispositivos Windows 10 unidos a un dominio con Azure Active 
 ## Implemente System Center Configuration Manager Versión 1509 para Technical Preview
 Para implementar certificados de usuario según las claves de Microsoft Passport, necesita lo siguiente:
 
-- **System Center Configuration Manager Versión 1509 para Technical Preview.** Para más información, consulte [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) (Versión preliminar técnica de Microsoft System Center Configuration Manager) y [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx) (Blog del equipo de System Center Configuration Manager).
-- **Infraestructura PKI**: para habilitar Microsoft Passport for Work mediante certificados de usuario debe tener una infraestructura de PKI establecida. Si no la tiene o no desea usar certificados de usuario, puede hacer lo siguiente:
+- **Versión 1509 de System Center Configuration Manager para Technical Preview**. Para más información, consulte [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) (versión preliminar técnica de Microsoft System Center Configuration Manager) y [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx) (bloque del equipo de System Center Configuration Manager).
+- **Infraestructura PKI**: para habilitar Microsoft Passport for Work mediante certificados de usuario tiene que tener una infraestructura de PKI establecida. Si no la tiene o no desea usar certificados de usuario, puede hacer lo siguiente:
  - **Implementar un controlador de dominio**: implemente un nuevo controlador de dominio que tenga Windows Server 2016 compilación 10551 (o posterior) instalado y siga los pasos para [instalar un controlador de dominio de réplica en un dominio existente](https://technet.microsoft.com/library/jj574134.aspx) o [instalar un nuevo bosque de Active Directory, si está creando un nuevo entorno](https://technet.microsoft.com/library/jj574166). (Las archivos ISO están disponibles para su descarga en [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true)).
 
 ## Configuración de Microsoft Passport for Work mediante directivas de grupo en Active Directory
@@ -36,10 +37,10 @@ Para implementar certificados de usuario según las claves de Microsoft Passport
 1. 	Abra el Administrador del servidor y vaya a **Herramientas** > **Administración de directivas de grupo**.
 2.	En Administración de directivas de grupo, vaya al nodo de dominio que corresponde al dominio en el que desea habilitar Azure AD Join.
 3.	Haga clic con el botón derecho en **Objetos de directiva de grupo** y seleccione **Nuevo**. Asigne un nombre a su objeto de directiva de grupo; por ejemplo, Habilitar Microsoft Passport. Haga clic en **Aceptar**.
-4.	Haga clic con el botón derecho en el nuevo objeto de directiva de grupo y seleccione **Editar**.
+4.	Haga clic con el botón derecho en el nuevo objeto de directiva de grupo y luego seleccione **Editar**.
 5.	Vaya a **Configuración del equipo** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Passport for Work**.
 6.	Haga clic con el botón derecho en **Habilitar Passport for Work** y seleccione **Editar**.
-7.	Seleccione el botón de opción **Habilitado** y haga clic en **Aplicar**. Haga clic en **Aceptar**.
+7.	Seleccione el botón de opción **Habilitado** y luego haga clic en **Aplicar**. Haga clic en **Aceptar**.
 8.	Ahora puede vincular el objeto de directiva de grupo a la ubicación que elija. Para habilitar esta directiva para todos los dispositivos de Windows 10 unidos a un dominio en su organización, vincule la Directiva de grupo al dominio. Por ejemplo:
  - Una unidad organizativa (OU) específica en Active Directory donde se encontrarán los equipos unidos a un dominio de Windows 10.
  - Un grupo de seguridad específico que contiene equipos unidos a un dominio de Windows 10 que se registrarán automáticamente en Azure AD.
@@ -118,4 +119,4 @@ Este es el xml de ejemplo:
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

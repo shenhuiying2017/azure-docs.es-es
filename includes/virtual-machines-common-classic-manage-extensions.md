@@ -5,7 +5,7 @@
 
 Las extensiones de máquina virtual de Azure implementan comportamientos o características que bien ayudan a otros programas a funcionar en máquinas virtuales de Azure (por ejemplo, la extensión **WebDeployForVSDevTest** permite Visual Studio en soluciones Web Deploy en la máquina virtual de Azure) o bien ofrecen la posibilidad de interactuar con la máquina virtual para que admita algún otro comportamiento (por ejemplo, puede usar las extensiones de acceso de máquina virtual desde Powershell, la CLI de Azure y clientes REST para restablecer o modificar valores de acceso remoto en la máquina virtual de Azure).
 
->[AZURE.IMPORTANT] Para una lista completa de extensiones por las características que admiten, vea [Características y extensiones de máquina virtual de Azure](virtual-machines-windows-extensions-features.md). Dado que cada extensión de máquina virtual admite una característica específica, lo que se puede y no se puede hacer exactamente con una extensión depende de la extensión. Por lo tanto, antes de modificar la máquina virtual, asegúrese de leer la documentación de la extensión de máquina virtual que quiera usar. Algunas extensiones de máquina virtual no admiten que se quiten; otras tienen propiedades que se pueden establecer y cambian radicalmente el comportamiento de la máquina virtual.
+>[AZURE.IMPORTANT] Para una lista completa de extensiones por las características que admiten, vea [Características y extensiones de máquina virtual de Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md). Dado que cada extensión de máquina virtual admite una característica específica, lo que se puede y no se puede hacer exactamente con una extensión depende de la extensión. Por lo tanto, antes de modificar la máquina virtual, asegúrese de leer la documentación de la extensión de máquina virtual que quiera usar. Algunas extensiones de máquina virtual no admiten que se quiten; otras tienen propiedades que se pueden establecer y cambian radicalmente el comportamiento de la máquina virtual.
 
 Las tareas más comunes son:
 
@@ -19,7 +19,7 @@ Las tareas más comunes son:
 
 ##Búsqueda de extensiones disponibles
 
-Son extensiones de máquina virtual de Azure (para obtener una lista completa de extensiones por las características que admiten, vea [Características y extensiones de máquina virtual de Azure](virtual-machines-windows-extensions-features.md)). Puede buscar la extensión e información extendida con:
+Son extensiones de máquina virtual de Azure (para obtener una lista completa de extensiones por las características que admiten, vea [Características y extensiones de máquina virtual de Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md)). Puede buscar la extensión e información extendida con:
 
 -   PowerShell
 -   Interfaz entre plataformas de Azure (CLI de Azure)
@@ -121,4 +121,4 @@ Puede usar las API de REST siguientes para saber si una extensión requiere una 
 
 >[AZURE.NOTE]Las extensiones también pueden usar configuraciones que se definen con JSON. Cuando se utilizan estos tipos de extensiones, solo se usa el elemento **SampleConfig**.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

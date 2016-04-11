@@ -9,7 +9,7 @@
 * [Implementar WordPress respaldado por el clúster de replicación de MySQL con la configuración de maestro/esclavo](/documentation/templates/mysql-replication/)
 * [Implementar una aplicación de WordPress respaldada por Base de datos SQL de Azure y administrada por ProjectNami](/marketplace/partners/projectnami/projectnami/)
   
-## Capítulo 2: solución de problemas en la aplicación de WordPress
+## Solución de problemas de la aplicación WordPress
 
 * [Cómo solucionar problemas en la aplicación de WordPress](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [Recopilar la telemetría de uso con el Servicio de análisis de la aplicación de Azure](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
@@ -18,7 +18,7 @@
 * [Use que varias reglas de recuperación automática para resolver incidentes en tiempo real de forma automática](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [Hacer copia de seguridad de una aplicación web en el Servicio de aplicaciones de Azure](../articles/app-service-web/web-sites-backup.md) y [Restauración de una aplicación en el Servicio de aplicaciones de Azure](../articles/app-service-web/web-sites-restore.md).
 
-## Capítulo 3: rendimiento
+## Rendimiento
 
 * [Cómo acelerar la aplicación web de WordPress](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
 * [Cómo habilitar la caché en Redis](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) con el [complemento de caché en Redis](https://wordpress.org/plugins/wp-redis/)
@@ -28,4 +28,4 @@
 * [Cómo realizar el almacenamiento en caché del servidor con el almacenamiento en caché de resultados de IIS](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [Cómo habilitar el almacenamiento en caché del explorador para contenido estático](http://www.iis.net/configreference/system.webserver/staticcontent)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

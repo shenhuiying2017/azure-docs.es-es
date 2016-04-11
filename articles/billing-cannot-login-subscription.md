@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="03/30/2016"
 	ms.author="genli"/>
 
 # No puedo iniciar sesión para administrar mi suscripción de Azure
@@ -24,13 +24,9 @@ Este artículo le ayudará a solucionar algunas de las causas comunes de los pro
 
 ## ¿A qué portal está intentando obtener acceso?
 
-Un propietario de cuenta solo puede tener acceso al [Centro de cuentas](https://account.windowsazure.com/) mientras que los administradores de servicios (SA) y los coadministradores (CA) tienen acceso al [Portal de Azure](https://manage.windowsazure.com/).
+Un administrador de cuenta solo puede tener acceso al [Centro de cuentas](https://account.windowsazure.com/), mientras que los administradores de servicios (SA) y los coadministradores (CA) solo tienen acceso al [Portal de Azure](https://portal.azure.com) o al [Portal de Azure clásico](https://manage.windowsazure.com/).
 
-Haga clic en los vínculos siguientes para instrucciones sobre cómo actualizar los roles de administrador:
-
-- [Para actualizar el administrador de servicio de su cuenta](./billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)
-
-- [Para agregar un nuevo CA en el portal de administración](./billing-add-change-azure-subscription-administrator.md#add-a-co-administrator-for-a-subscription)
+Para más información sobre los roles de administrador de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](billing-add-change-azure-subscription-administrator.md).
 
 ## ¿Está su suscripción asociada a una cuenta de Microsoft o a una cuenta de organización?
 
@@ -56,4 +52,4 @@ Ahora que es posible iniciar sesión en Azure con una cuenta profesional, estos 
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en Obtener soporte técnico. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

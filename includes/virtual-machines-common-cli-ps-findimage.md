@@ -1,33 +1,5 @@
 
 
-
-
-
-## Tabla de imágenes más usadas
-
-
-| PublisherName | Oferta | SKU |
-|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7\.1 |
-| CoreOS | CoreOS | Versión beta |
-| CoreOS | CoreOS | Stable |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Standard |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
-| MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-DW |
-| MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-OLTP |
-| Canonical | UbuntuServer | 12\.04.5-LTS |
-| Canonical | UbuntuServer | 14\.04.2-LTS |
-| Microsoft Windows Server | Windows Server | Centro de datos de 2012 |
-| Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 |
-| Microsoft Windows Server | Windows Server | 2008-R2-SP1 |
-| Microsoft Windows Server | Windows Server | Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
-
-
 ## Azure CLI
 
 > [AZURE.NOTE] En este artículo se describe cómo navegar y seleccionar imágenes de máquina virtual, con una instalación reciente de la CLI de Azure o de Azure PowerShell. Como requisito previo, tendrá que cambiar al modo de administrador de recursos. Con la CLI de Azure, especifique el modo escribiendo `azure config mode arm`.
@@ -118,18 +90,11 @@ Con esta información, ahora puede buscar con precisión la imagen que desee med
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una máquina virtual rápidamente con la información de URN que acaba de encontrar, o para usar una plantilla con esa información de URN, vea [Uso de la CLI de Azure CLI para Mac, Linux y Windows con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md).
-
-### Tutorial en vídeo
-
-Este vídeo muestra los pasos anteriores con la CLI.
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-cli]
-
+Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una máquina virtual rápidamente con la información de URN que acaba de encontrar, o para usar una plantilla con esa información de URN, vea [Uso de la CLI de Azure CLI para Mac, Linux y Windows con el Administrador de recursos de Azure](../articles/xplat-cli-azure-resource-manager.md).
 
 ## PowerShell
 
-Con PowerShell, escriba `Switch-AzureMode AzureResourceManager`. Vea [Uso de la CLI de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md) para más información completa sobre la configuración y actualización.
+Con PowerShell, escriba `Switch-AzureMode AzureResourceManager`. Vea [Uso de la CLI de Azure con el Administrador de recursos](../articles/xplat-cli-azure-resource-manager.md) y [Uso de Azure PowerShell con el Administrador de recursos de Azure](../articles/powershell-azure-resource-manager.md) para más información completa sobre la configuración y actualización.
 
 > [AZURE.NOTE] Con los módulos de Azure PowerShell posteriores a la versión 1.0, se ha quitado el cmdlet `Switch-AzureMode`. Con esa versión y más reciente, reemplace los siguientes comandos con la posición `Azure` reemplazada por `AzureRm`. Si usa los módulos de Azure PowerShell inferiores a la versión 1.0, usará los comandos siguiente, pero primero deberá `Switch-AzureMode AzureResourceManager`.
 
@@ -229,4 +194,4 @@ Este vídeo muestra los pasos anteriores con PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

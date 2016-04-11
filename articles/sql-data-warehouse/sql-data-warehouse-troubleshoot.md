@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Solución de problemas
@@ -38,7 +38,7 @@ Vea nuestras páginas [Conectar](sql-data-warehouse-get-started-connect.md) para
 ## Rendimiento de las consultas
 Almacenamiento de datos de SQL usa construcciones comunes de SQL Server para ejecutar consultas incluyendo estadísticas. Las [estadísticas](sql-data-warehouse-develop-statistics.md) son objetos que contienen información sobre el intervalo y la frecuencia de valores en una columna de base de datos. El motor de consultas usa estas estadísticas para optimizar la ejecución de consultas y mejorar el rendimiento de las consultas. Puede usar la siguiente consulta para determinar la última vez que se actualizaron las estadísticas.
 
-```
+```sql
 SELECT
 	sm.[name]								    AS [schema_name],
 	tb.[name]								    AS [table_name],
@@ -90,4 +90,4 @@ Consulte el artículo [Introducción al desarrollo][] para obtener orientación 
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/28/2016"
     ms.author="elizapo" />
 
 
@@ -26,4 +26,4 @@ La siguiente información puede ayudarle a usar los clientes de Azure RemoteApp:
 
 - RemoteApp cerrará automáticamente la sesión si está inactivo durante un período de tiempo determinado. Para impedir la pérdida de datos, se recomienda cerrar las aplicaciones cuando haya terminado de utilizar el servicio.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

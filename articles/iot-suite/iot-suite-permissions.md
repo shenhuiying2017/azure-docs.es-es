@@ -66,7 +66,9 @@ En la aplicación que se crea cuando se aprovisiona una solución preconfigurada
 
 -   **IMPLICIT READ ONLY:** es el mismo que Read Only, pero se concede a todos los usuarios de su inquilino de AAD. Esto se realizó para facilitar el desarrollo. Para quitar este rol, modifique el archivo de origen [RolePermissions.cs][lnk-resource-cs].
 
-### Cambio de roles de aplicación
+### Cambio de roles de aplicación para un usuario
+
+Puede utilizar el siguiente procedimiento para convertir a un usuario en Active Directory en el administrador de la solución preconfigurada.
 
 Para cambiar los roles de los usuarios, es preciso ser administrador global de AAD:
 
@@ -74,19 +76,17 @@ Para cambiar los roles de los usuarios, es preciso ser administrador global de A
 
 2. Seleccione **Active Directory**.
 
-3. Haga clic en el nombre de su inquilino de AAD.
+3. Haga clic en el nombre de su inquilino de AAD (es decir, el directorio que eligió en azureiotsuite.com al aprovisionar la solución).
 
 4. Haga clic en **Aplicaciones**.
 
-5. Si no ve la aplicación en la lista, cambie la lista desplegable **Mostrar** por **Aplicaciones que tiene mi compañía** y haga clic en la marca de verificación.
-
-6. Haga clic en el nombre de la aplicación que coincida con el nombre de la solución preconfigurada.
+5. Haga clic en el nombre de la aplicación que coincida con el nombre de la solución preconfigurada. Si no ve la aplicación en la lista, cambie la lista desplegable **Mostrar** por **Aplicaciones que tiene mi compañía** y haga clic en la marca de verificación.
 
 7. Haga clic en **Usuarios**.
 
 8. Seleccione el usuario cuyos roles desea cambiar.
 
-9. Haga clic en el botón Asignar y en el rol que desea asignar, y haga clic en la marca de verificación.
+9. Haga clic en **Asignar** y seleccione el rol (por ejemplo **Admin**) que desea asignar al usuario, haga clic en la marca de verificación.
 
 ## P+F
 
@@ -145,4 +145,4 @@ Si está seguro de que tiene una suscripción de Azure, valide la asignación de
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

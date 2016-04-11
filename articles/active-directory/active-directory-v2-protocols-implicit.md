@@ -54,11 +54,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=678910
 ```
 
-> [AZURE.TIP] Pruebe a pegar la siguiente solicitud en un explorador.
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910
-```
+> [AZURE.TIP] Haga clic en el vínculo siguiente para ejecutar esta solicitud. Después de iniciar sesión, el explorador debería redirigirse a `https://localhost/myapp/` con un `id_token` en la barra de direcciones. <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Parámetro | | Descripción |
 | ----------------------- | ------------------------------- | --------------- |
@@ -119,7 +115,7 @@ error=access_denied
 ## Validar el id\_token
 Recibir un solo id\_token no es suficiente para autenticar al usuario; debe validar la firma del id\_token y comprobar las notificaciones en el token según los requisitos de su aplicación. El punto de conexión v2.0 usa [tokens web JSON (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
 
-Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es enviar el `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma del id\_token, se le solicitará que compruebe algunas notificaciones: Consulte la [referencia de los tokens de v2.0](active-directory-v2-tokens.md) para obtener más información, incluidas las secciones [Validación de los tokens](active-directory-v2-tokens.md#validating-tokens) e [Información importante acerca de la sustitución de la clave de firma](active-directory-v2-tokens.md#validating-tokens). Se recomienda hacer uso de una biblioteca para analizar y validar los tokens. Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
+Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es enviar el `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma del id\_token, se le solicitará que compruebe algunas notificaciones: Consulte la [referencia de los tokens de v2.0](active-directory-v2-tokens.md) para obtener más información, incluidas las secciones [Validación de tokens](active-directory-v2-tokens.md#validating-tokens) e [Información importante sobre la sustitución de la clave de firma](active-directory-v2-tokens.md#validating-tokens). Se recomienda hacer uso de una biblioteca para analizar y validar los tokens. Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
 <!--TODO: Improve the information on this-->
 
 Se recomienda que valide notificaciones adicionales según su escenario. Algunas validaciones comunes incluyen:
@@ -152,10 +148,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &login_hint=myuser@mycompany.com
 ```
 
-> [AZURE.TIP] Pruebe a pegar la siguiente solicitud en un explorador (pero si desea que se realice correctamente, modifique primero los valores domain\_hint y login\_hint).
+> [AZURE.TIP] Pruebe a copiar y pegar la siguiente solicitud en una pestaña del explorador. (No olvide reemplazar los valores `domain_hint` y `login_hint` por los valores correctos para el usuario).
 
 ```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=organizations&login_hint=myuser@mycompany.com
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint={{consumers-or-organizations}}&login_hint={{your-username}}
 ```
 
 | Parámetro | | Descripción |
@@ -236,4 +232,4 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

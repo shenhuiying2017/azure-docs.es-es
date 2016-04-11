@@ -48,8 +48,6 @@ Este tutorial está concebido para mostrarle los pasos necesarios para configura
 
 - Tiene instalados los [cmdlets de Azure PowerShell](../powershell-install-configure.md).
 
-- Ya sabe cómo aprovisionar una máquina virtual de SQL Server desde la galería de máquina virtual mediante la interfaz gráfica de usuario (GUI). Para obtener más información, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-classic-portal-sql.md).
-
 - Ya tiene un conocimiento sólido de grupos de disponibilidad AlwaysOn para soluciones locales. Para obtener más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Conexión a la suscripción de Azure y creación de la Red virtual
@@ -632,4 +630,4 @@ Ha implementado correctamente SQL Server AlwaysOn creando un grupo de disponibil
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

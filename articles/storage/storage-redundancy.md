@@ -74,10 +74,10 @@ Cuando crea una cuenta de almacenamiento, selecciona la región principal de la 
 |---------------------|---------------------|
 | Centro-Norte de EE. UU | Centro-Sur de EE. UU |
 | Centro-Sur de EE. UU | Centro-Norte de EE. UU |
-| Este de EE. UU. | Oeste de EE. UU. |
-| Oeste de EE. UU. | Este de EE. UU. |
-| Este de EE. UU. - 2 | Central EE. UU.: |
-| Central EE. UU.: | Este de EE. UU. - 2 |
+| Este de EE. UU. | Oeste de EE. UU. |
+| Oeste de EE. UU. | Este de EE. UU. |
+| Este de EE. UU. - 2 | Central EE. UU.: |
+| Central EE. UU.: | Este de EE. UU. - 2 |
 | Europa del Norte | Europa occidental |
 | Europa occidental | Europa del Norte |
 | Sudeste de Asia | Asia oriental |
@@ -91,7 +91,8 @@ Cuando crea una cuenta de almacenamiento, selecciona la región principal de la 
 | Sudeste de Australia | Australia Oriental |
 | Sur de India | India central |
 | India central | Sur de India |
-
+| Gobierno de EE. UU. - Iowa | Gobierno de EE. UU. - Virginia |
+| Gobierno de EE. UU. - Virginia | Gobierno de EE. UU. - Iowa |
 
 ## Almacenamiento con redundancia geográfica con acceso de lectura
 
@@ -107,4 +108,4 @@ Cuando habilita el acceso de solo lectura a los datos en la región secundaria, 
 - [Emulador de almacenamiento de Microsoft Azure 3.1 con RA-GRS ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Documento de SOSP: Almacenamiento de Azure: un servicio de almacenamiento en la nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

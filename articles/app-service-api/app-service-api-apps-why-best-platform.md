@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general sobre Aplicaciones de API" 
+	pageTitle="Introducción a las aplicaciones de API | Microsoft Azure" 
 	description="Descubra por qué el Servicio de aplicaciones de Azure es la mejor plataforma para desarrollar, publicar y hospedar API RESTful." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="03/23/2016" 
 	ms.author="tdykstra"/>
 
 # Información general sobre Aplicaciones de API
 
 Aplicaciones de API son uno de los cuatro tipos que ofrece el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
 
-![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
+![Tipos de aplicaciones en el Servicio de aplicaciones de Azure](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-El [Servicio de aplicaciones](../app-service/app-service-value-prop-what-is.md) es una plataforma totalmente administrada que ofrece un amplio conjunto de capacidades para escenarios web, móviles y de integración. Las aplicaciones de API del Servicio de aplicaciones ofrecen características que facilitan la compilación, el hospedaje y el consumo de API en la nube y locales. Implemente la API como una aplicación de API en el Servicio de aplicaciones y disfrute de seguridad de nivel empresarial, control de acceso sencillo, conectividad híbrida, generación automática de SDK e integración completa con [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+El [Servicio de aplicaciones](../app-service/app-service-value-prop-what-is.md) es una plataforma totalmente administrada para escenarios web, móviles y de integración. Las aplicaciones de API del Servicio de aplicaciones ofrecen características que facilitan la compilación, el hospedaje y el consumo de API en la nube y locales. Implemente la API como una aplicación de API en el Servicio de aplicaciones y disfrute de seguridad de nivel empresarial, control de acceso sencillo, conectividad híbrida, generación automática de SDK e integración completa con [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 ## ¿Por qué las Aplicaciones de API?
 
@@ -64,4 +64,4 @@ Para empezar a trabajar con Aplicaciones de API, siga uno de los tutoriales de [
 
 Para plantear preguntas sobre Aplicaciones de API, cree un hilo en el [foro de Aplicaciones de API](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

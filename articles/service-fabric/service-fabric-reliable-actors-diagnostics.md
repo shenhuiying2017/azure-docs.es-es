@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="03/28/2016"
    ms.author="abhisram"/>
 
 # Supervisión de diagnósticos y rendimiento para Reliable Actors
@@ -114,6 +114,8 @@ El tiempo de ejecución de Reliable Actors publica los siguientes contadores de 
 |Nombre de la categoría|Nombre del contador|Descripción|
 |---|---|---|
 |Actor de Service Fabric|Número de llamadas de actor en espera de un bloqueo de actor|Número de llamadas de actor en espera para adquirir el bloqueo por actor que exige la simultaneidad basada en turnos|
+|Actor de Service Fabric|Tiempo de espera promedio de bloqueos en milisegundos|Tiempo necesario (en milisegundos) para adquirir el bloqueo por actor que exige la simultaneidad basada en turnos|
+|Actor de Service Fabric|Duración promedia del bloqueo por actor en milisegundos|Tiempo (en milisegundos) que dura el bloqueo por actor|
 
 ### Contadores de rendimiento y eventos de administración del estado de los actores
 El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacionados con la [administración del estado de los actores](service-fabric-reliable-actors-introduction.md#actor-state-management).
@@ -128,24 +130,17 @@ El tiempo de ejecución de Reliable Actors publica los siguientes contadores de 
 |Nombre de la categoría|Nombre del contador|Descripción|
 |---|---|---|
 |Actor de Service Fabric|Promedio de milisegundos por operación de almacenamiento del estado|Tiempo necesario para guardar el estado de un actor en milisegundos|
+|Actor de Service Fabric|Promedio de milisegundos por operación de carga de estado|Tiempo necesario para cargar el estado de un actor en milisegundos|
 
-### Eventos relacionados con las instancias de actores sin estado
-El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacionados con las [instancias de actores sin estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
-
-|Nombre del evento|Id. de evento|Level|Palabra clave|Descripción|
-|---|---|---|---|---|
-|ServiceInstanceOpen|3|Informativo|0x1|Se abre la instancia del actor sin estado. Esto implica que los actores de esta partición pueden crearse dentro de esta instancia (y posiblemente también de otras instancias).|
-|ServiceInstanceClose|4|Informativo|0x1|Se cierra la instancia del actor sin estado. Esto implica que los actores de esta partición ya no se crearán dentro de esta instancia. Ninguna solicitud nueva se entregará a los actores ya creados en esta instancia. Los actores se destruirán cuando se completen las solicitudes en curso.|
-
-### Eventos relacionados con las réplicas de actores con estado
-El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacionados con las [réplicas de actores con estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+### Eventos relacionados con las réplicas de actores
+El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacionados con las [réplicas de actores](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
 
 |Nombre del evento|Id. de evento|Level|Palabra clave|Descripción|
 |---|---|---|---|---|
-|ReplicaChangeRoleToPrimary|1|Informativo|0x1|La réplica del actor con estado cambió el rol a Principal. Esto implica que los actores de esta partición se crearán dentro de esta réplica.|
-|ReplicaChangeRoleFromPrimary|2|Informativo|0x1|La réplica del actor con estado cambió el rol a No principal. Esto implica que los actores de esta partición ya no se crearán dentro de esta réplica. Ninguna solicitud nueva se entregará a los actores ya creados en esta réplica. Los actores se destruirán cuando se completen las solicitudes en curso.|
+|ReplicaChangeRoleToPrimary|1|Informativo|0x1|La réplica del actor cambió el rol a Principal. Esto implica que los actores de esta partición se crearán dentro de esta réplica.|
+|ReplicaChangeRoleFromPrimary|2|Informativo|0x1|La réplica del actor cambió el rol a No principal. Esto implica que los actores de esta partición ya no se crearán dentro de esta réplica. Ninguna solicitud nueva se entregará a los actores ya creados en esta réplica. Los actores se destruirán cuando se completen las solicitudes en curso.|
 
-### Eventos de activación y desactivación de actores
+### Eventos de activación y desactivación de actores y contadores de rendimiento
 El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacionados con la [activación y desactivación de actores](service-fabric-reliable-actors-lifecycle.md).
 
 |Nombre del evento|Id. de evento|Level|Palabra clave|Descripción|
@@ -153,4 +148,20 @@ El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacion
 |ActorActivated|5|Informativo|0x1|Se activó un actor.|
 |ActorDeactivated|6|Informativo|0x1|Se desactivó un actor.|
 
-<!---HONumber=AcomDC_0211_2016-->
+El tiempo de ejecución de Reliable Actors publica los siguientes contadores de rendimiento relacionados con la activación y desactivación de los actores.
+
+|Nombre de la categoría|Nombre del contador|Descripción|
+|---|---|---|
+|Actor de Service Fabric|Promedio de milisegundos de OnActivateAsync|Tiempo necesario para ejecutar el método OnActivateAsync en milisegundos|
+
+### Contadores de rendimiento del procesamiento de solicitudes de actor
+Cuando un cliente invoca un método a través de un objeto de proxy de actor, se envía un mensaje de solicitud a través de la red al servicio de actor. El servicio procesa el mensaje de solicitud y envía una respuesta al cliente. El tiempo de ejecución de Reliable Actors publica los siguientes contadores de rendimiento relacionados con el procesamiento de las solicitudes de actor.
+
+|Nombre de la categoría|Nombre del contador|Descripción|
+|---|---|---|
+|Actor de Service Fabric|Número de solicitudes pendientes|Número de solicitudes que se procesan en el servicio|
+|Actor de Service Fabric|Promedio de milisegundos por solicitud|Tiempo que tarda el servicio (en milisegundos) en procesar una solicitud|
+|Actor de Service Fabric|Promedio de milisegundos para la deserialización de una solicitud|Tiempo necesario (en milisegundos) para deserializar el mensaje de solicitud de actor cuando se recibe en el servicio|
+|Actor de Service Fabric|Promedio de milisegundos para la deserialización de una respuesta|Tiempo necesario (en milisegundos) para serializar el mensaje de respuesta de actor en el servicio antes de que la respuesta se envíe al cliente|
+
+<!---HONumber=AcomDC_0330_2016-->

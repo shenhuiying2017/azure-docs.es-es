@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/24/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Información general sobre la instalación de Trabajos de base de datos elástica
@@ -42,7 +42,7 @@ Si ya instaló los **trabajos de base de datos elástica** a través del Portal 
 
 4.	Ejecute el script .\\InstallElasticDatabaseJobsCmdlets.ps1 para copiar el directorio ElasticDatabaseJobs en $home\\Documents\\WindowsPowerShell\\Modules. Así también importará automáticamente el módulo para su uso, por ejemplo:
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1 
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## Instalación de componentes de Trabajos de base de datos elástica mediante PowerShell
@@ -52,7 +52,7 @@ Si ya instaló los **trabajos de base de datos elástica** a través del Portal 
 
 2.	Ejecute el script .\\InstallElasticDatabaseJobs.ps1 de PowerShell y proporcione valores para las variables que solicite. Este script creará los componentes descritos en [Componentes y precios de trabajos de base de datos elástica](sql-database-elastic-jobs-overview/#components-and-pricing) con la configuración del Servicio en la nube de Azure para usar adecuadamente los componentes dependientes.
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1 
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
 Al ejecutar este comando, se abrirá una ventana para especificar el **Nombre de usuario** y la **Contraseña**. No especifique aquí sus credenciales de Azure, sino el nombre de usuario y contraseña serán las credenciales de administrador que desea crear para el nuevo servidor.
@@ -151,13 +151,13 @@ Para actualizar el tamaño de máquina virtual de una instalación, ejecute el s
 
 ## Instalación de componentes de Trabajos de base de datos elástica mediante el Portal
 
-Una vez creado el [grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md), puede instalar componentes de los **trabajos de base de datos elástica** para habilitar la ejecución de tareas administrativas en cada base de datos del grupo. A diferencia de lo que sucede cuando se usan las API de PowerShell de **Trabajos de base de datos elástica**, la interfaz del portal está actualmente restringida exclusivamente a la ejecución en un grupo existente.
+Una vez creado el [grupo de bases de datos elásticas](sql-database-elastic-pool-create-portal.md), puede instalar componentes de los **trabajos de base de datos elástica** para habilitar la ejecución de tareas administrativas en cada base de datos del grupo. A diferencia de lo que sucede cuando se usan las API de PowerShell de **Trabajos de base de datos elástica**, la interfaz del portal está actualmente restringida exclusivamente a la ejecución en un grupo existente.
 
 
 **Tiempo estimado para completar el tutorial:** 10 minutos.
 
 1. En la vista del panel del grupo de bases de datos elásticas a través del [Portal de Azure](https://ms.portal.azure.com/#), haga clic en **Crear trabajo**.
-2. Si va a crear un trabajo por primera vez, deberá instalar los **trabajos de base de datos elástica** haciendo clic en **TÉRMINOS DE VISTA PREVIA**. 
+2. Si va a crear un trabajo por primera vez, deberá instalar los **trabajos de base de datos elástica** haciendo clic en **TÉRMINOS DE VISTA PREVIA**.
 3. Acepte los términos haciendo clic en la casilla de verificación.
 4. En la vista "Instalar servicios", haga clic en **CREDENCIALES DEL TRABAJO**.
 
@@ -186,6 +186,5 @@ La garantía de una credencial con los derechos adecuados para la ejecución del
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
- 
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

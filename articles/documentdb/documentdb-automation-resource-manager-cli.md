@@ -329,7 +329,7 @@ Si recibe errores como `Deployment provisioning state was not successful` al cre
 
     	azure group log show new_res_group --last-deployment
 
-    Después, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](../virtual-machines/resource-group-deploy-debug.md) para más información.
+    Después, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](../resource-manager-troubleshoot-deployments-cli.md) para más información.
 
 - También hay información del error disponible en el Portal de Azure, como se muestra en la captura de pantalla siguiente. Para navegar a la información de error: haga clic en Grupos de recursos en la barra de salto, seleccione el grupo de recursos que tuvo el error. En el área Essentials de la hoja Grupo de recursos, haga clic en la fecha de la última implementación. En la hoja Historial de implementaciones, seleccione la implementación con errores. En la hoja Implementación, haga clic en los detalles de la operación con el signo de exclamación rojo. El mensaje de estado para la implementación con errores se muestra en la hoja Detalles de la operación.
 
@@ -354,4 +354,4 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

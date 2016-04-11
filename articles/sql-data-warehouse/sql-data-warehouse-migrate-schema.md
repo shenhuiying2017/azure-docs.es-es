@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migración del esquema a Almacenamiento de datos SQL#
@@ -65,7 +65,7 @@ Almacenamiento de datos SQL admite los tipos de datos empresariales comunes:
 
 Puede usar esta consulta para identificar columnas del almacenamiento de datos que contienen tipos incompatibles:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -145,4 +145,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Esquemas definidos por el usuario en el Almacenamiento de datos SQL
@@ -47,7 +47,7 @@ Si ya se han utilizado los esquemas, tienen algunas opciones:
 
 1. Implementar los esquemas definidos por el usuario en función de los nombres de base de datos.
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
 GO
 CREATE SCHEMA [edw]; -- edw previously database name for the data warehouse
@@ -65,7 +65,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 
 2. Conservar los nombres de esquemas heredados anteponiendo estos nombres al nombre de tabla. Utilizar esquemas para el límite de carga de trabajo.
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
 GO
 CREATE SCHEMA [edw]; -- edw defines the data warehouse boundary
@@ -83,7 +83,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 
 3. Conservar los nombres de esquemas heredados con vistas.
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
 GO
 CREATE SCHEMA [edw]; -- stg defines the data warehouse boundary
@@ -122,4 +122,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

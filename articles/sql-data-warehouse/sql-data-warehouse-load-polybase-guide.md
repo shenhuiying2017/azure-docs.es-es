@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -45,12 +45,10 @@ Cuando haya migrado todas las tablas externas al nuevo origen de datos externo, 
 ## Consulta de datos en el almacenamiento de blobs de Azure
 Las consultas en tablas externas simplemente usan el nombre de tabla como si fuese una tabla relacional.
 
-```
-
+```sql
 -- Query Azure storage resident data via external table.
 SELECT * FROM [ext].[CarSensor_Data]
 ;
-
 ```
 
 > [AZURE.NOTE] Una consulta acerca de una tabla externa puede producir el error *"Consulta anulada: se alcanzó el umbral de rechazo máximo al leer desde un origen externo"*. Esto indica que sus datos externos contienen registros *con modificaciones*. Un registro de datos se considera "con modificaciones" si los tipos de datos reales o el número de columnas no coincide con las definiciones de columna de la tabla externa o si los datos no se ajustan al formato de archivo externo especificado. Para corregirlo, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos estén modificados, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en CREATE EXTERNAL TABLE DDL.
@@ -65,7 +63,7 @@ En este ejemplo se usa la instrucción CREATE TABLE AS SELECT para cargar datos.
 
 CREATE TABLE AS SELECT es una instrucción Transact-SQL de alto rendimiento que carga los datos en paralelo a todos los nodos de proceso de su Almacenamiento de datos SQL. Se desarrolló originalmente para el motor de procesamiento paralelo masivo (MPP) de Analytics Platform System y se incluye ahora en Almacenamiento de datos SQL.
 
-```
+```sql
 -- Load data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
@@ -86,7 +84,7 @@ Vea [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
 
-```
+```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
 create statistics [CustomerKey] on [Customer_Speed] ([CustomerKey]);
 create statistics [GeographyKey] on [Customer_Speed] ([GeographyKey]);
@@ -99,7 +97,7 @@ Esta sección muestra cómo exportar datos desde el Almacenamiento de datos SQL 
 
 En el ejemplo siguiente se crea una tabla externa Weblogs2014 con definiciones de columna y datos de la tabla dbo.Weblogs. La definición de tabla externa se almacena en Almacenamiento de datos SQL y los resultados de la instrucción SELECT se exportan en el directorio "/archive/log2014/" del contenedor de blobs especificado por el origen de datos. Los datos se exportan en el formato de archivo de texto especificado.
 
-```
+```sql
 CREATE EXTERNAL TABLE Weblogs2014 WITH
 (
     LOCATION='/archive/log2014/',
@@ -130,7 +128,7 @@ Hay varias maneras de hacerlo. A continuación se muestran dos enfoques de uso d
 
 A continuación se muestra un script de Powershell sencillo de una línea crea el archivo.
 
-```
+```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
 
@@ -140,7 +138,7 @@ Sin embargo, aunque se trata de una manera sencilla de volver a codificar los da
 
 El siguiente ejemplo de código es más complejo, pero conforme transmite por secuencias las filas de datos del origen al destino es mucho más eficaz. Use este método para archivos más grandes.
 
-```
+```PowerShell
 #Static variables
 $ascii = [System.Text.Encoding]::ASCII
 $utf16le = [System.Text.Encoding]::Unicode
@@ -210,4 +208,4 @@ Para obtener más información acerca de cómo mover datos al Almacenamiento de 
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

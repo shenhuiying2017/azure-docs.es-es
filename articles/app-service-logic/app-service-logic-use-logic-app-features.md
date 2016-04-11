@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="03/28/2016"
 	ms.author="stepsic"/>
 	
 # Uso de las características de aplicaciones lógicas
@@ -61,6 +61,11 @@ Esta aplicación lógica puede provocar que reciba muchos correos electrónicos.
 
 7.  Por último, arrastre y coloque el cuadro de correo electrónico en el cuadro **Si procede**. Esto significa que solo obtendrá correos electrónicos cuando se alcance el número de seguidores.
 
+## Repetición de una lista con forEach
+
+El bucle forEach especifica una matriz para repetir una acción varias veces. Si no es una matriz se produce un error en el flujo. Por ejemplo, si tiene action1 que genera una matriz de mensajes y desea enviar cada mensaje, puede incluir esta instrucción forEach en las propiedades de la acción: forEach: "@action('action1').outputs.messages"
+ 
+
 ## Uso de la vista código para modificar una aplicación lógica
 
 Además del diseñador, puede editar directamente el código que define una aplicación lógica, como sigue.
@@ -91,7 +96,7 @@ Lo siguiente actualiza la aplicación lógica existente para que use parámetros
  
 Los parámetros son una buena forma de extraer valores que probablemente cambie mucho. Son especialmente útiles cuando necesite reemplazar parámetros en entornos diferentes. Para obtener más información sobre cómo invalidar los parámetros basados en el entorno, consulte nuestra [documentación de API de REST](https://msdn.microsoft.com/library/mt643787.aspx).
 
-Ahora, al hacer clic en **Guardar**, a cada hora recibirá en su Dropbox los nuevos tweets que tengan más de 5 retweets en una carpeta llamada **tweets**.
+Ahora, al hacer clic en **Guardar**, cada hora recibirá en su Dropbox los nuevos tweets que tengan más de 5 retweets en una carpeta llamada **tweets**.
 
 Para obtener más información acerca de las definiciones de aplicación lógica, consulte [Creación de definiciones de aplicación lógica](app-service-logic-author-definitions.md).
 
@@ -102,9 +107,9 @@ Hay varias opciones para iniciar el flujo de trabajo definido en la aplicación 
 Un desencadenador periódico se ejecuta en un intervalo que especifique. Cuando el desencadenador tiene lógica condicional, el desencadenador determina si necesita ejecutar el flujo de trabajo. Un desencadenador indica si se debe ejecutar; para ello, devuelve un código de estado de `200`. Cuando no es necesario ejecutarlo, devuelve un código de estado `202`.
 
 ### Devolución de llamada mediante las API de REST
-Los servicios pueden llamar a un extremo de aplicación lógica para iniciar un flujo de trabajo. Consulte [Aplicaciones lógicas como puntos de conexión invocables](app-service-logic-connector-http.md) para obtener más información. Para iniciar ese tipo de aplicación lógica a petición, haga clic en el botón **Ejecutar ahora** de la barra de comandos.
+Los servicios pueden llamar a un extremo de aplicación lógica para iniciar un flujo de trabajo. Consulte [Aplicaciones lógicas como puntos de conexión invocables](app-service-logic-connector-http.md) para más información. Para iniciar ese tipo de aplicación lógica a petición, haga clic en el botón **Ejecutar ahora** de la barra de comandos.
 
 <!-- Shared links -->
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

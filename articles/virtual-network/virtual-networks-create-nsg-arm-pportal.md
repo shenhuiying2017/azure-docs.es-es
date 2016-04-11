@@ -36,11 +36,11 @@ Para crear el grupo de seguridad de red **NSG-FrontEnd** según el escenario ant
 1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
 2. Haga clic en **Examinar >** > **Grupos de seguridad de red**.
 
-	![Portal de Azure - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Portal de Azure - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
 3. En la hoja **Grupos de seguridad de red**, haga clic en **Agregar**.
-
-	![Portal de Azure - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+  
+    ![Portal de Azure: NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
 4. En la hoja **Crear grupo de seguridad de red**, cree un NSG llamado *NSG-FrontEnd* en el grupo de recursos *RG-NSG* y, después, haga clic en **Crear**.
 
@@ -68,7 +68,7 @@ Para crear reglas en un grupo de seguridad de red existente desde el Portal de A
 
 	![Portal de Azure - Nueva regla](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-7. Repita los pasos hasta el sexto para crear una regla de entrada denominada *Regla-rdp* con una prioridad de *250* que permita el acceso a través de *TCP* al puerto *3389* a cualquier VM desde cualquier origen.
+7. Repita los pasos hasta el sexto para crear una regla de entrada denominada *rdp-rule* con una prioridad de *250* que permita el acceso a través de *TCP* al puerto *3389* a cualquier VM desde cualquier origen.
 
 ## Asociación del grupo de seguridad de red a la subred FrontEnd
 
@@ -103,4 +103,4 @@ Para crear el grupo de seguridad de red **NSG-BackEnd** y asociarlo a la subred 
 - Información sobre cómo [administrar grupos de seguridad de red existentes](virtual-network-manage-nsg-arm-portal.md)
 - [Habilite el registro](virtual-network-nsg-manage-log.md) para los grupos de seguridad de red.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

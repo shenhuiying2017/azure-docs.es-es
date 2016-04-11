@@ -122,7 +122,7 @@ Los informes de carga dinámica permiten réplicas o instancias para ajustar su 
 Código:
 
 ```csharp
-this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("Foo", 42) });
+this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("metric1", 42) });
 ```
 
 Las instancias y réplicas del servicio solo comunican la carga de las métricas para las que se han configurado. La lista de métricas se establece cuando se crea cada servicio. Si una instancia o una réplica del servicio intenta informar de la carga para una métrica para la que no está configurada, Service Fabric registra el informe pero lo ignora, lo que significa que no se usará al calcular o informar sobre el estado del clúster. Esto es práctico porque permite una mayor experimentación; el código puede medir e informar sobre todo lo que sabe, y el operador puede configurar, modificar y actualizar las reglas de equilibrio de los recursos para ese servicio sobre la marcha, sin tener que cambiar el código. Esto puede incluir, por ejemplo, deshabilitar una métrica con un informe de errores, reconfigurar las ponderaciones de métricas según el comportamiento o habilitar una nueva métrica solo después de que el código ya se haya implementado y validado.
@@ -196,4 +196,4 @@ Al tener en cuenta las ponderaciones de métricas, el equilibrio global se calcu
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Administración de índices de almacén de columnas
@@ -24,7 +24,7 @@ En este artículo se explica cómo interrogar los metadatos del índice de almac
 ## Consulta de metadatos de almacén de columnas
 Para comprender la densidad del almacén de columnas se requiere una consulta en los metadatos del sistema. A continuación se muestra un ejemplo del tipo de información que se puede descubrir.
 
-```
+```sql
 CREATE VIEW dbo.vColumnstoreDensity
 AS
 WITH CSI
@@ -73,7 +73,7 @@ FROM    CSI
 
 Una vez creada la vista de los metadatos del almacén de columnas pueden analizarse fácilmente. A continuación se ofrece un ejemplo de consulta.
 
-```
+```sql
 SELECT	[table_name]
 ,		[table_partition_count]
 ,		[row_count_total]
@@ -149,4 +149,4 @@ Para otras sugerencias de administración, vaya a la información general de [ad
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

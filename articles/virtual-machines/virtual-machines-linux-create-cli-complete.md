@@ -42,7 +42,7 @@
 
 En este artículo se crea una implementación similar a la implementación de un servicio en la nube con una máquina virtual con Linux en una subred de una red virtual. Aquí se le guiará a través de toda la implementación básica, comando a comando, hasta que tenga una máquina virtual con Linux segura en funcionamiento a la que pueda conectarse desde cualquier lugar de Internet.
 
-Tras su lectura, conocerá la jerarquía de dependencias que ofrece el modelo de implementación del Resource Manager y la potencia que proporciona. Una vez que vea cómo se crea el sistema, podrá volver a generar el sistema mucho más rápidamente con comandos de la CLI de Azure más directos (consulte [este artículo](insertlinktonewdoc) si desea saber cómo se realiza más o menos la misma implementación mediante el comando `azure vm quick-create`), o bien podrá pasar a aprender a diseñar y automatizar las implementaciones en las aplicaciones y en toda la red, así como a actualizarlas mediante las [plantillas de Azure Resource Manager](../resource-group-authoring-templates.md). Una vez que vea cómo encajan las distintas partes de la implementación, la creación de plantillas para automatizarlas resulta más fácil.
+Tras su lectura, conocerá la jerarquía de dependencias que ofrece el modelo de implementación del Resource Manager y la potencia que proporciona. Cuando vea cómo se crea el sistema, podrá volver a generar el sistema mucho más rápidamente con comandos de la CLI de Azure más directos (consulte [este artículo](virtual-machines-linux-quick-create-cli.md) si desea saber cómo se realiza más o menos la misma implementación mediante el comando `azure vm quick-create`), o bien podrá pasar a aprender a diseñar y automatizar todas las implementaciones de aplicaciones y redes, así como a actualizarlas mediante las [plantillas de Azure Resource Manager](../resource-group-authoring-templates.md). Una vez que vea cómo encajan las distintas partes de la implementación, la creación de plantillas para automatizarlas resulta más fácil.
 
 Vamos a crear una red sencilla con una máquina virtual útil para el desarrollo y el proceso simple, y explicaremos el proceso sobre la marcha. Luego, podrá pasar a redes y implementaciones más complejas.
 
@@ -95,7 +95,7 @@ azure network public-ip create -d testsubdomain testrg testpip westeurope
 azure network public-ip show testrg testpip --json | jq '.'
 
 # Associate the Public IP to the NIC
-azure network nic set --public-ip-name test pip
+azure network nic set --public-ip-name testpip testrg testnic
 
 # Bind the NSG to the NIC
 azure network nic set --network-security-group-name testnsg testrg testnic
@@ -528,7 +528,7 @@ Y, como siempre, puede investigar más detalles de recursos, incluido el nombre 
 
 ### Asociación de la dirección IP pública y el grupo de seguridad de red a la NIC
 
-        azure network nic set --public-ip-name test pip
+        azure network nic set --public-ip-name testpip testrg testnic
 
 Asignación del NSG a la NIC:
 
@@ -667,4 +667,4 @@ Y ahora puede usar el comando `azure vm show testrg testvm` para examinar lo que
 
 Ya está listo para comenzar con varios componentes de red y máquinas virtuales.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -27,7 +27,7 @@ Obtenga recomendaciones del plan de tarifa durante las siguientes tareas:
 
 - [Cambio del nivel de servicio y del nivel de rendimiento (nivel de precios) de una base de datos SQL](sql-database-scale-up.md)
 - [Actualizar un servidor SQL de Azure a V12](sql-database-upgrade-server-portal.md)
-- Vaya a su servidor V12: si las bases de datos pueden [beneficiarse de un grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), la hoja del servidor mostrará un mensaje que indica un grupo recomendado. Haga clic en el mensaje para crear el grupo recomendado.
+- Busque el servidor V12. Consulte [Recomendaciones sobre el plan de tarifa de Base de datos SQL](sql-database-service-tier-advisor.md).
 - [Creación de un grupo de bases de datos elásticas](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
@@ -96,4 +96,4 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

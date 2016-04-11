@@ -15,11 +15,10 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
  
 # Instrucciones de Analytcis de Application Insights
 
-[Analytics](app-analytics.md) es una eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
+[Analytics](app-analytics.md) permite ejecutar consultas eficaces sobre la telemetría desde su aplicación, recopiladas por [Application Insights](app-insights-overview.md). En estas páginas se describe su lenguaje de consulta.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -268,4 +267,4 @@ Los parámetros de las funciones con nombre deben ser valores escalares.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Administración del sesgo de distribución de la tabla
@@ -27,7 +27,7 @@ Este artículo se ha creado para ayudarle a identificar los sesgos en los datos 
 
 Una consulta como la que aparece a continuación puede ayudarle a identificar las tablas sesgadas.
 
-```
+```sql
 CREATE VIEW dbo.vDistributionSkew
 AS
 WITH base
@@ -113,7 +113,7 @@ FROM	size
 
 Una vez creada la vista, simplemente podemos consultarla para validar el sesgo en nuestras tablas mediante una consulta como la siguiente.
 
-```
+```sql
 SELECT	[two_part_name]
 ,		[distribution_id]
 ,		[row_count]
@@ -151,4 +151,4 @@ Para obtener más detalles sobre la distribución de las tablas, consulte los si
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

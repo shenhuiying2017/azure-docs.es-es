@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Creación de una nueva API de Outlook de Office 365 en PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Aplicaciones lógicas](../articles/connectors/create-api-office365-outlook.md)
+- [Aplicaciones lógicas](../articles/connectors/connectors-create-api-office365-outlook.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
 
 Agregue la API de Outlook de Office 365 al entorno del Servicio de aplicaciones de su organización (inquilino).
@@ -41,7 +41,7 @@ Agregue la API de Outlook de Office 365 al entorno del Servicio de aplicaciones 
 5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:  
 ![Add API][2]
 
-6. Escriba un **nombre** descriptivo para la API.  
+6. Escriba un **nombre** descriptivo para la API.
 	
 7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Outlook para Office 365**:  
 ![seleccionar api de Outlook para Office 365][3]
@@ -74,7 +74,7 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 4. Seleccione la pestaña **Aplicaciones** y seleccione **Agregar**:  
 ![Aplicaciones del inquilino de AAD][7].
 
-5. En **Agregar aplicación**:  
+5. En **Agregar aplicación**:
 
 	1. Escriba el **nombre** de la aplicación.  
 	3. Deje el tipo de aplicación como **Web**.  
@@ -82,10 +82,10 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 
 	![Agregar aplicación de AAD: información de la aplicación][8]
 
-6. En **Propiedades de la aplicación**:  
+6. En **Propiedades de la aplicación**:
 
-	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a realizar la autenticación con AAD para PowerApps, establezca la URL de inicio de sesión en \__https://login.windows.net_.  
-	2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
+	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a realizar la autenticación con AAD para PowerApps, establezca la URL de inicio de sesión en \__https://login.windows.net_.
+2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
 	3. Seleccione **Aceptar**.  
 
 	![Agregar aplicación de AAD: propiedades de la aplicación][9]
@@ -119,7 +119,7 @@ Encontrará información válida sobre aplicaciones de AAD en [Cómo y por qué 
 
 ## Visualización de las API de REST
 
-Referencia de [API de REST de Outlook de Office 365](../connectors/create-api-office365-outlook.md).
+Referencia de [API de REST de Outlook de Office 365](../connectors/connectors-create-api-office365-outlook.md).
 
 
 ## Resumen y pasos siguientes
@@ -144,6 +144,4 @@ En este tema, ha agregado la API de Outlook para Office 365 a su empresa PowersA
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!----HONumber=AcomDC_0309_2016-->
-
-
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/08/2016"
+   ms.date="03/28/2016"
    ms.author="barbkess;sonyama"/>
 
 # Vistas de sistema
@@ -24,6 +24,8 @@
 - [sys.pdw\_database\_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 - [sys.pdw\_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 - [sys.pdw\_index\_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
+- [sys.pdw\_loader\_backup\_run\_details](https://msdn.microsoft.com/library/mt203877.aspx)
+- [sys.pdw\_loader\_backup\_runs](https://msdn.microsoft.com/library/mt203884.aspx)
 - [sys.pdw\_nodes\_column\_store\_dictionaries](http://msdn.microsoft.com/library/mt203902.aspx)
 - [sys.pdw\_nodes\_column\_store\_row\_groups](http://msdn.microsoft.com/library/mt203880.aspx)
 - [sys.pdw\_nodes\_column\_store\_segments](http://msdn.microsoft.com/library/mt203916.aspx)
@@ -214,7 +216,11 @@ Es por esto que cada una de estas DMV tiene una columna específica denominada p
 - [CHECK\_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
 - [COLUMNAS](http://msdn.microsoft.com/library/ms188348.aspx)
 - [PARÁMETROS](http://msdn.microsoft.com/library/ms173796.aspx)
+- [RUTINAS](https://msdn.microsoft.com/library/ms188757.aspx)
+- [ESQUEMAS](https://msdn.microsoft.com/library/ms182642.aspx)
 - [TABLAS](http://msdn.microsoft.com/library/ms186224.aspx)
+- [VIEW\_COLUMN\_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
+- [VIEW\_TABLE\_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 - [VISTAS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Pasos siguientes
@@ -230,4 +236,4 @@ Para obtener más información de referencia, vea [Información general de refer
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

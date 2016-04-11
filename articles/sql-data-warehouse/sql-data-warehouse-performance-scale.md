@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Rendimiento y escala flexibles con Almacenamiento de datos SQL
@@ -40,7 +40,7 @@ Para aumentar la capacidad de proceso puede agregar más DWU al servicio mediant
 
 En el [Portal de Azure clásico][], puede hacer clic en el icono "Escala" en la parte superior de la página de Almacenamiento de datos SQL y después usar el control deslizante para aumentar o disminuir la cantidad de DWU aplicada a su almacén de datos antes de hacer clic en "Guardar". Si prefiere cambiar la escala mediante programación, el código de T-SQL siguiente muestra cómo ajustar la asignación de DWU para Almacenamiento de datos SQL:
 
-```
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
@@ -49,7 +49,7 @@ Tenga en cuenta que se debe ejecutar este código T-SQL con el servidor lógico 
 
 También puede conseguir el mismo resultado mediante Powershell, utilizando el código siguiente:
 
-```
+```Powershell
 Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
 ```
 
@@ -64,20 +64,18 @@ Las operaciones de pausar y reanudar la capacidad de proceso se pueden realizar 
 
 El código siguiente muestra cómo realizar una pausa mediante PowerShell:
 
-```
+```Powershell
 Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
 "Server01" –DatabaseName "Database02"
 ```
 
 Reanudar el servicio también es muy sencillo con PowerShell:
 
-```
+```Powershell
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 Para obtener más detalles sobre cómo usar PowerShell, consulte el artículo [Uso de las API de REST y los cmdlets de PowerShell con Almacenamiento de datos SQL][].
-
-
 
 ## Pasos siguientes
 Para obtener información general sobre el rendimiento, vea [Introducción al rendimiento][].
@@ -95,4 +93,4 @@ Para obtener información general sobre el rendimiento, vea [Introducción al re
 
 [Portal de Azure clásico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -23,7 +23,7 @@ A8 y A10 | Intel Xeon E5-2670<br/>8 núcleos a 2,6 GHz | DDR3-1600 MHz<br/>56 GB
 A9 y A11 | Intel Xeon E5-2670<br/>16 núcleos a 2,6 GHz | DDR3-1600 MHz<br/>112 GB
 
 
->[AZURE.NOTE]En el sitio web Intel.com hay detalles adicionales de procesador, incluidas las extensiones del conjunto de instrucciones compatibles. Para obtener información sobre las capacidades de almacenamiento de máquina virtual y los detalles del disco, consulte [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md).
+>[AZURE.NOTE]En el sitio web Intel.com hay detalles adicionales de procesador, incluidas las extensiones del conjunto de instrucciones compatibles. Para obtener información sobre las capacidades de almacenamiento de máquina virtual y los detalles del disco, consulte [Tamaños de máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 ### Adaptadores de red
 
@@ -58,4 +58,4 @@ Las instancias A10 y A11 tienen un único adaptador de red Ethernet de 10 Gbps q
 
 * **Espacio de direcciones de la red RDMA**: la red RDMA en Azure reserva el espacio de direcciones 172.16.0.0/12. Si planea ejecutar aplicaciones MPI en instancias A8 y A9 en una red virtual de Azure, asegúrese de que el espacio de direcciones de la red virtual no se superpone a la red RDMA.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

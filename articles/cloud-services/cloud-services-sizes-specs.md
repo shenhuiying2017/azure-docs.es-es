@@ -12,7 +12,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="09/14/2015"
+ ms.date="03/25/2016"
  ms.author="adegeo"/>
 
 # Tamaños de los servicios en la nube
@@ -29,65 +29,131 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 * Las instancias de máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco temporal. Para obtener más información, consulte el anuncio en el blog de Azure, [Nuevos tamaños de máquinas virtuales de la serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
 
-*   Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
+* Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 
-    La disponibilidad regional de la serie Dv2 se basará en esta programación: octubre de 2015: Este 2 de EE. UU., Centro de EE. UU., Centro y norte de EE. UU., Oeste de EE. UU. Noviembre 2015: Este de EE. UU., Norte de Europa, Oeste de Europa Enero de 2016: Centro y Sur de EE. UU., Este de Asia y del Pacífico Sur, Sudeste de Asia y del Pacífico Sur, Este de Japón, Oeste de Japón, Este de Australia, Sudeste de Australia, Sur de Brasil
-
-* Los roles web y los roles de trabajo requieren más espacio en el disco temporal que las máquinas virtuales de Azure debido a los requisitos del sistema. Los archivos del sistema reservan 4 GB de espacio para el archivo de paginación de Windows y 2 GB de espacio para el archivo de volcado de memoria de Windows.
+* Los roles web y los roles de trabajo requieren más espacio en el disco temporal que las máquinas virtuales de Azure debido a los requisitos del sistema. Los archivos del sistema reservan 4 GB de espacio para el archivo de paginación de Windows y 2 GB de espacio para el archivo de volcado de memoria de Windows.
 
 * El disco del sistema operativo contiene el sistema operativo invitado de Windows e incluye la carpeta Archivos de programa (incluidas las instalaciones realizadas a través de tareas de inicio a menos que especifique otro disco), cambios del Registro, la carpeta System32 y .NET Framework.
 
-* El disco de recursos local contiene registros de Azure y archivos de configuración, Diagnósticos de Azure (que incluye sus registros de IIS) y cualquier recurso de almacenamiento local que defina.
+* El **disco de almacenamiento temporal** contiene registros de Azure y archivos de configuración, Diagnósticos de Azure (que incluye sus registros de IIS) y cualquier recurso de almacenamiento local que defina.
 
-* El disco de aplicaciones es donde se extrae su .cspkg e incluye su sitio web, los archivos binarios, el proceso de host de rol, las tareas de inicio, web.config, etc.
+* El **disco de aplicaciones** es donde se extrae su .cspkg e incluye su sitio web, los archivos binarios, el proceso de host de rol, las tareas de inicio, web.config, etc.
 
 * Los tamaños de máquina virtual A8/A10 y A9/A11 tienen las mismas capacidades. Las instancias de máquina virtual A8 y A9 incluyen otro adaptador de red que se conecta a una red de acceso de memoria directa remota (RDMA) para una rápida comunicación entre máquinas virtuales. Las instancias A8 y A9 están diseñadas para aplicaciones informáticas de alto rendimiento que requieren una comunicación constante y de baja latencia entre nodos durante la ejecución, por ejemplo, aplicaciones que utilizan la interfaz de paso de mensajes (MPI). Las instancias de máquina virtual A10 y A11 no incluyen el adaptador de red adicional. Las instancias A10 y A11 están diseñadas para aplicaciones informáticas de alto rendimiento que no requieren la comunicación constante y de baja latencia entre nodos, también conocidas como aplicaciones paramétricas o embarazosamente paralelas.
 
-|Tamaño|Núcleos<br>de CPU|Memoria|Tamaños de disco|
-|---|---|---|---|
-|ExtraSmall|1|768 MB|SO = tamaño del SO invitado<br/>Recurso local = 15384 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Pequeña|1|1,75 GB|SO = tamaño del SO invitado<br/>Recurso local = 225304 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Mediano|2|3,5 GB|SO = tamaño del SO invitado<br/>Recurso local = 496664 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Grande|4|7 GB|SO = tamaño del SO invitado<br/>Recurso local = 1018904 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|ExtraLarge|8|14 GB|SO = Tamaño del SO invitado<br/>Recurso local = 2 083 864 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|A5|2|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 496664 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|A6|4|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 1018904 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|A7|8|56 GB|SO = Tamaño del SO invitado<br/>Recurso local = 2 083 864 MB<br/>Aplicaciones = aprox. 1,5 GB
-|A8|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 1 856 172 MB<br/>Aplicaciones = aprox. 1,5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
-|A9|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 1 856 172 MB<br/>Aplicaciones = aprox. 1,5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
-|A10|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 1 856 172 MB<br/>Aplicaciones = aprox. 1,5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
-|A11|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 1 856 172 MB<br/>Aplicaciones = aprox. 1,5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
-|Standard\_D1|1|3,5 GB|SO = tamaño del SO invitado<br/>Recurso local = 46104 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D2|2|7 GB|SO = tamaño del SO invitado<br/>Recurso local = 97 304 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D3|4|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 199704 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D4|8|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 404504 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D11|2|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 97 304 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D12|4|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 199704 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D13|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 404504 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D14|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 814 104 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D1\_v2|1|3,5 GB|SO = tamaño del SO invitado<br/>Recurso local = 46104 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D2\_v2|2|7 GB|SO = tamaño del SO invitado<br/>Recurso local = 97304 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D3\_v2|4|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 199704 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D4\_v2|8|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 404504 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D5\_v2|16|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 814 104 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D11\_v2|2|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 97304 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D12\_v2|4|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 199704 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D13\_v2|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 404504 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D14\_v2|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 814 104 MB<br/>Aplicaciones = aprox. 1,5 GB|
+    >[AZURE.NOTE] Si está considerando la posibilidad de usar tamaños de A8 a A11, lea [esta información](..\virtual-machines\virtual-machines-a8-a9-a10-a11-specs.md).
+
+>[AZURE.NOTE] Todos los tamaños de máquina proporcionan un **disco de aplicaciones** que almacena todos los archivos del paquete de servicio de la nube. Tiene aproximadamente 1,5 GB de tamaño.
+
+Asegúrese de revisar los [precios](pricing/details/cloud-services/) de cada tamaño de servicio en la nube.
+
+## Uso general
+
+Para sitios web, bases de datos pequeñas y medianas y otras aplicaciones habituales.
+
+>[AZURE.NOTE] La capacidad de almacenamiento se representa mediante 1024^3 bytes como unidad de medida para GB. En ocasiones, esto se conoce como gibibyte o definición de base 2 Al comparar los tamaños que utilizan distintos sistemas de base, tenga en cuenta que los tamaños de base 2 podrían parecer más pequeños que los de base 10. No obstante, para cualquier tamaño específico (como 1 GB), un sistema de base 2 ofrece más capacidad que un sistema de base 10, ya que 1024^3 es mayor que 1000^3.
+
+| Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
+| --------------- | :-------: | ------: | ------: |
+| ExtraSmall | 1 | 0,75 GB | 19 GB |
+| Pequeña | 1 | 1,75 GB | 224 GB |
+| Mediano | 2 | 3,5 GB | 489 GB |
+| Grande | 4 | 7 GB | 999 GB |
+| ExtraLarge | 8 | 14 GB | 2039 GB |
+
+>[AZURE.NOTE] Los tamaños de **ExtraSmall** a **ExtraLarge** también se pueden denominar de **A0 a A4** respectivamente.
+
+## Memoria intensiva
+
+Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones de alto rendimiento.
+
+| Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
+| --------------- | :-------: | ------: | ------: |
+| A5 | 2 | 14 GB | 489 GB |
+| A6 | 4 | 28 GB | 999 GB |
+| A7 | 8 | 56 GB | 2039 GB |
+
+## Red optimizada con soporte para InfiniBand
+
+Disponible en ciertos centros de datos. Las máquinas virtuales A8 y A9 tienen [procesadores Intel® Xeon® E5](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Incluye una red **InfiniBand** de 32 Gbit/s con tecnología de acceso directo a memoria remota (RDMA). Ideal para aplicaciones de interfaz de paso de mensajes (MPI), clústeres de alto rendimiento, modelado y simulación, codificación de vídeo y otros escenarios con un uso intensivo de recursos de proceso y de red.
+
+| Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
+| --------------- | :-------: | ------: | ------: |
+| A8 | 8 | 56 GB | 382 GB |
+| A9 | 16 | 112 GB | 382 GB |
+
+## Proceso intensivo
+
+Disponible en ciertos centros de datos. Las máquinas virtuales A10 y A11 tienen [procesadores Intel® Xeon® E5](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Para clústeres de alto rendimiento, modelado y simulación, codificación de vídeo y otros escenarios con un uso intensivo de recursos de proceso o de red. Similar a la configuración de instancias A8 y A9 sin la red InifiniBand y tecnología RDMA.
+
+| Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
+| --------------- | :-------: | ------: | ------: |
+| A10 | 8 | 56 GB | 382 GB |
+| A11 | 16 | 112 GB | 382 GB |
+
+## Serie D: proceso optimizado
+
+Las máquinas virtuales de la serie D incluyen unidades de estado sólido (SSD) y procesadores más rápidos que los de la serie A (un 60 % más rápidos) y también están disponibles para roles web o de trabajo en Servicios en la nube de Azure. Esta serie resulta ideal para las aplicaciones que exigen CPU más rápidas, un mejor rendimiento del disco local o mayor capacidad de memoria.
+
+## Uso general (D)
+
+Para sitios web, bases de datos pequeñas y medianas y otras aplicaciones habituales.
+
+| Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
+| --------------- | :-------: | ------: | ------: |
+| Standard\_D1 | 1 | 3,5 GB | 50 GB |
+| Standard\_D2 | 2 | 7 GB | 100 GB* |
+| Standard\_D3 | 4 | 14 GB | 200 GB |
+| Standard\_D4 | 8 | 28 GB | 400 GB |
+
+## Memoria intensiva (D)
+
+Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones de alto rendimiento.
+
+| Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
+| --------------- | :-------: | ------: | ------: |
+| Standard\_D11 | 2 | 14 GB | 100 GB* |
+| Standard\_D12 | 4 | 28 GB | 200 GB |
+| Standard\_D13 | 8 | 56 GB | 400 GB |
+| Standard\_D14 | 16 | 112 GB | 800 GB |
+
+## Serie Dv2: proceso optimizado
+
+Las instancias de la serie Dv2 son la próxima generación de la serie D, que se pueden usar como máquinas virtuales o como servicios en la nube. Las instancias de la serie Dv2 disponen de CPU con mayor capacidad que son un 35 % más rápidas por término medio que en las instancias de la serie D, y cuentan con la misma configuración de memoria y discos que la de la serie D. Las instancias de la serie Dv2 se basan en la última generación del procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz y, con Intel Turbo Boost Technology 2.0, pueden llegar a 3,2 GHz. Tanto la serie Dv2 como la serie D son ideales para aplicaciones que requieren CPU más rápidas, mejor rendimiento de los discos locales o memorias superiores, y ofrecen una eficaz combinación para muchas aplicaciones de nivel empresarial.
+
+## Uso general (Dv2)
+
+Para sitios web, bases de datos pequeñas y medianas y otras aplicaciones habituales.
+
+| Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
+| --------------- | :-------: | ------: | ------: |
+| Standard\_D1\_v2 | 1 | 3,5 GB | 50 GB |
+| Standard\_D2\_v2 | 2 | 7 GB | 100 GB* |
+| Standard\_D3\_v2 | 4 | 14 GB | 200 GB |
+| Standard\_D4\_v2 | 8 | 28 GB | 400 GB |
+| Standard\_D5\_v2 | 16 | 56 GB | 800 GB |
+
+## Memoria intensiva (Dv2)
+
+Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones de alto rendimiento.
+
+| Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
+| --------------- | :-------: | ------: | ------: |
+| Standard\_D11\_v2 | 2 | 14 GB | 100 GB* |
+| Standard\_D12\_v2 | 4 | 28 GB | 200 GB |
+| Standard\_D13\_v2 | 8 | 56 GB | 400 GB |
+| Standard\_D14\_v2 | 16 | 112 GB | 800 GB |
+
 ## Configuración de tamaños para los Servicios en la nube
 
-Puede especificar el tamaño de la máquina virtual de una instancia de rol como parte del modelo de servicio descrito por el archivo de definición de servicio. El tamaño del rol determina la cantidad de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a una instancia en ejecución. Elija el tamaño del rol en función del requisito de recursos de la aplicación.
+Puede especificar el tamaño de la máquina virtual de una instancia de rol como parte del modelo de servicio descrito por el [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). El tamaño del rol determina la cantidad de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a una instancia en ejecución. Elija el tamaño del rol en función del requisito de recursos de la aplicación.
 
-El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea pequeño para una instancia de rol web:
+El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea [Standard\_D2] de Uso general (D) para una instancia de rol web:
 
+```xml
+<WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
+...
+</WebRole>
+```
 
-    <WebRole name="WebRole1" vmsize="Small">
-    …
-    </WebRole>
-
-Asegúrese de que el tamaño de recurso local especificado es menor o igual que el tamaño máximo de recurso local indicado en la tabla anterior.
-## Pasos siguientes
-
-[Configurar un servicio en la nube para Azure](https://msdn.microsoft.com/library/hh124108)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

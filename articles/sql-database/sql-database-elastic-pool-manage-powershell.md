@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Supervisión y administración de un grupo de bases de datos elásticas (PowerShell) 
+# Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas con PowerShell 
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](sql-database-elastic-pool-manage-portal.md)
@@ -35,7 +35,7 @@ Debe ejecutar Azure PowerShell 1.0 o superior. Para obtener información detalla
 
 
 
-## Creación de una nueva base de datos elástica en un grupo de bases de datos elásticas
+## Creación de una nueva base de datos elástica en un grupo
 
 Para crear una nueva base de datos directamente dentro de un grupo, use el cmdlet [AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) y establezca el parámetro **ElasticPoolName**.
 
@@ -43,34 +43,34 @@ Para crear una nueva base de datos directamente dentro de un grupo, use el cmdle
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Desplazamiento de una base de datos independiente a un grupo de bases de datos elásticas
+## Desplazamiento de una base de datos independiente a un grupo
 
 Para mover una base de datos existente a un grupo, use el cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) y establezca el parámetro **ElasticPoolName**.
 
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Cambio de la configuración de rendimiento de un grupo de bases de datos elásticas
+## Cambio de la configuración de rendimiento de un grupo
 
 Para cambiar la configuración de rendimiento de un grupo de bases de datos elásticas, use el cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx).
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
-## Obtención del estado de las operaciones de grupos de bases de datos elásticas
+## Obtención del estado de las operaciones de los grupos
 
-Puede realizar un seguimiento del estado de las operaciones del grupo de bases de datos elásticas, como la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
+Puede realizar un seguimiento del estado de las operaciones del grupo como la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
 
 	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
-## Obtención del estado del movimiento de una base de datos elástica dentro y fuera de un grupo de bases de datos elásticas
+## Obtención del estado entrada o salida de un grupo de una base de datos elástica
 
 Puede realizar un seguimiento del estado de las operaciones de las bases de datos elásticas, incluidas la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx).
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Obtención de datos de uso de un grupo de bases de datos elásticas
+## Obtención de datos de uso para un grupo
 
 Métricas que se pueden recuperar como porcentaje del límite del grupo de recursos:
 
@@ -113,7 +113,7 @@ Exportación a un archivo CSV:
 
 Estas API son las mismas que las API (V12) actuales que se usan para supervisar el uso de recursos de una base de datos independiente, excepto por la diferencia semántica siguiente.
 
-* Para esta API, las métricas recuperadas se expresan como un porcentaje de databaseDtuMax (o capacidad equivalente para la métrica subyacente como CPU, E/S etc.) establecido para ese grupo de bases de datos elásticas. Por ejemplo, un 50 % de utilización de cualquiera de estas métricas indica que el consumo específico del recurso está en el 50% del límite de capacidad por base de datos para dicho recurso en el grupo de bases de datos elásticas principal. 
+* Para esta API, las métricas recuperadas se expresan como un porcentaje de databaseDtuMax (o cap equivalente para la métrica subyacente como CPU, E/S etc.) establecido para ese grupo. Por ejemplo, el 50% de utilización de cualquiera de estas métricas indica que el consumo de recursos específicos es del 50% del límite de capacidad por cada base de datos para dicho recurso en el grupo principal. 
 
 Obtenga las métricas:
 
@@ -132,7 +132,7 @@ Exportación a un archivo CSV:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
-## Ejemplo de PowerShell de supervisión y administración de un grupo de bases de datos elásticas
+## Ejemplo de PowerShell de supervisión y administración de un grupo
 
 
     $subscriptionId = '<Azure subscription id>'
@@ -171,11 +171,11 @@ Exportación a un archivo CSV:
 
 ## Pasos siguientes
 
-- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos facilitan la ejecución de scripts de T-SQL en cualquier cantidad de bases de datos en el grupo.
+- [Información general de Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md): los trabajos de base de datos elástica le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos en el grupo.
 
 
 ## Referencia de bases de datos elásticas
 
 Para obtener información detallada acerca de los grupos y las bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -15,10 +15,9 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
 # Muestras de Analytics de Application Insights
 
-[Analytics](app-analytics.md) es un eficaz motor de búsqueda para los datos de telemetría de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics. También se ofrece un [recorrido por el lenguaje](app-analytics-tour.md), opción recomendada para empezar.
+[Analytics](app-analytics.md) permite ejecutar consultas eficaces sobre la telemetría desde su aplicación, recopiladas por [Application Insights](app-insights-overview.md). En estas páginas se describe su lenguaje de consulta. También se ofrece un [recorrido por el lenguaje](app-analytics-tour.md), opción recomendada para empezar.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -437,4 +436,4 @@ JobHistory
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

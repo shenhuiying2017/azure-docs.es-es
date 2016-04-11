@@ -16,7 +16,7 @@
    ms.date="03/21/2016"
    ms.author="tomfitz"/>
 
-# Implementación de recursos con la plantilla de Azure Resource Manager
+# Implementación de recursos con plantillas de Azure Resource Manager
 
 En este tema se explica cómo usar las plantillas de Administrador de recursos de Azure para implementar sus recursos en Azure. Muestra cómo implementar los recursos mediante el uso de Azure PowerShell, CLI de Azure, API de REST o el Portal de Azure.
 
@@ -292,4 +292,4 @@ Para aprender a definir parámetros en una plantilla, consulte [Creación de pla
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

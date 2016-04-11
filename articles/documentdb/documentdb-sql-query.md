@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # Consulta SQL y sintaxis SQL en DocumentDB
@@ -1223,7 +1223,7 @@ A continuación, vemos un ejemplo de cómo puede registrarse una UDF en la base 
 	   };
 	   
 	   UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
-	       collectionSelfLink/* link of the parent collection*/, 
+	       UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
 	       regexMatchUdf).Result;  
                                                                              
 El ejemplo anterior crea una UDF cuyo nombre es `REGEX_MATCH`. Acepta dos valores de cadena JSON, `input` y `pattern`, y comprueba si el primero coincide con el patrón especificado en el segundo mediante la función string.match() de JavaScript.
@@ -1285,7 +1285,9 @@ Para expandir el poder de las UDF, echemos un vistazo a otro ejemplo con lógica
 	                }"
             };
 
-            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(collection.SelfLink, seaLevelUdf);
+            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
+                UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
+                seaLevelUdf);
 	
 	
 A continuación se muestra un ejemplo que ejerce la UDF.
@@ -2316,7 +2318,7 @@ En el ejemplo siguiente se muestran combinaciones, expresadas a través de Selec
 
 El cliente de .NET se itera automáticamente a través de todas las páginas de resultados de la consulta de los bloques foreach, como se muestra anteriormente. Las opciones de consulta especificadas en la sección de la API de REST también están disponibles en el SDK de .NET mediante las clases `FeedOptions` y `FeedResponse` del método CreateDocumentQuery. El número de páginas se puede controlar con el valor `MaxItemCount`.
 
-Los desarrolladores también pueden controlar de forma explícita la paginación mediante la creación de `IDocumentQueryable` con el objeto `IQueryable` y, a continuación, la lectura de los valores ` ResponseContinuationToken` y volviéndolos a pasar como `RequestContinuationToken` en `FeedOptions`. Se puede establecer `EnableScanInQuery` para habilitar los exámenes cuando la directiva de indexación configurada no pueda admitir la consulta.
+También puede controlar de forma explícita la paginación mediante la creación de `IDocumentQueryable` con el objeto `IQueryable` y, a continuación, la lectura de los valores ` ResponseContinuationToken` y volviéndolos a pasar como `RequestContinuationToken` en `FeedOptions`. Se puede establecer `EnableScanInQuery` para habilitar los exámenes cuando la directiva de indexación configurada no pueda admitir la consulta. Para las colecciones con particiones, puede usar `PartitionKey` para ejecutar la consulta en una sola partición (aunque DocumentDB puede extraer automáticamente esto a partir del texto de consulta), y `EnableCrossPartitionQuery` para ejecutar consultas que se deben ejecutar en varias particiones.
 
 Consulte los [ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net) para obtener más casos que contengan consultas.
 
@@ -2367,8 +2369,8 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 7.	Especificación de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	Técnicas de evaluación de consultas para bases de datos de gran tamaño [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.	Procesamiento de consultas en sistemas paralelos de bases de datos relacionales, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, Procesamiento de consultas en sistemas paralelos de bases de datos relacionales, IEEE Computer Society Press, 1994.
+10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
+11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13.     G. Graefe. El marco de cascadas para la optimización de consultas. IEEE Data Eng. Bull., 18(3): 1995.
 
@@ -2378,4 +2380,4 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

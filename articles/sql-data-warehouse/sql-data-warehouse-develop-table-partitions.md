@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/14/2016"
+   ms.date="03/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Particiones de tabla en el Almacenamiento de datos SQL
@@ -38,9 +38,9 @@ Normalmente, las particiones de tabla son útiles de dos maneras principales:
 Al crear índices de almacén de columnas en clúster en el almacenamiento de datos de SQL, un administrador de base de datos debe tener en cuenta un factor adicional: el número de fila. Las tablas de ICC pueden lograr un alto grado de compresión y ayudan al Almacenamiento de datos de SQL a acelerar el rendimiento de las consultas. Debido a cómo funciona la compresión internamente en el Almacenamiento de datos de SQL, cada partición de una tabla de ICC necesita tener un número bastante grande de filas antes de que se compriman los datos. Además, el Almacenamiento de datos de SQL distribuye los datos entre un gran número de distribuciones y cada distribución se divide a su vez en particiones. Para lograr una compresión y rendimiento óptimos, es necesario un mínimo de 100.000 filas por partición y distribución. Usando el ejemplo anterior, si la tabla de hechos de ventas contenía 36 particiones mensuales, y dado que el Almacenamiento de datos de SQL tiene 60 distribuciones, la tabla de hechos de ventas debería contener 6 millones de filas por mes o 216 millones de filas cuando se rellenan todos los meses. Si una tabla contiene muchas menos filas que el mínimo recomendado, el DBA debería pensar en crear la tabla con particiones menos con el fin de aumentar el número de filas por distribución.
 
 
-Para cambiar el tamaño de la base de datos actual al nivel de partición, use una consulta como la siguiente:
+Para cambiar el tamaño actual de la base de datos SQL Server en el nivel de partición, use una consulta como la siguiente:
 
-```
+```sql
 SELECT      s.[name]                        AS      [schema_name]
 ,           t.[name]                        AS      [table_name]
 ,           i.[name]                        AS      [index_name]
@@ -54,7 +54,7 @@ SELECT      s.[name]                        AS      [schema_name]
 FROM        sys.schemas s
 JOIN        sys.tables t                    ON      t.[schema_id]         = s.[schema_id]
 JOIN        sys.partitions p                ON      p.[object_id]         = t.[object_id]
-JOIN        sys.allocation_units a          ON      a.[container_id]        = p.[partition_id]
+JOIN        sys.allocation_units a          ON      a.[container_id]      = p.[partition_id]
 JOIN        sys.indexes i                   ON      i.[object_id]         = p.[object_id]
                                             AND     i.[index_id]          = p.[index_id]
 JOIN        sys.data_spaces ds              ON      ds.[data_space_id]    = i.[data_space_id]
@@ -83,7 +83,7 @@ Tamaño de la partición MPP = Tamaño de la partición SMP/ Número de distribu
 
 Puede averiguar cuántas distribuciones de la base de datos del Almacenamiento de datos SQL tiene con la consulta siguiente:
 
-```
+```sql
 SELECT  COUNT(*)
 FROM    sys.pdw_distributions
 ;
@@ -96,7 +96,7 @@ Un último detalle que debe tener en cuenta para decidir la partición de tabla 
 
 Para obtener información sobre la asignación de memoria por distribución, consulte las vistas de administración dinámica del regulador de recursos. En realidad, la concesión de memoria será inferior a la que se indica en las ilustraciones siguientes. Sin embargo, esto proporciona un nivel de instrucciones que puede utilizar al cambiar el tamaño de las particiones para las operaciones de administración de datos.
 
-```
+```sql
 SELECT  rp.[name]								AS [pool_name]
 ,       rp.[max_memory_kb]						AS [max_memory_kb]
 ,       rp.[max_memory_kb]/1024					AS [max_memory_mb]
@@ -122,7 +122,7 @@ El método más eficaz para dividir una partición que ya contiene datos es usar
 
 A continuación, se muestra una tabla de ejemplo con particiones del almacén de columnas que contiene una fila en cada partición:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
         [ProductKey]            int          NOT NULL
@@ -157,7 +157,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 A continuación, podemos consultar el recuento de filas mediante la vista de catálogo `sys.partitions`:
 
-```
+```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
 ,       i.[name] as Index_name
 ,       p.partition_number as Partition_nmbr
@@ -174,7 +174,7 @@ WHERE t.[name] = 'FactInternetSales'
 
 Si tratamos de dividir esta tabla, se producirá un error:
 
-```
+```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
@@ -182,7 +182,7 @@ La cláusula Msg 35346, Level 15, State 1, Line 44 SPLIT de la instrucción ALTE
 
 Sin embargo, podemos utilizar `CTAS` para crear una nueva tabla para alojar nuestros datos.
 
-```
+```sql
 CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -200,7 +200,7 @@ WHERE   1=2
 
 Se permite la modificación porque los límites de partición están alineados. Esto dejará la tabla de origen con una partición vacía que podemos dividir posteriormente.
 
-```
+```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -208,7 +208,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 Lo único que falta por hacer es alinear los datos con los nuevos límites de partición mediante `CTAS` y volver a cambiar los datos a la tabla principal.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -229,7 +229,7 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 
 Después de haber transferido los datos, es buena idea actualizar las estadísticas en la tabla de destino para asegurarse de que reflejan con precisión la distribución nueva de los datos en sus respectivas particiones:
 
-```
+```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
@@ -238,7 +238,7 @@ Para evitar que la definición de tabla se **oxide** en el sistema de control de
 
 1. Crear la tabla como una tabla con particiones, pero sin valores de partición
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -262,7 +262,7 @@ WITH
 
 2. `SPLIT` la tabla como parte del proceso de implementación:
 
-```
+```sql
 -- Create a table containing the partition boundaries
 
 CREATE TABLE #partitions
@@ -336,4 +336,4 @@ Una vez migrado correctamente el esquema de base de datos al Almacenamiento de d
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

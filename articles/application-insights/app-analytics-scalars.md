@@ -15,12 +15,11 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
  
 # Expresiones escalares de Analytics
 
 
-[Analytics](app-analytics.md) es una eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
+[Analytics](app-analytics.md) permite ejecutar consultas eficaces sobre la telemetría desde su aplicación, recopiladas por [Application Insights](app-insights-overview.md). En estas páginas se describe su lenguaje de consulta.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -696,7 +695,7 @@ Indica si el argumento es una cadena vacía o isnull.
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("[]")|false
+|parsejson("")|false
 |parsejson("{}")|false
 
 
@@ -1150,4 +1149,4 @@ Observe que "[0]" indica la presencia de una matriz, pero no especifica el índi
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

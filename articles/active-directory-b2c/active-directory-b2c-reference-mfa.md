@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/28/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: Habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor
@@ -54,4 +54,8 @@ Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la
 
 Cuando el consumidor inicia la sesión (mediante una cuenta local o social), si un número de teléfono comprobado está asociado a su cuenta, se le pide que lo compruebe. Si no hay ningún número de teléfono asociado, se le pide al consumidor que proporcione uno y que lo compruebe. Si la comprobación es correcta, el número de teléfono se asocia a la cuenta de consumidor para su uso posterior.
 
-<!---HONumber=AcomDC_0224_2016-->
+## Multi-Factor Authentication en otras directivas
+
+Como se ha descrito anteriormente en relación con las directivas de registro e inicio de sesión, también es posible habilitar Multi-Factor Authentication en las directivas de registro o inicio de sesión y en las directivas de restablecimiento de contraseña. Muy pronto estará disponible en las directivas de edición de perfiles.
+
+<!---HONumber=AcomDC_0330_2016-->

@@ -26,7 +26,7 @@ La transmisión de Spark amplía la API de Spark de núcleo para crear aplicacio
 
 En este tutorial, obtendrá información sobre cómo crear un Centro de eventos de Azure, cómo introducir mensajes en un Centro de eventos mediante una aplicación de consola en C# y cómo recuperarlos en paralelo mediante un notebook Zeppelin configurado para Apache Spark en HDInsight.
 
-> [AZURE.NOTE] Para seguir las instrucciones de este artículo, tendrá que usar las dos versiones del portal de Azure. Para crear un Centro de eventos, deberá usar el [Portal de Azure](https://manage.windowsazure.com). Para trabajar con el clúster de HDInsight Spark, deberá usar el [Portal de vista previa de Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Para seguir las instrucciones de este artículo, tendrá que usar las dos versiones del portal de Azure. Para crear un Centro de eventos, usará el [Portal de Azure clásico](https://manage.windowsazure.com). Para trabajar con el clúster de HDInsight Spark, usará el [Portal de Azure](https://ms.portal.azure.com/).
 
 **Requisitos previos:**
 
@@ -54,10 +54,12 @@ Debe tener lo siguiente:
 4. Haga clic en el Centro de eventos que ha creado, en **Configurar** y, después, cree dos directivas de acceso para el Centro de eventos.
 
 	<table>
-<tr><th>Nombre</th><th>Permisos</th></tr>
-<tr><td>mysendpolicy</td><td>Los métodos Send</td></tr>
-<tr><td>myreceivepolicy</td><td>Escuchar</td></tr>
-</table>Después de crear los permisos, seleccione el icono **Guardar** en la parte inferior de la página. Así se crean las directivas de acceso compartido que se usarán para enviar (**mysendpolicy**) y escuchar (**myreceivepolicy**) a este Centro de eventos.
+	<tr><th>Nombre</th><th>Permisos</th></tr>
+	<tr><td>mysendpolicy</td><td>Los métodos Send</td></tr>
+	<tr><td>myreceivepolicy</td><td>Escuchar</td></tr>
+	</table>
+
+	Después de crear los permisos, seleccione el icono **Guardar** en la parte inferior de la página. Así se crean las directivas de acceso compartido que se usarán para enviar (**mysendpolicy**) y escuchar (**myreceivepolicy**) a este Centro de eventos.
 
 	![directivas](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Crear directivas de centro de eventos")
 
@@ -92,7 +94,7 @@ Para instrucciones sobre cómo asignar recursos en un clúster Spark, vea [Admin
 
 ### Creación de una aplicación de streaming mediante Zeppelin
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
 2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y luego, en la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Zeppelin**. Cuando se le pida, escriba las credenciales del clúster.
 
@@ -194,4 +196,4 @@ Puede descargar instrucciones sobre cómo realizar estos pasos y un ejemplo de a
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

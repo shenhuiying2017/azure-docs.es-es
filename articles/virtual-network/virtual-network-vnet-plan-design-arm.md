@@ -215,18 +215,18 @@ Según esos requisitos, necesitará una suscripción para cada unidad de negocio
 
 ![Suscripción única](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
-También deberá especificar el espacio de direcciones para cada red virtual. Debido a que necesita tener conectividad entre los centros de datos locales y las regiones de Azure, el espacio de direcciones que las redes virtuales de Azure usan no puede tener un conflicto con las instalaciones locales y el espacio de direcciones que usa cada red virtual no debería tener conflictos con ninguna otra red virtual existente. Puede usar los espacios de direcciones de la tabla siguiente para cumplir estos requisitos.
+También deberá especificar el espacio de direcciones para cada red virtual. Dado que necesita tener conectividad entre los centros de datos locales y las regiones de Azure, el espacio de direcciones que las redes virtuales de Azure usan no puede tener un conflicto con la red local y el espacio de direcciones que usa cada red virtual no debería tener conflictos con ninguna otra red virtual existente. Puede usar los espacios de direcciones de la tabla siguiente para cumplir estos requisitos.
 
 |**Suscripción**|**Red virtual**|**Región de Azure**|**Espacio de direcciones**|
 |---|---|---|---|
-|BU1|ProdBU1US1|Oeste de EE. UU.|172\.16.0.0/16|
-|BU1|ProdBU1US2|Este de EE. UU.|172\.17.0.0/16|
+|BU1|ProdBU1US1|Oeste de EE. UU.|172\.16.0.0/16|
+|BU1|ProdBU1US2|Este de EE. UU.|172\.17.0.0/16|
 |BU1|ProdBU1EU1|Europa del Norte|172\.18.0.0/16|
 |BU1|ProdBU1EU2|Europa occidental|172\.19.0.0/16|
-|BU1|TestDevBU1|Oeste de EE. UU.|172\.20.0.0/16|
-|BU2|TestDevBU2|Oeste de EE. UU.|172\.21.0.0/16|
-|BU2|ProdBU2US1|Oeste de EE. UU.|172\.22.0.0/16|
-|BU2|ProdBU2US2|Este de EE. UU.|172\.23.0.0/16|
+|BU1|TestDevBU1|Oeste de EE. UU.|172\.20.0.0/16|
+|BU2|TestDevBU2|Oeste de EE. UU.|172\.21.0.0/16|
+|BU2|ProdBU2US1|Oeste de EE. UU.|172\.22.0.0/16|
+|BU2|ProdBU2US2|Este de EE. UU.|172\.23.0.0/16|
 |BU2|ProdBU2EU1|Europa del Norte|172\.24.0.0/16|
 |BU2|ProdBU2EU2|Europa occidental|172\.25.0.0/16|
 
@@ -265,4 +265,4 @@ Según esos requisitos, podría agregar usuarios desde el equipo de red al rol *
 - Obtener más información sobre los [NSG y cómo planear y diseñar](virtual-networks-nsg.md) una solución de NSG.
 - Obtener más información sobre las [opciones de conectividad local y redes virtuales](../vpn-gateway/vpn-gateway-cross-premises-options.md).  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

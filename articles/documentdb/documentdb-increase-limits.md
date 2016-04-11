@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # Solicitud de aumento de los límites de la cuenta de DocumentDB
@@ -29,20 +29,8 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 En la tabla siguiente se describen las cuotas de DocumentDB que se pueden ajustar estableciendo contacto con el soporte técnico de Azure:
 
-|Entidad |Cuota (oferta estándar)|
-|-------|--------|
-|Cuentas de la base de datos |5
-|Número de procedimientos almacenados, desencadenadores y UDF por colección |25 cada una
-|Número máximo de colecciones por cuenta de base de datos |100
-|Almacenamiento máximo de documentos por base de datos (100 colecciones) |1 TB
-|Número máximo de UDF por consulta |2
-|Número máximo de JOIN por consulta |5
-|Número máximo de cláusulas AND por consulta |20
-|Número máximo de cláusulas OR por consulta |20 |
-|Número máximo de valores por expresión IN |200
-|Número máximo de puntos de un argumento de polígono de una consulta ST\_WITHIN |16
-|Número máximo de creaciones de colección por minuto |5
-|Número máximo de operaciones de escala por minuto |5
+[AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+
 
 ##<a id="RequestQuotaIncrease"></a> Solicitud de un ajuste de cuota
 En los pasos siguientes se muestra cómo solicitar un ajuste de cuota.
@@ -75,4 +63,4 @@ Una vez creada la incidencia de soporte técnico, debería recibir el número de
 ##<a name="NextSteps"></a> Pasos siguientes
 - Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

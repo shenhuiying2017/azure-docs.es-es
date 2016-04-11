@@ -23,7 +23,7 @@
 
 Un clúster de Hadoop se compone de varias máquinas virtuales (nodos), que se usan para el procesamiento distribuido de tareas en el clúster. Azure abstrae de los detalles de implementación de la instalación y configuración de los nodos individuales, por lo que solo tiene que proporcionar información de configuración general. En este artículo, obtendrá información sobre estas opciones de configuración.
 
->[AZURE.NOTE] La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para obtener información sobre los clústeres basados en Linux, consulte [Creación de clústeres de Hadoop basado en Windows en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+>[AZURE.NOTE] La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para más información sobre los clústeres basados en Linux, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Tipos de clúster
 
@@ -45,7 +45,7 @@ Cada tipo de clúster tiene su propia terminología de nodos dentro del clúster
 |Storm|Nodo Nimbus (2), servidor de supervisor (más de 1), nodo Zookeeper (3)|![Nodos de clúster de Storm en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
 |Spark|Nodo principal (2), nodo de trabajo (más de 1), nodo Zookeeper (3) (gratis para el tamaño de máquina virtual Zookeepers A1)|![Nodos de clúster de Spark en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-* Entre paréntesis se indica el número de nodos de cada tipo de nodo.
+* Entre paréntesis se indica el número de nodos de cada tipo.
 
 > [AZURE.IMPORTANT] Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 
@@ -134,7 +134,7 @@ A continuación se presentan las opciones de configuración básicas para crear 
 
 	![tamaños de nodos de vm de hdinsight](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
-    Las siguientes tablas muestran los tamaños admitidos por los clústeres de HDInsight y las capacidades que ofrecen.
+    En las siguientes tablas se muestran los tamaños admitidos por los clústeres de HDInsight y las capacidades que ofrecen.
 
     - Nivel estándar: serie A
 
@@ -243,4 +243,4 @@ En este artículo, ha obtenido información básica acerca de cómo crear un cl�
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Plantillas de ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

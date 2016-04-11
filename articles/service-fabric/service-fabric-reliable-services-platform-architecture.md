@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="03/30/2016"
    ms.author="alanwar"/>
 
 # Arquitectura para Reliable Services con estado y sin estado
@@ -57,15 +57,13 @@ El replicador de transacciones usa un registro para conservar información de es
 
 ### Registro
 
-El componente de registro proporciona un almacén persistente de alto rendimiento que se puede optimizar para escribir en discos de estado giratorio o sólidos. También se puede optimizar para efectuar un uso más eficaz del espacio en disco. El diseño del registro es para que el almacenamiento persistente (es decir, discos duros) sea local en los nodos que ejecutan el servicio con estado. Esto permite bajas latencias y alto rendimiento, en comparación con el almacenamiento persistente, que no es local en el nodo.
+El componente de registro proporciona un almacén persistente de alto rendimiento que se puede optimizar para escribir en discos de estado giratorio o sólidos. El diseño del registro es para que el almacenamiento persistente (es decir, discos duros) sea local en los nodos que ejecutan el servicio con estado. Esto permite bajas latencias y un alto rendimiento en comparación con el almacenamiento persistente remoto, que no es local en el nodo.
 
-El componente de registro utiliza dos tipos de archivos de registro. Hay un archivo de registro compartido de todo el nodo que debe estar en un disco que se utiliza solo para ese archivo de registro. Este archivo se coloca en el directorio de trabajo del nodo de Service Fabric. Cada réplica del servicio también tiene un archivo de registro específico y se coloca en el directorio de trabajo del servicio.
+El componente de registro usa varios tipos de archivos de registro. Hay un archivo de registro compartido de todo el nodo que usan todas las réplicas porque puede proporcionar la menor latencia y el rendimiento máximo para almacenar los datos de estado. De forma predeterminada, el registro compartido se coloca en el directorio de trabajo del nodo de Service Fabric, pero también puede configurarse para que se ponga en otra ubicación (lo ideal sería que se pusiese en un disco reservado solo para el registro compartido). Cada réplica del servicio también tiene un archivo de registro dedicado, y el registro dedicado se coloca en el directorio de trabajo del servicio. No hay ningún mecanismo para configurar el registro dedicado de modo que se coloque en una ubicación diferente.
 
-El registro compartido es un área de transición para la información de estado mientras el archivo de registro específico es el destino final, donde se almacena. En este diseño la información de estado se escribe en primer lugar en el archivo de registro compartido y, a continuación, se descargan de forma diferida en el archivo de registro específico en segundo plano. De esta manera la escritura en el registro compartido tendría la latencia más baja y el rendimiento máximo para permitir que el servicio progrese con mayor rapidez.
+El registro compartido es un área de transición para la información de estado de la réplica y el archivo de registro dedicado es el destino final, donde se almacena. En este diseño la información de estado se escribe, en primer lugar, en el archivo de registro compartido y después se mueve de forma diferida al archivo de registro dedicado en segundo plano. De esta manera, la escritura en el registro compartido tendría la latencia más baja y el máximo rendimiento, lo que permite que el servicio progrese con mayor rapidez.
 
-Sin embargo, cuando se configura el componente de registro para optimizar discos de estado sólido que utilizan la configuración de OptimizeForLocalSSD, la información de estado se escribe directamente en el archivo de registro específico y omite el archivo de registro compartido. Debido a que los discos de estado sólido no sufren retrasos debido a la contención de movimiento de los cabezales, no hay ninguna penalización por escribir directamente en el archivo de registro específico.
-
-Cuando el componente de registro está optimizado para minimizar el uso de espacio en disco mediante la configuración OptimizeLogForLowerDiskUsage, los archivos de registro específicos se crean como archivos dispersos de NTFS. Puesto que los archivos de registro normalmente no siempre están completamente llenos de información de estado, el uso de los archivos dispersos permite el sobreaprovisionamiento del espacio en disco disponible para más réplicas. Si no se configura de esta forma, el espacio del archivo de registro se asigna previamente y el componente de registro puede escribir directamente en el archivo con el máximo rendimiento.
+Las lecturas y escrituras en el registro compartido se realizan a través de E/S directas en el espacio preasignado en el disco para el archivo de registro compartido. Para permitir un uso óptimo del espacio en disco en la unidad con registros dedicados, se crea el archivo de registro dedicado como un archivo disperso de NTFS. Tenga en cuenta que esto permitirá un aprovisionamiento en exceso del espacio en disco y el sistema operativo mostrará los archivos de registro dedicados con mucho más espacio en disco del que se usa realmente.
 
 Además de una interfaz de modo de usuario mínima en el registro, el registro se escribe como un controlador en modo kernel. Mediante la ejecución como un controlador de modo kernel, el registro puede proporcionar el máximo rendimiento a todos los servicios que lo utilizan.
 
@@ -99,4 +97,4 @@ Para obtener más información acerca de Service Fabric, consulte:
 
 [Configuración de un servicio confiable](service-fabric-reliable-services-configuration.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

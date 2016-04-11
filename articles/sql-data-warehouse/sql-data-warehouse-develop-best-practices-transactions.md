@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/27/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimización de transacciones para Almacenamiento de datos SQL
@@ -89,7 +89,7 @@ A continuación, hay cuatro ejemplos en los que se explica cómo optimizar el c�
 ### Optimización de las operaciones de eliminación grandes con CTAS
 Si necesita eliminar una gran cantidad de datos de una tabla o una partición, a menudo tiene más sentido seleccionar (con `SELECT`) los datos que desea conservar y crear una nueva tabla con [CTAS][]. Una vez creada, utilice un par de comandos [RENAME OBJECT][] para cambiar los nombres de las tablas.
 
-```
+```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
 
 --Step 01. Create a new table select only the records we want to kep (PromotionKey 2)
@@ -124,7 +124,7 @@ En el ejemplo siguiente, se ha convertido la actualización de una tabla complet
 
 En este caso, estamos agregando retrospectivamente un importe de descuento a las ventas en la tabla:
 
-```
+```sql
 --Step 01. Create a new table containing the "Update". 
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
@@ -192,7 +192,7 @@ Los pasos para realizar una conmutación de particiones son los siguientes:
 
 Sin embargo, para ayudar a identificar las particiones que se van a conmutar, primero necesitamos crear un procedimiento auxiliar como el siguiente.
 
-```
+```sql
 CREATE PROCEDURE dbo.partition_data_get
 	@schema_name		   NVARCHAR(128)
 ,	@table_name			   NVARCHAR(128)
@@ -240,7 +240,7 @@ Este procedimiento maximiza la reutilización del código y mantiene el ejemplo 
 
 El código siguiente muestra los cinco pasos mencionados anteriormente para conseguir una rutina de conmutación de particiones completa.
 
-```
+```sql
 --Create a partitioned aligned empty table to switch out the data 
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
@@ -346,7 +346,7 @@ Para operaciones de modificación de datos de gran tamaño, puede tener sentido 
 
 A continuación, se proporciona un ejemplo de trabajo. El tamaño del lote se estableció en un número trivial para resaltar la técnica. En realidad, el tamaño del lote sería mucho mayor.
 
-```
+```sql
 SET NO_COUNT ON;
 IF OBJECT_ID('tempdb..#t') IS NOT NULL
 BEGIN
@@ -436,4 +436,4 @@ Para más sugerencias sobre el desarrollo y contenido relacionado con los ejempl
 <!--MSDN references-->
 [alter index]: https://msdn.microsoft.com/es-ES/library/ms188388.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

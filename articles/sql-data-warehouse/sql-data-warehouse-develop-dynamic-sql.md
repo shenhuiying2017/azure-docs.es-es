@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL dinámico en Almacenamiento de datos SQL
@@ -21,7 +21,7 @@ Al desarrollar código de aplicación para Almacenamiento de datos SQL, puede qu
 
 Un ejemplo sencillo:
 
-```
+```sql
 DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 ,       @sql_fragment2 VARCHAR(8000)=' FROM sys.system_views '
 ,       @sql_fragment3 VARCHAR(8000)=' WHERE name like ''%table%''';
@@ -46,4 +46,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

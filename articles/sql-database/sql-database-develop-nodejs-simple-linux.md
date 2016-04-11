@@ -26,36 +26,19 @@
 
 Este tema presenta un ejemplo de código de Node.js que se ejecuta en Ubuntu Linux. El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador Tedious.
 
+## Paso 1: Configuración del entorno de desarrollo
 
-## Requisitos previos
+Consulte el artículo [Prerequisites for using the tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Ubuntu-Linux) (Requisitos previos para usar el controlador tedioso de Node.js para SQL Server).
 
-
-Abra el terminal e instale **node** y **npm**, a menos que ya estén instalados en el equipo.
-
-
-	sudo apt-get install node
-	sudo apt-get install npm
-
-
-Cuando el equipo esté configurado con **node** y **npm**, navegue hasta el directorio donde piensa crear el proyecto Node.js y escriba los comandos siguientes.
-
-
-	sudo npm init
-	sudo npm install tedious
-
-
-**init npm** para crear un proyecto de nodo. Para conservar los valores predeterminados durante la creación del proyecto, presione Entrar hasta que se cree el proyecto. Ahora verá el archivo **package.json** en el directorio del proyecto.
-
-
-### Base de datos SQL
+## Paso 2: Creación de una base de datos SQL
 
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
-## Paso 1: Obtención de detalles de la conexión
+## Paso 3: Obtención de detalles de la conexión
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Paso 2: Conexión
+## Paso 4: Conexión
 
 La función [new Connection](http://pekim.github.io/tedious/api-connection.html) se utiliza para conectarse a la base de datos SQL.
 
@@ -74,7 +57,7 @@ La función [new Connection](http://pekim.github.io/tedious/api-connection.html)
 	});
 
 
-## Paso 3: Ejecución de una consulta
+## Paso 5: Ejecución de una consulta
 
 
 Todas las instrucciones SQL se ejecutan utilizando la función [new Request()](http://pekim.github.io/tedious/api-request.html). Si la instrucción devuelve filas, como una instrucción select, se podrán recuperar mediante la función [request.on()](http://pekim.github.io/tedious/api-request.html). Si no hay ninguna fila, la función [request.on()](http://pekim.github.io/tedious/api-request.html) devuelve listas vacías.
@@ -123,7 +106,7 @@ Todas las instrucciones SQL se ejecutan utilizando la función [new Request()](h
 	}
 
 
-## Paso 4: Inserción de una fila
+## Paso 6: Inserción de una fila
 
 En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
 
@@ -172,4 +155,4 @@ En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.
 
 Para más información, vea el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

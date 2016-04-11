@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Realización de tareas de codificación avanzadas mediante la personalización de valores preestablecidos de Media Encoder Estándar" 
+	pageTitle="Codificación avanzada con Codificador multimedia estándar" 
 	description="En este tema se muestra cómo realizar codificación avanzada mediante la personalización de valores preestablecidos de tarea Media Encoder Estándar. En este tema se muestra cómo usar el SDK de .NET de Servicios multimedia para crear, actualizar y eliminar filtros. También se muestra cómo especificar valores preestablecidos personalizados para el trabajo de codificación." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016"    
+	ms.date="03/27/2016"    
 	ms.author="juliako"/>
 
 
-#Realización de tareas de codificación avanzadas mediante la personalización de valores preestablecidos de Media Encoder Estándar
+#Codificación avanzada con Codificador multimedia estándar
 
 ##Información general
 
-En este tema se muestra cómo realizar codificación avanzada mediante la personalización de valores preestablecidos de tarea Media Encoder Estándar. Se muestra en el tema sobre [uso de .NET para crear una tarea de codificación y un trabajo que ejecute esta tarea](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). También se muestra cómo especificar valores preestablecidos personalizados para la tarea de codificación. [Este documento](https://msdn.microsoft.com/library/mt269962.aspx) contiene descripciones de elementos que usan estos valores preestablecidos predeterminados.
+En este tema se muestra cómo realizar tareas de codificación avanzada mediante el Codificador multimedia estándar. Se muestra en el tema sobre [uso de .NET para crear una tarea de codificación y un trabajo que ejecute esta tarea](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). También se muestra cómo especificar valores preestablecidos personalizados para la tarea de codificación. [Este documento](https://msdn.microsoft.com/library/mt269962.aspx) contiene descripciones de elementos que usan estos valores preestablecidos predeterminados.
 
 Se muestran los valores preestablecidos personalizados que realizan las siguientes tareas de codificación:
 
@@ -30,6 +30,7 @@ Se muestran los valores preestablecidos personalizados que realizan las siguient
 - [Creación de una superposición](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Inserción de una pista de audio silenciosa cuando la entrada no tiene audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [Deshabilitar el entrelazado automático](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
+- [Valores preestablecidos de solo audio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 
 ##<a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Servicios multimedia
 
@@ -238,7 +239,7 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 En esta sección se muestra cómo personalizar un valor preestablecido que genera vistas en miniatura. El valor preestablecido que se define a continuación contiene información sobre cómo se quiere codificar el archivo, así como la información necesaria para generar miniaturas. Puede usar cualquiera de los valores preestablecidos MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y agregar el código que genera miniaturas.
 
->[AZURE.NOTE]La configuración de **SceneChangeDetection** en el siguiente valor preestablecido solo puede establecerse en true si va a codificar en vídeo de una única velocidad de bits. Si va a codificar en vídeo de varias velocidades de bits y establece **SceneChangeDetection** en true, el codificador devolverá un error.
+>[AZURE.NOTE]La configuración de **SceneChangeDetection** en el siguiente valor preestablecido solo se puede establecer en true si va a codificar en vídeo de una única velocidad de bits. Si va a codificar en vídeo de varias velocidades de bits y establece **SceneChangeDetection** en true, el codificador devolverá un error.
 
 
 Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
@@ -442,9 +443,9 @@ Se aplican las siguientes consideraciones:
 
 ##<a id="trim_video"></a>Recorte de un vídeo
 
-En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también puede usarse para recortar un activo que se captura o se archiva desde una transmisión en directo; los detalles para ello están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también se puede usar para recortar un activo que se captura o se archiva desde una transmisión en directo; los detalles para ello están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (tal y como se muestra a continuación). El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene una marca de tiempo de 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. En el ejemplo siguiente, se supone que el vídeo de entrada tiene una marca de tiempo inicial de cero. Tenga en cuenta que el elemento **Sources** debe colocarse en la parte superior del esquema.
+Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (tal y como se muestra a continuación). El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene una marca de tiempo de 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. En el ejemplo siguiente, se supone que el vídeo de entrada tiene una marca de tiempo inicial de cero. Tenga en cuenta que el elemento **Sources** se debe colocar en la parte superior del esquema.
  
 ###<a id="json"></a>Valor preestablecido JSON
 	
@@ -865,7 +866,7 @@ Puede usar cualquiera de los valores preestablecidos de MES que se documentan [a
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Deshabilitación del entrelazado automático
+##<a id="deinterlacing"></a>Deshabilitar el entrelazado automático
 
 Los clientes no tienen que hacer nada si prefieren que el enlazado del contenido entrelazado se anule automáticamente. Cuando la anulación de entrelazado automática está activada (valor predeterminado), el MES realiza la detección automática de fotogramas entrelazados y solo se anula el entrelazado de los fotogramas marcados como entrelazados.
 
@@ -896,7 +897,55 @@ Puede desactivar la anulación de entrelazado automática. Esta opción nos e re
 	</Sources>
 
 
+##<a id="audio_only"></a>Valores preestablecidos de solo audio
 
+Esta sección muestra dos valores preestablecidos de MES de solo audio: Audio AAC y Audio AAC de buena calidad.
+
+###Audio AAC 
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "Profile": "AACLC",
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_AAC_{AudioBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+
+###Audio AAC de buena calidad
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "Profile": "AACLC",
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 192,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_AAC_{AudioBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -910,4 +959,4 @@ Puede desactivar la anulación de entrelazado automática. Esta opción nos e re
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

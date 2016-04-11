@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Creación de una nueva API de usuarios de Office 365 en PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Aplicaciones lógicas](../articles/connectors/create-api-office365-users.md)
+- [Aplicaciones lógicas](../articles/connectors/connectors-create-api-office365-users.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
 
 Agregue la API de usuarios de Office 365 al entorno del Servicio de aplicaciones de su organización (inquilino).
@@ -41,7 +41,7 @@ Agregue la API de usuarios de Office 365 al entorno del Servicio de aplicaciones
 5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:  
 ![Add API][2]
 
-6. Escriba un **nombre** descriptivo para la API.  
+6. Escriba un **nombre** descriptivo para la API.
 	
 7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Usuarios de Office 365**:  
 ![seleccionar la api de usuarios de Office 365][3]
@@ -51,7 +51,7 @@ Agregue la API de usuarios de Office 365 al entorno del Servicio de aplicaciones
 
 9. Escriba el *Id. de cliente* y el *Secreto de cliente* de la aplicación Azure Active Directory (AAD) de Office 365. Si no dispone de estos, consulte la sección "Registrar una aplicación de AAD para su uso con PowerApps" en este tema para crear el identificador y los valores secretos que necesita.
 
-	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.  
+	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
 
 10. Seleccione **Aceptar** para completar los pasos.
 
@@ -81,7 +81,7 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 
 	![Agregar aplicación de AAD: información de la aplicación][8]
 
-6. En **Propiedades de la aplicación**:  
+6. En **Propiedades de la aplicación**:
 
 	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a realizar la autenticación con AAD para PowerApps, establezca la URL de inicio de sesión en \__https://login.windows.net_.
 	2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
@@ -107,7 +107,7 @@ Encontrará información válida sobre aplicaciones de AAD en [Cómo y por qué 
 
 ## Visualización de las API de REST
 
-Referencia de [API de REST de usuarios de Office 365](../connectors/create-api-office365-users.md).
+Referencia de [API de REST de usuarios de Office 365](../connectors/connectors-create-api-office365-users.md).
 
 ## Resumen y pasos siguientes
 En este tema ha agregado la API de Usuarios de Office 365 a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
@@ -128,4 +128,4 @@ En este tema ha agregado la API de Usuarios de Office 365 a su empresa PowersApp
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

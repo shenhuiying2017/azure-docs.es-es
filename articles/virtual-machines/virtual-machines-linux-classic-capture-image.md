@@ -38,7 +38,7 @@ En estos pasos se supone que ya ha creado un máquina virtual de Azure con el mo
 
 2. En la ventana SSH, escriba el siguiente comando. Tenga en cuenta que el resultado de `waagent` puede variar ligeramente según la versión de esta utilidad:
 
-	`sudo waagent -deprovision`
+	`sudo waagent -deprovision+user`
 
 	Este comando intentará limpiar el sistema y dejarlo adecuado para un reaprovisionamiento. Esta operación ejecuta las siguientes tareas:
 
@@ -87,7 +87,7 @@ En estos pasos se supone que ya ha creado un máquina virtual de Azure con el mo
 
 
 ## Pasos siguientes
-La imagen está lista para usarse para crear máquinas virtuales. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que acaba de crear. Consulte [Uso de la CLI de Azure para Mac, Linux y Windows con la administración de servicios de Azure](virtual-machines-command-line-tools.md) para obtener información sobre el comando. También puede usar el [Portal de Azure clásico][] para crear una máquina virtual personalizada mediante el método **De la galería** y seleccionar la imagen que acaba de crear. Vea [Creación de una máquina virtual personalizada][] para obtener más detalles.
+La imagen está lista para usarse para crear máquinas virtuales. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que acaba de crear. Consulte [Uso de la CLI de Azure para Mac, Linux y Windows con la administración de servicios de Azure](../virtual-machines-command-line-tools.md) para obtener información sobre el comando. También puede usar el [Portal de Azure clásico][] para crear una máquina virtual personalizada mediante el método **De la galería** y seleccionar la imagen que acaba de crear. Vea [Creación de una máquina virtual personalizada][] para obtener más detalles.
 
 **Consulte también:**[Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -98,4 +98,4 @@ La imagen está lista para usarse para crear máquinas virtuales. Puede usar el 
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Creación de una máquina virtual con Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

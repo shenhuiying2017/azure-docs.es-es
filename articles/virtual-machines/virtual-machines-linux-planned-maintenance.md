@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Planeación del mantenimiento de máquinas virtuales de Azure | Microsoft Azure"
-	description="Entienda qué es el mantenimiento planeado de Azure y cómo afecta a sus máquinas virtuales que se ejecutan en Azure."
+	pageTitle="Mantenimiento planeado de máquinas virtuales Linux | Microsoft Azure"
+	description="Entienda qué es el mantenimiento planeado de Azure y cómo afecta a las máquinas virtuales Linux que se ejecutan en Azure"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="drewm"
@@ -17,10 +17,20 @@
 	ms.date="01/05/2016"
 	ms.author="drewm"/>
 
-# Planeación del mantenimiento de máquinas virtuales de Azure
+# Mantenimiento planeado de máquinas virtuales Linux en Azure
+
+Entienda qué es el mantenimiento planeado de Azure y cómo afecta a la disponibilidad de sus máquinas virtuales Linux. También puede leer sobre [mantenimiento planeado de máquinas virtuales Windows](virtual-machines-windows-planned-maintenance.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
+## Por qué Azure realiza mantenimiento planeado
+
+Microsoft Azure realiza periódicamente actualizaciones en todo el planeta para mejorar la fiabilidad, el rendimiento y la seguridad de infraestructuras host que subyacen bajo las máquinas virtuales. Muchas de esas actualizaciones se realizan sin que afecten a las máquinas virtuales o a los servicios en la nube, incluidas las actualizaciones de conservación de memoria.
+
+Sin embargo, algunas de estas actualizaciones requieren que las máquinas virtuales se reinicien para aplicar a la infraestructura las actualizaciones requeridas. Las máquinas virtuales se cierran mientras arreglamos la infraestructura y después las máquinas virtuales se reinician.
+
+Tenga en cuenta que hay dos tipos de mantenimiento que pueden afectar a la disponibilidad de las máquinas virtuales: planeado y no planeado. En esta página se describe cómo Microsoft Azure realiza el mantenimiento planeado. Para obtener más información acerca del mantenimiento planeado, consulte [Mantenimiento planeado frente a mantenimiento no planeado](virtual-machines-linux-manage-availability.md).
+
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

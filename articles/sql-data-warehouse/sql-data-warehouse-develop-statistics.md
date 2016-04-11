@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Administración de estadísticas en el Almacenamiento de datos SQL
@@ -90,13 +90,13 @@ Para crear estadísticas de una columna, basta con proporcionar un nombre para e
 
 Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, el Almacenamiento de datos SQL ofrece un ejemplo del 20 % de la tabla cuando crea estadísticas.
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
 Por ejemplo:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
@@ -106,13 +106,13 @@ La velocidad de muestreo predeterminada del 20 % es suficiente para la mayoría 
 
 Para probar la tabla completa, utilice esta sintaxis:
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
 Por ejemplo:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
@@ -120,7 +120,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 También puede especificar el tamaño de muestra como un porcentaje:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -132,7 +132,7 @@ Por ejemplo, podría utilizar las estadísticas filtradas si desea consultar una
 
 En este ejemplo se crean estadísticas sobre un intervalo de valores. Los valores pueden definirse fácilmente para que coincidan con el intervalo de valores de una partición.
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
@@ -142,7 +142,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 
 Por supuesto, puede combinar las opciones juntas. En el ejemplo siguiente se crea un objeto de estadísticas filtradas con un tamaño personalizado de ejemplo:
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -156,7 +156,7 @@ Para crear estadísticas de varias columnas, simplemente use los ejemplos anteri
 
 En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub\_c\\ategory*:
 
-```
+```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -166,7 +166,7 @@ Dado que no hay una correlación entre *product\_category* y *product\_sub\_cate
 
 Una forma de crear estadísticas consiste en emitir comandos CREATE STATISTICS después de crear la tabla.
 
-```
+```sql
 CREATE TABLE dbo.table1
 (
    col1 int
@@ -190,7 +190,7 @@ El Almacenamiento de datos SQL no tiene un procedimiento almacenado del sistema 
 
 Esto le ayudará a empezar a trabajar con el diseño de la base de datos. Puede adaptarlo a sus necesidades.
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
 (   @create_type    tinyint -- 1 default 2 Fullscan 3 Sample
 ,   @sample_pct     tinyint
@@ -273,7 +273,7 @@ DROP TABLE #stats_ddl;
 
 Para crear estadísticas de todas las columnas de la tabla con este procedimiento, simplemente llame al procedimiento.
 
-```
+```sql
 prc_sqldw_create_stats;
 ```
 
@@ -288,13 +288,13 @@ Para actualizar estadísticas, puede:
 ### R: Actualizar un objeto de estadísticas específico ###
 Para actualizar un objeto de estadísticas específico, use la siguiente sintaxis:
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 Por ejemplo:
 
-```
+```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
@@ -304,13 +304,13 @@ Al actualizar los objetos de estadísticas específicos, puede minimizar el tiem
 ### B. Actualizar todas las estadísticas de una tabla ###
 Se muestra un método sencillo para actualizar todos los objetos de estadísticas de una tabla.
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 Por ejemplo:
 
-```
+```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
@@ -351,7 +351,7 @@ Estas funciones del sistema son útiles para trabajar con las estadísticas:
 
 Esta vista agrupa columnas relacionadas con las estadísticas y resulta de la función [STATS\_DATE()][].
 
-```
+```sql
 CREATE VIEW dbo.vstats_columns
 AS
 SELECT
@@ -401,13 +401,13 @@ Los metadatos de encabezado sobre las estadísticas. El histograma muestra la di
 
 Este ejemplo muestra las tres partes de un objeto de estadísticas.
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
 Por ejemplo:
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
@@ -415,13 +415,13 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 
 Si sólo está interesado en ver partes específicas, use la cláusula `WITH` y especifique qué partes desea ver:
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
 Por ejemplo:
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
@@ -461,4 +461,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

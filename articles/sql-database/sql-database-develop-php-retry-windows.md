@@ -26,19 +26,20 @@
 
 Este tema muestra cómo puede conectarse a la base de datos SQL de Azure desde una aplicación cliente escrita en PHP que se ejecuta en Windows.
 
+## Paso 1: Configuración del entorno de desarrollo
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### Base de datos SQL
+## Paso 2: Creación de una base de datos SQL
 
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 
-## Paso 1: Obtención de detalles de la conexión
+## Paso 3: Obtención de detalles de la conexión
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Paso 2: Conexión y consulta
+## Paso 4: Conexión y consulta
 
 El programa de demostración está diseñado para que un error transitorio producido durante un intento de conexión provoque un reintento. Pero un error transitorio durante un comando de consulta provoca que el programa descarte la conexión y cree una nueva antes de reintentar el comando de consulta. No se recomienda ni lo contrario esta opción de diseño. El programa de demostración muestra la flexibilidad del diseño que se encuentra disponible.
 
@@ -139,4 +140,4 @@ La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 
 Para obtener más información sobre el uso y la instalación de PHP, vea [Acceso a bases de datos de SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

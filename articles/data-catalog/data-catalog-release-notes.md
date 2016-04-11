@@ -1,6 +1,6 @@
 <properties
    pageTitle="Notas de la versión del Catálogo de datos de Azure"
-   description="Notas de la vista previa pública de la versión del 28 de agosto de 2015 del Catálogo de datos de Azure."
+   description="Las notas de la versión del Catálogo de datos de Azure."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Notas de la versión del Catálogo de datos de Azure
@@ -50,7 +50,7 @@ Para conectarse a orígenes de datos de Oracle Database, los usuarios deben tene
 
 ### Registro y conexión a SQL Server Reporting Services
 
-La compatibilidad con orígenes de datos de SQL Server Reporting Services (SSRS) en la versión inicial de vista previa del Catálogo de datos de Azure está limitada a tan solo los servidores de modo nativo. La compatibilidad con SSRS en modo SharePoint se agregará en una versión posterior.
+La compatibilidad con orígenes de datos de SQL Server Reporting Services (SSRS) está actualmente limitada solo a los servidores en modo nativo. La compatibilidad con SSRS en modo SharePoint se agregará en una versión posterior.
 
 ### Apertura de recursos de datos en Excel
 
@@ -88,4 +88,4 @@ Para obtener más información, vea [Configuración de directivas de autenticaci
 
 Para localizar el archivo RegistrationTool.exe.config, inicie la herramienta de registro y, a continuación, abra la utilidad Administrador de tareas de Windows. En la pestaña Detalles del Administrador de tareas, haga clic con el botón derecho en RegistrationTool.exe y elija Abrir ubicación de archivo en el menú emergente.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

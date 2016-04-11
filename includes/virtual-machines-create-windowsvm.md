@@ -32,4 +32,4 @@
 
 	![Configure el agente de máquina virtual y los puntos de conexión de la máquina virtual](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

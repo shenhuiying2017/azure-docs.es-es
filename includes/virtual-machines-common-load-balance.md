@@ -17,7 +17,7 @@ El Administrador de tráfico usa tres métodos de equilibrio de carga para distr
 - **Rendimiento**: use este método cuando tenga extremos en diferentes ubicaciones geográficas y desee solicitar a los clientes que usen el extremo "más cercano" en términos de la latencia más baja.
 - **Round Robin:** use este método cuando desee distribuir la carga entre un conjunto de servicios en la nube en el mismo centro de datos o entre servicios en la nube o sitios en diferentes centros de datos.
 
-Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico](../traffic-manager/traffic-manager-load-balancing-methods.md).
+Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico](../articles/traffic-manager/traffic-manager-load-balancing-methods.md).
 
 En el diagrama siguiente se muestra un ejemplo del método de equilibrio de carga Round Robin para la distribución del tráfico entre diferentes servicios en la nube.
 
@@ -30,7 +30,7 @@ El proceso básico es el siguiente:
 3.	El Administrador de tráfico elige el siguiente servicio en la nube de la lista Round Robin y devuelve el nombre de DNS. El servidor DNS del cliente de Internet resuelve el nombre en una dirección IP y lo envía al cliente de Internet.
 4.	El cliente de Internet se conecta con el servicio en la nube que ha elegido el Administrador de tráfico.
 
-Para obtener más información, consulte [Administrador de tráfico](../traffic-manager/traffic-manager-overview.md).
+Para obtener más información, consulte [Administrador de tráfico](../articles/traffic-manager/traffic-manager-overview.md).
 
 ## Equilibrio de carga de Azure para máquinas virtuales ##
 
@@ -42,7 +42,7 @@ En el diagrama siguiente se muestra un extremo con equilibrio de carga para el t
 
 ![equilibrio de carga](./media/virtual-machines-common-load-balance/LoadBalancing.png)
 
-Para obtener más información, consulte [Equilibrador de carga de Azure](../load-balancer/load-balancer-overview.md). Para conocer los pasos para crear un conjunto con equilibrio de carga, consulte [Configurar un conjunto de carga equilibrada](../load-balancer/load-balancer-internet-getstarted.md).
+Para obtener más información, consulte [Equilibrador de carga de Azure](../articles/load-balancer/load-balancer-overview.md). Para conocer los pasos para crear un conjunto con equilibrio de carga, consulte [Configurar un conjunto de carga equilibrada](../articles/load-balancer/load-balancer-internet-getstarted.md).
 
 Azure también puede equilibrar la carga en un servicio en la nube o una red virtual. Esto se conoce como equilibrio de carga interno y se puede usar de las siguientes maneras:
 
@@ -58,15 +58,15 @@ En el diagrama siguiente se muestra un ejemplo de un extremo con carga equilibra
 
 ## Consideraciones sobre el equilibrador de carga
 
-De manera predeterminada, un equilibrador de carga está configurado para tener un tiempo de espera de 4 minutos en una sesión inactiva. Si la aplicación detrás de un equilibrador de carga deja inactiva una conexión durante más de 4 minutos y no tiene una configuración de conexión persistente, se terminará la conexión. Puede cambiar el comportamiento del equilibrador de carga para permitir un [tiempo de espera más prolongado para el equilibrador de carga de Azure](../load-balancer/load-balancer-tcp-idle-timeout.md).
+De manera predeterminada, un equilibrador de carga está configurado para tener un tiempo de espera de 4 minutos en una sesión inactiva. Si la aplicación detrás de un equilibrador de carga deja inactiva una conexión durante más de 4 minutos y no tiene una configuración de conexión persistente, se terminará la conexión. Puede cambiar el comportamiento del equilibrador de carga para permitir un [tiempo de espera más prolongado para el equilibrador de carga de Azure](../articles/load-balancer/load-balancer-tcp-idle-timeout.md).
 
-Otra consideración es el tipo del modo de distribución que admite el equilibrador de carga de Azure. Puede configurar la afinidad de dirección IP de origen (dirección de IP de origen, dirección IP de destino) o el protocolo IP de origen (dirección IP de origen, protocolo y dirección IP de destino). Revise el [modo de distribución del equilibrador de carga de Azure (afinidad de dirección IP de origen)](../load-balancer/load-balancer-distribution-mode.md) para más información.
+Otra consideración es el tipo del modo de distribución que admite el equilibrador de carga de Azure. Puede configurar la afinidad de dirección IP de origen (dirección de IP de origen, dirección IP de destino) o el protocolo IP de origen (dirección IP de origen, protocolo y dirección IP de destino). Revise el [modo de distribución del equilibrador de carga de Azure (afinidad de dirección IP de origen)](../articles/load-balancer/load-balancer-distribution-mode.md) para más información.
 
 
 ## Pasos siguientes
 
-Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada interno](../load-balancer/load-balancer-internal-getstarted.md).
+Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada interno](../articles/load-balancer/load-balancer-internal-getstarted.md).
 
-Para obtener más información, consulte [Equilibrio de carga interno](../load-balancer/load-balancer-internal-overview.md).
+Para obtener más información, consulte [Equilibrio de carga interno](../articles/load-balancer/load-balancer-internal-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

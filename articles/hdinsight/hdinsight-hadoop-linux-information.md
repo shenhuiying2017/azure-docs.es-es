@@ -14,18 +14,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="03/28/2016"
    ms.author="larryfr"/>
 
 # Información sobre el uso de HDInsight en Linux
 
 Los clústeres de HDInsight de Azure basado en Linux proporcionan Hadoop en un entorno conocido de Linux, que se ejecuta en la nube de Azure. En la mayoría de los casos, debiera funcionar exactamente como cualquier otra instalación de Hadoop en Linux. Este documento detalla las diferencias específicas que debe tener en cuenta.
 
+##Requisitos previos
+
+Muchos de los pasos de este documento utilizan las siguientes utilidades, que pueden tener que instalarse en el sistema.
+
+* [cURL](https://curl.haxx.se/): se usa para comunicarse con servicios basados en web
+* [jq](https://stedolan.github.io/jq/): se usa para analizar documentos JSON
+
 ## Nombres de dominio
 
 El nombre de dominio completo (FQDN) que se usa al conectarse con el clúster es **&lt;nombre del clúster>.azurehdinsight.net** o **&lt;nombre del clúster-ssh>.azurehdinsight.net** (solo para SSH).
 
-De forma interna, cada nodo del clúster tiene un nombre que se asigna durante la configuración del clúster. Para encontrar los nombres de los clústeres, puede visitar la página __Hosts__ de la interfaz de usuario web de Ambari, o bien use lo siguiente para devolver una lista de hosts desde la API de REST de Ambari con [cURL](http://curl.haxx.se/) y [jq](https://stedolan.github.io/jq/):
+De forma interna, cada nodo del clúster tiene un nombre que se asigna durante la configuración del clúster. Para encontrar los nombres de los clústeres, puede visitar la página __Hosts__ de la interfaz de usuario web de Ambari, o bien use lo siguiente para devolver una lista de hosts desde la API de REST de Ambari:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -108,7 +115,7 @@ Durante la creación del clúster, seleccionó usar un contenedor y una cuenta d
 
         wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-1. Para obtener el grupo de recursos para la cuenta de Almacenamiento, use la [CLI de Azure](../xplat-cli-install.md). En el comando siguiente, reemplace __ACCOUNTNAME__ por el nombre de la cuenta de almacenamiento que se recuperó de Ambari:
+1. Para obtener el grupo de recursos para la cuenta de almacenamiento, use la [CLI de Azure](../xplat-cli-install.md). En el comando siguiente, reemplace __ACCOUNTNAME__ por el nombre de la cuenta de almacenamiento que se recuperó de Ambari:
 
         azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
     
@@ -242,8 +249,9 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 
 ## Pasos siguientes
 
+* [Migrate from Windows-based HDInsight to Linux-based](hdinsight-migrate-from-windows-to-linux.md) (Migración desde HDInsight basado en Windows a HDInsight basado en Linux)
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

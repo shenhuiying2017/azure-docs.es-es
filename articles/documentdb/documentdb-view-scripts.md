@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # Creación y ejecución de procedimientos almacenados, desencadenadores y funciones definidas por el usuario mediante el Explorador de scripts de DocumentDB
@@ -89,17 +89,19 @@ El Explorador de scripts le permite llevar a cabo con facilidad operaciones de C
 
 ## Ejecutar un procedimiento almacenado
 
+> [AZURE.WARNING] En el Explorador de scripts aún no se admite la ejecución de los procedimientos almacenados para colecciones de particiones del servidor. Para más información, visite [Partición y escalado de datos en DocumentDB](documentdb-partition-data.md).
+
 Explorador de scripts permite ejecutar procedimientos almacenados de servidor del Portal de Azure.
 
-- Al abrir una nueva hoja de creación de procedimiento almacenado, ya se proporciona un script predeterminado (*prefix*). Para ejecutar el script *prefix* o su propio script, agregue un *id* e *inputs*. Para los procedimientos almacenados que aceptan varios parámetros, todas las entradas deben estar incluidas en una matriz (por ejemplo, *["foo", "bar"]*).
+- Al abrir una hoja para crear un procedimiento almacenado, ya se proporciona un script predeterminado (*prefix*). Para ejecutar el script *prefix* o su propio script, agregue valores para *id* e *inputs*. Para los procedimientos almacenados que aceptan varios parámetros, todas las entradas deben estar incluidas en una matriz (por ejemplo, *["foo", "bar"]*).
 
 	![Captura de pantalla de la hoja Procedimientos almacenados del Explorador de scripts para agregar la entrada y ejecutar un procedimiento almacenado](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
 
 - Para ejecutar un procedimiento almacenado, simplemente haga clic en el comando **Guardar y ejecutar** en el panel del editor de scripts.
 
-	> [AZURE.NOTE] El comando **Guardar y ejecutar** guardará el procedimiento almacenado antes de ejecutar, lo que significa que sobrescribirá la versión del procedimiento almacenado guardada anteriormente.
+	> [AZURE.NOTE] El comando **Guardar y ejecutar** guardará el procedimiento almacenado antes de ejecutarlo, lo que significa que sobrescribirá la versión del procedimiento almacenado guardada anteriormente.
 
-- Las ejecuciones de procedimientos almacenados correctas tendrán un estado *El procedimiento almacenado se ha guardado y ejecutado correctamente.* y los resultados devueltos se rellenarán en el panel *Resultados*.
+- Las ejecuciones de procedimientos almacenados correctas tendrán un estado *El procedimiento almacenado se ha guardado y ejecutado correctamente* y los resultados devueltos se rellenarán en el panel *Resultados*.
 
 	![Captura de pantalla de la hoja Procedimientos almacenados del Explorador de scripts para ejecutar un procedimiento almacenado](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
 
@@ -113,8 +115,8 @@ El Explorador de scripts en el Portal de Azure es simplemente una forma de traba
 
 ## Pasos siguientes
 
-Más información sobre programación del lado servidor de DocumentDB en el artículo [Procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md)
+Más información sobre programación del lado servidor de DocumentDB en el artículo [Programación en el servidor de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md).
 
-La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) es también un recurso útil para guiarle durante su aprendizaje de DocumentDB.
+La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarle durante su aprendizaje de DocumentDB.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

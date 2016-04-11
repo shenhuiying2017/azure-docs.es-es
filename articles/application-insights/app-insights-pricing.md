@@ -53,7 +53,7 @@ En cualquier momento, puede cambiar a la evaluación gratuita de Premium de 30 d
 * La cuota depende del nivel de precios que haya elegido.
 * La cuota se cuenta a partir de la medianoche UTC del primer día de cada mes.
 * El gráfico de puntos de datos muestra el uso que se ha hecho de la cuota en este mes.
-* La cuota se mide en *puntos de datos.* Un único punto de datos es una llamada a uno de los métodos de seguimiento, independientemente de si se llama explícitamente en el código o por uno de los módulos de telemetría estándar. 
+* La cuota se mide en *puntos de datos.* Un único punto de datos es una llamada a uno de los métodos de seguimiento, independientemente de si se llama explícitamente en el código o por uno de los módulos de telemetría estándar. Puede tener varias propiedades asociadas y métricas.
 * Los puntos de datos se generan por:
  * [Módulos de SDK](app-insights-configuration-with-applicationinsights-config.md) que recopilan datos de forma automática, por ejemplo, para informar de una solicitud o un bloqueo, o para medir el rendimiento.
  * Las llamadas a [API](app-insights-api-custom-events-metrics.md) `Track...` escritas, como `TrackEvent` o `trackPageView`.
@@ -67,7 +67,7 @@ En cualquier momento, puede cambiar a la evaluación gratuita de Premium de 30 d
 * También puede inspeccionar puntos de datos individuales en el origen durante la depuración:
  * Si ejecuta su aplicación en el modo de depuración en Visual Studio, los puntos de datos se registran en la ventana de salida. 
  * Para ver los puntos de datos de cliente, abra panel de depuración del explorador (normalmente F12) y abra la ficha Red.
-* La velocidad de datos se reduce (de forma predeterminada) mediante el [muestreo adaptable](app-insights-sampling). Esto significa que, a medida que aumente el uso de su aplicación, la velocidad de telemetría no incrementará tanto como cabría esperar.
+* La velocidad de datos se puede reducir (de forma predeterminada) mediante el [muestreo adaptable](app-insights-sampling). Esto significa que, a medida que aumente el uso de su aplicación, la velocidad de telemetría no incrementará tanto como cabría esperar.
 
 ### Superávit
 
@@ -173,4 +173,4 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

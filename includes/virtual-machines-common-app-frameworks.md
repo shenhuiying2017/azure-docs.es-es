@@ -1,7 +1,5 @@
 
 
-Las cargas de trabajo suelen necesitar muchos recursos para funcionar acorde al diseño. Las plantillas del Administrador de recursos de Azure hacen que esto sea posible no solo para definir cómo se configuran las aplicaciones, sino también para saber cómo se implementan los recursos para admitir las aplicaciones configuradas. En este artículo se presentan las plantillas más populares de la galería y se proporciona información para usar el Portal de Azure, Azure PowerShell o la CLI de Azure para implementarlas.
-
 ## Aplicaciones
 
 En esta tabla se puede encontrar más información sobre los parámetros que se usan en la plantilla, puede inspeccionar la plantilla antes de implementarla o puede implementar la plantilla directamente desde el Portal de Azure.
@@ -26,7 +24,7 @@ En esta tabla se puede encontrar más información sobre los parámetros que se 
 | WordPress | [Galería](https://azure.microsoft.com/documentation/templates/wordpress-single-vm-ubuntu/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/wordpress-single-vm-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | ZooKeeper | [Galería](https://azure.microsoft.com/documentation/templates/zookeeper-cluster-ubuntu-vm/) | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/zookeeper-cluster-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fzookeeper-cluster-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 
-Además de estas plantillas, puede buscar a través de las [plantillas de la galería](https://azure.microsoft.com/documentation/templates/).
+Además de estas plantillas, puede buscar en las [plantillas de la galería](https://azure.microsoft.com/documentation/templates/).
 
 ## Portal de Azure
 
@@ -59,7 +57,7 @@ Al ejecutar el comando **New-AzureRmResourceGroupDeployment**, se le pedirá que
 
 ## CLI de Azure
 
-[Instale la CLI de Azure](../xplat-cli-install.md), inicie sesión y asegúrese de habilitar los comandos del Administrador de recursos. Para obtener información cómo hacerlo, vea [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md).
+[Instale la CLI de Azure](../articles/xplat-cli-install.md), inicie sesión y asegúrese de habilitar los comandos de Resource Manager. Para más información sobre cómo hacerlo, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 Ejecute estos comandos para crear el grupo de recursos y la implementación después de reemplazar el texto entre corchetes con el nombre del grupo de recursos, la ubicación, el nombre de la implementación y el nombre de plantilla:
 
@@ -72,6 +70,6 @@ Al ejecutar el comando **azure group deployment create**, se le pedirá que escr
 
 Descubra todas las plantillas que están a su disposición en [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Obtenga más información sobre [Administrador de recursos de Azure](../resource-group-template-deploy.md).
+Obtenga más información sobre [Administrador de recursos de Azure](../articles/resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

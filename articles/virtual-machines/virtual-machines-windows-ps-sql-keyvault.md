@@ -1,9 +1,9 @@
-<properties 
+<properties
 	pageTitle="Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (Administrador de recursos)"
-	description="Aprenda a automatizar la configuración de cifrado de SQL Server para su uso con Almacén de claves de Azure. Este tema explica cómo usar la integración de Almacén de claves de Azure con máquinas virtuales de SQL Server creadas con el Administrador de recursos." 
-	services="virtual-machines-windows" 
-	documentationCenter="" 
-	authors="rothja" 
+	description="Aprenda a automatizar la configuración de cifrado de SQL Server para su uso con Almacén de claves de Azure. Este tema explica cómo usar la integración de Almacén de claves de Azure con máquinas virtuales de SQL Server creadas con el Administrador de recursos."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="rothja"
 	manager="jeffreyg"
 	editor=""
 	tags="azure-service-management"/>
@@ -13,8 +13,8 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="12/17/2015"
+	ms.workload="infrastructure-services"
+	ms.date="03/24/2016"
 	ms.author="jroth"/>
 
 # Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (Administrador de recursos)
@@ -28,46 +28,22 @@ SQL Server tiene varias características de cifrado, como el [cifrado de datos t
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
-Si se ejecuta SQL Server con equipos locales, hay una serie de [pasos a seguir para tener acceso a Almacén de claves de Azure desde el equipo de SQL Server local](https://msdn.microsoft.com/library/dn198405.aspx). Pero para SQL Server en las máquinas virtuales de Azure, puede ahorrar tiempo usando la característica *Integración de Almacén de claves de Azure*. Con algunos cmdlets de Azure PowerShell para habilitar esta característica, puede automatizar la configuración necesaria para que una máquina virtual de SQL tenga acceso a su Almacén de claves.
+Si se ejecuta SQL Server con equipos locales, hay una serie de [pasos a seguir para tener acceso a Almacén de claves de Azure desde el equipo de SQL Server local](https://msdn.microsoft.com/library/dn198405.aspx). Pero para SQL Server en las máquinas virtuales de Azure, puede ahorrar tiempo usando la característica *Integración de Almacén de claves de Azure*.
 
 Cuando se habilita esta característica, automáticamente se instala el conector de SQL Server, se configura el proveedor EKM para obtener acceso a Almacén de claves de Azure y se crea la credencial para que pueda tener acceso a su almacén. Si examinamos los pasos descritos en la documentación local que se mencionó anteriormente, puede ver que esta característica automatiza los pasos 2 y 3. Lo único que aún tiene que hacer manualmente es crear el Almacén de claves y las claves. Desde allí, se automatiza toda la configuración de la máquina virtual de SQL. Cuando esta característica haya completado el programa de instalación, puede ejecutar instrucciones de T-SQL para empezar a cifrar sus bases de datos o copias de seguridad como lo haría normalmente.
 
 [AZURE.INCLUDE [Preparación de la integración de AKV](../../includes/virtual-machines-sql-server-akv-prepare.md)]
 
-## Configuración de la integración de AKV
-Use PowerShell para configurar la integración de Almacén de claves de Azure. Las secciones siguientes proporcionan una visión general de los parámetros necesarios y, a continuación, un script de PowerShell de ejemplo.
+## Habilitación de la integración de AKV
+Si está aprovisionando una nueva máquina virtual de SQL Server con Resource Manager, el Portal de Azure proporciona un paso para habilitar la integración del Almacén de claves de Azure.
 
-### Parámetros de entrada
-En la tabla siguiente se enumeran los parámetros necesarios para ejecutar el script de PowerShell en la sección siguiente.
+![Integración con el Almacén de claves de Azure de SQL ARM](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-|Parámetro|Descripción|Ejemplo|
-|---|---|---|
-|**$akvURL**|**La dirección URL del Almacén de claves**|"https://contosokeyvault.vault.azure.net/"|
-|**$spName**|**Nombre de entidad de servicio**|"fde2b411-33d5-4e11-af04eb07b669ccf2"|
-|**$spSecret**|**Secreto de entidad de servicio**|"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="|
-|**$credName**|**Nombre de credencial**: la integración de AKV crea una credencial en SQL Server, permitiendo el acceso de la máquina virtual al Almacén de claves. Elija un nombre para esta credencial.|"mycred1"|
-|**$vmName**|**Nombre de la máquina virtual**: el nombre de una máquina virtual de SQL creada anteriormente.|"myvmname"|
-|**$rgName**|**Nombre del grupo de recursos**: nombre del grupo de recursos asociado a la VM de SQL.|"myrgname"|
+Para obtener un tutorial detallado del aprovisionamiento, consulte [Aprovisionamiento de una máquina virtual de SQL Server en el Portal de Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-### Habilitación de la integración de AKV con PowerShell
-El cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** crea un objeto de configuración para la característica de integración de Almacén de claves de Azure. **Set-AzureVMSqlServerExtension** configura esta integración con el parámetro **KeyVaultCredentialSettings**. Los pasos siguientes muestran cómo usar estos comandos.
+Si necesita habilitar la integración de AKV en una máquina virtual existente, puede usar una plantilla. Para obtener más información, consulte la [plantilla de inicio rápido de Azure para la integración del Almacén de claves de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-keyvault-setup).
 
-1. En Azure PowerShell, configure primero los parámetros de entrada con los valores específicos como se describe en las secciones anteriores de este tema. El siguiente script es un ejemplo:
-	
-		$akvURL = "https://contosokeyvault.vault.azure.net/"
-		$spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
-		$spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
-		$credName = "mycred1"
-		$vmName = "myvmname"
-		$rgName = "myrgname"
-2.	A continuación, use el siguiente script para configurar y habilitar la integración de AKV.
-	
-		$secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
-		$akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
-		Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName | Set-AzureRmVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
-
-La extensión del agente de Iaas de SQL actualizará la máquina virtual de SQL con esta nueva configuración.
 
 [AZURE.INCLUDE [Siguientes pasos de integración de AKV](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Administración de un grupo de bases de datos elásticas (C&#x23;)
+# Administración y cambio de tamaño de un grupo de bases de datos elásticas con C#
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](sql-database-elastic-pool-manage-portal.md)
@@ -36,7 +36,7 @@ En los ejemplos se utiliza la [Biblioteca de administración de SQL](https://msd
 
 
 
-## Actualizar un grupo de bases de datos elásticas
+## Actualización de un grupo
 
 
     // Retrieve existing pool properties
@@ -60,7 +60,7 @@ En los ejemplos se utiliza la [Biblioteca de administración de SQL](https://msd
 
 
 
-## Movimiento de una base de datos existente a un grupo de bases de datos elásticas
+## Traslado de una base de datos existente a un grupo
 
 
     // Update database service objective to add the database to a pool
@@ -88,7 +88,7 @@ En los ejemplos se utiliza la [Biblioteca de administración de SQL](https://msd
 
 
 
-## Creación de una nueva base de datos en un grupo de bases de datos elásticas
+## Creación de una nueva base de datos en un grupo
 
 
     // Create a new database in the pool
@@ -111,7 +111,7 @@ En los ejemplos se utiliza la [Biblioteca de administración de SQL](https://msd
 
 
 
-## Enumerar todas las bases de datos en un grupo de bases de datos elásticas
+## Enumeración de todas las bases de datos de un grupo
 
 En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
 
@@ -126,7 +126,7 @@ En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
 
 
 
-## Administración de un grupo de bases de datos elásticas de ejemplo de C&#x23;
+## Administración de un ejemplo de grupo con C#
 
 Las bibliotecas siguientes son necesarias para ejecutar este ejemplo. Puede instalarlas ejecutando los siguientes comandos en la [consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
 
@@ -148,7 +148,7 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
     {
     class Program
     {
-        // elastic database pool variables
+        // pool variables
         static string poolName = "elasticPool1";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -191,7 +191,7 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool with 400 pool eDTUs... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -212,7 +212,7 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
             Console.WriteLine("Press Enter to update the pool to 1200 pool eDTUs.");
             Console.ReadLine();
 
-            // Update the elastic database pool
+            // Update the pool
             Console.WriteLine("Updating elastic database pool to 1200 pool eDTUs...");
             ElasticPoolCreateOrUpdateResponse epool2 = UpdateElasticDatabasePool();
             Console.WriteLine("Update of pool " + epool2.ElasticPool.Name + ": " + epool2.Status.ToString());
@@ -457,4 +457,4 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
 - [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Referencia de grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

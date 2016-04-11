@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/23/2016"
 ms.author="deonhe"/>
 
 # Introducción a la API de Office365 Video
@@ -33,7 +33,7 @@ Para agregar una operación en aplicaciones lógicas, consulte [Creación de una
 
 ## Desencadenadores y acciones
 
-La API de Usuarios de Office 365 tiene las siguientes acciones disponibles: No hay ningún desencadenador.
+La API de Office 365 Video cuenta con las siguientes acciones: No hay desencadenadores.
 
 | Desencadenadores | Acciones|
 | --- | --- |
@@ -221,4 +221,4 @@ Obtiene el token de portador para conseguir acceso con el fin de descifrar el v�
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

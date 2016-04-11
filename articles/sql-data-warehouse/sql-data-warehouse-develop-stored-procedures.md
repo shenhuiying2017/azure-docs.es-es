@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Procedimientos almacenados en el Almacenamiento de datos SQL
@@ -38,11 +38,11 @@ El Almacenamiento de datos SQL admite un máximo de ocho niveles de anidamiento.
 
 La llamada al procedimiento almacenado de nivel superior es igual al nivel de anidamiento 1.
 
-```
+```sql
 EXEC prc_nesting
 ```
 Si el procedimiento almacenado también realiza otra llamada EXEC, aumentará el nivel de anidación a 2.
-```
+```sql
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
@@ -50,7 +50,7 @@ GO
 EXEC prc_nesting
 ```
 Si el segundo procedimiento ejecuta luego SQL dinámico, aumentará el nivel de anidación a 3.
-```
+```sql
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
@@ -97,4 +97,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

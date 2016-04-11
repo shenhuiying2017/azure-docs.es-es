@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -16,7 +16,7 @@
    ms.date="03/14/2016"
    ms.author="carlrab"/>
 
-# Solucionar problemas de compatibilidad de bases de datos de SQL Server antes de la migración a la Base de datos SQL
+# Solución de problemas de compatibilidad de bases de datos de SQL Server mediante SQL Server Management Studio antes de la migración a la Base de datos SQL
 
 Si determina que la Base de datos SQL Server de origen no es compatible, tiene varias opciones para corregir los problemas de compatibilidad de bases de datos identificados anteriormente.
 
@@ -33,4 +33,4 @@ Use SQL Server Management Studio para corregir los problemas de compatibilidad c
 
 [Seleccione el método de migración](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

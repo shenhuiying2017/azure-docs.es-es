@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/09/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess"/>
 
 # Recuperación de una base de datos de una interrupción en Almacenamiento de datos SQL
@@ -52,7 +52,7 @@ Para recuperar una base de datos, use el cmdlet [Start-AzureSqlDatabaseRecovery]
 5. Cree la solicitud de recuperación para la base de datos.
 6. Supervise el progreso de la recuperación.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -113,4 +113,4 @@ Para obtener información sobre las características de continuidad del negocio 
 [portal de Azure]: https://portal.azure.com/
 [contactando con el soporte técnico]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

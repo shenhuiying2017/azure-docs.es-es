@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/04/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
@@ -227,7 +227,7 @@ Por lo tanto, si DW500 es el valor actual de DWU para Almacenamiento de datos SQ
 
 Para ver con detalle las diferencias en la asignación de recursos de memoria desde la perspectiva del regulador de recursos, use la siguiente consulta:
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -282,7 +282,7 @@ Para conceder acceso a un usuario a Almacenamiento de datos SQL, primero necesit
 
 Abra una conexión con la base de datos maestra para Almacenamiento de datos SQL y ejecute los siguientes comandos:
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -294,19 +294,19 @@ Una vez creado el inicio de sesión, hay que agregar una cuenta de usuario.
 
 Abra una conexión con la base de datos de Almacenamiento de datos SQL y ejecute el siguiente comando:
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 Una vez finalizado, deberá conceder al usuario permisos completos. El ejemplo siguiente concede `CONTROL` sobre la base de datos de Almacenamiento de datos SQL. En el nivel de base de datos, `CONTROL` es el equivalente de db\_owner en SQL Server.
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 Para ver los roles de administración de cargas de trabajo, use la siguiente consulta:
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -316,13 +316,13 @@ AND     ro.[is_fixed_role]  = 0
 
 Para agregar un usuario a un rol de administración de cargas de trabajo con privilegios elevados, use la consulta siguiente:
 
-```
+```sql
 EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 Para quitar un usuario de un rol de administración de cargas de trabajo, use la consulta siguiente:
 
-```
+```sql
 EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
@@ -330,7 +330,7 @@ EXEC sp_droprolemember 'largerc', 'newperson'
 
 Para ver qué usuarios son miembros de un rol determinado, use la siguiente consulta:
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -343,7 +343,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### Detección de consulta en cola
 Para identificar las consultas que se mantienen en una cola de simultaneidad, siempre puede consultar la `sys.dm_pdw_exec_requests` DMV.
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -374,7 +374,7 @@ BackupConcurrencyResourceType puede verse cuando se hace una copia de seguridad 
 
 Para realizar análisis de las consultas actualmente en cola a fin de averiguar qué recursos espera una solicitud, consulte la `sys.dm_pdw_waits` DMV.
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -411,7 +411,7 @@ WHERE	w.[session_id] <> SESSION_ID()
 
 Para ver solo las esperas de recursos usadas por una consulta determinada, puede consultar la `sys.dm_pdw_resource_waits` DMV. El tiempo de espera del recurso solo mide el tiempo que se espera a que se proporcionen los recursos, por oposición al tiempo de espera de la señal, que es el tiempo que tarda el servidor SQL Server subyacente en programar la consulta en la CPU.
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -430,7 +430,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 Por último, para analizar las tendencias históricas de esperas, Almacenamiento de datos SQL proporciona la `sys.dm_pdw_wait_stats` DMV.
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]
@@ -455,4 +455,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

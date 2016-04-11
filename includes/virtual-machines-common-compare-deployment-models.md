@@ -35,7 +35,7 @@ En esta sección, examinaremos algunas de las diferencias conceptuales más impo
 | Servicio en la nube para máquinas virtuales |	El servicio en la nube es un contenedor para las máquinas virtuales que exige la disponibilidad de la plataforma y el equilibrio de carga. | El servicio en la nube ya no es un objeto necesario para crear una máquina virtual usando el nuevo modelo. |
 | Conjuntos de disponibilidad | La disponibilidad en la plataforma se ha indicado mediante la configuración del mismo "AvailabilitySetName" en las máquinas virtuales. El número máximo de dominios con error era de 2. | Un conjunto de disponibilidad es un recurso expuesto por el proveedor de Microsoft.Compute. Las máquinas virtuales que requieren alta disponibilidad deben incluirse en el conjunto de disponibilidad. Ahora, el recuento máximo de dominios con error es de 3. |
 | Grupos de afinidad |	Los grupos de afinidad eran necesarios para crear redes virtuales. Sin embargo, con la introducción de las redes virtuales regionales, ya no era necesario. |Para simplificar, no existe el concepto de grupos de afinidad en las API expuestas a través del Administrador de recursos de Azure. |
-| Equilibrio de carga | La creación de un servicio en la nube proporciona un equilibrador de carga implícito para las máquinas virtuales implementadas. | El equilibrador de carga es un recurso expuesto por el proveedor de Microsoft.Network. La interfaz de red principal de las máquinas virtuales cuya carga se debe equilibrar debe hacer referencia al equilibrador de carga. Los equilibradores de carga pueden ser internos o externos. [Más información.](resource-groups-networking.md) |
+| Equilibrio de carga | La creación de un servicio en la nube proporciona un equilibrador de carga implícito para las máquinas virtuales implementadas. | El equilibrador de carga es un recurso expuesto por el proveedor de Microsoft.Network. La interfaz de red principal de las máquinas virtuales cuya carga se debe equilibrar debe hacer referencia al equilibrador de carga. Los equilibradores de carga pueden ser internos o externos. [Más información.](../articles/resource-groups-networking.md) |
 |Dirección IP virtual | Los servicios en la nube obtendrán a una VIP (dirección IP virtual) predeterminada cuando se agrega una máquina virtual a un servicio en la nube. La dirección IP virtual es la dirección asociada al equilibrador de carga implícito. | La dirección IP pública es un recurso expuesto por el proveedor de Microsoft.Network. La dirección IP pública puede ser estática (reservada) o dinámica. Las direcciones IP públicas dinámicas pueden asignarse a un equilibrador de carga. Las direcciones IP públicas se pueden proteger mediante grupos de seguridad. |
 |Dirección IP reservada|	Puede reservar una dirección IP en Azure y asociarlo a un servicio en la nube para asegurarse de que la dirección IP es permanente. | La dirección IP pública puede crearse en modo "Estático" y ofrece la misma capacidad que una "dirección IP reservada". Las direcciones IP públicas estáticas solo puede asignarse a un equilibrador de carga ahora. |
 |Dirección IP pública (PIP) por máquina virtual | Las direcciones IP públicas también se pueden asociar directamente a una máquina virtual. | La dirección IP pública es un recurso expuesto por el proveedor de Microsoft.Network. La dirección IP pública puede ser estática (reservada) o dinámica. Sin embargo, solo se pueden asignar direcciones IP públicas dinámica a una interfaz de red para obtener una dirección IP pública por máquina virtual ahora. |
@@ -53,11 +53,11 @@ El Portal de Azure seguirá teniendo la opción de implementar máquinas virtual
 
 ### Azure PowerShell
 
-Azure PowerShell tendrá dos modos de implementación: el modo **AzureServiceManagement** y el modo **AzureResourceManager**. El modo AzureResourceManager contendrá también los cmdlets para administrar máquinas virtuales, redes virtuales y cuentas de almacenamiento. Puede leer más sobre este tema [aquí](../powershell-azure-resource-manager.md).
+Azure PowerShell tendrá dos modos de implementación: el modo **AzureServiceManagement** y el modo **AzureResourceManager**. El modo AzureResourceManager contendrá también los cmdlets para administrar máquinas virtuales, redes virtuales y cuentas de almacenamiento. Puede leer más sobre este tema [aquí](../articles/powershell-azure-resource-manager.md).
 
 ### CLI de Azure
 
-La interfaz de línea de comandos (CLI de Azure) de Azure tendrá dos modos de implementación: el modo **AzureServiceManagement** y el modo **AzureResourceManager**. El modo AzureResourceManager ahora también contiene comandos para administrar máquinas virtuales, redes virtuales y cuentas de almacenamiento. Puede leer más sobre este tema [aquí](xplat-cli-azure-resource-manager.md).
+La interfaz de línea de comandos (CLI de Azure) de Azure tendrá dos modos de implementación: el modo **AzureServiceManagement** y el modo **AzureResourceManager**. El modo AzureResourceManager ahora también contiene comandos para administrar máquinas virtuales, redes virtuales y cuentas de almacenamiento. Puede leer más sobre este tema [aquí](../articles/xplat-cli-azure-resource-manager.md).
 
 ### Visual Studio
 
@@ -79,11 +79,11 @@ Esto no se admite en este momento. Sin embargo, puede copiar los archivos VHD de
 
 **¿Cuál es el impacto en la cuota de mi suscripción?**
 
-Las cuotas de las máquinas virtuales, redes virtuales y cuentas de almacenamiento creadas mediante las nuevas API del Administrador de recursos de Azure son independientes de las cuotas que tiene actualmente. Cada suscripción obtiene nuevas cuotas para crear los recursos mediante las nuevas API. Puede leer más acerca de las cuotas adicionales [aquí](../azure-subscription-service-limits.md).
+Las cuotas de las máquinas virtuales, redes virtuales y cuentas de almacenamiento creadas mediante las nuevas API del Administrador de recursos de Azure son independientes de las cuotas que tiene actualmente. Cada suscripción obtiene nuevas cuotas para crear los recursos mediante las nuevas API. Puede leer más acerca de las cuotas adicionales [aquí](../articles/azure-subscription-service-limits.md).
 
 **¿Puedo continuar y usar mis scripts automatizados para aprovisionar máquinas virtuales, redes virtuales, cuentas de almacenamiento, etc. a través de las nuevas API de administrador de recursos de Azure?**
 
-Toda la automatización y los scripts que ha creado continuarán funcionando para las máquinas virtuales existentes, las redes virtuales se crean en el modo de administración de servicios de Azure. Sin embargo, los scripts deben actualizarse para utilizar el nuevo esquema para crear los mismos recursos a través del nuevo modo Administrador de recursos de Azure. Obtenga más información acerca de cómo modificar los [scripts de CLI de Azure](virtual-machines-linux-cli-manage.md).
+Toda la automatización y los scripts que ha creado continuarán funcionando para las máquinas virtuales existentes, las redes virtuales se crean en el modo de administración de servicios de Azure. Sin embargo, los scripts deben actualizarse para utilizar el nuevo esquema para crear los mismos recursos a través del nuevo modo Administrador de recursos de Azure. Obtenga más información acerca de cómo modificar los [scripts de CLI de Azure](../articles/virtual-machines/virtual-machines-linux-cli-manage.md).
 
 **¿Las redes virtuales creadas mediante las nuevas API del Administrador de recursos de Azure se pueden conectar a mi circuito de Express Route?**
 
@@ -93,4 +93,4 @@ Esto no se admite en este momento. No se pueden conectar las redes virtuales cre
 
 Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido del Administrador de recursos de Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

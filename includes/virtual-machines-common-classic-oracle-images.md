@@ -37,7 +37,7 @@ A continuación se facilita una lista de las imágenes de máquina virtual de Or
 
 
 ##Imágenes de máquina virtual Oracle Linux
-A continuación se facilita una lista de las imágenes de máquina virtual de Oracle preconfiguradas disponibles que se ejecutan en Oracle Linux en Azure. Se espera proporcione su propia licencia para estas imágenes, ya que las cuotas de licencia de Oracle no se incluyen en el uso de estas imágenes de máquina virtual preconfiguradas. También puede aportar su propia licencia para instalar y ejecutar el software Oracle en máquinas virtuales personalizadas en Windows o Linux. Aquí encontrará información completa sobre [Licencias de Oracle en Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). Aquí encontrará detalles sobre la creación de máquinas virtuales con [sus propias imágenes](virtual-machines-windows-classic-createupload-vhd.md). Para obtener información sobre este y otros métodos de migración de cargas de trabajo de Oracle y de otro tipo a Azure, consulte [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-creation-choices.md).
+A continuación se facilita una lista de las imágenes de máquina virtual de Oracle preconfiguradas disponibles que se ejecutan en Oracle Linux en Azure. Se espera proporcione su propia licencia para estas imágenes, ya que las cuotas de licencia de Oracle no se incluyen en el uso de estas imágenes de máquina virtual preconfiguradas. También puede aportar su propia licencia para instalar y ejecutar el software Oracle en máquinas virtuales personalizadas en Windows o Linux. Aquí encontrará información completa sobre [Licencias de Oracle en Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). Aquí encontrará detalles sobre la creación de máquinas virtuales con [sus propias imágenes](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md). Para obtener información sobre este y otros métodos de migración de cargas de trabajo de Oracle y de otro tipo a Azure, consulte [Diferentes formas de crear una máquina virtual de Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md).
 
 - Oracle Database 12c Enterprise Edition en Oracle Linux
 - Oracle Database 12c Standard Edition en Oracle Linux
@@ -50,4 +50,4 @@ A continuación se facilita una lista de las imágenes de máquina virtual de Or
 
 [Imágenes de máquina virtual de Oracle: consideraciones variadas](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->
