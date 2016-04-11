@@ -20,7 +20,7 @@ Supongamos que encontró errores en el archivo de origen y actualizó la cantida
 
 Para evitar esto, tendrá que especificar la semántica UPSERT aprovechando uno de los dos mecanismos siguientes indicados a continuación.
 
-> [AZURE.NOTE]Un segmento se puede volver a ejecutar automáticamente en Azure Data Factory según la directiva de reintento especificada.
+> [AZURE.NOTE] Un segmento se puede volver a ejecutar automáticamente en Azure Data Factory según la directiva de reintento especificada.
 
 ### Mecanismo 1
 
@@ -50,6 +50,7 @@ Supongamos que se quita el registro Flat Washer desde el archivo csv original. D
 No hay que hacer nada nuevo. La actividad de copia ejecutó el script de limpieza para eliminar los datos correspondientes para ese segmento. Después leyó la entrada en el archivo csv (que entonces contenía solo un registro) y lo insertó en la tabla.
 
 ### Mecanismo 2
+> [AZURE.IMPORTANT] sliceIdentifierColumnName no se admite en este momento para Almacenamiento de datos SQL de Azure.
 
 Otro mecanismo para lograr la repetibilidad es tener una columna dedicada (**sliceIdentifierColumnName**) en la tabla de destino. Esta columna debe usarla Factoría de datos de Azure para asegurarse de que el origen y el destino estén sincronizados. Este enfoque funciona cuando hay flexibilidad para cambiar o definir el esquema de la tabla SQL de destino.
 
@@ -68,4 +69,4 @@ Factoría de datos de Azure rellenará esta columna según sus necesidades para 
 
 De manera similar al mecanismo 1, la actividad de copia limpiará primero automáticamente los datos para el segmento especificado del tabla SQL de destino y después ejecutará la actividad de copia normalmente para insertar los datos del origen al destino para dicho segmento.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0330_2016-->

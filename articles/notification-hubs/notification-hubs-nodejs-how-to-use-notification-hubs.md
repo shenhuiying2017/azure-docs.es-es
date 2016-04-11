@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/08/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Envío de notificaciones push seguras con los Centros de notificaciones de Azure y Node.js
@@ -230,4 +230,4 @@ Los fragmentos de código de los ejemplos anteriores le permiten crear fácilmen
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

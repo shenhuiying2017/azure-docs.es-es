@@ -24,7 +24,7 @@ En CTP 3.1 a través de RC1, la opción de especificar un predicado no está dis
 
 Si no especifica un predicado de filtro, se migra toda la tabla.
 
-    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+>   [AZURE.NOTE] Si proporciona un predicado de filtro que tiene un rendimiento insuficiente, la migración de datos también lo tendrá. Stretch Database aplica el predicado de filtro a la tabla con el operador CROSS APPLY.
 
 ## Requisitos básicos para la función con valores de tabla insertada
 La función con valores de tabla insertada necesaria para una función de filtro de Stretch Database es similar al ejemplo siguiente.
@@ -333,7 +333,7 @@ La nueva función con valores de tabla insertada tiene los siguientes requisitos
 
 -   No se puede cambiar el orden de los argumentos del operador.
 
--   Solo los valores constantes que forman parte de una comparación `<, <=, >, >=` pueden cambiarse de manera que el predicado sea menos restrictivo.
+-   Solo los valores constantes que forman parte de una comparación `<, <=, >, >=` se pueden cambiar de manera que el predicado sea menos restrictivo.
 
 ### Ejemplo de un reemplazo válido
 Suponga que la función siguiente es el predicado de filtro actual.
@@ -404,10 +404,10 @@ GO
 No puede quitar la función con valores de tabla insertada si la tabla está usando la función como predicado de filtro.
 
 ## Comprobación del predicado de filtro aplicado a una tabla
-Para comprobar el predicado de filtro aplicado a una tabla, abra la vista de catálogo **sys.remote\_data\_archive\_tables** y verifique el valor de la columna **filter\_predicate**. Si el valor es null, la tabla completa es elegible para el archivado. Para obtener más información, consulte [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+Para comprobar el predicado de filtro aplicado a una tabla, abra la vista de catálogo **sys.remote\_data\_archive\_tables** y verifique el valor de la columna **filter\_predicate**. Si el valor es null, la tabla completa es elegible para el archivado. Para más información, consulte [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## Consulte también
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

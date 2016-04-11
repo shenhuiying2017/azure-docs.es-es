@@ -1,18 +1,18 @@
 
-## Index
+## Índice
 
-- [Overview](../articles/application-insights/app-insights-analytics.md)
-- [Tour](../articles/application-insights/app-insights-analytics-tour.md)
- - Start here. A tutorial covering the main features.
-- [Queries](../articles/application-insights/app-insights-analytics-queries.md)
- - Use operators such as `where` and `count` to build queries.
-- [Aggregation](../articles/application-insights/app-insights-analytics-aggregations.md)
- - Used to compute statistics over groups of records
-- [Scalars](../articles/application-insights/app-insights-analytics-scalars.md)
- - Numbers, strings, and other expressions used to form query parameters.
-- [Using](../articles/application-insights/app-insights-analytics-using.md)
- - Using Analytics.
-- [Reference](../articles/application-insights/app-insights-analytics-reference.md)
- - One-page reference combining the Queries, Aggregations and Scalars pages.
+- [Información general](../articles/application-insights/app-insights-analytics.md)
+- [Paseo](../articles/application-insights/app-insights-analytics-tour.md)
+ - Comience aquí. Un tutorial que abarca las principales características.
+- [Consultas](../articles/application-insights/app-insights-analytics-queries.md)
+ - Use operadores como `where` y `count` para generar consultas.
+- [Agregación](../articles/application-insights/app-insights-analytics-aggregations.md)
+ - Se usa para calcular estadísticas de grupos de registros.
+- [Escalares](../articles/application-insights/app-insights-analytics-scalars.md)
+ - Números, cadenas y otras expresiones utilizadas para crear parámetros de consulta.
+- [Si se utiliza](../articles/application-insights/app-insights-analytics-using.md)
+ - Uso de análisis.
+- [Referencia](../articles/application-insights/app-insights-analytics-reference.md)
+ - Referencia de una página que combina las páginas Consultas, Agregaciones y Escalares.
 
-
+<!---HONumber=AcomDC_0330_2016-->

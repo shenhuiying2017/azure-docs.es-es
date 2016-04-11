@@ -1,7 +1,7 @@
 
 En esta sección se muestra cómo enviar noticias de última hora como notificaciones de plantillas con etiquetas desde una aplicación de consola .NET.
 
-Si usa Servicios móviles, consulte los tutoriales [Introducción a las notificaciones de inserción](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md).
+Si usa aplicaciones Móviles, consulte el tutorial [Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 
 Si desea utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Puede enviar notificaciones desde cualquier back-end mediante la [Interfaz de REST de Centros de notificaciones](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
@@ -78,4 +78,4 @@ Omita los pasos 1-3 si creó la aplicación de consola para enviar notificacione
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

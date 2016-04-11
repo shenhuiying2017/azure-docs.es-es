@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a Linux VM from the CLI (Crear una máquina virtual con Linux desde la CLI) | Microsoft Azure"
-   description="Cree una nueva máquina virtual con Linux en Microsoft Azure con la CLI de Azure de Mac, Linux o Windows."
+   pageTitle="Creación rápida de una máquina virtual de Linux en Azure mediante la CLI | Microsoft Azure"
+   description="Cree rápidamente una máquina virtual de Linux en Azure mediante la CLI."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="03/04/2016"
+   ms.date="03/28/2016"
    ms.author="v-livech"/>
 
 
-# Create a Linux VM from the CLI for dev and test (Crear una máquina virtual con Linux desde la CLI de Azure para desarrollo y pruebas)
+# Cree rápidamente una máquina virtual de Linux en Azure mediante la CLI
 
-En este tema se muestra cómo crear rápidamente una máquina virtual con Linux en un entorno básico de Azure mediante el comando `azure vm quick-create` de [la CLI de Azure](../xplat-cli-install.md) para evaluación, pruebas y otros escenarios de corta duración. La máquina virtual está abierta a Internet y se obtiene acceso a la misma mediante contraseña. Para producción u otros escenarios de ejecución más larga, debe crear una [máquina virtual con Linux mediante plantillas de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md).
+En este artículo se muestra cómo crear de forma rápida una nueva máquina virtual de Linux mediante el comando `azure vm quick-create` de [la CLI de Azure](../xplat-cli-install.md).
 
-## Requisitos previos
+[AZURE.NOTE] En este tema se muestra cómo crear de forma rápida una máquina virtual de Linux en un entorno básico de Azure para evaluación, pruebas y otros escenarios de corta duración. Debe crear entornos de Azure más seguros para usar las máquinas virtuales de Linux en producción o en otros escenarios de ejecución más a largo plazo.
 
-Necesitará lo siguiente: una cuenta de Azure ([obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y la [CLI de Azure](../xplat-cli-install.md) establecida en modo de recursos escribiendo `azure config mode arm` y con sesión iniciada en Azure escribiendo `azure login` y siguiendo las indicaciones. Versión actual: 0.9.16
+Requisitos previos: [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/), [claves públicas y privadas de SSH](virtual-machines-linux-mac-create-ssh-keys.md), un grupo de recursos de Azure (se creará un grupo de recursos a continuación) y la CLI de Azure instalada, que se debe cambiar al modo ARM mediante `azure config mode arm`.
 
 ## Resumen rápido de comandos
 
@@ -31,25 +31,27 @@ Solo queda un comando por emitir:
 
 1. `azure vm quick-create`
 
+## Tutorial detallado
+
+### Crear la máquina virtual con Linux
+
+En el siguiente comando, puede usar cualquier imagen que desee, pero en este ejemplo se usa `canonical:ubuntuserver:14.04.2-LTS:latest` para crear una máquina virtual de forma rápida. (Para encontrar una imagen en Marketplace, [busque una imagen](virtual-machines-linux-cli-ps-findimage.md) o [cargue su propia imagen personalizada](virtual-machines-linux-create-upload-generic.md)). Tendrá un aspecto similar al siguiente.
+
 En los siguientes ejemplos de comandos, reemplace los valores entre &lt; y &gt; con los valores de su propio entorno.
-
-## Crear la máquina virtual con Linux
-
-En el siguiente comando, puede usar cualquier imagen que desee, pero en este ejemplo se utiliza `canonical:ubuntuserver:14.04.2-LTS:latest` para crear una máquina virtual rápidamente. (Para encontrar una imagen en Marketplace, [busque una imagen](virtual-machines-linux-cli-ps-findimage.md) o puede [cargar su propia imagen personalizada](virtual-machines-linux-create-upload-generic.md)). Tendrá un aspecto similar al siguiente.
 
 ```bash
 # Create the Linux VM using prompts
 username@macbook$ azure vm quick-create
 info:    Executing command vm quick-create
-Resource group name: quickcreate
-Virtual machine name: quickcreate
+Resource group name: exampleResourceGroup
+Virtual machine name: exampleVMname
 Location name: westus
 Operating system Type [Windows, Linux]: linux
 ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: canonical:ubuntuserver:14.04.2-LTS:latest
 User name: ops
 Password: *********
 Confirm password: *********
-+ Looking up the VM "quickcreate"
++ Looking up the VM "exampleVMname"
 info:    Using the VM Size "Standard_D1"
 info:    The [OS, Data] Disk or image configuration requires storage account
 + Looking up the storage account cli133501687
@@ -71,12 +73,12 @@ info:    PublicIP with given name "quick-westu-1363648838-pip" not found, creati
 + Creating NIC "quick-westu-1363648838-nic"
 + Looking up the NIC "quick-westu-1363648838-nic"
 + Creating VM "quickcreate"
-+ Looking up the VM "quickcreate"
++ Looking up the VM "exampleVMname"
 + Looking up the NIC "quick-westu-1363648838-nic"
 + Looking up the public ip "quick-westu-1363648838-pip"
-data:    Id                              :/subscriptions/<guid>/resourceGroups/quickcreate/providers/Microsoft.Compute/virtualMachines/quickcreate
+data:    Id                              :/subscriptions/<guid>/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMname
 data:    ProvisioningState               :Succeeded
-data:    Name                            :quickcreate
+data:    Name                            :exampleVMname
 data:    Location                        :westus
 data:    Type                            :Microsoft.Compute/virtualMachines
 data:
@@ -99,7 +101,7 @@ data:        Vhd:
 data:          Uri                       :https://cli1361687.blob.core.windows.net/vhds/cli350d386daac1f01c-os-1457063387485.vhd
 data:
 data:    OS Profile:
-data:      Computer Name                 :quickcreate
+data:      Computer Name                 :exampleVMname
 data:      User Name                     :ops
 data:      Linux Configuration:
 data:        Disable Password Auth       :false
@@ -125,18 +127,17 @@ info:    vm quick-create command OK
 
 Ahora puede usar SSH en el puerto 22 de SSH predeterminado de su máquina virtual.
 
-## Tutorial detallado
-
-`azure vm quick-create` crea rápidamente una máquina virtual para que pueda iniciar sesión y ponerse a trabajar. Sin embargo, no tiene un entorno complejo, por lo que si desea personalizar su entorno, puede [usar una plantilla de Azure Resource Manager para crear una implementación específica rápidamente](virtual-machines-linux-cli-deploy-templates.md) o bien puede [crear su propio entorno personalizado de una máquina virtual con Linux mediante comandos de la CLI de Azure directamente](virtual-machines-linux-cli-deploy-templates.md).
+`azure vm quick-create` crea rápidamente una máquina virtual para que pueda iniciar sesión y ponerse a trabajar. Sin embargo, no tiene un entorno complejo, por lo que si desea personalizar su entorno, puede [usar una plantilla de Azure Resource Manager para crear una implementación específica rápidamente](virtual-machines-linux-cli-deploy-templates.md), o puede [crear su propio entorno personalizado para una máquina virtual de Linux mediante los comandos de la CLI de Azure directamente](virtual-machines-linux-cli-deploy-templates.md).
 
 En el ejemplo anterior, se crea:
 
+- un grupo de recursos de Azure en el que implementar la máquina virtual
 - una cuenta de almacenamiento de Azure para incluir el archivo .vhd que es la imagen de la máquina virtual
 - una red virtual de Azure y una subred para proporcionar conectividad a la máquina virtual
 - una tarjeta de interfaz de red (NIC) virtual para asociar la máquina virtual a la red
-- una dirección IP pública y un prefijo de subdominio para proporcionar una dirección de Internet para uso externo
+- una dirección IP pública y un prefijo de subdominio para proporcionar una dirección de Internet para uso externo y, luego, la máquina virtual de Linux dentro de ese entorno.
 
-y, a continuación, crea la máquina virtual con Linux dentro de ese entorno. Esta máquina virtual se expone directamente a Internet y solo está protegida mediante un nombre de usuario y una contraseña.
+Esta máquina virtual se expone directamente a Internet y solo está protegida mediante un nombre de usuario y una contraseña.
 
 ## Pasos siguientes
 
@@ -148,4 +149,4 @@ Ahora ha creado una máquina virtual con Linux rápidamente para usarla con fine
 
 así como cualquier número de herramientas de implementación, configuración y orquestación de infraestructuras patentadas y de código abierto.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

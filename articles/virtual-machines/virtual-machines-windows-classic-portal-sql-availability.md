@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal - Administrador de recursos](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Clásico](virtual-machines-windows-classic-portal-sql-availability.md)
+- [Portal: clásico](virtual-machines-windows-classic-portal-sql-availability.md)
 - [PowerShell: clásico](virtual-machines-windows-classic-ps-sql-availability.md)
 
 <br/>
@@ -54,7 +54,7 @@ En este tutorial se da por hecho lo siguiente:
 
 - Ya tiene una cuenta de Azure.
 
-- Ya sabe cómo aprovisionar una máquina virtual de SQL Server desde la galería de máquina virtual mediante la interfaz gráfica de usuario (GUI). Para obtener más información, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-classic-portal-sql.md).
+- Ya sabe cómo aprovisionar una máquina virtual de SQL Server clásica desde la galería de máquina virtual mediante la interfaz gráfica de usuario (GUI).
 
 - Ya tiene un conocimiento sólido de los Grupos de disponibilidad AlwaysOn. Para obtener más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -547,6 +547,6 @@ Ahora está en disposición de configurar un grupo de disponibilidad. A continua
 ## Pasos siguientes
 Ha implementado correctamente SQL Server AlwaysOn creando un grupo de disponibilidad en Azure. Para configurar un agente de escucha para este grupo de disponibilidad, consulte [Configuración del agente de escucha ILB de los grupos de disponibilidad AlwaysOn en Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
-Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

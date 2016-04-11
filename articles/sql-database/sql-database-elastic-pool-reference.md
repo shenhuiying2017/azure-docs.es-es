@@ -1,17 +1,17 @@
 <properties
-	pageTitle="Referencia de grupo de bases de datos elásticas para la Base de datos SQL | Microsoft Azure" 
+	pageTitle="Referencia de grupo de bases de datos elásticas para la Base de datos SQL | Microsoft Azure"
 	description="Esta referencia proporciona vínculos y detalles de artículos de grupos elásticos de bases de datos, así como información de programación."
 	keywords="eDTU"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jhubbard"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/09/2016"
+	ms.date="03/24/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -25,7 +25,7 @@ Para desarrolladores de SaaS que tienen decenas, cientos o incluso miles de base
 ## Requisitos previos para crear y administrar grupos de bases de datos elásticas
 
 - Los grupos de bases de datos elásticas solo están disponibles en los servidores de Base de datos SQL V12 de Azure. Para actualizar a V12 y migrar las bases de datos directamente a un grupo, consulte [Actualización a Base de datos SQL V12 de Azure](sql-database-upgrade-server-powershell.md).
-- Solo se admite la creación y administración de grupos de bases de datos elásticas con el [Portal de Azure](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-powershell.md) y una biblioteca cliente de .NET (solo el Administrador de recursos de Azure). No se admiten el [Portal clásico](https://manage.windowsazure.com/) ni los comandos de administración de servicios.
+- Para la creación y administración de grupos de bases de datos elásticas se admite el [Portal de Azure](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-create-powershell.md) y una biblioteca cliente de .NET (solo Azure Resource Manager). No se admite ni el [Portal clásico](https://manage.windowsazure.com/) ni los comandos de administración de servicios.
 - Además, es posible crear nuevas bases de datos elásticas y mover bases de datos existentes dentro y fuera de los grupos de bases de datos elásticas mediante [Transact-SQL](#transact-sql).
 
 
@@ -37,7 +37,7 @@ Los artículos siguientes le ayudarán a empezar a usar bases de datos y trabajo
 | :-- | :-- |
 | [Grupos de bases de datos SQL elásticas](sql-database-elastic-pool.md) | Información general sobre los grupos de bases de datos elásticas |
 | [Consideraciones sobre precios y rendimiento](sql-database-elastic-pool-guidance.md) | Evaluación de si el uso de un grupo de bases de datos elásticas es rentable |
-| [Creación y administración de un grupo de bases de datos SQL elásticas con el portal de Azure](sql-database-elastic-pool-portal.md) | Creación y administración de grupos de bases de datos elásticas mediante el Portal de Azure |
+| [Creación de un grupo de bases de datos elásticas escalables para Bases de datos SQL en el Portal de Azure](sql-database-elastic-pool-create-portal.md) | Creación y administración de grupos de bases de datos elásticas mediante el Portal de Azure |
 | [Creación y administración de un grupo de bases de datos SQL elásticas con PowerShell](sql-database-elastic-pool-powershell.md) | Creación y administración de grupos de bases de datos elásticas mediante cmdlets de PowerShell |
 | [Creación y administración de una base de datos SQL con la biblioteca de Base de datos SQL de Azure para .NET](sql-database-elastic-pool-csharp.md) | Creación y administración de grupos de bases de datos elásticas mediante C# |
 | [Información general de los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md) | Información general acerca del servicio de trabajos elásticos, que permite ejecutar secuencias de comandos de T-SQL en todas las bases de datos elásticas de un grupo. |
@@ -77,15 +77,6 @@ Un grupo de bases de datos elásticas es un recurso del Administrador de recurso
 [AZURE.INCLUDE [Tabla de niveles de servicio de Base de datos SQL para bases de datos elásticas](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 
-
-## Limitaciones del Administrador de recursos de Azure
-
-Los servidores de Base de datos SQL V12 de Azure se encuentran en grupos de recursos.
-
-- Cada grupo de recursos puede tener un máximo de 800 servidores.
-- Cada servidor puede tener un máximo de 800 grupos elásticos.
-
-
 ## Latencia de las operaciones de grupos elásticos
 
 - El cambio del número garantizado de eDTU por base de datos (databaseDtuMin) o del número máximo de eDTU por base de datos (databaseDtuMax) suele completarse en cinco minutos o menos.
@@ -95,8 +86,14 @@ Los servidores de Base de datos SQL V12 de Azure se encuentran en grupos de recu
 
 ## PowerShell, API de REST y la biblioteca de cliente de .NET
 
-Hay varios comandos de API de REST y cmdlets de PowerShell que están disponibles para crear y administrar grupos elásticos. Para información detallada y ejemplos de código, consulte [Creación y administración de un grupo de bases de datos elásticas de Base de datos SQL con PowerShell](sql-database-elastic-pool-powershell.md) y [Creación y administración de Base de datos SQL con C#](sql-database-client-library.md).
+Para más información y ejemplos de código con demostración de trabajo con grupos con PowerShell y C#:
 
+- [Creación de un grupo de bases de datos elásticas (PowerShell)](sql-database-elastic-pool-create-powershell.md)
+- [Creación de un grupo de bases de datos elásticas (C#)](sql-database-elastic-pool-create-csharp.md)
+- [Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas con PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [Administración de un grupo de bases de datos elásticas (C#)](sql-database-elastic-pool-manage-csharp.md)
+
+Aquí tiene una referencia rápida de los cmdlets y las operaciones equivalentes de REST API relacionadas con los grupos de bases de datos elásticas:
 
 | [Cmdlets de PowerShell](https://msdn.microsoft.com/library/azure/mt574084.aspx) | [Comandos de las API de REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
@@ -144,18 +141,18 @@ El precio unitario de eDTU de un grupo elástico es mayor que el precio unitario
 | 40858 | EX_USER | El grupo elástico '%ls' ya existe en el servidor: '%ls' | Nombre de grupo elástico, nombre del servidor. | El grupo elástico especificado ya existe en el servidor lógico especificado. | Proporcione un nuevo nombre de grupo elástico. |
 | 40859 | EX_USER | El grupo elástico no admite el nivel de servicio '%ls'. | Nivel de servicio de grupo elástico. | El nivel de servicio especificado no se admite para el aprovisionamiento de grupo elástico. | Especifique la versión correcta o deje el nivel de servicio en blanco para usar el nivel de servicio predeterminado. |
 | 40860 | EX_USER | La combinación del grupo elástico '%ls' y del objetivo de servicio '%ls' no es válida. | Nombre del grupo flexible; nombre del objetivo de nivel de servicio. | El grupo elástico y el objetivo de servicio pueden especificarse juntos solo si se especifica el objetivo de servicio como "ElasticPool". | Especifique la combinación correcta de grupo elástico y objetivo de servicio. |
-| 40861 | EX_USER | La edición de la base de datos '%.*ls' no puede ser diferente del nivel de servicio de grupo elástico que es '%.*ls'. | edición de base de datos, nivel de servicio de grupo elástico | La edición de base de datos es diferente del nivel de servicio de grupo elástico. | No especifique una edición de base de datos que sea diferente del nivel de servicio de grupo elástico. Tenga en cuenta que no es necesario especificar la edición de la base de datos. |
+| 40861 | EX_USER | La edición de la base de datos '%.*ls' no puede ser diferente del nivel de servicio de grupo elástico que es '%.*ls'. | edición de base de datos, nivel de servicio de grupo elástico | La edición de base de datos es diferente del nivel de servicio de grupo elástico. | No especifique una edición de base de datos que sea diferente del nivel de servicio de grupo elástico. Tenga en cuenta que no es necesario especificar la edición de la base de datos. | 
 | 40862 | EX_USER | Se debe especificar el nombre del grupo elástico si se especifica el objetivo del servicio del grupo elástico. | Ninguno | El objetivo del servicio del grupo elástico no identifica de manera única un grupo elástico. | Especifique el nombre del grupo elástico si usa el objetivo del servicio del grupo elástico. |
-| 40864 | EX_USER | Las DTU para el grupo elástico deben ser como mínimo (%d) DTU para nivel de servicio '%.*ls'. | DTU para grupo elástico; nivel de servicio de grupo elástico. | Intentando establecer las DTU para el grupo elástico por debajo del límite mínimo. | Vuelva a intentar establecer las DTU para el grupo elástico en al menos el límite mínimo. |
-| 40865 | EX_USER | Las DTU para el grupo elástico no pueden superar (%d) DTU para el nivel de servicio '%.*ls'. | DTU para grupo elástico; nivel de servicio de grupo elástico. | Intentando establecer las DTU para el grupo elástico por encima del límite máximo. | Vuelva a intentar establecer las DTU para el grupo elástica en un número no superior al límite máximo. |
-| 40867 | EX_USER | El máximo de DTU por base de datos debe ser al menos (%d) para el nivel de servicio '%.*ls'. | Número máximo de DTU por base de datos; nivel de servicio de grupo elástico | Intentando establecer el máximo de DTU por base de datos por debajo del límite admitido. | Considere la posibilidad de usar el nivel de servicio de grupo elástico que admita la configuración deseada. |
-| 40868 | EX_USER | El máximo de DTU por base de datos no puede superar (%d) para el nivel de servicio '%.*ls'. | Máximo de DTU por base de datos; nivel de servicio de grupo elástico. | Intentando establecer el máximo de DTU por base de datos más allá del límite admitido. | Considere la posibilidad de usar el nivel de servicio de grupo elástico que admita la configuración deseada. |
-| 40870 | EX_USER | El mínimo de DTU no puede superar (%d) para el nivel de servicio '%. * ls'. | Mínimo de DTU por base de datos; nivel de servicio de grupo elástico. | Intentando establecer el mínimo de DTU por base de datos más allá del límite admitido. | Considere la posibilidad de usar el nivel de servicio de grupo elástico que admita la configuración deseada. |
-| 40873 | EX_USER | El número de bases de datos (%d) y el mínimo de DTU por base de datos (%d) no puede superar las DTU del grupo flexible (%d). | Número de bases de datos en grupo elástico; mínimo de DTU por base de datos; DTU de grupo elástico. | Intentando especificar mínimo de DTU para bases de datos en el grupo elástico que supera las DTU del grupo flexible. | Considere la posibilidad de aumentar las DTU del grupo elástico o de reducir el mínimo de DTU por base de datos, o de reducir el número de bases de datos del grupo elástico. |
-| 40877 | EX_USER | No se puede eliminar un grupo elástico a menos que no contenga ninguna base de datos. | Ninguno | El grupo elástico contiene una o más bases de datos y, por tanto, no se puede eliminar | Quite las bases de datos del grupo flexible para poder eliminarlo. |
-| 40881 | EX_USER | El grupo elástico '%. * ls' ha alcanzado su límite de número de bases de datos. El límite del número de bases de datos para el grupo elástico no puede superar (%d) para un grupo elástico con (%d) DTU. | Nombre del grupo elástico; límite del número de bases de datos del grupo elástico; DTU para el grupo de recursos. | Intentando crear o agregar base de datos a grupo elástico cuando se ha alcanzado el límite del número de bases de datos del grupo elástico. | Considere la posibilidad de aumentar las DTU del grupo elástico si es posible para aumentar su límite de bases de datos o quitar bases de datos del grupo elástico. |
-| 40889 | EX_USER | No se pueden reducir las DTU ni el límite de almacenamiento para el grupo elástico '%.*ls' puesto que eso no daría espacio de almacenamiento suficiente para sus bases de datos. | Nombre de grupo elástico. | Intentando reducir el límite de almacenamiento del grupo elástico por debajo de su uso de almacenamiento. | Considere la posibilidad de reducir el uso de almacenamiento de bases de datos individuales en el bloque elástico o quitar las bases de datos del grupo para reducir sus DTU o el límite de almacenamiento. |
-| 40891 | EX_USER | El mínimo de DTU por base de datos (%d) no puede superar el máximo de DTU por base de datos (%d). | Mínimo de DTU por base de datos; máximo de DTU por base de datos. | Intentando establecer el mínimo de DTU por base de datos por encima del máximo de DTU por base de datos. | Asegúrese de que el mínimo de DTU por bases de datos no supera el máximo de DTU por base de datos. |
+| 40864 | EX_USER | Las DTU para el grupo elástico deben ser como mínimo (%d) DTU para nivel de servicio '%.*ls'. | DTU para grupo elástico; nivel de servicio de grupo elástico. | Intentando establecer las DTU para el grupo elástico por debajo del límite mínimo. | Vuelva a intentar establecer las DTU para el grupo elástico en al menos el límite mínimo. | 
+| 40865 | EX_USER | Las DTU para el grupo elástico no pueden superar (%d) DTU para el nivel de servicio '%.*ls'. | DTU para grupo elástico; nivel de servicio de grupo elástico. | Intentando establecer las DTU para el grupo elástico por encima del límite máximo. | Vuelva a intentar establecer las DTU para el grupo elástica en un número no superior al límite máximo. | 
+| 40867 | EX_USER | El máximo de DTU por base de datos debe ser al menos (%d) para el nivel de servicio '%.*ls'. | Número máximo de DTU por base de datos; nivel de servicio de grupo elástico | Intentando establecer el máximo de DTU por base de datos por debajo del límite admitido. | Considere la posibilidad de usar el nivel de servicio de grupo elástico que admita la configuración deseada. | 
+| 40868 | EX_USER | El máximo de DTU por base de datos no puede superar (%d) para el nivel de servicio '%.*ls'. | Máximo de DTU por base de datos; nivel de servicio de grupo elástico. | Intentando establecer el máximo de DTU por base de datos más allá del límite admitido. | Considere la posibilidad de usar el nivel de servicio de grupo elástico que admita la configuración deseada. | 
+| 40870 | EX_USER | El mínimo de DTU no puede superar (%d) para el nivel de servicio '%. * ls'. | Mínimo de DTU por base de datos; nivel de servicio de grupo elástico. | Intentando establecer el mínimo de DTU por base de datos más allá del límite admitido. | Considere la posibilidad de usar el nivel de servicio de grupo elástico que admita la configuración deseada. | 
+| 40873 | EX_USER | El número de bases de datos (%d) y el mínimo de DTU por base de datos (%d) no puede superar las DTU del grupo flexible (%d). | Número de bases de datos en grupo elástico; mínimo de DTU por base de datos; DTU de grupo elástico. | Intentando especificar mínimo de DTU para bases de datos en el grupo elástico que supera las DTU del grupo flexible. | Considere la posibilidad de aumentar las DTU del grupo elástico o de reducir el mínimo de DTU por base de datos, o de reducir el número de bases de datos del grupo elástico. | 
+| 40877 | EX_USER | No se puede eliminar un grupo elástico a menos que no contenga ninguna base de datos. | Ninguno | El grupo elástico contiene una o más bases de datos y, por tanto, no se puede eliminar | Quite las bases de datos del grupo flexible para poder eliminarlo. | 
+| 40881 | EX_USER | El grupo elástico '%. * ls' ha alcanzado su límite de número de bases de datos. El límite del número de bases de datos para el grupo elástico no puede superar (%d) para un grupo elástico con (%d) DTU. | Nombre del grupo elástico; límite del número de bases de datos del grupo elástico; DTU para el grupo de recursos. | Intentando crear o agregar base de datos a grupo elástico cuando se ha alcanzado el límite del número de bases de datos del grupo elástico. | Considere la posibilidad de aumentar las DTU del grupo elástico si es posible para aumentar su límite de bases de datos o quitar bases de datos del grupo elástico. | 
+| 40889 | EX_USER | No se pueden reducir las DTU ni el límite de almacenamiento para el grupo elástico '%.*ls' puesto que eso no daría espacio de almacenamiento suficiente para sus bases de datos. | Nombre de grupo elástico. | Intentando reducir el límite de almacenamiento del grupo elástico por debajo de su uso de almacenamiento. | Considere la posibilidad de reducir el uso de almacenamiento de bases de datos individuales en el bloque elástico o quitar las bases de datos del grupo para reducir sus DTU o el límite de almacenamiento. | 
+| 40891 | EX_USER | El mínimo de DTU por base de datos (%d) no puede superar el máximo de DTU por base de datos (%d). | Mínimo de DTU por base de datos; máximo de DTU por base de datos. | Intentando establecer el mínimo de DTU por base de datos por encima del máximo de DTU por base de datos. | Asegúrese de que el mínimo de DTU por bases de datos no supera el máximo de DTU por base de datos. | 
 | Por determinar | EX_USER | El tamaño de almacenamiento para una base de datos individual en un grupo elástico no puede superar el tamaño máximo permitido por el grupo elástico del nivel de servicio '%.*ls'. | nivel de servicio del grupo elástico | El tamaño máximo de la base de datos supera el tamaño máximo permitido por el nivel de servicio del grupo elástico. | Establezca el tamaño máximo de la base de datos dentro de los límites del tamaño máximo permitido por el nivel de servicio del grupo elástico. |
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

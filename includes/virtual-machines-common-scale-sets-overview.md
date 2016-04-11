@@ -10,7 +10,7 @@ Eche un vistazo a estos vídeos para más información sobre los conjuntos de es
 
 ## Creación y administración de conjuntos de escala de máquinas virtuales
 
-Los conjuntos de escala de máquinas virtuales se pueden definir e implementar mediante plantillas JSON y [API de REST](https://msdn.microsoft.com/library/mt589023.aspx) igual que las máquinas virtuales individuales de Administrador de recursos de Azure. Por lo tanto, pueden utilizarse cualquier método de implementación estándar de Administrador de recursos de Azure. Para más información sobre las plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+Los conjuntos de escala de máquinas virtuales se pueden definir e implementar mediante plantillas JSON y [API de REST](https://msdn.microsoft.com/library/mt589023.aspx) igual que las máquinas virtuales individuales de Administrador de recursos de Azure. Por lo tanto, pueden utilizarse cualquier método de implementación estándar de Administrador de recursos de Azure. Para más información sobre las plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../articles/resource-group-authoring-templates.md).
 
 Se puede encontrar un conjunto de plantillas de ejemplo para los conjuntos de escala de máquinas virtuales en el repositorio de GitHub de plantillas de inicio rápido de Azure, aquí:
 
@@ -26,7 +26,7 @@ Para aumentar o disminuir el número de máquinas virtuales en un conjunto de es
 
 Si va a volver a implementar una plantilla para modificar la capacidad, puede definir una plantilla mucho más pequeña que solo incluya la SKU y la capacidad actualizada. Aquí se muestra un ejemplo de esto: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Para recorrer los pasos que crean un conjunto de escala que se escala automáticamente, consulte [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](virtual-machines-windows-ps-vmss-create.md).
+Para recorrer los pasos que crean un conjunto de escala que se escala automáticamente, consulte [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](../articles/virtual-machines/virtual-machines-windows-ps-vmss-create.md).
 
 ## Supervisión del conjunto de escala de máquinas virtuales
 
@@ -79,7 +79,7 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 **P** ¿Qué otros límites de recursos existen para los conjuntos de escala de máquinas virtuales?
 
-**R.** También existe un límite de creación de no más de 500 máquinas virtuales en varios conjuntos de escala por región durante el período de versión preliminar. Se aplican los [límites del servicio de suscripción de Azure](../azure-subscription-service-limits.md) existentes.
+**R.** También existe un límite de creación de no más de 500 máquinas virtuales en varios conjuntos de escala por región durante el período de versión preliminar. Se aplican los [límites del servicio de suscripción de Azure](../articles/azure-subscription-service-limits.md) existentes.
 
 **P.** ¿Se admiten discos de datos en los conjuntos de escala de máquinas virtuales?
 
@@ -130,4 +130,4 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 **R.** Sí. Un conjunto de escala es de forma implícita un conjunto de disponibilidad con tres dominios de error y cinco dominios de actualización. No es necesario configurar nada en virtualMachineProfile. En futuras versiones, es probable que los conjuntos de escala abarquen varios inquilinos pero, por ahora, un conjunto de escala es un único conjunto de disponibilidad.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

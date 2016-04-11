@@ -14,20 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Creación de una nueva API de OneDrive en PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Aplicaciones lógicas](../articles/connectors/create-api-onedrive.md)
+- [Aplicaciones lógicas](../articles/connectors/connectors-create-api-onedrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
 
 Agregue la API de OneDrive al entorno del Servicio de aplicaciones de su organización (inquilino).
 
 ## Crear la API en el portal de Azure
 
-1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@*SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
+1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
  
 2. Seleccione **Examinar** en la barra de tareas: ![][14]
 
@@ -71,7 +71,7 @@ Se creará una nueva aplicación OneDrive. Puede usar esta aplicación en la con
 
 ## Visualización de las API de REST
 
-Referencia de [API de REST de OneDrive](../connectors/create-api-onedrive.md).
+Referencia de [API de REST de OneDrive](../connectors/connectors-create-api-onedrive.md).
 
 ## Resumen y pasos siguientes
 En este tema, ha agregado la API de OneDrive a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
@@ -89,4 +89,4 @@ En este tema, ha agregado la API de OneDrive a su empresa PowersApps. A continua
 [14]: ./media/powerapps-create-api-onedrive/browseall.png
 [15]: ./media/powerapps-create-api-onedrive/allresources.png
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

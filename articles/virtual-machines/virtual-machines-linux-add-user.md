@@ -1,0 +1,161 @@
+<properties
+		pageTitle="Agregar un usuario a una máquina virtual de Linux en Azure | Microsoft Azure"
+		description="Agregue un usuario a una máquina virtual de Linux en Azure."
+		services="virtual-machines-linux"
+		documentationCenter=""
+		authors="vlivech"
+		manager="timlt"
+		editor=""
+		tags="azure-resource-manager"
+/>
+
+<tags
+		ms.service="virtual-machines-linux"
+		ms.workload="infrastructure-services"
+		ms.tgt_pltfrm="vm-linux"
+		ms.devlang="na"
+		ms.topic="article"
+		ms.date="03/04/2016"
+		ms.author="v-livech"
+/>
+
+# Agregar un usuario a una máquina virtual de Azure
+
+Con todas las máquinas virtuales de Linux recientemente lanzadas, una de las primeras tareas consiste en crear un nuevo usuario. En este artículo se explica cómo crear una cuenta de usuario de sudo, establecer la contraseña, añadir claves públicas SSH y, por último, usar `visudo` para permitir sudo sin contraseña.
+
+Requisitos previos: [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/), [claves públicas y privadas de SSH](virtual-machines-linux-mac-create-ssh-keys.md), un grupo de recursos de Azure y la CLI de Azure instalada, que se debe cambiar al modo de Azure Resource Manager mediante `azure config mode arm`.
+
+## Comandos rápidos
+
+```bash
+# Add a new user on RedHat family distros
+bill@slackware$ sudo useradd -G wheel exampleUser
+
+# Add a new user on Debian family distros
+bill@slackware$ sudo useradd -G sudo exampleUser
+
+# Set a password
+bill@slackware$ sudo passwd exampleUser
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+
+# Copy the SSH Public Key to the new user
+bill@slackware$ ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
+
+# Change sudoers to allow no password
+# Execute visudo as root to edit the /etc/sudoers file
+bill@slackware$ visudo
+
+# On RedHat family distros uncomment this line:
+## Same thing without a password
+# %wheel        ALL=(ALL)       NOPASSWD: ALL
+
+# to this
+## Same thing without a password
+%wheel        ALL=(ALL)       NOPASSWD: ALL
+
+# On Debian family distros change this line:
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+# to this
+%sudo   ALL=(ALL) NOPASSWD:ALL
+
+# Verify everything
+# Verify the SSH keys & User account
+bill@slackware$ ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
+
+# Verify sudo access
+exampleuser@exampleserver$ sudo top
+```
+
+## Tutorial detallado
+
+### Introducción
+
+Una de las primeras tareas que se suelen realizar en un servidor nuevo es agregar una cuenta de usuario. Siempre se deben deshabilitar los datos de inicio de sesión raíz y nunca se debe usar la cuenta raíz con el servidor Linux, solo sudo. La manera adecuada de administrar y usar Linux consiste en crear un nuevo usuario y asignarle privilegios de escalación de raíz mediante sudo.
+
+El comando que usaremos es `useradd`, que modifica `/etc/passwd`, `/etc/shadow`, `/etc/group` y `/etc/gshadow` para crear el nuevo usuario de Linux. Agregaremos una marca de la línea de comandos al comando `useradd` para agregar el nuevo usuario al grupo de sudo correcto en Linux. Aunque `useradd` crea una entrada en `/etc/passwd`, no asigna una contraseña a la nueva cuenta de usuario. Crearemos una contraseña inicial para el nuevo usuario mediante un sencillo comando `passwd`. El último paso será modificar las reglas de sudo para permitir que el usuario ejecute comandos con privilegios de sudo sin tener que escribir una contraseña para cada comando. Dado que el usuario ha iniciado sesión con el par de claves pública y privada, se da por supuesto que esa cuenta de usuario está protegida frente a actores perjudiciales y permitirá el acceso sudo sin contraseña.
+
+### Agregar un solo usuario de sudo a una máquina virtual de Azure
+
+Inicie sesión en la máquina virtual de Azure mediante claves SSH. Si no ha configurado el acceso de clave pública SSH, lea primero el artículo [Using Public Key Authentication with Azure (Uso de la autenticación de clave pública con Azure)](http://link.to/article).
+
+El comando `useradd` realizará las tareas siguientes:
+
+- crear una nueva cuenta de usuario
+- crear un nuevo grupo de usuarios con el mismo nombre
+- agregar una entrada en blanco a `/etc/passwd`
+- agregar una entrada en blanco a `/etc/gpasswd`
+
+La marca de la línea de comandos `-G` agregará la nueva cuenta de usuario al grupo de Linux adecuado y le concederá a la nueva cuenta de usuario privilegios de escalación de raíz.
+
+#### Agregar el usuario
+
+```bash
+# On RedHat family distros
+bill@slackware$ sudo useradd -G wheel exampleUser
+
+# On Debian family distros
+bill@slackware$ sudo useradd -G sudo exampleUser
+```
+
+#### Establecer una contraseña
+
+El comando `useradd` crea el nuevo usuario y agrega una entrada a `/etc/passwd` y `/etc/gpasswd`, pero realmente no establece la contraseña. Lo haremos mediante el comando `passwd`.
+
+```bash
+bill@slackware$ sudo passwd exampleUser
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+```
+
+Ahora tenemos un usuario con privilegios de sudo en el servidor.
+
+### Agregar la clave pública SSH a la nueva cuenta de usuario
+
+En el equipo, use el comando `ssh-copy-id` con la nueva contraseña que acaba de establecer.
+
+```bash
+bill@slackware$ ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
+```
+
+### Usar visudo para permitir el uso de sudo sin contraseña
+
+El uso de `visudo` para editar el archivo `/etc/sudoers` agrega algunos niveles de protección frente a la modificación incorrecta de este archivo tan importante. Al ejecutar `visudo`, el archivo `/etc/sudoers` se bloquea para garantizar que nadie pueda realizar cambios mientras se está editando activamente. `visudo` también comprueba si existen errores en el archivo `/etc/sudoers` cuando se intenta guardar o salir. De este modo se garantiza que no queden archivos sudoers rotos en el sistema.
+
+Ya tenemos usuarios en el grupo predeterminado correcto para el acceso sudo. Ahora habilitaremos estos grupos para usar sudo sin contraseña.
+
+```bash
+# Execute visudo as root to edit the /etc/sudoers file
+bill@slackware$ visudo
+
+# On RedHat family distros uncomment this line:
+## Same thing without a password
+# %wheel        ALL=(ALL)       NOPASSWD: ALL
+
+# to this
+## Same thing without a password
+%wheel        ALL=(ALL)       NOPASSWD: ALL
+
+# On Debian family distros change this line:
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+# to this
+%sudo   ALL=(ALL) NOPASSWD:ALL
+```
+
+### Comprobar el usuario, las claves SSH y sudo
+
+```bash
+# Verify the SSH keys & User account
+bill@slackware$ ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
+
+# Verify sudo access
+exampleuser@exampleserver$ sudo top
+```
+
+<!---HONumber=AcomDC_0330_2016-->

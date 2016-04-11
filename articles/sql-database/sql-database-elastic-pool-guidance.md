@@ -113,8 +113,11 @@ Para obtener evaluaciones más flexibles de uso de recursos que permitan estimac
 
 En casos donde no se pueden usar herramientas, las siguientes instrucciones paso a paso pueden ayudarle a estimar si un grupo es más rentable que las bases de datos únicas:
 
-1.	Calcule las eDTU necesarias para el grupo de la siguiente manera: MAX (<*Número total de BD* X *promedio de uso de DTU por BD*>, <*Número de BD con picos simultáneos* X *Uso pico de DTU por BD*)
-2.	Calcule el espacio de almacenamiento necesario para el grupo agregando el número de bytes necesarios para todas las bases de datos del grupo. A continuación, determine el tamaño del grupo de eDTU que proporciona esta cantidad de almacenamiento. Para saber los límites de almacenamiento de grupo basándose en el tamaño de grupo de eDTU, consulte [Límites de almacenamiento y de eDTU para grupos de bases de datos elásticas y bases de datos elásticas](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+1.	Calcule las eDTU necesarias para el grupo de la siguiente forma:
+
+    MAX(<*Número total de BD* X *Uso medio de DTU por BD*>,<br> <*Número de <BD con picos simultáneos* X *Uso máximo de DTU por BD*)
+
+2.	Calcule el espacio de almacenamiento necesario para el grupo agregando el número de bytes necesarios para todas las bases de datos del grupo. A continuación, determine el tamaño del grupo de eDTU que proporciona esta cantidad de almacenamiento. Para conocer los límites de almacenamiento de grupo basándose en el tamaño de grupo de eDTU, consulte [Límites de almacenamiento y de eDTU para grupos de bases de datos elásticas y bases de datos elásticas](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 3.	Tome el mayor de los cálculos de eDTU de los pasos 1 y 2.
 4.	Consulte la [página de precios de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/) y busque el tamaño de grupo de eDTU más pequeño que sea mayor que el cálculo del paso 3.
 5.	Compare el precio del grupo del paso 5 con el precio de uso de los niveles de rendimiento adecuados para bases de datos únicas.
@@ -131,4 +134,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos. Las
 - [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md)
 - [PowerShell script for identifying databases suitable for an elastic database pool (Script de PowerShell para identificar bases de datos adecuadas para un grupo de bases de datos elásticas)](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

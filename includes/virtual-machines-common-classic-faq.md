@@ -15,7 +15,7 @@ Para imágenes de cliente de Windows, hay disponibles determinadas versiones de 
 
 ## ¿Cuánto almacenamiento puedo usar con una máquina virtual?
 
-Cada disco de datos puede ser de hasta 1 TB. El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md).
+Cada disco de datos puede ser de hasta 1 TB. El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 Una cuenta de almacenamiento de Azure proporciona almacenamiento para el disco del sistema operativo y los discos de datos. Cada disco es un archivo .vhd almacenado como un blob en páginas. Para obtener información detallada sobre los precios, consulte [Detalles de precios de almacenamiento](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
@@ -23,9 +23,9 @@ Una cuenta de almacenamiento de Azure proporciona almacenamiento para el disco d
 
 Azure solo admite discos duros virtuales fijos con formato VHD. Si tiene un disco con formato VHDX que desea usar en Azure, debe convertirlo mediante el Administrador de Hyper-V o el cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Una vez hecho esto, use el cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (en modo de administración de servicios) para cargar el VHD en una cuenta de almacenamiento de Azure para que pueda usarlo con máquinas virtuales.
 
-- Para obtener instrucciones para Linux, consulte [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+- Para obtener instrucciones para Linux, consulte [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md).
 
-- Para obtener instrucciones para Windows, consulte [Creación y carga de un VHD de Windows Server en Azure](virtual-machines-windows-classic-createupload-vhd.md).
+- Para obtener instrucciones para Windows, consulte [Creación y carga de un VHD de Windows Server en Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md).
 
 ## ¿Son estas máquinas virtuales las mismas que las máquinas virtuales de Hyper-V?
 
@@ -45,17 +45,17 @@ Necesitará especificar la red a la que desea que pertenezca la máquina virtual
 
 Deberá establecer una conexión remota para iniciar sesión en la máquina virtual, usando Conexión a Escritorio remoto para una máquina virtual de Windows o un Shell seguro (SSH) para una máquina virtual de Linux. Para obtener instrucciones, consulte:
 
-- [Inicio de sesión en una máquina virtual con Windows Server](virtual-machines-windows-classic-connect-logon.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor está configurado como un host de sesión de servicios de escritorio remoto.  
-- [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-classic-log-on.md) De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
+- [Inicio de sesión en una máquina virtual con Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor está configurado como un host de sesión de servicios de escritorio remoto.  
+- [Inicio de sesión en una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md) De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
 
 
-Si tiene problemas con el Escritorio remoto o SSH, instale y use la extensión [VMAccess](virtual-machines-windows-extensions-features.md); esta le ayudará a solucionar el problema.
+Si tiene problemas con el Escritorio remoto o SSH, instale y use la extensión [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md); esta le ayudará a solucionar el problema.
 
 En las máquinas virtuales de Windows, entre las opciones adicionales se incluyen:
 
 - En el Portal de Azure clásico, busque la máquina virtual y, a continuación, haga clic en **Restablecer acceso remoto** desde la barra de comandos.
-- Revise [Solución de problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
-- Use Acceso remoto a Windows PowerShell para conectarse a la máquina virtual o crear extremos adicionales para que otros recursos se conecten a la máquina virtual. Para obtener más información, consulte [Configuración de puntos de conexión en una máquina virtual](virtual-machines-windows-classic-setup-endpoints.md).
+- Revise [Solución de problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
+- Use Acceso remoto a Windows PowerShell para conectarse a la máquina virtual o crear extremos adicionales para que otros recursos se conecten a la máquina virtual. Para obtener más información, consulte [Configuración de puntos de conexión en una máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 
 Si está familiarizado con Hyper-V, puede que esté buscando una herramienta similar a VMConnect. Azure no ofrece una herramienta similar porque no admite el acceso de la consola a una máquina virtual.
 
@@ -65,7 +65,7 @@ No debería usar el disco temporal (la unidad D: por defecto de Windows o /dev/s
 
 ## ¿Cómo puedo cambiar la letra de la unidad del disco temporal?
 
-En una máquina virtual de Windows, puede cambiar la letra de la unidad moviendo el archivo de la página y reasignando letras de unidad, pero deberá asegurarse de realizar los pasos en un orden específico. Para obtener instrucciones, consulte [Cambio de la letra de unidad del disco temporal de Windows](virtual-machines-windows-classic-change-drive-letter.md).
+En una máquina virtual de Windows, puede cambiar la letra de la unidad moviendo el archivo de la página y reasignando letras de unidad, pero deberá asegurarse de realizar los pasos en un orden específico. Para obtener instrucciones, consulte [Cambio de la letra de unidad del disco temporal de Windows](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
 
 ## ¿Cómo puedo actualizar el sistema operativo invitado?
 
@@ -82,7 +82,7 @@ Para obtener información general sobre las herramientas y procesos para migrar 
 
 Las imágenes proporcionadas por Azure no tienen un nombre de usuario configurado previamente y una contraseña. Cuando cree la máquina virtual mediante una de esas imágenes, deberá proporcionar un nombre de usuario y una contraseña, que usará para iniciar sesión en la máquina virtual.
 
-Si ha olvidado el nombre de usuario o contraseña y ha instalado el Agente de máquina virtual, puede instalar y usar la extensión [VMAccess](virtual-machines-windows-extensions-features.md) para corregir el problema.
+Si ha olvidado el nombre de usuario o contraseña y ha instalado el Agente de máquina virtual, puede instalar y usar la extensión [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) para corregir el problema.
 
 Detalles adicionales:
 
@@ -102,7 +102,7 @@ Azure ofrece varias opciones para soluciones antivirus, pero la administración 
 
 ## ¿Qué opciones tengo para la copia de seguridad y la recuperación?
 
-Copia de seguridad de Azure está disponible como una vista previa en determinadas regiones. Para obtener más información, consulte [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms.md). Hay otras soluciones disponibles de socios certificados. Para averiguar lo que está actualmente disponible, busque Azure Marketplace.
+Copia de seguridad de Azure está disponible como una vista previa en determinadas regiones. Para obtener más información, consulte [Copia de seguridad de máquinas virtuales de Azure](../articles/backup/backup-azure-vms.md). Hay otras soluciones disponibles de socios certificados. Para averiguar lo que está actualmente disponible, busque Azure Marketplace.
 
 Otra opción es usar las capacidades de instantánea del almacenamiento de blobs. Para ello, deberá apagar la máquina virtual antes de cualquier operación que se base en una instantánea de blob. Esto guarda las escrituras de datos pendientes y coloca el sistema de archivos en un estado coherente.
 
@@ -138,4 +138,4 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

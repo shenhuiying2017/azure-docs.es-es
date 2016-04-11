@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/08/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # SDK de DocumentDB
@@ -36,6 +36,10 @@
 </table></br>
 
 ##Notas de la versión
+
+###<a name="1.6.0"/>1.6.0</a>
+- [Colecciones con particiones](documentdb-partition-data.md) implementadas y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md). 
+
 ###<a name="1.5.6"/>1.5.6</a>
 
 - Solucionado el error RangePartitionResolver.resolveForRead por el que no se devolvían vínculos debido a una mala concatenación de resultados
@@ -124,28 +128,7 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.5.6](#1.5.6) | 8 de marzo de 2016 |--- 
-| [1\.5.5](#1.5.5) | 2 de febrero de 2016 |--- 
-| [1\.5.4](#1.5.4) | 1 de febrero de 2016 |--- 
-| [1\.5.2](#1.5.2) | 26 de enero de 2016 |--- 
-| [1\.5.2](#1.5.2) | 22 de enero de 2016 |--- 
-| [1\.5.1](#1.5.1) | 4 de enero de 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 de diciembre de 2015 |--- 
-| [1\.4.0](#1.4.0) | 06 de octubre de 2015 |---
-| [1\.3.0](#1.3.0) | 06 de octubre de 2015 |---
-| [1\.2.2](#1.2.2) | 10 de septiembre de 2015 |---
-| [1\.2.1](#1.2.1) | 15 de agosto de 2015 |---
-| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |---
-| [1\.1.0](#1.1.0) | 09 de julio de 2015 |---
-| [1\.0.3](#1.0.3) | 04 de junio de 2015 |---
-| [1\.0.2](#1.0.2) | 23 de mayo de 2015 |---
-| [1\.0.1](#1.0.1) | 15 de mayo de 2015 |---
-| [1\.0.0](#1.0.0) | 08 de abril de 2015 |---
-| 0.9.4-prelease | 06 de abril de 2015 | 29 de fe3brero de 2016
-| 0.9.3-prelease | 14 de enero de 2015 | 29 de febrero de 2016
-| 0.9.2-prelease | 18 de diciembre de 2014 | 29 de febrero de 2016
-| 0.9.1-prelease | 22 de agosto de 2014 | 29 de febrero de 2016
-| 0.9.0-prelease | 21 de agosto de 2014 | 29 de febrero de 2016
+| [1\.6.0](#1.6.0) | 29 de marzo de 2016 |--- | [1\.5.6](#1.5.6) | 08 de marzo de 2016 |--- | [1\.5.5](#1.5.5) | 02 de febrero de 2016 |--- | [1\.5.4](#1.5.4) | 01 de febrero de 2016 |--- | [1\.5.2](#1.5.2) | 26 de enero de 2016 |--- | [1\.5.2](#1.5.2) | 22 de enero de 2016 |--- | [1\.5.1](#1.5.1) | 4 de enero de 2016 |--- | [1\.5.0](#1.5.0) | 31 de diciembre de 2015 |--- | [1\.4.0](#1.4.0) | 06 de octubre de 2015 |--- | [1\.3.0](#1.3.0) | 06 de octubre de 2015 |--- | [1\.2.2](#1.2.2) | 10 de septiembre de 2015 |--- | [1\.2.1](#1.2.1) | 15 de agosto de 2015 |--- | [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 09 de junio de 2015 |--- | [1\.0.3](#1.0.3) | 04 de junio de 2015 |--- | [1\.0.2](#1.0.2) | 23 de mayo de 2015 |--- | [1\.0.1](#1.0.1) | 15 de mayo de 2015 |--- | [1\.0.0](#1.0.0) | 08 de abril de 2015 |--- | 0.9.4-versión preliminar | 06 de abril de 2015 | 29 de febrero de 2016 | 0.9.3-versión preliminar | 14 de enero de 2015 | 29 de febrero de 2016 | 0.9.2-versión preliminar | 18 de diciembre de 2014 | 29 de febrero de 2016 | 0.9.1-versión preliminar | 22 de agosto de 2014 | 29 de febrero de 2016 |0.9.0-versión preliminar | 21 de agosto de 2014 | 29 de febrero de 2016
 
 
 ## P+F
@@ -155,4 +138,4 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

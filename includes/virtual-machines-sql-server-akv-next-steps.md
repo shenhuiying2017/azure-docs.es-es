@@ -93,6 +93,6 @@ Este script crea una clave simétrica protegida por la clave asimétrica en el A
 ## Recursos adicionales
 Para más información sobre cómo usar estas características de cifrado, vea [Uso de la administración extensible de claves con las características de cifrado de SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Tenga en cuenta que en los pasos descritos en este artículo se supone que ya tiene SQL Server en ejecución en una máquina virtual de Azure. De lo contrario, vea [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../articles/virtual-machines/virtual-machines-windows-classic-portal-sql.md) Para otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, vea [Información general sobre SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Tenga en cuenta que en los pasos descritos en este artículo se supone que ya tiene SQL Server en ejecución en una máquina virtual de Azure. De lo contrario, vea [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) Para otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, vea [Información general sobre SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

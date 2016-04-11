@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Carga de datos de ejemplo en Almacenamiento de datos SQL
@@ -28,10 +28,12 @@ Siga estos pasos sencillos para cargar la base de datos de ejemplo de Adventure 
 
 3. Edite el archivo extraído aw\_create.bat y defina las siguientes variables que se encuentran en la parte superior del archivo. No deje espacios en blanco entre "=" y el parámetro. A continuación, puede ver ejemplos del aspecto que deberían tener las modificaciones.
 
-    	server=mylogicalserver.database.windows.net
-    	user=mydwuser
-    	password=Mydwpassw0rd
-    	database=mydwdatabase
+    ```
+    server=mylogicalserver.database.windows.net
+    user=mydwuser
+    password=Mydwpassw0rd
+    database=mydwdatabase
+    ```
 
 4. En un símbolo del sistema de Windows, ejecute el archivo aw\_create.bat editado. Asegúrese de estar en el directorio en el que guardó la versión editada de aw\_create.bat. Este script le permitirá hacer lo siguiente:
 	* Anular cualquier tabla o vista de Adventure Works que ya exista en la base de datos.
@@ -47,22 +49,28 @@ Una vez que carga algunos datos de ejemplo en Almacenamiento de datos SQL, puede
 
 Un ejemplo de una instrucción select simple para obtener toda la información de los empleados:
 
-	SELECT * FROM DimEmployee;
+```sql
+SELECT * FROM DimEmployee;
+```
 
 Un ejemplo de una consulta más compleja con construcciones como GROUP BY para ver la cantidad total de todas las ventas de cada día:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey;
+```
 
 Ejemplos de una instrucción SELECT con una cláusula WHERE para filtrar pedidos desde antes de una fecha determinada:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	WHERE OrderDateKey > '20020801'
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+WHERE OrderDateKey > '20020801'
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey;
+```
 
 Almacenamiento de datos SQL admite casi todas las construcciones T-SQL compatibles con SQL Server. Todas las diferencias existentes se registran en nuestra documentación sobre la [migración del código][].
 
@@ -84,4 +92,4 @@ Ahora que tuvo la oportunidad de probar algunas consultas con datos de ejemplo, 
 <!--Other Web references-->
 [scripts de ejemplo de Adventure Works para Almacenamiento de datos SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -64,8 +64,7 @@ Para configurar la integración de Secure Deliver en Azure AD, es preciso agrega
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro Buscar, escriba **Secure Deliver**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)<br>
-7. En el panel de resultados, seleccione **Secure Deliver** y luego haga clic en **Completar** para agregar la aplicación.<br><br>
-
+7. En el panel de resultados, seleccione **Secure Deliver** y luego haga clic en **Completar** para agregar la aplicación.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_02.png)<br>
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Secure Deliver con un usuario de prueba llamado "Britta Simon".
 
@@ -90,7 +89,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 1. En el Portal de Azure AD, en la página de integración de aplicaciones de **Secure Deliver**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Secure Deliver?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) <br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Secure Deliver?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) <br>
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) <br>
 
@@ -110,8 +109,8 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de Secure Deliver en [teruhiko.iwashita@fujifilm.com](mailto:teruhiko.iwashita@fujifilm.com) y proporcione lo siguiente:
    
     - El archivo de certificado descargado
-    - El **Id. de entidad**
-    - La **Dirección URL del servicio de inicio de sesión único**.
+    - El **id. de entidad**
+    - La **dirección URL del servicio de inicio de sesión único**
     - La **dirección URL del servicio de cierre de sesión único**
 
 6. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
@@ -220,4 +219,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

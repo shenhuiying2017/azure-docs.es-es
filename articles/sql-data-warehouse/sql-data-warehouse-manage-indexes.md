@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Administración de índices
@@ -29,13 +29,13 @@ Puede optimizar la regeneración de índices de una de las dos formas siguientes
 
 A continuación se muestra un ejemplo sobre cómo generar una partición única:
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
 ALTER INDEX... REBUILD se utiliza para volúmenes de datos más pequeños, especialmente para los índices de almacén de columnas. En la regeneración se incluyen los grupos de filas abiertos, cerrados y comprimidos. Sin embargo, si la partición es bastante grande, verá que `CTAS` es la operación más eficaz. A continuación, se muestra un ejemplo de regeneración de índices completa.
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ```
 
@@ -45,7 +45,7 @@ Consulte el artículo [ALTER INDEX][] para obtener más detalles sobre esta sint
 
 A continuación se muestra un ejemplo sobre cómo regenerar una partición mediante CTAS:
 
-```
+```sql
 -- Step 01. Select the partition of data and write it out to a new table using CTAS
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
@@ -82,7 +82,6 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 
 -- Step 04. Switch IN the rebuilt data
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
-
 ```
 
 ## Pasos siguientes
@@ -102,4 +101,4 @@ Para obtener más sugerencias de administración, consulte la información gener
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

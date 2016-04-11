@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/22/2016"
    ms.author="telmos" />
 
 # Traslado de una máquina virtual o una instancia de rol a una subred diferente
 
 Puede usar PowerShell para mover las máquinas virtuales de un subred a otra en la misma red virtual. Para mover instancias de rol, puede editar el archivo CSCFG en lugar de usar PowerShell.
+
+>[AZURE.NOTE] Este artículo contiene información relativa a implementaciones clásicas de Azure únicamente.
 
 ¿Por qué mover máquinas virtuales a otra subred? La migración de subred es útil cuando la antigua subred se queda demasiado pequeña y no se puede expandir debido a que existen máquinas virtuales en ejecución en esa subred. En ese caso, puede crear una subred más grande y migrar las máquinas virtuales a esa nueva subred; a continuación, una vez finalizada la migración, puede eliminar la subred antigua vacía.
 
@@ -51,4 +53,4 @@ Para mover una instancia de rol, edite el archivo CSCFG. En este ejemplo, movemo
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

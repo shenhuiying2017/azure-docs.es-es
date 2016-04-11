@@ -1,18 +1,12 @@
 
-
-
-Todas las máquinas virtuales que se crean en Azure con el modelo de implementación clásico pueden comunicarse automáticamente a través de un canal de red privada con otras máquinas virtuales del mismo servicio en la nube o de la misma red virtual. Sin embargo, los equipos en Internet o en otras redes virtuales necesitan extremos para dirigir el tráfico de red entrante a una máquina virtual.
-
-Al crear una máquina virtual en el Portal de Azure clásico, los puntos de conexión comunes, como los de Escritorio remoto, Windows PowerShell Remoting y Shell seguro (SSH), se suelen crear automáticamente, según el sistema operativo que elija. Puede configurar extremos adicionales al crear la máquina virtual o posteriormente, según sea necesario.
-
-Cada punto de conexión cuenta con un *puerto público* y uno *privado*.
+Cada punto de conexión cuenta con un *puerto público* y uno *privado*:
 
 - El puerto público que usa el equilibrador de carga de Azure para escuchar el tráfico que entra a la máquina virtual desde Internet.
 - La máquina virtual usa el puerto privado para escuchar el tráfico entrante, normalmente destinado a una aplicación o servicio que se ejecuta en la máquina virtual.
 
 Se proporcionan los valores predeterminados para el protocolo IP y los puertos TCP o UDP para los protocolos de red conocidos cuando crea punto de conexión con el Portal de Azure clásico. Para los extremos personalizados, deberá especificar el protocolo IP correcto (TCP o UDP) y los puertos públicos y privados. Para distribuir el tráfico entrante de forma aleatoria entre varias máquinas virtuales, deberá crear un conjunto con equilibrio de carga que conste de varios extremos.
 
-Tras la creación de un extremo, puede utilizar una lista de control de acceso (ACL) para definir reglas que permitan o denieguen el tráfico entrante al puerto público del extremo, en función de su dirección IP de origen. Sin embargo, si la máquina virtual está en una red virtual de Azure, debería usar grupos de seguridad de red en su lugar. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](virtual-networks-nsg.md).
+Tras la creación de un extremo, puede utilizar una lista de control de acceso (ACL) para definir reglas que permitan o denieguen el tráfico entrante al puerto público del extremo, en función de su dirección IP de origen. Sin embargo, si la máquina virtual está en una red virtual de Azure, debería usar grupos de seguridad de red en su lugar. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](../articles/virtual-network/virtual-networks-nsg.md).
 
 > [AZURE.NOTE]La configuración del firewall de las máquinas virtuales de Azure se realiza automáticamente para los puertos asociados a Escritorio remoto y shell seguro (SSH), y en la mayoría de los casos para la comunicación remota de Windows PowerShell. Para los puertos especificados para todos los demás extremos, no se realiza ninguna configuración automáticamente en el firewall de la máquina virtual. Cuando se crea un extremo para la máquina virtual, deberá asegurarse de que el firewall de la máquina virtual también permite el tráfico para el protocolo y el puerto privado correspondiente a la configuración del extremo.
 
@@ -40,7 +34,7 @@ El nuevo punto de conexión se mostrará en la página **Puntos de conexión**.
 
 ![Creación correcta del extremo](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
-Para usar un cmdlet de Azure PowerShell para configurar esta opción, consulte [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). Si usa la CLI de Azure en modo de Administración de servicio, use el comando **azure vm endpoint create**.
+ 
 
 ## Administración de la ACL en un extremo
 
@@ -48,7 +42,7 @@ Para definir el conjunto de equipos que pueden enviar tráfico, la ACL en un ext
 
 > [AZURE.NOTE] Si el extremo forma parte de un conjunto con equilibrio de carga, los cambios que realice en la ACL en un extremo se aplican a todos los extremos del conjunto.
 
-Si la máquina virtual está en una red virtual de Azure, es recomendable usar grupos de seguridad de red en lugar de ACL. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](virtual-networks-nsg.md).
+Si la máquina virtual está en una red virtual de Azure, es recomendable usar grupos de seguridad de red en lugar de ACL. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](../articles/virtual-network/virtual-networks-nsg.md).
 
 1.	Si no lo ha hecho todavía, inicie sesión en el Portal de Azure clásico.
 2.	Haga clic en **Máquinas virtuales** y haga clic en el nombre de la máquina virtual que desea configurar.
@@ -64,13 +58,6 @@ Si la máquina virtual está en una red virtual de Azure, es recomendable usar g
 
 Puede usar reglas para permitir solo el tráfico desde equipos específicos correspondientes a los equipos en Internet o para denegar el tráfico desde intervalos concretos de direcciones conocidas.
 
-Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben estar ordenadas de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [¿Qué es una lista de control de acceso de red?](../virtual-network/virtual-networks-acl/)
+Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben estar ordenadas de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [¿Qué es una lista de control de acceso de red?](../articles/virtual-network/virtual-networks-acl.md)
 
-Para usar un cmdlet de Azure PowerShell para configurar esto, vea [Administración de las listas de control de acceso (ACL) de los puntos de conexión mediante PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
-
-
-## Recursos adicionales
-
-[Introducción a la creación de un equilibrador de carga orientado a Internet en el Administrador de recursos con PowerShell](load-balancer-get-started-internet-arm-ps.md)
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

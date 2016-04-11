@@ -16,12 +16,12 @@ Puede crear sus propias imágenes a partir de una máquina virtual en Azure o un
 
 Puede usar la Interfaz de la línea de comandos de Azure (CLI) para Mac, Linux y Windows o el módulo Azure PowerShell para administrar las imágenes disponibles para su suscripción de Azure. También puede usar el Portal de Azure clásico para algunas tareas de imagen, pero la línea de comandos le ofrece más opciones.
 
-Para obtener información sobre cómo usar estas herramientas con implementaciones del Administrador de recursos, vea [Navegación y selección de imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure](virtual-machines-linux-cli-ps-findimage.md).
+Para obtener información sobre cómo usar estas herramientas con implementaciones del Administrador de recursos, vea [Navegación y selección de imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md).
 
 Para obtener ejemplos del uso de las herramientas en una implementación clásica:
 
-- Para la CLI, vea "Comandos para administrar las imágenes de máquina virtual de Azure" en [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](virtual-machines-command-line-tools.md).
-- Para Azure PowerShell, consulte la siguiente lista de comandos. Para obtener un ejemplo sobre cómo encontrar una imagen para crear una máquina virtual, vea "Paso 3: Determinación de ImageFamily" en [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-windows-classic-create-powershell.md).
+- Para la CLI, vea "Comandos para administrar las imágenes de máquina virtual de Azure" en [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](../articles/virtual-machines-command-line-tools.md).
+- Para Azure PowerShell, consulte la siguiente lista de comandos. Para obtener un ejemplo sobre cómo encontrar una imagen para crear una máquina virtual, vea "Paso 3: Determinación de ImageFamily" en [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md).
 
 -	**Obtener todas las imágenes**: `Get-AzureVMImage`devuelve una lista de todas las imágenes disponibles en su suscripción actual: las imágenes, así como las proporcionadas por Azure o socios. Esto significa que podría obtener una lista de gran tamaño. Los ejemplos siguientes muestra cómo obtener una lista más corta.
 -	**Obtener familias de imagen**: `Get-AzureVMImage | select ImageFamily` obtiene una lista de familias de imágenes mostrando cadenas la propiedad **ImageFamily**.
@@ -35,8 +35,8 @@ Para obtener ejemplos del uso de las herramientas en una implementación clásic
 
 ## Recursos adicionales
 
-[Diferentes formas de crear una máquina virtual Linux](virtual-machines-linux-creation-choices.md)
+[Diferentes formas de crear una máquina virtual Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
-[Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-creation-choices.md)
+[Diferentes formas de crear una máquina virtual de Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

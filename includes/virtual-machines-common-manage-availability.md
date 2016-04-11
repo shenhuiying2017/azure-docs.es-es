@@ -35,7 +35,7 @@ Por ejemplo, podría poner todas las máquinas virtuales en el front-end de la a
 
 
 ### Combine el equilibrador de carga con los conjuntos de disponibilidad
-Combine el equilibrador de carga con un conjunto de disponibilidad para aprovechar al máximo la resistencia de la aplicación. El equilibrador de carga de Azure distribuye el tráfico entre varias máquinas virtuales. El equilibrador de carga de Azure está incluido en nuestras máquinas virtuales de niveles estándar. Tenga en cuenta que no todos los niveles de las máquinas virtuales incluyen el equilibrador de carga de Azure. Para obtener más información sobre el equilibrio de carga en máquinas virtuales, lea [Equilibrio de carga de máquinas virtuales](virtual-machines-linux-load-balance.md).
+Combine el equilibrador de carga con un conjunto de disponibilidad para aprovechar al máximo la resistencia de la aplicación. El equilibrador de carga de Azure distribuye el tráfico entre varias máquinas virtuales. El equilibrador de carga de Azure está incluido en nuestras máquinas virtuales de niveles estándar. Tenga en cuenta que no todos los niveles de las máquinas virtuales incluyen el equilibrador de carga de Azure. Para obtener más información sobre el equilibrio de carga en máquinas virtuales, lea [Equilibrio de carga de máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
 
 Si el equilibrador de carga no está configurado para equilibrar el tráfico entre varias máquinas virtuales, entonces cualquier evento de mantenimiento planeado afectará a la única máquina virtual dedicada al tráfico y provocará una interrupción del nivel de la aplicación. Si se colocan varias máquinas virtuales en el mismo nivel en el mismo equilibrador de carga y conjunto de disponibilidad, se permitirá tener un tráfico continuamente disponible asistido por al menos una instancia.
 
@@ -47,6 +47,6 @@ Evite dejar una máquina virtual de instancia única sola en un conjunto de disp
 [Configure cada nivel de aplicación en conjuntos separados de disponibilidad]: #configure-each-application-tier-into-separate-availability-sets
 [Combine el equilibrador de carga con los conjuntos de disponibilidad]: #combine-the-load-balancer-with-availability-sets
 [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]: #avoid-single-instance-virtual-machines-in-availability-sets
-[Configuración de un conjunto de disponibilidad para máquinas virtuales]: virtual-machines-windows-classic-configure-availability.md
+[Configuración de un conjunto de disponibilidad para máquinas virtuales]: ../articles/virtual-machines/virtual-machines-windows-classic-configure-availability.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

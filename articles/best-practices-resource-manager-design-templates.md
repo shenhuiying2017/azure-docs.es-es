@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/23/2016"
 	ms.author="tomfitz"/>
 
 # Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure
@@ -145,7 +145,7 @@ Es posible que inicialmente piense que una plantilla debe ofrecer a los clientes
 
 A primera vista, las configuraciones de forma libre parecen idóneas. Permiten seleccionar un tipo de máquina virtual y proporcionan un número arbitrario de nodos y discos conectados para esos nodos, y lo hacen como parámetros para una plantilla. Sin embargo, cuando se examinan detenidamente y se tienen en cuenta las plantillas que implementarán varias máquinas virtuales de diferentes tamaños, surgen otros aspectos a considerar que convierten este enfoque en la opción menos adecuada en varias situaciones.
 
-En el artículo [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) del sitio web de Azure, se identifican los diferentes tipos de máquina virtual y tamaños disponibles, y cada número de discos durables (2, 4, 8, 16 o 32) que se pueden conectar. Cada disco conectado proporciona 500 IOPS, y se pueden agrupar múltiplos de estos discos por un multiplicador de ese número de IOPS. Por ejemplo, se pueden agrupar 16 discos para proporcionar 8000 IOPS. La agrupación se realiza con la configuración del sistema operativo, usando espacios de almacenamiento de Microsoft Windows o una matriz redundante de discos independientes (RAID) en Linux.
+En [Sizes for Windows virtual machines in Azure](./virtual-machines/virtual-machines-windows-sizes.md) (Tamaños de máquinas virtuales Windows en Azure), se identifican los distintos tipos y tamaños de máquina virtual disponibles, y cada número de discos durables (2, 4, 8, 16 o 32) que se pueden conectar. Cada disco conectado proporciona 500 IOPS, y se pueden agrupar múltiplos de estos discos por un multiplicador de ese número de IOPS. Por ejemplo, se pueden agrupar 16 discos para proporcionar 8000 IOPS. La agrupación se realiza con la configuración del sistema operativo, usando espacios de almacenamiento de Microsoft Windows o una matriz redundante de discos independientes (RAID) en Linux.
 
 Una configuración de forma libre permite la selección de un número de instancias de máquina virtual, un número de diferentes tipos y tamaños de VM para esas instancias, un número de discos que puede variar según el tipo de máquina virtual y uno o más scripts para configurar el contenido de la máquina virtual.
 
@@ -379,8 +379,7 @@ Si desea publicar la plantilla en Marketplace, simplemente establezca distintas 
 
 ## Pasos siguientes
 
-- Para ver ejemplos contextuales de cómo implementar los principios de diseño presentados en este tema, consulte [Ejemplos contextuales de procedimientos recomendados para la implementación de plantillas](best-practices-resource-manager-examples.md).
 - Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 - Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

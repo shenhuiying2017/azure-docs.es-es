@@ -81,6 +81,10 @@ Use el plan de tarifa Básico o uno de nivel superior para las aplicaciones web.
 
 Puede usar el [Asistente para actualización de ClearDB](https://www.cleardb.com/store/azure/upgrade). Actualmente, no tenemos una ruta de actualización en el Portal de Azure.
 
+## ¿Por qué no veo la base de datos ClearDB en el Portal de Azure?
+
+Si creamos la base de datos ClearDB con Azure Resource Manager o el [nuevo Portal de Azure](https://portal.azure.com), esta no será visible en el [antiguo Portal de Azure](https://manage.windowsazure.com). Para solucionarlo, vincule la base de datos manualmente con la aplicación web. De forma similar, si crea la base de datos ClearDB en el [portal antiguo](https://manage.windowsazure.com), no verá la base de datos en el [nuevo Portal de Azure](https://portal.azure.com). No hay ninguna solución alternativa para esta situación.
+
 ## ¿Con quién debo ponerme en contacto para obtener soporte técnico cuando tenga problemas con la base de datos?
 
 Si tiene algún problema relacionado con la base de datos, póngase en contacto con el [soporte técnico de ClearDB](https://www.cleardb.com/developers/help/support). Tenga a mano la información de suscripción de Azure para proporcionarla.
@@ -89,9 +93,13 @@ Si tiene algún problema relacionado con la base de datos, póngase en contacto 
 
 No. No se pueden crear usuarios adicionales, pero puede crear bases de datos adicionales en el clúster de base de datos de ClearDB.
 
+## ¿Las bases de datos de las series Basic y Pro se pueden actualizar localmente de forma similar a los planes de la serie Planetary en el portal de ClearDB?
+
+Sí, las bases de datos de la serie Basic se pueden actualizar localmente (de Basic 60 a Basic 500). La serie Pro se puede actualizar localmente (de Pro 125 a Pro 1000) con la excepción de Pro 60. En estos momentos, no se admite la actualización de la base de datos Pro 60.
+
 ## Al migrar mis recursos de una suscripción a otra, ¿se migra también la base de datos MySQL ClearDB?  
 
-Al realizar una migración de recursos entre suscripciones, se aplican algunas [limitaciones](app-service-move-resources.md). Una base de datos MySQL ClearDB es un servicio de terceros, de ahí que no se migre durante la migración de la suscripción de Azure. Si no administra la migración de su base de datos de MySQL antes de migrar recursos de Azure, se pueden deshabilitar las bases de datos MySQL ClearDB. En primer lugar migre manualmente las bases de datos y luego realice la migración de la suscripción de Azure de la aplicación web.
+Al realizar una migración de recursos entre suscripciones, se aplican algunas [limitaciones](./app-service-web/app-service-move-resources.md). Una base de datos MySQL ClearDB es un servicio de terceros, de ahí que no se migre durante la migración de la suscripción de Azure. Si no administra la migración de su base de datos de MySQL antes de migrar recursos de Azure, se pueden deshabilitar las bases de datos MySQL ClearDB. En primer lugar migre manualmente las bases de datos y luego realice la migración de la suscripción de Azure de la aplicación web.
 
 ## ¿Puedo adquirir WordPress escalable con una suscripción de contrato Enterprise (EA)?
 
@@ -120,8 +128,12 @@ El acceso a Azure Marketplace para los servicios de terceros puede administrarse
 
 Póngase en contacto con el servicio de [atención al cliente de Enterprise](http://aka.ms/AzureEntSupport) para resolver las dudas sobre la facturación de su inscripción EA. El equipo de soporte técnico del Portal EA responderá a sus preguntas o resolverá el problema.
 
+ 
+
+
+
 ## Más información
 
 [P+F sobre Azure Marketplace](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

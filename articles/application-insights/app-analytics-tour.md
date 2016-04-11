@@ -12,15 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="03/24/2016" 
 	ms.author="awills"/>
 
 
  
 # Un paseo por Analytics de Application Insights
 
-
-[Analytics](app-analytics.md) es una eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
+[Analytics](app-analytics.md) permite ejecutar consultas eficaces sobre la telemetría desde su aplicación recopiladas por [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -70,10 +69,12 @@ Elija las columnas y ajuste sus posiciones:
 
 ![Hacer clic en la selección de columna en la parte superior derecha de los resultados](./media/app-analytics-tour/030.png)
 
+
 Expanda cualquier elemento para ver los detalles:
  
 ![Seleccione Table (Tabla) y use Configure Columns (Configurar columnas).](./media/app-analytics-tour/040.png)
 
+> [AZURE.NOTE] Haga clic en el encabezado de una columna para cambiar el orden de los resultados disponibles en el explorador web. Tenga en cuenta que, para un conjunto grande de resultados, el número de filas que se descargan en el explorador es limitado. Recuerde que esta forma de ordenación no siempre muestra los elementos mayores o menores reales. Para ello, debe usar el operador `top` o `sort`.
 
 ## [Top](app-analytics-aggregations.md#top) y [sort](app-analytics-aggregations.md#sort)
 
@@ -100,7 +101,7 @@ Muéstrame las primeras n filas, ordenadas por una columna en particular:
 
 El resultado sería el mismo, pero se ejecutaría un poco más lento. (También podría escribir `order`, que es un alias de `sort`).
 
-Los encabezados de columna en la vista de tabla también pueden utilizarse para ordenar los resultados en la pantalla. Pero por supuesto, si ha usado `take` o `top` para recuperar solo parte de una tabla, solamente reordenará los registros que ha recuperado.
+Los encabezados de columna en la vista de tabla también pueden utilizarse para ordenar los resultados en la pantalla. Evidentemente, si ha usado `take` o `top` para recuperar solo parte de una tabla, solamente reordenará los registros que ha recuperado.
 
 
 ## [Project](app-analytics-aggregations.md#project): seleccionar, cambiar el nombre y calcular columnas
@@ -234,7 +235,7 @@ El operador `where` toma una expresión booleana. He aquí algunos puntos clave:
 
  * `and`, `or`: operadores booleanos
  * `==`, `<>`: igual que y no igual que
- * `=~`, `!=`: cadena que no distingue entre mayúsculas y minúsculas igual que y no igual que. Hay muchos más operadores de comparación de cadenas.
+ * `=~`, `!=`: cadena que no distingue entre mayúsculas y minúsculas igual que y no igual que Hay muchos más operadores de comparación de cadenas.
 
 Lea toda la información disponible sobre las [expresiones escalares](app-analytics-scalars.md).
 
@@ -279,7 +280,7 @@ El eje x para los gráficos de líneas debe ser de tipo DateTime.
 
 ## Varias series 
 
-Use varios valores en un cláusula `summarize by` para crear una fila independiente para cada combinación de valores:
+Use varios valores en una cláusula `summarize by` para crear una fila independiente para cada combinación de valores:
 
 ```AIQL
 
@@ -441,4 +442,4 @@ Use [let](./app-analytics-syntax.md#let-statements) para separar las partes de l
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

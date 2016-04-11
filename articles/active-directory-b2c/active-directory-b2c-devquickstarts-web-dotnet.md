@@ -33,7 +33,7 @@ Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directori
 A continuación, debe crear una aplicación en su directorio B2C. Esto proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación. Para crear una aplicación, siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de:
 
 - Incluir una **aplicación web/API web** en la aplicación.
-- Escribir `https://localhost:44316/` como **Dirección URL de respuesta**. Es la dirección URL predeterminada para este ejemplo de código.
+- Escriba `https://localhost:44316/` como **URI de redireccionamiento**. Es la dirección URL predeterminada para este ejemplo de código.
 - Escribir el **Id. de aplicación** asignado a la aplicación. Lo necesitará más adelante.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -341,4 +341,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

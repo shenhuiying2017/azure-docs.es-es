@@ -24,7 +24,7 @@ La transmisión de Spark amplía la API de Spark de núcleo para crear aplicacio
 
 En este tutorial aprenderá a crear un Centro de eventos de Azure, a introducir mensajes en un Centro de eventos mediante una aplicación de consola en Java y a recuperarlos en paralelo mediante una aplicación Spark escrita en Scala. Esta aplicación consume los datos que se transmiten a través de Centros de eventos y los enruta a diferentes salidas (blob de Almacenamiento de Azure, tabla de Hive y tabla SQL).
 
-> [AZURE.NOTE] Para seguir las instrucciones de este artículo, tendrá que usar las dos versiones del portal de Azure. Para crear un Centro de eventos, deberá usar el [Portal de Azure](https://manage.windowsazure.com). Para trabajar con el clúster de HDInsight Spark, deberá usar el [Portal de vista previa de Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Para seguir las instrucciones de este artículo, tendrá que usar las dos versiones del portal de Azure. Para crear un Centro de eventos, usará el [Portal de Azure clásico](https://manage.windowsazure.com). Para trabajar con el clúster de HDInsight Spark, usará el [Portal de Azure](https://ms.portal.azure.com/).
 
 **Requisitos previos:**
 
@@ -64,10 +64,12 @@ Así es como fluye la solución de streaming:
 4. Haga clic en el Centro de eventos que ha creado, en **Configurar** y, después, cree dos directivas de acceso para el Centro de eventos.
 
 	<table>
-<tr><th>Nombre</th><th>Permisos</th></tr>
-<tr><td>mysendpolicy</td><td>Los métodos Send</td></tr>
-<tr><td>myreceivepolicy</td><td>Escuchar</td></tr>
-</table>Después de crear los permisos, seleccione el icono **Guardar** en la parte inferior de la página. Así se crean las directivas de acceso compartido que se usarán para enviar (**mysendpolicy**) y escuchar (**myreceivepolicy**) a este Centro de eventos.
+	<tr><th>Nombre</th><th>Permisos</th></tr>
+	<tr><td>mysendpolicy</td><td>Los métodos Send</td></tr>
+	<tr><td>myreceivepolicy</td><td>Escuchar</td></tr>
+	</table>
+
+	Después de crear los permisos, seleccione el icono **Guardar** en la parte inferior de la página. Así se crean las directivas de acceso compartido que se usarán para enviar (**mysendpolicy**) y escuchar (**myreceivepolicy**) a este Centro de eventos.
 
 	![directivas](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Crear directivas de centro de eventos")
 
@@ -341,13 +343,13 @@ Debería ver una salida similar a la siguiente:
 
 * [Spark con Aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Análisis del registro de sitios web con Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Creación y ejecución de aplicaciones
 
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Envío de trabajos de Spark de manera remota mediante Livy con clústeres de Spark en HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
+* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Herramientas y extensiones
 
@@ -355,7 +357,7 @@ Debería ver una salida similar a la siguiente:
 
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernels disponibles para cuadernos de Jupyter Notebook en un clúster de Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 ### Administración de recursos
 
@@ -372,4 +374,4 @@ Debería ver una salida similar a la siguiente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

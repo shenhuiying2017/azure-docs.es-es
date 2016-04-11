@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/28/2016"
 	ms.author="swkrish"/>
 
 #  Versión preliminar de Azure Active Directory B2C: Uso de atributos personalizados para recopilar información sobre los consumidores
@@ -48,4 +48,9 @@ El atributo personalizado ahora está disponible en la lista de **Atributos de u
 
 Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la experiencia del consumidor. Ahora debe ver "ShoeSize" en la lista de atributos que se recopilan durante el registro del consumidor y en el token enviado de vuelta a la aplicación.
 
-<!---HONumber=AcomDC_0224_2016-->
+## Notas
+
+- Junto con las directivas de registro, los atributos personalizados también se pueden utilizar en las directivas de registro o inicio de sesión y en las directivas de edición del perfil.
+- Hay un límite conocido de atributos personalizados. Solo se crea la primera vez que se utiliza en cualquier directiva y no cuando se agrega a la lista de **atributos de usuario**. Vamos a solucionar este problema pronto.
+
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,7 +1,4 @@
 
-## Requisitos previos
-
-
 Para ejecutar el ejemplo de código PHP que se proporciona en este tema, el equipo cliente debe tener los siguientes elementos de software instalados:
 
 
@@ -29,4 +26,4 @@ DateOfLatestFreshnessVerification = 2015-07-10
 DateOfLatestContentUpdate = 2015-07-10
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -10,6 +10,8 @@ El diagrama siguiente muestra la arquitectura típica de una solución de IoT. T
 
 ![Arquitectura de solución IoT][img-solution-architecture]
 
+> [AZURE.NOTE] Para ver un análisis detallado de la arquitectura de IoT, consulte el documento [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Servicios de IoT de Microsoft Azure: arquitectura de referencia).
+
 ### Conectividad de dispositivos
 
 En esta arquitectura de solución de IoT, los dispositivos envían telemetría (como lecturas de temperatura) a un punto de conexión de la nube para su almacenamiento y procesamiento. Los dispositivos también pueden recibir y responder a los comandos de nube a dispositivo mediante la lectura de mensajes desde un extremo de la nube. Por ejemplo, un dispositivo puede recuperar un comando que proporcione instrucciones para cambiar la frecuencia con la que realiza el muestreo de los datos.
@@ -26,7 +28,7 @@ Uno de los mayores desafíos relacionados con los proyectos de IoT consiste en c
 
 Además de los requisitos anteriores, toda solución de IoT debe ser capaz de ofrecer escalabilidad, seguridad y fiabilidad. Esto da lugar a un conjunto de requisitos de conectividad cuya implementación resulta compleja y lenta si se realiza con tecnologías tradicionales como, por ejemplo, los contenedores web y los agentes de mensajería. El Centro de IoT de Azure y los SDK de dispositivos IoT facilitan la implementación de soluciones que cumplen estos requisitos.
 
-Un dispositivo puede comunicarse directamente con un punto de conexión de la puerta de enlace de la nube, o si el dispositivo no puede usar ninguno de los protocolos de comunicaciones que admite la puerta de enlace en la nube, es posible establecer conexión a través de una puerta de enlace intermedia, como la [puerta de enlace de protocolos del Centro de IoT][lnk-protocol-gateway] que realiza la traducción de protocolos. La opción
+Un dispositivo puede comunicarse directamente con un punto de conexión de puerta de enlace de nube, o si el dispositivo no puede usar ninguno de los protocolos de comunicaciones que admite la puerta de enlace de nube, es posible establecer conexión a través de una puerta de enlace intermedia, como la [puerta de enlace de protocolo del Centro de IoT][lnk-protocol-gateway] que realiza la traducción de protocolos. La opción
 
 ### Procesamiento de datos y análisis
 
@@ -48,5 +50,6 @@ El nivel de presentación y conectividad empresarial permite a los usuarios fina
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]: iot-hub-protocol-gateway.md
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

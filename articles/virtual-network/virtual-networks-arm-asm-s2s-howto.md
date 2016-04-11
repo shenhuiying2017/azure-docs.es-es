@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/22/2016"
    ms.author="telmos" />
 
 # Conexión de redes virtuales clásicas a redes virtuales nuevas
@@ -23,7 +23,7 @@ En tales situaciones, deseará asegurarse de que la nueva infraestructura sea ca
 
 En este artículo, aprenderá a crear una conexión VPN de sitio a sitio (S2S) entre una red virtual clásica y una red virtual de ARM.
 
->[AZURE.NOTE]En este artículo se supone que ya tiene redes virtuales clásicas y redes virtuales ARM y que está familiarizado con la configuración de una conexión VPN de S2S para redes virtuales clásicas. Para una solución integral detallada en la conectividad de VPN S2S entre redes virtuales clásicas y ARM, visite [Guía de soluciones: conexión de una red virtual clásica y una red virtual ARM mediante una VPN S2S](../virtual-networks-arm-asm-s2s.md).
+>[AZURE.NOTE] En este artículo se supone que ya tiene redes virtuales clásicas y redes virtuales ARM y que está familiarizado con la configuración de una conexión VPN de S2S para redes virtuales clásicas. Para una solución integral detallada en la conectividad de VPN S2S entre redes virtuales clásicas y ARM, visite [Guía de soluciones: conexión de una red virtual clásica y una red virtual ARM mediante una VPN S2S](virtual-networks-arm-asm-s2s.md).
 
 Puede ver un resumen de las tareas necesarias para crear una conexión VPN S2S entre una red virtual clásica y una red virtual ARM mediante las puertas de enlace Azure facilitadas a continuación.
 
@@ -56,78 +56,66 @@ Para crear la puerta de enlace de VPN para la red virtual clásica, siga las ins
 
 Para crear una puerta de enlace de VPN para la red virtual ARM, siga las instrucciones siguientes.
 
-1. Desde una consola de PowerShell, ejecute el comando siguiente para cambiar al modo ARM.
+1. Desde una consola de PowerShell, ejecute el comando siguiente para crear una red local. La red local debe usar el bloque CIDR de la red virtual clásica a la que desea conectarse y la dirección IP pública de la puerta de enlace creada en el paso 1 anterior.
 
-		Switch-AzureMode AzureResourceManager
-
-2. Ejecute el comando siguiente para crear una red local. La red local debe usar el bloque CIDR de la red virtual clásica a la que desea conectarse y la dirección IP pública de la puerta de enlace creada en el paso 1 anterior.
-
-		New-AzureLocalNetworkGateway -Name VNetClassicNetwork `
+		New-AzureRmLocalNetworkGateway -Name VNetClassicNetwork `
 			-Location "East US" -AddressPrefix "10.0.0.0/20" `
 			-GatewayIpAddress "168.62.190.190" -ResourceGroupName RG1
 
 3. Ejecute el comando siguiente para crear una dirección IP pública para la puerta de enlace.
 
-		$ipaddress = New-AzurePublicIpAddress -Name gatewaypubIP`
+		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP`
 			-ResourceGroupName RG1 -Location "East US" `
 			-AllocationMethod Dynamic
 
 4. Ejecute el comando siguiente para recuperar la subred usada para la puerta de enlace.
 
-		$subnet = Get-AzureVirtualNetworkSubnetConfig -Name GatewaySubnet `
+		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
 			-VirtualNetwork (Get-AzureVirtualNetwork -Name VNetARM -ResourceGroupName RG1) 
 
-	>[AZURE.IMPORTANT]La subred de la puerta de enlace ya debe existir previamente y debe tener el nombre GatewaySubnet.
+	>[AZURE.IMPORTANT] La subred de la puerta de enlace ya debe existir previamente y debe tener el nombre GatewaySubnet.
 
 5. Ejecute el comando siguiente para crear un objeto de configuración de IP para la puerta de enlace. Observe el identificador de una subred de puerta de enlace. Esa subred debe existir en la red virtual.
 
-		$ipconfig = New-AzureVirtualNetworkGatewayIpConfig `
+		$ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
 			-Name ipconfig -PrivateIpAddress 10.1.2.4 `
 			-SubnetId $subnet.id -PublicIpAddressId $ipaddress.id
 
-	>[AZURE.IMPORTANT]Debe pasarse la propiedad de Id de la subred y los objetos de la dirección IP respectivamente a los parámetros *SubnetId* y *PublicIpAddressId*. No puede usar una cadena sencilla.
+	>[AZURE.IMPORTANT] Debe pasarse la propiedad de Id de la subred y los objetos de la dirección IP respectivamente a los parámetros *SubnetId* y *PublicIpAddressId*. No puede usar una cadena sencilla.
 	
 5. Ejecute el comando siguiente para crear la puerta de enlace de la red virtual ARM.
 
-		New-AzureVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1 `
+		New-AzureRmVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1 `
 			-Location "East US" -GatewayType Vpn -IpConfigurations $ipconfig `
 			-EnableBgp $false -VpnType RouteBased
 
 6. Una vez creada la puerta de enlace VPN, ejecute el comando siguiente para recuperar su dirección IP pública. Copie la dirección IP, la necesitará para configurar la red local para la red virtual clásica.
 
-		Get-AzurePublicIpAddress -Name gatewaypubIP -ResourceGroupName RG1
+		Get-AzureRmPublicIpAddress -Name gatewaypubIP -ResourceGroupName RG1
 
 ## Paso 3: Crear una conexión entre las puertas de enlace
 
 1. Abra el portal clásico desde https://manage.windowsazure.com y escriba sus credenciales, si es necesario.
 2. En el portal clásico, desplácese hacia abajo, haga clic en **REDES**, en **REDES LOCALES**, en la red virtual ARM a la que desee conectarse y, por último, en el botón **EDITAR**.
 3. En **DIRECCIÓN IP DE DISPOSITIVO VPN (OPCIONAL)**, escriba la dirección IP para la recuperación de la puerta de enlace de red virtual ARM en el paso 2 anterior, haga clic en la flecha derecha situada en la esquina inferior derecha y, por último, en el botón de la marca de verificación.
-4. Desde una consola de PowerShell, cambie al modo de Administrador de servicios de Azure ejecutando el siguiente comando.
-
-		Switch-AzureMode AzureServiceManager
-
-5. Ejecute el comando siguiente para configurar una clave compartida. Asegúrese de cambiar los nombres de las redes virtuales por los nombres de su propia red virtual.
+4. Desde una consola de PowerShell, ejecute el comando siguiente para configurar una clave compartida. Asegúrese de cambiar los nombres de las redes virtuales por los nombres de su propia red virtual.
 
 		Set-AzureVNetGatewayKey -VNetName VNetClassic `
 			-LocalNetworkSiteName VNetARM -SharedKey abc123
 
-6. Desde una consola de PowerShell, ejecute el comando siguiente para cambiar al modo de Administrador de recursos de Azure ejecutando el siguiente comando.
-
-		Switch-AzureMode AzureResourceManager
-
 7. Ejecute los comandos siguientes para crear la conexión VPN.
 
-		$vnet01gateway = Get-AzureLocalNetworkGateway -Name VNetClassic -ResourceGroupName RG1
-		$vnet02gateway = Get-AzureVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1
+		$vnet01gateway = Get-AzureRmLocalNetworkGateway -Name VNetClassic -ResourceGroupName RG1
+		$vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1
 		
-		New-AzureVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
+		New-AzureRmVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
 			-ResourceGroupName RG1 -Location "East US" -VirtualNetworkGateway1 $vnet02gateway `
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey 'abc123'
 
 ## Pasos siguientes
 
-- Obtener más información sobre [el proveedor de recursos de red (NRP) para ARM](../resource-groups-networking.md).
-- Cree una [solución integral mediante la conexión de una red virtual clásica a una ARM mediante una VPN S2S](../virtual-networks-arm-asm-s2s.md).
+- Obtener más información sobre [el proveedor de recursos de red (NRP) para ARM](resource-groups-networking.md).
+- Cree una [solución integral mediante la conexión de una red virtual clásica a una ARM mediante una VPN S2S](virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

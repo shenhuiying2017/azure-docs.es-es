@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Tablas temporales en el Almacenamiento de datos SQL
@@ -24,7 +24,7 @@ Este artículo contiene directrices esenciales para el uso de tablas temporales 
 ## Creación de tablas temporales
 Es muy sencillo crear una tabla temporal. Lo único que debe hacer es usar el prefijo # antes del nombre de la tabla, como en el ejemplo siguiente:
 
-```
+```sql
 CREATE TABLE #stats_ddl
 (
 	[schema_name]			NVARCHAR(128) NOT NULL
@@ -44,7 +44,7 @@ WITH
 
 También se pueden crear tablas temporales mediante `CTAS` siguiendo exactamente el mismo método.
 
-```
+```sql
 CREATE TABLE #stats_ddl
 WITH
 (
@@ -102,7 +102,7 @@ FROM    t1
 
 Para garantizar que las instrucciones `CREATE TABLE` sean correctas, es importante asegurarse de que la tabla no existe en la sesión. Para ello puede llevar a cabo una sencilla comprobación de existencia previa usando el patrón siguiente:
 
-```
+```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
 	DROP TABLE #stats_ddl
@@ -113,7 +113,7 @@ END
 
 También es buena idea usar `DROP TABLE` para quitar las tablas temporales cuando haya acabado con ellas en el código.
 
-```
+```sql
 DROP TABLE #stats_ddl
 ```
 
@@ -127,7 +127,7 @@ Vamos a exponer un ejemplo práctico.
 
 El siguiente procedimiento almacenado combina los ejemplos mencionados anteriormente. El código puede usarse para generar el archivo DDL necesario para actualizar las estadísticas de todas las columnas de la base de datos:
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
 	,@sample_pct     tinyint
@@ -209,7 +209,7 @@ En el Almacenamiento de datos SQL es posible usar la tabla temporal fuera del pr
 
 Esto puede generar código más modular y fácil de administrar. Observe el ejemplo siguiente:
 
-```
+```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
 
 DECLARE @i INT              = 1
@@ -254,4 +254,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

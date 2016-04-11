@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="03/28/2016" 
 	ms.author="tarcher"/>
 
 # Introducción a Azure Active Directory y servicios conectados de Visual Studio (proyectos de MVC)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
-> - [What Happened](vs-active-directory-dotnet-what-happened.md)
+> - [Introducción](vs-active-directory-dotnet-getting-started.md)
+> - [¿Qué ha ocurrido?](vs-active-directory-dotnet-what-happened.md)
  
 ##Requerimiento de autenticación para obtener acceso a los controladores 
 
@@ -77,4 +77,4 @@ Para agregar controles SignIn/SignOut a su vista, utilice la vista parcial **\_L
 
 [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

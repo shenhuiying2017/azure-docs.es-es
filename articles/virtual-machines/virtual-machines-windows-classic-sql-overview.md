@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
+	ms.date="03/24/2016"
 	ms.author="jroth"/>
 
 # Información general sobre SQL Server en máquinas virtuales de Azure
@@ -26,13 +26,15 @@ Puede hospedar [SQL Server en Máquinas virtuales Azure](https://azure.microsoft
 
 Para crear una máquina virtual de SQL Server en Azure, primero debe obtener una suscripción a la plataforma de Azure. Puede adquirir una suscripción de Azure en [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/). Para probarla de manera gratuita, visite la [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
+Para obtener una introducción excelente, vea el vídeo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (VM de Azure es la mejor plataforma para SQL Server 2016).
+
 ### Implementar una instancia de SQL Server en una única máquina virtual
 
 Cuando se haya registrado para una suscripción, la manera más sencilla de implementar una máquina virtual de SQL Server en Azure es [aprovisionar una imagen de la galería de máquinas de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md). Esas imágenes incluyen licencias de SQL Server en el precio de la máquina virtual.
 
 Es importante tener en cuenta que hay dos modelos para crear y administrar máquinas virtuales de Azure: clásica y Administrador de recursos. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Parte de la documentación de SQL Server para máquinas virtuales de Azure aún se refiere exclusivamente al modelo clásico. Estos temas se actualizan con el tiempo para usar el nuevo portal de Azure y el modelo del Administrador de recursos. Para obtener más información, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md).
 
->[AZURE.NOTE] Cuando sea posible, use el último [Portal de Azure](https://portal.azure.com/) para aprovisionar y administrar máquinas virtuales de SQL Server. De forma predeterminada, usa Almacenamiento premium y ofrece revisiones automatizadas, copias de seguridad automatizadas y configuraciones AlwaysOn.
+>[AZURE.NOTE] Cuando sea posible, use el último [Portal de Azure](https://portal.azure.com/) para aprovisionar y administrar Máquinas virtuales de SQL Server. De forma predeterminada, usa Almacenamiento premium y ofrece revisiones automatizadas, copias de seguridad automatizadas y configuraciones AlwaysOn.
 
 En la tabla siguiente se ofrece una matriz de imágenes de SQL Server disponibles en la galería de máquinas virtuales.
 
@@ -147,4 +149,4 @@ Si crea una máquina virtual mediante una imagen de SQL Server ofrecida por la p
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 - [Máquinas virtuales de Azure](virtual-machines-linux-about.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

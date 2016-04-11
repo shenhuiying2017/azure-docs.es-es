@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="03/23/2016"
    ms.author="carlrab"/>
 
-# Solucionar problemas de compatibilidad de bases de datos de SQL Server antes de la migración a la Base de datos SQL
+# Solución de problemas de compatibilidad de bases de datos de SQL Server mediante el Asistente para migración de SQL Azure antes de la migración a la Base de datos SQL
 
 Si determina que la Base de datos SQL Server de origen no es compatible, tiene varias opciones para corregir los problemas de compatibilidad de bases de datos identificados anteriormente.
 
@@ -37,4 +37,4 @@ Use la herramienta de CodePlex del [Asistente para migración de SQL Azure](http
 
 [Seleccione el método de migración](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -41,13 +41,15 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 2. Haga clic en **NUEVO**, en **Análisis de datos** y luego en **HDInsight**.
 
     ![Creación de un clúster en el Portal de Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creación de un clúster nuevo en el Portal de Azure")
+3. Especifique el **nombre del clúster**: dicho nombre debe ser único globalmente.
+4. Haga clic en **Seleccionar tipo de clúster** y luego seleccione:
 
-3. Especifique:
-
-    - **Nombre de clúster**: este nombre debe ser único globalmente.
-    - **Tipo de clúster**: si no sabe qué elegir, seleccione **Hadoop**.
-    - **Sistema operativo de clústeres**: seleccione **Linux**.
-    - **Versión**: use la versión predeterminada si no sabe qué elegir. Para obtener más información, consulte [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
+    - **Tipo de clúster**: si no sabe qué opción elegir, seleccione **Hadoop**. Es el tipo de clúster más popular.
+    - **Sistema operativo**: seleccione **Linux**.
+    - **Versión**: use la versión predeterminada si no sabe qué opción elegir. Para obtener más información, consulte [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
+    - **Nivel de clúster**: HDInsight de Azure proporciona las ofertas de macrodatos en la nube en dos categorías: Estándar y Premium. Para más información, consulte [Niveles de clúster](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+    
+    ![Configuración de las capas de HDInsight Premium](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
 4. Haga clic en **Suscripción** para seleccionar la suscripción de Azure que se usará para el clúster.
 
@@ -73,7 +75,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
 	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si desea especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
 
-	- **Seleccionar cuenta de almacenamiento o Nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Nueva** para crear una cuenta de almacenamiento nueva. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
+	- **Seleccionar cuenta de almacenamiento o Nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar la cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Nueva** para crear una cuenta de almacenamiento nueva. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
 
 	- **Elegir contenedor predeterminado**: use esta opción para escribir el nombre del contenedor predeterminado que se usará para el clúster. Aunque se puede escribir cualquier nombre aquí, se recomienda usar el mismo nombre que el del clúster para que pueda reconocer fácilmente que el contenedor se usa para este clúster concreto.
 
@@ -81,7 +83,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
 		> [AZURE.IMPORTANT] Seleccionar la ubicación del origen de datos predeterminado también establecerá la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben encontrarse en la misma región.
         
-    - **Identidad de AAD del clúster**: al configurarla, hace que el clúster sea accesible para los almacenes de Azure Data Lake según la configuración de AAD.
+    - **Identidad de AAD del clúster**: al configurarla, los almacenes de Azure Data Lake podrán acceder al clúster en función de la configuración de AAD.
 
 	Haga clic en **Seleccionar** para guardar la configuración del origen de datos.
 
@@ -101,7 +103,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
 		![Hoja de red virtual](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.6.png "Especifique detalles de red virtual")
 
-    	Para obtener información sobre el uso de HDInsight con una red virtual, como los requisitos de configuración específicos de la red virtual, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md).
+    	Para obtener información sobre el uso de HDInsight con una red virtual, incluyendo los requisitos de configuración específicos de la red virtual, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 	* Haga clic en **Tiendas de metadatos externas** para especificar la base de datos SQL que quiere usar para guardar los metadatos de Hive y Oozie asociados al clúster.
     
@@ -117,7 +119,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
 		![Hoja de acción de script](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.8.png "Especifique una acción de script")
 
-	* Haga clic en **Cuentas de almacenamiento vinculadas** a fin de especificar cuentas de almacenamiento adicionales para asociar al clúster. En la hoja **Claves de almacenamiento de Azure**, haga clic en **Agregar una clave de almacenamiento** y luego seleccione una cuenta de almacenamiento existente o cree una nueva cuenta.
+	* Haga clic en **Cuentas de almacenamiento vinculadas** para especificar las cuentas de almacenamiento adicionales que se van a asociar con al clúster. En la hoja **Claves de almacenamiento de Azure**, haga clic en **Agregar una clave de almacenamiento** y luego seleccione una cuenta de almacenamiento existente o cree una nueva cuenta.
 
 		![Hoja de almacenamiento adicional](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.9.png "Especificar cuentas de almacenamiento adicionales")
 
@@ -151,14 +153,14 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
 	* **Usuarios** (![icono de usuarios](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): permite establecer permisos de _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
 
-		> [AZURE.IMPORTANT] Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
+		> [AZURE.IMPORTANT] Esto _solo_ afecta al acceso y los permisos de este clúster en el Portal de Azure, pero no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
 
 	* **Etiquetas** (![icono de etiqueta](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
 
 ##Personalización de los clústeres
 
 - Consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
-- Consulte [Personalización de clústeres de HDInsight basados en Windows mediante la acción de script](hdinsight-hadoop-customize-cluster.md).
+- Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 ##Eliminación del clúster
 
@@ -193,4 +195,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

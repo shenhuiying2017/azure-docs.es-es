@@ -15,12 +15,10 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
-
 # Funciones de consultas de Analytics
 
 
-[Analytics](app-analytics.md) es una eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
+[Analytics](app-analytics.md) permite ejecutar consultas eficaces sobre la telemetría desde su aplicación, recopiladas por [Application Insights](app-insights-overview.md). En estas páginas se describe su lenguaje de consulta.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -306,7 +304,7 @@ La columna expandida siempre tiene el tipo dinámico. Usar una conversión como 
 Se admiten dos modos de expansiones de contenedor de propiedades:
 
 * `bagexpansion=bag`: los contenedores de propiedades se expanden en contenedores de propiedades de entrada única. Esta es la expansión predeterminada.
-* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`*key*`,`*value*`]`, que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
+* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`* key*`,`*value*`]`, que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
 
 **Ejemplos**
 
@@ -676,9 +674,9 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
  *  Una expresión de consulta como `(events | where id==42)`
  *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `E*` podría formar la unión de todas las tablas en la base de datos cuyos nombres comienzan con `E`.
 * `kind`: 
- * `inner` -El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
- * `outer` -El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
-* `withsource=`*ColumnName:* si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
+ * `inner` - El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
+ * `outer` - El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
+* `withsource=`* ColumnName: * si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
 
 **Devoluciones**
 
@@ -766,4 +764,4 @@ Observe que colocamos la comparación entre dos columnas al final, ya que no pue
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

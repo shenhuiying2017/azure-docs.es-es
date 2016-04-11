@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/16/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 
-En este artículo se describe cómo usar el Portal de Azure para supervisar y administrar un grupo de bases de datos elásticas y las bases de datos del grupo, así como identificar su tamaño correcto. La Base de datos SQL cuenta con inteligencia integrada que analiza la telemetría del historial de uso y recomienda de forma proactiva un grupo para las bases de datos cuando resulte más rentable. También puede agregar y quitar bases de datos antes de confirmar los cambios y ver el impacto de estos en el almacenamiento y el rendimiento del grupo.
+En este artículo se describe cómo usar el Portal de Azure para supervisar y administrar un grupo de bases de datos elásticas y las bases de datos del grupo, así como identificar su tamaño correcto. Base de datos SQL es una base de datos inteligente que analiza la telemetría del historial de uso y recomienda de forma anticipada un grupo para las bases de datos cuando resulte más rentable. También puede agregar y quitar bases de datos antes de confirmar los cambios y ver el impacto de estos en el almacenamiento y el rendimiento del grupo.
 
 Para seguir los pasos de este artículo, necesitará bases de datos y un grupo. Consulte el artículo sobre [cómo crear un grupo](sql-database-elastic-pool-create-portal.md) si ya cuenta con bases de datos, y el [tutorial sobre la Base de datos SQL](sql-database-get-started) en caso contrario.
 
@@ -131,4 +131,4 @@ Los trabajos elásticos le permiten ejecutar scripts de Transact-SQL con cualqui
 - [Creación de un grupo de bases de datos elásticas con C#](sql-database-elastic-pool-create-csharp.md)
 - [Consideraciones de precio y rendimiento para grupos de bases de datos elásticas](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

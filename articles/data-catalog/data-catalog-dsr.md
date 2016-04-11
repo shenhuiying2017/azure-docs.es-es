@@ -3,8 +3,8 @@
    description="Especificación de los orígenes de datos compatibles actualmente."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
-   manager="jstrauss"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
-   ms.author="trhabe"/>
+   ms.date="03/30/2016"
+   ms.author="maroche"/>
 
 # Orígenes de datos compatibles con el Catálogo de datos de Azure
 
@@ -436,18 +436,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
       </td>
     </tr>
 
-    <tr>
-      <td>Cosmos</td>
-      <td>Contenedor</td>
-      <td>Clúster virtual</td>
-      <td>N/D</td>
-      <td>
-        <font size=2> protocolo: cosmos
-            <br>autenticación: {básica, windows}
-            <br>dirección:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
+
 
     <tr>
       <td>SQL Server Reporting Services</td>
@@ -523,46 +512,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
             <br>&#160;&#160;&#160;&#160;&#160; database
             <br>&#160;&#160;&#160;&#160;&#160; modelo
             <br>
-            <br>*básica/anónima disponible solo a través de https </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Tabla</td>
-      <td>Stream</td>
-      <td>Clúster virtual</td>
-      <td>
-        <font size=2> protocolo: cosmos
-            <br>autenticación: {básica, windows}
-            <br>dirección:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Tabla</td>
-      <td>Conjunto de transmisiones</td>
-      <td>Clúster virtual</td>
-      <td>
-        <font size=2> protocolo: cosmos
-            <br>autenticación: {básica, windows}
-            <br>dirección:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Tabla</td>
-      <td>Ver</td>
-      <td>Clúster virtual</td>
-      <td>
-        <font size=2> protocolo: cosmos
-            <br>autenticación: {básica, windows}
-            <br>dirección:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+            <br>*básica/anónima disponible solo a través de https* </font>
       </td>
     </tr>
 
@@ -664,7 +614,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
             <br>&#160;&#160;&#160;&#160;&#160; database
             <br>&#160;&#160;&#160;&#160;&#160; modelo
             <br>
-            <br>*básica/anónima disponible solo a través de https </font>
+            <br>*básica/anónima disponible solo a través de https* </font>
       </td>
     </tr>
 
@@ -1173,7 +1123,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
             <br>&#160;&#160;&#160;&#160;&#160; objeto
             <br>&#160;&#160;&#160;&#160;&#160; objectType: {Kpi}
             <br>
-            <br>*básica/anónima disponible solo a través de https </font>
+            <br>*básica/anónima disponible solo a través de https* </font>
       </td>
     </tr>
 
@@ -1239,7 +1189,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
             <br>&#160;&#160;&#160;&#160;&#160; objeto
             <br>&#160;&#160;&#160;&#160;&#160; objectType: {Table}
             <br>
-            <br>*básica/anónima disponible solo a través de https </font>
+            <br>*básica/anónima disponible solo a través de https* </font>
       </td>
     </tr>
 
@@ -1334,4 +1284,4 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
 
 </table>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Diseño de tablas en el Almacenamiento de datos SQL #
@@ -59,7 +59,7 @@ Almacenamiento de datos SQL admite los tipos de datos empresariales comunes:
 
 Puede identificar columnas en el almacenamiento de datos que contienen tipos incompatibles mediante la consulta siguiente:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -138,7 +138,7 @@ La distribución round robin es un método de propagación de datos lo más unif
 
 A continuación se muestra un ejemplo de tabla con distribución round robin:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -158,7 +158,7 @@ WITH
 
 También se trata de un ejemplo de tabla con distribución round robin:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -205,7 +205,7 @@ Como verá a continuación, la distribución de hash puede ser muy eficaz para l
 
 A continuación se muestra una tabla que ha distribuido ProductKey.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -230,7 +230,7 @@ Las particiones de tabla son compatibles y fáciles de definir.
 
 Ejemplos del comando `CREATE TABLE` con particiones del Almacenamiento de datos SQL:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -306,4 +306,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

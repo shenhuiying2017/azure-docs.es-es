@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/28/2016"
 	ms.author="v-shysun"/>
 
 # Solucionar problemas de rendimiento de bases de datos con la Base de datos SQL de Azure
@@ -30,4 +30,4 @@ Puede cambiar el [nivel de servicio](sql-database-service-tiers.md) de una base 
 
 Si los problemas de rendimiento continúan, póngase en contacto con el soporte técnico para abrir un caso de soporte técnico.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

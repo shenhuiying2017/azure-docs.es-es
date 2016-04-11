@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Recuperación de una base de datos de un error de usuario en Almacenamiento de datos SQL
@@ -44,7 +44,7 @@ Para restaurar una base de datos, use el cmdlet [Start-AzureSqlDatabaseRestore][
 6. Restaure la base de datos al punto de restauración deseado.
 7. Supervise el progreso de la restauración.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -95,13 +95,13 @@ Para restaurar una base de datos eliminada, use el cmdlet [Start-AzureSqlDatabas
 3. Seleccione la suscripción que contiene la base de datos eliminada que se va a restaurar.
 4. Encontrar la base de datos y la fecha de eliminación en la lista de bases de datos eliminadas
 
-```
+```Powershell
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
 5. Obtenga la base de datos eliminada específica e inicie la restauración.
 
-```
+```Powershell
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
 
 $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName "<NewDatabaseName>"
@@ -141,4 +141,4 @@ Para obtener información sobre las características de continuidad del negocio 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

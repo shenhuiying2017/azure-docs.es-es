@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos tal y como aparecen en este documento, cree primero el entorno de prueba mediante la implementación de [esta plantilla](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal. En los pasos siguientes se emplea **RG-NSG** como nombre del grupo de recursos en el que se implementó la plantilla.
+En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos tal y como aparecen en este documento, cree primero el entorno de prueba mediante la implementación de [esta plantilla](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal. En los pasos siguientes se emplea **RG-GSN** como nombre del grupo de recursos en el que se implementó la plantilla.
 
 ## Creación del grupo de seguridad de red NSG-FrontEnd
 
@@ -36,13 +36,13 @@ Para crear el grupo de seguridad de red **NSG-FrontEnd** según el escenario ant
 1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
 2. Haga clic en **Examinar >** > **Grupos de seguridad de red**.
 
-	![Portal de Azure - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Portal de Azure - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
 3. En la hoja **Grupos de seguridad de red**, haga clic en **Agregar**.
+  
+    ![Portal de Azure: NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
-	![Portal de Azure - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
-
-4. En la hoja **Crear grupo de seguridad de red**, cree un NSG llamado *NSG-FrontEnd* en el grupo de recursos *RG-NSG* y, a continuación, haga clic en **Crear**.
+4. En la hoja **Crear grupo de seguridad de red**, cree un NSG llamado *NSG-FrontEnd* en el grupo de recursos *RG-NSG* y, después, haga clic en **Crear**.
 
 	![Portal de Azure - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
 
@@ -100,7 +100,7 @@ Para crear el grupo de seguridad de red **NSG-BackEnd** y asociarlo a la subred 
 
 ## Pasos siguientes
 
-- Obtenga información sobre cómo [administrar grupos de seguridad de red existentes](virtual-network-manage-nsg-arm-portal.md).
+- Información sobre cómo [administrar grupos de seguridad de red existentes](virtual-network-manage-nsg-arm-portal.md)
 - [Habilite el registro](virtual-network-nsg-manage-log.md) para los grupos de seguridad de red.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

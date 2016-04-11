@@ -13,10 +13,10 @@ Para obtener información general acerca de cómo diseñar un clúster de HPC Pa
 
 ## Requisitos previos
 
-* **Suscripción de Azure**: puede usar una suscripción en el servicio Azure Global o Azure China. Los límites de su suscripción afectarán al número y al tipo de nodos de clúster que puede implementar. Para obtener información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+* **Suscripción de Azure**: puede usar una suscripción en el servicio Azure Global o Azure China. Los límites de su suscripción afectarán al número y al tipo de nodos de clúster que puede implementar. Para obtener información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../articles/azure-subscription-service-limits.md).
 
 
-* **Equipo cliente Windows con Azure PowerShell 0.8.7 o posterior instalado y configurado**: consulte [Instalar y configurar Azure PowerShell](../powershell-install-configure.md). El script se ejecuta en Administración de servicios de Azure.
+* **Equipo cliente Windows con Azure PowerShell 0.8.7 o posterior instalado y configurado**: consulte [Cómo instalar y configurar Azure PowerShell](../articles/powershell-install-configure.md). El script se ejecuta en Administración de servicios de Azure.
 
 
 * **Script de implementación de IaaS de HPC Pac **: descargue y desempaquete la versión más reciente del script desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Compruebe la versión del script ejecutando `New-HPCIaaSCluster.ps1 –Version`. Este artículo se basa en la versión 4.4.0 del script.
@@ -362,4 +362,4 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
     Para evitar este problema, compruebe primero el estado de la extensión en las máquinas virtuales. Si la extensión no está instalada correctamente, intente quitar los nodos del clúster de HPC y, a continuación, vuelva a agregarlos. Por ejemplo, puede agregar máquinas virtuales de nodos de proceso mediante la ejecución del script Add-HpcIaaSNode.ps1 en el nodo principal.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

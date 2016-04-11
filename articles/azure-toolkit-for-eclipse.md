@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/07/2016" 
+    ms.date="03/28/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -22,7 +22,7 @@
 
 El kit de herramientas de Azure para Eclipse ofrece plantillas y funciones que permiten crear, desarrollar, probar e implementar aplicaciones de Azure fácilmente con el entorno de desarrollo de Eclipse. Es un proyecto de código abierto, cuyo código fuente está disponible con la licencia de Apache 2.0 desde el sitio del proyecto en:
 
-* <https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>
+* <https://github.com/microsoft/azure-tools-for-java.>
 
 ## Introducción al Kit de herramientas de Azure para Eclipse ##
 
@@ -30,7 +30,7 @@ Los artículos siguientes le ayudarán a empezar a usar el kit de herramientas d
 
 * [Novedades del kit de herramientas de Azure para Eclipse]
 * [Instalación del Kit de herramientas de Azure para Eclipse]
-* [Creación de una aplicación Hola a todos para Azure en Eclipse]
+* [Creación de un servicio en la nube Hello World para Azure en Eclipse]
 * [Creación de una aplicación web Hello World para Azure en Eclipse]
 * [Mostrar el contenido de Javadoc en Eclipse para el paquete para bibliotecas de Azure para Java]
 
@@ -64,7 +64,7 @@ En los artículos siguientes se muestra cómo usar el Kit de herramientas de Azu
 
 [Instalación del Kit de herramientas de Azure para Eclipse]
 
-[Creación de una aplicación Hola a todos para Azure en Eclipse]
+[Creación de una aplicación Hello World para Azure en Eclipse]
 
 [Novedades del kit de herramientas de Azure para Eclipse]
 
@@ -77,7 +77,7 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Propiedades de roles de Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Puntos de conexión de servicio de Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Lista de cuentas de almacenamiento de Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Creación de una aplicación Hola a todos para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Creación de un servicio en la nube Hello World para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Creación de una aplicación web Hello World para Azure en Eclipse]: ./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md
 [Depuración de aplicaciones de Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Implementación de implementaciones de gran tamaño]: http://go.microsoft.com/fwlink/?LinkID=699536
@@ -95,4 +95,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Uso la biblioteca de tiempo de ejecución del servicio de Azure en JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Novedades del kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

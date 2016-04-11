@@ -36,7 +36,7 @@ Nuestro objetivo con el servicio Contenedor de Azure es proporcionar un entorno 
 Creación de un clúster de Docker con el servicio Contenedor de Azure
 -------------------------------------------------------
 
-Para comenzar a usar el servicio Contenedor de Azure, se implementará un clúster de ACS mediante una plantilla del Administrador de recursos de Azure. Esta implementación puede configurarse con diferentes opciones de tamaño y disponibilidad, y se configurará con Apache Mesos o Docker Swarm. Las plantillas del Administrador de recursos de Azure pueden implementarse a través del Portal de Azure mediante la CLI de Azure o con PowerShell. Las plantillas también se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación y el clúster de ACS, consulte [Deploy an Azure container Service Cluster](./container-service-deployment.md) (Implementar un clúster del servicio Contenedor de Azure).
+Para comenzar a usar el servicio Contenedor de Azure, se implementará un clúster de ACS mediante una plantilla del Administrador de recursos de Azure. Esta implementación puede configurarse con diferentes opciones de tamaño y disponibilidad, y con Apache Mesos o Docker Swarm. Las plantillas del Administrador de recursos de Azure pueden implementarse a través del Portal de Azure mediante la CLI de Azure o con PowerShell. Las plantillas también se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación y el clúster de ACS, consulte [Deploy an Azure container Service Cluster](./container-service-deployment.md) (Implementar un clúster del servicio Contenedor de Azure).
 
 Implementación de una aplicación
 ------------------------
@@ -101,4 +101,4 @@ Introducción a ACS:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->
