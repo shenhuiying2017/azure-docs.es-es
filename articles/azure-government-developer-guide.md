@@ -92,7 +92,8 @@ Portal de administración|manage.windowsazure.com|manage.windowsazure.us
 General|*.windows.net|*.usgovcloudapi.net
 Núcleo|*.core.windows.net|*.core.usgovcloudapi.net
 Proceso|*.cloudapp.net|*.usgovcloudapp.net
-Almacenamiento de blobs|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Almacenamiento de colas|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Almacenamiento de blobs|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net
+Almacenamiento de colas|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Almacenamiento de tablas|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Administración de servicios|management.core.windows.net|management.core.usgovcloudapi.net
 Base de datos SQL|*.database.windows.net|*.database.usgovcloudapi.net
