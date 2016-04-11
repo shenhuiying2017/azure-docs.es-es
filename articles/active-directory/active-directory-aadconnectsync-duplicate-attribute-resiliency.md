@@ -179,7 +179,7 @@ El siguiente artículo describe diversas estrategias de solución de problemas: 
 
 ## Problemas conocidos 
 
-Ninguno de estos problemas conocidos provocará la degradación del servicio o la pérdida de datos. Varios de ellos son estéticos, otros producen errores estándar de atributos duplicados de “*resistencia previa*” que se generan en lugar de poner en cuarentena el archivo en conflicto, y otros que provocan ciertos errores que requieren una solución manual adicional.
+Ninguno de estos problemas conocidos provocará la degradación del servicio o la pérdida de datos. Varios de ellos son estéticos, otros producen errores estándar de atributos duplicados de “ *resistencia previa* ” que se generan en lugar de poner en cuarentena el archivo en conflicto, y otros que provocan ciertos errores que requieren una solución manual adicional.
 
 **Comportamiento básico:**
 
@@ -239,5 +239,6 @@ Ninguno de estos problemas conocidos provocará la degradación del servicio o l
 - [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 
 - [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+
 
 <!----HONumber=AcomDC_0323_2016-->
