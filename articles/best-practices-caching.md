@@ -151,7 +151,8 @@ Considere la posibilidad de implementar una caché privada local en cada instanc
 
 Este enfoque requiere tener mucho cuidado con la configuración para evitar que la caché local se vuelva demasiado obsoleta con respecto a la caché compartida. Sin embargo, la caché local actúa como búfer si la caché compartida es inaccesible. En la Figura 3 se muestra esta estructura.
 
-![Uso de una caché local y privada con una caché compartida](media/best-practices-caching/Caching3.png) _Figura 3: Uso de una memoria caché local y privada con una memoria caché compartida_
+![Uso de una caché local y privada con una caché compartida](media/best-practices-caching/Caching3.png) 
+_Figura 3: Uso de una memoria caché local y privada con una memoria caché compartida_
 
 Para admitir cachés de gran tamaño con datos de duración relativamente larga, algunos servicios de caché ofrecen una opción de alta disponibilidad que implementa la conmutación automática por error si la memoria caché dejar de estar disponible. Este enfoque implica normalmente la réplica de los datos en caché que se almacenan en un servidor de caché principal en un servidor de caché secundario y el cambio al servidor secundario si el servicio principal genera error o se pierde la conectividad.
 
@@ -564,7 +565,7 @@ Redis admite una serie de operaciones atómicas de get y set en valores de caden
   ConnectionMultiplexer redisHostConnection = ...;
   IDatabase cache = redisHostConnection.GetDatabase();
   ...
-  // Create a list of key-value pairs
+  // Create a list of key/value pairs
   var keysAndValues =
       new List<KeyValuePair<RedisKey, RedisValue>>()
       {
@@ -573,7 +574,7 @@ Redis admite una serie de operaciones atómicas de get y set en valores de caden
           new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
       };
 
-  // Store the list of key-value pairs in the cache
+  // Store the list of key/value pairs in the cache
   cache.StringSet(keysAndValues.ToArray());
   ...
   // Find all values that match a list of keys

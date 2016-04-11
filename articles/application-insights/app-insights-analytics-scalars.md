@@ -185,7 +185,7 @@ Verdadero o falso dependiendo de si el valor es null o not null.
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 **Ejemplo**
@@ -530,7 +530,7 @@ Las reglas son las mismas que en JavaScript.
 
 Las cadenas pueden incluirse entre comillas sencillas o dobles.
 
-La barra diagonal inversa (``) se usa para marcar los caracteres de escape como `\t` (tabulación), `\n` (nueva línea) y las instancias del carácter de comillas.
+La barra diagonal inversa (`\`) se usa para marcar los caracteres de escape como `\t` (tabulación), `\n` (nueva línea) y las instancias del carácter de comillas.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -676,7 +676,7 @@ Indica si el argumento es una cadena vacía o isnull.
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 

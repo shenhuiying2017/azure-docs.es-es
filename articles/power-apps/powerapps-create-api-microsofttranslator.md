@@ -29,19 +29,25 @@ Agregue la API de Microsoft Translator al entorno del Servicio de aplicaciones d
 
 1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
  
-2. Seleccione **Examinar** en la barra de tareas: ![][7]
+2. Seleccione **Examinar** en la barra de tareas:  
+![][7]
 
-3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: ![][8]
+3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*:  
+![][8]  
 
-4. En **PowerApps**, seleccione **Administrar API**: ![Examine las APIs registradas][1]
+4. En **PowerApps**, seleccione **Administrar API**:  
+![Examine las APIs registradas][1]
 
-5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API: ![Add API][2]
+5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:  
+![Add API][2]
 
 6. Escriba un **nombre** descriptivo para la API.
 	
-7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Microsoft Translator**: ![seleccionar la api de Microsoft Translator][3]
+7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Microsoft Translator**:  
+![seleccionar la api de Microsoft Translator][3]
 
-8. Seleccione **Configuración: Configure los ajustes necesarios**: ![establecer la configuración de la API de Microsoft Translator][4]
+8. Seleccione **Configuración: Configure los ajustes necesarios**:  
+![establecer la configuración de la API de Microsoft Translator][4]
 
 9. Escriba el *Id. de cliente* y el *Secreto de cliente* de la aplicación Microsoft Translator. Si no dispone de estos, consulte la sección "Registrar una aplicación Microsoft Translator para su uso con PowerApps" en este tema para crear el identificador y los valores secretos que necesita.
 
@@ -63,8 +69,8 @@ Si no tiene una aplicación Microsoft Translator existente con los valores de Id
 
 	1. Escriba un valor en **Id. de cliente**.  
 	2. Escriba el **nombre** de la aplicación.  
-	3. Escriba un valor ficticio en **URL de redireccionamiento**. Por ejemplo, escriba: **https://contosoredirecturl*.
-4. Escriba una **descripción**.  
+	3. Escriba un valor ficticio en **URL de redireccionamiento**. Por ejemplo, escriba: *https://contosoredirecturl*.  
+	4. Escriba una **descripción**.  
 	5. Seleccione **Crear**.  
 
 	![Registrar su aplicación][6]

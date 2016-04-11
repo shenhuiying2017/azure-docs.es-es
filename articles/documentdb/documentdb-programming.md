@@ -101,21 +101,21 @@ Permítanos ampliar este ejemplo y agregar más funcionalidad relacionada con la
 ### Ejemplo: escritura de un procedimiento almacenado para crear un documento 
 En el siguiente fragmento, se muestra cómo utilizar el objeto de contexto para que interactúe con los recursos de DocumentDB.
 
-    var createDocumentStoredProc = {
-        id: "createMyDocument",
-        body: function createMyDocument(documentToCreate) {
-            var context = getContext();
-            var collection = context.getCollection();
-
-            var accepted = collection.createDocument(collection.getSelfLink(),
-                  documentToCreate,
-                  function (err, documentCreated) {
-                      if (err) throw new Error('Error' + err.message);
-                      context.getResponse().setBody(documentCreated.id)
-                  });
-            if (!accepted) return;
-        }
-    }
+	var createDocumentStoredProc = {
+	    id: "createMyDocument",
+	    body: function createMyDocument(documentToCreate) {
+	        var context = getContext();
+	        var collection = context.getCollection();
+	
+	        var accepted = collection.createDocument(collection.getSelfLink(),
+	              documentToCreate,
+				function (err, documentCreated) {
+				    if (err) throw new Error('Error' + err.message);
+				    context.getResponse().setBody(documentCreated.id)
+				});
+	        if (!accepted) return;
+	    }
+	}
 
 
 Este procedimiento almacenado toma como entrada documentToCreate, el cuerpo de un documento que se va a crear en la colección actual. Todas estas operaciones son asíncronas y dependen de las devoluciones de llamadas de función de JavaScript. La función de devolución de llamada tiene dos parámetros, uno para el objeto de error en caso de que falle la operación y otro para el objeto creado. Dentro de la devolución de llamada, los usuarios pueden controlar la excepción o lanzar un error. En caso de que no se proporcione una devolución de llamada y haya un error, el tiempo de ejecución de DocumentDB lanza un error.

@@ -147,7 +147,7 @@ Con el clúster configurado, ahora puede conectarse y comenzar a implementar apl
 
 ### Conexión a un clúster seguro
 
-    1. Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PowerShell command.
+    1. Ejecute lo siguiente para configurar el certificado en el equipo que va a usar para ejecutar el comando de PowerShell "Connect-serviceFabricCluster".
 
         ```powershell
         Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -155,7 +155,7 @@ Con el clúster configurado, ahora puede conectarse y comenzar a implementar apl
                 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
         ```
 
-    2. Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave on the portal.
+    2. Ejecute el siguiente comando de PowerShell para conectarse a un clúster seguro. Los detalles del certificado son los mismos que asignó en el portal.
 
         ```powershell
         Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -165,7 +165,7 @@ Con el clúster configurado, ahora puede conectarse y comenzar a implementar apl
                   -StoreLocation CurrentUser -StoreName My
         ```
 
-        For example, the PowerShell command above should look similar to the following:
+        Por ejemplo, el comando de PowerShell anterior debe ser similar al siguiente:
 
         ```powershell
         Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `

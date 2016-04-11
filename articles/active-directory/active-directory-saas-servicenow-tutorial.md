@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con ServiceNow
   
-El objetivo de este tutorial es mostrar la integración de Azure y ServiceNow. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y ServiceNow.
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino en ServiceNow, versión Calgary o superior
@@ -198,7 +199,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
     k. Anule la selección de **Create an AuthnContextClass** (Crear AuthnContextClass).
 
-    l. En **AuthnContextClassRef Method** (Método AuthnContextClassRef), escriba ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+    l. En **AuthnContextClassRef Method** (Método AuthnContextClassRef), escriba **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
 
     m. En el cuadro de diálogo **Clock Skew** (Desplazamiento del reloj), escriba **60**.
 
@@ -232,19 +233,19 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 2. En la página **Especifique sus credenciales de ServiceNow para habilitar el aprovisionamiento automático de usuarios**, proporcione los valores de configuración siguientes: Configurar aprovisionamiento de usuarios
 
-     2\.1. En el cuadro de texto **Nombre de la instancia de ServiceNow**, escriba el nombre de la instancia de ServiceNow.
+     2.1. En el cuadro de texto **Nombre de la instancia de ServiceNow**, escriba el nombre de la instancia de ServiceNow.
 
-     2\.2. En el cuadro de texto **Nombre del usuario administrador de ServiceNow**, escriba el nombre de la cuenta de administrador de ServiceNow.
+     2.2. En el cuadro de texto **Nombre del usuario administrador de ServiceNow**, escriba el nombre de la cuenta de administrador de ServiceNow.
 
-     2\.3. En el cuadro de texto **Contraseña de administración de ServiceNow**, escriba la contraseña para esta cuenta.
+     2.3. En el cuadro de texto **Contraseña de administración de ServiceNow**, escriba la contraseña para esta cuenta.
 
-     2\.4. Haga clic en **validar** para comprobar la configuración.
+     2.4. Haga clic en **validar** para comprobar la configuración.
 
-     2\.5. Haga clic en el botón **Siguiente** para abrir la página **Pasos siguientes**.
+     2.5. Haga clic en el botón **Siguiente** para abrir la página **Pasos siguientes**.
 
-     2\.6. Si quiere aprovisionar todos los usuarios para esta aplicación, seleccione "**Aprovisionar automáticamente todas las cuentas del directorio en esta aplicación**". <br><br> ![Pasos siguientes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Pasos siguientes")
+     2.6. Si quiere aprovisionar todos los usuarios para esta aplicación, seleccione "**Aprovisionar automáticamente todas las cuentas del directorio en esta aplicación**". <br><br> ![Pasos siguientes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Pasos siguientes")
 
-     2\.7. En la página **Pasos siguientes**, haga clic en **Completar** para guardar la configuración.
+     2.7. En la página **Pasos siguientes**, haga clic en **Completar** para guardar la configuración.
 
 
 

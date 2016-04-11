@@ -27,21 +27,27 @@ Agregue la API de Dynamics CRM Online al entorno del Servicio de aplicaciones de
 
 ## Crear la API en el portal de Azure
 
-1. En el [portal de Azure](https://portal.azure.com), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
+1. En el [portal de Azure](https://portal.azure.com), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@*SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
 
-2. Seleccione **Examinar** en la barra de tareas: ![][1]
+2. Seleccione **Examinar** en la barra de tareas:
+![][1]
 
-3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: ![][2]
+3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*:
+![][2]
 
-4. En **PowerApps**, seleccione **Administrar API**: ![Examine las APIs registradas][3]
+4. En **PowerApps**, seleccione **Administrar API**:
+![Examine las APIs registradas][3]
 
-5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API: ![Add API][4]
+5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:
+![Add API][4]
 
 6. Escriba un **nombre** descriptivo para la API.
 
-7. En **Origen**, seleccione **APIs disponibles** para seleccionar las API preconfiguradas y seleccione **Dynamics CRM Online**: ![Seleccionar la API de Dynamics CRM Online][5]
+7. En **Origen**, seleccione **APIs disponibles** para seleccionar las API preconfiguradas y seleccione **Dynamics CRM Online**:  
+![Seleccionar la API de Dynamics CRM Online][5]
 
-8. Seleccione **Configuración: Configure los ajustes necesarios**: ![Configurar la API de Dynamics CRM Online][6]
+8. Seleccione **Configuración: Configure los ajustes necesarios**:
+![Configurar la API de Dynamics CRM Online][6]
 
 9. Escriba el **Id. de cliente** y la **Clave de aplicación** de la aplicación Azure Active Directory (AAD) de Dynamics CRM Online. Si no dispone de estos, consulte la sección "Registrar una aplicación de AAD para su uso con PowerApps" en este tema para crear el identificador y los valores secretos que necesita.
 
@@ -59,9 +65,11 @@ Cuando termine, se agregará una nueva API de Dynamics CRM Online en el entorno 
 
 	> [AZURE.NOTE] De este modo se abre Active Directory en el Portal de Azure clásico.
 
-3. Seleccione el nombre del inquilino de su organización: ![Iniciar Azure Active Directory][7]
+3. Seleccione el nombre del inquilino de su organización:
+![Iniciar Azure Active Directory][7]
 
-4. Seleccione la pestaña **Aplicaciones** y seleccione **Agregar**: ![Aplicaciones del inquilino de AAD][8].
+4. Seleccione la pestaña **Aplicaciones** y seleccione **Agregar**:
+![Aplicaciones del inquilino de AAD][8].
 
 5. En **Agregar aplicación**:
 
@@ -73,15 +81,17 @@ Cuando termine, se agregará una nueva API de Dynamics CRM Online en el entorno 
 
 6. En **Propiedades de la aplicación**:
 
-	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a realizar la autenticación con AAD para PowerApps, establezca la URL de inicio de sesión en \__https://login.windows.net_.
-2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
+	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a realizar la autenticación con AAD para PowerApps, establezca la URL de inicio de sesión en _https://login.windows.net_.
+	2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
 	3. Seleccione **Aceptar**.  
 
 	![Agregar aplicación de AAD: propiedades de la aplicación][10]
 
-7. Cuando se finalice correctamente, se le redirigirá a la nueva aplicación de AAD. Seleccione **Configurar**: ![Aplicación AAD de Contoso][11]
+7. Cuando se finalice correctamente, se le redirigirá a la nueva aplicación de AAD. Seleccione **Configurar**:
+![Aplicación AAD de Contoso][11]
 
-8. Establezca la **Dirección URL de respuesta** de la sección _OAuth 2_ en la dirección URL de redireccionamiento que recibió cuando se agregó la nueva API de Dynamics CRM Online en el Portal de Azure (en este tema): ![Configurar aplicación AAD de Contoso][12]
+8. Establezca la **Dirección URL de respuesta** de la sección _OAuth 2_ en la dirección URL de redireccionamiento que recibió cuando se agregó la nueva API de Dynamics CRM Online en el Portal de Azure (en este tema):  
+![Configurar aplicación AAD de Contoso][12]
 
 9. Seleccione **Guardar**.
 

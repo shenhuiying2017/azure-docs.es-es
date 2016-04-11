@@ -32,7 +32,7 @@ También muestra la sintaxis aceptada por PCRE, PERL y VIM.
 
 ||
 |---|---
-|Caracteres individuales: | 
+|Caracteres individuales: |
 |. |cualquier carácter, incluida posiblemente la nueva línea (s=true) 
 |[xyz] |clase de caracteres 
 |[^xyz] |clase de caracteres negada 

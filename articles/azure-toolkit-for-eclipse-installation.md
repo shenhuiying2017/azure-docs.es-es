@@ -31,9 +31,11 @@ En los pasos siguientes se muestra cómo instalar el Kit de herramientas de Azur
 ## Para instalar el Kit de herramientas de Azure para Eclipse
 
 1. Inicie Eclipse.
-2. En Eclipse, en el menú, haga clic en <strong>Ayuda</strong> y luego en <strong>Instalar nuevo software</strong>, como se muestra en el siguiente diagrama. ![Instalación del Kit de herramientas de Azure para Eclipse][ic590123]
+2. En Eclipse, en el menú, haga clic en <strong>Ayuda</strong> y luego en <strong>Instalar nuevo software</strong>, como se muestra en el siguiente diagrama.
+	![Instalación del Kit de herramientas de Azure para Eclipse][ic590123]
 3. En el cuadro de diálogo <strong>Software disponible</strong>, en el cuadro de texto <strong>Trabajar con</strong>, escriba <strong>http://dl.microsoft.com/eclipse</strong> seguido de la tecla <strong>Entrar</strong>.
-4. En el panel <strong>Nombre</strong>, active <strong>Kit de herramientas de Azure para Eclipse</strong>, y desactive <strong>Ponerse en contacto con todos los sitios de actualización durante la instalación para encontrar el software necesario</strong>. La pantalla debe parecerse a la siguiente: ![Instalación del Kit de herramientas de Azure para Eclipse][ic719482]
+4. En el panel <strong>Nombre</strong>, active <strong>Kit de herramientas de Azure para Eclipse</strong>, y desactive <strong>Ponerse en contacto con todos los sitios de actualización durante la instalación para encontrar el software necesario</strong>. La pantalla debe parecerse a la siguiente:
+	![Instalación del Kit de herramientas de Azure para Eclipse][ic719482]
 5. Si expande el <strong>Kit de herramientas de Azure para Eclipse</strong>, verá los siguientes elementos:
     * **Filtro de servicios de control de acceso de Azure**: este componente ofrece compatibilidad para autenticar a los usuarios de aplicación con ACS de Azure.
     * **Complemento común de Azure**: este componente contiene la funcionalidad en la que se basan los demás componentes.

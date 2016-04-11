@@ -127,7 +127,12 @@ Update 2 tiene varias mejoras relacionadas con las redes y las métricas de enru
 		
 	| Interfaz de red | Habilitada para la nube | Deshabilitada para la nube con puerta de enlace |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
+	| Data 0 | 1 | - |
+	| Data 1 | 2 | 20 |
+	| Data 2 | 3 | 30 |
+	| Data 3 | 4 | 40 |
+	| Data 4 | 5 | 50 |
+	| Data 5 | 6 | 60 |
 
 
 - El orden en que el tráfico de nube se enrutará a través de las interfaces de red es:

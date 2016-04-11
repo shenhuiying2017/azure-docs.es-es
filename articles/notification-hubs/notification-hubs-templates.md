@@ -99,9 +99,9 @@ El mensaje enviado al Centro de notificaciones contiene todas las propiedades si
 
 
 <table border="1">
-<tr><td>day1_image</td><td>day2_image</td><td>day3_image</td><td>day4_image</td><td>day5_image</td></tr>
-<tr><td>day1_tempC</td><td>day2_tempC</td><td>day3_tempC</td><td>day4_tempC</td><td>day5_tempC</td></tr>
-<tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
+<tr><td>day1\_image</td><td>day2\_image</td><td>day3\_image</td><td>day4\_image</td><td>day5\_image</td></tr>
+<tr><td>day1\_tempC</td><td>day2\_tempC</td><td>day3\_tempC</td><td>day4\_tempC</td><td>day5\_tempC</td></tr>
+<tr><td>day1\_tempF</td><td>day2\_tempF</td><td>day3\_tempF</td><td>day4\_tempF</td><td>day5\_tempF</td></tr>
 </table><br/>
 
 
@@ -127,7 +127,9 @@ La tabla siguiente muestra el lenguaje que se permite en las plantillas:
 | $(prop, n) | Igual que el caso anterior, pero el texto se recorta explícitamente en n caracteres, por ejemplo, $(title, 20) recorta el contenido de la propiedad title en 20 caracteres. |
 | .(prop, n) | Igual que el caso anterior, pero se agregan tres puntos como sufijo al texto debido a que se recorta. El tamaño total de la cadena recortada y el sufijo no exceden los n caracteres. .(title, 20) con una propiedad de entrada de "Esta es la línea del título", con lo que queda como **Esta es la línea ...** |
 | %(prop) | Similar a $(name), salvo en que la salida está codificada en URI. |
-| #(prop) | Se usa en las plantillas JSON (por ejemplo, para plantillas de iOS y Android).<br><br>Esta función se comporta igual que $(prop) especificada anteriormente, salvo cuando se usa en plantillas de JSON (por ejemplo, plantillas de Apple). En este caso, si esta función no está entre “{‘,’}” (por ejemplo, ‘myJsonProperty’ : ‘#(name)’) y se evalúa en un número en formato JavaScript, por ejemplo, regexp: (0|(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e|E)(+|-)?&#91;0-9&#93;+)?, el JSON de salida es un número.<br><br>Por ejemplo, ‘badge : ‘#(name)’ se convierte en ‘badge’ : 40 (y no ‘40‘). | | ‘text’ o “text” | Un literal. Los literales contienen texto arbitrario entre comillas simples o dobles. | | expr1 + expr2 | El operador de concatenación que une ambas expresiones en una sola cadena.
+| #(prop) | Se usa en las plantillas JSON (por ejemplo, para plantillas de iOS y Android).<br><br>Esta función se comporta igual que $(prop) especificada anteriormente, salvo cuando se usa en plantillas de JSON (por ejemplo, plantillas de Apple). En este caso, si esta función no está entre “{‘,’}” (por ejemplo, ‘myJsonProperty’ : ‘#(name)’) y se evalúa en un número en formato JavaScript, por ejemplo, regexp: (0|(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e|E)(+|-)?&#91;0-9&#93;+)?, el JSON de salida es un número.<br><br>Por ejemplo, ‘badge : ‘#(name)’ se convierte en ‘badge’ : 40 (y no ‘40‘). |
+| ‘text’ o “text” | Un literal. Los literales contienen texto arbitrario entre comillas simples o dobles. |
+| expr1 + expr2 | El operador de concatenación que une ambas expresiones en una sola cadena.
 
 Las expresiones pueden estar en cualquiera de los formatos anteriores.
 

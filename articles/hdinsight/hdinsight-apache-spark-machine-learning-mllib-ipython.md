@@ -397,7 +397,7 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
 * [Análisis del registro del sitio web con Spark en HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -405,7 +405,7 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
+* [Envío de trabajos de Spark de manera remota mediante Livy con clústeres de Spark en HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Herramientas y extensiones
 
