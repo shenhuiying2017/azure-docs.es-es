@@ -192,4 +192,4 @@ En el modelo de implementación clásica, algunos nombres de tamaños de VM var�
 - Infórmese sobre los [límites, la cuotas y las restricciones de la suscripción y los servicios de Microsoft Azure](../articles/azure-subscription-service-limits.md).
 - Más información [sobre las instancias de proceso intensivo A8, A9, A10 y A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabajo, como Informática de alto rendimiento (HPC).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->
