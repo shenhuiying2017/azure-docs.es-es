@@ -39,8 +39,8 @@ Otra manera de acceder a la hoja es hacer clic en **Examinar** y luego en **Azur
 
 También puede acceder a ella directamente en [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/), donde **{tenant}** se sustituirá por el nombre usado en el momento de la creación del inquilino (por ejemplo, contosob2c). Puede marcar este vínculo para usarlo en el futuro.
 
-    > [AZURE.IMPORTANT]
-    You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
+> [AZURE.IMPORTANT]
+Necesita ser administrador global del inquilino B2C para poder acceder a la hoja Características B2C. Un administrador global de cualquier otro inquilino o un usuario de cualquier inquilino no puede acceder a dicha hoja.
 
 ### 2\. Acceso en el Portal de Azure clásico
 
