@@ -36,7 +36,10 @@ El equipo trabaja según este ciclo:
 
 Los requisitos son la fuente del trabajo pendiente de desarrollo (lista de tareas). Trabajan en sprints cortos, que a menudo entregan software que funciona (normalmente en forma de mejoras y extensiones de la aplicación existente). La aplicación activa se actualiza frecuentemente con nuevas características. Mientras está activa, el equipo supervisa su rendimiento y uso con la ayuda de Application Insights. Este análisis retroalimenta su trabajo pendiente de desarrollo.
 
-El equipo usa Application Insights para supervisar estrechamente la aplicación web activa para: * Rendimiento. Desean comprender cómo varían los tiempos de respuesta con el número de solicitudes; cuánto se está usando la CPU, la red, el disco y otros recursos; y dónde están los cuellos de botella. * Errores. Si hay excepciones o errores de solicitud, o si un contador de rendimiento se sale de su intervalo habitual, el equipo necesita tener conocimiento de ello rápidamente para que pueda llevar a cabo la acción correspondiente. * Uso. Siempre que se publique una nueva característica, el equipo desea saber en qué medida se usa y si los usuarios tienen dificultades con ella.
+El equipo usa Application Insights para supervisar estrechamente la aplicación web activa para:
+* Rendimiento. Desean comprender cómo varían los tiempos de respuesta con el número de solicitudes; cuánto se está usando la CPU, la red, el disco y otros recursos; y dónde están los cuellos de botella.
+* Errores. Si hay excepciones o errores de solicitud, o si un contador de rendimiento se sale de su intervalo habitual, el equipo necesita tener conocimiento de ello rápidamente para que pueda llevar a cabo la acción correspondiente.
+* Uso. Siempre que se publique una nueva característica, el equipo desea saber en qué medida se usa y si los usuarios tienen dificultades con ella.
 
 
 
@@ -49,7 +52,7 @@ Centrémonos en la parte de comentarios del ciclo:
 ## Detección de disponibilidad insuficiente
 
 
-Marcela Markova es especialista en pruebas del equipo OBS y es responsable de supervisar el rendimiento en línea. Para tal fin, prepara varias [pruebas web][availability]\:
+Marcela Markova es desarrolladora senior del equipo OBS y es responsable de supervisar el rendimiento en línea. Para tal fin, prepara varias [pruebas web][availability]\:
 
 * Primero, una prueba con una sola dirección URL para la página de aterrizaje principal de la aplicación. http://fabrikambank.com/onlinebanking/. Establece los criterios de código HTTP 200 y el texto 'Welcome!'. Si se produce un error en esta prueba, es que sucede algo grave con la red o los servidores o quizás sea un problema de implementación. (O bien, alguien ha cambiado el mensaje Welcome! en la página sin que ella lo sepa).
 
@@ -77,27 +80,49 @@ En la misma página de información general de Application Insights, hay un grá
 
 El tiempo de carga de la página del explorador se obtiene de la telemetría enviada directamente desde las páginas web. El tiempo de respuesta del servidor, el número de solicitudes del servidor y el número de solicitudes con error se miden en el servidor web y se envían a Application Insights desde allí.
 
+Marcela está un poco preocupada por el gráfico de respuesta del servidor, que muestra el tiempo promedio que pasa entre la recepción en el de una solicitud HTTP del explorador de un usuario y la devolución de la respuesta. No es infrecuente ver una variación en este gráfico, porque la carga del sistema varía. No obstante, en este caso, parece haber una correlación entre los pequeños aumentos en el recuento de solicitudes y los grandes aumentos en el tiempo de respuesta. Esto podría indicar que el sistema está funcionando al borde de sus límites.
 
-El número de solicitudes con error indica los casos donde los usuarios han visto un error, normalmente a continuación de una excepción en el código. Quizás verán un mensaje que dice "Lo sentimos, no pudimos actualizar sus datos ahora" o, en el peor de los casos, un volcado de la pila en la pantalla del usuario, cortesía del servidor web.
+Abre los gráficos de servidores:
 
+![Varias métricas](./media/app-insights-detect-triage-diagnose/06.png)
 
-A Marcela le gusta mirar estos gráficos de vez en cuando. La ausencia de solicitudes con error es alentadora, aunque cuando cambia el intervalo del gráfico para cubrir la semana pasada, aparecen errores ocasionales. Esto es un nivel aceptable en un servidor ocupado. Pero si se produce un salto repentino en los errores o en algunas de las demás métricas como el tiempo de respuesta del servidor, Marcela desea saberlo inmediatamente. Esto podría indicar un problema imprevisto causado por una versión de código o un error en una dependencia, como una base de datos, o quizás una reacción sin gracia a una carga elevada de solicitudes.
-
-#### Alertas
-
-Así que establece dos [alertas][metrics]\: una para tiempos de respuesta superiores a un umbral típico y otro para una tasa de solicitudes con error mayor que el fondo actual.
+Parece no haber ninguna señal de limitación de recursos, por lo que es posible que los desplazamientos en los gráficos de respuesta del servidor sean simplemente una coincidencia.
 
 
-Junto con la alerta de disponibilidad, estas le proporcionan la seguridad de que tendrá información al respecto tan pronto ocurra algo inusual.
+## Alertas
 
+A pesar de ello, quiere supervisar los tiempos de respuesta. Si no son demasiado altos, desea saberlo inmediatamente.
 
-También es posible establecer alertas para una amplia variedad de otras métricas. Por ejemplo, puede recibir mensajes de correo electrónico si el recuento de excepciones se vuelve alto, o si la memoria disponible baja, o si se produce un pico en las solicitudes de cliente.
-
+Así que establece una [alerta][metrics] para conocer los tiempos de respuesta que superen el umbral habitual. Esto le da la seguridad de que obtendrá información si los tiempos de respuesta son lentos.
 
 
 ![Agregar hoja de alertas](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
+Las alertas se pueden establecer según una amplia variedad de métricas. Por ejemplo, puede recibir mensajes de correo electrónico si el recuento de excepciones se vuelve alto, o si la memoria disponible baja, o si se produce un pico en las solicitudes de cliente.
 
+## Alertas proactivas de diagnóstico
+
+El día siguiente, llega una alerta de Application Insights por correo electrónico. Pero cuando la abre, se da cuenta de que no es la alerta de tiempo de respuesta que ha configurado. En lugar de eso, le indica que se ha producido un aumento repentino de las solicitudes con error; es decir, las solicitudes que han devuelto 500 códigos de error o más.
+
+Las solicitudes con error indican los casos donde los usuarios han visto un error, normalmente a continuación de una excepción en el código. Quizás verán un mensaje que dice "Lo sentimos, no pudimos actualizar sus datos ahora" o, en el peor de los casos, un volcado de la pila en la pantalla del usuario, cortesía del servidor web.
+
+Esta alerta es una sorpresa, porque la última vez que lo consultó, el recuento de solicitudes con error era bastante bajo. En un servidor ocupado, era de esperar un pequeño número de errores.
+
+También le sorprendió no haber tenido que configurar esta alerta. De hecho, el diagnóstico proactivo está incluido automáticamente con Application Insights. Se ajusta de forma automática al patrón de errores habitual de la aplicación y "se adapta a" los errores de una página concreta, con una carga elevada o vinculados a otras métricas. Genera la alarma solo si hay un aumento por encima de lo que se espera.
+
+![correo electrónico de diagnóstico proactivo](./media/app-insights-detect-triage-diagnose/21.png)
+
+Se trata de un correo electrónico muy útil. No solo genera una alarma, sino que lleva a cabo también gran parte de las tareas de diagnóstico y evaluación de errores.
+
+Muestra cuántos clientes se ven afectados y en qué páginas web u operaciones. Marcela puede decidir si necesita implicar a todo el equipo que trabaja en esto como un simulacro de incendio o si se puede ignorar hasta la próxima semana.
+
+El correo electrónico también muestra que se ha producido una excepción determinada y (todavía más interesante) que el error está asociado con las llamadas con error a una base de datos determinada. Esto explica por qué el error ha aparecido repentinamente, aunque el equipo de Marcela no haya implementado recientemente ninguna actualización.
+
+Hace ping al coordinador del equipo de base de datos. Sí, han lanzado una revisión en la última media hora y, por lo que parece, es posible que se haya producido un pequeño cambio en el esquema...
+
+Por tanto, el problema se está resolviendo, incluso antes de investigar los registros y en los 15 minutos posteriores a su aparición. Aun así, Marcela hace clic en el vínculo para abrir Application Insights. Se abre directamente en una solicitud con error y ve la llamada a la base de datos con error en la lista asociada de llamadas de dependencia.
+
+![solicitud con error](./media/app-insights-detect-triage-diagnose/23.png)
 
 
 ## Detección de excepciones
@@ -261,4 +286,4 @@ Así es como un equipo usa Application Insights no solo para solucionar problema
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

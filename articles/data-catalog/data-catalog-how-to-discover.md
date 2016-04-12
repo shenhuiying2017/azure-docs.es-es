@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Detección de orígenes de datos"
+   pageTitle="Detección de orígenes de datos | Microsoft Azure"
    description="Artículo de procedimientos que indica cómo detectar recursos de datos registrados con el Catálogo de datos de Azure, incluidos la búsqueda y el filtrado, y mediante las capacidades de resaltado de referencias del portal del Catálogo de datos de Azure."
    services="data-catalog"
    documentationCenter=""
@@ -13,9 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
-
 
 # Detección de orígenes de datos
 
@@ -63,4 +62,4 @@ Al registrar un origen de datos con el **Catálogo de datos de Azure** se facili
 ## Consulte también
 - Consulte el tutorial [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo detectar orígenes de datos.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

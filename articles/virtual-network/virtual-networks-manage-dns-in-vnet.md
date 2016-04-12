@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Administración de servidores DNS usados por una red virtual
 
 Puede administrar la lista de servidores DNS usados en una red virtual en el Portal de administración o en el archivo de configuración de red. Puede agregar hasta 12 servidores DNS para cada red virtual. Al especificar servidores DNS, es importante comprobar que se enumeran los servidores DNS en el orden correcto para su entorno. Las listas de servidores DNS no funcionan con Round Robin. Se utilizan en el orden en que se especifican. Si se puede acceder al primer servidor DNS de la lista, el cliente utilizará ese servidor DNS con independencia de si el servidor DNS funciona correctamente o no. Para cambiar el orden del servidor DNS de la red virtual, quite los servidores DNS de la lista y agréguelos en el orden que desee.
 
->[AZURE.WARNING]Después de actualizar la lista de DNS, debe reiniciar las máquinas virtuales que se encuentran en la red virtual para que elijan la nueva configuración de servidor DNS. Las máquinas virtuales seguirán usando su configuración actual hasta que se reinicien.
+>[AZURE.WARNING] Después de actualizar la lista de DNS, debe reiniciar las máquinas virtuales que se encuentran en la red virtual para que elijan la nueva configuración de servidor DNS. Las máquinas virtuales seguirán usando su configuración actual hasta que se reinicien.
 
 ## Edición de una lista de servidores DNS para una red virtual que usa el Portal de administración
 
@@ -65,4 +65,4 @@ Para editar una lista de servidores DNS mediante el uso de un archivo de configu
 
 [Eliminación de una red virtual](../virtual-networks-delete-vnet)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

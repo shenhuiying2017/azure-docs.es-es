@@ -2,6 +2,6 @@
 
 - [Guía del programador de Azure AD](active-directory-developers-guide.md)
 - [AzureADSamples en GitHub](https://github.com/AzureAdSamples)
-- [CloudIdentity.com](https://cloudidentity.com)
+- [CloudIdentity.com](http://cloudidentity.com)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

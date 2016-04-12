@@ -13,13 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/25/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
 Para proporcionar rendimiento predecible a escala, Almacenamiento de datos SQL implementa mecanismos para administrar la simultaneidad de cargas de trabajo y la asignación de recursos computacionales.
 
 En este artículo se presentan los conceptos de simultaneidad y administración de cargas de trabajo; se explica cómo se han implementado ambas características y cómo puede controlarlas en su almacenamiento de datos.
+
+>[AZURE.NOTE] Almacenamiento de datos SQL admite cargas de trabajo multiusuario, no multiinquilino.
 
 ## Simultaneidad
 Es importante comprender que la simultaneidad en Almacenamiento de datos SQL se rige por dos conceptos; **consultas simultáneas** y **ranuras de simultaneidad**.
@@ -32,7 +34,7 @@ Como regla general, cada consulta que se ejecuta de forma simultánea consume un
 
 1. El valor de DWU para Almacenamiento de datos SQL
 2. La **clase de recurso** a la que pertenezca el usuario
-3. Si la consulta o la operación se rige por el modelo de ranura de simultaneidad 
+3. Si la consulta o la operación se rige por el modelo de ranura de simultaneidad
 
 > [AZURE.NOTE] Merece la pena tener en cuenta que no todas las consultas se rigen por la regla de consulta de ranura de simultaneidad. Sin embargo, sí lo hacen la mayoría de las consultas de usuario. Algunas consultas y operaciones no consumen ranuras de simultaneidad en absoluto. Estas consultas y operaciones todavía están limitadas por el límite de consultas simultáneas que es por lo que se describen ambas reglas. Consulte la siguiente sección de [excepciones de clases de recursos](#exceptions) para obtener más detalles.
 
@@ -46,8 +48,8 @@ En la siguiente tabla se describen tanto los límites de consultas simultáneas 
 -->
 
 | Consumo de ranuras de simultaneidad | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
-| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
-| N.º máximo de consultas simultáneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
+| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
+| N.º máximo de consultas simultáneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
 | N.º máximo de ranuras de simultaneidad | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 |
 
 Las cargas de trabajo de consultas del Almacenamiento de datos SQL tienen que encontrarse dentro de estos umbrales. Si hay más de 32 consultas simultáneas o se supera el número de ranuras de simultaneidad, la consulta se pondrá en cola hasta que puedan satisfacerse ambos umbrales.
@@ -145,16 +147,16 @@ A continuación se muestra una lista de instrucciones y operaciones que **se** r
 - ALTER TABLE REBUILD
 - CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
-- CREATE TABLE AS SELECT 
-- Carga de datos 
+- CREATE TABLE AS SELECT
+- Carga de datos
 - Operaciones de movimiento de datos llevadas a cabo por el servicio de movimiento de datos (DMS)
 
 Las siguientes instrucciones **no** respetan las clases de recursos:
 
 - CREATE TABLE
-- ALTER TABLE ... SWITCH PARTITION 
-- ALTER TABLE ... SPLIT PARTITION 
-- ALTER TABLE ... MERGE PARTITION 
+- ALTER TABLE ... SWITCH PARTITION
+- ALTER TABLE ... SPLIT PARTITION
+- ALTER TABLE ... MERGE PARTITION
 - DROP TABLE
 - ALTER INDEX DISABLE
 - DROP INDEX
@@ -181,13 +183,14 @@ Las siguientes instrucciones **no** respetan las clases de recursos:
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
-- REDISTRIBUTE 
+- REDISTRIBUTE
 -->
+
 > [AZURE.NOTE] Merece la pena resaltar que las consultas de `SELECT` que se ejecutan exclusivamente contra vistas de catálogo y vistas de administración dinámicas **no** se rigen por las clases de recursos.
 
 Es importante recordar que es probable que la mayoría de las consultas de usuario final se rijan por clases de recursos. La regla general es que la carga de trabajo de consultas activas debe tener cabida tanto en el umbral de ranuras simultáneas como en el de consultas simultáneas a menos que se haya excluido específicamente por la plataforma. Como usuario final no puede elegir excluir una consulta del modelo de ranura de simultaneidad. Una vez que se ha superado el umbral, las consultas comenzarán a ponerse en cola. Las consultas en cola se tratarán en orden de prioridad, seguido por la hora de envío.
 
-### Datos internos 
+### Datos internos
 
 En el nivel más profundo de la carga de trabajo del Almacenamiento de datos SQL, las cuestiones de administración son algo más complicadas. Las clases de recursos se asignan dinámicamente a un conjunto genérico de grupos de administración de cargas de trabajo dentro del regulador de recursos. Los grupos usados dependerán del valor de DWU para el almacenamiento. Sin embargo, Almacenamiento de datos SQL usa un total de ocho grupos de cargas de trabajo. Son las siguientes:
 
@@ -224,7 +227,7 @@ Por lo tanto, si DW500 es el valor actual de DWU para Almacenamiento de datos SQ
 
 Para ver con detalle las diferencias en la asignación de recursos de memoria desde la perspectiva del regulador de recursos, use la siguiente consulta:
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -247,7 +250,7 @@ AS
 	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
 	WHERE   wg.name like 'SloDWGroup%'
 	AND     rp.name = 'SloDWPool'
-) 
+)
 SELECT	pool_name
 ,		pool_max_mem_MB
 ,		group_name
@@ -260,7 +263,7 @@ SELECT	pool_name
 ,       group_active_request_count
 ,       group_queued_request_count
 FROM	rg
-ORDER BY 
+ORDER BY
 	node_name
 ,	group_request_max_memory_grant_pcnt
 ,	group_importance
@@ -279,7 +282,7 @@ Para conceder acceso a un usuario a Almacenamiento de datos SQL, primero necesit
 
 Abra una conexión con la base de datos maestra para Almacenamiento de datos SQL y ejecute los siguientes comandos:
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -291,19 +294,19 @@ Una vez creado el inicio de sesión, hay que agregar una cuenta de usuario.
 
 Abra una conexión con la base de datos de Almacenamiento de datos SQL y ejecute el siguiente comando:
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 Una vez finalizado, deberá conceder al usuario permisos completos. El ejemplo siguiente concede `CONTROL` sobre la base de datos de Almacenamiento de datos SQL. En el nivel de base de datos, `CONTROL` es el equivalente de db\_owner en SQL Server.
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 Para ver los roles de administración de cargas de trabajo, use la siguiente consulta:
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -313,21 +316,21 @@ AND     ro.[is_fixed_role]  = 0
 
 Para agregar un usuario a un rol de administración de cargas de trabajo con privilegios elevados, use la consulta siguiente:
 
-``` 
-EXEC sp_addrolemember 'largerc', 'newperson' 
+```sql
+EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 Para quitar un usuario de un rol de administración de cargas de trabajo, use la consulta siguiente:
 
-``` 
-EXEC sp_droprolemember 'largerc', 'newperson' 
+```sql
+EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
 > [AZURE.NOTE] No se puede quitar un usuario de smallrc.
 
 Para ver qué usuarios son miembros de un rol determinado, use la siguiente consulta:
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -340,7 +343,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### Detección de consulta en cola
 Para identificar las consultas que se mantienen en una cola de simultaneidad, siempre puede consultar la `sys.dm_pdw_exec_requests` DMV.
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -354,7 +357,7 @@ FROM    sys.dm_pdw_exec_requests r
 Almacenamiento de datos SQL tiene tipos de espera específicos para medir la simultaneidad.
 
 Son las siguientes:
- 
+
 - LocalQueriesConcurrencyResourceType
 - UserConcurrencyResourceType
 - DmsConcurrencyResourceType
@@ -371,7 +374,7 @@ BackupConcurrencyResourceType puede verse cuando se hace una copia de seguridad 
 
 Para realizar análisis de las consultas actualmente en cola a fin de averiguar qué recursos espera una solicitud, consulte la `sys.dm_pdw_waits` DMV.
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -408,7 +411,7 @@ WHERE	w.[session_id] <> SESSION_ID()
 
 Para ver solo las esperas de recursos usadas por una consulta determinada, puede consultar la `sys.dm_pdw_resource_waits` DMV. El tiempo de espera del recurso solo mide el tiempo que se espera a que se proporcionen los recursos, por oposición al tiempo de espera de la señal, que es el tiempo que tarda el servidor SQL Server subyacente en programar la consulta en la CPU.
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -427,7 +430,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 Por último, para analizar las tendencias históricas de esperas, Almacenamiento de datos SQL proporciona la `sys.dm_pdw_wait_stats` DMV.
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]
@@ -452,4 +455,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="03/09/2016"
 	ms.author="sethm"/>
 
 # Utilización de las colas del Bus de servicio
@@ -60,7 +60,7 @@ El cmdlet de PowerShell que ejecutó para crear el espacio de nombres del bus de
 
 ![Copiar clave](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]También puede encontrar esta clave si inicia sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) y va a la información de conexión para el espacio de nombres del Bus de servicio.
+> [AZURE.NOTE] También puede encontrar esta clave si inicia sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) y va a la información de conexión para el espacio de nombres del Bus de servicio.
 
 ## Creación de una aplicación de Ruby
 
@@ -130,7 +130,7 @@ message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
 ```
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
+Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
 
 ## Recepción de mensajes de una cola
 
@@ -164,7 +164,7 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
 -   Información general de [colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
 -   Visite el repositorio del [SDK de Azure para Ruby](https://github.com/Azure/azure-sdk-for-ruby) en GitHub.
 
-Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Colas de Azure y Colas del Bus de servicio de Azure: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Para ver una comparación entre las colas del Bus de servicio de Azure de este artículo y el servicio Colas de Azure que se describe en el artículo [How to use Queue storage from Ruby](../storage/storage-ruby-how-to-use-queue-storage.md) (Uso del almacenamiento en cola desde Ruby), consulte [Colas de Azure y colas del Bus de servicio de Azure: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

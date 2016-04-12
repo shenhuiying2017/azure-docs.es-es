@@ -13,18 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="billmath"/>
 
 # Pasos siguientes y cómo administrar Azure AD Connect
 Los siguientes temas tratan cuestiones operativas avanzadas que le permiten personalizar Azure Active Directory Connect para satisfacer las necesidades y los requisitos de sus organizaciones.
+
+## Pasos para agregar otros administradores de sincronización
+De manera predeterminada, solo el usuario que realizó la instalación y los administradores locales pueden administrar el motor de sincronización instalado. Para que otras personas puedan acceder al motor de sincronización y administrarlo, busque el grupo denominado "ADSyncAdmins" en el servidor local y agréguelas a dicho grupo.
 
 ## Configuración opcional en el servicio de AD FS
 Puede personalizar la imagen de logotipo y la ilustración para las páginas de inicio de sesión de AD FS si inicia sesión en AD FS y usa PSH para realizar esta configuración.
 
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-Consulte [Personalizar las páginas de inicio de sesión de AD FS](https://technet.microsoft.com/library/dn280950.aspx) para una descripción completa de las posibilidades de configuración.
+Consulte [Personalización de las páginas de inicio de sesión de AD FS](https://technet.microsoft.com/library/dn280950.aspx) para ver una descripción completa de todas las configuraciones posibles.
 
 ## Asignación de licencias a usuarios de Azure AD Premium y Enterprise Mobility
 
@@ -58,7 +61,7 @@ Si necesita ejecutar una tarea de sincronización, ejecútelo de nuevo mediante 
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-Para obtener más información sobre la Sincronización de Azure AD Connect: Programador, consulte [Programador de Azure AD Connect](active-directory-aadconnectsync-feature-scheduler.md).
+Para obtener más información sobre el programador de sincronización de Azure AD Connect, consulte [Sincronización de Azure AD Connect: Programador](active-directory-aadconnectsync-feature-scheduler.md).
 
 
 ## Tareas adicionales disponibles en Azure AD Connect
@@ -78,4 +81,4 @@ Habilitar el modo provisional | Esto permite almacenar información que se sincr
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

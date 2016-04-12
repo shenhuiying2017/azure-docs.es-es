@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Escalado de Caché en Redis de Azure
 
->[AZURE.NOTE]Actualmente, la característica de escalado Caché en Redis de Azure está en vista previa. Durante el período de vista previa, no se puede escalar a una caché de nivel premium o desde ella, pero puede cambiar el plan de tarifa dentro de una caché premium, y puede [cambiar el tamaño de clúster](cache-how-to-premium-clustering.md#cluster-size) de una memoria caché premium con la agrupación en clústeres habilitada.
+>[AZURE.NOTE] Actualmente, la característica de escalado Caché en Redis de Azure está en vista previa. Durante el período de vista previa, no se puede escalar a una caché de nivel premium o desde ella, pero puede cambiar el plan de tarifa dentro de una caché premium, y puede [cambiar el tamaño de clúster](cache-how-to-premium-clustering.md#cluster-size) de una memoria caché premium con la agrupación en clústeres habilitada.
 
 Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Si los requisitos de la aplicación cambian después de crear una memoria caché, puede escalar el tamaño de la memoria caché mediante la hoja **Cambio de nivel de precios** del [Portal de Azure](https://portal.azure.com).
 
@@ -46,12 +46,12 @@ Seleccione el nivel deseado de precios desde la hoja **Nivel de precios** y haga
 
 ![Nivel de precios][redis-cache-pricing-tier-blade]
 
->[AZURE.NOTE]Puede escalar a un nivel de precios diferente con las siguientes restricciones.
+>[AZURE.NOTE] Puede escalar a un nivel de precios diferente con las siguientes restricciones.
 >
 >-	No puede escalar a una memoria caché de nivel **Premium** o desde esta.
 >-	No puede escalar desde una memoria caché **Estándar** a una **Básica**.
 >-	Puede escalar desde una memoria caché **Básica** a una memoria caché **Estándar**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
->-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
+>-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
 
 Mientras la memoria caché se escala al nuevo nivel de precios, se muestra un estado **Escalado** en la hoja **Caché en Redis**.
 
@@ -178,4 +178,4 @@ Estamos lanzando esta característica para obtener comentarios. Nos basaremos en
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

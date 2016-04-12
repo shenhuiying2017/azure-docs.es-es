@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm"/>
 
 # Usar PowerShell para administrar recursos de Service Bus y centros de eventos
@@ -24,7 +24,7 @@ Microsoft Azure PowerShell es un entorno de scripting que puede usar para contro
 
 Antes de comenzar, necesitará lo siguiente:
 
-- Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][], [Ofertas para miembros][] o [Prueba gratuita][].
+- Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para más información sobre cómo obtener una suscripción, consulte las secciones sobre [opciones de compra][], [ofertas para miembros][] o [cuenta gratuita][].
 
 - Un equipo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][].
 
@@ -66,7 +66,7 @@ catch [System.Exception]
 
 ## Aprovisionar un espacio de nombres de Service Bus
 
-Al trabajar con espacios de nombres de Service Bus, hay dos cmdlets que puede usar en lugar del SDK de .NET: [Get-AzureSBNamespace] y [New-AzureSBNamespace].
+Al trabajar con espacios de nombres de Service Bus, hay dos cmdlets que puede usar en lugar del SDK de .NET: [Get-AzureSBNamespace][] y [New-AzureSBNamespace][].
 
 En este ejemplo se crean algunas variables locales en el script: `$Namespace` y `$Location`.
 
@@ -104,7 +104,7 @@ Esta parte del script hace lo siguiente:
 	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 	}
 	```
-Para aprovisionar otras entidades de Service Bus, cree una instancia del objeto `NamespaceManager` a partir del SDK. Puede usar el cmdlet [Get-AzureSBAuthorizationRule] para recuperar una regla de autorización que se usa para proporcionar una cadena de conexión. En este ejemplo se almacena una referencia a la instancia `NamespaceManager` de la variable `$NamespaceManager`. Más adelante el script usa `$NamespaceManager` para aprovisionar otras entidades.
+Para aprovisionar otras entidades de Service Bus, cree una instancia del objeto `NamespaceManager` a partir del SDK. Puede usar el cmdlet [Get-AzureSBAuthorizationRule][] para recuperar una regla de autorización que se usa para proporcionar una cadena de conexión. En este ejemplo se almacena una referencia a la instancia `NamespaceManager` de la variable `$NamespaceManager`. Más adelante el script usa `$NamespaceManager` para aprovisionar otras entidades.
 
 	``` powershell
 	$sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -116,7 +116,7 @@ Para aprovisionar otras entidades de Service Bus, cree una instancia del objeto 
 
 ## Aprovisionamiento de otras entidades de Service Bus
 
-Para aprovisionar otras entidades, como colas, temas y centros de eventos, podemos usar la [API .NET para Service Bus]. Al final de este artículo se hace referencia a ejemplos más detallados, incluidas otras entidades.
+Para aprovisionar otras entidades, como colas, temas y centros de eventos, podemos usar la [API .NET para Service Bus][]. Al final de este artículo se hace referencia a ejemplos más detallados, incluidas otras entidades.
 
 ### Creación de un Centro de eventos
 
@@ -266,14 +266,14 @@ Además, puede descargar algunos scripts listos para usar:
 
 <!--Anchors-->
 
-[Opciones de compra]: http://azure.microsoft.com/pricing/purchase-options/
-[Ofertas para miembros]: http://azure.microsoft.com/pricing/member-offers/
-[Prueba gratuita]: http://azure.microsoft.com/pricing/free-trial/
+[opciones de compra]: http://azure.microsoft.com/pricing/purchase-options/
+[ofertas para miembros]: http://azure.microsoft.com/pricing/member-offers/
+[cuenta gratuita]: http://azure.microsoft.com/pricing/free-trial/
 [paquete NuGet del Service Bus]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [API .NET para Service Bus]: https://msdn.microsoft.com/es-ES/library/azure/mt419900.aspx
-[Instalación y configuración de Azure PowerShell]: ../install-configure-powershell.md
+[Instalación y configuración de Azure PowerShell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

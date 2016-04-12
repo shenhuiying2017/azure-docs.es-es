@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/24/2016"
 	ms.author="tamram"/>
 	
 # Uso de Almacenamiento de Azure en las aplicaciones de la Tienda Windows
@@ -22,9 +22,9 @@ Esta guía le muestra cómo comenzar con el desarrollo de una aplicación de la 
 
 ## Descarga de las herramientas necesarias
 
-- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) hace que sea fácil compilar, depurar, localizar, empaquetar e implementar aplicaciones de la Tienda Windows.
-- La [Biblioteca de cliente de Almacenamiento de Azure para Windows en tiempo de ejecución](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) proporciona una biblioteca de clases para trabajar con Almacenamiento de Azure.
-- Las [Herramientas de servicios de datos de WCF para las aplicaciones de la Tienda Windows](http://www.microsoft.com/download/details.aspx?id=30714) amplían la experiencia de incorporación de referencia de servicios con compatibilidad con OData de cliente para las aplicaciones de la Tienda Windows en Visual Studio 2012 y versiones posteriores.
+- [Visual Studio](https://www.visualstudio.com/es-ES/visual-studio-homepage-vs.aspx) hace que sea fácil compilar, depurar, localizar, empaquetar e implementar aplicaciones de la Tienda Windows. Se requiere Visual Studio 2012 o posterior.
+- La [Biblioteca de cliente de Almacenamiento de Azure](https://www.nuget.org/packages/WindowsAzure.Storage) proporciona una biblioteca de clases en tiempo de ejecución de Windows para trabajar con Almacenamiento de Azure.
+- El componente [Herramientas de servicios de datos WCF para aplicaciones de la Tienda Windows](http://www.microsoft.com/download/details.aspx?id=30714) amplía la experiencia de incorporación de referencias de servicios gracias a la compatibilidad de OData del lado cliente en aplicaciones de la Tienda Windows en Visual Studio.
 
 ## Desarrollo de aplicaciones
 
@@ -87,4 +87,4 @@ También puede agregar una referencia a Microsoft.WindowsAzure.Storage.Table.dll
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

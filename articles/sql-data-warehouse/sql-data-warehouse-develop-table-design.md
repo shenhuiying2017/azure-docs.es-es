@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Diseño de tablas en el Almacenamiento de datos SQL #
@@ -59,7 +59,7 @@ Almacenamiento de datos SQL admite los tipos de datos empresariales comunes:
 
 Puede identificar columnas en el almacenamiento de datos que contienen tipos incompatibles mediante la consulta siguiente:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -117,13 +117,13 @@ Compatibilidad parcial:
 
 - Las restricciones DEFAULT solo admiten literales y constantes. No se admiten funciones ni expresiones no deterministas, tales como `GETDATE()` o `CURRENT_TIMESTAMP`.
 
-> [AZURE.NOTE]Defina las tablas para que el tamaño máximo posible de fila, incluida la longitud total de columnas de longitud variable, no supere los 32.767 bytes. Aunque puede definir una fila con datos de longitud variable que superen esta cifra, no podrá insertar datos en la tabla. Además, intente limitar el tamaño de las columnas de longitud variable para un rendimiento incluso mejor para ejecutar consultas.
+> [AZURE.NOTE] Defina las tablas para que el tamaño máximo posible de fila, incluida la longitud total de columnas de longitud variable, no supere los 32.767 bytes. Aunque puede definir una fila con datos de longitud variable que superen esta cifra, no podrá insertar datos en la tabla. Además, intente limitar el tamaño de las columnas de longitud variable para un rendimiento incluso mejor para ejecutar consultas.
 
 ## Principios de la distribución de datos
 
 Hay dos opciones para distribuir los datos en el Almacenamiento de datos SQL:
 
-1. Distribuir los datos de manera uniforme, pero aleatoria 
+1. Distribuir los datos de manera uniforme, pero aleatoria
 2. Distribuir datos en función de los valores de hash de una sola columna
 
 La distribución de datos se decide a nivel de tabla. Todas las tablas se distribuyen. Asignará la distribución a cada tabla de la base de datos de Almacenamiento de datos SQL.
@@ -138,7 +138,7 @@ La distribución round robin es un método de propagación de datos lo más unif
 
 A continuación se muestra un ejemplo de tabla con distribución round robin:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -158,7 +158,7 @@ WITH
 
 También se trata de un ejemplo de tabla con distribución round robin:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -175,13 +175,13 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE]Observe que el segundo ejemplo anterior no hace mención alguna a la clave de distribución. Round robin es el valor predeterminado, por lo que no es estrictamente necesario. Sin embargo, ser explícito se considera una buena práctica, ya que garantiza que sus colegas son conscientes de sus intenciones al revisar el diseño de tabla.
+> [AZURE.NOTE] Observe que el segundo ejemplo anterior no hace mención alguna a la clave de distribución. Round robin es el valor predeterminado, por lo que no es estrictamente necesario. Sin embargo, ser explícito se considera una buena práctica, ya que garantiza que sus colegas son conscientes de sus intenciones al revisar el diseño de tabla.
 
 Este tipo de tabla se utiliza normalmente cuando no hay ninguna columna de clave obvia para aplicar un algoritmo hash de datos. También se puede utilizar en tablas más pequeñas o menos importantes cuando el coste de la transferencia no pueda ser tan alto.
 
 Cargar los datos en una tabla con distribución round robin tiende a ser una tarea más rápida que cargar en una tabla con distribución hash. Con una tabla con distribución round robin, no es necesario conocer los datos ni ejecutar el algoritmo hash antes de realizar la carga. Por este motivo, las tablas round robin suelen tener objetivos de carga adecuados.
 
-> [AZURE.NOTE]Si lo datos presentan una distribución round robin, estos se asignan a la distribución a nivel de *búfer*.
+> [AZURE.NOTE] Si lo datos presentan una distribución round robin, estos se asignan a la distribución a nivel de *búfer*.
 
 ### Recomendaciones
 
@@ -201,11 +201,11 @@ La capacidad de predicción del algoritmo hash es muy importante. Esto significa
 
 Como verá a continuación, la distribución de hash puede ser muy eficaz para la optimización de consultas. Por ello se considera una forma optimizada para distribuir los datos.
 
-> [AZURE.NOTE]¡No lo olvide! El valor hash no se basa en el valor de los datos, sino en el tipo de datos a los que se aplica un algoritmo hash.
+> [AZURE.NOTE] ¡No lo olvide! El valor hash no se basa en el valor de los datos, sino en el tipo de datos a los que se aplica un algoritmo hash.
 
 A continuación se muestra una tabla que ha distribuido ProductKey.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -223,14 +223,14 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE]Si lo datos presentan una distribución hash, estos se asignan a la distribución a nivel de fila.
+> [AZURE.NOTE] Si lo datos presentan una distribución hash, estos se asignan a la distribución a nivel de fila.
 
 ## Particiones de tabla
 Las particiones de tabla son compatibles y fáciles de definir.
 
 Ejemplos del comando `CREATE TABLE` con particiones del Almacenamiento de datos SQL:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -274,7 +274,7 @@ Se aplican las siguientes recomendaciones para la generación de estadísticas:
 2. Generar estadísticas de varias columnas en las cláusulas compuestas.
 3. Actualizar las estadísticas de forma periódica. Recuerde que esto no se realiza automáticamente.
 
->[AZURE.NOTE]Es habitual que el Almacenamiento de datos SQL dependa únicamente de `AUTOSTATS` para mantener actualizadas las estadísticas de columna. No es una práctica recomendada, incluso para los almacenamientos de datos SQL Server. `AUTOSTATS` se desencadenan a una velocidad de cambio del 20 % para las tablas de hechos grandes que contenían millones o miles de millones de filas que pueden no ser suficientes. Por lo tanto, siempre es conveniente mantener las actualizaciones de estadísticas como una prioridad para garantizar que las estadísticas reflejan con precisión la cardinalidad de la tabla.
+>[AZURE.NOTE] Es habitual que el Almacenamiento de datos SQL dependa únicamente de `AUTOSTATS` para mantener actualizadas las estadísticas de columna. No es una práctica recomendada, incluso para los almacenamientos de datos SQL Server. `AUTOSTATS` se desencadenan a una velocidad de cambio del 20 % para las tablas de hechos grandes que contenían millones o miles de millones de filas que pueden no ser suficientes. Por lo tanto, siempre es conveniente mantener las actualizaciones de estadísticas como una prioridad para garantizar que las estadísticas reflejan con precisión la cardinalidad de la tabla.
 
 ## Características no admitidas
 Almacenamiento de datos SQL no usa ni admite estas características:
@@ -306,4 +306,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

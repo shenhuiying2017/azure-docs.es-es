@@ -1,10 +1,11 @@
-En ambos modelos de implementación se puede configurar una conexión sitio a sitio a través de varias herramientas distintas. Consulte la tabla siguiente para obtener más información. Esta tabla se actualiza cada vez que hay nuevos artículos, nuevos modelos de implementación y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde la tabla.
-
-
 | | **Implementación clásica** | **Implementación del Administrador de recursos** |
 |----------------------------------------|--------------|----------------------|
 | **Portal clásico** |[Artículo](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) | No compatible |
-| **Portal de Azure** | Sí | Sí |
-| **PowerShell** | Sí | [Artículo](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)|
+| **Portal de Azure** | Compatible | [Artículo](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
+| **PowerShell** |[Artículo+](..articles/vpn-gateway/vpn-gateway-multi-site.md) | [Artículo](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
 
-<!---HONumber=AcomDC_0224_2016-->
+(*) indica que el portal clásico solo puede admitir la creación de una conexión VPN de S2S.
+
+(+) indica que este artículo se escribió para conexiones multisitio.
+
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/01/2016"
+    ms.date="03/24/2016"
     ms.author="ddove;sidneyh"/>
 
 # Información general de las características de bases de datos elásticas
 
 Las característica de la **base de datos elástica** le permiten usar los recursos prácticamente ilimitados de bases de datos de **Base de datos SQL de Azure** para crear soluciones para cargas de trabajo transaccionales y especialmente aplicaciones de Software como servicio (SaaS). Las características de la base de datos elástica se componen de lo siguiente:
 
-* Herramientas de base de datos elástica: estas dos herramientas simplifican el desarrollo y la administración de soluciones de base de datos particionada. Las herramientas son: la [biblioteca de cliente de bases de datos elástica](sql-database-elastic-database-client-library.md) y la [herramienta de división y combinación de base de datos elástica](sql-database-elastic-scale-overview-split-and-merge.md). 
-* [Grupos de base de datos elástica](sql-database-elastic-pool-guidance.md) (vista previa): un grupo es una colección de bases de datos a la que puede agregar o quitar bases de datos en cualquier momento. Las bases de datos del grupo comparten una cantidad fija de recursos (conocidos como unidades de transacción de base de datos o DTU). Se paga un precio fijo por los recursos, lo que le permite calcular con facilidad los costos al administrar el rendimiento. 
+* Herramientas de base de datos elástica: estas dos herramientas simplifican el desarrollo y la administración de soluciones de base de datos particionada. Las herramientas son: la [biblioteca de cliente de bases de datos elástica](sql-database-elastic-database-client-library.md) y la [herramienta de división y combinación de base de datos elástica](sql-database-elastic-scale-overview-split-and-merge.md).
+* [Grupos de base de datos elástica](sql-database-elastic-pool-guidance.md) (vista previa): un grupo es una colección de bases de datos a la que puede agregar o quitar bases de datos en cualquier momento. Las bases de datos del grupo comparten una cantidad fija de recursos (conocidos como unidades de transacción de base de datos o DTU). Se paga un precio fijo por los recursos, lo que le permite calcular con facilidad los costos al administrar el rendimiento.
 * [Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md) (vista previa): use trabajos para administrar un gran número de bases de datos de SQL de Azure. Realice fácilmente operaciones administrativas, como cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o de trabajos de recolección de telemetría de inquilinos (cliente).
 * [Consulta de Base de datos elástica](sql-database-elastic-query-overview.md) (vista previa): le permite ejecutar una consulta de Transact-SQL que abarca varias bases de datos. Esto permite la conexión con herramientas de informes, como Excel, PowerBI, Tableau, etc.
 
@@ -33,13 +33,13 @@ Para obtener una versión imprimible de este gráfico, vaya a [Descarga de infor
 
 En este gráfico, los colores de la base de datos representan esquemas. Las bases de datos con el mismo color comparten los mismos esquemas.
 
-1. Un conjunto de **bases de datos de SQL de Azure** se hospedan en Azure con la arquitectura de particionamiento. 
+1. Un conjunto de **bases de datos de SQL de Azure** se hospedan en Azure con la arquitectura de particionamiento.
 2. La **biblioteca de cliente de base de datos elástica** se usa para administrar un conjunto de particiones.
-3. Un subconjunto de las bases de datos se coloca en un **grupo de bases de datos elásticas**. (Consulte [Domine el crecimiento explosivo con bases de datos elásticas](sql-database-elastic-pool.md)). 
+3. Un subconjunto de las bases de datos se coloca en un **grupo de bases de datos elásticas**. (Consulte [Domine el crecimiento explosivo con bases de datos elásticas](sql-database-elastic-pool.md)).
 4. Un **trabajo de base de datos elástica** ejecuta scripts de T-SQL en todas las bases de datos.
 5. La **herramienta de división y combinación** se usa para mover datos de una partición a otra.
 6. La **consulta de base de datos elástica** le permite escribir una consulta que abarque todas las bases de datos del conjunto de particiones.
-  
+
 ## Promesas y desafíos
 
 Lograr la flexibilidad y escala para aplicaciones de nube ha sido sencillo para el cálculo y almacenamiento de blobs, basta con sumar o restar unidades. Pero sigue siendo un desafío para el procesamiento de datos con estado en bases de datos relacionales. Hemos visto que estos desafíos surgen principalmente en los dos escenarios siguientes:
@@ -93,7 +93,7 @@ Para una aplicación de ejemplo que demuestra la biblioteca de cliente, consulte
 
 Para usar la herramienta de división y combinación, debe [configurar la seguridad](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-Para ver los detalles del grupo de bases de datos elásticas, consulte [Consideraciones de precio y rendimiento para un grupo de servidores de bases de datos elásticas](sql-database-elastic-pool-guidance.md) o cree un nuevo grupo con el [tutorial](sql-database-elastic-pool-portal.md).
+Para ver los detalles del grupo de bases de datos elásticas, consulte [Consideraciones de precio y rendimiento para un grupo de servidores de bases de datos elásticas](sql-database-elastic-pool-guidance.md) o cree un nuevo grupo con el [tutorial](sql-database-elastic-pool-create-portal.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -108,4 +108,4 @@ Para ver los detalles del grupo de bases de datos elásticas, consulte [Consider
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

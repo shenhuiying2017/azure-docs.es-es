@@ -46,6 +46,10 @@ Para obtener un certificado SSL para utilizarlo con el Servicio de aplicaciones 
 
 Es posible que también tenga que obtener **[certificados intermedios](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (conocidos también como certificados de cadena), en caso de que la entidad de certificación los use. Se considera que el uso de certificados intermedios es más seguro que los "certificados que no pertenecen a una cadena", por lo que las entidades de certificación suelen utilizarlos. Normalmente, los certificados intermedios se pueden descargar de forma independiente desde el sitio web de la entidad de certificación. En este artículo se proporcionan los pasos necesarios para asegurarse de que los certificados intermedios se combinen con el certificado cargado en sus aplicaciones.
 
+> [AZURE.NOTE]
+>
+> En caso de que la CA use certificados intermedios, deben instalarse junto con el certificado emitido para su dominio. Si no se instala cualquiera de los certificados intermedios, pueden producirse problemas de interoperabilidad difíciles de reproducir en algunos clientes.
+
 <a name="bkmk_certreq"></a>
 ### Obtención de un certificado con Certreq.exe (solo Windows)
 
@@ -394,7 +398,7 @@ La habilitación de HTTPS para un dominio personalizado solo está disponible pa
 
 1.	En el explorador, abra el [Portal de Azure](https://portal.azure.com).
 	
-2.	Haga clic en la opción **Servicio de aplicaciones** en el lado izquierdo de la página.
+2.	Haga clic en la opción **Servicio de aplicaciones** del lado izquierdo de la página.
 
 4.	Haga clic en el nombre de la aplicación.
 
@@ -415,7 +419,7 @@ Antes de realizar los pasos de esta sección, debe haber asociado un nombre de d
 
 1.	En el explorador, abra el [Portal de Azure](https://portal.azure.com).
 
-2.	Haga clic en la opción **Servicio de aplicaciones** en el lado izquierdo de la página.
+2.	Haga clic en la opción **Servicio de aplicaciones** del lado izquierdo de la página.
 
 4.	Haga clic en el nombre de la aplicación.
 
@@ -535,7 +539,6 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
@@ -561,4 +564,4 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # Ordenación de datos de DocumentDB con Order By
@@ -33,9 +33,9 @@ Para obtener una referencia completa sobre las consultas de SQL, consulte el [tu
 Al igual que en ANSI-SQL, ahora puede incluir una cláusula Order By opcional en las instrucciones SQL al consultar DocumentDB. La cláusula puede incluir un argumento ASC o DESC opcional para especificar el orden en que se deben recuperar los resultados.
 
 ### Ordenación mediante SQL
-Por ejemplo, aquí se muestra una consulta para recuperar libros en orden descendente por sus títulos.
+Por ejemplo, aquí se muestra una consulta para recuperar los diez libros principales en orden descendente por sus títulos.
 
-    SELECT * 
+    SELECT TOP 10 * 
     FROM Books 
     ORDER BY Books.Title DESC
 
@@ -44,33 +44,17 @@ Puede ordenar con cualquier propiedad anidada dentro de documentos como Books.Sh
 
     SELECT * 
     FROM Books 
-	WHERE Books.SalePrice > 4000
+    WHERE Books.SalePrice > 4000
     ORDER BY Books.ShippingDetails.Weight
 
 ### Ordenación mediante el proveedor de LINQ para .NET
 Mediante la versión 1.2.0 del SDK de .NET y posteriores, también puede utilizar la cláusula OrderBy() u OrderByDescending() en consultas de LINQ, como en este ejemplo:
 
-    foreach (Book book in client.CreateDocumentQuery<Book>(booksCollection.SelfLink)
-        .OrderBy(b => b.PublishTimestamp)) 
+    foreach (Book book in client.CreateDocumentQuery<Book>(UriFactory.CreateDocumentCollectionUri("db", "books"))
+        .OrderBy(b => b.PublishTimestamp)
+        .Take(100))
     {
         // Iterate through books
-    }
-
-### Ordenación de la paginación mediante el SDK de .NET
-Mediante la compatibilidad nativa con la paginación dentro de los SDK de DocumentDB, puede recuperar resultados de página en página como se muestra en el siguiente fragmento de código .NET. Aquí se capturan hasta 10 resultados a la vez mediante las interfaces FeedOptions.MaxItemCount y IDocumentQuery.
-
-    var booksQuery = client.CreateDocumentQuery<Book>(
-        booksCollection.SelfLink,
-        "SELECT * FROM Books ORDER BY Books.PublishTimestamp DESC"
-        new FeedOptions { MaxItemCount = 10 })
-      .AsDocumentQuery();
-            
-    while (booksQuery.HasMoreResults) 
-    {
-        foreach(Book book in await booksQuery.ExecuteNextAsync<Book>())
-        {
-            // Iterate through books
-        }
     }
 
 DocumentDB admite la ordenación con una única propiedad numérica, de cadena o booleana por consulta, con tipos de consulta adicionales que estarán disponibles próximamente. Consulte [Qué novedades se esperan](#Whats_coming_next) para obtener más detalles.
@@ -86,21 +70,17 @@ Recuerde que DocumentDB admite dos tipos de índices (Hash y de intervalo), que 
 Para obtener más información, consulte [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md).
 
 ### Indexación para Order By en todas las propiedades
-A continuación se indica cómo puede crear una colección con la indexación "Todo el intervalo" para Order By con cualquiera/todas las propiedades numéricas o de cadena que aparecen en documentos JSONany/all numérico o cadena de las propiedades que aparecen en los documentos JSON dentro de esta. En este caso, "/*" representa todas las propiedades/rutas de acceso JSON dentro de la colección, y -1 representa la precisión máxima.
+A continuación se indica cómo puede crear una colección con la indexación "Todo el intervalo" para Order By con cualquiera/todas las propiedades numéricas o de cadena que aparecen en documentos JSONany/all numérico o cadena de las propiedades que aparecen en los documentos JSON dentro de esta. Aquí se muestra cómo reemplazar el tipo de índice predeterminado para los valores de cadena por Intervalo y con la precisión máxima (-1).
                    
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
-
-    await client.CreateDocumentCollectionAsync(databaseLink, 
-        booksCollection);  
+    DocumentCollection books = new DocumentCollection();
+    books.Id = "books";
+    books.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
+    
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), books);  
 
 >[AZURE.NOTE] Tenga en cuenta que Order By solo devolverá resultados de los tipos de datos (cadena y número) que están indexados con un RangeIndex. Por ejemplo, si tiene la directiva de indexación predeterminada que solo tiene RangeIndex en números, una consulta Order By en una ruta de acceso con valores de cadena no devolverá ningún documento.
+>
+> Si ha definido una clave de partición para las colecciones, tenga en cuenta que Order By es compatible solo en consultas filtradas mediante una clave de partición única.
 
 ### Indexación de Order By para una sola propiedad
 A continuación se indica cómo puede crear una colección con indexación para Order By con la propiedad Title, que es una cadena. Hay dos rutas de acceso, una para la propiedad Title ("/Title/?") con la indexación de intervalo y la otra para todas las otras propiedades con el esquema de indexación predeterminado, que es Hash para cadenas e Intervalo para los números.
@@ -112,27 +92,13 @@ A continuación se indica cómo puede crear una colección con indexación para 
                 new RangeIndex(DataType.String) { Precision = -1 } } 
             });
     
-    // Use defaults which are:
-    // (a) for strings, use Hash with precision 3 (just equality queries)
-    // (b) for numbers, use Range with max precision (for equality, range and order by queries)
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*",
-            Indexes = new Collection<Index> { 
-                new HashIndex(DataType.String) { Precision = 3 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }            
-        });
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), booksCollection);  
+
 
 ## Muestras
 Eche un vistazo a los [proyectos de ejemplo de Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) en los que se muestra cómo se usa Order By, incluida la creación de directivas de indexación y la paginación con Order By. Los ejemplos son de código abierto y le animamos a que envíe solicitudes de extracción con las contribuciones que podrían ayudar a otros desarrolladores de DocumentDB. Consulte las [directrices de contribución](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obtener instrucciones acerca de cómo realizar sus aportaciones.
 
 ## P+F
-
-**¿Qué plataformas y versiones del SDK admiten la ordenación?**
-
-Para crear colecciones con la directiva de indexación requerida para Order By, debe descargar la lista más reciente del SDK (1.2.0 para .NET y 1.1.0 para Node.js, JavaScript, Python y Java). El SDK de .NET 1.2.0 también es necesario para usar OrderBy() y OrderByDescending() dentro de las expresiones de LINQ.
-
 
 **¿Cuál es el consumo de unidades de solicitud (RU) esperado de las consultas de Order By?**
 
@@ -141,7 +107,7 @@ Dado que Order By usa el índice de DocumentDB para las búsquedas, el número d
 
 **¿Cuál es la sobrecarga de indexación esperada de Order By?**
 
-La sobrecarga del almacenamiento de indexación será proporcional a la cantidad de propiedades. En el peor escenario posible, la sobrecarga del índice será el 100 % de los datos. No hay diferencias en la sobrecarga de procesamiento (unidades de solicitud) entre la indexación de intervalo u Order By y la indexación de Hash predeterminada.
+La sobrecarga del almacenamiento de indexación será proporcional a la cantidad de propiedades. En el peor escenario posible, la sobrecarga del índice será el 100 % de los datos. No hay diferencias en la sobrecarga de procesamiento (unidades de solicitud) entre la indexación de intervalo u Order By y la indexación de Hash predeterminada.
 
 **¿Cómo se consultan los datos existentes en DocumentDB con Order By?**
 
@@ -170,4 +136,4 @@ Bifurque el [proyecto de ejemplos de Github](https://github.com/Azure/azure-docu
 * [Ejemplos de Order By de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

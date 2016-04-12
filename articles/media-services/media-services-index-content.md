@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/17/2016"   
-	ms.author="juliako;adsolank;johndeu"/>
+	ms.date="03/18/2016"   
+	ms.author="adsolank;juliako;johndeu"/>
 
 
 # Indización de archivos multimedia con el Indizador multimedia de Azure
@@ -301,4 +301,4 @@ Actualmente, se admiten los idiomas inglés y español. Para obtener más inform
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

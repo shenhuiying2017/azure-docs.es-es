@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure
@@ -24,7 +24,7 @@ Muchas API admiten [OAuth 2.0](http://oauth.net/2/) para proteger la API y garan
 
 En esta guía se explica cómo configurar la instancia del servicio Administración de API para que use la autorización OAuth 2.0 con las cuentas de desarrollador, pero no se explica cómo configurar un proveedor de OAuth 2.0. Aunque los proveedores de OAuth 2.0 tienen configuraciones diferentes, los pasos son similares y se precisa la misma información para configurar OAuth 2.0 en la instancia del servicio Administración de API. Este tema muestra ejemplos donde Azure Active Directory actúa como proveedor de OAuth 2.0.
 
->[AZURE.NOTE]Para obtener más información sobre cómo configurar OAuth 2.0 con Azure Active Directory, consulte el ejemplo de [WebApp-GraphAPI-DotNet][].
+>[AZURE.NOTE] Para obtener más información sobre cómo configurar OAuth 2.0 con Azure Active Directory, consulte el ejemplo de [WebApp-GraphAPI-DotNet][].
 
 ## <a name="step1"> </a>Configurar un servidor de autorización OAuth 2.0 en Administración de API
 
@@ -32,7 +32,7 @@ Para comenzar, haga clic en **Administrar** en el Portal de Azure clásico para 
 
 ![Portal del publicador][api-management-management-console]
 
->[AZURE.NOTE]Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
+>[AZURE.NOTE] Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
 
 Haga clic en **Seguridad** en el menú **Administración de API** de la izquierda, haga clic en **OAuth 2.0** y, después, en **Agregar servidor de autorización**.
 
@@ -44,7 +44,7 @@ Al hacer clic en **Agregar servidor de autorización**, se muestra el formulario
 
 Escriba un nombre y una descripción opcional en los campos **Nombre** y **Descripción**.
 
->[AZURE.NOTE]Estos campos sirven para identificar el servidor de autorización OAuth 2.0 en la instancia del servicio Administración de API y los valores que contienen no proceden del servidor OAuth 2.0.
+>[AZURE.NOTE] Estos campos sirven para identificar el servidor de autorización OAuth 2.0 en la instancia del servicio Administración de API y los valores que contienen no proceden del servidor OAuth 2.0.
 
 Escriba la **URL de la página de registro de cliente**. En esta página, los usuarios pueden crear y administrar sus cuentas. Puede variar en función del proveedor de OAuth 2.0. La **URL de la página de registro de cliente** señala a la página que los usuarios pueden utilizar para crear y configurar sus propias cuentas para proveedores de OAuth 2.0 que admiten la administración de usuarios de las cuentas. Algunas organizaciones no configuran ni usan esta funcionalidad, aunque la admita el proveedor de OAuth 2.0. Si el proveedor de OAuth 2.0 no tiene configurada la administración de usuarios de las cuentas, especifique aquí una URL de marcador de posición, por ejemplo, la URL de su empresa o una URL como `https://placeholder.contoso.com`.
 
@@ -100,7 +100,7 @@ Haga clic en **API** en el menú superior y seleccione **API eco**.
 
 ![API Eco][api-management-apis-echo-api]
 
->[AZURE.NOTE]Si solamente tiene una API configurada o visible en su cuenta, al hacer clic en API irá directamente a las operaciones de dicha API.
+>[AZURE.NOTE] Si solamente tiene una API configurada o visible en su cuenta, al hacer clic en API irá directamente a las operaciones de dicha API.
 
 Seleccione la operación **Recurso GET**, haga clic en **Abrir consola** y seleccione **Código de autorización** en la lista desplegable.
 
@@ -108,7 +108,7 @@ Seleccione la operación **Recurso GET**, haga clic en **Abrir consola** y selec
 
 Al seleccionar **Código de autorización**, se abre una ventana emergente con el formulario de suscripción del proveedor de OAuth 2.0. En este ejemplo, Azure Active Directory ha proporcionado el formulario de suscripción.
 
->[AZURE.NOTE]Si ha deshabilitado los elementos emergentes, el explorador le solicitará que los habilite. Cuando los habilite, seleccione **Código de autorización** de nuevo y se mostrará el formulario de suscripción.
+>[AZURE.NOTE] Si ha deshabilitado los elementos emergentes, el explorador le solicitará que los habilite. Cuando los habilite, seleccione **Código de autorización** de nuevo y se mostrará el formulario de suscripción.
 
 ![Iniciar sesión][api-management-oauth2-signin]
 
@@ -160,4 +160,4 @@ Para obtener más información acerca del uso de OAuth 2.0 y Administración de 
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

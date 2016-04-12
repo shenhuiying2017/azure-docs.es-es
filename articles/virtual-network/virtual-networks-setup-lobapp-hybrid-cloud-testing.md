@@ -37,7 +37,7 @@ Esta configuración simula una aplicación de LOB en un entorno de producción d
 
 Esta configuración proporciona una base y un punto de partida común desde el que puede:
 
-- Desarrollar y probar aplicaciones de LOB hospedadas en Internet Information Services (IIS) con un back-end de base de datos de SQL Server 2014 en Azure.
+- Desarrollar y probar aplicaciones de LOB hospedadas en Internet Information Services (IIS) con un back-end de base de datos de SQL Server 2014 en Azure.
 - Realizar pruebas de esta carga de trabajo de TI basada en la nube híbrida.
 
 Hay tres fases principales para configurar este entorno de prueba de nube híbrida:
@@ -114,7 +114,7 @@ Ejecute estos comandos en el símbolo del sistema de Windows PowerShell en SQL1:
 	md f:\Log
 	md f:\Backup
 
-A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas bases de datos y para los permisos de cuenta de usuario.
+A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas bases de datos y para los permisos de cuenta de usuario.
 
 1.	Desde la pantalla Inicio, escriba **SQL Server Management** y haga clic en **SQL Server 2014 Management Studio**.
 2.	En **Conectar con el servidor**, haga clic en **Conectar**.
@@ -172,7 +172,7 @@ A continuación, configure LOB1 para IIS y pruebe el acceso desde CLIENT1.
 10.	En la página Confirmación de las selecciones de instalación, haga clic en **Instalar**.
 11.	Espere hasta que se haya completado la instalación de los componentes y haga clic en **Cerrar**.
 12.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\\User1 y, a continuación, inicie Internet Explorer.
-13.	En la barra de direcciones, escriba ****http://lob1/** y, a continuación, presione ENTRAR. Debería ver la página web predeterminada de IIS 8.
+13.	En la barra de direcciones, escriba **http://lob1/** y, a continuación, presione ENTRAR. Debería ver la página web predeterminada de IIS 8.
 
 Se trata de la configuración actual.
 
@@ -182,6 +182,6 @@ Este entorno ya está preparado para implementar su aplicación basada en web en
 
 ## Pasos siguientes
 
-- Configure el [entorno de producción](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md).
+- Configure el [entorno de producción](../virtual-machines/virtual-machines-windows-lob-overview.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0323_2016-->

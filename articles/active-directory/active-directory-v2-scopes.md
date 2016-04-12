@@ -120,4 +120,4 @@ Si tu aplicación no solicita el ámbito `offline_access`, no recibirá tokens d
 
 Para obtener más información sobre cómo obtener y usar los tokens de actualización, consulte la [referencia de protocolos de v2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

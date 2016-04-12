@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Procedimientos almacenados en el Almacenamiento de datos SQL 
+# Procedimientos almacenados en el Almacenamiento de datos SQL
 
 El Almacenamiento de datos SQL admite muchas de las características de Transact-SQL que se encuentran en SQL Server. Más importante aún, hay características específicas de escalado horizontal que deseamos utilizar para maximizar el rendimiento de la solución.
 
@@ -28,7 +28,7 @@ En este artículo se explica cómo implementar procedimientos almacenados en el 
 Los procedimientos almacenados son una manera excelente para encapsular el código SQL y almacenarlo cerca de los datos en el almacenamiento de datos. Al encapsular el código en unidades administrables, los procedimientos almacenados ayudan a los programadores a modularizar sus soluciones, de tal manera que facilitan una mayor reutilización del código. Cada procedimiento almacenado también puede aceptar parámetros para que sean todavía más flexibles.
 
 El Almacenamiento de datos SQL proporciona una implementación optimizada y simplificada de procedimientos almacenados. La diferencia más importante en comparación con SQL Server es que el procedimiento almacenado no es código compilado previamente. En los almacenamientos de datos, en general, nos preocupa menos el tiempo de compilación. Es más importante que el código del procedimiento almacenado esté bien optimizado al operar con grandes volúmenes de datos. El objetivo es ahorrar horas, minutos y segundos, no milisegundos. Por lo tanto, resulta más útil pensar en los procedimientos almacenados como contenedores para la lógica SQL.
- 
+
 Si el Almacenamiento de datos SQL ejecuta el procedimiento almacenado, las instrucciones SQL se distribuyen, traducen y optimizan en el momento de la ejecución. Durante este proceso, cada instrucción se convierte en consultas distribuidas. El código SQL que se ejecuta realmente en los datos es diferente de la consulta enviada.
 
 ## Anidamiento de los procedimientos almacenados
@@ -38,16 +38,19 @@ El Almacenamiento de datos SQL admite un máximo de ocho niveles de anidamiento.
 
 La llamada al procedimiento almacenado de nivel superior es igual al nivel de anidamiento 1.
 
-```
+```sql
 EXEC prc_nesting
-``` 
-Si el procedimiento almacenado también realiza otra llamada EXEC, esto aumentará el nivel de anidamiento a 2 ```
+```
+Si el procedimiento almacenado también realiza otra llamada EXEC, aumentará el nivel de anidación a 2.
+```sql
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
-``` Si el segundo procedimiento, a continuación, ejecuta SQL dinámico, esto aumentará el nivel de anidamiento a 3 ```
+```
+Si el segundo procedimiento ejecuta luego SQL dinámico, aumentará el nivel de anidación a 3.
+```sql
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
@@ -94,4 +97,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

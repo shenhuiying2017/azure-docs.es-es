@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migración de una solución a Almacenamiento de datos SQL
@@ -28,7 +28,7 @@ Antes de comenzar la migración, lea estos artículos para asegurarse de que ent
 - [Migración del esquema][]
 - [Migración de los datos][]
 - [Migración del código][]
- 
+
 ## Pasos siguientes
 Para obtener más sugerencias de desarrollo, consulte la [información general sobre desarrollo][].
 
@@ -45,11 +45,11 @@ Finalmente, lea el tema [información general sobre carga][], donde se describen
 
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 [información general sobre carga]: sql-data-warehouse-overview-load.md
-[referencia de Transact-SQL]: sql-data-warehouse-overview-migrate.md
+[referencia de Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0316_2016-->

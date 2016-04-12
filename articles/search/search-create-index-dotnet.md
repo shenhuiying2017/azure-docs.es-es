@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="brjohnst"/>
 
 # Creación de un índice de Búsqueda de Azure mediante el SDK para .NET
@@ -77,8 +77,8 @@ En nuestro ejemplo, hemos llamado a nuestro índice "hoteles" y definido los cam
 var definition = new Index()
 {
     Name = "hotels",
-    Fields = new[] 
-    { 
+    Fields = new[]
+    {
         new Field("hotelId", DataType.String)                       { IsKey = true, IsFilterable = true },
         new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true, IsFacetable = true },
         new Field("description", DataType.String)                   { IsSearchable = true },
@@ -121,6 +121,6 @@ serviceClient.Indexes.Delete("hotels");
 > [AZURE.NOTE] El código de ejemplo de este artículo usa los métodos sincrónicos del SDK de Búsqueda de Azure para .NET por motivos de simplicidad. En sus propias aplicaciones, recomendamos que use métodos asincrónicos para mantener su escalabilidad y capacidad de respuesta. Por ejemplo, en los ejemplos anteriores podría utilizar `CreateAsync` y `DeleteAsync` en lugar de `Create` y `Delete`.
 
 ## Pasos siguientes
-Después de crear un índice de Búsqueda de Azure, ya podrá cargar el contenido en el índice y empezar la búsqueda de los datos. Para más información, consulte [Importación de datos a Búsqueda de Azure mediante el SDK para .NET](search-import-data-dotnet.md).
+Después de crear un índice de Búsqueda de Azure, ya podrá [cargar el contenido en el índice](search-what-is-data-import.md) y empezar la búsqueda de los datos.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,55 +14,78 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.date="03/18/2016"
 	ms.author="curtand"/>
 
 
-#Administración de grupos de seguridad en Azure Active Directory
+# Administración de grupos en Azure Active Directory
 
-Dentro de Azure Active Directory (Azure AD), una de las principales características es la capacidad para administrar el acceso a los recursos. Estos recursos pueden formar parte del directorio, como en el caso de los permisos para administrar objetos a través de roles en el directorio, o recursos externos al directorio, como las aplicaciones SaaS, servicios de Azure y sitios de SharePoint o publicados en modo local. El propietario de un recurso puede asignarle un grupo y, al hacerlo, conceder acceso al recurso a los miembros de ese grupo. El propietario del grupo puede administrar entonces la pertenencia dicho grupo. El propietario del recurso delega efectivamente en el propietario del grupo el permiso para asignar a usuarios a sus recursos.
+Una de las principales características de Azure Active Directory (Azure AD) es la capacidad para administrar el acceso a los recursos. Estos recursos pueden ser objetos en el directorio, o bien recursos externos al directorio, como las aplicaciones SaaS, servicios de Azure, sitios de SharePoint o recursos locales. Además, el propietario de un recurso puede asignar acceso a un recurso a un grupo de Azure AD. Esto concede a los miembros de ese grupo acceso al recurso. A continuación, el propietario del grupo administra la pertenencia al grupo. El propietario del recurso delega efectivamente en el propietario del grupo el permiso para asignar usuarios a sus recursos.
 
+## ¿Cómo creo un grupo de seguridad?
 
-##Creación y administración de un grupo de seguridad
+**Para crear un grupo**
 
-**Para crear un grupo en el portal de Azure**
+Esta tarea puede realizarse mediante el portal de cuentas de Office 365, el portal de cuentas de Windows Intune o el portal de Azure, en función de los servicios a los que se haya suscrito su organización. Para obtener más información acerca del uso de portales para administrar su directorio de Azure Active Directory, consulte [Administración de su directorio de Azure AD](active-directory-administer.md).
 
-1. En el Portal de Azure, haga clic en **Active Directory** y luego haga clic en el nombre del directorio de su organización.
-2. Haga clic en la pestaña **Grupos**.
-3. En la página Grupos, haga clic en **Agregar grupo**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y luego el nombre del directorio de su organización.
+
+2. Seleccione la pestaña **Grupos**.
+
+3. Seleccione **Agregar grupo**.
+
 4. En la ventana **Agregar grupo**, especifique el nombre y la descripción de un grupo.
-5. Esta tarea puede realizarse mediante el portal de la cuenta de Office 365, el portal de cuentas de Windows Intune o el portal de Azure, dependiendo de los servicios a los que se haya suscrito su organización. Para obtener más información acerca del uso de portales para administrar su directorio de Azure Active Directory, consulte [Administración de su directorio de Azure AD](active-directory-administer).
-
-## Asignación o eliminación de usuarios en un grupo de seguridad
-
-**Para agregar un miembro a un grupo del Portal de Azure**
-
-1. En el Portal de Azure, haga clic en **Active Directory** y luego haga clic en el nombre del directorio de su organización.
-2. Haga clic en la pestaña **Grupos**.
-3. En la página **Grupos**, haga clic en el nombre del grupo al que quiere agregar miembros. De forma predeterminada, aparece la pestaña **Miembros** del grupo seleccionado.
-4. En la página del grupo, haga clic en**Agregar miembros**.
-5. En la página **Agregar miembros**, haga clic en el nombre del usuario o el grupo que quiere agregar como miembro de este grupo y asegúrese de que este nombre se agrega al panel Seleccionado.
 
 
-**Para eliminar un miembro de un grupo del Portal de Azure**
+## Asignación o eliminación de usuarios individuales de un grupo de seguridad
 
-1. En el Portal de Azure, haga clic en **Active Directory** y luego haga clic en el nombre del directorio de su organización.
-2. Haga clic en la pestaña **Grupos**.
-3. En la página Grupos, haga clic en el nombre del grupo del que desea quitar miembros.
-4. En la página del grupo, haga clic en la pestaña **Miembros**.
-5. En la página de ese grupo, haga clic en el nombre del miembro que quiere quitar de este grupo y luego haga clic en **Quitar**.
-6. Confirme que quiere quitar este miembro del grupo. Para ello, haga clic en **Sí** como respuesta a la pregunta de comprobación de la acción.
+**Para agregar un usuario individual a un grupo**
+
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y luego el nombre del directorio de su organización.
+
+2. Seleccione la pestaña **Grupos**.
+
+3. Abra el grupo al que desea agregar miembros. De forma predeterminada, aparece la pestaña **Miembros** del grupo seleccionado.
+
+4. Seleccione **Agregar miembros**.
+
+5. En la página **Agregar miembros**, seleccione el nombre del usuario o el grupo que quiere agregar como miembro de este grupo y asegúrese de que este nombre se agrega al panel **Seleccionado**.
 
 
-## Uso de una regla para administrar dinámicamente los miembros de un grupo de seguridad
+**Para quitar un usuario individual de un grupo**
 
-**Para habilitar la pertenencia dinámica para un grupo determinado, siga estos pasos:**
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y luego el nombre del directorio de su organización.
 
-1. En el Portal de Azure, en la pestaña **Grupos**, seleccione el grupo que quiere editar y luego, en la pestaña **Configurar** de este grupo, establezca el conmutador **Habilitar pertenencia dinámica** en **Sí**.
-2. Ahora puede configurar una sola regla sencilla para el grupo que controlará cómo funciona la pertenencia dinámica para este grupo. Asegúrese de que el botón de radio **Agregar usuarios donde** está activado y luego seleccione una propiedad de usuario en el menú desplegable (por ejemplo, department, jobTitle, etc.).
-3. A continuación, seleccione una condición (Not Equals, Equals, Not Starts With, Starts With, Not Contains, Contains, Not Match, Match), y por último, especifique un valor para la propiedad del usuario seleccionado.
+2. Seleccione la pestaña **Grupos**.
 
-Por ejemplo, si un grupo se asigna a una aplicación SaaS (para más información, vea Asignación de acceso para un grupo a una aplicación SaaS en Azure AD) y habilita las pertenencias dinámicas para este grupo estableciendo una regla mediante la cual los usuarios Agregar usuarios donde se establece para un puesto de trabajo (jobTitle) con la condición Equals(-eq)Sales Rep, todos los usuarios de su directorio de Azure AD cuyos puestos de trabajo se hayan configurado en Sales Rep tendrán acceso a la aplicación SaaS.
+3. Abra el grupo del que desea quitar miembros.
+
+4. Seleccione la pestaña **Miembros**, elija el nombre del miembro que quiere quitar de este grupo y haga clic en **Quitar**.
+
+6. En el símbolo del sistema, confirme que desea quitar este miembro del grupo.
+
+
+## ¿Cómo puedo administrar la pertenencia de un grupo dinámicamente?
+
+En Azure AD, puede configurar fácilmente una regla sencilla (es decir, una regla que solo realiza una comparación) para determinar qué usuarios van a ser miembros del grupo. Por ejemplo, si se asigna un grupo a una aplicación SaaS, y configura una regla para agregar los usuarios que tienen el puesto de trabajo "Representante de ventas", todos los usuarios de su directorio de Azure AD con ese puesto de trabajo tendrán acceso a esta aplicación SaaS.
+
+> [AZURE.NOTE] Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365. En este momento, no se admiten las pertenencias a grupos anidadas para la asignación basada en grupos a aplicaciones. La pertenencia dinámica a grupos requiere que haya una licencia de Azure AD Premium asignada
+>- Al administrador que administra la regla en un grupo
+>- A todos los usuarios seleccionados por la regla para que sean miembros del grupo
+
+**Para habilitar la pertenencia dinámica para un grupo**
+
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y luego el nombre del directorio de su organización.
+
+2. Seleccione la pestaña **Grupos** y abra el grupo que desea editar.
+
+3. Seleccione la pestaña **Configurar** y establezca **Habilitar pertenencia dinámica** en **Sí**.
+
+4. Configure una sola regla sencilla para el grupo que controlará cómo funciona la pertenencia dinámica para este grupo. Asegúrese de que la opción **Agregar usuarios donde** está seleccionada y, a continuación, seleccione una propiedad de usuario en la lista (por ejemplo, department, jobTitle, etc.).
+
+5. A continuación, seleccione una condición (Not Equals, Equals, Not Starts With, Starts With, Not Contains, Contains, Not Match, Match), y por último, especifique un valor para la propiedad del usuario seleccionado.
+
+Para aprender a crear reglas *avanzadas* (reglas que pueden contener varias comparaciones) para la pertenencia dinámica a grupos, consulte [Uso de atributos para crear reglas avanzadas](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
 ## Información adicional
 
@@ -76,4 +99,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

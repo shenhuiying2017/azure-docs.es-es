@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Colas, temas y suscripciones del Bus de servicio
@@ -169,7 +169,8 @@ Consulte los siguientes temas avanzados para obtener más información y ejemplo
 - [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
 - [Tutorial de .NET de mensajería asíncrona del Bus de servicio](service-bus-brokered-tutorial-dotnet.md)
 - [Tutorial de REST de mensajería asíncrona del Bus de servicio](service-bus-brokered-tutorial-rest.md)
+- [Event Hubs documentation](https://azure.microsoft.com/documentation/services/event-hubs/) (Documentación de los Centros de datos)
 - [Guía de desarrolladores de Centros de eventos](../event-hubs/event-hubs-programming-guide.md)
 - [Mensajería asíncrona: filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general sobre Aplicaciones de API" 
+	pageTitle="Introducción a las aplicaciones de API | Microsoft Azure" 
 	description="Descubra por qué el Servicio de aplicaciones de Azure es la mejor plataforma para desarrollar, publicar y hospedar API RESTful." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="03/23/2016" 
 	ms.author="tdykstra"/>
 
 # Información general sobre Aplicaciones de API
 
 Aplicaciones de API son uno de los cuatro tipos que ofrece el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
 
-![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
+![Tipos de aplicaciones en el Servicio de aplicaciones de Azure](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-El [Servicio de aplicaciones](../app-service/app-service-value-prop-what-is.md) es una plataforma totalmente administrada que ofrece un amplio conjunto de capacidades para escenarios web, móviles y de integración. Las aplicaciones de API del Servicio de aplicaciones ofrecen características que facilitan la compilación, el hospedaje y el consumo de API en la nube y locales. Implemente la API como una aplicación de API en el Servicio de aplicaciones y disfrute de seguridad de nivel empresarial, control de acceso sencillo, conectividad híbrida, generación automática de SDK e integración completa con [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+El [Servicio de aplicaciones](../app-service/app-service-value-prop-what-is.md) es una plataforma totalmente administrada para escenarios web, móviles y de integración. Las aplicaciones de API del Servicio de aplicaciones ofrecen características que facilitan la compilación, el hospedaje y el consumo de API en la nube y locales. Implemente la API como una aplicación de API en el Servicio de aplicaciones y disfrute de seguridad de nivel empresarial, control de acceso sencillo, conectividad híbrida, generación automática de SDK e integración completa con [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 ## ¿Por qué las Aplicaciones de API?
 
@@ -34,13 +34,22 @@ Las Aplicaciones de API ofrecen las siguientes características:
 
 - **Integración con visual Studio**: existen herramientas dedicadas en Visual Studio que permiten optimizar las tareas de creación, implementación, consumo, depuración y administración de las aplicaciones de API. Para más información, consulte [Anuncio de la versión 2.8.1 del SDK de Azure para .NET](/blog/announcing-azure-sdk-2-8-1-for-net/).
 
-- **Integración con aplicaciones lógicas**: las [aplicaciones lógicas del Servicio de aplicaciones](../app-service-logic/app-service-logic-what-are-logic-apps.md) pueden consumir las aplicaciones de API que cree. Aprenda a hacerlo en [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md). Para obtener información sobre los cambios continuos en la manera en que las aplicaciones de API se integran con las aplicaciones lógicas, consulte [Aplicaciones de API del Servicio de aplicaciones: lo que ha cambiado](app-service-api-whats-changed.md).
+- **Integración con aplicaciones lógicas**: las [aplicaciones lógicas del Servicio de aplicaciones](../app-service-logic/app-service-logic-what-are-logic-apps.md) pueden consumir las aplicaciones de API que cree. Para más información, consulte [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md) y [Nueva versión de esquema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
-- **La API existente puede incorporarse tal cual**: no es necesario realizar ningún cambio en el código de las API existentes para aprovechar las características de las aplicaciones de API, solo tiene que implementar el código en una aplicación de API. La API puede usar cualquier lenguaje o marco admitidos por el Servicio de aplicaciones, como ASP.NET y C#, Java, PHP, Node.js y Python.
+- **La API existente puede incorporarse tal cual**: no es necesario realizar ningún cambio en el código de las API existentes para aprovechar las características de las aplicaciones de API, solo tiene que implementar el código en una aplicación de API. La API puede usar cualquier lenguaje o marco admitido por el Servicio de aplicaciones, como ASP.NET y C#, Java, PHP, Node.js y Python.
 
-Además, las características que ofrecen las Aplicaciones de API, las Aplicaciones web y las Aplicaciones móviles son intercambiables. Esto significa que una instancia de Aplicaciones de API puede aprovechar las características de desarrollo web y de dispositivos móviles y de hospedaje que ofrecen las Aplicaciones web y Aplicaciones móviles. Lo contrario también es cierto: por ejemplo, puede usar una aplicación web para hospedar una API y seguir aprovechando los metadatos de Swagger para la generación de código de cliente y CORS para el acceso entre dominios del explorador. Para más información, consulte la [información general sobre Aplicaciones web](../app-service-web/app-service-web-overview.md) y la [información general sobre aplicaciones móviles](../app-service-mobile/app-service-mobile-value-prop.md).
+Además, una aplicación de API puede sacar partido de las características que ofrecen las [aplicaciones web](../app-service-web/app-service-web-overview.md) y las [aplicaciones móviles](../app-service-mobile/app-service-mobile-value-prop.md). Lo mismo sucede al contrario: si utiliza una aplicación web o móvil para hospedar una API, podrá aprovechar las características de Aplicaciones de API, como metadatos de Swagger para la generación de código de cliente y CORS para el acceso entre dominios del explorador. La única diferencia entre los tres tipos de aplicaciones (API, web, móvil) radica en el nombre y el icono utilizados para ellas en el Portal de Azure. Como todas presentan las mismas características, nunca hace falta cambiar una aplicación de un tipo a otro para conseguir la característica que quiera. Sin embargo, si quiere cambiar el tipo de una aplicación ya creada, resulta sencillo. Para obtener más información, consulte la sección **Opcional: Cambio de un tipo de aplicación** del artículo [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md#optional-changing-an-app-type).
 
->[AZURE.NOTE]Puede usar [Administración de API de Azure](../api-management/api-management-key-concepts.md) para controlar el acceso de cliente a las API que se hospedan en aplicaciones de API del Servicio de aplicaciones. Aunque las Aplicaciones de API proporcionan servicios de autenticación, hay otras características de administración de acceso que no ofrecen, que sí ofrece la Administración de API, como la consolidación y la limitación de los puntos de conexión.
+## Aumento de Aplicaciones de API mediante la Administración de API de Azure 
+
+Aplicaciones de API y [Administración de API de Azure](../api-management/api-management-key-concepts.md) son servicios complementarios:
+
+* Administración de API se dedica a la administración de API. El usuario coloca un front-end de Administración de API en una API para supervisar y supervisar el uso, manipular la entrada y la salida, consolidar varias API en una, y así sucesivamente. Las API que se administran se pueden hospedar en cualquier lugar.
+* Aplicaciones de API se dedica al hospedaje de API. El servicio incluye características que facilitan el desarrollo y consumo de API, pero no las variantes de supervisión, limitación, manipulación o consolidación que realiza Administración de API. 
+
+Puede usar Administración de API para administrar las API que se hospedan en aplicaciones de API, o bien puede utilizar Aplicaciones de API sin administración de API.
+
+Algunas características de Administración de API y Aplicaciones de API tienen funciones similares. Por ejemplo, ambos pueden automatizar la compatibilidad con CORS. Si utiliza conjuntamente los dos servicios, podría usar Administración de API para CORS, ya que funciona como front-end para sus Aplicaciones de API.
 
 ## <a id="concepts"></a> Conceptos de Aplicaciones de API
 
@@ -51,10 +60,8 @@ Además, las características que ofrecen las Aplicaciones de API, las Aplicacio
 
 ## Introducción
 
-Para empezar a trabajar con aplicaciones de API, siga el tutorial [Introducción a Aplicaciones de API](app-service-api-dotnet-get-started.md).
+Para empezar a trabajar con Aplicaciones de API, siga uno de los tutoriales de [Introducción a Aplicaciones de API](app-service-api-dotnet-get-started.md).
 
-Para ver una lista de problemas conocidos con aplicaciones de API, vea [la entrada del foro de problemas conocidos de Aplicaciones de API](https://social.msdn.microsoft.com/Forums/es-ES/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Para plantear preguntas sobre Aplicaciones de API, cree un hilo en el [foro de Aplicaciones de API](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps).
 
-Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

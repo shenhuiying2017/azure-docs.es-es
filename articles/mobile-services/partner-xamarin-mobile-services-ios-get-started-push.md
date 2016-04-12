@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/18/2016"
 	ms.author="yuaxu"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para más información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Incorporación de notificaciones push a la aplicación Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-push.md).
 
 ##Información general
 
@@ -31,7 +31,7 @@ Este tema muestra cómo puede usar los Servicios móviles Azure para enviar noti
 
 Este tutorial requiere lo siguiente:
 
-+ Un dispositivo iOS 8 (no se pueden probar las notificaciones de inserción en el simulador de iOS)
++ Un dispositivo iOS 8 (no se pueden probar las notificaciones de inserción en el simulador de iOS)
 + Pertenencia al programa para desarrolladores de iOS
 + [Xamarin.iOS Studio]
 + [Componente de Servicios móviles de Azure]
@@ -170,7 +170,7 @@ Una vez que haya registrado su aplicación con APNS y haya configurado su proyec
 
     Se mostrará el cuadro de diálogo Upload Certificate.
 
-4. Haga clic en **Archivo**, seleccione el archivo .p12 del certificado exportado, escriba la **Contraseña**, asegúrese de que selecciona el **Modo** correcto, haga clic en el icono de marca de verificación y haga clic en **Guardar**.
+4. Haga clic en **Archivo**, seleccione el archivo .p12 del certificado exportado, escriba la **Contraseña**, asegúrese de que selecciona el **Modo** correcto, haga clic en el icono de marca de verificación y haga clic en **Guardar**.
 
     ![][20]
 
@@ -403,4 +403,4 @@ Ha completado correctamente este tutorial.
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

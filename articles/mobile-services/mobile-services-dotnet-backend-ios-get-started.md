@@ -13,19 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
-
->[AZURE.TIP] Si no está familiarizado con el desarrollo para dispositivos móviles con Microsoft Azure, [empiece a trabajar con Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-preview.md) en lugar de Servicios móviles de Azure; esto le dará [ventajas adicionales](../app-service-mobile/app-service-mobile-value-prop-migration-from-mobile-services.md).
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para más información sobre la versión equivalente de Aplicaciones móviles de este tema, consulte [Creación de una aplicación iOS en Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-ios-get-started.md).
 
 En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación de iOS con los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de _Lista de pendientes_ que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil usa .NET y Visual Studio para la lógica empresarial del lado de servidor. Para crear un servicio móvil con lógica empresarial del lado de servidor en JavaScript, consulte la [versión back-end de JavaScript] de este tema.
 
@@ -103,4 +101,4 @@ Aprenda a realizar tareas adicionales importantes en Servicios móviles:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versión back-end de JavaScript]: mobile-services-ios-get-started.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

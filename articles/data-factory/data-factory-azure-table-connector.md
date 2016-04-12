@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Movimiento de datos hacia y desde Tabla de Azure | Factoría de datos de Azure" 
+	pageTitle="Traslado de datos hacia la Tabla de Azure y desde ella | Microsoft Azure" 
 	description="Obtenga información acerca de cómo mover los datos hacia y desde Almacenamiento de tablas de Azure mediante Factoría de datos de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -380,7 +380,7 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utilice la consulta personalizada para leer los datos. | <p>Cadena de consulta de Tabla de Azure. Vea los ejemplos siguientes. | No
+azureTableSourceQuery | Utilice la consulta personalizada para leer los datos. | Cadena de consulta de tabla de Azure. Vea los ejemplos siguientes. | No
 azureTableSourceIgnoreTableNotFound | Indica si se omite la excepción de la tabla inexistente. | TRUE<br/>FALSE | No |
 
 ### ejemplos de azureTableSourceQuery
@@ -526,4 +526,4 @@ En este caso, la Factoría de datos realizará automáticamente las conversiones
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

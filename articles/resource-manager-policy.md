@@ -62,7 +62,12 @@ Básicamente, una directiva contiene lo siguiente:
         "effect" : "deny | audit"
       }
     }
+    
+## Evaluación de directiva
 
+La directiva se evaluará cuando se realice la creación del recurso o la implementación de la plantilla mediante HTTP PUT. En el caso de la implementación de la plantilla, la directiva se evaluará durante la creación de cada uno de los recursos en la plantilla.
+
+Nota: la directiva no evalúa los tipos de recursos que no admitan los campos tags, kind, location, como Microsoft.Resources/deployments. La compatibilidad se agregará más adelante. Para evitar problemas de compatibilidad con versiones anteriores, el procedimiento recomendado es especificar explícitamente el tipo al crear directivas. Por ejemplo, se aplicará a todos los tipos una directiva de etiqueta sin especificar los tipos, por lo que la implementación de la plantilla puede producir un error si hay un recurso anidado que no admita la etiqueta cuando el tipo de recurso se agregue a la evaluación en el futuro.
 
 ## Operadores lógicos
 
@@ -120,7 +125,7 @@ Actualmente, los alias admitidos son:
 
 | Nombre de alias | Descripción |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Los tipos de recursos admitidos son: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | El tipo de recurso admitido es Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | El tipo de recurso admitido es Microsoft.Cache/Redis |
 | Microsoft.Cache/Redis/enableNonSslPort | |
@@ -176,19 +181,19 @@ El ejemplo siguiente muestra el uso del origen. Muestra que solo se permiten acc
         "not" : {
           "anyOf" : [
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Resources/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Compute/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Storage/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Network/*"
             }
           ]
@@ -207,14 +212,14 @@ En el ejemplo siguiente se muestra el uso del alias de propiedad para restringir
       "if": {
         "allOf": [
           {
-            "source": "action",
-            "like": "Microsoft.Storage/storageAccounts/*"
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
           },
           {
             "not": {
               "allof": [
                 {
-                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "field": "Microsoft.Storage/storageAccounts/sku.name",
                   "in": ["Standard_LRS", "Standard_GRS"]
                 }
               ]
@@ -302,8 +307,6 @@ Con un cuerpo de solicitud similar al siguiente:
           }
         }
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
-      "type":"Microsoft.Authorization/policyDefinitions",
       "name":"testdefinition"
     }
 
@@ -350,8 +353,6 @@ Con un cuerpo de solicitud similar al siguiente:
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyAssignments/VMPolicyAssignment",
-      "type":"Microsoft.Authorization/policyAssignments",
       "name":"VMPolicyAssignment"
     }
 
@@ -386,4 +387,4 @@ Para ver todos los eventos relacionados con el efecto de auditoría, puede usar 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -47,7 +47,7 @@ Para poder ejecutar la aplicación de ejemplo, debe habilitar la autenticación 
 
 El Administrador de recursos de Azure requiere el servicio Azure Active Directory como su proveedor de identidades.
 
-Para obtener un token de acceso que permitirá que las solicitudes lleguen al Administrador de recursos, la aplicación cliente incluye un segmento de código que llama a Active Directory. El segmento de código, además de los pasos previos para usarlo, se ha tomado prestado de este artículo: [Autenticación de solicitudes del Administrador de recursos de Azure]().
+Para obtener un token de acceso que permitirá que las solicitudes lleguen al Administrador de recursos, la aplicación cliente incluye un segmento de código que llama a Active Directory. El segmento de código, además de los pasos previos para usarlo, se ha tomado prestado de este artículo: [Autenticación de solicitudes del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Puede seguir las instrucciones del vínculo anterior o usar los pasos de este documento si prefiere revisar el tutorial paso a paso.
 
@@ -208,4 +208,4 @@ Una vez terminado este tutorial, puede obtener más información acerca de la ad
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

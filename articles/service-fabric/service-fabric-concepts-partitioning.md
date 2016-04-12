@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="03/15/2016"
    ms.author="bscholl"/>
 
 # Partición de Reliable Services de Service Fabric
@@ -65,7 +65,7 @@ Si vuelve a pensar en el ejemplo, verá fácilmente que la partición que contie
 Para ello, debe hacer dos cosas desde el punto de vista de la creación de particiones:
 
 - Pruebe a particionar el estado para que se distribuya uniformemente en todas las particiones.
-- [Cree informes de métricas de cada una de las réplicas para el servicio](service-fabric-resource-balancer-dynamic-load-reporting.md). Service Fabric permite crear informes de métricas, como la cantidad de memoria o el número de registros, en un servicio. En base a las métricas del informe, Service Fabric detecta que algunas particiones atienden cargas mayores que otras y vuelve a equilibrar el clúster moviendo las réplicas a nodos más adecuados.
+- Notifique la carga de cada una de las réplicas del servicio. (Para más información al respecto, consulte este artículo sobre [métricas y carga](service-fabric-cluster-resource-manager-metrics.md)). Service Fabric ofrece la posibilidad de notificar la carga consumida por los servicios, como la cantidad de memoria o el número de registros. En base a las métricas notificadas, Service Fabric detecta que algunas particiones atienden cargas mayores que otras y vuelve a equilibrar el clúster moviendo las réplicas a nodos más adecuados, de modo que en general ningún nodo resulta sobrecargado.
 
 A veces, no es posible saber la cantidad de datos que habrá en una partición determinada. Por ello se recomienda realizar ambas acciones: primero adoptar una estrategia para distribuir los datos uniformemente entre las particiones y, después, crear informes de la carga. El primer método evita situaciones como las descritas en el ejemplo de la votación, mientras que el segundo ayuda a suavizar las diferencias temporales en el acceso o la carga con el tiempo.
 
@@ -131,9 +131,9 @@ Antes de escribir ningún código, tiene que pensar en las particiones y en las 
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    
+
     También tendrá que actualizar las propiedades LowKey y HighKey del elemento StatefulService tal y como se muestra a continuación.
-    
+
     ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
@@ -184,7 +184,7 @@ Antes de escribir ningún código, tiene que pensar en las particiones y en las 
     ```
 
     También merece la pena tener en cuenta que la dirección URL publicada es ligeramente diferente del prefijo de URL de escucha. La dirección URL de escucha se envía a HttpListener. La dirección URL publicada es la dirección URL que se publica en el servicio de nombres de Service Fabric, que se usa para la detección de servicios. Los clientes preguntarán por esta dirección mediante ese servicio de detección. La dirección en la que los clientes obtienen tiene que tener la dirección IP o FQDN real del nodo para poder conectar. Por lo que necesitará reemplazar '+' por la IP o el FQDN del nodo, como se mostró anteriormente.
-    
+
 9. El último paso es agregar la lógica de procesamiento al servicio, tal y como se muestra a continuación.
 
     ```CSharp
@@ -228,17 +228,17 @@ Antes de escribir ningún código, tiene que pensar en las particiones y en las 
         }
     }
     ```
-        
+
     `ProcessInternalRequest` lee los valores del parámetro de cadena de consulta usado para llamar a la partición y llama a `AddUserAsync` para agregar el apellido al diccionario confiable `dictionary`.
-    
+
 10. Vamos a agregar un servicio sin estado al proyecto para ver cómo se puede llamar a una partición determinada.
 
     Este servicio actúa como una interfaz web simple que acepta el apellido como parámetro de cadena de consulta, determina la clave de partición y la envía al servicio Alphabet.Processing para su procesamiento.
-    
+
 11. En el cuadro de diálogo **Crear un servicio**, elija el servicio **Sin estado** y llámelo Alphabet.WebApi, tal y como se muestra en la imagen siguiente.
-    
+
     ![Captura de pantalla de servicio sin estado](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
-    
+
 12. Actualice la información del punto de conexión en el archivo ServiceManifest.xml del servicio Alphabet.WebApi para abrir un puerto, tal como se muestra a continuación.
 
     ```xml
@@ -261,7 +261,7 @@ Antes de escribir ningún código, tiene que pensar en las particiones y en las 
         return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
     }
     ```
-     
+
 14. Ahora debe implementar la lógica de procesamiento. HttpCommunicationListener llama a `ProcessInputRequest` cuando llega una solicitud. Vamos a seguir y agregar el código siguiente
 
     ```CSharp
@@ -294,7 +294,7 @@ Antes de escribir ningún código, tiene que pensar en las particiones y en las 
                     primaryReplicaAddress);
         }
         catch (Exception ex) { output = ex.Message; }
-        
+
         using (var response = context.Response)
         {
             if (output != null)
@@ -351,11 +351,11 @@ Antes de escribir ningún código, tiene que pensar en las particiones y en las 
     ```
 
 16. Cuando haya terminado la implementación, puede comprobar el servicio y todas sus particiones en el Explorador de Service Fabric.
-    
+
     ![Captura de pantalla del Explorador de Service Fabric](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-    
+
 17. En un explorador, escriba `http://localhost:8090/?lastname=somename` probar la lógica de partición. Verá que todos los apellidos que empiezan por la misma letra se almacenan en la misma partición.
-    
+
     ![Captura de pantalla de explorador](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 Todo el código fuente del ejemplo está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
@@ -372,4 +372,4 @@ Para obtener información sobre los conceptos de Service Fabric, vea lo siguient
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

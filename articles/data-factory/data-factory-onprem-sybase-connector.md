@@ -228,7 +228,7 @@ nombre de usuario | Especifique el nombre de usuario si usa la autenticación Ba
 contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. | No
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de Sybase local. | Sí 
 
-Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de Sybase local.
+Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de Sybase local.
 
 ## Propiedades del tipo de conjunto de datos de Sybase
 
@@ -267,4 +267,4 @@ Sybase admite T-SQL y tipos de T-SQL. Para ver una tabla de asignación de tipos
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

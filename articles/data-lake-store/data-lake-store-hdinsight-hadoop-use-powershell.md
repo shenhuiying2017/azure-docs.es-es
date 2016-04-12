@@ -1,26 +1,26 @@
-<properties 
-   pageTitle="Creación de un clúster de HDInsight con el Almacén de Azure Data Lake mediante Azure PowerShell | Azure" 
-   description="Use Azure PowerShell para crear y usar clústeres de Hadoop en HDInsight con Azure Data Lake" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Creación de un clúster de HDInsight con el Almacén de Azure Data Lake mediante Azure PowerShell | Azure"
+   description="Use Azure PowerShell para crear y usar clústeres de Hadoop en HDInsight con Azure Data Lake"
+   services="data-lake-store,hdinsight" 
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/21/2016"
    ms.author="nitinme"/>
 
 # Creación de un clúster de HDInsight con el Almacén de Data Lake mediante Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+- [Uso del Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Uso de PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
 Aprenda a usar Azure PowerShell para configurar un clúster de HDInsight (Hadoop, HBase o Storm) con acceso a un Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
@@ -53,7 +53,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 En primer lugar, debe desinstalar las versiones x 0.9 de Azure PowerShell. Para comprobar la versión de PowerShell instalada, ejecute el siguiente comando desde una ventana de PowerShell:
 
 	Get-Module *azure*
-	
+
 Para desinstalar la versión anterior, ejecute **Programas y características** en el panel de control y quite la versión instalada si es anterior a PowerShell 1.0.
 
 Hay dos opciones principales para instalar Azure PowerShell.
@@ -63,13 +63,13 @@ Hay dos opciones principales para instalar Azure PowerShell.
 		# Install the Azure Resource Manager modules from PowerShell Gallery
 		Install-Module AzureRM
 		Install-AzureRM
-		
+
 		# Install the Azure Service Management module from PowerShell Gallery
 		Install-Module Azure
-		
+
 		# Import AzureRM modules for the given version manifest in the AzureRM module
 		Import-AzureRM
-		
+
 		# Import Azure Service Management module
 		Import-Module Azure
 
@@ -78,7 +78,7 @@ Hay dos opciones principales para instalar Azure PowerShell.
 - [Instalador de plataforma web de Microsoft (WebPI)](http://aka.ms/webpi-azps). Si tiene Azure PowerShell 0.9.x instalado, se le pedirá que desinstale 0.9.x. Si ha instalado módulos de Azure PowerShell desde la Galería de PowerShell, el programa de instalación requiere que los módulos se quiten antes de la instalación para garantizar un entorno coherente de PowerShell de Azure. Para instrucciones, consulte [Instalación de Azure PowerShell 1.0 mediante WebPI](https://azure.microsoft.com/blog/azps-1-0/).
 
 WebPI recibirá actualizaciones mensuales. La Galería de PowerShell recibirá actualizaciones de forma continua. Si se encuentra cómodo con la instalación de la Galería de PowerShell, ese será el primer canal para obtener lo mejor y lo más reciente de Azure PowerShell.
- 
+
 
 ## Creación de un Almacén de Azure Data Lake
 
@@ -88,17 +88,17 @@ Siga estos pasos para crear un Almacén de Data Lake.
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRmContext -SubscriptionId <subscription ID>
 
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
-	>[AZURE.NOTE] Si recibe un error similar a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` al registrar el proveedor de recursos de Almacén de Data Lake, es posible que su suscripción no esté en la lista de permitidas de Almacén de Azure Data Lake. Asegúrese de habilitar su suscripción de Azure en la vista previa pública de Almacén Data Lake siguiendo estas [instrucciones](data-lake-store-get-started-portal.md#signup).
+	>[AZURE.NOTE] Si recibe un error similar a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` al registrar el proveedor de recursos del Almacén de Data Lake, es posible que su suscripción no esté en la lista de permitidas del Almacén de Azure Data Lake. Asegúrese de habilitar su suscripción de Azure en la versión preliminar pública del Almacén Data Lake siguiendo estas [instrucciones](data-lake-store-get-started-portal.md#signup).
 
 3. La cuenta de Almacén de Azure Data Lake se asocia con un grupo de recursos de Azure. Comience creando un grupo de recursos de Azure.
 
@@ -122,7 +122,7 @@ Siga estos pasos para crear un Almacén de Data Lake.
 
 4. Cargue datos de ejemplo a Azure Data Lake. Los usaremos más adelante en este artículo para comprobar que se puede acceder a los datos desde un clúster de HDInsight. Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-		
+
 		$myrootdir = "/"
 		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
@@ -161,20 +161,20 @@ Asegúrese de que tiene [Windows SDK](https://dev.windows.com/es-ES/downloads) i
 
 En esta sección, llevará a cabo los pasos para crear una entidad de servicio para una aplicación de Azure Active Directory, asignar un rol a la entidad de servicio y autenticarse como la entidad de servicio proporcionando un certificado. Ejecute los comandos siguientes para crear una aplicación en Azure Active Directory.
 
-1. Pegue los siguientes cmdlets en la ventana de consola de PowerShell. Asegúrese de que el valor especificado para la propiedad **- DisplayName** sea único. Además, los valores de **-HomePage** e **-IdentiferUris** son valores de marcador de posición y no se comprueban. 
+1. Pegue los siguientes cmdlets en la ventana de consola de PowerShell. Asegúrese de que el valor especificado para la propiedad **- DisplayName** sea único. Además, los valores de **-HomePage** e **-IdentiferUris** son valores de marcador de posición y no se comprueban.
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
-		
+
 		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
-		
+
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
-		
+
 		$rawCertificateData = $certificatePFX.GetRawCertData()
-		
+
 		$credential = [System.Convert]::ToBase64String($rawCertificateData)
 
 		$application = New-AzureRmADApplication `
-					-DisplayName "HDIADL" ` 
+					-DisplayName "HDIADL" `
 					-HomePage "https://contoso.com" `
 					-IdentifierUris "https://mycontoso.com" `
 					-KeyValue $credential  `
@@ -188,11 +188,11 @@ En esta sección, llevará a cabo los pasos para crear una entidad de servicio p
 2. Cree una entidad de servicio con el identificador de aplicación.
 
 		$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
-		
+
 		$objectId = $servicePrincipal.Id
 
 3. Conceda a la entidad de servicio acceso al Almacén de Data Lake que creó antes.
-		
+
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
 	En el aviso, escriba **Y** para confirmar.
@@ -210,9 +210,9 @@ En esta sección, crearemos un clúster de Hadoop en HDInsight. En esta versión
 		# Create an Azure storage account
 		$location = "East US 2"
 		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-		
+
 		New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
- 
+
 		# Create an Azure Blob Storage container
 		$containerName = "<ContainerName>"              # Provide a container name
 		$storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
@@ -226,7 +226,7 @@ En esta sección, crearemos un clúster de Hadoop en HDInsight. En esta versión
 		$clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
 		$httpCredentials = Get-Credential
 		$rdpCredentials = Get-Credential
-		
+
 		New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
 	Una vez que el cmdlet se complete correctamente, debería ver un resultado similar al siguiente:
@@ -245,7 +245,7 @@ En esta sección, crearemos un clúster de Hadoop en HDInsight. En esta versión
 		DefaultStorageAccount     :
 		DefaultStorageContainer   :
 		ResourceGroup             : hdiadlgroup
-		AdditionalStorageAccounts : 
+		AdditionalStorageAccounts :
 
 ## Ejecución de trabajos de prueba en el clúster de HDInsight para usar el Almacén de Data Lake
 
@@ -261,7 +261,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con H
 
     	hive
 
-2. Mediante la CLI, especifique las siguientes instrucciones para crear una tabla denominada **vehicles** con los datos de ejemplo del Almacén de Data Lake:
+2. Mediante la CLI, especifique las siguientes instrucciones para crear una tabla nueva denominada **vehicles** con los datos de ejemplo del Almacén de Data Lake:
 
 		DROP TABLE vehicles;
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
@@ -286,7 +286,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con H
 Use los siguientes cmdlets para ejecutar la consulta de Hive. En esta consulta se crea una tabla con los datos del Almacén de Data Lake y después se ejecuta una consulta Select en la tabla creada.
 
 	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
-	
+
 	$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
 
 	$hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
@@ -378,4 +378,4 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0316_2016-->

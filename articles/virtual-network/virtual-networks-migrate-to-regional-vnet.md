@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Migración de grupos de afinidad a una red virtual regional
@@ -27,17 +27,17 @@ Además, se recomienda no usar grupos de afinidad en general. Además del requis
 
 A partir de ahora, al crear redes virtuales nuevas, utilice *Región*. Verá esto como una opción en el Portal de administración. Tenga en cuenta que en el archivo de configuración de red aparece como *Ubicación*.
 
->[AZURE.IMPORTANT]Aunque es técnicamente posible crear una red virtual que está asociada a un grupo de afinidad, no hay ninguna razón para hacerlo. Muchas características nuevas, como los grupos de seguridad de red, solo están disponibles cuando se usa una red virtual regional y no están disponibles para las redes virtuales que están asociadas a grupos de afinidad.
+>[AZURE.IMPORTANT] Aunque es técnicamente posible crear una red virtual que está asociada a un grupo de afinidad, no hay ninguna razón para hacerlo. Muchas características nuevas, como los grupos de seguridad de red, solo están disponibles cuando se usa una red virtual regional y no están disponibles para las redes virtuales que están asociadas a grupos de afinidad.
 
 ### Información acerca de redes virtuales asociadas actualmente a grupos de afinidad
 
 Las redes virtuales que están asociadas actualmente a grupos de afinidad pueden migrarse a redes virtuales regionales. Para migrar a una red virtual regional, siga estos pasos:
 
-1. Exporte un archivo de configuración de red. Puede usar PowerShell o el Portal de administración. Para obtener instrucciones mediante el Portal de administración, consulte [Configurar la red virtual con un archivo de configuración de red](../virtual-networks-using-network-configuration-file/).
+1. Exporte un archivo de configuración de red. Puede usar PowerShell o el Portal de administración. Para obtener instrucciones mediante el Portal de administración, consulte [Configurar la red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
 
 1. Edite el archivo de configuración de red y reemplace los valores anteriores por los nuevos valores.
 
-	> [AZURE.NOTE]La **ubicación** es la región que especificó para el grupo de afinidad que está asociado a la red virtual. Por ejemplo, si la red virtual está asociada a un grupo de afinidad que se encuentra en Oeste de EE. UU., al migrar, la ubicación debe apuntar a Oeste de EE. UU.
+	> [AZURE.NOTE] La **ubicación** es la región que especificó para el grupo de afinidad que está asociado a la red virtual. Por ejemplo, si la red virtual está asociada a un grupo de afinidad que se encuentra en Oeste de EE. UU., al migrar, la ubicación debe apuntar a Oeste de EE. UU.
 	
 	Edite las líneas siguientes del archivo de configuración de red y reemplace los valores por los suyos propios:
 
@@ -45,9 +45,9 @@ Las redes virtuales que están asociadas actualmente a grupos de afinidad pueden
 
 	**Nuevo valor:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 
-1. Guarde los cambios e [importe](../virtual-networks-using-network-configuration-file/) la configuración de red en Azure.
+1. Guarde los cambios e [importe](virtual-networks-using-network-configuration-file.md) la configuración de red en Azure.
 
->[AZURE.INFO]Esta migración NO causa ningún tiempo de inactividad en sus servicios.
+>[AZURE.INFO] Esta migración NO causa ningún tiempo de inactividad en sus servicios.
 
 ## Grupos de afinidad y máquinas virtuales
 
@@ -66,4 +66,4 @@ No es necesario quitar las máquinas virtuales que están en un grupo de afinida
 Una vez implementada una máquina virtual, se implementa en una sola unidad de escalado. Los grupos de afinidad pueden restringir el conjunto de tamaños de máquina virtual disponibles para una nueva implementación de máquina virtual, pero cualquier máquina virtual existente que esté implementa ya está restringida al conjunto de tamaños de máquina virtual disponible en la unidad de escalado en el que se implementa la máquina virtual. Por este motivo, quitar una máquina virtual del grupo de afinidad no tendrá ningún efecto.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

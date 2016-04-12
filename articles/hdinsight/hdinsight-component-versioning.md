@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Novedades en las versiones de clúster de Hadoop de HDInsight | Microsoft Azure"
-	description="HDInsight es compatible con varias versiones de clúster de Hadoop que se pueden implementar. Vea las versiones de distribución de Hadoop y HortonWorks Data Platform (HDP) que se admiten."
+	pageTitle="¿Cuáles son los diferentes componentes disponibles con un clúster de HDInsight? | Microsoft Azure"
+	description="HDInsight admite varias versiones de clúster de Hadoop implementables. Vea las versiones de distribución de Hadoop y HortonWorks Data Platform (HDP) que se admiten."
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
@@ -13,32 +13,62 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/29/2016"
+	ms.topic="article"
+	ms.date="03/29/2016"
 	ms.author="jgao"/>
 
 
-#Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight
+# ¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?
 
-##Versiones de HDInsight y componentes de Hadoop
+Conozca los diferentes niveles de servicio que ofrece HDInsight, así como las versiones de los distintos componentes de Hadoop incluidos con HDInsight.
+
+## HDInsight Standard y HDInsight Premium
+
+Azure HDInsight proporciona las ofertas de la nube de macrodatos en dos categorías: **Estándar** y **Premium**. La tabla que aparece debajo de la sección recoge las características que **solo** están disponibles con el tipo Premium. Las características que no aparecen expresamente en esta tabla están disponibles con el tipo Estándar.
+
+>[AZURE.NOTE] Actualmente, la oferta HDInsight Premium se encuentra en versión preliminar y solo está disponible para los clústeres de Linux.
+
+| Característica de HDInsight Premium | Descripción |
+|--------------|---------------|
+| Microsoft R Server (Preview) | Microsoft R Server es la plataforma de análisis empresarial que más se implementa para R escalable. El lenguaje R admite diversas estadísticas de macrodatos, modelado de predicción y capacidades de aprendizaje automático. Como parte de HDInsight Premium, ahora se puede crear un clúster de HDInsight con R Server listo para usarse con modelos y conjuntos de datos masivos. Esta nueva capacidad proporciona a los estadistas y científicos de datos una interfaz conocida de R que se puede escalar bajo demanda a través de HDInsight sin la sobrecarga de tener que mantener y configurar clústeres. <br> <br>Para obtener más información, consulte [Introducción a R Server en HDInsight](hdinsight-hadoop-r-server-get-started.md).
+
+### Tipos de clúster compatibles con Premium
+
+En la tabla siguiente se recoge el tipo de clúster de HDInsight y la matriz de compatibilidad Premium.
+
+| Tipo de clúster | Estándar | Premium |
+|--------------|---------------|--------------|
+| Hadoop | Sí | Sí |
+| Spark | Sí | Sí |
+| HBase | Sí | No |
+| Storm | Sí | No |
+
+Esta tabla se actualizará cuando se incluyan nuevos tipos de clúster en HDInsight Premium.
+
+### Precios y contrato de nivel de servicio
+
+Para obtener información sobre los precios y el contrato de nivel de servicio de HDInsight Premium, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+
+## Componentes de Hadoop disponibles con las distintas versiones de HDInsight
+
 HDInsight de Azure es compatible con varias versiones de clústeres de Hadoop que se pueden implementar en cualquier momento. Cada versión crea una versión específica de la distribución HortonWorks Data Platform (HDP) y un conjunto de componentes que están incluidos en esa distribución. En la tabla siguiente se detallan las versiones de componente asociadas a las versiones de clúster de HDInsight. Tenga en cuenta que la versión de clúster predeterminada que usa HDInsight de Azure actualmente es la 3.2 y, desde el 03/12/2015, se basa en HDP 2.2.
 
 
-Componente|Versión de HDInsight 3.3 | Versión de HDInsight 3.2 (predeterminada)|Versión de HDInsight 3.1 |HDInsight versión 3.0|
----|---|---|---|---
-Hortonworks Data Platform|2\.3|2\.2|2\.1.7|2\.0|
-Apache Hadoop y YARN|2\.7.1|2\.6.0|2\.4.0|2\.2.0|
-Apache Tez|0\.7.0 | 0\.5.2|0\.4.0||
-Apache Pig|0\.15.0|0\.14.0|0\.12.1|0\.12.0|
-Apache Hive y HCatalog|1\.2.1|0\.14.0|0\.13.1|0\.12.0|
-HBase Apache |1\.1.1|0\.98.4|0\.98.0||
-Apache Sqoop|1\.4.6|1\.4.5|1\.4.4|1\.4.4|1\.4.3
-Apache Oozie|4\.2.0|4\.1.0|4\.0.0|4\.0.0|
-Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
-Apache Storm|0\.10.0|0\.9.3|0\.9.1||
-Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
-Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
-Spark de Apache|1\.5.2 (solo Linux/compilación experimental)|1\.3.1 (solo Windows)|||
+Componente|Versión de HDInsight 3.4 | Versión de HDInsight 3.3 | Versión de HDInsight 3.2 (predeterminada)|Versión de HDInsight 3.1 |HDInsight versión 3.0|
+---|---|---|---|---|---
+Hortonworks Data Platform|2\.4|2\.3|2\.2|2\.1.7|2\.0|
+Apache Hadoop y YARN|2\.7.1|2\.7.1|2\.6.0|2\.4.0|2\.2.0|
+Apache Tez|0\.7.0|0\.7.0 | 0\.5.2|0\.4.0||
+Apache Pig|0\.15.0|0\.15.0|0\.14.0|0\.12.1|0\.12.0|
+Apache Hive y HCatalog|1\.2.1|1\.2.1|0\.14.0|0\.13.1|0\.12.0|
+HBase Apache |1\.1.2|1\.1.1|0\.98.4|0\.98.0||
+Apache Sqoop|1\.4.6|1\.4.6|1\.4.5|1\.4.4|1\.4.4|1\.4.3
+Apache Oozie|4\.2.0|4\.2.0|4\.1.0|4\.0.0|4\.0.0|
+Apache Zookeeper|3\.4.6|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
+Apache Storm|0\.10.0|0\.10.0|0\.9.3|0\.9.1||
+Apache Mahout|0\.9.0+|0\.9.0+|0\.9.0|0\.9.0||
+Apache Phoenix|4\.4.0|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
+Spark de Apache|1\.6.0 (solo Linux)|1\.5.2 (solo Linux/compilación experimental)|1\.3.1 (solo Windows)|||
 
 
 **Obtención de información sobre las versiones actuales de componentes**
@@ -50,54 +80,8 @@ Las versiones de los componentes asociados a las versiones de clúster de HDInsi
 
 Consulte [Notas de la versión de HDInsight](hdinsight-release-notes.md) para conocer otras notas de las últimas versiones de HDInsight.
 
-### Selección de una versión al crear un clúster de HDInsight
 
-Al crear un clúster a través de los cmdlets de Windows PowerShell para HDInsight o del SDK de .NET para HDInsight, puede elegir la versión del clúster de Hadoop para HDInsight mediante el menú desplegable **Versión de HDInsight** de la hoja **Configuración opcional** del Portal de Azure.
-
-##Características destacadas
-Algunas de las características más destacadas de la plataforma de HDInsight incluyen:
-
-- **Spark**: Apache Spark es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones de análisis de Big Data. Las capacidades de cálculo en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático.
-
-	Spark también se puede usar para llevar a cabo el procesamiento de datos convencional basado en disco. Spark mejora el marco de MapReduce tradicional evitando escrituras en disco en las etapas intermedias. Además, Spark es compatible con el Sistema de archivos distribuido de Hadoop (HDFS) y el almacenamiento de blobs de Azure, por lo que se pueden procesar los datos existentes fácilmente a través de Spark.
-
-	Spark también se puede agregar mediante una acción de script. La acción de script agrega Spark 1.2.0 a un clúster de HDInsight 3.2 o Spark 1.0.2 a un clúster de HDInsight 3.1. Para obtener más información, consulte [Instalación y uso de Spark en clústeres Hadoop de HDInsight](hdinsight-hadoop-spark-install.md).
-
-
-- **Storm** : Storm en HDInsight de Azure ya está disponible con carácter general y ofrece una manera rápida y fácil de implementar análisis en tiempo real con solo unos cuantos clics y en pocos minutos. Apache Storm en HDInsight de Azure es un proyecto de código abierto en el ecosistema de Apache Hadoop que proporciona acceso a una plataforma de análisis capaz de procesar millones de eventos de forma confiable. Ahora los usuarios de Hadoop pueden obtener información a medida que ocurren los eventos, además de información de eventos anteriores. Microsoft también proporciona integración con Visual Studio, lo que facilita la interacción de los desarrolladores con Storm. Ahora puede desarrollar, implementar y depurar topologías de Storm desde Visual Studio.
-
-- **HDInsight en Linux**: HDInsight de Azure ofrece la opción de crear clústeres Hadoop que se ejecutan en máquinas virtuales (VM) de Linux (Ubuntu). Puede usar esta opción si conoce Linux o Unix, si realiza una migración desde una solución de Hadoop basada en Linux existente o si desea una integración simple con los componentes del ecosistema de Hadoop creados para Linux. Puede crear un clúster de HDInsight en Linux desde un equipo cliente que ejecuta Windows o Linux mediante el Portal de Azure, la CLI de Azure o el SDK para .NET de HDInsight (solo Windows).
-
-- **Tamaños de máquinas virtuales adicionales**: los clústeres de HDInsight ahora están disponibles en varios tamaños y tipos de máquinas virtuales. Los clústeres de HDInsight ahora pueden usar los tamaños A2 a A7 creados para fines generales; nodos de la serie D que cuentan con unidades de estado sólido (SSD) y procesadores un 60 por ciento más rápidos; y tamaños A8 y A9 con compatibilidad InfiniBand para una red rápida. Los clientes de Apache HBase en HDInsight de Azure se pueden beneficiar de las configuraciones de memoria más grandes de la serie D para aumentar el rendimiento. Los clientes de Apache Storm en HDInsight de Azure también pueden beneficiarse de la memoria adicional para cargar grandes conjuntos de datos de referencia, así como de CPU más rápidas, para obtener un mayor rendimiento.
-
-- **Escalado de clústeres**: el escalado de clústeres permite cambiar el número de nodos de un clúster de HDInsight en ejecución sin tener que eliminarlo o volverlo a crear. En la actualidad, solo la consulta Hadoop y Apache Storm disponen de esta capacidad, pero pronto se les unirá Apache HBase.
-
-- **Generar script de acción**: esta característica de personalización de clústeres permite la modificación de clústeres de Hadoop de formas arbitrarias mediante scripts personalizados. Con esta nueva característica, los usuarios pueden experimentar con los proyectos disponibles en el ecosistema Hadoop de Apache e implementarlos en clústeres de HDInsight de Azure. Esta característica de personalización está disponible en todos los tipos de clústeres de HDInsight, como Hadoop, HBase y Storm.
-
-- **HBase**: HBase es una base de datos NoSQL de baja latencia que permite el procesamiento de transacciones en línea de Big Data. HBase se ofrece como un clúster administrado integrado en el entorno de Azure. Los clústeres están configurados para almacenar datos directamente en el almacenamiento de blobs de Azure, que proporciona una latencia baja y una mayor elasticidad de las opciones de rendimiento o coste. Esto permite que los clientes creen sitios web interactivos que trabajen con grandes conjuntos de datos, creen servicios que almacenen datos del sensor y telemetría desde millones de extremos y analicen estos datos con trabajos de Hadoop.
-
-- **Apache Phoenix**: Apache Phoenix es una capa de consulta de Lenguaje de consulta estructurado (SQL) a través de HBase. Admite un subconjunto limitado de especificación de lenguaje de consulta SQL que incluye compatibilidad con índices secundarios. Se entrega como un controlador de Conectividad de base de datos Java (JDBC) incrustado en el cliente que dirige a consultas de latencia baja a sobre de datos de HBase. Apache Phoenix toma su consulta SQL, la compila en una serie de análisis de HBase y llamadas de coprocesadores y produce conjuntos de resultados JDBC regulares. Apache Phoenix es una capa de base de datos relacional sobre HBase. Se entrega como un controlador JDBC incrustado en el cliente que dirige a consultas de latencia baja sobre datos de HBase. Apache Phoenix toma su consulta SQL, la compila en una serie de análisis de HBase y orquesta la ejecución de esos análisis para producir conjuntos de resultados JDBC regulares.
-
-- **Panel de clúster**: una nueva aplicación web que se implementa en el clúster de HDInsight. Úsela para ejecutar consultas de Hive, comprobar registros de trabajos y examinar el almacenamiento de blobs de Azure. La dirección URL utilizada para obtener acceso a la aplicación web es <*NombreDeClúster*>.azurehdinsight.net.
-
-- **Microsoft Avro Library**: esta biblioteca implementa el sistema de serialización de datos de Apache Avro para el entorno de Microsoft.NET. Apache Avro proporciona un formato compacto de intercambio de datos binarios para la serialización. Usa la notación de objetos JavaScript (JSON) para definir un esquema independiente del lenguaje que garantiza la interoperabilidad de lenguajes. Los datos serializados en un lenguaje se pueden leer en otro. Actualmente, se admiten C, C++, C#, Java, PHP, Python y Ruby. El formato de serialización de Apache Avro se utiliza ampliamente en HDInsight de Azure para representar estructuras de datos complejas en un trabajo MapReduce de Hadoop.
-
-- **YARN**: marco de administración de aplicaciones nuevo, de uso general y distribuido que ha reemplazado al marco Apache Hadoop MapReduce para el procesamiento de datos en los clústeres de Hadoop. De hecho, sirve como sistema operativo de Hadoop y consigue que Hadoop pase de ser una plataforma de datos para el procesamiento por lotes y para un único usuario a una plataforma multiuso que permite el procesamiento por lotes, interactivo, en línea y por secuencia. Este nuevo marco de administración mejora la escalabilidad y el uso de clústeres de acuerdo con criterios como las garantías de capacidad, la legitimidad y los contratos de nivel de servicio (SLA).
-
-- **Tez (solo HDInsight 3.1 y versiones posteriores)**: marco con fines generales y personalizable que crea tareas de procesamiento de datos simplificadas en cargas de trabajo a pequeña y gran escala en Hadoop. Proporciona la capacidad de ejecutar un gráfico acíclico dirigido (DAG) de tareas para un solo trabajo, de forma que los proyectos del ecosistema Apache Hadoop, como Apache Hive y Apache Pig, puedan cumplir los requisitos de tiempos de respuesta para la interacción con humanos y de rendimiento extremo a escala de petabytes. Tenga en cuenta que Hive 0.13 permite ejecutar consultas de Hive en Tez, en lugar de MapReduce.
-
-- **Alta disponibilidad (HA)**: se ha agregado un segundo nodo principal a los clústeres de Hadoop desarrollados por HDInsight para aumentar la disponibilidad del servicio. Las implementaciones estándar de clústeres de Hadoop normalmente tienen un solo nodo principal. HDInsight elimina este único punto de error al agregar un segundo nodo principal. El cambio a una nueva configuración de clúster de alta disponibilidad no modifica el precio del clúster, a menos que los clientes creen los clústeres con un nodo principal extragrande en lugar del nodo de tamaño grande predeterminado.
-
-- **Rendimiento de Hive**: mejoras exponenciales de los tiempos de respuesta de las consultas de Hive (hasta 40 veces más rápidas) y de la compresión de los datos (hasta el 80 %) mediante el formato **Optimized Row Columnar** (ORC).
-
-- **Pig, Sqoop, Oozie, Ambari**: actualizaciones de versión de componentes para el clúster de HDInsight versión 3.0 (HDP 2.0/Hadoop 2.2) que proporciona paridad con el clúster de HDInsight versión 2.1 (HDP 1.3/Hadoop 1.2). Consulte la tabla de versiones a continuación para obtener información específica.
-
-- **Mahout**: esta biblioteca de algoritmos de aprendizaje automático escalable está preinstalada en los clústeres de Hadoop de HDInsight 3.1 (y versiones posteriores). Por tanto, puede ejecutar trabajos de Mahout sin necesidad de configuración adicional del clúster.
-
-- **Compatibilidad con Red virtual**: los clústeres de HDInsight se pueden usar con Red virtual de Azure para permitir el aislamiento de recursos en la nube o escenarios híbridos que vinculen recursos en la nube con los de su centro de datos.
-
-
-## Versiones compatibles
+## Versiones compatibles de HDInsight
 En la siguiente tabla se enumeran las versiones de HDInsight que está disponibles actualmente, las versiones correspondientes de la distribución Hortonworks Data Platform que usan y sus fechas de lanzamiento. Si se conocen, también se proporcionan también las fechas de expiración y desuso. Tenga en cuenta lo siguiente:
 
 * Los clústeres de alta disponibilidad con dos nodos principales se implementan de forma predeterminada para los clústeres de HDInsight 2.1 y versiones posteriores. No están disponibles para los clústeres de HDInsight 1.6.
@@ -105,6 +89,7 @@ En la siguiente tabla se enumeran las versiones de HDInsight que está disponibl
 
 Versión de HDInsight|Versión de HDP|Alta disponibilidad|Fecha de lanzamiento|Disponible en el Portal de Azure|Fecha de expiración del soporte técnico|Fecha de desuso
 ---|---|---|---|---|---|---
+HDI 3.4|HDP 2.4|Sí|29/03/2016|Sí||
 HDI 3.3|HDP 2.3|Sí|12/02/2015|Sí||
 HDI 3.2|HDP 2.2|Sí|18/02/2015|Sí||
 HDI 3,1|HDP 2,1|Sí|24/06/2014|Sí||
@@ -126,6 +111,8 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 > [AZURE.NOTE] Los clústeres de HDInsight 2.1 y 3.0 se ejecutan en el SO invitado de Azure [Familia 4](../cloud-services/cloud-services-guestos-update-matrix.md) que usa la versión de 64 bits de Windows Server 2012 R2 y admite .NET Framework 4.0, 4.5 y 4.5.1.
 
 ## Notas de la versión de HortonWorks asociadas con las versiones de HDInsight##
+
+* La versión 3.4 del clúster de HDInsight usa una distribución de Hadoop basada en [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
 
 * La versión 3.3 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
 	* Las notas de la versión de Apache Storm están disponibles [aquí](https://storm.apache.org/2015/11/05/storm0100-released.html).
@@ -167,4 +154,4 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

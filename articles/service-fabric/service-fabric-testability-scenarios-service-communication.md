@@ -20,7 +20,7 @@
 
 Los microservicios y los estilos de arquitectura orientados a servicios emergen naturalmente en Service Fabric de Azure. En estos tipos de arquitecturas distribuidas, las aplicaciones de microservicio divididas en componentes suelen constar de varios servicios que necesitan comunicarse entre sí. Incluso en los casos más simples, por lo general dispone al menos de un servicio web sin estado y de un servicio de almacenamiento de datos con estado que necesitan comunicarse.
 
-La comunicación entre servicios es un punto crítico de integración de una aplicación, ya que cada servicio expone una API remota a otros servicios. El trabajo con un conjunto de límites de API que implican E/S generalmente requiere tomar algunas precauciones y realizar una buena cantidad de pruebas y validación.
+La comunicación entre servicios es un punto crítico de integración de una aplicación, ya que cada servicio expone una API remota a otros servicios. El trabajo con un conjunto de límites de API que implican E/S requiere generalmente tomar algunas precauciones y realizar una buena cantidad de pruebas y validaciones.
 
 Existen numerosas consideraciones que deben tenerse en cuenta cuando estos límites de servicio se conectan entre sí en un sistema distribuido:
 
@@ -85,11 +85,11 @@ Puede provocar la pérdida de cuórum con el cmdlet **Invoke-ServiceFabricPartit
 
 ```powershell
 
-PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode PartialQuorumLoss -QuorumLossDurationInSeconds 20
+PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode QuorumReplicas -QuorumLossDurationInSeconds 20
 
 ```
 
-En este ejemplo, se establece `QuorumLossMode` en `PartialQuorumLoss` para indicar que deseamos provocar la pérdida de cuórum sin desconectar todas las réplicas. De este modo, las operaciones de lectura sigan siendo posibles. Para probar un escenario en el que no esté disponible una partición completa, puede establecer este modificador en `FullQuorumLoss`.
+En este ejemplo, `QuorumLossMode` se establece en `QuorumReplicas` para indicar que queremos provocar la pérdida de quórum sin apagar todas las réplicas. De este modo, las operaciones de lectura sigan siendo posibles. Para probar un escenario en el que no esté disponible una partición completa, puede establecer este modificador en `AllReplicas`.
 
 ## Pasos siguientes
 
@@ -97,4 +97,4 @@ En este ejemplo, se establece `QuorumLossMode` en `PartialQuorumLoss` para indic
 
 [Más información sobre los escenarios de capacidad de prueba](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

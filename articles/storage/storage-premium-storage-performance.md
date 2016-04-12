@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/20/2016"
+    ms.date="03/28/2016"
     ms.author="prkhad"/>
 
 # Almacenamiento premium de Azure: diseño de alto rendimiento
@@ -168,16 +168,17 @@ Para obtener una IOPS y un ancho de banda mayores que el valor máximo de un sol
 Para ver los efectos del tamaño de E/S en el rendimiento de las aplicaciones, puede ejecutar las herramientas de pruebas comparativas en la máquina virtual y los discos. Cree varias ejecuciones de pruebas y use un tamaño de E/S diferente para cada ejecución para ver el impacto. Consulte la sección [Pruebas comparativas](#Benchmarking) al final de este artículo para más detalles.
 
 ## Tamaños de máquina virtual a gran escala  
-Al empezar a diseñar una aplicación, una de las primeras cosas que hay que hacer es elegir una máquina virtual para hospedar la aplicación. Almacenamiento premium viene con tamaños de máquina virtual a gran escala que pueden ejecutar aplicaciones que requieren una mayor capacidad de proceso y un alto rendimiento de E/S del disco local. Estas máquinas virtuales proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco local. Algunos ejemplos de máquinas virtuales a gran escala que admiten Almacenamiento premium son las máquinas virtuales de la serie DS y GS.
+Al empezar a diseñar una aplicación, una de las primeras cosas que hay que hacer es elegir una máquina virtual para hospedar la aplicación. Almacenamiento premium viene con tamaños de máquina virtual a gran escala que pueden ejecutar aplicaciones que requieren una mayor capacidad de proceso y un alto rendimiento de E/S del disco local. Estas máquinas virtuales proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco local. Algunos ejemplos de máquinas virtuales a gran escala que admiten Almacenamiento premium son las máquinas virtuales de las series DS, DSv2 y GS.
 
-Las máquinas virtuales a gran escala están disponibles en distintos tamaños con un número diferente de núcleos de CPU, memoria, sistema operativo y tamaño del disco temporal. Cada tamaño de máquina virtual también tiene el número máximo de discos de datos que se puede conectar a la máquina virtual. Por lo tanto, el tamaño de máquina virtual seleccionado afectará al procesamiento, la memoria y la capacidad de almacenamiento que están disponibles para su aplicación. También afecta al proceso y los costos de almacenamiento. Por ejemplo, a continuación se proporcionan las especificaciones del mayor tamaño de máquina virtual en una serie DS y una serie GS:
+Las máquinas virtuales a gran escala están disponibles en distintos tamaños con un número diferente de núcleos de CPU, memoria, sistema operativo y tamaño del disco temporal. Cada tamaño de máquina virtual también tiene el número máximo de discos de datos que se puede conectar a la máquina virtual. Por lo tanto, el tamaño de máquina virtual seleccionado afectará al procesamiento, la memoria y la capacidad de almacenamiento que están disponibles para su aplicación. También afecta al proceso y los costos de almacenamiento. Por ejemplo, a continuación se proporcionan las especificaciones del mayor tamaño de máquina virtual en una serie DS, una serie DSv2 y una serie GS:
 
 | Tamaño de VM | Núcleos de CPU | Memoria | Tamaños de disco de VM | Discos de datos máx. | Tamaño de memoria caché | E/S | Límites de E/S de la memoria caché de ancho de banda |
 |---|---|---|---|---|---|---|---|
 | Standard\_DS14 | 16 | 112 GB | OS = 1.023 GB <br> SSD Local = 224 GB | 32 | 576 GB | 50\.000 E/S por segundo <br> 512 MB por segundo | 4\.000 IOPS y 33 MB por segundo |
 | Standard\_GS5 | 32 | 448 GB | SO = 1023 GB <br> SSD Local = 896 GB | 64 | 4224 GB | 80\.000 E/S por segundo <br> 2000 MB por segundo | 5\.000 IOPS y 50 MB por segundo |
 
-Para una lista completa de todos los tamaños de máquinas virtuales de Azure disponibles, vea [Tamaños de máquinas virtuales de Azure](../virtual-machines/virtual-machines-size-specs.md). Elija un tamaño de máquina virtual que puede cumplir y escale a los requisitos de rendimiento de las aplicaciones que desee. Además, tenga en cuenta que debe seguir consideraciones importantes al elegir los tamaños de las máquinas virtuales.
+Para una lista completa de todos los tamaños de máquinas virtuales de Azure disponibles, vea [Tamaños de máquinas virtuales de Azure](../virtual-machines/virtual-machines-linux-sizes.md). Elija un tamaño de máquina virtual que puede cumplir y escale a los requisitos de rendimiento de las aplicaciones que desee. Además, tenga en cuenta que debe seguir consideraciones importantes al elegir los tamaños de las máquinas virtuales.
+
 
 *Límites de escala* Los límites máximos de IOPS por máquina virtual y por disco son diferentes e independientes entre sí. Asegúrese de que la aplicación mantiene la IOPS dentro de los límites de la máquina virtual, así como los discos de premium conectados a ella. En caso contrario, el rendimiento de las aplicaciones experimentará una limitación.
 
@@ -197,7 +198,10 @@ La tabla siguiente resume el análisis de costos de este escenario de Almacenami
 | **Costo de discos al mes** | 1\.638,40 USD (32 discos x 1 TB) | 544,34 USD (4 discos x P30) |
 | **Costo total al mes** | 3\.208,98 USD | 1\.544,34 USD |
 
-*Linux Distros* Con Almacenamiento premium de Azure, obtendrá el mismo nivel de rendimiento para las máquinas virtuales de Windows y de Linux. Se admiten muchas versiones de las distribuciones de Linux; puede ver la lista completa en [Linux en distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). Es importante tener en cuenta que son adecuadas distintas distribuciones para diferentes tipos de carga de trabajo. Podrá ver diferentes niveles de rendimiento según la distribución en la que se ejecuta la carga de trabajo. Pruebe las distribuciones de Linux con su aplicación y elija la que mejor se adapte.
+*Linux Distros*
+
+Con Almacenamiento premium de Azure, obtendrá el mismo nivel de rendimiento para las máquinas virtuales de Windows y de Linux. Se admiten muchas versiones de las distribuciones de Linux; puede ver la lista completa [aquí](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Es importante tener en cuenta que son adecuadas distintas distribuciones para diferentes tipos de carga de trabajo. Podrá ver diferentes niveles de rendimiento según la distribución en la que se ejecuta la carga de trabajo. Pruebe las distribuciones de Linux con su aplicación y elija la que mejor se adapte.
+
 
 Cuando ejecute Linux con Almacenamiento premium, compruebe las actualizaciones más recientes acerca de los controladores necesarios para garantizar un alto rendimiento.
 
@@ -263,13 +267,17 @@ En Windows, puede usar espacios de almacenamiento para seccionar discos conjunta
 
 Importante: Con la IU del Administrador del servidor, puede establecer el número total de columnas en hasta 8 para un volumen seccionado. Al conectar más de 8 discos, use PowerShell para crear el volumen. Mediante PowerShell, puede establecer un número de columnas igual al número de discos. Por ejemplo, si hay 16 discos en un solo conjunto de secciones; especifique 16 columnas en el parámetro *NumberOfColumns* del cmdlet de PowerShell *New-VirtualDisk*.
 
+
 En Linux, use la utilidad MDADM para seccionar discos conjuntamente. Para ver los pasos detallados para seccionar discos en Linux, consulte [Configuración del software RAID en Linux](../virtual-machines/virtual-machines-linux-configure-raid.md).
+
 
 *Tamaño de franja* Una configuración importante en el seccionamiento del disco es el tamaño de franja. El tamaño de franja o tamaño de bloque es el fragmento de datos más pequeño que la aplicación puede manejar en un volumen seccionado. El tamaño de franja que configurar depende del tipo de aplicación y su patrón de solicitudes. Si elije un tamaño de franja incorrecto, podría provocar la desalineación de E/S, lo que conduce a una disminución del rendimiento de la aplicación.
 
 Por ejemplo, si una solicitud de E/S generada por la aplicación es mayor que el tamaño de franja del disco, el sistema de almacenamiento escribe a través de límites de la unidad de franja en más de un disco. Cuando llega el momento para tener acceso a esos datos, tendrá que buscar en las unidades con más de una franja para completar la solicitud. El efecto acumulativo de este comportamiento puede provocar una degradación del rendimiento considerable. Por otro lado, si el tamaño de la solicitud de E/S es menor que el tamaño de franja, y si es aleatoria por naturaleza, las solicitudes de E/S pueden acumularse en el mismo disco, causar un cuello de botella y, en última instancia, degradar el rendimiento de E/S.
 
-Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Almacenamiento premium. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y 256 KB para cargas de trabajo de almacenamiento de datos. Para más información, consulte [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure: Consideraciones sobre discos y rendimiento](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations).
+
+Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Almacenamiento premium. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-classic-sql-perf.md#disks-and-performance-considerations) para más información.
+
 
 >**Nota:** Puede seccionar conjuntamente un máximo de 32 discos de almacenamiento premium en una serie de máquinas virtuales DS y 64 discos de almacenamiento premium en una serie de máquinas virtuales GS.
 
@@ -419,7 +427,10 @@ rw=randwrite
 directory=/mnt/nocache
 ```
 
-Tenga en cuenta los siguientes aspectos clave que están en consonancia con las instrucciones de diseño que se tratan en secciones anteriores. Estas especificaciones son esenciales para obtener la IOPS máxima: - Una profundidad de la cola alta: 256. -Un tamaño de bloque pequeño: 8 KB. -Varios subprocesos que realizan escrituras aleatorias.
+Tenga en cuenta los siguientes aspectos clave que están en consonancia con las instrucciones de diseño que se tratan en secciones anteriores. Estas especificaciones son esenciales para alcanzar la IOPS máxima
+-   Una profundidad de la cola alta de 256.  
+-   Un tamaño de bloque pequeño de 8 KB.  
+-   Varios subprocesos que realizan escrituras aleatorias.
 
 Ejecute el siguiente comando para ejecutar la prueba FIO durante 30 segundos:
 
@@ -526,7 +537,7 @@ Más información sobre Almacenamiento premium de Azure:
 
 Para los usuarios de SQL Server, lea artículos sobre procedimientos recomendados para SQL Server:
 
-- [Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-sql-server-performance-best-practices.md)
+- [Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-classic-sql-perf.md)
 - [Almacenamiento premium de Azure proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

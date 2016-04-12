@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="12/03/2015"
+   ms.date="03/18/2016"
    ms.author="jahogg"/>
 
 # Guía de diseño de la tabla de almacenamiento de Azure: diseño escalable y tablas de rendimiento
@@ -571,7 +571,9 @@ Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 Utilice este patrón cuando desee garantizar la coherencia eventual entre las entidades que existen en diferentes particiones o tablas. Puede extender este patrón para garantizar la coherencia eventual de las operaciones en el servicio Tabla y el servicio Blob y otros orígenes de datos de almacenamiento que no sean de Azure como bases de datos o el sistema de archivos.
 
 #### Orientación y patrones relacionados  
-Los patrones y e instrucciones siguientes también pueden ser importantes a la hora de implementar este patrón: - [Transacciones de grupos de entidades](#entity-group-transactions) - [Combinar o reemplazar](#merge-or-replace)
+Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
+-	[Transacciones de grupos de entidades](#entity-group-transactions)  
+-	[Combinar o reemplazar](#merge-or-replace)  
 
 >[AZURE.NOTE] Si el aislamiento de transacciones es importante para su solución, considere la posibilidad de volver a diseñar las tablas para poder utilizar EGT.
 
@@ -606,7 +608,10 @@ Para la segunda opción, utilice las entidades de índice que almacenan los dato
 
 La propiedad **EmployeeIDs** contiene una lista de identificadores de empleado para los empleados cuyo apellido está almacenado en **RowKey**.
 
-Los siguientes pasos describen el proceso que debe seguir al agregar un nuevo empleado si utiliza la segunda opción. En este ejemplo, agregamos a un empleado con id. 000152 y el apellido Jones en el departamento de ventas: 1. Recupere la entidad de índice con el valor **PartitionKey** "Sales" y el valor **RowKey** "Jones". Guarde el valor ETag de esta entidad para usar en el paso 2.2. Cree una transacción de grupo de entidad (es decir, una operación por lotes) que inserte la nueva entidad del empleado (valor **PartitionKey** "Sales" y valor **RowKey** "000152") y actualice la entidad de índice (valor **PartitionKey** "Sales" y valor **RowKey** "Jones") agregando el nuevo identificador de empleado a la lista del campo EmployeeIDs. Para obtener información sobre EGT, consulte la sección [Transacciones de grupo de entidad (EGT)](#entity-group-transactions). 3. Si la transacción de grupo de entidad falla debido a un error de simultaneidad optimista (alguien ha modificado la entidad de índice), necesitará comenzar de nuevo en el paso 1.
+Los siguientes pasos describen el proceso que debe seguir al agregar un nuevo empleado si utiliza la segunda opción. En este ejemplo, agregamos a un empleado con Id. 000152 y el apellido Jones en el departamento de ventas:
+1.	Recupere la entidad de índice con el valor **PartitionKey** "Sales" y el valor **RowKey** "Jones". Guarde el valor ETag de esta entidad para usar en el paso 2.  
+2.	Cree una transacción de grupo de entidad (es decir, una operación por lotes) que inserte la nueva entidad del empleado (valor **PartitionKey** "Sales" y valor **RowKey** "000152") y actualice la entidad de índice (valor **PartitionKey** "Sales" y valor **RowKey** "Jones") agregando el nuevo identificador de empleado a la lista del campo EmployeeIDs. Para obtener información sobre EGT, consulte la sección [Transacciones de grupo de entidad (EGT)](#entity-group-transactions). 
+3.	Si la transacción de grupo de entidad falla debido a un error de simultaneidad optimista (alguien ha modificado la entidad de índice), necesitará comenzar de nuevo en el paso 1.  
 
 Puede usar un enfoque similar a la eliminación de un empleado si utiliza la segunda opción. Cambiar el apellido de un empleado es ligeramente más complejo porque necesitará ejecutar una transacción de grupo de entidad que actualice tres entidades: la entidad employee, la entidad de índice para el apellido antiguo y la entidad de índice para el nombre nuevo. Debe recuperar cada entidad antes de realizar cambios para recuperar los valores de ETag que puede utilizar para realizar las actualizaciones mediante la simultaneidad optimista.
 
@@ -628,7 +633,12 @@ Con la tercera opción, no puede utilizar EGT para mantener la coherencia porque
 
 #### Problemas y consideraciones  
 
-Tenga en cuenta lo siguiente al decidir cómo implementar este patrón: -esta solución requiere al menos dos consultas para recuperar las entidades coincidentes: uno para consultar las entidades de índice para obtener la lista de valores **RowKey** y luego consultas para recuperar cada entidad en la lista. - Dado que una entidad individual tiene un tamaño máximo de 1 MB, la opción n.º 2 y la opción n.º 3 de la solución suponen que la lista de identificadores de empleado para cualquier apellido determinado nunca es mayor de 1 MB. Si la lista de identificadores de empleado es probable que sea mayor que 1 MB de tamaño, utilice la opción nº. 1 y almacene los datos del índice en el almacenamiento de blobs. - Si utiliza la opción nº2 (mediante EGT para controlar la adición y eliminación de empleados y el cambio del apellido de un empleado) debe evaluar si el volumen de transacciones se aproxima a los límites de escalabilidad de una partición determinada. Si este es el caso, debe considerar una solución coherente (opción n.º 1 o n.º 3) que use colas para controlar las solicitudes de actualización y le permita almacenar entidades de índice en una partición independiente de las entidades employee. -La opción n.º 2 en esta solución da por hecho que desea buscar por apellido dentro de un departamento: por ejemplo, desea recuperar una lista de empleados que tienen un apellido Jones del departamento de ventas. Si desea poder buscar todos los empleados cuyo apellido sea Jones en toda la organización, use las opciones 1 o 3. - Puede implementar una solución basada en cola que ofrezca coherencia (para más detalles, consulte [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)).
+Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
+-	Esta solución requiere al menos dos consultas para recuperar las entidades coincidentes: una para consultar las entidades de índice para obtener la lista de valores **RowKey** y, después, las consultas para recuperar cada entidad de la lista.  
+-	Dado que una entidad individual tiene un tamaño máximo de 1 MB, la opción nº2 y la opción nº3 de la solución dan por hecho que la lista de identificadores de empleado de cualquier apellido determinado nunca es mayor que 1 MB. Si la lista de identificadores de empleado es probable que sea mayor que 1 MB de tamaño, utilice la opción nº1 y almacene los datos del índice en el almacenamiento de blobs.  
+-	Si utiliza la opción nº2 (mediante EGT para controlar la adición y eliminación de empleados y el cambio del apellido de un empleado) debe evaluar si el volumen de transacciones se aproxima a los límites de escalabilidad de una partición determinada. Si este es el caso, debe considerar una solución coherente (opción nº1 o nº3) que utilice colas para controlar las solicitudes de actualización y le permita almacenar entidades de índice en una partición independiente de las entidades employee.  
+-	La opción nº2 en esta solución da por hecho que desea buscar por apellido dentro de un departamento: por ejemplo, desea recuperar una lista de empleados que tienen un apellido Jones del departamento de ventas. Si desea buscar todos los empleados con apellido Jones en toda la organización, utilice opción nº1 o la opción nº3.
+-	Puede implementar una solución basada en cola que ofrezca coherencia eventual ([consulte el patrón de coherencia final de transacciones](#eventually-consistent-transactions-pattern)).  
 
 #### Cuándo usar este patrón  
 
@@ -636,7 +646,11 @@ Utilice este patrón cuando desee buscar un conjunto de entidades que compartan 
 
 #### Orientación y patrones relacionados  
 
-Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:- [Patrón de clave compuesta](#compound-key-pattern) - [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) - [Transacciones de grupos de entidades](#entity-group-transactions) - [Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
+Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
+-	[Patrón de clave compuesta](#compound-key-pattern)  
+-	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)  
+-	[Transacciones de grupos de entidades](#entity-group-transactions)  
+-	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)  
 
 ### Patrón de desnormalización  
 
@@ -667,7 +681,10 @@ Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 Utilice este patrón cuando necesite buscar información relacionada con frecuencia. Este patrón reduce el número de consultas que el cliente debe realizar para recuperar los datos que necesita.
 
 #### Orientación y patrones relacionados
-Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:- [Patrón de clave compuesta](#compound-key-pattern) - [Transacciones de grupos de entidades](#entity-group-transactions) - [Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
+Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
+-	[Patrón de clave compuesta](#compound-key-pattern)  
+-	[Transacciones de grupos de entidades](#entity-group-transactions)  
+-	[Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
 
 ### Patrón de clave compuesta  
 
@@ -819,7 +836,9 @@ Con este diseño, puede utilizar una operación de combinación para actualizar 
 
 #### Problemas y consideraciones  
 
-Tenga en cuenta lo siguiente al decidir cómo implementar este patrón: - Si la serie de datos completos no se ajusta en una entidad única (una entidad puede tener hasta 252 propiedades), use un almacén de datos alternativo, como un blob. - Si tiene varios clientes que actualizan una entidad de manera simultánea, deberá usar la **ETag** para implementar simultaneidad optimista. Si tiene muchos clientes, puede experimentar un alto nivel de contención.
+Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
+-	Si la serie de datos completa no cabe en una única entidad (una entidad puede tener hasta 252 propiedades), utilice un almacén de datos alternativo, como un blob.  
+-	Si tiene varios clientes actualizando una entidad simultáneamente, deberá utilizar el **ETag** para implementar la simultaneidad optimista. Si tiene muchos clientes, puede experimentar un alto nivel de contención.  
 
 #### Cuándo usar este patrón  
 
@@ -1560,4 +1579,4 @@ También nos gustaría dar las gracias a los siguientes MVP de Microsoft por sus
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0323_2016-->

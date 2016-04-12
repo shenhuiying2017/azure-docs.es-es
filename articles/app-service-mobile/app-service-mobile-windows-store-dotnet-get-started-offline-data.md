@@ -78,7 +78,7 @@ Las características sin conexión de Aplicaciones móviles de Azure permiten in
 
 7. En MainPage.cs, en el área marcada como `Offline sync`, quite los comentarios de los métodos `InitLocalStoreAsync` y `SyncAsync`. El método `InitLocalStoreAsync` inicializa el contexto de sincronización de cliente con un almacén SQLite. En Visual Studio, puede seleccionar todas las líneas comentadas y usar el método abreviado de teclado **Ctrl**+**K**+**U** para quitar los comentarios.
 
-	Observe que en `SyncAsync`, una operación push se ejecuta a partir de `MobileServiceClient.SyncContext` en lugar de `IMobileServicesSyncTable`. Esto ocurre porque el contexto realiza un seguimiento de los cambios que realizó el cliente para todas las tablas. Esto tiene por objeto incluir escenarios en los que existen relaciones entre tablas. Para obtener más información sobre este comportamiento, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
+	Observe que en `SyncAsync`, una operación push se ejecuta a partir de `MobileServiceClient.SyncContext` en lugar de `IMobileServicesSyncTable`. Esto ocurre porque el contexto realiza un seguimiento de los cambios que realizó el cliente para todas las tablas. Para obtener más información sobre este comportamiento, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
         private async Task InitLocalStoreAsync()
         {
@@ -272,4 +272,4 @@ Cuando se quiere sincronizar el almacén local con el servidor, se usan los mét
 [Descripción de la nube: sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

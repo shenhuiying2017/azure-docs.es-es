@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Importación de datos en Búsqueda de Azure con el SDK para .NET | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-    description="Carga de datos en un índice de Búsqueda de Azure mediante el SDK para .NET."
+    pageTitle="Carga de datos en Búsqueda de Azure con el SDK para .NET | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
+    description="Aprenda cómo cargar de datos en un índice de Búsqueda de Azure mediante el SDK para .NET."
     services="search"
     documentationCenter=""
     authors="brjohnstmsft"
@@ -17,15 +17,15 @@
     ms.date="03/09/2016"
     ms.author="brjohnst"/>
 
-# Importación de datos en Búsqueda de Azure mediante el SDK para .NET
+# Carga de datos en Búsqueda de Azure mediante el SDK para .NET
 > [AZURE.SELECTOR]
 - [Información general](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-En este artículo se mostrará cómo usar el [SDK de .NET para Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) para importar datos en un índice de Búsqueda de Azure. Antes de comenzar este tutorial, debe haber [creado un índice de Búsqueda de Azure](search-create-index-dotnet.md). En este artículo también se asume que ha creado un objeto `SearchServiceClient`, como se muestra en [Creación de un índice de Búsqueda de Azure mediante el SDK para .NET](search-create-index-dotnet.md#CreateSearchServiceClient).
+En este artículo se mostrará cómo usar el [SDK de .NET para Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) para importar datos en un índice de Búsqueda de Azure.
+
+Antes de comenzar este tutorial, debe haber [creado ya un índice de Búsqueda de Azure](search-what-is-an-index.md). En este artículo también se asume que ha creado un objeto `SearchServiceClient`, como se muestra en [Creación de un índice de Búsqueda de Azure mediante el SDK para .NET](search-create-index-dotnet.md#CreateSearchServiceClient).
 
 Tenga en cuenta que todo el código de ejemplo de este artículo está escrito en C#. El código fuente completo se puede encontrar [en GitHub](http://aka.ms/search-dotnet-howto).
 
@@ -42,7 +42,7 @@ Para importar datos en el SDK de .NET para Búsqueda de Azure, será preciso cre
 SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
-> [AZURE.NOTE] En una aplicación de búsqueda típica, el llenado y la administración de índices se controlan mediante un componente independiente de las consultas de búsqueda. `Indexes.GetClient` resulta cómodo para rellenar un índice porque evita la molestia de proporcionar otro `SearchCredentials`. Con este fin, pasa la clave de administrador que se usó para crear el `SearchServiceClient` al nuevo `SearchIndexClient`. Sin embargo, en la parte de la aplicación que ejecuta consultas, es mejor crear directamente el `SearchIndexClient` para poder pasar una clave de consulta en lugar de una clave de administración. Esta situación es coherente con el [principio de privilegios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) y le ayudará a aumentar la seguridad de su aplicación. Puede encontrar más información acerca de las claves de administración y de consulta en el [referencia de la API de REST de Búsqueda de Azure en MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+> [AZURE.NOTE] En una aplicación de búsqueda típica, el llenado y la administración de índices se controlan mediante un componente independiente de las consultas de búsqueda. `Indexes.GetClient` resulta cómodo para rellenar un índice porque evita la molestia de proporcionar otro `SearchCredentials`. Con este fin, pasa la clave de administrador que se usó para crear el `SearchServiceClient` al nuevo `SearchIndexClient`. Sin embargo, en la parte de la aplicación que ejecuta consultas, es mejor crear directamente el `SearchIndexClient` para poder pasar una clave de consulta en lugar de una clave de administración. Esto está en consonancia con el [principio de privilegios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) y le ayudará a proteger su aplicación. Puede encontrar más información acerca de las claves de administración y de consulta en la [referencia de la API de REST de Búsqueda de Azure en MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 `SearchIndexClient` tiene una propiedad `Documents`. Esta propiedad proporciona todos los métodos necesarios para agregar, modificar, eliminar o consultar los documentos del índice.
 
@@ -51,10 +51,10 @@ Para importar datos mediante el SDK. de NET, es preciso empaquetar los datos en 
 
 Acción | Descripción | Campos necesarios para cada documento | Notas
 --- | --- | --- | ---
-`Upload` | Una acción `Upload` es similar a un "upsert" en el que el documento se insertará, si es nuevo, y se actualizará o reemplazará, si ya existe. | la clave, además de cualquier otro campo que desee definir | Al actualizar o reemplazar un documento existente, todos los campos que no estén especificados se establecerán en `null`. Esto ocurre incluso cuando el campo se ha establecido previamente en un valor que no sea nulo.
-`Merge` | Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. | la clave, además de cualquier otro campo que desee definir | Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. Aquí se incluyen los campos de tipo `DataType.Collection(DataType.String)`. Por ejemplo, si el documento contiene el campo `tags`, cuyo valor es `["budget"]`, y ejecuta una combinación con el valor `["economy", "pool"]` de `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`.
-`MergeOrUpload` | Esta acción se comporta como `Merge` si en el índice ya existe un documento con la clave especificada. Si el documento no existe, se comporta como `Upload` con un documento nuevo. | la clave, además de cualquier otro campo que desee definir |- 
-`Delete` | Quita el documento especificado del índice. | solo la clave | Se ignorarán los campos que especifique, salvo el campo clave. Si desea quitar un campo individual de un documento, use `Merge` en su lugar y establezca el campo explícitamente con el valor NULL.
+`Upload` | Una acción `Upload` es similar a un "upsert" donde se insertará el documento si es nuevo y se actualizará/reemplazará si ya existe. | la clave, además de cualquier otro campo que desee definir | Al actualizar o reemplazar un documento existente, cualquier campo que no esté especificado en la solicitud tendrá su campo establecido en `null`. Esto ocurre incluso cuando el campo se ha establecido previamente en un valor que no sea nulo.
+`Merge` | Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. | la clave, además de cualquier otro campo que desee definir | Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. Aquí se incluyen los campos de tipo `DataType.Collection(DataType.String)`. Por ejemplo, si el documento contiene un campo `tags` con el valor `["budget"]` y ejecuta una combinación con el valor `["economy", "pool"]` para `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`.
+`MergeOrUpload` | Esta acción se comporta como `Merge` si ya existe un documento con la clave especificada en el índice. Si el documento no existe, se comporta como `Upload` con un nuevo documento. | la clave, además de cualquier otro campo que desee definir |-
+`Delete` | Permite quitar el documento especificado del índice. | solo la clave | Los campos que especifique se ignorarán excepto el campo clave. Si desea quitar un campo individual de un documento, use `Merge` en su lugar y establezca el campo explícitamente con el valor NULL.
 
 Puede especificar la acción que desea utilizar con los distintos métodos estáticos de las clases `IndexBatch` y `IndexAction`, como se muestra en la siguiente sección.
 
@@ -67,24 +67,24 @@ var actions =
     {
         IndexAction.Upload(
             new Hotel()
-            { 
-                HotelId = "1", 
-                BaseRate = 199.0, 
+            {
+                HotelId = "1",
+                BaseRate = 199.0,
                 Description = "Best hotel in town",
                 DescriptionFr = "Meilleur hôtel en ville",
                 HotelName = "Fancy Stay",
-                Category = "Luxury", 
+                Category = "Luxury",
                 Tags = new[] { "pool", "view", "wifi", "concierge" },
-                ParkingIncluded = false, 
+                ParkingIncluded = false,
                 SmokingAllowed = false,
-                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                Rating = 5, 
+                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                Rating = 5,
                 Location = GeographyPoint.Create(47.678581, -122.131577)
             }),
         IndexAction.Upload(
             new Hotel()
-            { 
-                HotelId = "2", 
+            {
+                HotelId = "2",
                 BaseRate = 79.99,
                 Description = "Cheapest hotel in town",
                 DescriptionFr = "Hôtel le moins cher en ville",
@@ -98,9 +98,9 @@ var actions =
                 Location = GeographyPoint.Create(49.678581, -122.131577)
             }),
         IndexAction.MergeOrUpload(
-            new Hotel() 
-            { 
-                HotelId = "3", 
+            new Hotel()
+            {
+                HotelId = "3",
                 BaseRate = 129.99,
                 Description = "Close to town hall and the river"
             }),
@@ -194,15 +194,15 @@ La capacidad de usar sus propias clases como documentos funciona en ambas direcc
 
 **Nota importante acerca de los tipos de datos**
 
-Al diseñar sus propias clases de modelo para asignarlas a un índice de Búsqueda de Azure, se recomienda declarar las propiedades de los tipos de valor, como `bool` y `int`, que aceptan valores NULL (por ejemplo, `bool?` en lugar de `bool`). Si usa una propiedad que no acepte valores NULL, tendrá que **garantizar** que ningún documento del índice contiene un valor NULL para el campo correspondiente. Ni el SDK ni el servicio Búsqueda de Azure le permitirá aplicar esto.
+Al diseñar sus propias clases de modelo para asignar a un índice de Búsqueda de Azure, es recomendable declarar las propiedades de tipos de valor como `bool` y `int` que aceptan valores NULL (por ejemplo: `bool?` en lugar de `bool`). Si usa un tipo de modelo con una propiedad que no acepta valores NULL, tendrá que **garantizar** que ningún documento del índice contiene un valor NULL para el campo correspondiente. Ni el SDK ni el servicio Búsqueda de Azure le permitirá aplicar esto.
 
-Este no es solo un problema hipotética: imagine un escenario en el que agrega un campo nuevo a un índice existente que es del tipo `DataType.Int32`. Después de actualizar la definición del índice, todos los documentos tendrán un valor null para ese campo nuevo (ya que todos los tipos aceptan valores NULL en Búsqueda de Azure). Si después utiliza una clase de modelo con una propiedad `int` que no acepta valores NULL para ese campo, obtendrá una excepción `JsonSerializationException` similar a esta al intentar recuperar documentos:
+Esto no es solo una inquietud hipotética: imagine un escenario donde se agrega un nuevo campo a un índice existente que es de tipo `DataType.Int32`. Después de actualizar la definición del índice, todos los documentos tendrán un valor null para ese campo nuevo (ya que todos los tipos aceptan valores NULL en Búsqueda de Azure). Si después usa una clase de modelo con una propiedad `int` que no acepta valores NULL para ese campo, obtendrá `JsonSerializationException` así al intentar recuperar documentos:
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 
 Por este motivo, recomendamos utilizar tipos que aceptan valores NULL en las clases de modelo como procedimiento recomendado.
 
 ## Pasos siguientes
-Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos. Para más información, consulte [Realización de una consulta en el índice de Búsqueda de Azure mediante el SDK para .NET](search-query-dotnet.md).
+Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos. Para más información, vea [Consultas en Búsqueda de Azure](search-query-overview.md).
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

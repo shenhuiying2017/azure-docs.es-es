@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
 # Creación de un índice de Búsqueda de Azure con la API de REST
@@ -25,9 +25,12 @@
 - [REST](search-create-index-rest-api.md)
 
 
-Este artículo le guiará a través del proceso de creación de un [índice](https://msdn.microsoft.com/library/azure/dn798941.aspx) de Búsqueda de Azure mediante la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). Para crear un índice de Búsqueda de Azure mediante la API de REST, emita una solicitud HTTP POST al punto de conexión de la dirección URL del servicio Búsqueda de Azure. La definición del índice se incluirá en el cuerpo de la solicitud como contenido JSON con formato correcto.
+Este artículo le guiará a través del proceso de creación de un [índice](https://msdn.microsoft.com/library/azure/dn798941.aspx) de Búsqueda de Azure mediante la API de REST de Búsqueda de Azure.
 
 Antes de seguir con esta guía y crear un índice, debe haber [creado ya un servicio de Búsqueda de Azure](search-create-service-portal.md).
+
+Para crear un índice de Búsqueda de Azure mediante la API de REST, emita una solicitud HTTP POST al punto de conexión de la dirección URL del servicio Búsqueda de Azure. La definición del índice se incluirá en el cuerpo de la solicitud como contenido JSON con formato correcto.
+
 
 ## I. Identificación de la clave de API de administración del servicio de Búsqueda de Azure
 Ahora que ha aprovisionado un servicio de Búsqueda de Azure, puede emitir solicitudes HTTP en el punto de conexión de la dirección URL de su servicio mediante la API de REST. Sin embargo, *todas* las solicitudes de API deben incluir la clave de API que se generó para el servicio de Búsqueda que aprovisionó. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
@@ -49,7 +52,7 @@ Una única solicitud HTTP POST al servicio permitirá crear el índice. El cuerp
 1. La primera propiedad de este objeto JSON es el nombre del índice.
 2. La segunda propiedad de este objeto JSON es una matriz JSON denominada `fields` que contiene un objeto JSON independiente para cada campo en el índice. Cada uno de estos objetos JSON contiene varios pares de nombre/valor para cada uno de los atributos del campo incluido "name", "type", etc.
 
-Es importante que tenga en cuenta sus necesidades de negocio y experiencia de usuario al diseñar el índice ya que debe asignar a cada campo los [atributos adecuados](https://msdn.microsoft.com/library/azure/dn798941.aspx). Estos atributos controlan qué características de Búsqueda (filtrado, facetas, ordenación, búsqueda de texto completo, etc.) se aplican a qué campos. Para cualquier atributo que no especifique, el valor predeterminado será habilitar la característica de búsqueda correspondiente a menos que la deshabilite específicamente.
+Es importante que tenga en cuenta sus necesidades de negocio y experiencia de búsqueda como usuario al diseñar el índice ya que debe asignar a cada campo los [atributos adecuados](https://msdn.microsoft.com/library/azure/dn798941.aspx). Estos atributos controlan qué características de Búsqueda (filtrado, facetas, ordenación, búsqueda de texto completo, etc.) se aplican a qué campos. Para cualquier atributo que no especifique, el valor predeterminado será habilitar la característica de búsqueda correspondiente a menos que la deshabilite específicamente.
 
 En nuestro ejemplo, hemos llamado a nuestro índice "hoteles" y definido los campos como sigue:
 
@@ -84,16 +87,23 @@ La definición del índice anterior utiliza un analizador de lenguaje personaliz
 2. En los encabezados de solicitud, especifique el `Content-Type` como `application/json`. También necesitará proporcionar la clave de administración del servicio que identificó en el paso I en el encabezado `api-key`.
 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28 Content-Type: application/json api-key: [api-key]
+Tendrá que proporcionar su propia clave de API y su nombre de servicio para emitir la solicitud siguiente:
 
-Para una solicitud correcta, debería ver el código de estado "201 (Created)". Para más información sobre la creación de un índice mediante la API de REST, visite la referencia sobre la API en [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Para obtener más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+
+    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+    Content-Type: application/json
+    api-key: [api-key]
+
+
+Para una solicitud correcta, debería ver el código de estado "201 (Created)". Para más información sobre la creación de un índice mediante la API de REST, visite la referencia sobre la API en [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 Cuando haya terminado con un índice y desee eliminarlo, simplemente emita una solicitud HTTP DELETE. Por ejemplo, así es cómo se eliminaría el índice "hoteles":
 
     DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
     api-key: [api-key]
 
-## Pasos siguientes
-Después de crear un índice de Búsqueda de Azure, ya podrá cargar el contenido en el índice y empezar la búsqueda de los datos. Consulte [Data Import in Azure Search using the REST API](search-import-data-rest-api.md) (Importación de datos en Búsqueda de Azure con la API de REST) para obtener más información.
 
-<!---HONumber=AcomDC_0309_2016-->
+## Pasos siguientes
+Después de crear un índice de Búsqueda de Azure, ya podrá [cargar el contenido en el índice](search-what-is-data-import.md) y empezar la búsqueda de los datos.
+
+<!---HONumber=AcomDC_0316_2016-->

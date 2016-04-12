@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # Introducción al conector del bus de servicio de Azure y su incorporación a su aplicación lógica 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para consultar la versión de esquema 2015-08-01-preview, haga clic en [API de bus de servicio](../connectors/create-api-servicebus.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview, haga clic en [API de Bus de servicio](../connectors/connectors-create-api-servicebus.md).
 
 Conéctese al bus de servicio de Azure para enviar mensajes a los temas y las colas y recibir mensajes de suscripciones y colas. Los conectores se usan en Aplicaciones lógicas como parte de un "flujo de trabajo".
 
@@ -95,4 +95,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

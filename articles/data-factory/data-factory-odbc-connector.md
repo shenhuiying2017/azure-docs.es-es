@@ -232,7 +232,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | gatewayName | Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse al almacén de datos ODBC. | Sí |
 
 
-Para más información sobre cómo configurar las credenciales de un almacén de datos ODBC local, consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Para más información sobre cómo configurar las credenciales de un almacén de datos ODBC local, consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
 ### Uso de la autenticación básica
 
@@ -327,4 +327,4 @@ Al mover datos desde almacenes de datos ODBC, los tipos de datos ODBC se asignan
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

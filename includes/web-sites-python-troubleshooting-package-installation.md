@@ -10,7 +10,7 @@ Con la disponibilidad reciente del compilador de [Microsoft Visual C++ para Pyth
 
 ### Compilar ruedas (necesita Windows)
 
-Nota: al usar esta opción, asegúrese de que compila el paquete con un entorno de Python que coincide con la plataforma/arquitectura/versión que se usa en la aplicación web del Servicio de aplicaciones de Azure (Windows/32 bits/2.7 o 3.4).
+Nota: al usar esta opción, asegúrese de que compila el paquete con un entorno de Python que coincide con la plataforma/arquitectura/versión que se usa en la aplicación web del Servicio de aplicaciones de Azure (Windows/32 bits/2.7 o 3.4).
 
 Si el paquete no se instala porque requiere un compilador, puede instalar el compilador en el equipo local y generar una rueda para el paquete, que después incluirá en el repositorio.
 
@@ -55,7 +55,7 @@ Agregue lo siguiente al script de implementación:
 
 ### Incluir el entorno virtual en el repositorio (necesita Windows)
 
-Nota: al usar esta opción, asegúrese de utilizar un entorno virtual que coincida con la plataforma/arquitectura/versión que se usa en la aplicación web del Servicio de aplicaciones (Windows/32 bits/2.7 o 3.4).
+Nota: al usar esta opción, asegúrese de utilizar un entorno virtual que coincida con la plataforma/arquitectura/versión que se usa en la aplicación web del Servicio de aplicaciones (Windows/32 bits/2.7 o 3.4).
 
 Si incluye el entorno virtual en el repositorio, puede impedir que el script de implementación que administre el entorno virtual en Azure mediante la creación de un archivo vacío:
 
@@ -64,9 +64,9 @@ Si incluye el entorno virtual en el repositorio, puede impedir que el script de 
 Se recomienda eliminar el entorno virtual existente en la aplicación para evitar los archivos sobrantes que se generan cuando el entorno virtual se administra automáticamente.
 
 
-[Creación de una máquina virtual que ejecuta Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+[Creación de una máquina virtual que ejecuta Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
 [compilador de Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

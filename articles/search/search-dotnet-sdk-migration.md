@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/09/2016"
+   ms.date="03/09/2016"
    ms.author="brjohnst"/>
 
 # Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure
@@ -171,6 +171,29 @@ A partir de la versión 1.1, el SDK de .NET para Búsqueda de Azure organiza los
  - Los métodos de extensión ahora ocultan muchos de los detalles superfluos de HTTP del autor de llamada. Por ejemplo, las versiones anteriores del SDK devuelven un objeto de respuesta con un código de estado HTTP, que a menudo no necesitará comprobar, ya que los métodos de operación lanzan `CloudException` para cualquier código de estado que indica un error. Los nuevos métodos de extensión solo devuelven objetos de modelo, lo que le ahorra la molestia de tener que desencapsularlos en el código.
  - Por el contrario, las interfaces principales ahora exponen métodos que permiten ejercer un mayor control a nivel de HTTP en caso de que sea necesario. Ahora puede transferir encabezados HTTP personalizados para incluirlos en solicitudes, y el nuevo tipo de devolución `AzureOperationResponse<T>` le ofrece acceso directo a `HttpRequestMessage` y `HttpResponseMessage` para la operación. `AzureOperationResponse` se define en el espacio de nombres `Microsoft.Rest.Azure` y reemplaza a `Hyak.Common.OperationResponse`.
 
+### Cambios de ScoringParameters
+
+En el último SDK se agregó una nueva clase llamada `ScoringParameter` para que resulte más fácil proporcionar parámetros a los perfiles de puntuación en una consulta de búsqueda. Antes, la propiedad `ScoringProfiles` de la clase `SearchParameters` tenía el tipo `IList<string>`; ahora, el tipo es `IList<ScoringParameter>`.
+
+#### Ejemplo
+
+Si el código tiene el siguiente aspecto:
+
+    var sp = new SearchParameters();
+    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+    sp.ScoringParameters = new[] { "featuredParam:featured", "mapCenterParam:" + lon + "," + lat };
+
+Puede cambiarlo por este para corregir cualquier error de compilación:
+
+    var sp = new SearchParameters();
+    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+    sp.ScoringParameters =
+        new[]
+        {
+            new ScoringParameter("featuredParam", "featured"),
+            new ScoringParameter("mapCenterParam", GeographyPoint.Create(lat, lon))
+        };
+
 ### Cambios de la clase de modelo
 
 Debido a los cambios de firma descritos en [Cambios del método de operación](#OperationMethodChanges), muchas clases del espacio de nombres `Microsoft.Azure.Search.Models` se han cambiado de nombre o se han eliminado. Por ejemplo:
@@ -253,7 +276,7 @@ Si tiene una aplicación web que serializa `DocumentSearchResponse` directamente
         };
     }
 
-Puede cambiar mediante la obtención de la propiedad `.Results` de la respuesta de búsqueda para corregir la representación de los resultados de la búsqueda:
+Para cambiarlo, obtenga la propiedad `.Results` de la respuesta de búsqueda para corregir la representación de los resultados de la búsqueda:
 
     public ActionResult Search(string q = "")
     {
@@ -276,7 +299,7 @@ La clase `CloudException` se ha desplazado desde el espacio de nombres `Hyak.Com
 
 ### Cambios de SearchServiceClient y SearchIndexClient
 
-El tipo de la propiedad `Credentials` ha cambiado de `SearchCredentials` a su clase base, `ServiceClientCredentials`. Si necesita acceder a `SearchCredentials` de `SearchIndexClient` o `SearchServiceClient`, use la nueva propiedad `SearchCredentials`.
+El tipo de la propiedad `Credentials` ha cambiado de `SearchCredentials` a su clase base, `ServiceClientCredentials`. Si necesita acceder al valor de `SearchCredentials` de `SearchIndexClient` o `SearchServiceClient`, use la nueva propiedad `SearchCredentials`.
 
 En versiones anteriores del SDK, `SearchServiceClient` y `SearchIndexClient` tenían constructores con un parámetro `HttpClient`. Estos se han reemplazado con constructores que obtienen `HttpClientHandler` y una matriz de objetos `DelegatingHandler`. Esto facilita instalar controladores personalizados para procesar previamente las solicitudes HTTP si es necesario.
 
@@ -298,7 +321,7 @@ Observe también que el tipo del parámetro de credenciales ha cambiado a `Servi
 
 ### Transferir un identificador de solicitud
 
-En versiones anteriores del SDK, puede establecer un identificador de solicitud en `SearchServiceClient` o `SearchIndexClient` y se incluiría en cada solicitud a la API de REST. Esto es útil para solucionar problemas con el servicio de búsqueda si necesita ponerse en contacto con soporte técnico. Sin embargo, es más útil establecer un identificador único de solicitud para cada operación, en lugar de utilizar el mismo identificador para todas las operaciones. Por este motivo, los métodos `SetClientRequestId` de `SearchServiceClient` y `SearchIndexClient` se han quitado. En su lugar, puede pasar un identificador de solicitud a cada método de operación mediante el parámetro opcional `SearchRequestOptions`.
+En versiones anteriores del SDK, podía establecer un identificador de solicitud en `SearchServiceClient` o `SearchIndexClient` y se incluiría en cada solicitud a la API de REST. Esto es útil para solucionar problemas con el servicio de búsqueda si necesita ponerse en contacto con soporte técnico. Sin embargo, es más útil establecer un identificador único de solicitud para cada operación, en lugar de utilizar el mismo identificador para todas las operaciones. Por este motivo, los métodos `SetClientRequestId` de `SearchServiceClient` y `SearchIndexClient` se han quitado. En su lugar, puede pasar un identificador de solicitud a cada método de operación mediante el parámetro opcional `SearchRequestOptions`.
 
 > [AZURE.NOTE] En una futura versión del SDK, agregaremos un nuevo mecanismo para establecer un identificador de solicitud globalmente en los objetos cliente que sea coherente con el enfoque usado por otros SDK de Azure.
 
@@ -351,21 +374,21 @@ Corregimos este problema en la versión 1.1 del SDK. Ahora, si tiene una clase d
 
 y establece `IntValue` en 0, ese valor ahora se serializa correctamente como 0 en la conexión y se almacena como 0 en el índice. El recorrido de ida y vuelta también funciona según lo previsto.
 
-Hay un problema potencial que hay que tener en cuenta con este enfoque: si utiliza un tipo de modelo con una propiedad que no acepta valores NULL, tendrá que **garantizar** que ningún documento del índice contiene un valor NULL para el campo correspondiente. Ni el SDK ni la API de REST para Búsqueda de Azure le permitirá aplicar esto.
+Hay un posible problema que hay que tener en cuenta con este enfoque: si usa un tipo de modelo con una propiedad que no acepta valores NULL, tendrá que **garantizar** que ningún documento del índice contiene un valor NULL para el campo correspondiente. Ni el SDK ni la API de REST para Búsqueda de Azure le permitirá aplicar esto.
 
-Esto no es solo una inquietud hipotética: imagine un escenario donde agregar un nuevo campo a un índice existente que es de tipo `Edm.Int32`. Después de actualizar la definición del índice, todos los documentos tendrán un valor null para ese campo nuevo (ya que todos los tipos aceptan valores NULL en Búsqueda de Azure). Si después utiliza una clase de modelo con una propiedad `int` que no acepta valores NULL para ese campo, obtendrá `JsonSerializationException` así al intentar recuperar documentos:
+Esto no es solo una inquietud hipotética: imagine un escenario donde se agrega un nuevo campo a un índice existente que es de tipo `Edm.Int32`. Después de actualizar la definición del índice, todos los documentos tendrán un valor null para ese campo nuevo (ya que todos los tipos aceptan valores NULL en Búsqueda de Azure). Si después usa una clase de modelo con una propiedad `int` que no acepta valores NULL para ese campo, obtendrá `JsonSerializationException` así al intentar recuperar documentos:
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 
 Por este motivo, recomendamos utilizar tipos que aceptan valores null en las clases de modelo como procedimiento recomendado.
 
-Para obtener más detalles sobre este error y la corrección, vea [este problema en GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
+Para más detalles sobre este error y la corrección, vea [este problema en GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
 
 ## Conclusión
-Si necesita más detalles sobre el uso del SDK de .NET para Búsqueda de Azure, vea nuestras [instrucciones](search-howto-dotnet-sdk.md) actualizadas recientemente y los artículos de [introducción](search-get-started-dotnet.md).
+Si necesita más detalles sobre el uso del SDK de .NET para Búsqueda de Azure, vea nuestras instrucciones actualizadas recientemente y los artículos de [procedimientos](search-howto-dotnet-sdk.md).
 
-Agradecemos sus comentarios sobre el SDK. Si tiene problemas, no dude en pedirnos ayuda en el [foro de MSDN sobre Búsqueda de Azure](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=azuresearch). Si encuentra un error, puede presentar un problema en el [repositorio de GitHub del SDK de .NET para Azure](https://github.com/Azure/azure-sdk-for-net/issues). Asegúrese de que prefija el título del problema con "SDK de búsqueda: ".
+Agradecemos sus comentarios sobre el SDK. Si tiene problemas, no dude en pedirnos ayuda en el [foro de MSDN sobre Búsqueda de Azure](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=azuresearch). Si encuentra un error, puede enviar el problema al [repositorio de GitHub del SDK de .NET para Azure](https://github.com/Azure/azure-sdk-for-net/issues). Asegúrese de que prefija el título del problema con "SDK de búsqueda: ".
 
 Gracias por usar Búsqueda de Azure.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

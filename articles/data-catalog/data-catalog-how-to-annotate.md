@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Anotación de orígenes de datos"
+   pageTitle="Anotación de orígenes de datos | Microsoft Azure"
    description="Artículo de procedimientos que señala cómo anotar recursos de datos en el Catálogo de datos de Azure, incluidos expertos, etiquetas, descripciones y nombres descriptivos."
    services="data-catalog"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
 # Anotación de orígenes de datos
 
 ## Introducción
-El **Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Catálogo de datos de Azure** consiste en ayudar a las personas a detectar, comprender y usar orígenes de datos, y en ayudar a las organizaciones a obtener más valor de sus datos. Cuando se registra un origen de datos con el **Catálogo de datos de Azure**, el servicio copia e indexa sus metadatos, pero eso no es todo. El **Catálogo de datos de Azure** permite que los usuarios faciliten sus propios metadatos descriptivos, como descripciones y etiquetas, para complementar los metadatos extraídos del origen de datos y conseguir que más personas lo comprendan.
+El **Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Catálogo de datos de Azure** consiste en ayudar a las personas a detectar, comprender y usar orígenes de datos, y en ayudar a las organizaciones a obtener más valor de sus datos. Cuando un origen de datos se registra en el **Catálogo de datos de Azure**, el servicio copia e indexa sus metadatos, pero eso no es todo. El **Catálogo de datos de Azure** permite que los usuarios faciliten sus propios metadatos descriptivos, como descripciones y etiquetas, para complementar los metadatos extraídos del origen de datos y conseguir que más personas lo comprendan.
 
 ## Anotación y micromecenazgo
 Todo el mundo tiene una opinión. Y eso es algo bueno. El **Catálogo de datos de Azure** reconoce que distintos usuarios tienen diferentes perspectivas sobre los orígenes de datos empresariales y que cada una de estas perspectivas puede ser valiosa. Considere el siguiente escenario:
@@ -34,7 +34,7 @@ Todo el mundo tiene una opinión. Y eso es algo bueno. El **Catálogo de datos d
 Cada una de estas perspectivas es importante, y el **Catálogo de datos de Azure** aplica un enfoque de micromecenazgo a los metadatos que permite que cada una se capture y utilice para ofrecer una visión completa de los orígenes de datos registrados. Mediante el portal del **Catálogo de datos de Azure**, cada usuario puede agregar y modificar sus propias anotaciones, a la vez que puede ver las anotaciones que otros usuarios han proporcionado.
 
 ## Distintos tipos de anotaciones
-Durante la vista previa del **Catálogo de datos de Azure**, se admiten los siguientes tipos de anotaciones:
+La búsqueda del **Catálogo de datos de Azure** admite los siguientes tipos de anotaciones:
 
 | Anotación | Notas |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,4 +61,4 @@ Al registrar un origen de datos con el **Catálogo de datos de Azure**, se consi
 ## Consulte también
 - Consulte el tutorial [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo anotar orígenes de datos.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/21/2015" 
+	ms.date="03/28/2016" 
 	ms.author="tarcher"/>
 
 # Prueba del rendimiento de un servicio en la nube de manera local en el emulador de proceso de Azure con el generador de perfiles de Visual Studio
@@ -26,7 +26,7 @@ Este artículo abarca el método de muestreo de CPU de la generación de perfile
 
 
 
-## Paso 1: configurar Visual Studio para la generación de perfiles
+## 1: Configuración de Visual Studio para la generación de perfiles
 
 Primero, existen unas pocas opciones de configuración de Visual Studio que podrían ser útiles para la generación de perfiles. Para que los informes de generación de perfiles tengan sentido, necesitará símbolos (archivos .pdb) para su aplicación y también símbolos para las bibliotecas del sistema. Necesitará asegurarse de que hace referencia a los servidores de símbolos disponibles. Para hacer esto, en el menú **Herramientas** de Visual Studio, elija **Opciones** y, a continuación, elija **Depuración** y luego, **Símbolos**. Asegúrese de que los servidores de símbolos de Microsoft aparezcan en **Ubicaciones del archivo de símbolos (.pdb)**. También puede hacer referencia a http://referencesource.microsoft.com/symbols, que puede tener archivos de símbolos adicionales.
 
@@ -70,7 +70,7 @@ Llame a este código desde el método RunAsync en la clase derivada de RoleEntry
 
 Compile y ejecute localmente su servicio en la nube sin depuración (Ctrl+F5), con la configuración de solución establecida en **Liberar**. Esto asegura que todos los archivos y carpetas se crean para ejecutar la aplicación localmente y asegura que se inicien todos los emuladores. Comience la interfaz de usuario del emulador de proceso desde la barra de tareas para comprobar que el rol de trabajo se está ejecutando.
 
-## Paso 2: asociar a un proceso
+## 2: Asociación a un proceso
 
 En vez de generar un perfil en la aplicación al iniciarla desde Visual Studio 2010 IDE, debe asociar el generador de perfiles a un proceso en ejecución.
 
@@ -104,7 +104,7 @@ Cuando desee detener la generación de perfiles, seleccione el vínculo **Detene
 
 ![][10]
 
-## Paso 3: ver informes de rendimiento
+## 3: Vista de informes de rendimiento
 
 Aparece el informe de rendimiento de la aplicación.
 
@@ -123,7 +123,7 @@ Si agregó el código de concatenación de cadena en este artículo, debería ve
 
 ![][14]
 
-## Paso 4: realizar cambios y comparar el rendimiento
+## 4: Realización de cambios y comparación del rendimiento
 
 Puede también comparar el rendimiento antes y después de un cambio en el código. Detenga el proceso de ejecución y edite el código para reemplazar la operación de concatenación de cadena con el uso de StringBuilder:
 
@@ -148,7 +148,7 @@ Los informes resaltan las diferencias entre las dos ejecuciones.
 
 ¡Enhorabuena! Ya ha empezado a usar el generador de perfiles.
 
-##  Solución de problemas
+## Solución de problemas
 
 - Asegúrese de que va a generar un perfil de una compilación de versión e iniciar sin depuración.
 
@@ -186,4 +186,4 @@ La instrumentación de binarios de Azure en el emulador no es compatible en el g
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

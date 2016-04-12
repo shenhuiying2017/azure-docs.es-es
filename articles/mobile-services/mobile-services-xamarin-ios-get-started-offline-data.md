@@ -18,12 +18,12 @@
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Activación de la sincronización sin conexión para la aplicación móvil Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-offline-data.md).
 
 Este tema le guía a través de las funcionalidades de sincronización sin conexión de Servicios móviles de Azure en la aplicación de inicio rápido de la lista de tareas. La sincronización sin conexión le permite crear fácilmente aplicaciones que se pueden utilizar incluso si el usuario final no tiene acceso a la red.
 
@@ -185,4 +185,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [extensión Xamarin]: http://xamarin.com/visual-studio
 [Portal de Azure clásico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -20,7 +20,7 @@
 # C&#x23; desarrollo de bases de datos: crear y configurar un grupo de bases de datos elásticas para una base de datos SQL
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Portal de Azure](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -188,7 +188,7 @@ Los grupos de bases de datos elásticas se encuentran en servidores de Base de d
 
 De forma predeterminada, un servidor no tiene ninguna regla de firewall, por lo que no se puede conectar con él desde cualquier ubicación. Para conectarse a un servidor o a cualquier base de datos del servidor, debe definir una [regla de firewall](sql-database-firewall-configure.md) que permita el acceso desde la dirección IP del cliente.
 
-En el ejemplo siguiente, crearemos una regla de firewall de servidor que permitirá el acceso al servidor desde cualquier dirección IP. Se recomienda crear inicios de sesión y contraseñas de SQL adecuados para proteger la base de datos y no depender de reglas de firewall como defensa principal frente a las intrusiones. Para obtener más información, consulte [Administrar bases de datos e inicios de sesión en la Base de datos SQL de Azure](sql-database-manage-logins.md).
+En el ejemplo siguiente, crearemos una regla de firewall de servidor que permitirá el acceso al servidor desde cualquier dirección IP. Se recomienda crear inicios de sesión y contraseñas de SQL adecuados para proteger la base de datos y no depender de reglas de firewall como defensa principal frente a las intrusiones. Para más información, consulte [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](sql-database-manage-logins.md).
 
 
     // Create a firewall rule on the server to allow TDS connection
@@ -576,4 +576,4 @@ En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/03/2016"
     ms.author="awills"/>
 
 # Anotaciones de la versión de Application Insights
 
-Las anotaciones de la versión del gráfico [Explorador de métricas](app-insights-metrics-explorer.md) muestran donde se ha implementado una nueva compilación. Permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Se pueden crear automáticamente mediante el [sistema de compilación de Visual Studio Team Services](https://www.visualstudio.com/es-ES/get-started/build/build-your-app-vs).
+Las anotaciones de la versión del gráfico [Explorador de métricas](app-insights-metrics-explorer.md) muestran donde se ha implementado una nueva compilación. Permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Se pueden crear automáticamente mediante el [sistema de compilación de Visual Studio Team Services](https://www.visualstudio.com/es-ES/get-started/build/build-your-app-vs) y también [desde PowerShell](#create-annotations-from-powershell).
 
 ![Ejemplo de anotaciones con correlación visible con el tiempo de respuesta del servidor](./media/app-insights-annotations/00.png)
 
@@ -40,7 +40,7 @@ Deberá hacer esto en cada plantilla de versión para la que desee crear anotaci
 
 
 1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com) y abra el recurso de Application Insights que supervisa su aplicación. (O bien, [cree uno ahora](app-insights-overview.md), si aún no lo ha hecho).
-2. Abra **Configuración**, **Acceso de API** y realice una copia de **Id. de la aplicación**.
+2. Abra **Configuración**, **Acceso de API** y realice una copia del **Id. de Application Insights**.
 
     ![En portal.azure.com, abra el recurso de Application Insights y elija Configuración. Abra el Acceso a la API. Copie el identificador de aplicación.](./media/app-insights-annotations/20.png)
 
@@ -69,6 +69,24 @@ Deberá hacer esto en cada plantilla de versión para la que desee crear anotaci
 
 5. Por último, haga clic en **Guardar** para guardar la definición de versión.
 
+## Creación de anotaciones desde PowerShell
+
+También puede crear anotaciones desde cualquier proceso que desee (sin usar VS Team System).
+
+Obtenga la [secuencia de comandos de Powershell desde GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+
+Úsela como en este caso que se muestra a continuación:
+
+    .\CreateReleaseAnnotation.ps1 `
+      -applicationId "<applicationId>" `
+      -apiKey "<apiKey>" `
+      -releaseName "<myReleaseName>" `
+      -releaseProperties @{
+          "ReleaseDescription"="a description";
+          "TriggerBy"="My Name" }
+
+Obtenga `applicationId` y `apiKey` de recurso de Application Insights: Abrir configuración, Acceso de API, y copie el Id. de aplicación. A continuación, haga clic en Crear clave de API y copie la clave.
+
 ## Anotaciones de la versión
 
 Ahora, cuando se utilice la plantilla de versión para implementar una nueva versión, se enviará una anotación a Application Insights. Las anotaciones se mostrarán en los gráficos del Explorador de métricas.
@@ -78,4 +96,4 @@ Haga clic en cualquier marcador de anotación para abrir los detalles de la vers
 
 ![Haga clic en cualquier marcador de anotación de la versión.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

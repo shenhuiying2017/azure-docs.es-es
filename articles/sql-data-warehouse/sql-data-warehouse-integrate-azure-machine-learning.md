@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL
@@ -23,7 +23,7 @@ Aprendizaje automático de Azure es un servicio de análisis predictivo que pued
 En este artículo, aprenderá cómo hacer lo siguiente utilizando [Estudio de aprendizaje automático de Azure][]\:
 
 - Leer datos de la base de datos para crear, entrenar y puntuar un modelo predictivo
-- Escribir datos en la base de datos 
+- Escribir datos en la base de datos
 
 
 ## Lectura de datos desde Almacenamiento de datos SQL
@@ -47,14 +47,14 @@ Seleccione el módulo Lector y rellene el panel de propiedades.
 
 ![][server_name]
 
-3. Nombre de la base de datos: escriba el nombre de la base de datos en el servidor que acaba de especificar. 
-4. El nombre de la cuenta de usuario de servidor: escriba el nombre de usuario de una cuenta que tiene permisos de acceso para la base de datos. 
+3. Nombre de la base de datos: escriba el nombre de la base de datos en el servidor que acaba de especificar.
+4. El nombre de la cuenta de usuario de servidor: escriba el nombre de usuario de una cuenta que tiene permisos de acceso para la base de datos.
 5. Contraseña de la cuenta de usuario de servidor: proporcione la contraseña de la cuenta de usuario especificada.
 6. Aceptar cualquier certificado de servidor: use esta opción (menos segura) si desea omitir la revisión del certificado de sitio antes de leer los datos.
 7. Consulta de base de datos: escriba una instrucción SQL que describa los datos que desea leer. En este caso, leeremos datos desde la tabla Producto con la siguiente consulta.
 
 
-```
+```SQL
 SELECT ProductKey, EnglishProductName, StandardCost,
         ListPrice, Size, Weight, DaysToManufacture,
         Class, Style, Color
@@ -63,7 +63,7 @@ FROM dbo.DimProduct;
 
 ![][reader_properties]
 
-### Paso 4
+### Paso 4
 
 1. Ejecute el experimento; para ello, haga clic en Ejecutar bajo el lienzo de experimentos.
 2. Cuando el experimento finalice, el módulo Lector tendrá una marca de verificación verde para indicar que se completó correctamente. Observe también el estado Ejecución finalizada en la esquina superior derecha.
@@ -80,7 +80,7 @@ Ahora puede utilizar este conjunto de datos para:
 - Crear un modelo: procesar datos y definir características
 - Entrenar el modelo: elegir y aplicar un algoritmo de aprendizaje
 - Puntuar y probar el modelo: predecir el nuevo precio de bicicleta
- 
+
 
 ![][model]
 
@@ -101,9 +101,9 @@ Busque el módulo Redactor en la paleta de conjuntos de datos y módulos que apa
 Seleccione el módulo Redactor y rellene el panel de propiedades.
 
 1. Seleccione Base de datos SQL de Azure como el destino de los datos.
-2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure clásico][]. 
-3. Nombre de la base de datos: escriba el nombre de la base de datos en el servidor que acaba de especificar. 
-4. El nombre de la cuenta de usuario de servidor: escriba el nombre de usuario de una cuenta que tiene permisos de escritura para la base de datos. 
+2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure clásico][].
+3. Nombre de la base de datos: escriba el nombre de la base de datos en el servidor que acaba de especificar.
+4. El nombre de la cuenta de usuario de servidor: escriba el nombre de usuario de una cuenta que tiene permisos de escritura para la base de datos.
 5. Contraseña de la cuenta de usuario de servidor: proporcione la contraseña de la cuenta de usuario especificada.
 6. Aceptar cualquier certificado de servidor (no seguro): seleccione esta opción si no desea ver el certificado.
 7. Lista separada por comas de las columnas que se guardarán: proporcione una lista de las columnas de resultados o conjuntos de datos que desea obtener.
@@ -116,7 +116,7 @@ Seleccione el módulo Redactor y rellene el panel de propiedades.
 ### Paso 3
 
 1. Ejecute el experimento; para ello, haga clic en Ejecutar bajo el lienzo de experimentos.
-2. Cuando el experimento finalice, todos los módulos tendrán una marca de verificación verde para indicar que se han implementado correctamente. 
+2. Cuando el experimento finalice, todos los módulos tendrán una marca de verificación verde para indicar que se han implementado correctamente.
 
 ## Pasos siguientes
 
@@ -149,4 +149,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

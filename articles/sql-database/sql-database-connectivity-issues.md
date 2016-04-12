@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/30/2016"
 	ms.author="daleche"/>
 
 
@@ -26,9 +26,11 @@ En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar l
 
 ## Errores transitorios
 
-Un error transitorio es un error que tiene una causa subyacente que pronto se solucionará automáticamente. Una causa ocasional de errores transitorios se produce cuando el sistema de Azure rápidamente desplaza recursos de hardware para equilibrar mejor la carga de varias cargas de trabajo. Durante este período de tiempo de reconfiguración, puede tener problemas de conexión con Base de datos SQL de Azure.
+Un error transitorio es un error que tiene una causa subyacente que pronto se solucionará automáticamente. Una causa ocasional de errores transitorios se produce cuando el sistema de Azure rápidamente desplaza recursos de hardware para equilibrar mejor la carga de varias cargas de trabajo. La mayoría de estos eventos de reconfiguración a menudo se completan en menos de 60 segundos. Durante este período de tiempo de reconfiguración, puede tener problemas de conexión con Base de datos SQL de Azure. Las aplicaciones que se conectan a Base de datos SQL de Azure se deben compilar en previsión de estos errores transitorios y de modo que sean capaces de controlarlos implementando una lógica de reintento en el código en lugar de exponerlos a los usuarios como errores de aplicación.
 
 Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**. La propiedad **Number** se puede comparar con la lista de errores transitorios, que se encuentra cerca de la parte superior del tema: [Mensajes de error para los programas de cliente de Base de datos SQL](sql-database-develop-error-messages.md).
+
+<a id="connection-versus-command" name="connection-versus-command"></a>
 
 ### Comparación de conexión y comando
 
@@ -41,7 +43,7 @@ Vuelva a intentar la conexión de SQL o establézcala de nuevo, dependiendo de l
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-## Lógica de reintento para errores transitorios.
+### Lógica de reintento para errores transitorios.
 
 
 Los programas cliente que encuentran ocasionalmente un error transitorio son más sólidos cuando contienen lógica de reintento.
@@ -49,8 +51,9 @@ Los programas cliente que encuentran ocasionalmente un error transitorio son má
 
 Si el programa se comunica con la Base de datos SQL de Azure a través de un middleware de otros fabricantes, consulte con el proveedor si el middleware contiene lógica de reintento para errores transitorios.
 
+<a id="principles-for-retry" name="principles-for-retry"></a>
 
-### Principios de reintento
+#### Principios de reintento
 
 
 - Se debe volver a intentar abrir una conexión si el error es un error transitorio.
@@ -74,7 +77,7 @@ Si el programa se comunica con la Base de datos SQL de Azure a través de un mid
  - Sin embargo, la solución no debe ser repetir el reintento cada pocos segundos, porque dicha directiva puede saturar el sistema con solicitudes.
 
 
-### Aumento del intervalo entre reintentos
+#### Aumento del intervalo entre reintentos
 
 
 
@@ -85,7 +88,7 @@ Una explicación del *período de bloqueo* para clientes que usan ADO.NET está 
 También puede establecer un número máximo de reintentos antes de que el programa se cierre automáticamente.
 
 
-### Ejemplos de código con lógica de reintento
+#### Ejemplos de código con lógica de reintento
 
 
 Los ejemplos de código con lógica de reintento, en una variedad de lenguajes de programación, están disponibles en:
@@ -95,13 +98,13 @@ Los ejemplos de código con lógica de reintento, en una variedad de lenguajes d
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-## Probar su lógica de reintento
+#### Probar su lógica de reintento
 
 
 Para probar la lógica de reintento, debe simular o producir un error que se pueda corregir mientras aún se ejecuta el programa.
 
 
-### Prueba mediante la desconexión de la red
+##### Prueba mediante la desconexión de la red
 
 
 Una forma de probar la lógica de reintento es desconectar el equipo cliente de la red mientras se ejecuta el programa. El error será:
@@ -119,11 +122,11 @@ Para facilitar esta práctica, desconecte el equipo de la red antes de iniciar e
 2. Intente su primera conexión como de costumbre.
 3. Una vez capturado el error, quite 11001 de la lista.
 4. Muestre un mensaje que indica al usuario que conecte el equipo a la red.
- - Pause la ejecución aún más mediante el método **Console.ReadLine** o un cuadro de diálogo con un botón Aceptar. El usuario presiona la tecla Entrar después de que se conecte el equipo a la red.
+ - Pause la ejecución mediante el método **Console.ReadLine** o un cuadro de diálogo con un botón Aceptar. El usuario presiona la tecla Entrar después de que se conecte el equipo a la red.
 5. Nuevo intento de conexión, se espera una realización correcta.
 
 
-### Realización de la prueba escribiendo mal el nombre de la base de datos al conectarse
+##### Realización de la prueba escribiendo mal el nombre de la base de datos al conectarse
 
 
 El programa deliberadamente escribe mal el nombre de usuario antes del primer intento de conexión. El error será:
@@ -143,23 +146,12 @@ Para facilitar esta práctica, el programa puede reconocer un parámetro de tiem
 4. Quite 'WRONG\_' del nombre de usuario.
 5. Nuevo intento de conexión, se espera una realización correcta.
 
-
-<a id="a-connection-connection-string" name="a-connection-connection-string"></a>
-
-## Conexión: cadena de conexión
-
-
-La cadena de conexión necesaria para conectarse a Base de datos SQL de Azure es ligeramente diferente de la cadena de conexión a Microsoft SQL Server. Puede copiar la cadena de conexión para la base de datos en el [Portal de Azure](https://portal.azure.com/).
-
-
-[AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
-
-
+<a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ### Parámetros .NET SqlConnection para reintento de conexión
 
 
-Si el programa cliente se conecta a Base de datos SQL de Azure mediante la clase **System.Data.SqlClient.SqlConnection** de .NET Framework, debe utilizar .NET 4.6.1 o una versión posterior para poder aprovechar la característica de reintento de conexión. Los detalles de la característica están [aquí](http://go.microsoft.com/fwlink/?linkid=393996).
+Si el programa cliente se conecta a Base de datos SQL de Azure mediante la clase **System.Data.SqlClient.SqlConnection** de .NET Framework, debe usar .NET 4.6.1 o una versión posterior para poder aprovechar la característica de reintento de conexión. Los detalles de la característica están [aquí](http://go.microsoft.com/fwlink/?linkid=393996).
 
 
 <!--
@@ -169,7 +161,7 @@ Si el programa cliente se conecta a Base de datos SQL de Azure mediante la clase
 
 Cuando cree la [cadena de conexión](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para su objeto **SqlConnection**, debe coordinar los valores entre los parámetros siguientes:
 
-- ConnectRetryCount &nbsp;&nbsp;*(el valor predeterminado es 0. El intervalo es de 0 a 255).*
+- ConnectRetryCount &nbsp;&nbsp;*(El valor predeterminado es 1. El intervalo es de 0 a 255).*
 - ConnectRetryInterval &nbsp;&nbsp;*(el valor predeterminado es 1 segundo). El intervalo es de 1 a 60.)*
 - Connection Timeout &nbsp;&nbsp;*(el valor predeterminado es 15 segundos). El intervalo es de 0 a 2147483647)*
 
@@ -180,8 +172,9 @@ Específicamente, los valores elegidos deben cumplir la siguiente igualdad:
 
 Por ejemplo, si el recuento es igual a 3 y el intervalo es igual a 10 segundos, un tiempo de espera de solo 29 segundos no proporcionará al sistema tiempo suficiente para su tercer y último reintento de conexión: 29 < 3 * 10.
 
+<a id="connection-versus-command" name="connection-versus-command"></a>
 
-#### Comparación de conexión y comando
+### Comparación de conexión y comando
 
 
 Los parámetros **ConnectRetryCount** y **ConnectRetryInterval** permiten al objeto **SqlConnection** volver a intentar la operación de conexión sin indicarlo al programa o sin alterarlo, como la devolución de control al programa. Los reintentos pueden producirse en las situaciones siguientes:
@@ -189,18 +182,31 @@ Los parámetros **ConnectRetryCount** y **ConnectRetryInterval** permiten al obj
 - Llamada del método mySqlConnection.Open
 - Llamada del método mySqlConnection.Execute
 
-Hay algo muy sutil que tener en cuenta. Si se produce un error transitorio mientras su *consulta* se está ejecutando, el objeto **SqlConnection** no vuelve a intentar la operación de conexión y realmente no vuelve a intentar la consulta. Sin embargo, **SqlConnection** comprueba muy rápidamente la conexión antes de enviar la consulta para su ejecución. Si la comprobación rápida detecta un problema de conexión, **SqlConnection** vuelve a intentar la operación de conexión. Si el reintento se realiza correctamente, se envía la consulta para su ejecución.
+Hay algo muy sutil que tener en cuenta. Si se produce un error transitorio mientras su *consulta* se está ejecutando, el objeto **SqlConnection** no vuelve a intentar la operación de conexión ni vuelve a intentar la consulta. Sin embargo, **SqlConnection** comprueba muy rápidamente la conexión antes de enviar la consulta para su ejecución. Si la comprobación rápida detecta un problema de conexión, **SqlConnection** vuelve a intentar la operación de conexión. Si el reintento se realiza correctamente, se envía la consulta para su ejecución.
 
 
 #### ¿Se debe combinar Connectretrycount con lógica de reintento de la aplicación?
 
 Supongamos que su aplicación tiene una lógica de reintento personalizada. Puede reintentar la operación de conexión 4 veces. Si agrega **ConnectRetryInterval** y **ConnectRetryCount** = 3 a la cadena de conexión, aumentará el número de reintentos a 4 * 3 = 12 reintentos. Es posible que no desee un gran número de reintentos.
 
+<a id="a-connection-connection-string" name="a-connection-connection-string"></a>
+
+## Conexiones a una Base de datos SQL de Azure
+
+<a id="c-connection-string" name="c-connection-string"></a>
+
+### Conexión: cadena de conexión
+
+
+La cadena de conexión necesaria para conectarse a Base de datos SQL de Azure es ligeramente diferente de la cadena de conexión a Microsoft SQL Server. Puede copiar la cadena de conexión para la base de datos en el [Portal de Azure](https://portal.azure.com/).
+
+
+[AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
-## Conexión: Dirección IP
+### Conexión: Dirección IP
 
 
 Debe configurar el servidor de Base de datos SQL para que acepte la comunicación de la dirección IP del equipo que hospeda el programa cliente. Para ello, edite la configuración del firewall a través del [Portal de Azure](https://portal.azure.com/).
@@ -217,7 +223,7 @@ Para obtener más información, consulte [Configuración del firewall en Base de
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-## Conexión: puertos
+### Conexión: puertos
 
 
 Por lo general solo se necesita asegurar que el puerto 1433 está abierto para la comunicación saliente, en el equipo que hospeda el programa cliente.
@@ -243,15 +249,15 @@ Para obtener información general acerca de la configuración de puertos y la di
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-## Conexión: ADO.NET 4.6.1
+### Conexión: ADO.NET 4.6.1
 
 
-Si el programa utiliza clases ADO.NET como **System.Data.SqlClient.SqlConnection** para conectarse a Base de datos SQL de Azure, le recomendamos que use .NET Framework 4.6.1 o una versión posterior.
+Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** para conectarse a Base de datos SQL de Azure, le recomendamos que use .NET Framework 4.6.1 o una versión posterior.
 
 
 ADO.NET 4.6.1:
 
-- Con Base de datos SQL de Azure, hay mayor confiabilidad si abre una conexión mediante el método **SqlConnection.Open**. El método **Open** incorpora ahora los mejores mecanismos de reintento de esfuerzo en respuesta a errores transitorios o para determinados errores dentro del período de tiempo de espera de conexión.
+- Con Base de datos SQL de Azure, hay mayor confiabilidad si abre una conexión con el método **SqlConnection.Open**. Ahora, el método **Open** incorpora los mejores mecanismos de reintento de esfuerzo en respuesta a errores transitorios o para determinados errores dentro del período de tiempo de espera de conexión.
 - Admite la agrupación de conexiones. Esto incluye una comprobación eficaz de que el objeto de conexión que ofrece el programa está funcionando.
 
 
@@ -261,12 +267,16 @@ Cuando se usa un objeto de conexión desde un grupo de conexiones, se recomienda
 
 Si está usando ADO.NET 4.0 o versiones anteriores, se recomienda que lo actualice a la versión de ADO.NET más reciente.
 
-- A partir de noviembre de 2015, puede [descargar ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+- Desde noviembre de 2015 se puede [descargar ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## Diagnóstico: Probar si las utilidades pueden conectarse
+## Diagnóstico
+
+<a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
+
+### Diagnóstico: Probar si las utilidades pueden conectarse
 
 
 Si el programa no puede conectarse a la Base de datos SQL de Azure, una opción de diagnóstico es intentar conectarse con una utilidad. Lo ideal es que la utilidad se conecte mediante la misma biblioteca que usa el programa.
@@ -283,7 +293,7 @@ Una vez conectado, compruebe que funciona una breve consulta SELECT de SQL.
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-## Diagnóstico: Comprobar los puertos abiertos
+### Diagnóstico: Comprobar los puertos abiertos
 
 
 Supongamos que sospecha que fallan los intentos de conexión debido a problemas con el puerto. En el equipo puede ejecutar una utilidad que informe de las configuraciones del puerto.
@@ -319,7 +329,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-## Diagnóstico: Registrar los errores
+### Diagnóstico: Registrar los errores
 
 
 A veces un problema intermitente se diagnostica mejor mediante la detección de un patrón general durante varios días o semanas.
@@ -335,7 +345,7 @@ Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar 
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-## Diagnóstico: Examinar los registros del sistema en busca de errores
+### Diagnóstico: Examinar los registros del sistema en busca de errores
 
 
 Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los registros de error y otra información.
@@ -343,9 +353,10 @@ Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los regis
 
 | Consulta de un registro | Descripción |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vista [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) ofrece información sobre eventos individuales, incluidos aquellos que pueden causar errores transitorios o problemas de conectividad.<br/><br/>Lo ideal es poder correlacionar los valores de **start\_time** o **end\_time** con información sobre cuándo el programa cliente experimentó los problemas.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vista [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) ofrece información sobre eventos individuales, incluidos aquellos que pueden causar errores transitorios o problemas de conectividad.<br/><br/>Lo ideal es poder correlacionar los valores de **start\_time** o **end\_time** con información sobre cuándo experimentó los problemas el programa cliente.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | La vista [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) ofrece recuentos agregados de los tipos de eventos, para realizar diagnósticos adicionales.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
 
+<a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
 ### Diagnóstico: Buscar eventos de problema en el registro de la Base de datos SQL
 
@@ -414,6 +425,7 @@ Un ejemplo breve de código C# que usa EntLib60 en su lógica de reintento está
 
 > [AZURE.NOTE] El código fuente de EntLib60 está disponible de forma pública para su [descarga](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft no tiene previsto realizar más actualizaciones de mantenimiento o de característica en EntLib.
 
+<a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
 ### Clases de EntLib60 para errores transitorios y reintentos
 
@@ -451,6 +463,7 @@ Estos son vínculos a información sobre EntLib60:
 
 - Descarga de NuGet de [Enterprise Library: Bloque de aplicación de control de errores transitorios 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
+<a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
 ### EntLib60: El bloque de registro
 
@@ -466,6 +479,7 @@ Estos son vínculos a información sobre EntLib60:
 
 Para obtener información detallada, consulte: [5 - El procedimiento más sencillo: uso del bloque de aplicación de registro](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
+<a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
 ### Código fuente del método IsTransient de EntLib60
 
@@ -542,12 +556,13 @@ public bool IsTransient(Exception ex)
 ```
 
 
-## Más información
+## Pasos siguientes
 
+- Para solucionar otros problemas comunes de la conexión de Base de datos SQL de Azure, visite [Troubleshoot common connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md) (Solucionar problemas comunes de conexión a Base de datos SQL de Azure).
 
 - [Agrupación de conexiones de SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

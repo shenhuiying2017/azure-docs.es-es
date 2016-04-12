@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Administración del control de acceso basado en roles con la interfaz de la línea de comandos de Azure"
+	pageTitle="Guía de control de acceso basado en rol para la interfaz de la línea de comandos de Azure"
 	description="Administración del control de acceso basado en roles con la interfaz de la línea de comandos de Azure"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,43 +13,33 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Administración del control de acceso basado en roles con la interfaz de la línea de comandos de Azure (CLI de Azure) #
+# Guía de control de acceso basado en rol para la interfaz de la línea de comandos de Azure
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [CLI de Azure](role-based-access-control-xplat-cli.md)
 
 El control de acceso basado en rol (RBAC) del Portal de Azure y la API del Administrador de recursos de Azure le permite administrar el acceso a su suscripción y sus recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
 
-En este tutorial, aprenderá a usar la CLI de Azure para administrar RBAC. Le guía por el proceso de crear y comprobar asignaciones de roles.
+En este tutorial, aprenderá a usar la interfaz de la línea de comandos (CLI) de Azure para administrar RBAC. Le guía por el proceso de crear y comprobar asignaciones de roles.
 
 **Tiempo estimado para completar el tutorial:** 15 minutos
 
-## Requisitos previos ##
+## Requisitos previos
 
 Para poder usar la CLI de Azure para administrar RBAC, necesita lo siguiente:
 
 - CLI de Azure versión 0.8.8 o posterior. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
 - Lea también el siguiente tutorial para aprender a configurar y usar Azure Resource Manager en la CLI de Azure: [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md) (Uso de la CLI de Azure con Resource Manager).
 
-## Apartados de este tutorial ##
-
-* [Conexión a las suscripciones](#connect)
-* [Comprobar asignaciones de roles existentes](#check)
-* [Crear una asignación de rol](#create)
-* [Comprobar los permisos](#verify)
-* [Pasos siguientes](#next)
-
-## <a id="connect"></a>Conexión a las suscripciones ##
+## <a id="connect"></a>Conexión a las suscripciones
 
 Como RBAC solo funciona con el Administrador de recursos de Azure, lo primero que hay que hacer es pasar al modo Administrador de recursos de Azure. Escriba:
 
     azure config mode arm
-
-Para más información, consulte [Uso de la interfaz de la línea de comandos de Azure con Administrador de recursos](../xplat-cli-azure-resource-manager.md).
 
 Para conectarse a sus suscripciones de Azure, escriba:
 
@@ -64,9 +54,7 @@ Si tiene varias suscripciones y quiere cambiar a otra, escriba:
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-Para más información, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
-
-## <a id="check"></a>Comprobar asignaciones de roles existentes ##
+## <a id="check"></a>Comprobar asignaciones de roles existentes
 
 Ahora vamos a ver qué asignaciones de roles existen en la suscripción. Escriba:
 
@@ -84,11 +72,11 @@ También puede comprobar las asignaciones de roles existentes para una definici�
 Esto devolverá toda las asignaciones de roles para un usuario determinado de su directorio de Azure AD, que tiene una asignación de rol de "Owner" para el grupo de recursos "group1". La asignación de rol puede venir de dos sitios:
 
 1. Una asignación de rol de "Owner" al usuario para el grupo de recursos.
-2. Una asignación de rol de "Owner" al usuario para el elemento primario del grupo de recursos (en este caso, la suscripción) porque, si tiene permisos en un recurso primario determinado, tendrá los mismos permisos en todos los recursos secundarios.
+2. Una asignación de rol de "Owner" al usuario para el elemento primario del grupo de recursos (en este caso, la suscripción). Si asigna permisos en un nivel primario, todos los elementos secundarios tendrán los mismos permisos.
 
 Todos los parámetros de este cmdlet son opcionales. Puede combinarlos para comprobar asignaciones de roles con distintos filtros.
 
-## <a id="create"></a>Crear una asignación de rol ##
+## <a id="create"></a>Crear una asignación de rol
 
 Para crear una asignación de rol, tiene que pensar en lo siguiente:
 
@@ -116,16 +104,16 @@ Para crear una asignación de rol, tiene que pensar en lo siguiente:
 
 Luego use `azure role assignment create` para crear una asignación de rol. Por ejemplo:
 
- 	#This will create a role assignment at the current subscription level for a user as a reader:
-    `azure role assignment create --upn <user's email> -o Reader`
+ 	#Create a role assignment at the current subscription level for a user as a reader:
+    azure role assignment create --upn <user email> -o Reader
 
-	#This will create a role assignment at a resource group level:
-    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
+	#Create a role assignment at a resource group level:
+    PS C:\> azure role assignment create --upn <user email> -o Contributor -g group1
 
-	#This will create a role assignment at a resource level:
-    `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
+	#Create a role assignment at a resource level:
+    azure role assignment create --upn <user email> -o Owner -g group1 -r Microsoft.Web/sites -u site1
 
-## <a id="verify"></a>Comprobar los permisos ##
+## <a id="verify"></a>Comprobar los permisos
 
 Después de comprobar que su cuenta tiene asignaciones de roles, puede ver los permisos que conceden estas asignaciones de roles ejecutando lo siguiente:
 
@@ -136,7 +124,7 @@ Esos dos cmdlets solo devolverán los grupos de recursos o los recursos donde ti
 
 Si intenta ejecutar otros cmdlets, como `azure group create`, obtendrá un error de acceso denegado si no tiene el permiso.
 
-## <a id="next"></a>Pasos siguientes ##
+## <a id="next"></a>Pasos siguientes
 
 Si quiere más información sobre cómo administrar el control de acceso basado en roles con CLI de Azure y otros temas relacionados:
 
@@ -148,4 +136,4 @@ Si quiere más información sobre cómo administrar el control de acceso basado 
 - [Configuración del control de acceso basado en roles usando Windows PowerShell](role-based-access-control-powershell.md)
 - [Solución de problemas de control de acceso basado en roles](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

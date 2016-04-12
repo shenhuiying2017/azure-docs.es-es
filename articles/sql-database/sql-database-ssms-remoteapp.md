@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Conéctese a la Base de datos SQL con SQL Server Management Studio en Azure RemoteApp | Microsoft Azure" 
-	description="Use este tutorial para aprender a utilizar SQL Server Management Studio en Azure RemoteApp para optimizar la seguridad y rendimiento al conectarse a la Base de datos SQL"
+	description="Use este tutorial para aprender a utilizar SQL Server Management Studio en Azure RemoteApp y optimizar la seguridad y el rendimiento al conectarse a la Base de datos SQL"
 	services="sql-database" 
 	documentationCenter=""
 	authors="adhurwit" 
@@ -57,7 +57,7 @@ Utilice la imagen "Windows Server Remote Desktop Session Host Windows Server 201
 
 ### 2\. Instale SSMS desde SQL Express
 
-Vaya a la nueva VM y navegue hasta esta página de descarga: [Microsoft ® SQL Server ® 2014 Express](https://www.microsoft.com/es-ES/download/details.aspx?id=42299)
+Vaya a la nueva VM y navegue hasta esta página de descarga: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/es-ES/download/details.aspx?id=42299)
 
 Hay una opción para descargar solo SSMS. Después de la descarga, vaya al directorio de instalación y ejecute el programa de instalación para instalar SSMS.
 
@@ -79,7 +79,7 @@ Para obtener más información acerca de la creación de una imagen de Azure Rem
 
 Cuando la máquina virtual haya dejado de ejecutarse, busque la imagen en el portal actual y captúrela.
 
-Para obtener más información acerca de la captura de una imagen, consulte [Capture una imagen de una máquina virtual Windows de Azure creada con el modelo de implementación clásica](../virtual-machines-capture-image-windows-server.md)
+Para más información sobre la captura de una imagen, consulte [Captura de una imagen de una máquina virtual Windows de Azure creada con el modelo de implementación clásico](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
 
 
 ### 5\. Agréguela a las imágenes de plantilla de Azure RemoteApp
@@ -158,4 +158,4 @@ Eso es todo por ahora. ¡Disfrute!
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

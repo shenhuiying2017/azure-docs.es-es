@@ -81,7 +81,10 @@ Inicie sesión en la cuenta de Azure. Si este comando de PowerShell da error por
 Login-AzureRmAccount
 ```
 
-El siguiente script crea un nuevo grupo de recursos o un Almacén de claves si aún no existen.
+El siguiente script crea un nuevo grupo de recursos o un Almacén de claves si aún no existen. **Nota: Si usa un almacén de claves existente, debe configurarse para permitir la implementación mediante el uso de este script.**
+```
+Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
+```
 
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <your subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
@@ -96,13 +99,13 @@ Tras la ejecución correcta del script, obtendrá una salida como la siguiente, 
 
 - **Huella digital del certificado**: 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
 
-- **Almacén de origen**/Id. de recurso del Almacén de claves: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+- **Almacén de origen**/Id. de recurso del almacén de claves: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
 
-- **URL de certificado**/URL a la ubicación del certificado en el Almacén de claves: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
+- **URL de certificado**/URL a la ubicación del certificado en el almacén de claves: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
 
 Ahora tiene la información necesaria para configurar un clúster seguro. Vaya al paso 3.
 
-**Paso 2.5**: Si *no* tiene un certificado y desea crear un nuevo certificado autofirmado y cargarlo en el Almacén de claves, siga estos pasos.
+**Paso 2.5**: Si *no* tiene un certificado y desea crear uno nuevo autofirmado y cargarlo en el almacén de claves, siga estos pasos.
 
 Inicio de sesión en la cuenta de Azure Si este comando de PowerShell da error por algún motivo, debe comprobar si tiene instalado correctamente Azure PowerShell.
 
@@ -142,13 +145,13 @@ Después de realizar correctamente el script, obtendrá una salida como la sigui
 
 - **Huella digital del certificado**: 64881409F4D86498C88EEC3697310C15F8F1540F
 
-- **Almacén de origen**/Id. de recurso del Almacén de claves: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+- **Almacén de origen**/Id. de recurso del almacén de claves: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
 
-- **URL de certificado**/URL a la ubicación del certificado en el Almacén de claves: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
+- **URL de certificado**/URL a la ubicación del certificado en el almacén de claves: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
 
 ### Paso 3: Configuración de un clúster seguro
 
-Siga los pasos descritos en [Proceso de creación de un clúster de Service Fabric](service-fabric-cluster-creation-via-portal.md) hasta que llegue a la sección Configuración de seguridad. A continuación, vaya a las instrucciones que se muestran aquí para realizar las configuraciones de seguridad:
+Siga los pasos descritos en [Proceso de creación de un clúster de Service Fabric](service-fabric-cluster-creation-via-portal.md) hasta que llegue a la sección Configuraciones de seguridad. A continuación, vaya a las instrucciones que se muestran aquí para realizar las configuraciones de seguridad:
 
 >[AZURE.NOTE]
 Los certificados necesarios se especifican en el nivel de tipo de nodo, en Configuración de seguridad. Debe especificarlos para cada tipo de nodo que tenga en el clúster. Aunque este documento le guía en el modo de hacerlo mediante el portal, puede hacer lo mismo mediante una plantilla del Administrador de recursos de Azure.
@@ -157,8 +160,8 @@ Los certificados necesarios se especifican en el nivel de tipo de nodo, en Confi
 
 Parámetros obligatorios:
 
-- **Modo de seguridad** Seleccione **Certificado X 509**. Eso indica a Service Fabric que desea configurar un clúster seguro.
-- **Nivel de protección de clúster.** Consulte este [documento sobre niveles de protección](https://msdn.microsoft.com/library/aa347692.aspx) para comprender lo que significa cada uno de estos valores. Aunque aquí permitimos tres valores (EncryptAndSign,Sign y None), es mejor mantener el valor predeterminado de EncryptAndSign a menos que sepa lo que hace.
+- **Modo de seguridad** Seleccione **Certificado X509**. Eso indica a Service Fabric que desea configurar un clúster seguro.
+- **Nivel de protección de clúster.** Consulte este [documento sobre niveles de protección](https://msdn.microsoft.com/library/aa347692.aspx) para entender lo que significa cada uno de estos valores. Aunque aquí permitimos tres valores (EncryptAndSign,Sign y None), es mejor mantener el valor predeterminado de EncryptAndSign a menos que sepa lo que hace.
 - **Almacén de origen.** Hace referencia al identificador de recurso del Almacén de claves. Debe tener este formato:
 
     ```
@@ -194,7 +197,7 @@ Cliente de solo lectura: esta información se utiliza para validar que el client
 
 ## Actualización de los certificados en el clúster
 
-Service Fabric permite especificar dos certificados, uno principal y otro secundario. De forma predeterminada, el que especifique en el momento de la creación es el certificado principal. Para agregar otro certificado, debe implementarlo en las máquinas virtuales del clúster. En el paso 2 anterior se describe cómo cargar un nuevo certificado en el Almacén de claves. Puede utilizar el mismo Almacén de claves para ello, como hizo con el primer certificado. Para más información, consulte [Deploy certificates to VMs from a customer-managed Key Vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) (Implementación de certificados en máquinas virtuales desde un Almacén de claves administrado por el cliente).
+Service Fabric permite especificar dos certificados, uno principal y otro secundario. De forma predeterminada, el que especifique en el momento de la creación es el certificado principal. Para agregar otro certificado, debe implementarlo en las máquinas virtuales del clúster. En el paso 2 anterior se describe cómo cargar un nuevo certificado en el Almacén de claves. Puede utilizar el mismo Almacén de claves para ello, como hizo con el primer certificado. Para obtener más información, consulte [Deploy certificates to VMs from a customer-managed Key Vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) (Implementación de certificados en máquinas virtuales desde un Almacén de claves administrado por el cliente).
 
 Una vez finalizada la operación, utilice el portal o el Administrador de recursos para indicar a Service Fabric que tiene un certificado secundario que se puede usar también. Todo lo que necesita es una huella digital.
 
@@ -214,15 +217,17 @@ Este es el proceso para quitar un certificado antiguo de modo que el clúster no
 
 >[AZURE.NOTE] Para que un clúster sea seguro, siempre deberá tener implementado al menos un certificado válido, principal o secundario, no revocado ni caducado, o no podrá tener acceso al clúster.
 
-## 
-Detalles sobre los tipos de certificados utilizados por Service Fabric.
+
+## Tipos de certificados utilizados por Service Fabric.
 
 ### Certificados X.509
 
-Los certificados digitales X509 se usan habitualmente para autenticar a clientes y servidores y para cifrar y firmar mensajes digitalmente. Para más detalles sobre estos certificados, vaya a [Trabajar con certificados](http://msdn.microsoft.com/library/ms731899.aspx) en la biblioteca de MSDN.
+Los certificados digitales X509 se usan habitualmente para autenticar a clientes y servidores y para cifrar y firmar mensajes digitalmente. Para obtener más información sobre estos certificados, vaya a la sección [Uso de certificados](http://msdn.microsoft.com/library/ms731899.aspx) de la biblioteca de MSDN.
 
 >[AZURE.NOTE]
--Los certificados utilizados en los clústeres que ejecutan cargas de trabajo de producción se deben crear mediante un certificado de Windows Server configurado correctamente u obtenido de una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) aprobada. - No utilice nunca en producción ningún certificado temporal o de prueba creado con herramientas como MakeCert.exe. - En el caso de clústeres que son solo con fines de prueba, puede elegir usar un certificado autofirmado.
+- Los certificados usados en clústeres que ejecutan cargas de trabajo de producción deberán crearse mediante un servicio de certificados de Windows Server correctamente configurado u obtenerse mediante una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) autorizada.
+- No use nunca en producción certificados temporales o de pruebas creados con herramientas como MakeCert.exe.
+- En los clústeres que se usan solo con fines de prueba, puede usar un certificado autofirmado.
 
 ### Certificados de servidor y certificados de cliente
 
@@ -257,4 +262,4 @@ Los certificados de cliente normalmente no los emite una entidad de certificaci�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

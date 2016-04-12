@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="03/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Introducción a Azure AD Connect mediante la configuración rápida
@@ -44,7 +44,7 @@ Configuración rápida es la opción predeterminada que se selecciona y es uno d
 3. En la pantalla de bienvenida, active la casilla que acepta los términos de licencia y haga clic en **Continuar**.
 4. En la pantalla Configuración rápida, haga clic en **Usar configuración rápida**. ![Bienvenida a Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. En la pantalla Conectar a Azure AD, escriba el nombre de usuario y la contraseña de un administrador global de Azure para su Azure AD. Haga clic en **Siguiente**. ![Conexión a AAD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Si recibe un error y tiene problemas de conectividad, consulte [Solución de problemas de conectividad con Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
-6. En la pantalla Conectar con AD DS, escriba el nombre de usuario y la contraseña para una cuenta de administrador de empresa. Haga clic en **Siguiente**. ![Bienvenida a Azure AD Connect](./media/active-directory-aadconnect-get-started-express/connectad.png)
+6. En la pantalla Conectar con AD DS, escriba el nombre de usuario y la contraseña para una cuenta de administrador de empresa. Puede escribir la parte del dominio con el formato NetBios o FQDN, es decir, FABRIKAM\\administrator o fabrikam.com\\administrator. Haga clic en **Siguiente**. ![Bienvenida a Azure AD Connect](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. En la pantalla Listo para configurar, haga clic en **Instalar**.
 	- En la página Listo para configurar, también puede desactivar la casilla **Inicie el proceso de sincronización en cuanto se complete la configuración inicial**. Si lo hace, el asistente configurará la sincronización, pero dejará la tarea deshabilitada por lo que no se ejecutará hasta que la habilite manualmente en el Programador de tareas. Una vez habilitada la tarea, la sincronización se ejecutará cada 30 minutos.
 	- Opcionalmente, también puede configurar los servicios de sincronización para **Implementación híbrida de Exchange**; para ello, active la casilla correspondiente. Si no piensa tener buzones de Exchange locales y en la nube, no es necesario hacerlo. ![Bienvenida a Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
@@ -60,4 +60,4 @@ Ahora que tiene instalado Azure AD Connect, puede [comprobar la instalación y a
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

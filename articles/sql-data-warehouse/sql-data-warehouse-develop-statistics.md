@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Administración de estadísticas en el Almacenamiento de datos SQL
@@ -36,7 +36,7 @@ Para obtener más información, consulte [DBCC SHOW\_STATISTICS][] en MSDN.
 ## ¿Por qué son necesarias las estadísticas?
 Sin estadísticas adecuadas, no se obtendrá el rendimiento previsto para el Almacenamiento de datos SQL. Las tablas y columnas y las columnas no tienen estadísticas generadas automáticamente por el Almacenamiento de datos SQL, por lo que tendrá que crearlas por su cuenta. Es conveniente crearlas después de crear la tabla y, a continuación, actualizaras cuando las ha rellenado.
 
-> [AZURE.NOTE]Si utiliza SQL Server, podría depender de SQL Server para crear y actualizar las estadísticas de columna única automáticamente según sea necesario. El Almacenamiento de datos SQL es diferente en este aspecto. Puesto que los datos se distribuyen, el Almacenamiento de datos SQL no agrega estadísticas automáticamente en todas las tablas distribuidas. Sólo generará las estadísticas agregadas al crear y actualizar las estadísticas.
+> [AZURE.NOTE] Si utiliza SQL Server, podría depender de SQL Server para crear y actualizar las estadísticas de columna única automáticamente según sea necesario. El Almacenamiento de datos SQL es diferente en este aspecto. Puesto que los datos se distribuyen, el Almacenamiento de datos SQL no agrega estadísticas automáticamente en todas las tablas distribuidas. Sólo generará las estadísticas agregadas al crear y actualizar las estadísticas.
 
 ## Al crear estadísticas
 Un conjunto coherente de estadísticas actualizadas es una parte importante del Almacenamiento de datos SQL. Por lo tanto, es importante crear estadísticas como parte del diseño de las tablas.
@@ -45,7 +45,9 @@ Crear estadísticas de columna única en cada columna es una forma sencilla de e
 
 Las estadísticas de varias columnas solo las utiliza el optimizador de consultas cuando las columnas están en cláusulas compuestas Join o Group by. Los filtros compuestos no se benefician actualmente de estadísticas de varias columnas.
 
-Al iniciar el desarrollo del Almacenamiento de datos SQL, por tanto, es una buena idea implementar el patrón siguiente: - Crear estadísticas de columna única en todas las columnas de todas las tablas - Crear estadísticas de varias columnas en las columnas utilizadas por las consultas en las cláusulas Join y Group by.
+Por lo tanto, al comenzar a desarrollar para Almacenamiento de datos SQL es una buena idea implementar el siguiente patrón:
+- Crear estadísticas de una columna en todas las columnas de todas las tablas
+- Crear estadísticas de varias columnas en las columnas utilizadas por las consultas en uniones y cláusulas Group by.
 
 Como ya sabe cómo desea consultar los datos, sería conveniente que refine este modelo, sobre todo si las tablas son amplias. Consulte la sección [Implementación de administración de estadísticas] (## Implementación de administración de estadísticas) para ver un enfoque más avanzado del método.
 
@@ -74,7 +76,7 @@ A continuación se proporcionan algunos principios fundamentales para actualizar
 - Considere la posibilidad de actualizar columnas de distribución estática con menor frecuencia.
 - Recuerde que cada objeto de estadística se actualiza en serie. Implementar solo `UPDATE STATISTICS <TABLE_NAME>` puede no ser recomendable, especialmente para las tablas amplias con muchos objetos de estadísticas.
 
-> [AZURE.NOTE]Para obtener más detalles sobre [clave ascendente], consulte las notas del producto sobre modelos de estimación de cardinalidad para SQL Server 2014.
+> [AZURE.NOTE] Para obtener más detalles sobre [clave ascendente], consulte las notas del producto sobre modelos de estimación de cardinalidad para SQL Server 2014.
 
 Para obtener más información, consulte [estimación de cardinalidad][] en MSDN.
 
@@ -86,31 +88,31 @@ Estos ejemplos muestran cómo utilizar diversas opciones de creación de estadí
 
 Para crear estadísticas de una columna, basta con proporcionar un nombre para el objeto de estadística y el nombre de la columna.
 
-Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, el Almacenamiento de datos SQL ofrece un ejemplo del 20 % de la tabla cuando crea estadísticas.
+Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, el Almacenamiento de datos SQL ofrece un ejemplo del 20 % de la tabla cuando crea estadísticas.
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
 Por ejemplo:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
 ### B. Crear estadísticas de columna única mediante el examen de todas las filas
 
-La velocidad de muestreo predeterminada del 20 % es suficiente para la mayoría de las situaciones. Sin embargo, puede ajustar la velocidad de muestreo.
+La velocidad de muestreo predeterminada del 20 % es suficiente para la mayoría de las situaciones. Sin embargo, puede ajustar la velocidad de muestreo.
 
 Para probar la tabla completa, utilice esta sintaxis:
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
 Por ejemplo:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
@@ -118,7 +120,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 También puede especificar el tamaño de muestra como un porcentaje:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -130,17 +132,17 @@ Por ejemplo, podría utilizar las estadísticas filtradas si desea consultar una
 
 En este ejemplo se crean estadísticas sobre un intervalo de valores. Los valores pueden definirse fácilmente para que coincidan con el intervalo de valores de una partición.
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
-> [AZURE.NOTE]Para que el optimizador de consultas considere utilizar estadísticas filtradas al elegir el plan de consulta distribuida, la consulta debe adecuarse a la definición del objeto de estadísticas. Usando el ejemplo anterior, la consulta es cuándo la cláusula necesita especificar valores col1 entre 2000101 y 20001231.
+> [AZURE.NOTE] Para que el optimizador de consultas considere utilizar estadísticas filtradas al elegir el plan de consulta distribuida, la consulta debe adecuarse a la definición del objeto de estadísticas. Usando el ejemplo anterior, la consulta es cuándo la cláusula necesita especificar valores col1 entre 2000101 y 20001231.
 
 ### E. Crear estadísticas de columna única con todas las opciones
 
 Por supuesto, puede combinar las opciones juntas. En el ejemplo siguiente se crea un objeto de estadísticas filtradas con un tamaño personalizado de ejemplo:
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -150,11 +152,11 @@ Para obtener la referencia completa, consulte [CREATE STATISTICS][] en MSDN.
 
 Para crear estadísticas de varias columnas, simplemente use los ejemplos anteriores, pero especifique más columnas.
 
-> [AZURE.NOTE]El histograma, que se utiliza para calcular el número de filas en el resultado de la consulta, solo está disponible para la primera columna de la definición del objeto de estadísticas.
+> [AZURE.NOTE] El histograma, que se utiliza para calcular el número de filas en el resultado de la consulta, solo está disponible para la primera columna de la definición del objeto de estadísticas.
 
 En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub\_c\\ategory*:
 
-```
+```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -164,8 +166,8 @@ Dado que no hay una correlación entre *product\_category* y *product\_sub\_cate
 
 Una forma de crear estadísticas consiste en emitir comandos CREATE STATISTICS después de crear la tabla.
 
-```
-CREATE TABLE dbo.table1 
+```sql
+CREATE TABLE dbo.table1
 (
    col1 int
 ,  col2 int
@@ -188,7 +190,7 @@ El Almacenamiento de datos SQL no tiene un procedimiento almacenado del sistema 
 
 Esto le ayudará a empezar a trabajar con el diseño de la base de datos. Puede adaptarlo a sus necesidades.
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
 (   @create_type    tinyint -- 1 default 2 Fullscan 3 Sample
 ,   @sample_pct     tinyint
@@ -271,7 +273,7 @@ DROP TABLE #stats_ddl;
 
 Para crear estadísticas de todas las columnas de la tabla con este procedimiento, simplemente llame al procedimiento.
 
-```
+```sql
 prc_sqldw_create_stats;
 ```
 
@@ -286,13 +288,13 @@ Para actualizar estadísticas, puede:
 ### R: Actualizar un objeto de estadísticas específico ###
 Para actualizar un objeto de estadísticas específico, use la siguiente sintaxis:
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 Por ejemplo:
 
-```
+```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
@@ -302,19 +304,19 @@ Al actualizar los objetos de estadísticas específicos, puede minimizar el tiem
 ### B. Actualizar todas las estadísticas de una tabla ###
 Se muestra un método sencillo para actualizar todos los objetos de estadísticas de una tabla.
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 Por ejemplo:
 
-```
+```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
 Esta instrucción es fácil de usar. Solo tiene que recordar que esto actualiza todas las estadísticas de la tabla y, por tanto, puede realizar más trabajo del necesario. Si el rendimiento no es un problema, sin duda es la forma más fácil y más completa de garantizar que las estadísticas están actualizadas.
 
-> [AZURE.NOTE]Al actualizar todas las estadísticas de una tabla, el Almacenamiento de datos SQL realiza un análisis para crear muestras de la tabla para cada estadística. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
+> [AZURE.NOTE] Al actualizar todas las estadísticas de una tabla, el Almacenamiento de datos SQL realiza un análisis para crear muestras de la tabla para cada estadística. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
 
 Para obtener una implementación de un procedimiento `UPDATE STATISTICS`, consulte el artículo sobre [tablas temporales]. El método de implementación difiere ligeramente del procedimiento `CREATE STATISTICS` anterior, pero el resultado final es el mismo.
 
@@ -349,7 +351,7 @@ Estas funciones del sistema son útiles para trabajar con las estadísticas:
 
 Esta vista agrupa columnas relacionadas con las estadísticas y resulta de la función [STATS\_DATE()][].
 
-```
+```sql
 CREATE VIEW dbo.vstats_columns
 AS
 SELECT
@@ -380,7 +382,7 @@ JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
 JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
 JOIN    sys.tables          AS tb ON  co.[object_id]        = tb.[object_id]
 JOIN    sys.schemas         AS sm ON  tb.[schema_id]        = sm.[schema_id]
-WHERE   1=1 
+WHERE   1=1
 AND     st.[user_created] = 1
 ;
 ```
@@ -399,13 +401,13 @@ Los metadatos de encabezado sobre las estadísticas. El histograma muestra la di
 
 Este ejemplo muestra las tres partes de un objeto de estadísticas.
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
 Por ejemplo:
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
@@ -413,13 +415,13 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 
 Si sólo está interesado en ver partes específicas, use la cláusula `WITH` y especifique qué partes desea ver:
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
 Por ejemplo:
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
@@ -459,4 +461,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

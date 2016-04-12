@@ -283,7 +283,7 @@ Para ejecutar correctamente el trabajo de MapReduce en el clúster, debe crear u
 
 	![HDI.EMulator.WordCount.Run][image-emulator-wordcount-run]
 
-	En la captura de pantalla, puede ver tanto la asignación como la reducción finalizadas al 100 %. También muestra el identificador del trabajo. El mismo informe se puede recuperar abriendo el acceso directo **Hadoop MapReduce status** en el escritorio y buscando dicho identificador del trabajo.
+	En la captura de pantalla, puede ver tanto la asignación como la reducción finalizadas al 100 %. También muestra el identificador del trabajo. El mismo informe se puede recuperar abriendo el acceso directo **Hadoop MapReduce status** en el escritorio y buscando dicho identificador del trabajo.
 
 La otra opción para ejecutar un trabajo de MapReduce es utilizar Azure PowerShell. Para obtener instrucciones, consulte [Introducción al emulador de HDInsight][hdinsight-emulator].
 
@@ -571,7 +571,6 @@ Después de finalizar el trabajo, puede exportar los datos a una base de datos S
 ##<a id="nextsteps"></a>Pasos siguientes
 En este tutorial, ha aprendido a desarrollar un trabajo de MapReduce de Java, a probar la aplicación en el emulador de HDInsight y a escribir un script de Azure PowerShell para aprovisionar un clúster de HDInsight y ejecutar un trabajo de MapReduce en el clúster. Para obtener más información, consulte los artículos siguientes:
 
-- [Desarrollo de programas de MapReduce de streaming de Hadoop C# para HDInsight][hdinsight-develop-streaming]
 - [Introducción a HDInsight de Azure][hdinsight-get-started]
 - [Introducción al emulador de HDInsight][hdinsight-emulator]
 - [Uso del almacenamiento de blobs de Azure con HDInsight][hdinsight-storage]
@@ -590,7 +589,6 @@ En este tutorial, ha aprendido a desarrollar un trabajo de MapReduce de Java, a 
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-emulator]: ../hdinsight-get-started-emulator.md
@@ -610,4 +608,4 @@ En este tutorial, ha aprendido a desarrollar un trabajo de MapReduce de Java, a 
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

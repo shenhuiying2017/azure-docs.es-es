@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # ¿Qué ha ocurrido a mi proyecto de WebApi (servicio conectado de Visual Studio Azure Active Directory)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [Introducción](vs-active-directory-webapi-getting-started.md)
+> - [¿Qué ha ocurrido?](vs-active-directory-webapi-what-happened.md)
 
 ##Se han agregado referencias
 
@@ -59,7 +59,8 @@ Si ya tenía una clase de inicio en su proyecto, el método **Configuration** se
 
 ###Su archivo app.config o web.config tiene nuevos valores de configuración.
 
-Se han agregado las siguientes entradas de configuración. ```
+Se han agregado las siguientes entradas de configuración.
+```
 	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
@@ -116,4 +117,4 @@ La aplicación Azure Active Directory se actualizó para incluir el permiso *Lee
 
 [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

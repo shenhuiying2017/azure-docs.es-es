@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="03/23/2016"
    ms.author="sstein"/>
 
 # Creación y administración de bases de datos SQL con C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-elastic-pool-portal.md)
+- [Portal de Azure](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -30,15 +30,15 @@ En este artículo se proporcionan comandos para realizar muchas tareas de admini
 
 Los fragmentos de código individuales se dividen por motivos de claridad y una aplicación de consola de ejemplo reúne todos los comandos en la sección de la parte inferior de este artículo.
 
-La biblioteca de Base de datos SQL de Azure para .NET ofrece una API basada en el [Administrador de recursos de Azure](resource-group-overview.md) que encapsula la [API de REST de Base de datos SQL basada en el Administrador de recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Esta biblioteca cliente sigue el patrón común para las bibliotecas de cliente basada en el Administrador de recursos. El Administrador de recursos requiere grupos de recursos y la autenticación con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+La biblioteca de Base de datos SQL de Azure para .NET ofrece una API basada en el [Administrador de recursos de Azure](../resource-group-overview.md) que encapsula la [API de REST de Base de datos SQL basada en el Administrador de recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Esta biblioteca cliente sigue el patrón común para las bibliotecas de cliente basada en el Administrador de recursos. El Administrador de recursos requiere grupos de recursos y la autenticación con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
-> [AZURE.NOTE]La biblioteca de bases de datos SQL para .NET está actualmente en vista previa.
+> [AZURE.NOTE] La biblioteca de bases de datos SQL para .NET está actualmente en vista previa.
 
 <br>
 
-Si no tiene una suscripción a Azure, simplemente haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, luego, vuelva a este artículo. Y para obtener una copia gratuita de Visual Studio, vea la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+Si no tiene una suscripción a Azure, simplemente haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva a este artículo. Asimismo, para obtener una copia gratuita de Visual Studio, consulte la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Instalación de las bibliotecas necesarias
 
@@ -75,13 +75,13 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
     ![Agregar aplicación][6]
 
-5. Haga clic en **Agregar una aplicación que mi organización está desarrollando**.
+5. Seleccione **Agregar una aplicación que está siendo desarrollada por mi organización**.
 
-5. Asigne un **NOMBRE** para la aplicación y seleccione **APLICACIÓN DE CLIENTE NATIVO**.
+5. Asigne un **NOMBRE** a la aplicación y seleccione **APLICACIÓN DE CLIENTE NATIVO**.
 
     ![Agregar aplicación][7]
 
-6. Suministre un **URI DE REDIRECCIÓN**. No tiene que ser un extremo real, simplemente un URI válido.
+6. Proporcione un **URI DE REDIRECCIÓN**. No tiene que ser un extremo real, simplemente un URI válido.
 
     ![Agregar aplicación][8]
 
@@ -92,8 +92,8 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
 1. En la parte inferior de la página, haga clic en **Agregar aplicación**.
 1. Seleccione **Aplicaciones de Microsoft**.
-1. Seleccione **API de administración de servicios de Azure** y luego complete el asistente.
-2. Con la API seleccionada ahora debe conceder los permisos específicos necesarios para tener acceso a esta API seleccionando **Acceder a la administración del servicio de Azure (vista previa)**.
+1. Seleccione **API de administración de servicios de Azure** y, después, complete el asistente.
+2. Con la API seleccionada, deberá conceder los permisos específicos necesarios para obtener acceso a esta API, seleccionando **Acceder a la administración del servicio de Azure (vista previa)**.
 
     ![permisos][2]
 
@@ -148,7 +148,7 @@ Para crear scripts automatizados donde no se requiera ninguna interacción del u
 
 
 
-> [AZURE.NOTE]En los ejemplos de este artículo se usa un formulario sincrónico de cada solicitud de API y se bloquea hasta que finaliza la llamada de REST en el servicio subyacente. Hay métodos asincrónicos disponibles.
+> [AZURE.NOTE] En los ejemplos de este artículo se usa un formulario sincrónico de cada solicitud de API y se bloquea hasta que finaliza la llamada de REST en el servicio subyacente. Hay métodos asincrónicos disponibles.
 
 
 
@@ -218,7 +218,7 @@ En el ejemplo siguiente se crea una regla que abre el acceso al servidor desde c
 
 
 
-Para permitir que otros servicios de Azure tengan acceso a un servidor, agregue una regla de firewall y establezca tanto StartIpAddress como EndIpAddress en 0.0.0.0. Tenga en cuenta que esto permite que el tráfico de Azure de *cualquier* suscripción de Azure tenga acceso al servidor.
+Para permitir que otros servicios de Azure tengan acceso a un servidor, agregue una regla de firewall y establezca tanto StartIpAddress como EndIpAddress en 0.0.0.0. Tenga en cuenta que esta opción permite que el tráfico de Azure de *cualquier* suscripción de Azure tenga acceso al servidor.
 
 
 ## Creación de una base de datos
@@ -335,7 +335,7 @@ Para crear un nuevo grupo en un servidor:
 
 ## Movimiento de una base de datos existente a un grupo de bases de datos elásticas
 
-*Después de crear un grupo también puede usar Transact-SQL para mover bases de datos existentes dentro y fuera de un grupo. Para obtener información detallada, consulte [Referencia de grupo de bases de datos elásticas - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Después de crear un grupo, también puede usar Transact-SQL para mover bases de datos ya existentes dentro y fuera de un grupo. Para obtener información detallada, consulte [Referencia de grupo de bases de datos elásticas - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Para mover una base de datos existente a un grupo:
 
@@ -367,7 +367,7 @@ Para mover una base de datos existente a un grupo:
 
 ## Creación de una nueva base de datos en un grupo de bases de datos elásticas
 
-*Después de crear un grupo también puede usar Transact-SQL para crear nuevas bases de datos elásticas en el grupo. Para obtener información detallada, consulte [Referencia de grupo de bases de datos elásticas - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Después de crear un grupo, también puede usar Transact-SQL para crear nuevas bases de datos elásticas en el grupo. Para obtener información detallada, consulte [Referencia de grupo de bases de datos elásticas - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Para crear una nueva base de datos directamente en un grupo:
 
@@ -784,7 +784,7 @@ Para eliminar un grupo de recursos:
 
 [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[Referencia de grupo de bases de datos elásticas](sql-database-elastic-pool-reference.md).
+[Referencias acerca del grupo de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
 
 <!--Image references-->
@@ -798,4 +798,4 @@ Para eliminar un grupo de recursos:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

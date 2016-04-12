@@ -1,17 +1,17 @@
 <properties
-	pageTitle="Referencia de grupo de bases de datos elásticas para la Base de datos SQL | Microsoft Azure" 
+	pageTitle="Referencia de grupo de bases de datos elásticas para la Base de datos SQL | Microsoft Azure"
 	description="Esta referencia proporciona vínculos y detalles de artículos de grupos elásticos de bases de datos, así como información de programación."
 	keywords="eDTU"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jhubbard"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/17/2016"
+	ms.date="03/24/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -25,7 +25,7 @@ Para desarrolladores de SaaS que tienen decenas, cientos o incluso miles de base
 ## Requisitos previos para crear y administrar grupos de bases de datos elásticas
 
 - Los grupos de bases de datos elásticas solo están disponibles en los servidores de Base de datos SQL V12 de Azure. Para actualizar a V12 y migrar las bases de datos directamente a un grupo, consulte [Actualización a Base de datos SQL V12 de Azure](sql-database-upgrade-server-powershell.md).
-- Solo se admite la creación y administración de grupos de bases de datos elásticas con el [Portal de Azure](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-powershell.md) y una biblioteca cliente de .NET (solo el Administrador de recursos de Azure). No se admiten el [Portal clásico](https://manage.windowsazure.com/) ni los comandos de administración de servicios.
+- Para la creación y administración de grupos de bases de datos elásticas se admite el [Portal de Azure](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-create-powershell.md) y una biblioteca cliente de .NET (solo Azure Resource Manager). No se admite ni el [Portal clásico](https://manage.windowsazure.com/) ni los comandos de administración de servicios.
 - Además, es posible crear nuevas bases de datos elásticas y mover bases de datos existentes dentro y fuera de los grupos de bases de datos elásticas mediante [Transact-SQL](#transact-sql).
 
 
@@ -37,7 +37,7 @@ Los artículos siguientes le ayudarán a empezar a usar bases de datos y trabajo
 | :-- | :-- |
 | [Grupos de bases de datos SQL elásticas](sql-database-elastic-pool.md) | Información general sobre los grupos de bases de datos elásticas |
 | [Consideraciones sobre precios y rendimiento](sql-database-elastic-pool-guidance.md) | Evaluación de si el uso de un grupo de bases de datos elásticas es rentable |
-| [Creación y administración de un grupo de bases de datos SQL elásticas con el portal de Azure](sql-database-elastic-pool-portal.md) | Creación y administración de grupos de bases de datos elásticas mediante el Portal de Azure |
+| [Creación de un grupo de bases de datos elásticas escalables para Bases de datos SQL en el Portal de Azure](sql-database-elastic-pool-create-portal.md) | Creación y administración de grupos de bases de datos elásticas mediante el Portal de Azure |
 | [Creación y administración de un grupo de bases de datos SQL elásticas con PowerShell](sql-database-elastic-pool-powershell.md) | Creación y administración de grupos de bases de datos elásticas mediante cmdlets de PowerShell |
 | [Creación y administración de una base de datos SQL con la biblioteca de Base de datos SQL de Azure para .NET](sql-database-elastic-pool-csharp.md) | Creación y administración de grupos de bases de datos elásticas mediante C# |
 | [Información general de los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md) | Información general acerca del servicio de trabajos elásticos, que permite ejecutar secuencias de comandos de T-SQL en todas las bases de datos elásticas de un grupo. |
@@ -77,15 +77,6 @@ Un grupo de bases de datos elásticas es un recurso del Administrador de recurso
 [AZURE.INCLUDE [Tabla de niveles de servicio de Base de datos SQL para bases de datos elásticas](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 
-
-## Limitaciones del Administrador de recursos de Azure
-
-Los servidores de Base de datos SQL V12 de Azure se encuentran en grupos de recursos.
-
-- Cada grupo de recursos puede tener un máximo de 800 servidores.
-- Cada servidor puede tener un máximo de 800 grupos elásticos.
-
-
 ## Latencia de las operaciones de grupos elásticos
 
 - El cambio del número garantizado de eDTU por base de datos (databaseDtuMin) o del número máximo de eDTU por base de datos (databaseDtuMax) suele completarse en cinco minutos o menos.
@@ -95,8 +86,14 @@ Los servidores de Base de datos SQL V12 de Azure se encuentran en grupos de recu
 
 ## PowerShell, API de REST y la biblioteca de cliente de .NET
 
-Hay varios comandos de API de REST y cmdlets de PowerShell que están disponibles para crear y administrar grupos elásticos. Para información detallada y ejemplos de código, consulte [Creación y administración de un grupo de bases de datos elásticas de Base de datos SQL con PowerShell](sql-database-elastic-pool-powershell.md) y [Creación y administración de Base de datos SQL con C#](sql-database-client-library.md).
+Para más información y ejemplos de código con demostración de trabajo con grupos con PowerShell y C#:
 
+- [Creación de un grupo de bases de datos elásticas (PowerShell)](sql-database-elastic-pool-create-powershell.md)
+- [Creación de un grupo de bases de datos elásticas (C#)](sql-database-elastic-pool-create-csharp.md)
+- [Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas con PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [Administración de un grupo de bases de datos elásticas (C#)](sql-database-elastic-pool-manage-csharp.md)
+
+Aquí tiene una referencia rápida de los cmdlets y las operaciones equivalentes de REST API relacionadas con los grupos de bases de datos elásticas:
 
 | [Cmdlets de PowerShell](https://msdn.microsoft.com/library/azure/mt574084.aspx) | [Comandos de las API de REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
@@ -115,7 +112,7 @@ Puede usar Transact-SQL para realizar las siguientes tareas de administración d
 | Tarea | Detalles |
 | :-- | :-- |
 | Crear una nueva base de datos elástica (directamente en un grupo) | [CREAR BASE DE DATOS (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/dn268335.aspx) |
-| Mover bases de datos existentes dentro y fuera de un grupo | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) |
+| Mover bases de datos existentes dentro y fuera de un grupo | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) |
 | Obtener estadísticas de uso de recursos de un grupo | [sys.elastic\_pool\_resource\_stats (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/mt280062.aspx) |
 
 
@@ -158,4 +155,4 @@ El precio unitario de eDTU de un grupo elástico es mayor que el precio unitario
 | 40891 | EX\_USER | El mínimo de DTU por base de datos (%d) no puede superar el máximo de DTU por base de datos (%d). | Mínimo de DTU por base de datos; máximo de DTU por base de datos. | Intentando establecer el mínimo de DTU por base de datos por encima del máximo de DTU por base de datos. | Asegúrese de que el mínimo de DTU por bases de datos no supera el máximo de DTU por base de datos. |
 | Por determinar | EX\_USER | El tamaño de almacenamiento para una base de datos individual en un grupo elástico no puede superar el tamaño máximo permitido por el grupo elástico del nivel de servicio '%.*ls'. | nivel de servicio del grupo elástico | El tamaño máximo de la base de datos supera el tamaño máximo permitido por el nivel de servicio del grupo elástico. | Establezca el tamaño máximo de la base de datos dentro de los límites del tamaño máximo permitido por el nivel de servicio del grupo elástico. |
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

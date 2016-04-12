@@ -11,7 +11,7 @@
 <tags
 	ms.service="azure-resource-manager"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="01/19/2016"
@@ -20,7 +20,7 @@
 # Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure
 
 > [AZURE.SELECTOR]
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [CLI de Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
 
 
@@ -33,11 +33,11 @@ Este artículo describe cómo crear y administrar los recursos de Azure con la I
 
 Use el Administrador de recursos de Azure para crear y administrar un grupo de _recursos_ (entidades administradas por el usuario, como una máquina virtual, un servidor de base de datos, una base de datos o un sitio web) como una sola unidad lógica o _grupo de recursos_.
 
-Una ventaja del modo Administrador de recursos de Azure es que puede crear los recursos de Azure de forma _declarativa_, describiendo la estructura y las relaciones de un grupo de recursos en *plantillas* de JSON que se pueden implementar. La plantilla identifica los parámetros que se pueden completar ya sea en línea cuando se ejecuta un comando o cuando están almacenados en un archivo JSON azuredeploy-parameters.json independiente. Esto le permite crear fácilmente recursos nuevos con la misma plantilla brindando simplemente parámetros distintos. Por ejemplo, una plantilla que crea un sitio web tendrá parámetros para el nombre del sitio, la región en que estará ubicado el sitio web y otros parámetros comunes.
+Una ventaja de Azure Resource Manager es que puede crear los recursos de Azure de forma _declarativa_: describe la estructura y las relaciones de un grupo de recursos que se pueden implementar en *plantillas* de JSON. La plantilla identifica los parámetros que se pueden completar ya sea en línea cuando se ejecuta un comando o cuando están almacenados en un archivo JSON azuredeploy-parameters.json independiente. Esto le permite crear fácilmente recursos nuevos con la misma plantilla brindando simplemente parámetros distintos. Por ejemplo, una plantilla que crea un sitio web tendrá parámetros para el nombre del sitio, la región en que estará ubicado el sitio web y otros parámetros comunes.
 
 Cuando se usa una plantilla para modificar o crear un grupo, se crea una _implementación_, que luego se aplica al grupo. Para obtener más información sobre el Administrador de recursos de Azure, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 
-Después de crear una implementación, puede administrar los recursos individuales de forma imperativa en la línea de comandos, exactamente de la misma forma que en el modelo clásico de implementación (Administración de servicios). Por ejemplo, use los comandos de la CLI del Administrador de recursos de Azure para iniciar, detener o eliminar recursos como [máquinas virtuales del Administrador de recursos de Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+Después de crear una implementación, puede administrar los recursos individuales de forma imperativa en la línea de comandos, exactamente de la misma forma que en el modelo clásico de implementación (Administración de servicios). Por ejemplo, use los comandos de la CLI del Administrador de recursos de Azure para iniciar, detener o eliminar recursos como [máquinas virtuales del Administrador de recursos de Azure](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 ## Autenticación
 
@@ -78,13 +78,13 @@ Este grupo de recursos "testRG" se implementará más adelante, cuando use una p
 
 Cuando trabaje con plantillas, puede [crear una plantilla propia](resource-group-authoring-templates.md), o usar una de la [galería de plantillas](https://azure.microsoft.com/documentation/templates/), que están también disponibles en [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-La creación de una nueva plantilla está fuera del ámbito de este artículo, así que para empezar vamos a usar la plantilla _101-simple-vm-from-image_ disponible en la [Galería de plantillas](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). De forma predeterminada, esto crea una sola máquina virtual 14.04.2-LTS Ubuntu en una nueva red virtual con una sola subred en la región Oeste de EE. UU. Solo tiene que especificar los siguientes parámetros para utilizar esta plantilla:
+La creación de una nueva plantilla está fuera del ámbito de este artículo, así que para empezar usaremos la plantilla _101-simple-vm-from-image_, disponible en la [galería de plantillas](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). De forma predeterminada, esto crea una sola máquina virtual 14.04.2-LTS Ubuntu en una nueva red virtual con una sola subred en la región Oeste de EE. UU. Solo tiene que especificar los siguientes parámetros para utilizar esta plantilla:
 
 * Un nombre de usuario de administración para la máquina virtual = `adminUsername`
 * Una contraseña = `adminPassword`
 * Un nombre de dominio para la máquina virtual = `dnsLabelPrefix`
 
->[AZURE.TIP] Estos pasos muestran solo una de las formas de usar una plantilla de máquina virtual con la CLI de Azure. Para ver otros ejemplos, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+>[AZURE.TIP] Estos pasos muestran solo una de las formas de usar una plantilla de máquina virtual con la CLI de Azure. Para ver otros ejemplos, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 1. Siga el enlace “Aprenda más con GitHub” para descargar los archivos azuredeploy.json y azuredeploy.parameters.json de GitHub en una carpeta de trabajo en el equipo local. (Asegúrese de seleccionar el formato _raw_ de cada archivo en GitHub).
 
@@ -165,7 +165,7 @@ La creación de una nueva plantilla está fuera del ámbito de este artículo, a
 
 También puede usar una plantilla directamente desde [GitHub](https://github.com/Azure/azure-quickstart-templates), en lugar de descargar una en el equipo. Para ello, pase la dirección URL al archivo azuredeploy.json para la plantilla en su comando mediante la opción **--template-url**. Para obtener la dirección URL, abra azuredeploy.json en GitHub en modo _sin procesar_ y copie la dirección URL que aparece en la barra de direcciones del explorador. A continuación, puede usar esta dirección URL directamente para crear una implementación mediante un comando similar al siguiente ejemplo.
 
-	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
+	azure group deployment create "testRG" testDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Se le pedirá que escriba los parámetros de plantilla necesarios.
 
 > [AZURE.NOTE] Es importante abrir la plantilla de JSON en modo _sin procesar_. La dirección URL que aparece en la barra de direcciones del explorador es diferente de la que aparece en el modo normal. Para abrir el archivo en modo _sin procesar_ mientras lo ve en GitHub, haga clic en **Sin procesar** en la esquina superior derecha.
@@ -215,4 +215,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

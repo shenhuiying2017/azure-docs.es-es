@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="litran"/>
 
 
@@ -38,7 +38,7 @@ Una vez que PowerApps Enterprise está habilitado y listo para usarse, puede agr
 4. En **Usuarios**, seleccione **Agregar**.
 5. Seleccione el rol **Propietario**: ![][2]  
 
-	> [AZURE.IMPORTANT]Asegúrese de seleccionar el rol **Propietario** si asigna a alguna persona como administrador de PowerApps. Los otros roles que aparecen no otorgarán a los usuarios el acceso total para administrar PowerApps.
+	> [AZURE.IMPORTANT] Asegúrese de seleccionar el rol **Propietario** si asigna a alguna persona como administrador de PowerApps. Los otros roles que aparecen no otorgarán a los usuarios el acceso total para administrar PowerApps.
 
 6. Seleccione los usuarios o grupos.
 7. Seleccione **Aceptar** para completar los pasos.
@@ -49,7 +49,7 @@ Cuando agrega administradores a PowerApps, los usuarios y grupos que agrega como
 - Pueden administrar todas las aplicaciones, así como también el acceso de los usuarios.
 - No pueden cambiar la facturación.
 
-> [AZURE.IMPORTANT]Los administradores de PowerApps no puede hacer cambios en el Entorno del Servicio de aplicaciones hasta que se les otorgue el rol Propietario en el grupo de recursos del entorno del Servicio de aplicaciones. Para hacerlo, consulte [este artículo](powerapps-get-started-azure-portal.md).
+> [AZURE.IMPORTANT] Los administradores de PowerApps no puede hacer cambios en el Entorno del Servicio de aplicaciones hasta que se les otorgue el rol Propietario en el grupo de recursos del entorno del Servicio de aplicaciones. Para ello, consulte [¿Qué es PowerApps Enterprise?](powerapps-get-started-azure-portal.md).
 
 Una vez que el rol Propietario se otorga en el grupo de recursos del entorno del Servicio de aplicaciones, los administradores de PowerApps también pueden:
 
@@ -98,7 +98,7 @@ Como administrador de PowerApps, puede agregar usuarios y grupos a PowerApps o p
 2. En el icono **Todas las aplicaciones**, seleccione **Aplicaciones lógicas**: ![][8]  
 3. Seleccione una aplicación lógica para ver los detalles de la aplicación. Asegúrese de seleccionar la suscripción correcta para que PowerApps muestre las aplicaciones lógicas adecuadas: ![][7]  
 
-	> [AZURE.IMPORTANT]En la vista previa pública, puede ver algunas incoherencias entre la cantidad de aplicaciones lógicas que aparece en la hoja de exploración y la cantidad que aparece en la hoja principal de PowerApps. Se espera que esto sea así. El portal muestra todas las aplicaciones lógicas en todos los planes de hospedaje y no filtra las aplicaciones lógicas en el entorno de servicio de aplicaciones implementadas para PowerApps. Este comportamiento se solucionará en futuras actualizaciones.
+	> [AZURE.IMPORTANT] En la vista previa pública, puede ver algunas incoherencias entre la cantidad de aplicaciones lógicas que aparece en la hoja de exploración y la cantidad que aparece en la hoja principal de PowerApps. Se espera que esto sea así. El portal muestra todas las aplicaciones lógicas en todos los planes de hospedaje y no filtra las aplicaciones lógicas en el entorno de servicio de aplicaciones implementadas para PowerApps. Este comportamiento se solucionará en futuras actualizaciones.
 
 	**Para obtener más información sobre las aplicaciones lógicas y cómo administrarlas, consulte [estas instrucciones](https://azure.microsoft.com/documentation/services/app-service/logic/).**
 
@@ -166,4 +166,4 @@ Ahora que configuró la experiencia del Portal de Azure, puede comenzar a crear 
 [9]: ./media/powerapps-manage-monitor-usage/webapps.png
 [10]: ./media/powerapps-manage-monitor-usage/mobileapps.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

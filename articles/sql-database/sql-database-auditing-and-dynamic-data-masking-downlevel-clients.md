@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Compatibilidad de los clientes de nivel inferior de Base de datos SQL para auditoría | Microsoft Azure" 
-	description="Obtenga información acerca de la compatibilidad de clientes de nivel inferior de Base de datos SQL para auditoría." 
+	description="Información sobre la compatibilidad de clientes de nivel inferior de Base de datos SQL para auditoría." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="11/12/2015" 
-	ms.author="nadavhelfman; ronitr"/>
+	ms.author="nadavh;ronitr"/>
  
 # Base de datos SQL: compatibilidad con clientes de nivel inferior para auditoría
 
@@ -38,4 +38,4 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 
 **Comentario:** la anterior modificación de FDQN de servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

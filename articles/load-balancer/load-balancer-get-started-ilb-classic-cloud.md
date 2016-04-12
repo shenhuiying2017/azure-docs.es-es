@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Creación de un equilibrador de carga interno para servicios en la nube con el modelo de implementación clásica | Microsoft Azure"
    description="Información sobre cómo crear un equilibrador de carga interno mediante PowerShell con el modelo de implementación clásica"
-   services="load-balancer-ilb"
+   services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
    manager="carolz"
@@ -91,4 +91,4 @@ La carga del tráfico de red se equilibrará mediante el equilibrador de carga t
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

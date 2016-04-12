@@ -13,12 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/15/2015"
+   ms.date="03/23/2016"
    ms.author="yuemlu"/>
 
 # SO invitado de Azure 
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## SO invitado de marzo 
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-023 | [3142015] | Actualización de seguridad acumulativa para Internet Explorer | 4\.30, 3.37, 2.49 | 8 de marzo de 2016 |  
+| MS16-026 | [3143148] | Actualización de seguridad de Graphic Fonts para tratar la ejecución remota de código | 4\.30, 3.37, 2.49 | 8 de marzo de 2016 |  
+| MS16-027 | [3143146] | Actualizaciones de seguridad de Reproductor de Windows Media para tratar la ejecución remota de código | 4\.30, 3.37, 2.49 | 8 de marzo de 2016 |  
+| MS16-028 | [3143081] | Actualización de seguridad de Microsoft Windows PDF Library para tratar la ejecución remota de código | 4\.30, 3.37 | 8 de marzo de 2016 |  
+| MS16-030 | [3143136] | Actualización de seguridad de Windows OLE para tratar la ejecución remota de código | 4\.30, 3.37, 2.49 | 8 de marzo de 2016 |  
+| MS16-031 | [3140410] | Actualización de seguridad de Microsoft Windows para tratar la elevación de privilegios | 2\.49 | 8 de marzo de 2016 |  
+| MS16-032 | [3143141] | Actualización de seguridad de Inicio de sesión secundario para tratar la elevación de privilegios | 4\.30, 3.37, 2.49 | 8 de marzo de 2016 |  
+| MS16-033 | [3143142] | Actualización de seguridad del Controlador de clase de almacenamiento USB para tratar la elevación de privilegios | 4\.30, 3.37, 2.49 | 8 de marzo de 2016 |  
+| MS16-034 | [3143145] | Actualizaciones de seguridad del controlador modo kernel para tratar la elevación de privilegios | 4\.30, 3.37, 2.49 | 8 de marzo de 2016 | | MS16-035 | [3141780] | Actualización de seguridad de .NET Framework tratar la omisión de la característica de seguridad | 4\.30, 3.37, 2.49 | 8 de marzo de 2016 |  
 
 
 ## SO invitado de febrero
@@ -207,7 +221,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-014 | [3004361][3004361] | Una vulnerabilidad de SMB podría permitir la omisión de la característica de seguridad | 4,17; 3,24; 2,36 | N/D |
 | MS15-015 | [3031432][3031432] | Una vulnerabilidad de Microsoft Windows podría permitir la elevación de privilegios | 4,17; 3,24; 2,36 | N/D |
 | MS15-016 | [3029944][3029944] | Una vulnerabilidad del componente de gráficos de Microsoft podría permitir la divulgación de información | 4,17; 3,24; 2,36 | N/D |
-| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>** Nota **: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
+| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
  
 
 ## SO invitado de enero
@@ -241,6 +255,18 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [3007054][3007054] | Siempre se muestra la opción de impresión protegida con PIN al imprimir un documento en una aplicación de la Tienda Windows en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
+
+
+[3142015]: http://support.microsoft.com/kb/3142015
+[3143148]: http://support.microsoft.com/kb/3143148
+[3143146]: http://support.microsoft.com/kb/3143146
+[3143081]: http://support.microsoft.com/kb/3143081
+[3143136]: http://support.microsoft.com/kb/3143136
+[3140410]: http://support.microsoft.com/kb/3140410
+[3143141]: http://support.microsoft.com/kb/3143141
+[3143142]: http://support.microsoft.com/kb/3143142
+[3143145]: http://support.microsoft.com/kb/3143145
+[3141780]: http://support.microsoft.com/kb/3141780
 
 [3134220]: http://support.microsoft.com/kb/3134220
 [3134811]: http://support.microsoft.com/kb/3134811
@@ -406,4 +432,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

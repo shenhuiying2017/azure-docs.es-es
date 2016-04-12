@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="03/09/2016" 
 	ms.author="garye"/>
 
 
@@ -76,7 +76,7 @@ Una vez que los datos se han convertido al formato CSV, debemos cargarlos en el 
 
 De esta manera los datos se cargan en un módulo de conjunto de datos que podemos usar en un experimento.
 
-> [AZURE.TIP] Para administrar los conjuntos de datos que cargó en el Estudio, haga clic en la ficha **CONJUNTOS DE DATOS** a la izquierda de la ventana de Estudio.
+> [AZURE.TIP] Para administrar los conjuntos de datos que cargó en Estudio, haga clic en la pestaña **CONJUNTOS DE DATOS** a la izquierda de la ventana de Estudio.
 
 Para obtener más información acerca de la importación de diversos tipos de datos a un experimento, consulte [Importar datos de entrenamiento a Estudio de aprendizaje automático de Azure](machine-learning-data-science-import-data.md).
 
@@ -84,4 +84,4 @@ Para obtener más información acerca de la importación de diversos tipos de da
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

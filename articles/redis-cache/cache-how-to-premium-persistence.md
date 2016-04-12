@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium
@@ -59,7 +59,7 @@ Para configurar el intervalo de copia de seguridad, seleccione una **Frecuencia 
 
 Haga clic en **Cuenta de almacenamiento** para seleccionar la cuenta de almacenamiento que se va a usar y elija la **Clave principal** o la **Clave secundaria** que se usará en la lista desplegable **Clave de almacenamiento**. Debe elegir una cuenta de almacenamiento en la misma región que la memoria caché y se recomienda una cuenta de **Almacenamiento Premium** porque el almacenamiento premium tiene un mayor rendimiento.
 
->[AZURE.IMPORTANT]Si se vuelve a generar la clave de almacenamiento para su persistencia, debe volver a elegir la clave que quiera en la lista desplegable **Clave de almacenamiento**.
+>[AZURE.IMPORTANT] Si se vuelve a generar la clave de almacenamiento para su persistencia, debe volver a elegir la clave que quiera en la lista desplegable **Clave de almacenamiento**.
 
 ![Persistencia de Redis][redis-cache-persistence-selected]
 
@@ -107,4 +107,4 @@ Obtenga información sobre cómo usar más características de la memoria caché
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

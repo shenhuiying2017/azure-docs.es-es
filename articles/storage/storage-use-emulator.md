@@ -47,7 +47,7 @@ Para obtener más detalles sobre las cadenas de conexión, vea [Configuración d
 
 Algunas bibliotecas de cliente de almacenamiento de Azure, como la biblioteca Xamarin, solo admiten la autenticación con un token de firma de acceso compartido (SAS). Necesitará crear este token SAS mediante una herramienta o aplicación que admite la autenticación de clave compartida. Una forma sencilla de generar el token SAS es mediante Azure PowerShell:
 
-1. Instale Azure PowerShell si todavía no lo ha hecho. Se recomienda usar la versión más reciente de los cmdlets de Azure PowerShell. Vea [Instalación y configuración de Azure PowerShell](../articles/powershell-install-configure.md#Install) para obtener instrucciones de instalación.
+1. Instale Azure PowerShell si todavía no lo ha hecho. Se recomienda usar la versión más reciente de los cmdlets de Azure PowerShell. Vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md#Install) para obtener instrucciones de instalación.
 
 2. Abra Azure PowerShell y ejecute los comandos siguientes. No olvide reemplazar *ACCOUNT\_NAME* y *ACCOUNT\_KEY==* con sus propias credenciales. Reemplace *CONTAINER\_NAME* por el nombre que desee.
 
@@ -232,4 +232,4 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 - La versión 2013-08-15 de los servicios de almacenamiento de Azure ahora es totalmente compatible. (Anteriormente esta versión solo era compatible con versión la versión 2.2.1 Preview del emulador de almacenamiento.)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0323_2016-->

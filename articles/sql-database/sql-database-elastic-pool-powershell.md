@@ -20,7 +20,7 @@
 # Creación de un grupo de bases de datos elásticas con PowerShell para escalar horizontalmente recursos para varias Bases de datos SQL 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Portal de Azure](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -187,7 +187,7 @@ Exportación a un archivo CSV:
 
 Estas API son las mismas que las API (V12) actuales que se usan para supervisar el uso de recursos de una base de datos independiente, excepto por la diferencia semántica siguiente.
 
-* Para esta API, las métricas recuperadas se expresan como un porcentaje de databaseDtuMax (o capacidad equivalente para la métrica subyacente como CPU, E/S etc.) establecido para ese grupo de bases de datos elásticas. Por ejemplo, un 50 % de utilización de cualquiera de estas métricas indica que el consumo específico del recurso está en el 50% del límite de capacidad por base de datos para dicho recurso en el grupo de bases de datos elásticas principal. 
+* Para esta API, las métricas recuperadas se expresan como un porcentaje de databaseDtuMax (o capacidad equivalente para la métrica subyacente como CPU, E/S etc.) establecido para ese grupo de bases de datos elásticas. Por ejemplo, un 50 % de utilización de cualquiera de estas métricas indica que el consumo específico del recurso está en el 50% del límite de capacidad por base de datos para dicho recurso en el grupo de bases de datos elásticas principal. 
 
 Obtenga las métricas:
 
@@ -237,4 +237,4 @@ Tras la creación de un grupo de bases de datos elásticas, puede administrar la
 
 Para obtener información detallada acerca de los grupos y las bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

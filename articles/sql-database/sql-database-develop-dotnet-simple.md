@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/16/2016"
 	ms.author="tobiast"/>
 
 
@@ -24,21 +24,19 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-## Requisitos previos
-
-### .NET Framework
+## Paso 1: Configuración del entorno de desarrollo
 
 .NET framework está previamente instalado con Windows. Para Linux y Mac OS X, puede descargar .NET Framework desde [Mono Project](http://www.mono-project.com/).
 
-### Base de datos SQL
+## Paso 2: Creación de una base de datos SQL
 
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
-## Paso 1: Obtención de la cadena de conexión
+## Paso 3: Obtención de la cadena de conexión
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## Paso 2: Conexión
+## Paso 4: Conexión
 
 La clase [System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) se usa para conectarse a la base de datos SQL.
 
@@ -58,7 +56,7 @@ class Sample
 }
 ```
 
-## Paso 3: Ejecución de una consulta
+## Paso 5: Ejecución de una consulta
 
 Las clases [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) y [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) pueden usarse para recuperar un conjunto de resultados de una consulta realizada a la base de datos SQL. Tenga en cuenta que System.Data.SqlClient también admite la recuperación de datos en [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx) sin conexión.
 
@@ -98,7 +96,7 @@ class Sample
 
 ```  
 
-## Paso 4: Inserción de una fila
+## Paso 6: Inserción de una fila
 
 En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
 
@@ -133,4 +131,11 @@ class Sample
 }
 ```
 
-<!---HONumber=AcomDC_0107_2016-->
+
+## Pasos siguientes
+
+Aprenda a usar la lógica de reintento controlando los códigos de error transitorio para que el código sea más resistente aquí: [Ejemplo de código: lógica de reintento en C# para conectarse a la Base de datos SQL](sql-database-develop-csharp-retry-windows.md)
+
+Para ver los códigos de error comunes, consulte [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas](sql-database-develop-error-messages.md)
+
+<!---HONumber=AcomDC_0330_2016-->

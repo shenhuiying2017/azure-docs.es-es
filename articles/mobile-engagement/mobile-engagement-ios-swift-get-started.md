@@ -12,19 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
-	ms.topic="get-started-article"
-	ms.date="02/29/2016"
+	ms.topic="hero-article"
+	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones iOS en Swift
 
-> [AZURE.SELECTOR]
-- [Windows universal](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Modificador del tutorial de imagen prominente](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 En este tema se muestra cómo utilizar Azure Mobile Engagement para conocer el uso de las aplicaciones y enviar notificaciones push a los usuarios segmentados a una aplicación de iOS. En este tutorial, puede crear una aplicación iOS vacía que recopile datos básicos y reciba notificaciones push mediante el sistema de notificaciones push de Apple (APN).
 
@@ -38,7 +32,7 @@ Este tutorial requiere lo siguiente:
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones iOS.
 
-> [AZURE.IMPORTANT] Completar este tutorial es un requisito previo para los demás tutoriales de Mobile Engagement para aplicaciones iOS. Para completarlo, debe tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
 
 ##<a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación iOS
 
@@ -66,7 +60,7 @@ Crearemos una aplicación básica con XCode para demostrar la integración:
 
 	![][2]
 
-5. Abra la pestaña `Build Phases` y en el menú `Link Binary With Libraries` agregue los marcos tal como se muestra a continuación. **NOTE** Debe incluir `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration`:
+5. Abra la pestaña `Build Phases` y en el menú `Link Binary With Libraries` agregue los marcos tal como se muestra a continuación. **NOTA** Debe incluir `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration`:
 
 	![][3]
 
@@ -210,4 +204,4 @@ Mobile Engagement permite interactuar y llegar a los usuarios mediante notificac
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

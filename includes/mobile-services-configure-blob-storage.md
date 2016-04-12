@@ -1,6 +1,6 @@
 Se registra un nuevo script de inserción que genera un SAS cuando se inserta un nuevo "Todo item".
 
-0. Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md).
+0. Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../articles/storage/storage-create-storage-account.md).
 
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Almacenamiento**, haga clic en la cuenta de almacenamiento y haga clic en **Administrar claves**.
 
@@ -78,7 +78,7 @@ Se registra un nuevo script de inserción que genera un SAS cuando se inserta un
 
    	Así, se reemplaza la función que se invoca cuando se produce una inserción en la tabla TodoItem con un script nuevo. Este script nuevo genera una SAS nueva para la inserción, válida por 5 minutos, y asigna el valor de la SAS generada a la propiedad `sasQueryString` del elemento devuelto. La propiedad `imageUri` se establece también para la ruta de acceso del recurso del BLOB nuevo a fin de habilitar la visualización de imágenes durante el enlace en la interfaz de usuario de cliente.
 
-	>[AZURE.NOTE]Este código crea una SAS para un BLOB individual. Si necesita cargar varios blobs en un contenedor usando la misma SAS, puede llamar al [método generateSharedAccessSignature](http://go.microsoft.com/fwlink/?LinkId=390455)</a> con un nombre de recurso de blob vacío como este:
+	>[AZURE.NOTE] Este código crea una SAS para un BLOB individual. Si necesita cargar varios blobs en un contenedor usando la misma SAS, puede llamar al [método generateSharedAccessSignature](http://go.microsoft.com/fwlink/?LinkId=390455)</a> con un nombre de recurso de blob vacío como este:
 	>                 
 	>     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
 
@@ -91,4 +91,4 @@ A continuación, actualizará la aplicación de inicio rápido para agregar la f
 <!-- URLs. -->
 [Configuración de aplicación]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

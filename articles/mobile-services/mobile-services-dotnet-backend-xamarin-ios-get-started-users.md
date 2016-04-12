@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2015" 
+	ms.date="03/18/2016" 
 	ms.author="donnam"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
@@ -22,7 +22,8 @@
 
 &nbsp;
 
->[AZURE.NOTE]Se trata de un tema de Servicios móviles de Azure. Microsoft Azure recomienda usar Aplicaciones móviles del Servicio de aplicaciones de Azure para todas las nuevas implementaciones de back-end móvil. Para más información, consulte el [tutorial equivalente en la documentación de Aplicaciones móviles](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para obtener información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Adición de la autenticación a la aplicación Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
 
 En este tema se muestra cómo autenticar usuarios en Servicios móviles desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
@@ -74,7 +75,7 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
             }
         }
 
-	> [AZURE.NOTE] Cuando usa un proveedor de identidades que no sea una cuenta de Facebook, cambie el valor que pasó anteriormente a **LoginAsync** por uno de los siguientes: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+	> [AZURE.NOTE] Si usa un proveedor de identidades que no sea una cuenta de Facebook, cambie el valor que pasó anteriormente a **LoginAsync** por uno de los siguientes: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
 3. Abra **QSTodoListViewController.cs** y modifique la definición del método **ViewDidLoad** para quitar o convertir en comentario la llamada a **RefreshAsync()** cerca del final.
 
@@ -89,9 +90,9 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 			}
 		}
 		
-	Se muestra una pantalla de inicio de sesión para intentar la autenticación cuando la propiedad **User** es null. Cuando el inicio de sesión se ha realizado correctamente, se establece **User**.
+	Se muestra una pantalla de inicio de sesión para tratar de realizar la autenticación cuando el valor de la propiedad **User** sea NULL. Cuando el inicio de sesión se ha realizado correctamente, se establece **User**.
 
-5. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación en el simulador de iPhone. Compruebe que la aplicación no muestra ningún dato. **RefreshAsync()** no se ha llamado.
+5. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación en el simulador de iPhone. Compruebe que la aplicación no muestra ningún dato. No se ha llamado a **RefreshAsync()**.
 
 6. Realice el gesto de actualización desplegando la lista de elementos, que llama a **RefreshAsync()**. Se llama a **Authenticate()** para iniciar la pantalla de inicio de sesión y de autenticación que se muestra. Después de haberse autenticado correctamente, la aplicación mostrará la lista de tareas pendientes y podrá realizar actualizaciones en los datos.
 
@@ -117,4 +118,4 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

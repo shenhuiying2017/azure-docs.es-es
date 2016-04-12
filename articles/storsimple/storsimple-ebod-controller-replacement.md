@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="03/22/2016"
    ms.author="alkohli" />
 
 # Reemplazar un controlador EBOD en el dispositivo StorSimple
@@ -30,7 +30,7 @@ Antes de comenzar, tenga en cuenta la siguiente información:
 
 - El controlador EBOD es intercambiable en caliente y puede quitarse o reemplazarse. No quite un módulo defectuoso hasta que tenga un reemplazo. Cuando se inicia el proceso de reemplazo, debe finalizarlo en 10 minutos.
 
->[AZURE.IMPORTANT]Antes de quitar y reemplazar un controlador EBOD, revise la información de seguridad en [Reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Antes de intentar quitar o reemplazar cualquier componente de StorSimple, asegúrese de revisar las [convenciones de iconos de seguridad](storsimple-safety.md#safety-icon-conventions) y otras [precauciones de seguridad](storsimple-safety.md).
 
 ## Quitar un controlador EBOD
 
@@ -48,7 +48,7 @@ Antes de reemplazar el módulo de controladores EBOD defectuoso en el dispositiv
 
 5. Tome nota del puerto SAS exacto del módulo de controladores EBOD que estaba conectado al controlador. Deberá restaurar el sistema a esta configuración después de reemplazar el módulo EBOD.
 
-    >[AZURE.NOTE]Normalmente, se tratará del Puerto A, que está etiquetada como **Alojar en** en el diagrama siguiente.
+    >[AZURE.NOTE] Normalmente, se tratará del Puerto A, que está etiquetado como **Hospedar en** en el diagrama siguiente.
 
     ![Plano anterior del controlador EBOD](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
@@ -101,10 +101,10 @@ El procedimiento y la tabla siguientes explican cómo instalar el módulo de con
     |6|Controlador EBOD 0|
     |7|Controlador EBOD 1|
     |8|Receptáculo EBOD|
-    |9|PDU|
+    |9|Unidades de distribución de energía|
 
 ## Pasos siguientes
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 
@@ -71,7 +71,7 @@ Estos son los pasos necesarios para crear una puerta de enlace de aplicaciones:
 
 ## Creación de un grupo de recursos para el Administrador de recursos
 
-Asegúrese de que está usando la versión más reciente de Azure PowerShell. Para más información, consulte [Uso de Azure PowerShell con Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
+Asegúrese de que está usando la versión más reciente de Azure PowerShell. Para más [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Paso 1
 Inicio de sesión en Login-AzureRmAccount de Azure
@@ -246,4 +246,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

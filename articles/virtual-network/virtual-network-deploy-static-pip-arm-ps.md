@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Implementar una máquina virtual con una dirección IP pública estática mediante PowerShell
@@ -216,4 +216,4 @@ Después de realizar los cambios necesarios y comprender el script anterior, eje
 
    
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

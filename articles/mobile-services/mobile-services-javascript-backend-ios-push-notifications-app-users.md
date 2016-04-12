@@ -14,12 +14,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte la sección sobre [cómo enviar notificaciones de inserción a un usuario autenticado mediante etiquetas](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#push-user).
 
 En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado en iOS. Antes de comenzar este tutorial, complete en primer lugar [Introducción a la autenticación] e [Introducción a las notificaciones de inserción].
 
@@ -69,8 +74,6 @@ function insert(item, user, request) {
 <!-- URLs. -->
 [Introducción a la autenticación]: mobile-services-ios-get-started-users.md
 [Introducción a las notificaciones de inserción]: mobile-services-javascript-backend-ios-get-started-push.md
-
-[Portal de administración de Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0316_2016-->

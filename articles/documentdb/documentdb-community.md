@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="02/24/2016"
+  ms.date="03/18/2016"
   ms.author="andrl"/>
 
 # Portal de la Comunidad
@@ -89,13 +89,19 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 **Entradas de la Comunidad:**
 
-* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb (Recopilación de registros en Azure DocumentDB mediante fluent-plugin-documentdb)**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *por Yoichi Kawasaki*
+* [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) (Entre en las redes sociales con DocumentDB), de *Matias Quarantaas*
 
-* [**DocumentDB revisited Part 1/2 – The theory (Repaso de DocumentDB parte 1 de 2: La teoría)**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *por Peter Mannerhult*
+* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) (UWP, servicios de aplicaciones de Azure y DocumentDB: una aplicación para compartir fotos), de *Eric Langland*
 
-* [**What to love and hate about Azure’s DocumentDB (Ventajas y desventajas de Azure DocumentDB)**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *por George Saadeh*
+* [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md) (Notificaciones para los recursos de DocumentDB nuevos o modificados con Aplicaciones lógicas), *de Howard Edidin*
 
-* [**Azure DocumentDB Server-Side Scripting (Scripting del lado servidor de Azure DocumentDB)**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *por Robert Sheldon*
+* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb **](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) (Recopilación de registros en Azure DocumentDB mediante fluent-plugin-documentdb), de *Yoichi Kawasaki*
+
+* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) (Repaso de DocumentDB parte 1 de 2: La teoría), de *Peter Mannerhult*
+
+* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) (Ventajas y desventajas de Azure DocumentDB), de *George Saadeh*
+
+* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) (Scripting del lado servidor de Azure DocumentDB), de *Robert Sheldon*
 
 * [**DocumentDB as a data sink for Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) (DocumentDB como receptor de datos para Análisis de transmisiones de Azure) - *por Jan Hentschel*
 
@@ -140,9 +146,10 @@ Para mantenerse al día respecto a las novedades y características más recient
 ### Eventos recientes y futuros
 
 | Nombre del evento | Orador | Ubicación | Date | Hashtag |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
-| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, WA | 3 de marzo de 2016 | N/D
-| SQLBits XV | tbd | Liverpool, Reino Unido | Del 4 al 7 de mayo de 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [Build 2016](https://build.microsoft.com/) | John Macintyre y Dharma Shukla | San Francisco, California | Del 30 de marzo al 1 de abril de 2016 | [#MicrosoftBuild](https://twitter.com/hashtag/MicrosoftBuild)
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu y Aravind Ramachandran | Liverpool, Reino Unido | Del 4 al 7 de mayo de 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | Londres, Reino Unido | 12 de mayo de 2016 | N/D |
 
 *¿Es el orador u organizador de un evento? [Queremos saber](mailto:askdocdb@microsoft.com) cómo podemos ayudarle*
 
@@ -150,6 +157,7 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 | Nombre del evento | Orador | Ubicación | Date | Grabación |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Kirat Pandya | Bellevue, WA | 3 de marzo de 2016 | N/D |
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 28 de enero de 2016 | N/D |
 | [Meetup: msdevmtl (Encuentro: msdevmtl)](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montreal, QC, Canadá | 1 de diciembre de 2015 | N/D |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 de noviembre de 2015 | N/D |
@@ -181,8 +189,10 @@ Para mantenerse al día respecto a las novedades y características más recient
 ### Vídeos y podcasts
 
 | Presentación | Orador | Date | Episodio |
-| ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| ------------------------------------------- | --------------------------- | ------------------ | ------- |
+| Wired2WinWebinar | SAI Sankar Kunnathukuzhiyil | 9 de marzo de 2016 | [Developing Solutions with Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs) (Desarrollo de soluciones con Azure DocumentDB)
 | Integration User Group | Han Wong | 17 de febrero de 2016 | [Analyze and visualize non-relational data with DocumentDB + Power BI (Análisis y visualización de datos no relacionales mediante DocumentDB + Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| The Azure Podcast | Cale Teeter | 14 de enero de 2016 | [Episode 110: Using DocumentDB & Search](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) (Episodio 110: uso de DocumentDB y características de búsqueda) |
 | Channel 9: Modern Applications | Tara Shankar Jana | 13 de diciembre de 2016 | [Take a modern approach to data in your apps (Adopción de un enfoque moderno para los datos de las aplicaciones)](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 10 de diciembre de 2015 | [DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Integration User Group | Howard Edidin | 9 de noviembre de 2015 | [Azure DocumentDB for Healthcare Integration – Part 2 (Azure DocumentDB para la integración sanitaria, parte 2)](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
@@ -284,4 +294,4 @@ Los asistentes de DocumentDB son líderes de la Comunidad que han demostró un c
 
 ¿Quiere convertirse en un asistente de DocumentDB? Aunque no hay que superar ninguna prueba de referencia para convertirse en asistente de DocumentDB, entre los criterios que se evalúan se incluyen el impacto de las contribuciones de los nominados en los foros en línea (como StackOverflow y MSDN); contenido en línea y wikis; conferencias y grupos de usuarios; podcasts, sitios web, blogs y redes sociales; y artículos y libros. Para proponerse a sí mismo o proponer a otros [envíenos un correo electrónico](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

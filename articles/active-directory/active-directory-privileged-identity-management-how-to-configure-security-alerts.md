@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management de Azure: Configuración de alertas de seguridad"
+   pageTitle="Configuración de alertas de seguridad | Microsoft Azure"
    description="Aprenda cómo configurar alertas de seguridad para la extensión de Privileged Identity Management de Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management de Azure: Configuración de alertas de seguridad
+# Privileged Identity Management de Azure AD: Configuración de alertas de seguridad
 
 ## Información general de alertas de seguridad
 Privileged Identity Management de Azure (PIM) ofrece las siguientes alertas configurables. Las alertas de seguridad se pueden ver en la sección Alertas del panel de PIM.
@@ -59,4 +59,4 @@ Esta alerta tiene dos ajustes que pueden desencadenar la alerta. El número mín
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

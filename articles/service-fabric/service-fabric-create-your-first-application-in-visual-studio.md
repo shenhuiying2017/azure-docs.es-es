@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/11/2016"
+   ms.date="03/27/2016"
    ms.author="seanmck"/>
 
 # Creación de la primera aplicación de Azure Service Fabric en Visual Studio
@@ -58,7 +58,7 @@ Una aplicación de Service Fabric puede contener uno o varios servicios, cada un
 
 	- **Scripts**: incluye un script de PowerShell para implementar o actualizar aplicaciones. Visual Studio usa este script en segundo plano y se puede invocar directamente desde la línea de comandos.
 
-	- **Definición de aplicación**: incluye el manifiesto de la aplicación y los archivos de parámetros de la aplicación asociados que definen la aplicación y permiten configurarla específicamente para un entorno determinado.
+	- **Definición de aplicación**: incluye el manifiesto de la aplicación en *ApplicationPackageRoot* y los archivos de parámetros de la aplicación asociados de *ApplicationParameters* que definen la aplicación y permiten configurarla específicamente para un entorno determinado.
 
     Para obtener información general del contenido del proyecto de servicio, consulte [Introducción a Reliable Services de Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md).
 
@@ -80,7 +80,7 @@ Ahora que tiene una aplicación, puede probar a ejecutarla.
 
 	En el caso de la plantilla del servicio con estado, los mensajes muestran simplemente el valor del contador que se incrementa en el método `RunAsync` de MyStatefulService.cs.
 
-3. Expanda uno de los eventos para ver más detalles, incluido el nodo en que se ejecuta el código. En este caso, es el nodo 2, aunque puede que en su equipo sea otro.
+3. Expanda uno de los eventos para ver más detalles, incluido el nodo en que se ejecuta el código. En este caso, es \_Node\_2, aunque puede que en su equipo sea otro.
 
 	![Detalle del Visor de eventos de diagnóstico][6]
 
@@ -100,7 +100,7 @@ Ahora que tiene una aplicación, puede probar a ejecutarla.
 
 6. En el panel izquierdo, expanda **Clúster > Nodos** y busque el nodo en que se ejecuta el código.
 
-7. Haga clic en **Acciones > Desactivar (reiniciar)** para simular un reinicio de la máquina.
+7. Haga clic en **Acciones > Desactivar (reiniciar)** para simular un reinicio de la máquina. (Tenga en cuenta que también puede hacerlo en un menú contextual en la vista de lista del nodo en el panel izquierdo mediante la selección de los tres puntos).
 
 	![Detener un nodo en el Explorador de Service Fabric][sfx-stop-node]
 
@@ -114,17 +114,24 @@ Ahora que tiene una aplicación, puede probar a ejecutarla.
 
   Antes de concluir, es importante recordar que el clúster local es real. Incluso después de detener el depurador y de cerrar Visual Studio, las aplicaciones se seguirán ejecutando en segundo plano. Según la naturaleza de las aplicaciones, esta actividad en segundo plano puede consumir importantes recursos en su máquina. Tiene varias opciones para administrar esto:
 
-  1. Para quitar una aplicación individual y todos sus datos, utilice la acción **Quitar aplicación** en el Explorador de Service Fabric.
+  1. Para quitar una aplicación individual y todos sus datos, utilice la acción **Eliminar aplicación** en el explorador de Service Fabric con el menú **ACCIONES** o el menú contextual en la vista de lista de aplicaciones del panel izquierdo.
+  
+    ![Eliminación de una aplicación en el explorador de Service Fabric][sfe-delete-application]
+    
+  2. Después de eliminar la aplicación del clúster, a continuación, puede elegir **el tipo de anulación de aprovisionamiento** para la aplicación que quita el paquete de la aplicación, incluido el código y la configuración, del almacén de imágenes del clúster.
+  3. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Detener clúster local** en la aplicación de bandeja del sistema.
 
-  2. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Detener clúster** en la aplicación de bandeja del sistema.
-
-  3. Para eliminar totalmente el clúster, haga clic en **Quitar clúster** en la aplicación de bandeja del sistema. Tenga en cuenta que esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Úsela solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
+  4. Para eliminar totalmente el clúster, haga clic en **Quitar clúster local** en la aplicación de bandeja del sistema. Tenga en cuenta que esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Úsela solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
 
 
 
 ## Pasos siguientes
 
-- [Vea cómo puede exponer los servicios a Internet con un front-end de servicio web](service-fabric-add-a-web-frontend.md)
+<!--
+Temporarily removing this link because we have removed the ASP.NET template.
+
+ - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
+-->
 - [Más información sobre cómo crear clústeres en Azure](service-fabric-cluster-creation-via-portal.md)
 - [Más información sobre Reliable Services](service-fabric-reliable-services-quick-start.md)
 - [Intente crear un servicio con el modelo de programación Reliable Actors](service-fabric-reliable-actors-get-started.md)
@@ -141,5 +148,6 @@ Ahora que tiene una aplicación, puede probar a ejecutarla.
 [sfx-stop-node]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
+[sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Cómo proteger un back-end de API web con Azure Active Directory y la administración de API
@@ -152,7 +152,7 @@ Presione **F6** para crear y comprobar la solución.
 
 En este paso el proyecto de Visual Studio se publicará en Azure. Este paso del vídeo comienza en 5:45.
 
-Para publicar el proyecto en Azure, haga clic con el botón derecho en el proyecto **APIMAADDemo** en Visual Studio y elija **Publicar**. Mantenga la configuración predeterminada del cuadro de diálogo **Publicación web** y haga clic en **Publicar**.
+Para publicar el proyecto en Azure, haga clic con el botón secundario en el proyecto **APIMAADDemo** en Visual Studio y elija **Publicar**. Mantenga la configuración predeterminada del cuadro de diálogo **Publicación web** y haga clic en **Publicar**.
 
 ![Publicación web][api-management-web-publish]
 
@@ -166,7 +166,7 @@ Haga clic en el nombre de la aplicación para configurar los permisos necesarios
 
 ![Adición de permisos][api-management-aad-add-permissions]
 
->[AZURE.NOTE]Si **Windows** **Azure Active Directory** no aparece en los permisos para otras aplicaciones, haga clic en **Agregar aplicación** y agréguelo de la lista.
+>[AZURE.NOTE] Si **Windows** **Azure Active Directory** no aparece en los permisos para otras aplicaciones, haga clic en **Agregar aplicación** y agréguelo de la lista.
 
 Anote el **URI de id. de aplicación** para usarlo en un paso posterior cuando se configure una aplicación de Azure AD para el portal para desarrolladores de la administración de API.
 
@@ -178,7 +178,7 @@ Las API se configuran desde el portal para editores, al que se accede mediante e
 
 ![Portal del publicador][api-management-management-console]
 
-Las operaciones se pueden [agregar a las API manualmente](api-management-howto-add-operations.md) o se pueden importar. En este vídeo, las operaciones se importan en formato Swagger empezando en 6:40.
+Las operaciones se puede [agregar a las API manualmente](api-management-howto-add-operations.md) o se pueden importar. En este vídeo, las operaciones se importan en formato Swagger empezando en 6:40.
 
 Cree un archivo denominado `calcapi.json` con el siguiente contenido y guárdelo en el equipo. Asegúrese de que el atributo `host`señala a su back-end de API web. En este ejemplo se usa `"host": "apimaaddemo.azurewebsites.net"`.
 
@@ -239,7 +239,7 @@ Elija **Aplicación web y/o API web**, escriba un nombre y haga clic en la flech
 
 Para la **Dirección URL de inicio de sesión**escriba la dirección URL de su servicio de administración de API y anexe `/signin`. En este ejemplo se usa ****https://contoso5.portal.azure-api.net/signin **.
 
-Para la **Dirección URL de id. de aplicación** escriba la dirección URL de su servicio de administración de API y anexe algunos caracteres únicos. Puede tratarse de cualquier carácter que se desee y en este ejemplo se usa ****https://contoso5.portal.azure-api.net/dp**. Cuando se configuran las **Propiedades de la aplicación** deseadas, haga clic en la marca de verificación para crear la aplicación.
+Para la **dirección URL de id. de aplicación** escriba la dirección URL de su servicio de administración de API y anexe algunos caracteres únicos. Puede tratarse de cualquier carácter que se desee y en este ejemplo se usa ****https://contoso5.portal.azure-api.net/dp**. Cuando se configuran las **Propiedades de la aplicación** deseadas, haga clic en la marca de verificación para crear la aplicación.
 
 ![Nueva aplicación][api-management-aad-new-application-devportal-2]
 
@@ -261,7 +261,7 @@ A continuación, especifique la ** URL del punto de conexión de autorización**
 
 ![Servidor de autorización][api-management-add-authorization-server-1a]
 
-Estos valores se pueden recuperar en la página **Puntos de conexión de la aplicación** de la aplicación de AAD que creó para el portal para desarrolladores. Para obtener acceso a los puntos de conexión navegue a la pestaña **Configurar** para la aplicación de AAD y haga clic en **Ver extremos**.
+Estos valores se pueden recuperar en la página **Puntos de conexión de la aplicación** de la aplicación de AAD que creó para el portal para desarrolladores. Para obtener acceso a los extremos navegue a la pestaña **Configurar** para la aplicación de AAD y haga clic en **Ver extremos**.
 
 ![Application][api-management-aad-devportal-application]
 
@@ -271,7 +271,7 @@ Copie el **punto de conexión de autorización OAuth 2.0** y péguelo en el cuad
 
 ![Agregar servidor de autorización][api-management-add-authorization-server-2]
 
-Copie el **punto de conexión de token de OAuth 2.0** y péguelo en el cuadro de texto **URL del punto de conexión de autorización**.
+Copie el **extremo de token de OAuth 2.0** y péguelo en el cuadro de texto **URL del extremo de autorización**.
 
 ![Agregar servidor de autorización][api-management-add-authorization-server-2a]
 
@@ -291,7 +291,7 @@ Para obtener el **Secreto de cliente** haga clic en el menú desplegable **Selec
 
 Haga clic en **Guardar** para guardar la configuración y mostrar la clave.
 
->[AZURE.IMPORTANT]Anote esta clave. Una vez que se cierre la ventana de configuración de Azure Active Directory, la clave no se puede mostrar de nuevo.
+>[AZURE.IMPORTANT] Anote esta clave. Una vez que se cierre la ventana de configuración de Azure Active Directory, la clave no se puede mostrar de nuevo.
 
 Copie la clave en el portapapeles, vuelva al portal para editores, pegue la clave en el cuadro de texto **Secreto de cliente** y haga clic en**Guardar**.
 
@@ -301,7 +301,7 @@ Inmediatamente después de las credenciales del cliente hay una concesión de c�
 
 ![URL de respuesta][api-management-aad-reply-url]
 
-El siguiente paso es configurar los permisos para la aplicación de AAD del portal para desarrolladores. Haga clic en **Permisos de la aplicación** y active la casilla para **Leer datos de directorio**. Haga clic en **Guardar** para guardar este cambio y luego haga clic en**Agregar aplicación**.
+El siguiente paso es configurar los permisos para la aplicación de AAD del portal para desarrolladores. Haga clic en **Permisos de la aplicación** y active la casilla para **Leer datos de directorio**. Haga clic en **Guardar** para guardar este cambios y luego haga clic en**Agregar aplicación**.
 
 ![Adición de permisos][api-management-add-devportal-permissions]
 
@@ -413,4 +413,4 @@ Para ver otra demostración de cómo configurar y usar esta directiva, consulte 
 [Creación de una instancia del servicio de administración de API]: api-management-get-started.md#create-service-instance
 [Administrar su primera API]: api-management-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

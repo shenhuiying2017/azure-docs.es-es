@@ -3,8 +3,8 @@
 	description="Búsqueda de informes de auditoría, actividad y seguridad de Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
+	authors="dhanyahk"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,18 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 # Búsqueda de informes de Azure Active Directory
 
 *Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
-Azure Active Directory proporciona a los administradores de directorio la capacidad de buscar eventos de auditoría, actividad y seguridad del usuario entre varios informes.
+Azure Active Directory (Azure AD) proporciona a los administradores de directorio la capacidad de buscar eventos de auditoría, actividad y seguridad del usuario entre varios informes.
 
-Para encontrar el panel de búsqueda, vaya al **Portal de administración de Azure -> Su Azure Active Directory -> Informes**. El panel puede encontrarse en la parte superior de la lista de informes.
+Para encontrar el panel de búsqueda, vaya al **Portal de Azure clásico -> Su directorio de Azure AD -> Informes**. El panel puede encontrarse en la parte superior de la lista de informes.
 
-Para buscar eventos de actividad o de auditoría para un determinado usuario, seleccione un intervalo de fechas en los campos De y Para, escriba el nombre para mostrar o el UPN del usuario y haga clic en el botón de marca de verificación.
+Para buscar eventos de actividad o de auditoría para un determinado usuario, seleccione un intervalo de fechas en los campos De y Para, escriba el nombre para mostrar o el UPN del usuario y seleccione el botón de marca de verificación (Aceptar).
 
 ## Informes incluidos en la búsqueda
 
@@ -38,7 +38,7 @@ Inicios de sesión desde varias ubicaciones geográficas | No
 Inicios de sesión desde direcciones IP con actividad sospechosa | No
 Inicios de sesión desde dispositivos posiblemente infectados | No
 Actividad de inicio de sesión irregular | No
-Usuarios con actividad de inicio de sesión erróneo. | No
+Usuarios con actividad de inicio de sesión anómala | No
 Usuarios con credenciales perdidas | No
 Informe de auditoría | Sí
 Actividad de restablecimiento de contraseña | Sí
@@ -58,4 +58,4 @@ Uso de dispositivos RMS | No
  - [Informes de Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Eventos de auditoría de informes de Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

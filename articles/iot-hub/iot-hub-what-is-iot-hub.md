@@ -1,6 +1,6 @@
 <properties
  pageTitle="Información general del Centro de IoT de Azure | Microsoft Azure"
- description="Información general del servicio Centro de IoT de Azure que incluye la conectividad de dispositivos, los patrones de comunicación y el patrón de comunicación asistida por servicios"
+ description="Una información general del servicio del Centro de IoT de Azure, que incluye la arquitectura de Internet de la cosas, la conectividad de dispositivos, los patrones de comunicación y el patrón de comunicación asistida por servicios"
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -27,7 +27,7 @@ El Centro de IoT de Azure es un servicio totalmente administrado que permite la 
 - Proporciona una supervisión exhaustiva para la conectividad de dispositivos y los eventos de administración de identidad de dispositivos.
 - Incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
 
-![El centro de IoT como puerta de enlace de nube][img-architecture]
+![Centro de IoT de Azure como solución de puerta de enlace de nube en Internet de las cosas][img-architecture]
 
 ## Problemas de conectividad de dispositivos IoT
 
@@ -112,4 +112,4 @@ Para obtener más información sobre el Centro de IoT de Azure, consulte estos v
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

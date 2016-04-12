@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Programaciones en Automatización de Azure | Microsoft Azure"
    description="Las programaciones de Automatización se usan para programar runbooks en Automatización de Azure para que se inicien automáticamente. En este artículo se describe cómo crear programaciones."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
+   ms.date="03/18/2016"
    ms.author="bwren" />
 
 # Programaciones en Automatización de Azure
 
-Las programaciones de Automatización se usan para programar la ejecución automática de runbooks. Podría ser una sola fecha y hora para que el runbook se ejecute una vez. O bien, se puede tratar de una programación periódica para iniciar el runbook varias veces. Normalmente, no se accede a las programaciones desde los runbooks.
+Las programaciones de Automatización se usan para programar la ejecución automática de runbooks. Podría ser una sola fecha y hora para que el runbook se ejecute una vez. O bien, se puede tratar de una programación periódica que se repita cada día o cada hora para iniciar el runbook varias veces. Normalmente, no se accede a las programaciones desde los runbooks.
 
 >[AZURE.NOTE]  Las programaciones no admiten actualmente las configuraciones de DSC de Automatización de Azure.
 
@@ -60,12 +60,11 @@ El cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn6902
 	$scheduleName = "My Daily Schedule"
 	$startTime = (Get-Date).Date.AddDays(1).AddHours(12)
 	$expiryTime = $startTime.AddYears(1)
-	
+
 	New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime $startTime –ExpiryTime $expiryTime –DayInterval 1
 
 
 ## Otras referencias
 - [Programación de un runbook en Automatización de Azure](automation-scheduling-a-runbook.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

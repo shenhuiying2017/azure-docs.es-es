@@ -22,6 +22,6 @@ A continuación se presentan características y conceptos importantes en los Ser
 + **Escala:** la capacidad de agregar, por un coste adicional, más potencia de procesamiento, rendimiento y almacenamiento a medida que su aplicación se hace más conocida.
 + **Trabajo programado:** código personalizado que se ejecuta en una programación predeterminada o a petición.
 
-Para obtener más información, consulte [Conceptos de Servicios móviles](mobile-services-concepts-links.md).
+Para obtener más información, consulte [Conceptos de Servicios móviles](../articles/mobile-services/mobile-services-concepts-links.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="03/15/2016"
    ms.author="telmos"/>
 
 # Creación de una red virtual usando una plantilla de ARM
@@ -39,4 +39,4 @@ Si simplemente va a implementar la plantilla de ARM directamente desde GitHub, s
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

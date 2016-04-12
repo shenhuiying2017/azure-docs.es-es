@@ -11,7 +11,7 @@
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/29/2015"
@@ -65,7 +65,7 @@ Copie el código que se muestra más arriba y abra http://aka.ms/devicelogin en 
 ## Uso del inicio de sesión no interactivo con una cuenta profesional o educativa
 
 
-El método de inicio de sesión no interactivo solo funciona con una cuenta profesional o educativa, también conocida como *cuenta de la organización*. Esta cuenta está administrada por su organización y definida en el Azure Active Directory de la organización. También puede [crear una cuenta de la organización](#create-an-organizational-account) si no tiene una, o bien puede [crear un identificador profesional o educativo a partir del identificador de su cuenta Microsoft](./virtual-machines/resource-group-create-work-id-from-personal.md). Esto requiere que especifique un nombre de usuario o un nombre de usuario y una contraseña para el comando `azure login`, de este modo:
+El método de inicio de sesión no interactivo solo funciona con una cuenta profesional o educativa, también conocida como *cuenta de la organización*. Esta cuenta está administrada por su organización y definida en el Azure Active Directory de la organización. También puede [crear una cuenta de la organización](#create-an-organizational-account) si no tiene una, o bien puede [crear un identificador profesional o educativo a partir del identificador de su cuenta Microsoft](./virtual-machines/virtual-machines-windows-create-aad-work-id.md). Esto requiere que especifique un nombre de usuario o un nombre de usuario y una contraseña para el comando `azure login`, de este modo:
 
 	azure login -u ahmet@contoso.onmicrosoft.com
 	info:    Executing command login
@@ -156,4 +156,4 @@ Independientemente de que inicie sesión con una cuenta profesional o educativa 
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

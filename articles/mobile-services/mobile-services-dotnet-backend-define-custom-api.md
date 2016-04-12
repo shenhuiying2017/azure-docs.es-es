@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 
 # Definición de un extremo de API personalizada en un servicio móvil back-end de .NET
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> [AZURE.SELECTOR]
+- [Back-end de JavaScript](./mobile-services-javascript-backend-define-custom-api.md)
+- [Back-end de .NET](./mobile-services-dotnet-backend-define-custom-api.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR]
-- [JavaScript backend](./mobile-services-javascript-backend-define-custom-api.md)
-- [.NET backend](./mobile-services-dotnet-backend-define-custom-api.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Procedimiento: Definición de un controlador de API](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-custom-api-controller).
 
 En este tema se muestra cómo definir un extremo de API personalizada en un servicio móvil back-end de .NET. Una API personalizada le permite definir extremos personalizados con funcionalidad de servidor que no se asigna a una operación de inserción, actualización, eliminación o lectura de base de datos. Mediante una API personalizada, tiene más control sobre la mensajería, incluidos los encabezados HTTP y el formato del cuerpo.
 
@@ -41,4 +40,4 @@ Para obtener información sobre cómo invocar una API personalizada en la aplica
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

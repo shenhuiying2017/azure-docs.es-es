@@ -102,11 +102,11 @@ Al crear un servicio en la nube o un servicio de almacenamiento, necesitará pro
 - Europa del Norte
 - Sudeste asiático
 - Asia oriental
-- Central EE. UU.:
+- Central EE. UU.:
 - Centro-Norte de EE. UU
 - Centro-Sur de EE. UU
-- Oeste de EE. UU.
-- Este de EE. UU.
+- Oeste de EE. UU.
+- Este de EE. UU.
 - Este de Japón
 - Oeste de Japón
 - Sur de Brasil
@@ -401,9 +401,9 @@ Para crear finalmente la máquina virtual con la imagen capturada, use el métod
 		role_size='Small',
 		vm_image_name = image_name)
 
-Para obtener más información acerca de cómo capturar una máquina Virtual Linux, consulte [Captura de una máquina virtual de Linux.](../virtual-machines/virtual-machines-linux-capture-image.md)
+Para obtener más información acerca de cómo capturar una máquina Virtual Linux, consulte [Captura de una máquina virtual de Linux.](../virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
-Para obtener más información acerca de cómo capturar una máquina virtual de Windows, consulte [Captura de una máquina virtual de Windows](../virtual-machines/virtual-machines-capture-image-windows-server.md).
+Para obtener más información acerca de cómo capturar una máquina virtual de Windows, consulte [Captura de una máquina virtual de Windows](../virtual-machines/virtual-machines-windows-classic-capture-image.md).
 
 ## <a name="What's Next"> </a>Pasos siguientes
 
@@ -435,4 +435,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 
 [servicio en la nube]: https://azure.microsoft.com/es-ES/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

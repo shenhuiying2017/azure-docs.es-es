@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Actualización a la Base de datos SQL V12 de Azure mediante el Portal de Azure | Microsoft Azure" 
-	description="Explicación acerca de cómo actualizar a la Base de datos SQL V12 de Azure, incluido cómo actualizar las bases de datos de tipo Web y Business y cómo actualizar un servidor V11 migrando sus bases de datos directamente a un grupo de bases de datos elásticas mediante el Portal de Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
+<properties
+	pageTitle="Actualización a la Base de datos SQL V12 de Azure mediante el Portal de Azure | Microsoft Azure"
+	description="Explicación acerca de cómo actualizar a la Base de datos SQL V12 de Azure, incluido cómo actualizar las bases de datos de tipo Web y Business y cómo actualizar un servidor V11 migrando sus bases de datos directamente a un grupo de bases de datos elásticas mediante el Portal de Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
 	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-management" 
-	ms.date="02/23/2016" 
+<tags
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="02/23/2016"
 	ms.author="sstein"/>
 
 
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-upgrade-server-portal.md)
+- [Portal de Azure](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -41,12 +41,11 @@ Tenga en cuenta que las bases de datos permanecerán en línea y seguirán funci
 
 Recuerde que la actualización a la Base de datos SQL V12 no se puede deshacer. Después de realizar la actualización, no podrá revertir el servidor a la versión V11.
 
-Después de realizar la actualización a V12, las [recomendaciones de nivel de servicio](sql-database-service-tier-advisor.md) y las [recomendaciones de grupos elásticos](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier) no estarán disponibles de forma inmediata; para ello, deberá esperar a que el servicio evalúe las cargas de trabajo en el nuevo servidor. El historial de recomendaciones del servidor V11 no se aplica a los servidores V12, así que no se conservará.
-
+Después de realizar la actualización a V12, las [Recomendaciones sobre el nivel de precios de Base de datos SQL](sql-database-service-tier-advisor.md) y las [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md) no estarán disponibles de forma inmediata; para ello, deberá esperar a que el servicio evalúe las cargas de trabajo en el nuevo servidor. El historial de recomendaciones del servidor V11 no se aplica a los servidores V12, así que no se conservará.
 
 ## Preparación de la actualización
 
-- **Actualizar todas las bases de datos de tipo Web y Business**: consulte la sección [Actualizar todas las bases de datos de tipo Web y Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) que tiene a continuación o use [PowerShell para actualizar las bases de datos y el servidor](sql-database-upgrade-server-powershell.md).
+- **Actualizar todas las bases de datos de tipo Web y Business**: consulte la sección [Actualizar todas las bases de datos de tipo Web y Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) que aparece a continuación, o bien [Supervisión y administración de un grupo de bases de datos elásticas (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 - **Revisar y suspender la replicación geográfica**: si la Base de datos SQL de Azure está configurada para replicación geográfica, debe documentar la configuración actual y [detener la replicación geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Una vez completada la actualización, debe volver a configurar la base de datos para la replicación geográfica.
 - **Abra los siguientes puertos si tiene clientes en una máquina virtual de Azure**: si el programa cliente se conecta a la Base de datos SQL V12, mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir los intervalos de puerto 11000 a 11999 y de 14000 a 14999 en la máquina virtual. Para obtener más información, consulte [Puertos de la Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
@@ -64,7 +63,7 @@ Después de realizar la actualización a V12, las [recomendaciones de nivel de s
 Si el servidor tiene alguna base de datos Web o Business, debe actualizarla. Durante el proceso de actualización a la Base de datos SQL V12, también deberá actualizar todas las bases de datos Web y Business a un nuevo nivel de servicio.
 
 Para ayudarle con la actualización, el servicio Base de datos SQL recomienda un nivel de servicio apropiado y un nivel de rendimiento (plan de tarifa) para cada base de datos. El servicio le recomendará el nivel que mejor se adapte a usted para ejecutar las cargas de trabajo de la base de datos existente; para ello, analizará el historial de uso de la base de datos.
-    
+
 3. En la hoja denominada **Actualizar este servidor**, seleccione cada base de datos para su revisión y seleccione el plan de tarifa recomendado al que desea realizar la actualización. Siempre puede examinar los planes de tarifa disponibles y seleccionar el que mejor se adapte a su entorno.
 
 
@@ -82,7 +81,7 @@ Cuando todas las bases de datos del servidor sean aptas, estará listo para inic
 
 ## Confirmación de la actualización
 
-3. Cuando todas las bases de datos del servidor sean aptas para su actualización, tendrá que **ESCRIBIR EL NOMBRE DEL SERVIDOR** para confirmar que desea realizar la actualización y, a continuación, hacer clic en **Aceptar**. 
+3. Cuando todas las bases de datos del servidor sean aptas para su actualización, tendrá que **ESCRIBIR EL NOMBRE DEL SERVIDOR** para confirmar que desea realizar la actualización y, a continuación, hacer clic en **Aceptar**.
 
     ![comprobar la actualización][3]
 
@@ -103,19 +102,19 @@ En el [Portal de Azure](https://portal.azure.com/), acceda al servidor V12 y hag
 
 O bien
 
-Si ve un mensaje que le indica **Haga clic aquí para ver los grupos de bases de datos elásticas recomendados de este servidor**, haga clic en él para así crear fácilmente un grupo que esté optimizado para las bases de datos del servidor. Para obtener más información, consulte [Grupos de bases de datos elásticas recomendados](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
+Si ve un mensaje que le indica **Haga clic aquí para ver los grupos de bases de datos elásticas recomendados de este servidor**, haga clic en él para así crear fácilmente un grupo que esté optimizado para las bases de datos del servidor. Para más detalles, consulte [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
 
 ![Adición de un grupo a un servidor][7]
-   
+
 Siga las instrucciones del artículo [Crear un grupo de bases de datos elásticas](sql-database-elastic-pool.md) para terminar de crear el grupo.
 
 ## Supervisión de las bases de datos después de actualizar a la Base de datos SQL V12
 
 >[AZURE.IMPORTANT] Actualice a la última versión de SQL Server Management Studio (SSMS) para aprovechar las nuevas capacidades de v12. [Descargue SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-	
-Después de la actualización, es recomendable que supervise la base de datos de forma activa para asegurarse de que todas las aplicaciones se están ejecutando correctamente y que tienen el rendimiento adecuado; de esta manera, podrá optimizar el uso según sea necesario.
 
-Además de supervisar las bases de datos individuales, también puede supervisar los grupos de bases de datos elásticas [mediante el portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) o mediante [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
+Después de la actualización, supervise la base de datos de forma activa para asegurarse de que las aplicaciones se están ejecutando correctamente y que tienen el rendimiento adecuado; de esta manera, podrá optimizar la configuración según sea necesario.
+
+Además de supervisar las bases de datos individuales, también puede supervisar los grupos de bases de datos elásticas: [Configuración del tamaño, administración y supervisión de grupos de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-manage-portal.md) o mediante [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
 **Datos de consumo de recursos**: para las bases de datos de niveles Básico, Estándar y Premium, tiene disponibles datos de consumo de recursos a través de una vista de administración dinámica (DMV) denominada [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y de registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
@@ -148,9 +147,8 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 
 ## Pasos siguientes
 
-- [Busque recomendaciones para el grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
-- [Cree un grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md) y agregue algunas o todas las bases de datos al grupo.
-- [Cambie el nivel de servicio y el nivel de rendimiento de su base de datos](sql-database-scale-up.md).
+- [Buscar recomendaciones de grupo y crear un grupo](sql-database-elastic-pool-create-portal.md).
+- [Cambio del nivel de servicio y del nivel de rendimiento de la base de datos](sql-database-scale-up.md).
 
 
 
@@ -169,4 +167,4 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

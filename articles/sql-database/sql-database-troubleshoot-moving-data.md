@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="03/28/2016"
 	ms.author="v-shysun"/>
 
 # Movimiento de bases de datos de un servidor a otro, de una suscripción a otra, y dentro y fuera de Azure
@@ -24,9 +24,9 @@
 - En el [Portal de Azure](https://portal.azure.com), haga clic en **Servidores SQL Server** y, en la lista, seleccione el servidor que hospeda la base de datos. Haga clic en **Mover** y seleccione los recursos que va a mover y la suscripción a la que los va a mover.
 
 ## Para migrar una base de datos SQL a Azure
-- Determine la compatibilidad de la base de datos y seleccione el método de migración más adecuado según sus necesidades. Siga las instrucciones y las opciones de Migración de una base de datos de SQL Server.
+- Determine la compatibilidad de la base de datos y seleccione el método de migración más adecuado según sus necesidades. Siga las instrucciones y las opciones que se describen en [Migrate a SQL Server database to SQL Server in an Azure VM](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md) (Migración de una base de datos SQL Server a SQL Server en una máquina virtual de Azure).
 
 ## Para crear una copia de una base de datos para su uso fuera de Azure
 - [Exportación de un archivo BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

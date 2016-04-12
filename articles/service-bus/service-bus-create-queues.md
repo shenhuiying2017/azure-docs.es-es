@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Creación de aplicaciones que usan colas del Bus de servicio | Microsoft Azure"
-   description="Escritura de una aplicación sencilla basada en cola que usa del Bus de servicio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Creación de aplicaciones que usan colas del Bus de servicio | Microsoft Azure"
+    description="Escritura de una aplicación sencilla basada en cola que usa del Bus de servicio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Creación de aplicaciones que usan colas del Bus de servicio
 
@@ -31,7 +31,7 @@ Antes de examinar el código necesario para configurar esta aplicación, conside
 
 ### Desacoplamiento temporal
 
-Con el patrón de mensajería asincrónica, no es preciso que los productores y consumidores estén en línea al mismo tiempo. La infraestructura de mensajería almacena de forma confiable los mensajes hasta que la parte consumidora esté preparada para recibirlos. Esto permite desconectar los componentes de la aplicación distribuida, ya sea voluntariamente (por ejemplo, para realizar tareas de mantenimiento) o debido al bloqueo de algún componente, sin que afecte a todo el sistema. Además, es posible que la aplicación consumidora solo tenga que estar en línea durante determinados momentos del día. Por ejemplo, en este escenario minorista, el sistema de gestión de inventarios solo debe estar en línea después del final del día laborable.
+Con el patrón de mensajería asincrónica, no es preciso que los productores y consumidores estén en línea al mismo tiempo. La infraestructura de mensajería almacena de forma confiable los mensajes hasta que la parte consumidora esté preparada para recibirlos. Esto significa que los componentes de la aplicación distribuida pueden desconectarse, ya sea voluntariamente (por ejemplo, para realizar tareas de mantenimiento) o debido al bloqueo de algún componente, sin que afecte a todo el sistema. Además, es posible que la aplicación consumidora solo tenga que estar en línea durante determinados momentos del día. Por ejemplo, en este escenario minorista, el sistema de gestión de inventarios solo debe estar en línea después del final del día laborable.
 
 ### Redistribución de la carga
 
@@ -55,15 +55,15 @@ En la sección siguiente se muestra cómo usar el Bus de servicio para compilar 
 
 ### Registro en una cuenta del Bus de servicio y suscripción
 
-Para empezar a trabajar con el Bus de servicio, se necesita una cuenta de Azure. Si no tiene una, puede registrarse para obtener una versión de evaluación gratuita [aquí](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+Para empezar a trabajar con el Bus de servicio, se necesita una cuenta de Azure. Si no tiene una, puede registrarse para obtener una cuenta gratuita [aquí](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Creación de un espacio de nombres de servicio
 
-Una vez que tenga una suscripción, puede crear un nuevo espacio de nombres. Tendrá que asignar un nombre único al nuevo espacio de nombres en todas las cuentas de Bus de servicio. Cada espacio de nombres actúa como contenedor de un conjunto de entidades de Bus de servicio. Para obtener más información, consulte [Procedimientos: Creación o modificación de un espacio de nombres del servicio Bus de servicio](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+Una vez que tenga una suscripción, puede crear un nuevo espacio de nombres. Asigne un nombre único al nuevo espacio de nombres en todas las cuentas de Bus de servicio. Cada espacio de nombres actúa como contenedor con un ámbito para un conjunto de entidades de Bus de servicio.
 
 ### Instalación del paquete NuGet.
 
-Para usar el espacio de nombres del servicio Bus de servicio, una aplicación debe hacer referencia el ensamblado del Bus de servicio, en concreto Microsoft.ServiceBus.dll. Este ensamblado forma parte del SDK de Microsoft Azure y la descarga está disponible en la [página de descarga del SDK de Azure](https://azure.microsoft.com/downloads/). Sin embargo, el paquete NuGet de Bus de servicio es la forma más sencilla de obtener la API de Bus de servicio y configurar su aplicación con todas las dependencias del Bus de servicio. Para obtener más información acerca del uso del paquete NuGet y del bus de servicio, consulte [Using the NuGet Service Bus Package](https://msdn.microsoft.com/library/dn741354.aspx).
+Para usar el espacio de nombres de Bus de servicio, una aplicación debe hacer referencia al ensamblado de Bus de servicio, en concreto Microsoft.ServiceBus.dll. Este ensamblado forma parte del SDK de Microsoft Azure y la descarga está disponible en la [página de descarga del SDK de Azure](https://azure.microsoft.com/downloads/). Sin embargo, el [paquete NuGet de Bus de servicio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) es la forma más sencilla de obtener la API de Bus de servicio y configurar su aplicación con todas las dependencias de Bus de servicio.
 
 ### Creación de la cola
 
@@ -158,6 +158,6 @@ catch (Exception e)
 
 ## Pasos siguientes
 
-Ahora que ha aprendido los conceptos básicos de las colas, consulte [Creación de aplicaciones que usan temas y suscripciones del Bus de servicio](service-bus-create-topics-subscriptions.md) para continuar este tema sobre las capacidades de publicación/suscripción de la mensajería asincrónica de Bus de servicio.
+Ahora que ha aprendido los conceptos básicos de las colas, consulte [Creación de aplicaciones que usan temas y suscripciones de Bus de servicio](service-bus-create-topics-subscriptions.md) para continuar este tema sobre el uso de las funcionalidades de publicación y suscripción de los temas y las suscripciones de Bus de servicio.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

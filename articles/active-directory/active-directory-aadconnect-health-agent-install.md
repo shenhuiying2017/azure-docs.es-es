@@ -3,9 +3,9 @@
 	description="Página de Azure AD Connect Health que describe la instalación del agente para AD FS y sincronización."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="karavar"/>
 
 <tags
 	ms.service="active-directory"
@@ -13,19 +13,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
-
-
-
-
+	ms.date="03/29/2016"
+	ms.author="vakarand"/>
 
 
 # Instalación del agente de Azure AD Connect Health
 
-Este documento le guiará en la instalación y configuración del agente de Azure AD Connect Health para AD FS y sincronización.
+Este documento le guiará en la instalación y configuración de los agentes de Azure AD Connect Health. Puede descargar los agentes [aquí](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
 
->[AZURE.NOTE]Recuerde que para ver los datos AD FS de la instancia de Azure AD Connect Health, deberá instalar el agente de Azure AD Connect Health en los servidores de destino. Asegúrese de completar los requisitos que se describen [aquí](active-directory-aadconnect-health.md#requirements) antes de instalar el agente. Puede descargar el agente [aquí](http://go.microsoft.com/fwlink/?LinkID=518973).
+## 	Requisitos
+En la tabla siguiente hay una lista de requisitos para utilizar Azure AD Connect Health.
+
+| Requisito | Descripción|
+| ----------- | ---------- |
+|Azure AD Premium| Azure AD Connect Health es una característica de Azure AD Premium y, por tanto, requiere Azure AD Premium. </br></br>Para más información, consulte [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md).</br>Para iniciar una evaluación gratuita de 30 días, consulte [Iniciar una evaluación](https://azure.microsoft.com/trial/get-started-active-directory/).|
+|Debe ser un administrador global de su entorno de Azure AD para empezar a trabajar con Azure AD Connect Health|De forma predeterminada, solo los administradores globales pueden instalar y configurar los agentes de mantenimiento para empezar, acceder al portal y realizar operaciones en Azure AD Connect Health. Para obtener información adicional, consulte [Administración de su directorio de Azure AD](active-directory-administer.md). <br><br> El uso de control de acceso basado en rol puede permitir que otros usuarios de la organización accedan a Azure AD Connect Health. Para más información, consulte [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control).</br></br>**Importante:**La cuenta que utilice al instalar los agentes debe ser una cuenta profesional o educativa y no puede ser una cuenta de Microsoft. Para obtener más información, consulte [Inicio de sesión en Azure como una organización](sign-up-organization.md).
+|El agente de Azure AD Connect Health está instalado en cada servidor de destino| Azure AD Connect Health requiere que haya un agente instalado en los servidores de destino para proporcionar los datos que se ven en el portal. </br></br>Por ejemplo, para obtener datos en la infraestructura local de AD FS, el agente debe instalarse en los servidores de AD FS, los servidores Proxy de AD FS y servidores Proxy de Aplicación web. </br></br>**Importante:** La cuenta que utilice al instalar los agentes debe ser una cuenta profesional o educativa y no puede ser una cuenta de Microsoft. Para obtener más información, consulte [Inicio de sesión en Azure como una organización](sign-up-organization.md).|
+|Conectividad saliente a los extremos del servicio de Azure|Durante la instalación y el tiempo de ejecución, el agente requiere conectividad a los extremos del servicio de Azure AD Connect Health que se enumeran a continuación. Si bloquea la conectividad saliente, asegúrese de agregar lo siguiente a la lista de elementos permitidos: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+|Puertos de Firewall en el servidor que ejecuta al agente.| El agente requiere que los siguientes puertos de firewall estén abiertos para poder comunicarse con los puntos de conexión de Azure AD Health.</br></br><li>Puerto 443 de TCP/UDP</li><li>Puerto 5671 de TCP/UDP</li>
+|Permitir los siguientes sitios web si la seguridad mejorada de IE está habilitada|Los siguientes sitios web se deben permitir si está habilitada la seguridad mejorada de Internet Explorer en el servidor en el que estará instalado el agente.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>El servidor de federación de su organización en el que confía Azure Active Directory. Por ejemplo: https://sts.contoso.com</li>
+
+
 
 
 ## Instalación del agente de Azure AD Connect Health para AD FS
@@ -44,7 +52,7 @@ Con esto se iniciará un símbolo del sistema seguido de una instancia de PowerS
 
 Después de iniciar sesión, PowerShell continuará. Una vez que termine, puede cerrar PowerShell y la configuración estará completa.
 
-En este punto, los servicios se iniciarán automáticamente y el agente supervisará y recopilará datos. Tenga en cuenta que si no ha cumplido todos los requisitos previos descritos en las secciones anteriores, verá advertencias en la ventana de PowerShell. Asegúrese de completar los requisitos que se describen [aquí](active-directory-aadconnect-health.md#requirements) antes de instalar el agente. La captura de pantalla siguiente es un ejemplo de estos errores.
+En este punto, los servicios se iniciarán automáticamente y el agente supervisará y recopilará datos. Tenga en cuenta que si no ha cumplido todos los requisitos previos descritos en las secciones anteriores, verá advertencias en la ventana de PowerShell. Asegúrese de completar los requisitos que se describen [aquí](active-directory-aadconnect-health-agent-install.md#requirements) antes de instalar el agente. La captura de pantalla siguiente es un ejemplo de estos errores.
 
 ![Comprobación de Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install4.png)
 
@@ -121,13 +129,31 @@ El agente de Azure AD Connect Health para sincronización se instala automática
 
 Para comprobar que se instaló el agente, abra los servicios y busque lo siguiente. Si completó la configuración, estos servicios deben aparecer en ejecución. De lo contrario, no se iniciarán hasta que se complete la configuración.
 
-- Servicio de análisis de AADSync de Azure AD Connect Health
-- Servicio de supervisión de AADSync de Azure AD Connect Health
+- Servicio de análisis de sincronización de Azure AD Connect Health
+- Servicio de supervisión de sincronización de Azure AD Connect Health
 
 ![Comprobación de Azure AD Connect Health para sincronización](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE] Recuerde que el uso de Azure AD Connect Health requiere Azure AD Premium. Si no tiene Azure AD Premium no podrá completar la configuración en el portal de Azure. Para obtener más información, consulte los requisitos [aquí](active-directory-aadconnect-health.md#requirements).
+> [AZURE.NOTE] Recuerde que el uso de Azure AD Connect Health requiere Azure AD Premium. Si no tiene Azure AD Premium no podrá completar la configuración en el portal de Azure. Para obtener más información, consulte los requisitos [aquí](active-directory-aadconnect-health-agent-install.md#requirements).
 
+
+## Registro manual de Azure AD Connect Health para sincronización
+Si se produce un error del agente de registro de Azure AD Connect Health para sincronización después de instalar correctamente Azure AD Connect, puede usar el siguiente comando de PowerShell para registrar el agente manualmente.
+
+>[AZURE.IMPORTANT] El uso de este comando de PowerShell solo es necesario si se produce un error en el registro del agente después de instalar Azure AD Connect.
+
+El siguiente comando de PowerShell solo es necesario cuando se produce un error en el registro del agente de mantenimiento incluso después de una correcta instalación y configuración de Azure AD Connect. En tales casos, los servicios de Azure AD Connect Health no se iniciarán hasta que el agente se registre correctamente.
+
+Puede registrar manualmente el agente de Azure AD Connect Health para sincronización con el siguiente comando de PowerShell:
+
+`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
+
+El comando toma los siguientes parámetros:
+
+- AttributeFiltering: $true (predeterminado) si Azure AD Connect no está sincronizando el conjunto de atributos predeterminado y se ha personalizado para usar un conjunto de atributos filtrados. $false en caso contrario.
+- StagingMode: $false (predeterminado) si el servidor de Azure AD Connect no está en modo de almacenamiento provisional; $true si el servidor está configurado en modo de almacenamiento provisional.
+
+Cuando se le solicite autenticación, debe usar la misma cuenta de administrador global (como admin@domain.onmicrosoft.com) que se usó para configurar Azure AD Connect.
 
 
 
@@ -186,7 +212,7 @@ Si el agente no puede enviar datos al servicio Azure AD Connect Health durante m
     Test-AzureADConnectHealthConnectivity -Role Adfs
 
 El parámetro de rol tiene actualmente los siguientes valores:
-	
+
 - ADFS
 - Sync
 
@@ -194,7 +220,8 @@ Puede utilizar la marca - ShowResults en el comando para ver los registros detal
 
     Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
->[AZURE.NOTE]Para poder utilizar la herramienta de conectividad, primero debe completar el registro del agente. Si no puede completar el registro del agente, asegúrese de que cumple todos los [requisitos](active-directory-aadconnect-health.md#requirements) para Azure AD Connect Health. Esta prueba de conectividad se realiza de forma predeterminada durante el registro del agente.
+>[AZURE.NOTE]Para poder utilizar la herramienta de conectividad, primero debe completar el registro del agente. Si no puede completar el registro del agente, asegúrese de que cumple todos los [requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para Azure AD Connect Health. Esta prueba de conectividad se realiza de forma predeterminada durante el registro del agente.
+
 
 
 ## Vínculos relacionados
@@ -206,4 +233,4 @@ Puede utilizar la marca - ShowResults en el comando para ver los registros detal
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

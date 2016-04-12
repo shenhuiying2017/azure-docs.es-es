@@ -26,19 +26,18 @@
 
 Este tema presenta un ejemplo de código de Java que puede usar para conectarse a la base de datos SQL de Azure. El ejemplo de Java se basa en la versión 1.8 del kit de desarrollo de Java (JDK). El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador JDBC.
 
+## Paso 1: Configuración del entorno de desarrollo
 
-## Requisitos previos
-
-### Controladores y bibliotecas
+Instale controladores y bibliotecas:
 
 - [Controlador JDBC de Microsoft para SQL Server: SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
 - Cualquier plataforma de sistema operativo que ejecute [Java Development Kit 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
-### Base de datos SQL
+## Paso 2: Creación de una base de datos SQL
 
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos.
 
-### Tabla SQL
+## Paso 3: Creación de una tabla SQL
 
 El ejemplo de código de Java de este tema presupone que ya existe en la tabla de prueba siguiente en la base de datos SQL de Azure.
 
@@ -56,14 +55,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## Paso 1: Obtención de la cadena de conexión
+## Paso 4: Obtención de la cadena de conexión
 
 [AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
 
-> [AZURE.NOTE]Si usa el controlador JDBC de JTDS, tiene que agregar "ssl=require" a la dirección URL de la cadena de conexión y establecer la siguiente opción para JVM "-Djsse.enableCBCProtection=false". Esta opción de JVM deshabilita una revisión para una vulnerabilidad de seguridad; por tanto, asegúrese de entender qué riesgo implica antes de establecer esta opción.
+> [AZURE.NOTE] Si usa el controlador JDBC de JTDS, tiene que agregar "ssl=require" a la dirección URL de la cadena de conexión y establecer la siguiente opción para JVM "-Djsse.enableCBCProtection=false". Esta opción de JVM deshabilita una revisión para una vulnerabilidad de seguridad; por tanto, asegúrese de entender qué riesgo implica antes de establecer esta opción.
 
 
-## Paso 2: Compilación del ejemplo de código Java
+## Paso 5: Compilación del ejemplo de código Java
 
 
 La sección contiene la mayor parte del código Java de ejemplo. Incluye comentarios que indican dónde debe copiar y pegar los segmentos Java más pequeños que se presentan en las secciones siguientes. El ejemplo de esta sección puede compilarse y ejecutarse incluso sin las operaciones de copiado y pegado cerca de los comentarios, pero solo se realizaría la conexión y finalizaría el proceso. Los comentarios que encontrará son los siguientes:
@@ -136,7 +135,7 @@ Por supuesto, para ejecutar el ejemplo de código Java anterior, tendría que es
 - your\_password
 
 
-## Paso 3: Inserción de filas
+## Paso 6: Inserción de filas
 
 
 Este segmento de Java emite una instrucción Transact-SQL INSERT para insertar dos filas en la tabla Person. La secuencia general es la siguiente:
@@ -169,7 +168,7 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 	}
 
 
-## Paso 4: Confirmación de una transacción
+## Paso 7: Confirmación de una transacción
 
 El siguiente segmento de código Java genera una instrucción Transact-SQL UPDATE para aumentar el valor `age` de cada fila de la tabla Person. La secuencia general es la siguiente:
 
@@ -199,7 +198,7 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 	connection.setAutoCommit(true);
 
 
-## Paso 4: Ejecución de una consulta
+## Paso 8: Ejecución de una consulta
 
 
 Este segmento de Java ejecuta una instrucción Transact-SQL SELECT para ver todas las filas actualizadas de la tabla Person. La secuencia general es la siguiente:
@@ -228,4 +227,4 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 
 Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -26,24 +26,24 @@ Para copiar los datos de eficacia de la campaña de marketing de blobs de Azure 
 
 ## Requisitos previos
 
-**Debe** seguir los pasos del [Tutorial: mover y procesar archivos de registro mediante la Factoría de datos][datafactorytutorial] antes de realizar el tutorial de este artículo.
+**Debe** seguir los pasos del [Tutorial: mover y procesar archivos de registro mediante la Factoría de datos](data-factory-tutorial.md) antes de realizar el tutorial de este artículo.
 
 **(recomendado)** Revise y practique el tutorial del artículo [Habilitar la canalización para trabajar con datos locales][useonpremisesdatasources] para obtener un tutorial sobre cómo crear una canalización para mover datos de un SQL Server local a un almacén de blobs de Azure.
 
 
 En este tutorial, realizará los siguientes pasos:
 
-1. [Paso 1: crear una puerta de enlace de administración de datos](#OnPremStep1). La puerta de enlace de administración de datos es un agente cliente que proporciona acceso a orígenes de datos locales de la organización desde la nube. La puerta de enlace permite transferir datos entre un SQL Server local y almacenes de datos de Azure.	
+1. [Crear una puerta de enlace Data Management Gateway](#create-data-management-gateway). La puerta de enlace de administración de datos es un agente cliente que proporciona acceso a orígenes de datos locales de la organización desde la nube. La puerta de enlace permite transferir datos entre un SQL Server local y almacenes de datos de Azure.	
 
 	Debe tener al menos una puerta de enlace instalada en su entorno corporativo, así como registrarla con la factoría de datos de Azure antes de agregar la base de datos de SQL Server local como un servicio vinculado a una factoría de datos de Azure.
 
-2. [Paso 2: crear un servicio vinculado para el SQL Server local](#OnPremStep2). En este paso, cree primero una base de datos y una tabla en el equipo de SQL Server local y, a continuación, cree el servicio vinculado: **OnPremSqlLinkedService**.
-3. [Paso 3: crear la tabla y la canalización](#OnPremStep3). En este paso, creará una tabla **MarketingCampaignEffectivenessOnPremSQLTable** y la canalización **EgressDataToOnPremPipeline**. 
+2. [Crear un servicio vinculado para la instancia de SQL Server local](#create-sql-server-linked-service). En este paso, cree primero una base de datos y una tabla en el equipo de SQL Server local y, a continuación, cree el servicio vinculado: **OnPremSqlLinkedService**.
+3. [Crear conjunto de datos y canalizaciones](#create-dataset-and-pipeline). En este paso, creará una tabla **MarketingCampaignEffectivenessOnPremSQLTable** y la canalización **EgressDataToOnPremPipeline**. 
 
-4. [Paso 4: supervisar la canalización y ver el resultado](#OnPremStep4). En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure.
+4. [Supervisar canalizaciones y ver el resultado](#monitor-pipeline). En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure.
 
 
-## <a name="OnPremStep1"></a>Paso 1: crear una puerta de enlace de administración de datos
+## Creación de la puerta de enlace Data Management Gateway
 
 La puerta de enlace de administración de datos es un agente cliente que proporciona acceso a orígenes de datos locales de la organización desde la nube. La puerta de enlace permite transferir datos entre un SQL Server local y almacenes de datos de Azure.
   
@@ -64,7 +64,7 @@ Si tiene una puerta de enlace de datos existente que puede utilizar, omita este 
 
 9. Haga clic en **Aceptar** para cerrar la hoja **Configurar** y en **Aceptar** para cerrar la hoja **Crear**. Espere hasta que el estado de **MyGateway** en la hoja **Servicios vinculados** cambie a **BIEN**. También puede iniciar la herramienta **Administrador de configuración de puerta de enlace de administración de datos (vista previa)** para confirmar que el nombre de la puerta de enlace coincide con el nombre en el portal y el **estado** es **Registrado**. Puede ser necesario cerrar y volver a abrir la hoja Servicios vinculados para ver el estado más reciente. La pantalla puede tardar unos minutos antes de actualizarse con el estado más reciente.
 
-## <a name="OnPremStep2"></a> Paso 2: crear un servicio vinculado para el SQL Server local
+## Creación de servicios vinculados de SQL Server
 
 En este paso, cree primero la base de datos necesaria y una tabla en el equipo de SQL Server local y, a continuación, cree el servicio vinculado.
 
@@ -107,11 +107,14 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
 		2.	Quite las dos últimas filas (las propiedades de JSON **username** y **password** solo son necesarias si está usando la autenticación de Windows). 
 		3.	Quite **, (coma) ** al final de la fila **gatewayName**.
 
-		**Si está usando la autenticación de Windows:** 1. Establezca el valor de **Integrated Security** en **True** en el parámetro **connectionString**. Quite "**User ID=<username>;Password=<password>;**" del parámetro connectionString. 2. Especifique el nombre del usuario que tiene acceso a la base de datos para la propiedad **username**. 3. Especifique la **contraseña** para la cuenta de usuario.   
+		**Si está usando la autenticación de Windows, siga estos pasos:**
+		1. Establezca el valor de **Integrated Security** en **True** en el parámetro **connectionString**. Quite "**User ID=<username>;Password=<password>;**" del parámetro connectionString. 
+		2. Especifique el nombre del usuario que tiene acceso a la base de datos para la propiedad **username**. 
+		3. Especifique la **contraseña** para la cuenta de usuario.   
 	4. Especifique el nombre de la puerta de enlace (**MyGateway**) para la propiedad gatewayName. 		  	 
 3.	Haga clic en **Implementar** en la barra de herramientas para implementar el servicio vinculado. 
 
-## <a name="OnPremStep3"></a> Paso 3: crear la tabla y la canalización
+## Creación de conjuntos de datos y canalizaciones
 
 ### Creación de la tabla lógica local
 
@@ -134,9 +137,9 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
  
 3. Haga clic en **Implementar** en la barra de herramientas para implementar la canalización. Confirme que aparece el mensaje **LA CANALIZACIÓN SE HA CREADO CORRECTAMENTE** en la barra de título del Editor.
 	
-## <a name="OnPremStep4"></a> Paso 4: supervisar la canalización y ver el resultado
+## Supervisión de canalizaciones
 
-Ahora puede usar los mismos pasos de la sección **Supervisión de canalizaciones y segmentos de datos** del [tutorial principal][datafactorytutorial] para supervisar la nueva canalización y los segmentos de datos para la tabla de ADF local nueva.
+Ahora puede usar los mismos pasos de la sección **Supervisión de canalizaciones** del [tutorial principal](data-factory-tutorial.md#monitor-pipelines) para supervisar la nueva canalización y los segmentos de datos de la nueva tabla de ADF local.
  
 Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffectivenessOnPremSQLTable** pasa a Listo, significa que la canalización ha completado la ejecución del segmento. Para ver los resultados, consulte la tabla **MarketingCampaignEffectiveness** en la base de datos **MarketingCampaigns** en su SQL Server.
  
@@ -148,7 +151,6 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[datafactorytutorial]: data-factory-tutorial.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
@@ -169,4 +171,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

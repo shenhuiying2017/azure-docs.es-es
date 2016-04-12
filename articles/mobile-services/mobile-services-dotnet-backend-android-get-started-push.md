@@ -17,11 +17,10 @@
 	ms.author="ricksal"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
-
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Incorporación de notificaciones push a la aplicación de Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
+ 
 &nbsp;
-
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -117,4 +116,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Enviar notificaciones de difusión a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Envío de notificaciones basadas en plantillas a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

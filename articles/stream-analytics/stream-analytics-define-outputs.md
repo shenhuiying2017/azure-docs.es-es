@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/02/2016"
+	ms.date="03/16/2016"
 	ms.author="jeffstok"/>
 
 # Salidas de transformación de datos de Análisis de transmisiones de destino para herramientas de análisis y opciones de almacenamiento de datos
@@ -23,10 +23,60 @@ Al crear un trabajo de Análisis de transmisiones, tenga en cuenta cómo se cons
 
 Para habilitar diversos patrones de aplicación, Análisis de transmisiones de Azure ofrece distintas opciones para el almacenamiento y la visualización de los resultados del trabajo. Esto facilita la visualización de la salida del trabajo y proporciona flexibilidad en el consumo y almacenamiento de la salida del trabajo para el almacenamiento de datos y otros fines. Todos los elementos de salida que se configuren en el trabajo deben existir antes de que se inicie el trabajo y los eventos empiecen a fluir. Por ejemplo, si usa el almacenamiento de blobs como salida, el trabajo no creará una cuenta de almacenamiento automáticamente. Debe crearla el usuario antes de que se inicie el trabajo ASA.
 
+## Almacén de Azure Data Lake
 
-## Base de datos SQL ##
+Análisis de transmisiones admite el [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). Esta solución de almacenamiento permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos. En este momento, la creación y la configuración de salidas del Almacén de Data Lake solo se admiten en el Portal de Azure clásico. Además, Análisis de transmisiones debe tener autorización para acceder al Almacén de Data Lake. En el [artículo sobre la salida de Data Lake](stream-analytics-data-lake-output.md) se especifica información sobre la autorización y cómo registrarse para la vista previa del Almacén de Data Lake (en caso necesario).
 
-Puede usarse [Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/) como salida de datos que son relacionales por naturaleza o de aplicaciones que dependen del contenido hospedado en una base de datos relacional. Los trabajos de Análisis de transmisiones se escribirán en una tabla existente en una Base de datos SQL de Azure. Tenga en cuenta que el esquema de tabla debe coincidir exactamente con los campos y los tipos de salida del trabajo. En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de Base de datos SQL.
+En la siguiente tabla podrá encontrar una lista de los nombres de propiedades y su descripción necesarios para crear una salida del Almacén de Data Lake.
+
+<table>
+<tbody>
+<tr>
+<td><B>NOMBRE DE PROPIEDAD</B></td>
+<td><B>DESCRIPCIÓN</B></td>
+</tr>
+<tr>
+<td>Alias de salida</td>
+<td>Se trata de un nombre descriptivo utilizado en las consultas para dirigir la salida de la consulta a este Almacén de Data Lake.</td>
+</tr>
+<tr>
+<td>Cuenta del Almacén de Data Lake</td>
+<td>El nombre de la cuenta de almacenamiento a donde está enviando la salida Se le mostrará una lista desplegable de cuentas del Almacén de Data Lake a las que el usuario cuya sesión se ha iniciado en el portal tiene acceso.</td>
+</tr>
+<tr>
+<td>Patrón del prefijo de la ruta de acceso [<I>opcional</I>]</td>
+<td>La ruta de acceso utilizada para escribir sus archivos en la cuenta del Almacén de Data Lake especificada. <BR>{date}, {time}<BR>Ejemplo 1: carpeta1/registros/{date}/{time}<BR>Ejemplo 2: carpeta1/registros/{date}</td>
+</tr>
+<tr>
+<td>Formato de fecha [<I>opcional</I>]</td>
+<td>Si el token de fecha se usa en la ruta de acceso de prefijo, puede seleccionar el formato de fecha en el que se organizan los archivos. Ejemplo: AAAA/MM/DD</td>
+</tr>
+<tr>
+<td>Formato de hora [<I>opcional</I>]</td>
+<td>Si el token de hora se usa en la ruta de acceso de prefijo, puede seleccionar el formato de hora en el que se organizan los archivos. Actualmente, el único valor admitido es HH.</td>
+</tr>
+<tr>
+<td>Formato de serialización de eventos</td>
+<td>Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro.</td>
+</tr>
+<tr>
+<td>Codificación</td>
+<td>Si el formato CSV o JSON, debe especificarse una codificación. Por el momento, UTF-8 es el único formato de codificación compatible.</td>
+</tr>
+<tr>
+<td>Delimitador</td>
+<td>Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical.</td>
+</tr>
+<tr>
+<td>Formato</td>
+<td>Solo se aplica para la serialización de JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON.</td>
+</tr>
+</tbody>
+</table>
+
+## Base de datos SQL
+
+Puede usarse [Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/) como salida de datos que son relacionales por naturaleza o de aplicaciones que dependen del contenido hospedado en una base de datos relacional. Los trabajos de Análisis de transmisiones se escribirán en una tabla existente en una Base de datos SQL de Azure. Tenga en cuenta que el esquema de tabla debe coincidir exactamente con los campos y los tipos de salida del trabajo. También es posible especificar [Almacenamiento de datos SQL de Azure](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como la salida mediante la opción de salida de Base de datos SQL (se trata de una característica de vista previa). En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de Base de datos SQL.
 
 | Nombre de propiedad | Descripción |
 |---------------|-------------|
@@ -37,7 +87,7 @@ Puede usarse [Base de datos SQL de Azure](https://azure.microsoft.com/services/s
 | Password | La contraseña para conectarse a la base de datos |
 | Tabla | El nombre de la tabla donde se escribirá la salida El nombre de tabla distingue mayúsculas de minúsculas y el esquema de esta tabla debe coincidir exactamente con el número de campos y tipos que va a generar la salida del trabajo. |
 
-## Almacenamiento de blobs ##
+## Almacenamiento de blobs
 
 Almacenamiento de blobs ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube. Para obtener una introducción sobre el almacenamiento de blobs de Azure y su uso, consulte la documentación en [Uso de blobs](../storage/storage-dotnet-how-to-use-blobs.md).
 
@@ -114,6 +164,7 @@ Hay unos cuantos parámetros que son necesarios para configurar los flujos de da
 | Codificación | Por el momento, UTF-8 es el único formato de codificación compatible para CSV y JSON. |
 | Delimitador | Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 | Formato | Solo se aplica para el tipo JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON. |
+
 ## Power BI
 
 Puede usarse [Power BI](https://powerbi.microsoft.com/) como salida para un trabajo de Análisis de transmisiones a fin de ofrecer una amplia experiencia de visualización de los resultados del análisis. Esta capacidad puede usarse con paneles operativos, generación de informes e informes basados en métricas.
@@ -267,4 +318,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

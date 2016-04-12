@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/15/2016"
+	ms.date="03/10/2016"
 	ms.author="jeedes"/>
 
 
@@ -126,6 +126,7 @@ Antes de configurar la aserción SAML, debe ponerse en contacto con el equipo de
 
     a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación HR2day by Merces con el siguiente patrón: **"https://<nombreDeInquilino>.force.com/<nombreDeInstancia>"**.
 
+    b. Haga clic en **Siguiente**.
 
 4. En la página **Configurar inicio de sesión único en HR2day by Merces**, siga estos pasos: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_05.png) <br>
 
@@ -245,4 +246,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

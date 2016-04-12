@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/19/2016"
+    ms.date="03/28/2016"
     ms.author="prkhad"/>
 
 
@@ -45,12 +45,12 @@ Siga los pasos especificados en la sección correspondiente en función de su es
 ### Requisitos previos
 - Necesitará una suscripción de Azure. Si no tiene una, puede crear una suscripción de [prueba gratuita](https://azure.microsoft.com/pricing/free-trial/) de un mes o visitar la página [Precios de Azure](https://azure.microsoft.com/pricing/) para conocer más opciones.
 - Para ejecutar los cmdlets de PowerShell, necesitará un módulo de PowerShell de Microsoft Azure. Vaya a [Descargas de Microsoft Azure](https://azure.microsoft.com/downloads/) para descargar el módulo.
-- Si tiene previsto ejecutar máquinas virtuales de Azure en Almacenamiento premium, deberá usar las máquinas virtuales de las series DS o GS. Con la serie DS de máquinas virtuales se pueden usar discos de almacenamiento tanto estándar como premium. Pronto habrá disponibles discos de Almacenamiento premium con más tipos de VM. Para más información sobre todos los tamaños y tipos de disco de máquina virtual de Azure disponibles, vea [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-size-specs.md) y [Tamaños de servicios en la nube](../cloud-services/cloud-services-sizes-specs.md).
+- Si tiene previsto ejecutar varias máquinas virtuales de Azure en Almacenamiento premium, deberá usar máquinas virtuales de las series DS, DSv2 o GS. Puede usar discos de Almacenamiento estándar y premium con máquinas virtuales de las series DS, DSv2 y GS. Pronto habrá disponibles discos de Almacenamiento premium con más tipos de VM. Para obtener más información sobre todos los tamaños y tipos de disco de máquina virtual de Azure disponibles, consulte [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-windows-sizes.md) y [Tamaños de servicios en la nube](../cloud-services/cloud-services-sizes-specs.md).
 
 ### Consideraciones
 
 #### Tamaños de VM
-Las especificaciones de tamaño de las máquinas virtuales de Azure se muestran en [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-size-specs.md). Repase las características de rendimiento de las máquinas virtuales que trabajan con Almacenamiento premium y elija el tamaño de máquina virtual que se mejor se ajuste a su carga de trabajo. Procure que haya suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco.
+Las especificaciones de tamaño de las máquinas virtuales de Azure se muestran en [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-windows-sizes.md). Repase las características de rendimiento de las máquinas virtuales que trabajan con Almacenamiento premium y elija el tamaño de máquina virtual que se mejor se ajuste a su carga de trabajo. Procure que haya suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco.
 
 
 #### Tamaños de disco
@@ -73,6 +73,7 @@ Aparte de los [objetivos de escalabilidad y rendimiento del almacenamiento de Az
 Para más información sobre las especificaciones del Almacenamiento premium, consulte [Objetivos de escalabilidad y rendimiento al usar el Almacenamiento premium](storage-premium-storage.md#scalability-and-performance-targets-whes-ESing-premium-storage).
 
 #### Discos de datos adicionales
+
 Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. Si secciona discos de datos Almacenamiento premium usando [Espacios de almacenamiento](http://technet.microsoft.com/library/hh831739.aspx), será necesario configurarlo con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm*. Vea el artículo [Configuración del software RAID en Linux](../virtual-machines/virtual-machines-linux-configure-raid.md) para más información.
 
 #### Directiva de almacenamiento en caché de disco
@@ -145,7 +146,7 @@ Ya tenemos listo el disco duro virtual, así que vamos a realizar los pasos desc
 Cree una cuenta de almacenamiento para mantener los discos duros virtuales. Tenga en cuenta los siguientes puntos cuando planee dónde almacenar los discos duros virtuales.
 
 - La cuenta de almacenamiento de destino puede ser un almacenamiento estándar o premium, según cuáles sean los requisitos de la aplicación.
-- La ubicación de la cuenta de almacenamiento debe ser la misma que la de las máquinas virtuales de Azure de las series DS o GS que crearemos en el paso final. Puede copiar en una nueva cuenta de almacenamiento o decidir usar la misma cuenta de almacenamiento, según sus necesidades.
+- La ubicación de la cuenta de almacenamiento debe ser la misma que la de las máquinas virtuales de Azure de las series DS, DSv2 o GS que crearemos en el paso final. Puede copiar en una nueva cuenta de almacenamiento o decidir usar la misma cuenta de almacenamiento, según sus necesidades.
 - Copie y guarde la clave de cuenta de almacenamiento de la cuenta de almacenamiento de destino para el siguiente paso.
 - En relación con los discos de datos, puede optar por mantener algunos en una cuenta de almacenamiento estándar (por ejemplo, los discos que disponen de almacenamiento más frío) y mover discos con una gran cantidad de E/S por segundo a una cuenta de almacenamiento premium.
 
@@ -242,7 +243,7 @@ Copie y guarde el nombre de este nuevo disco de sistema operativo de Azure. En e
 
 #### Disco duro virtual de disco de datos que se va a conectar a nuevas instancias de máquina virtual de Azure
 
-Después de cargar el disco duro virtual de disco de datos en la cuenta de almacenamiento, regístrelo como un disco de datos de Azure para poder conectarlo a la nueva instancia de máquina virtual de Azure de las series DS o GS.
+Después de cargar el disco duro virtual de disco de datos en la cuenta de almacenamiento, regístrelo como un disco de datos de Azure para poder conectarlo a la nueva instancia de máquina virtual de Azure de las series DS, DSv2 o GS.
 
 Use estos cmdlets de PowerShell para registrar el disco duro virtual como un disco de datos operativo de Azure. Indique la dirección URL de contenedor completa donde copió el disco duro virtual.
 
@@ -250,9 +251,9 @@ Use estos cmdlets de PowerShell para registrar el disco duro virtual como un dis
 
 Copie y guarde el nombre de este nuevo disco de datos de Azure. En el ejemplo anterior, es *DataDisk*.
 
-### Crear una máquina virtual de serie DS o GS
+### Crear una máquina virtual de las series DS, DSv2 o GS
 
-Tras registrar la imagen del sistema operativo o el disco del sistema operativo, cree una máquina virtual de la serie DS o GS. Para ello, usaremos el nombre de la imagen de sistema operativo o del disco de sistema operativo que haya registrado. Seleccione el tipo de máquina virtual en el nivel de Almacenamiento premium. En el siguiente ejemplo, usamos el tamaño de máquina virtual *Standard\_DS2*.
+Tras registrar la imagen del sistema operativo o el disco del sistema operativo, cree una máquina virtual de las series DS, DSv2 o GS. Para ello, usaremos el nombre de la imagen de sistema operativo o del disco de sistema operativo que haya registrado. Seleccione el tipo de máquina virtual en el nivel de Almacenamiento premium. En el siguiente ejemplo, usamos el tamaño de máquina virtual *Standard\_DS2*.
 
 >[AZURE.NOTE] Actualice el tamaño del disco para procurar que coincida con sus requisitos de capacidad y rendimiento y los tamaños de disco de Azure disponibles.
 
@@ -296,9 +297,9 @@ Cree una instancia de máquina virtual de Azure de la serie DS usando el **disco
 
 Especifique más datos sobre la máquina virtual de Azure, como un servicio en la nube, la región, la cuenta de almacenamiento, el conjunto de disponibilidad y la directiva de almacenamiento en caché. La instancia de máquina virtual debe colocarse con discos de datos o de sistema operativo asociados, por lo que los datos seleccionados de servicio en la nube, región y cuenta de almacenamiento deben estar en la misma ubicación que los discos duros virtuales subyacentes de esos discos.
 
-### Conectar un disco de datos
+### Acoplar disco de datos
 
-Por último, si tiene registrados VHD de discos de datos, conéctelos a la nueva máquina virtual de Azure de las series DS o GS.
+Por último, si tiene registrados VHD de datos, conéctelos a la nueva máquina virtual de Azure de las series DS, DSv2 o GS.
 
 Use los siguientes cmdlets de PowerShell para conectar un disco de datos a la nueva máquina virtual y especificar la directiva de almacenamiento en caché. En el siguiente ejemplo, la directiva de almacenamiento en caché se establece en *ReadOnly*.
 
@@ -312,7 +313,9 @@ Use los siguientes cmdlets de PowerShell para conectar un disco de datos a la nu
 
 ## Migración de máquinas virtuales de Azure existentes a Almacenamiento premium de Azure
 
-Si ya tiene una máquina virtual de Azure que usa discos de Almacenamiento estándar, siga el proceso siguiente para migrar a Almacenamiento premium. A grandes rasgos, la migración consta de dos etapas: migración de los discos de la cuenta de Almacenamiento estándar a una cuenta de Almacenamiento premium y conversión del tamaño de máquina virtual de A/D/G a DS o GS necesarios para el uso de discos de Almacenamiento premium.
+Si ya tiene una máquina virtual de Azure que usa discos de Almacenamiento estándar, siga el proceso siguiente para migrar a Almacenamiento premium. En un nivel alto, la migración implica dos etapas:
+-	Migración de los discos de cuenta de almacenamiento estándar a una cuenta de almacenamiento Premium
+-	Es necesario convertir el tamaño de la máquina virtual de A, D y G a DS, DSv2 o GS para usar discos de Almacenamiento premium.
 
 Además, consulte en la sección anterior las consideraciones para comprender las diversas optimizaciones que puede realizar para Almacenamiento premium. Según las optimizaciones aplicables a sus aplicaciones, el proceso de migración puede estar en uno de los siguientes escenarios de migración.
 
@@ -321,7 +324,7 @@ En este escenario simple, desea conservar la configuración tal cual durante la 
 
 #### Preparación
 1. Asegúrese de que Almacenamiento premium está disponible en la región a la que se va a migrar.
-2. Decida la nueva serie de máquinas virtuales que se va a usar. Debe ser la serie DS o la serie GS según la disponibilidad en la región y según sus necesidades.
+2. Decida la nueva serie de máquinas virtuales que se va a usar. Debe ser la serie DS, DSv2 o GS según la disponibilidad en la región y según sus necesidades.
 3. Decida el tamaño exacto de máquina virtual que usará. El tamaño de la máquina virtual debe ser suficientemente grande para admitir el número de discos de datos que tiene. Por ejemplo, si tiene 4 discos de datos, la máquina virtual debe tener 2 o más núcleos. Tenga en cuenta también las necesidades de potencia de procesamiento, memoria y ancho de banda de red.
 4. Cree una cuenta de Almacenamiento premium en la región de destino. Esta es la cuenta que se va a usar para la nueva máquina virtual.
 5. Tenga a mano los detalles de la máquina virtual, incluida la lista de discos y los blobs de disco duro virtual correspondientes.
@@ -338,7 +341,7 @@ En este escenario simple, desea conservar la configuración tal cual durante la 
 4.	Cree un nuevo disco de sistema operativo usando el blob VHD de disco de sistema operativo que copió en la cuenta de Almacenamiento premium. Para ello, puede usar el cmdlet de PowerShell "Add-AzureDisk".
 
     Script de ejemplo: Add-AzureDisk -DiskName "NewOSDisk1" -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/MyOSDisk.vhd" -OS "Windows"
-5. A continuación, cree la máquina virtual de la serie DS (o serie GS) usando el disco de sistema operativo anterior y los discos de datos.
+5. A continuación, cree la máquina virtual de la serie DS (o serie DSv2 o GS) usando el disco de sistema operativo anterior y los discos de datos.
 
     Script de ejemplo para crear un nuevo servicio en la nube y una nueva máquina virtual dentro de ese servicio: New-AzureService -ServiceName “NewServiceName” -Location “East US 2"
 
@@ -663,8 +666,8 @@ Las bases de datos y otras aplicaciones complejas pueden requerir pasos especial
 Vea los siguientes recursos para conocer otros escenarios específicos de migración de máquinas virtuales.
 
 - [Migrar máquinas virtuales de Azure entre cuentas de almacenamiento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-- [Crear y cargar un VHD de Windows Server a Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
-- [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](../virtual-machines/virtual-machines-linux-create-upload-vhd.md)
+- [Crear y cargar un VHD de Windows Server a Azure](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)
+- [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
 - [Migrar máquinas virtuales de Amazon AWS a Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Vea también los siguientes recursos para obtener más información sobre Almacenamiento de Azure y Máquinas virtuales de Azure:
@@ -677,4 +680,4 @@ Vea también los siguientes recursos para obtener más información sobre Almace
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

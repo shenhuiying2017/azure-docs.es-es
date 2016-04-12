@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="03/14/2016" 
 	ms.author="raynew"/>
 
 # Conmutación por error en Site Recovery
@@ -215,14 +215,15 @@ En este procedimiento se describe cómo ejecutar una conmutación por error no p
 2. En la página **Confirmar conmutación por error planeada**, elija las ubicaciones de origen y de destino. Tenga en cuenta la dirección de la conmutación por error. Si la conmutación por error desde la ubicación principal ha funcionado como se esperaba y todas las máquinas virtuales están en la ubicación secundaria, este dato es solo informativo.
 3. Si realiza la conmutación por recuperación desde Azure, seleccione la configuración en **Sincronización de datos**:
 
-	- **Sincronizar los datos antes de la conmutación por error**: esta opción minimiza el tiempo de inactividad de las máquinas virtuales ya que realiza la sincronización sin apagarlas. Hace lo siguiente:
+	- **Sincronizar datos antes de la conmutación por error (sincronizar solo cambios incrementales)**: esta opción minimiza el tiempo de inactividad de las máquinas virtuales ya que realiza la sincronización sin apagarlas. Hace lo siguiente:
 		- Fase 1: realiza una instantánea de la máquina virtual en Azure y la copia en el host de Hyper-V local. El equipo continúa ejecutándose en Azure.
 		- Fase 2: apaga la máquina virtual en Azure para que no se realice ningún nuevo cambio allí. El último conjunto de cambios se transfiere al servidor local y se inicia la máquina virtual local.
 	
-	> [AZURE.NOTE] Se recomienda utilizar esta opción si se ha ejecutado Azure durante un tiempo (un mes o más). Esta opción realiza la sincronización sin apagar las máquinas virtuales. No realiza una resincronización, pero sí una conmutación por recuperación completa. Esta opción no realiza cálculos de suma de comprobación.
 
-	- **Sincronizar los datos solo durante la conmutación por error**: utilice esta opción si ha ejecutado Azure durante un período breve de tiempo. Esta opción es más rápida porque realiza una resincronización en lugar de una conmutación por recuperación completa. Realiza un cálculo rápido de suma de comprobación y solo descarga los bloques modificados.
-
+	- **Sincronizar datos solo durante la conmutación por error (descarga completa)**: utilice esta opción si ha estado trabajando en Azure durante mucho tiempo. Esta opción es más rápida, ya que se prevé que la mayoría del disco ha cambiado y no queremos dedicar tiempo al cálculo de la suma de comprobación. Realiza una descarga del disco. También es útil cuando se ha eliminado la máquina virtual local.
+	
+	> [AZURE.NOTE] Se recomienda utilizar esta opción si ha estado trabajando con Azure durante un tiempo (un mes o más) o la máquina virtual se ha eliminado. Esta opción no realiza los cálculos de suma de comprobación.
+	
 5. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor en el servidor VMM.
 5. De forma predeterminada se utiliza el último punto de recuperación, pero en **Cambiar punto de recuperación** puede especificar un punto de recuperación diferente. 
 6. Haga clic en la marca de verificación para iniciar la conmutación por recuperación. Puede seguir el progreso de la conmutación por error en la pestaña **Trabajos**. 
@@ -254,4 +255,4 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

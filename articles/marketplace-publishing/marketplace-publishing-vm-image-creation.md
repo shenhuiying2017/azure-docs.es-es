@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="03/07/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guía para la creación de una imagen de máquina virtual para Azure Marketplace
@@ -58,8 +58,8 @@ Esta sección se centra en los procedimientos recomendados para crear una imagen
 ### 2\.1 Elegir el tamaño de VHD correcto
 Las SKU publicadas (imágenes de máquina virtual) deben estar diseñadas para funcionar con todos los tamaños de máquina virtual que admitan el número de discos de la SKU. Puede proporcionar información sobre tamaños recomendados, pero se tratarán como recomendaciones y no serán obligatorios:
 
-1. VHD para el sistema operativo Linux: el VHD para el sistema operativo Linux de su imagen de máquina virtual debe crearse como VHD con formato fijo de 30-50 GB. No puede tener menos de 30 GB. Si el tamaño físico es inferior al tamaño del VHD, el VHD debe ser disperso. Los VHD para Linux con un tamaño superior a 50 GB se considerarán caso por caso. Si ya tiene un VHD con un formato diferente, puede usar el [cmdlet Convert-VHD de PowerShell para cambiar el formato][link-technet-1].
-2. VHD para disco de datos: los discos de datos pueden tener un tamaño de hasta 1 TB. Los VHD para discos de datos deben crearse como VHD de formato fijo. También deben ser dispersos. A la hora de decidir el tamaño del disco, tenga en cuenta que los clientes no pueden cambiar el tamaño de los VHD de una imagen.
+1. VHD para el sistema operativo Linux: el VHD para el sistema operativo Linux de su imagen de máquina virtual debe crearse como VHD con formato fijo de 30-50 GB. No puede tener menos de 30 GB. Si el tamaño físico es inferior al tamaño del VHD, el VHD debe ser disperso. Los VHD para Linux con un tamaño superior a 50 GB se considerarán caso por caso. Si ya tiene un VHD con un formato diferente, puede usar el [cmdlet Convert-VHD de PowerShell para cambiar el formato][link-technet-1].
+2. VHD para disco de datos: los discos de datos pueden tener un tamaño de hasta 1 TB. Los VHD para discos de datos deben crearse como VHD de formato fijo. También deben ser dispersos. A la hora de decidir el tamaño del disco, tenga en cuenta que los clientes no pueden cambiar el tamaño de los VHD de una imagen.
 
 ### 2\.2 Asegurarse de que está instalado el Agente de Linux de Azure más reciente
 Cuando prepare el VHD del sistema operativo, asegúrese de que está instalada la última versión del [Agente de Linux de Azure][link-azure-vm-2], con los paquetes RPM o Deb. El paquete a menudo se denomina walinuxagent o WALinuxAgent pero compruébelo con su distribuidor para estar seguro. El agente proporciona funciones clave para implementar IaaS Linux en Azure, como el aprovisionamiento de máquina virtual y las funciones de red.
@@ -76,7 +76,7 @@ El archivo de configuración del agente se coloca en /etc/waagent.conf.
 ### 2\.3 Comprobar que están incluidas las bibliotecas necesarias
 Además del Agente de Linux de Azure, deben incluirse las siguientes bibliotecas:
 
-1. [Servicios de integración de Linux][link-intsvc] versión 3.0 o posterior debe estar habilitado en el kernel. Consulte [Requisitos para el kernel de Linux](../virtual-machines/virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
+1. [Servicios de integración de Linux][link-intsvc] versión 3.0 o posterior debe estar habilitado en el kernel. Consulte [Requisitos para el kernel de Linux](./virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
 2. [Revisión de kernel](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) para la estabilidad de E/S de Azure (probablemente no es necesario para ningún kernel reciente, pero debe comprobarse).
 3. [Python][link-python] 2.6 o versiones superiores
 4. Paquete pyasn1 de Python, si no está ya instalado.
@@ -100,7 +100,7 @@ A continuación se indican los requisitos de red para una imagen de máquina vir
 
 - En muchos casos es mejor deshabilitar NetworkManager. Una excepción son los sistemas basados en CentOS 7.x (y derivados) que tienen que mantener NetworkManager habilitado.
 - La configuración de red debe poder controlarse mediante los scripts **ifup** y **ifdown**. El Agente de Linux puede usar estos comandos para reiniciar las redes durante el aprovisionamiento.
-- No debe haber configuración de red personalizada. Como paso final, se debe eliminar el archivo Resolv.conf. Esto se hace normalmente como parte del desaprovisionamiento (consulte la [Guía del usuario del Agente de Linux de Azure](../virtual-machines/virtual-machines-linux-agent-user-guide/)). También puede realizar este paso manualmente con el siguiente comando.
+- No debe haber configuración de red personalizada. Como paso final, se debe eliminar el archivo Resolv.conf. Esto se hace normalmente como parte del desaprovisionamiento (consulte la [Guía del usuario del Agente de Linux de Azure](./virtual-machines-linux-agent-user-guide/)). También puede realizar este paso manualmente con el siguiente comando.
 
         rm /etc/resolv.conf
 
@@ -228,11 +228,11 @@ Encontrará más información acerca de RDP en el artículo de MSDN [Conectarse 
 Una vez descargado el VHD del sistema operativo, use Hyper-V y configure una máquina virtual para comenzar a crear la SKU. Encontrará los pasos detallados en el siguiente vínculo de TechNet: [Instalar Hyper-V y crear una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 ### 3\.4 Elegir el tamaño de VHD correcto
-El VHD del sistema operativo Windows en la imagen de máquina virtual debe crearse como VHD de 128 GB con formato fijo.
+El VHD del sistema operativo Windows en la imagen de máquina virtual debe crearse como VHD de 128 GB con formato fijo.
 
-Si el tamaño físico es inferior a 128 GB, el VHD debe ser disperso. Las imágenes base de Windows y SQL Server proporcionadas cumplen ya estos requisitos, por lo que no es necesario que cambie el formato ni el tamaño del VHD obtenido.
+Si el tamaño físico es inferior a 128 GB, el VHD debe ser disperso. Las imágenes base de Windows y SQL Server proporcionadas cumplen ya estos requisitos, por lo que no es necesario que cambie el formato ni el tamaño del VHD obtenido.
 
-Los discos de datos pueden tener un tamaño de hasta 1 TB. A la hora de decidir el tamaño de disco, tenga en cuenta que los clientes no pueden cambiar el tamaño de los VHD de una imagen en el momento de la implementación. Los VHD para discos de datos deben crearse como VHD de formato fijo. También deben ser dispersos. Los discos de datos pueden estar vacíos o contener datos.
+Los discos de datos pueden tener un tamaño de hasta 1 TB. A la hora de decidir el tamaño de disco, tenga en cuenta que los clientes no pueden cambiar el tamaño de los VHD de una imagen en el momento de la implementación. Los VHD para discos de datos deben crearse como VHD de formato fijo. También deben ser dispersos. Los discos de datos pueden estar vacíos o contener datos.
 
 
 ### 3\.5 Instalar las últimas revisiones de Windows
@@ -250,9 +250,9 @@ Todas las imágenes de Azure Marketplace deben ser reutilizables de forma genér
 - Para Windows, la imagen debe estar preparada con sysprep y no deben realizarse configuraciones que no admitan el comando **sysprep**.
 - Puede ejecutar el siguiente comando desde el directorio % windir%\\System32\\Sysprep.
 
-        sysprep.exe /generalize /oobe /sshutdown
+        sysprep.exe /generalize /oobe /shutdown
 
-  En uno de los pasos del artículo de MSDN [Crear y cargar un VHD de Windows Server a Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/), se explica cómo preparar el sistema operativo con sysprep.
+  En uno de los pasos del artículo de MSDN [Crear y cargar un VHD de Windows Server a Azure](./virtual-machines-create-upload-vhd-windows-server/), se explica cómo preparar el sistema operativo con sysprep.
 
 ## 4\. Implementación de una máquina virtual a partir de VHD
 Una vez cargados en una cuenta de almacenamiento de Azure sus VHD (el VHD del sistema operativo generalizado y cero o más VHD de discos de datos), puede registrarlos como imagen de máquina virtual de usuario. A continuación, puede probar esa imagen. Tenga en cuenta que, como el VHD del sistema operativo está generalizado, no puede implementar la máquina virtual directamente proporcionando la dirección URL del VHD.
@@ -426,7 +426,7 @@ Para crear una imagen de máquina virtual a partir de un VHD del sistema operati
         { echo "Not Accepted"
         }
 
-Al ejecutar este script, crea una imagen de máquina virtual de usuario con el nombre que proporcionó en el parámetro ImageName, myVMImage. Consta de un disco del sistema operativo, basado en el VHD que pasó, y un disco de datos de 32 GB vacío.
+Al ejecutar este script, crea una imagen de máquina virtual de usuario con el nombre que proporcionó en el parámetro ImageName, myVMImage. Consta de un disco del sistema operativo, basado en el VHD que pasó, y un disco de datos de 32 GB vacío.
 
 ### 4\.2 Implementar una máquina virtual a partir de una imagen de máquina virtual de usuario
 Para implementar una máquina virtual a partir de una imagen de máquina virtual de usuario, puede usar el [Portal de Azure](https://manage.windowsazure.com) actual o PowerShell.
@@ -582,10 +582,7 @@ Una vez que haya creado su oferta y SKU, debe proporcionar los datos de la image
 4. Rellene las propiedades de la sección **SKUs**.
 5. En **Familia del sistema operativo**, haga clic en el tipo de sistema operativo asociado con el VHD del sistema operativo.
 6. En el cuadro **Sistema operativo**, describa el sistema operativo. Considere un formato como familia de sistemas operativos, tipo, versión y actualizaciones. Por ejemplo, "Windows Server Datacenter 2014 R2".
-7. Seleccione hasta seis tamaños de máquina virtual recomendados. Estas recomendaciones se muestran al cliente en la hoja del plan de tarifa del Portal de Azure cuando este decide comprar e implementar su imagen.
-
-  > [AZURE.NOTE] Estas son solo recomendaciones. El cliente puede seleccionar cualquier tamaño de máquina virtual que admita los discos especificados en su imagen.
-
+7. Seleccione hasta seis tamaños de máquina virtual recomendados. Estas recomendaciones se muestran al cliente en la hoja del plan de tarifa del Portal de Azure cuando este decide comprar e implementar su imagen. **Estas son solo recomendaciones. El cliente puede seleccionar cualquier tamaño de máquina virtual que admita los discos especificados en su imagen.**
 8. Especifique la versión. El campo de versión encapsula una versión semántica para identificar el producto y sus actualizaciones:
   -	Las versiones deben ser del tipo X.Y.Z, donde X, Y y Z son números enteros.
   -	Imágenes de SKU diferentes pueden tener distintas versiones principales y secundarias.
@@ -594,10 +591,10 @@ Una vez que haya creado su oferta y SKU, debe proporcionar los datos de la image
 10. Si hay discos de datos asociados con esta SKU, seleccione el número de unidad lógica (LUN) donde desea que se monte este disco de datos durante la implementación.
 11. En el cuadro **Dirección URL del VHD de LUN X**, escriba el URI de firma de acceso compartido creado para el primer VHD de datos.
 
-    ![dibujo][img-pubportal-vm-skus-2]
+    ![dibujo](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## Paso siguiente
-Cuando haya terminado con los detalles de SKU, puede avanzar con la [Guía de contenido de marketing de Azure Marketplace][link-pushstaging]. En este paso del proceso de publicación, proporciona el contenido de marketing, precios y demás información necesaria antes del **Paso 3: Prueba de la oferta de máquina virtual en ensayo**, donde prueba varios escenarios de caso de uso antes de implementar la oferta en Azure Marketplace para la compra y visibilidad pública.
+Cuando haya terminado con los detalles de SKU, puede avanzar con la [guía de contenido de marketing de Azure Marketplace][link-pushstaging]. En este paso del proceso de publicación, proporciona el contenido de marketing, precios y demás información necesaria antes del **Paso 3: Prueba de la oferta de máquina virtual en ensayo**, donde prueba varios escenarios de caso de uso antes de implementar la oferta en Azure Marketplace para la compra y visibilidad pública.
 
 ## Consulte también
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -629,9 +626,9 @@ Cuando haya terminado con los detalles de SKU, puede avanzar con la [Guía de co
 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-github-waagent]: https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]: http://storageexplorer.com/
-[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2/
-[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1/
+[link-azure-codeplex]: https://azurestorageexplorer.codeplex.com/
+[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
+[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [link-msft-download]: http://www.microsoft.com/download/details.aspx?id=44299
 [link-technet-3]: https://technet.microsoft.com/library/hh846766.aspx
 [link-technet-2]: https://msdn.microsoft.com/library/dn495261.aspx
@@ -647,11 +644,11 @@ Cuando haya terminado con los detalles de SKU, puede avanzar con la [Guía de co
 [link-datactr-2012]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
 [link-datactr-2008-r2]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]: ../virtual-machines/virtual-machines-linux-create-upload-vhd/
+[link-azure-vm-1]: ./virtual-machines-linux-create-upload-vhd/
 [link-technet-1]: https://technet.microsoft.com/library/hh848454.aspx
-[link-azure-vm-2]: ../virtual-machines/virtual-machines-linux-agent-user-guide/
+[link-azure-vm-2]: ./virtual-machines-linux-agent-user-guide/
 [link-openssl]: https://www.openssl.org/
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/01/2016"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Copia de datos de Almacenamiento de blobs de Azure a Base de datos SQL de Azure
@@ -22,6 +22,7 @@
 - [Uso del Editor de Data Factory.](data-factory-get-started-using-editor.md)
 - [Uso de PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Uso de Visual Studio](data-factory-get-started-using-vs.md)
+- [Uso del Asistente de copia](data-factory-copy-data-wizard-tutorial.md)
 
 En este tutorial, creará una factoría de datos de Azure y una canalización con una actividad de copia para copiar datos desde un almacenamiento de blobs de Azure a una base de datos de SQL de Azure.
 
@@ -115,4 +116,4 @@ Consulte el artículo [Actividades de movimiento de datos](data-factory-data-mov
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

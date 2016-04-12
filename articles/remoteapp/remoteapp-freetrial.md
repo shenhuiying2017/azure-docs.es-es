@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/28/2016"
     ms.author="elizapo" />
 
 
@@ -30,4 +30,4 @@ Mientras se encuentra en el modo de prueba, puede crear dos colecciones con un l
 
 ¿Tiene comentarios? Publique sus preguntas en los [foros de discusión](https://feedback.azure.com/forums/247748-azure-remoteapp/). Si tiene un [plan de soporte técnico de Azure](https://azure.microsoft.com/support/plans/), puede enviar una incidencia. Todos pueden enviar comentarios en nuestro [foro de comentarios](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -3,7 +3,7 @@
    description="Introducción a la conexión a Almacenamiento de datos SQL y ejecución de algunas consultas."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conexión a Almacenamiento de datos SQL con Visual Studio
@@ -22,7 +22,7 @@
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Este tutorial muestra cómo conectarse a una base de datos de Almacenamiento de datos SQL de Azure en solo unos minutos con SQL Server Data Tools en Visual Studio. Una vez conectado, ejecutará una consulta simple.
+Este tutorial muestra cómo conectarse a una base de datos de Almacenamiento de datos SQL de Azure en solo unos minutos con SQL Server Data Tools (SSDT) en Visual Studio. Una vez conectado, ejecutará una consulta simple.
 
 ## Requisitos previos
 
@@ -42,8 +42,9 @@ Para buscar el nombre del servidor completo.
     ![Nombre del servidor completo][1]
 
 ## Paso 2: Conexión a la base de datos SQL
+Para obtener la mejor experiencia, use Visual Studio 2015 con la [actualización más reciente de SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
-1. Abra Visual Studio.
+1. Abra Visual Studio 2013 o 2015
 2. Abra el Explorador de objetos de SQL Server. Para ello, seleccione **Ver** > **Explorador de objetos de SQL Server**.
 
     ![Explorador de objetos de SQL Server][2]
@@ -56,9 +57,10 @@ Para buscar el nombre del servidor completo.
 
     ![Conectar al servidor][4]
 
-    - **Nombre del servidor**. Escriba el *nombre del servidor* que hemos encontrado.
+    - **Nombre del servidor**. Escriba el *nombre del servidor* definido anteriormente.
     - **Autenticación**. Seleccione Autenticación de SQL Server.
-    - **Inicio de sesión** y **contraseña**. Escriba el inicio de sesión y la contraseña para Azure SQL Server.
+    - **Nombre de usuario** y **contraseña**. Escriba el nombre de usuario y la contraseña para Azure SQL Server.
+    - **Nombre de la base de datos**. Escriba el nombre de la base de datos para la base de datos DW de SQL.
     - Haga clic en **Conectar**.
 
 1. Para explorar, expanda su Azure SQL Server. Puede ver las bases de datos asociadas al servidor. Expanda AdventureWorksDW para ver las tablas de la base de datos de ejemplo.
@@ -68,7 +70,7 @@ Para buscar el nombre del servidor completo.
 
 ## Paso 3: Ejecución de una consulta de ejemplo
 
-Ahora que nos hemos conectado al servidor, continuemos y escribamos una consulta.
+Ahora que se ha establecido una conexión a la base de datos, continuemos y escribamos una consulta.
 
 1. Haga clic con el botón derecho en la base de datos en el Explorador de objetos de SQL Server.
 
@@ -78,9 +80,9 @@ Ahora que nos hemos conectado al servidor, continuemos y escribamos una consulta
 
 3. Copie esta consulta TSQL en la ventana de consulta:
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. Ejecute la consulta. Para hacerlo, haga clic en la flecha verde o use la combinación de teclas `CTRL`+`SHIFT`+`E`.
 
@@ -108,4 +110,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [visualizar los datos 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

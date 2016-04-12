@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/29/2016"
+   ms.date="03/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: historial de versiones
@@ -28,13 +28,22 @@ Vínculos relacionados:
 - Para obtener información sobre los permisos necesarios para aplicar una actualización, vea [cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.1.119.0
+Publicación: marzo de 2016
+
+**Problemas corregidos:**
+
+- Nos aseguramos de que la instalación rápida no se pueda usar en Windows Server 2008 (versión preliminar 2) porque la sincronización de contraseñas no se admite en este sistema operativo.
+- La actualización desde DirSync con una configuración de filtro personalizada no funcionó como se esperaba.
+- Cuando se actualiza a una versión más reciente y no hay ningún cambio en la configuración, no se debe programar una importación o sincronización completa.
+
 ## 1\.1.110.0
 Fecha de publicación: febrero de 2016
 
 **Problemas corregidos:**
 
 - La actualización desde versiones anteriores no funciona si la instalación no está en la carpeta predeterminada **C:\\Archivos de programa**.
-- Si instala y anula la selección de **Iniciar el proceso de sincronización...** al final del asistente para la instalación, el programador no se habilitará al volver a ejecutar el asistente para la instalación.
+- Si instala y anula la selección de **Iniciar el proceso de sincronización..** al final del asistente para la instalación, el Programador no se habilitará al volver a ejecutar el asistente para la instalación.
 - El programador no funcionará según lo previsto en los servidores en los que el formato de fecha y hora no sea US-en. Además, impedirá que `Get-ADSyncScheduler` devuelva las horas correctas.
 - Si ha instalado una versión anterior de Azure AD Connect con AD FS como opción de inicio de sesión y actualización, no puede volver a ejecutar el asistente para la instalación.
 
@@ -45,7 +54,7 @@ Fecha de publicación: febrero de 2016
 
 - Característica [Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) para los clientes de configuración rápida.
 - Soporte para el administrador global que utiliza MFA y PIM en el Asistente para instalación.
-    - Debe hacer que el proxy permita el tráfico a https://secure.aadcdn.microsoftonline-p.com si usa MFA.
+    - Debe hacer que el proxy también permita el tráfico a https://secure.aadcdn.microsoftonline-p.com si usa MFA.
     - Debe agregar https://secure.aadcdn.microsoftonline-p.com a la lista de sitios de confianza para que MFA funcione correctamente.
 - Permite cambiar el método de inicio de sesión del usuario después de la instalación inicial.
 - Permite el [filtrado por dominio y unidad organizativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) en el asistente para la instalación. Esto también permite conectar con bosques donde no todos los dominios están disponibles.
@@ -248,4 +257,4 @@ Fecha de publicación: septiembre de 2014
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -3,8 +3,8 @@
 	description="La muestra de C# incluye lógica de reintentos para interactuar de manera fiable con la base de datos de SQL de Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # Ejemplo de código: lógica de reintento en C# para conectarse a la Base de datos SQL
@@ -286,4 +286,4 @@ Ejecute el programa con el parámetro "test" y compruebe en primer lugar si se p
 
 - [Prueba de Base de datos SQL: Use C# para crear una Base de datos SQL con la biblioteca de Base de datos SQL para .NET](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

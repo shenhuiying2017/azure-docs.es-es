@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/05/2016"
+   	ms.date="03/08/2016"
    	ms.author="jgao"/>
 
 #Crear clústeres basados en Linux en HDInsight con el SDK de .NET
@@ -27,7 +27,9 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 >
 > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-###Requisitos previos
+##Requisitos previos
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -166,7 +168,7 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 
 ## Uso de bootstrap
 
-Para obtener más información, consulte [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap).
+Para más información, consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap).
 
 Modifique el ejemplo para [crear clústeres](#create-clusters) a fin de configurar un valor de Hive:
 
@@ -291,7 +293,7 @@ Modifique el ejemplo para [crear clústeres](#create-clusters) a fin de configur
 
 ## Uso de la acción de scripts
 
-Para obtener más información, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
+Para más información, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 Modifique el ejemplo para [crear clústeres](#create-clusters) a fin de llamar a una acción de scripts para instalar R:
 
@@ -363,4 +365,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

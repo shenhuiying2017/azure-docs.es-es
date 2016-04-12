@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -40,29 +40,37 @@ Vea [Precios del Centro de seguridad de Azure](https://azure.microsoft.com/prici
 ### ¿Cómo habilito la colección de datos?<a name=data-collection></a>
 Puede habilitar la colección de datos de las suscripciones de Azure en la directiva de seguridad. Para habilitar la colección de datos, [inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Centro de seguridad** y, luego, **Directiva de seguridad**. Establezca **Colección de datos** en **Habilitada** y configure las cuentas de almacenamiento donde desea colectar los datos (consulte la pregunta "[¿Dónde se almacenan los datos?](#where-is-my-data-stored)"). Una vez habilitada la **colección de datos**, colecta automáticamente información de eventos y configuración de seguridad de todas las máquinas virtuales compatibles de la suscripción.
 
+> [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la configuración de la recopilación de datos tiene lugar solo en el nivel de suscripción.
+
 ### ¿Qué sucede cuando habilito la colección de datos?
-La colección de datos se habilita a través de la extensión Supervisión de seguridad de Azure y el Agente de supervisión de Azure. La extensión Supervisión de seguridad de Azure busca diversos eventos y configuraciones de seguridad importantes en seguimientos de [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo genera eventos de registro de eventos en cada actividad. El Agente de supervisión de Azure lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en la cuenta de almacenamiento para su análisis. Esta es la cuenta de almacenamiento que configuró en la directiva de seguridad. Para obtener más información sobre la cuenta de almacenamiento, consulte "[¿Dónde se almacenan los datos?](#where-is-my-data-stored)".
+La colección de datos se habilita a través de la extensión Supervisión de seguridad de Azure y el Agente de supervisión de Azure. La extensión Supervisión de seguridad de Azure busca diversos eventos y configuraciones de seguridad importantes y los envía a [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo crea las entradas del registro de eventos. El Agente de supervisión de Azure lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en la cuenta de almacenamiento para su análisis. Esta es la cuenta de almacenamiento que configuró en la directiva de seguridad. Para obtener más información sobre la cuenta de almacenamiento, consulte "[¿Dónde se almacenan los datos?](#where-is-my-data-stored)".
 
 ### ¿El Agente de supervisión o la extensión Supervisión de seguridad afecta el rendimiento de los servidores?
 El agente y la extensión utilizan una cantidad simbólica de los recursos del sistema y tienen un impacto menor en el rendimiento.
 
 ### ¿Cómo puedo revertir la habilitación de la colección de datos si ya no la deseo?
-Puede deshabilitar la **colección de datos** de una suscripción en la directiva de seguridad. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Centro de seguridad** y, luego, **Directiva de seguridad**). Cuando hace clic en una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la colección de datos. Seleccione la opción **Eliminar agentes** en la barra de herramientas superior para quitar los agentes de las máquinas virtuales existentes.
+Puede deshabilitar la **colección de datos** de una suscripción en la directiva de seguridad. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Centro de seguridad** y, luego, **Directiva de seguridad**). Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la colección de datos. Seleccione la opción **Eliminar agentes** en la barra de herramientas superior para quitar los agentes de las máquinas virtuales existentes.
+
+> [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero debe seleccionar una suscripción para desactivar la colección de datos.
 
 ### ¿Dónde se almacenan los datos?<a name=where-is-my-data-stored></a>
-Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Esto facilita el mantenimiento de los datos en la misma zona geográfica para fines de privacidad y soberanía de datos. Elija la cuenta de almacenamiento para una suscripción en la directiva de seguridad. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Centro de seguridad** y, luego, **Directiva de seguridad**). Cuando hace clic en una suscripción, se abre una hoja nueva. Haga clic en **Elegir cuentas de almacenamiento** para seleccionar una región. Los datos colectados se aíslan lógicamente de los datos de otros clientes por motivos de seguridad.
+Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Esto facilita el mantenimiento de los datos en la misma zona geográfica para fines de privacidad y soberanía de datos. Elija la cuenta de almacenamiento para una suscripción en la directiva de seguridad. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Centro de seguridad** y, luego, **Directiva de seguridad**). Cuando hace clic en una suscripción, se abre una hoja nueva. Seleccione **Elegir cuentas de almacenamiento** para seleccionar una región. Los datos colectados se aíslan lógicamente de los datos de otros clientes por motivos de seguridad.
+
+> [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la selección de una región para la cuenta de almacenamiento tiene lugar solo en el nivel de suscripción.
 
 Para obtener más información sobre las cuentas de almacenamiento y el almacenamiento de Azure, consulte [Documentación de almacenamiento](https://azure.microsoft.com/documentation/services/storage/) y [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
 ## Uso del Centro de seguridad de Azure
 
 ### ¿Qué es una directiva de seguridad?
-Una directiva de seguridad define el conjunto de controles que se recomiendan para los recursos en la suscripción especificada. En el Centro de seguridad de Azure, usted define directivas para sus suscripciones de Azure de acuerdo con los requisitos de seguridad de la empresa y el tipo de aplicaciones o la confidencialidad de los datos de cada suscripción.
+Una directiva de seguridad define el conjunto de controles recomendados para los recursos en la suscripción o grupo de recursos especificados. En el Centro de seguridad de Azure, se definen las directivas para sus suscripciones y grupos de recursos de Azure de acuerdo con los requisitos de seguridad de la empresa y el tipo de aplicaciones o la confidencialidad de los datos de cada suscripción.
 
 Por ejemplo, es posible que los recursos usados para el desarrollo o las pruebas tengan distintos requisitos de seguridad que los de aquellos que se emplean para aplicaciones de producción. Del mismo modo, es posible que las aplicaciones con datos regulados como información de identificación personal (PII) requieran un mayor nivel de seguridad. Las directivas de seguridad habilitadas en el Centro de seguridad de Azure generarán la supervisión y recomendaciones de seguridad. Para obtener más información sobre las directivas de seguridad, consulte [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md).
 
+> [AZURE.NOTE] En caso de un conflicto entre la directiva del nivel de suscripción y la directiva del nivel de grupo de recursos, la del nivel de grupo de recursos tiene prioridad.
+
 ### ¿Quién puede modificar una directiva de seguridad?
-Las directivas de seguridad se configuran para cada suscripción. Para modificar una directiva de seguridad, debe ser propietario o colaborador de la suscripción.
+Las directivas de seguridad se configuran para cada suscripción o grupo de recursos. Para modificar una directiva de seguridad en el nivel de suscripción o el nivel de grupo de recursos, debe ser el propietario de la suscripción o un colaborador de esta.
 
 Para obtener información sobre cómo configurar una directiva de seguridad, consulte [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md).
 
@@ -96,11 +104,11 @@ Cuando un usuario abre el Centro de seguridad de Azure, solo se verán las recom
 Para editar una directiva de seguridad, debe ser propietario o colaborador de la suscripción.
 
 ### ¿Qué tipos de máquinas virtuales serán compatibles?
-Se admiten las máquinas virtuales creadas mediante los [modelos de implementación clásico y del Administrador de recursos](../azure-classic-rm.md), incluidas las máquinas virtuales que forman parte de los clústeres de Azure Service Fabric.
+Se admiten las máquinas virtuales creadas mediante los [modelos de implementación clásico y de Resource Manager](../azure-classic-rm.md), incluidas las máquinas virtuales que forman parte de los clústeres de Azure Service Fabric.
 
 Las recomendaciones de lista de control de acceso se aplican actualmente a las máquinas virtuales (clásicas). Los grupos de seguridad de red solo se aplican actualmente a las máquinas virtuales (Administrador de recursos).
 
 ### ¿Las máquinas virtuales de Linux son compatibles?
 El Centro de seguridad de Azure ofrece supervisión de línea base para máquinas virtuales de Linux (solo Ubuntu versiones 12.04, 14.04, 14.10 y 15.04). En el futuro, habrá disponible una supervisión del estado de seguridad y colección de datos/análisis adicionales, además de compatibilidad para otras distribuciones de Linux.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

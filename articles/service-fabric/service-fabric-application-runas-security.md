@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # RunAs: ejecutar de una aplicación de Service Fabric con diferentes permisos de seguridad
 Azure Service Fabric permite proteger aplicaciones que se ejecutan en el clúster en distintas cuentas de usuario, lo que se conoce como **RunAs**. También protege los recursos que usan las aplicaciones con la cuenta de usuario, como archivos, directorios y certificados.
@@ -110,7 +110,7 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Luego anote el nombre del nodo en que el servicio se ha implementado e iniciado en el explorador de Service Fabric, por ejemplo, Node 1. Después navegue hasta la carpeta de trabajo de la instancia de aplicación para buscar el archivo out.txt que muestra el valor de **TestVariable**. Por ejemplo, si se implementó en Node 2, puede ir a esta ruta de acceso para ver el valor de **MyApplicationType**:
+Luego, anote el nombre del nodo donde el servicio se ha implementado e iniciado en el explorador de Service Fabric, por ejemplo, Node 2. Después navegue hasta la carpeta de trabajo de la instancia de aplicación para buscar el archivo out.txt que muestra el valor de **TestVariable**. Por ejemplo, si se implementó en Node 2, puede ir a esta ruta de acceso para ver el valor de **MyApplicationType**:
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
@@ -351,4 +351,4 @@ El siguiente manifiesto de aplicación muestra muchos de los diferentes valores 
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

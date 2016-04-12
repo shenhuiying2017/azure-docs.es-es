@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/03/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,9 @@ Si la instalación de IntelliJ IDEA no pide habilitar el complemento de Scala, i
 
 1. Si vuelve a la pantalla de inicio de sesión de IntelliJ IDEA, haga clic en **Configure** (Configurar) y luego en **Plugins** (Complementos).
 
-2. En la siguiente pantalla, haga clic en **Browse Repositories** (Examinar repositorios) en la esquina inferior izquierda. En el cuadro de diálogo **Browse Repositories** (Explorar repositorios), busque **HDInsight**, seleccione **Microsoft Azure HDInsight Tools for IntelliJ** (Herramientas de HDInsight de Microsoft Azure para IntelliJ) y luego haga clic en **Install** (Instalar).
+2. En la siguiente pantalla, haga clic en **Browse Repositories** (Examinar repositorios) en la esquina inferior izquierda. En el cuadro de diálogo **Browse Repositories** (Explorar repositorios), busque **HDInsight**, seleccione **Microsoft Azure HDInsight Tools for IntelliJ** (Herramientas de HDInsight de Microsoft Azure para IntelliJ) (Vista previa) y luego haga clic en **Install** (Instalar).
+
+	![Instalar complemento de HDInsight](./media/hdinsight-apache-spark-intellij-tool-plugin/install-hdinsight-plugin.png)
 
 3. Cuando se le solicite, haga clic en el botón **Restart IntelliJ IDEA** (Reiniciar IntelliJ IDEA) para reiniciar el IDE.
 
@@ -318,4 +320,4 @@ También puede convertir las aplicaciones existentes Spark en Scala creadas en I
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

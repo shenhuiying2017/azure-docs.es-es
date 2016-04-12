@@ -95,9 +95,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
         
-           > [AZURE.NOTE]
-	   > 
-	   > Si une el servidor iSCSI a un dominio, asegúrese de que su matriz virtual esté en su propia unidad organizativa (UO) de Microsoft Azure Active Directory y de que no se le aplica ningún objeto de directiva de grupo (GPO).
+	   	> [AZURE.NOTE] Si une el servidor iSCSI a un dominio, asegúrese de que su matriz virtual esté en su propia unidad organizativa (UO) de Microsoft Azure Active Directory y de que no se le aplica ningún objeto de directiva de grupo (GPO).
 	   
 
     6. Haga clic en **Apply**. Esto aplicará y validará la configuración de dispositivo.
@@ -286,7 +284,7 @@ Realice los pasos siguientes para montar, inicializar y formatear los volúmenes
 
 ## Pasos siguientes
 
-Aprenda a usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
+[Obtenga información sobre cómo usar la interfaz de usuario web local para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
 ## Apéndice A: Obtener el IQN de un host de Windows Server
 
@@ -305,4 +303,4 @@ Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de W
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

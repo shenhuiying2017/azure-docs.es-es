@@ -3,7 +3,7 @@
    description="Describe cómo Reliable Actors usa las características de la plataforma Service Fabric y se abarcan conceptos desde el punto de vista de los desarrolladores de actores."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor="vturecek"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
-   ms.author="abhisram"/>
+   ms.date="03/15/2016"
+   ms.author="amanbha"/>
 
 # Uso de la plataforma Service Fabric por parte de actores confiables
 
@@ -102,7 +102,7 @@ La administración posterior (es decir, las actualizaciones y la eliminación fi
 ## Escalabilidad de los servicios de actor
 Los administradores de clústeres pueden crear uno o varios servicios de actor de cada tipo de servicio en el clúster. Cada uno de esos servicios de actor puede tener una o más particiones (de igual forma que cualquier otro servicio de Service Fabric). La capacidad de crear varios servicios de un tipo de servicio (que se asigna a un tipo de actor) y la capacidad de crear varias particiones para un servicio permiten que la aplicación de actor se escale. Consulte el artículo sobre [escalabilidad](service-fabric-concepts-scalability.md) para obtener más información.
 
-> [AZURE.NOTE]Los servicios de actores sin estado necesitan tener un recuento de [instancias](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) de 1. No se admite tener más de una instancia de un servicio de actores sin estado en una partición. Por lo tanto, los servicios de actores sin estado no tienen la posibilidad de aumentar el recuento de instancias para lograr escalabilidad. Deben usar las opciones de escalabilidad que se describen en el [artículo sobre escalabilidad](service-fabric-concepts-scalability.md).
+> [AZURE.NOTE] Los servicios de actores sin estado necesitan tener un recuento de [instancias](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) de 1. No se admite tener más de una instancia de un servicio de actores sin estado en una partición. Por lo tanto, los servicios de actores sin estado no tienen la posibilidad de aumentar el recuento de instancias para lograr escalabilidad. Deben usar las opciones de escalabilidad que se describen en el [artículo sobre escalabilidad](service-fabric-concepts-scalability.md).
 
 ## Conceptos de partición de Service Fabric para los actores
 El identificador de un actor se asigna a una partición de un servicio de actor. El actor se crea dentro de la partición a la que se asigna su identificador de actor. Cuando se crea un actor, el tiempo de ejecución de los actores escribe un [evento EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) que indica la partición en que se creó. A continuación, se muestra un ejemplo de este evento que indica que un actor con el identificador `-5349766044453424161` se creó en la partición `b6afef61-be9a-4492-8358-8f473e5d2487` del servicio `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, aplicación `fabric:/VoicemailBoxAdvancedApplication`.
@@ -143,7 +143,7 @@ Otro actor con el identificador `-4952641569324299627` se creó en una partició
       }
     }
 
-> [AZURE.NOTE]Algunos campos de los eventos anteriores se omiten para mayor brevedad.
+> [AZURE.NOTE] Algunos campos de los eventos anteriores se omiten para mayor brevedad.
 
 El identificador de partición puede usarse para obtener otra información sobre la partición. Por ejemplo, la herramienta [Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md) se puede usar para ver información sobre la partición, y sobre el servicio y la aplicación a los que pertenece. En la captura de pantalla siguiente se muestra información sobre la partición `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`, que contiene el actor con el identificador `-4952641569324299627` en el ejemplo anterior.
 
@@ -175,7 +175,7 @@ public void ActorMessage(StatefulActorBase actor, string message, params object[
 ### Conceptos de particiones de Service Fabric para actores sin estado
 Los actores sin estado se crean dentro de una partición de un servicio sin estado de Service Fabric. El identificador de actor determina la partición en la que se crea el actor. El recuento de [instancias](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) de un servicio de actores sin estado debe ser 1. No es posible cambiar el recuento de instancias por cualquier otro valor. Por lo tanto, el actor se crea dentro de la instancia de servicio único dentro de la partición.
 
-> [AZURE.TIP]El tiempo de ejecución de los actores de Fabric emite algunos [eventos relacionados con instancias de actores sin estado](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances). Son útiles para la supervisión del rendimiento y los diagnósticos.
+> [AZURE.TIP] El tiempo de ejecución de los actores de Fabric emite algunos [eventos relacionados con instancias de actores sin estado](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances). Son útiles para la supervisión del rendimiento y los diagnósticos.
 
 Cuando se crea un actor sin estado, el tiempo de ejecución de los actores escribe un [evento EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) que indica la partición y la instancia en que se creó. A continuación, se muestra un ejemplo de este evento. Indica que un actor con el identificador `abc` se creó dentro de la instancia `130745709600495974` de la partición `8c828833-ccf1-4e21-b99d-03b14d4face3`, del servicio `fabric:/HelloWorldApplication/HelloWorldActorService` y de la aplicación `fabric:/HelloWorldApplication`.
 
@@ -196,12 +196,12 @@ Cuando se crea un actor sin estado, el tiempo de ejecución de los actores escri
       }
     }
 
-> [AZURE.NOTE]Algunos campos del evento anterior se omiten para mayor brevedad.
+> [AZURE.NOTE] Algunos campos del evento anterior se omiten para mayor brevedad.
 
 ### Conceptos de particiones de Service Fabric para actores con estado
 Los actores con estado se crean dentro de una partición del servicio con estado de Service Fabric. El identificador de actor determina la partición en la que se crea el actor. Cada partición del servicio puede tener una o más [réplicas](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services) que se colocan en nodos distintos del clúster. Al disponer de varias réplicas, se ofrece confiabilidad para el estado del actor. El Administrador de recursos de Azure optimiza la selección de ubicación según los dominios de error y actualización disponibles en el clúster. Dos réplicas de la misma partición nunca se colocan en el mismo nodo. Los actores siempre se crean en la réplica principal de la partición a la que se asigna su identificador de actor.
 
-> [AZURE.TIP]El tiempo de ejecución de actores de Fabric emite algunos [eventos relacionados con las réplicas de actores con estado](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). Son útiles para la supervisión del rendimiento y los diagnósticos.
+> [AZURE.TIP] El tiempo de ejecución de actores de Fabric emite algunos [eventos relacionados con las réplicas de actores con estado](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). Son útiles para la supervisión del rendimiento y los diagnósticos.
 
 Recuerde que en el [ejemplo de VoiceMailBoxActor que se explicó anteriormente](#service-fabric-partition-concepts-for-actors), el actor con el identificador `-4952641569324299627` se creó en la partición `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`. El evento EventSource de ese ejemplo también indicaba que el actor se creó en la réplica `130745418574851853` de dicha partición. Esta era la réplica principal de esa partición en el momento en que se creó el actor. La captura de pantalla siguiente del Explorador de Service Fabric lo confirma.
 
@@ -242,4 +242,4 @@ Tenga en cuenta que, al cambiar el proveedor de estado, debe volver a crearse el
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

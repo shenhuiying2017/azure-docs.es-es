@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="03/11/2016"
 	ms.author="spelluru"/>
 
 # Servicios vinculados de procesos
@@ -38,46 +38,28 @@ Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vincul
 > [AZURE.IMPORTANT] Normalmente se tarda más de **15 minutos** en aprovisionar un clúster de HDInsight a petición de Azure.
 
 ### Ejemplo
-En el siguiente JSON se define un servicio vinculado de HDInsight a petición. La Factoría de datos crea automáticamente un clúster de HDInsight **basado en Windows** al procesar un segmento de datos. Tenga en cuenta el **osType** no se especifica en este JSON de ejemplo y el valor predeterminado de esta propiedad es **Windows**.
-
-	{
-	  "name": "HDInsightOnDemandLinkedService",
-	  "properties": {
-	    "type": "HDInsightOnDemand",
-	    "typeProperties": {
-	      "version": "3.2",
-	      "clusterSize": 1,
-	      "timeToLive": "00:30:00",
-	      "linkedServiceName": "StorageLinkedService"
-	    }
-	  }
-	}
-
-
-En el siguiente JSON se define un servicio vinculado de HDInsight a petición basado en Linux. El servicio Factoría de datos crea automáticamente un clúster de HDInsight **basado en Linux** al procesar un segmento de datos. Debe especificar valores para **sshUserName** y **sshPassword**.
+En el siguiente JSON se define un servicio vinculado de HDInsight a petición basado en Linux. El servicio Data Factory crea automáticamente un clúster de HDInsight **basado en Linux** al procesar un segmento de datos.
 
 
 	{
 	    "name": "HDInsightOnDemandLinkedService",
 	    "properties": {
-	        "hubName": "getstarteddf0121_hub",
 	        "type": "HDInsightOnDemand",
 	        "typeProperties": {
-	            "version": "3.2",
 	            "clusterSize": 4,
 	            "timeToLive": "00:05:00",
 	            "osType": "linux",
-	            "sshPassword": "MyPassword!",
-	            "sshUserName": "myuser",
-	            "linkedServiceName": "StorageLinkedService",
+	            "linkedServiceName": "StorageLinkedService"
 	        }
 	    }
 	}
 
+Para utilizar un clúster de HDInsight basado en Windows, establezca **osType** en **windows** o, simplemente, no utilice la propiedad, ya que el valor predeterminado es windows.
+
 > [AZURE.IMPORTANT] 
-El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (**timeToLive**), y se elimina cuando se realiza el procesamiento.
+El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (**timeToLive**), y se elimina cuando finaliza el procesamiento.
 > 
-> A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeFactoríaDeDatos**-**linkedservicename**-datetimestamp". Use herramientas como [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores del Almacenamiento de blobs de Azure.
+> A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeSuDataFactory**-**linkedservicename**-datetimestamp". Use herramientas como [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/) para eliminar contenedores del almacenamiento de blobs de Azure.
 
 ### Propiedades
 
@@ -85,14 +67,12 @@ Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 type | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí
 clusterSize | El tamaño del clúster a petición. Especifique el número de nodos que desea que haya en este clúster a petición. | Sí
-timetolive | <p>El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanecerá activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.</p><p>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se realiza otra ejecución de actividad con un margen de 6 minutos, la procesa el mismo clúster.</p><p>La creación de un clúster de HDInsight a petición es una operación costosa (puede tardar bastante), por lo que se recomienda usar esta opción cuando sea necesario para mejorar el rendimiento de una factoría de datos con la reutilización de un clúster de HDInsight a petición.</p><p>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se procesa la ejecución de actividad. Por otra parte, si establece un valor alto, el clúster puede permanecer inactivo innecesariamente, lo que conlleva unos costos elevados. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.</p><p>Varias canalizaciones pueden compartir la misma instancia del clúster de HDInsight a petición si el valor de la propiedad timetolive está correctamente configurado</p>. | Sí
+timetolive | El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanecerá activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.<br/><br/>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se realiza otra ejecución de actividad con un margen de 6 minutos, la procesa el mismo clúster.<br/><br/>La creación de un clúster de HDInsight a petición es una operación costosa (puede tardar bastante), por lo que se recomienda usar esta opción cuando sea necesario para mejorar el rendimiento de una factoría de datos con la reutilización de un clúster de HDInsight a petición.<br/><br/>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se procesa la ejecución de actividad. Por otra parte, si establece un valor alto, el clúster puede permanecer inactivo innecesariamente, lo que conlleva unos costos elevados. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.<br/><br/>Varias canalizaciones pueden compartir la misma instancia del clúster de HDInsight a petición si el valor de la propiedad timeToLive está configurado correctamente. | Sí
 versión | Versión del clúster de HDInsight. El valor predeterminado es 3.1 para el clúster de Windows y 3.2 para el clúster de Linux. | No
 linkedServiceName | El almacén de blobs que usará el clúster a petición para almacenar y procesar datos. | Sí
 additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. | No
 osType | Tipo de sistema operativo. Los valores permitidos son: Windows (predeterminado) y Linux | No
 hcatalogLinkedServiceName | Nombre del servicio vinculado de SQL de Azure que apunta a la base de datos de HCatalog. El clúster de HDInsight a petición se creará mediante la base de datos SQL de Azure como la tienda de metadatos. | No
-sshUser | Usuario de SSH del clúster de HDInsight basado en Linux | Sí (solo para Linux)
-sshPassword | Contraseña de SSH del clúster de HDInsight basado en Linux | Sí (solo para Linux)
 
 
 #### Ejemplo JSON de additionalLinkedServiceNames
@@ -126,7 +106,6 @@ yarnConfiguration | Especifica los parámetros de configuración Yarn (yarn-site
 	    "typeProperties": {
 	      "clusterSize": 16,
 	      "timeToLive": "01:30:00",
-	      "version": "3.2",
 	      "linkedServiceName": "adfods1",
 	      "coreConfiguration": {
 	        "templeton.mapper.memory.mb": "5000"
@@ -163,7 +142,7 @@ dataNodeSize | Especifica el tamaño del nodo de datos. El valor predeterminado 
 zookeeperNodeSize | Especifica el tamaño del nodo de Zoo Keeper. El valor predeterminado es: Pequeño. | No
  
 #### Especificación de tamaños de nodo
-Vea el artículo [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-size-specs.md#size-tables) para valores de cadena que tiene que especificar para las propiedades anteriores. Los valores deben ser conformes a los **CMDLET y API** a los que se hace referencia en el artículo. Como puede ver en el artículo, el nodo de datos de tamaño grande (valor predeterminado) tiene 7 GB de memoria, que es posible que no sea lo suficientemente bueno para su escenario.
+Vea el artículo [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) para valores de cadena que tiene que especificar para las propiedades anteriores. Los valores deben ser conformes a los **CMDLET y API** a los que se hace referencia en el artículo. Como puede ver en el artículo, el nodo de datos de tamaño grande (valor predeterminado) tiene 7 GB de memoria, que es posible que no sea lo suficientemente bueno para su escenario.
 
 Si quiere crear nodos de trabajo y principales de tamaño D4, tiene que especificar **Standard\_D4** como el valor de las propiedades headNodeSize y dataNodeSize.
 
@@ -198,7 +177,6 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 	      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
 	      "userName": "admin",
 	      "password": "<password>",
-	      "location": "WestUS",
 	      "linkedServiceName": "MyHDInsightStoragelinkedService"
 	    }
 	  }
@@ -212,7 +190,6 @@ type | La propiedad type se debe establecer en **HDInsight**. | Sí
 clusterUri | El URI del clúster de HDInsight. | Sí
 nombre de usuario | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí
 contraseña | Especifique la contraseña para la cuenta de usuario. | Sí
-location | Especifique la ubicación del clúster de HDInsight (por ejemplo: WestUS). | Sí
 linkedServiceName | Nombre del servicio vinculado para el almacenamiento de blobs usado por este clúster de HDInsight. | Sí
 
 ## Servicio vinculado de Lote de Azure
@@ -324,11 +301,10 @@ El código de autorización que se generó al hacer clic en el botón **Autoriza
 
 | Tipo de usuario | Expira después de |
 | :-------- | :----------- | 
-| Usuarios NO administrados por Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
-| Usuarios administrados por Azure Active Directory (AAD) | | Catorce días después de ejecutar el último segmento, si ningún segmento basado en el servicio vinculado basado en OAuth se ejecuta catorce días después del último segmento ejecutado. <p>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada catorce días.</p> |
-
+| Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
+| Cuentas de usuario administradas por Azure Active Directory (AAD) | 14 días después de la ejecución del último segmento. <br/><br/>90 días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada 14 días. |
  
-Para evitar o resolver este error, será preciso que vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades sessionId y authorization mediante programación, para lo que usará el código de la sección siguiente.
+Para evitar o resolver este error, tendrá que volver a dar la autorización con el botón **Autorizar** cuando el **token expire**, así como implementar de nuevo el servicio vinculado. También puede generar valores para las propiedades sessionId y authorization mediante programación, para lo que usará el código de la sección siguiente.
 
 ### Para generar los valores de sessionId y authorization mediante programación 
 El código siguiente genera los valores de **sessionId** y **authorization**.
@@ -356,11 +332,11 @@ El código siguiente genera los valores de **sessionId** y **authorization**.
         }
     }
 
-Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+Para obtener más información sobre las clases de Factoría de datos que se usan en el código, vea los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
  
 
 ## Servicio vinculado SQL de Azure
 
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Vea el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para más información sobre este servicio vinculado.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

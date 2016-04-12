@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Cómo registrar eventos en los centros de eventos de Azure en la administración de API de Azure
@@ -24,7 +24,7 @@ Este artículo es un complemento del vídeo [Integración de Administración de 
 
 ## Crear un centro de eventos de Azure
 
-Para crear un nuevo centro de eventos, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) y haga clic en **Nuevo**->**Servicios de aplicaciones**->**Bus de servicios**->**Centro de eventos**->**Creación rápida**. Escriba un nombre para el centro de eventos y la región. Seleccione una suscripción y elija un espacio de nombres. Si no ha creado un espacio de nombres anteriormente, puede crear uno escribiendo un nombre en el cuadro de texto **Espacio de nombres**. Una vez configuradas todas las propiedades, haga clic en **Crear un centro de eventos** para crear el centro de eventos.
+Para crear un nuevo centro de eventos, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) y haga clic en **Nuevo**->**Servicios de aplicaciones**->**Bus de servicios**->**Centro de eventos**->**Creación rápida**. Escriba un nombre para el centro de eventos y la región. Seleccione una suscripción y elija un espacio de nombres. Si no ha creado previamente un espacio de nombres, puede crear uno escribiendo un nombre en el cuadro de texto **Espacio de nombres**. Una vez configuradas todas las propiedades, haga clic en **Crear un centro de eventos** para crear el centro de eventos.
 
 ![Creación de un centro de eventos][create-event-hub]
 
@@ -54,7 +54,7 @@ Para crear un registrador, efectúe una solicitud HTTP PUT con la siguiente plan
 
     https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
 
--	Sustituya `{your service}` por el nombre de la instancia de servicio de Administración de API.
+-	Sustituya `{your service}` por el nombre de la instancia de servicio de administración de API.
 -	Sustituya `{new logger name}` por el nombre deseado del nuevo registrador. A este nombre se hará referencia al configurar la directiva [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub).
 
 Agregue los siguientes encabezados a la solicitud.
@@ -80,7 +80,7 @@ Especifique el cuerpo de la solicitud utilizando la siguiente plantilla.
 
 Al realizar la solicitud, si se crea el registrador, se devuelve un código de estado de `201 Created`.
 
->[AZURE.NOTE]Para conocer otros posibles códigos de retorno y sus razones, vea [Creación de un registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para conocer la forma de realizar otras operaciones como crear listas, actualizar y eliminar, vea la documentación de la entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx).
+>[AZURE.NOTE] Para conocer otros posibles códigos de retorno y sus razones, vea [Creación de un registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para conocer la forma de realizar otras operaciones como crear listas, actualizar y eliminar, vea la documentación de la entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx).
 
 ## Configuración de directivas log-to-eventhubs
 
@@ -102,7 +102,7 @@ Sitúe el cursor en la sección de la directiva de `inbound` y haga clic en la d
       @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
     </log-to-eventhub>
 
-Sustituya `logger-id` por el nombre del registrador de Administración de API que configuró en el paso anterior.
+Sustituya `logger-id` por el nombre del registrador de administración de API que configuró en el paso anterior.
 
 Puede usar cualquier expresión que devuelva una cadena como valor para el elemento `log-to-eventhub`. En este ejemplo, se registra una cadena que contiene la fecha y la hora, el nombre de servicio, el Id. de la solicitud, la dirección IP de la solicitud y el nombre de la operación.
 
@@ -133,4 +133,4 @@ Haga clic en **Guardar** para guardar la configuración de la directiva actualiz
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

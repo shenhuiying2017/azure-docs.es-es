@@ -17,12 +17,12 @@
     ms.author="chhavib;olgali"/>
 
 # Usar experimentos de ejemplo para crear nuevos experimentos
-Cuando desee crear un experimento, busque ejemplos de experimentos del equipo de Aprendizaje automático y experimentos compartidos por la Comunidad de aprendizaje automático. También puede hacer preguntas o publicar comentarios sobre experimentos en la [Galería de análisis de Cortana](http://gallery.azureml.net/).
+Cuando desee crear un experimento, busque ejemplos de experimentos del equipo de Aprendizaje automático y experimentos compartidos por la Comunidad de aprendizaje automático. También puede hacer preguntas o publicar comentarios sobre experimentos en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Búsqueda en la Galería de análisis de Cortana
-1. Vaya a la [Galería](http://gallery.azureml.net/).
+## Búsqueda en la Galería de Cortana Intelligence
+1. Vaya a la [Galería](http://gallery.cortanaintelligence.com/).
 2. Examine el contenido que desee en **Tendencias de experimentos** o en **Ejemplos de Microsoft**.
 3. Utilice la búsqueda y los filtros para restringir los resultados: 
 ![](./media/machine-learning-sample-experiments/image1.png) 
@@ -42,4 +42,4 @@ Cuando desee crear un experimento, busque ejemplos de experimentos del equipo de
 - [Crear una API de servicio web](machine-learning-publish-a-machine-learning-web-service.md)
 - [Examinar aplicaciones listas para utilizar](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -23,43 +23,21 @@
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-
 Este tema presenta un ejemplo de código escrito en Python. El ejemplo se ejecuta en un equipo Mac. El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador **pymssql**. Adicionalmente, use nuestro vídeo [Introducción a Python en Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) para complementar esta documentación.
 
+## Paso 1: Configuración del entorno de desarrollo
 
-## Requisitos previos
+Consulte el artículo [Prerequisites for using the pymssql Python Driver for SQL Server (Requisitos previos para usar el controlador pymssql de Python para SQL Server)](https://msdn.microsoft.com/library/mt694094.aspx#Mac).
 
-
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
-- [FreeTDS](https://github.com/brianb/FreeTDS)
-- [Pymssql](https://github.com/pymssql/pymssql)
-
-### Instalación de los módulos necesarios
-
-
-Abra el terminal e instale
-
-**1) Homebrew**: ejecute el siguiente comando desde su terminal. Esto descargará el administrador de paquetes Homebrew en su equipo.
-
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-**2) FreeTDS**: ejecute el siguiente comando desde su terminal. FreeTDS se descargará en su equipo. FreeTDS es necesario para que pymmsql funcione.
-
-    brew install FreeTDS
-
-**3) Pymmsql**: ejecute el siguiente comando desde su terminal. Esto instalará pymmsql en su equipo.
-
-    sudo -H pip install pymssql
-
-### Base de datos SQL
+## Paso 2: Creación de una base de datos SQL
 
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
-## Paso 1: Obtención de detalles de la conexión
+## Paso 3: Obtención de detalles de la conexión
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Paso 2: Conexión
+## Paso 4: Conexión
 
 La función [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) se usa para conectarse a la base de datos SQL.
 
@@ -67,7 +45,7 @@ La función [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) se 
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
-## Paso 3: Ejecución de una consulta
+## Paso 5: Ejecución de una consulta
 
 La función [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) puede usarse para recuperar un conjunto de resultados de una consulta realizada a la base de datos SQL. Esta función acepta cualquier consulta y devuelve un conjunto de resultados que se puede iterar mediante el uso de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -82,7 +60,7 @@ La función [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymss
 	    row = cursor.fetchone()
 
 
-## Paso 4: Inserción de una fila
+## Paso 6: Inserción de una fila
 
 En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
 
@@ -98,7 +76,7 @@ En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.
 	    row = cursor.fetchone()
 
 
-## Paso 5: Reversión de una transacción
+## Paso 7: Reversión de una transacción
 
 
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
@@ -123,4 +101,4 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 
 Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

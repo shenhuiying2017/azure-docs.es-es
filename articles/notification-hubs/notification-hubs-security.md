@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 #Seguridad
@@ -47,4 +47,4 @@ De modo similar a otras entidades, las operaciones del Centro de notificaciones 
 
 Los Centros de notificaciones aceptan notificaciones concedidas por tokens de Control de acceso de Microsoft Azure y tokens de firma generados con claves compartidas configuradas directamente en el Centro de notificaciones.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

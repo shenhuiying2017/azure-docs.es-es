@@ -74,9 +74,9 @@ Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes pr
 - Puede usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. Si el nombre del servidor DNS no es válido, se producirá un error en la creación del dispositivo virtual.
 - Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados. 
 
->[AZURE.IMPORTANT]**Asegúrese de que la red virtual está en la misma región que las cuentas de almacenamiento en la nube que va a usar con el dispositivo virtual.**
+>[AZURE.IMPORTANT] **Asegúrese de que la red virtual está en la misma región que las cuentas de almacenamiento en la nube que va a usar con el dispositivo virtual.**
 
-- Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-about.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos: 							
+- Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-linux-about.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos: 							
 	- Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado
 	- Ejecutarse en la misma red virtual como el dispositivo virtual
 	- Ser capaz de conectarse al destino iSCSI del dispositivo virtual a través de la dirección IP interna del dispositivo virtual
@@ -139,7 +139,7 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
 
 	5. **Cuenta de almacenamiento para la creación de un dispositivo virtual**: esta cuenta de almacenamiento se usará para almacenar la imagen del dispositivo virtual durante el aprovisionamiento y hospedará los discos del dispositivo virtual después del aprovisionamiento. Esta cuenta de almacenamiento debe estar en la misma región que el dispositivo virtual y la red virtual. No debe utilizarse para el almacenamiento de datos por el dispositivo físico o el dispositivo virtual. De forma predeterminada, para ello se creará una nueva cuenta de almacenamiento. Sin embargo, si sabe que ya tiene una cuenta de almacenamiento que es adecuada para este uso, puede seleccionarla en la lista.
 
-    >[AZURE.NOTE]El dispositivo virtual solo puede funcionar con las cuentas de almacenamiento de Azure. Otros proveedores de servicios en la nube como Amazon, HP y OpenStack (que son compatibles con el dispositivo físico) no se admiten para el dispositivo virtual StorSimple.
+    >[AZURE.NOTE] El dispositivo virtual solo puede funcionar con las cuentas de almacenamiento de Azure. Otros proveedores de servicios en la nube como Amazon, HP y OpenStack (que son compatibles con el dispositivo físico) no se admiten para el dispositivo virtual StorSimple.
 	
 4. Haga clic en la marca de verificación para indicar que sabe que los datos almacenados en el dispositivo virtual estarán hospedados en un centro de datos de Microsoft. Cuando se utiliza solo un dispositivo físico, la clave de cifrado se mantiene con el dispositivo; por lo tanto, Microsoft no podrá descifrarla. ![Fase de creación de dispositivo virtual de StorSimple](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
 
@@ -186,7 +186,7 @@ Este parámetro contiene las credenciales que el dispositivo virtual utiliza cua
 
 El software StorSimple Snapshot Manager reside en el host de Windows y permite a los administradores administrar copias de seguridad del dispositivo StorSimple en forma de instantáneas locales y en la nube.
 
->[AZURE.NOTE]Para el dispositivo virtual, el host de Windows es una VM de Azure.
+>[AZURE.NOTE] Para el dispositivo virtual, el host de Windows es una VM de Azure.
 
 Al configurar un dispositivo en StorSimple Snapshot Manager, se le pedirá que proporcione la dirección IP del dispositivo StorSimple y la contraseña para autenticar el dispositivo de almacenamiento.
 
@@ -284,7 +284,7 @@ Tan pronto como se muestra el dispositivo como desactivado en la página de serv
 
 Una vez habilitado en la página de configuración del dispositivo StorSimple, puede usar la comunicación remota de Windows PowerShell para conectarse al dispositivo virtual desde otra máquina virtual dentro de la misma red virtual; por ejemplo, puede conectarse desde la máquina virtual del host que ha configurado y utilizado para conectarse a iSCSI. En la mayoría de las implementaciones, ya habrá abierto un punto de conexión público para tener acceso a su máquina virtual host que se puede utilizar para tener acceso al dispositivo virtual.
 
->[AZURE.WARNING]**Para mayor seguridad, se recomienda utilizar HTTPS al conectarse a los puntos de conexión y, a continuación, eliminar los puntos de conexión después de haber completado la sesión remota de PowerShell.**
+>[AZURE.WARNING] **Para mayor seguridad, se recomienda utilizar HTTPS al conectarse a los puntos de conexión y, a continuación, eliminar los puntos de conexión después de haber completado la sesión remota de PowerShell.**
 
 Debe seguir los procedimientos que aparecen en [Conexión remota a su dispositivo StorSimple](storsimple-remote-connect.md) para establecer la comunicación remota para el dispositivo virtual.
 
@@ -342,7 +342,7 @@ Si decide que desea empezar de nuevo con su dispositivo virtual, simplemente des
 
 La recuperación ante desastres (DR) es uno de los escenarios clave para los que se diseñó el dispositivo virtual de StorSimple. En este escenario, es posible que el dispositivo físico de StorSimple o todo el centro de datos no esté disponible. Afortunadamente, puede usar un dispositivo virtual para restaurar las operaciones en una ubicación alternativa. Durante la recuperación ante desastres, los contenedores de volúmenes del dispositivo de origen cambia la propiedad y se transfieren al dispositivo virtual. Los requisitos previos para la recuperación ante desastres son que haya creado y configurado el dispositivo virtual, todos los volúmenes en el contenedor de volúmenes se hayan desconectado y el contenedor de volúmenes tenga asociada una instantánea en la nube.
 
->[AZURE.NOTE]No se puede efectuar la conmutación por error ni clonar desde un dispositivo que ejecute Update 1 para un dispositivo que ejecute software anterior a la actualización 1. Si selecciona un dispositivo de destino que ejecute software anterior a Update 1, se le notificará que deberá actualizar el dispositivo de destino antes de realizar la conmutación por error.
+>[AZURE.NOTE] No se puede efectuar la conmutación por error ni clonar desde un dispositivo que ejecute Update 1 para un dispositivo que ejecute software anterior a la actualización 1. Si selecciona un dispositivo de destino que ejecute software anterior a Update 1, se le notificará que deberá actualizar el dispositivo de destino antes de realizar la conmutación por error.
 
 ### Para restaurar el dispositivo físico en el dispositivo virtual de StorSimple
 
@@ -364,7 +364,7 @@ La recuperación ante desastres (DR) es uno de los escenarios clave para los que
 
 Comenzará el proceso de conmutación por error. Cuando finalice la conmutación por error, vaya a la página de dispositivos y seleccione el dispositivo virtual que se utiliza como destino para el proceso de conmutación por error. Vaya a la página Contenedores de volúmenes. Deben aparecer todos los contenedores de volúmenes, junto con los volúmenes del dispositivo antiguo.
 
->[AZURE.NOTE]La cantidad de almacenamiento admitida en el dispositivo virtual es de 30 TB.
+>[AZURE.NOTE] La cantidad de almacenamiento admitida en el dispositivo virtual es de 30 TB.
 
 ## Cerrar o eliminar el dispositivo virtual
 
@@ -392,4 +392,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

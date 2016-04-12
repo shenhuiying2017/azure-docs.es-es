@@ -3,8 +3,8 @@
    description="Describe cómo establecer un recurso como dependiente de otro recurso durante la implementación."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="mmercuri"
-   manager="wpickett"
+   authors="tfitzmac"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="12/07/2015"
-   ms.author="mmercuri"/>
+   ms.author="tomfitz"/>
 
 # Definición de dependencias en plantillas del Administrador de recursos de Azure
 
@@ -53,7 +53,7 @@ Cada recurso primario solo acepta determinados tipos de recursos como recursos s
 
 ## función reference
 
-La función reference permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las expresiones de referencia declaran implícitamente que un recurso depende de otro. La propiedad representada por **propertyPath** a continuación es opcional, si no se especifica, la referencia se hace al recurso.
+La función reference permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las expresiones de referencia declaran implícitamente que un recurso depende de otro. La propiedad representada por **propertyPath** a continuación es opcional, si no se especifica, la referencia es al recurso.
 
     reference('resourceName').propertyPath
 
@@ -66,4 +66,4 @@ Para más información, consulte [función reference](../resource-group-template
 - Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](resource-group-authoring-templates.md). 
 - Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0316_2016-->

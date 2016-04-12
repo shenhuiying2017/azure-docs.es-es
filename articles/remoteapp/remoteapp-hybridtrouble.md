@@ -40,7 +40,7 @@ Puede agregar grupos de seguridad de red adicionales a las red virtuales que imp
 >[AZURE.NOTE] Tendrá que asegurarse de que los servidores DNS de la red virtual estén siempre activos y puedan resolver en todo momento las máquinas virtuales hospedadas en la red virtual. No utilice Google DNS para ello.
 
 
-En las colecciones híbridas utiliza sus propios servidores DNS. Los especifica en el esquema de configuración de red o a través del Portal de administración al crear la red virtual. Los servidores DNS se utilizan en el orden en que se especifican en forma de conmutación por error (como oposición a round robin).
+En las colecciones híbridas utiliza sus propios servidores DNS. Los especifica en el esquema de configuración de red o a través del Portal de administración al crear la red virtual. Los servidores DNS se utilizan en el orden en que se especifican en forma de conmutación por error (como oposición a round robin). Consulte [Resolución de nombres para las VM e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) para asegurarse de que los servidores DNS se han configurado correctamente.
 
 Asegúrese de que los servidores DNS de la colección son accesibles y están disponibles en la subred de red virtual especificada para esta colección.
 
@@ -67,4 +67,4 @@ Asegúrese de que los detalles de dominio proporcionados son válidos y de que s
 
 El nombre de dominio que creó o agregó debe ser un nombre de dominio interno (no un nombre de dominio de Azure AD) y debe utilizar el formato DNS que se puede resolver (contoso.local). Por ejemplo, si tiene un nombre interno de Active Directory (contoso.local) y un UPN de Active Directory (contoso.com), debe utilizar el nombre interno al crear la colección.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -3,8 +3,8 @@
   description="Asegúrese de que el entorno está preparado correctamente para hacer copias de seguridad de las cargas de trabajo con el servidor de Copia de seguridad de Azure"
   services="backup"
   documentationCenter=""
-  authors="Jim-Parker"
-  manager="jwhit"
+  authors="pvrk"
+  manager="shivamg"
   editor=""
   keywords="servidor de copia de seguridad de Azure; almacén de copia de seguridad"/>
 
@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="02/04/2016"
-  ms.author="jimpark; trinadhk;"/>
+  ms.author="jimpark;trinadhk;pullabhk"/>
 
 # Preparación para la copia de seguridad de cargas de trabajo en Microsoft Azure
 
@@ -211,4 +211,4 @@ Puede usar estos artículos para mejorar la comprensión sobre la protección de
 - [Copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
 - [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

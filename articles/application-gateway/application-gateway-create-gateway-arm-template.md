@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 
@@ -81,7 +81,7 @@ Puede descargar la plantilla del Administrador de recursos de Azure existente pa
 	- **name**. Nombre del recurso. Observe el uso de **[parameters('applicationGatewayName')]**, lo que significa el nombre lo proporcionará el usuario o un archivo de parámetros durante la implementación.
 	- **properties**. Lista de propiedades para el recurso. Esta plantilla usa la red virtual y la dirección IP pública durante la creación de la puerta de enlace de aplicaciones.
 
-7. Vuelva a https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
+7. Vuelva a https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/.
 8. Haga clic en **azuredeploy-paremeters.json**, y, a continuación, haga clic en **RAW**.
 9. Guarde el archivo en un una carpeta local en su equipo.
 10. Abra el archivo que acaba de guardar y edite los valores de los parámetros. Use los siguientes valores para implementar la red puerta de enlace de aplicaciones que se describe en nuestro escenario.
@@ -284,4 +284,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

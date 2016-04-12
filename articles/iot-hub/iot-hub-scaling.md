@@ -13,14 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="03/14/2016"
  ms.author="elioda"/>
 
 # Escalado del Centro de IoT
 
-El Centro de IoT de Azure puede admitir hasta un millón de dispositivos conectados al mismo tiempo; para ello, se aumenta el número de unidades del nivel S1 o S2 del Centro de IoT a 2000. Para más información, vea [Precios del Centro de IoT][lnk-pricing].
-
-Cada unidad del Centro de IoT permite un número determinado de dispositivos en el Registro y todos ellos se pueden conectar simultáneamente. Cada unidad también permite un número de mensajes diarios.
+El Centro de IoT de Azure puede admitir hasta un millón de dispositivos conectados simultáneamente. Para más información, vea [Precios del Centro de IoT][lnk-pricing]. Cada unidad del Centro de IoT permite un número de mensajes diarios.
 
 Para escalar correctamente su solución, debe tener en cuenta el uso particular que haga del Centro de IoT. En concreto, tenga en cuenta la capacidad de procesamiento máxima requerida para las siguientes categorías de operaciones:
 
@@ -38,7 +36,7 @@ Los mensajes de dispositivo a nube siguen estas directrices de capacidad de proc
 
 | Nivel: | Capacidad de procesamiento sostenida | Velocidad de envío sostenida |
 | ---- | -------------------- | ------------------- |
-| S1 | Hasta 1111 KB/minuto por unidad<br/>(1,5 GB/día/unidad) | Promedio de 278 mensajes/minuto por unidad<br/>(400.000 mensajes/día por unidad) |
+| S1 | Hasta 1111 KB/minuto por unidad<br/>(1,5 GB/día/unidad) | Promedio de 278 mensajes/minuto por unidad<br/>(400 000 mensajes/día por unidad) |
 | S2 | Hasta 16 MB/minuto por unidad<br/>(22,8 GB/día/unidad) | Promedio de 4167 mensajes/minuto por unidad<br/>(6 millones de mensajes/día por unidad) |
 
 El rendimiento de los mensajes de nube a dispositivo escala por dispositivo, y cada dispositivo recibe hasta 5 mensajes por minuto.
@@ -66,4 +64,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

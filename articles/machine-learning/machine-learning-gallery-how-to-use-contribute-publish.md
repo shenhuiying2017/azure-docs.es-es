@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -116,7 +116,7 @@ Si quiere reflejar el cambio más reciente en el perfil (la imagen de perfil, el
 
 **¿Cuáles son los requisitos de imagen en el momento de enviar o editar una imagen para mi experimento?**
 
-Las imágenes que envía junto con su experimento se usarán para crear un mosaico de experimento para su contribución. Se recomienda que el tamaño de la imagen sea inferior a 500 Kb, con una relación de aspecto de 3:2. Se recomienda una resolución de 960x640.
+Las imágenes que envía junto con su experimento se usarán para crear un mosaico de experimento para su contribución. Se recomienda que el tamaño de la imagen sea inferior a 500 Kb, con una relación de aspecto de 3:2. Se recomienda una resolución de 960x640.
 
 **¿Qué ocurre con el conjunto de datos que usé en el experimento? ¿El conjunto de datos también se publica en la galería?**
 
@@ -136,4 +136,4 @@ La representación de la descripción enriquecida no está disponible para todos
 
 **[IR A LA GALERÍA >>](http://gallery.cortanaanalytics.com)**
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

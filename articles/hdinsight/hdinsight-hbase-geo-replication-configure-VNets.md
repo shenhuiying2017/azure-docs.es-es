@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # Configuración de una conexión VPN entre dos redes virtuales de Azure  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [Configuración de la conectividad VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Configuración de DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Configuración de la replicación de HBase](hdinsight-hbase-geo-replication.md) 
 
 La conectividad de sitio a sitio de redes virtuales de Azure usa una puerta de enlace VPN para proporcionar un túnel seguro mediante Ipsec/IKE. Las redes virtuales pueden estar en diferentes suscripciones y regiones diferentes. Incluso puede combinar la comunicación de red virtual a red virtual con configuraciones de varios sitios. Hay varias razones para la conectividad de red virtual a red virtual:
 
@@ -29,7 +29,7 @@ La conectividad de sitio a sitio de redes virtuales de Azure usa una puerta de e
 - Aplicaciones regionales de niveles múltiples con límite de aislamiento sólido 
 - Comunicación entre suscripciones y entre organizaciones en Azure
 
-Para obtener más información, vea [Configuración de una conexión de red virtual a red virtual](../virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md).
+Para obtener más información, vea [Configuración de una conexión de red virtual a red virtual](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 Para verla en vídeo:
 
@@ -78,7 +78,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	- **NOMBRE**: Contoso-VNet-EU
 	- **UBICACIÓN**: Norte de Europa
 
-		Este tutorial usa centros de datos del Norte de Europa y del Este de EE. UU. Puede elegir sus propios centros de datos.
+		Este tutorial usa centros de datos del Norte de Europa y del Este de EE. UU. Puede elegir sus propios centros de datos.
 4.	Especifique:
 
 	- **SERVIDOR DNS**: (déjelo en blanco) 
@@ -270,4 +270,4 @@ En este tutorial ha aprendido cómo configurar una conexión VPN entre dos redes
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

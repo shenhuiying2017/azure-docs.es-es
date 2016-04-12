@@ -3,7 +3,7 @@
     description="Describe los diodos emisores de luz (LED) y alarmas audibles que se usan para supervisar el estado del dispositivo StorSimple."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="carolz"
     editor="" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="01/05/2016"
-    ms.author="v-sharos" />
+    ms.date="03/21/2016"
+    ms.author="alkohli" />
 
 # Usar indicadores de supervisión de StorSimple para administrar su dispositivo   
 
@@ -37,7 +37,7 @@ El panel frontal, también conocido como *panel de operaciones*, muestra el esta
  
 El panel frontal contiene los siguientes indicadores:
 
-1. Botón de encendido
+1. Botón Silencio
 2. Indicador LED de alimentación (verde/rojo-ámbar)
 3. Indicador LED de error de módulo (encendido rojo-ámbar/apagado)
 4. Indicador LED de error lógico (encendido rojo-ámbar/apagado
@@ -147,7 +147,8 @@ Use la siguiente tabla para saber si el módulo del controlador está funcionand
 | Indicadores LED de estado de Ethernet | El lado derecho indica la actividad de vínculo/red: (verde fijo) vínculo activo, (intermitencia en verde) actividad de red. El lado izquierdo indica la velocidad de la red: (amarillo) 1000 Mb/s, (verde) 100 Mb/s y (apagado) 10 Mb/s. Según el modelo del componente, esta luz puede parpadear aun cuando la interfaz de red no esté habilitada. |
 | LED POST | Indica el progreso de inicio cuando el controlador está encendido. Si el dispositivo StorSimple no puede iniciarse, este LED servirá para que el equipo de soporte técnico de Microsoft pueda identificar el punto en el proceso de inicio en el que se produjo el error. |
 
->[AZURE.IMPORTANT]Si el LED de error está encendido, quiere decir que hay un problema con el módulo del controlador que podría resolverse reiniciando el controlador. Póngase en contacto con el equipo de soporte técnico de Microsoft si reiniciar el controlador no resuelve este problema.
+>[AZURE.IMPORTANT] 
+Si el LED de error está encendido, quiere decir que hay un problema con el módulo del controlador que podría resolverse reiniciando el controlador. Póngase en contacto con el equipo de soporte técnico de Microsoft si reiniciar el controlador no resuelve este problema.
 
 
 ### LED de supervisión del EBOD (revestimiento de EBOD)  
@@ -214,7 +215,7 @@ En la siguiente tabla se describen los distintos estados de alarma.
 | S3 | Modo en silencio: silencioso | Ninguna |
 | S4 | Modo de error crítico: alarma continua | No disponible: silencio no activo |
 
-> [AZURE.NOTE]
+> [AZURE.NOTE] 
 
 >  - Si en el estado de alarma S1 no presiona Silenciar en los siguientes 2 minutos, pasará automáticamente a S2 o S3.  
 >  - Los estados de alarma S1 a S4 vuelven a S0 una vez resuelta la condición de error.  
@@ -261,4 +262,4 @@ Obtenga más información sobre los [componentes de hardware de StorSimple y su 
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

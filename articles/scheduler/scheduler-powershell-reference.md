@@ -1,20 +1,20 @@
-<properties 
- pageTitle="Referencia de cmdlets de PowerShell de Programador" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Referencia de cmdlets de PowerShell de Programador"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # Referencia de cmdlets de PowerShell de Programador
 
 En la tabla siguiente aparece una descripción y vínculos a la página de referencia de cada uno de los cmdlets importantes de Programador de Azure.
@@ -36,10 +36,10 @@ En la tabla siguiente aparece una descripción y vínculos a la página de refer
 
 
 ## Otras referencias
- 
+
 
  [¿Qué es Programador?](scheduler-intro.md)
- 
+
  [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
 
  [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
@@ -53,10 +53,5 @@ En la tabla siguiente aparece una descripción y vínculos a la página de refer
  [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
- 
-  
 
-
-  
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

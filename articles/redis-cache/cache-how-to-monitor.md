@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Supervisión de Caché en Redis de Azure
@@ -28,7 +28,7 @@ Para ver métricas de caché, [examine](cache-configure.md) la instancia de cach
 
 ![Supervisión][redis-cache-monitor-overview]
 
->[AZURE.IMPORTANT]Si se muestra el mensaje siguiente en el Portal de Azure, siga los pasos de la sección [Habilitación de diagnósticos de caché](#enable-cache-diagnostics) para habilitar diagnósticos de memoria caché.
+>[AZURE.IMPORTANT] Si se muestra el mensaje siguiente en el Portal de Azure, siga los pasos de la sección [Habilitación de diagnósticos de caché](#enable-cache-diagnostics) para habilitar diagnósticos de memoria caché.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
@@ -54,11 +54,11 @@ Haga clic en la flecha situada a la derecha de **Cuenta de almacenamiento** para
 
 Después de establecer la configuración de diagnóstico, haga clic en **Guardar** para guardar la configuración. Tenga en cuenta que los cambios pueden tardar unos minutos en surtir efecto.
 
->[AZURE.IMPORTANT]Las memorias caché de la misma región y suscripción comparten la misma cuenta de almacenamiento de información de diagnóstico y, al cambiar de configuración, esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región.
+>[AZURE.IMPORTANT] Las memorias caché de la misma región y suscripción comparten la misma cuenta de almacenamiento de información de diagnóstico y, al cambiar de configuración, esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región.
 
 Para ver las métricas almacenadas, examine las tablas de la cuenta de almacenamiento con nombres que empiezan por `WADMetrics`. Para obtener más información acerca del acceso a las métricas almacenadas fuera del Portal de Azure, consulte el ejemplo [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
->[AZURE.NOTE]Solo se muestran en el Portal de Azure las métricas que se almacenan en la cuenta de almacenamiento seleccionada. Si cambia las cuentas de almacenamiento, los datos de la cuenta de almacenamiento configurada anteriormente siguen estando disponibles para su descarga, pero no se muestran en el Portal de Azure.
+>[AZURE.NOTE] Solo se muestran en el Portal de Azure las métricas que se almacenan en la cuenta de almacenamiento seleccionada. Si cambia las cuentas de almacenamiento, los datos de la cuenta de almacenamiento configurada anteriormente siguen estando disponibles para su descarga, pero no se muestran en el Portal de Azure.
 
 ## Métricas disponibles e intervalos de informes
 
@@ -66,7 +66,7 @@ Las métricas de caché se notifican mediante varios intervalos de informes, inc
 
 Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la memoria caché y, para las memorias caché que usan [la agrupación en clústeres](cache-how-to-premium-clustering.md), una segunda versión de la métrica que incluye `(Shard 0-9)` en el nombre mide el rendimiento de una sola partición en una memoria caché. Por ejemplo, si una memoria caché tiene 4 particiones, `Cache Hits` es la cantidad total de resultados en toda la memoria caché, y `Cache Hits (Shard 3)` refleja simplemente los resultados para esa partición de la memoria caché.
 
->[AZURE.NOTE]Incluso cuando la memoria caché está inactiva sin ninguna aplicación de cliente activa conectada, puede que vea alguna actividad de caché, como clientes conectados, uso de memoria y operaciones que se están realizando. Esta actividad es normal durante la operación de una instancia de Caché en Redis de Azure.
+>[AZURE.NOTE] Incluso cuando la memoria caché está inactiva sin ninguna aplicación de cliente activa conectada, puede que vea alguna actividad de caché, como clientes conectados, uso de memoria y operaciones que se están realizando. Esta actividad es normal durante la operación de una instancia de Caché en Redis de Azure.
 
 | Métrica | Descripción |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -212,11 +212,11 @@ Escriba los criterios de la regla deseada en la hoja de la regla **Agregar una a
 
 ![Incorporación de regla de alerta][redis-cache-add-alert]
 
->[AZURE.NOTE]Cuando se crea una regla de alerta al hacer clic en **Agregar alerta** en la hoja **Métrica**, solo las métricas que se muestran en el gráfico de esa hoja aparecen en la lista desplegable de **Métrica**. Cuando se crea una regla de alerta al hacer clic en **Agregar alerta** en la hoja **Reglas de alerta**, todas las métricas de caché están disponibles en la lista desplegable de **Métrica**.
+>[AZURE.NOTE] Cuando se crea una regla de alerta al hacer clic en **Agregar alerta** en la hoja **Métrica**, solo las métricas que se muestran en el gráfico de esa hoja aparecen en la lista desplegable de **Métrica**. Cuando se crea una regla de alerta al hacer clic en **Agregar alerta** en la hoja **Reglas de alerta**, todas las métricas de caché están disponibles en la lista desplegable de **Métrica**.
 
 Una vez que se guarda una regla de alerta, aparece en la hoja **Reglas de alerta** así como en la hoja **Métrica** para cualquier gráfico que muestra la métrica usada en la regla de alerta. Para editar una regla de alerta, haga clic en su nombre para que aparezca la hoja **Editar regla**. En la hoja **Editar regla** puede editar las propiedades de la regla, eliminar o deshabilitar la regla de alerta o volver a habilitarla si se deshabilitó anteriormente.
 
->[AZURE.NOTE]Los cambios que realice en las propiedades de la regla pueden tardar unos instantes antes de que se reflejen en la hoja **Reglas de alerta** o la hoja **Métrica**.
+>[AZURE.NOTE] Los cambios que realice en las propiedades de la regla pueden tardar unos instantes antes de que se reflejen en la hoja **Reglas de alerta** o la hoja **Métrica**.
 
 Cuando se activa una regla de alerta, se envía un correo electrónico según la configuración de la regla de alerta y se muestra un icono de alerta en la parte **Reglas de alerta** de la hoja **Caché en Redis**.
 
@@ -259,4 +259,4 @@ Para obtener más información acerca de las alertas en Azure, consulte [Recibir
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -11,10 +11,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/25/2016"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 
@@ -29,6 +29,8 @@ Para ayudarle a aprender a usar Hadoop en Windows y a empezar a usar HDInsight, 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
 * [Introducción a Hadoop en HDInsight en Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## ¿Qué logra este tutorial de Hadoop?
 
@@ -207,6 +209,9 @@ Para completar esta parte del tutorial, debe tener instalado Excel 2013 o 2010.
 
 9. Haga clic en **Cerrar y cargar** en la esquina superior izquierda para importar la salida del trabajo de Hive en Excel.
 
+##Eliminación del clúster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##<a name="nextsteps"></a>Pasos siguientes
 En este tutorial de Hadoop, ha aprendido a aprovisionar un clúster de Hadoop en Windows en HDInsight, a ejecutar una consulta de Hive sobre los datos y a importar los resultados en Excel, para procesarlos mejor y representarlos gráficamente con las herramientas de inteligencia empresarial. Para obtener más información, consulte los tutoriales siguientes:
@@ -220,7 +225,6 @@ En este tutorial de Hadoop, ha aprendido a aprovisionar un clúster de Hadoop en
 - [Uso de Hive con HDInsight][hdinsight-use-hive]
 - [Uso de Pig con HDInsight][hdinsight-use-pig]
 - [Uso de Oozie con HDInsight][hdinsight-use-oozie]
-- [Desarrollo de programas de streaming de Hadoop C# para HDInsight][hdinsight-develop-streaming]
 - [Desarrollo de programas de MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -238,7 +242,6 @@ En este tutorial de Hadoop, ha aprendido a aprovisionar un clúster de Hadoop en
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
@@ -280,4 +283,4 @@ En este tutorial de Hadoop, ha aprendido a aprovisionar un clúster de Hadoop en
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

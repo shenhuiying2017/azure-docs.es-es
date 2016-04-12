@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="antonba" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="antonba"/>
 
 # Delegación de registros de usuario y suscripciones a producto
@@ -46,7 +46,11 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
 
 	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL del origen page}&salt={string}&sig={string}*
 
-	Los parámetros de consulta para el caso de inicio de sesión / suscripción:- **operation**: identifica qué tipo de solicitud de delegación es ; solo puede ser **SignIn** en este caso - **returnUrl**: la dirección URL de la página donde el usuario hizo clic en un vínculo de inicio de sesión o de suscripción - **salt**: una cadena salt especial que se utiliza para calcular el hash de seguridad - **sig**: un hash de seguridad procesado para utilizarlo en comparación con su propio hash procesado
+	Parámetros de consulta en el caso de inicio de sesión o suscripción:
+	- **operation**: identifica el tipo de solicitud de delegación del que se trata. Solo puede ser **SignIn** en este caso.
+	- **returnUrl**: la dirección URL de la página en la que el usuario hizo clic en un vínculo de suscripción o de inicio de sesión.
+	- **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
+	- **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 
 2. Compruebe que la solicitud procede de Administración de API de Azure (opcional, pero especialmente recomendado por motivos de seguridad).
 
@@ -101,7 +105,15 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
 
 	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product para suscribirse a}&userId={user making request}&salt={string}&sig={string}* {cadena}
 
-	Parámetros de consulta para el caso de la suscripción de producto:- **operation**: identifica qué tipo de solicitud de delegación es. Para las solicitudes de suscripción de producto las opciones válidas son:-"Subscribe": una solicitud para suscribir al usuario a un determinado producto con el identificador proporcionado (ver a continuación) - "Unsubscribe": una solicitud para cancelar la suscripción de un usuario a un producto - "Renew": una solicitud para renovar una suscripción (por ejemplo, que van a caducar) - **productId**: el identificador del producto al que el usuario ha solicitado suscribirse - **userId**: el identificador del usuario para el que se realiza la solicitud - **salt**: una cadena salt especial que se utiliza para procesar el hash de seguridad - **sig**: un hash de seguridad procesado para utilizarlo en comparación con su propio hash procesado
+	Parámetros de consulta en el caso de suscripción a producto:
+	- **operation**: identifica el tipo de solicitud de delegación del que se trata. En las solicitudes de suscripción a producto las opciones válidas son:
+		- "Subscribe": una solicitud para suscribir al usuario a un producto determinado con el id. especificado (consulte más información a continuación).
+		- "Unsubscribe": una solicitud para cancelar la suscripción de un usuario a un producto.
+		- "Renew": una solicitud para renovar una suscripción (p. ej., que esté a punto de expirar).
+	- **productId**: el id. del producto al que el usuario solicitó suscribirse.
+	- **userId**: el id. del usuario para el que se realiza la solicitud.
+	- **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
+	- **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 
 
 2. Compruebe que la solicitud procede de Administración de API de Azure (opcional, pero especialmente recomendado por motivos de seguridad).
@@ -166,4 +178,4 @@ Para obtener más información acerca de la delegación, vea el siguiente vídeo
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,20 +1,20 @@
-<properties 
- pageTitle="Planes y facturación en Programador de Azure" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Planes y facturación en Programador de Azure"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # Planes y facturación en Programador de Azure
 
 ## Planes de colección de trabajos
@@ -23,9 +23,9 @@ Las colecciones de trabajos son la entidad facturable en Programador de Azure. L
 
 |**Plan de colección de trabajos**|**Nº máximo de trabajos por colección de trabajos**|**Periodicidad máxima**|**Nº máximo de colecciones de trabajo por suscripción**|**Límites**|
 |:---|:---|:---|:---|:---|
-|**Gratis**|5 trabajos por colección de trabajos|Una vez por hora. No se pueden ejecutar trabajos con una frecuencia superior a una vez por hora|Se permite una suscripción de 1 colección de trabajos gratuita como máximo|No se puede usar un [objeto de autorización saliente HTTP](scheduler-outbound-authentication.md)
-|**Standard**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 100 colecciones de trabajos estándar como máximo|Acceso al conjunto completo de características de Programador|
-|**Premium**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 10 000 colecciones de trabajos premium como máximo. <a href="mailto:wapteams@microsoft.com">Póngase en contacto con nosotros</a> para obtener más información.|Acceso al conjunto completo de características de Programador|
+|**Gratis**|5 trabajos por colección de trabajos|Una vez por hora. No se pueden ejecutar trabajos con una frecuencia superior a una vez por hora|Se permite una suscripción de 1 colección de trabajos gratuita como máximo|No se puede usar un [objeto de autorización saliente HTTP](scheduler-outbound-authentication.md)
+|**Standard**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 100 colecciones de trabajos estándar como máximo|Acceso al conjunto completo de características de Programador|
+|**Premium**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 10 000 colecciones de trabajos premium como máximo. <a href="mailto:wapteams@microsoft.com">Póngase en contacto con nosotros</a> para obtener más información.|Acceso al conjunto completo de características de Programador|
 
 ## Actualizaciones y degradaciones de planes de colección de trabajos
 
@@ -33,7 +33,7 @@ Puede actualizar o degradar un plan de colección de trabajos siempre que quiera
 
 - Ya existe una colección de trabajos gratuita en la suscripción
 - Un trabajo de la colección de trabajos tiene una periodicidad superior a la permitida para los trabajos de colecciones de trabajos gratuitas. La periodicidad máxima permitida en una colección de trabajos gratuita es una vez por hora
-- Hay más de 5 trabajos en la colección de trabajos
+- Hay más de 5 trabajos en la colección de trabajos
 - Un trabajo de la colección de trabajos tiene una acción HTTP o HTTPS que usa un [objeto de autorización saliente HTTP](scheduler-outbound-authentication.md)
 
 ## Planes de Azure y facturación
@@ -46,13 +46,13 @@ Si tiene una colección de trabajos estándar y una colección de trabajos premi
 
 Una unidad facturable estándar puede incluir como máximo 10 colecciones de trabajos estándar. Puesto que una colección de trabajos estándar puede tener hasta 50 trabajos por colección de trabajos, una unidad de facturación estándar permite que una suscripción tenga hasta 500 trabajos: casi 22 millones de ejecuciones de trabajos al mes.
 
-Si tiene entre 1 y 10 colecciones de trabajos estándar, se le facturará 1 unidad de facturación estándar. Si tiene entre 11 y 20 colecciones de trabajos estándar, se le facturarán 2 unidades de facturación estándar. Si tiene entre 21 y 30 colecciones de trabajos estándar, se le facturarán 3 unidades de facturación estándar.
+Si tiene entre 1 y 10 colecciones de trabajos estándar, se le facturará 1 unidad de facturación estándar. Si tiene entre 11 y 20 colecciones de trabajos estándar, se le facturarán 2 unidades de facturación estándar. Si tiene entre 21 y 30 colecciones de trabajos estándar, se le facturarán 3 unidades de facturación estándar.
 
 ## Unidades facturables premium
 
 Una unidad facturable premium puede incluir como máximo 10.000 colecciones de trabajos premium. Puesto que una colección de trabajos premium puede tener hasta 50 trabajos por colección de trabajos, una unidad de facturación premium permite que una suscripción tenga hasta 500.000 trabajos: casi 22 mil millones de ejecuciones de trabajos al mes.
 
-Si tiene entre 1 y 10.000 colecciones de trabajos premium, se le facturará 1 unidad de facturación premium. Si tiene entre 10.001 y 20.000 colecciones de trabajos premium, se le facturarán 2 unidades de facturación premium.
+Si tiene entre 1 y 10.000 colecciones de trabajos premium, se le facturará 1 unidad de facturación premium. Si tiene entre 10.001 y 20.000 colecciones de trabajos premium, se le facturarán 2 unidades de facturación premium.
 
 Por lo tanto, las colecciones de trabajos premium tienen la misma funcionalidad que las colecciones de trabajos estándar, pero ofrecen un descuento en caso de que la aplicación requiera gran cantidad de colecciones de trabajos.
 
@@ -67,10 +67,10 @@ Aunque puede deshabilitar todos los trabajos de una colección de trabajos en un
 Para obtener información detallada sobre los precios, vea [Precios de Programador](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## Otras referencias
- 
+
 
  [¿Qué es Programador?](scheduler-intro.md)
- 
+
  [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
 
  [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
@@ -84,9 +84,5 @@ Para obtener información detallada sobre los precios, vea [Precios de Programad
  [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
- 
-  
 
-  
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

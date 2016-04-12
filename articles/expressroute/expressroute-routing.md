@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 
@@ -78,7 +78,7 @@ El cambio de enrutamiento se realizará sobre el protocolo eBGP. Se establecen s
 
 ## Números de sistema autónomo
 
-Microsoft usará AS 12076 para la configuración entre pares públicos de Azure, privados de Azure y de Microsoft. AS 65515 se ha reservado para el uso interno. Se admiten números AS de 16 y 32 bits. Puede usar números AS privados para la configuración entre pares privados de Azure. Debe usar públicas como números AS públicos registrados para la configuración entre pares públicos de Azure y de Microsoft.
+Microsoft usará AS 12076 para la configuración entre pares públicos de Azure, privados de Azure y de Microsoft. AS 65515 se ha reservado para el uso interno. Se admiten números AS de 16 y 32 bits.
 
 No hay requisitos con respecto a la simetría de la transferencia de datos. Las rutas de reenvío y de retorno pueden atravesar pares de enrutadores diferentes. Las rutas idénticas deben anunciarse desde cualquiera de los lados en los distintos pares de circuito que le pertenezcan. No se requiere que las métricas de las rutas sean idénticas.
 
@@ -178,4 +178,4 @@ Microsoft no admite los valores de las comunidades de BGP que defina. Se requier
 	- [Creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell](expressroute-howto-routing-classic.md) o [Creación y modificación del enrutamiento para un circuito ExpressRoute mediante el Administrador de recursos de Azure y PowerShell](expressroute-howto-routing-arm.md)
 	- [Vinculación de la red virtual a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

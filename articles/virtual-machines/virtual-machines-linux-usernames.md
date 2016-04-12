@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Selección de nombres de usuario para Linux | Microsoft Azure" 
 	description="Aprenda a seleccionar nombres de usuario para una máquina virtual de Linux en Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,12 +9,12 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/25/2016" 
 	ms.author="szark"/>
 
 
@@ -25,7 +25,7 @@
 
 Cuando aprovisiona una máquina virtual con Linux en Azure, debe especificar el nombre de un usuario no raíz que más adelante pueda usar para iniciar sesión en la máquina virtual. Puede elegir el nombre del nuevo usuario o, si el aprovisionamiento es a través del Portal de Azure clásico, puede aceptar el nombre predeterminado "azureuser".
 
-En la mayoría de los casos, este usuario no existirá en la imagen base y se crea durante el proceso de aprovisionamiento. Si el usuario ya existe en la imagen de la máquina virtual base, el agente Azure Linux sencillamente configura la contraseña (o la tecla SSH) para ese usuario de acuerdo con la información especificada al crear la máquina virtual.
+En la mayoría de los casos, este usuario no existirá en la imagen base y se creará durante el proceso de aprovisionamiento. Si el usuario ya existe en la imagen de máquina virtual base, el agente Linux de Azure configura simplemente la contraseña (o la clave SSH) para ese usuario de acuerdo con la información especificada al crear la máquina virtual.
 
 **Sin embargo**, Linux define un conjunto de nombres de usuario que no se deben usar al crear usuarios nuevos. El proceso de aprovisionamiento generará un **error** si trata de aprovisionar una máquina virtual Linux con un usuario del sistema existente, que se define como un usuario con UID 0-99. Un ejemplo típico es el usuario `root`, que tiene el UID de 0.
 
@@ -251,4 +251,4 @@ A continuación, se indican los nombres de usuario que debería evitar al realiz
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

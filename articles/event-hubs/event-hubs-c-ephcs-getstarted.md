@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a recopilar mensajes en un Centro de eventos median
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines/virtual-machines-linux-tutorial.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
++ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines/virtual-machines-linux-cli-create.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
 
 + Microsoft Visual Studio Express 2013 para Windows.
 
@@ -42,31 +42,31 @@ Para completar este tutorial, necesitará lo siguiente:
 
 2. Haga clic en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de eventos** y, finalmente, en **Creación rápida**.
 
-   	![][1]
+	![][1]
 
 3. Escriba un nombre para el centro de eventos, seleccione la región deseada y, a continuación, haga clic en **Crear un centro de eventos**.
 
-   	![][2]
+	![][2]
 
 4. Haga clic en el espacio de nombres que acaba de crear (normalmente ***nombre del centro de eventos*-ns**).
 
-   	![][3]
+	![][3]
 
 5. Haga clic en la pestaña **Centros de eventos** en la parte superior de la página y, a continuación, haga clic en el centro de eventos que acaba de crear.
 
-   	![][4]
+	![][4]
 
 6. Haga clic en la pestaña **Configurar** en la parte superior de la página, agregue una regla denominada **SendRule** con derechos de *envío*, agregue otra regla denominada **ReceiveRule** con derechos de *administración, envío y escucha*, y luego haga clic en **Guardar**.
 
-   	![][5]
+	![][5]
 
 7. En la misma página, anote las claves generadas para **SendRule**.
 
-   	![][6b]
+	![][6b]
 
 8. Haga clic en la pestaña **Panel** en la parte superior de la página y, a continuación, haga clic en **Información de conexión**. Anote las dos cadenas de conexión.
 
-   	![][6]
+	![][6]
 
 Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos.
 
@@ -81,11 +81,11 @@ Ya está preparado para ejecutar las aplicaciones.
 
 1.	Ejecute el proyecto **Receiver** desde Visual Studio y espere a que inicie los receptores para todas las particiones.
 
-   	![][21]
+	![][21]
 
-2.	Ejecute el programa **sender** y verá que los eventos aparecen en la ventana del receptor.
+2.	Ejecute el programa **Sender** y verá que los eventos aparecen en la ventana del receptor.
 
-   	![][24]
+	![][24]
 
 ## Pasos siguientes
 
@@ -118,4 +118,4 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -58,6 +58,6 @@ En la replicación geográfica activa, todas las bases de datos secundarias son 
 
 ## 9\. ¿Cuál es el retraso de replicación cuando se utiliza la replicación geográfica estándar o la replicación geográfica activa?
 
-Use la vista de administración dinámica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) para obtener la última hora de la replicación, el retraso de la replicación y otro tipo de información acerca del vínculo de la replicación.
+Use la vista de administración dinámica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) para obtener la última hora de la replicación, el retraso de la replicación y otro tipo de información acerca del vínculo de la replicación.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/18/2016"
 	ms.author="brandwe"/>
 
 # Integración de Azure AD en una aplicación Android
@@ -100,7 +100,7 @@ Para compilar con Maven, puede utilizar pom.xml en el nivel superior.
   * Configure el emulador con SDK 19.
   * Vaya a la carpeta raíz donde ha clonado el repositorio.
   * Ejecute el comando: mvn clean install.
-  * Acceda al directorio de la muestra de inicio rápido: cd samples\hello.
+  * Acceda al directorio de la muestra de inicio rápido: cd samples\\hello.
   * Ejecute el comando: mvn android:deploy android:run.
   * La aplicación debería iniciarse.
   * Escriba las credenciales del usuario de prueba para probarlas.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -270,8 +270,7 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Agente**:
- la aplicación de portal de empresa de Microsoft Intune proporcionará el componente del agente. ADAL usará la cuenta del agente (si hay una cuenta de usuario que se ha creado en este autenticador y el desarrollador decide no omitirla). El desarrollador puede omitir el usuario del agente con:
+11. **Agente**: la aplicación de portal de empresa de Microsoft Intune proporcionará el componente del agente. ADAL usará la cuenta del agente (si hay una cuenta de usuario que se ha creado en este autenticador y el desarrollador decide no omitirla). El desarrollador puede omitir el usuario del agente con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -288,9 +287,9 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
 
  El manifiesto de aplicación debe tener permisos para usar cuentas del administrador de cuentas: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 Con procedimiento, debe contar con todo lo necesario para lograr una integración correcta con Azure Active Directory. Para obtener más ejemplos de este trabajo, visite el repositorio AzureADSamples/ en GitHub.
@@ -313,11 +312,11 @@ La dirección URL de la autoridad necesita la instancia de STS y el nombre del i
 
 ### Consulta de los elementos en caché
 
-ADAL proporciona memoria caché predeterminada en SharedPrefrecens con algunas características sencillas para hacer consultas sobre los elementos en caché. Puede obtener la memoria caché actual de AuthenticationContext con: 
+ADAL proporciona memoria caché predeterminada en SharedPreferences con algunas características sencillas para hacer consultas sobre los elementos en caché. Puede obtener la memoria caché actual de AuthenticationContext con:
 ```Java
  ITokenCacheStore cache = mContext.getCache();
 ```
-También puede proporcionar la implementación de la memoria caché, si desea personalizarla. 
+También puede proporcionar su implementación de la memoria caché, si desea personalizarla.
 ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
@@ -386,7 +385,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info (información)
 + Verbose (más detalles)
 
-El nivel de registro se define de la siguiente forma: 
+El nivel de registro se define de la siguiente forma:
 ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
@@ -397,7 +396,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
   adb logcat > "C:\logmsg\logfile.txt"
  ```
-Más ejemplos sobre comandos adb: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ Más ejemplos sobre comandos adb: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Seguimiento de red
 
@@ -418,18 +417,18 @@ ADAL cifra los tokens y los almacena en SharedPreferences de forma predeterminad
 
 ### Desafío de portador de Oauth2
 
-La clase AuthenticationParameters proporciona funcionalidad para obtener el authorization_uri a partir del desafío de portador de Oauth2.
+La clase AuthenticationParameters proporciona funcionalidad para obtener el authorization\_uri a partir del desafío de portador de Oauth2.
 
 ### Cookies de sesión en WebView
 
-Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente: 
+Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente:
 ```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
 ```
- Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Reemplazos de recursos
 
@@ -450,8 +449,12 @@ La aplicación debe sobrescribirlas si desea ver las cadenas traducidas.
 =======
 
 ### Cuadro de diálogo NTLM
-La versión 1.1.0 de ADAL admite el cuadro de diálogo NTLM que se procesa a través del evento onReceivedHttpAuthRequest desde WebViewClient. El diseño del cuadro de diálogo y las cadenas se pueden personalizar. ### Paso 5: descargue el código de ejemplo de cliente nativo de iOS
+La versión 1.1.0 de ADAL admite el cuadro de diálogo NTLM que se procesa a través del evento onReceivedHttpAuthRequest desde WebViewClient. Se puede personalizar el diseño del cuadro de diálogo y las cadenas.
+
+### SSO entre aplicaciones
+Obtenga información sobre la [Habilitación de SSO entre aplicaciones en Android mediante ADAL](active-directory-sso-android.md)
+
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

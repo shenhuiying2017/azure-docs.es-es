@@ -2,7 +2,7 @@
 	pageTitle="Uso de las características de aplicaciones lógicas | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar las características avanzadas de las aplicaciones lógicas." 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/28/2016"
 	ms.author="stepsic"/>
 	
 # Uso de las características de aplicaciones lógicas
@@ -30,9 +30,9 @@ Antes de completar este tema, debe completar los pasos de [Creación de una nuev
 
 Estos documentos pueden serle útiles:
 
-- [API de REST de administración y tiempo de ejecución](https://msdn.microsoft.com/library/azure/dn948513.aspx): incluyen los métodos para invocar las aplicaciones lógicas directamente.
-- [Referencia del lenguaje](https://msdn.microsoft.com/library/azure/dn948512.aspx): una lista completa de todas las funciones y expresiones compatibles.
-- [Tipos de desencadenadores y acciones](https://msdn.microsoft.com/library/azure/dn948511.aspx): los diferentes tipos de acciones y las entradas que toman.
+- [API de REST de administración y tiempo de ejecución](https://msdn.microsoft.com/library/azure/mt643787.aspx): incluyen los métodos para invocar las aplicaciones lógicas directamente.
+- [Referencia del lenguaje](https://msdn.microsoft.com/library/azure/mt643789.aspx): una lista completa de todas las funciones y expresiones compatibles.
+- [Tipos de desencadenadores y acciones](https://msdn.microsoft.com/library/azure/mt643939.aspx): los diferentes tipos de acciones y las entradas que toman.
 - [Información general sobre el Servicio de aplicaciones](../app-service/app-service-value-prop-what-is.md): descripción de los componentes que se deben elegir al crear una solución.
 
 ## Agregar lógica condicional
@@ -43,9 +43,9 @@ Aunque el flujo original funciona, hay algunas áreas que se podrían mejorar.
 ### Condicional
 Esta aplicación lógica puede provocar que reciba muchos correos electrónicos. Los siguientes pasos agregan lógica adicional para asegurarse de que solo reciba un correo electrónico cuando el tweet proceda de una persona con un determinado número de seguidores.
 
-1. Haga clic en el signo más y busque la acción *Obtener usuario* de Twitter.
+1. Haga clic en el signo más y busque la acción *Get User* (Obtener usuario) de Twitter.
 
-2. Pase al campo **Twitteado por** desde el desencadenador para obtener la información sobre el usuario de Twitter.
+2. Pase el campo **Twitteado por** desde el desencadenador para obtener la información sobre el usuario de Twitter.
 
 	![Obtener usuario](./media/app-service-logic-use-logic-app-features/getuser.png)
 
@@ -60,6 +60,11 @@ Esta aplicación lógica puede provocar que reciba muchos correos electrónicos.
 	![Condicional](./media/app-service-logic-use-logic-app-features/conditional.png)
 
 7.  Por último, arrastre y coloque el cuadro de correo electrónico en el cuadro **Si procede**. Esto significa que solo obtendrá correos electrónicos cuando se alcance el número de seguidores.
+
+## Repetición de una lista con forEach
+
+El bucle forEach especifica una matriz para repetir una acción varias veces. Si no es una matriz se produce un error en el flujo. Por ejemplo, si tiene action1 que genera una matriz de mensajes y desea enviar cada mensaje, puede incluir esta instrucción forEach en las propiedades de la acción: forEach: "@action('action1').outputs.messages"
+ 
 
 ## Uso de la vista código para modificar una aplicación lógica
 
@@ -89,9 +94,9 @@ Lo siguiente actualiza la aplicación lógica existente para que use parámetros
     
 2. Desplácese a la acción `twitterconnector`, busque el valor de consulta y reemplácelo por `#@{parameters('topic')}`. También podría usar la función **concat** para unir dos o más cadenas, por ejemplo: `@concat('#',parameters('topic'))` es idéntica a la anterior.
  
-Los parámetros son una buena forma de extraer valores que probablemente cambie mucho. Son especialmente útiles cuando necesite reemplazar parámetros en entornos diferentes. Para obtener más información sobre cómo invalidar los parámetros basados en el entorno, consulte nuestra [documentación de la API de REST](http://msdn.microsoft.com/library/mt643788(Azure.100).aspx).
+Los parámetros son una buena forma de extraer valores que probablemente cambie mucho. Son especialmente útiles cuando necesite reemplazar parámetros en entornos diferentes. Para obtener más información sobre cómo invalidar los parámetros basados en el entorno, consulte nuestra [documentación de API de REST](https://msdn.microsoft.com/library/mt643787.aspx).
 
-Ahora, al hacer clic en **Guardar**, a cada hora recibirá los nuevos tweets que tengan más de 5 retweets en una carpeta llamada **tweets** en su Dropbox.
+Ahora, al hacer clic en **Guardar**, cada hora recibirá en su Dropbox los nuevos tweets que tengan más de 5 retweets en una carpeta llamada **tweets**.
 
 Para obtener más información acerca de las definiciones de aplicación lógica, consulte [Creación de definiciones de aplicación lógica](app-service-logic-author-definitions.md).
 
@@ -102,9 +107,9 @@ Hay varias opciones para iniciar el flujo de trabajo definido en la aplicación 
 Un desencadenador periódico se ejecuta en un intervalo que especifique. Cuando el desencadenador tiene lógica condicional, el desencadenador determina si necesita ejecutar el flujo de trabajo. Un desencadenador indica si se debe ejecutar; para ello, devuelve un código de estado de `200`. Cuando no es necesario ejecutarlo, devuelve un código de estado `202`.
 
 ### Devolución de llamada mediante las API de REST
-Los servicios pueden llamar a un extremo de aplicación lógica para iniciar un flujo de trabajo. Consulte [Logic apps as callable endpoints](app-service-logic-connector-http.md) (Aplicaciones lógicas como puntos de conexión invocables) para obtener más información. Para iniciar ese tipo de aplicación lógica a petición, haga clic en el botón **Ejecutar ahora** en la barra de comandos.
+Los servicios pueden llamar a un extremo de aplicación lógica para iniciar un flujo de trabajo. Consulte [Aplicaciones lógicas como puntos de conexión invocables](app-service-logic-connector-http.md) para más información. Para iniciar ese tipo de aplicación lógica a petición, haga clic en el botón **Ejecutar ahora** de la barra de comandos.
 
 <!-- Shared links -->
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

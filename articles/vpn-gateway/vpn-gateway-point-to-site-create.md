@@ -20,14 +20,14 @@
 # Configuración de una conexión VPN de punto a sitio a una red virtual
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal - Classic](vpn-gateway-point-to-site-create.md)
+- [PowerShell: administrador de recursos](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Portal - Clásico](vpn-gateway-point-to-site-create.md)
 
-Una configuración punto a sitio permite crear una conexión segura a la red virtual desde un equipo cliente, de forma individual. Se establece una conexión VPN al iniciar la conexión desde el equipo cliente. Esta es una solución excelente cuando desea conectarse a la red virtual desde una ubicación remota, como desde una casa o una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual. Las conexiones punto a sitio no requieren un dispositivo VPN o una dirección IP pública para que funcione. Para más información acerca de las conexiones punto a sitio, consulte [Acerca de la conectividad segura entre locales de redes virtuales](vpn-gateway-vpn-faq.md#point-to-site-connections) y [Acerca de la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md).
+Una configuración punto a sitio permite crear una conexión segura a la red virtual desde un equipo cliente, de forma individual. Se establece una conexión VPN al iniciar la conexión desde el equipo cliente. Esta es una solución excelente cuando desea conectarse a la red virtual desde una ubicación remota, como desde una casa o una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual. Las conexiones punto a sitio no requieren un dispositivo VPN o una dirección IP pública para que funcione. Para más información acerca de las conexiones de punto a sitio, consulte [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) y [Acerca de la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md).
 
-En este artículo se hace referencia a las conexiones de Puerta de enlace de VPN de punto a sitio a una red virtual que se crean usando el **modo de implementación clásica** (Administración de servicios). Si desea configurar una conexión punto a sitio para una red virtual creada mediante el Administrador de recursos, consulte [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
+En este artículo se hace referencia a las conexiones de puerta de enlace VPN de punto a sitio con una red virtual creada usando el **modo de implementación clásico** (Administración de servicios). Si desea configurar una conexión punto a sitio para una red virtual creada mediante el Administrador de recursos, consulte [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 
 ## Acerca de la creación de una conexión de punto a sitio
@@ -69,7 +69,7 @@ Paso 2: Crear una puerta de enlace de enrutamiento dinámico
 
 El tipo de puerta de enlace debe configurarse como dinámica. Las puertas de enlace de enrutamiento estáticas no funcionan con esta característica.
 
-1. En el Portal de Azure clásico, en la página **Redes**, haga clic en la red virtual recién creada y navegue a la página **Panel**.
+1. En el Portal de Azure clásico, en la página **Redes**, haga clic en la red virtual que acaba de crear y navegue a la página **Panel**.
 1. Haga clic en **Crear puerta de enlace**, en la parte inferior de la página **Panel**. Aparecerá un mensaje que lo solicita **¿Desea crear una puerta de enlace para la red virtual "yournetwork"?**. Haga clic en **Sí** para empezar a crear la puerta de enlace. Puede tardar unos 15 minutos en crear la puerta de enlace.
 
 ## Sección 2: Generar y cargar certificados
@@ -90,7 +90,7 @@ Paso 4: Exportar e instalar el certificado de cliente
 
 ### Identificar o generar un certificado raíz
 
-Si no usa una solución de certificados de empresa, deberá generar un certificado raíz autofirmado. Los pasos descritos en esta sección se escribieron para Windows 8. Para conocer los pasos específicos para Windows 10, consulte el artículo [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Trabajo con certificados raíz autofirmados para configuraciones punto a sitio).
+Si no usa una solución de certificados de empresa, deberá generar un certificado raíz autofirmado. Los pasos descritos en esta sección se escribieron para Windows 8. Para conocer los pasos específicos para Windows 10, consulte el artículo [Trabajar con certificados raíz autofirmados para las configuraciones de punto a sitio](vpn-gateway-certificates-point-to-site.md).
 
 Una forma de crear un certificado X.509 es mediante la herramienta de creación de certificados (makecert.exe). Para usar makecert, descargue e instale [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), que es gratis.
 
@@ -98,7 +98,7 @@ Una forma de crear un certificado X.509 es mediante la herramienta de creación 
 3. El comando del ejemplo siguiente creará e instalará un certificado raíz en el almacén de certificados personales de su equipo y también creará un archivo *.cer* correspondiente, que podrá cargar más adelante en el Portal de Azure clásico.
 4. Cambie al directorio en el que el archivo .cer se va a ubicar y ejecute el comando siguiente, donde *RootCertificateName* es el nombre que desea usar para el certificado. Si ejecuta el ejemplo siguiente sin realizar ningún cambio, el resultado será un certificado raíz y el archivo *NombreCertificadoRaíz.cer* correspondiente.
 
->[AZURE.NOTE]Puesto que ha creado un certificado raíz desde el que se generarán los certificados de cliente, puede que desee exportar este certificado junto con su clave privada y guardarlo en una ubicación segura donde se pueda recuperar.
+>[AZURE.NOTE] Puesto que ha creado un certificado raíz desde el que se generarán los certificados de cliente, puede que desee exportar este certificado junto con su clave privada y guardarlo en una ubicación segura donde se pueda recuperar.
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
@@ -112,7 +112,7 @@ Deberá cargar el archivo .cer correspondiente para cada certificado de raíz en
 
 ### Generación de un certificado de cliente
 
-Los pasos siguientes sirven para generar un certificado de cliente desde el certificado raíz autofirmado. Los pasos descritos en esta sección se escribieron para Windows 8. Para conocer los pasos específicos para Windows 10, consulte el artículo [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Trabajo con certificados raíz autofirmados para configuraciones punto a sitio). Si usa una solución de certificados de empresa, siga las instrucciones para la solución que está usando.
+Los pasos siguientes sirven para generar un certificado de cliente desde el certificado raíz autofirmado. Los pasos descritos en esta sección se escribieron para Windows 8. Para conocer los pasos específicos para Windows 10, consulte el artículo [Trabajar con certificados raíz autofirmados para las configuraciones de punto a sitio](vpn-gateway-certificates-point-to-site.md). Si usa una solución de certificados de empresa, siga las instrucciones para la solución que está usando.
 
 1. En el mismo equipo que usó para crear el certificado raíz autofirmado, abra una ventana del símbolo del sistema de Visual Studio como administrador.
 2. Cambie el directorio a la ubicación donde desea guardar el archivo de certificado de cliente. *RootCertificateName* hace referencia al certificado raíz autofirmado que ha generado. Si ejecuta el ejemplo siguiente (cambiando el NombreCertificadoRaíz por el nombre de su certificado raíz), el resultado será un certificado de cliente denominado "NombreCertificadoCliente" en el almacén de certificados personales.
@@ -192,8 +192,8 @@ Ejemplo:
 
 ## Pasos siguientes
 
-Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
+Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
 Si desea obtener más información acerca de las redes virtuales, consulte la página [Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

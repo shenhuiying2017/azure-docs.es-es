@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 	
 #  Análisis de transmisiones y Power BI: panel de análisis en tiempo real de flujo de datos
@@ -25,7 +25,7 @@ Utilice [Microsoft Power BI](https://powerbi.com/) para crear rápidamente un pa
 
 En este artículo, aprenderá a crear sus propias herramientas de inteligencia empresarial personalizadas mediante Power BI como salida para los trabajos de Análisis de transmisiones de Azure y a utilizar un panel en tiempo real.
 
-> [AZURE.NOTE] La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure. En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de vista previa de Azure.
+> [AZURE.NOTE] La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure. En este momento, la creación y configuración de salidas de Power BI no se admiten en el Portal de Azure, solo en el Portal de Azure clásico.
 
 ## Requisitos previos
 
@@ -35,7 +35,7 @@ En este artículo, aprenderá a crear sus propias herramientas de inteligencia e
 
 ## Creación de un trabajo de Análisis de transmisiones de Azure
 
-En el [Portal de Azure](https://manage.windowsazure.com), haga clic en **Nuevo, Servicios de datos, Análisis de transmisiones, Creación rápida**.
+En el [Portal de Azure clásico](https://manage.windowsazure.com), haga clic en **Nuevo, Servicios de datos, Análisis de transmisiones, Creación rápida**.
 
 Especifique los valores siguientes y haga clic en **Creación de un Análisis de transmisiones**:
 
@@ -232,4 +232,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

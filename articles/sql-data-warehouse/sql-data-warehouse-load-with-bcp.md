@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -59,12 +59,12 @@ En este tutorial, creará una tabla en Almacenamiento de datos SQL de Azure e im
 
 Desde un símbolo del sistema, conéctese a la instancia con el comando siguiente, reemplazando los valores según corresponda:
 
-```
+```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 ```
 Una vez conectado, copie el script de tabla siguiente en el símbolo del sistema de SQLCMD y presione la tecla ENTRAR:
 
-```
+```sql
 CREATE TABLE DimDate2
 (
     DateId INT NOT NULL,
@@ -106,13 +106,13 @@ Guárdelo en el directorio temporal local, C:\\Temp\\DimDate2.txt.
 ### Paso 3: Conectar e importar los datos
 Con bcp, puede conectarse e importar los datos con el comando siguiente, reemplazando los valores según corresponda:
 
-```
+```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 Puede comprobar que los datos se cargaron conectándose con SQLCMD como antes y ejecutando el siguiente comando TSQL:
 
-```
+```sql
 SELECT * FROM DimDate2 ORDER BY 1;
 GO
 ```
@@ -140,7 +140,7 @@ Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar aut
 
 Ejecute las siguientes instrucciones CREATE STATISTICS desde un símbolo del sistema sqlcmd:
 
-```
+```sql
 create statistics [DateId] on [DimDate2] ([DateId]);
 create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
@@ -154,7 +154,7 @@ En este tutorial, creará un archivo de datos a partir de una tabla de Almacenam
 
 Con la utilidad bcp, puede conectarse y exportar los datos con el comando siguiente, reemplazando los valores según corresponda:
 
-```
+```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 Puede comprobar que los datos se exportaron correctamente abriendo el nuevo archivo. Los datos del archivo deben coincidir con el texto siguiente:
@@ -196,4 +196,4 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

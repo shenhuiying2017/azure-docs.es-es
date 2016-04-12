@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016"
+	ms.date="03/28/2016"
 	ms.author="stefsch"/>
 
 # Introducción al entorno del Servicio de aplicaciones
@@ -104,4 +104,6 @@ Para obtener información detallada sobre el uso de un entorno del Servicio de a
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0107_2016-->
+ 
+
+<!---HONumber=AcomDC_0330_2016-->

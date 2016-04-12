@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="03/28/2016"
 	ms.author="gusapost"/>
 
 # Introducción al Almacenamiento en cola de Azure mediante .NET
@@ -260,4 +260,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

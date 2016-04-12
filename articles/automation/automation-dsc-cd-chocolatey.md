@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/04/2016"
    ms.author="golive"/>
 
 # Ejemplo de uso: implementación continua en máquinas virtuales DSC de Automatización y Chocolatey
@@ -41,7 +41,7 @@ Automatización de Azure es un servicio administrado de Microsoft Azure que le p
 
 Un recurso de DSC es un módulo de código con capacidades específicas, como la administración de redes, Active Directory o SQL Server. El recurso de DSC de Chocolatey sabe cómo acceder a un servidor NuGet (entre otros), descargar paquetes, instalar paquetes, etc. Existen muchos otros recursos de DSC en la [Galería de PowerShell](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title). Estos módulos se instalan en el servidor de extracción de DSC de Automatización de Azure (manualmente) para que se puedan usar con sus configuraciones.
 
-Las plantillas de ARM proporcionan una forma declarativa de generar la infraestructura: como las redes, las subredes, la seguridad de red y el enrutamiento, los equilibradores de carga, las NIC, las máquinas virtuales, etc. En este [artículo](../resource-manager-deployment-model.md), se compara el modelo de implementación de ARM (declarativo) con el de Administración de servicios de Azure (ASM o clásico), que es imperativo. Este otro [artículo](../virtual-machines\virtual-machines-azurerm-versus-azuresm.md) trata acerca de los proveedores de recursos principales, procesos, redes y almacenamiento.
+Las plantillas de ARM proporcionan una forma declarativa de generar la infraestructura: como las redes, las subredes, la seguridad de red y el enrutamiento, los equilibradores de carga, las NIC, las máquinas virtuales, etc. En este [artículo](../resource-manager-deployment-model.md), se compara el modelo de implementación de ARM (declarativo) con el de Administración de servicios de Azure (ASM o clásico), que es imperativo. Este otro [artículo](../virtual-machines/virtual-machines-windows-compare-deployment-models.md) trata acerca de los proveedores de recursos principales, procesos, redes y almacenamiento.
 
 Una característica clave de una plantilla de ARM es su capacidad para instalar una extensión de máquina virtual en la máquina virtual cuando se aprovisiona. Una extensión de máquina virtual posee capacidades específicas, como ejecutar un script personalizado, instalar software antivirus o ejecutar un script de configuración de DSC. Existen muchos otros tipos de extensiones de máquina virtual.
 
@@ -78,7 +78,7 @@ La Galería de PowerShell está equipada para instalar recursos de DSC en su cue
 También podemos aplicar el enfoque manual. La estructura de carpetas de un módulo de integración de PowerShell para un equipo de Windows es algo diferente de la estructura de carpetas que espera la Automatización de Azure. Por tanto, es necesario hacer algunos ajustes. Pero no es difícil y solo es necesario hacerlos una vez para cada recurso (a menos que desee actualizarlo en el futuro.) Para obtener más información sobre la creación de módulos de integración de PowerShell, vea este artículo: [Creación de módulos de integración para la automatización de Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
 -   Instale el módulo que necesita en su estación de trabajo, como sigue:
-    -   Instale [Windows Management Framework, v5](http://www.microsoft.com/download/details.aspx?id=48729) (no es necesario para Windows 10).
+    -   Instale [Windows Management Framework, v5](http://aka.ms/wmf5latest) (no es necesario para Windows 10).
     -   `Install-Module  –ModuleName MODULENAME` <—toma el módulo de la Galería de PowerShell. 
 -   Copie la carpeta del módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` a una carpeta temporal. 
 -   Elimine los ejemplos y la documentación de la carpeta principal. 
@@ -185,4 +185,4 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

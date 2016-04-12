@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/11/2016" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 
@@ -48,11 +48,11 @@ Una forma mejor, o la segunda opción, es seguir estos pasos para encontrar el G
 
 Por ejemplo:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
 
 Puede combinar varios redireccionamientos de dispositivos en el mismo cmdlet. Por ejemplo: para redirigir el almacenamiento local y una cámara web USB, cmdlet tiene el siguiente aspecto:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`usbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
 
 Al establecer el redireccionamiento de dispositivos por GUID de clase se redirigen todos los dispositivos que coinciden con ese GUID de clase de la colección especificada. Por ejemplo, si hay varios equipos en la red local que tienen las mismas cámaras web USB, puede ejecutar un solo cmdlet para redirigir todas las cámaras web.
 
@@ -70,11 +70,11 @@ La parte más difícil de este método es encontrar el identificador de instanci
 
 Ahora puede usar el identificador de instancia en el siguiente cmdlet:
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s: USB<Device InstanceID value>"
+	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
 
 
 
 ### Permítanos ayudarle 
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

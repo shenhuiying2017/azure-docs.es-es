@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 #Solución de problemas de la guía de streaming en vivo 
@@ -24,6 +24,14 @@ En este tema se ofrecen sugerencias sobre cómo solucionar algunos problemas del
 
 Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionados con codificadores locales que están configurados para enviar una secuencia de velocidad de bits única a los canales de AMS que están habilitados para la codificación en directo.
 
+###Problema: le gustaría ver registros 
+
+- **Posible problema**: no puede encontrar los registros del codificador que podrían ayudar en los problemas de depuración.
+	
+	- **Telestream Wirecast**: normalmente encontrará los registros en C:\\Users{username}\\AppData\\Roaming\\Wirecast\\ 
+	- **Elemental Live**: puede encontrar vínculos a los registros en el Portal de administración. Haga clic en **Estadísticas** y luego en **Registros**. En la página **Log Files** (Archivos de registro), verá una lista de registros para todos los elementos de LiveEvent; seleccione el que coincida con su sesión actual. 
+	- **Flash Media Encoder Live**: puede encontrar el **directorio de registro** desplazándose hasta la pestaña **Encoding Log** (Registro de codificación).
+	
 ###Problema: no hay ninguna opción para generar una secuencia progresiva
 
 - **Posible problema**: el codificador que se usa no deshace el entrelazado automáticamente. 
@@ -65,11 +73,7 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 	**Pasos para solucionar problemas**: vaya a la pestaña "Extremo de streaming" en la herramienta AMSE y compruebe que hay un extremo de streaming con una unidad de streaming.
 	
-###Problema: le gustaría ver los registros del codificador 
 
-- **Posible problema**: no se encuentran los registros que pueden ayudar a depurar problemas.
-
-	**Pasos para solucionar problemas**: normalmente puede encontrar los registros de Wirecast en C:C:\\Users{nombreDeUsuario}\\AppData\\Roaming\\Wirecast\\
 
 >[AZURE.NOTE] Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente la transmisión, envíe una incidencia de soporte técnico mediante el Portal de Azure clásico.
 
@@ -81,4 +85,4 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

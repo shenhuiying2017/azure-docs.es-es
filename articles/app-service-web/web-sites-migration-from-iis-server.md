@@ -21,7 +21,7 @@
 
 Puede migrar fácilmente sus sitios web existentes que se ejecutan en Internet Information Service (IIS) 6 o posterior a [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714).
 
->[AZURE.IMPORTANT] El soporte de Windows Server 2003 finalizará el 14 de julio de 2015. Si sus sitios web están alojados actualmente en un servidor IIS que es Windows Server 2003, Aplicaciones web es una forma con bajo riesgo, bajo costo y baja fricción de mantener sus sitios web en línea; el Asistente para migración de Aplicaciones web puede ayudar a automatizar el proceso de migración.
+>[AZURE.IMPORTANT] El 14 de julio de 2015 Windows Server 2003 llegó al final de su soporte técnico. Si sus sitios web están alojados actualmente en un servidor IIS que es Windows Server 2003, Aplicaciones web es una forma con bajo riesgo, bajo costo y baja fricción de mantener sus sitios web en línea; el Asistente para migración de Aplicaciones web puede ayudar a automatizar el proceso de migración.
 
 El [Asistente para migración de Aplicaciones web](https://www.movemetothecloud.net/) puede analizar la instalación del servidor IIS, identificar los sitios que se pueden migrar al Servicio de aplicaciones, resaltar cualquier elemento que no se pueda migrar o no se admita en la plataforma y, a continuación, migrar los sitios web y bases de datos asociadas a Azure.
 
@@ -135,4 +135,4 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->
