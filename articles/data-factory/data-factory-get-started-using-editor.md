@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos" 
-	description="En este tutorial, creará una canalización de la Factoría de datos de Azure con una actividad de copia mediante el Editor de la Factoría de datos en el Portal de Azure clásico." 
+	description="En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante el Editor de la factoría de datos en el Portal de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -309,10 +309,10 @@ En este paso, creará una canalización con una **actividad de copia** que usa *
 4. Haga clic en **Factoría de datos** en la ruta de navegación de la esquina superior izquierda para volver a la vista de diagrama. La vista de diagrama muestra todas las canalizaciones. En este ejemplo, solo ha creado una canalización.
  
 
-## Supervisión de la canalización
-En este paso, usará el Portal de Azure clásico para supervisar lo que está ocurriendo en una factoría de datos de Azure. También puede usar los cmdlets de PowerShell para supervisar los conjuntos de datos y las canalizaciones. Para obtener más información acerca del uso de cmdlets para la supervisión, vea [Supervisión y administración de la factoría de datos mediante cmdlets de PowerShell][monitor-manage-using-powershell].
+## Supervisión de canalizaciones
+En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo en una factoría de datos de Azure. También puede usar los cmdlets de PowerShell para supervisar los conjuntos de datos y las canalizaciones. Para obtener más información acerca del uso de cmdlets para la supervisión, vea [Supervisión y administración de la factoría de datos mediante cmdlets de PowerShell][monitor-manage-using-powershell].
 
-1. Vaya al [Portal de Azure clásico (vista previa)][azure-portal] si no lo ha abierto. 
+1. Vaya al [Portal de Azure (vista previa)][azure-portal] si no lo ha abierto. 
 2. Si la hoja de **ADFTutorialDataFactory** no está abierta, ábrala haciendo clic en **ADFTutorialDataFactory** en el **Panel de inicio**. 
 3. Deben mostrarse el recuento y los nombres de las tablas y la canalización que creó en esta hoja.
 
@@ -456,4 +456,4 @@ Para más información acerca de la **actividad de copia** en Data Factory de Az
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

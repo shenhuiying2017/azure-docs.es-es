@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="01/13/2016"
+   ms.date="03/31/2016"
    ms.author="elizapo"/>
 
 # Integración de OneDrive para la Empresa y RemoteApp de Azure
@@ -24,11 +24,11 @@ Puede usar OneDrive para la Empresa como repositorio de archivos con RemoteApp d
 
 Hay dos versiones de OneDrive: OneDrive y OneDrive para la Empresa. Solo OneDrive para la Empresa es compatible con RemoteApp de Azure. Funciona el OneDrive personal pero no se admite oficialmente. Además, solo se admite la versión más reciente de OneDrive para la Empresa, también conocida como cliente de sincronización de próxima generación, en RemoteApp de Azure (y de servidores RDSH, Citrix y Terminal Server).
 
->[AZURE.NOTE]No se admite OneDrive (edición de consumidores o personal) en RemoteApp de Azure. No se admiten todas las versiones de OneDrive para la Empresa, porque aún no se han certificado para que funcionen en Windows Server. Aunque el nuevo cliente (cliente de sincronización de siguiente generación) y las versiones anteriores de Groove parece funcionar bien en RemoteApp de Azure, como se describe en [https://support.microsoft.com/es-es/kb/2965687](https://support.microsoft.com/kb/2965687), los motores de sincronización anteriores no tendrán una funcionalidad completa en Citrix y servidores de Terminal Server (Windows Server). Use el nuevo cliente de sincronización en RemoteApp de Azure (y otras implementaciones de Windows Server).
+>[AZURE.NOTE]  No se admite OneDrive (edición de consumidores o personal) en RemoteApp de Azure. No se admiten todas las versiones de OneDrive para la Empresa, porque aún no se han certificado para que funcionen en Windows Server. Aunque el nuevo cliente (cliente de sincronización de siguiente generación) y las versiones anteriores de Groove parece funcionar bien en RemoteApp de Azure, como se describe en [https://support.microsoft.com/es-es/kb/2965687](https://support.microsoft.com/kb/2965687), los motores de sincronización anteriores no tendrán una funcionalidad completa en Citrix y servidores de Terminal Server (Windows Server).
 
 ## ¿Cuáles son las diferentes opciones de instalación para OneDrive para la Empresa?
 
-- **Instalación tradicional del motor de sincronización de OneDrive para la Empresa:** el cliente de sincronización de OneDrive para la Empresa puede instalarse en una SKU del servidor (Escritorio remoto así como sesión de RemoteApp y sesión de Terminal Server) y en carpetas seleccionadas para la sincronización en la sesión de RemoteApp, al igual que en una SKU de cliente de Windows. La ubicación predeterminada de los archivos de sincronización de OneDrive para la Empresa es la misma ubicación donde reside el disco de perfil de usuario usado para almacenar los datos de usuario y la configuración en RemoteApp de Azure, en C:\users <nombreDeUsuario>. Este disco seguirá al usuario a todas las máquinas virtuales en las que inicien sesión y, por tanto, los archivos de OneDrive para la Empresa también seguirán al usuario. La aplicación OneDrive para la Empresa debe ser publicada por el administrador a todos los usuarios y estos deben iniciarla en cada nueva sesión (o se puede automatizar el inicio con un script de inicio de sesión) para asegurarse de que el motor de sincronización está activado. OneDrive para la Empresa descargará el archivo completo en la máquina virtual donde se está ejecutando la sesión. Representa una gran carga de trabajo sincronizar todo (CPU/datos transferidos/almacenamiento ocupado) sincronizar el contenido del usuario, por lo que no está optimizado para máquinas terminales con un gran número de usuarios que inician sesión brevemente en cada máquina. Con la sincronización selectiva, se reducirá la carga de trabajo aunque el problema persiste.
+- **Instalación tradicional del motor de sincronización de OneDrive para la Empresa:** esta opción no se admite de momento en las implementaciones de Azure RemoteApp, RDSH o Citrix.
 - **"Virtualice" OneDrive para la Empresa o redireccionarlo desde el cliente grueso local en la sesión:** si está sincronizando OneDrive en una carpeta en el dispositivo cliente, en una unidad, puede elegir [redirigir](remoteapp-redirection.md) dicha unidad a RemoteApp de Azure. Esa unidad debe ser la misma en todos los clientes de los usuarios que deben disponer de OneDrive sincronizado con una carpeta en esa unidad. Si acceden a RemoteApp desde cualquier otro cliente, es posible que estos archivos no estén disponibles (solución: siempre pueden acceder a los archivos mediante la versión en línea de OneDrive). 
 - **Ofrezca OneDrive para la Empresa como una unidad dentro del entorno de RemoteApp de Azure que no precisa de almacenamiento en caché ni sincronización de archivos:** (asigne la dirección URL http de OneDrive para la Empresa a una unidad de la máquina virtual) se admite la asignación de OneDrive para la Empresa en la unidad de red dentro del entorno RDSH. Situaciones en las que se puede utilizar: 
 	- Cuando se usan clientes ligeros (sin almacenamiento local) para acceder a RemoteApp de Azure y la aplicación requiere los archivos almacenados en OneDrive para la Empresa, pero quieren "buscar" en local y el administrador no quiere sincronizar los archivos con una máquina virtual.
@@ -59,10 +59,10 @@ En un nivel superior, aquí encontrará las instrucciones:
 2.	Abra la dirección URL mediante un explorador en la sesión de RemoteApp y seleccione **Mantener la sesión iniciada** antes de iniciar sesión en la dirección URL de su cuenta.
 3.	Abra Explorador de Windows y asigne una unidad a la dirección URL anterior. Si así no resuelve la dirección URL, puede usar la forma corta:
 	
-	https://microsoft-my.sharepoint.com/personal/alias_microsoft_com. 
+	https://microsoft-my.sharepoint.com/personal/alias_microsoft_com.
 
 	Se crea inmediatamente la unidad asignada y su aspecto es similar al siguiente:
  
 	![OneDrive para la Empresa como una unidad de red asignada](./media/remoteapp-onedrive/ra-mappeddrive.png)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

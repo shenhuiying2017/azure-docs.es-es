@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introducción al Centro de IoT de Azure para Node.js | Microsoft Azure"
-	description="Siga este tutorial para aprender a usar el Centro de IoT de Azure con Node.js."
+	description="Tutorial de introducción al Centro de IoT de Azure con Node.js Utilice Centro de IoT de Azure y Node.js con los SDK de IoT de Microsoft Azure para implementar una solución de Internet de las cosas."
 	services="iot-hub"
 	documentationCenter="nodejs"
 	authors="dominicbetts"
@@ -22,7 +22,7 @@
 
 ## Introducción
 
-El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y un back-end de soluciones. Uno de los mayores desafíos que plantean los proyectos de IoT es cómo conectar dispositivos al back-end de la solución de manera segura y confiable. Para abordar este desafío, el Centro de IoT:
+El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos de Internet de las cosas (IoT) y un back-end de soluciones. Uno de los mayores desafíos que plantean los proyectos de IoT es cómo conectar dispositivos al back-end de la solución de manera segura y confiable. Para abordar este desafío, el Centro de IoT:
 
 - Ofrece una mensajería confiable de gran escala de dispositivo a nube y de nube a dispositivo.
 - Habilita las comunicaciones seguras con las credenciales de seguridad de cada dispositivo y el control de acceso.
@@ -139,4 +139,4 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

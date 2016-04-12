@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Escenarios comunes del Catálogo de datos de Azure"
+   pageTitle="Escenarios comunes del Catálogo de datos de Azure | Microsoft Azure"
    description="Información general de escenarios comunes del Catálogo de datos de Azure, incluido el registro y la detección de orígenes de datos de gran valor, la habilitación de inteligencia empresarial de autoservicio y la captura de conocimiento tribal existente acerca de los orígenes de datos y procesos."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -66,4 +66,4 @@ A veces estos expertos en datos harán esfuerzos por documentar sus conocimiento
 
 Catálogo de datos de Azure proporciona una ubicación para compartir estos conocimiento tribales y para que sean fácilmente reconocibles. Los expertos en datos pueden anotar los activos de datos directamente y también pueden incluir vínculos a documentación existente. Esto no solo permite capturar el conocimiento en sí, sino que también coloca el conocimiento en la misma experiencia que se usa para la detección de orígenes de datos. Cuando alguien usa el catálogo para detectar un origen de datos, no solo encontrará el propio origen, sino que también encontrará los conocimientos que anteriormente solo existían en la mente del propio experto.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

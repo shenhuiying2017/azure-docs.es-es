@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="03/31/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(vista previa)*: introducción
@@ -46,24 +46,32 @@ En este paso puede habilitar los Servicios de dominio de Azure AD para su direct
    - La lista contiene todos los dominios que se han configurado para el directorio de Azure AD, incluidos también los dominios comprobados y sin comprobar que configura en la pestaña 'Dominios'.
    - Además, puede agregar también un nombre de dominio personalizado a esta lista con solo escribirlo.
 
-     > [AZURE.WARNING] Asegúrese de que el prefijo de dominio del nombre de dominio que especifique (por ejemplo, "contoso" en el nombre de dominio 'contoso.local') tenga menos de 15 caracteres. No se puede crear un dominio de Servicios de dominio de Azure AD con un prefijo de dominio de más de 15 caracteres.
+     > [AZURE.WARNING] Asegúrese de que el prefijo de dominio del nombre de dominio que especifique (por ejemplo, "contoso" en el nombre de dominio 'contoso.com') tenga menos de 15 caracteres. No se puede crear un dominio de Servicios de dominio de Azure AD con un prefijo de dominio de más de 15 caracteres.
 
 8. El siguiente paso consiste en seleccionar una red virtual en la que quiere que los Servicios de dominio de Azure AD estén disponibles. Seleccione la red virtual que acaba de crear en la lista desplegable **Conectar Servicios de dominio a esta red virtual**.
    - Asegúrese de que la red virtual que ha especificado pertenece a una región de Azure compatible con los Servicios de dominio de Azure AD.
    - Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para conocer las regiones de Azure en las que están disponibles los Servicios de dominio de Azure AD.
+   - Tenga en cuenta que las redes virtuales que pertenecen a una región donde no se admiten Servicios de dominio de Azure AD no aparecerán en la lista desplegable.
+   - De igual forma, las redes virtuales que se crearon mediante Azure Resource Manager (redes virtuales basadas en ARM) no aparecerán en la lista desplegable. Esto es porque las redes virtuales basadas en ARM no son compatibles de momento con Servicios de dominio de Azure AD.
 
-9. Cuando haya terminado de seleccionar las opciones anteriores, haga clic en **Guardar** en el panel de tareas de la parte inferior de la página para habilitar los Servicios de dominio de Azure AD.
-10. La página mostrará un estado 'Pendiente...' mientras los Servicios de dominio de Azure AD se habilitan para su directorio.
+9. Asegúrese de que el nombre de dominio DNS que ha elegido para el dominio administrado no existe ya en la red virtual. Esto podría suceder en cualquiera de los escenarios siguientes:
+   - Si ya tiene un dominio con el mismo nombre de dominio DNS en la red virtual.
+   - Si la red virtual que ha seleccionado tiene una conexión VPN con la red local y tiene un dominio con el mismo nombre de dominio DNS en la red local.
+   - Si ya dispone de un servicio en la nube con ese nombre en la red virtual.
+
+10. Cuando haya terminado de seleccionar las opciones anteriores, haga clic en **Guardar** en el panel de tareas de la parte inferior de la página para habilitar los Servicios de dominio de Azure AD.
+
+11. La página mostrará un estado 'Pendiente...' mientras los Servicios de dominio de Azure AD se habilitan para su directorio.
 
     ![Habilitación de los Servicios de dominio: estado pendiente](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
     > [AZURE.NOTE] Los Servicios de dominio de Azure AD proporcionan una alta disponibilidad para el dominio administrado. La primera vez que habilite los Servicios de dominio de Azure AD para su dominio, observará que las direcciones IP en las que están disponibles los Servicios de dominio en la red virtual se muestran de una en una. La segunda dirección IP se muestra al rato, en cuanto el servicio habilita la alta disponibilidad para el dominio. Cuando se configura la alta disponibilidad y está activa para su dominio, debe ver dos direcciones IP en la sección **Servicios de dominio** de la pestaña **Configurar**.
 
-11. Al cabo de unos 20 o 30 minutos, verá la primera dirección IP en la que los Servicios de dominio están disponibles en la red virtual, en el campo **Dirección IP** de la página **Configurar**.
+12. Al cabo de unos 20 o 30 minutos, verá la primera dirección IP en la que los Servicios de dominio están disponibles en la red virtual, en el campo **Dirección IP** de la página **Configurar**.
 
     ![Servicios de dominio habilitados: primera dirección IP aprovisionada](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
 
-12. Cuando la alta disponibilidad está operativa para el dominio, verá dos direcciones IP en la página. Estas son las direcciones IP en las que los Servicios de dominio de Azure AD estarán disponibles en la red virtual seleccionada. Anote estas direcciones para que pueda actualizar la configuración de DNS de la red virtual. Este paso permite a las máquinas virtuales de la red virtual conectarse al dominio de cara para realizar operaciones como unirse a un dominio.
+13. Cuando la alta disponibilidad está operativa para el dominio, verá dos direcciones IP en la página. Estas son las direcciones IP en las que los Servicios de dominio de Azure AD estarán disponibles en la red virtual seleccionada. Anote estas direcciones para que pueda actualizar la configuración de DNS de la red virtual. Este paso permite a las máquinas virtuales de la red virtual conectarse al dominio de cara para realizar operaciones como unirse a un dominio.
 
     ![Servicios de dominio habilitados: ambas direcciones IP aprovisionadas](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
@@ -73,4 +81,4 @@ En este paso puede habilitar los Servicios de dominio de Azure AD para su direct
 ---
 [**Siguiente paso: Actualización de la configuración DNS para la red virtual de Azure.**](active-directory-ds-getting-started-dns.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Catálogo de datos de Azure Introducción al catálogo de datos de Azure"
-   description="Tutorial integral de los escenarios y las capacidades del Catálogo de datos de Azure."
+   pageTitle="Introducción al Catálogo de datos de Azure | Microsoft Azure"
+   description="Tutorial integral que muestra los escenarios y las funcionalidades del Catálogo de datos de Azure."
    documentationCenter=""
    services="data-catalog"
    authors="dvana"
@@ -258,4 +258,4 @@ En este ejercicio ha explorado las funcionalidades de administración del **Cat�
 
 En este tutorial ha explorado las funcionalidades esenciales del **Catálogo de datos de Azure**, incluido el registro, la anotación, la detección y la administración de orígenes de datos empresariales. Ahora que ha completado el tutorial, ha llegado el momento de comenzar. Puede empezar hoy mismo por registrar los orígenes de datos en los que confían usted y su equipo, e invitando a compañeros a usar el catálogo.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

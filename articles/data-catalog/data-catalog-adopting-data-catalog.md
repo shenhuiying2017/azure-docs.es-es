@@ -1,6 +1,6 @@
 <properties
    pageTitle="Adopción del Catálogo de datos de Azure | Microsoft Azure"
-   description="Este artículo le ayudará a empezar a adoptar el Catálogo de datos de Azure en su organización. Para adoptar correctamente el **Catálogo de datos de Azure**, es aconsejable que se centre en tres elementos clave: definir la visión, identificar los principales casos de uso empresariales de la organización y elegir un proyecto piloto."
+   description="En este artículo se presenta un enfoque y un proceso para las organizaciones que están pensando en adoptar el Catálogo de datos de Azure, incluida la definición de una visión, la identificación de casos de uso y la elección de un proyecto piloto."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/28/2016"
+   ms.date="03/31/2016"
    ms.author="derrickv"/>
 
 # Adopción del Catálogo de datos de Azure
@@ -172,4 +172,4 @@ Este artículo versa sobre cómo empezar con el **Catálogo de datos de Azure** 
 -	[Anotación de orígenes de datos registrados](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 - [Metadatos de micromecenazgo](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

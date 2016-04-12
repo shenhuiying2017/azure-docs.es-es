@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="03/08/2016"
 	ms.author="vlivech"/>
 
@@ -72,4 +72,4 @@ Para crear un nuevo grupo de recursos e implementar una máquina virtual, puede 
 
 Después de crear máquinas virtuales de Linux con plantillas, querrá ver qué otros entornos de aplicación hay disponibles para usar con plantillas. Busque en la [galería de plantillas](https://azure.microsoft.com/documentation/templates/) para ver qué entornos de aplicación implementará después.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

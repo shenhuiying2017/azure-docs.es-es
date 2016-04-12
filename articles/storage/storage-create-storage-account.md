@@ -69,43 +69,47 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 2. En el menú del concentrador, seleccione **Nuevo** -> **Datos + almacenamiento** -> **Cuenta de almacenamiento**.
 
-3. Seleccione un modelo de implementación: **Administrador de recursos** o **Clásico**. **Administrador de recursos** es el modelo de implementación recomendado. Para obtener más información, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md).
-
-4. Escriba un nombre para la cuenta de almacenamiento.
+3. Escriba un nombre para la cuenta de almacenamiento.
 
 	> [AZURE.NOTE] Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
 	>  
-	> El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El Portal de Azure indicará si ya existe el nombre de la cuenta de almacenamiento que seleccione.
+	> El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El Portal de Azure le indicará si ya existe el nombre de la cuenta de almacenamiento que seleccione.
 
 	Consulte [Puntos de conexión de cuenta de almacenamiento](#storage-account-endpoints) más adelante para obtener información detallada sobre la forma en que se usará este nombre para dirigir los objetos en Almacenamiento de Azure.
 
-5. Especifique el tipo de cuenta de almacenamiento que se creará. El tipo de cuenta de almacenamiento determina cómo se replica la cuenta de almacenamiento y si es una cuenta de almacenamiento estándar o una cuenta de almacenamiento premium.
+4. Especifique el modelo de implementación que se va a usar: **Resource Manager** o **Clásico**. **Administrador de recursos** es el modelo de implementación recomendado. Para obtener más información, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md).
 
-	El tipo de cuenta de almacenamiento predeterminado es **RAGRS estándar**, que es una cuenta de almacenamiento estándar con replicación con redundancia geográfica de acceso de lectura. Este tipo de cuenta de almacenamiento se replica en una región secundaria que se encuentra a cientos de millas de la región primaria y proporciona acceso de lectura a la ubicación secundaria.
+5. Especifique el nivel de rendimiento de la cuenta de almacenamiento: **Estándar** o **Premium**. El valor predeterminado es **Estándar**. Para más información sobre las cuentas de almacenamiento estándar y premium, consulte [Introducción a Almacenamiento de Microsoft Azure](storage-introduction.md) y [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md).
 
-	Para obtener más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de Almacenamiento de Azure](storage-redundancy.md). Para más información sobre las cuentas de almacenamiento estándar y premium, consulte [Introducción a Almacenamiento de Microsoft Azure](storage-introduction.md) y [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md)
+6. Seleccione la opción de replicación para la cuenta de almacenamiento: **LRS**, **GRS**, **RA-GRS** o **ZRS**. El valor predeterminado es **RA-GRS**. Para obtener más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de Almacenamiento de Azure](storage-redundancy.md).
 
-6. Indique si desea habilitar los diagnósticos para la cuenta de almacenamiento. Los diagnósticos incluyen métricas y registros de análisis de almacenamiento.
+7. Seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento.
 
-7. Si tiene más de una suscripción a Azure, aparecerá el campo **Suscripción**. Seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento.
-
-8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
+8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
 
 9. Seleccione la ubicación geográfica para la cuenta de almacenamiento.
 
 10. Haga clic en **Crear** para crear la cuenta de almacenamiento.
 
-## Administración de las claves de acceso de almacenamiento
+## Administración de la cuenta de almacenamiento
+
+### Cambio de la configuración de cuenta
+
+Después de crear la cuenta de almacenamiento, puede modificar su configuración, como cambiar la opción de replicación usada para la cuenta. En el Portal de Azure, diríjase a su cuenta de almacenamiento, haga clic en **Todas las configuraciones** y después en **Configuración** para ver o cambiar la configuración de la cuenta. Si se cambia la opción de replicación, cambiarán los precios.
+
+> [AZURE.NOTE] Según el nivel de rendimiento que eligió al crear la cuenta de almacenamiento, es posible que algunas opciones de replicación no estén disponibles.
+
+### Administración de las claves de acceso de almacenamiento
 
 Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits que se usan para autenticación cuando se obtiene acceso a la cuenta de almacenamiento. Al brindar dos claves de acceso de almacenamiento, Azure le permite volver a generar las claves sin interrupción en su servicio de almacenamiento, o bien, tener acceso a ese servicio.
 
-> [AZURE.NOTE] Se recomienda no compartir con nadie las claves de acceso de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para más información, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Se recomienda no compartir con nadie las claves de acceso de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para más información, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
 
-### Visualización y copia de las claves de acceso de almacenamiento
+#### Visualización y copia de las claves de acceso de almacenamiento
 
-En el [Portal de Azure](https://portal.azure.com), diríjase a su cuenta de almacenamiento y haga clic en el icono de **claves** para ver, copiar y regenerar las claves de acceso de la cuenta. La hoja de **claves de acceso** también incluye cadenas de conexión configuradas previamente que usan claves principales y secundarias que puede copiar para usarlas en las aplicaciones.
+En el [Portal de Azure](https://portal.azure.com), diríjase a su cuenta de almacenamiento, haga clic en **Todas las configuraciones** para ver, copiar y regenerar las **claves de acceso** de la cuenta. La hoja de **claves de acceso** también incluye cadenas de conexión configuradas previamente que usan claves principales y secundarias que puede copiar para usarlas en las aplicaciones.
 
-### Nueva generación de las claves de acceso de almacenamiento
+#### Nueva generación de las claves de acceso de almacenamiento
 
 Recomendamos que cambie las claves de acceso de su cuenta de almacenamiento periódicamente para ayudar a mantener seguras las conexiones de almacenamiento. Se asignan dos claves de acceso para que pueda mantener las conexiones con la cuenta de almacenamiento usando una clave de acceso mientras genera de nuevo la otra clave de acceso.
 
@@ -137,15 +141,15 @@ Para eliminar una cuenta de almacenamiento que está asociada a una máquina vir
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-Si la cuenta de almacenamiento utiliza el modelo de implementación clásico, puede quitar el disco de máquina virtual siguiendo estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.com):
+Si la cuenta de almacenamiento utiliza el modelo de implementación clásico, puede quitar el disco de máquina virtual siguiendo estos pasos en el [Portal de Azure](https://manage.windowsazure.com):
 
-1. Navegue hasta el [Portal de Azure clásico](https://manage.windowsazure.com).
+1. Navegue hasta el [Portal clásico](https://manage.windowsazure.com).
 2. Vaya a la pestaña de máquinas virtuales.
 3. Haga clic en la pestaña Discos.
 4. Seleccione el disco de datos y luego haga clic en Eliminar disco.
 5. Para eliminar imágenes de discos, vaya a la pestaña Imágenes y elimine todas las imágenes almacenadas en la cuenta.
 
-Para más información, consulte la [documentación de máquinas virtuales de Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
+Para más información, consulte la [documentación sobre máquinas virtuales de Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Pasos siguientes
 
@@ -154,4 +158,4 @@ Para más información, consulte la [documentación de máquinas virtuales de Az
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

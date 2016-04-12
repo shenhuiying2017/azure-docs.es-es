@@ -1,12 +1,12 @@
 <properties
    pageTitle="P+F de Copia de seguridad de Azure | Microsoft Azure"
-   description="Respuestas a las preguntas más frecuentes sobre agente de copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre la solución de Copia de seguridad de Azure."
+   description="Respuestas a las preguntas más frecuentes sobre el servicio de Copia de seguridad, el agente de Copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre la copia de seguridad y recuperación ante desastres."
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="solución de copia de seguridad; servicio de copia de seguridad"/>
+   keywords="copia de seguridad y recuperación ante desastres; servicio de copia de seguridad"/>
 
 <tags
    ms.service="backup"
@@ -14,10 +14,15 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/24/2016"
+	 ms.date="03/30/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # P+F de servicio de Copia de seguridad de Azure
+
+> [AZURE.SELECTOR]
+- [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo clásico](backup-azure-backup-faq.md)
+- [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo ARM](backup-azure-backup-ibiza-faq.md)
+
 En este artículo encontrará una lista de las preguntas más frecuentes (y sus correspondientes respuestas) acerca del servicio Copia de seguridad de Azure. Nuestra comunidad responde rápidamente, y si una pregunta se repite a menudo, la agregamos a este artículo. Normalmente, las respuestas proporcionan referencia o información de soporte técnico. Las preguntas acerca de Copia de seguridad de Azure se pueden realizar en la sección Disqus de este artículo o de otros artículos relacionados. También se pueden publicar preguntas sobre el servicio Copia de seguridad de Azure en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Instalación y configuración
@@ -54,7 +59,7 @@ En este artículo encontrará una lista de las preguntas más frecuentes (y sus 
 
 **P9. ¿Cómo registro mi servidor en otro centro de datos?**<br/> R9. Los datos de copia de seguridad se envían al centro de datos del servicio de copia de seguridad en el que está registrado. La forma más sencilla de cambiar el centro de datos es desinstalar el agente y volver a instalarlo y registrarlo en un nuevo centro de datos.
 
-**P10. ¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?** R10. Al cambiar el nombre de un servidor, se detienen todas las copias de seguridad configuradas actualmente. Debe registrar el nuevo nombre del servidor con el almacén de copia de seguridad. Cuando se crea un nuevo registro, la primera operación de copia de seguridad es una copia de seguridad completa y no una copia de seguridad incremental. Si necesita recuperar datos cuya copia de seguridad se realizó anteriormente en el almacén con el nombre del servidor antiguo, puede hacerlo mediante la opción [**Otro servidor**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) del Asistente para **recuperar datos**.
+**P10. ¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?**<br/> R10. Al cambiar el nombre de un servidor, se detienen todas las copias de seguridad configuradas actualmente. Debe registrar el nuevo nombre del servidor con el almacén de copia de seguridad. Cuando se crea un nuevo registro, la primera operación de copia de seguridad es una copia de seguridad completa y no una copia de seguridad incremental. Si necesita recuperar datos cuya copia de seguridad se realizó anteriormente en el almacén con el nombre del servidor antiguo, puede hacerlo mediante la opción [**Otro servidor**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) del Asistente para **recuperar datos**.
 
 
 **P11. ¿Desde qué tipos de unidades puedo realizar copias de seguridad de archivos y carpetas?** <br/> R11. La copia de seguridad no se puede realizar del siguiente conjunto de unidades/volúmenes de disco:
@@ -101,7 +106,7 @@ En este artículo encontrará una lista de las preguntas más frecuentes (y sus 
 - *.microsoftonline.com
 - *.windows.net
 
-**Q21. ¿Se puede instalar el agente de Copia de seguridad de Azure en una máquina virtual de Azure de la que el servicio Copia de seguridad de Azure ya ha realizado una copia de seguridad mediante la extensión de máquina virtual?** <br/> R21. Totalmente. Copia de seguridad de Azure proporciona copia de seguridad de nivel de máquina virtual para las máquinas virtuales de Azure que usen la extensión de máquina virtual. El agente de Copia de seguridad de Azure se puede instalar en un SO invitado de Windows para proteger los archivos y carpetas de dicho SO.
+**P21. ¿Se puede instalar el agente de Copia de seguridad de Azure en una máquina virtual de Azure de la que el servicio Copia de seguridad de Azure ya ha realizado una copia de seguridad mediante la extensión de máquina virtual?** <br/> R21. Totalmente. Copia de seguridad de Azure proporciona copia de seguridad de nivel de máquina virtual para las máquinas virtuales de Azure que usen la extensión de máquina virtual. El agente de Copia de seguridad de Azure se puede instalar en un SO invitado de Windows para proteger los archivos y carpetas de dicho SO.
 
 **P22. ¿Puedo instalar el agente de Copia de seguridad de Azure en una máquina virtual de Azure para realizar la copia de seguridad de los archivos y carpetas que hay en un almacenamiento temporal proporcionado por la máquina virtual de Azure?** <br/> R22. Puede instalar al agente de Copia de seguridad de Azure en el SO invitado de Windows y realizar una copia de seguridad de los archivos y carpetas en un almacenamiento temporal. Sin embargo, tenga en cuenta que las copias de seguridad dejarán de funcionar cuando se borren los datos del almacenamiento temporal. Además, si se han eliminado los datos del almacenamiento temporal, la restauración solo se podrá realizar en un almacenamiento no volátil.
 
@@ -139,7 +144,7 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 
 **P5. ¿Puedo configurar de forma selectiva mis directivas de retención (es decir, configurar semanal y diariamente, pero no anual y mensualmente)?**<br/> R5. Sí, la estructura de retención de la Copia de seguridad de Azure permite tener una flexibilidad completa en la definición de la directiva de retención según sus requisitos.
 
-**P6. ¿Puedo "programar una copia de seguridad" a las 6 p.m. y especificar "directivas de retención" en un momento diferente?**<br/> R6. No. Las directivas de retención pueden aplicarse solo en puntos de copia de seguridad. En la siguiente imagen, la directiva de retención se especifica para las copias de seguridad realizadas a las 12 AM y 6 PM. <br/>
+**P6. ¿Puedo "programar una copia de seguridad" a las 6 p.m. y especificar "directivas de retención" en un momento diferente?**<br/> R6. No. Las directivas de retención pueden aplicarse solo en puntos de copia de seguridad. En la siguiente imagen, la directiva de retención se especifica para las copias de seguridad realizadas a las 12 a.m. y 6 p.m. <br/>
 
 ![Programar copia de seguridad y retención](./media/backup-azure-backup-faq/Schedule.png) <br/>
 
@@ -153,7 +158,7 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 
 **P11. ¿Por qué la cantidad de datos transferida en la copia de seguridad es distinta a la cantidad de datos de los que realizo la copia de seguridad?**<br/> R11. Todos los datos de los que se realiza una copia de seguridad se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, el tamaño de los datos del almacén de copia de seguridad se reduce entre un 30% y un 40%.
 
-**P12. ¿Hay alguna forma de ajustar la cantidad de ancho de banda que utiliza el servicio Copia de seguridad?**<br/> R12. Sí, use la opción **Cambiar propiedades** del agente de Copia de seguridad para ajustar el ancho de banda. Ajuste la cantidad de ancho de banda y los momentos en que se usa dicho ancho de banda. Para más información, consulte [Preparación del entorno para la copia de seguridad de máquinas de Windows en Azure](../backup-configure-vault.md#enable-network-throttling).
+**P12. ¿Hay alguna forma de ajustar la cantidad de ancho de banda que utiliza el servicio Copia de seguridad?**<br/> R12. Sí, use la opción **Cambiar propiedades** del agente de Copia de seguridad para ajustar el ancho de banda. Ajuste la cantidad de ancho de banda y los momentos en que se usa dicho ancho de banda. Para más información, consulte [Habilitación de la velocidad moderada de la red (opcional)](../backup-configure-vault.md#enable-network-throttling).
 
 
 ## Recuperación
@@ -192,4 +197,4 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 
   Una vez que la creación de la copia de seguridad se haya completado correctamente en la nueva ubicación de la memoria caché, puede quitar la carpeta de la memoria caché original.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

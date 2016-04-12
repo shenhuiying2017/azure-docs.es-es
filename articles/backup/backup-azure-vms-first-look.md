@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/14/2016"
+	ms.date="03/30/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Primer contacto: copia de seguridad de máquinas virtuales de Azure
+
+> [AZURE.SELECTOR]
+- [Copia de seguridad de máquinas virtuales en ARM](backup-azure-vms-first-look-arm.md)
+- [Copia de seguridad de máquinas virtuales en modo clásico](backup-azure-vms-first-look.md)
 
 Este artículo es un tutorial que le guiará por el conjunto de pasos que es preciso seguir para preparar un entorno de Azure para hacer copia de seguridad de una máquina virtual (VM) de Azure. En este tutorial se asume que tiene una máquina virtual en su suscripción de Azure y que ha tomado las medidas necesarias para que el servicio de copia de seguridad pueda acceder a dicha máquina virtual. A un alto nivel, estos son los pasos que debe completar.
 
@@ -31,7 +35,7 @@ Este artículo es un tutorial que le guiará por el conjunto de pasos que es pre
 5. Cree la directiva para proteger las máquinas virtuales.
 6. Ejecute la copia de seguridad.
 
->[AZURE.NOTE] Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y la implementación clásica](../resource-manager-deployment-model.md). Actualmente, el servicio Copia de seguridad de Azure no admite máquinas virtuales basada en el Administrador de recursos de Azure (ARM), también se las conoce como máquinas virtuales de IaaS V2. Dado que las máquinas virtuales de IaaS V2 surgieron con el lanzamiento del nuevo Portal de Azure, este tutorial se ha diseñado para que se use con el tipo de máquinas virtuales que se pueden crear en el Portal de Azure clásico.
+>[AZURE.NOTE] Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../resource-manager-deployment-model.md). Actualmente, el servicio Copia de seguridad de Azure no admite máquinas virtuales basada en el Administrador de recursos de Azure (ARM), también se las conoce como máquinas virtuales de IaaS V2. Dado que las máquinas virtuales de IaaS V2 surgieron con el lanzamiento del nuevo Portal de Azure, este tutorial se ha diseñado para que se use con el tipo de máquinas virtuales que se pueden crear en el Portal de Azure clásico.
 
 
 ## Paso 1: creación de un almacén de copia seguridad para una máquina virtual
@@ -155,7 +159,7 @@ Ahora puede configurar una directiva de retención y copia de seguridad para la 
 
     ![Seleccionar carga de trabajo en el portal](./media/backup-azure-vms/select-workload.png)
 
-3. Haga clic en **PROTEGER** en la parte inferior de la página. ![Haga clic en Proteger](./media/backup-azure-vms-first-look/protect-icon.png)
+3. Haga clic en **PROTEGER**, en la parte inferior de la página. ![Haga clic en Proteger](./media/backup-azure-vms-first-look/protect-icon.png)
 
     Aparece el **asistente para la protección de elementos**, que muestra *solo* las máquinas virtuales que están registradas y no protegidas.
 
@@ -203,7 +207,7 @@ Cuando una máquina virtual se ha protegido con una directiva, puede ver esa rel
 
 Para desencadenar la copia de seguridad inicial inmediatamente después de configurar la protección:
 
-1. En la parte inferior de la página **Elementos protegidos**, haga clic en el botón **Copia de seguridad ahora**. ![Icono Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look/backup-now-icon.png)
+1. En la parte inferior de la página **Elementos protegidos**, haga clic en el botón **Realizar copia de seguridad ahora**. ![Icono Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look/backup-now-icon.png)
 
     El servicio Copia de seguridad de Azure crea un trabajo de copia de seguridad para la operación de copia de seguridad inicial.
 
@@ -230,4 +234,4 @@ Una vez que se ha copiado correctamente una máquina virtual, hay varios pasos q
 ## ¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

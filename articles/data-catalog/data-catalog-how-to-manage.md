@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -60,4 +60,4 @@ Los administradores del Catálogo de datos son implícitamente copropietarios de
 ## Resumen
 El modelo de micromecenazgo del Catálogo de datos para la detección de recursos de datos y metadatos permite que todos los usuarios de Catálogo colaboren en él y lo detecten. La edición Estándar del Catálogo de datos proporciona funcionalidades para la propiedad y administración con el fin de limitar la visibilidad y el uso de los recursos de datos específicos.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
