@@ -82,7 +82,7 @@ Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. S
 	Importancia | Especifique la importancia del correo electrónico. Las opciones son Normal, Baja y Alta.
 	Datos adjuntos | Datos adjuntos que se deben enviar con el correo electrónico. Contiene los campos siguientes: Contiene los campos siguientes:<ul><li>Contenido (String)</li><li>Codificación de trasferencia de contenido (Enum) (“none”|”base64”)</li><li>Tipo de contenido (String)</li><li>ID de contenido (String)</li><li>Nombre de archivo (String)</li></ul>
 
-![][5] 
+![][5]  
 ![][6]
 
 ## Aplicaciones adicionales del conector
