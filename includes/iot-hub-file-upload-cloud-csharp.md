@@ -43,7 +43,7 @@ En esta sección, modificará la aplicación de consola **SendCloudtoDevice** qu
             return blob.Uri + sasBlobToken;
         }
 
-    Este método crea una nueva referencia de blob y genera un URI de firma de acceso compartido, tal como se describe en [Creación y uso de una firma de acceso compartido con el servicio BLOB](https://azure.microsoft.com/es-ES/documentation/articles/storage-dotnet-shared-access-signature-part-2/). Tenga en cuenta que el método anterior genera un URI de firma que es válido durante 24 horas. Si el dispositivo de destino necesita más tiempo para cargar el archivo (por ejemplo, se conecta con poca frecuencia, tiene una conectividad poco confiable para cargar un archivo grande), podría plantearse prolongar los tiempos de expiración de las firmas.
+    Este método crea una nueva referencia de blob y genera un URI de firma de acceso compartido, tal como se describe en [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](../storage/storage-dotnet-shared-access-signature-part-2.md). Tenga en cuenta que el método anterior genera un URI de firma que es válido durante 24 horas. Si el dispositivo de destino necesita más tiempo para cargar el archivo (por ejemplo, se conecta con poca frecuencia, tiene una conectividad poco confiable para cargar un archivo grande), podría plantearse prolongar los tiempos de expiración de las firmas.
 
 5. Modifique el método **SendCloudToDeviceMessageAsync** de la siguiente manera:
 
@@ -61,13 +61,13 @@ En esta sección, modificará la aplicación de consola **SendCloudtoDevice** qu
 
 <!-- Links -->
 
-[Acerca del Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[Acerca del Almacenamiento de Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[Transient Fault Handling]: https://msdn.microsoft.com/es-ES/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0309_2016-->

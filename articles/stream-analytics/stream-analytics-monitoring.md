@@ -14,26 +14,26 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # Descripción de la supervisión del trabajo de Análisis de transmisiones y cómo supervisar consultas
 
 ## Introducción: Página de supervisión
 
-Tanto el Portal de administración de Azure como el Portal de vista previa de Azure exponen métricas de rendimiento clave que se pueden utilizar para supervisar y solucionar problemas de rendimiento del trabajo y de consultas.
+Tanto el Portal de administración de Azure como el Portal de Azure muestran métricas de rendimiento clave que se pueden utilizar para supervisar y solucionar problemas de rendimiento del trabajo y de consultas.
 
 En el Portal de administración de Azure, haga clic en la pestaña **Supervisión** de un trabajo de Análisis de transmisiones en ejecución para ver estas métricas. Hay un retraso de como máximo 1 minuto en las métricas de rendimiento que se muestran en la página Supervisión.
 
   ![Panel de supervisión de trabajos](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)
 
-En el Portal de vista previa de Azure, vaya al trabajo de Análisis de transmisiones en el que está interesado en ver las métricas y vea la sección **Supervisión**.
+En el Portal de Azure, vaya al trabajo de Análisis de transmisiones cuyas métricas está interesado en ver y vea la sección **Supervisión**.
 
-  ![Portal de vista previa de Azure: Panel de supervisión de trabajos](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
+  ![Portal de Azure: panel de supervisión de trabajos](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
 
 La primera vez que se crea un trabajo de Análisis de transmisiones en una región, deberá configurar los diagnósticos para esa región. Para ello, haga clic en cualquier lugar de la sección **Supervisión**; aparecerá la hoja **Diagnósticos**. Aquí puede habilitar diagnósticos y especificar una cuenta de almacenamiento para datos de supervisión.
 
-  ![Portal de vista previa de Azure: Configuración de diagnósticos de consulta](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
+  ![Portal de Azure: configuración de diagnósticos de consulta](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
 ## Métricas disponibles para Análisis de transmisiones
 
@@ -65,15 +65,15 @@ Para cambiar el intervalo de tiempo que se muestra en el gráfico de métricas, 
 
 Puede establecer reglas que pueden enviarle una notificación por correo electrónico en caso de que el trabajo supere un umbral definido.
 
-## Personalización de la supervisión en el Portal de vista previa de Azure ##
+## Personalización de la supervisión en el Portal de Azure ##
 
-Puede ajustar el tipo de gráfico, las métricas que se muestran y el intervalo de tiempo en la configuración de Editar gráfico. Para obtener detalles, vea [Personalización de la supervisión](./azure-portal/insights-how-to-customize-monitoring.md).
+Puede ajustar el tipo de gráfico, las métricas que se muestran y el intervalo de tiempo en la configuración de Editar gráfico. Para obtener detalles, vea [Personalización de la supervisión](../azure-portal/insights-how-to-customize-monitoring.md).
 
-  ![Portal de vista previa de Azure: Escala de tiempo de supervisión de consultas](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
+  ![Portal de Azure: escala de tiempo de supervisión de consultas](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
 
 ## Estado del trabajo
 
-El estado de los trabajos de Análisis de transmisiones se puede ver en el Portal de Azure cuando ve una lista de trabajos. Para ver la lista de trabajos, haga clic en el icono de Análisis de transmisiones en el Portal de Azure.
+El estado de los trabajos de Análisis de transmisiones se puede ver en el Portal de Azure clásico donde se ve una lista de trabajos. Para ver la lista de trabajos, haga clic en el icono de Análisis de transmisiones en el Portal de Azure clásico.
 
 | Estado | Definición |
 |--------|------------|
@@ -107,4 +107,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -64,6 +64,7 @@ Obtenga más información acerca de los conceptos principales con el servicio de
 
 Obtenga información sobre cómo usar los SDK.
 
+* [SDK de Apache Cordova]
 * [SDK de servidor ASP.NET]
 * [SDK de servidor Node.js]
 
@@ -77,7 +78,8 @@ Obtenga información sobre cómo usar los SDK.
 [Agregar notificaciones push]: app-service-mobile-cordova-get-started-push.md
 [Autenticación]: app-service-mobile-auth.md
 [Notificaciones de inserción]: ../notification-hubs/notification-hubs-overview.md
+[SDK de Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
 [SDK de servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK de servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

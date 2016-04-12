@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Movimiento de datos hacia y desde SQL Azure | Factoría de datos de Azure" 
+	pageTitle="Traslado de datos hacia la Base de datos SQL Azure y desde ella | Microsoft Azure" 
 	description="Obtenga información acerca de cómo mover los datos hacia y desde la base de datos SQL de Azure mediante Factoría de datos de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -630,4 +630,4 @@ La asignación es igual que la asignación de tipo de datos de SQL Server para A
 
 	 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

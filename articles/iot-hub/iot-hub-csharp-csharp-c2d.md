@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="02/03/2016"
      ms.author="elioda"/>
 
 # Tutorial: cómo envío mensajes de nube a dispositivo con el Centro de IoT
@@ -37,7 +37,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio 2015
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
 
 [AZURE.INCLUDE [iot-hub-c2d-device-csharp](../../includes/iot-hub-c2d-device-csharp.md)]
 
@@ -46,7 +46,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Pasos siguientes
 
-En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. Puede seguir explorando las características del Centro de IoT y distintos escenarios con el tutorial siguiente:
+En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. Puede seguir explorando las características del Centro de IoT y los distintos escenarios con los tutoriales siguientes:
 
 - [Procesamiento de mensajes de dispositivo a nube] muestra cómo procesar de forma fiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
 - [Carga de archivos desde dispositivos], describe un patrón que hace uso de los mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
@@ -82,4 +82,4 @@ Información adicional sobre el Centro de IoT:
 [Centro para desarrolladores de Azure]: http://www.azure.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

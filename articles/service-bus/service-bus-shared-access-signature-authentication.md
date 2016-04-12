@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Autenticación con firma de acceso compartido en Service Bus
@@ -94,7 +94,7 @@ Para un ejemplo funcional completo de una aplicación del Bus de servicio que il
 
 ## Acceso a las reglas de autorización de acceso compartido en un espacio de nombres
 
-Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, haga clic en **Configuración** en el panel izquierdo del [Portal de Azure clásico][]. Para obtener más información sobre los certificados de administración de Azure, consulte [Creación de un certificado de administración para Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, haga clic en **Configuración** en el panel izquierdo del [Portal de Azure clásico][]. Para más información sobre los certificados de administración de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 El extremo para acceder a las reglas de autorización de acceso compartido en un espacio de nombres del Bus de servicio es el siguiente:
 
@@ -258,4 +258,4 @@ Para obtener más información sobre la autenticación del Bus de servicio, cons
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

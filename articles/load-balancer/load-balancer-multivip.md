@@ -18,7 +18,7 @@
 # Varias direcciones VIP por servicio en la nube
 Puede tener acceso a los servicios en la nube de Azure a través de la Internet pública mediante una dirección IP proporcionada por Azure. Esta dirección IP pública se conoce como una dirección VIP (IP virtual) dado que está vinculada al Equilibrador de carga de Azure y no realmente a las instancias de máquina virtual dentro del servicio en la nube. Con una sola dirección VIP puede tener acceso a cualquier instancia de máquina virtual dentro de un servicio en la nube.
 
-Sin embargo, hay escenarios en los que puede que necesite más de una dirección VIP como punto de entrada al mismo servicio en la nube. Por ejemplo, el servicio en la nube podría hospedar varios sitios web que requieren conectividad SSL usando el puerto SLSL predeterminado de 443, y cada sitio hospedarse para un cliente o inquilino diferente. En este escenario, deberá tener una dirección IP accesible de forma pública diferente para cada sitio web. El siguiente diagrama muestra un hospedaje web multiempresa típico en el que se necesitan varios certificados SSL en el mismo puerto público.
+Sin embargo, hay escenarios en los que puede que necesite más de una dirección VIP como punto de entrada al mismo servicio en la nube. Por ejemplo, el servicio en la nube podría hospedar varios sitios web que requieren conectividad SSL usando el puerto predeterminado de 443, y cada sitio hospedarse para un cliente o inquilino diferente. En este escenario, deberá tener una dirección IP accesible de forma pública diferente para cada sitio web. El siguiente diagrama muestra un hospedaje web multiempresa típico en el que se necesitan varios certificados SSL en el mismo puerto público.
 
 ![Escenario SSL de varias direcciones VIP](./media/load-balancer-multivip/Figure1.png)
 
@@ -148,11 +148,11 @@ También puede actualizar el equilibrador de carga para que use una dirección V
 
 [Información general sobre el equilibrador de carga accesible desde Internet](load-balancer-internet-overview.md)
 
-[Introducción al equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
+[Introducción al equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md)
 
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

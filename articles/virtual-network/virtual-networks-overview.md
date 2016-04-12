@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Información general sobre redes virtuales
@@ -91,11 +91,8 @@ No hay ningún coste adicional para el uso de redes virtuales en Azure. A las in
 ## Pasos siguientes
 
 - [Creación de una red virtual](virtual-networks-create-vnet-arm-pportal.md) y subredes
-- [Creación de una máquina virtual en una red virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
+- [Creación de una máquina virtual en una red virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 - Más información sobre [NSG](virtual-networks-nsg.md).
-- Más información sobre [equilibradores de carga](../load-balancer/load-balancer-overview.md)
-- [Reserva de una dirección IP interna](virtual-networks-reserved-private-ip.md)
-- [Reserva de una dirección IP pública](virtual-networks-reserved-public-ip.md).
 - Obtención de más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

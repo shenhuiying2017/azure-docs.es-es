@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="rajram"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="rajram"/>
 
 # Desarrollar una API para PowerApps
@@ -32,16 +32,16 @@ La compilación e implementación de una API para PowerApps es igual que crear c
 
 Los artículos siguientes muestran cómo compilar e implementar una API de .Net, Java o Node.js en el entorno del Servicio de aplicaciones:
 
-- [Compilación e implementación de una .NET en el Servicio de aplicaciones de Azure](../app-service-api-dotnet-get-started.md)
-- [Compilación e implementación de una aplicación de API de Java en el Servicio de aplicaciones de Azure](../app-service-api-java-api-app.md)
-- [Compilación e implementación de una aplicación de API de Node.js en el Servicio de aplicaciones de Azure](../app-service-api-nodejs-api-app.md)
+- [Compilación e implementación de una .NET en el Servicio de aplicaciones de Azure](../app-service-api/app-service-api-dotnet-get-started.md)
+- [Compilación e implementación de una aplicación de API de Java en el Servicio de aplicaciones de Azure](../app-service-api/app-service-api-java-api-app.md)
+- [Compilación e implementación de una aplicación de API de Node.js en el Servicio de aplicaciones de Azure](../app-service-api/app-service-api-nodejs-api-app.md)
 
 
 ## Paso 2: Definición de la API de Swagger 2.0 de autor para la API
 
 Si se sigue uno de los artículos mencionados en el *Paso 1*, se generará automáticamente una definición estándar de la API de Swagger 2.0 estándar automáticamente para la API. Para optimizarla para PowerApps, puede personalizar la definición de la API de Swagger 2.0 generada mediante las siguientes extensiones de esquema.
 
-Para obtener información sobre cómo personalizar la definición de la API Swagger 2.0 en general, consulte [Personalización de definiciones de API generadas por Swashbuckle](../app-service-api-dotnet-swashbuckle-customize.md).
+Para obtener información sobre cómo personalizar la definición de la API Swagger 2.0 en general, consulte [Personalización de definiciones de API generadas por Swashbuckle](../app-service-api/app-service-api-dotnet-swashbuckle-customize.md).
 
 ### Extensiones de esquema
 Además de la swagger generada automáticamente por Swashbuckle, existen algunas extensiones swagger adicionales disponibles al crear una API para PowerApps. En esta sección se enumeran y describen estas extensiones.
@@ -130,4 +130,4 @@ Ejemplo:
 
 Esto es útil en escenarios en los que las entradas para una operación son dinámicas. Por ejemplo, considere el caso de SQL. El esquema de cada tabla es diferente. Por tanto, cuando un usuario selecciona una tabla determinada, el diseñador de flujo de lógica debe comprender la estructura de la tabla para que pueda mostrar los nombres de las columnas. En este contexto, si la definición de swagger dispone de _x-ms-dynamic-schema_, llama a la operación correspondiente para capturar el esquema.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

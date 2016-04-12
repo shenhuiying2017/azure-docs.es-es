@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Administración de Servicios en la nube de Azure mediante Automatización de Azure"
+	pageTitle="Administración de servicios en la nube de Azure mediante Automatización de Azure| Microsoft Azure"
 	description="Obtenga información acerca de cómo puede usarse el servicio Automatización de Azure para administrar servicios en la nube de Azure a escala."
 	services="cloud-services, automation"
 	documentationCenter=""
 	authors="jodoglevy"
-	manager="eamono"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="03/22/2016"
 	ms.author="jolevy"/>
 
 
@@ -35,6 +35,10 @@ Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentra
 
 Los servicios en la nube de Azure se pueden administrar en Automatización de Azure mediante el uso de cmdlets de PowerShell que están disponibles en las [herramientas de Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de servicios en la nube disponibles directamente para que pueda realizar todas las tareas de administración de servicios en la nube dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
+Algunos usos de ejemplo de automatización de Azure para administrar servicios en la nube de Azure son los siguientes:
+
+- [Implementación continua de un servicio en la nube siempre que cscfg o cspkg estén actualizados en el almacenamiento de blobs de Azure](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+- [Reinicio de instancias de servicio en la nube en paralelo (un dominio de actualización a la vez)](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## Pasos siguientes
 
@@ -42,7 +46,7 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 
 - [Información general sobre Automatización de Azure](../automation/automation-intro.md)
 - [Mi primer runbook](../automation/automation-first-runbook-graphical.md)
-- [Ruta de aprendizaje de Automatización de Azure ](https://azure.microsoft.com/documentation/learning-paths/automation/)
+- [Mapa de aprendizaje de Automatización de Azure ](https://azure.microsoft.com/documentation/learning-paths/automation/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

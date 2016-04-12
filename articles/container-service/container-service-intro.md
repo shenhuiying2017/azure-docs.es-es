@@ -24,19 +24,19 @@ El servicio Contenedor de Azure (ACS) ofrece una forma de simplificar la creaci�
 
 <br /> ![ACS proporciona un medio para administrar aplicaciones en contenedor en varios hosts de Azure.](./media/acs-intro/acs-cluster.png) <br /><br />
 
-ACS usa Docker para garantizar que los contenedores de su aplicación sean completamente portátiles. También es compatible con su elección de Marathon, Chronos y Apache Mesos o Docker Swarm para garantizar que estas aplicaciones se puedan escalar a miles e incluso a decenas de miles de contenedores.
+ACS usa el formato de contenedor Docker para garantizar que los contenedores de su aplicación sean completamente portátiles. También es compatible con su elección de Marathon y Apache Mesos o Docker Swarm para garantizar que estas aplicaciones se puedan escalar a miles e incluso a decenas de miles de contenedores.
 
 El servicio Contenedor de Azure permite aprovechar las características empresariales de Azure sin dejar de mantener la portabilidad de aplicaciones, incluso en las capas de orquestación.
 
 Uso del servicio Contenedor de Azure
 -----------------------------
 
-Nuestro objetivo con el servicio Contenedor de Azure es proporcionar un entorno de hospedaje de contenedores mediante el uso de tecnologías y herramientas de código abierto, conocidas por nuestros clientes. Con este fin, se exponen los puntos de conexión de API estándar para Docker y su Orchestrator elegido. Al usar estos puntos de conexión, puede aprovechar cualquier software que se comunique con los mismos. Por ejemplo, en el caso del punto de conexión Docker Swarm, puede optar por usar Docker Compose, mientras que para Apache Mesos, puede decidirse a utilizar CLI de DCOS.
+Nuestro objetivo con el servicio Contenedor de Azure es proporcionar un entorno de hospedaje de contenedores mediante el uso de tecnologías y herramientas de código abierto, conocidas por nuestros clientes. Con este fin, publicamos los puntos de conexión de API estándar para el orquestador elegido. Al usar estos puntos de conexión, puede aprovechar cualquier software que se comunique con los mismos. Por ejemplo, en el caso del punto de conexión de Docker Swarm, puede optar por usar la CLI de Docker, mientras que para Apache Mesos, puede decidirse a utilizar la CLI de DCOS.
 
 Creación de un clúster de Docker con el servicio Contenedor de Azure
 -------------------------------------------------------
 
-Para comenzar a usar el servicio Contenedor de Azure, se implementará un clúster de ACS mediante una plantilla del Administrador de recursos de Azure. Esta implementación puede configurarse con diferentes opciones de tamaño y disponibilidad, y se configurará con Apache Mesos o Docker Swarm. Las plantillas del Administrador de recursos de Azure pueden implementarse a través del puerto de Azure, mediante la CLI de Azure o con PowerShell. Las plantillas también se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación y el clúster de ACS, consulte [Deploy an Azure container Service Cluster](./container-service-deployment.md) (Implementar un clúster del servicio Contenedor de Azure).
+Para comenzar a usar el servicio Contenedor de Azure, se implementará un clúster de ACS mediante una plantilla del Administrador de recursos de Azure. Esta implementación puede configurarse con diferentes opciones de tamaño y disponibilidad, y con Apache Mesos o Docker Swarm. Las plantillas del Administrador de recursos de Azure pueden implementarse a través del Portal de Azure mediante la CLI de Azure o con PowerShell. Las plantillas también se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación y el clúster de ACS, consulte [Deploy an Azure container Service Cluster](./container-service-deployment.md) (Implementar un clúster del servicio Contenedor de Azure).
 
 Implementación de una aplicación
 ------------------------
@@ -49,13 +49,13 @@ Apache Mesos es un proyecto de código abierto que se hospeda en Apache Software
 
 ![ACS configurado para Swarm, que muestra agentes y patrones.](media/acs-intro/acs-mesos.png)
 
-Mesos contiene un conjunto de características increíble.
+Mesos contiene un impresionante conjunto de características.
 
 -   Escalabilidad a 10.000 nodos
 
 -   Patrón y esclavos replicados tolerantes a errores que usan ZooKeeper
 
--   Soporte para contenedores de Docker
+-   Compatibilidad con los contenedores en formato Docker
 
 -   Aislamiento nativo entre las tareas con contenedores de Linux
 
@@ -69,7 +69,7 @@ Mesos admite un gran número de [marcos](http://mesos.apache.org/documentation/l
 
 #### Uso de Marathon y Chronos
 
-Marathon es un sistema de inicialización y control de todo el clúster para servicios en cgroups o, en el caso de ACS, contenedores de Docker. Es un asociado ideal para Chronos, un programador de trabajos tolerante a errores para Mesos que controla dependencias y programaciones basadas en el tiempo.
+Marathon es un sistema de inicialización y control de todo el clúster para servicios en cgroups o, en el caso de ACS, contenedores en formato Docker. Es un asociado ideal para Chronos, un programador de trabajos tolerante a errores para Mesos que controla dependencias y programaciones basadas en el tiempo.
 
 Marathon y Chronos proporcionan una IU web desde la que puede implementar sus aplicaciones. Tendrá acceso a esta desde una dirección URL semejante a `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, donde DNS\_PREFIX y REGION se definen en el momento de la implementación. Por supuesto, también puede proporcionar su propio nombre DNS. Para obtener más información sobre cómo ejecutar un contenedor mediante la interfaz de usuario web de Marathon, consulte [Container management through the web UI](./container-service-mesos-marathon-ui.md) (Administración de contenedores mediante la interfaz de usuario web).
 
@@ -101,4 +101,4 @@ Introducción a ACS:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

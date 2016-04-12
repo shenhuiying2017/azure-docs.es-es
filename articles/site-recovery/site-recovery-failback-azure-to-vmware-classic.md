@@ -19,8 +19,8 @@
 # Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
-- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Mejorada](site-recovery-failback-azure-to-vmware-classic.md)
+- [Heredado](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
 
 En este artículo se describe cómo conmutar por recuperación máquinas virtuales de Azure al sitio local. Siga las instrucciones que se describen en este artículo cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que han conmutado por error desde el sitio local a Azure mediante este [tutorial](site-recovery-vmware-to-azure-classic.md).
@@ -31,7 +31,13 @@ En este artículo se describe cómo conmutar por recuperación máquinas virtual
 
 Este diagrama muestra la arquitectura de conmutación por recuperación en este escenario.
 
+Use esta arquitectura cuando el servidor de procesos sea local y se esté usando ExpressRoute.
+
 ![](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+
+Use esta arquitectura cuando el servidor de procesos esté en Azure y tenga una VPN o una conexión de ExpressRoute.
+
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Así es cómo funciona la conmutación por recuperación:
 
@@ -97,14 +103,14 @@ El servidor de destino maestro recibe los datos de conmutación por recuperació
 
 1. Si va a instalar al servidor de destino maestro en Windows, abra la página de inicio rápido de la máquina virtual en la que va a instalarlo y descargue el archivo de instalación para el Asistente de configuración unificada de Azure Site Recovery.
 2. Ejecute el programa de instalación y, en **Antes de comenzar**, seleccione **Agregar servidores de procesos adicionales para el escalado horizontal de la implementación**.
-3. Complete el asistente tal y como hiciera cuando [configuró el servidor de administración](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). En la página **Detalles del servidor de configuración**, especifique la dirección IP de este servidor de destino maestro y una frase de contraseña para tener acceso a la máquina virtual.
+3. Complete el asistente tal y como hizo cuando [instaló el servidor de administración](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). En la página **Detalles del servidor de configuración**, especifique la dirección IP de este servidor de destino maestro y una frase de contraseña para tener acceso a la máquina virtual.
 
 ### Configuración de una máquina virtual de Linux como servidor de destino maestro
 Para configurar el servidor de administración que ejecuta el servidor de destino maestro como una máquina virtual de Linux, será necesario que instale el sistema operativo mínimo CentOS 6.6, que recupere los id. SCSI de cada disco duro SCSI, que instale algunos paquetes adicionales y que aplique algunos cambios personalizados.
 
 #### Instalación de CentOS 6.6
 
-1.	Instale el sistema operativo mínimo CentOS 6.6 en la máquina virtual del servidor de administración. Mantenga la imagen ISO en una unidad de DVD y arranque el sistema. Omita la comprobación de medios, seleccione inglés de Estados Unidos como el idioma, seleccione **Basic Storage Devices** (Dispositivos de almacenamiento básico), compruebe que el disco duro no tenga ningún dato importante y haga clic en **Yes** (sí) para descartar los datos. Escriba el nombre de host del servidor de administración y seleccione el adaptador de red del servidor. En el cuadro de diálogo **Editing System** (Sistema de edición), seleccione **Connect automatically ** (Conectar automáticamente) y agregue una configuración de dirección IP estática, red y DNS. Especifique una zona horaria y una contraseña raíz para acceder al servidor de administración. 
+1.	Instale el sistema operativo mínimo CentOS 6.6 en la máquina virtual del servidor de administración. Mantenga la imagen ISO en una unidad de DVD y arranque el sistema. Omita la comprobación de medios, seleccione inglés de Estados Unidos como el idioma, seleccione **Basic Storage Devices** (Dispositivos de almacenamiento básico), compruebe que el disco duro no tenga ningún dato importante y haga clic en **Yes** (sí) para descartar los datos. Escriba el nombre de host del servidor de administración y seleccione el adaptador de red del servidor. En el cuadro de diálogo **Editing System** (Sistema de edición), seleccione **Connect automatically** (Conectar automáticamente) y agregue una configuración de dirección IP estática, red y DNS. Especifique una zona horaria y una contraseña raíz para acceder al servidor de administración. 
 2.	Cuando se le pregunte por el tipo de instalación que desea, seleccione **Create Custom Layout** (Crear diseño personalizado) como partición. Tras hacer clic en **Next** (Siguiente), seleccione **Free** (Gratis) y haga clic en Create (Crear). Cree **/**, **/var/crash** y **/home partitions** con **FS Type:** (Tipo FS) **ext4**. Cree la partición de intercambio como **FS Type: swap** (Tipo FS: intercambio).
 3.	Si se encuentran dispositivos ya existentes, aparecerá un mensaje de advertencia. Haga clic en **Format** (Formato) para formatear la unidad con la configuración de partición. Haga clic en **Write change to disk** (Escribir cambios en el disco) para aplicar los cambios de partición.
 4.	Seleccione **Install boot loader** (Instalar cargador de arranque) > **Next** (Siguiente) para instalar el cargador de arranque en la partición raíz.
@@ -181,4 +187,4 @@ Puede conmutar por recuperación a través de una conexión VPN o de Azure Expre
 - ExpressRoute se debe configurar en la red virtual de Azure a la que conmutarán por error las máquinas de origen, y en la que se encuentran las máquinas virtuales de Azure después de que tiene lugar este proceso.
 - Los datos se replican en una cuenta de almacenamiento de Azure en un punto de conexión público. Para usar ExpressRoute, debe realizar la configuración entre pares públicos en ExpressRoute con el centro de datos de destino para la replicación de Site Recovery.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

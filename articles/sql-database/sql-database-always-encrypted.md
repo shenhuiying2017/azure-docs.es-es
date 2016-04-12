@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Protección de los datos confidenciales en Base de datos SQL con el cifrado de base de datos | Microsoft Azure"
+	pageTitle="Always Encrypted: protección de los datos confidenciales en Base de datos SQL con el cifrado de base de datos"
 	description="Proteger datos confidenciales en la base de datos SQL en cuestión de minutos."
-	keywords="base de datos SQL, cifrado de sql, cifrado de base de datos, clave de cifrado, datos confidenciales, Always Encrypted"	
+	keywords="cifrar datos, cifrado sql, cifrado de base de datos, datos confidenciales, Always Encrypted"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,18 +15,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# Protección de los datos confidenciales en Base de datos SQL con cifrado de base de datos y almacenamiento de las claves de cifrado en el almacén de certificados de Windows
+# Always Encrypted: protección de los datos confidenciales en Base de datos SQL con cifrado de base de datos y almacenamiento de las claves de cifrado en el almacén de certificados de Windows
 
 > [AZURE.SELECTOR]
 - [Almacén de claves de Azure](sql-database-always-encrypted-azure-key-vault.md)
 - [Almacén de certificados de Windows](sql-database-always-encrypted.md)
 
+
 En este artículo se muestra cómo proteger datos confidenciales en una base de datos SQL con cifrado de base de datos mediante el asistente de [Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) en [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) y cómo almacenar las claves de cifrado en el almacén de certificados de Windows.
 
-Always Encrypted es una nueva tecnología de cifrado de Base de datos SQL de Azure y SQL Server que protege los datos confidenciales en reposo en el servidor durante el movimiento entre cliente y servidor, así como mientras los datos estén en uso, asegurando que los datos confidenciales nunca aparezcan como texto no cifrado dentro del sistema de base de datos. Solo las aplicaciones cliente o servidores de aplicaciones, que tienen acceso a las claves, pueden acceder a datos de texto no cifrado. Para más información, consulte [Always Encrypted (motor de base de datos)](https://msdn.microsoft.com/library/mt163865.aspx).
+Always Encrypted es una nueva tecnología de cifrado de datos de Base de datos SQL de Azure y SQL Server que protege los datos confidenciales en reposo en el servidor durante el movimiento entre cliente y servidor, así como mientras los datos están en uso, lo que garantiza que los datos confidenciales nunca van a aparecer como texto no cifrado dentro del sistema de base de datos. Después de cifrar los datos, solo las aplicaciones cliente o los servidores de aplicaciones que tienen acceso a las claves, pueden acceder a los datos de texto no cifrado. Para más información, consulte [Always Encrypted (motor de base de datos)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 
 Después de configurar la base de datos para usar Always Encrypted, crearemos una aplicación cliente en C# con Visual Studio para trabajar con los datos cifrados.
@@ -547,6 +548,6 @@ Después de crear una base de datos que usa Always Encrypted es posible que quie
 - [Cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Cifrado de SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Blog de Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
+- [Blog de Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

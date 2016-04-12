@@ -13,18 +13,19 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/16/2016" 
 	ms.author="guayan"/>
 
 # Desencadenadores de aplicación de API del Servicio de aplicaciones de Azure
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones de API.
+
 
 ## Información general
 
 En este artículo, se explica cómo implementar desencadenadores de aplicación de API y consumirlos desde una aplicación lógica.
 
-Si no está familiarizado con las [aplicaciones de API](app-service-api-apps-why-best-platform.md) del el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md), le recomendamos que lea la serie formada por varias partes en [Creación de aplicaciones de API](app-service-dotnet-create-api-app.md).
-
-Además, todos los fragmentos de código de este tema proceden del [ejemplo de código de la aplicación de API de FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
+Todos los fragmentos de código de este tema proceden del [ejemplo de código de la aplicación de API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
 Tenga en cuenta que tendrá que descargar el siguiente paquete de NuGet para el código en este artículo para realizar la compilación y ejecución: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
@@ -341,4 +342,4 @@ El siguiente es un ejemplo de cómo esta clase se puede implementar para facilit
     }
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

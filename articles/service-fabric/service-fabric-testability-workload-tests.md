@@ -23,14 +23,17 @@ Los escenarios de capacidad de prueba en Service Fabric de Azure permiten a los 
 ## Escenario de ejemplo personalizado
 Esta prueba muestra un escenario que intercala la carga de trabajo de negocios con [errores correctos e incorrectos](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Los errores deben inducirse en el centro de operaciones de servicio o de proceso para obtener mejores resultados.
 
-Recorramos en iteración un ejemplo de un servicio que expone cuatro cargas de trabajo: A, B, C y D. Cada una de ellas se corresponde a un conjunto de flujos de trabajo y podrían ser de proceso, almacenamiento o una combinación de ambos. Por simplicidad, se aislarán las cargas de trabajo en nuestro ejemplo. Los diferentes errores ejecutados en este ejemplo son los siguientes: + RestartNode: Error incorrecto para simular un reinicio del equipo. + RestartDeployedCodePackage: error incorrecto para simular bloqueos del proceso de host de servicio. + RemoveReplica: error correcto para simular la eliminación de la réplica. + MovePrimary: error correcto para simular los movimientos de réplica desencadenados por el equilibrador de carga de Service Fabric.
+Recorramos en iteración un ejemplo de un servicio que expone cuatro cargas de trabajo: A, B, C y D. Cada una de ellas se corresponde a un conjunto de flujos de trabajo y podrían ser de proceso, almacenamiento o una combinación de ambos. Por simplicidad, se aislarán las cargas de trabajo en nuestro ejemplo. Los diferentes errores ejecutados en este ejemplo son:
+  + RestartNode: error sin gracia para simular un reinicio de la máquina.
+  + RestartDeployedCodePackage: error sin gracia para simular el bloqueo de los procesos del host de servicio.
+  + RemoveReplica: error sin gracia para simular la eliminación de réplicas.
+  + MovePrimary: error sin gracia para simular los movimientos de réplica desencadenados por el equilibrador de carga de Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
 
 using System;
 using System.Fabric;
-using System.Fabric.Testability;
 using System.Fabric.Testability.Scenario;
 using System.Threading;
 using System.Threading.Tasks;
@@ -147,9 +150,9 @@ class Test
     {
         Array values = Enum.GetValues(typeof(T));
         T workload = (T)values.GetValue(random.Next(values.Length));
-        return T;
+        return workload;
     }
 }
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

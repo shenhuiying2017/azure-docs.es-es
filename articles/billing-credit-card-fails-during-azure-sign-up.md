@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia"/>
+	ms.author="cjiang"/>
 
 # Mi tarjeta de crédito no se acepta cuando intento suscribirme a Azure
 Este artículo describe algunas causas comunes de problemas que surgen al realizar la suscripción con una tarjeta de crédito o débito.
@@ -30,7 +30,10 @@ Las opciones de pago de Azure incluyen:
 - En la actualidad se aceptan solamente tarjetas de crédito o débito que no sean virtuales ni de prepago.
 - Los proveedores de tarjetas de crédito o débito aceptados varían según el país.
 
-Sugerencias: No use una tarjeta de débito y crédito virtual o de prepago. Si se produce un error en la activación o el pago intente usar una tarjeta de crédito alternativa válida y aceptad. Asegúrese de que el método de pago está activo y que el banco no está bloqueando las transacciones en línea a causa de directivas de seguridad.
+Sugerencias
+- No use tarjetas virtuales ni de crédito o débito que sea de prepago.
+- Si se produce algún error en la activación o en el pago, pruebe a usar una tarjeta de crédito válida y admitida alternativa.
+- Asegúrese de que el método de pago está activo y que las directivas de seguridad del banco no bloquean las transacciones en línea.
 
 ## ¿Es la información de tarjeta de crédito correcta y completa?
 - Los detalles de la tarjeta de crédito tienen que ser correctos y coincidir con la información de facturación de la tarjeta de crédito del banco.
@@ -39,16 +42,27 @@ Sugerencias: No use una tarjeta de débito y crédito virtual o de prepago. Si s
 - Se inserta el código CVV tal y como aparece en la parte delantera o trasera de la tarjeta de crédito.
 - Colabore con su banco para corregir los problemas de ortografía u otros que pueda haber con la información de su tarjeta.
 
-Sugerencias: Proporcione siempre información precisa en la suscripción, ya que los detalles del perfil se usan también para generar extractos de facturación.
+Sugerencias
+- Al suscribirse, especifique siempre información precisa, ya que los datos del perfil se utilizan también para generar extractos de facturación.
 
 ## ¿Es la información de su perfil de cuenta correcta y completa?
 - El propietario de la cuenta tiene incluir toda la información pertinente solicitada durante la suscripción con el fin de identificar a la persona propietaria de la cuenta y para que se pueda generar extractos de facturación correctos cuando sea necesario.
 - Son ejemplos de campos incorrectos o incompletos son: falta nombre o apellido, número de teléfono incorrecto, caracteres no estándar (especiales).
 
-Sugerencias: Repase cada campo en su perfil en el momento de la suscripción o en [su configuración de perfil](https://account.windowsazure.com/Profile/) si ya creó una cuenta de Azure. Proporcione información precisa ya que los detalles del perfil también se usan para generar extractos de facturación.
+Sugerencias
+- Compruebe los campos de su perfil al suscribirse o en la [configuración de su perfil](https://account.windowsazure.com/Profile/) si ya ha creado una cuenta de Azure.
+- Especifique siempre información precisa, ya que los datos del perfil se utilizan también para generar extractos de facturación.
 
 ## ¿Intenta activar un plan de prestaciones de Azure como MSDN, BizSpark o MPN?  
-Compruebe a través de su canal de plan de prestaciones si usted es elegible para el plan que seleccionó. Para MSDN: verifique el estado de elegibilidad en su [página de cuenta MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx); si no puede comprobar su estado, póngase en contacto con los [centros de servicio al cliente para suscripciones a MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx). Para MPN: inicie sesión en el [portal MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) y verifique su estado de elegibilidad. Puede ser elegible para prestaciones adicionales si dispone de las [competencias de Cloud Platform](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx). Si no puede comprobar su estado, póngase en contacto con el [soporte técnico de MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx). Para Bizpark: inicie sesión en el [portal de BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) y compruebe su estado de elegibilidad para BizSpark y BizSpark Plus. Si no puede comprobar su estado, póngase en contacto con el soporte técnico de BizSpark con el envío de un correo electrónico para [ponerse en contacto con el equipo de BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
+Compruebe en el canal de programa de ventajas si tiene derecho al plan elegido:
+- MSDN:
+  - Compruebe su estado de elegibilidad en la [página de la cuenta de MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
+  - Si no puede comprobar su estado, póngase en contacto con los [Centros de servicio al cliente de Suscripciones a MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx).
+- MPN
+  - Inicie sesión en el [portal de MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) y compruebe su estado de idoneidad. Puede ser apto para obtener prestaciones adicionales si tiene las [competencias de la plataforma de nube](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) pertinentes.
+  - Si no puede comprobar su estado, póngase en contacto con el [soporte técnico de MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
+- Bizpark:
+  - Inicie sesión en el [portal de BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) y compruebe su estado de idoneidad para BizSpark y BizSpark Plus. Si no puede comprobar su estado, póngase en contacto con el soporte técnico de BizSpark con el envío de un correo electrónico para [ponerse en contacto con el equipo de BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
 
 Sugerencias
 
@@ -64,4 +78,4 @@ Si se produce un error en la activación de una evaluación gratuita porque en e
 ## Póngase en contacto con el soporte técnico de Azure
 Si después de seguir estos pasos para solucionar problemas sigue teniendo un problema para realizar la inscripción, póngase en contacto con el [soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

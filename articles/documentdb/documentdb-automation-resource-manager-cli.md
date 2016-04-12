@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="mimig"/>
 
 # Automatización de la creación de cuentas de DocumentDB con la CLI de Azure y plantillas del Administrador de recursos de Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+- [Portal de Azure](documentdb-create-account.md)
+- [ CLI de Azure y ARM](documentdb-automation-resource-manager-cli.md)
 
 En este artículo se muestra cómo crear una cuenta de DocumentDB con la interfaz de línea de comandos (CLI) de Azure o con plantillas del Administrador de recursos de Azure. Para crear una cuenta de DocumentDB mediante el Portal de Azure, consulte [Creación de una cuenta de base de datos de DocumentDB](documentdb-create-account.md).
 
@@ -59,7 +59,7 @@ Lo que genera el siguiente resultado:
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE] Si no tiene una cuenta de Azure, verá un mensaje de error que indica que necesita un otro tipo de cuenta. Para crear una a partir su cuenta de Azure actual, consulte [Crear una identidad profesional o educativa en Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE] Si no tiene una cuenta de Azure, verá un mensaje de error que indica que necesita un otro tipo de cuenta. Para crear una a partir su cuenta de Azure actual, consulte [Crear una identidad profesional o educativa en Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
 Abra [https://aka.ms/devicelogin](https://aka.ms/devicelogin) en un explorador y escriba el código proporcionado en la salida del comando.
 
@@ -75,9 +75,10 @@ Obtendrá la siguiente pantalla de confirmación cuando se haya conectado; luego
 
 El shell de comandos también proporciona el siguiente resultado.
 
-    -info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
+    /info:    Added subscription Visual Studio Ultimate with MSDN
+    info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+    +
+    info:    login command OKK
 
 Además del método de inicio de sesión interactivo que se describe aquí, existen otros métodos de inicio de sesión en la CLI de Azure. Para más información sobre otros métodos y sobre el control de varias suscripciones, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
 
@@ -89,7 +90,9 @@ De manera predeterminada, la CLI de Azure se inicia en el modo de administració
 
 Lo que genera el siguiente resultado:
 
-	info:    New mode is arm
+    info:    Executing command config mode
+    info:    New mode is arm
+    info:    config mode command OK
 
 Puede volver a cambiar al conjunto predeterminado de comandos escribiendo `azure config mode asm`.
 
@@ -268,8 +271,8 @@ Para usar un archivo de parámetros:
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
- - `<PathToTemplate>` es la ruta de acceso al archivo azuredeploy.json creado en el paso 1.
- - `<PathToParameterFile>` es la ruta de acceso al archivo azuredeploy.parameters.json creado en el paso 1.
+ - `<PathToTemplate>` es la ruta de acceso al archivo azuredeploy.json creado en el paso 1. Si el nombre de ruta de acceso contiene espacios, ponga comillas dobles alrededor de este parámetro.
+ - `<PathToParameterFile>` es la ruta de acceso al archivo azuredeploy.parameters.json creado en el paso 1. Si el nombre de ruta de acceso contiene espacios, ponga comillas dobles alrededor de este parámetro.
  - `<resourcegroupname>` es el nombre del grupo de recursos existente en el que se va a agregar una cuenta de base de datos de DocumentDB. 
  - `<deploymentname>` es el nombre opcional de la implementación.
 
@@ -326,7 +329,7 @@ Si recibe errores como `Deployment provisioning state was not successful` al cre
 
     	azure group log show new_res_group --last-deployment
 
-    Después, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](../virtual-machines/resource-group-deploy-debug.md) para más información.
+    Después, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](../resource-manager-troubleshoot-deployments-cli.md) para más información.
 
 - También hay información del error disponible en el Portal de Azure, como se muestra en la captura de pantalla siguiente. Para navegar a la información de error: haga clic en Grupos de recursos en la barra de salto, seleccione el grupo de recursos que tuvo el error. En el área Essentials de la hoja Grupo de recursos, haga clic en la fecha de la última implementación. En la hoja Historial de implementaciones, seleccione la implementación con errores. En la hoja Implementación, haga clic en los detalles de la operación con el signo de exclamación rojo. El mensaje de estado para la implementación con errores se muestra en la hoja Detalles de la operación.
 
@@ -342,7 +345,7 @@ Ahora que tiene una cuenta de DocumentDB, el siguiente paso es crear una base de
 
 Después de crear la base de datos, tendrá que [agregar una o más colecciones](documentdb-create-collection.md) a ella y después [agregar documentos](documentdb-view-json-document-explorer.md) a las colecciones.
 
-Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en los documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) en el Portal de vista previa, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en sus documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) del portal, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 Para obtener más información acerca de DocumentDB, explore estos recursos:
 
@@ -351,4 +354,4 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -49,6 +49,9 @@ Si encuentra una situación en la que uno o más usuarios de su inquilino de Azu
     - Ha implementado la [versión más reciente recomendada de Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect) o se ha actualización a dicha versión.
     - Ha configurado Azure AD Connect para [realizar una sincronización completa](active-directory-ds-getting-started-password-sync.md).
     - En función del tamaño de su directorio, se puede tardar algo en que las cuentas de usuario y los hash de credenciales estén disponibles en Servicios de dominio de Azure AD. Asegúrese de esperar el tiempo suficiente antes de volver a intentar la autenticación (depende del tamaño de su directorio, desde unas horas a un día o dos, para directorios grandes).
+    - Si el problema persiste después de comprobar los pasos anteriores, pruebe a reiniciar el servicio de sincronización de Microsoft Azure AD. En el equipo de sincronización, inicie un símbolo del sistema y ejecute los comandos siguientes:
+      1. net stop 'Microsoft Azure AD Sync'
+      2. net start 'Microsoft Azure AD Sync'
 
 - **Cuentas de solo en la nube**: si la cuenta de usuario afectada es una cuenta de usuario de solo en la nube, asegúrese de que el usuario ha cambiado su contraseña después de habilitar Servicios de dominio de Azure AD. Este paso hace que se generen los hash de credenciales necesarios para los Servicios de dominio de Azure AD
 
@@ -59,4 +62,4 @@ Si tiene problemas con su dominio administrado, compruebe si los pasos descritos
 - **Correo electrónico:** puede enviarnos un correo electrónico a la sección de [comentarios sobre los Servicios de dominio de Azure AD](mailto:aaddsfb@microsoft.com). Asegúrese de incluir el id. de inquilino de su directorio de Azure AD y el nombre de dominio que ha configurado para los Servicios de dominio de AAD, para que podemos investigar el problema.
 - **[Canal de voz del usuario de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/):** asegúrese de escribir delante de su pregunta **'AADDS'** para ponerse en contacto con nosotros.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

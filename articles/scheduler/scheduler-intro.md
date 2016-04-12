@@ -11,17 +11,17 @@
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
- ms.topic="get-started-article"
- ms.date="12/04/2015"
+ ms.topic="hero-article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # ¿Qué es el Programador de Azure?
 
-Programador de Azure le permite describir mediante declaración las acciones para ejecutar en la nube. A continuación, programa y ejecuta esas acciones de forma automática. Para hacerlo, Programador usa el código del [Portal de Azure](scheduler-get-started-portal.md), la [API de REST](https://msdn.microsoft.com/library/dn528946) o Azure PowerShell.
+Programador de Azure le permite describir mediante declaración las acciones para ejecutar en la nube. A continuación, programa y ejecuta esas acciones de forma automática. Para hacerlo, Programador usa el código del [Portal de Azure](scheduler-get-started-portal.md), la [API de REST](https://msdn.microsoft.com/library/mt629143.aspx) o Azure PowerShell.
 
-El Programador crea, mantiene e invoca el trabajo programado. El Programador no hospeda ninguna carga de trabajo ni ejecuta código. Solo _invoca_ código hospedado en cualquier otro lugar (en Azure, localmente o con otro proveedor). Invoca a través de HTTP, HTTPS o una cola de almacenamiento.
+El Programador crea, mantiene e invoca el trabajo programado. El Programador no hospeda ninguna carga de trabajo ni ejecuta código. Solo _invoca_ código hospedado en cualquier otro lugar (en Azure, localmente o con otro proveedor). Realiza la invocación mediante HTTP, HTTPS, una cola de almacenamiento, una cola de bus de servicio o un tema de bus de servicio.
 
-El Programador programa [trabajos](scheduler-concepts-terms.md), mantiene un historial de los resultados de la ejecución de trabajos que se puede consultar y programa, de manera determinante y confiable, las cargas de trabajo que se ejecutarán. Azure WebJobs (parte de la característica de Aplicaciones web del Servicio de aplicaciones de Azure) y otras funcionalidades de programación de Azure usan el Programador en segundo plano. La [API de REST de Programador](https://msdn.microsoft.com/library/dn528946) ayuda a administrar la comunicación para estas acciones. De ese modo, el Programador admite [programaciones complejas y periodicidad avanzada](scheduler-advanced-complexity.md) con facilidad.
+El Programador programa [trabajos](scheduler-concepts-terms.md), mantiene un historial de los resultados de la ejecución de trabajos que se puede consultar y programa, de manera determinante y confiable, las cargas de trabajo que se ejecutarán. Azure WebJobs (parte de la característica de Aplicaciones web del Servicio de aplicaciones de Azure) y otras funcionalidades de programación de Azure usan el Programador en segundo plano. La [API de REST de Programador](https://msdn.microsoft.com/library/mt629143.aspx) ayuda a administrar la comunicación para estas acciones. De ese modo, el Programador admite [programaciones complejas y periodicidad avanzada](scheduler-advanced-complexity.md) con facilidad.
 
 Existen varios escenarios que se prestan para el uso del Programador. Por ejemplo:
 
@@ -50,4 +50,4 @@ Programador permite crear, actualizar, eliminar, ver y administrar [colecciones 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

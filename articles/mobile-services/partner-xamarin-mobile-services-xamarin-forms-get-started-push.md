@@ -13,16 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="01/22/2016"
+	ms.date="03/18/2016"
 	ms.author="wesmc"/>
 
 # Incorporación de notificaciones push a la aplicación de Xamarin.Forms
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para más información sobre la versión de Aplicaciones móviles equivalente de este tema, consulte [Incorporación de notificaciones push a la aplicación de Xamarin.Forms](../app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md).
 
 ##Información general
 
@@ -32,7 +33,7 @@ Al completar este tutorial, el servicio móvil le enviará una notificación pus
 
 Este tutorial requiere lo siguiente:
 
-+ Un dispositivo iOS 8 (no se pueden probar las notificaciones de inserción en el simulador de iOS)
++ Un dispositivo iOS 8 (no se pueden probar las notificaciones de inserción en el simulador de iOS)
 + Pertenencia al programa para desarrolladores de iOS
 + [Xamarin.iOS Studio]
 + [Componente de Servicios móviles de Azure]
@@ -229,7 +230,7 @@ Una vez que haya registrado su aplicación con APNS y haya configurado su proyec
 
     Se mostrará el cuadro de diálogo Upload Certificate.
 
-4. Haga clic en **Archivo**, seleccione el archivo .p12 del certificado exportado, escriba la **Contraseña**, asegúrese de que selecciona el **Modo** correcto, haga clic en el icono de marca de verificación y haga clic en **Guardar**.
+4. Haga clic en **Archivo**, seleccione el archivo .p12 del certificado exportado, escriba la **Contraseña**, asegúrese de que selecciona el **Modo** correcto, haga clic en el icono de marca de verificación y haga clic en **Guardar**.
 
     ![][20]
 
@@ -708,7 +709,7 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
 
 5. Presione la tecla **F5** para ejecutar la aplicación. Se muestra un cuadro de diálogo emergente con la clave de registro.
 
-6.	En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** esté activada.
+6.	En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID\_CAP\_PUSH\_NOTIFICATION** esté activada.
 
    	![Habilitar las notificaciones en VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -857,4 +858,4 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 [ejemplo de inicio de notificación push de Xamarin.Forms Azure]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [ejemplo de notificación push de Xamarin.Forms Azure completada]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

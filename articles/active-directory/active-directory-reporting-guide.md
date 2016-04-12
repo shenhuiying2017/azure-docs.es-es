@@ -3,7 +3,7 @@
    description="Una guía que contiene todos los artículos de informes de Azure Active Directory."
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Guía de informes de Azure Active Directory
@@ -30,4 +30,4 @@
  - [Informe de actividad de inicio de sesión de todos los usuarios de Azure Active Directory](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

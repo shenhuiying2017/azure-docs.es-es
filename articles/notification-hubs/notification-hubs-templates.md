@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Plantillas
@@ -157,4 +157,4 @@ Como se explicó anteriormente, cuando se usa la concatenación, las expresiones
 	  </visual>
 	</tile>
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -54,7 +54,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
     A continuación se muestra un ejemplo de Content-Security-Policy (implementado para Azure Active Directory):
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'
 			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
     Debe reemplazar `https://login.windows.net` con el host de OAuth de la tabla anterior. Consulte la [documentación de Content-Security-Policy] para obtener más información sobre esta etiqueta META.
@@ -96,11 +96,20 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 * Obtenga más información [sobre la autenticación] con el Servicio de aplicaciones de Azure.
 * Prosiga el tutorial agregando [notificaciones push] a la aplicación de Apache Cordova.
 
+Obtenga información sobre cómo usar los SDK.
+
+* [SDK de Apache Cordova]
+* [SDK de servidor ASP.NET]
+* [SDK de servidor Node.js]
+
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Introducción a Aplicaciones móviles]: app-service-mobile-cordova-get-started.md
 [documentación de Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [notificaciones push]: app-service-mobile-cordova-get-started-push.md
 [sobre la autenticación]: app-service-mobile-auth.md
+[SDK de Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
+[SDK de servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[SDK de servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -464,6 +464,10 @@ La exportación de una importación permite conservar los datos de puntos de con
 
 > [AZURE.NOTE] Dado que los datos se conservan en el contenedor de almacenamiento predeterminado, el nuevo clúster **debe** utilizar la misma cuenta de almacenamiento y el mismo contenedor que el clúster anterior.
 
+## Eliminación del clúster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Solución de problemas
 
 Si no ve los archivos que se almacenan en la ubicación /devicedata (bien usando el comando `hadoop fs -ls /devicedata` o el comando de Hive en Query Console) use la interfaz de usuario de Storm para buscar los errores devueltos por las topologías.
@@ -478,4 +482,4 @@ Para obtener más información sobre el uso de IU de Storm, vea los siguientes t
 
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

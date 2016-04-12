@@ -17,7 +17,7 @@
 
 # Supervisión del rendimiento de aplicaciones web de Azure
 
-En el [Portal de Azure](https://portal.azure.com), puede configurar la supervisión para que recopile estadísticas y detalles sobre las dependencias de las aplicaciones en las [aplicaciones web](../app-service-web/app-service-web-overview.md) o [máquinas virtuales](../virtual-machines/virtual-machines-about.md) de Azure.
+En el [Portal de Azure](https://portal.azure.com), puede configurar la supervisión para que recopile estadísticas y detalles sobre las dependencias de las aplicaciones en las [aplicaciones web](../app-service-web/app-service-web-overview.md) o [máquinas virtuales](../virtual-machines/virtual-machines-linux-about.md) de Azure.
 
 Azure admite que Supervisión de rendimiento de aplicaciones (o *APM*) haga uso de *extensiones*. Dichas extensiones se instalan en la aplicación, donde recopilan datos e informan a los servicios de supervisión.
 
@@ -60,7 +60,8 @@ Use la aplicación para generar telemetría.
 
 También puede usar **Examinar** para ir directamente al componente Application Insights o a la cuenta de New Relic que utilizó previamente.
 
-Una vez que obtenga la hoja, para Application Insights, por ejemplo, puede realizar estas acciones: - Open Performance:
+Cuando llegue a la hoja, en Application Insights, por ejemplo, puede:
+- Abrir la opción Rendimiento:
 
 ![En la hoja de información general de Application Insights, haga clic en el icono Rendimiento](./media/insights-perf-analytics/07-dependency.png)
 
@@ -83,4 +84,4 @@ Una vez que obtenga la hoja, para Application Insights, por ejemplo, puede reali
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

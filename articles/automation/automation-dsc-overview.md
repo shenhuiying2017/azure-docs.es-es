@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="01/22/2016"
+   ms.date="03/02/2016"
    ms.author="coreyp"/>
 
 # Información general de DSC de Automatización de Azure #
@@ -116,6 +116,9 @@ La siguiente imagen ilustra el proceso paso a paso detallado en el ciclo de vida
 
 - Al actualizar a WMF 5 RTM, si la máquina ya está registrada como nodo en DSC de Automatización de Azure, anule su registro y vuelva a registrarla después de la actualización de WMF 5 RTM. Antes de volver a registrarla, elimine el archivo $env:windir\\system32\\configuration\\DSCEngineCache.mof.
 
+- Los cmdlets de DSC de PowerShell pueden no funcionar si WMF 5 RTM está instalado encima de WMF 5 Production Preview. Para solucionar este problema, ejecute el siguiente comando en una sesión de PowerShell con privilegios elevados (ejecutar como administrador): `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
+ 
+
 ##Artículos relacionados##
 
 - [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](../automation/automation-dsc-onboarding.md)
@@ -124,4 +127,4 @@ La siguiente imagen ilustra el proceso paso a paso detallado en el ciclo de vida
 - [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 - [Implementación continua en las máquinas virtuales de IaaS mediante DSC de Automatización de Azure y Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

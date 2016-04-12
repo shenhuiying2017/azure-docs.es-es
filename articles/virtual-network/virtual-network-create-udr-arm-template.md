@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [crear rutas definidas por el usuario en el modelo de implementación clásico](virtual-networks-udr-how-to.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -31,7 +31,7 @@
 
 Puede ver y descargar la [plantilla de ejemplo](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
 
-La sección siguiente muestra la definición de las rutas definidas por el usuario de front-end en el archivo **azuredeploy-vnet-nsg-udr.json**, según el escenario anterior.
+En la sección siguiente se muestra la definición de las rutas definidas por el usuario (UDR) de front-end en el archivo **azuredeploy-vnet-nsg-udr.json**, según el escenario anterior.
 
 	"apiVersion": "2015-06-15",
 	"type": "Microsoft.Network/routeTables",
@@ -175,7 +175,7 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando `azure config mode` para cambiar al modo de Administrador de recursos, como se muestra a continuación.
+2. Ejecute el comando `azure config mode` para cambiar al modo Resource Manager, como se muestra a continuación.
 
 		azure config mode arm
 
@@ -396,4 +396,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 >[AZURE.TIP] Si no ve todos los recursos, ejecute el comando `azure group deployment show` para comprobar que el estado de aprovisionamiento de la implementación es *Correcto*.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

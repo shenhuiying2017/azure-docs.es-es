@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Conexión a Almacenamiento de datos SQL 
+# Conexión a Almacenamiento de datos SQL
 Para conectarse a Almacenamiento de datos SQL, deberá pasar las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, también encontrará que determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.
 
 En este artículo se describen los aspectos siguientes en relación con la conexión a Almacenamiento de datos SQL:
@@ -29,9 +29,9 @@ En este artículo se describen los aspectos siguientes en relación con la conex
 ## Autenticación
 Para conectarse a Almacenamiento de datos SQL, deberá proporcionar la siguiente información:
 
-- Nombre de servidor completo 
+- Nombre de servidor completo
 - Especificar la autenticación de SQL
-- Nombre de usuario 
+- Nombre de usuario
 - Password
 - Base de datos predeterminada (opcional)
 
@@ -42,7 +42,7 @@ De forma predeterminada, su conexión se realizará a la base de datos principal
 1. Especificar la base de datos predeterminada al registrar el servidor con el Explorador de objetos de SQL Server en SSDT o en la cadena de conexión de la aplicación. Por ejemplo, incluyendo el parámetro InitialCatalog para una conexión ODBC.
 2. En primer lugar, resalte la base de datos de usuario antes de crear una sesión en SSDT.
 
-> [AZURE.NOTE]Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo de introducción a [conexiones y consultas][].
+> [AZURE.NOTE] Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo de introducción a [conexiones y consultas][].
 
 De nuevo, es importante tener en cuenta que la instrucción de Transact-SQL **USE <your DB>** no se admite para cambiar la base de datos en una conexión
 
@@ -56,25 +56,25 @@ Puede conectarse a Almacenamiento de datos SQL mediante cualquiera de los siguie
 
 ### Cadena de conexión ADO.NET de ejemplo
 
-```
+```C#
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### Cadena de conexión ODBC de ejemplo
 
-```
+```C#
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
 ### Cadena de conexión PHP de ejemplo
 
-```
+```PHP
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( "sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}", "{your_user_name}", "{your_password_here}");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( "Error connecting to SQL Server." );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array("UID" => "{your_user_name}", "pwd" => "{your_password_here}", "Database" => "{your_database}", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);\r\n$serverName = "tcp:{your_server}.database.windows.net,1433";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
 ### Cadena de conexión JDBC de ejemplo
 
-```
+```Java
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
@@ -98,7 +98,7 @@ Cada consulta se representa mediante uno o varios identificadores de solicitud. 
 Sin embargo, como Almacenamiento de datos SQL es un sistema MPP distribuido, tanto los identificadores de sesión como los de solicitud se exponen de manera algo diferente en comparación con SQL Server.
 
 Las sesiones y las solicitudes se representan con sus identificadores respectivos.
-	
+
 | Identificador | Valor de ejemplo |
 | :--------- | :------------ |
 | Id. de sesión | SID123456 |
@@ -110,14 +110,14 @@ Necesitará esta información para ayudarle a identificar la consulta al supervi
 
 Para identificar qué sesión usa actualmente la siguiente función:
 
-```
+```sql
 SELECT SESSION_ID()
 ;
 ```
 
 Para ver todas las consultas que están en ejecución o que se han ejecutado recientemente en el almacenamiento de datos, puede usar una consulta como la siguiente:
 
-```
+```sql
 CREATE VIEW dbo.vSessionRequests
 AS
 SELECT 	 s.[session_id]									AS Session_ID
@@ -158,4 +158,4 @@ Una vez conectado, puede empezar a diseñar las tablas. Consulte el artículo so
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

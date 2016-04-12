@@ -3,7 +3,7 @@
    description="Explica el ciclo de vida y la recolección de elementos no utilizados en Reliable Actors de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/15/2016"
    ms.author="amanbha"/>
 
 
@@ -32,7 +32,7 @@ Un actor se activa cuando se le llama por primera vez y se desactiva (el runtime
 - Cuando un actor no se usa durante un período de tiempo, se quita de la tabla de actores activos.
 - Se llama al método `OnDeactivateAsync` (que se puede invalidar en la implementación del actor). y esto borra todos los temporizadores del actor.
 
-> [AZURE.TIP]El tiempo de ejecución de actores de Fabric emite algunos [eventos relacionados con la activación y desactivación de actores](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Son útiles para la supervisión del rendimiento y los diagnósticos.
+> [AZURE.TIP] El tiempo de ejecución de actores de Fabric emite algunos [eventos relacionados con la activación y desactivación de actores](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Son útiles para la supervisión del rendimiento y los diagnósticos.
 
 ## Recolección de actores no utilizados
 El runtime de Actors busca periódicamente los actores que no se han usado durante un período de tiempo y los desactiva. Una vez desactivados, Common Language Runtime (CLR) los puede recolectar como elementos no utilizados.
@@ -90,4 +90,4 @@ Tenga en cuenta que un actor nunca se recolectará como elemento no utilizado mi
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

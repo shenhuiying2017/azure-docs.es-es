@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure | Factoría de datos de Azure" 
+	pageTitle="Traslado de datos hacia el Almacenamiento de datos SQL de Azure y desde él | Microsoft Azure" 
 	description="Obtenga información acerca de cómo mover los datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -531,4 +531,4 @@ La asignación es igual que la asignación de [tipo de datos de SQL Server para 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

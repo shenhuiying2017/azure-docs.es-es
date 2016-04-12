@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Referencia técnica del conector de SQL genérico
@@ -22,9 +22,11 @@ En este artículo se describe el conector de SQL genérico. El artículo se apli
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Debe usar la revisión 4.1.3461.0 o posterior ([KB2870703](https://support.microsoft.com/kb/2870703)).
+    -   Debe usar la revisión 4.1.3671.0 o posterior ([KB3092178](https://support.microsoft.com/kb/3092178)).
 
 Para MIM2016 y FIM2010R2, el conector está disponible como descarga desde el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
+
+Para ver este conector en acción, consulte el artículo [Conector de SQL genérico paso a paso](active-directory-aadconnectsync-connector-genericsql-step-by-step.md).
 
 ## Información general sobre el conector de SQL genérico
 
@@ -78,9 +80,9 @@ La pantalla Conectividad es la primera que aparece cuando se crea un nuevo conec
 
 La base de datos debe admitir uno de los métodos de autenticación que se mencionan a continuación.
 
-- **Autenticación de Windows**: la base de datos de autenticación utilizará las credenciales de Windows para comprobar el usuario. En este caso, se usará la cuenta de servicio utilizada por el servicio de sincronización. Esta cuenta necesita permisos para la base de datos.
+- **Autenticación de Windows**: la base de datos de autenticación utilizará las credenciales de Windows para comprobar el usuario. Se utilizarán el nombre de usuario/contraseña especificados para realizar la autenticación con la base de datos. Esta cuenta necesita permisos para la base de datos.
 - **Autenticación de SQL**: la base de datos de autenticación utilizará el nombre de usuario y la contraseña definidos en la pantalla Conectividad para conectarse a la base de datos. Si almacena el nombre de usuario y la contraseña en el archivo DSN, las credenciales proporcionadas en la pantalla de Conectividad tendrán prioridad.
-- **Autenticación de Base de datos SQL de Azure**: para obtener más información, consulte [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md).
+- **Autenticación de Base de datos SQL de Azure**: para obtener más información, consulte [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](..\sql-database\sql-database-aad-authentication.md).
 
 **DN es el delimitador**: si selecciona esta opción, el DN también se utilizará como atributo de delimitador. Se puede usar para una implementación simple, aunque tiene las siguientes limitaciones:
 
@@ -295,4 +297,4 @@ Si el usuario elige la opción Consulta SQL, la exportación requiere tres consu
 
 -	Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

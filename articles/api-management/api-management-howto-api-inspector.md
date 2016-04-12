@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure
@@ -24,7 +24,7 @@ Además de las operaciones de seguimiento, API Inspector también realiza el seg
 
 En esta guía se explica el uso del API Inspector.
 
->[AZURE.NOTE]Los seguimientos de API Inspector solo se generan y están disponibles para las solicitudes que contiene claves de suscripción que pertenecen a la cuenta de [administrador](api-management-howto-create-groups.md).
+>[AZURE.NOTE] Los seguimientos de API Inspector solo se generan y están disponibles para las solicitudes que contiene claves de suscripción que pertenecen a la cuenta de [administrador](api-management-howto-create-groups.md).
 
 ## <a name="trace-call"> </a> Uso de API Inspector para realizar el seguimiento de una llamada
 
@@ -261,4 +261,4 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

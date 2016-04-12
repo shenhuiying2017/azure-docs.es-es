@@ -68,7 +68,7 @@ En esta sección, creará una aplicación de consola de Node.js que crea una nue
 
 ## Recepción de mensajes de dispositivo a nube
 
-En esta sección, creará una aplicación de consola de Node.js que lee los mensajes de dispositivo a nube del Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El tutorial [Procesamiento de mensajes de dispositivo a la nube][lnk-processd2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. El tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] proporciona información adicional acerca de cómo procesar los mensajes desde los Centros de eventos y se puede aplicar a los puntos de conexión compatibles con Centro de eventos de Centro de IoT.
+En esta sección, creará una aplicación de consola de Node.js que lee los mensajes de dispositivo a nube del Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El tutorial [Procesamiento de mensajes de dispositivo a la nube][lnk-processd2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] se proporciona información adicional acerca de cómo procesar los mensajes desde los Centros de eventos. Dicha información se puede aplicar a los puntos de conexión compatibles con Centros de eventos de Centro de IoT.
 
 1. Cree una nueva carpeta vacía llamada **readdevicetocloudmessages**. En la carpeta **readdevicetocloudmessages**, cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
 
@@ -95,7 +95,7 @@ En esta sección, creará una aplicación de consola de Node.js que lee los mens
     var Promise = require('bluebird');
     ```
 
-5. Agregue las siguientes declaraciones de variables, reemplazando los marcadores de posición por los valores que anotó anteriormente. El valor del marcador de posición **{your event hub-compatible namespace}** proviene del **punto de conexión compatible con Centro de eventos** y adopta la forma siguiente: **xxxxnamespace.servicebus.windows.net**.
+5. Agregue las siguientes declaraciones de variables, reemplazando los marcadores de posición por los valores que anotó anteriormente. El valor del marcador de posición **{your event hub-compatible namespace}** proviene del campo de **Punto de conexión compatible con Centro de eventos** en el portal y adopta la forma siguiente: **namespace.servicebus.windows.net** (sin el prefijo **sb://*)
 
     ```
     var protocol = 'amqps';
@@ -106,9 +106,9 @@ En esta sección, creará una aplicación de consola de Node.js que lee los mens
     var numPartitions = 2;
     ```
 
-    > [AZURE.NOTE] Este código supone que usted creó el Centro de IoT en el nivel de F1 (gratis). Un Centro de IoT gratis tiene dos particiones denominadas "0" y "1". Si creó el Centro de IoT con uno de los demás planes de tarifa, debe ajustar el código para crear una clase **MessageReceiver** para cada partición.
+    > [AZURE.NOTE] Este código supone que usted creó el Centro de IoT en el nivel de F1 (gratis). Un Centro de IoT gratis tiene dos particiones denominadas "0" y "1". Si creó el Centro de IoT con otro plan de tarifa, debe ajustar el código para crear una clase **MessageReceiver** para cada partición.
 
-6. Agregue la siguiente definición de filtro. Esta aplicación utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados al Centro de IoT después de que el receptor comience a ejecutarse. Esto es útil en un entorno de prueba, porque puede ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el tutorial [Procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-processd2c-tutorial] para más información.
+6. Agregue la siguiente definición de filtro. Esta aplicación utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados al Centro de IoT después de que el receptor comience a ejecutarse. Esto es útil en un entorno de prueba, porque puede ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-processd2c-tutorial] para más información.
 
     ```
     var filterOffset = new Date().getTime();
@@ -177,9 +177,9 @@ En esta sección, creará una aplicación de consola de Node.js que lee los mens
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

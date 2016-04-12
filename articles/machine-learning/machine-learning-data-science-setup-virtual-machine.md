@@ -33,7 +33,7 @@ Antes de comenzar el proceso de creación de una máquina virtual en Azure, debe
 2. Elija una de las siguientes imágenes:
 
 	* Windows Server 2012 R2 Datacenter
-	* Experiencia con Windows Server Essentials (Windows Server 2012 R2)
+	* Experiencia con Windows Server Essentials (Windows Server 2012 R2)
 
 	A continuación, haga clic en la flecha que señala a la derecha, en la parte inferior derecha, para ir a la siguiente página de configuración.
 
@@ -66,7 +66,7 @@ Si la máquina virtual ya existe y necesita agregar un punto de conexión para B
 
 ## <a name="run-commands"></a>Paso 3: Instalar Bloc de notas de IPython y otras herramientas de compatibilidad
 
-Después de crear la máquina virtual, use el Protocolo de escritorio remoto (RDP) para iniciar sesión en la máquina virtual de Windows. Para obtener instrucciones, consulte [Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines-log-on-windows-server.md). Abra el **Símbolo del sistema** (**no es la ventana de comandos de Powershell**) como **administrador** y ejecute el siguiente comando.
+Después de crear la máquina virtual, use el Protocolo de escritorio remoto (RDP) para iniciar sesión en la máquina virtual de Windows. Para obtener instrucciones, consulte [Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md). Abra el **Símbolo del sistema** (**no es la ventana de comandos de Powershell**) como **administrador** y ejecute el siguiente comando.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -143,4 +143,4 @@ Los pasos siguientes de Tecnología y procesos de análisis avanzado se asignan 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

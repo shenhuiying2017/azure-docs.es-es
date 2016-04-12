@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Supervisión de una cuenta de DocumentDB mediante el Portal de Azure | Microsoft Azure" 
-	description="Obtenga información sobre cómo supervisar la cuenta de DocumentDB para aplicar métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento." 
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Supervisión de una cuenta de DocumentDB mediante el Portal de Azure | Microsoft Azure"
+	description="Obtenga información sobre cómo supervisar la cuenta de DocumentDB para aplicar métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento."
+	services="documentdb"
+	documentationCenter=""
+	authors="mimig1"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/18/2016" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/10/2016"
 	ms.author="mimig"/>
 
 # Supervisión del uso de una cuenta de DocumentDB en el Portal de Azure
@@ -24,10 +24,10 @@ Puede supervisar las cuentas de DocumentDB en el [Portal de Microsoft Azure](htt
 1.	En el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar**, en **Cuentas de DocumentDB** y luego en el nombre de la cuenta de DocumentDB cuyas métricas de rendimiento desee ver.
 2.	En el modo **Supervisión** puede ver estos datos de forma predeterminada:
 	*	El total de solicitudes del día actual.
-	*	Uso de almacenamiento de la cuenta. 
+	*	Uso de almacenamiento de la cuenta.
 
 	Si en la tabla se muestra **Sin datos disponibles**, consulte la sección [Solución de problemas](#troubleshooting).
-	
+
 	![Captura de pantalla del modo Supervisión que muestra el total de solicitudes del día y el uso de almacenamiento](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
@@ -52,7 +52,7 @@ Puede supervisar las cuentas de DocumentDB en el [Portal de Microsoft Azure](htt
 ## Creación de gráficos de métricas de rendimiento paralelos
 El Portal de Azure le permite crear gráficos de métricas en paralelo.
 
-1.	En primer lugar, haga clic con el botón derecho en el gráfico que desea clonar y modificar. Después, seleccione **Personalizar**. 
+1.	En primer lugar, haga clic con el botón derecho en el gráfico que desea clonar y modificar. Después, seleccione **Personalizar**.
 
 	![Captura de pantalla del gráfico Total de solicitudes con el botón Personalizar destacado](./media/documentdb-monitor-accounts/madocdb6.png)
 
@@ -63,24 +63,16 @@ El Portal de Azure le permite crear gráficos de métricas en paralelo.
 
 Ahora puede tratar esta parte como otra parte de métricas y personalizar las métricas y el intervalo de tiempo que se muestra en la parte. De esta forma, puede ver dos gráficos de métricas diferentes en paralelo al mismo tiempo. ![Captura de pantalla del gráfico Total de solicitudes y el nuevo gráfico Hora pasada del total de solicitudes.](./media/documentdb-monitor-accounts/madocdb8.png)
 
-## métricas de uso para una cuenta de Base de datos de documentos
-1.	En el [Portal de Azure](https://portal.azure.com/), haga clic en **Explorar**, **Cuentas de DocumentDB** y luego haga clic en el nombre de la cuenta de DocumentDB cuyas métricas de uso desee ver.
-2.	En el modo **Uso**, puede ver la siguiente información de forma predeterminada:
-	*	Costo estimado a la fecha de la cuenta de DocumentDB correspondiente al período de facturación actual.
-	*	Almacenamiento consumido en la cuenta
-	*	Máximo almacenamiento disponible en la cuenta (umbral)
-	*	Usuario y permiso de uso
-	*	Uso de datos adjuntos
-
-	![Captura de pantalla del modo Uso](./media/documentdb-monitor-accounts/madocdb9.png)
- 
 ## alertas de métricas de rendimiento para una cuenta de Base de datos de documentos
 1.	En el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar todo**, **Cuentas de DocumentDB** y luego haga clic en el nombre de la cuenta de DocumentDB cuyas alertas de métricas de rendimiento desee configurar.
-2.	En el modo **Operaciones**, haga clic en la parte **Reglas de alerta**. ![Captura de pantalla del modo Operaciones, con la parte Reglas de alerta seleccionada](./media/documentdb-monitor-accounts/madocdb10.png)
 
-3.	En la hoja Reglas de alerta, haga clic en **Agregar alerta**. ![Captura de pantalla de la hoja Reglas de alerta, con el botón Agregar alerta seleccionado](./media/documentdb-monitor-accounts/madocdb11.png)
+2.	Si la hoja **Toda la configuración** no está abierta, haga clic en el comando **Configuración** en la parte superior izquierda para abrir la hoja. ![Captura de pantalla del comando de configuración en la hoja de la cuenta de base de datos](./media/documentdb-monitor-accounts/madocdb10.png)
 
-4.	En la hoja **Agregar una regla de alerta**, especifique:
+3.	En la hoja **Toda la configuración**, haga clic en **Reglas de alerta** para abrir la hoja Reglas de alerta. ![Captura de pantalla de la parte de reglas de alerta seleccionada](./media/documentdb-monitor-accounts/madocdb10.5.png)
+
+4.	En la hoja Reglas de alerta, haga clic en **Agregar alerta**. ![Captura de pantalla de la hoja Reglas de alerta, con el botón Agregar alerta seleccionado](./media/documentdb-monitor-accounts/madocdb11.png)
+
+5.	En la hoja **Agregar una regla de alerta**, especifique:
 	*	El nombre de la regla de alerta que va a configurar.
 	*	Una descripción de la nueva regla de alerta.
 	*	La métrica de la regla de alerta.
@@ -107,6 +99,5 @@ Si los iconos de supervisión muestran el mensaje **Sin datos disponibles** y re
 
 ## Pasos siguientes
 Para obtener más información acerca de la capacidad de DocumentDB, consulte [Administración de la capacidad de DocumentDB](documentdb-manage.md).
- 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

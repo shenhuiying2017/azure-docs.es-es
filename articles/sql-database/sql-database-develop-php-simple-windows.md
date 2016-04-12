@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/18/2016"
 	ms.author="meetb"/>
 
 
@@ -26,20 +26,21 @@
 
 Este tema muestra cómo puede conectarse a la base de datos SQL de Azure desde una aplicación cliente escrita en PHP que se ejecuta en Windows.
 
+## Paso 1: Configuración del entorno de desarrollo
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### Base de datos SQL
+## Paso 2: Creación de una base de datos SQL
 
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 
-## Paso 1: Obtención de detalles de la conexión
+## Paso 3: Obtención de detalles de la conexión
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Paso 2: Conexión
+## Paso 4: Conexión
 
 
 La función **OpenConnection** se llama casi al principio de todas las demás funciones siguientes.
@@ -63,7 +64,7 @@ La función **OpenConnection** se llama casi al principio de todas las demás fu
 	}
 
 
-## Paso 3: Ejecución de una consulta
+## Paso 5: Ejecución de una consulta
 
 La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) puede usarse para recuperar un conjunto de resultados de una consulta realizada a la Base de datos SQL. Esta función acepta básicamente cualquier consulta y el objeto de conexión, y devuelve un conjunto de resultados que se puede iterar mediante el uso de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -93,7 +94,7 @@ La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 	}
 
 
-## Paso 4: Inserción de una fila
+## Paso 6: Inserción de una fila
 
 En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
 
@@ -123,7 +124,7 @@ En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.
 		}
 	}
 
-## Paso 5: Reversión de una transacción
+## Paso 7: Reversión de una transacción
 
 
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
@@ -135,10 +136,10 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 - Confirmar la transacción si la inserción y actualización se realizaron correctamente y revertir la transacción si uno de ellos no lo ha sido
 
 
-		function Transactions()
+	function Transactions()
+	{
+		try
 		{
-			try
-			{
 			$conn = OpenConnection();
 
 			if (sqlsrv_begin_transaction($conn) == FALSE)
@@ -172,7 +173,7 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 		{
 			echo("Error!");
 		}
-		}
+	}
 
 
 ## Pasos siguientes
@@ -180,4 +181,4 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 
 Para obtener más información sobre el uso y la instalación de PHP, vea [Acceso a bases de datos de SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

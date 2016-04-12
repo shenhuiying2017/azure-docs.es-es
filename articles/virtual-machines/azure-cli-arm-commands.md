@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Uso de la CLI de Azure con el Administrador de recursos | Microsoft Azure"
-	description="Obtenga información sobre cómo usar la CLI de Azure para Mac, Linux y Windows para administrar recursos de Azure mediante el CLI en el modo del Administrador de recursos de Azure."
-	services="virtual-machines,virtual-network,mobile-services,cloud-services"
+	pageTitle="Comandos de la CLI de Azure en el modo de Resource Manager | Microsoft Azure"
+	description="Comandos de la interfaz de la línea de comandos (CLI) de Azure para administrar recursos en el modelo de implementación de Resource Manager"
+	services="virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,43 +14,36 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="03/07/2016"
 	ms.author="danlep"/>
 
-# Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure
+# Comandos de la CLI de Azure en el modo de Azure Resource Manager (ARM)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines/virtual-machines-command-line-tools.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-machines-command-line-tools.md).
 
-En este tema se describe cómo usar la interfaz de línea de comandos (CLI de Azure) de Azure en modo del Administrador de recursos de Azure para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Puede realizar muchas de las mismas tareas mediante las diversas bibliotecas de los SDK de Azure, Azure PowerShell y el Portal de Azure.
+En este artículo se proporcionan la sintaxis y las opciones de los comandos de la interfaz de la línea de comandos (CLI) de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación de Azure Resource Manager. Para acceder a estos comandos, ejecute la CLI en el modo de Resource Manager (ARM). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes.
 
-El Administrador de recursos de Azure le permite crear un grupo de recursos (máquinas virtuales, sitios web, bases de datos, etc.) como una sola unidad de implementación. A continuación, puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Describa sus recursos de grupo en una plantilla JSON para la implementación, luego use esa plantilla para diferentes entornos, como pruebas, almacenamiento provisional y producción.
+Para comenzar, primero [instale la CLI de Azure](xplat-cli-install.md) y [conéctese a su suscripción de Azure](xplat-cli-connect.md) mediante una cuenta profesional o educativa o una identidad de cuenta de Microsoft.
 
-## Ámbito del artículo
+Para las opciones y la sintaxis de comando actuales de la línea de comandos en el modo del Administrador de recursos, escriba `azure help` o, para mostrar la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
 
-En este artículo se ofrecen sintaxis y opciones para los comandos de CLI de Azure usados habitualmente para el modelo de implementación del Administrador de recursos. Tenga en cuenta que esta no es una referencia completa, y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. Para las opciones y la sintaxis de comando actuales de la línea de comandos en el modo del Administrador de recursos, escriba `azure help` o, para mostrar la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
+Se muestran parámetros opcionales entre corchetes (por ejemplo, `[parameter]`). Los demás parámetros son obligatorios.
 
-Se muestran parámetros opcionales entre corchetes (por ejemplo, [parameter]). Los demás parámetros son obligatorios.
+Además de los parámetros opcionales específicos de los comandos documentados aquí, existen tres parámetros opcionales que pueden usarse para mostrar el resultado detallado como opciones de solicitud y códigos de estado. El parámetro `-v` ofrece un resultado detallado y el parámetro `-vv` ofrece un resultado incluso más detallado. La opción `--json` mostrará el resultado en formato JSON sin procesar.
 
-Además de los parámetros opcionales específicos de los comandos documentados aquí, existen tres parámetros opcionales que pueden usarse para mostrar el resultado detallado como opciones de solicitud y códigos de estado. El parámetro -v ofrece un resultado detallado y el parámetro -w ofrece un resultado incluso más detallado. La opción --json mostrará el resultado en formato json sin procesar. El uso con el modificador --json es muy común y es una parte importante de obtención y descripción de los resultados de las operaciones de la CLI de Azure que devuelven los registros, el estado y la información del recurso, y también del uso de plantillas. Puede que desee instalar herramientas de analizador JSON como **jq** o **jsawk** o usar la biblioteca de su lenguaje preferido.
+## Configuración del modo de Resource Manager
+
+Use el siguiente comando para habilitar los comandos de la CLI de Azure en modo de Resource Manager.
+
+	azure config mode arm
+
+>[AZURE.NOTE] Los modos Administrador de recursos de Azure y Administración de servicios de Azure se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
 
 ## Enfoques imperativos y declarativos
 
-Al igual que con el [Modo de administración de servicios de Azure](../virtual-machines-command-line-tools.md), el modo del Administrador de recursos de la CLI de Azure le ofrece comandos que crean recursos de forma imperativa en la línea de comandos. Por ejemplo, si escribe `azure group create <groupname> <location>`, pide a Azure que cree un grupo de recursos, y con `azure group deployment create <resourcegroup> <deploymentname>` indica a Azure que cree una implementación de cualquier número de elementos y los coloque en un grupo. Dado que cada tipo de recurso tiene comandos imperativos, se pueden encadenar para crear implementaciones bastante complejas.
+Al igual que con el [modo de Azure Service Management](../virtual-machines-command-line-tools.md), el modo de Resource Manager de la CLI de Azure le ofrece comandos que crean recursos de forma imperativa en la línea de comandos. Por ejemplo, si escribe `azure group create <groupname> <location>`, pide a Azure que cree un grupo de recursos, y con `azure group deployment create <resourcegroup> <deploymentname>` indica a Azure que cree una implementación de cualquier número de elementos y los coloque en un grupo. Dado que cada tipo de recurso tiene comandos imperativos, se pueden encadenar para crear implementaciones bastante complejas.
 
 Sin embargo, el uso del grupo de recursos de _plantillas_ que describe un grupo de recursos es un enfoque declarativo mucho más eficaz, lo que permite automatizar implementaciones complejas de (casi) cualquier número de recursos para (casi) cualquier propósito. Cuando se usen plantillas, el único comando imperativo es implementar uno. Para obtener una descripción general de las plantillas, los recursos y grupos de recursos, vea [Información general del grupo de recursos de Azure](../resource-group-overview.md).
-
-##Requisitos de uso
-
-Los requisitos de configuración para usar el modo del Administrador de recursos con la CLI de Azure son:
-
-- una cuenta de Azure ([obtenga aquí una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/));
-- [instalar las bibliotecas de clientes de Azure;](../xplat-cli-install.md)
-
-
-Una vez que tiene una cuenta y ha instalado la CLI de Azure, debe:
-
-- [configurar la CLI de Azure](../xplat-cli-connect.md) para usar una cuenta profesional o educativa o una identidad de cuenta Microsoft
-- cambiar al modo del Administrador de recursos escribiendo `azure config mode arm`
 
 
 ## cuenta de Azure: administración de la información de la cuenta
@@ -335,7 +328,7 @@ Opciones de parámetro:
 **Comandos para administrar redes virtuales**
 
 	network vnet create [options] <resource-group> <name> <location>
-Permite crear una nueva red virtual. En el ejemplo siguiente, crearemos una red virtual denominada newvnet para myresourcegroup de grupo de recursos en la región Oeste de EE. UU.
+Permite crear una nueva red virtual. En el ejemplo siguiente, crearemos una red virtual denominada newvnet para myresourcegroup de grupo de recursos en la región Oeste de EE. UU.
 
 
 	azure network vnet create myresourcegroup newvnet "west us"
@@ -1879,4 +1872,4 @@ Opciones de parámetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

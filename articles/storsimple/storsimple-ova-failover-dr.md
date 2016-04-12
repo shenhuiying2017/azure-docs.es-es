@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/14/2016"
    ms.author="alkohli"/>
 
 # Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple
@@ -25,7 +25,7 @@ En este artículo se describe la recuperación ante desastres para la matriz vir
 
 La conmutación por error de un dispositivo se coordina a través de la característica de recuperación ante desastres y se inicia desde la página **Dispositivos**. Esta página recoge en formato de tabla todos los dispositivos de StorSimple conectados al servicio de Administrador de StorSimple. Para cada dispositivo, se muestran el nombre descriptivo, el estado, la capacidad aprovisionada y máxima, el tipo y el modelo.
 
-![](./media/storsimple-ova-failover-dr/image16.png)
+![](./media/storsimple-ova-failover-dr/image15.png)
 
 Este artículo se aplica únicamente a matrices virtuales de StorSimple. Para conmutar por error un dispositivo de la serie 8000, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 
@@ -48,9 +48,7 @@ Para la conmutación por error de cualquier dispositivo, deben cumplirse los sig
 
 - El dispositivo de destino debe aparecer como **Activo** en el Portal de Azure clásico. Debe aprovisionar un dispositivo virtual de destino con una capacidad igual o mayor. A continuación, debe usar la interfaz de usuario web local para configurar y registrar correctamente el dispositivo virtual.
 
-	> [AZURE.IMPORTANT]
-	> 
-	> No intente configurar el dispositivo virtual registrado a través del servicio haciendo clic en **completar configuración del dispositivo**. No debe realizarse ninguna configuración del dispositivo a través del servicio.
+	> [AZURE.IMPORTANT] No intente configurar el dispositivo virtual registrado a través del servicio haciendo clic en **completar configuración del dispositivo**. No debe realizarse ninguna configuración del dispositivo a través del servicio.
 
 - El dispositivo de origen y de destino deben ser del mismo tipo. Solo puede conmutar por error un dispositivo virtual configurado como servidor de archivos a otro servidor de archivos. Lo mismo es cierto para un servidor iSCSI.
 
@@ -91,13 +89,16 @@ Se recomienda que tenga un dispositivo virtual StorSimple aprovisionado, configu
 
 > [AZURE.IMPORTANT]
 > 
-> No se permite conmutar por error desde un dispositivo StorSimple de la serie 8000 hacia un dispositivo virtual.
+> - No se permite conmutar por error de un dispositivo StorSimple de la serie 8000 a un dispositivo virtual 1200.
+> - Puede realizar la conmutación por error de un dispositivo virtual habilitado para FIPS (Estándar federal de procesamiento de información) implementado en el portal gubernamental a uno del Portal de Azure clásico. Lo mismo sucede al contrario.
 
 Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorSimple de destino.
 
 1. Desconecte los volúmenes o recursos compartidos en el host. Consulte las instrucciones específicas del sistema operativo en el host para desconectar los volúmenes o recursos compartidos. Si aún no está sin conexión, para desconectar todos los volúmenes o recursos compartidos en el dispositivo debe ir a **Dispositivos > Recursos compartidos** (o **Dispositivos > Volúmenes**). Seleccione un recurso compartido o volumen y haga clic en **Desconectar** en la parte inferior de la página. Cuando se le pida confirmación, haga clic en **Sí**. Repita este proceso para todos los recursos compartidos o volúmenes en el dispositivo.
 
-2. En la página **Dispositivos**, seleccione el dispositivo de origen para la conmutación por error y haga clic en **Desactivar**. Se le pedirá confirmación. La desactivación de un dispositivo es un proceso permanente que no se puede deshacer. También se le recordará desconectar los recursos compartidos o volúmenes en el host.
+2. En la página **Dispositivos**, seleccione el dispositivo de origen para la conmutación por error y haga clic en **Desactivar**. ![](./media/storsimple-ova-failover-dr/image16.png)
+
+3. Se le pedirá confirmación. La desactivación de un dispositivo es un proceso permanente que no se puede deshacer. También se le recordará desconectar los recursos compartidos o volúmenes en el host.
 
 	![](./media/storsimple-ova-failover-dr/image18.png)
 
@@ -113,7 +114,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 
 6. En el Asistente de confirmación de conmutación por error que se abre, haga lo siguiente:
 
-    1. En la lista desplegable de dispositivos disponibles, elija un **Dispositivo de destino.** En la lista desplegable solo se muestran los dispositivos con capacidad suficiente.
+    1. En la lista desplegable de dispositivos disponibles, elija un **dispositivo de destino**. En la lista desplegable solo se muestran los dispositivos con capacidad suficiente.
 
     2. Revise los detalles asociados con el dispositivo de origen, como el nombre de dispositivo, la capacidad total y los nombres de los recursos compartidos que se conmutarán por error.
 
@@ -160,7 +161,7 @@ Si hay dispositivos StorSimple que se registraron justo antes de que ocurriera u
 
 **Interrupción de la conectividad de la nube durante la recuperación ante desastres**
 
-Si se interrumpe la conectividad de la nube después de haberse iniciado la recuperación ante desastres y antes de completar la restauración del dispositivo, se producirá un error en la recuperación ante desastres y se le notificará. El dispositivo de destino que se utilizó para la recuperación ante desastres luego se marca como *inutilizable*. El mismo dispositivo de destino no se puede utilizar luego para futuras recuperaciones ante desastres.
+Si se interrumpe la conectividad de la nube después de haberse iniciado la recuperación ante desastres y antes de completar la restauración del dispositivo, se producirá un error en la recuperación ante desastres y se le notificará. El dispositivo de destino que se utilizó para la recuperación ante desastres se marca entonces como *No usable*. El mismo dispositivo de destino no se puede utilizar luego para futuras recuperaciones ante desastres.
 
 **No hay dispositivos de destino compatibles**
 
@@ -172,6 +173,6 @@ Si no se cumple una de las comprobaciones previas, verá errores de las comproba
 
 ## Pasos siguientes
 
-Obtenga más información acerca de cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
+Obtenga más información sobre cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

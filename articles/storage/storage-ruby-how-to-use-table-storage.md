@@ -3,9 +3,9 @@
 	description="Uso del Almacenamiento de tablas de Azure en Azure. Los ejemplos de código están escritos usando la API Ruby."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Uso del Almacenamiento de tablas de Azure con Ruby
@@ -31,7 +31,7 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 ## Creación de una aplicación de Ruby
 
-Para obtener instrucciones sobre cómo crear una aplicación de Ruby, consulte [Aplicación web de Ruby on Rails en una máquina virtual de Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Para obtener instrucciones sobre cómo crear una aplicación de Ruby, consulte [Aplicación web de Ruby on Rails en una máquina virtual de Azure](../virtual-machines/virtual-machines-ruby-rails-linux-classic-web-app.md).
 
 ## Configuración de la aplicación para obtener acceso al almacenamiento
 
@@ -163,4 +163,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Repositorio de [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

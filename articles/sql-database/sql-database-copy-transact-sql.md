@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Creación de una copia de una base de datos SQL de Azure con Transact-SQL" 
+    pageTitle="Copia de una Base de datos SQL de Azure con Transact-SQL | Microsoft Azure" 
     description="Crear una copia de una base de datos SQL de Azure con Transact-SQL" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,21 +10,21 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creación de una copia de una base de datos SQL de Azure con Transact-SQL
+# Copia de una Base de datos SQL de Azure con Transact-SQL
 
 **Base de datos única**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Portal de Azure](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 
 
@@ -101,6 +101,6 @@ Supervise el proceso de copia consultando las vistas sys.databases y sys.dm\_dat
 
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

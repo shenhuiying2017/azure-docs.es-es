@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Creación de programaciones complejas y periodicidad avanzada con Programador de Azure" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Creación de programaciones complejas y periodicidad avanzada con Programador de Azure"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Creación de programaciones complejas y periodicidad avanzada con Programador de Azure  
@@ -31,7 +31,7 @@ Con esta flexibilidad, Programador de Azure le permite admitir una amplia varied
 -	Procesamiento de imágenes; por ejemplo, todos los días laborables, fuera de las horas pico, hay que utilizar la informática en la nube para comprimir las imágenes cargadas durante ese día.
 
 
-En este artículo se describen ejemplos de trabajos que se pueden crear con Programador de Azure. Se proporcionan los datos JSON que describen cada programación. Si se usa la [API de REST de Programador](https://msdn.microsoft.com/library/azure/dn528946.aspx), puede usar este mismo JSON para [crear un trabajo de Programador de Azure](https://msdn.microsoft.com/library/azure/dn528937.aspx).
+En este artículo se describen ejemplos de trabajos que se pueden crear con Programador de Azure. Se proporcionan los datos JSON que describen cada programación. Si se usa la [API de REST de Programador](https://msdn.microsoft.com/library/mt629143.aspx), puede usar este mismo JSON para [crear un trabajo de Programador de Azure](https://msdn.microsoft.com/library/mt629145.aspx).
 
 ## Escenarios admitidos
 
@@ -39,7 +39,7 @@ Los diversos ejemplos de este tema muestran la gran variedad de escenarios que a
 
 -	Ejecutar una vez en una determinada fecha y hora
 -	Ejecutar y repetir un número de veces explícitas
--	Ejecutar inmediatamente y repetir 
+-	Ejecutar inmediatamente y repetir
 -	Ejecutar y repetir cada *n* minutos, horas, días, semanas o meses a partir de un período de tiempo determinado
 -	Ejecutar y repetir con frecuencia semanal o mensual, pero solo en días específicos, en determinados días de la semana o en días específicos del mes
 -	Ejecutar y repetir varias veces en un período; por ejemplo, el último viernes y lunes de cada mes, o a las 5:15 a.m. y a las 5:15 p.m. todos los días
@@ -52,7 +52,7 @@ Las referencias a fecha/hora en los trabajos de Programador de Azure siguen la [
 
 ## Uso de JSON y API de REST para crear programaciones
 
-Para crear una programación simple con los ejemplos JSON en este artículo y la API de REST de Programador de Azure, [cree primero un servicio en la nube](https://msdn.microsoft.com/library/azure/dn528943.aspx), [después, cree una colección de trabajos](https://msdn.microsoft.com/library/azure/dn528940.aspx) y, [finalmente, cree un trabajo](https://msdn.microsoft.com/library/azure/dn528937.aspx). Cuando se crea un trabajo, puede especificar la programación y periodicidad mediante JSON como en el extracto siguiente:
+Para crear una programación simple mediante la [API de REST del Programador de Azure](https://msdn.microsoft.com/library/mt629143), primero [registre su suscripción con un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx) (el nombre del proveedor para el Programador es _Microsoft.Scheduler_); después, [cree una colección de trabajos](https://msdn.microsoft.com/library/mt629159.aspx), y finalmente, [cree un trabajo](https://msdn.microsoft.com/library/mt629145.aspx). Cuando se crea un trabajo, puede especificar la programación y periodicidad mediante JSON como en el extracto siguiente:
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -71,7 +71,7 @@ Para crear una programación simple con los ejemplos JSON en este artículo y la
 	    },
 	    …
 	}
-	
+
 ## Información general: conceptos básicos de esquema de trabajo
 
 En la tabla siguiente se muestra una descripción general de los elementos más importantes relacionados con la periodicidad y la programación de un trabajo:
@@ -177,10 +177,10 @@ Todas las programaciones siguientes asumen que el _intervalo_ está establecido 
 |<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|Se ejecuta a las 5:15 a.m., 5:45 a.m., 5:15 p., y 5:45 p.m. el tercer miércoles de cada mes|
 
 ## Otras referencias
- 
+
 
  [¿Qué es Programador?](scheduler-intro.md)
- 
+
  [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
 
  [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
@@ -196,7 +196,5 @@ Todas las programaciones siguientes asumen que el _intervalo_ está establecido 
  [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

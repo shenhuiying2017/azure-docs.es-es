@@ -179,7 +179,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Las colas del Bus de servicio admiten mensajes con un [tamaño máximo de 256 KB](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Si está habilitada la división en particiones, el límite superior es más elevado. Para más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
+Las colas del Bus de servicio admiten mensajes con un [tamaño máximo de 256 KB](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Si está habilitada la división en particiones, el límite superior es más elevado. Para más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
 
 ## Recepción de mensajes de una cola
 
@@ -255,4 +255,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

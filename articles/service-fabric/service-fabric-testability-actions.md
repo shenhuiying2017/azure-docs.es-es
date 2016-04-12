@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/04/2015"
+   ms.date="03/14/2016"
    ms.author="heeldin;motanv"/>
 
 # Acciones de Testability
-Para simular una infraestructura no confiable, Azure Service Fabric proporciona a los desarrolladores distintas formas de simular varios errores y transiciones de estados que se producen en escenarios reales. Dichas formas se exponen como acciones de Testability. Las acciones son las API de bajo nivel que provocan una inserción de errores específicos, una transición de estado o una validación. Mediante la combinación de estas acciones, los programadores del servicio pueden escribir escenarios de prueba completos para los servicios.
+Para simular una infraestructura no confiable, Azure Service Fabric proporciona a los desarrolladores distintas formas de simular varios errores y transiciones de estados que se producen en escenarios reales. Dichas formas se exponen como acciones de Testability. Las acciones son las API de bajo nivel que provocan una inserción de errores específicos, una transición de estado o una validación. Mediante la combinación de estas acciones, puede escribir escenarios de prueba completos para los servicios.
 
 Service Fabric proporciona varios escenarios de prueba comunes que constan de estas acciones. Recomendamos encarecidamente usar estos escenarios integrados, que se seleccionan meticulosamente, para probar las transiciones de estado comunes y los casos de error. Sin embargo, las acciones se pueden utilizar para crear escenarios de prueba personalizados cuando desee agregar cobertura a aquellos escenarios que no aún estén cubiertos por los escenarios integrados o adaptados de manera personalizada a su aplicación.
 
-Las implementaciones en C# de las acciones se encuentran en el ensamblado System.Fabric.Testability.dll. El módulo Testability PowerShell se encuentra en el ensamblado Microsoft.ServiceFabric.Testability.Powershell.dll Como parte de la instalación en tiempo de ejecución, se instala el módulo ServiceFabricTestability PowerShell para facilitar su uso.
+Las implementaciones en C# de las acciones se encuentran en el ensamblado System.Fabric.dll. El módulo System Fabric PowerShell se encuentra en el ensamblado Microsoft.ServiceFabric.Powershell.dll. Como parte de la instalación en tiempo de ejecución, se instala el módulo ServiceFabric PowerShell para facilitar su uso.
 
 ## Acciones de errores estables frente a inestables
 Las acciones de Testability se clasifican en dos cubos principales:
@@ -51,9 +51,9 @@ Para mejorar la calidad de la validación, ejecute la carga de trabajo del servi
 | ValidateApplication | Valida la disponibilidad y mantenimiento de todos los servicios de Service Fabric de una aplicación, normalmente después de provocar algunos errores en el sistema. | ValidateApplicationAsync | Test-ServiceFabricApplication | No aplicable |
 | ValidateService | Valida la disponibilidad y mantenimiento de todos un servicios de Service Fabric, normalmente después de provocar algunos errores en el sistema. | ValidateServiceAsync | Test-ServiceFabricService | No aplicable |
 
-## Ejecuta una acción de Testability con PowerShell
+## Ejecución de una acción de Testability con PowerShell
 
-Este tutorial muestra cómo ejecutar una acción de Testability con PowerShell. Aprenderá a ejecutar una acción de Testability en un clúster local (one-box) o un clúster de Azure. Microsoft.Fabric.Testability.Powershell.dll (el módulo de Testability PowerShell) se instala automáticamente al instalar el MSI de Microsoft Service Fabric. El módulo se carga automáticamente al abrir un aviso de PowerShell.
+Este tutorial muestra cómo ejecutar una acción de Testability con PowerShell. Aprenderá a ejecutar una acción de Testability en un clúster local (one-box) o un clúster de Azure. Microsoft.Fabric.Powershell.dll, el módulo Service Fabric PowerShell, se instala automáticamente al instalar el MSI de Microsoft Service Fabric. El módulo se carga automáticamente al abrir un aviso de PowerShell.
 
 Secciones del tutorial:
 
@@ -68,7 +68,7 @@ Para ejecutar una acción de Testability en un clúster local, primero es precis
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Aquí, la acción **Restart-ServiceFabricNode** se ejecuta en un nodo denominado "Node1". El modo de finalización especifica que no debe comprobar si la acción de reinicio se realizó correctamente. La especificación del modo de finalización como comprobación provocará que se compruebe si la acción de reinicio se realizó correctamente. En lugar de especificar directamente el nodo por su nombre, puede especificarlo a través de una clave de partición y el tipo de réplica, tal como se muestra a continuación:
+Aquí, la acción **Restart-ServiceFabricNode** se ejecuta en un nodo denominado "Node1". El modo de finalización especifica que no debe comprobar si la acción restart-node se realizó correctamente. La especificación del modo de finalización como comprobación provocará que se compruebe si la acción de reinicio se realizó correctamente. En lugar de especificar directamente el nodo por su nombre, puede especificarlo a través de una clave de partición y el tipo de réplica, tal como se muestra a continuación:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -168,14 +168,14 @@ class Test
 
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
     }
 
     static async Task RestartNodeAsync(string clusterConnection, string nodeName, BigInteger nodeInstanceId)
     {
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
     }
 }
 ```
@@ -211,10 +211,11 @@ ReplicaSelector es una aplicación auxiliar que se expone en Testability y que s
 
 Para esta aplicación auxiliar, cree un objeto ReplicaSelector y establezca la forma en que desea seleccionar la réplica y la partición. A continuación, puede pasarlo a la API que lo requiera. Si no se selecciona ninguna opción, el valor predeterminado es una réplica aleatoria y una partición aleatoria.
 
-Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829"); PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid); long replicaId = 130559876481875498;
-
-
 ```csharp
+Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
+PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
+long replicaId = 130559876481875498;
+
 // Select a random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 
@@ -235,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Simulación de errores durante las cargas de trabajo del servicio](service-fabric-testability-workload-tests.md)
    - [Errores de comunicación entre servicios](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="genemi"/>
 
 
@@ -37,15 +37,20 @@ La información más reciente sobre los límites de recursos de Base de datos SQ
 ## Compatibilidad de aplicaciones aumentada con SQL Server
 
 
-Un objetivo fundamental de Base de datos SQL V12 era mejorar la compatibilidad con Microsoft SQL Server 2014. Entre otros ámbitos, V12 logra la paridad con SQL Server en el importante campo de la programación. Por ejemplo:
+Uno de los principales objetivos de Base de datos SQL V12 era mejorar la compatibilidad con Microsoft SQL Server 2014 y mantenerla a medida que se publican nuevas versiones de SQL Server. Entre otros ámbitos, V12 logra la paridad con SQL Server en el importante campo de la programación. Por ejemplo:
 
 
-- [Funciones de ventana](http://msdn.microsoft.com/library/bb934097.aspx), con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Funciones de ventana](http://msdn.microsoft.com/library/ms189798.aspx), con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+
 - [Índices XML](http://msdn.microsoft.com/library/bb934097.aspx) e [Índices XML selectivos](http://msdn.microsoft.com/library/jj670104.aspx)
+
 - [Seguimiento de cambios](http://msdn.microsoft.com/library/bb933875.aspx)
+
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
+
 - [Búsqueda de texto completo](http://msdn.microsoft.com/library/ms142571.aspx)
 
+- [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
 Consulte [aquí](sql-database-transact-sql-information.md) para ver el pequeño conjunto de características que aún no se admite en Base de datos SQL.
 
@@ -161,4 +166,4 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 
 [Términos de uso complementarios para versiones de vista previa de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

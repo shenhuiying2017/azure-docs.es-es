@@ -42,7 +42,7 @@ Para crear un conjunto con equilibrio de carga interno y los servidores que envi
 
 Esta guía muestra cómo crear un equilibrador de carga interno basado en el escenario anterior.
 
-1. Si nunca usaste la CLI de Azure, consulta [Instalar y configurar la CLI de Azure](xplat-cli.md) y sigue las instrucciones hasta el punto donde tienes que seleccionar tu cuenta y suscripción de Azure.
+1. Si nunca usaste la CLI de Azure, consulta [Instalar y configurar la CLI de Azure](../../articles/xplat-cli-install.md) y sigue las instrucciones hasta el punto donde tienes que seleccionar tu cuenta y suscripción de Azure.
 
 2. Ejecute el comando **azure config mode** para cambiar al modo clásico, como se muestra a continuación.
 
@@ -179,4 +179,4 @@ Para obtener más información, consulte `azure vm endpoint --help`.
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

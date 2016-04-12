@@ -50,8 +50,6 @@ Va a desarrollar una aplicación web de lista de contactos sencilla basada en AS
 
 1. En el cuadro de diálogo **Nuevo proyecto ASP.NET**, seleccione la plantilla **MVC**, active **API Web** y luego haga clic en **Cambiar autenticación**.
 
-	![Cuadro de diálogo New ASP.NET Project](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
-
 1. En el cuadro de diálogo **Cambiar autenticación**, haga clic en **Sin autenticación** y, a continuación, en **Aceptar**.
 
 	![Sin autenticación](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/GS13noauth.png)
@@ -60,7 +58,6 @@ Va a desarrollar una aplicación web de lista de contactos sencilla basada en AS
 
 1. En el cuadro de diálogo **Nuevo proyecto ASP.NET**, asegúrese de que la opción **Host en la nube** está activada y haga clic en **Aceptar**.
 
-	![Cuadro de diálogo New ASP.NET Project](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 Si ha no iniciado sesión anteriormente en Azure, se le pedirá que lo haga.
 
@@ -209,7 +206,6 @@ La característica de scaffolding de ASP.NET MVC puede generar automáticamente 
 
 6. Asigne al controlador el nombre de **HomeController**. Seleccione **Contact** como su clase de modelo. Haga clic en el botón **Nuevo contexto de datos** y acepte el valor predeterminado "ContactManager.Models.ContactManagerContext" para **Nuevo tipo de contexto de datos**. Haga clic en **Agregar**.
 
-	![Cuadro de diálogo Agregar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
 	Aparecerá un cuadro de diálogo que le indicará que ya existe un archivo con el nombre HomeController. Do you want to replace it?". Haga clic en **Sí**. Estamos sobrescribiendo el controlador de inicio que se creó con el nuevo proyecto. Utilizaremos el nuevo controlador de inicio para nuestra lista de contactos.
 
@@ -814,4 +810,4 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0323_2016-->

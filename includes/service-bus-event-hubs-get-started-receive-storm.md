@@ -6,7 +6,7 @@ Para más información sobre los patrones de recepción de los Centros de evento
 
 Este tutorial usa una instalación de [HDInsight Storm][], que integra el emisor de Centros de eventos que ya se encuentra disponible.
 
-1. Siga el procedimiento descrito en [Introducción a HDInsight Storm](../hdinsight/hdinsight-storm-overview.md) para crear un clúster nuevo de HDInsight y conectarlo a través del Escritorio remoto.
+1. Siga el procedimiento descrito en [Introducción a HDInsight Storm](../articles/hdinsight/hdinsight-storm-overview.md) para crear un clúster nuevo de HDInsight y conectarlo a través del Escritorio remoto.
 
 2. Copie el archivo `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` en su entorno de desarrollo local. Contiene events-storm-spout.
 
@@ -220,9 +220,9 @@ Este tutorial usa una instalación de [HDInsight Storm][], que integra el emisor
 	Esta clase crea un nuevo emisor de Centros de eventos, utilizando las propiedades del archivo de configuración para crear una instancia. Es importante tener en cuenta que este ejemplo crea tantas tareas de emisor como número de particiones hay en el Centro de eventos, para poder usar el paralelismo máximo permitido por ese Centro de eventos.
 
 <!-- Links -->
-[Información general de los Centros de eventos]: event-hubs-overview.md
-[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[tutorial de análisis de sensores de HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Información general de los Centros de eventos]: ../articles/event-hubs/event-hubs-overview.md
+[HDInsight Storm]: ../articles/hdinsight/hdinsight-storm-overview.md
+[tutorial de análisis de sensores de HDInsight]: ../articles/hdinsight/hdinsight-storm-sensor-data-analysis.md
 
 <!-- Images -->
 
@@ -230,4 +230,4 @@ Este tutorial usa una instalación de [HDInsight Storm][], que integra el emisor
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

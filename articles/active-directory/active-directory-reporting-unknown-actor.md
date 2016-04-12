@@ -3,7 +3,7 @@
    description="Descripción del evento 'Actor desconocido' en los informes de Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="SSalahAhmed"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/04/2016"
+   ms.author="saah"/>
 
 # Evento 'Actor desconocido' de informes de Azure Active Directory
 
@@ -28,7 +28,7 @@ En este caso, una entidad de servicio (aplicación) está realizando actualizaci
 
 ![](./media/active-directory-reporting-unknown-actor/spd-actor.png)
 
-Se trata de un error conocido y estamos trabajando diligentemente para resolverlo.
+Se trata de un error conocido y estamos trabajando para resolverlo.
 
 ## Se eliminó un usuario del directorio antes de que se procesara el evento
 
@@ -36,8 +36,8 @@ En este caso, un usuario se eliminó del directorio antes de que se procesara el
 
 ![](./media/active-directory-reporting-unknown-actor/unknown-actor.png)
 
-Se trata de un error conocido y estamos trabajando diligentemente para resolverlo.
+Se trata de un error conocido y estamos trabajando para resolverlo.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

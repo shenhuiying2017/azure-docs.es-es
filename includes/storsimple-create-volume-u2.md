@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 02/04/2016-->
+<!--author=SharS last changed: 02/29/2016-->
 
 #### Para crear un volumen
 
@@ -15,9 +15,9 @@
 
 	3. Especifique la **Capacidad aprovisionada** para el volumen. Tome nota de la capacidad que está disponible en función del tipo de volumen seleccionado. El tamaño del volumen especificado no debe superar el espacio disponible.
 
-		Puede aprovisionar volúmenes localmente anclados hasta 9 TB o volúmenes en capas hasta 200 TB en el dispositivo 8100. En el dispositivo 8600 de mayor tamaño, puede aprovisionar volúmenes localmente anclados hasta 24 TB o volúmenes en capas hasta 500 TB. Como el espacio local del dispositivo es necesario para hospedar el espacio de trabajo de los volúmenes en capas, la creación de volúmenes localmente anclados afectará el espacio disponible para aprovisionar volúmenes en capas. Por lo tanto, si crea un volumen anclado localmente, se reducirá el espacio disponible para la creación de volúmenes en capas. De forma similar, si se crea un volumen en capas, se reducirá el espacio disponible para la creación de volúmenes anclados localmente.
+		Puede aprovisionar volúmenes anclados localmente de hasta 8 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. En el dispositivo 8600 de mayor tamaño, puede aprovisionar volúmenes anclados localmente de hasta 20 TB o volúmenes en capas de hasta 500 TB. Como el espacio local del dispositivo es necesario para hospedar el espacio de trabajo de los volúmenes en capas, la creación de volúmenes localmente anclados afectará el espacio disponible para aprovisionar volúmenes en capas. Por lo tanto, si crea un volumen anclado localmente, se reducirá el espacio disponible para la creación de volúmenes en capas. De forma similar, si se crea un volumen en capas, se reducirá el espacio disponible para la creación de volúmenes anclados localmente.
 
-		Si se aprovisiona un volumen localmente anclado de 9 TB (tamaño máximo permitido) en el dispositivo 8100, habrá agotado todo el espacio local disponible en el dispositivo. No podrá crear ningún volumen en capas desde ese punto en adelante, porque no hay ningún espacio local en el dispositivo para hospedar el espacio de trabajo del volumen en capas. Los volúmenes existentes en capas también afectan al espacio disponible. Por ejemplo, si tiene un dispositivo 8100 que ya tiene volúmenes en capas de 100 TB, sólo 4,5 TB de espacio estarán disponibles para volúmenes anclados localmente.
+		Si se aprovisiona un volumen anclado localmente de 8 TB (tamaño máximo permitido) en el dispositivo 8100, habrá agotado todo el espacio local disponible en él. No podrá crear ningún volumen en capas desde ese punto en adelante, porque no hay ningún espacio local en el dispositivo para hospedar el espacio de trabajo del volumen en capas. Los volúmenes existentes en capas también afectan al espacio disponible. Por ejemplo, si tiene un dispositivo 8100 que ya cuenta con volúmenes en capas de 100 TB, solo 4 TB de espacio estarán disponibles para volúmenes anclados localmente.
 
         La siguiente imagen muestra el cuadro de diálogo de **Configuración básica** de un volumen anclado de manera local.
 
@@ -42,4 +42,4 @@
 
 4. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Se creará un volumen con la configuración especificada.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

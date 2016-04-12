@@ -1,3 +1,3 @@
-![Niveles de servicio para grupos de bases de datos elásticas](./media/sql-database-service-tiers-table-elastic-db-pools/sql-database-service-tiers-table-elastic-db-pools.png)
+![Niveles de servicio para grupos elásticos](./media/sql-database-service-tiers-table-elastic-db-pools/sql-database-service-tiers-table-elastic-db-pools.png)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0330_2016-->

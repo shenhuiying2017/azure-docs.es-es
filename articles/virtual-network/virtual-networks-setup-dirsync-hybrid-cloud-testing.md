@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Entorno de prueba de Office 365 DirSync | Microsoft Azure" 
-	description="Aprenda a configurar un servidor de sincronización de directorios (DirSync) de Office 365 en una nube híbrida de profesionales de TI o de pruebas de desarrollo." 
+	description="Aprenda a configurar un servidor de sincronización de directorios (DirSync) de Office 365 en una nube híbrida de profesionales de TI o de pruebas de desarrollo." 
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -17,12 +17,12 @@
 	ms.date="12/11/2015" 
 	ms.author="josephd"/>
 
-# Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas
+# Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
  
 
-En este tema se le guiará en el proceso de creación de un entorno de nube híbrida para probar la sincronización de directorios (DirSync) de Office 365 con la sincronización de contraseña hospedada en Microsoft Azure. Aquí está la configuración resultante.
+En este tema se le guiará en el proceso de creación de un entorno de nube híbrida para probar la sincronización de directorios (DirSync) de Office 365 con la sincronización de contraseña hospedada en Microsoft Azure. Aquí está la configuración resultante.
 
 ![](./media/virtual-networks-setup-dirsync-hybrid-cloud-testing/CreateDirSyncHybridCloud_3.png)
  
@@ -31,7 +31,7 @@ Esta configuración simula un servidor DirSync en el entorno de producción de A
 - Una red local simplificada (la subred de red corporativa).
 - Una red virtual entre locales hospedada en Azure (TestVNET).
 - Una conexión VPN de sitio a sitio.
-- Una suscripción de prueba de Office 365 FastTrack.
+- Una suscripción de prueba de Office 365 FastTrack.
 - Un servidor DirSync que ejecute la herramienta Azure AD Connect y un controlador de dominio secundario en la red virtual TestVNET.
 
 Esta configuración proporciona una base y un punto de partida común desde el que puede:
@@ -42,7 +42,7 @@ Esta configuración proporciona una base y un punto de partida común desde el q
 Hay tres fases principales para configurar este entorno de prueba de nube híbrida:
 
 1.	Configuración del entorno de nube híbrida para pruebas.
-2.	Configuración de la versión de prueba de Office 365 FastTrack.
+2.	Configuración de la versión de prueba de Office 365 FastTrack.
 3.	Configuración del servidor DirSync (DS1).
 
 Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
@@ -59,9 +59,9 @@ Esta es su configuración actual.
 
 ## Fase 2: configuración de la versión de prueba de Office 365 FastTrack
 
-Para iniciar la versión de prueba de Office 365 FastTrack, necesita un nombre de compañía ficticio y una cuenta de Microsoft. Le recomendamos que use una variante del nombre de la compañía Contoso como nombre de su compañía; esta es una compañía ficticia que se usa en el contenido de ejemplo de Microsoft, pero no es obligatorio.
+Para iniciar la versión de prueba de Office 365 FastTrack, necesita un nombre de compañía ficticio y una cuenta de Microsoft. Le recomendamos que use una variante del nombre de la compañía Contoso como nombre de su compañía; esta es una compañía ficticia que se usa en el contenido de ejemplo de Microsoft, pero no es obligatorio.
 
-A continuación, regístrese para obtener una nueva cuenta de Microsoft. Vaya a ****http://outlook.com** y cree una cuenta con una dirección de correo electrónico como user123@outlook.com. Regístrese para una prueba de Office 365 FastTrack con esa cuenta.
+A continuación, regístrese para obtener una nueva cuenta de Microsoft. Vaya a ****http://outlook.com** y cree una cuenta con una dirección de correo electrónico como user123@outlook.com. Regístrese para una prueba de Office 365 FastTrack con esa cuenta.
 
 A continuación, regístrese para obtener una nueva prueba de Office 365 Enterprise E3.
 
@@ -73,7 +73,7 @@ Cuando se le pida la **dirección de correo electrónico de empresa**, escriba s
 
 Cuando deba crear una identificación, escriba el nombre de una cuenta de Office 365 inicial, el nombre de la compañía ficticia y una contraseña. Anote la dirección de correo electrónico resultante (por ejemplo, user123@contoso123.onmicrosoft.com) y la contraseña en una ubicación segura. Necesitará esta información para completar la configuración de Azure AD Connect en la fase 3.
 
-Cuando complete estos pasos, deberá ver la página principal del portal de Office 365. En la cinta de opciones superior, haga clic en **Administrar** y, a continuación, haga clic en **Office 365**. Aparecerá la página del centro de administración de Office 365. Mantenga esta página abierta en CLIENT1.
+Cuando complete estos pasos, deberá ver la página principal del portal de Office 365. En la cinta de opciones superior, haga clic en **Administrar** y, a continuación, haga clic en **Office 365**. Aparecerá la página del centro de administración de Office 365. Mantenga esta página abierta en CLIENT1.
 
 Esta es su configuración actual.
 
@@ -110,11 +110,11 @@ A continuación, configure una regla del Firewall de Windows para permitir el tr
 
 El comando ping debería producir cuatro respuestas correctas desde la dirección IP 10.0.0.1.
 
-A continuación, instale .NET 3.5 en DS1 con este comando en el símbolo del sistema de Windows PowerShell.
+A continuación, instale .NET 3.5 en DS1 con este comando en el símbolo del sistema de Windows PowerShell.
 
 	Add-WindowsFeature NET-Framework-Core
 
-A continuación, habilite la sincronización de directorios de la versión de prueba de Office 365 FastTrack.
+A continuación, habilite la sincronización de directorios de la versión de prueba de Office 365 FastTrack.
 
 1.	En CLIENT1, en la página **Centro de administración de Office 365**, en el panel izquierdo, haga clic en **Usuarios** y, a continuación, en **Usuarios activos**.
 2.	Para la **Sincronización de Active Directory**, haga clic en **Configurar**.
@@ -142,7 +142,7 @@ A continuación, instale y configure la herramienta Azure AD Connect en DS1.
 8.	En la página **Listo para configurar**, revise la configuración y, a continuación, haga clic en **Instalar**.
 9.	En la página **Completar la configuración**, haga clic en **Salir**.
 
-A continuación, compruebe que las cuentas de usuario en el dominio CORP están sincronizadas con Office 365. Tenga en cuenta que pueden pasar unos minutos antes de que se produzca la sincronización.
+A continuación, compruebe que las cuentas de usuario en el dominio CORP están sincronizadas con Office 365. Tenga en cuenta que pueden pasar unos minutos antes de que se produzca la sincronización.
 
 En CLIENT1, en la página **Configuración y administración de la sincronización de Active Directory**, haga clic en el vínculo **usuarios** en el paso 6 de esta página. Si la sincronización de directorios se ha realizado correctamente, debería ver algo parecido a esto.
 
@@ -165,7 +165,7 @@ Esta es su configuración actual.
 
 ![](./media/virtual-networks-setup-dirsync-hybrid-cloud-testing/CreateDirSyncHybridCloud_3.png)
  
-Este entorno ya está preparado para realizar pruebas de aplicaciones de Office 365 que se basen en la funcionalidad de DirSync de Office 365 o para probar la funcionalidad de DirSync y el rendimiento desde DS1.
+Este entorno ya está preparado para realizar pruebas de aplicaciones de Office 365 que se basen en la funcionalidad de DirSync de Office 365 o para probar la funcionalidad de DirSync y el rendimiento desde DS1.
 
 ## Recursos adicionales
 
@@ -181,8 +181,8 @@ Este entorno ya está preparado para realizar pruebas de aplicaciones de Office�
 
 [Configuración de un entorno de nube híbrida simulado para pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
-[Entornos de prueba de nube híbrida de Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
+[Entornos de prueba de nube híbrida de Azure](../virtual-machines/virtual-machines-windows-classic-hybrid-test-env.md)
 
-[Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-linux-infrastructure-service-guidelines.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

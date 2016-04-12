@@ -33,7 +33,7 @@ Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cad
 [Creación de una aplicación de servicio en la nube en .NET](cloud-services-dotnet-get-started.md)<br/> [Creación de una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Creación de una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md)<br/> [Creación de una aplicación de servicio en la nube en Python](../cloud-services-python-ptvs.md)<br/>
 
 [Servicio de aplicaciones]: ../app-service-web/app-service-web-overview.md
-[Máquinas virtuales]: ../virtual-machines/virtual-machines-about.md
+[Máquinas virtuales]: ../virtual-machines/virtual-machines-linux-about.md
 [Servicios en la nube]: #tellmecs
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

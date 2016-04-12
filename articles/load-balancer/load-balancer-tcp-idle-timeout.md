@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # Cambio de la configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga
@@ -44,7 +44,7 @@ Para admitir tales escenarios, hemos agregado compatibilidad con un tiempo de es
 - Configure el tiempo de espera de TCP para los roles web y de trabajo a través del modelo de servicio.
  
 
->[AZURE.NOTE]Tenga en cuenta que algunos comandos solo se incluirán en el paquete más reciente de Azure PowerShell. Si no aparece el comando que desea, descargue un paquete más reciente de PowerShell.
+>[AZURE.NOTE] Tenga en cuenta que algunos comandos solo se incluirán en el paquete más reciente de Azure PowerShell. Si no aparece el comando que desea, descargue un paquete más reciente de PowerShell.
 
  
 ### Configure el tiempo de espera de TCP para la IP pública a nivel de instancia en 15 minutos
@@ -53,7 +53,7 @@ Para admitir tales escenarios, hemos agregado compatibilidad con un tiempo de es
 
 El valor de IdleTimeoutInMinutes es opcional. Si no se establece, el tiempo de espera predeterminado es de 4 minutos.
 
->[AZURE.NOTE]El intervalo de tiempo de espera aceptable está entre 4 y 30 minutos.
+>[AZURE.NOTE] El intervalo de tiempo de espera aceptable está entre 4 y 30 minutos.
  
 ### Establecer el tiempo de espera de inactividad al crear un extremo de Azure en una máquina virtual
 
@@ -160,10 +160,10 @@ Actualizar la configuración de los extremos de entrada de carga equilibrada esp
 
 [Información general sobre el equilibrador de carga interno](load-balancer-internal-overview.md)
 
-[Introducción a la configuración de un equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
+[Introducción a la configuración de un equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0309_2016-->

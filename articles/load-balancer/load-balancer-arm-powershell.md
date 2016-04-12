@@ -19,8 +19,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Classic steps](load-balancer-internet-getstarted.md)
-- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+- [Pasos en Azure clásico](load-balancer-internet-getstarted.md)
+- [Pasos en PowerShell de Resource Manager](load-balancer-arm-powershell.md)
 
 
 Los pasos siguientes muestran cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure con PowerShell. Con el Administrador de recursos de Azure, los elementos para crear un equilibrador de carga orientado a Internet se configuran individualmente y después se colocan juntos para crear un recurso.
@@ -78,7 +78,7 @@ Elección de la suscripción de Azure que se va a usar.
 Para ver una lista de suscripciones disponibles, use el cmdlet 'Get-AzureSubscription'.
 
 
-### Paso 4
+### Paso 4
 
 Creación de un grupo de recursos (omitir este paso si se usa un grupo de recursos existente)
 
@@ -122,7 +122,7 @@ Use una variable IP pública ($publicIP) para crear el grupo de IP front-end.
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
 
 
-### Paso 2 
+### Paso 2 
 
 Configure un grupo de direcciones back-end que se usará para recibir el tráfico entrante del grupo de IP front-end:
 
@@ -242,7 +242,7 @@ PS C:\> $backendnic1
 
 Use el comando Add-AzureVMNetworkInterface para asignar el NIC a una máquina virtual.
 
-Encontrará instrucciones paso a paso para crear una máquina virtual y asignarla a un NIC en el artículo [Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), opción 4 o 5.
+Encontrará instrucciones paso a paso para crear una máquina virtual y asignarla a un NIC en el artículo [Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example), opción 4 o 5.
 
 ## Actualización de un equilibrador de carga existente
 
@@ -282,4 +282,4 @@ Use el comando Remove-AzureLoadBalancer para eliminar un equilibrador de carga c
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

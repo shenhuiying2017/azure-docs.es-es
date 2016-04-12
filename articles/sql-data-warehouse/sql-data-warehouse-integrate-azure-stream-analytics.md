@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;mausher;barbkess;sonyama"/>
 
 # Uso de Análisis de transmisiones de Azure con Almacenamiento de datos SQL
@@ -63,7 +63,7 @@ Escriba estos valores en la página siguiente:
 
 ![][add-database]
 
-### Paso 4
+### Paso 4
 
 Haga clic en el botón de comprobación para agregar esta salida de trabajo y comprobar que Análisis de transmisiones puede conectarse correctamente a la base de datos.
 
@@ -96,4 +96,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

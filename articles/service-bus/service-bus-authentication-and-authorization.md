@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Autenticación y autorización de Bus de servicio
@@ -73,4 +73,4 @@ Para obtener una descripción general de SAS en el Bus de servicio, consulte [Fi
 
 Puede encontrar más información acerca de los tokens ACS en [Procedimiento: Solicitar un token de ACS mediante el protocolo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

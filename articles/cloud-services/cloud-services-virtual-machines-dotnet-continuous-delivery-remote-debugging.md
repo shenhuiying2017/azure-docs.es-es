@@ -36,7 +36,7 @@ Puede habilitar la depuración remota en Azure, para servicios en la nube o máq
 
 ## Habilitación de la depuración remota para las máquinas virtuales
 
-1. Cree una máquina virtual de Azure. Consulte [Creación de una máquina virtual que ejecuta Windows Server](/virtual-machines/virtual-machines-windows-tutorial.md) o [Creación y administración de máquinas virtuales de Azure en Visual Studio](/vs-azure-tools-virtual-machines-create-manage.md).
+1. Cree una máquina virtual de Azure. Consulte [Creación de una máquina virtual que ejecuta Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creación y administración de máquinas virtuales de Azure en Visual Studio](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md).
 2. En la [página del Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=269851), examine el panel de máquinas virtuales para ver la **HUELLA DIGITAL DEL CERTIFICADO RDP** de la máquina virtual. Este valor se usa para el valor de `ServerThumbprint` en la configuración de la extensión.
 3. Cree un certificado de cliente como se describe en [Información general sobre certificados para los servicios en la nube de Azure](cloud-services-certs-create.md) (mantenga la huella digital del certificado de .pfx y RDP).
 4. Instale Azure Powershell (versión 0.7.4 o posterior) como se describe en [Instalación y configuración de Azure PowerShell](/powershell-install-configure.md).
@@ -91,4 +91,4 @@ Puede habilitar la depuración remota en Azure, para servicios en la nube o máq
 
 6. Importe el certificado (.pfx) en la máquina que tiene instalado Visual Studio con el SDK de Azure para .NET.
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

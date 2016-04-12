@@ -1,26 +1,26 @@
-<properties 
-    pageTitle="Conexión de DocumentDB con Búsqueda de Azure mediante indizadores | Microsoft Azure" 
+<properties
+    pageTitle="Conexión de DocumentDB con Búsqueda de Azure mediante indizadores | Microsoft Azure"
     description="En este artículo se muestra cómo usar el indizador de Búsqueda de Azure con DocumentDB como origen de datos."
-    services="documentdb" 
-    documentationCenter="" 
-    authors="AndrewHoh" 
-    manager="jhubbard" 
+    services="documentdb"
+    documentationCenter=""
+    authors="AndrewHoh"
+    manager="jhubbard"
     editor="mimig"/>
 
-<tags 
-    ms.service="documentdb" 
-    ms.devlang="rest-api" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="NA" 
-    ms.workload="data-services" 
-    ms.date="02/01/2016" 
+<tags
+    ms.service="documentdb"
+    ms.devlang="rest-api"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-services"
+    ms.date="03/09/2016"
     ms.author="anhoh"/>
 
 #Conexión de DocumentDB con Búsqueda de Azure mediante indizadores
 
 Si desea mejorar las experiencias de búsqueda en los datos de DocumentDB, use el indizador de Búsqueda de Azure para dicha base de datos. En este artículo mostraremos cómo integrar Azure DocumentDB con Búsqueda de Azure sin necesidad de escribir código alguno para mantener la infraestructura de indización.
 
-Para establecer esta opción, debe [configurar una cuenta de Búsqueda de Azure](../search/search-get-started.md#start-with-the-free-service) (no es necesario actualizar a la búsqueda estándar) y, a continuación, llamar a la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para crear un **origen de datos** de DocumentDB y un **indizador** para dicho origen de datos.
+Para establecer esta opción, debe [configurar una cuenta de Búsqueda de Azure](../search/search-create-service-portal.md) (no es necesario actualizar a la búsqueda estándar) y, a continuación, llamar a la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para crear un **origen de datos** de DocumentDB y un **indizador** para dicho origen de datos.
 
 ##<a id="Concepts"></a>Conceptos del indizador de Búsqueda de Azure
 
@@ -32,12 +32,12 @@ Un **indizador** describe cómo fluyen los datos desde el origen de datos a un �
 
 - Realizar una copia única de los datos para rellenar un índice.
 - Sincronizar un índice con los cambios del origen de datos en una programación. La programación forma parte de la definición del indizador.
-- Invocar actualizaciones a petición para un índice según sea necesario. 
+- Invocar actualizaciones a petición para un índice según sea necesario.
 
 ##<a id="CreateDataSource"></a>Paso 1: Creación de un origen de datos
 
 Emita una solicitud HTTP POST para crear un nuevo origen de datos en el servicio Búsqueda de Azure que incluya los siguientes encabezados de solicitud.
-    
+
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -56,7 +56,7 @@ El cuerpo de la solicitud contiene la definición del origen de datos, que debe 
 
 - **contenedor**:
 
-    - **nombre**: obligatorio. Especifique la colección de DocumentDB que se va a indizar. 
+    - **nombre**: obligatorio. Especifique la colección de DocumentDB que se va a indizar.
 
     - **consulta**: opcional. Puede especificar una consulta para acoplar un documento JSON arbitrario en un esquema plano que Búsqueda de Azure pueda indizar.
 
@@ -68,10 +68,10 @@ El cuerpo de la solicitud contiene la definición del origen de datos, que debe 
 
 El fin de una directiva de detección de cambios de datos es identificar de forma eficaz los elementos de datos que han cambiado. Actualmente, solo es compatible la directiva `High Water Mark` que usa la propiedad de marca de tiempo de última modificación `_ts` proporcionada por DocumentDB, especificada de la siguiente forma:
 
-    { 
+    {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName" : "_ts" 
-    } 
+        "highWaterMarkColumnName" : "_ts"
+    }
 
 También tendrá que agregar `_ts` a la proyección y la cláusula `WHERE` para la consulta. Por ejemplo:
 
@@ -82,10 +82,10 @@ También tendrá que agregar `_ts` a la proyección y la cláusula `WHERE` para 
 
 Cuando se eliminan filas de la tabla de origen, también debe eliminar dichas filas del índice de búsqueda. El fin de una directiva de detección de eliminación de datos es identificar eficazmente los elementos de datos eliminados. Actualmente, solo es compatible la directiva `Soft Delete` (la eliminación se indica con algún tipo de marca), especificada de la siguiente forma:
 
-    { 
+    {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-        "softDeleteColumnName" : "the property that specifies whether a document was deleted", 
-        "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
+        "softDeleteColumnName" : "the property that specifies whether a document was deleted",
+        "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
 > [AZURE.NOTE] Si usa una proyección personalizada, deberá incluir la propiedad en la cláusula SELECT.
@@ -102,7 +102,7 @@ En el ejemplo siguiente se crea un origen de datos con una consulta personalizad
         },
         "container": {
             "name": "myDocDbCollectionId",
-            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark" 
+            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark"
         },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -171,7 +171,7 @@ Si el índice se crea correctamente, recibirá una respuesta HTTP 201 que indica
 ##<a id="CreateIndexer"></a>Paso 3: Creación de un indizador
 
 Para crear un indizador dentro de un servicio de Búsqueda de Azure, use una solicitud HTTP POST con los siguientes encabezados:
-    
+
     POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -190,7 +190,7 @@ El cuerpo de la solicitud contiene la definición del indizador, que debe inclui
 
 Un indizador puede especificar opcionalmente una programación. Si existe una programación, el indizador se ejecutará de forma periódica de acuerdo con la misma. Una programación tiene los siguientes atributos:
 
-- **intervalo**: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
+- **intervalo**: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
 - **startTime**: obligatorio. Valor de fecha y hora UTC que especifica cuándo debería empezar a ejecutarse el indizador.
 
@@ -268,6 +268,5 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
  - Para más información sobre Azure DocumentDB, consulte la [página del servicio DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
  - Para obtener más información sobre Búsqueda de Azure, consulte la [página del servicio Búsqueda](https://azure.microsoft.com/services/search/).
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 
 # Cómo interpretar los resultados del modelo de aprendizaje automático de Azure 
  
-**Descripción y visualización del resultado del 'Modelo de puntuación'** En este tema se explica cómo ver e interpretar los resultados de predicción en el estudio de aprendizaje automático de Azure. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción que ha obtenido.
+**Descripción y visualización del resultado del 'Modelo de puntuación'**
+En este tema se explica cómo ver e interpretar los resultados de predicción en el estudio de aprendizaje automático de Azure. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción que ha obtenido.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -254,7 +255,7 @@ Hay tres columnas. Las dos primeras columnas son los pares de elemento-usuario p
 
 *Recomendar elementos a un usuario determinado*
 
-Al seleccionar **Recomendación de elementos** en el menú **Tipo de predicción de recomendación**, pedimos al sistema de recomendación que recomiende elementos a un usuario determinado. Hay un parámetro más que necesitamos elegir en este escenario, la selección de elementos recomendados. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos **De todos los elementos**. La visualización del resultado del Score Matchbox Recommender es similar a la de la figura 22.
+Al seleccionar **Recomendación de elementos** en el menú **Tipo de predicción de recomendación**, pedimos al sistema de recomendación que recomiende elementos a un usuario determinado. Hay un parámetro más que necesitamos elegir en este escenario, la selección de elementos recomendados. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos **De todos los elementos**. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 22.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/22.png)
 
@@ -264,7 +265,7 @@ Hay seis columnas. La primera columna representa los id. de usuario determinados
 
 *Buscar usuarios relacionados con un usuario determinado*
 
-Al seleccionar usuarios relacionados en el menú “Tipo de predicción de recomendación”, pedimos al sistema de recomendación que busque usuarios relacionados a un usuario determinado. Los usuarios relacionados son los usuarios que tienen preferencias similares. Hay un parámetro más que necesitamos elegir en este escenario, la selección de usuarios relacionados. La opción “De elementos valorados (para la evaluación de modelos)” es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos “De todos los usuarios”. La visualización del resultado del Score Matchbox Recommender es similar a la de la figura 23.
+Al seleccionar usuarios relacionados en el menú “Tipo de predicción de recomendación”, pedimos al sistema de recomendación que busque usuarios relacionados a un usuario determinado. Los usuarios relacionados son los usuarios que tienen preferencias similares. Hay un parámetro más que necesitamos elegir en este escenario, la selección de usuarios relacionados. La opción “De elementos valorados (para la evaluación de modelos)” es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos “De todos los usuarios”. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 23.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/23.png)
 
@@ -274,7 +275,7 @@ Hay seis columnas. La primera columna son los identificadores de usuario dados p
 
 **Buscar elementos relacionados con un elemento determinado**
 
-Al seleccionar **Elementos relacionados** en el menú **Tipo de predicción de recomendación**, pedimos al sistema de recomendación que busque usuarios relacionados a un usuario determinado. Los elementos relacionados son los que tienen mayor probabilidad de estar vinculados al mismo usuario. Hay un parámetro más que necesitamos elegir en este escenario, la selección de usuarios relacionados. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos **De todos los elementos**. La visualización del resultado del Score Matchbox Recommender es similar a la de la figura 24.
+Al seleccionar **Elementos relacionados** en el menú **Tipo de predicción de recomendación**, pedimos al sistema de recomendación que busque usuarios relacionados a un usuario determinado. Los elementos relacionados son los que tienen mayor probabilidad de estar vinculados al mismo usuario. Hay un parámetro más que necesitamos elegir en este escenario, la selección de usuarios relacionados. La opción **De elementos valorados (para la evaluación de modelos)** es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos **De todos los elementos**. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 24.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/24.png)
 
@@ -309,4 +310,5 @@ Figura 26: Resultado de servicio web del problema de recomendación del restaura
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_0309_2016-->
+

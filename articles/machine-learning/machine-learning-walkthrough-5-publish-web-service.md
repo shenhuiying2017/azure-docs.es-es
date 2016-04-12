@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
@@ -91,8 +91,7 @@ Nuestro experimento debería tener ahora un aspecto similar al siguiente:
 
 Ejecute el experimento por última vez (haga clic en **Ejecutar**). Si desea comprobar que el modelo sigue funcionando, haga clic en la salida del módulo [Puntuar modelo][score-model] y seleccione **Ver resultados**. Verá que aparecen los datos originales, junto con el valor de riesgo de crédito ("Etiquetas puntuadas") y el valor de probabilidad de la puntuación ("Probabilidades puntuadas").
 
-##
-Implementación del servicio web
+## Implementación del servicio web
 
 Para implementar un servicio web derivado de nuestro experimento, haga clic en **Implementar servicio web** debajo del lienzo. Estudio de aprendizaje automático implementa el experimento como servicio web y lo remite al panel del servicio web. Desde aquí puede volver al experimento (**Ver instantánea** o **Ver más reciente**) y ejecutar una prueba sencilla del servicio web (botón **Probar**; vea **Prueba del servicio web** a continuación). También hay información aquí para crear aplicaciones que puedan acceder al servicio web (más información al respecto en el siguiente paso de este tutorial).
 
@@ -155,4 +154,4 @@ Para obtener información, consulte:
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/es-ES/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

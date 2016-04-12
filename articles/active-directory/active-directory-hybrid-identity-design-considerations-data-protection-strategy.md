@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="03/18/2016"
 	ms.author="yuridio"/>
 
 
@@ -112,7 +112,7 @@ Cada una de las interacciones del diagrama que se muestra en la Ilustración X r
  - Acceso granular a los recursos: puede asignar roles a los usuarios y grupos para una suscripción concreta, un grupo de recursos o un recurso individual de Azure como un sitio web o una base de datos. De esta forma, puede asegurarse de que los usuarios tengan acceso a todos los recursos que necesitan y ningún acceso a los que no necesitan administrar.
 
  >[AZURE.NOTE]
-  Para obtener más información detallada sobre esta capacidad, consulte [Control de acceso basado en rol en el Portal de vista previa de Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/). Los desarrolladores que compilan aplicaciones y desean personalizar el control de acceso a ellas, también pueden usar los roles de aplicación de Azure AD para la autorización. Para usar esta capacidad, revise el [ejemplo WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) de creación de una aplicación.
+  Para más información detallada sobre esta capacidad, consulte [Role-based access control in Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) (Control de acceso basado en rol en Azure). Los desarrolladores que compilan aplicaciones y desean personalizar el control de acceso a ellas, también pueden usar los roles de aplicación de Azure AD para la autorización. Para usar esta capacidad, revise el [ejemplo WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) de creación de una aplicación.
 
 3. Acceso condicional para aplicaciones de Office 365 con Microsoft Intune: los administradores de TI pueden aprovisionar directivas de dispositivos de acceso condicional para proteger los recursos corporativos, al tiempo que permiten que los trabajadores de la información con dispositivos compatibles tengan acceso a los servicios. Para obtener más información, vea [Directivas de dispositivos de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md).
 
@@ -121,7 +121,7 @@ Cada una de las interacciones del diagrama que se muestra en la Ilustración X r
 Dado que las opciones de control de acceso usan un enfoque multicapa, la comparación entre ellas no se puede aplicar a esta tarea. Asegúrese de que saque provecho a todas las opciones disponibles para cada escenario que requiera que controle el acceso a sus recursos.
 
 ## Definición de las opciones de respuesta ante incidentes
-Azure AD puede ayudar a TI a identificar potenciales riesgos de seguridad en el entorno mediante la supervisión de la actividad del usuario, TI puede sacar provecho a la capacidad de informes de acceso y uso de Azure AD para obtener visibilidad de la integridad y seguridad del directorio de la organización. Con esta información, un administrador de TI puede determinar mejor dónde puede haber posibles riesgos de seguridad, con el fin de que puedan planear adecuadamente la mitigación de dichos riesgos. La [suscripción a Azure AD Premium](articles/active-directory-get-started-premium.md) tiene un conjunto de informes de seguridad que pueden permitir al departamento de TI obtener esta información. Los [informes de Azure AD](active-directory-view-access-usage-reports.md) se clasifican como se muestra a continuación:
+Azure AD puede ayudar a TI a identificar potenciales riesgos de seguridad en el entorno mediante la supervisión de la actividad del usuario, TI puede sacar provecho a la capacidad de informes de acceso y uso de Azure AD para obtener visibilidad de la integridad y seguridad del directorio de la organización. Con esta información, un administrador de TI puede determinar mejor dónde puede haber posibles riesgos de seguridad, con el fin de que puedan planear adecuadamente la mitigación de dichos riesgos. La [suscripción a Azure AD Premium](active-directory-get-started-premium.md) tiene un conjunto de informes de seguridad que pueden permitir al departamento de TI obtener esta información. Los [informes de Azure AD](active-directory-view-access-usage-reports.md) se clasifican como se muestra a continuación:
 
 - **Informes de anomalías**: contienen eventos de inicio de sesión que se consideran anómalos. Nuestro objetivo es que sea consciente de dicha actividad y que pueda tomar una decisión sobre si un evento es sospechoso. 
 - **Informe de aplicaciones integradas**: proporciona información sobre cómo se usan en la organización las aplicaciones en la nube. Azure Active Directory ofrece integración con miles de aplicaciones en la nube. 
@@ -156,4 +156,4 @@ Dado que las opciones para la respuesta ante incidentes usan un enfoque multicap
 ## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

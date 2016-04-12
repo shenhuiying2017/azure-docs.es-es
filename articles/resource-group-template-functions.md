@@ -786,8 +786,9 @@ A menudo, necesitará utilizar esta función cuando se usa una cuenta de almacen
 Devuelve detalles acerca de la suscripción en el formato siguiente.
 
     {
-        "id": "/subscriptions/#####"
-        "subscriptionId": "#####"
+        "id": "/subscriptions/#####",
+        "subscriptionId": "#####",
+        "tenantId": "#####"
     }
 
 En el ejemplo siguiente se muestra la función de suscripción a la que se llama en la sección de salidas.
@@ -806,4 +807,4 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 - Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

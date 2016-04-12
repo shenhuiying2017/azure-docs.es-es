@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Consumo de una aplicación de API de JavaScript con CORS | Microsoft Azure"
-	description="Aprenda a usar una aplicación de API del Servicio de aplicaciones de Azure, desde un cliente de JavaScript y mediante CORS."
+	pageTitle="Compatibilidad con CORS en el Servicio de aplicaciones | Microsoft Azure"
+	description="Aprenda a usar la compatibilidad con CORS en el Servicio de aplicaciones de Azure."
 	services="app-service\api"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="03/31/2016"
 	ms.author="tdykstra"/>
 
 # Consumo de una aplicación de API desde JavaScript con CORS
 
 ## Información general
 
-El Servicio de aplicaciones ofrece compatibilidad integrada con el uso compartido de recursos entre orígenes (CORS), que permite a los clientes de JavaScript realizar llamadas entre dominios a aplicaciones de API del Servicio de aplicaciones.
+El Servicio de aplicaciones ofrece compatibilidad integrada con Uso compartido de recursos entre orígenes (CORS), que permite a los clientes de JavaScript realizar llamadas entre dominios a aplicaciones de API hospedadas en aplicaciones de API, aplicaciones web o aplicaciones móviles. Esta característica del Servicio de aplicaciones permite aprovechar CORS sin escribir ningún código en la API.
 
-Por motivos de seguridad, los exploradores impiden que JavaScript realice llamadas de API a otro dominio distinto del que procede el código JavaScript. Por ejemplo, puede realizar una llamada desde una página web de contoso.com a un punto de conexión de la API de contoso.com, pero no a un punto de conexión de fabrikam.com. CORS es un protocolo de Internet diseñado para habilitar escenarios donde es necesario realizar llamadas API entre dominios. En el Servicio de aplicaciones de Azure, un ejemplo de este escenario es cuando se ejecuta el cliente de JavaScript en una aplicación web mientras se ejecuta la API en una aplicación de API.
+[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) es un protocolo de Internet que permite realizar llamadas a API desde JavaScript a un dominio distinto del explorador cargado desde JavaScript. Sin CORS puede realizar una llamada desde una página web de contoso.com a un punto de conexión de API de contoso.com, pero no a un punto de conexión de fabrikam.com.
 
 Este artículo contiene dos secciones:
 
-* La sección sobre la [configuración de CORS](#corsconfig) explica de forma general cómo configurar CORS para cualquier aplicación de API y se aplica igualmente a todos los marcos de trabajo compatibles con el Servicio de aplicaciones, como. NET, Node.js y Java. 
+* En la sección [Configuración de CORS](#corsconfig) se explica en general cómo configurar CORS para cualquier aplicación de API, aplicación web o aplicación móvil. Es válida igualmente para todas las plataformas admitidas por el Servicio de aplicaciones, como .NET, Node.js y Java. 
 
-* Empezando por la sección [Continuación del tutorial de introducción de .NET](#tutorialstart), este tutorial le guía en la implementación de una aplicación de ejemplo de .NET y en la configuración de CORS para que el front-end de JavaScript pueda llamar al back-end de API web.
+* A partir de la sección [Continuación del tutorial de introducción de .NET](#tutorialstart), el artículo es un tutorial que demuestra la compatibilidad con CORS en base a lo que hizo en [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md).
 
 ## <a id="corsconfig"></a> Configuración de CORS en el Servicio de aplicaciones de Azure
 
@@ -40,13 +40,13 @@ Puede configurar CORS en el Portal de Azure o mediante las herramientas de [Azur
 
 2. Haga clic en **Servicios de aplicaciones** y, después, en el nombre de la aplicación de API.
 
-	![](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
+	![Seleccione la aplicación de API en el portal](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
-10. En la hoja **Configuración** que se abre a la derecha de la hoja **Aplicación de API**, busque la sección **API** y, después, haga clic en **CORS**.
+10. En la hoja **Configuración** que se abre a la derecha de la hoja **Aplicación de API**, busque la sección **API** y haga clic en **CORS**.
 
-	![](./media/app-service-api-cors-consume-javascript/clicksettings.png)
+	![Seleccione CORS en la hoja Configuración](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 
-11. En el cuadro de texto, escriba la dirección URL desde la que desea permitir que procedan las llamadas de JavaScript.
+11. En el cuadro de texto, escriba las direcciones URL desde las que desea permitir que procedan las llamadas de JavaScript.
 
 
 	Por ejemplo, si ha implementado la aplicación de JavaScript en una aplicación web denominada todolistangular, escriba "https://todolistangular.azurewebsites.net". Como alternativa, puede escribir un asterisco (*) para especificar que se acepten todos los dominios de origen.
@@ -54,7 +54,7 @@ Puede configurar CORS en el Portal de Azure o mediante las herramientas de [Azur
 
 13. Haga clic en **Guardar**.
 
-	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+	![Haga clic en Guardar](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
 	Tras hacer clic en **Guardar**, la aplicación de API aceptará llamadas de JavaScript desde las direcciones URL especificadas.
 
@@ -74,7 +74,7 @@ Para ver un ejemplo de una plantilla de Azure Resource Manager que establece la 
 
 Si está siguiendo la serie de introducción de Node.js o Java para aplicaciones de API, vaya al siguiente artículo sobre la [autenticación de aplicaciones de API del Servicio de aplicaciones](app-service-api-authentication.md).
 
-El resto de este artículo es una continuación de la serie de introducción de .NET y se supone que ha completado correctamente [el primer tutorial](app-service-api-dotnet-get-started.md).
+El resto de este artículo es una continuación de la serie de introducción de .NET y se considera que ha completado correctamente [el primer tutorial](app-service-api-dotnet-get-started.md).
 
 ## Implementación del proyecto ToDoListAngular en una nueva aplicación web
 
@@ -104,7 +104,7 @@ En la [aplicación de ejemplo ToDoList](https://github.com/Azure-Samples/app-ser
 
 ### Creación de una nueva aplicación web para el proyecto ToDoListAngular
 
-El procedimiento para crear una nueva aplicación web e implementar un proyecto en ella es el mismo que vio en el primer tutorial de esta serie, excepto que el tipo de aplicación es **Aplicación web** en lugar de **Aplicación de API**.
+El procedimiento para crear una nueva aplicación web e implementar un proyecto en ella es similar al que vio en el primer tutorial de esta serie. La única diferencia es que el tipo de aplicación es **Aplicación web**, en lugar de **Aplicación de API**.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto ToDoListAngular y, después, haga clic en **Publicar**.
 
@@ -118,13 +118,13 @@ El procedimiento para crear una nueva aplicación web e implementar un proyecto 
 
 6. En la lista desplegable **Grupo de recursos**, elija el grupo de recursos que creó anteriormente.
 
-4. En la lista desplegable **Plan del Servicio de aplicaciones**, elija el plan que creó anteriormente.
+4. En la lista desplegable **Plan del servicio de aplicaciones**, elija el plan que creó anteriormente.
 
 7. Haga clic en **Crear**.
 
 	Visual Studio crea la aplicación web, crea un perfil de publicación para ella y muestra el paso **Conexión** del asistente **Publicación web**.
 
-	Antes de hacer clic en **Publicar** en el asistente de **Publicación web**, deberá configurar la nueva aplicación web para que llame a la aplicación de API de nivel intermedio en ejecución en el Servicio de aplicaciones.
+	No haga clic en **Publicar** todavía. En la siguiente sección, configurará la nueva aplicación web para llamar a la aplicación de API de nivel intermedio en ejecución en el Servicio de aplicaciones.
 
 ### Establecimiento de la dirección URL de nivel intermedio en la configuración de la aplicación web
 
@@ -140,7 +140,7 @@ El procedimiento para crear una nueva aplicación web e implementar un proyecto 
 
 4. Haga clic en **Guardar**.
 
-	Cuando el código se ejecuta en Azure, este valor anulará ahora la dirección URL de host local que se encuentra en el archivo Web.config.
+	Cuando el código se ejecuta en Azure, este valor anula ala dirección URL de host local que se encuentra en el archivo *Web.config*.
 
 	El código que obtiene el valor de configuración se encuentra en *index.cshtml*:
 
@@ -182,11 +182,11 @@ El procedimiento para crear una nueva aplicación web e implementar un proyecto 
 
 2. En la instancia de Developer Tools del explorador, abra la ventana de la consola.
 
-3. En la ventana del explorador que muestra la interfaz de usuario de AngularJS, haga clic en el vínculo **To Do List**.
+3. En la ventana del explorador que muestra la interfaz de usuario de AngularJS, haga clic en el vínculo **Lista de tareas pendientes**.
 
-	El código de JavaScript intenta llamar a la aplicación de API de nivel intermedio, pero la llamada da error porque el front-end se está ejecutando en un dominio diferente (la URL de la aplicación web) al del back-end (la URL de la aplicación de API). La ventana de la consola de Developer Tools del explorador muestra un mensaje de error entre orígenes.
+	El código de JavaScript intenta llamar a la aplicación de API de nivel intermedio, pero la llamada da error porque el front-end se está ejecutando en un dominio diferente al del back-end. La ventana de la consola de Developer Tools del explorador muestra un mensaje de error entre orígenes.
 
-	![](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
+	![Mensaje de error de origen cruzado](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
 
 ## Configuración de CORS para la aplicación de API de nivel intermedio
 
@@ -194,13 +194,13 @@ En esta sección, configurará la aplicación de API ToDoListAPI para permitir l
  
 8. En el explorador, vaya al [Portal de Azure](https://portal.azure.com/).
 
-2. Haga clic en **Servicios de aplicaciones** y, después, haga clic en la aplicación de API ToDoListAPI (nivel intermedio).
+2. Haga clic en **Servicios de aplicaciones** y, después, en la aplicación de API ToDoListAPI (nivel intermedio).
 
-	![](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
+	![Seleccione la aplicación de API en el portal](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
-10. En la hoja **Configuración** que se abre a la derecha de la hoja **Aplicación de API**, busque la sección **API** y, después, haga clic en **CORS**.
+10. En la hoja **Configuración** que se abre a la derecha de la hoja **Aplicación de API**, busque la sección **API** y haga clic en **CORS**.
 
-	![](./media/app-service-api-cors-consume-javascript/clicksettings.png)
+	![Seleccione CORS en el portal](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 
 12. En el cuadro de texto, escriba la dirección URL de la aplicación web ToDoListAngular (front-end). Por ejemplo, si implementó el proyecto ToDoListAngular en una aplicación web denominada todolistangular0121, permita llamadas desde la dirección URL `https://todolistangular0121.azurewebsites.net`.
 
@@ -208,9 +208,9 @@ En esta sección, configurará la aplicación de API ToDoListAPI para permitir l
 
 13. Haga clic en **Guardar**.
 
-	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+	![Haga clic en Guardar](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
-	Tras hacer clic en **Guardar**, la aplicación de API aceptará llamadas de JavaScript desde las direcciones URL especificadas. En esta captura de pantalla, la aplicación de API ToDoListAPI0223 aceptará llamadas de cliente de JavaScript de la aplicación web ToDoListAngular.
+	Tras hacer clic en **Guardar**, la aplicación de API aceptará llamadas de JavaScript desde la dirección URL especificada. En esta captura de pantalla, la aplicación de API ToDoListAPI0223 aceptará llamadas de cliente de JavaScript de la aplicación web ToDoListAngular.
 
 ### Prueba de la aplicación con CORS habilitado
 
@@ -218,11 +218,11 @@ En esta sección, configurará la aplicación de API ToDoListAPI para permitir l
 
 	Esta vez la aplicación le permite ver, agregar, editar y eliminar elementos de tareas pendientes.
 
-	![](./media/app-service-api-cors-consume-javascript/corssuccess.png)
+	![Página Lista de tareas pendientes de la aplicación de ejemplo](./media/app-service-api-cors-consume-javascript/corssuccess.png)
 
 ## CORS de Servicio de aplicaciones frente a CORS de API web
 
-En un proyecto de API web puede instalar el paquete NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) para especificar en el código de qué dominios aceptará la API llamadas de JavaScript.
+En un proyecto Web API puede instalar el paquete de NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) para especificar en el código de qué dominios aceptará la API llamadas de JavaScript.
  
 La compatibilidad con Web API CORS es más flexible que la compatibilidad con CORS de Servicio de aplicaciones. Por ejemplo, en el código puede especificar diferentes orígenes aceptados para diferentes métodos de acción, mientras que para CORS del servicio de aplicaciones especifica un conjunto de orígenes aceptados para todos los métodos de una aplicación de API.
 
@@ -232,9 +232,9 @@ La compatibilidad con Web API CORS es más flexible que la compatibilidad con CO
 
 Los pasos siguientes resumen el proceso para habilitar la compatibilidad con Web API CORS. Para más información, consulte [Enabling Cross-Origin Requests in ASP.NET Web API 2 (Habilitación de solicitudes entre orígenes en API web de ASP.NET)](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
-1. En un proyecto Web API, instale el paquete NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/).
+1. En un proyecto Web API, instale el paquete de NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/).
 
-1. Incluya una `config.EnableCors()` línea de código en el método **Register** de la clase **WebApiConfig**, como en el ejemplo siguiente.
+1. Incluya una línea de código `config.EnableCors()` en el método **Register** de la clase **WebApiConfig**, como en el ejemplo siguiente.
 
 		public static class WebApiConfig
 		{
@@ -256,7 +256,7 @@ Los pasos siguientes resumen el proceso para habilitar la compatibilidad con Web
 		    }
 		}
 
-1. En el controlador de la Web API, agregue una instrucción `using` para el espacio de nombres `System.Web.Http.Cors` y agregue el atributo `EnableCors` a la clase de controlador o a los métodos de acción individuales. En el ejemplo siguiente, la compatibilidad con CORS se aplica a todo el controlador.
+1. En el controlador de Web API, agregue una instrucción `using` para el espacio de nombres `System.Web.Http.Cors` y agregue el atributo `EnableCors` a la clase de controlador o a métodos de acción individuales. En el ejemplo siguiente, la compatibilidad con CORS se aplica a todo el controlador.
 
 		namespace ToDoListAPI.Controllers 
 		{
@@ -264,10 +264,23 @@ Los pasos siguientes resumen el proceso para habilitar la compatibilidad con Web
 		    [EnableCors(origins:"*", headers:"*", methods: "*")]
 		    public class ToDoListController : ApiController
  
-	> **Nota**: el uso de caracteres comodín para todos los parámetros con el atributo `EnableCors` está previsto solo para demostración y abrirá la API a todos los orígenes y a todas las solicitudes HTTP. Use este atributo con precaución.
+	> **Nota**: use este atributo con cuidado. Al especificar caracteres comodín para todos los parámetros se abre la API para todos los orígenes y todas las solicitudes HTTP. La configuración mostrada aquí solo tiene fines de demostración.
+
+## Solución de problemas
+
+Si experimenta problemas mientras avanza por este tutorial, asegúrese de que está usando la versión más reciente del SDK de Azure para. NET. La forma más fácil de hacerlo es [descargar el SDK de Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003); si tiene instalada la versión actual, el Instalador de plataforma web indica que no es preciso realizar la instalación.
+
+Si sigue obteniendo errores CORS después de configurar una dirección URL en la hoja CORS del portal, compruebe que se realizaron los cambios correctos en los lugares correctos. Por ejemplo:
+
+* Asegúrese de haber escrito el protocolo correctamente (`https`, no `http`) y asegúrese de usar `https` para ejecutar la aplicación web front-end.
+* Asegúrese de haber especificado la configuración de CORS en la aplicación de API de nivel intermedio, no en la aplicación web front-end.
+
+Si va a configurar CORS en el código de la aplicación y el Servicio de aplicaciones de Azure, tenga en cuenta que la configuración de CORS del Servicio de aplicaciones anulará todo lo que está haciendo en código de la aplicación.
+
+Para más información acerca de las características de Visual Studio que simplifican la solución de problemas, consulte [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Pasos siguientes 
 
-En este tutorial se ha explicado cómo habilitar la compatibilidad con CORS del Servicio de aplicaciones para que el código JavaScript de cliente pueda llamar a una API de un dominio diferente. En el siguiente artículo de la serie de introducción a Aplicaciones de API, obtendrá información sobre [la autenticación de aplicaciones de API del Servicio de aplicaciones](app-service-api-authentication.md).
+En este artículo, se ha explicado cómo habilitar la compatibilidad con CORS del Servicio de aplicaciones para que el código JavaScript del cliente pueda llamar a una API de un dominio diferente. En el siguiente artículo de la serie de introducción a Aplicaciones de API, aprenderá sobre la [autenticación de aplicaciones de API del Servicio de aplicaciones](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

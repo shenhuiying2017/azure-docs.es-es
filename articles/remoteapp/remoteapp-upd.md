@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Cómo usar Azure RemoteApp con cuentas de usuario de Office 365 | Microsoft Azure"
-	description="Aprender a usar Azure RemoteApp con las cuentas de usuario de Office 365"
+    pageTitle="¿Cómo guarda Azure RemoteApp la configuración y los datos de usuario? | Microsoft Azure"
+	description="Descubra cómo Azure RemoteApp guarda los datos de usuario usando el disco de perfil de usuario."
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/04/2015" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 # ¿Cómo guarda Azure RemoteApp la configuración y datos de usuario?
@@ -26,7 +26,7 @@ Cada UPD tiene 50 GB de almacenamiento persistente y contiene datos de usuarios 
 
 Siga leyendo para obtener información específica sobre los datos del perfil de usuario.
 
->[AZURE.NOTE]¿Necesidad de deshabilitar el UPD? Puede hacerlo ahora: compruebe la entrada de blog de Pavithra, [Deshabilitar discos de perfil de usuario (UPD) en Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), para más información.
+>[AZURE.NOTE] ¿Necesidad de deshabilitar el UPD? Puede hacerlo ahora: compruebe la entrada de blog de Pavithra, [Deshabilitar discos de perfil de usuario (UPD) en Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), para más información.
 
 
 ## ¿Cómo puede un administrador acceder a los datos?
@@ -121,6 +121,10 @@ Si desea ejecutar un script de inicio, comience por crear una tarea programada e
 
 ![Crear una tarea del sistema que se ejecute cuando un usuario inicia sesión](./media/remoteapp-upd/upd2.png)
 
+En la pestaña **General**, asegúrese de cambiar la **Cuenta de usuario** que aparece en Seguridad a "BUILTIN\\Users".
+
+![Cambiar la cuenta de usuario a un grupo](./media/remoteapp-upd/upd4.png)
+
 La tarea programada iniciará el script de inicio usando las credenciales del usuario. Programe la tarea para ejecutarse cada una vez que un usuario inicie sesión.
 
 ![Establezca el desencadenador para la tarea como "Al iniciar la sesión"](./media/remoteapp-upd/upd3.png)
@@ -137,4 +141,22 @@ No, eso no es compatible con Azure RemoteApp, que usa RDSH, que a su vez tampoco
 
 No, no es compatible con Azure RemoteApp.
 
-<!---HONumber=AcomDC_1217_2015-->
+## ¿Se pueden almacenar datos en la máquina virtual de forma local?
+
+No, los datos almacenados en un lugar distinto del UPD dentro de la máquina virtual se perderán. Hay muchas posibilidades de que el usuario no disponga de la misma máquina virtual la siguiente vez que inicie sesión en Azure RemoteApp. No mantenemos la persistencia de VM del usuario, de modo que el usuario no iniciará sesión en la misma máquina virtual y los datos se perderán. Además, cuando se actualiza la colección, las máquinas virtuales existentes se reemplazan por un nuevo conjunto de máquinas virtuales, lo que significa que los datos almacenados en la propia VM se pierden. Lo recomendable es almacenar los datos en el UPD, en el almacenamiento compartido, como Archivos de Azure, en un servidor de archivos dentro de una red virtual o en la nube con OneDrive para la Empresa u otro sistema compatible de almacenamiento en nube, como DropBox.
+
+## ¿Cómo se puede montar un recurso compartido de Archivos de Azure en una máquina virtual usando PowerShell?
+
+Se puede usar el cmdlet de Net-PSDrive para montar la unidad como se indica:
+
+    New-PSDrive -Name <drive-name> -PSProvider FileSystem -Root \<storage-account-name>.file.core.windows.net<share-name> -Credential :<storage-account-name>
+
+
+También se pueden guardar las credenciales ejecutando lo siguiente:
+
+    cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+
+
+Así, se puede omitir el parámetro -Credential en el cmdlet New-PSDrive.
+
+<!---HONumber=AcomDC_0330_2016-->

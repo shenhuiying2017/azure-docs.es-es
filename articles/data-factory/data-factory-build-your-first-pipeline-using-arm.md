@@ -36,12 +36,12 @@ Además de los requisitos previos que se enumeran en el tema de información gen
 - Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para más información del servicio, consulte [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md). 
 - Para más información sobre las plantillas del Administrador de recursos de Azure (ARM), consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md). 
 
+> [AZURE.IMPORTANT]
+Para realizar el tutorial de este artículo, debe completar los pasos de los requisitos previos que encontrará en la [introducción a Data Factory de Azure](data-factory-build-your-first-pipeline.md).
 
-## Paso 1: Creación de la plantilla de ARM
+## Creación de la plantilla de ARM
 
 Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\\ADFGetStarted** con el siguiente contenido:
-
-> [AZURE.IMPORTANT] Cambie los valores de las variables **storageAccountName** y **storageAccountKey**. Cambie también el valor de **dataFactoryName** porque el nombre debe ser único.
 
 La plantilla permite crear las siguientes entidades de Factoría de datos.
 
@@ -51,6 +51,9 @@ La plantilla permite crear las siguientes entidades de Factoría de datos.
 
 Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** para cambiar al artículo con detalles sobre las propiedades JSON usadas en esta plantilla.
 
+> [AZURE.IMPORTANT] Cambie los valores de las variables **storageAccountName** y **storageAccountKey**. Cambie también el valor de **dataFactoryName** porque el nombre debe ser único.
+
+
 	{
 	    "contentVersion": "1.0.0.0",
 	    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -58,10 +61,10 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 	    },
 	    "variables": {
 	        "dataFactoryName":  "TutorialDataFactoryARM",
-	        "storageAccountName":  "<stroage account name>" ,
-	        "storageAccountKey":  "<storage account key>",
+	        "storageAccountName":  "<AZURE STORAGE ACCOUNT NAME>" ,
+	        "storageAccountKey":  "<AZURE STORAGE ACCOUNT KEY>",
 	        "apiVersion": "2015-10-01",
-	        "storageLinkedServiceName": "StorageLinkedService",
+	        "storageLinkedServiceName": "AzureStorageLinkedService",
 	        "hdInsightOnDemandLinkedServiceName": "HDInsightOnDemandLinkedService",
 	        "blobInputDataset": "AzureBlobInput",
 	        "blobOutputDataset": "AzureBlobOutput",
@@ -96,12 +99,13 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 	                    "apiVersion": "[variables('apiVersion')]",
 	                    "properties": {
 	                        "type": "HDInsightOnDemand",
-	                        "typeProperties": {
-	                            "version": "3.2",
-	                            "clusterSize": 1,
-	                            "timeToLive": "00:30:00",
-	                            "linkedServiceName": "StorageLinkedService"
-	                        }
+        					"typeProperties": {
+                                "clusterSize": 4,
+                                "version":  "3.2",
+            					"timeToLive": "00:05:00",
+                                "osType": "windows",
+            					"linkedServiceName": "[variables('storageLinkedServiceName')]",
+    						}
 	                    }
 	                },
 	                {
@@ -114,7 +118,7 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 	                    "apiVersion": "[variables('apiVersion')]",
 						    "properties": {
 						        "type": "AzureBlob",
-						        "linkedServiceName": "StoraegLinkedService",
+						        "linkedServiceName": "[variables('storageLinkedServiceName')]",
 						        "typeProperties": {
 						            "fileName": "input.log",
 						            "folderPath": "adfgetstarted/inputdata",
@@ -142,7 +146,7 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 						    "properties": {
 						        "published": false,
 						        "type": "AzureBlob",
-						        "linkedServiceName": "StorageLinkedService",
+						        "linkedServiceName": "[variables('storageLinkedServiceName')]",
 						        "typeProperties": {
 						            "folderPath": "adfgetstarted/partitioneddata",
 						            "format": {
@@ -174,7 +178,7 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 						                "type": "HDInsightHive",
 						                "typeProperties": {
 						                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-						                    "scriptLinkedService": "StorageLinkedService",
+						                    "scriptLinkedService": "[variables('storageLinkedServiceName')]",
 						                    "defines": {
 		                        				"inputtable": "[concat('wasb://adfgetstarted@', variables('storageAccountName'), '.blob.core.windows.net/inputdata')]",
 		                        				"partitionedtable": "[concat('wasb://adfgetstarted@', variables('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
@@ -212,30 +216,30 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 	    ]
 	}
 
+Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** para cambiar al artículo que tiene detalles sobre las propiedades JSON usadas en esta plantilla.
 
 Tenga en cuenta lo siguiente:
 
-- Data Factory crea un clúster de HDInsight **basado en Windows** con el anterior código JSON. También podría hacer que cree un clúster de HDInsight **basado en Linux**. Consulte la sección [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obtener más información. 
-- Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Consulte [Servicio vinculado de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obtener más información.
-- El clúster de HDInsight crea un **contenedor predeterminado** en el Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (**timeToLive**), y se elimina cuando se realiza el procesamiento.
+- Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON anterior. También podría hacer que cree un clúster de HDInsight **basado en Linux**. Para más información, consulte la sección [Servicios vinculados de procesos](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+- Puede usar **su propio clúster de HDInsight**, en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+- El clúster de HDInsight crea un **contenedor predeterminado** en el Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado a petición de HDInsight se crea un clúster de HDInsight cada vez tenga que procesarse un segmento, a menos que haya un clúster existente activo (**timeToLive**) y se elimina cuando finaliza el procesamiento.
 
-	A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeFactoríaDeDatos**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores del Almacenamiento de blobs de Azure.
+	A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores sigue este patrón: "adf**nombreDeFactoríaDeDatos**-**linkedservicename**-datetimestamp". Use herramientas como [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar los contenedores del Almacenamiento de blobs de Azure.
 
-Consulte la sección [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obtener más información.
+Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-> [AZURE.NOTE] Puede encontrar otro ejemplo de plantilla de ARM para crear Data Factory de Azure en [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
+> [AZURE.NOTE] En [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json) puede encontrar otro ejemplo de plantilla de ARM para crear una Data Factory de Azure.
 
-## Paso 2: Implementación de las entidades de Factoría de datos mediante la plantilla ARM
+## Creación de Data Factory
 
-1. Inicie Azure PowerShell y ejecute el comando siguiente. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
+1. Inicie **Azure PowerShell** y ejecute el comando siguiente. 
 	- Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utilizó para iniciar sesión en el Portal de Azure.  
-	- Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
-	- Ejecute **Select-AzureSubscription SubscriptionName** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de Azure.
+	- Ejecute el siguiente comando para seleccionar la suscripción en la que desea crear la factoría de datos. Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
 1. Ejecute el comando siguiente para implementar las entidades de Factoría de datos mediante la plantilla ARM que creó en el paso 1. 
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
-## Supervisar la canalización
+## Supervisión de la canalización
  
 1.	Después de iniciar sesión en el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar todo -> Fábricas de datos](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	En la hoja **Factorías de datos**, haga clic en la factoría de datos (**TutorialFactoryARM**) que creó.	
@@ -252,4 +256,4 @@ Consulte la sección [Servicio vinculado a petición de HDInsight](data-factory-
 10. Cuando el segmento se encuentre en el estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** de Almacenamiento de blobs.  
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/14/2016"
 	ms.author="wesmc"/>
 
 # Sincronización de datos sin conexión en Aplicaciones móviles de Azure
@@ -58,26 +58,7 @@ Los desarrolladores también pueden implementar su propio almacén local. Por ej
 
 Un *contexto de sincronización* está asociado con un objeto de cliente móvil (como `IMobileServiceClient` o `MSClient`) y realiza el seguimiento de los cambios realizados con las tablas de sincronización. El contexto de sincronización mantiene una *cola de operación* que tiene una lista ordenada de operaciones CUD (creación, actualización, eliminación) que posteriormente se envía al servidor.
 
-Un almacén local se asocia con el contexto de sincronización mediante un método de inicialización como `IMobileServicesSyncContext.InitializeAsync(localstore)` en el SDK de cliente de .NET.
-
-<!-- TODO: link to client references -->
-
-
-<!--
-Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
-
-The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization.
-
-
-
-* The data objects on the client should have some system properties, most are not required.
-	* Managed
-		* Write out the attributes
-	* iOS
-		*table for the entity
-* Note: because the iOS local store is based on Core Data, the developer must define the following tables:
-	* System tables  -->
-
+Un almacén local se asocia con el contexto de sincronización mediante un método de inicialización como `IMobileServicesSyncContext.InitializeAsync(localstore)` en el [SDK de cliente de .NET].
 
 ## Funcionamiento de la sincronización sin conexión
 
@@ -89,9 +70,9 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 
 * **Inserciones implícitas**: si se ejecuta una extracción en una tabla que tiene actualizaciones locales pendientes, la extracción ejecutará primero una inserción en el contexto de sincronización. Esto ayuda a minimizar los conflictos entre los cambios que ya están en cola y los datos nuevos del servidor.
 
-* **Sincronización incremental**: el primer parámetro de la operación de extracción es un *nombre de consulta* que solo se usa en el cliente. Si usa un nombre de consulta no nulo, Azure Mobile SDK llevará a cabo una *sincronización incremental*. Cada vez que una operación de extracción devuelve un conjunto de resultados, la última marca de tiempo `__updatedAt` de dicho conjunto se almacena en las tablas del sistema local del SDK. Las operaciones de extracción posteriores solo recuperarán registros después de esa marca de tiempo.
+* **Sincronización incremental**: el primer parámetro de la operación de extracción es un *nombre de consulta* que solo se usa en el cliente. Si usa un nombre de consulta no nulo, Azure Mobile SDK llevará a cabo una *sincronización incremental*. Cada vez que una operación de extracción devuelve un conjunto de resultados, la última marca de tiempo `updatedAt` de dicho conjunto se almacena en las tablas del sistema local del SDK. Las operaciones de extracción posteriores solo recuperarán registros después de esa marca de tiempo.
 
-  Para usar la sincronización incremental, el servidor debe devolver valores `__updatedAt` significativos y también admitir la ordenación mediante este campo. Sin embargo, puesto que el SDK agrega su propio orden en el campo updatedAt, no puede usar una consulta de extracción que tenga su propia cláusula `$orderBy$`.
+  Para usar la sincronización incremental, el servidor debe devolver valores `updatedAt` significativos y también admitir la ordenación mediante este campo. Sin embargo, puesto que el SDK agrega su propio orden en el campo updatedAt, no puede usar una consulta de extracción que tenga su propia cláusula `$orderBy$`.
 
   El nombre de consulta puede ser cualquier cadena que elija, pero debe ser único para cada consulta lógica de la aplicación. De lo contrario, diferentes operaciones de extracción podrían sobrescribir la misma marca de tiempo de sincronización incremental y las consultas podrían devolver resultados incorrectos.
 
@@ -100,11 +81,6 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
 
   Si desea cancelar la sincronización incremental, pase `null` como identificador de consulta. En este caso, se recuperarán todos los registros en cada llamada a `PullAsync`, que es potencialmente ineficaz.
-
-
-
-<!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
- -->
 
 * **Purgado**: el contenido del almacén local se puede borrar con `IMobileServiceSyncTable.PurgeAsync`. Esto puede ser necesario si tiene datos obsoletos en la base de datos cliente o si desea descartar todos los cambios pendientes.
 
@@ -120,11 +96,11 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 * [Windows 8.1: habilitar la sincronización sin conexión]
 
 <!-- Links -->
+[SDK de cliente de .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
+[Android: habilitar la sincronización sin conexión]: app-service-mobile-android-get-started-offline-data.md
+[iOS: habilitar la sincronización sin conexión]: app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Windows 8.1: habilitar la sincronización sin conexión]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-[Android: habilitar la sincronización sin conexión]: ../app-service-mobile-android-get-started-offline-data.md
-[iOS: habilitar la sincronización sin conexión]: ../app-service-mobile-ios-get-started-offline-data.md
-[Xamarin iOS: habilitar la sincronización sin conexión]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android: habilitar la sincronización sin conexión]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Windows 8.1: habilitar la sincronización sin conexión]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

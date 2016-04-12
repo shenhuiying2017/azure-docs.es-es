@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/06/2015"
+      ms.date="03/21/2015"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Solución de problemas comunes de publicador de Azure Marketplace
@@ -25,7 +25,7 @@ En algunas circunstancias, puede que necesite solicitar un abono o un reembolso 
 
 A continuación se muestra cómo solicitar un abono o un reembolso en nombre de un cliente.
 
-> [AZURE.NOTE]Si un cliente o distribuidor de Azure se pone en contacto con Microsoft para solicitar un reembolso o un abono, aplicaremos las mismas directivas que usamos para los servicios de Azure que ofrecemos. Si nuestras directivas indican que un abono o reembolso es pagadero, emitiremos de manera anticipada (y usted nos autorizará para que lo hagamos en su nombre) un abono o reembolso al cliente o distribuidor de Azure, según proceda. En cambio, si nuestras directivas no indican que un reembolso o abono es pagadero, instaremos al cliente o distribuidor de Azure a que se ponga en contacto con usted directamente.
+> [AZURE.NOTE] Si un cliente o distribuidor de Azure se pone en contacto con Microsoft para solicitar un reembolso o un abono, aplicaremos las mismas directivas que usamos para los servicios de Azure que ofrecemos. Si nuestras directivas indican que un abono o reembolso es pagadero, emitiremos de manera anticipada (y usted nos autorizará para que lo hagamos en su nombre) un abono o reembolso al cliente o distribuidor de Azure, según proceda. En cambio, si nuestras directivas no indican que un reembolso o abono es pagadero, instaremos al cliente o distribuidor de Azure a que se ponga en contacto con usted directamente.
 
   ![1\_RequestRefund][1]
 
@@ -78,7 +78,7 @@ Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro
 
 **3. Complete la comprobación de "Ayúdenos a proteger su cuenta"**.
 
-> [AZURE.NOTE]Puede usar su dirección de correo electrónico o número de teléfono para realizar la comprobación.
+> [AZURE.NOTE] Puede usar su dirección de correo electrónico o número de teléfono para realizar la comprobación.
 
 ![protectacct][6]
 
@@ -120,4 +120,4 @@ Para los problemas siguientes, cree una solicitud de soporte técnico en [http:/
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

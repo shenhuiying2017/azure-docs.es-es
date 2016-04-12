@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Proveedor de recursos de red
@@ -254,26 +254,14 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 ![Implementación de plantilla de ejemplo](./media/resource-groups-networking/Figure6.png)
 
 
-## Otras referencias
-
-[Referencia de API de redes de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-[Referencia de Azure PowerShell para redes](https://msdn.microsoft.com/library/azure/mt163510.aspx)
+## Pasos siguientes
 
 [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 
 [Redes de Azure: plantillas utilizadas habitualmente](https://github.com/Azure/azure-quickstart-templates)
 
-[Proveedor de recursos de proceso](../virtual-machines-azurerm-versus-azuresm)
+[Proveedor de recursos de proceso](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-[Información general del Administrador de recursos de Azure](../resource-group-overview)
+[Información general del Administrador de recursos de Azure](../resource-group-overview.md)
 
-[Control de acceso basado en rol en el Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn906885.aspx)
-
-[Uso de etiquetas en el Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn848368.aspx)
-
-[Implementaciones de plantilla](https://msdn.microsoft.com/library/azure/dn790549.aspx)
-
-de hoy
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -30,7 +30,7 @@ Las **sugerencias de búsqueda** pueden habilitarse las barras de búsqueda de a
 
 **La navegación por facetas** se agrega fácilmente a la página de resultados de búsqueda con Búsqueda de Azure. Usando [simplemente un parámetro de consulta](https://msdn.microsoft.com/library/azure/dn798927.aspx), Búsqueda de Azure devolverá toda la información necesaria para construir una experiencia de búsqueda por facetas en la interfaz de usuario de la aplicación para permitir que los usuarios profundicen en los resultados de la búsqueda y los filtren (por ejemplo, filtrar elementos de un catálogo por rango de precios o marca).
 
-**El soporte** [geoespacial](search-create-geospatial.md) permite procesar, filtrar y mostrar de forma inteligente las ubicaciones geográficas. Búsqueda de Azure permite a los usuarios explorar datos basados en la proximidad de un resultado de búsqueda a una ubicación determinada o en una región geográfica específica.
+El soporte **geoespacial** permite procesar, filtrar y mostrar de forma inteligente las ubicaciones geográficas. Búsqueda de Azure permite a los usuarios explorar datos basados en la proximidad de un resultado de búsqueda a una ubicación determinada o en una región geográfica específica. Este vídeo explica cómo funciona: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) (Búsqueda de Azure y datos geoespaciales).
 
 Los **filtros** se pueden usar para incorporar fácilmente una navegación por facetas en la interfaz de usuario de la aplicación, mejorar la formulación de consultas y filtrar según los criterios especificados por el usuario o el desarrollador. Cree filtros eficaces mediante la [sintaxis de OData](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
@@ -83,4 +83,4 @@ Puede probar búsqueda de Azure hoy mismo. Si ya tiene una cuenta de Azure, pued
 
 Si no tiene una cuenta de Azure, puede probar una sesión gratuita de 60 minutos sin necesidad de registrarse. Vaya a [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) y seleccione "Aplicación web". A continuación, seleccione la plantilla "ASP.NET + Azure Search" para empezar.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

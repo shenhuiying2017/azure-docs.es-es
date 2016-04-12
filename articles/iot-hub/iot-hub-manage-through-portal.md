@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="10/19/2015"
+	 ms.date="03/14/2016"
 	 ms.author="nasing"/>
 
 # Administración de Centros de IoT a través del portal de Azure
@@ -44,11 +44,11 @@ Para crear un Centro de IoT, debe asignar un nombre al centro. Tenga en cuenta q
 
 ### Elección del plan de tarifa
 
-Puede elegir entre tres planes: **Gratis**, **Estándar 1 ** y **Estándar 2**. El plan gratis permite solo la conexión de 10 dispositivos con el Centro de IoT.
+Puede elegir entre tres planes: **Gratis**, **Estándar 1 ** y **Estándar 2**. El nivel Gratis permite solo la conexión de 500 dispositivos con el Centro de IoT y hasta 8000 mensajes al día.
 
-**S1 (baja frecuencia)**: la edición S1 (baja frecuencia) de Centros de IoT está diseñada para las soluciones de IoT que tienen un gran número de dispositivos que generan cantidades de datos relativamente pequeñas por cada dispositivo. Cada unidad de la edición S1 (baja frecuencia) permite la conectividad de hasta 500 dispositivos o hasta 50.000 mensajes por día en todos los dispositivos conectados.
+**S1 (baja frecuencia)**: la edición S1 (baja frecuencia) de Centros de IoT está diseñada para las soluciones de IoT que tienen un gran número de dispositivos que generan cantidades de datos relativamente pequeñas por cada dispositivo. Cada unidad de la edición S1 (baja frecuencia) permite transmitir hasta 400 000 mensajes al día a través de todos los dispositivos conectados.
 
-**S2 (alta frecuencia)**: la edición S2 (alta frecuencia) de Centros de IoT está diseñada para las soluciones de IoT en las que los dispositivos generan grandes cantidades de datos. Cada unidad de la edición S2 (alta frecuencia) permite la conectividad de hasta 500 dispositivos o hasta 1,5 millones de mensajes por día entre todos los dispositivos conectados.
+**S2 (alta frecuencia)**: la edición S2 (alta frecuencia) de Centros de IoT está diseñada para las soluciones de IoT en las que los dispositivos generan grandes cantidades de datos. Cada unidad de la edición S2 (alta frecuencia) permite transmitir hasta 6 millones de mensajes al día entre todos los dispositivos conectados.
 
 ![][4]
 
@@ -56,7 +56,7 @@ Puede elegir entre tres planes: **Gratis**, **Estándar 1 ** y **Estándar 2**. 
 
 ### Unidades del Centro de IoT
 
-Una unidad de centro de IoT incluye 500 dispositivos, por lo que la elección del número de unidades de IoT significa que el número total de los dispositivos compatibles para este centro es el número de unidades multiplicado por 500. Por ejemplo, si desea que el Centro de IoT admita 1000 dispositivos, seleccione dos unidades.
+Una unidad de Centro de IoT incluye un determinado número de mensajes al día, por lo que la elección del número de unidades de IoT significa que el número total de los mensajes compatibles para este centro es el número de unidades multiplicado por el número de mensajes al día para ese nivel. Por ejemplo, si desea que el Centro de IoT admita la entrada de 700 000 mensajes, elija 2 unidades del nivel de S1.
 
 ### Dispositivo para particiones en la nube y grupo de recursos
 
@@ -129,7 +129,7 @@ El precio de un Centro de IoT existente se puede cambiar mediante la configuraci
 
 ![][12]
 
-Ir de un nivel alto (S2) a un nivel bajo (S1) solo está permitido cuando el número de mensajes enviados durante ese día no está en conflicto. Por ejemplo, si el número de mensajes por día supera los 50.000, no se puede cambiar el nivel para el centro de IoT de S2 a S1.
+Ir de un nivel alto (S2) a un nivel bajo (S1) solo está permitido cuando el número de mensajes enviados durante ese día no está en conflicto. Por ejemplo, si el número de mensajes por día supera los 400 000, no se puede cambiar el nivel para el Centro de IoT de S2 a S1.
 
 ## Eliminación del Centro de IoT
 
@@ -153,4 +153,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

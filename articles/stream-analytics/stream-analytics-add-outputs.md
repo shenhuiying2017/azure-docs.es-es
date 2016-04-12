@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # Configuración de salidas de datos para trabajos de Análisis de transmisiones
@@ -25,11 +25,11 @@ Las salidas de datos del Análisis de transmisiones se pueden usar para generar 
 
 Para agregar una salida a su trabajo del Análisis de transmisiones:
 
-1. En el portal de Azure, haga clic en **Salidas** y luego en **Agregar salida** en el trabajo de Análisis de transmisiones.
+1. En el Portal de Azure clásico, haga clic en **Salidas** y luego en **Agregar salida** en el trabajo de Análisis de transmisiones.
 
     ![Agregar salidas](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
 
-    En el portal de vista previa de Azure, haga clic en el icono **Salidas** en el trabajo de Análisis de transmisiones.
+    En el Portal de Azure, haga clic en el icono **Salidas** en el trabajo de Análisis de transmisiones.
 
     ![Portal de Azure - Agregar salidas](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
@@ -37,7 +37,7 @@ Para agregar una salida a su trabajo del Análisis de transmisiones:
 
     ![Elección del tipo de movimiento de datos](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)
 
-    ![Portal de vista previa de Azure: Elección del tipo de movimiento de datos](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
+    ![Elección del tipo de movimiento de datos del Portal de Azure](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
 
 3. Asigne un nombre descriptivo para esta salida en el cuadro **Alias de salida**. Este nombre se puede usar en la consulta de su trabajo más adelante para hacer referencia a la salida.
     
@@ -51,7 +51,7 @@ Para agregar una salida a su trabajo del Análisis de transmisiones:
 
     ![Adición de salida de datos al Centro de eventos](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)
 
-    ![Portal de vista previa de Azure: Salida de datos al Centro de eventos](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
+    ![Salida de datos al Centro de eventos del Portal de Azure](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
 
 > [Azure.Note] Todos los elementos de salida que se agreguen al trabajo deben existir antes de que se inicie el trabajo y los eventos empiecen a fluir. Por ejemplo, si usa el almacenamiento de blobs como salida, el trabajo no creará una cuenta de almacenamiento automáticamente. Debe crearla el usuario antes de que se inicie el trabajo ASA.
 
@@ -66,4 +66,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

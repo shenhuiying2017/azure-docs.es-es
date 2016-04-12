@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="sameerch"/>
 
 # Introducción al conector de SFTP y su incorporación a las aplicaciones lógicas
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview, haga clic en [API de SFTP](../connectors/create-api-sftp.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview, haga clic en [API de SFTP](../connectors/connectors-create-api-sftp.md).
 
 Use el conector de SFTP para mover datos a un servidor SFTP o desde él. Puede descargar o cargar archivos o mostrar una lista de archivos desde y hacia un servidor de SFTP.
 
@@ -58,7 +58,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 
 5.	Ahora puede usar el conector de SFTP en el flujo. Puede utilizar el archivo recuperado desde el desencadenador de SFTP ("TriggerOnFileAvailable") en otras acciones del flujo.
 
-	> [AZURE.IMPORTANT]El desencadenador de SFTP "TriggerOnFileAvailable" eliminará el archivo recuperado después de procesarlo.
+	> [AZURE.IMPORTANT] El desencadenador de SFTP "TriggerOnFileAvailable" eliminará el archivo recuperado después de procesarlo.
 
 6.	Configure las propiedades de entrada para el desencadenador de SFTP de la forma siguiente:
 
@@ -86,7 +86,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -107,4 +107,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0323_2016-->

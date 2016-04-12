@@ -3,11 +3,18 @@
 	description="Obtenga información sobre cómo implementar y administrar Copia de seguridad de Azure mediante PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
+	authors="nkolli1"
+	manager="shivamg"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/22/2016" ms.author="markgal"; "aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/22/2016"
+	ms.author="markgal;jimpark;nkolli"/>
 
 
 # Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
@@ -22,7 +29,7 @@ En octubre de 2015, se lanzó Azure PowerShell 1.0. Esta versión sucedió a la 
 
 Si desea utilizar scripts escritos para los entornos de 0.9.8, de 1.0 o posterior, debe probar detenidamente los scripts en un entorno de preproducción antes de usarlos en producción para evitar un impacto inesperado.
 
-[Descargue la versión de PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es: 1.0.0)
+[Descargue la versión de PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (versión mínima necesaria: 1.0.0)
 
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
@@ -39,7 +46,7 @@ PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-Utilice el cmdlet **Get-AzureRMBackupVault** para enumerar los almacenes de copia de seguridad en una suscripción.
+Use el cmdlet **Get-AzureRMBackupVault** para enumerar los almacenes de copia de seguridad en una suscripción.
 
 
 ## Instalación del agente de Copia de seguridad de Azure
@@ -70,11 +77,11 @@ Las opciones disponibles incluyen:
 | Opción | Detalles | Valor predeterminado |
 | ---- | ----- | ----- |
 | /q | Instalación desatendida | - | 
-| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent |
-| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch | 
+| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent | 
+| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch | 
 | /m | Participar en Microsoft Update | - | 
-| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - |
-| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - |
+| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | 
+| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - | 
 | /ph | Dirección de host del proxy | - | 
 | /po | Número de puerto de host del proxy | - | 
 | /pu | Nombre de usuario de host del proxy | - | 
@@ -588,4 +595,4 @@ Para obtener más información sobre Copia de seguridad de Azure para Windows Se
 - [Introducción a la Copia de seguridad de Azure](backup-configure-vault.md)
 - [Copia de seguridad de servidores Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0316_2016-->

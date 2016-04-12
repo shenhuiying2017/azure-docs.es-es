@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 #Integración de GCM con Mobile Engagement
 
 > [AZURE.IMPORTANT] Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
 >
-> Este documento solo es útil si integró el módulo de Reach para admitir campañas en cualquier momento. Para integrar campañas de Reach en la aplicación, lea primero Integración de Engagement Reach en Android.
+> Este documento es útil solo si ya integró el módulo de cobertura y el plan para insertar dispositivos de Google Play. Para integrar campañas de Reach en la aplicación, lea primero Integración de Engagement Reach en Android.
 
 ##Introducción
 
@@ -30,17 +30,11 @@ Las cargas GCM insertadas en el SDK siempre contienen la clave `azme` en el obje
 
 > [AZURE.IMPORTANT] Solo los dispositivos que ejecuten Android 2.2 o versiones posteriores, con Google Play instalado y con una conexión de fondo de Google habilitada, se pueden insertar mediante GCM; sin embargo, puede integrar este código de forma segura en los dispositivos no compatibles (simplemente usa representaciones).
 
-##Suscripción a GCM y habilitación del servicio de GCM
+##Creación de un proyecto del Servicio de mensajería en la nube de Google con clave de API
 
-Si aún no lo ha hecho, debe habilitar el servicio de GCM en su cuenta de Google.
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-En la fecha de redacción de este documento (5 de febrero de 2014), puede seguir el procedimiento en: [<http://developer.android.com/guide/google/gcm/gs.html>].
-
-Siga este procedimiento para habilitar GCM en su cuenta. Cuando llegue a la sección **Obtención de una clave de API**, no la lea y vuelva a esta página en lugar de seguir con el procedimiento de Google.
-
-El procedimiento explica que el **número de proyecto** se usa como el **Id. de remitente de GCM**; lo necesitará más adelante en este procedimiento.
-
-> [AZURE.IMPORTANT] El **número de proyecto** no debe confundirse con el **Id. de proyecto**. El Id. de proyecto ahora puede ser diferente (es un nombre en los proyectos nuevos). Lo que necesita integrar en el SDK de Engagement es el **número de proyecto**, que se muestra en el menú **Información general** de la [Consola de desarrolladores de Google].
+> [AZURE.IMPORTANT] El **número de proyecto** no debe confundirse con el **Id. de proyecto**.
 
 ##Integración de SDK
 
@@ -50,9 +44,7 @@ Cada dispositivo debe enviar un comando de registro a los servidores de Google; 
 
 También puede anular el registro de un dispositivo de las notificaciones de GCM (el dispositivo se elimina automáticamente si se desinstala la aplicación).
 
-Si usa la [biblioteca de cliente GCM], puede leer directamente android-sdk-gcm-receive.
-
-Si aún no ha enviado el intento de registro, puede hacer que Engagement registre el dispositivo automáticamente.
+Si no usa el [SDK de Google Play] o no ha enviado aún el intento de registro, puede hacer que Engagement registre el dispositivo automáticamente.
 
 Para habilitar esta opción, agregue lo siguiente al archivo de `AndroidManifest.xml`, dentro de la etiqueta `<application/>`:
 
@@ -84,35 +76,10 @@ Asegúrese de tener los permisos siguientes en `AndroidManifest.xml` (después d
 			<uses-permission android:name="<your_package_name>.permission.C2D_MESSAGE" />
 			<permission android:name="<your_package_name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-##Conceder acceso de Engagement a una clave de API de servidor
+##Conceder acceso de Mobile Engagement a la clave de API de GCM
 
-Si aún no lo ha hecho, cree una **clave de API de servidor** en la [Consola de desarrolladores de Google].
+Siga [esta guía](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key) para conceder acceso de Mobile Engagement a la clave de API de GCM.
 
-La clave del servidor **no debe tener restricción de IP**.
+[SDK de Google Play]: https://developers.google.com/cloud-messaging/android/start
 
-En la fecha de redacción de este documento (5 de febrero de 2014), el procedimiento es el siguiente:
-
--   Para ello, abra la [Consola de desarrolladores de Google].
--   Seleccione el mismo proyecto que antes en el procedimiento (el que tiene el **número de proyecto** que integró en `AndroidManifest.xml`).
--   Vaya a APIs & auth-\\ > Credenciales, haga clic en "CREAR NUEVA CLAVE" en la sección "Acceso a API pública".
--   Seleccione "Clave de servidor".
--   En la siguiente pantalla, déjela en blanco **(sin restricciones de IP)** y haga clic en crear.
--   Copie la **clave de API** generada.
--   Vaya a $/#application/YOUR\_ENGAGEMENT\_APPID/native-push.
--   En la sección GCM edite la clave de API con la que acaba de generar y copiar.
-
-Ahora es posible seleccionar "En cualquier momento" al crear sondeos y anuncios de Reach.
-
-> [AZURE.IMPORTANT] En realidad, Engagement necesita una **clave de servidor**, no se puede usar una clave de Android por servidores de Engagement.
-
-##Prueba
-
-Ahora, para comprobar su integración, lea Prueba de integración de Engagement en Android.
-
-
-[<http://developer.android.com/guide/google/gcm/gs.html>]: http://developer.android.com/guide/google/gcm/gs.html
-[Google Developers Console]: https://cloud.google.com/console
-[biblioteca de cliente GCM]: http://developer.android.com/guide/google/gcm/gs.html#libs
-[Consola de desarrolladores de Google]: https://cloud.google.com/console
-
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

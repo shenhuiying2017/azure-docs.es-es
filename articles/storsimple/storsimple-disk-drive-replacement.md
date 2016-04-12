@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Reemplazar un disco duro en un dispositivo StorSimple | Microsoft Azure"
-   description="Explica cómo reemplazar una unidad de disco en un dispositivo principal de StorSimple o un gabinete EBOD."
+   description="Explica cómo reemplazar una unidad de disco en un receptáculo principal de StorSimple o un receptáculo EBOD."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="03/28/2016"
    ms.author="alkohli" />
 
 # Reemplazar un disco duro en el dispositivo StorSimple
@@ -78,7 +78,7 @@ Las unidades de disco se pueden quitar y reemplazar mientras el sistema está en
 
 1. Para identificar el disco defectuoso, en el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware**. Dado que se puede producir un error en un disco en el gabinete principal o en el gabinete EBOD (si está utilizando un modelo 8600), examine el estado de los discos en **Componentes compartidos** y en **Componentes compartidos del gabinete EBOD**. Un disco defectuoso en cualquier gabinete se mostrará con un estado rojo.
 
-2. Busque las unidades en la parte frontal del gabinete principal o del gabinete EBOD. Para el disco defectuoso, el LED ámbar estará encendido.
+2. Busque las unidades en la parte frontal del gabinete principal o del gabinete EBOD.
 
 3. Si el disco está desbloqueado, continúe con el paso siguiente. Si el disco está bloqueado, desbloquéelo siguiendo el procedimiento descrito en [Desactivar el bloqueo antisabotaje](#disengage-the-antitamper-lock).
 
@@ -96,7 +96,7 @@ Las unidades de disco se pueden quitar y reemplazar mientras el sistema está en
 
 ## Instalar la unidad de disco de reemplazo
 
-Después de que se ha producido un error en la unidad de su dispositivo StorSimple de Microsoft Azure y que la haya quitado, siga este procedimiento para reemplazarla con una nueva unidad.
+Después de que se ha producido un error en la unidad de su dispositivo StorSimple y de que la haya quitado, siga este procedimiento para reemplazarla por una nueva unidad.
 
 #### Para insertar una unidad
 
@@ -124,4 +124,4 @@ Después de que se ha producido un error en la unidad de su dispositivo StorSimp
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

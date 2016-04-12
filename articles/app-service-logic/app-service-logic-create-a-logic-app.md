@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="03/01/2016"
+	ms.topic="get-started-article"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 
 # Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS
@@ -67,4 +67,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Azure portal]: https://portal.azure.com
 [Uso de las características de aplicaciones lógicas]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

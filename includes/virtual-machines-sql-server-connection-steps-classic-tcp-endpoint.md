@@ -2,7 +2,7 @@
 
 Para poder acceder a SQL Server desde Internet, la máquina virtual debe tener un extremo para escuchar la comunicación TCP de entrada. Este paso de la configuración de Azure dirige el tráfico del puerto TCP de entrada a un puerto TCP al que puede tener acceso la máquina virtual.
 
->[AZURE.NOTE]Si se va a conectar en el mismo servicio en la nube o red virtual, no es necesario crear un extremo accesible públicamente. En ese caso, puede continuar con el paso siguiente. Para obtener más información, consulte: [Escenarios de conexión](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
+>[AZURE.NOTE] Si se va a conectar en el mismo servicio en la nube o red virtual, no es necesario crear un extremo accesible públicamente. En ese caso, puede continuar con el paso siguiente. Para obtener más información, consulte: [Escenarios de conexión](../articles/virtual-machines/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 
 1. En el Portal de administración de Azure, haga clic en **MÁQUINAS VIRTUALES**.
 	
@@ -19,4 +19,4 @@ Para poder acceder a SQL Server desde Internet, la máquina virtual debe tener u
 
 6. Haga clic en la marca de verificación para continuar. Se crea el extremo.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

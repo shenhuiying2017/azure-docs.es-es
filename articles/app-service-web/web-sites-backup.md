@@ -44,7 +44,7 @@ Esta información se guarda en una copia de seguridad en la cuenta de almacenami
 
 * La característica Copia de seguridad y restauración requiere una cuenta de almacenamiento y el contenedor de Azure que debe pertenecer a la misma suscripción que la aplicación web del que quiere tener una copia de seguridad. Si aún no tiene una cuenta de almacenamiento, para crear una, haga clic en **Cuenta de almacenamiento** en la hoja **Copias de seguridad** del [Portal de Azure](https://portal.azure.com/) y elija la **cuenta de almacenamiento** y el **contenedor** en la hoja **Destino**. Para obtener más información sobre las cuentas de almacenamiento de Azure, consulte los [vínculos](#moreaboutstorage) al final de este artículo.
 
-* La característica de copia de seguridad y restauración admite hasta 10 GB de contenido de sitio web y base de datos. Si la característica de copia de seguridad no puede continuar porque la carga supera este límite, se indicará un error.
+* La característica de copia de seguridad y restauración admite hasta 10 GB de contenido de sitio web y base de datos. Si la característica de copia de seguridad no puede continuar porque la carga supera este límite, se indicará un error.
 
 <a name="manualbackup"></a>
 ## Crear una copia de seguridad manual
@@ -115,7 +115,7 @@ Puede realizar una copia de seguridad manual en cualquier momento.
 En ocasiones, no deseará realizar una copia de seguridad de todo el contenido de la aplicación web. Estos son algunos ejemplos:
 
 -	[Configura copias de seguridad semanales](web-sites-backup.md#configure-automated-backups) de la aplicación web que contiene contenido estático que nunca cambia, como entradas de blog antiguas o imágenes.
--	Su aplicación web tiene más de 10 GB de contenido (que es la cantidad máxima de la que puede realizar una copia de seguridad a la vez).
+-	Su aplicación web tiene más de 10 GB de contenido (que es la cantidad máxima de la que puede realizar una copia de seguridad a la vez).
 -	No desea realizar copias de seguridad de los archivos de registro.
 
 Las copias de seguridad parciales le permitirá elegir exactamente de qué archivos desea realizar la copia de seguridad.
@@ -189,4 +189,4 @@ Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

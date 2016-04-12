@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/05/2016" 
 	ms.author="awills"/>
  
 # Definición de alertas en Application Insights
@@ -48,6 +48,8 @@ Para recibir un correo electrónico cuando una métrica cruce un umbral, inicie 
 
 *No veo el botón Agregar alerta.* ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a Configuración -> Usuarios. [Más información sobre el control de acceso][roles].
 
+> [AZURE.NOTE] En la hoja de alertas, verá que ya hay una alerta configurada: [Diagnóstico proactivo de NRT](app-insights-nrt-proactive-diagnostics.md). Se trata de una alerta automática que supervisa una métrica determinada: el índice de errores de las solicitudes. Por lo que a menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes.
+
 ## Visualización de alertas
 
 Recibirá un correo electrónico cuando un alerta cambia el estado entre inactivo y activo.
@@ -58,13 +60,10 @@ Hay un resumen de la actividad reciente en la lista desplegable de alertas:
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
 
-El historial de cambios de estado está en el registro Eventos de operaciones:
+El historial de cambios de estado está en el registro de auditoría:
 
-![En la hoja Información general, cerca de la parte inferior, haga clic en 'Eventos de la semana pasada'.](./media/app-insights-alerts/09-alerts.png)
+![En la hoja de información general, haga clic en Configuración, Registros de auditoría](./media/app-insights-alerts/09-alerts.png)
 
-*¿Estos "eventos" están relacionados con eventos de telemetría o eventos personalizados?*
-
-* No. Estos eventos operativos son simplemente un registro de cosas que han ocurrido en este recurso de aplicación. 
 
 
 ## Funcionamiento de las alertas
@@ -127,4 +126,4 @@ Las alertas más populares son:
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

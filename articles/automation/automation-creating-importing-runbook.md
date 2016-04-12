@@ -72,7 +72,7 @@ Puede usar el siguiente procedimiento para importar un archivo de script en la A
 
 
 ### Para importar un runbook de un archivo con el portal de Azure
-Puede usar el siguiente procedimiento para importar un archivo de script en la Automatización de Azure. Tenga en cuenta que solo puede importar un archivo. ps1 en un runbook de flujo de trabajo de PowerShell mediante este portal.
+Puede usar el siguiente procedimiento para importar un archivo de script en la Automatización de Azure. Tenga en cuenta que puede importar un archivo .ps1 en un Runbook de PowerShell o en un Runbook de flujo de trabajo de PowerShell mediante este portal.
 
 1. En el Portal de Azure, abra su cuenta de Automatización.
 2. Haga clic en el icono **Runbooks** para abrir la lista de runbooks.
@@ -131,4 +131,4 @@ Puede usar el cmdlet [Publish-AzureAutomationRunbook](https://msdn.microsoft.com
 - [Edición de runbooks de texto en Automatización de Azure](automation-edit-textual-runbook.md)
 - [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

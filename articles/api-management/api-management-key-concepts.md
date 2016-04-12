@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="03/04/2016" 
+	ms.date="03/23/2016" 
 	ms.author="sdanie"/>
 
 #¿Qué es Administración de API?
 
 La Administración de API ayuda a las organizaciones a publicar API para desarrolladores externos, asociados e internos para liberar el potencial de sus datos y servicios. Todas y cada una de las empresas pretenden extender sus operaciones como una plataforma digital creando nuevos canales, buscando nuevos clientes y estrechando la relación con los existentes. Administración de API proporciona las capacidades esenciales para garantizar un programa API exitoso a través de compromisos con desarrolladores, conocimiento de los negocios, análisis, seguridad y protección.
 
-> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+Vea el siguiente vídeo para más información sobre Administración de API de Azure y aprender a usarla para agregar características a su API, incluido el control de acceso, limitación de tasa, supervisión, registro de eventos y almacenamiento en caché de respuestas, con el mínimo esfuerzo por su parte.
+
+> [AZURE.VIDEO azure-api-management-overview]
 
 Para usar Administración de API, los administradores crean API. Cada API consta de una o varias operaciones y se puede agregar a uno o varios productos. Para usar una API, los desarrolladores se suscriben a un producto que contiene esa API y después pueden llamar a la operación de la API cumpliendo cualquier directiva de uso que pueda estar en vigor.
 
@@ -92,6 +94,12 @@ El portal para desarrolladores es el lugar en el que los desarrolladores pueden 
 
 Puede personalizar el aspecto y apariencia del portal para desarrolladores agregando contenido personalizado, personalizando estilos e incorporando su toque diferenciador.
 
+## Administración de API y la economía de la API
+
+Para más información acerca de Administración de API, vea la siguiente presentación de la conferencia Microsoft Ignite 2015.
+
+> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+
 [APIs and operations]: #apis
 [Products]: #products
 [Groups]: #groups
@@ -114,4 +122,4 @@ Puede personalizar el aspecto y apariencia del portal para desarrolladores agreg
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

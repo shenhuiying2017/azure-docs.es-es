@@ -75,11 +75,11 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 
 	<table border="1">
-<tr><th>Propiedad del clúster</th><th>Descripción</th></tr>
-<tr><td>Nombre de clúster de HBase</td><td>El nombre del clúster de HBase de HDInsight. Por ejemplo: https://myhbase.azurehdinsight.net/</td></tr>
-<tr><td>Nombre de usuario de clúster</td><td>El nombre de la cuenta de usuario de Hadoop. El nombre de usuario de Hadoop predeterminado es <strong>admin</strong>.</td></tr>
-<tr><td>Contraseña de usuario de clúster</td><td>La contraseña de usuario del clúster de Hadoop.</td></tr>
-</table>
+	<tr><th>Propiedad del clúster</th><th>Descripción</th></tr>
+	<tr><td>Nombre de clúster de HBase</td><td>El nombre del clúster de HBase de HDInsight. Por ejemplo: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Nombre de usuario de clúster</td><td>El nombre de la cuenta de usuario de Hadoop. El nombre de usuario de Hadoop predeterminado es <strong>admin</strong>.</td></tr>
+	<tr><td>Contraseña de usuario de clúster</td><td>La contraseña de usuario del clúster de Hadoop.</td></tr>
+	</table>
 
 - **Una estación de trabajo** con Visual Studio 2013 instalado. Para obtener instrucciones, consulte [Instalación de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -1233,8 +1233,7 @@ En este tutorial, ha aprendido a obtener tweets, analizar la opinión de estos, 
 - [Configuración de la replicación geográfica de HBase en HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Análisis de datos de Twitter con Hadoop en HDInsight][hdinsight-analyze-twitter-data]
 - [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-delay-data]
-- [Desarrollo de programas de streaming de Hadoop C# para HDInsight][hdinsight-develop-streaming]
-- [Desarrollo de programas MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
+- [Desarrollo de programas de MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
 
 
 [hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
@@ -1249,7 +1248,6 @@ En este tutorial, ha aprendido a obtener tweets, analizar la opinión de estos, 
 
 
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
@@ -1279,4 +1277,4 @@ En este tutorial, ha aprendido a obtener tweets, analizar la opinión de estos, 
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Novedades en el Catálogo de datos de Azure"
-   description="Información general de vista previa de las nuevas funcionalidades del Catálogo de datos de Azure."
+   pageTitle="Novedades del Catálogo de datos de Azure | Microsoft Azure"
+   description="Visión general de las nuevas funciones agregadas al Catálogo de datos de Azure."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,27 +13,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/19/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Novedades en el Catálogo de datos de Azure
 
 De forma periódica se publican actualizaciones al **Catálogo de datos de Azure**. No todas las versiones incluirán nuevas características de cara al usuario, algunas se centran en la funcionalidad del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio **Catálogo de datos de Azure** .
 
+## Novedades de la versión correspondiente a la semana del 11 de marzo de 2016
+
+En la semana del 11 de marzo de 2016, se han agregado las siguientes funcionalidades al **Catálogo de datos de Azure**:
+
+- Un punto de conexión de API de REST consolidado para acceder mediante programación a las funcionalidades de búsqueda y a las funcionalidades de administración de activos del catálogo del servicio **Catálogo de datos de Azure**. El punto de conexión de API de búsqueda existente y el punto de conexión de API de catálogo están en desuso y se interrumpirán el 21 de marzo de 2016. No hay ningún cambio en la semántica de la API; solo cambia el URI del punto de conexión. Para obtener más información, consulte la [Referencia de la API de REST del Catálogo de datos de Azure](https://msdn.microsoft.com/library/azure/mt267595.aspx). Para obtener ejemplos de la API, consulte [Muestras para desarrolladores del Catálogo de datos de Azure](data-catalog-samples.md).
+
 ## Novedades de la versión correspondiente a la semana del 19 de febrero de 2016
 
 En la semana del 19 de febrero de 2016 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
-- Una experiencia de selección de origen de datos recientemente replanteada en la herramienta de registro de origen de datos **Catálogo de datos de Azure**. La herramienta de registro de origen de datos se ha actualizado para facilitar a los usuarios la búsqueda y selección en los orígenes de datos compatibles con **catálogo de datos de Azure**.
-- Compatibilidad con diez idiomas adicionales en el portal **Catálogo de datos de Azure** y la herramienta de registro de origen de datos. Además del inglés, el **Catálogo de datos de Azure** ahora está disponible en alemán, español, francés, italiano, japonés, coreano, portugués (Brasil), ruso, chino simplificado y chino tradicional. La experiencia de usuario del **Catálogo de datos de Azure** se traducirá en función de las preferencias de idioma establecidas en Windows o en el explorador web del usuario.
-- Compatibilidad con la replicación geográfica de datos del **Catálogo de datos de Azure** para continuidad del negocio y recuperación ante desastres. Todo el contenido del **Catálogo de datos de Azure**, como, por ejemplo, anotaciones de micromecenazgo y metadatos de origen de datos, ahora se replica entre dos regiones de Azure sin costo adicional a los clientes. Las regiones de Azure están emparejadas previamente, con una separación de al menos 800 km de distancia, y siguen la asignación que se describe en [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](../best-practices-availability-paired-regions.md). 
+- Una experiencia de selección de origen de datos recientemente rediseñada en la herramienta de registro de origen de datos **Catálogo de datos de Azure**. La herramienta de registro de origen de datos se ha actualizado para facilitar a los usuarios la búsqueda y selección en los orígenes de datos compatibles con el **Catálogo de datos de Azure**.
+- Compatibilidad con diez idiomas adicionales en el portal **Catálogo de datos de Azure** y la herramienta de registro de origen de datos. Además del inglés, la experiencia del **Catálogo de datos de Azure** ahora está disponible en alemán, español, francés, italiano, japonés, coreano, portugués (Brasil), ruso, chino simplificado y chino tradicional. La experiencia de usuario del **Catálogo de datos de Azure** se traducirá en función de las preferencias de idioma establecidas en Windows o en el explorador web del usuario.
+- Compatibilidad con la replicación geográfica de datos del **Catálogo de datos de Azure** para continuidad empresarial y recuperación ante desastres. Todo el contenido del **Catálogo de datos de Azure** como, por ejemplo, anotaciones de micromecenazgo y metadatos de origen de datos, ahora se replica entre dos regiones de Azure sin costo adicional para los clientes. Las regiones de Azure están emparejadas previamente, con una separación de al menos 500 km de distancia, y siguen la asignación que se describe en [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 
 
 ## Novedades de la versión correspondiente a la semana del 5 de febrero de 2016
 
 En la semana del 5 de febrero de 2016 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
-- Compatibilidad para cambiar la suscripción de Azure del **Catálogo de datos de Azure**. Los administradores del **Catálogo de datos de Azure** pueden usar la página Configuración del portal del **Catálogo de datos de Azure** para seleccionar una suscripción de Azure diferente para la facturación.
+- Compatibilidad para cambiar la suscripción de Azure del **Catálogo de datos de Azure**. Los administradores del **Catálogo de datos de Azure** pueden usar la página de Configuración en el portal del **Catálogo de datos de Azure** para seleccionar una suscripción de Azure diferente para la facturación.
 
 ## Novedades de la versión correspondiente a la semana del 29 de enero de 2016
 
@@ -50,7 +56,7 @@ En la semana del 29 de enero de 2016 se agregaron las siguientes funcionalidades
    + PostgreSQL: tabla, vista y base de datos
 - Compatibilidad con orígenes de datos de "Abrir en SQL Server Data Tools" para SQL Server (incluyendo Azure SQL DB y Almacenamiento de datos SQL de Azure).  
 
-> [AZURE.NOTE] "Abrir en SQL Server Data Tools" requiere Visual Studio 2013 con la Update 4 y las herramientas de SQL Server para instalarse. Para instalar la versión más reciente de SQL Server Data Tools, visite [Descarga de SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+> [AZURE.NOTE] "Abrir en SQL Server Data Tools" requiere Visual Studio 2013 con la Update 4 y las herramientas de SQL Server para instalarse. Para instalar la versión más reciente de SQL Server Data Tools, visite [Descargar SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
 ## Novedades de la versión correspondiente a la semana del 22 de enero de 2016
 
@@ -62,9 +68,9 @@ En la semana del 22 de enero de 2016 se agregaron las siguientes funcionalidades
 
 En la semana del 8 de enero de 2016 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
-- La posibilidad de anclar y desanclar recursos de datos en el portal del **Catálogo de datos de Azure**. Los usuarios pueden elegir anclar activos de datos para que sea más sencillo volver a detectarlos y usarlos.
-- Página principal recientemente replanteada del portal del **Catálogo de datos de Azure**. La nueva página principal incluye información sobre la actividad de usuarios actual, incluidos activos publicados recientemente, activos anclados y búsquedas guardadas, así como información sobre la actividad en el catálogo en su totalidad.
-- Compatibilidad con la configuración de usuarios persistentes en el portal del **Catálogo de datos de Azure**. La configuración de la experiencia de usuario (incluidos la vista de cuadrícula o de icono, el número de resultados por página y el resultado de referencias activado o desactivado) se conserva entre sesiones de usuario.
+- La posibilidad de anclar y desanclar activos de datos en el portal del **Catálogo de datos de Azure**. Los usuarios pueden elegir anclar activos de datos para que sea más sencillo volver a detectarlos y usarlos.
+- Una página principal recientemente rediseñada del portal del **Catálogo de datos de Azure**. La nueva página principal incluye información sobre la actividad de usuarios actual, incluidos activos publicados recientemente, activos anclados y búsquedas guardadas, así como información sobre la actividad en el catálogo en su totalidad.
+- Compatibilidad con la configuración de usuarios persistente en el portal del **Catálogo de datos de Azure**. La configuración de la experiencia de usuario (incluidos la vista de cuadrícula o de icono, el número de resultados por página y el resultado de referencias activado o desactivado) se conserva entre sesiones de usuario.
 - El **Catálogo de datos de Azure** está ahora disponible en dos nuevas regiones de Azure. Los clientes pueden aprovisionar el **Catálogo de datos de Azure** en las regiones de Europa del Norte y Sudeste Asiático, además del este de EE. UU., el oeste de EE. UU., Europa Occidental y este de Australia. Para más información, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
 
 ## Novedades de la versión correspondiente a la semana del 18 de diciembre de 2015
@@ -210,4 +216,4 @@ A partir de la semana del 21 de agosto de 2015, se agregaron las siguientes func
 - Solo en la edición estándar: al agregar propietarios a los activos de datos, el **Catálogo de datos de Azure** ahora admite tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 - Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

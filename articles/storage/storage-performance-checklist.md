@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016" 
+	ms.date="03/18/2016"
 	ms.author="robinsh"/>
 
 # Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure
@@ -33,51 +33,52 @@ Este artículo organiza las prácticas probadas en los siguientes grupos. Práct
 
 |¡Listo!|	Ámbito|	Categoría|	Pregunta
 |----|------|-----------|-----------
-|Todos los servicios|	Objetivos de escalabilidad|[¿Está su aplicación diseñada para evitar aproximarse a los objetivos de escalabilidad?](#subheading1)
-|Todos los servicios|	Redes|	[¿Tienen los dispositivos del cliente un ancho de banda grande y una latencia baja suficientes como para lograr el rendimiento necesario?](#subheading2)
-|Todos los servicios|	Redes|	[¿Tienen los dispositivos del lado cliente un enlace con una calidad suficientemente alta?](#subheading3)
-|Todos los servicios|	Redes|	[¿Está la aplicación cliente ubicada "cerca" de la cuenta de almacenamiento?](#subheading4)
-|Todos los servicios|	Distribución de contenido|	[¿Usa una red CDN para distribución de contenido?](#subheading5)
-|Todos los servicios|	Acceso directo del cliente|	[¿Usa SAS y CORS para permitir el acceso directo al almacenamiento en lugar de proxy?](#subheading6)
-|Todos los servicios|	Almacenamiento en caché|	[¿Su aplicación almacena datos en caché que se usan repetidamente y rara vez cambian?](#subheading7)
-|Todos los servicios|	Almacenamiento en caché|	[¿Su aplicación procesa por lotes las actualizaciones (almacenándolas en caché en el cliente y, a continuación, cargándolas en conjuntos más grandes)?](#subheading8)
-|Todos los servicios|	Configuración .NET|	[¿Ha configurado el cliente para usar un número suficiente de conexiones simultáneas?](#subheading9)
-|Todos los servicios|	Configuración .NET|	[¿Ha configurado .NET para usar un número suficiente de subprocesos?](#subheading10)
-|Todos los servicios|	Configuración .NET|	[¿Usa .NET 4.5 o posterior, que ha mejorado la recolección de elementos no usados?](#subheading11)
-|Todos los servicios|	Paralelismo|	[¿Se ha asegurado de que el paralelismo está vinculado correctamente de forma que no se sobrecarguen las capacidades del cliente o los objetivos de escalabilidad?](#subheading12)
-|Todos los servicios|	Herramientas|	[¿Usa la versión más reciente de las herramientas y bibliotecas de cliente proporcionadas por Microsoft?](#subheading13)
-|Todos los servicios|	Reintentos|	[¿Usa una directiva de reintentos de retroceso exponencial para errores de limitación y tiempos de espera?](#subheading14)
-|Todos los servicios|	Reintentos|	[¿Evita su aplicación reintentos para errores que no se pueden reintentar?](#subheading15)
-|Blobs|	Objetivos de escalabilidad|	[¿Permanece su aplicación dentro del ancho de banda o de los objetivos de escalabilidad de las operaciones para un solo blob?](#subheading16)
-|Blobs|	Copia de blobs|	[¿Copia blobs de una manera eficiente?](#subheading17)
-|Blobs|	Copia de blobs|	[¿Usa AzCopy para copias de blobs en masa?](#subheading18)
-|Blobs|	Copia de blobs|	[¿Usa Importación/Exportación de Microsoft Azure para transferir grandes volúmenes de datos?](#subheading19)
-|Blobs|	Usar metadatos|	[¿Almacena metadatos usados frecuentemente acerca de blobs en los metadatos de estos?](#subheading20)
-|Blobs|	Carga rápida|	[Cuando intenta cargar un blob rápidamente, ¿carga blobs en paralelo?](#subheading21)
-|Blobs|	Carga rápida|	[Cuando intenta cargar muchos blobs rápidamente, ¿carga blobs en paralelo?](#subheading22)
-|Blobs|	Tipo de blob correcto|	[¿Usa blobs en páginas o blobs en bloques cuando es apropiado?](#subheading23)
-|Tablas|	Objetivos de escalabilidad|	[¿Se aproxima a los objetivos de escalabilidad para entidades por segundo?](#subheading24)
-|Tablas|	Configuración|	[¿Usa JSON para sus solicitudes de tabla?](#subheading25)
-|Tablas|	Configuración|	[¿Ha desactivado el algoritmo de Nagle para mejorar el rendimiento de solicitudes pequeñas?](#subheading26)
-|Tablas|	Tablas y particiones|	[¿Ha particionado sus datos correctamente?](#subheading27)
-|Tablas|	Particiones calientes|	[¿Evita los patrones Solo anexar y Solo anteponer?](#subheading28)
-|Tablas|	Particiones calientes|	[¿Se despliegan sus inserciones y actualizaciones por muchas particiones?](#subheading29)  
-|Tablas|	Ámbito de las consultas|	[¿Ha diseñado su esquema para permitir el uso de consultas puntuales en la mayoría de los casos y el uso de consultas de tabla con moderación?](#subheading30)
-|Tablas|	Densidad de las consultas|	[¿Normalmente sus consultas solamente examinan y devuelven filas que usará su aplicación?](#subheading31)
-|Tablas|	Limitación de datos devueltos|	[¿Usa filtros para evitar la devolución de entidades que no se necesitan?](#subheading32)
-|Tablas|	Limitación de datos devueltos|	[¿Usa proyección para evitar la devolución de propiedades que no se necesitan?](#subheading33)
-|Tablas|	Desnormalización|	[¿Ha desnormalizado los datos de forma que evite consultas ineficientes o varias solicitudes de lectura cuando intenta obtener datos?](#subheading34)
-|Tablas|	Inserción, actualización y eliminación|	[¿Procesa por lotes solicitudes que necesitan ser transaccionales o se pueden realizar al mismo tiempo para reducir recorridos de ida y vuelta?](#subheading35)
-|Tablas|	Inserción, actualización y eliminación|	[¿Evita la recuperación de una entidad simplemente para determinar si llama a la inserción o a la actualización?](#subheading36)
-|Tablas|	Inserción, actualización y eliminación|	[¿Ha pensado en almacenar series de datos que se recuperarán frecuentemente de forma conjunta en una sola entidad como propiedades en lugar de varias entidades?](#subheading37)
-|Tablas|	Inserción, actualización y eliminación|	[Para entidades que siempre se recuperarán conjuntamente y que se pueden escribir en lotes (por ejemplo, datos de serie de temporales), ¿ha pensado en usar blobs en lugar de tablas?](#subheading38)
-|Colas|	Objetivos de escalabilidad|	[¿Se aproxima a los objetivos de escalabilidad para mensajes por segundo?](#subheading39)
-|Colas|	Configuración|	[¿Ha desactivado el algoritmo de Nagle para mejorar el rendimiento de solicitudes pequeñas?](#subheading40)
-|Colas|	Tamaño de los mensajes|	[¿Son sus mensajes compactos para mejorar el rendimiento de la cola?](#subheading41)
-|Colas|	Recuperación en masa|	[¿Recupera varios mensajes en una sola operación "Get"?](#subheading41)
-|Colas|	Frecuencia de sondeo|	[¿Realiza sondeos con la suficiente frecuencia para reducir la latencia percibida de su aplicación?](#subheading42)
-|Colas|	Actualizar mensaje|	[¿Usa UpdateMessage para almacenar el progreso en mensajes de procesamiento evitando tener que volver a procesar todo el mensaje si se produce un error?](#subheading43)
-|Colas|	Arquitectura|	[¿Usa colas para hacer que toda su aplicación sea más escalable manteniendo cargas de trabajo de ejecución prolongada fuera de la ruta de acceso crítica y escala después de forma independiente?](#subheading44)
+||Todos los servicios|	Objetivos de escalabilidad|[¿Está su aplicación diseñada para evitar aproximarse a los objetivos de escalabilidad?](#subheading1)
+||Todos los servicios|	Redes|	[¿Tienen los dispositivos del cliente un ancho de banda grande y una latencia baja suficientes como para lograr el rendimiento necesario?](#subheading2)
+||Todos los servicios|	Redes|	[¿Tienen los dispositivos del lado cliente un enlace con una calidad suficientemente alta?](#subheading3)
+||Todos los servicios|	Redes|	[¿Está la aplicación cliente ubicada "cerca" de la cuenta de almacenamiento?](#subheading4)
+||Todos los servicios|	Distribución de contenido|	[¿Usa una red CDN para distribución de contenido?](#subheading5)
+||Todos los servicios|	Acceso directo del cliente|	[¿Usa SAS y CORS para permitir el acceso directo al almacenamiento en lugar de proxy?](#subheading6)
+||Todos los servicios|	Almacenamiento en caché|	[¿Su aplicación almacena datos en caché que se usan repetidamente y rara vez cambian?](#subheading7)
+||Todos los servicios|	Almacenamiento en caché|	[¿Su aplicación procesa por lotes las actualizaciones (almacenándolas en caché en el cliente y, a continuación, cargándolas en conjuntos más grandes)?](#subheading8)
+||Todos los servicios|	Configuración .NET|	[¿Ha configurado el cliente para usar un número suficiente de conexiones simultáneas?](#subheading9)
+||Todos los servicios|	Configuración .NET|	[¿Ha configurado .NET para usar un número suficiente de subprocesos?](#subheading10)
+||Todos los servicios|	Configuración .NET|	[¿Usa .NET 4.5 o posterior, que ha mejorado la recolección de elementos no usados?](#subheading11)
+||Todos los servicios|	Paralelismo|	[¿Se ha asegurado de que el paralelismo está vinculado correctamente de forma que no se sobrecarguen las capacidades del cliente o los objetivos de escalabilidad?](#subheading12)
+||Todos los servicios|	Herramientas|	[¿Usa la versión más reciente de las herramientas y bibliotecas de cliente proporcionadas por Microsoft?](#subheading13)
+||Todos los servicios|	Reintentos|	[¿Usa una directiva de reintentos de retroceso exponencial para errores de limitación y tiempos de espera?](#subheading14)
+||Todos los servicios|	Reintentos|	[¿Evita su aplicación reintentos para errores que no se pueden reintentar?](#subheading15)
+||Blobs|	Objetivos de escalabilidad|	[¿Tiene un gran número de clientes que acceden simultáneamente a un único objeto?](#subheading46)
+||Blobs|	Objetivos de escalabilidad|	[¿Permanece su aplicación dentro del ancho de banda o de los objetivos de escalabilidad de las operaciones para un solo blob?](#subheading16)
+||Blobs|	Copia de blobs|	[¿Copia blobs de una manera eficiente?](#subheading17)
+||Blobs|	Copia de blobs|	[¿Usa AzCopy para copias de blobs en masa?](#subheading18)
+||Blobs|	Copia de blobs|	[¿Usa Importación/Exportación de Microsoft Azure para transferir grandes volúmenes de datos?](#subheading19)
+||Blobs|	Usar metadatos|	[¿Almacena metadatos usados frecuentemente acerca de blobs en los metadatos de estos?](#subheading20)
+||Blobs|	Carga rápida|	[Cuando intenta cargar un blob rápidamente, ¿carga blobs en paralelo?](#subheading21)
+||Blobs|	Carga rápida|	[Cuando intenta cargar muchos blobs rápidamente, ¿carga blobs en paralelo?](#subheading22)
+||Blobs|	Tipo de blob correcto|	[¿Usa blobs en páginas o blobs en bloques cuando es apropiado?](#subheading23)
+||Tablas|	Objetivos de escalabilidad|	[¿Se aproxima a los objetivos de escalabilidad para entidades por segundo?](#subheading24)
+||Tablas|	Configuración|	[¿Usa JSON para sus solicitudes de tabla?](#subheading25)
+||Tablas|	Configuración|	[¿Ha desactivado el algoritmo de Nagle para mejorar el rendimiento de solicitudes pequeñas?](#subheading26)
+||Tablas|	Tablas y particiones|	[¿Ha particionado sus datos correctamente?](#subheading27)
+||Tablas|	Particiones calientes|	[¿Evita los patrones Solo anexar y Solo anteponer?](#subheading28)
+||Tablas|	Particiones calientes|	[¿Se despliegan sus inserciones y actualizaciones por muchas particiones?](#subheading29)  
+||Tablas|	Ámbito de las consultas|	[¿Ha diseñado su esquema para permitir el uso de consultas puntuales en la mayoría de los casos y el uso de consultas de tabla con moderación?](#subheading30)
+||Tablas|	Densidad de las consultas|	[¿Normalmente sus consultas solamente examinan y devuelven filas que usará su aplicación?](#subheading31)
+||Tablas|	Limitación de datos devueltos|	[¿Usa filtros para evitar la devolución de entidades que no se necesitan?](#subheading32)
+||Tablas|	Limitación de datos devueltos|	[¿Usa proyección para evitar la devolución de propiedades que no se necesitan?](#subheading33)
+||Tablas|	Desnormalización|	[¿Ha desnormalizado los datos de forma que evite consultas ineficientes o varias solicitudes de lectura cuando intenta obtener datos?](#subheading34)
+||Tablas|	Inserción, actualización y eliminación|	[¿Procesa por lotes solicitudes que necesitan ser transaccionales o se pueden realizar al mismo tiempo para reducir recorridos de ida y vuelta?](#subheading35)
+||Tablas|	Inserción, actualización y eliminación|	[¿Evita la recuperación de una entidad simplemente para determinar si llama a la inserción o a la actualización?](#subheading36)
+||Tablas|	Inserción, actualización y eliminación|	[¿Ha pensado en almacenar series de datos que se recuperarán frecuentemente de forma conjunta en una sola entidad como propiedades en lugar de varias entidades?](#subheading37)
+||Tablas|	Inserción, actualización y eliminación|	[Para entidades que siempre se recuperarán conjuntamente y que se pueden escribir en lotes (por ejemplo, datos de serie de temporales), ¿ha pensado en usar blobs en lugar de tablas?](#subheading38)
+||Colas|	Objetivos de escalabilidad|	[¿Se aproxima a los objetivos de escalabilidad para mensajes por segundo?](#subheading39)
+||Colas|	Configuración|	[¿Ha desactivado el algoritmo de Nagle para mejorar el rendimiento de solicitudes pequeñas?](#subheading40)
+||Colas|	Tamaño de los mensajes|	[¿Son sus mensajes compactos para mejorar el rendimiento de la cola?](#subheading41)
+||Colas|	Recuperación en masa|	[¿Recupera varios mensajes en una sola operación "Get"?](#subheading42)
+||Colas|	Frecuencia de sondeo|	[¿Realiza sondeos con la suficiente frecuencia para reducir la latencia percibida de su aplicación?](#subheading43)
+||Colas|	Actualizar mensaje|	[¿Usa UpdateMessage para almacenar el progreso en mensajes de procesamiento evitando tener que volver a procesar todo el mensaje si se produce un error?](#subheading44)
+||Colas|	Arquitectura|	[¿Usa colas para hacer que toda su aplicación sea más escalable manteniendo cargas de trabajo de ejecución prolongada fuera de la ruta de acceso crítica y escala después de forma independiente?](#subheading45)
 
 
 ##<a name="allservices"></a>Todos los servicios
@@ -102,7 +103,10 @@ Si su aplicación se aproxima a los objetivos de escalabilidad para una sola cue
 -	Si su aplicación alcanza los objetivos de escalabilidad, asegúrese de usar un retroceso exponencial para reintentos (consulte [Reintentos](#subheading14)). Es mejor asegurarse de que nunca se aproxima a los objetivos de escalabilidad (usando uno de los métodos anteriores), pero esto garantizará que la aplicación no sigue realizando reintentos rápidamente, empeorando la limitación.  
 
 ####Recursos útiles
-Los vínculos siguientes ofrecen detalles adicionales sobre los objetivos de escalabilidad: - Vea [Objetivos de escalabilidad y rendimiento de Almacenamiento de Azure](storage-scalability-targets.md) para obtener información sobre los objetivos de escalabilidad. - Vea [Replicación de Almacenamiento de Azure](storage-redundancy.md) y la entrada de blog [Opciones de redundancia de Almacenamiento de Azure y almacenamiento con redundancia geográfica de acceso de lectura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) para obtener información sobre las opciones de redundancia de almacenamiento. - Para obtener información actualizada sobre los precios de los servicios de Azure, vea [Precios de Azure](https://azure.microsoft.com/pricing/overview/).
+Los siguientes vínculos proporcionan detalles adicionales sobre objetivos de escalabilidad:
+-	Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md) para obtener más información acerca de los objetivos de escalabilidad.
+-	Consulte [Replicación de almacenamiento de Azure](storage-redundancy.md) y la entrada de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) (Opciones de redundancia de Almacenamiento de Azure y almacenamiento con redundancia geográfica con acceso de lectura) para obtener información acerca de las opciones de redundancia de almacenamiento.
+-	Para obtener información actual acerca de los precios de los servicios de Azure, consulte [Precios de Azure](https://azure.microsoft.com/pricing/overview/).  
 
 ###Redes
 Si bien las llamadas de API son importantes, a menudo las restricciones de red físicas de la aplicación tienen un impacto significativo en el rendimiento. A continuación se describen algunas de las limitaciones que pueden encontrar los usuarios.
@@ -115,7 +119,7 @@ Para el ancho de banda, el problema suele residir en las capacidades del cliente
 Como con cualquier uso de red, sea consciente de que las condiciones de la red dan lugar a errores y la pérdida de paquetes reducirá el rendimiento efectivo. El uso de WireShark o NetMon puede ayudar a diagnosticar este problema.
 
 #####Recursos útiles
-Para obtener información sobre los tamaños de máquina virtual y el ancho de banda asignado, vea [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-size-specs.md).
+Para obtener información sobre los tamaños de máquina virtual y el ancho de banda asignado, vea [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-linux-sizes.md).
 
 ####<a name="subheading4"></a>Ubicación
 En cualquier entorno distribuido, la ubicación del cliente cerca del servidor ofrece el mejor rendimiento. Para acceder a Almacenamiento de Azure con la mínima latencia, la mejor ubicación para el cliente es dentro de la misma región de Azure. Por ejemplo, si tiene un sitio web Azure que usa Almacenamiento de Azure, debe colocar ambos dentro de una sola región (por ejemplo Oeste de EE. UU. o Sudeste de Asia). Esto reduce la latencia y el costo (en el momento de escribir estas líneas, el uso de ancho de banda dentro de una sola región es gratuito).
@@ -200,6 +204,15 @@ Para obtener más información acerca de los códigos de error de almacenamiento
 Además de las prácticas probadas para [Todos los servicios](#allservices) descritas anteriormente, las siguientes prácticas probadas se aplican específicamente al servicio BLOB.
 
 ###Objetivos de escalabilidad específicos de blob
+
+####<a name="subheading46"></a>Acceso simultáneo a un único objeto por parte de varios clientes
+Si tiene un gran número de clientes que acceden de forma simultánea a un único objeto, debe considerar los objetivos de escalabilidad por objeto y por cuenta de almacenamiento. El número exacto de los clientes que pueden tener acceso a un único objeto variará en función de factores como el número de clientes que soliciten el objeto simultáneamente, el tamaño del objeto o las condiciones de la red, entre otros.
+
+Si el objeto se puede distribuir a través de una red CDN, como imágenes o vídeos procedentes de un sitio web, deberá utilizar una CDN. Consulte [aquí](#subheading5).
+
+En otros escenarios, como las simulaciones científicas, donde los datos son confidenciales, tiene dos opciones. La primera es escalonar el acceso a la carga de trabajo para que se acceda al objeto durante un período de tiempo determinado, en lugar de acceder simultáneamente. Como alternativa, puede copiar el objeto temporalmente en varias cuentas de almacenamiento, lo que aumenta el número total de IOPS por objeto y entre cuentas de almacenamiento. En algunas pruebas descubrimos que unas 25 VM podrían descargar simultáneamente un blob de 100 GB en paralelo (cada VM ha puesto en paralelo la descarga mediante 32 subprocesos). Si tiene 100 clientes que necesitan tener acceso al objeto, primero cópielo en una segunda cuenta de almacenamiento y después permita que el primer grupo de 50 VM acceda al primer blob y que el segundo grupo de 50 VM acceda al segundo blob. Los resultados varían según el comportamiento de las aplicaciones, por lo que debe realizar las pruebas durante el diseño.
+
+
 ####<a name="subheading16"></a>Ancho de banda y operaciones por blob
 Puede realizar operaciones de lectura y escritura en un solo blob a una velocidad máxima de 60 MB/segundos (lo que equivale a 480 Mbps aproximadamente, lo cual supera las capacidades de muchas redes de cliente, incluida la tarjeta NIC física del dispositivo cliente). Además, un solo blob admite hasta 500 solicitudes por segundo. Si tiene varios clientes que necesitan leer el mismo blob y podría superar estos límites, debe plantearse el uso de una red CDN para distribuir dicho blob.
 
@@ -243,7 +256,7 @@ Para cargar muchos blobs rápidamente, cárguelos en paralelo. Este método es m
 ###<a name="subheading23"></a>Elección del tipo correcto de blob
 Almacenamiento de Azure admite dos tipos de blobs: de *página* y de *bloque*. Para un escenario de uso dado, el tipo de blob que elija afectará al rendimiento y escalabilidad de la solución. Los blobs en bloques son apropiados si desea cargar eficazmente grandes cantidades de datos: por ejemplo, una aplicación cliente puede necesitar cargar fotos o vídeos al almacenamiento de blobs. Los blobs de página son apropiados si la aplicación necesita realizar operaciones de escritura aleatorias en los datos: por ejemplo, los discos duros virtuales de Azure se almacenan como blobs de página.
 
-Para obtener más información, consulte [Introducción a los blobs en bloques, los blobs de anexión y los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Para obtener más información, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ##Tablas
 Además de las prácticas probadas para [Todos los servicios](#allservices) descritas anteriormente, las siguientes prácticas probadas se aplican específicamente al servicio Tabla.
@@ -380,6 +393,5 @@ Debe usar colas para que la arquitectura de la aplicación sea escalable. A cont
 
 ##Conclusión
 En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa el Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas aplicaciones que usan el Almacenamiento de Azure.
- 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

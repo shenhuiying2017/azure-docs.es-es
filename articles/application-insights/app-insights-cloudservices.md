@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="11/15/2015"
+   ms.date="03/02/2016"
    ms.author="sdash"/>
 
 # Application Insights para los Servicios en la nube de Azure
@@ -171,13 +171,17 @@ Pero si ya usa los marcos Log4N o NLog, también puede [capturar sus seguimiento
 
 El SDK de Application Insights puede notificar llamadas realizadas por la aplicación a dependencias externas, como API de REST y servidores SQL Server. Esto permite ver si una dependencia específica causa respuestas lentas o errores.
 
-Para realizar un seguimiento de las dependencias, tendrá que configurar el rol web/trabajo con el [Agente Application Insights](app-insights-monitor-performance-live-website-now.md), también denominado "Monitor de estado".
+Si la aplicación utiliza .NET Framework 4.6 o posterior, no es necesario hacer nada más.
+
+De lo contrario, tendrá que configurar el rol web o de trabajo con el [Agente Application Insights](app-insights-monitor-performance-live-website-now.md), también denominado "Monitor de estado".
 
 Para utilizar al agente de Application Insights con los roles web/trabajo:
 
 * Agregue la carpeta [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) y los dos archivos en ella a los proyectos de roles web/trabajo. Asegúrese de establecer sus propiedades de compilación para que siempre se copien en el directorio de salida. Estos archivos instalan el agente.
 * Agregue la tarea de inicio para el archivo CSDEF como se muestra [aquí](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18).
 * Nota: los *roles de trabajo* requieren tres variables de entorno, como se muestra [aquí](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44). No es obligatorio para roles web.
+
+### Informes de dependencia
 
 Se trata de un ejemplo de lo que se ve en el portal de Application Insights:
 
@@ -277,10 +281,9 @@ Eso es todo. La experiencia del portal ya está dispuesta para ayudarle a ver la
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

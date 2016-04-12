@@ -252,7 +252,7 @@ El ejemplo siguiente devuelve todas las ubicaciones admitidas para cada tipo de 
 
     azure location list
 
-También puede filtrar los resultados de ubicación con una herramienta como **jq**. Para obtener información sobre herramientas como jq, consulte [Herramientas útiles para interactuar con Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+También puede filtrar los resultados de ubicación con una utilidad JSON como [jq](https://stedolan.github.io/jq/).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -304,4 +304,4 @@ Puede abrir el archivo y buscar el elemento **apiVersions**.
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

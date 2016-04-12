@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -38,27 +38,27 @@ Para completar este tutorial, necesitará lo siguiente:
 
 2. Haga clic en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de eventos** y, finalmente, en **Creación rápida**.
 
-   	![][1]
+	![][1]
 
 3. Escriba un nombre para el centro de eventos, seleccione la región deseada y, a continuación, haga clic en **Crear un centro de eventos**.
 
-   	![][2]
+	![][2]
 
 4. Haga clic en el espacio de nombres que acaba de crear (normalmente ***nombre del centro de eventos*-ns**).
 
-   	![][3]
+	![][3]
 
 5. Haga clic en la pestaña **Centros de eventos** en la parte superior de la página y, a continuación, haga clic en el centro de eventos que acaba de crear.
 
-   	![][4]
+	![][4]
 
 6. Haga clic en la pestaña **Configurar** en la parte superior, agregue una regla llamada **SendRule** con derechos para *enviar*, agregue otra regla llamada **ReceiveRule** con derechos para *administrar, enviar y escuchar* y luego haga clic en **Guardar**.
 
-   	![][5]
+	![][5]
 
 7. Haga clic en la pestaña **Panel** en la parte superior de la página y, a continuación, haga clic en **Información de conexión**. Anote las cadenas de conexión o cópielas en algún sitio para usarlas más tarde en este tutorial.
 
-   	![][6]
+	![][6]
 
 Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos.
 
@@ -73,11 +73,11 @@ Ya está preparado para ejecutar las aplicaciones.
 
 1.	Desde Visual Studio, ejecute el proyecto **Receiver** y espere a que inicie los receptores para todas las particiones.
 
-   	![][21]
+	![][21]
 
 2.	Ejecute el proyecto **Sender**, presione **Entrar** en las ventanas de la consola y verá que los eventos aparecen en la ventana del receptor.
 
-   	![][22]
+	![][22]
 
 ## Pasos siguientes
 
@@ -105,7 +105,7 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [Información general de los Centros de eventos]: event-hubs-overview.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

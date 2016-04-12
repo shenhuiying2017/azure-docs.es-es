@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # Creación de particiones de datos en DocumentDB con el SDK de .NET
 
-Azure DocumentDB es un servicio de base de datos de documentos que le permite escalar fácilmente su cuenta a través del aprovisionamiento de colecciones utilizando los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) y las [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (proceso también conocido como **sharding o particionamiento**). Para que sea más fácil desarrollar aplicaciones con particiones y reducir la cantidad de código reutilizable necesario para las tareas de creación de particiones, hemos agregado una funcionalidad en el SDK de .NET., Node.js y Java que simplifica la creación de aplicaciones que se escalan horizontalmente entre varias particiones.
+Azure DocumentDB admite recopilaciones que se pueden escalar verticalmente para lograr [grandes volúmenes de almacenamiento y rendimiento](documentdb-partition-data.md). Sin embargo, hay casos donde resulta ventajoso tener un control específico sobre el comportamiento de la creación de particiones. Para reducir la cantidad de código reutilizable necesario en las tareas de creación de particiones, agregamos una función en el SDK de .NET., Node.js y Java que simplifica la compilación de aplicaciones que se escalan horizontalmente en varias colecciones.
 
 En este artículo, nos fijaremos en las clases e interfaces del SDK de .NET y en su uso para desarrollar aplicaciones con particiones.
 
@@ -26,8 +26,8 @@ En este artículo, nos fijaremos en las clases e interfaces del SDK de .NET y en
 
 Antes de profundizar más en la creación de particiones, resumamos algunos conceptos básicos de DocumentDB relacionados con ello. Toda cuenta de base de datos de Azure DocumentDB consta de un conjunto de bases de datos, cada una con varias recopilaciones. Cada recopilación puede contener, a su vez, procedimientos almacenados, desencadenadores, UDF, documentos y datos adjuntos relacionados. Las colecciones se pueden tratar como particiones en DocumentDB y tienen las siguientes propiedades:
 
-- Las colecciones son particiones físicas, no solo contenedores lógicos. Por lo tanto, el rendimiento es mejor al consultar o procesar documentos que se encuentran en la misma colección.
-- Las colecciones son el límite para transacciones ACID; por ejemplo, procedimientos almacenados y desencadenadores.
+- Las colecciones permiten aislar el rendimiento. Por lo tanto, intercalar documentos similares dentro de la misma colección mejora el rendimiento. Por ejemplo, para los datos de series temporales, puede colocar los datos relativos al último mes, que se consultan con frecuencia, dentro de una colección con un mayor rendimiento aprovisionado, mientras que los datos más antiguos se pueden colocar en colecciones con bajo rendimiento aprovisionado.
+- Las transacciones ACID (es decir, los procedimientos almacenados y los desencadenadores) no pueden abarcar una colección. Las transacciones tienen el ámbito de un valor de clave de partición única dentro de una colección.
 - Las colecciones no aplican un esquema, por lo que se pueden utilizar para documentos JSON del mismo tipo o de tipos diferentes.
 
 A partir de la versión [1\.1.0 del SDK de .NET de Azure DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), puede realizar operaciones de documento directamente en una base de datos. Internamente, [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) utiliza el valor de PartitionResolver que ha especificado para la base de datos para enrutar las solicitudes a la colección adecuada.
@@ -134,12 +134,11 @@ Los ejemplos son de código abierto y le animamos a que envíe solicitudes de ex
 >[AZURE.NOTE] Las creaciones de colección tienen la velocidad limitada por DocumentDB, por lo que algunos de los métodos de ejemplo que se muestran a continuación pueden tardar unos minutos en completarse.
 
 ##P+F
-**¿Por qué DocumentDB admite la creación de particiones de cliente frente a la creación de particiones de servidor?**
+** ¿DocumentDB permite crear particiones en el lado de servidor? **
 
-DocumentDB admite la creación de particiones de cliente debido a un par de motivos:
+Sí, DocumentDB permite [crear particiones en el lado de servidor](documentdb-partition-data.md). En los casos de uso más avanzados, DocumentDB también permite la creación de particiones en el lado de cliente a través de solucionadores de partición del lado de cliente.
 
-- Es muy difícil abstraer el concepto de una colección a partir de desarrolladores sin poner en peligro una de las tres garantías de consultas/indizado coherente, alta disponibilidad y transacción ACID. 
-- Las bases de datos de documentos a menudo requieren flexibilidad en cuanto a la definición de estrategias para la creación de particiones, lo cual es posible que resulte difícil de asumir en un enfoque del lado servidor. 
+** ¿Cuándo debo usar la creación de particiones del lado de servidor y cuándo la del lado de cliente?** En la mayoría de los casos, le recomendamos que use la creación de particiones del lado de servidor, que gestiona las tareas administrativas de creación de particiones de datos y de enrutamiento de solicitudes. Sin embargo, si necesita crear particiones por rangos o tiene un caso de uso especializado para aislar el rendimiento entre valores distintos de claves de partición, entonces sería mejor la creación de particiones del lado de cliente.
 
 **¿Cómo se puede agregar una colección a mi esquema de creación de particiones o quitarla del mismo?**
 
@@ -154,13 +153,13 @@ Puede serializar el estado particionador como JSON y almacenarlo en archivos de 
 Puede encadenar PartitionResolvers implementando su propio valor de IPartitionResolver que utilice internamente uno o varios solucionadores existentes. Eche un vistazo a TransitionHashPartitionResolver en el proyecto de ejemplos para ver un caso de este tipo.
 
 ##Referencias
-* [Creación de particiones en ejemplos de código en Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
-* [Conceptos de creación de particiones de datos con DocumentDB](documentdb-partition-data.md)
+* [Creación de particiones de datos con DocumentDB](documentdb-partition-data.md)
 * [Colecciones y niveles de rendimiento de DocumentDB](documentdb-performance-levels.md)
+* [Creación de particiones en ejemplos de código en Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
 * [Documentación del SDK de .NET de DocumentDB en MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Límites de DocumentDB](documentdb-limits.md)
 * [Blog de DocumentDB sobre sugerencias de rendimiento](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

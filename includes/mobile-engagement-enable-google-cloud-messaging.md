@@ -1,4 +1,7 @@
->[AZURE.NOTE]Para llevar a cabo este procedimiento, debe tener una cuenta de Google asociada a una dirección de correo electrónico comprobada. Para crear una cuenta de Google, vaya a <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+
+###Creación de un proyecto del Servicio de mensajería en la nube de Google con clave de API
+
+>[AZURE.NOTE] Para llevar a cabo este procedimiento, debe tener una cuenta de Google asociada a una dirección de correo electrónico comprobada. Para crear una cuenta de Google, vaya a <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 1. Diríjase al sitio web [Google Cloud Console](https://console.developers.google.com/project), inicie sesión con las credenciales de su cuenta de Google y, a continuación, haga clic en **Crear proyecto**.
 
@@ -31,4 +34,4 @@
 
 7. Anote el valor de **API KEY** (Clave de API). Usará este valor de clave de API más adelante para configurar la sección de inserción nativa.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0330_2016-->

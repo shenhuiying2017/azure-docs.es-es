@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Grupo de bases de datos elásticas para bases de datos SQL | Microsoft Azure"
 	description="Descubra cómo puede dominar el crecimiento explosivo de sus bases de datos SQL mediante los grupos de bases de datos elásticas; una manera de compartir los recursos disponibles en gran cantidad de bases de datos."
-	keywords="base de datos elástica, bases de datos SQL"	
+	keywords="base de datos elástica, bases de datos SQL"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/11/2016"
+	ms.date="03/24/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -20,7 +20,7 @@
 
 # Domine el crecimiento explosivo de las Bases de datos SQL, gracias a bases de datos elásticas que le permitirán compartir recursos
 
-Un desarrollador de SaaS debe crear y administrar decenas, cientos o incluso miles de bases de datos SQL. Los grupos elásticos simplifican la creación, el mantenimiento y la administración del rendimiento entre estas bases de datos dentro de un presupuesto controlado. Agregue o quite bases de datos del grupo a voluntad. [Cree un grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md) para sus bases de datos SQL en cuestión de minutos mediante el Portal de Microsoft Azure, [PowerShell](sql-database-elastic-pool-powershell.md) o [C#](sql-database-elastic-pool-csharp.md).
+Un desarrollador de SaaS debe crear y administrar decenas, cientos o incluso miles de bases de datos SQL. Los grupos elásticos simplifican la creación, el mantenimiento y la administración del rendimiento entre estas bases de datos dentro de un presupuesto controlado. Agregue o quite bases de datos del grupo a voluntad. Consulte [Creación de un grupo de bases de datos elásticas escalables para Bases de datos SQL en el Portal de Azure](sql-database-elastic-pool-create-portal.md), [Creación de un grupo de bases de datos elásticas (PowerShell)](sql-database-elastic-pool-powershell.md) o [Creación de un grupo de bases de datos elásticas (C#)](sql-database-elastic-pool-csharp.md).
 
 Para ver información detallada sobre las API y los errores, consulte [Referencia de grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool-reference.md).
 
@@ -63,9 +63,9 @@ Actualmente en la vista previa, las bases de datos elásticas admiten la mayorí
 
 El sistema realiza automáticamente copias de seguridad de las bases de datos del grupo de bases de datos elásticas y la directiva de retención de copias de seguridad es la misma que el nivel de servicio correspondiente de la de las bases de datos únicas. En resumen, las bases de datos de cada nivel tienen un intervalo de restauración diferente:
 
-* **Grupo Basic**: posibilidad de restauración en cualquier punto dentro de los últimos 7 días. 
+* **Grupo Basic**: posibilidad de restauración en cualquier punto dentro de los últimos 7 días.
 * **Grupo Standard**: posibilidad de restauración en cualquier punto dentro de los últimos 14 días.
-* **Grupo Premium**: posibilidad de restauración en cualquier punto dentro de los últimos 35 días. 
+* **Grupo Premium**: posibilidad de restauración en cualquier punto dentro de los últimos 35 días.
 
 Durante la vista previa, se restaurarán las bases de datos de un grupo a una nueva base de datos del mismo grupo. Las bases de datos quitadas siempre se restaurarán como bases de datos independientes fuera del grupo en el nivel de rendimiento más bajo de ese nivel de servicio. Por ejemplo, una base de datos elástica de un grupo estándar que se quita se restaurará como base de datos de S0. Las operaciones de restauración de bases de datos pueden realizarse a través del Portal de Azure o mediante programación con la API de REST. Los cmdlet de PowerShell podrán utilizarse próximamente.
 
@@ -86,4 +86,4 @@ No se admite la exportación de una base de datos desde un grupo. Actualmente, n
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

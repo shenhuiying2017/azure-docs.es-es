@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="03/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Instalación personalizada de Azure AD Connect
@@ -68,7 +68,7 @@ Si recibe un error y tiene problemas de conectividad, consulte [Solución de pro
 ## Páginas bajo la sección Sincronización
 
 ### Conectar sus directorios
-Para conectarse al Servicio de dominio de Active Directory, Azure AD Connect necesita las credenciales de una cuenta con permisos suficientes. Esta cuenta puede ser una cuenta de usuario normal porque solo tiene los permisos de lectura predeterminados. Sin embargo, según el escenario, puede que necesite permisos adicionales. Para obtener más información, consulte [Permisos y cuentas de Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account).
+Para conectarse al Servicio de dominio de Active Directory, Azure AD Connect necesita las credenciales de una cuenta con permisos suficientes. Puede escribir la parte del dominio con el formato NetBios o FQDN, es decir, FABRIKAM\\syncuser o fabrikam.com\\syncuser. Esta cuenta puede ser una cuenta de usuario normal porque solo tiene los permisos de lectura predeterminados. Sin embargo, según el escenario, puede que necesite permisos adicionales. Para obtener más información, consulte [Permisos y cuentas de Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account).
 
 ![Directorio de conexión](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
@@ -131,6 +131,8 @@ En función de los servicios seleccionados en el paso anterior, esta página mos
 
 ![Características opcionales](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
 
+>[AZURE.WARNING] Quitar atributos puede afectar a la funcionalidad. Para ver los procedimientos recomendados, consulte [Atributos que sincronizar](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
+
 ### Sincronización de atributos de las extensiones de directorios
 Con las extensiones de directorios puede extender el esquema en Azure AD con atributos personalizados agregados por la organización o con otros atributos de Active Directory. Para utilizar esta característica, seleccione **Sincronización de atributos de las extensiones de directorios** en la página **Características opcionales**. Accederá a esta página donde podrá seleccionar los atributos adicionales.
 
@@ -150,7 +152,7 @@ Puede utilizar una granja de AD FS existente o crear una nueva granja de AD FS. 
 
 ![Granja de AD FS](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
-**Nota:** Si decide utilizar una granja de servidores existente de AD FS, omitirá algunas páginas y se le dirigirá directamente a la configuración de la relación de confianza entre la pantalla de AD FS y Azure AD.
+**Nota:** Si decide utilizar una granja de servidores de AD FS existente, omitirá algunas páginas y se le dirigirá directamente a la configuración de la relación de confianza entre la pantalla de AD FS y Azure AD.
 
 ### Especificación de los servidores de AD FS
 Aquí deberá especificar los servidores específicos que desea instalar en AD FS. Puede agregar uno o más servidores según su necesidades de planeación de capacidad. Estos servidores deben estar unidos a un dominio de Active Directory antes de realizar esta configuración. Se recomienda instalar un único servidor de AD FS para las implementaciones piloto y de prueba e implementar servidores adicionales abriendo de nuevo Azure AD Connect después de la instalación inicial y la implementación de AD FS en servidores adicionales para satisfacer las necesidades de escalabilidad.
@@ -199,13 +201,13 @@ Al seleccionar el dominio que se va a federar en un directorio local, Azure AD C
 
 ![Dominio de Azure AD](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
 
-> [AZURE.NOTE] AD Connect intenta comprobar el dominio durante la fase de configuración. Si continúa la configuración sin agregar los registros DNS necesarios al lugar en que se hospeda el dominio DNS, el asistente no podrá completar la configuración.</br>
+> [AZURE.NOTE] AD Connect intenta comprobar el dominio durante la fase de configuración. Si continúa la configuración sin agregar los registros de DNS necesarios al lugar en que se hospeda el dominio DNS, el asistente no podrá completar la configuración.</br>
 
 ## Configurar y comprobar páginas
 En esta página realmente se realizará la configuración.
 
 > [AZURE.NOTE]
-Antes continuar la instalación y si configuró la federación, asegúrese de que ha configurado la [resolución de nombres para los servidores de federación](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
+Antes continuar la instalación y si configuró la federación, asegúrese de haber configurado la [Resolución de nombres para los servidores de federación](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
 
 ![Filtrado de sincronización](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -227,9 +229,9 @@ Azure AD Connect comprobará la configuración de DNS al hacer clic en el botón
 
 Además, realice los pasos de comprobación siguientes:
 
-- Validar el inicio de sesión del explorador desde una máquina unida a un dominio desde Internet Explorer desde la intranet: conéctese a https://myapps.microsoft.com y compruebe el inicio de sesión con su cuenta conectada. **Nota:** La cuenta de administrador de AD DS integrada no está sincronizada y no se puede usar para la comprobación.
-- Validar el inicio de sesión del explorador desde cualquier dispositivo desde la extranet: en una máquina doméstico o en un dispositivo móvil, conéctese a https://myapps.microsoft.com y especifique el identificador de inicio de sesión y la contraseña.
-- Validar el inicio de sesión del cliente: conéctese a https://testconnectivity.microsoft.com, elija la pestaña **Office 365** y luego elija **Prueba de inicio de sesión único de Office 365**.
+- Valide el inicio de sesión del explorador desde una máquina unida a un dominio desde Internet Explorer de la intranet: conéctese a https://myapps.microsoft.com y compruebe el inicio de sesión con la cuenta con la que ha iniciado sesión. **Nota:** La cuenta de administrador de AD DS integrada no está sincronizada y no se puede usar para la verificación.
+- Valide el inicio de sesión del explorador desde cualquier dispositivo de la extranet: en una máquina doméstica o un dispositivo móvil, conéctese a https://myapps.microsoft.com y especifique el identificador de inicio de sesión y la contraseña.
+- Valide el inicio de sesión del cliente: conéctese a https://testconnectivity.microsoft.com, elija la pestaña **Office 365** y **Prueba de inicio de sesión único de Office 365**.
 
 ## Pasos siguientes
 Una vez completada la instalación, cierre la sesión e inicie de sesión de nuevo en Windows antes de usar el Administrador del servicio de sincronización o el Editor de reglas de sincronización.
@@ -238,4 +240,4 @@ Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asig
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

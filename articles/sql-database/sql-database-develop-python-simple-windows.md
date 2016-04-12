@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -27,38 +27,20 @@
 Este tema presenta un ejemplo de código escrito en Python. El ejemplo se ejecuta en un equipo Windows. El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador **pymssql**.
 
 
-## Requisitos previos
+## Paso 1: Configuración del entorno de desarrollo
 
+Consulte el artículo [Prerequisites for using the pymssql Python Driver for SQL Server (Requisitos previos para usar el controlador pymssql de Python para SQL Server)](https://msdn.microsoft.com/library/mt694094.aspx#Windows).
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/)
-
-
-### Instalación de los módulos necesarios
-
-
-Instale [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql).
-
-Asegúrese de elegir el archivo whl correcto.
-
-Por ejemplo: si va a usar Python 2.7 en un equipo de 64 bits, elija pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. Una vez descargado el archivo .whl, colóquelo en la carpeta C:/Python27.
-
-A continuación, instale el controlador pymssql con pip desde la línea de comandos. Use el comando cd para tener acceso al directorio C:/Python27 y ejecute lo siguiente
-
-	pip install pymssql‑2.1.1‑cp27‑none‑win_amd64.whl
-
-Puede encontrar instrucciones para habilitar el uso de pip [aquí](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows).
-
-
-### Base de datos SQL
+## Paso 2: Creación de una base de datos SQL
 
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
-## Paso 1: Obtención de detalles de la conexión
+## Paso 3: Obtención de detalles de la conexión
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Paso 2: Conexión
+## Paso 4: Conexión
 
 
 La función [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) se usa para conectarse a la base de datos SQL.
@@ -67,7 +49,7 @@ La función [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) se 
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
-## Paso 3: Ejecución de una consulta
+## Paso 5: Ejecución de una consulta
 
 La función [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) puede usarse para recuperar un conjunto de resultados de una consulta realizada a la base de datos SQL. Esta función acepta cualquier consulta y devuelve un conjunto de resultados que se puede iterar mediante el uso de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -82,7 +64,7 @@ La función [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymss
 	    row = cursor.fetchone()
 
 
-## Paso 4: Inserción de una fila
+## Paso 6: Inserción de una fila
 
 En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
 
@@ -97,17 +79,17 @@ En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.
 	    row = cursor.fetchone()
 
 
-## Paso 5: Reversión de una transacción
+## Paso 7: Reversión de una transacción
 
 
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
 
 
-- Iniciar una transacción
+-Iniciar una transacción
 
-- Insertar una fila de datos
+-Insertar una fila de datos
 
-- Revertir la transacción para deshacer la inserción
+-Revertir la transacción para deshacer la inserción
 
 
 	import pymssql
@@ -121,4 +103,4 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 
 Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

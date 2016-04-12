@@ -1,29 +1,29 @@
-<properties 
-   pageTitle="Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL | Microsoft Azure" 
-   description="Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL | Microsoft Azure"
+   description="Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
-# Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL 
+
+# Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL
 La auditoría de Almacenamiento de datos SQL de Azure realiza el seguimiento de los eventos de base de datos y escribe los eventos auditados en un registro de auditoría en la cuenta de Almacenamiento de Azure.
 
 La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 
 Las herramientas de auditoría posibilitan y facilitan la observancia de estándares reguladores pero no garantizan el cumplimiento. Para obtener más información acerca de los programas de Azure compatibles con el cumplimiento de estándares, consulte el <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centro de confianza de Azure</a>.
 
-+ [Conceptos básicos de auditoría de Base de datos] 
++ [Conceptos básicos de auditoría de Base de datos]
 + [Configuración de la auditoría para su base de datos]
 + [Análisis de registros e informes de auditoría]
 
@@ -66,7 +66,7 @@ Antes de configurar la auditoría, compruebe si usa un ["Cliente de nivel inferi
 	![][1]
 
 3. En la hoja de configuración de auditoría, desactive primero la casilla **Heredar la configuración de auditoría del servidor**. Esto permite especificar la configuración de una base de datos determinada.
-	
+
 	![][2]
 
 4. A continuación, para habilitar la auditoría, haga clic en el botón **ACTIVADO**.
@@ -103,7 +103,7 @@ Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de 
 
 ##<a id="subheading-4">Prácticas para el uso en producción</a>
 La descripción de esta sección se refiere a las capturas de pantalla anteriores. Se puede usar tanto el <a href="https://portal.azure.com" target="_blank">Portal de Azure</a> como el <a href= "https://manage.windowsazure.com/" target="_bank">Portal de Azure clásico</a>.
- 
+
 
 ##<a id="subheading-5"></a>Regeneración de clave de almacenamiento
 
@@ -116,11 +116,11 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 3. Vuelva a la hoja de configuración de auditoría, cambie la **Clave de acceso de almacenamiento** de *Secundaria* a *Principal* y presione **GUARDAR**.
 
 4. Vuelva a la interfaz de usuario de almacenamiento y **regenere** la *Clave de acceso secundaria* (como preparación para el siguiente ciclo de actualización de las claves).
-  
+
 ##<a id="subheading-6"></a>Automatización
 Hay varios cmdlets de PowerShell que puede usar para configurar la auditoría en la base de datos de SQL de Azure. Para acceder a los cmdlets de auditoría debe ejecutar PowerShell en el modo del Administrador de recursos de Azure.
 
-> [AZURE.NOTE]El módulo [Administrador de recursos de Azure](https://msdn.microsoft.com/library/dn654592.aspx) se encuentra disponible actualmente en modo de vista previa. Puede que no ofrezca las mismas capacidades de administración que el módulo de Azure.
+> [AZURE.NOTE] El módulo [Administrador de recursos de Azure](https://msdn.microsoft.com/library/dn654592.aspx) se encuentra disponible actualmente en modo de vista previa. Puede que no ofrezca las mismas capacidades de administración que el módulo de Azure.
 
 Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command *AzureSql*` para enumerar los cmdlets disponibles.
 
@@ -141,4 +141,4 @@ Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de canalizaciones predictivas con la actividad Ejecución de lotes de Aprendizaje automático de Azure | Microsoft Azure" 
+	pageTitle="Uso de las actividades de Aprendizaje automático | Microsoft Azure" 
 	description="Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Aprendizaje automático de Azure" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -296,7 +296,7 @@ También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com
 ### Uso de un módulo lector para leer datos de varios archivos de blob de Azure
 Las canalizaciones de macrodatos (Pig, Hive, etc...) pueden generar uno o más archivos de salida sin extensiones. Por ejemplo, cuando se especifica una tabla externa de Hive, los datos de dicha tabla se pueden almacenar en el almacenamiento de blobs de Azure con el siguiente nombre 000000\_0. Puede usar el módulo lector en un experimento para leer varios archivos y usarlos para realizar predicciones.
 
-Al usar el módulo lector en un experimento de Aprendizaje automático de Azure, puede especificar Blob de Azure como entrada. Los archivos en el almacenamiento de blobs de Azure pueden ser los archivos de salida (por ejemplo, 000000\_0) que se generan mediante un script de Pig y Hive en HDInsight. El módulo lector permite leer archivos (sin extensiones) mediante la configuración de la propiedad **Ruta al contenedor, directorio o blob** de dicho módulo para que señale el contenedor o la carpeta que contiene los archivos, como se muestra a continuación. Tenga en cuenta que el asterisco (*) **especifica que todos los archivos de la carpeta o contenedor (es decir, data/aggregateddata/year=2014/month-6/*)** se leerán como parte del experimento.
+Al usar el módulo lector en un experimento de Aprendizaje automático de Azure, puede especificar Blob de Azure como entrada. Los archivos en el almacenamiento de blobs de Azure pueden ser los archivos de salida (por ejemplo, 000000\_0) que se generan mediante un script de Pig y Hive en HDInsight. El módulo lector permite leer archivos (sin extensiones) mediante la configuración de la propiedad **Ruta al contenedor, directorio o blob** de dicho módulo para que señale el contenedor o la carpeta que contiene los archivos, como se muestra a continuación. Tenga en cuenta que el asterisco (\*) **especifica que todos los archivos de la carpeta o contenedor (es decir, data/aggregateddata/year=2014/month-6/\*)** se leerán como parte del experimento.
 
 ![Propiedades de Blob de Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -449,7 +449,7 @@ Las **conclusiones** son:
 Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Aprendizaje automático de Azure tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Aprendizaje automático que volvió a entrenar. Los pasos más comunes para habilitar el nuevo entrenamiento y actualizar los modelos de Aprendizaje automático de Azure mediante los servicios web son:
 
 1. Crear un experimento en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net). 
-2. Cuando esté satisfecho con el modelo, use Estudio de aprendizaje automático de Azure para publicar servicios web para el **experimento de entrenamiento** y puntuación / ** experimento predictivo**.
+2. Cuando esté satisfecho con el modelo, use Estudio de aprendizaje automático de Azure para publicar servicios web para el **experimento de entrenamiento** y puntuación / **experimento predictivo**.
 
 En la tabla siguiente se describen los servicios web empleados en este ejemplo. Consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](../machine-learning/machine-learning-retrain-models-programmatically.md) para obtener información detallada.
 
@@ -773,4 +773,4 @@ También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0309_2016-->

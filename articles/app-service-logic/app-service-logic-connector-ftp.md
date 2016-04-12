@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # Introducción al conector de FTP y su incorporación a su aplicación lógica
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview, haga clic en [API de FTP](../connectors/create-api-ftp.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview, haga clic en [API de FTP](../connectors/connectors-create-api-ftp.md).
 
 Conéctese a un servidor FTP para mover datos o archivos. Las características clave del conector de FTP incluyen:
 
@@ -31,7 +31,9 @@ Conéctese a un servidor FTP para mover datos o archivos. Las características c
 Puede agregar el conector de FTP a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 ## Creación de un nuevo conector de FTP
-Para crear un nuevo conector de FTP, siga los pasos que se mencionan a continuación. -Inicie el portal de Azure - Abra Azure Marketplace con +Nuevo (en la parte inferior de la página) -> Web+móvil--> Azure Marketplace: ![Inicio de Azure Marketplace][1]
+Para crear un nuevo conector de FTP, siga los pasos que se mencionan a continuación.
+- Inicio de Portal de Azure
+- Abra Azure Marketplace con +Nuevo (en la parte inferior de la página) -> Web y móvil --> Azure Marketplace: ![Inicio de Azure Marketplace][1]
 
 - Haga clic en Aplicaciones de la API.
 - Busque FTP y seleccione el conector de FTP: ![Selección del Conector de FTP][2]
@@ -75,11 +77,17 @@ El conector FTP tiene un desencadenador - “File Available (Read then Delete)�
 
 Haga clic en el desencadenador "File Available (Read then Delete)": ![Desencadenador de FTP de entradas básicas][7]
 
-Las entradas le ayudarán a configurar una ruta de acceso a una carpeta concreta que se sondeará en una frecuencia programada. Las entradas básicas son: Frecuencia: especifica la frecuencia del sondeo de FTP - Intervalo: especifica el intervalo de la frecuencia programada - Ruta de carpeta: especifica la ruta de la carpeta en el servidor FTP - Tipo de archivo: especifica si el tipo de archivo es de texto o binario
+Las entradas le ayudarán a configurar una ruta de acceso a una carpeta concreta que se sondeará en una frecuencia programada. Las entradas básicas son las siguientes:
+- Frecuencia: especifica la frecuencia del sondeo de FTP.
+- Intervalo: especifica el intervalo de la frecuencia programada.
+- Ruta de carpeta: especifica la ruta de la carpeta en el servidor FTP.
+- Tipo de archivo: especifica si el tipo de archivo es de texto o binario.
 
 Al hacer clic en los puntos suspensivos "...", se mostrarán las entradas avanzadas: ![Desencadenador de FTP de entradas básicas][8]
 
-Las entradas avanzadas son: Máscara de archivo: especifica la máscara de archivo mientras realiza el sondeo - Excluir máscara de archivo: especifica las máscaras de archivo que excluir mientras realiza el sondeo.
+Las entradas avanzadas incluyen lo siguiente:
+- Máscara de archivo: especifica la máscara de archivo mientras realiza el sondeo.
+- Excluir la máscara de archivo: especifica las máscaras de archivo que excluir mientras realiza el sondeo.
 
 Proporcione las entradas y haga clic en la marca de verificación para completar la configuración de la entrada: ![Desencadenador de FTP de entradas básicas][9]
 
@@ -162,4 +170,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

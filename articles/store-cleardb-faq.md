@@ -31,7 +31,7 @@ Tiene varias opciones:
 
 * [Clúster de MySQL en ejecución en una máquina virtual de Azure](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 
-* [Instancia única de MySQL en ejecución en una máquina virtual de Azure](virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)
+* [Instancia única de MySQL en ejecución en una máquina virtual de Azure](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)
 
 ClearDB es un servicio de hospedaje de MySQL que administra la infraestructura de MySQL en lugar del usuario. Cuando ejecute su propio clúster de MySQL o una base de datos en una máquina virtual de Azure, tendrá que configurar el servidor MySQL y mantenerlo actualizado con las revisiones.
 
@@ -49,13 +49,13 @@ Depende del tipo de suscripción que esté utilizando. Estos son algunos tipos d
 
 *   [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): Puede crear únicamente bases de datos ClearDB gratis para las aplicaciones web. No hay ningún límite en el número de bases de datos MySQL ClearDB gratuitas que se pueden crear. Tenga en cuenta que las bases de datos gratuitas no se pueden usar para las aplicaciones web de producción, ya que este servicio está destinado solo a fines de evaluación.
 
-## ¿Por qué se me ha cobrado 3,50 USD por una aplicación web + MySQL desde Azure Marketplace?
+## ¿Por qué se me ha cobrado 3,50 USD por una aplicación web + MySQL desde Azure Marketplace?
 
-La opción de base de datos predeterminada es Titan, que cuesta 3,50 USD. El costo no aparece durante la creación de la base de datos y, por error, puede adquirir una base de datos que no deseaba. Estamos intentando encontrar una manera de mejorar la experiencia pero, hasta entonces, debe comprobar todos los planes de tarifa seleccionados para la aplicación web y la base de datos antes de hacer clic en **Crear** e iniciar la implementación de los recursos.
+La opción de base de datos predeterminada es Titan, que cuesta 3,50 USD. El costo no aparece durante la creación de la base de datos y, por error, puede adquirir una base de datos que no deseaba. Estamos intentando encontrar una manera de mejorar la experiencia pero, hasta entonces, debe comprobar todos los planes de tarifa seleccionados para la aplicación web y la base de datos antes de hacer clic en **Crear** e iniciar la implementación de los recursos.
 
 ## Estoy ejecutando MySQL en mi propia máquina virtual de Azure. ¿Puedo conectar mi aplicación web de Azure a la base de datos?
 
-Sí. Puede conectar la aplicación web a la base de datos siempre y cuando a la máquina virtual de Azure se le haya dado acceso remoto a la aplicación web. Para más información, consulte [Instalación de MySQL en una máquina virtual creada con el modelo de implementación clásico que disponga de Windows Server 2012 R2](../virtual-machines/virtual-machines-mysql-windows-server-2008r2.md).
+Sí. Puede conectar la aplicación web a la base de datos siempre y cuando a la máquina virtual de Azure se le haya dado acceso remoto a la aplicación web. Para más información, consulte [Instalación de MySQL en una máquina virtual creada con el modelo de implementación clásico que disponga de Windows Server 2012 R2](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md).
 
 ## ¿En qué países se pueden usar los clústeres de MySQL Premium de ClearDB?
 
@@ -81,6 +81,10 @@ Use el plan de tarifa Básico o uno de nivel superior para las aplicaciones web.
 
 Puede usar el [Asistente para actualización de ClearDB](https://www.cleardb.com/store/azure/upgrade). Actualmente, no tenemos una ruta de actualización en el Portal de Azure.
 
+## ¿Por qué no veo la base de datos ClearDB en el Portal de Azure?
+
+Si creamos la base de datos ClearDB con Azure Resource Manager o el [nuevo Portal de Azure](https://portal.azure.com), esta no será visible en el [antiguo Portal de Azure](https://manage.windowsazure.com). Para solucionarlo, vincule la base de datos manualmente con la aplicación web. De forma similar, si crea la base de datos ClearDB en el [portal antiguo](https://manage.windowsazure.com), no verá la base de datos en el [nuevo Portal de Azure](https://portal.azure.com). No hay ninguna solución alternativa para esta situación.
+
 ## ¿Con quién debo ponerme en contacto para obtener soporte técnico cuando tenga problemas con la base de datos?
 
 Si tiene algún problema relacionado con la base de datos, póngase en contacto con el [soporte técnico de ClearDB](https://www.cleardb.com/developers/help/support). Tenga a mano la información de suscripción de Azure para proporcionarla.
@@ -89,9 +93,13 @@ Si tiene algún problema relacionado con la base de datos, póngase en contacto 
 
 No. No se pueden crear usuarios adicionales, pero puede crear bases de datos adicionales en el clúster de base de datos de ClearDB.
 
+## ¿Las bases de datos de las series Basic y Pro se pueden actualizar localmente de forma similar a los planes de la serie Planetary en el portal de ClearDB?
+
+Sí, las bases de datos de la serie Basic se pueden actualizar localmente (de Basic 60 a Basic 500). La serie Pro se puede actualizar localmente (de Pro 125 a Pro 1000) con la excepción de Pro 60. En estos momentos, no se admite la actualización de la base de datos Pro 60.
+
 ## Al migrar mis recursos de una suscripción a otra, ¿se migra también la base de datos MySQL ClearDB?  
 
-Al realizar una migración de recursos entre suscripciones, se aplican algunas [limitaciones](app-service-move-resources.md). Una base de datos MySQL ClearDB es un servicio de terceros, de ahí que no se migre durante la migración de la suscripción de Azure. Si no administra la migración de su base de datos de MySQL antes de migrar recursos de Azure, se pueden deshabilitar las bases de datos MySQL ClearDB. En primer lugar migre manualmente las bases de datos y luego realice la migración de la suscripción de Azure de la aplicación web.
+Al realizar una migración de recursos entre suscripciones, se aplican algunas [limitaciones](./app-service-web/app-service-move-resources.md). Una base de datos MySQL ClearDB es un servicio de terceros, de ahí que no se migre durante la migración de la suscripción de Azure. Si no administra la migración de su base de datos de MySQL antes de migrar recursos de Azure, se pueden deshabilitar las bases de datos MySQL ClearDB. En primer lugar migre manualmente las bases de datos y luego realice la migración de la suscripción de Azure de la aplicación web.
 
 ## ¿Puedo adquirir WordPress escalable con una suscripción de contrato Enterprise (EA)?
 
@@ -120,8 +128,12 @@ El acceso a Azure Marketplace para los servicios de terceros puede administrarse
 
 Póngase en contacto con el servicio de [atención al cliente de Enterprise](http://aka.ms/AzureEntSupport) para resolver las dudas sobre la facturación de su inscripción EA. El equipo de soporte técnico del Portal EA responderá a sus preguntas o resolverá el problema.
 
+ 
+
+
+
 ## Más información
 
 [P+F sobre Azure Marketplace](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

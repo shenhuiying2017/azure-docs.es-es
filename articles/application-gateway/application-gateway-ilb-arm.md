@@ -12,15 +12,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 
 # Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB) mediante el Administrador de recursos de Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-ilb.md)
-- [Resource Manager PowerShell steps](application-gateway-ilb-arm.md)
+- [Pasos en Azure clásico](application-gateway-ilb.md)
+- [Pasos en PowerShell de Resource Manager](application-gateway-ilb-arm.md)
 
 Puerta de enlace de aplicaciones de Azure se puede configurar con una VIP conexión a Internet o con un punto de conexión interno no expuesto a Internet, también conocido como punto de conexión ILB (equilibrador de carga interno). La configuración de la puerta de enlace con un ILB es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los distintos servicios y niveles de una aplicación de niveles múltiples que se encuentran dentro de un límite de seguridad no expuesto a Internet, pero que aún así siguen necesitando distribución de carga round robin, permanencia de sesión o terminación SSL (Capa de sockets seguros).
 
@@ -35,7 +35,7 @@ Este artículo le guiará por los pasos necesarios para configurar una puerta de
 ## ¿Qué se necesita para crear una Puerta de enlace de aplicaciones?
 
 
-- **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o ser una IP/VIP pública.
+- **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la red virtual, pero a otra subred de la puerta de enlace de aplicaciones, o deben ser IP/VIP públicas.
 - **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
 - **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
 - **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
@@ -58,7 +58,7 @@ Estos son los pasos necesarios para crear una puerta de enlace de aplicaciones:
 
 ## Creación de un grupo de recursos para el Administrador de recursos
 
-Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos de Azure. Hay más información disponible en [Uso de Azure PowerShell con Administrador de recursos de Azure](powershell-azure-resource-manager.md).
+Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos de Azure. Hay más información disponible en [Uso de Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Paso 1
 
@@ -80,7 +80,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
-### Paso 4
+### Paso 4
 
 Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
@@ -123,9 +123,9 @@ Se crea una configuración de la IP de la puerta de enlace de aplicaciones denom
 
 ### Paso 2
 
-	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
+	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Se configura el grupo de direcciones IP de back-end denominado "pool01" con las direcciones IP "10.0.0.10, 10.0.0.11 y 10.0.0.12". Serán las direcciones IP que reciban el tráfico de red procedente del punto de conexión de la IP del front-end. Deberá reemplazar las direcciones IP anteriores para agregar sus propios extremos de direcciones IP de la aplicación.
+Se configura el grupo de direcciones IP de back-end denominado "pool01" con las direcciones IP "134.170.185.46, 134.170.188.221 y 134.170.185.50". Serán las direcciones IP que reciban el tráfico de red procedente del punto de conexión de la IP del front-end. Deberá reemplazar las direcciones IP anteriores para agregar sus propios extremos de direcciones IP de la aplicación.
 
 ### Paso 3
 
@@ -133,7 +133,7 @@ Se configura el grupo de direcciones IP de back-end denominado "pool01" con las 
 
 Configura la opción de la puerta de enlace de aplicaciones "poolsetting01" para el tráfico de red con carga equilibrada del grupo de back-end.
 
-### Paso 4
+### Paso 4
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
@@ -145,7 +145,7 @@ Configura el puerto IP del front-end denominado "frontendport01" para el ILB.
 
 Crea la configuración de la IP del front-end llamada "fipconfig01" y la asocia una dirección IP privada de la subred de la red virtual actual.
 
-### Paso 6
+### Paso 6
 
 	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
@@ -179,9 +179,9 @@ Crea una puerta de enlace de aplicaciones con todos los elementos de configuraci
 
 Para eliminar una puerta de enlace de aplicaciones, deberá hacer lo siguiente en orden:
 
-1. Use el cmdlet **Stop-AzureRmApplicationGateway** para detener la puerta de enlace.
-2. Use el cmdlet **Remove-AzureRmApplicationGateway** para quitar la puerta de enlace.
-3. Compruebe que se ha quitado la puerta de enlace mediante el cmdlet **Get-AzureApplicationGateway**.
+1. Utilice el cmdlet **Stop-AzureRmApplicationGateway** para detener la puerta de enlace.
+2. Utilice el cmdlet **Remove-AzureRmApplicationGateway** para quitar la puerta de enlace.
+3. Para comprobar que se ha quitado la puerta de enlace, utilice el cmdlet **Get-AzureApplicationGateway**.
 
 
 ### Paso 1
@@ -192,7 +192,7 @@ Obtenga el objeto de puerta de enlace de aplicaciones y asócielo a una variable
 
 ### Paso 2
 
-Use **Stop-AzureRmApplicationGateway** para detener la puerta de enlace de aplicaciones. Este ejemplo muestra el cmdlet **Stop-AzureRmApplicationGateway** en la primera línea, seguido de la salida.
+Utilice **Stop-AzureRmApplicationGateway** para detener la puerta de enlace de aplicaciones. Este ejemplo muestra el cmdlet **Stop-AzureRmApplicationGateway** en la primera línea, seguido de la salida.
 
 	PS C:\> Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
@@ -202,7 +202,7 @@ Use **Stop-AzureRmApplicationGateway** para detener la puerta de enlace de aplic
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-Cuando la puerta de enlace de aplicaciones esté en estado detenido, use el cmdlet **Remove-AzureRmApplicationGateway** para quitar el servicio.
+Una vez que la puerta de enlace de aplicaciones esté en estado detenido, utilice el cmdlet **Remove-AzureRmApplicationGateway** para quitar el servicio.
 
 
 	PS C:\> Remove-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
@@ -230,11 +230,11 @@ Para comprobar que el servicio se ha quitado, se puede usar el cmdlet **Get-Azur
 
 Si desea configurar la descarga de SSL, consulte [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](application-gateway-ssl.md).
 
-Si quiere configurar una puerta de enlace de aplicaciones para usarla con un ILB, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
+Si desea configurar una puerta de enlace de aplicaciones para usarla con un ILB, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
 Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

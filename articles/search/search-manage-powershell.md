@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Administración de Búsqueda de Azure con scripts de PowerShell | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
-	description="Administre el servicio Búsqueda de Azure en Microsoft Azure con scripts de PowerShell. Creación o actualización del servicio Búsqueda de Azure y administración de las claves de administración de Búsqueda de Azure"  
+	description="Administre el servicio Búsqueda de Azure con scripts de PowerShell. Creación o actualización del servicio Búsqueda de Azure y administración de las claves de administración de Búsqueda de Azure" 
 	services="search" 
 	documentationCenter="" 
 	authors="seansaleh" 
@@ -14,10 +14,10 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="02/25/2016" 
+	ms.date="03/08/2016" 
 	ms.author="seasa"/>
 
-# Administración del servicio Búsqueda en Microsoft Azure con PowerShell
+# Administración del servicio Búsqueda de Azure con PowerShell
 > [AZURE.SELECTOR]
 - [Portal](search-manage.md)
 - [PowerShell](search-manage-powershell.md)
@@ -49,15 +49,15 @@ Para especificar la suscripción, ejecute el siguiente comando. En el ejemplo si
 ## Comandos para ayudarle a empezar a trabajar
 
 	$serviceName = "your-service-name-lowercase-with-dashes"
-	$sku = "free" # or "standard" for a paid service
+	$sku = "free" # or "basic" or "standard" for paid services
 	$location = "West US"
 	# You can get a list of potential locations with
 	# (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
 	$resourceGroupName = "YourResourceGroup" 
-	# If you don't already have this resource group, you can create it with with 
+	# If you don't already have this resource group, you can create it with 
 	# New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-	# Register the arm provider idempotently. This must be done once per subscription
+	# Register the ARM provider idempotently. This must be done once per subscription
 	Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search" -Force
 
 	# Create a new search service
@@ -81,13 +81,13 @@ Para especificar la suscripción, ejecute el siguiente comando. En el ejemplo si
 	# View your resource
 	$resource
 	
-	# Get the primary admin api key
+	# Get the primary admin API key
 	$primaryKey = (Invoke-AzureRmResourceAction `
 		-Action listAdminKeys `
-		-ResourceId ($resource.ResourceId) `
+		-ResourceId $resource.ResourceId `
 		-ApiVersion 2015-08-19).PrimaryKey
 
-	# Regenerate the secondary admin api Key
+	# Regenerate the secondary admin API Key
 	$secondaryKey = (Invoke-AzureRmResourceAction `
 		-ResourceType "Microsoft.Search/searchServices/regenerateAdminKey" `
 		-ResourceGroupName $resourceGroupName `
@@ -136,4 +136,4 @@ Ahora que el servicio está creado, puede realizar los pasos siguientes: crear u
 
 - [Analizar el tráfico de Búsqueda de Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

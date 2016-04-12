@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notas de la versión de Análisis de transmisiones | Microsoft Azure" 
-	description="Notas de la versión de Análisis de transmisiones GA" 
+	description="Notas de la versión de Análisis de transmisiones" 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 #Notas de la versión de Análisis de transmisiones
+
+## Notas de la versión de Análisis de transmisiones del 03/03/2016 ##
+
+Esta versión contiene la siguiente actualización.
+
+Título | Descripción
+---|---
+Nuevos elementos de lenguaje de consulta de Análisis de transmisiones | SAQL incluye ahora [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Página de MSDN GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Página de MSDN TRY_CAST") y [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Página de MSDN REGEXMATCH").
 
 ## Notas de la versión de Análisis de transmisiones del 12/10/2015 ##
 
@@ -25,7 +33,7 @@ Esta versión contiene la siguiente actualización.
 Título | Descripción
 ---|---
 Actualización de la versión de API de REST | La versión de la API de REST se actualizó a la 2015-10-01. Encontrará detalles sobre MSDN en [Referencia de la API de REST de la administración de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integración del aprendizaje automático en Análisis de transmisiones](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Integración de Aprendizaje automático de Azure | Esta versión incluye compatibilidad con funciones definidas por el usuario de Aprendizaje automático de Azure. Encontrará un tutorial [aquí](stream-analytics-machine-learning-integration-tutorial.md) así como el anuncio de blog general [aquí](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+Integración de Aprendizaje automático de Azure | Esta versión incluye compatibilidad con funciones definidas por el usuario de Aprendizaje automático de Azure. Consulte el [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para más información, así como el [anuncio general del blog](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Notas de la versión de Análisis de transmisiones del 12/11/2015 ##
 
@@ -54,7 +62,7 @@ Esta versión contiene las siguientes actualizaciones.
 Título | Descripción
 ---|---
 Vista previa pública de Conjunto de aplicaciones de IoT de Azure | Análisis de transmisiones se incluye en la vista previa pública de Conjunto de aplicaciones de IoT de Azure.
-Integración del Portal de vista previa de Azure | Además de presencia continua en el Portal de administración de Azure, Análisis de transmisiones ahora se integra en el [Portal de vista previa de Azure](https://azure.microsoft.com/overview/preview-portal/). Tenga en cuenta que la funcionalidad del Análisis de transmisiones en el Portal de vista previa actualmente es un subconjunto de la funcionalidad ofrecida en el Portal de administración de Azure, sin soporte para pruebas de consultas en el explorador, configuración de salida de Power BI y exploración o creación de nuevos recursos de entrada y salida en suscripciones a las que tiene acceso.
+Integración del Portal de Azure | Además de su presencia continua en el Portal de administración de Azure, Análisis de transmisiones ahora se integra en el [Portal de Azure](https://azure.microsoft.com/overview/preview-portal/). Tenga en cuenta que la funcionalidad del Análisis de transmisiones en el Portal de vista previa actualmente es un subconjunto de la funcionalidad ofrecida en el Portal de administración de Azure, sin soporte para pruebas de consultas en el explorador, configuración de salida de Power BI y exploración o creación de nuevos recursos de entrada y salida en suscripciones a las que tiene acceso.
 Soporte técnico para la salida de DocumentDB | Ahora se pueden enviar trabajos de Análisis de transmisiones a [DocumentDB](https://azure.microsoft.com/services/documentdb/).
 Compatibilidad para entrada de Centro de IoT | Los trabajos de Análisis de transmisiones ahora pueden introducir datos de los Centros de IoT.
 TIMESTAMP BY para eventos heterogéneos | Ahora puede usar [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) con expresiones para especificar diferentes campos de marca de tiempo para cada caso cuando un único flujo de datos contiene varios tipos de eventos con marcas de tiempo en distintos campos.
@@ -133,4 +141,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

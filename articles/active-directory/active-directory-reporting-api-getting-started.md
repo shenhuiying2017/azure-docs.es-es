@@ -3,8 +3,8 @@
    description="Introducción a la API de informes de Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Introducción a la API de informes de Azure AD
@@ -35,7 +35,7 @@ La API de informes utiliza [OAuth](https://msdn.microsoft.com/library/azure/dn64
 
 
 ### Creación de una aplicación
-- Vaya al [Portal de administración de Azure](https://manage.windowsazure.com/).
+- Navegue hasta el [Portal de Azure clásico](https://manage.windowsazure.com/).
 - Vaya al directorio.
 - Vaya a las aplicaciones.
 - En la barra inferior, haga clic en "Agregar".
@@ -52,7 +52,7 @@ La API de informes utiliza [OAuth](https://msdn.microsoft.com/library/azure/dn64
 - Vaya a la aplicación recién creada.
 - Haga clic en la pestaña **Configurar**.
 - En la sección "Permisos para otras aplicaciones":
-	- En Microsoft Azure Active Directory > Permisos de la aplicación, seleccione **Leer datos de directorio**.
+	- En Azure Active Directory > Permisos de la aplicación, seleccione **Leer datos de directorio**.
 - Haga clic en **Guardar** en la parte inferior.
 
 
@@ -67,9 +67,9 @@ Los pasos siguientes le guiarán para obtener el id. de cliente y el secreto de 
 - El id. de cliente de la aplicación aparece en el campo **Id. de cliente**.
 
 #### Secreto de cliente de la aplicación
-- Vaya a la pestaña Aplicaciones.
+- Vaya a la pestaña **Aplicaciones**.
 - Vaya a la aplicación recién creada.
-- Vaya a la pestaña Configurar.
+- Vaya a la pestaña **Configurar**.
 - Genere una clave secreta nueva para la aplicación seleccionando una duración en la sección "Claves".
 - La clave se mostrará al realizar la operación de guardar. Asegúrese de copiarla y pegarla en una ubicación segura, porque no hay manera de recuperarla más adelante.
 
@@ -141,38 +141,38 @@ Edite uno del los scripts siguientes para trabajar con su directorio, reemplace 
 	# Author: Michael McLaughlin (michmcla@microsoft.com)
 	# Date: January 20, 2016
 	# This requires the Python Requests module: http://docs.python-requests.org
-	
+
 	import requests
 	import datetime
 	import sys
-	
+
 	client_id = 'your-application-client-id-here'
 	client_secret = 'your-application-client-secret-here'
 	login_url = 'https://login.windows.net/'
-	tenant_domain = 'your-directory-name-here.onmicrosoft.com' 
-	
+	tenant_domain = 'your-directory-name-here.onmicrosoft.com'
+
 	# Get an OAuth access token
 	bodyvals = {'client_id': client_id,
 	            'client_secret': client_secret,
 	            'grant_type': 'client_credentials'}
-	
+
 	request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
 	token_response = requests.post(request_url, data=bodyvals)
-	
+
 	access_token = token_response.json().get('access_token')
 	token_type = token_response.json().get('token_type')
-	
+
 	if access_token is None or token_type is None:
 	    print "ERROR: Couldn't get access token"
 	    sys.exit(1)
-	
+
 	# Use the access token to make the API request
 	yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
-	
+
 	header_params = {'Authorization': token_type + ' ' + access_token}
 	request_string = 'https://graph.windows.net/' + tenant_domain + '/reports/auditEvents?api-version=beta&filter=eventTime%20gt%20' + yesterday   
 	response = requests.get(request_string, headers = header_params)
-	
+
 	if response.status_code is 200:
 	    print response.content
 	else:
@@ -195,4 +195,4 @@ El script devuelve listas de todos los informes disponibles y devuelve los resul
 - Consulte [Eventos del informe de auditoría de Azure AD](active-directory-reporting-audit-events.md) para obtener más detalles sobre el informe de auditoría.
 - Consulte [Informes y eventos de Azure AD (vista previa)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obtener más detalles sobre el servicio REST de API Graph.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

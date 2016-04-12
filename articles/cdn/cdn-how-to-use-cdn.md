@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="03/18/2016"
 	ms.author="casoper"/>
 
 
 # Uso de la red CDN en Azure
 
-La Red de entrega de contenido (CDN) de Azure es el bloque de creación fundamental para escalar cualquier aplicación HTTP en Azure. Ofrece a los clientes de Azure una solución global de almacenamiento en caché y entrega de contenido a los usuarios finales. Como resultado, en lugar de acudir al origen cada vez, las solicitudes de usuario se enrutan de manera inteligente al POP perimetral de la red CDN de mejor rendimiento. Esto aumenta considerablemente el rendimiento y experiencia del usuario. Para obtener una lista actualizada de las ubicaciones de nodos de la red CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
+La Red de entrega de contenido (CDN) de Azure es el bloque de creación fundamental para escalar cualquier aplicación HTTP o HTTPS en Azure. Ofrece a los clientes de Azure una solución global de almacenamiento en caché y entrega de contenido a los usuarios finales. Como consecuencia, en lugar de llegar siempre al origen, las solicitudes de usuario se enrutan de forma inteligente hacia el nodo del borde de CDN (POP o punto de presencia) que proporciona los mejores tiempos de respuesta. Esto aumenta considerablemente el rendimiento y experiencia del usuario. Para obtener una lista actualizada de las ubicaciones de nodos de la red CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
 
 Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los datos de Azure se incluyen:
 
@@ -149,4 +149,4 @@ La red CDN de Microsoft Azure puede administrarse mediante programación con la 
 - [Depuración de un punto de conexión de red de entrega de contenido de Azure](cdn-purge-endpoint.md)
 - [La API de REST del proveedor de recursos de red CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

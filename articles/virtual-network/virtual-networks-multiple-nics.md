@@ -1,14 +1,14 @@
-<properties 
+<properties
    pageTitle="Creación de una máquina virtual con varias NIC"
    description="Aprenda a crear y configurar máquinas virtuales con varias tarjetas NIC"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
    manager="carmonm"
-   editor="tysonn" 
+   editor="tysonn"
    tags="azure-service-management,azure-resource-manager"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -25,22 +25,13 @@ Puede crear máquinas virtuales (VM) en Azure y asociar varias interfaces de red
 
 La figura anterior muestra una máquina virtual con tres NIC, cada una de ellas conectada a una subred diferente.
 
-## Límites y restricciones
-
-Actualmente, tener varias NIC tiene los siguientes límites y restricciones:
-
-- Las máquinas virtuales con varias NIC deben crearse en redes virtuales de Azure. Las máquinas virtuales que no sean de redes virtuales no están admitidas. 
-- Solo se permiten los siguientes valores en un servicio en la nube único (implementaciones clásicas) o en un grupo de recursos (Administrador de recursos de implementación): 
-	- Todas las máquinas virtuales de ese servicio en la nube deben tener varias NIC habilitadas o 
-	- Todas las máquinas virtuales de ese servicio en la nube deben tener cada una sola NIC 
-
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
- 
-- La VIP accesible desde Internet (implementaciones clásicas) solo se admite en la NIC marcada como "predeterminada". Solo hay una VIP a la IP de la NIC predeterminada. 
-- En estos momentos, no se admiten direcciones IP públicas (implementaciones clásicas) de nivel de instancia (LPIP) para máquinas virtuales con varias NIC. 
-- El orden de las NIC desde la máquina virtual será aleatorio y también podría cambiar en todas las actualizaciones de infraestructura de Azure. Sin embargo, las direcciones IP y las direcciones MAC Ethernet correspondientes seguirán siendo las mismas. Por ejemplo, suponga que **Eth1** tiene la dirección IP 10.1.0.100 y la dirección MAC 00-0D-3A-B0-39-0D; después de una actualización de la infraestructura de Azure y de reiniciar el equipo, se podría cambiar a **Eth2**, pero el emparejamiento de la IP y la MAC seguirá siendo el mismo. Cuando es un cliente quien ejecuta un reinicio, el orden de NIC seguirá siendo el mismo. 
-- La dirección de cada NIC en cada máquina virtual debe estar ubicada en una subred; las direcciones que se encuentran en la misma subred se pueden asignar a cada una de las varias NIC de una sola máquina virtual. 
-- El tamaño de la máquina virtual determina el número de las NIC que se puede crear para una máquina virtual. La tabla siguiente enumera los números de NIC correspondientes al tamaño de las máquinas virtuales: 
+
+- La VIP accesible desde Internet (implementaciones clásicas) solo se admite en la NIC marcada como "predeterminada". Solo hay una VIP a la IP de la NIC predeterminada.
+- En estos momentos, no se admiten direcciones IP públicas (implementaciones clásicas) de nivel de instancia (LPIP) para máquinas virtuales con varias NIC.
+- El orden de las NIC desde la máquina virtual será aleatorio y también podría cambiar en todas las actualizaciones de infraestructura de Azure. Sin embargo, las direcciones IP y las direcciones MAC Ethernet correspondientes seguirán siendo las mismas. Por ejemplo, suponga que **Eth1** tiene la dirección IP 10.1.0.100 y la dirección MAC 00-0D-3A-B0-39-0D; después de una actualización de la infraestructura de Azure y de reiniciar el equipo, se podría cambiar a **Eth2**, pero el emparejamiento de la IP y la MAC seguirá siendo el mismo. Cuando es un cliente quien ejecuta un reinicio, el orden de NIC seguirá siendo el mismo.
+- La dirección de cada NIC en cada máquina virtual debe estar ubicada en una subred; las direcciones que se encuentran en la misma subred se pueden asignar a cada una de las varias NIC de una sola máquina virtual.
+- El tamaño de la máquina virtual determina el número de las NIC que se puede crear para una máquina virtual. La tabla siguiente enumera los números de NIC correspondientes al tamaño de las máquinas virtuales:
 
 |Tamaño de memoria virtual (SKU estándar)|NIC (número máximo permitido por máquina virtual)|
 |---|---|
@@ -94,8 +85,8 @@ En una implementación del Administrador de recursos, cualquier NIC de una máqu
 
 Si una subred está asociada a un NSG y una NIC dentro de esa subred está asociada individualmente a un NSG, las reglas asociadas de NSG se aplican en **orden de flujo** según la dirección del tráfico que se pasa dentro o fuera de la NIC:
 
-- **El **tráfico entrante** cuyo destino es la NIC en cuestión fluye primero a través de la subred, desencadenando reglas de NSG de la subred, antes de pasar a la NIC y desencadenar reglas de NSG de la NIC.
-- El **tráfico de salida** cuyo origen es la NIC en cuestión fluye primero fuera de la NIC, desencadenando reglas de NSG de la NIC, antes de pasar a la subred y desencadenar reglas de NSG de la subred. 
+- El **tráfico entrante** cuyo destino es la NIC en cuestión fluye primero a través de la subred y desencadena las reglas de NSG de la subred antes de pasar a la NIC y desencadenar las reglas de NSG de la NIC.
+- El **tráfico de salida** cuyo origen es la NIC en cuestión fluye primero fuera de la NIC, desencadenando reglas de NSG de la NIC, antes de pasar a la subred y desencadenar reglas de NSG de la subred.
 
 Obtener más información sobre los [Grupos de seguridad de red](virtual-networks-nsg.md) y cómo se aplican en función de las asociaciones de subredes, las máquinas virtuales y las NIC.
 
@@ -133,8 +124,8 @@ Necesitará cumplir los siguientes requisitos previos antes de poder ejecutar lo
 
 Para crear una máquina virtual con varias tarjetas NIC, siga estos pasos:
 
-1. Seleccione una imagen de máquina virutal en la galería de imágenes de máquinas virtuales de Azure. Tenga en cuenta que las imágenes cambian con frecuencia y están disponibles por región. La imagen especificada en el ejemplo siguiente puede cambiar o puede no estar presente en su región, así que asegúrese de especificar la imagen que necesita. 
-	    
+1. Seleccione una imagen de máquina virutal en la galería de imágenes de máquinas virtuales de Azure. Tenga en cuenta que las imágenes cambian con frecuencia y están disponibles por región. La imagen especificada en el ejemplo siguiente puede cambiar o puede no estar presente en su región, así que asegúrese de especificar la imagen que necesita.
+
 		$image = Get-AzureVMImage `
 	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
@@ -151,13 +142,13 @@ Para crear una máquina virtual con varias tarjetas NIC, siga estos pasos:
 1. Agregue NIC adicionales a la configuración de la máquina virtual.
 
 		Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
-			-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm 
+			-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm
 		Add-AzureNetworkInterfaceConfig -Name "Ethernet2" `
 			-SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
 
 1. Especifique la subred y la dirección IP de la NIC predeterminada.
 
-		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm 
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm
 		Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
 
 1. Cree la máquina virtual en la red virtual.
@@ -166,11 +157,20 @@ Para crear una máquina virtual con varias tarjetas NIC, siga estos pasos:
 
 >[AZURE.NOTE] La red virtual que especifique aquí debe existir previamente (tal como se indicó en los requisitos previos). En el ejemplo siguiente se especifica una red virtual denominada **MultiNIC VNet**.
 
-## Acceso de la NIC secundaria a otras subredes
+## Limitaciones
 
-El modelo actual de Azure se basa en que todas las NIC en una máquina virtual están configuradas con una puerta de enlace predeterminada. Esto permite a las NIC comunicarse con las direcciones IP fuera de su subred. En sistemas operativos que usan un modelo de enrutamiento de host no seguro, como Linux, se interrumpirá la conectividad a Internet si el tráfico de entrada y salida utiliza NIC diferentes.
+Se aplican las siguientes limitaciones al usar la característica de varias NIC:
 
-Para solucionar este problema, Azure publicará una actualización en las primeras semanas de julio de 2015 en la plataforma, y que permitirá quitar la puerta de enlace predeterminada de la NIC secundaria. Esto no afectará a las máquinas virtuales existentes hasta que las reinicie. Una vez reiniciadas, se aplicará la nueva configuración y se limitará el flujo de tráfico en las NIC secundarias para que pueda permanecer dentro de la misma subred. Si los usuarios desean habilitar las NIC secundarias para hablar fuera de su propia subred, tendrán que agregar una entrada en la tabla de enrutamiento para configurar la puerta de enlace, tal y como se describe a continuación.
+- Las máquinas virtuales con varias NIC deben crearse en redes virtuales de Azure. Las máquinas virtuales que no son de VNet no se pueden configurar con las NIC múltiples.
+- Todas las máquinas virtuales de un conjunto de disponibilidad deben usar la NIC múltiple o la NIC única. En un conjunto de disponibilidad no puede haber una combinación de máquinas virtuales de NIC múltiples y de NIC únicas. Para las máquinas virtuales de un servicio en la nube se aplican las mismas reglas.
+- Una vez implementada, no se puede configurar una máquina virtual que tiene una NIC única con NIC múltiples (y viceversa), a no ser que se elimine y se vuelva a crear.
+
+
+## Acceso de las NIC secundarias a otras subredes
+
+De forma predeterminada, las NIC secundarias no se configurarán con una puerta de enlace predeterminada, por lo que el flujo de tráfico en ellas se limitará para que esté dentro de la misma subred. Si los usuarios desean habilitar las NIC secundarias para comunicarse fuera de su propia subred, tendrán que agregar una entrada en la tabla de enrutamiento para configurar la puerta de enlace, tal y como se describe a continuación.
+
+>[AZURE.NOTE] Las máquinas virtuales creadas antes de julio de 2015 pueden tener una puerta de enlace predeterminada configurada para todas las NIC. La puerta de enlace predeterminada para las NIC secundarias no se quitará hasta que se hayan reiniciado estas máquinas virtuales. En los sistemas operativos que usan el modelo de enrutamiento de host no seguro (como Linux), la conectividad a Internet se puede interrumpir si el tráfico de entrada y salida usa NIC diferentes.
 
 ### Configurar las máquinas virtuales de Windows
 
@@ -207,7 +207,7 @@ La tabla de enrutamiento de IPv4 para esta máquina virtual tendría este aspect
 Tenga en cuenta que la ruta predeterminada (0.0.0.0) sólo está disponible para la NIC principal. No podrá obtener acceso a recursos externos a la subred de la NIC secundaria, tal y como se muestra a continuación:
 
 	C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
-	 
+
 	Pinging 192.168.1.7 from 192.165.2.5 with 32 bytes of data:
 	PING: transmit failed. General failure.
 	PING: transmit failed. General failure.
@@ -236,7 +236,7 @@ Para agregar una ruta predeterminada en la NIC secundaria, siga estos pasos:
 4. Para probar la conectividad, vuelva al símbolo del sistema e intente hacer ping en una subred distinta de la NIC secundaria, tal y como se muestra en el ejemplo siguiente:
 
 		C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
-		 
+
 		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
 		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
 		Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
@@ -265,4 +265,4 @@ En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento prede
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación del Administrador de recursos](virtual-network-deploy-multinic-arm-template.md).
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación clásica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

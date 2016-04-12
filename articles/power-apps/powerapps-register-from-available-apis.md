@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="01/21/2016"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Registro de una API administrada por Microsoft o una API administrada por TI
@@ -22,13 +22,12 @@ Existen API **administradas por Microsoft** y API **administradas por TI**. Cuan
 
 Con las API administradas por TI, controla y supervisa todo el contenido, incluida la memoria, la conectividad, la confianza, etc. Las API administradas por TI también incluyen las API que se pueden conectar a un sistema local, como SQL Server y SharePoint Server.
 
-Para usar las API **administradas por Microsoft** o las API **administradas por TI**, debe "registrar" las API en el Portal de Azure. Una vez que las registra, puede usarlas en las aplicaciones. Están disponibles las siguientes opciones:
+> [AZURE.SELECTOR]
+- [API administradas](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [API en su ASE](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [API de Swagger](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-- Registro de una API administrada por Microsoft pregenerada o una API administrada por TI (en este tema).
-- Registro de una aplicación web, una aplicación de API y una aplicación móvil hospedada en el [entorno del Servicio de aplicaciones](powerapps-register-api-hosted-in-app-service.md).
-- Registro de una de sus propias API de Swagger mediante una [definición de API de Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
-
-Este artículo se centra en el **registro de las API administradas por Microsoft pregeneradas y las API administradas por TI**.
+En este tema, nos centramos en la primera opción: **registro de las API administradas de Microsoft y las API administradas de TI**.
 
 #### Requisitos previos para empezar
 
@@ -107,7 +106,7 @@ La tabla siguiente compara las funcionalidades de las API administradas por Micr
 
 ## Registro de una API administrada por Microsoft o una API administrada por TI
 
-1. En el [Portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta profesional (*suNombreUsuario*@*SuEmpresa*.com). Automáticamente inicia sesión en la suscripción de su empresa.
+1. En el [Portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta profesional (*suNombreDeUsuario*@*SuEmpresa*.com). Automáticamente inicia sesión en la suscripción de su empresa.
 2. Seleccione **Examinar**, **PowerApps** y, luego, **Administrar API**:  
 ![][17]
 3. En Administrar API, seleccione **Agregar**:  
@@ -116,7 +115,7 @@ La tabla siguiente compara las funcionalidades de las API administradas por Micr
 
 	- En **Nombre**, escriba un nombre para la API. Tenga en cuenta que el nombre que escriba se incluirá en la dirección URL de tiempo de ejecución de la API. Elija un nombre descriptivo y único dentro de su organización.
 	- En **Origen**, seleccione **Desde API disponibles**:  
-	![][19]
+	 ![][19]
 5. Seleccione **API** y, luego, elija la API que desea registrar:  
 ![][20]
 6. Seleccione la API específica y agregue cualquier propiedad configurable.
@@ -156,4 +155,4 @@ En este tema, vio cómo registrar su propia instancia de las API disponibles que
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0309_2016-->

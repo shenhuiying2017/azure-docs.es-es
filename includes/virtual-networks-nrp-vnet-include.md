@@ -1,7 +1,7 @@
 ## Red virtual
 Los recursos de redes virtuales (VNET) y de subredes le ayudarán a definir un límite de seguridad para las cargas de trabajo que se ejecuten en Azure. Una red virtual se caracteriza por una colección de espacios de direcciones, también denominados bloques CIDR.
 
->[AZURE.NOTE]Los administradores de red ya están familiarizados con la notación CIDR. Si no está familiarizado con el formato CIDR, [puede obtener más información](http://whatismyipaddress.com/cidr).
+>[AZURE.NOTE] Los administradores de red ya están familiarizados con la notación CIDR. Si no está familiarizado con el formato CIDR, [puede obtener más información](http://whatismyipaddress.com/cidr).
 
 ![Redes virtuales con varias subredes](./media/resource-groups-networking/Figure4.png)
 
@@ -72,8 +72,8 @@ Red virtual de ejemplo en formato JSON:
 
 ### Recursos adicionales
 
-- Obtenga más información acerca de las [Redes virtuales](virtual-networks-overview.md).
+- Obtenga más información acerca de las [Redes virtuales](../articles/virtual-network/virtual-networks-overview.md).
 - Lea la [documentación de referencia de la API de REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) para obtener información sobre las Redes virtuales.
 - Lea la [documentación de referencia de la API de REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) para obtener información sobre las subredes.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

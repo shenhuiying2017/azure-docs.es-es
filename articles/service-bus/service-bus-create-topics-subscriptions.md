@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Creación de aplicaciones que usan temas y suscripciones del Bus de servicio | Microsoft Azure"
-   description="Introducción a las capacidades de publicación-suscripción que ofrecen los temas y suscripciones del Bus de servicio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Creación de aplicaciones que usan temas y suscripciones del Bus de servicio | Microsoft Azure"
+    description="Introducción a las capacidades de publicación-suscripción que ofrecen los temas y suscripciones del Bus de servicio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Creación de aplicaciones que usan temas y suscripciones del Bus de servicio
 
@@ -33,7 +33,7 @@ En una situación como ésta, en la que requiere cada mensaje lo consuman varias
 
 Los mensajes se envían a los tema de la misma manera que a las colas. Sin embargo, no se reciben mensajes del tema directamente, sino que se reciben de las suscripciones. Puede considerarse que una suscripción a un tema es una cola virtual que recibe copias de los mensajes que se envían al tema. Los mensajes se reciben de las suscripciones exactamente de la misma forma que de las colas.
 
-Volviendo al escenario minorista, la cola se reemplaza por un tema y se agrega una suscripción que usará el componente del sistema de gestión de inventarios. El sistema aparece ahora como sigue:
+Volviendo al escenario minorista, la cola se reemplaza por un tema y se agrega una suscripción, e usará el componente del sistema de gestión de inventarios. El sistema aparece ahora como sigue:
 
 ![Service-Bus2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
 
@@ -119,7 +119,7 @@ catch (Exception e)
 
 ## Filtros de suscripción
 
-Hasta ahora, en este artículo todos los mensajes enviados al tema han estado a disposición de todas las suscripciones registradas. Aquí las palabras clave son "han estado a disposición". Mientras que las suscripciones de Bus de servicio ven todos los mensajes enviados al tema, solo es posible copiar un subconjunto de dichos mensajes a la cola de suscripción virtual. Esto se consigue mediante los *filtros* de suscripción. Al crear una suscripción, puede especificar una expresión de filtro en forma de predicado de estilo SQL92 que opera a través de las propiedades del mensaje, tanto las propiedades de sistema (por ejemplo, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) como las propiedades de la aplicación, como **StoreName** en el ejemplo anterior.
+Hasta ahora, en este escenario todos los mensajes enviados al tema han estado a disposición de todas las suscripciones registradas. Aquí las palabras clave son "han estado a disposición". Mientras que las suscripciones de Bus de servicio ven todos los mensajes enviados al tema, solo es posible copiar un subconjunto de dichos mensajes a la cola de suscripción virtual. Esto se consigue mediante los *filtros* de suscripción. Al crear una suscripción, puede especificar una expresión de filtro en forma de predicado de estilo SQL92 que opera a través de las propiedades del mensaje, tanto las propiedades de sistema (por ejemplo, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) como las propiedades de la aplicación, como **StoreName** en el ejemplo anterior.
 
 Al desarrollar el escenario para ilustrarlo, es preciso agregar un segunda almacén al escenario minorista. Los datos de ventas de todos los terminales de los PDV de ambos almacenes deben enrutarse al sistema de gestión centralizada de inventarios, pero un administrador de almacén que use la herramienta Panel solo está interesado en el rendimiento de dicho almacén. Para hacerlo, se puede usar el filtrado de suscripciones. Tenga en cuenta que cuando los terminales de los PDV publican mensajes, establecen la propiedad de la aplicación **StoreName** en el mensaje. Dados dos almacenes, por ejemplo **Redmond** y **Seattle**, los terminales de los PDV de Redmond marcan sus mensajes de datos de ventas con **StoreName** igual a **Redmond**, mientras que los de Seattle usa un **StoreName** igual a **Seattle**. El administrador del almacén de Redmond solo quiere ver los datos de sus terminales de PDV. El sistema aparece como sigue:
 
@@ -150,4 +150,4 @@ Todas las razones para usar las colas descritas en [Creación de aplicaciones qu
 
 Para más información cómo usar las colas en el escenario minorista de PDV, consulte [Creación de aplicaciones que usan colas de Bus de servicio](service-bus-create-queues.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
@@ -39,6 +39,6 @@ Para crear una solución de evaluación del riesgo de crédito, seguiremos estos
 5.	[Implementación del servicio web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Acceso al servicio web](machine-learning-walkthrough-6-access-web-service.md)
 
-Este tutorial se basa en una versión simplificada del experimento de ejemplo [Binary Classification: Credit risk prediction](../machine-learning-sample-credit-risk-prediction.md) (Clasificación binaria: predicción de riesgo de crédito) que se incluye en [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com/).
+Este tutorial se basa en una versión simplificada del experimento de ejemplo [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Clasificación binaria: predicción de riesgo de crédito) de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # ¿Qué es una lista de control de acceso (ACL) de extremo?
 
 Una lista de control de acceso (ACL) de extremo es una mejora de seguridad disponible para la implementación de Azure. Una ACL proporciona la capacidad de permitir o denegar tráfico a un extremo de la máquina virtual de forma selectiva. Esta capacidad de filtro de paquetes proporciona un nivel adicional de seguridad. Puede especificar ACL de red solo para extremos. No se puede especificar una ACL para una red virtual o para una subred específica contenida en una red virtual.
 
-> [AZURE.IMPORTANT]Siempre que sea posible, se recomienda utilizar grupos de seguridad de red (NSG) en lugar de ACL. Para obtener más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red?](../virtual-networks-nsg).
+> [AZURE.IMPORTANT] Siempre que sea posible, se recomienda utilizar grupos de seguridad de red (NSG) en lugar de ACL. Para obtener más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red?](virtual-networks-nsg.md).
 
-Las listas de control de acceso se pueden configurar mediante PowerShell o el Portal de administración. Para configurar una ACL de red con PowerShell, consulte [Administración de listas de control de acceso (ACL) para extremos usando PowerShell](virtual-networks-acl-powershell.md). Para configurar una ACL de red mediante el Portal de administración, consulte [Configuración de extremos en una máquina virtual](../virtual-machines-set-up-endpoints/).
+Las listas de control de acceso se pueden configurar mediante PowerShell o el Portal de administración. Para configurar una ACL de red con PowerShell, consulte [Administración de listas de control de acceso (ACL) para extremos usando PowerShell](virtual-networks-acl-powershell.md). Para configurar una ACL de red mediante el Portal de administración, consulte [Configuración de extremos en una máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
 Con las ACL de red, puede hacer lo siguiente:
 
@@ -51,7 +51,7 @@ Cuando se crea una máquina virtual, se coloca una ACL predeterminada para bloqu
 
 ## Permitir y denegar
 
-Selectivamente puede permitir o denegar el tráfico de red para un extremo de entrada de la máquina virtual mediante la creación de reglas que especifiquen "permitir" o "denegar". Es importante tener en cuenta que, de forma predeterminada, cuando se crea un extremo, se deniega todo el tráfico al extremo. Por ese motivo, es importante entender cómo se crean reglas de permiso y denegación y colocarlas en el orden de prioridad correcto si desea un control granular sobre el tráfico de red que ha elegido dar permiso para que llegue al extremo de la máquina virtual.
+Selectivamente puede permitir o denegar el tráfico de red para un extremo de entrada de la máquina virtual mediante la creación de reglas que especifiquen "permitir" o "denegar". Es importante tener en cuenta que, de manera predeterminada, cuando se crea un punto de conexión, se permite todo el tráfico a él. Por ese motivo, es importante entender cómo se crean reglas de permiso y denegación y colocarlas en el orden de prioridad correcto si desea un control granular sobre el tráfico de red que ha elegido dar permiso para que llegue al extremo de la máquina virtual.
 
 Puntos que se deben tener en cuenta:
 
@@ -97,6 +97,6 @@ Las ACL de red pueden especificarse en un extremo del conjunto con equilibrio de
 
 ## Pasos siguientes
 
-[Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](../virtual-networks-acl-powershell)
+[Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](virtual-networks-acl-powershell.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

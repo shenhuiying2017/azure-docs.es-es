@@ -122,7 +122,7 @@ Para obtener más información, consulte [Uso compartido de un circuito ExpressR
 No. Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman parte del mismo dominio de enrutamiento y no están aisladas entre sí desde una perspectiva de enrutamiento. Si necesita aislamiento de rutas, deberá crear un circuito ExpressRoute independiente.
 
 ### ¿Se puede conectar una red virtual a más de un circuito ExpressRoute?
-Sí. Puede vincular una única red virtual única con hasta 4 circuitos ExpressRoute. Se deben solicitar a través de 4 ubicaciones diferentes.
+Sí. Puede vincular una única red virtual única con hasta 4 circuitos ExpressRoute. Se deben solicitar mediante cuatro [ubicaciones de ExpressRoute diferentes](expressroute-locations.md).
 
 ### ¿Es posible obtener acceso a Internet desde mis redes virtuales conectadas a circuitos ExpressRoute?
 Sí. Si no ha anunciado rutas predeterminadas (0.0.0.0/0) o prefijos de rutas de Internet a través de la sesión BGP, podrá conectarse a Internet desde una red virtual vinculada a un circuito ExpressRoute.
@@ -230,7 +230,7 @@ Sí. El circuito ExpressRoute existente puede configurarse para admitir conectiv
 
 ### ¿A qué servicios de Office 365 se puede acceder a través de la conexión ExpressRoute?
 
-Consulte la página de [URL de Office 365 e intervalos de direcciones IP](http://aka.ms/o365endpoints) para obtener una lista actualizada de los servicios compatibles con ExpressRoute.
+Consulte la página [URL de Office 365 e intervalos de direcciones IP](http://aka.ms/o365endpoints) para obtener una lista actualizada de los servicios compatibles con ExpressRoute.
 
 ### ¿Cuánto cuesta ExpressRoute para servicios de Office 365 y CRM Online?
 Servicios de Office 365 y CRM Online requiere que el complemento premium esté habilitado. La [página de información de precios](https://azure.microsoft.com/pricing/details/expressroute/) proporciona información sobre los costes de ExpressRoute.
@@ -241,4 +241,4 @@ Consulte [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) pa
 ### ¿Es posible obtener acceso a Office 365 por Internet incluso si ExpressRoute se ha configurado ExpressRoute para mi organización?
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 
-# ¿Qué es Equilibrador de carga de Azure?
+# Información general sobre el Equilibrador de carga de Azure
 
 Equilibrador de carga de Azure proporciona una alta disponibilidad y un elevado rendimiento de red para sus aplicaciones. Se trata de un equilibrador de carga de nivel 4 (TCP, UDP) que distribuye el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales que se definen en un conjunto de carga equilibrada.
 
@@ -121,6 +121,7 @@ Puede tener más de una dirección IP pública con equilibrio de carga asignada 
 
 El Administrador de recursos de Azure es el nuevo marco de administración de servicios en Azure. El Equilibrador de carga de Azure puede administrarse ahora mediante las herramientas y las API basadas en el Administrador de recursos de Azure. Para obtener más información sobre el Administrador de recursos de Azure, vea [IaaS just got easier with Azure Resource Manager (IaaS, simplemente más fácil con el Administrador de recursos de Azure)](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
 
+[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## Pasos siguientes
 
@@ -128,6 +129,6 @@ El Administrador de recursos de Azure es el nuevo marco de administración de se
 
 [Información general sobre el equilibrador de carga interno](load-balancer-internal-overview.md)
 
-[Introducción a la creación de un equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
+[Introducción a la creación de un equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

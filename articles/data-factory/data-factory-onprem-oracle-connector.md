@@ -24,7 +24,7 @@ En este artículo se describe cómo se puede usar la actividad de copia de la Fa
 Para que el servicio Factoría de datos de Azure pueda conectarse a la base de datos de Oracle local, debe instalar lo siguiente:
 
 - Data Management Gateway en el mismo equipo que hospede la base de datos o en un equipo independiente para evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway. 
-- [Oracle Data Access Components (ODAC) para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Debe estar instalado en el equipo host en el que está instalada la puerta de enlace.
+- Proveedor de datos de Oracle para. NET. Esto se incluye en [Oracle Data Access Components (ODAC) para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Instale la versión adecuada (32/64 bits) en la máquina de host en la que está instalada la puerta de enlace. 
 
 > [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
 
@@ -227,7 +227,7 @@ type | La propiedad type debe establecerse en: **OnPremisesOracle** | Sí
 connectionString | Especifique la información necesaria para conectarse a la instancia de Base de datos de Oracle para la propiedad connectionString. | Sí 
 gatewayName | Nombre de la puerta de enlace que se usará para conectarse al servidor de Oracle local | Sí
 
-Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de Oracle local.
+Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de Oracle local.
 ## Propiedades del tipo de conjunto de datos de Oracle
 
 Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (Oracle, blob de Azure, tabla de Azure, etc.).
@@ -251,7 +251,7 @@ En caso de la actividad de copia si el origen es de tipo **OracleSource**, está
 Propiedad | Descripción |Valores permitidos | Obligatorio
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Utilice la consulta personalizada para leer los datos. | Cadena de consulta SQL. 
-Por ejemplo: select * from MyTable <p>Si no se especifica, la instrucción SQL que se ejecuta: select * from MyTable</p> | No (si se especifica **tableName** de **dataset**)
+Por ejemplo: select * from MyTable <br/>Si no se especifica, la instrucción SQL que se ejecuta: select * from MyTable<br/> | No (si se especifica **tableName** de **dataset**)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -301,7 +301,7 @@ XML | String
 
 **Resolución o solución alternativa**
 
-1. Si no ha instalado el proveedor de .NET para Oracle, [instálelo](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) e intente de nuevo este escenario. 
+1. Si no ha instalado el proveedor de .NET para Oracle, [instálelo](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html) e intente de nuevo este escenario. 
 2. Si recibe el mensaje de error incluso después de instalar el proveedor, haga lo siguiente: 
 	1. Abra la configuración de máquina de .NET 2.0 desde la carpeta: <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
 	2. Busque **Proveedor de datos de Oracle para .NET**, y debería poder encontrar una entrada similar a la siguiente en **system.data** -> **DbProviderFactories**: "<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />"
@@ -312,4 +312,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

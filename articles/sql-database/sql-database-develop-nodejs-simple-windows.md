@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -26,38 +26,20 @@
 
 Este tema presenta un ejemplo de código de Node.js que puede usar para conectarse a la base de datos SQL de Azure. El programa de Node.js se ejecuta en un equipo cliente de Windows. Para administrar la conexión, se usa el controlador msnodesql.
 
+## Paso 1: Configuración del entorno de desarrollo
 
-## Requisitos previos
+Consulte el artículo [Prerequisites for using the tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Windows) (Requisitos previos para usar el controlador tedioso de Node.js para SQL Server).
 
-
-A continuación se describen los elementos de software que deben existir en el equipo de desarrollo de cliente.
-
-
--  [Node.js](https://nodejs.org/en/download/): haga clic en el instalador de Windows y descargue el instalador msi adecuado. Una vez descargado, ejecute el archivo msi para instalar Node.js
-
-
-### Instalación de los módulos necesarios
-
-Cuando el equipo esté configurado con **node**, abra cmd.exe y navegue hasta el directorio donde piensa crear el proyecto Node.js y escriba los comandos siguientes.
-
-
-	npm init
-	npm install tedious
-
-
-**init npm** para crear un proyecto de nodo. Para conservar los valores predeterminados durante la creación del proyecto, presione Entrar hasta que se cree el proyecto. Ahora verá el archivo **package.json** en el directorio del proyecto.
-
-
-### Base de datos SQL
+## Paso 2: Creación de una base de datos SQL
 
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 
-## Paso 1: Obtención de detalles de la conexión
+## Paso 3: Obtención de detalles de la conexión
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Paso 2: Conexión
+## Paso 4: Conexión
 
 La función [new Connection](http://pekim.github.io/tedious/api-connection.html) se utiliza para conectarse a la base de datos SQL.
 
@@ -76,7 +58,7 @@ La función [new Connection](http://pekim.github.io/tedious/api-connection.html)
 	});
 
 
-## Paso 3: Ejecución de una consulta
+## Paso 5: Ejecución de una consulta
 
 
 Todas las instrucciones SQL se ejecutan utilizando la función [new Request()](http://pekim.github.io/tedious/api-request.html). Si la instrucción devuelve filas, como una instrucción select, se podrán recuperar mediante la función [request.on()](http://pekim.github.io/tedious/api-request.html). Si no hay ninguna fila, la función [request.on()](http://pekim.github.io/tedious/api-request.html) devuelve listas vacías.
@@ -125,7 +107,7 @@ Todas las instrucciones SQL se ejecutan utilizando la función [new Request()](h
 	}
 
 
-## Paso 4: Inserción de una fila
+## Paso 6: Inserción de una fila
 
 En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
 
@@ -169,4 +151,4 @@ En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.
 		connection.execSql(request);
 	}
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

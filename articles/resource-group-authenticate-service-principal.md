@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="02/29/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Autenticación de una entidad de servicio con el Administrador de recursos de Azure
@@ -120,7 +120,7 @@ En estos pasos se supone que ha configurado un Almacén de claves y un secreto q
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Obtenga su aplicación de Active Directory. Tendrá que especificar el identificador de la aplicación al iniciar sesión.
+2. Obtenga su aplicación de Active Directory. Necesitará el identificador de la aplicación al iniciar sesión.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -231,7 +231,7 @@ Ha creado una aplicación de Active Directory y una entidad de servicio para esa
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Proporcionar un certificado a través de un script automatizado de PowerShell
 
-1. Obtenga su aplicación de Active Directory. Tendrá que especificar el identificador de la aplicación al iniciar sesión.
+1. Obtenga su aplicación de Active Directory. Necesitará el identificador de la aplicación al iniciar sesión.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -279,8 +279,11 @@ Para autenticarse desde una aplicación .NET, incluya el código siguiente. Tras
     }        
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
-    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred);
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
         
 
@@ -337,13 +340,13 @@ Ha creado una aplicación de Active Directory y una entidad de servicio para esa
 
 Si desea iniciar sesión manualmente como la entidad de servicio, puede usar el comando **azure login** . Debe indicar el identificador del inquilino, el identificador de la aplicación y la contraseña. La inclusión directa de la contraseña en el script no es segura porque la contraseña se almacena en el archivo. Consulte la sección siguiente para conocer la mejor opción cuando se ejecuta un script automatizado.
 
-1. Determine el valor de **TenantId** de la suscripción que contiene la entidad de servicio. Debe quitar las comillas dobles del principio y el final que se devuelven de la salida json antes de pasarlo como parámetro.
+1. Determine el valor de **TenantId** de la suscripción que contiene la entidad de servicio. Si va a recuperar el identificador de inquilino de su suscripción autenticada actualmente, no necesita proporcionar el identificador de suscripción como parámetro. El modificador **-r** recupera el valor sin las comillas.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
-2. Para el nombre de usuario, emplee el **AppId** que utilizó al crear la entidad de servicio. Si necesita recuperar el identificador de aplicación, use el siguiente comando. Proporcione el nombre de la aplicación de Active Directory en el parámetro **search**.
+2. Para el nombre de usuario, use el valor de **AppId** que usó al crear la entidad de servicio. Si necesita recuperar el identificador de aplicación, use el siguiente comando. Proporcione el nombre de la aplicación de Active Directory en el parámetro **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 3. Inicie sesión como la entidad de servicio:
 
@@ -363,19 +366,19 @@ Esta sección muestra cómo iniciar sesión como la entidad de servicio sin tene
 
 > [AZURE.NOTE] La inclusión de una contraseña en el script de la CLI de Azure no es segura porque la contraseña se expone como texto. Por ello, utilice en su lugar un servicio como el Almacén de claves para almacenar la contraseña y recuperarla al ejecutar el script.
 
-En estos pasos se supone que ha configurado un Almacén de claves y un secreto que almacena la contraseña. Para implementar un Almacén de claves y un secreto a través de una plantilla, consulte [Key Vault template format]() (Formato de plantilla de almacén de claves). Para obtener información sobre el Almacén de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
+En estos pasos se supone que ha configurado un Almacén de claves y un secreto que almacena la contraseña. Para implementar un Almacén de claves y un secreto a través de una plantilla, consulte [Formato de plantilla del Almacén de claves](). Para obtener información sobre el Almacén de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
 
-1. Recupere su contraseña (en el ejemplo siguiente, está almacenada como secreto con el nombre **appPassword**) del Almacén de claves. Debe quitar las comillas dobles del principio y el final que se devuelven de la salida json antes de pasarlo como parámetro de contraseña.
+1. Recupere su contraseña (en el ejemplo siguiente, está almacenada como secreto con el nombre **appPassword**) del Almacén de claves. Incluye el modificador **-r** para quitar las comillas dobles del principio y el final que se devuelven de la salida json.
 
-        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value' | sed -e 's/^"//' -e 's/"$//')
+        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq -r '.value')
     
-2. Determine el valor de **TenantId** de la suscripción que contiene la entidad de servicio.
+2. Determine el valor de **TenantId** de la suscripción que contiene la entidad de servicio. Si va a recuperar el identificador de inquilino de su suscripción autenticada actualmente, no necesita proporcionar el identificador de suscripción como parámetro.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
-3. Para el nombre de usuario, emplee el **AppId** que utilizó al crear la entidad de servicio. Si necesita recuperar el identificador de aplicación, use el siguiente comando. Proporcione el nombre de la aplicación de Active Directory en el parámetro **search**.
+3. Para el nombre de usuario, use el valor de **AppId** que usó al crear la entidad de servicio. Si necesita recuperar el identificador de aplicación, use el siguiente comando. Proporcione el nombre de la aplicación de Active Directory en el parámetro **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Inicie sesión como la entidad de servicio proporcionando el identificador de la aplicación, la contraseña del Almacén de claves y el identificador del inquilino.
 
@@ -460,13 +463,13 @@ Ha creado una aplicación de Active Directory y una entidad de servicio para esa
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-2. Determine el valor de **TenantId** de la suscripción que contiene la entidad de servicio.
+2. Determine el valor de **TenantId** de la suscripción que contiene la entidad de servicio. Si va a recuperar el identificador de inquilino de su suscripción autenticada actualmente, no necesita proporcionar el identificador de suscripción como parámetro. El modificador **-r** recupera el valor sin las comillas.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
-3. Para el nombre de usuario, emplee el **AppId** que utilizó al crear la entidad de servicio. Si necesita recuperar el identificador de aplicación, use el siguiente comando. Proporcione el nombre de la aplicación de Active Directory en el parámetro **search**.
+3. Para el nombre de usuario, use el valor de **AppId** que usó al crear la entidad de servicio. Si necesita recuperar el identificador de aplicación, use el siguiente comando. Proporcione el nombre de la aplicación de Active Directory en el parámetro **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Para autenticar con la CLI de Azure, proporcione la huella digital del certificado, el archivo del certificado, el identificador de la aplicación y el identificador del inquilino.
 
@@ -503,10 +506,13 @@ Para autenticarse desde una aplicación .NET, incluya el código siguiente. Tras
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
     var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
        
-Para obtener más información acerca del uso de certificados y la CLI de Azure, consulte [Certificate-based auth with Azure Service Principals from Linux command line ](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) (Autenticación basada en certificados con entidades de servicio de Azure desde la línea de comandos de Linux).
+Para obtener más información acerca del uso de certificados y la CLI de Azure, consulte [Autenticación basada en certificados con entidades de servicio de Azure desde la línea de comandos de Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
 
 ## Pasos siguientes
   
@@ -517,4 +523,4 @@ Para obtener más información acerca del uso de certificados y la CLI de Azure,
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

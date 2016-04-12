@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="nitinme"/>
 
 # Protección de los datos almacenados en el Almacén de Azure Data Lake
 
 Para proteger los datos en el Almacén de Azure Data Lake, se adopta un enfoque de tres pasos.
 
-1. Comience creando grupos de seguridad en Azure Active Directory (AAD). Estos grupos de seguridad se usan para implementar el control de acceso basado en roles (RBAC) en el Portal de Azure. Para obtener más información, consulte [Control de acceso basado en roles de Azure Active Directory](role-based-access-control-configure.md).
+1. Comience creando grupos de seguridad en Azure Active Directory (AAD). Estos grupos de seguridad se usan para implementar el control de acceso basado en roles (RBAC) en el Portal de Azure. Para obtener más información, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
 2. Asigne los grupos de seguridad de AAD a la cuenta de Almacén de Azure Data Lake. Esto controla el acceso a la cuenta de Almacén de Data Lake desde el portal y las operaciones de administración desde el portal o las API.
 
@@ -37,7 +37,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 ## Creación de grupos de seguridad en Azure Active Directory
 
-Para obtener instrucciones sobre cómo crear grupos de seguridad de AAD y cómo agregar usuarios al grupo, consulte [Administración de grupos de seguridad en Azure Active Directory](active-directory-accessmanagement-manage-groups.md).
+Para obtener instrucciones sobre cómo crear grupos de seguridad de AAD y cómo agregar usuarios al grupo, consulte [Administración de grupos de seguridad en Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
 ## Asignación de grupos de seguridad o usuarios a cuentas de Almacén de Azure Data Lake
 
@@ -160,9 +160,9 @@ Cuando quita las ACL de grupos de seguridad del sistema de archivos del Almacén
 
 - [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 - [Copiar datos de los blobs de almacenamiento de Azure en el Almacén Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
-- [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](data-lake-analytics-get-started-portal.md)
+- [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 - [Introducción al Almacén de Azure Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

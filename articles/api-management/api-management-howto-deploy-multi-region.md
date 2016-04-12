@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Implementación de una instancia del servicio Administración de API de Azure en varias regiones de Azure
@@ -22,7 +22,7 @@ Administración de API admite la implementación en varias regiones, lo que perm
 
 Al crear inicialmente un servicio de Administración de API, este contiene solo una [unidad][] y reside en una sola región de Azure, designada como región principal. Pueden agregarse otras regiones fácilmente a través del Portal de Azure clásico. El servidor puerta de enlace de Administración de API se implementa en cada región y el tráfico de llamada se enruta a la puerta de enlace más cercana. Cuando una región se queda sin conexión, el tráfico se redirige automáticamente a la siguiente puerta de enlace más cercana.
 
-> [AZURE.IMPORTANT]La implementación en varias regiones solo está disponible en el nivel **[Premium][]**.
+> [AZURE.IMPORTANT] La implementación en varias regiones solo está disponible en el nivel **[Premium][]**.
 
 ## <a name="add-region"> </a>Implementación de una instancia del servicio Administración de API en una nueva región
 
@@ -75,4 +75,4 @@ Una vez que se quiten las regiones deseadas, haga clic en **Guardar**.
 [unidad]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

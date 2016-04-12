@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 #Análisis de datos de retraso de vuelos con Hive en HDInsight
@@ -247,11 +247,11 @@ La carga del archivo de datos y los archivos de script de HiveQL (consulte el [A
 2. En la página, seleccione los siguientes valores:
 
 	<table border="1">
-<tr><th>Nombre</th><th>Valor</th></tr>
-<tr><td>Filter Year</td><td>2013 </td></tr>
-<tr><td>Filter Period</td><td>January</td></tr>
-<tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (borrar todos los demás campos)</td></tr>
-</table>
+	<tr><th>Nombre</th><th>Valor</th></tr>
+	<tr><td>Filter Year</td><td>2013 </td></tr>
+	<tr><td>Filter Period</td><td>January</td></tr>
+	<tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (borrar todos los demás campos)</td></tr>
+	</table>
 
 3. Haga clic en **Descargar**.
 4. Descomprima el archivo en la carpeta **C:\\Tutorials\\FlightDelay\\2013Data**. Cada archivo es un archivo CSV y tiene un tamaño aproximado de 60 GB.
@@ -263,10 +263,10 @@ La carga del archivo de datos y los archivos de script de HiveQL (consulte el [A
 1. Prepare los parámetros:
 
 	<table border="1">
-<tr><th>Nombre de la variable</th><th>Notas</th></tr>
-<tr><td>$storageAccountName</td><td>La cuenta de Almacenamiento de Azure donde desea cargar los datos.</td></tr>
-<tr><td>$blobContainerName</td><td>El contenedor de blobs en donde desea cargar los datos.</td></tr>
-</table>
+	<tr><th>Nombre de la variable</th><th>Notas</th></tr>
+	<tr><td>$storageAccountName</td><td>La cuenta de Almacenamiento de Azure donde desea cargar los datos.</td></tr>
+	<tr><td>$blobContainerName</td><td>El contenedor de blobs en donde desea cargar los datos.</td></tr>
+	</table>
 2. Abra Azure PowerShell ISE.
 3. Pegue el siguiente script en el panel de scripts:
 
@@ -372,10 +372,10 @@ Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de
 1. Prepare los parámetros:
 
 	<table border="1">
-<tr><th>Nombre de la variable</th><th>Notas</th></tr>
-<tr><td>$storageAccountName</td><td>La cuenta de Almacenamiento de Azure donde desea cargar el script de HiveQL.</td></tr>
-<tr><td>$blobContainerName</td><td>El contenedor de blobs en donde desea cargar el script de HiveQL.</td></tr>
-</table>
+	<tr><th>Nombre de la variable</th><th>Notas</th></tr>
+	<tr><td>$storageAccountName</td><td>La cuenta de Almacenamiento de Azure donde desea cargar el script de HiveQL.</td></tr>
+	<tr><td>$blobContainerName</td><td>El contenedor de blobs en donde desea cargar el script de HiveQL.</td></tr>
+	</table>
 2. Abra Azure PowerShell ISE.
 
 3. Copie y pegue el siguiente script en el panel de scripts:
@@ -559,13 +559,13 @@ Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de
 1. Prepare los parámetros:
 
 	<table border="1">
-<tr><th>Nombre de la variable</th><th>Notas</th></tr>
-<tr><td>$sqlDatabaseServerName</td><td>El nombre del servidor de Base de datos SQL de Azure. No escriba nada para crear un nuevo servidor.</td></tr>
-<tr><td>$sqlDatabaseUsername</td><td>El nombre de inicio de sesión del servidor de Base de datos SQL de Azure. Si $sqlDatabaseServerName es un servidor existente, se utilizan el nombre y la contraseña de inicio de sesión para autenticarse con el servidor. En caso contrario, se utilizan para crear un nuevo servidor.</td></tr>
-<tr><td>$sqlDatabasePassword</td><td>La contraseña de inicio de sesión del servidor de Base de datos SQL de Azure.</td></tr>
-<tr><td>$sqlDatabaseLocation</td><td>Este valor se usa solo cuando se crea un nuevo servidor de base de datos de Azure.</td></tr>
-<tr><td>$sqlDatabaseName</td><td>La Base de datos SQL usada para crear la tabla AvgDelays para el trabajo de Sqoop. Si se deja en blanco, se creará una base de datos denominada HDISqoop. El nombre de tabla para el resultado del trabajo de Sqoop es AvgDelays. </td></tr>
-</table>
+	<tr><th>Nombre de la variable</th><th>Notas</th></tr>
+	<tr><td>$sqlDatabaseServerName</td><td>El nombre del servidor de Base de datos SQL de Azure. No escriba nada para crear un nuevo servidor.</td></tr>
+	<tr><td>$sqlDatabaseUsername</td><td>El nombre de inicio de sesión del servidor de Base de datos SQL de Azure. Si $sqlDatabaseServerName es un servidor existente, se utilizan el nombre y la contraseña de inicio de sesión para autenticarse con el servidor. En caso contrario, se utilizan para crear un nuevo servidor.</td></tr>
+	<tr><td>$sqlDatabasePassword</td><td>La contraseña de inicio de sesión del servidor de Base de datos SQL de Azure.</td></tr>
+	<tr><td>$sqlDatabaseLocation</td><td>Este valor se usa solo cuando se crea un nuevo servidor de base de datos de Azure.</td></tr>
+	<tr><td>$sqlDatabaseName</td><td>La Base de datos SQL usada para crear la tabla AvgDelays para el trabajo de Sqoop. Si se deja en blanco, se creará una base de datos denominada HDISqoop. El nombre de tabla para el resultado del trabajo de Sqoop es AvgDelays. </td></tr>
+	</table>
 2. Abra Azure PowerShell ISE.
 3. Copie y pegue el siguiente script en el panel de scripts:
 
@@ -709,8 +709,7 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 * [Uso de Oozie con HDInsight][hdinsight-use-oozie]
 * [Uso de Sqoop con HDInsight][hdinsight-use-sqoop]
 * [Uso de Pig con HDInsight][hdinsight-use-pig]
-* [Desarrollo de programas MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
-* [Desarrollo de programas de streaming de Hadoop C# para HDInsight][hdinsight-develop-streaming]
+* [Desarrollo de programas de MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
 
 
 
@@ -730,7 +729,6 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
@@ -742,4 +740,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

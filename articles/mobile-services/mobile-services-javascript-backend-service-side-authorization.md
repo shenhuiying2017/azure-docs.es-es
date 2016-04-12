@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="11/30/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Autorización en el servicio de usuarios en Servicios móviles
+> [AZURE.SELECTOR]
+- [Back-end de .NET](mobile-services-dotnet-backend-service-side-authorization.md)
+- [Back-end de JavaScript](mobile-services-javascript-backend-service-side-authorization.md)
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para información sobre la versión de Aplicaciones móviles equivalente de este tema, vea [este código de ejemplo](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/personal-table/tables/TodoItem.js#L38).
 
 En este tema se muestra cómo usar scripts del lado servidor para autorizar a los usuarios. En este tutorial, registrará scripts con Servicios móviles de Azure, filtrará consultas según el identificador de usuario y proporcionará a los usuarios acceso solamente a sus propios datos. Filtrar los resultados de consulta de un usuario por el identificador de usuario es la forma más básica de autorización. Según cada escenario específico, también conviene crear tablas de usuarios o de roles para realizar un seguimiento de la información de autorización de usuario más detallada, como los extremos a los que un usuario determinado tiene permiso de acceso.
 
@@ -39,7 +43,7 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 
 	Este script agrega el identificador de usuario del usuario autenticado al elemento antes de la inserción.
 
-    >[AZURE.NOTE]Asegúrese de que el [esquema dinámico](https://msdn.microsoft.com/library/azure/jj193175.aspx) esté habilitado. De lo contrario, la columna *userId* no se agrega automáticamente. Esta configuración está habilitada de forma predeterminada para un nuevo servicio móvil.
+    >[AZURE.NOTE] Asegúrese de que el [esquema dinámico](https://msdn.microsoft.com/library/azure/jj193175.aspx) esté habilitado. De lo contrario, la columna *userId* no se agrega automáticamente. Esta configuración está habilitada de forma predeterminada para un nuevo servicio móvil.
 
 3. Del mismo modo, reemplace la operación **Read** existente con la siguiente función. Este script filtra los objetos TodoItem devueltos de manera que un usuario solo recibe los elementos que inserte.
 
@@ -68,6 +72,5 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 [Agregar autenticación a la aplicación de Servicios móviles existente]: /develop/mobile/tutorials/get-started-with-users-ios
 
 [Portal de Azure clásico]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

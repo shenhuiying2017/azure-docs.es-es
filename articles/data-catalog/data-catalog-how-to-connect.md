@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Conexión a orígenes de datos"
+   pageTitle="Conexión a orígenes de datos | Microsoft Azure"
    description="Artículo de procedimientos que indica cómo conectarse a orígenes de datos que se detectan con el Catálogo de datos de Azure."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -54,4 +54,4 @@ Al registrar un origen de datos con el **Catálogo de datos de Azure**, se consi
 ## Consulte también
 - Consulte el tutorial [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo realizar una conexión a orígenes de datos.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

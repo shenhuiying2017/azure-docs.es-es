@@ -13,45 +13,66 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/26/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
 # ¿Qué es Almacenamiento de datos SQL de Azure?
 
-El Almacenamiento de datos SQL de Azure es una base de datos distribuida de clase empresarial, capaz de procesar volúmenes masivos de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube del sector que combina unas capacidades de SQL demostradas con la posibilidad de aumentar, reducir y hacer una pausa en segundos. El Almacenamiento de datos SQL está también profundamente enraizado en Azure y se implementa fácilmente en segundos. Además, el servicio está totalmente administrado y evita tener que perder el tiempo en revisiones de software, mantenimiento y realización de copias de seguridad. Las copias de seguridad integradas y automáticas del Almacenamiento de datos SQL admiten tolerancia a errores y autoservicio de restauración.
+Almacenamiento de datos SQL de Azure es una base de datos de escalado horizontal y basada en la nube capaz de procesar volúmenes masivos de datos (tanto relacionales como no relacionales). Almacenamiento de datos SQL se basa en nuestra arquitectura de procesamiento paralelo masivo (MPP) y puede controlar la carga de trabajo de la empresa.
 
-Cuando hemos creado el Almacenamiento de datos SQL, nos hemos centrado en algunos atributos clave para asegurarnos de sacar el máximo partido de Azure y crear un almacenamiento de datos que pueda satisfacer cualquier carga de trabajo de la empresa.
+Almacenamiento de datos SQL
+
+- Combina nuestra reconocida base de datos relacional de SQL Server con nuestras funcionalidades de escalado horizontal en la nube de Azure. Puede aumentar, reducir, pausar o reanudar el proceso en segundos. Esto le permite ahorrar costos mediante el escalado horizontal de la CPU cuando se necesite y el recorte de su uso durante las horas de poca actividad.
+- Saca provecho de la plataforma Azure. Es fácil de implementar, su mantenimiento no genera problemas y es totalmente tolerante a errores, gracias a las copias de seguridad automáticas. 
+- Es el complemento perfecto del ecosistema de SQL Server. Le permite desarrollar con conocidas herramientas y T-SQL de SQL Server.
+
+Siga leyendo para más información acerca de las principales características de Almacenamiento de datos SQL.
 
 ## Optimizado
 
-### Arquitectura de almacenamiento de datos
+### Arquitectura de procesamiento paralelo masivo (MPP)
 
-En su núcleo, el Almacenamiento de datos SQL usa la arquitectura de procesamiento paralelo masivo (MPP) de Microsoft, que se diseñó originalmente para ejecutar algunos de los mayores almacenamientos de datos empresariales locales. Esta arquitectura aprovecha las mejoras en el rendimiento del almacenamiento de datos integrado, y permite también al Almacenamiento de datos SQL escalar y paralelizar con facilidad el proceso de consultas SQL complejas. Además, la arquitectura del Almacenamiento de datos SQL está diseñada para sacar partido de su presencia en Azure. Al combinarse estos dos aspectos, la arquitectura consta de cuatro componentes clave:
+Almacenamiento de datos SQL usa la arquitectura de procesamiento paralelo masivo (MPP) de Microsoft, que se diseñó para ejecutar algunos de los mayores almacenamientos de datos locales del mundo.
+
+Actualmente, nuestra arquitectura de MPP propaga los datos entre 60 unidades de procesamiento y almacenamiento shared-nothing. Los datos se almacenan en blobs de Almacenamiento de Azure redundantes y con replicación geográfica, y están vinculados a los nodos de proceso para la ejecución de consultas. Con esta arquitectura, se puede adoptar un enfoque de "divide y vencerás" para ejecutar consultas T-SQL complejas. Cuando se realiza el procesamiento, el nodo de control analiza la consulta y luego cada nodo de proceso "conquista" su parte de los datos en paralelo.
+
+Mediante la combinación de nuestra arquitectura de MPP y las funcionalidades de Almacenamiento de Azure, Almacenamiento de datos SQL puede:
+
+- Aumentar o reducir el almacenamiento independiente del proceso.
+- Aumentar o reducir el proceso sin mover datos. 
+- Pausar la funcionalidad de proceso y, al mismo tiempo, mantener los datos intactos.
+- Reanudar la capacidad de proceso inmediatamente tras un aviso.
+
+La arquitectura se describe detalladamente a continuación.
 
 ![Arquitectura de Almacenamiento de datos SQL][1]
 
-- **Nodo de control:** se conecta al nodo de control al usar el Almacenamiento de datos SQL con cualquier herramienta de inteligencia empresarial, carga o desarrollo. En el Almacenamiento de datos SQL, el nodo de control es una Base de datos SQL que, al conectarse, adopta la apariencia de una Base de datos SQL estándar. Sin embargo, bajo la superficie, coordina todo el movimiento de datos y los procesos que se llevan a cabo en el sistema. Cuando se emite un comando al nodo de control, se divide en un conjunto de consultas que se pasarán a los nodos de proceso del servicio.
 
-- **Nodos de proceso:** al igual que el nodo de control, los nodos de proceso del Almacenamiento de datos SQL se activan mediante Bases de datos SQL. Su función es servir como capacidad de proceso del servicio. En segundo plano, cada vez que se cargan datos en el Almacenamiento de datos SQL, se distribuyen entre los nodos del servicio. A continuación, cada vez que el nodo de control recibe un comando, lo divide en partes para los nodos de proceso, que operan sobre los datos correspondientes. Después de completar su proceso, los nodos de proceso pasan los resultados parciales al nodo de control que combina, a continuación, los resultados antes de devolver una respuesta.
+- **Nodo de control:** el nodo el control "controla" el sistema. Es el front-end que interactúa con todas las aplicaciones y conexiones. En Almacenamiento de datos SQL, el nodo de control tiene tecnología de Base de datos SQL y, al conectarse, adopta la misma apariencia. Debajo de la superficie, el nodo de control coordina todo el movimiento de datos y los cálculos requeridos para ejecutar consultas en paralelo de los datos distribuidos. Al enviar una consulta TSQL a Almacenamiento de datos SQL, el nodo de control lo transforma en consultas independientes que se ejecutarán en cada nodo de proceso en paralelo.
 
-- **Almacenamiento:** todo el almacenamiento para el Almacenamiento de datos SQL está constituido por Blobs de almacenamiento de Azure estándar. Esto significa que al interactuar con datos, los nodos de proceso escriben y leen directamente en los Blobs. La capacidad de almacenamiento de Azure de expandirse de forma transparente y casi ilimitada nos permite cambiar automáticamente la escala de almacenamiento y hacerlo de forma separada del proceso. El Almacenamiento de Azure también permite hacer que el almacenamiento sea persistente al escalarlo o ponerlo en pausa, simplificar el proceso de copia de seguridad y restauración, y tener un almacenamiento más seguro y tolerante a errores.
+- **Nodos de proceso:** los nodos de proceso sirven como la potencia que hay detrás de Almacenamiento de datos SQL. Son bases de datos de SQL las que procesan los pasos de la consulta y administran los datos. Al agregar datos, Almacenamiento de datos SQL distribuye las filas mediante los nodos de proceso. Los nodos de proceso son también los trabajos que ejecutan las consultas en paralelo en los datos. Después del procesamiento, devuelven los resultados al nodo de control. Para finalizar la consulta, el nodo de control agrega los resultados y devuelve el resultado final.
 
-- **Servicios de movimiento de datos:** el último elemento que lo mantiene todo unido en el Almacenamiento de datos SQL son nuestros servicios de movimiento de datos. Los servicios de movimiento de datos permiten que el nodo de control se comunique con todos los nodos de proceso y les pase datos. También permite que los nodos de proceso se pasen datos entre sí, lo que les proporciona acceso a los datos de otros nodos de proceso y les permite obtener los datos que necesitan para realizar combinaciones y agregaciones.
 
-### Optimizaciones de motor
+- **Almacenamiento:** los datos se almacenan en blobs de Almacenamiento de Azure. Cuando los nodos de proceso interactúan con los datos, escribir y leen directamente del Almacenamiento de blobs. Dado que el Almacenamiento de Azure se amplía de forma transparente e ilimitada, el Almacenamiento de datos SQL puede hacer lo mismo. Puesto que el proceso y el almacenamiento son independientes, Almacenamiento de datos SQL puede escalar automáticamente el almacenamiento por separado del escalado del proceso, y viceversa. Almacenamiento de Azure también es totalmente tolerante a errores y simplifica el proceso de copia de seguridad y restauración.
+   
 
-Este enfoque MPP permite al Almacenamiento de datos SQL usar un enfoque "divide y vencerás", tal como se describió anteriormente al solucionar los problemas que plantean los grandes volúmenes de datos. Como los datos del Almacenamiento de datos SQL se dividen y distribuyen entre los nodos de proceso del servicio, cada nodo de proceso es capaz de operar en su parte de datos en paralelo. Por último, los resultados se pasan al nodo de control y se agregan antes de pasarlos a los usuarios. A este enfoque también contribuyen algunas optimizaciones del rendimiento específicas del almacenamiento de datos:
+- **Servicio de movimiento de datos:** el servicio de movimiento de datos (DMS) es nuestra tecnología para mover datos entre los nodos. DMS proporciona a los nodos de proceso acceso a los datos que necesitan para la combinaciones y agregaciones. DMS no es un servicio de Azure Es un servicio de Windows que se ejecuta junto con Base de datos SQL en todos los nodos. Dado que DMS se ejecuta en segundo plano, el usuario no interactúa directamente con él. Sin embargo, al examinar los planes de consulta observará incluyen varias operaciones de DMS, ya que para ejecutar cada consulta en paralelo, es preciso cierto movimiento de datos.
 
-- El Almacenamiento de datos SQL usa un optimizador de consultas avanzadas y un conjunto de estadísticas complejas en todos los datos del servicio para crear sus planes de consulta. Gracias a la información sobre la distribución y el tamaño de los datos, el servicio es capaz de optimizar las consultas distribuidas en función de la evaluación del costo de las operaciones de consulta específicas.
 
-- Además de crear planes de consulta óptimos, el Almacenamiento de datos SQL incorpora algoritmos y técnicas avanzados que mueven los datos entre los recursos de proceso, según sea necesario, para realizar la consulta de forma eficaz. Estas operaciones están integradas en los servicios de movimiento de datos del almacén de datos y las optimizaciones se producen automáticamente.
+### Rendimiento de consultas optimizado
 
-- La inclusión de índices de almacén de columnas agrupados en Almacenamiento de datos SQL es también fundamental para conseguir un rendimiento rápido de las consultas. Mediante el uso del almacenamiento basado en columnas, el Almacenamiento de datos SQL obtiene hasta 5 veces más ganancias de compresión que el almacenamiento tradicional basado en filas y hasta 10 veces el rendimiento de la consulta. Las consultas del almacenamiento de datos funcionan a la perfección en índices de almacén de columnas porque a menudo examinan toda la tabla o la partición entera de una tabla y minimizan el impacto que provoca el movimiento de datos para pasos de consulta.
+Además de la estrategia de "divide y vencerás", el enfoque MPP se refuerza con varias optimizaciones de rendimiento específicas del almacenamiento de datos, entre las que se incluyen:
 
-## Escalable
+- Un optimizador de consultas distribuido y un conjunto de estadísticas complejas en todos los datos. Gracias a la información sobre la distribución y el tamaño de los datos, el servicio puede optimizar las consultas, para lo que evalúa del costo de las operaciones de consulta específicas.
 
-La arquitectura del Almacenamiento de datos SQL presenta el proceso y el almacenamiento por separado, lo que permite a cada uno escalar de manera independiente. La estructura de implementación rápida y sencilla de la Base de datos SQL permite disponer de procesos adicionales en un instante. Como complemento, está el uso de Blobs de almacenamiento de Azure. Los blobs no solo nos ofrecen un almacenamiento estable y replicado, sino que proporcionan igualmente la infraestructura para una expansión más fluida y menos costosa. Mediante esta combinación de almacenamiento de escala en la nube y de proceso de Azure, el Almacenamiento de datos SQL le permite pagar por un almacenamiento de rendimiento de consultas conforme lo necesita cuando lo necesita. Cambiar la cantidad del proceso es tan fácil como mover un control deslizante en el Portal de Azure clásico hacia la izquierda o la derecha, aunque también se puede programar o agregar a una carga de trabajo con T-SQL y PowerShell.
+- Técnicas y algoritmos avanzados integrados en el proceso de movimiento de datos, con el fin de mover datos de forma eficaz entre los recursos de proceso según sea necesario para realizar la consulta. Estas operaciones de movimiento de datos están integradas y todas las optimizaciones del servicio de movimiento de datos se producen de forma automática.
+
+- Índices de almacén de columnas en clúster de manera predeterminada Mediante el uso del almacenamiento basado en columnas, el Almacenamiento de datos SQL obtiene unas ganancias de compresión que quintuplican las del almacenamiento tradicional orientado a filas y que multiplica por 10 veces las del rendimiento de las consultas. Las consultas de Análisis que necesitan examinar un gran número de filas funcionan estupendamente en índices de almacén de columnas.
+
+## Escalabilidad
+
+La arquitectura del Almacenamiento de datos SQL presenta el proceso y el almacenamiento por separado, lo que permite a cada uno escalar de manera independiente. La estructura de implementación rápida y sencilla de la Base de datos SQL permite disponer de procesos adicionales en un instante. Como complemento, está el uso de Blobs de almacenamiento de Azure. El uso de blobs no solo nos ofrece un almacenamiento estable y replicado, sino que también proporciona la infraestructura necesaria para una realizar una expansión más fluida con un costo menor. Mediante esta combinación de almacenamiento de escala en la nube y de proceso de Azure, el Almacenamiento de datos SQL le permite pagar por un almacenamiento de rendimiento de consultas conforme lo necesita cuando lo necesita. El cambio de la cantidad de proceso es una operación muy simple, solo hay que mover un control deslizante del Portal de Azure hacia la derecha o izquierda, pero también se puede programar mediante T-SQL y PowerShell.
 
 Junto con la capacidad de controlar totalmente la cantidad del proceso con independencia del almacenamiento, el Almacenamiento de datos SQL le permite realizar una pausa completa en el almacenamiento de datos. A la vez que mantiene el almacenamiento en su sitio, se lanzan todos los procesos al grupo principal de Azure, lo que supone un ahorro de dinero inmediato. Cuando sea necesario, solo tendrá que reanudar el proceso y tener los datos y el proceso disponibles para su carga de trabajo.
 
@@ -140,4 +161,4 @@ Ahora que ya conoce un poco el Almacenamiento de datos SQL, obtenga información
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

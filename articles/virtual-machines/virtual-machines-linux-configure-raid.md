@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Configuración de RAID de software en una máquina virtual que ejecuta Linux | Microsoft Azure" 
 	description="Aprenda a utilizar mdadm para configurar RAID en Linux en Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	writer="szark" 
@@ -10,12 +10,12 @@
 	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/25/2016" 
 	ms.author="szark"/>
 
 
@@ -23,13 +23,11 @@
 # Configuración del software RAID en Linux
 Es un escenario habitual usar el software RAID en máquinas virtuales con Linux en Azure para presentar varios discos de datos conectados como un único dispositivo RAID. Se puede utilizar normalmente para aumentar el rendimiento y permitir una capacidad de proceso mejorada en comparación con el uso de un solo disco.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
- 
 
 ## Conexión de discos de datos
-Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID. Este artículo no entrará en detalles acerca de cómo conectar discos de datos a una máquina virtual con Linux. Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](storage-windows-attach-disk.md#attachempty) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
+Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID. Este artículo no entrará en detalles acerca de cómo conectar discos de datos a una máquina virtual con Linux. Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](virtual-machines-windows-classic-attach-disk.md#attachempty) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
 
->[AZURE.NOTE]El tamaño ExtraSmall de la máquina virtual no admite más de un disco de datos conectado a la máquina virtual. Consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) para obtener información detallada acerca de los tamaños de máquinas virtuales y el número de discos de datos admitidos.
+>[AZURE.NOTE] El tamaño ExtraSmall de la máquina virtual no admite más de un disco de datos conectado a la máquina virtual. Consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) para obtener información detallada acerca de los tamaños de máquinas virtuales y el número de discos de datos admitidos.
 
 
 ## Instalación de la utilidad mdadm
@@ -125,7 +123,7 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]Es posible que sea necesario reiniciar después de realizar estos cambios en los sistemas SUSE. Este paso *no* es necesario en SLES 12.
+	>[AZURE.NOTE] Es posible que sea necesario reiniciar después de realizar estos cambios en los sistemas SUSE. Este paso *no* es necesario en SLES 12.
 
 
 ## Incorporación del nuevo sistema de archivos a /etc/fstab
@@ -182,4 +180,4 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 # Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell
@@ -30,9 +30,9 @@
 
 ## Creación de una nueva puerta de enlace de aplicaciones
 
-Para crear una puerta de enlace de aplicaciones:
+Para crear una Puerta de enlace de aplicaciones:
 
-1. Cree un recurso de la puerta de enlace de aplicaciones.
+1. Cree un recurso de Puerta de enlace de aplicaciones.
 2. Cree un archivo de configuración XML o un objeto de configuración.
 3. Confirme la configuración para el recurso de la puerta de enlace de aplicaciones recién creado.
 
@@ -40,7 +40,7 @@ Para crear una puerta de enlace de aplicaciones:
 
 Para crear la puerta de enlace, use el cmdlet **New-AzureApplicationGateway**, reemplazando los valores por los suyos propios. Tenga en cuenta que la facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
 
-En el ejemplo siguiente se crea una puerta de enlace de aplicaciones nueva mediante una red virtual denominada "testvnet1" y una subred denominada "subnet-1":
+En el ejemplo siguiente se crea una Puerta de enlace de aplicaciones nueva mediante una red virtual denominada "testvnet1" y una subred denominada "subnet-1".
 
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -69,7 +69,7 @@ Para validar que se creó la puerta de enlace, puede usar el cmdlet **Get-AzureA
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Puede elegir entre Pequeño, Mediano y Grande.
+>[AZURE.NOTE]  El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Puede elegir entre Pequeño, Mediano y Grande.
 
 
  *VirtualIPs* y *DnsName* se muestran en blanco porque todavía no se ha iniciado la puerta de enlace. Se crearán una vez que la puerta de enlace esté en estado de ejecución.
@@ -153,7 +153,7 @@ Edite los valores entre paréntesis de los elementos de configuración. Guarde e
 
 En el ejemplo siguiente se muestra cómo usar un archivo de configuración para configurar la puerta de enlace de aplicaciones para que equilibre la carga de tráfico HTTP en el puerto público 80 y envíe el tráfico de red al puerto back-end 80 entre dos direcciones IP mediante sondeo personalizado.
 
->[AZURE.IMPORTANT]El elemento de protocolo Http o Https distingue mayúsculas de minúsculas.
+>[AZURE.IMPORTANT] El elemento de protocolo Http o Https distingue mayúsculas de minúsculas.
 
 
 Se agrega un nuevo elemento de configuración <Probe> para configurar sondeos personalizados.
@@ -222,4 +222,4 @@ Si quiere configurar la descarga de Capa de sockets seguros (SSL), vea [Configur
 
 Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, vea [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

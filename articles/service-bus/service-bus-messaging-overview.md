@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="12/09/2015"
+	ms.date="03/09/2016"
 	ms.author="sethm"/>
 
 
@@ -23,7 +23,7 @@ La mensajería de Bus de servicio de Azure es un servicio confiable de entrega d
 
 La mensajería del Bus de servicio es similar al servicio postal de entrega de cartas, ya que trata de la entrega flexible de información entre el remitente y el destinatario. El servicio de mensajería garantiza que la información se entrega, incluso si las dos partes no están nunca conectados al mismo tiempo o si no están disponibles en el mismo momento exacto. De esta manera, la mensajería es similar al envío de una carta, mientras que la comunicación asíncrona es similar a la realización de una llamada telefónica (o como era la realización de llamadas, antes de la creación de servicios de identificación de llamada o llamada en espera, que son mucho más similares a la mensajería asíncrona).
 
-El remitente del mensaje también puede requerir una variedad de características de entrega, incluidas transacciones, detección de duplicados, expiración basado en el tiempo y el procesamiento por lotes. Estos patrones también tienen analogías postales: repetición de la entrega, requerimiento de firma, cambio de dirección o devolución de llamada.
+El remitente del mensaje también puede requerir varias características de entrega, incluidas transacciones, detección de duplicados, expiración basada en el tiempo y procesamiento por lotes. Estos patrones también tienen analogías postales: repetición de la entrega, requerimiento de firma, cambio de dirección o devolución de llamada.
 
 Bus de servicio admite dos patrones de mensajería distintos: mensajería *retransmitida* y mensajería *asincrónica*.
 
@@ -56,4 +56,4 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Cómo usar temas de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

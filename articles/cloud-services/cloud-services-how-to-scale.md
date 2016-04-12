@@ -28,7 +28,7 @@ Al escalar o reducir verticalmente una aplicación que ejecuta máquinas virtual
 
 Debe considerar la siguiente información antes de configurar el escalado para su aplicación:
 
-- Las máquinas virtuales que crea debe agregarlas a un conjunto de disponibilidad para escalar una aplicación que las utiliza. Las máquinas virtuales que agrega pueden inicialmente activarse o desactivarse, pero se activarán en una acción de escalado vertical y se desactivarán en una acción de reducción vertical. Para obtener más información sobre las máquinas virtuales y los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](../virtual-machines-manage-availability.md).
+- Las máquinas virtuales que crea debe agregarlas a un conjunto de disponibilidad para escalar una aplicación que las utiliza. Las máquinas virtuales que agrega pueden inicialmente activarse o desactivarse, pero se activarán en una acción de escalado vertical y se desactivarán en una acción de reducción vertical. Para obtener más información sobre las máquinas virtuales y los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](../virtual/machines/virtual-machines-windows-manage-availability.md).
 
 - El uso de núcleos afecta el escalado. Las instancias de rol o las máquinas virtuales más grandes usan más núcleos. Solo puede escalar una aplicación dentro del límite de núcleos para su suscripción. Por ejemplo, si su suscripción tiene un límite de veinte núcleos y ejecuta una aplicación con dos máquinas virtuales de tamaño mediano (un total de cuatro núcleos), solo puede escalar verticalmente otras implementaciones de servicio en la nube en su suscripción con dieciséis núcleos. Todas las máquinas virtuales de un conjunto de disponibilidad que se usan al escalar una aplicación deben tener el mismo tamaño. Para obtener más información acerca del uso de núcleos y los tamaños de las máquinas, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
@@ -138,7 +138,11 @@ En la página Scale, puede configurar su servicio en la nube para aumentar o dis
     
     **Nota**: en la página Escalar, **Instancia** representa una instancia de rol o una instancia de una máquina virtual.
     
-    La cantidad máxima de instancias está limitada por los núcleos que están disponibles en la suscripción. Los colores del control deslizante representan los núcleos usados y disponibles en la suscripción: - El azul representa el número máximo de núcleos que puede usar el rol. - El gris oscuro representa los núcleos que usan todos los roles y las máquinas virtuales de la suscripción. Cuando este valor se superpone a los núcleos que usa el rol, el color cambia a azul oscuro. - El gris claro representa los núcleos que están disponibles para usarlos en el escalado. - El rosa representa un cambio que se ha hecho y que no se ha guardado.
+    La cantidad máxima de instancias está limitada por los núcleos que están disponibles en la suscripción. Los colores del control deslizante representan los núcleos usados y disponibles en su suscripción:
+    - Azul representa la cantidad máxima de núcleos que puede usar el rol.
+    - Gris oscuro representa los núcleos que usan todos los roles y las máquinas virtuales de la suscripción Cuando este valor coincide parcialmente con los núcleos usados por el rol, el color cambia a azul oscuro.
+    - Gris claro representa los núcleos que están disponibles para usarlos en el escalado.
+    - Rosado representa un cambio hecho que no se ha guardado.
 
 5. Seleccione la cuenta de almacenamiento que se asocia con la cola que desea usar.
 
@@ -227,4 +231,4 @@ Puede programar el escalado automático de su aplicación al configurar programa
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

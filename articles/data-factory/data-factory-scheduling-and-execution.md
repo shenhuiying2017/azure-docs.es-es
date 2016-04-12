@@ -261,6 +261,27 @@ La Vista Diagrama con ambas actividades en la misma canalización tendría el as
 
 ![Encadenamiento de las actividades de la misma canalización](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
+### Copia ordenada
+Es posible ejecutar varias operaciones de copia sucesivas de manera secuencial y ordenada. Supongamos que tiene dos actividades de copia en una canalización: ActividadCopia1 y ActividadCopia2 con los siguientes conjuntos de datos de entrada y salida.
+
+ActividadCopia1: entrada: ConjuntoDatos1; salida: ConjuntoDatos2
+
+ActividadCopia2: entrada: ConjuntoDatos2; salida: ConjuntoDatos4
+
+ActividadCopia2 solo se ejecutaría si ActividadCopia1 se hubiera ejecutado correctamente y ConjuntoDatos2 estuviera disponible.
+
+En el ejemplo anterior, ActividadCopia2 puede tener una entrada distinta, como ConjuntoDatos3, pero también deberá especificar ConjuntoDatos2 como una entrada de ActividadCopia2 para que la actividad no se ejecute hasta que se haya completado ActividadCopia1. Por ejemplo:
+
+ActividadCopia1: entrada: ConjuntoDatos1; salida: ConjuntoDatos2
+
+ActividadCopia2: entrada: ConjuntoDatos3 y ConjuntoDatos2; salida: ConjuntoDatos4
+
+Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias. ActividadCopia2 solo empezaría a ejecutarse cuando se cumplan las siguientes condiciones:
+
+- ActividadCopia2 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usará al copiar datos en ConjuntoDatos4. Solo actúa como una dependencia de programación de ActividadCopia2.   
+- ConjuntoDatos3 está disponible. Este conjunto de datos representa los datos que se copian en el destino.  
+
+
 
 ## Modelado de conjuntos de datos con distintas frecuencias
 
@@ -532,7 +553,7 @@ La actividad de Hive toma las dos entradas y genera un segmento de salida cada d
 
 ## Funciones y variables del sistema de Data Factory   
 
-Consulte el artículo [Funciones y variables del sistema de Data Factory](data-factory-functions-variables.md) para obtener la lista de funciones y variables del sistema admitidas por Data Factory de Azure.
+Consulte el artículo [Data Factory de Azure: funciones y variables del sistema](data-factory-functions-variables.md) para obtener la lista de funciones y variables del sistema admitidas por Data Factory de Azure.
 
 ## Profundización de la dependencia de datos
 
@@ -632,4 +653,4 @@ De forma similar a los conjuntos de datos que produce Factoría de datos, los se
 
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

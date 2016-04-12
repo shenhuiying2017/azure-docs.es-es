@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Creación de grupos de seguridad de red en la CLI de Azure
@@ -32,9 +32,9 @@ En los siguientes comandos de CLI de Azure de ejemplo se presupone que ya se ha 
 ## Creación del grupo de seguridad de red para la subred front-end
 Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el escenario anterior, siga estos pasos.
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
+2. Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
 
@@ -69,8 +69,8 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 		info:    network nsg create command OK
 
 	Parámetros:
-	- **-g (o --resource-group)**. Nombre del grupo de recursos donde se creará el grupo de seguridad de red En este escenario, *TestRG*.
-	- **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario,, *westus*.
+	- **-g (or --resource-group)**. Nombre del grupo de recursos donde se creará el grupo de seguridad de red En este escenario, *TestRG*.
+	- **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario, *TestRG*.
 	- **-n (o --name)**. Nombre del nuevo grupo de seguridad de red. En este escenario, *NSG-FrontEnd*.
 
 4. Ejecute el comando **azure network nsg rule create** para crear una regla que permita el acceso al puerto 3389 (RDP) desde Internet.
@@ -269,4 +269,6 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_0323_2016-->
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="03/11/2016"
 	ms.author="danlep"/>
 
 # Cuotas y límites del servicio de Lote de Azure
@@ -35,7 +35,12 @@ Cuentas de Lote por región y suscripción|1|50
 ## Otros límites
 Recurso|Límite máximo
 ---|---
-Tareas por nodo de proceso|4 × número de núcleos de nodo
+Tareas por nodo de proceso | 4 × número de núcleos de nodo
+Aplicaciones por cuenta de Lote | 20 |
+Paquetes de aplicación por aplicación | 40
+Tamaño del paquete de aplicación (cada uno) | Aprox. 195 GB<sup>1</sup>
+
+<sup>1</sup> Límite de almacenamiento de Azure para el tamaño máximo de blob en bloques
 
 ## Visualización de las cuotas de Lote
 
@@ -53,7 +58,7 @@ Vea las cuotas de la cuenta de Lote en el [Portal de Azure](https://portal.azure
 
 Use los pasos siguientes para solicitar un aumento de la cuota en el Portal de Azure (también puede solicitar un aumento en el [Portal de Azure clásico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
 
-1. En el panel de portal, haga clic en **Ayuda y soporte técnico**.
+1. En el panel del portal, haga clic en **Ayuda y soporte técnico**.
 
 2. Haga clic en **Nueva solicitud de soporte técnico > Aspectos básicos**.
 
@@ -93,4 +98,4 @@ El servicio de soporte técnico de Azure se pondrá en contacto con usted. Compl
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

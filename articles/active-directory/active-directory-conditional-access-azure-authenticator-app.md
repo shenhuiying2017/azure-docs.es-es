@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Azure Authenticator para Android
@@ -46,7 +46,8 @@ Las instrucciones siguientes son aplicables a teléfonos Samsung GS3 y versiones
 9. En la pantalla Unión al área de trabajo aparece el mensaje "**Unirse al área de trabajo**". La aplicación Azure Authenticator está intentando unir el dispositivo al área de trabajo.
 10. En la pantalla siguiente debería aparecer el mensaje "Unido a área de trabajo".
 
->[AZURE.NOTE]Se permite una sola cuenta profesional en el dispositivo.
+>[AZURE.NOTE]
+Se permite una sola cuenta profesional en el dispositivo.
 
 ### Agregar la cuenta profesional en el menú Configuración
 Después de instalar la aplicación Azure Authenticator, también puede crear una cuenta profesional desde el Administrador de cuentas de Android.
@@ -66,7 +67,8 @@ Agregar la cuenta profesional desde un dispositivo Android que no es de Samsung
 7. La siguiente pantalla que muestra información acerca de Multi-Factor Authentication (MFA) se incluye para mayor seguridad y es opcional. Verá esta pantalla si su trabajo o escuela requiere autenticación de segundo factor para crear la cuenta profesional. Proporciona instrucciones para comprobar su cuenta.
 8. Haga clic en **Aceptar** en la pantalla siguiente. No cambie el nombre del certificado. En la pantalla Unión al área de trabajo aparece el mensaje "**Unirse al área de trabajo**". La aplicación Azure Authenticator está intentando unir el dispositivo al área de trabajo. En la pantalla siguiente debería aparecer el mensaje "Unido a área de trabajo".
 
->[AZURE.NOTE]Se permite una sola cuenta profesional en el dispositivo.
+>[AZURE.NOTE]
+Se permite una sola cuenta profesional en el dispositivo.
 
 Después de instalar la aplicación Azure Authenticator, también puede crear una cuenta profesional desde el Administrador de cuentas de Android.
 
@@ -106,10 +108,12 @@ Puede quitar la cuenta profesional creada en cualquier momento; para ello, proce
 
 ##Desinstalación de la aplicación
 
-En un dispositivo Android de Samsung, es necesario quitar los privilegios de administrador del dispositivo de la manera siguiente antes de desinstalar la aplicación Azure Authenticator. 1 Desde **Configuración**, en **Sistema**, seleccione **Seguridad**. 2. En **Administración del dispositivo**, haga clic en **Administradores del dispositivo**. Asegúrese de que la casilla junto a**Azure Authenticator** está desactivada.
+En un dispositivo Android de Samsung, es necesario quitar los privilegios de administrador del dispositivo de la manera siguiente antes de desinstalar la aplicación Azure Authenticator.
+1. Desde **Configuración**, en **Sistema**, seleccione **Seguridad**.
+2. En **Administración del dispositivo**, haga clic en **Administradores del dispositivo**. Asegúrese de que la casilla junto a**Azure Authenticator** está desactivada.
 
 ##Solución de problemas
 
 Si ve un error que indica **Error de KeyStore**, podría deberse a que no ha configurado la pantalla de bloqueo con un PIN. Para evitar este problema, desinstale la aplicación Azure Authenticator, configure un PIN para la pantalla de bloqueo y reinstale la aplicación.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

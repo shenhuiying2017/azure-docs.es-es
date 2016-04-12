@@ -3,9 +3,9 @@
 	description="Una guía para crear roles web y de trabajo de PHP en un servicio en la nube de Azure y configurar el tiempo en ejecución de PHP."
 	services=""
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="01/08/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Creación de roles de trabajo y web de PHP
 
@@ -52,7 +52,7 @@ Para un rol de trabajo, use este comando:
 
 	PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
-> [AZURE.NOTE]El parámetro `roleName` es opcional. Si se omite, el nombre de rol se generará automáticamente. El primer rol web creado será `WebRole1`, el segundo será `WebRole2` y así sucesivamente. El primer rol de trabajo creado será `WorkerRole1`, el segundo será `WorkerRole2` y así sucesivamente.
+> [AZURE.NOTE] El parámetro `roleName` es opcional. Si se omite, el nombre de rol se generará automáticamente. El primer rol web creado será `WebRole1`, el segundo será `WebRole2` y así sucesivamente. El primer rol de trabajo creado será `WorkerRole1`, el segundo será `WorkerRole2` y así sucesivamente.
 
 ## de la versión de PHP integrada
 
@@ -76,7 +76,7 @@ Puede definir la versión del tiempo de ejecución de PHP con cualquier versión
 
 	PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
 
-> [AZURE.NOTE]Las versiones PHP disponibles pueden cambiar en el futuro.
+> [AZURE.NOTE] Las versiones PHP disponibles pueden cambiar en el futuro.
 
 ## del tiempo de ejecución de PHP integrado
 
@@ -91,7 +91,7 @@ Para personalizar el tiempo de ejecución de PHP integrado, siga estos pasos:
 		display_errors=On
 		extension=php_mongo.dll
 
-> [AZURE.NOTE]Cualquier configuración que no defina explícitamente en el archivo `php.ini` que proporcione se definirá automáticamente con los valores predeterminados. Sin embargo, tenga en cuenta que puede agregar un archivo `php.ini` completo.
+> [AZURE.NOTE] Cualquier configuración que no defina explícitamente en el archivo `php.ini` que proporcione se definirá automáticamente con los valores predeterminados. Sin embargo, tenga en cuenta que puede agregar un archivo `php.ini` completo.
 
 ## del tiempo de ejecución de PHP propio
 En algunos casos, en lugar de seleccionar un tiempo de ejecución de PHP integrado y configurarlo como se ha descrito anteriormente, puede proporcionar el tiempo de ejecución de PHP propio. Por ejemplo, puede usar el mismo tiempo de ejecución de PHP en un rol web o de trabajo que use en el entorno de desarrollo. De esta forma, garantiza de forma más fácil que la aplicación no cambiará su comportamiento en el entorno de producción.
@@ -128,7 +128,7 @@ Para configurar un rol web para usar un tiempo de ejecución de PHP proporcionad
 
 6. Publique la aplicación como se describe en la sección [Publicación de la aplicación](#how-to-publish-your-application) más adelante.
 
-> [AZURE.NOTE]El script `download.ps1` (en la carpeta `bin` del directorio raíz del rol web) se puede eliminar después de completar los pasos descritos anteriormente para usar el tiempo de ejecución de PHP propio.
+> [AZURE.NOTE] El script `download.ps1` (en la carpeta `bin` del directorio raíz del rol web) se puede eliminar después de completar los pasos descritos anteriormente para usar el tiempo de ejecución de PHP propio.
 
 ### Configuración de un rol de trabajo para usar un tiempo de ejecución de PHP propio
 
@@ -211,4 +211,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -26,7 +26,7 @@ El Administrador de recursos es un componente del panel de clúster Spark que le
 
 ## <a name="launchrm"></a>¿Cómo se inicia el Administrador de recursos?
 
-1. En el [Portal de vista previa de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**. 
+1. Desde el [Portal de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**. 
  
 2. En la hoja del clúster Spark, haga clic en **Panel**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
 
@@ -47,7 +47,7 @@ El clúster Apache Spark en HDInsight está diseñado para una arquitectura mult
 
 	![Asignación de recursos](./media/hdinsight-apache-spark-resource-manager-v1/hdispark.ui.resource.png "Encontrar los recursos asignados a un clúster Spark")
 
-	Según la captura de pantalla anterior, el número máximo de núcleos que puede asignar es 7 (un total de 8 núcleos, de los cuales 1 está en uso) y la cantidad máxima de RAM que se puede asignar es 9 GB (un total de 12 GB de RAM, de los cuales 2 GB se deben reservar para uso del sistema y 1 GB para el uso de las demás aplicaciones).
+	Según la captura de pantalla anterior, el número máximo de núcleos que puede asignar es 7 (un total de 8 núcleos, de los cuales 1 está en uso) y la cantidad máxima de RAM que se puede asignar es 9 GB (un total de 12 GB de RAM, de los cuales 2 GB se deben reservar para uso del sistema y 1 GB para el uso de las demás aplicaciones).
 
 	También se deben tener en cuenta todas las aplicaciones que se estén ejecutando. Puede consultarlas en la pestaña **IU de Spark**.
 
@@ -84,4 +84,4 @@ Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecució
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

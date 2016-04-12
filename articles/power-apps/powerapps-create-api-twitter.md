@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
-# Crear una nueva API de Twitter en el entorno de servicio de aplicaciones de la organización
+# Creación de una nueva API en PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [Aplicaciones lógicas](../articles/connectors/connectors-create-api-twitter.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
+
+Agregue la API de Twitter al entorno del Servicio de aplicaciones de su organización (inquilino).
 
 ## Crear la API en el portal de Azure
 
@@ -25,9 +31,9 @@
 
 2. Seleccione **Examinar** en la barra de tareas: ![][14]
 
-3. En la lista, puede desplazarse para encontrar PowerApps o escribir en *powerapps*: ![][15]
+3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: ![][15]
 
-4. En **PowerApps**, seleccione **Administrar APIs**: ![Examine las APIs registradas][1]
+4. En **PowerApps**, seleccione **Administrar API**: ![Examine las APIs registradas][1]
 
 5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API: ![Add API][2]
 
@@ -39,7 +45,7 @@
 
 9. Escriba la *clave del consumidor* y el *secreto del consumidor* de la aplicación de Twitter. Si no dispone de estos, consulte la sección "Registrar una aplicación Twitter para su uso con PowerApps" de este tema para crear los valores de clave y secreto que necesita.
 
-	> [AZURE.IMPORTANT]Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
+	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
 
 10. Seleccione **Aceptar** para completar los pasos.
 
@@ -56,13 +62,22 @@ Si no tiene una aplicación Twitter existente con los valores de clave y secreto
 
 3. En **Crear una aplicación**:
    
-	a) Escriba un valor para **Nombre**. b) Escriba un valor para **Descripción**. c) Escriba un valor para **Sitio web**. d) Defina la **Dirección url de devolución de llamada** en la dirección URL de redireccionamiento que recibió al agregar la nueva API de Twitter en el Portal de Azure (en este tema). e) Acepte el contrato del desarrollador y seleccione **Crear su aplicación de Twitter**.
+	1. Escriba un valor para **Name** (Nombre).  
+	2. Escriba un valor para **Description** (Descripción).  
+	3. Escriba un valor para **Website** (Sitio web).  
+	4. Establezca **URL de devolución de llamada** en la URL de redireccionamiento que ha recibido cuando agregó la nueva API de Twitter en el Portal de Azure (en este tema).  
+	5. Acepte el acuerdo del desarrollador y seleccione **Create your Twitter application** (Crear su aplicación de Twitter).  
 
 	![Crear aplicación de Twitter][7]
 
 4. Cuando se cree correctamente la aplicación, se le redirigirá a la página de la aplicación.
 
 Se creará una nueva aplicación de Twitter. Puede usar esta aplicación en la configuración de la API de Twitter en el Portal de Azure.
+
+## Visualización de las API de REST
+
+Referencia de [API de REST de Twitter](../connectors/connectors-create-api-twitter.md).
+
 
 ## Resumen y pasos siguientes
 En este tema, ha agregado la API de Twitter a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
@@ -81,4 +96,4 @@ En este tema, ha agregado la API de Twitter a su empresa PowersApps. A continuac
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->
