@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/27/2015"
+	ms.date="03/27/2016"
 	ms.author="jeffreyg"/>
 
 # Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure
@@ -128,4 +128,4 @@ Ahora que completó este tutorial de Base de datos SQL y que creó una base de d
 
 - [Todos los temas del servicio Base de datos SQL de Azure](sql-database-index-all-articles.md), un índice
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

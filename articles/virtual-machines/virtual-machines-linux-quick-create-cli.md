@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación rápida de una máquina virtual de Linux en Azure mediante la CLI | Microsoft Azure"
-   description="Cree rápidamente una máquina virtual de Linux en Azure mediante la CLI."
+   pageTitle="Creación de una máquina virtual con Linux en Azure mediante la CLI | Microsoft Azure"
+   description="Creación de una máquina virtual con Linux en Azure mediante la CLI."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -10,26 +10,23 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="03/28/2016"
+   ms.date="04/04/2016"
    ms.author="v-livech"/>
 
 
-# Cree rápidamente una máquina virtual de Linux en Azure mediante la CLI
+# Creación de una máquina virtual con Linux en Azure mediante la CLI
 
-En este artículo se muestra cómo crear de forma rápida una nueva máquina virtual de Linux mediante el comando `azure vm quick-create` de [la CLI de Azure](../xplat-cli-install.md).
-
-[AZURE.NOTE] En este tema se muestra cómo crear de forma rápida una máquina virtual de Linux en un entorno básico de Azure para evaluación, pruebas y otros escenarios de corta duración. Debe crear entornos de Azure más seguros para usar las máquinas virtuales de Linux en producción o en otros escenarios de ejecución más a largo plazo.
-
-Requisitos previos: [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/), [claves públicas y privadas de SSH](virtual-machines-linux-mac-create-ssh-keys.md), un grupo de recursos de Azure (se creará un grupo de recursos a continuación) y la CLI de Azure instalada, que se debe cambiar al modo ARM mediante `azure config mode arm`.
+Este artículo muestra cómo crear rápidamente una máquina virtual con Linux en Azure mediante el comando `azure vm quick-create` de la CLI de Azure, que crea una máquina virtual con una infraestructura básica que se puede utilizar para crear un prototipo o probar un concepto muy rápidamente. El artículo requiere una cuenta de Azure ([obtenga una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y [la CLI de Azure](../xplat-cli-install.md) en modo de administrador de recursos (`azure config mode arm`).
 
 ## Resumen rápido de comandos
 
-Solo queda un comando por emitir:
-
-1. `azure vm quick-create`
+```
+# One command to quickly the VM that prompts for arguments
+chrisL@fedora$ azure vm quick-create
+```
 
 ## Tutorial detallado
 
@@ -47,7 +44,7 @@ Resource group name: exampleResourceGroup
 Virtual machine name: exampleVMname
 Location name: westus
 Operating system Type [Windows, Linux]: linux
-ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: canonical:ubuntuserver:14.04.2-LTS:latest
+ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: Canonical:UbuntuServer:14.04.4-LTS:latest
 User name: ops
 Password: *********
 Confirm password: *********
@@ -127,7 +124,7 @@ info:    vm quick-create command OK
 
 Ahora puede usar SSH en el puerto 22 de SSH predeterminado de su máquina virtual.
 
-`azure vm quick-create` crea rápidamente una máquina virtual para que pueda iniciar sesión y ponerse a trabajar. Sin embargo, no tiene un entorno complejo, por lo que si desea personalizar su entorno, puede [usar una plantilla de Azure Resource Manager para crear una implementación específica rápidamente](virtual-machines-linux-cli-deploy-templates.md), o puede [crear su propio entorno personalizado para una máquina virtual de Linux mediante los comandos de la CLI de Azure directamente](virtual-machines-linux-cli-deploy-templates.md).
+`azure vm quick-create` crea rápidamente una máquina virtual para que pueda iniciar sesión y ponerse a trabajar. Sin embargo, no tiene un entorno complejo, por lo que si desea personalizar su entorno, puede [usar una plantilla de Azure Resource Manager para crear una implementación específica rápidamente](virtual-machines-linux-cli-deploy-templates.md), o puede [crear su propio entorno personalizado para una máquina virtual con Linux mediante los comandos de la CLI de Azure directamente](virtual-machines-linux-cli-deploy-templates.md).
 
 En el ejemplo anterior, se crea:
 
@@ -143,10 +140,10 @@ Esta máquina virtual se expone directamente a Internet y solo está protegida m
 
 Ahora ha creado una máquina virtual con Linux rápidamente para usarla con fines de prueba o demostración. Puede crear un entorno de ejecución más seguro con una máquina virtual con Linux en Azure mediante una de las acciones siguientes:
 
-- [Create a Linux VM in Azure using Azure Templates](virtual-machines-linux-cli-deploy-templates.md) (Crear una máquina virtual con Linux en Azure mediante plantillas de Azure)
-- [Create an SSH-Secured Linux VM in Azure using Azure Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md) (Crear una máquina virtual con Linux protegida por SSH en Azure mediante plantillas de Azure)
-- [Create a Linux VM in Azure using the Azure CLI and customizing the infrastructure](virtual-machines-linux-create-cli-complete.md) (Crear una máquina virtual con Linux en Azure mediante la CLI de Azure y la personalización de la infraestructura)
+- [Create a Linux VM in Azure using Azure Templates (Crear una máquina virtual con Linux en Azure mediante plantillas de Azure)](virtual-machines-linux-cli-deploy-templates.md)
+- [Create an SSH-Secured Linux VM in Azure using Azure Templates (Crear una máquina virtual con Linux protegida por SSH en Azure mediante plantillas de Azure)](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Create a Linux VM in Azure using the Azure CLI and customizing the infrastructure (Crear una máquina virtual con Linux en Azure mediante la CLI de Azure y la personalización de la infraestructura)](virtual-machines-linux-create-cli-complete.md)
 
 así como cualquier número de herramientas de implementación, configuración y orquestación de infraestructuras patentadas y de código abierto.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

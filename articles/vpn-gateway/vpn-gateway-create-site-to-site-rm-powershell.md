@@ -20,7 +20,8 @@
 # Creación de una red virtual con una conexión VPN de sitio a sitio mediante Azure Resource Manager y PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal de Azure clásico](vpn-gateway-site-to-site-create.md)
+- [Portal de Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Portal de Azure: clásico](vpn-gateway-site-to-site-create.md)
 - [PowerShell: administrador de recursos](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio en una red local mediante el modelo de implementación de **Azure Resource Manager**. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales.
@@ -148,7 +149,7 @@ Use los valores siguientes:
 - El valor **-GatewayType** para una configuración de sitio a sitio es **Vpn**. El tipo de puerta de enlace siempre es específico de la configuración que se va a implementar. Por ejemplo, otras configuraciones de puerta de enlace pueden requerir GatewayType ExpressRoute. 
 
 - El valor de **-VpnType** puede ser **RouteBased** (la llamada puerta de enlace dinámica en algunos documentos) o **PolicyBased** (la llamada puerta de enlace estática en algunos documentos). Para obtener más información sobre los tipos de Puertas de enlace de VPN, consulte [Información acerca las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md#vpntype).
-- **- GatewaySku** puede ser **Basic**, **Standard**, o **HighPerformance**. 	
+- **- GatewaySku** puede ser **Basic**, **Standard** o **HighPerformance**. 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
@@ -188,4 +189,4 @@ Si tiene que cambiar los prefijos de puerta de enlace de red local, siga las ins
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

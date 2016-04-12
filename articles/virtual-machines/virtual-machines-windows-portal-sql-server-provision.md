@@ -12,7 +12,7 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="03/24/2016"
@@ -168,27 +168,27 @@ En la tabla siguiente se enumeran los parámetros necesarios para configurar la 
 
 |PARÁMETRO|DESCRIPCIÓN|EJEMPLO:|
 |----------|----------|-------|
-|**Dirección URL del Almacén de claves** | La ubicación del Almacén de claves.|https://contosokeyvault.vault.azure.net/ |
-|**Nombre de la entidad de seguridad de AKV** |Nombre de la entidad de servicio de Azure Active Directory Esto se conoce también como Id. de cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2|
-| **Secreto de entidad de seguridad de AKV**|La integración de AKV crea una credencial en SQL Server, permitiendo el acceso de la máquina virtual al Almacén de claves. Elija un nombre para esta credencial. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**Nombre de credencial**|Elija un nombre para identificar esta credencial.| mycred1|
+|**Dirección URL del Almacén de claves** |La ubicación del Almacén de claves.|https://contosokeyvault.vault.azure.net/ |
+|**Nombre de entidad de seguridad** |Nombre de la entidad de servicio de Azure Active Directory Esto se conoce también como Id. de cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2|
+| **Secreto de entidad de seguridad**|Secreto de la entidad de seguridad de servicio de Azure Active Directory Esto se conoce también como secreto de cliente. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
+|**Nombre de credencial**|**Nombre de credencial**: la integración de AKV crea una credencial en SQL Server, permitiendo el acceso de la máquina virtual al Almacén de claves. Elija un nombre para esta credencial.| mycred1|
 
-Para obtener más información, consulte [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-classic-ps-sql-keyvault.md) (Configuración de la integración del Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure).
+Para obtener más información, consulte [Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (implementación clásico)](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
 ## 5\. Revisión del resumen
 Revise el resumen y haga clic en **Aceptar** para crear SQL Server, el grupo de recursos y los recursos especificados para esta máquina virtual. Puede supervisar la implementación desde el portal de Azure. En el botón **Notificaciones** de la parte superior de la pantalla, se muestra el estado básico de la implementación.
 
-##<a id="Open"> Apertura de la máquina virtual con Escritorio remoto y finalización de la configuración
+##<a id="Open"> Apertura de la máquina virtual con Escritorio remoto y ejecución de la configuración
 Siga estos pasos para usar Escritorio remoto para abrir la máquina virtual:
 
 1.	Después de crear la máquina virtual de Azure, aparecerá un icono de la misma en el panel de Azure. Haga clic en el icono para ver información acerca de la máquina virtual.
 1.	En la parte superior de la hoja de máquina virtual, haga clic en **Conectar**. El explorador descargará un archivo .rdp para la máquina virtual. Abra el archivo .rdp
 1.	Conexión a Escritorio remoto le notificará que el publicador de esta conexión remota no se puede identificar y le preguntará si desea conectarse de todos modos. Haga clic en **Conectar**.
-1.	En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**. En **Nombre de usuario**, escriba el <machine name><nombre de usuario> que especificó al configurar la máquina virtual.
+1.	En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**. En **Nombre de usuario**, escriba el <machine name><nombreDeUsuario> que especificó al configurar la máquina virtual.
 
 Una vez conectado a la máquina virtual de SQL Server, puede iniciar SQL Server Management Studio y conectarse con la autenticación de Windows mediante sus credenciales de administrador local. Esto también le permite cambiar la configuración del firewall o de SQL Server con posterioridad al aprovisionamiento, si es necesario.
 
-##<a id="Connect">Conexión a SQL Server a través de Internet
+##<a id="Connect"> Conexión a SQL Server a través de Internet
 
 Si desea conectarse al motor de base de datos de SQL Server desde Internet, debe completar varios pasos, como configurar el firewall, habilitar la autenticación de SQL Server y configurar el grupo de seguridad de red. Debe tener una regla de grupo de seguridad de red para permitir el tráfico TCP en el puerto 1433.
 
@@ -203,4 +203,4 @@ Los siguientes pasos no son necesarios si solo necesita tener acceso a la máqui
 ##<a id="Next"> Pasos siguientes
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

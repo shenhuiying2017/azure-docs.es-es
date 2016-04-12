@@ -1,6 +1,6 @@
 <properties
    pageTitle="Generación de perfiles de datos de los orígenes de datos"
-   description="En este artículo de procedimientos se resalta cómo generar perfiles de datos en el Catálogo de datos de Azure."
+   description="Este artículo de procedimientos destaca cómo incluir perfiles de datos de nivel de tabla y de columna al registrar orígenes de datos en el Catálogo de datos de Azure y cómo utilizar perfiles de datos para entender los orígenes de datos."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="derrickv"/>
 
 # Orígenes de datos de perfiles de datos
@@ -91,4 +91,4 @@ La generación de perfiles de datos proporciona estadísticas e información sob
 -	[Registro de orígenes de datos](data-catalog-how-to-register.md)
 -	[Introducción al Catálogo de datos de Azure](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

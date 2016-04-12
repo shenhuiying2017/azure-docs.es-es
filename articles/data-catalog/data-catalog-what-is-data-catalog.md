@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Catálogo de datos de Azure: ¿Qué es el catálogo de datos?"
-   description="Información general del Catálogo de datos de Microsoft Azure, incluidas sus características y los problemas que está diseñado para solucionar. Catálogo de datos de Azure proporciona capacidades que permiten a cualquier usuario (desde analistas a científicos de datos y desarrolladores) registrar, detectar, comprender y consumir orígenes de datos."
+   pageTitle="¿Qué es el Catálogo de datos de Azure? | Microsoft Azure"
+   description="En este artículo se proporciona información general del Catálogo de datos de Microsoft Azure, incluidas sus características y los problemas que está diseñado para solucionar. Catálogo de datos de Azure proporciona capacidades que permiten a cualquier usuario (desde analistas a científicos de datos y desarrolladores) registrar, detectar, comprender y consumir orígenes de datos."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # ¿Qué es el Catálogo de datos de Azure?
@@ -109,4 +109,4 @@ El objetivo final de la detección de datos es encontrar los datos que necesita 
 1.	Para las aplicaciones cliente que sean directamente compatibles con el **Catálogo de datos de Azure**, los usuarios pueden hacer clic en el menú **Abrir en** del icono del origen de datos que se encuentra en el portal. A continuación, la aplicación cliente se iniciará con una conexión al origen de datos seleccionado.
 2.	Para todas las aplicaciones cliente, los usuarios pueden usar la información de conexión que se muestra en el panel de propiedades para un origen de datos seleccionado. Esta información incluye todos los detalles (como el nombre del servidor, el nombre de la base de datos y el nombre del objeto) necesarios para conectarse a los datos y puede copiarse en la experiencia de conexión de la herramienta de cliente. Si se han dado detalles de solicitud de acceso para un origen de datos, esta información se mostrará junto a los detalles de conexión.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

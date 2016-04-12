@@ -104,10 +104,39 @@ Cuando haya configurado el túnel para Mesos, podrá acceder al punto de conexi�
 
 Cuando haya configurado el túnel para Docker y enjambre, podrá acceder al clúster de Swarm a través de la CLI de Docker. Primero será preciso que configure una variable de entorno de Windows denominada `DOCKER_HOST` cuyo valor será ` :2375`.
 
+## Solución de problemas
+
+### Después de crear el túnel e ir a la dirección url de mesos o marathon, obtengo el error 502 de puerta de enlace incorrecta...
+La manera más fácil de resolverlo es eliminar el clúster y volver a implementarlo. También puede hacer lo siguiente para forzar a Zookeeper a repararse a sí mismo:
+
+Inicie sesión en cada servidor maestro y haga lo siguiente:
+
+```
+sudo service nginx stop
+sudo service marathon stop
+sudo service chronos stop
+sudo service mesos-dns stop
+sudo service mesos-master stop 
+sudo service zookeeper stop
+```
+
+Después, cuando todos los servicios se hayan detenido en todos los maestros:
+```
+sudo mkdir /var/lib/zookeeperbackup
+sudo mv /var/lib/zookeeper/* /var/lib/zookeeperbackup
+sudo service zookeeper start
+sudo service mesos-master start
+sudo service mesos-dns start
+sudo service chronos start
+sudo service marathon start
+sudo service nginx start
+```
+Poco después de que se hayan reiniciado todos los servicios, debería poder trabajar con el clúster, tal como se describe en la documentación.
+
 ## Pasos siguientes
 
 Implemente y administre contenedores con Mesos o Swarm.
 
 - [Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

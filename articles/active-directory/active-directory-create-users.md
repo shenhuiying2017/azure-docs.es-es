@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/24/2016"
+	ms.date="03/31/2016"
 	ms.author="curtand;viviali"/>
 
 # Adición o cambio de usuarios en Azure Active Directory
 
-Debe agregar una cuenta a su directorio de inquilinos para cada usuario que vaya a acceder a un servicio en la nube de Microsoft. Los usuarios agregados no tienen permisos de administrador, pero puede asignárselos en cualquier momento.
+Agregue una cuenta al directorio de su inquilino para cada usuario que vaya a acceder a un servicio en la nube de Microsoft. De forma predeterminada, los usuarios agregados no tienen permisos de administrador, pero puede asignárselos en cualquier momento.
 
 ## Adición de un usuario
 
@@ -27,77 +27,75 @@ Debe agregar una cuenta a su directorio de inquilinos para cada usuario que vaya
 3. Seleccione la pestaña **Usuarios** y, después, en el área de comandos, seleccione **Agregar usuario**.
 4. En la página **Proporcione información sobre este usuario**, elija una de estas opciones en **Tipo de usuario**:
 
-	- **Nuevo usuario de la organización**: para agregar una nueva cuenta de usuario en el directorio
-	- **Usuario con una cuenta Microsoft existente**: para agregar una cuenta de consumidor de Microsoft existente a su directorio (por ejemplo, una cuenta de Outlook)
-	- **Usuario en otro directorio de Azure AD**: para agregar una cuenta de usuario al directorio cuyo origen es otro directorio de Azure AD. (Nota: Debe ser un miembro del otro directorio para seleccionar un usuario en él)
+	- **Nuevo usuario de la organización**: para agregar una nueva cuenta de usuario al directorio.
+	- **Usuario con una cuenta Microsoft existente**: para agregar una cuenta de consumidor de Microsoft existente a su directorio (por ejemplo, una cuenta de Outlook).
+	- **Usuario en otro directorio de Azure AD**: para agregar a su directorio una cuenta de usuario cuyo origen es otro directorio de Azure AD. Deberá ser miembro del otro directorio para poder seleccionar un usuario en él.
 	- **Usuarios en compañías asociadas**: para invitar y autorizar a usuarios de empresas asociadas a su directorio ([consulte colaboración de Azure Active Directory B2B](active-directory-b2b-what-is-azure-ad-b2b.md))
 
 
-5. Según el tipo de usuario seleccionado, escriba un nombre de usuario, una dirección de correo electrónico o cargue un archivo CSV con las direcciones de correo electrónico con las que iniciarán sesión los usuarios.
-6. En la página **Perfiles** del usuario, especifique el nombre, los apellidos y un nombre descriptivo. Elija también un rol de usuario en el menú desplegable **Roles**. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md). Especifique si se debe **habilitar la autenticación multifactor**.
+5. En función del valor de **Tipo de usuario**, escriba un nombre de usuario o una dirección de correo electrónico, o bien cargue un archivo CSV en el que se especifiquen las direcciones de correo electrónico.
+6. En la página **Perfiles** del usuario, especifique el nombre, los apellidos y un nombre descriptivo, así como un rol de usuario en la lista **Roles**. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md). Especifique si se debe **habilitar la autenticación multifactor**.
 7. En la página **Obtener contraseña temporal**, seleccione **Crear**.
 
 > [AZURE.IMPORTANT] Si su organización usa más de un dominio, debe tener en cuenta los siguientes problemas al agregar una cuenta de usuario:
 >
-> - Puede agregar cuentas de usuario con el mismo nombre principal de usuario (UPN) en los dominios si agrega en primer lugar, por ejemplo, geoffgrisso@contoso.onmicrosoft.com seguido de geoffgrisso@contoso.com.
-> - No debe agregar geoffgrisso@contoso.com antes de geoffgrisso@contoso.onmicrosoft.com. Este orden es muy importante y puede ser complicado de deshacer.
+> - Puede agregar cuentas de usuario con el mismo nombre principal de usuario (UPN) en los dominios. Para ello, primero agregue por ejemplo, geoffgrisso@contoso.onmicrosoft.com, seguido de geoffgrisso@contoso.com.
+> - **No** agregue geoffgrisso@contoso.com antes de geoffgrisso@contoso.onmicrosoft.com. Este orden es importante y puede ser complicado de deshacer.
 
 ## Cambiar la información de usuario
 
 Puede cambiar los atributos de usuario, excepto el identificador de objeto del usuario.
 
-1. Abra el directorio de su organización.
-2. Seleccione la pestaña **Usuarios** y, después, seleccione el nombre para mostrar del usuario que desea cambiar.
+1. Abra el directorio.
+2. Seleccione la pestaña **Usuarios** y, después, el nombre para mostrar del usuario que desea cambiar.
 3. Termine los cambios y, a continuación, haga clic en **Guardar**.
 
-Si el usuario que está intentando cambiar está sincronizado con el servicio de Active Directory local, aparece un mensaje de error y no será posible cambiar la información del usuario mediante este procedimiento. Para cambiar el usuario, utilice las herramientas de administración locales de Active Directory.
+Si el usuario que está intentando cambiar está sincronizado con el servicio de Active Directory local, no puede cambiar la información del usuario mediante este procedimiento. Para cambiar el usuario, utilice las herramientas de administración locales de Active Directory.
 
 ## Restablecimiento de la contraseña del usuario
 
-1. Abra el directorio de su organización.
-2. Seleccione la pestaña **Usuarios** y, después, seleccione el nombre para mostrar del usuario que desea cambiar.
+1. Abra el directorio.
+2. Seleccione la pestaña **Usuarios** y, después, el nombre para mostrar del usuario que desea cambiar.
 3. En el área de comandos, seleccione **Restablecer contraseña**.
 4. En el cuadro de diálogo Restablecer contraseña, haga clic en **Restablecer**.
 5. Seleccione la marca de verificación para finalizar el restablecimiento de la contraseña.
 
 ## Adición de usuarios externos
 
-En Azure AD, también puede agregar usuarios a un directorio de Azure AD con una cuenta Microsoft desde otro directorio de Azure AD al que pertenezcan o desde empresas asociadas mediante la carga de un archivo CSV. Para agregar un usuario externo, agregue un usuario en el portal y, en **Tipo de usuario**, seleccione **Usuario en otro directorio de Microsoft Azure AD** o **Usuarios en compañías asociadas**.
+También puede agregar usuarios de otro directorio de Azure AD al que pertenezca o desde las empresas asociadas mediante la carga de un archivo CSV. Para agregar un usuario externo, en **Tipo de usuario**, especifique **Usuario de otro directorio de Microsoft Azure AD** o **Usuarios en compañías asociadas**.
 
-Los usuarios de uno u otro tipo proceden de otro directorio y se agregan como **usuarios externos**. Los usuarios externos pueden colaborar con los usuarios que ya existen en un directorio con su única cuenta sin necesidad de agregar credenciales y cuentas nuevas. Los usuarios externos se autentican mediante su directorio principal cuando inician sesión, y esa autenticación funciona para todos los demás directorios a los que se han agregado.
+Los usuarios de ambos tipos proceden de otro directorio y se agregan como **usuarios externos**. Los usuarios externos pueden colaborar con otros usuarios en un directorio sin ningún requisito para agregar nuevas cuentas y credenciales. Los usuarios externos se autentican mediante su directorio principal cuando inician sesión, y esa autenticación funciona para todos los demás directorios a los que se han agregado.
 
 ## Limitaciones y administración de usuarios externos
 
-Cuando se agrega un usuario desde otro directorio al suyo, ese usuario es un usuario externo en el directorio. Inicialmente, se copian el nombre para mostrar y el nombre de usuario desde el directorio principal del usuario y se pegan en el usuario externo en su directorio. A partir de ese momento, esas y otras propiedades de la cuenta del usuario externo son totalmente independientes: si se realizan cambios en el usuario en su directorio principal (por ejemplo, se cambia el nombre del usuario, se agrega un puesto de trabajo, etc.), esos cambios no se propagan a la cuenta del usuario externo en su directorio.
+Cuando se agrega un usuario desde otro directorio al suyo, ese usuario es un usuario externo en el directorio. El nombre para mostrar y el nombre de usuario se copian desde su directorio principal y se usan para el usuario externo en el directorio. Desde ese momento, las propiedades de la cuenta de usuario externo son completamente independientes. Si se realizan cambios en las propiedades del usuario en su directorio principal, esos cambios no se propagan a la cuenta de usuario externo en el directorio.
 
 La única vinculación entre las dos cuentas es que el usuario siempre se autentica en el directorio principal o con su cuenta Microsoft. Por eso, no se muestra una opción para restablecer la contraseña ni habilitar la autenticación multifactor para un usuario externo: actualmente, la directiva de autenticación del directorio principal o de la cuenta Microsoft es la única que se evalúa cuando el usuario inicia sesión.
 
 > [AZURE.NOTE]
-Si lo desea, puede deshabilitar el usuario externo en el directorio y esta acción bloqueará el acceso al directorio.
+Si lo desea, puede deshabilitar el usuario externo en el directorio, lo que bloqueará el acceso al directorio.
 
 Si se elimina un usuario en su directorio principal o se cancela su cuenta de Microsoft, el usuario externo sigue existiendo en el directorio. Sin embargo, el usuario no tiene acceso a los recursos de su directorio porque ya no puede autenticarse con su directorio principal ni con la cuenta de Microsoft.
 
-Estos son los servicios que actualmente permiten el acceso a los usuarios externos de Azure AD:
+### Servicios que actualmente permiten el acceso a los usuarios externos de Azure AD
 
 - **Portal de Azure clásico**: permite que un usuario externo que sea administrador de varios directorios administre cada uno de dichos directorios.
-- **SharePoint Online**: permite que un usuario externo acceda a los recursos autorizados de SharePoint Online si el uso compartido externo está habilitado.
-- **Dynamics CRM**: permite que un usuario externo acceda a los recursos autorizados en Dynamics CRM si el usuario tiene licencia mediante PowerShell.
+- **SharePoint Online**: si el uso compartido externo está habilitado, permite que un usuario externo acceda a los recursos autorizados de SharePoint Online.
+- **Dynamics CRM**: si el usuario tiene licencia mediante PowerShell, permite que un usuario externo acceda a los recursos autorizados en Dynamics CRM.
+- **Dynamics AX**: si el usuario tiene licencia mediante PowerShell, permite que un usuario externo acceda a los recursos autorizados en Dynamics AX. Las limitaciones de los [usuarios externos de Azure AD](#known-limitations-of-azure-ad-external-users) y los [usuarios invitados](#guest-user-management-and-limitations) se aplican también a los usuarios externos en Dynamics AX.
 
-Estas son las limitaciones conocidas de los usuarios externos de Azure AD:
+### Limitaciones conocidas de los usuarios externos de Azure AD
 
 - Los usuarios externos que son administradores no pueden agregar usuarios de empresas asociadas a directorios (colaboración B2B) fuera de su directorio principal.
 - Los usuarios externos no pueden dar su consentimiento a aplicaciones multiinquilino en directorios fuera de su directorio principal.
-- Actualmente, Visual Studio Online no permite el acceso a usuarios externos*.
 - Actualmente, PowerBI no permite el acceso a usuarios externos
 - Portal de Office no admite licencias de usuarios externos
 
-*Visual Studio Online permite el acceso a los usuarios externos que se autentican mediante cuentas Microsoft, pero no a los que lo hacen mediante cuentas profesionales o educativas.
-
 ## Limitaciones y administración de usuarios invitados
 
-Las cuentas de invitados representan a los usuarios de otros directorios a quienes se ha invitado a su directorio para que accedan a un recurso específico, como un documento de SharePoint Online, una aplicación o un recurso de Azure. Una cuenta de invitado de su directorio tiene el atributo UserType establecido como "Guest" (Invitado). En los usuarios normales (es decir, los miembros de su directorio) el atributo de UserType es "Member" (Miembro).
+Las cuentas de invitados representan a los usuarios de otros directorios a quienes se ha invitado a su directorio para que accedan a un recurso específico, como un documento de SharePoint Online, una aplicación o un recurso de Azure. Una cuenta de invitado en su directorio tiene el atributo UserType establecido en "Guest" (Invitado). En los usuarios normales (es decir, los miembros de su directorio) el atributo de UserType es "Member" (Miembro).
 
-Los invitados tienen un conjunto limitado de derechos en el directorio. Estos derechos limitan la posibilidad de que los invitados descubran información sobre otros usuarios del directorio, aunque pueden interactuar con los usuarios y grupos asociados a los recursos en los que están trabajando. Los usuarios invitados pueden:
+Los invitados tienen un conjunto limitado de derechos en el directorio. Estos derechos limitan la capacidad de los invitados para obtener información acerca de otros usuarios en el directorio. Sin embargo, los usuarios invitados todavía pueden interactuar con los usuarios y grupos asociados con los recursos en los que están trabajando. Los usuarios invitados pueden:
 
 - Ver otros usuarios y grupos asociados con una suscripción de Azure a la que están asignados
 - Ver los miembros de grupos a los que pertenecen
@@ -108,9 +106,9 @@ Los invitados tienen un conjunto limitado de derechos en el directorio. Estos de
 
 ## Establecimiento de las directivas de acceso del usuario
 
-La pestaña **Configurar** de un directorio incluye opciones para controlar el acceso de los usuarios externos. Estas opciones solo se pueden cambiar en el Portal de Azure clásico por un administrador global de directorio (no hay ningún método de Windows PowerShell o API).
+La pestaña **Configurar** de un directorio incluye opciones para controlar el acceso de los usuarios externos. Un administrador global de directorios solo puede cambiar estas opciones en el Portal de Azure clásico. No hay ningún método PowerShell o API en este momento.
 
-Para abrir la pestaña **Configurar** del Portal de Azure clásico, seleccione **Active Directory** y luego seleccione el nombre del directorio.
+Para abrir la pestaña **Configurar** del Portal de Azure clásico, seleccione **Active Directory** y luego el nombre del directorio.
 
 ![Configuración de Azure Active Directory][1]
 
@@ -129,4 +127,4 @@ A continuación, puede editar las opciones para controlar el acceso de usuarios 
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

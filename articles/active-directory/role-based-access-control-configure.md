@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="03/22/2016"
+	ms.date="03/30/2016"
 	ms.author="kgremban"/>
 
 # Control de acceso basado en roles de Azure
@@ -22,39 +22,42 @@
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Gracias a RBAC puede dividir las tareas entre el equipo de DevOps, y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En este artículo se presentan los conceptos básicos de la administración de acceso que le ayudarán a utilizar RBAC en el Portal de Azure.
 
 ### Aspectos básicos de la administración de acceso en Azure
-Cada suscripción de Azure está asociada a un directorio Azure Active Directory. Los usuarios, grupos y aplicaciones de ese directorio pueden administrar los recursos en la suscripción de Azure. Estos derechos de acceso se conceden con el uso del Portal de Azure, las herramientas de la línea de comandos de Azure o las API de administración de Azure.
+Cada suscripción de Azure está asociada a un directorio de Azure Active Directory (AD). Los usuarios, grupos y aplicaciones de ese directorio pueden administrar los recursos en la suscripción de Azure. Estos derechos de acceso se conceden con el uso del Portal de Azure, las herramientas de la línea de comandos de Azure o las API de administración de Azure.
 
 El acceso se concede al asignar el rol RBAC adecuado a usuarios, grupos y aplicaciones de un determinado ámbito. El ámbito de una asignación de roles puede ser una suscripción, un grupo de recursos o un único recurso. Un rol asignado en un ámbito principal también concede acceso a los elementos secundarios dentro del mismo. Por ejemplo, un usuario con acceso a un grupo de recursos puede administrar todos los recursos que contiene, como sitios web, máquinas virtuales y subredes.
 
 ![Relación entre elementos de Azure Active Directory - diagrama](./media/role-based-access-control-configure/rbac_aad.png)
 
-El rol RBAC que asigna a los usuarios, los grupos y las aplicaciones determina qué recursos se pueden administrar dentro de ese ámbito.
+El rol RBAC que se asigna determina qué recursos puede administrar el usuario, el grupo o la aplicación dentro de ese ámbito.
 
 ### Roles integrados
 RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de recurso:
 
-- El propietario tiene acceso completo a todos los recursos y cuenta con el derecho a delegar acceso a otros.
-- El colaborador puede crear y administrar todos los tipos de recursos de Azure pero no puede conceder acceso a otros.
-- El lector solo puede ver los recursos existentes de Azure.
+- El **propietario** tiene acceso completo a todos los recursos y cuenta con el derecho a delegar este acceso a otros.
+- El **colaborador** puede crear y administrar todos los tipos de recursos de Azure pero no puede conceder acceso a otros.
+- El **lector** solo puede ver los recursos existentes de Azure.
 
-El resto de los roles RBAC de Azure permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de colaborador de máquina virtual permite al usuario crear y administrar máquinas virtuales, pero no le da acceso a la red virtual ni la subred a las que se conecta la máquina virtual.
+El resto de los roles RBAC de Azure permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de colaborador de máquina virtual permite al usuario crear y administrar máquinas virtuales. No otorga acceso a la red virtual ni a la subred a las que se conecta la máquina virtual.
 
 [Roles RBAC integrados](role-based-access-built-in-roles.md) muestra los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios. Si quiere definir sus propios roles para tener un mayor control, consulte [Custom Roles in Azure RBAC](role-based-access-control-custom-roles.md) (Roles personalizados en RBAC de Azure).
 
 ### Jerarquía de recursos de Azure y herencia de acceso
-- Cada suscripción de Azure pertenece a un único directorio.
-- Cada grupo de recursos pertenece a una única suscripción.
-- Cada recurso pertenece a un único grupo de recursos.
+- Cada **suscripción** de Azure pertenece a un único directorio.
+- Cada **grupo de recursos** pertenece a una única suscripción.
+- Cada **recurso** pertenece a un único grupo de recursos.
 
-El acceso que se concede en el nivel principal se hereda en los ámbitos secundarios. Si se asigna el rol de lector a un grupo de Azure AD en el ámbito de suscripción, los miembros de dicho grupo podrán ver todos los grupos de recursos y todos los recursos de la suscripción. Si se asigna el rol de colaborador a una aplicación en el ámbito de grupo de recursos, podrá administrar los recursos de todos los tipos de ese grupo de recursos, pero no de otros grupos de recursos de la suscripción.
+El acceso que se concede en el nivel principal se hereda en los ámbitos secundarios. Por ejemplo:
+
+- Asigne el rol de lector a un grupo de Azure AD en el ámbito de la suscripción. Los miembros de ese grupo pueden ver todos los grupos de recursos y los recursos de la suscripción.  
+- Asigne el rol de colaborador a una aplicación en el ámbito del grupo de recursos. Puede administrar todos los tipos de recursos de ese grupo de recursos, pero no otros grupos de la suscripción.
 
 ### RBAC de Azure frente a administradores de la suscripción clásica
-Los administradores y coadministradores de la suscripción clásica tienen acceso completo a la suscripción de Azure. Pueden administrar los recursos mediante el [Portal de Azure](https://portal.azure.com), las API del Azure Resource Manager, o el [Portal de Azure clásico](https://manage.windowsazure.com) y con las API de la Administración de servicios de Azure. En el modelo RBAC, a los administradores clásicos se les asigna el rol de propietario en el ámbito de suscripción.
+Los administradores y coadministradores de la suscripción clásica tienen acceso completo a la suscripción de Azure. Pueden administrar los recursos mediante el [Portal de Azure](https://portal.azure.com), las API del Azure Resource Manager, o el [Portal de Azure clásico](https://manage.windowsazure.com) y con las API de administración de servicios de Azure. En el modelo RBAC, a los administradores clásicos se les asigna el rol de propietario en el ámbito de suscripción.
 
 RBAC de Azure solo es compatible con el Portal de Azure y las nuevas API de Azure Resource Manager. Los usuarios y las aplicaciones a los que se asignan roles RBAC no pueden usar el portal de administración clásico ni las API de Administración de servicios de Azure.
 
 ### Autorización para administración frente a operaciones de datos
-RBAC de Azure solo es compatible con operaciones de administración de los recursos de Azure del Portal de Azure y de las API de Azure Resource Manager. No todas las operaciones de nivel de datos para recursos de Azure se pueden autorizar mediante RBAC. Por ejemplo, la creación, la lectura, la actualización o la eliminación de cuentas de almacenamiento se puede controlar mediante RBAC; pero la creación, la lectura, la actualización o la eliminación de blobs o tablas de la cuenta de almacenamiento aún no se puede controlar mediante RBAC. Del mismo modo, la creación, la lectura, la actualización o la eliminación de una base de datos de SQL se puede controlar mediante RBAC; pero la creación, la lectura, la actualización o la eliminación tablas de base de datos de SQL aún no se puede controlar mediante RBAC.
+RBAC de Azure solo es compatible con operaciones de administración de los recursos de Azure del Portal de Azure y de las API de Azure Resource Manager. No todas las operaciones de nivel de datos para recursos de Azure se pueden autorizar mediante RBAC. Por ejemplo, las cuentas de almacenamiento se pueden administrar con RBAC, pero no los blobs ni las tablas que pertenecen a una cuenta de almacenamiento. De igual forma, una base de datos SQL se puede administrar, pero no las tablas que contiene.
 
 ## Administrar el acceso con el portal de Azure
 ### Vista de acceso
@@ -73,7 +76,7 @@ Tenga en cuenta que algunos usuarios tienen un acceso **Asignado** mientras que 
 
 
 ### Agregación de acceso
-Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción. Ese será el ámbito de la asignación de roles.
+Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción que constituya el ámbito de la asignación de rol.
 
 1. Seleccione el icono **Agregar** de la hoja **Usuarios**. ![Hoja Agregar acceso: seleccionar un rol (captura de pantalla)](./media/role-based-access-control-configure/grant-access1.png)
 2. Seleccione el rol que desea asignar.
@@ -87,7 +90,7 @@ Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción. 
 
 ![Hoja de usuarios: quitar del rol (captura de pantalla)](./media/role-based-access-control-configure/remove-access1.png)
 
-Las asignaciones heredadas no se pueden quitar de los ámbitos secundarios. Tendrá que quitar la asignación de roles del ámbito principal.
+Las asignaciones heredadas no se pueden quitar de los ámbitos secundarios. Vaya al ámbito primario para quitar la asignación de roles.
 
 ![Hoja de usuario: acceso heredado deshabilita el botón de eliminación (captura de pantalla)](./media/role-based-access-control-configure/remove-access2.png)
 
@@ -103,4 +106,4 @@ Puede asignar roles y administrar el acceso con los comandos de RBAC de Azure en
 - Consulte [Roles integrados en Azure RBAC](role-based-access-built-in-roles.md)
 - Defina sus propios roles personalizados en [Custom Roles in Azure RBAC](role-based-access-control-custom-roles.md) (Roles personalizados en RBAC de Azure)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="04/04/2016" 
 	ms.author="cephalin"
 />
 	
@@ -67,7 +67,7 @@ Vamos a implementar una aplicación web en el Servicio de aplicaciones de Azure.
 
 4. Cree el recurso de aplicación del Servicio de aplicaciones en Azure con un nombre de aplicación único con el comando siguiente. La dirección URL de la aplicación web será http://&lt;app_name>.azurewebsites.net.
 
-        azure site create --git <app_name> 
+        azure site create --git <app_name>
       
     >[AZURE.NOTE] Si nunca ha configurado credenciales de implementación para su suscripción de Azure, se le solicitará que las cree. El Servicio de aplicaciones usa estas credenciales, no las de su cuenta de Azure, solo en implementaciones de Git e inicios de sesión FTP.
     
@@ -85,11 +85,9 @@ Enhorabuena, ha implementado la aplicación en el Servicio de aplicaciones de Az
 
 ## Visualización de la aplicación en ejecución
 
-Para ver la aplicación en ejecución en Azure, ejecute este comando:
+Para ver cómo la aplicación se ejecuta en Azure, ejecute este comando desde cualquier directorio del repositorio:
 
-    azure site browse <app_name>
-
-Si ve el mensaje de error: `Site <app_name> does not exist or has no hostnames`, vuelva a intentar el comando en unos segundos. Algunas aplicaciones, como las de Java, tardan más en empaquetar la implementación.
+    azure site browse
 
 ## Realización de actualizaciones en la aplicación
 
@@ -141,4 +139,4 @@ También puede encontrar numeroso contenido sobre el abanico de aplicaciones que
 - [Create mobile apps (Creación de aplicaciones móviles)](/documentation/learning-paths/appservice-mobileapps/)
 - [Create API apps (Creación de aplicaciones de API)](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

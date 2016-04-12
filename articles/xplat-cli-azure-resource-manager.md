@@ -165,7 +165,7 @@ La creación de una nueva plantilla está fuera del ámbito de este artículo, a
 
 También puede usar una plantilla directamente desde [GitHub](https://github.com/Azure/azure-quickstart-templates), en lugar de descargar una en el equipo. Para ello, pase la dirección URL al archivo azuredeploy.json para la plantilla en su comando mediante la opción **--template-url**. Para obtener la dirección URL, abra azuredeploy.json en GitHub en modo _sin procesar_ y copie la dirección URL que aparece en la barra de direcciones del explorador. A continuación, puede usar esta dirección URL directamente para crear una implementación mediante un comando similar al siguiente ejemplo.
 
-	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
+	azure group deployment create "testRG" testDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Se le pedirá que escriba los parámetros de plantilla necesarios.
 
 > [AZURE.NOTE] Es importante abrir la plantilla de JSON en modo _sin procesar_. La dirección URL que aparece en la barra de direcciones del explorador es diferente de la que aparece en el modo normal. Para abrir el archivo en modo _sin procesar_ mientras lo ve en GitHub, haga clic en **Sin procesar** en la esquina superior derecha.
@@ -215,4 +215,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

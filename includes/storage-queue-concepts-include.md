@@ -1,6 +1,6 @@
 ## ¿Qué es el almacenamiento en cola?
 
-El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Cada cuenta de almacenamiento puede contener hasta 500 TB de datos de blobs, colas y tablas. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../articles/storage/storage-scalability-targets.md) para obtener información sobre la capacidad de la cuenta de almacenamiento. Un mensaje puede permanecer en la cola hasta siete días.
+El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento.
 
 El almacenamiento en cola suele usarse para realizar las siguientes tareas:
 
@@ -24,6 +24,6 @@ El servicio Cola contiene los siguientes componentes:
 
 - **Cola:** una cola contiene un conjunto de mensajes. Todos los mensajes deben encontrarse en una cola.
 
-- **Mensaje:** un mensaje, en cualquier formato, de hasta 64 KB.
+- **Mensaje:** un mensaje, en cualquier formato, de hasta 64 KB. El tiempo máximo que un mensaje puede permanecer en la cola es de 7 días.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

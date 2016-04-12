@@ -56,9 +56,9 @@ Haga clic en la pestaña **Estudio** y se le pedirá que inicie sesión con su c
 
 ### Galería
 
-Haga clic en la pestaña **Galería** y se le dirigirá a la Galería de análisis de Cortana. La galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Analytics Suite.
+Haga clic en la pestaña **Galería** y se le dirigirá a la Galería de Cortana Intelligence. La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
 
-Para obtener más información sobre la galería, vea [Uso compartido y descubrimiento de soluciones en la Galería de análisis de Cortana](machine-learning-gallery-how-to-use-contribute-publish.md).
+Para obtener más información sobre la galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 ## Componentes de un experimento
 
@@ -115,4 +115,4 @@ Cuando el modelo de análisis predictivo esté listo, puede implementarlo como s
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

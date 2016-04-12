@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="03/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creación de Almacenamiento de datos SQL con Powershell
@@ -88,7 +88,8 @@ Si está interesado en obtener más información sobre cómo administrar el Alma
 
 <!--Article references-->
 [migrar]: ./sql-data-warehouse-overview-migrate.md
-[desarrollar]: ./sql-data-warehouse-overview-develop/.md
+[desarrollar]: ./sql-data-warehouse-overview-develop.md
+[cargar]: ./sql-data-warehouse-load-with-bcp.md
 [cargar datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Powershell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [API de REST]: https://msdn.microsoft.com/library/azure/dn505719.aspx
@@ -96,4 +97,4 @@ Si está interesado en obtener más información sobre cómo administrar el Alma
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Cómo instalar y configurar Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

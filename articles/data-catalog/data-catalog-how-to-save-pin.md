@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Cómo guardar búsquedas y anclar recursos de datos"
+   pageTitle="Cómo guardar búsquedas y anclar recursos de datos | Microsoft Azure"
    description="Artículo de procedimientos que destaca las funciones del Catálogo de datos de Azure para guardar orígenes de datos y recursos de datos para su uso posterior."
    services="data-catalog"
    documentationCenter=""
@@ -76,4 +76,4 @@ La página principal del portal Catálogo de datos de Azure una sección "Mis re
 ## Resumen
 El Catálogo de datos de Azure proporciona funciones que permiten a los usuarios encontrar fácilmente los orígenes de datos que necesitan, por lo que pueden dedicar menos tiempo a buscar datos y más tiempo a trabajar con ellos. Las búsquedas guardadas y los recursos de datos anclados se basan en estas funciones centrales para que los usuarios puedan identificar fácilmente los orígenes de datos con los que trabajarán repetidamente.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
