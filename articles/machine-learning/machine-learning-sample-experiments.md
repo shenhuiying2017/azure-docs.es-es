@@ -24,9 +24,12 @@ Cuando desee crear un experimento, busque ejemplos de experimentos del equipo de
 ## Búsqueda en la Galería de Cortana Intelligence
 1. Vaya a la [Galería](http://gallery.cortanaintelligence.com/).
 2. Examine el contenido que desee en **Tendencias de experimentos** o en **Ejemplos de Microsoft**.
-3. Utilice la búsqueda y los filtros para restringir los resultados: ![](./media/machine-learning-sample-experiments/image1.png) 
-4. Haga clic en un experimento para obtener más información. Para ejecutar o modificar el experimento, haga clic en **Abrir en el Estudio**. ![](./media/machine-learning-sample-experiments/image2.png) 
-5.  Inicie sesión con las credenciales de su cuenta de Microsoft. Si aún no tiene un área de trabajo de Aprendizaje automático, se creará un área de trabajo de prueba gratuita. [Información sobre qué incluye la prueba gratuita de Aprendizaje automático de Azure](https://azure.microsoft.com/pricing/details/machine-learning/) ![](./media/machine-learning-sample-experiments/image3.png) 
+3. Utilice la búsqueda y los filtros para restringir los resultados: 
+![](./media/machine-learning-sample-experiments/image1.png) 
+4. Haga clic en un experimento para obtener más información. Para ejecutar o modificar el experimento, haga clic en **Abrir en el Estudio**. 
+![](./media/machine-learning-sample-experiments/image2.png) 
+5.  Inicie sesión con las credenciales de su cuenta de Microsoft. Si aún no tiene un área de trabajo de Aprendizaje automático, se creará un área de trabajo de prueba gratuita. [Información sobre qué incluye la prueba gratuita de Aprendizaje automático de Azure](https://azure.microsoft.com/pricing/details/machine-learning/) 
+![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Usar como plantilla en el Estudio
 1. Inicie sesión con las credenciales de su cuenta de Microsoft en el [Estudio](https://studio.azureml.net) y, a continuación, haga clic en **Nuevo*** para crear un nuevo experimento.

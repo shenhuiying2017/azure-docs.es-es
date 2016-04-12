@@ -29,7 +29,7 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|
-|**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Las Vegas+, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Toronto|
+| **Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Las Vegas+, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Toronto|
 |**Sudamérica**|Sur de Brasil|São Paulo|
 |**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín, Londres|
 |**Asia**|Este de Asia y Sudeste de Asia|Hong Kong y Singapur|
@@ -44,8 +44,8 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|---|
 |**Nube del gobierno de Estados Unidos**|Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia|Chicago, Nueva York +, Washington DC|
-|**China**|Este de China, Norte de China|Beijing, Shanghai|
-|**Alemania**|Centro de Alemania, Alemania oriental|Berlín+, Fráncfort|
+| **China**|Este de China, Norte de China|Beijing, Shanghai|
+| **Alemania**|Centro de Alemania, Alemania oriental|Berlín+, Fráncfort|
 
 
 No se admite la conectividad entre las regiones geopolíticas en el SKU de ExpressRoute estándar. Debe habilitar el complemento premium de ExpressRoute para admitir conectividad global. No se admite la conectividad con entornos de nube nacionales. Puede trabajar con su proveedor de conectividad si surge tal necesidad.
@@ -60,9 +60,9 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **[Aryaka Networks](http://www.aryaka.com/)** | Compatible | Compatible | Ámsterdam, Silicon Valley, Singapur, Tokyo, Washington DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Ámsterdam, Chicago, Dallas, Londres, Silicon Valley, Singapur, Sídney, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Tokio, Washington DC |
-|**CenturyLink** | Próximamente | Próximamente| Silicon Valley |
+| **CenturyLink** | Próximamente | Próximamente| Silicon Valley |
 |**China Telecom Global** | Compatible | No compatible | Hong Kong |
-|**Cologix** | Compatible | Próximamente | Montreal+, Toronto |
+| **Cologix** | Compatible | Próximamente | Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | Compatible | Ámsterdam, Dublín, Londres |
 | **Comcast** | Compatible | No compatible | Silicon Valley, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Compatible | Compatible | Los Ángeles | 
@@ -136,7 +136,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 
 |**Proveedor de conectividad**|**Exchange**|**Ubicaciones de emparejamiento**|
 |---|---|---|
-|**Alaska Communications**|Equinix|Seattle|
+| **Alaska Communications**|Equinix|Seattle|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 ## Integradores de sistemas de ExpressRoute
@@ -145,10 +145,10 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 
 |**Integrador de sistemas**|**Continente**|
 |---|---|
-|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europa|
+| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europa|
 |**[Nimbo](http://www.nimbo.com/)**|US||
-|**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |
-|**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | US |
+| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |
+| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | US |
 |**[Project Leadership](http://www.projectleadership.net/azure)** | US |
 
 ## Pasos siguientes
