@@ -148,7 +148,13 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 |Ubicación (Location) de esta regla de alerta|	Este de EE. UU.|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|Nombre de la métrica (MetricName) de la alerta que se crea|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Consulte el cmdlet `Get-MetricDefinitions` siguiente sobre cómo recuperar los nombres de métrica exactos| |Operador (Operator)| GreaterThan| |Valor de umbral (Threshold) (recuento o segundos de esta métrica)| 1| |WindowSize (formato hh:mm:ss)| 00:05:00| |Agregador (estadísticas de la métrica que, en este caso, usa el recuento Average)| Average| |Correos electrónicos personalizadas (matriz de cadena)|'foo@example.com','bar@example.com'| |Envío de mensajes de correo electrónico a propietarios, colaboradores y lectores| -SendToServiceOwners|
+|Nombre de la métrica (MetricName) de la alerta que se crea|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Consulte el cmdlet `Get-MetricDefinitions` siguiente sobre cómo recuperar los nombres de métrica exactos|
+|Operador (Operator)| GreaterThan|
+|Valor de umbral (Threshold) (recuento o segundos de esta métrica)| 1|
+|WindowSize (formato hh:mm:ss)| 00:05:00|
+|Agregador (estadísticas de la métrica que, en este caso, usa el recuento Average)| Average|
+|Correos electrónicos personalizadas (matriz de cadena)|'foo@example.com','bar@example.com'|
+|Envío de mensajes de correo electrónico a propietarios, colaboradores y lectores| -SendToServiceOwners|
 
 Creación de una acción de correo electrónico
 

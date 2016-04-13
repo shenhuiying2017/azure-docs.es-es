@@ -1240,7 +1240,17 @@ Tenga en cuenta que hay otras formas de conseguir este efecto:
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o Igual a |`>` |Mayor que |`>=`|Mayor que o Igual a |`<>`|No igual a |`!=`|No igual a
+| - | Restar |
+| * | Multiplicar |
+| / | Dividir |
+| % | Aplicar módulo |
+||
+|`<` |Menor que
+|`<=`|Menor que o Igual a
+|`>` |Mayor que
+|`>=`|Mayor que o Igual a
+|`<>`|No igual a
+|`!=`|No igual a
 
 
 
@@ -2139,3 +2149,4 @@ Observe que "[0]" indica la presencia de una matriz, pero no especifica el índi
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 <!---HONumber=AcomDC_0330_2016-->
+
