@@ -51,7 +51,33 @@ Puede crear una alerta para las siguientes métricas.
 
 |Nombre de métrica|	Unidad|
 |---|---|
-|\\Processor(\_Total)\\% \\ % de tiempo de procesador | PERCENT| |\\Processor (\_Total) \\ % de tiempo privilegiado | PERCENT| |\\Processor (\_Total) \\ % de tiempo de usuario | Frecuencia de Percent| |\\Processor información (\_Total) \\Processor | Count| |\\System\\Processes| Count| |\\Process (\_Total) \\Thread Count| Recuento de Count| |\\Process (\_Total) \\Handle | Count| |\\Memory\\% Bytes confirmados en uso | PERCENT| |\\Memory\\Available Bytes| Bytes de |\\Memory\\Committed bytes| | Bytes| |\\Memory\\Commit Limit| Bytes| |\\Memory\\Pool paginado Bytes| Bytes| |\\Memory\\Pool Bytes| de bloque no paginado Bytes| |\\PhysicalDisk (\_Total) \\ % Time| de disco PERCENT| |\\PhysicalDisk (\_Total) \\ Time| de lectura de disco de % PERCENT| |\\PhysicalDisk (\_Total) \\ Time| de escritura en disco % PERCENT| |\\PhysicalDisk (\_Total) \\Disk de s. | CountPerSecond| |\\PhysicalDisk (\_Total) \\Disk/seg. | CountPerSecond| |\\PhysicalDisk (\_Total) \\Disk/seg. | CountPerSecond| |\\PhysicalDisk (\_Total) \\Disk Bytes/seg. | BytesPerSecond| |\\PhysicalDisk (\_Total) \\Disk Bytes de lectura/sec| BytesPerSecond| |\\PhysicalDisk (\_Total) \\Disk Bytes escritos/s | BytesPerSecond| |\\PhysicalDisk (\_Total) \\Avg. Disk Queue Length| Count| |\\PhysicalDisk(\_Total)\\Avg. Disk Read Queue Length| Count| |\\PhysicalDisk(\_Total)\\Avg. Longitud de cola de escritura en disco | Count| |\\LogicalDisk (\_Total) \\ % libre Space| PERCENT| |\\LogicalDisk (\_Total) \\Free Megabytes| Count|
+|\\Processor(\_Total)\\% de tiempo de procesador | PERCENT|
+|\\Processor (\_Total)\\% de tiempo privilegiado | PERCENT|
+|\\Processor (\_Total)\\% de tiempo de usuario | PERCENT|
+|\\Processor información (\_Total) \\Frecuencia de Processor | Count|
+|\\System\\Processes| Count|
+|\\Process (\_Total) \\Thread Count| Count|
+|\\Process (\_Total) \\Handle Count| Count|
+|\\Memory\\% Bytes confirmados en uso | PERCENT|
+|\\Memory\\Available Bytes| Bytes| 
+|\\Memory\\Committed bytes| Bytes|
+|\\Memory\\Commit Limit| Bytes|
+|\\Memory\\Pool paginado Bytes| Bytes|
+|\\Memory\\Pool Bytes de bloque no paginado| Bytes|
+|\\Disco físico (\_Total)\\% Time de disco| PERCENT|
+|\\Disco físico (\_Total)\\% Time de lectura de disco | PERCENT|
+|\\Disco físico (\_Total)\\% Time de escritura en disco | PERCENT|
+|\\Disco físico (\_Total)\\Transferencias de disco/s | CountPerSecond|
+|\\Disco físico (\_Total)\\Lecturas de disco/s | CountPerSecond|
+|\\Disco físico (\_Total)\\Escrituras en disco/s | CountPerSecond|
+|\\Disco físico (\_Total)\\Disk Bytes/seg. | BytesPerSecond|
+|\\Disco físico (\_Total)\\Bytes de lectura de disco/s| BytesPerSecond|
+|\\Disco físico (\_Total)\\Bytes de escritura en disco/s | BytesPerSecond|
+|\\Disco físico (\_Total)\\Avg. Longitud de la cola de disco| Count|
+|\\Disco físico(\_Total)\\Avg. Disk Read Queue Length| Count|
+|\\Disco físico(\_Total)\\Avg. Longitud de cola de escritura en disco | Count|
+|\\LogicalDisk (\_Total) \% libre Space| PERCENT|
+|\\LogicalDisk (\_Total)\\Free Megabytes| Count|
 
 
 
