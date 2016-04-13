@@ -303,7 +303,7 @@ La columna expandida siempre tiene el tipo dinámico. Use una conversión como `
 Se admiten dos modos de expansiones de contenedor de propiedades:
 
 * `bagexpansion=bag`: los contenedores de propiedades se expanden en contenedores de propiedades de entrada única. Esta es la expansión predeterminada.
-* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`* key*`,`*value*`]`, lo que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
+* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`*key*`,`*value*`]`, lo que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
 
 **Ejemplos**
 
@@ -672,7 +672,7 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 * `kind`: 
  * `inner` - El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
  * `outer` - El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
-* `withsource=`* ColumnName: * si se especifica, la salida incluirá una columna denominada *ColumnName* cuyo valor indicará qué tabla de origen ha contribuido a cada fila.
+* `withsource=`*ColumnName*: si se especifica, la salida incluirá una columna denominada *ColumnName* cuyo valor indicará qué tabla de origen ha contribuido a cada fila.
 
 **Devoluciones**
 
