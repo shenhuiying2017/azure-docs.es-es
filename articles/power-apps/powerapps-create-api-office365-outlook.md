@@ -72,7 +72,7 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 ![Iniciar Azure Active Directory][6]
 
 4. Seleccione la pestaña **Aplicaciones** y seleccione **Agregar**:  
-![Aplicaciones del inquilino de AAD][7].
+![Aplicaciones del inquilino de AAD][7]
 
 5. En **Agregar aplicación**:
 
@@ -144,4 +144,4 @@ En este tema, ha agregado la API de Outlook para Office 365 a su empresa PowersA
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->
