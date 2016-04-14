@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introducción a la versión preliminar de Microsoft Power BI Embedded"
-   description=""
+   description="With Power BI Embedded, you can add interactive Power BI reports into your application."
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
