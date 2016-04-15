@@ -108,4 +108,4 @@ Es importante revisar todos los procedimientos recomendados de seguridad para SQ
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!------HONumber=AcomDC_0330_2016-->
