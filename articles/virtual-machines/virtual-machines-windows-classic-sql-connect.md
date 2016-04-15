@@ -30,7 +30,7 @@ Sin embargo, hay algunos aspectos de la conectividad de SQL Server que son espec
 
 Este artículo se centra en cómo conectarse a una máquina virtual existente de SQL Server que utiliza el modelo clásico.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos. Si utiliza máquinas virtuales de Resource Manager, consulte [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md) (Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)).
 
 ## Escenarios de conexión
 
