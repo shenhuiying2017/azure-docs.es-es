@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mcoskun"
    manager="timlt"
-   editor="masnider,jessebenson"/>
+   editor="masnider,vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/11/2015"
+   ms.date="03/25/2016"
    ms.author="mcoskun"/>
 
 # Introducción a Reliable Collections en los servicios con estado de Azure Service Fabric
@@ -39,13 +39,13 @@ Colecciones fiables proporcionan garantías de homogeneidad sólidas de fábrica
 Las API de Reliable Collections son una evolución de las API de colecciones simultáneas (que se encuentran en el espacio de nombres **System.Collections.Concurrent**):
 
 - Asincrónico: devuelve una tarea debido a que, a diferencia de las colecciones simultáneas, las operaciones se replican y se guardan.
-- Ningún parámetro de salida: usa **ConditionalResult<T>** para devolver un valor en lugar de los parámetros de salida y un booleano. **ConditionalResult<T>** es como **Nullable<T>** pero no requiere que T sea un struct.
+- Ningún parámetro de salida: usa `ConditionalValue<T>` para devolver un valor y un booleano en lugar de parámetros de salida. `ConditionalValue<T>` es similar a `Nullable<T>` pero no requiere que T sea un struct.
 - Transacciones: utiliza un objeto de transacción para permitir que el usuario agrupe acciones en varias colecciones fiables en una transacción.
 
 Por el momento, el espacio de nombres **Microsoft.ServiceFabric.Data.Collections** contiene dos colecciones:
 
-- [Diccionario confiable](https://msdn.microsoft.com/library/azure/dn971511.aspx): representa una colección replicada, transaccional y asincrónica de pares clave/valor. Similar a **ConcurrentDictionary**, la clave y el valor pueden ser de cualquier tipo.
-- [Cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx): representa una cola estricta replicada, transaccional y asincrónica de tipo primero en entrar primero en salir (FIFO). Similar a **ConcurrentQueue**, el valor puede ser de cualquier tipo.
+- [Diccionario confiable](https://msdn.microsoft.com/library/azure/dn971511.aspx): representa una colección replicada, transaccional y asincrónica de pares clave/valor. De forma similar a **ConcurrentDictionary**, la clave y el valor pueden ser de cualquier tipo.
+- [Cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx): representa una cola estricta replicada, transaccional y asincrónica de tipo primero en entrar primero en salir (FIFO). De forma similar a **ConcurrentQueue**, el valor puede ser de cualquier tipo.
 
 ## Niveles de aislamiento
 El nivel de aislamiento es una medida del grado de aislamiento conseguido. Aislamiento significa que una transacción se comporta como lo haría en un sistema que solo permite una transacción en curso en un determinado tiempo.
@@ -54,8 +54,8 @@ Colecciones fiables elige automáticamente el nivel de aislamiento que se usará
 
 Hay dos niveles de aislamiento que se admiten en Colecciones confiables:
 
-- **Repeatable Read**: especifica que las instrucciones no pueden leer datos que han sido modificados pero aún no confirmados por otras transacciones y que ninguna otra transacción puede modificar los datos leídos por la transacción actual hasta que esta finalice. Para más información, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-- **Snapshot**: especifica que los datos leídos por cualquier instrucción de una transacción sean la versión coherente, desde el punto de vista transaccional, de los datos existentes al comienzo de la transacción. La transacción solo puede reconocer las modificaciones de datos que se confirmaron antes del inicio de la transacción. Las modificaciones de datos realizadas por otras transacciones después del inicio de la transacción actual no son visibles para las instrucciones que se ejecutan en la transacción actual. El efecto es como si las instrucciones de una transacción obtienen una instantánea de los datos confirmados tal como se encontraban al inicio de la transacción. Para más información, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Repeatable Read**: especifica que las instrucciones no puedan leer datos que se han modificado, pero que aún no han confirmado otras transacciones, y que ninguna otra transacción puede modificar los datos leídos por la transacción actual hasta que esta finalice. Para obtener más información, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Snapshot**: especifica que los datos que ha leído cualquier instrucción de una transacción sean la versión coherente, desde el punto de vista transaccional, de los datos existentes al comienzo de la transacción. La transacción solo puede reconocer las modificaciones de datos que se confirmaron antes del inicio de la transacción. Las modificaciones de datos realizadas por otras transacciones después del inicio de la transacción actual no son visibles para las instrucciones que se ejecutan en la transacción actual. El efecto es como si las instrucciones de una transacción obtienen una instantánea de los datos confirmados tal como se encontraban al inicio de la transacción. Para obtener más información, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 El diccionario fiable y la cola fiable admiten la lectura de las escrituras. En otras palabras, cualquier escritura dentro de una transacción será visible en una lectura posterior que pertenezca a la misma transacción.
 
@@ -99,16 +99,16 @@ Tenga en cuenta que la situación de interbloqueo anterior es un buen ejemplo de
 
 ## Recomendaciones
 
-- No modifique un objeto de tipo personalizado devuelto por las operaciones de lectura (por ejemplo, **TryPeekAsync** o **TryGetAsync**). Las colecciones fiables, igual que las colecciones simultáneas, devuelven una referencia a los objetos y no una copia.
+- No modifique un objeto de tipo personalizado que hayan devuelto las operaciones de lectura (por ejemplo, `TryPeekAsync` o `TryGetAsync`). Las colecciones fiables, igual que las colecciones simultáneas, devuelven una referencia a los objetos y no una copia.
 - No haga una copia en profundidad del objeto devuelto de tipo personalizado antes de modificarlo. Por ello, los struct y los tipos integrados son una transmisión por valor, no es necesario hacer una copia en profundidad en ellos.
-- No utilice **TimeSpan.MaxValue** para los tiempos de espera. Los tiempos de espera se deben utilizar para detectar interbloqueos.
+- No use `TimeSpan.MaxValue` para tiempos de espera. Los tiempos de espera se deben utilizar para detectar interbloqueos.
 - No cree una transacción dentro de la instrucción `using` de otra transacción, ya que puede provocar interbloqueos.
 
 Algunos aspectos que debe tener en cuenta:
 
 - El tiempo de espera predeterminado es de 4 segundos para todas las API de Reliable Collection. La mayoría de los usuarios no deben reemplazar esto.
-- El token de cancelación predeterminado es **CancellationToken.None** en todas las API de Reliable Collections.
-- El parámetro de tipo de clave (*TKey*) para un diccionario confiable debe implementar correctamente **GetHashCode()** y **Equals()**. Las claves deben ser inmutables.
+- El token de cancelación predeterminado es `CancellationToken.None` en todas las API de colecciones confiables.
+- El parámetro de tipo de clave (*TKey*) de un diccionario confiable debe implementar correctamente `GetHashCode()` y `Equals()`. Las claves deben ser inmutables.
 - Las enumeraciones son instantáneas coherentes dentro de una colección. Sin embargo, las enumeraciones de varias colecciones no son coherentes entre las colecciones.
 - Para lograr una alta disponibilidad para las colecciones confiables, cada servicio debe tener al menos un destino y un tamaño de conjunto de réplicas mínimo de 3.
 
@@ -119,4 +119,4 @@ Algunos aspectos que debe tener en cuenta:
 - [Uso avanzado del modelo de programación de servicios fiables](service-fabric-reliable-services-advanced-usage.md)
 - [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

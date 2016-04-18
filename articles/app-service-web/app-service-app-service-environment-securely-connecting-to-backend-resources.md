@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="04/06/2016" 
 	ms.author="stefsch"/>
 
 # Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones #
 
 ## Información general ##
-Dado que siempre se crea un entorno del Servicio de aplicaciones en una subred de una [red virtual][virtualnetwork] regional clásica "v1", las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual.
+Dado que siempre se crea un entorno del Servicio de aplicaciones en una subred de una [red virtual][virtualnetwork] regional clásica "v1", las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual. Tenga en cuenta que, en estos momentos, solo se admiten redes virtuales con un espacio de direcciones de RFC1918 (es decir, direcciones privadas).
 
 **Nota:** No se puede crear un Entorno del Servicio de aplicaciones en una red virtual "v2" administrada por ARM.
 
@@ -116,4 +116,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

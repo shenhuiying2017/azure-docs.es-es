@@ -3,7 +3,7 @@
     description="Los desarrolladores de Software como servicio (SaaS) pueden crear bases de datos elásticas y escalables con facilidad en la nube mediante estas herramientas"
     services="sql-database"
     documentationCenter=""
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="ddove"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/24/2016"
+    ms.date="04/04/2016"
     ms.author="ddove;sidneyh"/>
 
 # Información general de las características de bases de datos elásticas
@@ -24,6 +24,7 @@ Las característica de la **base de datos elástica** le permiten usar los recur
 * [Grupos de base de datos elástica](sql-database-elastic-pool-guidance.md) (vista previa): un grupo es una colección de bases de datos a la que puede agregar o quitar bases de datos en cualquier momento. Las bases de datos del grupo comparten una cantidad fija de recursos (conocidos como unidades de transacción de base de datos o DTU). Se paga un precio fijo por los recursos, lo que le permite calcular con facilidad los costos al administrar el rendimiento.
 * [Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md) (vista previa): use trabajos para administrar un gran número de bases de datos de SQL de Azure. Realice fácilmente operaciones administrativas, como cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o de trabajos de recolección de telemetría de inquilinos (cliente).
 * [Consulta de Base de datos elástica](sql-database-elastic-query-overview.md) (vista previa): le permite ejecutar una consulta de Transact-SQL que abarca varias bases de datos. Esto permite la conexión con herramientas de informes, como Excel, PowerBI, Tableau, etc.
+* [Transacciones elásticas](sql-database-elastic-transactions-overview.md): esta característica permite ejecutar transacciones que abarcan varias bases de datos de Base de datos SQL. Las transacciones de bases de datos elásticas están disponibles para aplicaciones .NET mediante ADO .NET y se integran con la conocida experiencia de programación en la que se emplean las clases [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 El siguiente gráfico muestra una arquitectura que incluye las **características de base de datos elástica** en relación con una colección de bases de datos.
 
@@ -108,4 +109,4 @@ Para ver los detalles del grupo de bases de datos elásticas, consulte [Consider
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

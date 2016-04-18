@@ -42,16 +42,16 @@ Creamos el concepto de unidad de proceso de Azure (ACU) para brindar una forma d
 
 |Familia de SKU |ACU/núcleo |
 |---|---|
-|[Standard\_A0](#standard-tier-a-series)	|50 |
-|[Standard\_A1-4](#standard-tier-a-series)	|100 |
-|[Standard\_A5-7](#standard-tier-a-series)	|100 |
-|[A8-A11](#standard-tier-a-series)	|225 *|
-|[D1-14](#standard-tier-d-series)	|160 |
-|[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
-|[DS1-14](#standard-tier-ds-series)	|160 |
-|[DS1-14v2](#standard-tier-dsv2-series)	|210-250* |
-|[G1-5](#standard-tier-g-series)	|180 - 240 *|
-|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
+|[Standard\_A0](#standard-tier-a-series) |50 |
+|[Standard\_A1-4](#standard-tier-a-series) |100 |
+|[Standard\_A5-7](#standard-tier-a-series) |100 |
+|[A8-A11](#standard-tier-a-series) |225 *|
+|[D1-14](#standard-tier-d-series) |160 |
+|[D1-15v2](#standard-tier-dv2-series) |210 - 250 *|
+|[DS1-14](#standard-tier-ds-series) |160 |
+|[DS1-14v2](#standard-tier-dsv2-series) |210-250* |
+|[G1-5](#standard-tier-g-series) |180 - 240 *|
+|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 Las ACU marcadas con un asterisco * usan la tecnología Intel® Turbo para incrementar la frecuencia de CPU y brindar una mejora del rendimiento. El volumen de la mejora puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.
@@ -86,10 +86,10 @@ Nota: Para información y algunas consideraciones sobre el uso de estos tamaños
 
 |Tamaño |Núcleos de CPU|Memoria|NICs (Máx)|Tamaño máx. del disco|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)| Ancho de banda de red máximo |
 |---|---|---|---|---|---|---|---|
-|Standard\_A8|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
-|Standard\_A9|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
-|Standard\_A10|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
-|Standard\_A11|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
+|Standard\_A8|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
+|Standard\_A9|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
+|Standard\_A10|8|56 GB|2| Temporal = 382 GB |16|16x500| Alto |
+|Standard\_A11|16|112 GB|4| Temporal = 382 GB |16|16x500| Muy alto |
 
 ## Nivel estándar: serie D
 
@@ -145,7 +145,7 @@ Nota: Para información y algunas consideraciones sobre el uso de estos tamaños
 |Standard\_DS2\_v2 |2|7|2|Disco SSD local = 14 GB |4|86| 6\.400 96 MB por segundo | Alto |
 |Standard\_DS3\_v2 |4|14|4|Disco SSD local = 28 GB |8|172| 12\.800 192 MB por segundo | Alto |
 |Standard\_DS4\_v2 |8|28|8|Disco SSD local = 56 GB |16|344| 25\.600 384 MB por segundo | Alto |
-|Standard\_DS5\_v2 |16|56|8|Disco SSD local = 112 GB |16|688| 50\.000 768 MB por segundo | Alto |
+|Standard\_DS5\_v2 |16|56|8|Disco SSD local = 112 GB |32|688| 50\.000 768 MB por segundo | Alto |
 |Standard\_DS11\_v2 |2|14|2|Disco SSD local = 28 GB |4|72| 6\.400 96 MB por segundo | Alto |
 |Standard\_DS12\_v2 |4|28|4|Disco SSD local = 56 GB |8|144| 12\.800 192 MB por segundo | Alto |
 |Standard\_DS13\_v2 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 384 MB por segundo | Alto |
@@ -192,4 +192,4 @@ En el modelo de implementación clásica, algunos nombres de tamaños de VM var�
 - Infórmese sobre los [límites, la cuotas y las restricciones de la suscripción y los servicios de Microsoft Azure](../articles/azure-subscription-service-limits.md).
 - Más información [sobre las instancias de proceso intensivo A8, A9, A10 y A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabajo, como Informática de alto rendimiento (HPC).
 
-<!-----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

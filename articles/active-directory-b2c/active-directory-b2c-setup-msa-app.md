@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="04/04/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: registro e inicio de sesión para los consumidores con cuentas Microsoft
@@ -55,4 +55,4 @@ Para usar una cuenta Microsoft como proveedor de identidades en Azure Active Dir
 6. Haga clic en **Configurar este proveedor de identidades** y proporcione los valores de identificador de cliente y secreto de cliente de la aplicación de cuenta Microsoft que creó anteriormente.
 7. Haga clic en **Aceptar** y en **Crear** para guardar la configuración de la cuenta Microsoft.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -17,11 +17,15 @@
 	ms.date="02/03/2016"
 	ms.author="cephalin"/>
 
-
 #Habilitación de HTTPS para una aplicación en el servicio de aplicaciones de Azure
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+> [AZURE.SELECTOR]
+- [Habilitación de SSL en un dominio personalizado](web-sites-configure-ssl-certificate.md)
+- [Compra de un certificado SSL para Aplicaciones web](web-sites-purchase-ssl-web-site.md)
+
+
 
 [AZURE.INCLUDE [configure-ssl-web-site](../../includes/configure-ssl-web-site.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

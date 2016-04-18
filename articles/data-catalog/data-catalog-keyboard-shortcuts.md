@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="dvana"
    manager="NA"
-   editor=""
+   editor="steelanddata"
    tags=""/>
 <tags
    ms.service="data-catalog"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/07/2016"
+   ms.date="03/31/2016"
    ms.author="derrickv"/>
 
 # Métodos abreviados de teclado para el Catálogo de datos de Azure
 
-## Métodos abreviados de teclado generales
+## Métodos abreviados de teclado para la herramienta de registro de orígenes de datos del Catálogo de datos
 
-A continuación se muestran los métodos abreviados de teclado para el Catálogo de datos de Azure.
+### Métodos abreviados de teclado generales
 
 |Para hacer esto|Presione
 |---|---
@@ -31,27 +31,27 @@ A continuación se muestran los métodos abreviados de teclado para el Catálogo
 |Abrir el menú de página| ALT+Barra espaciadora
 
 
-## Página de autenticación
+### Página de autenticación
 
 |Para hacer esto|Presione
 |---|---
 |Iniciar sesión en el servicio.|ALT+S
 
-## Página de selección del origen de datos
+### Página de selección del origen de datos
 
 |Para hacer esto|Presione
 |---|---
 |Ir a la página siguiente (si está habilitado).|ALT+N
 |Cambiar el tipo seleccionado cuando el foco está en un icono.|Flecha izquierda, arriba, derecha o abajo
 
-## Página de conexión al origen de datos
+### Página de conexión al origen de datos
 
 |Para hacer esto|Presione
 |---|---
 |Ir a la página anterior (si está habilitado).|ALT+P
 |Elegir el botón Conectar.| ALT+C
 
-## Página de contexto de conexión
+### Página de contexto de conexión
 
 |Para hacer esto|Presione
 |---|---
@@ -62,7 +62,7 @@ A continuación se muestran los métodos abreviados de teclado para el Catálogo
 | Jerarquía del servidor, expandir un nodo de la vista de árbol. |Flecha derecha
 | Mover los elementos seleccionados a **Objetos disponibles** o a **Objetos que se registrarán**. | Barra espaciadora
 
-## Página de progreso de publicación
+### Página de progreso de publicación
 
 |Para hacer esto|Presione
 |---|---
@@ -70,14 +70,15 @@ A continuación se muestran los métodos abreviados de teclado para el Catálogo
 |Botón Registrar más objetos| ALT+R
 |Botón Ver portal | ALT + V
 
-## Página de progreso de publicación
+### Página de progreso de publicación
 
 |Para hacer esto|Presione
 |---|---
 |Botón Guardar (si está habilitado)| ALT+S
 |Botón Cancelar|ALT+C
 
-## Página del portal
+## Métodos abreviados de teclado para el portal del Catálogo de datos
+
 |Para hacer esto|Presione
 |---|---
 |Navegar| TAB y MAYÚS + TAB
@@ -91,4 +92,4 @@ A continuación se muestran los métodos abreviados de teclado para el Catálogo
 |Alternar menú **Abrir en** | ALT + O
 |Explorar el contenedor, si el recurso es un contenedor | ALT + L
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

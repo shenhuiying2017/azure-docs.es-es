@@ -145,7 +145,7 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 |Parámetro|value|
 |---|---|
 |Nombre|	simpletestdiskwrite|
-|Ubicación (Location) de esta regla de alerta|	Este de EE. UU.|
+|Ubicación (Location) de esta regla de alerta|	Este de EE. UU.|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
 |Nombre de la métrica (MetricName) de la alerta que se crea|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Consulte el cmdlet `Get-MetricDefinitions` siguiente sobre cómo recuperar los nombres de métrica exactos|
@@ -229,7 +229,6 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Hay disponible una lista completa de opciones para `Get-AzureRmMetricDefinition` en [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
-Para ver una lista de métricas disponibles y sus unidades para diversos servicios de Azure, consulte [WEB PAGE TITLE HERE](http://link).
 
 ## Creación y administración de la configuración de escalado automático
 Un recurso, como una aplicación web, una máquina virtual, un servicio en la nube o un conjunto de escalas de máquina virtual, solo puede tener una configuración de escalado automático ajustada. Sin embargo, cada configuración de escalado automático puede tener varios perfiles. Por ejemplo, uno para un perfil de escala basado en el rendimiento y otro para uno basado en la programación. Cada perfil puede tener varias reglas configuradas. Para obtener más información sobre el escalado automático, consulte [Escalado automático de una aplicación](../cloud-services/cloud-services-how-to-scale.md).
@@ -320,7 +319,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 
 ## Administración de perfiles de registro para registros de auditoría
 
-Puede crear un *perfil de registro* y exportar los datos de sus registros de auditoría a una cuenta de almacenamiento y configurar la retención de datos. Si lo desea, también puede transmitir los datos al Centro de eventos. Tenga en cuenta que esta característica se encuentra actualmente en la fase de vista previa y solo puede crear un perfil de registro por suscripción. Puede utilizar los siguientes cmdlets con su suscripción actual para crear y administrar perfiles de registro. También puede elegir una suscripción específica. Aunque PowerShell tiene como valor predeterminado la suscripción actual, puede cambiar cuando desee el uso de `Set-AzureRmContext`. Puede configurar los registros de auditoría para enrutar los datos a cualquier cuenta de almacenamiento o al Centro de eventos de dicha suscripción. Los datos se escriben como archivos blob en formato JSON.
+Puede crear un *perfil de registro* y exportar los datos de sus registros de auditoría a una cuenta de almacenamiento y configurar la retención de datos. Si lo desea, también puede transmitir los datos al Centro de eventos. Tenga en cuenta que esta característica se encuentra actualmente en la fase de vista previa y solo puede crear un perfil de registro por suscripción. Puede utilizar los siguientes cmdlets con su suscripción actual para crear y administrar perfiles de registro. También puede elegir una suscripción específica. Aunque PowerShell tiene como valor predeterminado la suscripción actual, puede cambiarla cuando quiera con `Set-AzureRmContext`. Puede configurar los registros de auditoría para enrutar los datos a cualquier cuenta de almacenamiento o al Centro de eventos de dicha suscripción. Los datos se escriben como archivos blob en formato JSON.
 
 ### Obtención de un perfil de registro
 Para capturar los perfiles de registro existentes, utilice el cmdlet `Get-AzureRmLogProfile`.
@@ -385,4 +384,4 @@ Habilitación de la configuración de diagnóstico con retención para una categ
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

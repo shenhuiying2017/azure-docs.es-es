@@ -225,7 +225,7 @@ Para descartar el dispositivo perimetral de la organización como causa de los e
 
 ![Diagrama que resalta el dispositivo perimetral de la organización](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Si no tiene un equipo conectado directamente a Internet, puede crear fácilmente una nueva máquina virtual de Azure en su propio grupo de recursos o servicio en la nube y usarla. Para obtener más información, consulte [Creación de una máquina virtual que ejecuta Linux en Azure](virtual-machines-linux-cli-create.md). Cuando acabe de realizar las pruebas, elimine el grupo de recursos o la máquina virtual y el servicio en la nube.
+Si no tiene un equipo conectado directamente a Internet, puede crear fácilmente una nueva máquina virtual de Azure en su propio grupo de recursos o servicio en la nube y usarla. Para obtener más información, consulte [Creación de una máquina virtual que ejecuta Linux en Azure](virtual-machines-linux-quick-create-cli.md). Cuando acabe de realizar las pruebas, elimine el grupo de recursos o la máquina virtual y el servicio en la nube.
 
 Si puede crear una conexión a SSH con un equipo conectado directamente a Internet, compruebe si el dispositivo perimetral de la organización tiene lo siguiente:
 
@@ -243,7 +243,7 @@ Para eliminar el punto de conexión de servicio en la nube y ACL como el origen 
 
 ![Diagrama que resalta el punto de conexión del servicio en la nube y ACL](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-Si no tiene otra máquina virtual en la misma red virtual, puede crear una fácilmente. Para obtener más información, consulte [Creación de una máquina virtual que ejecuta Linux en Azure](virtual-machines-linux-cli-create.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual que creó.
+Si no tiene otra máquina virtual en la misma red virtual, puede crear una fácilmente. Para obtener más información, consulte [Creación de una máquina virtual que ejecuta Linux en Azure](virtual-machines-linux-quick-create-cli.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual que creó.
 
 Si puede crear una conexión a SSH con una máquina virtual en la misma red virtual, compruebe:
 
@@ -281,4 +281,4 @@ En el caso de las máquinas virtuales del modelo de implementación clásica, [R
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

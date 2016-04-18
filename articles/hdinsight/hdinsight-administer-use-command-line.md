@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="04/05/2016"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure
@@ -47,7 +47,7 @@ Para obtener ayuda, use el modificador **-h**. Por ejemplo:
 	
 ##Creación de clústeres
 
-Consulte [Create Windows-based Hadoop clusters in HDInsight using Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md).
+Consulte [Creación de clústeres basados en Linux en HDInsight con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ##Enumeración y visualización de los detalles del clúster
 Use los comandos siguientes para enumerar y mostrar los detalles del clúster:
@@ -106,4 +106,4 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Enumeración y visualización de clústeres"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

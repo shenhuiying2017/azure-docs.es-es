@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Cuaderno de estrategias de soluciones de análisis de telemetría de vehículo: profundización en la solución | Microsoft Azure" 
-	description="Use las funcionalidades de Cortana Analytics para obtener información predictiva y en tiempo real del estado del vehículo y los hábitos de conducción." 
+	description="Aproveche las posibilidades de Cortana Intelligence para obtener información en tiempo real y predictiva del estado de los vehículos y los hábitos de conducción." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -155,9 +155,9 @@ Una vez que la canalización se ejecuta correctamente y se marca el conjunto de 
 
 ### Referencias
 
-[SDK del Centro de eventos de Azure para ingesta de transmisiones](event-hubs-csharp-ephcs-getstarted.md)
+[SDK del Centro de eventos de Azure para ingesta de transmisiones](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Funcionalidades de movimiento de datos de Factoría de datos de Azure](data-factory-data-movement-activities.md) [Actividad DotNet de Factoría de datos de Azure](data-factory-use-custom-activities.md)
+[Funciones de movimiento de datos de Data Factory de Azure](../data-factory/data-factory-data-movement-activities.md) [Actividad DotNet de Data Factory de Azure](../data-factory/data-factory-use-custom-activities.md)
 
 [Solución de Visual Studio para la actividad DotNet de Factoría de datos de Azure para preparar datos de ejemplo](http://go.microsoft.com/fwlink/?LinkId=717077)
 
@@ -376,7 +376,7 @@ Para más información sobre todas las capacidades basadas en ventanas de Análi
 
 Como parte de la solución se incluye una aplicación que ponga en funcionamiento el modelo de aprendizaje automático en tiempo real. Esta aplicación denominada "RealTimeDashboardApp" se crea y configura como parte de la implementación de la solución. Esta aplicación hace lo siguiente:
 
-1.	Escucha a una instancia de Centro de eventos donde Análisis de transmisiones publica los eventos con un patrón de forma continua. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Ilustración 16: Consulta de Análisis de transmisiones para la publicación de los datos a una salida de instancia de Centro de eventos* 
+1.	Escucha a una instancia de Centro de eventos donde Análisis de transmisiones publica los eventos con un patrón de forma continua. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)* Ilustración 16: Consulta de Análisis de transmisiones para la publicación de los datos a una salida de instancia de Centro de eventos* 
 
 2.	Para cada evento que recibe esta aplicación:
 
@@ -387,7 +387,7 @@ Este patrón también es aplicable a escenarios donde desea integrar una aplicac
 
 Haga clic en la [descarga de RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) para descargar la solución de Visual Studio de RealtimeDashboardApp para las personalizaciones.
 
-**** Para ejecutar la aplicación de panel en tiempo real **
+**Para ejecutar la aplicación de panel en tiempo real**
 
 1.	CNAMEs are displayed directly below this graphHaga clic en el nodo PowerBI en la vista de diagrama y luego en el vínculo Descargar aplicación del panel en tiempo real, en el panel de propiedades. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Ilustración 17: Instrucciones de configuración del panel de Power BI*
 2.	Extraer y guardar localmente ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Ilustración 18: Carpeta RealtimeDashboardApp*
@@ -706,4 +706,4 @@ Haga clic aquí para obtener instrucciones detalladas sobre cómo configurar los
 
 Este documento contiene un desglose detallado de la solución de análisis de telemetría de vehículos. Se presenta un patrón de arquitectura lambda para análisis en tiempo real y de procesamiento por lotes con predicciones y acciones. Este patrón se aplica a una amplia gama de casos de uso que requieren análisis con ruta de acceso activa (en tiempo real) y la ruta de acceso frío (lote).
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

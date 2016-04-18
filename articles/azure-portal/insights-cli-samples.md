@@ -20,6 +20,8 @@
 
 En este artículo se muestran comandos de la interfaz de línea de comandos (CLI) de ejemplo que le ayudarán a acceder a las características de supervisión de Azure Insights. Azure Insights permite escalar automáticamente aplicaciones web, máquinas virtuales y servicios en la nube para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
 
+>[AZURE.NOTE] Algunas de las últimas correcciones de errores para la CLI de Azure Insights aún no están finalizadas. Por ello, algunas de las características más recientes no están aún disponibles en la versión actual de la CLI de Azure. Mientras tanto, puede usar la última CLI de Azure Insights que incluye las correcciones; para ello, descargue el último tarball de la rama de desarrollo en la [página del tarball de la CLI XPLAT de Azure](http://github.com/Azure/azure-xplat-cli/archive/dev.tar.gz) y, después, siga las instrucciones del [repositorio de la línea de comandos multiplataforma de Microsoft Azure](https://github.com/Azure/azure-xplat-cli#installation-from-a-particular-branch-of-this-repository) a fin de instalarla mediante el tarball que acaba de descargar. Azure Insights incluirá las correcciones de errores para la CLI de Azure cuando se actualice próximamente. Actualizaremos este documento cuando los cambios estén disponibles en la rama principal de la CLI de Azure.
+
 ## Requisitos previos
 
 Si no ha instalado aún la CLI, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md). Si no está familiarizado con la CLI de Azure, puede obtener más información en [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
@@ -219,4 +221,4 @@ node bin\azure insights autoscale setting list montest2 -n setting2
 node bin\azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

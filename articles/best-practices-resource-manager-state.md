@@ -374,7 +374,7 @@ En el ejemplo siguiente se muestra cómo pasar la dirección IP privada generada
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
             "type": "string"
          }
     }
@@ -389,4 +389,4 @@ Dentro de la plantilla principal, puede usar esos datos con la sintaxis siguient
 - [Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
 - [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

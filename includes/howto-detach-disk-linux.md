@@ -1,18 +1,15 @@
 Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Esto quita el disco de la máquina virtual, pero no lo quita del almacenamiento. Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuevo a la misma máquina virtual (o a otra).
 
-> [AZURE.NOTE] Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Se recomienda utilizar discos de datos para almacenar datos para una máquina virtual. Para obtener más información, vea [Acerca de los discos y discos duros virtuales para máquinas virtuales](virtual-machines-linux-about-disks-vhds.md). No es posible desconectar un disco del sistema operativo a menos que también elimine la máquina virtual.
+> [AZURE.NOTE] Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Para obtener más información, vea [Acerca de los discos y discos duros virtuales para máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). No es posible desconectar un disco del sistema operativo a menos que también elimine la máquina virtual.
 
 ## Buscar el disco
 
 Antes de poder desacoplar un disco de una máquina virtual, tienes que saber cuál es el número de unidad lógica (LUN), que es un identificador para el disco que se va a desacoplar. Para ello, sigue estos pasos:
 
-1. 	Abre la interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows y conéctate a tu suscripción de Azure. Para más información, consulta el tema [Conexión a Azure desde la CLI de Azure](../xplat-cli-connect.md).
+1. 	Abra la CLI de Azure y [conéctese a su suscripción de Azure](../articles/xplat-cli-connect.md). Asegúrese de que se encuentra en el modo de administración de servicios de Azure (`azure config mode asm`).
 
-2.  Escribe `azure config
- 	mode asm` para asegurarte de que estás en modo de administración de servicios de Azure, que es el valor predeterminado.
-
-3. 	Averigua qué discos están conectados a la máquina virtual utilizando `azure vm disk list
-	<virtual-machine-name>` de la siguiente manera:
+2. 	Compruebe qué discos están asociados a la máquina virtual utilizando `azure vm disk list
+	<virtual-machine-name>`:
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -26,15 +23,15 @@ Antes de poder desacoplar un disco de una máquina virtual, tienes que saber cu�
 		data:    0    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
 		info:    vm disk list command OK
 
-4. 	Anota el LUN o **número de unidad lógica** para el disco que quieres desacoplar.
+3. 	Anota el LUN o **número de unidad lógica** para el disco que quieres desacoplar.
 
 
 ## Desacoplar el disco
 
 Cuando hayas encontrado el número LUN del disco, podrás desacoplarlo:
 
-1. 	Desacopla el disco seleccionado de la máquina virtual ejecutando el comando `azure vm disk detach
- 	<virtual-machine-name> <LUN>` de la siguiente manera:
+1. 	Desasocie el disco seleccionado de la máquina virtual ejecutando el comando `azure vm disk detach
+ 	<virtual-machine-name> <LUN>`:
 
 		$azure vm disk detach ubuntuVMasm 0
 		info:    Executing command vm disk detach
@@ -57,4 +54,4 @@ Cuando hayas encontrado el número LUN del disco, podrás desacoplarlo:
 
 El disco desacoplado permanece en el almacenamiento pero ya no estará acoplado a una máquina virtual.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

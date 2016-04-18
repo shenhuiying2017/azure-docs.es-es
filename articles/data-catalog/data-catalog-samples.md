@@ -1,6 +1,6 @@
 <properties
    pageTitle="Muestras para desarrolladores del Catálogo de datos | Microsoft Azure"
-   description="Introducción al desarrollo de aplicaciones del catálogo mediante la API de REST del Catálogo de datos."
+   description="En este artículo se proporciona una introducción a las muestras destinadas a desarrolladores disponibles para la API de REST del Catálogo de datos."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -32,6 +32,6 @@ Estas son las muestras de GitHub:
 
 - [Import/Export tool](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/) (Herramienta de importación y exportación)
 
-  Un ejemplo que muestra cómo utilizar la API de REST del Catálogo de datos para capturar activos desde el Catálogo de datos de Azure y serializarlos en un archivo. También muestra cómo tomar un conjunto de activos serializados como json e insertarlos en el catálogo. Admite la exportación de un subconjunto del catálogo mediante una consulta de búsqueda.
+  Un ejemplo que muestra cómo utilizar la API de REST del Catálogo de datos para capturar activos desde el Catálogo de datos de Azure y serializarlos en un archivo. También ilustra cómo tomar un conjunto de recursos serializados como JSON e insertarlos en el Catálogo. Admite la exportación de un subconjunto del catálogo mediante una consulta de búsqueda.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

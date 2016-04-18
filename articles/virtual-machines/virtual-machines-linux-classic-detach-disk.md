@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo desconectar un disco de datos de una máquina virtual de Azure creada mediante el modelo de implementación clásica."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="dkshir"/>
+	ms.date="04/04/2016"
+	ms.author="iainfou"/>
 
 # Desacoplamiento de un disco de una máquina virtual de Linux
 
@@ -28,6 +28,6 @@
 
 [Acoplamiento de un disco de datos a una máquina virtual de Linux](virtual-machines-linux-classic-attach-disk.md)
 
-[Uso de la CLI de Azure con la API de administración de servicios](virtual-machines-command-line-tools.md)
+[Uso de la CLI de Azure con la API de administración de servicios](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Requisitos previos de Catálogo de datos de Azure"
-   description="¿Qué es necesario para comenzar a usar el Catálogo de datos de Azure?"
+   pageTitle="Requisitos previos del Catálogo de datos de Azure | Microsoft Azure"
+   description="Requisitos previos del Catálogo de datos de Azure: qué se necesita para empezar a usar el Catálogo de datos de Azure."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
-# ¿Qué es necesario para comenzar a usar el Catálogo de datos de Azure?
+# Requisitos previos de Catálogo de datos de Azure
 
-## Requisitos previos de Catálogo de datos de Azure
+## ¿Qué es necesario para comenzar a usar el Catálogo de datos de Azure?
 
 Hay algunas cosas de las que debe encargarse para poder configurar **Catálogo de datos de Azure**. No se preocupe: no tardará mucho.
 
@@ -42,4 +42,4 @@ Para obtener más información, vea [Configuración de directivas de autenticaci
 ## Suscripción de Azure
 Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Catálogo de datos de Azure. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar el Catálogo de datos de Azure. Para obtener más información, vea [Administrar cuentas, suscripciones y roles administrativos](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

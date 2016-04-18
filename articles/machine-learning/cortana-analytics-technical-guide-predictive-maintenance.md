@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Guía técnica de la plantilla de solución de Cortana Analytics para mantenimiento predictivo en empresas aeroespaciales y de otros tipos | Microsoft Azure"
-	description="Una guía técnica para la plantilla de solución con Microsoft Cortana Analytics para mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte."
+	pageTitle="Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos | Microsoft Azure"
+	description="Una guía técnica sobre la plantilla de solución con Microsoft Cortana Intelligence orientada al mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
@@ -16,14 +16,14 @@
 	ms.date="01/29/2016"
 	ms.author="fboylu" />
 
-# Guía técnica de la plantilla de solución de Cortana Analytics para mantenimiento predictivo en empresas aeroespaciales y de otros tipos
+# Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos
 
 ## **Agradecimientos**
 Los autores de este artículo son los científicos de datos Yan Zhang, Gauher Shaheen, Fidan Boylu Uz y el ingeniero de software Dan Grecoe de Microsoft.
 
 ## **Información general**
 
-Las plantillas de soluciones están diseñadas para acelerar el proceso de creación de una demostración E2E basada en Cortana Analytics Suite. Una plantilla implementada aprovisionará la suscripción con los componentes necesarios de Cortana Analytics y creará las relaciones entre ellos. También propaga la canalización de datos con datos de ejemplo generados a partir de una aplicación de generador de datos que descargará e instalará en el equipo local después de implementar la plantilla de la solución. Los datos generados a partir del generador hidratarán la canalización de datos e iniciarán la generación de predicciones de aprendizaje automático que podrán verse a continuación en el panel de Power BI. El proceso de implementación le guiará a través de varios pasos para configurar las credenciales de la solución. Asegúrese de que registra estas credenciales: nombre de la solución, nombre de usuario y contraseña que proporcionó durante la implementación.
+Las plantillas de solución están diseñadas para acelerar el proceso de creación de una demostración E2E basada en Cortana Intelligence Suite. Una plantilla implementada aprovisionará la suscripción con los componentes necesarios de Cortana Intelligence y creará las relaciones entre ellos. También propaga la canalización de datos con datos de ejemplo generados a partir de una aplicación de generador de datos que descargará e instalará en el equipo local después de implementar la plantilla de la solución. Los datos generados a partir del generador hidratarán la canalización de datos e iniciarán la generación de predicciones de aprendizaje automático que podrán verse a continuación en el panel de Power BI. El proceso de implementación le guiará a través de varios pasos para configurar las credenciales de la solución. Asegúrese de que registra estas credenciales: nombre de la solución, nombre de usuario y contraseña que proporcionó durante la implementación.
 
 El objetivo de este documento es explicar la arquitectura de referencia y los diferentes componentes aprovisionados en su suscripción como parte de esta plantilla de solución. El documento también trata sobre cómo reemplazar los datos de ejemplo con datos reales para poder ver recomendaciones y predicciones a partir de sus propios datos. Además, el documento explica las partes de la plantilla de solución que deberán modificarse si desea personalizar la solución con sus propios datos. Se proporcionan instrucciones sobre cómo crear el panel de Power BI para esta plantilla de solución al final.
 
@@ -221,8 +221,10 @@ Los siguientes pasos le guiarán a la hora de conectar el archivo pbix con Base 
 
     -   Para crear un nuevo panel: haga clic en el signo **+** junto a la sección **Paneles** del panel izquierdo. Escriba el nombre "Demo de mantenimiento predictivo" para este nuevo panel.
 
-    -   Una vez que abra el informe, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png) para anclar todas las visualizaciones al panel. Para obtener instrucciones detalladas, consulte [Anclaje de un icono a un panel de Power BI desde un informe](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Vaya a la página del panel y ajuste el tamaño y la ubicación de las visualizaciones y edite los títulos. Para obtener instrucciones detalladas sobre cómo editar los iconos, consulte [Edición de un icono: cambiar el tamaño, mover, cambiar el nombre, anclar, eliminar, agregar un hipervínculo](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Este es un panel de ejemplo con algunas visualizaciones de la ruta de acceso inactiva ancladas. Dependiendo de cuánto tiempo tarde en ejecutarse el generador de datos, los números en las visualizaciones pueden ser diferentes. <br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png) <br/>
-    -   Para programar la actualización de los datos, mantenga el puntero sobre el conjunto de datos **PredictiveMaintenanceAerospace**, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) y después elija **Programar actualización**. <br/> **Nota:** Si ve un mensaje de advertencia, haga clic en **Editar credenciales** y asegúrese de que las credenciales de la base de datos son las mismas que las descritas en el paso 1. <br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png) <br/>
+    -   Una vez que abra el informe, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png) para anclar todas las visualizaciones al panel. Para obtener instrucciones detalladas, consulte [Anclaje de un icono a un panel de Power BI desde un informe](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Vaya a la página del panel y ajuste el tamaño y la ubicación de las visualizaciones y edite los títulos. Para obtener instrucciones detalladas sobre cómo editar los iconos, consulte [Edición de un icono: cambiar el tamaño, mover, cambiar el nombre, anclar, eliminar, agregar un hipervínculo](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Este es un panel de ejemplo con algunas visualizaciones de la ruta de acceso inactiva ancladas. Dependiendo de cuánto tiempo tarde en ejecutarse el generador de datos, los números en las visualizaciones pueden ser diferentes. <br/>
+	![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png) <br/>
+    -   Para programar la actualización de los datos, mantenga el puntero sobre el conjunto de datos **PredictiveMaintenanceAerospace**, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) y después elija **Programar actualización**. <br/> **Nota:** Si ve un mensaje de advertencia, haga clic en **Editar credenciales** y asegúrese de que las credenciales de la base de datos son las mismas que las descritas en el paso 1. <br/>
+	![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png) <br/>
     -   Expanda la sección **Programar actualización**. Active "Mantener los datos actualizados". <br/>
     -   Programe la actualización según sus necesidades. Para obtener más información, consulte [Actualizar datos en Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
@@ -272,4 +274,4 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016--->

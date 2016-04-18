@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Preguntas frecuentes sobre las competiciones de Cortana Analytics | Microsoft Azure"
-	description="Preguntas frecuentes sobre las competiciones de Cortana Analytics de Microsoft."
+	pageTitle="Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence | Microsoft Azure"
+	description="Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence."
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -16,11 +16,11 @@
 	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# Preguntas frecuentes sobre las competiciones de Cortana Analytics de Microsoft
+# Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence
 
-**¿En qué consisten las competiciones de Cortana Analytics?**
+**¿En qué consisten las competiciones de Cortana Intelligence?**
 
-Microsoft anuncia las competiciones de Cortana Analytics. Las competiciones de Cortana Analytics nos permiten unir a una comunidad global de aficionados a los datos para resolver de forma colectiva algunos de los problemas de la ciencia de datos más complejos del mundo. Las competiciones de Cortana Analytics permiten a los aficionados a los datos de todo el mundo competir y generar modelos de ciencia de datos inteligentes y de alta precisión. Las competiciones que hospedamos están basadas en conjuntos de datos exclusivos que se han hecho públicos por primera vez. Los participantes pueden ganar premios u obtener reconocimiento a través de nuestros 10 marcadores públicos principales. Vaya [aquí](http://aka.ms/CIComp) para obtener acceso a la página de inicio de las competiciones.
+Microsoft anuncia las competiciones de Cortana Intelligence. Las competiciones de Cortana Intelligence nos permiten unir a una comunidad global de aficionados a los datos para resolver de forma colectiva algunos de los problemas de la ciencia de datos más complejos del mundo. Las competiciones de Cortana Intelligence permiten a los aficionados a los datos de todo el mundo competir y generar modelos de ciencia de datos inteligentes y de alta precisión. Las competiciones que hospedamos están basadas en conjuntos de datos exclusivos que se han hecho públicos por primera vez. Los participantes pueden ganar premios u obtener reconocimiento a través de nuestros 10 marcadores públicos principales. Vaya [aquí](http://aka.ms/CIComp) para obtener acceso a la página de inicio de las competiciones.
 
 **¿Con qué frecuencia publica Microsoft nuevas competiciones?**
 
@@ -32,9 +32,9 @@ Use nuestro [foro de Aprendizaje automático de Microsoft Azure](https://social.
 
 **¿Cómo puedo participar en una competición?**
 
-Obtenga acceso a la página de inicio de las competiciones a través de la galería de Cortana Analytics. Esta página contiene todas las competiciones que hay en curso. Cada competición incluirá instrucciones detalladas, así como las reglas de participación, información sobre los premios y la duración en su propia página de registro. Vaya [aquí](http://aka.ms/CIComp) para obtener acceso a la página de inicio de las competiciones.
+Acceda a la página principal de las competiciones a través de la Galería de Cortana Intelligence. Esta página contiene todas las competiciones que hay en curso. Cada competición incluirá instrucciones detalladas, así como las reglas de participación, información sobre los premios y la duración en su propia página de registro. Vaya [aquí](http://aka.ms/CIComp) para obtener acceso a la página de inicio de las competiciones.
 
-1. Busque la competición en la que le gustaría participar en la Galería de Cortana Analytics, lea todas las instrucciones y vea el vídeo del tutorial; después, haga clic en el botón “Enter Competition” (Participar en la competición) para copiar el experimento de inicio en su Área de trabajo de aprendizaje automático de Azure. Si ya no tiene acceso a ninguna área de trabajo, deberá crear una de antemano. Ejecute el experimento de inicio, observe las métricas de rendimiento y use su creatividad para mejorar el rendimiento del modelo. Probablemente empleará la mayor parte del tiempo en este paso.   
+1. Busque la competición en la que le gustaría participar en la Galería de Cortana Intelligence, lea todas las instrucciones y vea el vídeo del tutorial; después, haga clic en el botón “Participar en la competición” para copiar el experimento de inicio en su área de trabajo de aprendizaje automático de Azure. Si ya no tiene acceso a ninguna área de trabajo, deberá crear una de antemano. Ejecute el experimento de inicio, observe las métricas de rendimiento y use su creatividad para mejorar el rendimiento del modelo. Probablemente empleará la mayor parte del tiempo en este paso.   
 
 2. Cree un experimento predictivo a partir del modelo entrenado del experimento de inicio. Después, ajuste con cuidado el esquema de entrada y de salida del servicio web para asegurarse de que cumplen con el requisito especificado en la documentación de la competición. El documento del tutorial generalmente contiene instrucciones detalladas sobre cómo conseguirlo. También puede ver el vídeo del tutorial si está disponible.
 
@@ -49,8 +49,11 @@ Los participantes de la competición usan el Estudio de aprendizaje automático 
 **¿Es necesario ser un experto en datos para participar?**
 
 No. De hecho, animamos a participar en el concurso a los aficionados a los datos, a los curiosos y a cualquier otro aspirante a científico de datos. Hemos diseñado los documentos de ayuda para que todos los usuarios puedan competir. Nuestro público de destino es el siguiente:
+
 * Desarrolladores de datos, científicos de datos, profesionales de BI y de análisis: los responsables de producir el contenido de datos y análisis para que otros usuarios lo consuman.
+
 * Administradores de datos: los usuarios que tengan conocimientos sobre los datos, lo que significan y cómo están diseñados para usarse y con qué propósito.
+
 * Estudiantes e investigadores: los usuarios que estén aprendiendo y adquiriendo habilidades relacionadas con los datos a través de programas académicos en universidades o participantes de los cursos en línea abiertos y masivos (MOOC).
 
 
@@ -60,7 +63,7 @@ La plataforma de competición no admite actualmente la participación de equipos
 
 **¿Tengo que pagar para participar en una competición?**
 
-La participación en las competiciones es gratuita. Sin embargo, necesita tener acceso a un área de trabajo de aprendizaje automático de Azure para participar. Puede crear una gratuita sin necesidad de usar una tarjeta de crédito iniciando sesión con una cuenta de Microsoft válida o una cuenta de Office 365. Si ya es un cliente de Azure o del conjunto de Cortana Analytics, puede crear y usar un área de trabajo estándar con la misma suscripción de Azure. Si desea comprar una suscripción de Azure, puede hacerlo [aquí](https://azure.microsoft.com/pricing). Tenga en cuenta que se aplicarán la tasas estándar si se usa un área de trabajo estándar para construir experimentos. Consulte la información sobre los precios del Aprendizaje automático de Azure [aquí](https://azure.microsoft.com/pricing/details/machine-learning/).
+La participación en las competiciones es gratuita. Sin embargo, necesita tener acceso a un área de trabajo de aprendizaje automático de Azure para participar. Puede crear una gratuita sin necesidad de usar una tarjeta de crédito iniciando sesión con una cuenta de Microsoft válida o una cuenta de Office 365. Si ya es un cliente de Azure o de Cortana Intelligence Suite, puede crear y usar un área de trabajo estándar con la misma suscripción de Azure. Si desea comprar una suscripción de Azure, puede hacerlo [aquí](https://azure.microsoft.com/pricing). Tenga en cuenta que se aplicarán la tasas estándar si se usa un área de trabajo estándar para construir experimentos. Consulte la información sobre los precios del Aprendizaje automático de Azure [aquí](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -112,4 +115,4 @@ La plataforma de competición actual solo admite el envío de entradas que se re
 
 Solo se conservan las entradas de los usuarios para fines de evaluación para identificar las soluciones ganadoras. Consulte los [Términos y condiciones](http://aka.ms/comptermsandconditions) para obtener información específica.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

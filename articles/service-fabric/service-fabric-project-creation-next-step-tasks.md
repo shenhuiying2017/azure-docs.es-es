@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="03/27/2016"
    ms.author="seanmck"/>
 
 # Su aplicación de Service Fabric y próximos pasos
@@ -35,29 +35,23 @@ El proyecto de aplicación consiste en:
 
 - El manifiesto de aplicación que describe la aplicación. Puede encontrar el manifiesto en la carpeta ApplicationPackageRoot.
 
-### Reliable Services
-Cuando se agrega una nueva instancia de Reliable Services, Visual Studio agrega un proyecto de servicio a la solución. El proyecto de servicio contiene una clase que se extiende desde `StatelessService` o `StatefulService`, en función del tipo elegido.
+### Servicio sin estado
+Cuando se agrega un nuevo servicio sin estado, Visual Studio agrega un proyecto de servicio a la solución que incluye un tipo que se hereda de `StatelessService`. El servicio incrementa una variable local en un contador.
 
-### Reliable Actors
+### Servicio con estado
+Cuando se agrega un nuevo servicio con estado, Visual Studio agrega un proyecto de servicio a la solución que incluye un tipo que se hereda de `StatefulService`. El servicio incrementa un contador en su método `RunAsync` y almacena el resultado en una clase `ReliableDictionary`.
+
+### Servicio de actor
 Cuando se agrega una nueva instancia de Reliable Actors, Visual Studio agrega dos proyectos a la solución: un proyecto de actor y un proyecto de interfaz.
 
-El proyecto de actor define el tipo de actor y su estado, para los actores con estado. El proyecto de interfaz proporciona una interfaz que pueden usar otros servicios para invocar al actor.
+El proyecto de actor proporciona métodos para configurar y obtener el valor de un contador que se conserva de forma confiable dentro de estado del actor. El proyecto de interfaz proporciona una interfaz que pueden usar otros servicios para invocar al actor.
 
-Tenga en cuenta que los proyectos de actor no contienen ningún comportamiento de inicio predeterminado, ya que los actores deben activarlos otros servicios. Considere la posibilidad de agregar una instancia de Reliable Services o un proyecto ASP.NET para crear e interactuar con los actores.
-
-### ASP.NET 5
-Las plantillas de ASP.NET 5 que se proporcionan para su uso en aplicaciones Service Fabric son casi idénticas a las que están disponibles para los proyectos ASP.NET 5 que se crean de forma independiente. Las únicas diferencias son:
-
-- El proyecto contiene una carpeta **PackageRoot** para almacenar el archivo ServiceManifest junto con los paquetes de datos y configuración.
-
-- El proyecto hace referencia a un paquete de NuGet adicional (Microsoft.ServiceFabric.AspNet.Hosting), que actúa como un puente entre el entorno de ejecución de .NET (DNX) y Service Fabric.
+### API web sin estado
+El proyecto de API web sin estado proporciona un servicio web básico que puede usar para abrir la aplicación en clientes externos. Para obtener más información sobre cómo ver el proyecto estructurado, consulte [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi) (Servicios de API web de Service Fabric con autohospedaje OWIN).
 
 ## Pasos siguientes
-### Adición de un front-end web a la aplicación
-Service Fabric proporciona integración con ASP.NET 5 para la creación de puntos de entrada basados en web en la aplicación. Vea [Adición de un front-end a la aplicación][add-web-frontend] para saber cómo crear una interfaz de REST basada en ASP.NET Web API.
-
 ### Creación de un clúster de Azure
-El SDK de Service Fabric proporciona un clúster local para desarrollo y pruebas. Para crear un clúster de Azure, vea [Configuración de un clúster de Service Fabric en el Portal de Azure][create-cluster-in-portal].
+El SDK de Service Fabric proporciona un clúster local para desarrollo y pruebas. Para crear un clúster en Azure, consulte [Configuración de un clúster de Service Fabric en el Portal de Azure][create-cluster-in-portal].
 
 ### Pruebe a implementar en Azure de forma gratuita con clústeres de Party Cluster.
 
@@ -67,7 +61,7 @@ Si quiere probar la implementación y administración de aplicaciones de Azure s
 Puede publicar su aplicación directamente desde Visual Studio a un clúster de Azure. Para obtener información sobre cómo hacerlo, consulte [Publicación de la aplicación en Azure][publish-app-to-azure].
 
 ### Uso del explorador de Service Fabric para visualizar el clúster
-El Explorador de Service Fabric ofrece una forma sencilla de visualizar el clúster, como las aplicaciones implementadas y el diseño físico. Para obtener más información, vea [Visualización del clúster mediante el Explorador de Service Fabric][visualize-with-sfx].
+El Explorador de Service Fabric ofrece una forma sencilla de visualizar el clúster, como las aplicaciones implementadas y el diseño físico. Para obtener más información, consulte [Visualización del clúster mediante Service Fabric Explorer][visualize-with-sfx].
 
 ### Control de versiones y actualización de los servicios
 Service Fabric permite el control de versiones independiente y la actualización de servicios independientes en una aplicación. Para más información, consulte [Control de versiones y actualización de los servicios][app-upgrade-tutorial].
@@ -86,4 +80,4 @@ Para obtener información sobre cómo puede configurar un proceso de integració
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

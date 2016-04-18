@@ -4,7 +4,7 @@
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Esquema de la plantilla del secreto del Almacén de claves
@@ -38,19 +38,20 @@ Para crear un secreto del almacén de claves, agregue el siguiente esquema a la 
 
 Las tablas siguientes describen los valores que debe establecer en el esquema.
 
-| Nombre | Tipo | Obligatorio | Valores permitidos | Descripción |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sí | Como recurso secundario de almacén de claves:<br />**secrets**<br /><br />Como recurso de nivel superior:<br />**Microsoft.KeyVault/vaults/secrets** | El tipo de recurso que se creará. |
-| apiVersion | enum | Sí | **2015-06-01** <br /> **2014-12-19-preview** | La versión de la API que se usará para crear el recurso. | 
-| name | cadena | Sí | | El nombre del secreto que se va a crear. Si va a implementar el secreto como un recurso secundario de un almacén de claves, simplemente proporcione un nombre para el secreto. Si va a implementar el secreto como un recurso de nivel superior, los nombres deben estar en el formato **{key-vault-name} / {secret-name}**. |
-| propiedades | objeto | Sí | (se muestra a continuación) | Objeto que especifica el valor del secreto que se va a crear. |
-| dependsOn | array | No | Una lista separada por comas de nombres de recursos o identificadores de recursos únicos. | La colección de recursos de la que depende este vínculo. Si se implementa el almacén de claves para el secreto en la misma plantilla, incluya el nombre del almacén de claves en este elemento para asegurarse de que se implementa en primer lugar. |
+| Nombre | Valor |
+| ---- | ---- | 
+| type | Enum<br />Obligatorio<br />**secrets** (cuando se implementa como un recurso secundario de almacén de claves) o<br /> **Microsoft.KeyVault/vaults/secrets** (cuando se implementa como un recurso de nivel superior)<br /><br />Tipo de recurso que se creará. |
+| apiVersion | Enum<br />Obligatorio<br />**2015-06-01** o **2014-12-19-preview**<br /><br />Versión de la API que se usará para crear el recurso. | 
+| name | Cadena<br />Obligatorio<br />Una sola palabra cuando se implementa como un recurso secundario de un almacén de claves o en el formato **{nombre-almacén-claves}/{nombre-secreto}** cuando se implementa como un recurso de nivel superior que se agregará a un almacén de claves actual.<br /><br />Nombre del secreto que se va a crear. |
+| propiedades | Objeto<br />Obligatorio<br />[Objeto de propiedades](#properties)<br /><br />Objeto que especifica el valor del secreto que se va a crear. |
+| dependsOn | Matriz<br />Opcional<br />Lista separada por comas de nombres o identificadores únicos de recursos.<br /><br />Colección de recursos de los que depende este vínculo. Si se implementa el almacén de claves para el secreto en la misma plantilla, incluya el nombre del almacén de claves en este elemento para asegurarse de que se implementa en primer lugar. |
 
+<a id="properties" />
 ### properties object
 
-| Nombre | Tipo | Obligatorio | Valores permitidos | Descripción |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| value | cadena | Sí | | El valor del secreto que almacenar en el almacén de claves. Al pasar un valor para esta propiedad, use un parámetro de tipo **securestring**. |
+| Nombre | Valor |
+| ---- | ---- | 
+| value | Cadena<br />Obligatorio<br /><br />Valor del secreto que se almacenará en el almacén de claves. Al pasar un valor para esta propiedad, use un parámetro de tipo **securestring**. |
 
 	
 ## Ejemplos
@@ -226,4 +227,4 @@ En el segundo ejemplo se implementa el secreto como un recurso de nivel superior
 - Para obtener información general sobre almacenes de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
 - Para obtener un ejemplo de referencia de un secreto de almacén de claves al implementar plantillas, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

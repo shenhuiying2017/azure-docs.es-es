@@ -1,6 +1,6 @@
 <properties
 	pageTitle="¿Qué es la suscripción de autoservicio de Azure? | Microsoft Azure"
-	description="Información general de la suscripción de autoservicio de Azure: cómo administrar el proceso de suscripción."
+	description="Información general de la suscripción de autoservicio de Azure: cómo administrar el proceso de suscripción y adquirir un nombre de dominio DNS."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
-	ms.author="stevenpo"/>
+	ms.date="04/04/2016"
+	ms.author="curtand"/>
 
 
 # ¿Qué es la suscripción de autoservicio de Azure?
@@ -232,4 +232,4 @@ Para obtener más información y ejemplos de cómo usar estos parámetros, consu
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

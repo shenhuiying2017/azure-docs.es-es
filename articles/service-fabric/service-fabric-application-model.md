@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"   
+   ms.date="04/05/2016"   
    ms.author="seanmck"/>
 
 # Modelar una aplicación en Service Fabric
@@ -93,7 +93,7 @@ Los atributos **Versión** son cadenas no estructuradas y no analizadas por el s
 </Settings>
 ~~~
 
-> [AZURE.NOTE]Un manifiesto de servicio puede contener varios paquetes de código, configuración y datos, pudiendo tener cada uno de ellos varias versiones de forma independiente.
+> [AZURE.NOTE] Un manifiesto de servicio puede contener varios paquetes de código, configuración y datos, pudiendo tener cada uno de ellos varias versiones de forma independiente.
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -139,7 +139,7 @@ Al igual que los manifiestos de servicio, los atributos **Versión** son cadenas
 
 **DefaultServices** declara instancias de servicio que se crean automáticamente cada vez que se crea una instancia de una aplicación en este tipo de aplicación. Los servicios predeterminados son simplemente una comodidad y se comportan como servicios normales en todos los aspectos después de su creación. Se actualizan junto con cualquier otro servicio de la instancia de aplicación y también se pueden quitar.
 
-> [AZURE.NOTE]Un manifiesto de aplicación puede contener varias importaciones y servicios predeterminados del manifiesto de servicio. Cada importación del manifiesto de servicio puede tener varias versiones independientemente.
+> [AZURE.NOTE] Un manifiesto de aplicación puede contener varias importaciones y servicios predeterminados del manifiesto de servicio. Cada importación del manifiesto de servicio puede tener varias versiones independientemente.
 
 Para información sobre cómo mantener diferentes parámetros de aplicación y servicio para entornos individuales, vea [Administración de los parámetros de la aplicación en varios entornos](service-fabric-manage-multiple-environment-app-configuration.md).
 
@@ -254,4 +254,4 @@ Una vez que la aplicación se empaqueta correctamente y supera la verificación,
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

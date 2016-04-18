@@ -32,10 +32,11 @@ Se puede aplicar una acción de script a través de los métodos siguientes:
 | ----- |:-----:|:-----:|
 | Portal de Azure | ✓ | ✓ |
 | Azure PowerShell | ✓ | ✓ |
+| Azure CLI | &nbsp; | ✓ |
 | SDK .NET de HDInsight | ✓ | ✓ |
 | Plantilla de Azure Resource Manager | ✓ | &nbsp; |
 
-Para obtener más información sobre el uso de estos métodos para aplicar acciones de script, consulte [Personalización de clústeres de HDInsight mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
+Para obtener más información sobre el uso de estos métodos para aplicar acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="bestPracticeScripting"></a>Prácticas recomendadas para el desarrollo de scripts
 
@@ -94,7 +95,7 @@ Por ejemplo, lo siguiente copia el archivo giraph-examples.jar del sistema de ar
 
 La información escrita en STDOUT y STDERR durante la ejecución del script se registra, y se puede ver mediante la interfaz de usuario web de Ambari.
 
-> [AZURE.NOTE] Ambari solo estará disponible si el clúster se creó correctamente. Si usa una acción de script durante la creación del clúster y se produce un error en la creación, vea la sección de solución de problemas [Personalizar los clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) para conocer otras formas de obtener acceso a la información registrada.
+> [AZURE.NOTE] Ambari solo estará disponible si el clúster se creó correctamente. Si usa una acción de script durante la creación del clúster y se produce un error, consulte la sección de solución de problemas [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) para conocer otras formas de acceder a la información registrada.
 
 La mayoría de utilidades y paquetes de instalación ya escriben la información en STDOUT y STDERR, pero puede que desee agregar un registro adicional. Para enviar texto a STDOUT use `echo`. Por ejemplo:
 
@@ -228,8 +229,8 @@ Para el comando anterior, reemplace __INFILE__ por el archivo que contiene la ma
 
 * Obtenga información sobre cómo [personalizar clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-* Use la [Referencia del SDK .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) para obtener más información sobre la creación de aplicaciones .NET que administran HDInsight.
+* Use la [referencia del SDK de .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) para obtener más información sobre la creación de aplicaciones .NET que administran HDInsight.
 
 * Use la [API de REST de HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para obtener información sobre cómo usar REST para realizar acciones de administración en clústeres de HDInsight.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

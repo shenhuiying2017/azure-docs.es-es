@@ -44,7 +44,7 @@ El tipo de implementación se especifica a través de la propiedad **Mode**, com
 
         PS C:\> Login-AzureRmAccount
 
-        Evironment : AzureCloud
+        Environment : AzureCloud
         Account    : someone@example.com
         ...
 
@@ -292,4 +292,4 @@ Para aprender a definir parámetros en una plantilla, consulte [Creación de pla
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

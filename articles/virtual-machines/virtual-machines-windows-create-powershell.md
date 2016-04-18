@@ -24,7 +24,7 @@
 - [PowerShell](virtual-machines-windows-create-powershell.md)
 - [PowerShell: plantilla](virtual-machines-windows-ps-template.md)
 - [Portal: Linux](virtual-machines-linux-portal-create.md)
-- [CLI](virtual-machines-linux-cli-create.md)
+- [CLI](virtual-machines-linux-quick-create-cli.md)
 
 <br>
 
@@ -40,7 +40,7 @@ En estos pasos se sigue un enfoque consistente en atar cabos para crear conjunto
 
 Hay dos opciones principales para la instalación, [Galería de PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) y [WebPI](http://aka.ms/webpi-azps). WebPI recibirá actualizaciones mensuales. La Galería de PowerShell recibirá actualizaciones de forma continua.
 
-Para más información, consulte [Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+Para obtener más información, consulte [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
 ## Paso 2: Establecimiento de la suscripción
 
@@ -327,10 +327,10 @@ Si desea volver a usar esta información para crear máquinas virtuales adiciona
 Se necesita un conjunto de comandos de PowerShell para crear una máquina virtual adicional para una carga de trabajo de línea de negocio basada en web que:
 
 - Se encuentre en el grupo de recursos LOBServers existente
-- Utilice la imagen de Windows Server 2012 R2 Datacenter
+- Utilice la imagen de Windows Server 2012 R2 Datacenter
 - Tenga el nombre LOB07 y se encuentre en el conjunto de disponibilidad WEB\_AS existente
 - Tenga una NIC con una dirección IP pública en la subred FrontEnd (índice de subred 0) de la red virtual AZDatacenter existente
-- Tenga un disco de datos adicional de 200 GB
+- Tenga un disco de datos adicional de 200 GB
 
 Este es el conjunto de comandos de Azure PowerShell para crear esta máquina virtual.
 
@@ -393,4 +393,4 @@ Este es el conjunto de comandos de Azure PowerShell para crear esta máquina vir
 
 [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

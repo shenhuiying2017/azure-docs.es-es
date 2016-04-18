@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2016" 
+	ms.date="03/31/2016" 
 	ms.author="tdykstra"/>
 
 # Información general sobre Aplicaciones de API
@@ -22,11 +22,11 @@ Aplicaciones de API son uno de los cuatro tipos que ofrece el [Servicio de aplic
 
 ![Tipos de aplicaciones en el Servicio de aplicaciones de Azure](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-El [Servicio de aplicaciones](../app-service/app-service-value-prop-what-is.md) es una plataforma totalmente administrada para escenarios web, móviles y de integración. Las aplicaciones de API del Servicio de aplicaciones ofrecen características que facilitan la compilación, el hospedaje y el consumo de API en la nube y locales. Implemente la API como una aplicación de API en el Servicio de aplicaciones y disfrute de seguridad de nivel empresarial, control de acceso sencillo, conectividad híbrida, generación automática de SDK e integración completa con [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+El [Servicio de aplicaciones](../app-service/app-service-value-prop-what-is.md) es una plataforma totalmente administrada para escenarios web, móviles y de integración. Las aplicaciones de API del Servicio de aplicaciones ofrecen características que facilitan la compilación, el hospedaje y el consumo de API en soluciones en la nube y locales. Gracias a las aplicaciones de API, disfrutará de seguridad de categoría empresarial, control de acceso sencillo, conectividad híbrida, generación automática de SDK e integración completa con [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 ## ¿Por qué las Aplicaciones de API?
 
-Las Aplicaciones de API ofrecen las siguientes características:
+Estas son algunas características clave de las aplicaciones de API:
 
 - **Fácil consumo**: la compatibilidad integrada con [los metadatos de API de Swagger](#concepts) permite que una gran variedad de clientes pueda consumir las API de forma sencilla. Generan automáticamente código de cliente para las API en diversos lenguajes, como C#, Java y Javascript. Configuran fácilmente [CORS](#concepts) sin cambiar el código. Para más información, consulte [Metadatos de aplicaciones de API del Servicio de aplicaciones para detección de API y generación de código](app-service-api-metadata.md) y [Consumir una aplicación de API de JavaScript mediante CORS](app-service-api-cors-consume-javascript.md). 
 
@@ -64,4 +64,4 @@ Para empezar a trabajar con Aplicaciones de API, siga uno de los tutoriales de [
 
 Para plantear preguntas sobre Aplicaciones de API, cree un hilo en el [foro de Aplicaciones de API](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

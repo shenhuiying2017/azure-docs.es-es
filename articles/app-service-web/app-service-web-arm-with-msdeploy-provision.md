@@ -174,7 +174,7 @@ El siguiente script de PowerShell muestra la implementación completa con una ll
 
 	.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation "East US" `
 									-ResourceGroupName $rgName `
-									-UploadArtifacts "container-name" `
+									-UploadArtifacts `
 									-StorageAccountName "name-of-storage-acct-for-package" `
 									-StorageAccountResourceGroupName "resource-group-name-storage-acct" `
 									-TemplateFile "web-app-deploy.json" `
@@ -197,4 +197,4 @@ El siguiente script de PowerShell muestra la implementación completa con una ll
 
 En este momento, se debería haber implementado la aplicación y debería poder ir a ella mediante https://www.yourcustomdomain.com
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

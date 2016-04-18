@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="03/31/2016"
    ms.author="v-sharos" />
 
 # Restaurar un volumen de StorSimple de un conjunto de copia de seguridad (Update 2)
@@ -115,4 +115,4 @@ Para completar correctamente la operación de restauración, desconecte el volum
 
 - Obtenga información sobre cómo [usar el servicio del administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

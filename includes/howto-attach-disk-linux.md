@@ -1,21 +1,18 @@
 
-Para obtener más detalles acerca de los discos, consulte [Acerca de los discos y discos duros virtuales para máquinas virtuales](virtual-machines-linux-about-disks-vhds.md).
+Para obtener más detalles acerca de los discos, consulte [Acerca de los discos y discos duros virtuales para máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Acoplamiento de un disco vacío
 El acoplamiento de un disco vacío supone el método más sencillo de agregar un disco de datos, porque Azure crea el archivo .vhd en su lugar y lo almacena en la cuenta de almacenamiento.
 
-1.  Abre la interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows y conéctate a tu suscripción de Azure. Para más información, consulta el tema [Conexión a Azure desde la CLI de Azure](../xplat-cli-connect.md).
+1.  Abra la CLI de Azure y [conéctese a su suscripción de Azure](../articles/xplat-cli-connect.md). Asegúrese de que se encuentra en el modo de administración de servicios de Azure (`azure config mode asm`).
 
-2.  Escribe `azure config
- 	mode asm` para asegurarte de que estás en modo de administración de servicios de Azure, que es el valor predeterminado.
-
-3.  Usa el comando `azure vm disk attach-new` para crear y asociar un disco nuevo, tal y como se muestra a continuación. Ten en cuenta que el _ubuntuVMasm_ se reemplazará por el nombre de la máquina Virtual de Linux que creaste en la suscripción. El número 30 es el tamaño del disco en GB en este ejemplo.
+2.  Escriba `azure vm disk attach-new` para crear y asociar un nuevo disco, tal y como se muestra a continuación. Reemplace _ubuntuVMasm_ por el nombre de la máquina virtual Linux. Después, especifique el tamaño del disco en GB; en este ejemplo es 30 GB.
 
         azure vm disk attach-new ubuntuVMasm 30
 
-4.	Una vez creado y conectado el disco de datos, este aparece en la salida de `azure vm disk list
-    <virtual-machine-name>` de esta manera:
+3.	Una vez que se cree y asocie el disco de datos, se mostrará en la salida de `azure vm disk list
+    <virtual-machine-name>`:
 
         $ azure vm disk list ubuntuVMasm
         info:    Executing command vm disk list
@@ -33,11 +30,9 @@ El acoplamiento de un disco vacío supone el método más sencillo de agregar un
 
 El acoplamiento de un disco existente requiere que disponga de un .vhd disponible en la cuenta de almacenamiento.
 
-1. 	Abre la interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows y conéctate a tu suscripción de Azure. Para más información, consulta el tema [Conexión a Azure desde la CLI de Azure](../xplat-cli-connect.md).
+1. 	Abra la CLI de Azure y [conéctese a su suscripción de Azure](../articles/xplat-cli-connect.md). Asegúrese de que se encuentra en el modo de administración de servicios de Azure (`azure config mode asm`).
 
-2.  Asegárate de que estás en modo de administración de servicios de Azure, que es el valor predeterminado. Si cambiaste el modo de administración de recursos, simplemente vuelve atrás escribiendo `azure config mode asm`.
-
-3.	Averigua si el disco duro virtual que quieres adjuntar se cargó en la suscripción de Azure utilizando:
+2.	Compruebe si el VHD que quiere asociar ya se ha cargado en la suscripción de Azure:
 
         $azure vm disk list
     	info:    Executing command vm disk list
@@ -49,7 +44,7 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
     	data:    ubuntuVMasm-ubuntuVMasm-0-201508060040530369
     	info:    vm disk list command OK
 
-4.  Si no encuentras el disco que quieres usar, puedes cargar un VHD local a tu suscripción mediante `azure vm disk create` o `azure vm disk upload`. Este sería un ejemplo:
+3.  Si no encuentras el disco que quieres usar, puedes cargar un VHD local a tu suscripción mediante `azure vm disk create` o `azure vm disk upload`. Un ejemplo de `disk create` sería:
 
         $azure vm disk create myTestVhd2 .\TempDisk\test.VHD -l "East US" -o Linux
 		info:    Executing command vm disk create
@@ -62,9 +57,9 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 		uploaded successfully
 		info:    vm disk create command OK
 
-	También puedes usar el comando `azure vm disk upload` para cargar un VHD a una cuenta de almacenamiento específica. [Aquí](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks) puedes obtener más información sobre los comandos para administrar los discos de datos de tu máquina virtual de Azure.
+	También puede usar el comando `azure vm disk upload` para cargar un VHD a una cuenta de almacenamiento específica. [Aquí](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks) puedes obtener más información sobre los comandos para administrar los discos de datos de tu máquina virtual de Azure.
 
-5.  Escribe el siguiente comando para adjuntar el VHD cargado que quieras a la máquina virtual:
+4.  Ahora queremos asociar el VHD deseado a la máquina virtual:
 
 		$azure vm disk attach ubuntuVMasm myTestVhd
 		info:    Executing command vm disk attach
@@ -74,8 +69,8 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 
 	Asegúrate de reemplazar _ubuntuVMasm_ por el nombre de la máquina virtual y _myTestVhd_ por el disco duro virtual que quieres.
 
-6.	Puedes comprobar si el disco está conectado a la máquina virtual con el comando `azure vm disk list
- 	<virtual-machine-name>` de la siguiente manera:
+5.	Puedes comprobar si el disco está asociado a la máquina virtual con `azure vm disk list
+ 	<virtual-machine-name>`:
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -93,4 +88,4 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 > [AZURE.NOTE]
 Después de conectar un disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar el disco para el almacenamiento.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

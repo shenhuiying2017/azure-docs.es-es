@@ -3,9 +3,9 @@
 
 ## Etiquetado de una máquina virtual mediante plantillas
 
-En primer lugar, veamos el etiquetado a través de plantillas. [Esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) coloca etiquetas en los siguientes recursos: proceso (máquina virtual), almacenamiento (cuenta de almacenamiento) y red (dirección IP pública, red virtual e interfaz de red). (En este ejemplo la plantilla es para una máquina virtual Windows, pero se puede adaptar para máquinas virtuales Linux).
+En primer lugar, veamos el etiquetado a través de plantillas. [Esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) coloca etiquetas en los siguientes recursos: proceso (máquina virtual), almacenamiento (cuenta de almacenamiento) y red (dirección IP pública, red virtual e interfaz de red). (En este ejemplo la plantilla es para una máquina virtual Windows, pero se puede adaptar para máquinas virtuales Linux).
 
-Haga clic en el botón **Implementar en Azure** del [vínculo de la plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Esto le remitirá al [Portal de Azure](https://portal.azure.com/), donde puede implementar esta plantilla.
+Haga clic en el botón **Implementar en Azure** del [vínculo de la plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Esto le remitirá al [Portal de Azure](https://portal.azure.com/), donde puede implementar esta plantilla.
 
 ![Implementación sencilla con etiquetas](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
@@ -64,4 +64,4 @@ En los detalles de uso puede ver todas las etiquetas en la columna de **etiqueta
 
 Mediante el análisis de estas junto con el uso, las organizaciones podrán obtener nuevos puntos de vista en sus datos de consumo.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
