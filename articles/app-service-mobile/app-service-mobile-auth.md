@@ -91,8 +91,6 @@ En los siguientes tutoriales se muestra cómo configurar el Servicio de aplicaci
 
 Si desea usar un sistema de identidades diferente a los proporcionados aquí, también puede aprovechar la [compatibilidad con la autenticación personalizada de vista previa en el SDK de servidor .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
-Además encontrará datos adicionales sobre los flujos anteriores en la [información general sobre la autenticación del Servicio de aplicaciones](app-service-authentication-overview.md). En este tema también se incluye información sobre la puerta de enlace del Servicio de aplicaciones, que ya no se usa en Aplicaciones móviles, aunque sigue aplicándose el contenido conceptual.
-
 [Incorporación de la autenticación a la aplicación iOS]: app-service-mobile-ios-get-started-users.md
 [Adición de la autenticación a la aplicación Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started-users.md
 [Adición de la autenticación a la aplicación Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
@@ -104,4 +102,4 @@ Además encontrará datos adicionales sobre los flujos anteriores en la [informa
 [Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configuración de la aplicación para usar el inicio de sesión de Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

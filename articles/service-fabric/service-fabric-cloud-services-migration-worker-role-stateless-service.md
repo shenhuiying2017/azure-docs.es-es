@@ -138,7 +138,7 @@ Los valores de configuración de los Servicios en la nube se establecen para un 
  - **Config:** todos los valores y archivos de configuración de un servicio.
  - **Datos:** los archivos de datos estáticos asociados al servicio.
 
-Cada uno de estos paquetes puede tener versiones y actualizaciones independientes. De forma similar a los Servicios en la nube, se puede acceder a un paquete de configuración mediante programación a través de una API y los eventos están disponibles para notificar al servicio de un cambio del paquete de configuración. Se puede utilizar un archivo Settings.xml para la configuración de los pares clave-valor y el acceso mediante programación similar a . Sin embargo, a diferencia de los Servicios en la nube, un paquete de configuración de Service Fabric puede contener todos los archivos de configuración en cualquier formato, ya sea en XML, JSON, YAML o en un formato binario personalizado.
+Cada uno de estos paquetes puede tener versiones y actualizaciones independientes. De forma similar a los Servicios en la nube, se puede acceder a un paquete de configuración mediante programación a través de una API y los eventos están disponibles para notificar al servicio de un cambio del paquete de configuración. Se puede utilizar un archivo Settings.xml para la configuración de los pares clave-valor y el acceso mediante programación similar a la sección de configuración de aplicaciones de un archivo App.config. Sin embargo, a diferencia de los Servicios en la nube, un paquete de configuración de Service Fabric puede contener todos los archivos de configuración en cualquier formato, ya sea en XML, JSON, YAML o en un formato binario personalizado.
 
 
 ### Acceso a la configuración
@@ -277,4 +277,4 @@ Conozca más información acerca de Reliable Services de Service Fabric y las di
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

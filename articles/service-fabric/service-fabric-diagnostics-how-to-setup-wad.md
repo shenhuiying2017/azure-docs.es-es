@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="03/30/2016"
    ms.author="toddabel"/>
 
 
 # Recopilación de registros con Diagnósticos de Azure
 
-Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas del clúster o de las aplicaciones y los servicios que se ejecutan en ese clúster. Uno de los métodos para cargar y recopilar registros es usar la extensión de Diagnósticos de Azure que carga los registros en Almacenamiento de Azure. Los registros no son útiles directamente en el almacenamiento, pero puede usarse un proceso externo para leer los eventos del almacenamiento y colocarlos en un producto como [Visión operativa](https://azure.microsoft.com/services/operational-insights/), Elastic Search u otra solución.
+Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas del clúster o de las aplicaciones y los servicios que se ejecutan en ese clúster. Uno de los métodos para cargar y recopilar registros es usar la extensión de Diagnósticos de Azure que carga los registros en Almacenamiento de Azure. Los registros no son útiles directamente en el almacenamiento, pero puede usarse un proceso externo para leer los eventos del almacenamiento y colocarlos en un producto como [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) u otra solución.
 
 ## Requisitos previos
 Estas herramientas se usarán para realizar algunas de las operaciones que se describen en este documento:
@@ -45,7 +45,7 @@ Para implementar Diagnósticos en las máquinas virtuales del clúster como part
 
 ![Configuración de Diagnósticos en el portal para crear un clúster](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
 
-Los registros de soporte técnico son **necesarios** para que el equipo de soporte técnico de Azure pueda resolver las solicitudes que se creen. Estos registros se recopilan en tiempo real y se almacenarán en la cuenta de almacenamiento creada en el grupo de recursos actual. Diagnóstico de aplicaciones configura los eventos del nivel de aplicación, incluidos los eventos de [Actor](service-fabric-reliable-actors-diagnostics.md), los eventos del [Servicio de confianza](service-fabric-reliable-services-diagnostics.md) y algunos eventos de Service Fabric del nivel de sistema de modo que se almacenen en Almacenamiento de Azure. Ciertos productos como [Visión operativa](https://azure.microsoft.com/services/operational-insights/) o su propio proceso pueden seleccionar los eventos de la cuenta de almacenamiento. Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando. Cuando se crea un clúster mediante el portal, se recomienda exportar la plantilla una vez finalizada la implementación. Puede exportar las plantillas desde el portal de la siguiente manera:
+Los registros de soporte técnico son **necesarios** para que el equipo de soporte técnico de Azure pueda resolver las solicitudes que se creen. Estos registros se recopilan en tiempo real y se almacenarán en la cuenta de almacenamiento creada en el grupo de recursos actual. Diagnóstico de aplicaciones configura los eventos del nivel de aplicación, incluidos los eventos de [Actor](service-fabric-reliable-actors-diagnostics.md), los eventos del [Servicio de confianza](service-fabric-reliable-services-diagnostics.md) y algunos eventos de Service Fabric del nivel de sistema de modo que se almacenen en Almacenamiento de Azure. Algunos productos como [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) o su propio proceso pueden seleccionar los eventos de la cuenta de almacenamiento. Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando. Cuando se crea un clúster mediante el portal, se recomienda exportar la plantilla una vez finalizada la implementación. Puede exportar las plantillas desde el portal de la siguiente manera:
 1. Abra el grupo de recursos
 2. Seleccione Configuración para mostrar el panel Configuración
 3. Seleccione Implementaciones para mostrar el panel Historial de implementaciones
@@ -178,4 +178,4 @@ Para actualizar Diagnósticos de forma que recopile registros desde canales Even
 ## Pasos siguientes
 Revise los eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) y [Reliable Services](service-fabric-reliable-services-diagnostics.md) para comprender más a fondo qué eventos debería examinar durante la solución de problemas.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

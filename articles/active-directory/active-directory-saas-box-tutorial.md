@@ -32,7 +32,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 
 1.  Habilitación de la integración de aplicaciones para Box
 2.  Configuración del inicio de sesión único
-3.  Configuración del aprovisionamiento de usuario
+3.  Configuración del aprovisionamiento de usuarios y grupos
 4.  Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-box-tutorial/IC769537.png "Escenario")
@@ -115,11 +115,15 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 4. Haga clic en **Grant access to Box** para autorizar esta operación y volver al Portal de administración de Azure. <br><br> ![Habilitar el aprovisionamiento automático de usuarios](./media/active-directory-saas-box-tutorial/IC769549.png "Habilitar el aprovisionamiento automático de usuarios")
 
-5. Para finalizar la configuración, haga clic en el botón Completar. <br><br> ![Habilitar el aprovisionamiento automático de usuarios](./media/active-directory-saas-box-tutorial/IC769551.png "Habilitar el aprovisionamiento automático de usuarios")
+
+5. En la página **Opciones de aprovisionamiento**, las casillas **Tipos de objeto para proveer** permiten seleccionar si se aprovisionan objetos de grupo en Box, además de objetos de usuario. Para obtener más información, vea a continuación la sección "Asignación de usuarios y grupos".
+
+
+6. Para finalizar la configuración, haga clic en el botón Completar. <br><br> ![Habilitar el aprovisionamiento automático de usuarios](./media/active-directory-saas-box-tutorial/IC769551.png "Habilitar el aprovisionamiento automático de usuarios")
 
 
 
-##Asignación de usuarios
+##Asignación de un usuario de prueba
   
 Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
@@ -131,7 +135,6 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación. <br><br> ![Sí](./media/active-directory-saas-box-tutorial/IC767830.png "Sí")
   
-
 Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en Box.
 
 Como primer paso de verificación, puede comprobar el estado del aprovisionamiento, haciendo clic en Panel de la D en la página de integración de aplicaciones de Box en el Portal de administración de Azure.
@@ -148,9 +151,28 @@ En su inquilino de Box, los usuarios sincronizados se muestran en **Usuarios adm
 <br><br> ![Estado de integración](./media/active-directory-saas-box-tutorial/IC769556.png "Estado de integración")
 
 
+##Asignación de usuarios y grupos
+
+La pestaña **Box > Usuarios y grupos** del Portal de Azure clásico permite especificar qué usuarios y grupos deben tener acceso a Box. La asignación de un usuario o un grupo hace que ocurra lo siguiente:
+
+* Azure AD permite que el usuario asignado (ya sea mediante asignación directa o pertenencia al grupo) se autentique en Box. Si no se asigna un usuario, Azure AD no permitirá que inicie sesión en Box y devolverá un error en la página de inicio de sesión de Azure AD.
+
+* Se agregará un icono de la aplicación de Box al [iniciador de aplicaciones](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) del usuario.
+
+* Si está habilitado el aprovisionamiento automático, se agregan a la cola de aprovisionamiento los usuarios o grupos asignados para aprovisionarlos automáticamente.
+
+    * Si solo se ha configurado el aprovisionamiento de objetos de usuario, todos los usuarios asignados directamente se colocan en la cola de aprovisionamiento, y todos los usuarios que son miembros de los grupos asignados se colocarán en la cola de aprovisionamiento. 
+    
+    * Si se ha configurado el aprovisionamiento de objetos de grupo, todos los objetos de grupo asignados se aprovisionan en Box, así como todos los usuarios que son miembros de esos grupos. Las pertenencias a grupos y usuarios se conservan una vez que se escriben en Box.
+    
+Puede usar la pestaña **Atributos > Inicio de sesión único** para configurar los atributos de usuario (o notificaciones) que se presentan en Box durante la autenticación basada en SAML, y la pestaña **Atributos > Aprovisionamiento** para configurar la forma en que los atributos de usuario y grupo fluyen de Azure AD a Box durante las operaciones de aprovisionamiento. Para obtener más información, consulte los recursos que se muestran a continuación.
+
+
 ## Recursos adicionales
 
+* [Personalización de notificaciones emitidas en el token SAML](active-directory-saml-claims-customization.md)
+* [Aprovisionamiento: personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

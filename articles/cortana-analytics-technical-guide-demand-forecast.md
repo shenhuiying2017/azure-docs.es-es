@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Guía técnica para la previsión de demanda de energía | Microsoft Azure"
-	description="Una guía técnica para la plantilla de solución Previsión de demanda de energía de Microsoft Cortana Analytics."
+	description="Guía técnica de la plantilla de solución con Microsoft Cortana Intelligence para la previsión de demanda de energía."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
@@ -16,11 +16,11 @@
 	ms.date="01/24/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
-# Guía técnica de la plantilla de solución Previsión de demanda de energía de Cortana Analytics
+# Guía técnica de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía
 
 ## **Información general**
 
-Las plantillas de soluciones están diseñadas para acelerar el proceso de creación de una demostración E2E basada en Cortana Analytics Suite. Una plantilla implementada aprovisionará la suscripción con los componentes necesarios de Cortana Analytics y creará las relaciones entre ellos. También proporciona a la canalización de datos de ejemplo que se generan desde una aplicación de simulación de datos. Descargue el simulador de datos desde el vínculo que se proporciona e instálelo en su máquina local. Consulte el archivo léame.txt para obtener instrucciones sobre cómo utilizar el simulador. Los datos generados con el simulador hidratarán la canalización de datos y comenzarán a generar predicciones de aprendizaje automático que luego se pueden visualizar en el panel de Power BI.
+Las plantillas de solución están diseñadas para acelerar el proceso de creación de una demostración E2E basada en Cortana Intelligence Suite. Una plantilla implementada aprovisionará la suscripción con los componentes necesarios de Cortana Intelligence y creará las relaciones entre ellos. También proporciona a la canalización de datos de ejemplo que se generan desde una aplicación de simulación de datos. Descargue el simulador de datos desde el vínculo que se proporciona e instálelo en su máquina local. Consulte el archivo léame.txt para obtener instrucciones sobre cómo utilizar el simulador. Los datos generados con el simulador hidratarán la canalización de datos y comenzarán a generar predicciones de aprendizaje automático que luego se pueden visualizar en el panel de Power BI.
 
 El proceso de implementación le guiará a través de varios pasos para configurar las credenciales de la solución. Asegúrese de que registra estas credenciales: nombre de la solución, nombre de usuario y contraseña que proporcionó durante la implementación.
 
@@ -288,4 +288,4 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

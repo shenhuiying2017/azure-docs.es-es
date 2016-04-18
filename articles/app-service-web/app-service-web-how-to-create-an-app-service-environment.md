@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 # Creación de un entorno del Servicio de aplicaciones #
@@ -31,12 +31,14 @@ La creación de un ASE requiere que los clientes proporcionen la siguiente infor
 - Definición del grupo de recursos de ASE
 
 Existen algunos detalles importantes para cada uno de esos elementos.
+
 - El nombre del ASE se utilizará en el subdominio para cualquier aplicación realizada en ese ASE.
 - Todas las aplicaciones que se creen en un ASE estarán en la misma suscripción en la que se encuentre el ASE.
 - Si no tiene acceso a la suscripción utilizada para crear el ASE, no podrá utilizarlo para crear aplicaciones.
 - Las redes virtuales que se utilizan para hospedar un ASE deben ser redes virtuales clásicas y regionales del tipo "v1". 
 - La subred utilizada para hospedar el ASE no debe contener otros recursos informáticos.
 - En una subred solo puede haber un ASE.
+- En estos momentos solo se admiten redes virtuales con un espacio de direcciones de RFC1918 (es decir, direcciones privadas).
 
 Cada implementación de ASE es un servicio hospedado que Azure administra y mantiene. Los recursos de proceso que hospedan los roles del sistema ASE no son accesibles para el cliente aunque este administre la cantidad de instancias y sus tamaños.
 
@@ -62,7 +64,7 @@ El nombre especificado para el ASE se usará en las aplicaciones creadas en él.
 Contar con los valores predeterminados resulta muy útil en varias situaciones, pero con frecuencia necesitará algunos ajustes. En las siguientes secciones se examina cada una de las configuraciones relativas al ASE.
 
 ### Red virtual ###
-Aunque existe la capacidad de creación rápida que creará automáticamente una nueva red virtual, la característica también admite la selección de una red virtual existente y la creación manual de una red virtual. Puede seleccionar una red virtual existente (por el momento solo se admiten redes virtuales "v1") si es lo suficientemente grande como para admitir la implementación de un entorno del Servicio de aplicaciones. La red virtual debe tener 8 direcciones o más.
+Aunque existe la capacidad de creación rápida que creará automáticamente una nueva red virtual, la característica también admite la selección de una red virtual existente y la creación manual de una red virtual. Puede seleccionar una red virtual existente (por el momento solo se admiten redes virtuales "v1") si es lo suficientemente grande como para admitir la implementación de un entorno del Servicio de aplicaciones. La red virtual debe tener 8 direcciones o más. En estos momentos solo se admiten redes virtuales con un espacio de direcciones de RFC1918 (es decir, direcciones privadas).
 
 Si selecciona una red virtual que ya existía también tendrá que especificar una subred para usar o crear una nuevo. La subred debe tener 8 direcciones o más y no puede contener ningún otro recurso. La creación de ASE producirá un error si intenta usar una subred que ya tiene asignadas máquinas virtuales.
 
@@ -163,4 +165,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

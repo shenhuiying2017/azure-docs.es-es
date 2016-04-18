@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Esquema de la plantilla del Almacén de claves
@@ -58,51 +58,51 @@ Para crear un almacén de claves, agregue el siguiente esquema a la sección de 
 
 Las tablas siguientes describen los valores que debe establecer en el esquema.
 
-| Nombre | Tipo | Obligatorio | Valores permitidos | Descripción |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sí | **Microsoft.KeyVault/vaults** | El tipo de recurso que se creará. |
-| apiVersion | enum | Sí | **2015-06-01** <br /> **2014-12-19-preview** | La versión de la API que se usará para crear el recurso. | 
-| name | cadena | Sí | | El nombre del almacén de claves que crear. El nombre debe ser único en todo Azure. Considere usar la función [uniqueString](resource-group-template-functions.md#uniquestring) junto con su convención de nomenclatura, tal como se indica en el ejemplo que aparece a continuación. |
-| location | cadena | Sí | Para determinar las regiones válidas, consulte [Regiones admitidas](resource-manager-supported-services.md#supported-regions). | La región donde se hospedará el almacén de claves. |
-| propiedades | objeto | Sí | ([se muestra a continuación](#properties)) | Un objeto que especifica el tipo de almacén de claves que se creará. |
-| resources | array | No | [Secretos del Almacén de claves](resource-manager-template-keyvault-secret.md) | Recursos secundarios para el Almacén de claves. |
+| Nombre | Valor |
+| ---- | ---- | 
+| type | Enum<br />Obligatorio<br />**Microsoft.KeyVault/vaults**<br /><br />Tipo de recurso que se creará. |
+| apiVersion | Enum<br />Obligatorio<br />**2015-06-01** o **2014-12-19-preview**<br /><br />Versión de la API que se usará para crear el recurso. | 
+| name | Cadena<br />Obligatorio<br />Nombre que es único en Azure.<br /><br />Nombre del almacén de claves que se creará. Considere la posibilidad de usar la función [uniqueString](resource-group-template-functions.md#uniquestring) junto con su convención de nomenclatura para crear un nombre único, tal como se muestra en el ejemplo siguiente. |
+| location | Cadena<br />Obligatorio<br />Región válida para almacenes de claves. Para determinar las regiones válidas, consulte las [regiones admitidas](resource-manager-supported-services.md#supported-regions).<br /><br />Región donde se hospedará el almacén de claves. |
+| propiedades | Objeto<br />Obligatorio<br />[properties object](#properties)<br /><br />Objeto que especifica el tipo de almacén de claves que se creará. |
+| resources | Matriz<br />Opcional<br />Valores permitidos: [Recursos secretos del almacén de clave](resource-manager-template-keyvault-secret.md)<br /><br />Recursos secundarios para el almacén de claves. |
 
 <a id="properties" />
 ### properties object
 
-| Nombre | Tipo | Obligatorio | Valores permitidos | Descripción |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| enabledForDeployment | boolean | No | **true** o **false** | Especifica si el almacén está habilitado para la implementación de Service Fabric o Máquina virtual. |
-| enabledForTemplateDeployment | boolean | No | **true** o **false** | Especifica si el almacén está habilitado para su uso en implementaciones de plantilla del Administrador de recursos. Para obtener más información, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md). |
-| enabledForVolumeEncryption | boolean | No | **true** o **false** | Especifica si el almacén está habilitado para el cifrado de volumen. |
-| tenantId | cadena | Sí | Identificador único global | Identificador del inquilino para la suscripción. Puede recuperarlo con el cmdlet de PowerShell **AzureRMSubscription Get**. |
-| accessPolicies | array | Sí | ([se muestra a continuación](#accesspolicies)) | Una matriz de hasta 16 objetos que especifican los permisos para el usuario o la entidad de servicio. |
-| sku | objeto | Sí | ([se muestra a continuación](#sku)) | La SKU para el almacén de claves. |
+| Nombre | Valor |
+| ---- | ---- | 
+| enabledForDeployment | Booleano<br />Opcional<br />**true** o **false**<br /><br />Especifica si el almacén está habilitado para la implementación de Service Fabric o Máquina virtual. |
+| enabledForTemplateDeployment | Booleano<br />Opcional<br />**true** o **false**<br /><br />Especifica si el almacén está habilitado para usarse en implementaciones de plantilla de Administrador de recursos. Para obtener más información, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md). |
+| enabledForVolumeEncryption | Booleano<br />Opcional<br />**true** o **false**<br /><br />Especifica si el almacén está habilitado para el cifrado de volúmenes. |
+| tenantId | Cadena<br />Obligatorio<br />**Globally-unique identifier**<br /><br />Identificador del inquilino para la suscripción. Puede recuperarlo con el cmdlet de PowerShell [Get-AzureRMSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) o el comando de la CLI de Azure **azure account show**. |
+| accessPolicies | Matriz<br />Obligatorio<br />[accessPolicies object](#accesspolicies)<br /><br />Matriz de hasta 16 objetos que especifican los permisos para el usuario o la entidad de servicio. |
+| sku | Objeto<br />Obligatorio<br />[sku object](#sku)<br /><br />SKU para el almacén de claves. |
 
 <a id="accesspolicies" />
 ### properties.accessPolicies object
 
-| Nombre | Tipo | Obligatorio | Valores permitidos | Descripción |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| tenantId | cadena | Sí | Identificador único global | El identificador del inquilino de Azure Active Directory que contiene el **objectId** en esta directiva de acceso. |
-| objectId | cadena | Sí | Identificador único global | El identificador de objeto del usuario AAD o entidad de servicio que tendrá acceso al almacén. Puede recuperar el valor desde los cmdlets **AzureRMADUser Get** o **AzureRMADServicePrincipal Get**. |
-| permisos | objeto | Sí | ([se muestra a continuación](#permissions)) | Los permisos concedidos en este almacén al objeto de Active Directory. |
+| Nombre | Valor |
+| ---- | ---- | 
+| tenantId | Cadena<br />Obligatorio<br />**Globally-unique identifier**<br /><br />Identificador del inquilino de Azure Active Directory que contiene el **objectId** en esta directiva de acceso. |
+| objectId | Cadena<br />Obligatorio<br />**Globally-unique identifier**<br /><br />Identificador de objeto del usuario de Azure Active Directory o de la entidad de servicio que tendrá acceso al almacén. Puede recuperar el valor de los cmdlets de PowerShell [Get-AzureRMADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) o [Get-AzureRMADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) o de los comandos de la CLI de Azure**azure ad user** o **azure ad sp**. |
+| permisos | Objeto<br />Obligatorio<br />[permissions object](#permissions)<br /><br />Permisos concedidos en este almacén al objeto de Active Directory. |
 
 <a id="permissions" />
 ### properties.accessPolicies.permissions object
 
-| Nombre | Tipo | Obligatorio | Valores permitidos | Descripción |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| claves | array | Sí | Una lista separada por comas de los siguientes valores:<br />**all**<br />**backup**<br />**create**<br />**decrypt**<br />**delete**<br />**encrypt**<br />**get**<br />**import**<br />**list**<br />**restore**<br />**sign**<br />**unwrapkey**<br/>**update**<br />**verify**<br />**wrapkey** | Los permisos concedidos para las claves de este almacén a este objeto de Active Directory. Este valor debe especificarse como una matriz de valores permitidos. |
-| secrets | array | Sí | Una lista separada por comas de los valores siguientes:<br />**all**<br />**delete**<br />**get**<br />**list**<br />**set** | Los permisos concedidos para los secretos de este almacén a este objeto de Active Directory. Este valor debe especificarse como una matriz de valores permitidos. |
+| Nombre | Valor |
+| ---- | ---- | 
+| claves | Matriz<br />Obligatorio<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />Permisos concedidos en las claves de este almacén a este objeto de Active Directory. Este valor debe especificarse como una matriz de uno o más valores permitidos. |
+| secrets | Matriz<br />Obligatorio<br />**all**, **delete**, **get**, **list**, **set**<br /><br />Permisos concedidos en los secretos de este almacén a este objeto de Active Directory. Este valor debe especificarse como una matriz de uno o más valores permitidos. |
 
 <a id="sku" />
 ### properties.sku object
 
-| Nombre | Tipo | Obligatorio | Valores permitidos | Descripción |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| name | enum | Sí | **standard**<br />**premium** | El nivel de servicio de KeyVault que usar. Standard admite secretos y claves protegidas mediante software. Premium incorpora compatibilidad para claves protegidas con HSM. |
-| family | enum | Sí | **ENCONTRARÁ** | La familia de SKU que usar. 
+| Nombre | Valor |
+| ---- | ---- | 
+| name | Enum<br />Obligatorio<br />**standard** o **premium** <br /><br />Nivel de servicio del almacén de claves que se usará. Standard admite secretos y claves protegidas mediante software. Premium incorpora compatibilidad para claves protegidas con HSM. |
+| family | Enum<br />Obligatorio<br />**A** <br /><br />Familia de SKU que se usará. |
  
 	
 ## Ejemplos
@@ -237,7 +237,7 @@ En el ejemplo siguiente se implementa un almacén de claves y un secreto.
 
 La siguiente plantilla de inicio rápido implementa un almacén de claves.
 
-- [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
+- [Create Key Vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
 
 
 ## Pasos siguientes
@@ -245,4 +245,4 @@ La siguiente plantilla de inicio rápido implementa un almacén de claves.
 - Para obtener información general sobre almacenes de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
 - Para obtener un ejemplo de referencia de un secreto de almacén de claves al implementar plantillas, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,7 +1,4 @@
 
-En este artículo se muestra cómo usar las plantillas del Administrador de recursos de Azure y la línea de comandos (CLI) de Azure para realizar tareas comunes de implementación y administración de máquinas virtuales de Azure. Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) y [Marcos de aplicaciones mediante el uso de plantillas](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
-
-
 - [Creación rápida de una máquina virtual en Azure](#quick-create-a-vm-in-azure)
 - [Implementación de una máquina virtual en Azure desde una plantilla](#deploy-a-vm-in-azure-from-a-template)
 - [Creación de una máquina virtual desde una imagen personalizada](#create-a-custom-vm-image)
@@ -16,7 +13,7 @@ En este artículo se muestra cómo usar las plantillas del Administrador de recu
 
 ## Preparación
 
-Para poder usar la CLI de Azure con grupos de recursos de Azure, necesitará la versión correcta de la CLI de Azure y una cuenta de Azure. Si no tiene la CLI de Azure, debe [instalarla](xplat-cli-install.md).
+Para poder usar la CLI de Azure con grupos de recursos de Azure, necesitará la versión correcta de la CLI de Azure y una cuenta de Azure. Si no tiene la CLI de Azure, debe [instalarla](../articles/xplat-cli-install.md).
 
 ### Actualización de la CLI de Azure a la versión 0.9.0 o posterior
 
@@ -214,7 +211,7 @@ Siga las instrucciones de estas secciones para implementar una nueva máquina vi
 
 ### Paso 1: Examen en el archivo JSON de los parámetros de plantilla
 
-Este es el contenido del archivo JSON de la plantilla. (La plantilla también se encuentra en [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json)).
+Este es el contenido del archivo JSON de la plantilla. (La plantilla también se encuentra en [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json)).
 
 Las plantillas son flexibles, de tal forma que el diseñador pueda haber optado por ofrecer muchos parámetros, o haya decidido ofrecer unas pocas para crear una plantilla más específica. Para recopilar la información que se necesita para pasar la plantilla como parámetros, abra el archivo de plantilla (este tema tiene una plantilla insertada, a continuación) y examine los valores de **parameters**.
 
@@ -435,7 +432,7 @@ Se le pedirá que proporcione los valores de parámetros en la sección "paramet
 
 Este es un ejemplo:
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json myResourceGroup firstDeployment
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json myResourceGroup firstDeployment
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
     newStorageAccountName: storageaccount
@@ -477,7 +474,7 @@ Ha visto el uso básico de las plantillas anteriores, de modo que ahora podemos 
 
 ### Paso 1: Examen en el archivo JSON de la plantilla
 
-Este es el contenido del archivo JSON para la plantilla que usa esta sección como ejemplo.
+Este es el contenido del archivo JSON para la plantilla que usa esta sección como ejemplo. (La plantilla también se encuentra en [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json)).
 
 De nuevo, deberá buscar los valores que desee especificar para los parámetros que no tienen valores predeterminados. Al ejecutar el comando `azure group deployment create`, la CLI de Azure le solicitará que escriba esos valores.
 
@@ -1176,7 +1173,7 @@ Puede detectar rápidamente qué salió mal, corregirlo y volver a intentarlo. E
 
 ## <a id="display-information-about-a-virtual-machine"></a>Tarea: Visualización de información sobre una máquina virtual
 
-Con el comando `azure vm show <groupname> <vmname> command` puede ver información sobre máquinas virtuales específicas en el grupo de recursos. Si tiene más de una máquina virtual en el grupo, es posible que primero deba enumerarlas en un grupo con `azure vm list <groupname>`.
+Con el comando `azure vm show <groupname> <vmname>` puede ver información sobre máquinas virtuales específicas en el grupo de recursos. Si tiene más de una máquina virtual en el grupo, es posible que primero deba enumerarlas en un grupo con `azure vm list <groupname>`.
 
     azure vm list zoo
     info:    Executing command vm list
@@ -1271,7 +1268,7 @@ Para adjuntar un disco de datos existente, ejecute este comando:
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
 
-A continuación, deberá montar el disco, como haría normalmente en Linux (o en Windows).
+Después, deberá montar el disco, como haría normalmente en Linux.
 
 
 ## Pasos siguientes
@@ -1281,4 +1278,4 @@ Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, cons
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) y [Marcos de aplicaciones mediante el uso de plantillas](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

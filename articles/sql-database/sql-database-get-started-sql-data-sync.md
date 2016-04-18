@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="04/04/2016"
 	ms.author="jhubbard"/>
 
 
@@ -22,7 +22,7 @@ En este tutorial aprenderá los fundamentos del uso de SQL Data Sync de Azure me
 
 En este tutorial se presupone una experiencia previa mínima en SQL Server y Base de datos SQL de Azure. En este tutorial, creará un grupo de sincronización híbrido (sesiones de SQL Server y Base de datos SQL) completamente configurado y sincronizado en función de cómo lo programe.
 
-> [AZURE.NOTE]La documentación técnica completa para Azure SQL Data Sync, que anteriormente se encontraba en MSDN, está disponible como .pdf. Descárguela [aquí](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+> [AZURE.NOTE] La documentación técnica completa para Azure SQL Data Sync, que anteriormente se encontraba en MSDN, está disponible como .pdf. Descárguela [aquí](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Paso 1: Conexión a la Base de datos SQL de Azure
 
@@ -52,11 +52,11 @@ Asegúrese de tener el software siguiente instalado en el equipo donde instalar�
 
 - **Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
 
- Puede instalar Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) desde [aquí](http://www.microsoft.com/download/en/details.aspx?id=26728).
+ Instale Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) desde [aquí](http://www.microsoft.com/download/en/details.aspx?id=26728).
 
 - **Objetos de administración compartida de Microsoft SQL Server 2008 R2 SP1 (x86)**
 
- Puede instalar los objetos de administración compartida de Microsoft SQL Server 2008 R2 SP1 (x86) desde [aquí](http://www.microsoft.com/download/en/details.aspx?id=26728).
+ Instale los objetos de administración compartida de Microsoft SQL Server 2008 R2 SP1 (x86) desde [aquí](http://www.microsoft.com/download/en/details.aspx?id=26728).
 
 
 
@@ -114,10 +114,10 @@ Cuando del agente cliente se haya instalado, registre todas las bases de datos d
 
 1. En el menú desplegable, seleccione la instancia de Base de datos SQL para que sirva de concentrador de grupo de sincronización.
 2. Escriba las credenciales para esta instancia de Base de datos SQL: **NOMBRE DE USUARIO DE LA BASE DE DATOS CENTRAL** y **CONTRASEÑA DE LA BASE DE DATOS CENTRAL**.
-3. Espere a que SQL Data Sync confirme NOMBRE DE USUARIO y CONTRASEÑA. Aparecerá una marca de verificación a la derecha de PASSWORD cuando las credenciales se confirmen.
+3. Espere a que SQL Data Sync confirme NOMBRE DE USUARIO y CONTRASEÑA. Verá una marca de verificación de color verde a la derecha de CONTRASEÑA cuando las credenciales se confirmen.
 4. En el menú desplegable, seleccione la directiva **RESOLUCIÓN DE CONFLICTOS**.
 
- **Prevalece la base de datos central**: todos los cambios incluidos en la base de datos central se escriben en las bases de datos de referencia, sobrescribiendo los cambios en el mismo registro de la base de datos de referencia. Funcionalmente esto significa que el primer cambio escrito en el concentrador se propaga a las demás bases de datos.
+ **Prevalece la base de datos central**: todos los cambios incluidos en la base de datos central se escriben en las bases de datos de referencia, con lo que se sobrescriben los cambios en el mismo registro de la base de datos de referencia. Desde el punto de vista funcional, esto significa que el primer cambio escrito en el concentrador se propaga a las demás bases de datos.
 
 
  **Prevalece el cliente**: los cambios escritos en la base de datos central se sobrescriben con los cambios escritos en las bases de datos de referencia. Funcionalmente esto significa que el último cambio escrito en el concentrador es el que se conserva y propaga a las otras bases de datos.
@@ -153,7 +153,7 @@ Repita este paso en todas las bases de datos adicionales que quiera agregar al g
 
 ## Paso 5: Definición de los datos que hay que sincronizar
 
-SQL Data Sync de Azure le permite seleccionar tablas y columnas para sincronizarlas. Si además desea filtrar una columna para que solo sincronice filas con valores concretos (como, Age>=65), use el portal SQL Data Sync en Azure y la documentación de Seleccionar las tablas, las columnas y las filas que hay que sincronizar para definir los datos que se sincronizarán.
+SQL Data Sync de Azure le permite seleccionar tablas y columnas para sincronizarlas. Si además desea filtrar una columna para que solo sincronice filas con valores concretos (como, Age>=65), use el portal SQL Data Sync de Azure y la documentación de Seleccionar las tablas, las columnas y las filas que hay que sincronizar para definir los datos que se sincronizarán.
 
 1.	Vuelva al [Portal clásico](http://manage.windowsazure.com).
 2.	Haga clic en **BASES DE DATOS SQL**.
@@ -174,7 +174,7 @@ SQL Data Sync de Azure le permite seleccionar tablas y columnas para sincronizar
 
 ## Paso 6: Configuración del grupo de sincronización
 
-Siempre podrá sincronizar un grupo de sincronización haciendo clic en SYNC en la parte inferior de la página de aterrizaje de Data Sync. Si desea programar la sincronización de un grupo de sincronización, configúrelo en el grupo de sincronización.
+Siempre podrá sincronizar un grupo de sincronización haciendo clic en SYNC en la parte inferior de la página de aterrizaje de Data Sync. Para sincronizar según una programación, configure el grupo de sincronización.
 
 1.	Vuelva al [Portal clásico](http://manage.windowsazure.com).
 2.	Haga clic en **BASES DE DATOS SQL**.
@@ -202,4 +202,4 @@ Para obtener más información acerca de Base de datos SQL y SQL Data Sync, cons
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

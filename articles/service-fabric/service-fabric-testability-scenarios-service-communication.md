@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Escenarios de capacidad de prueba de Service Fabric: comunicación del servicio
@@ -97,4 +97,4 @@ En este ejemplo, `QuorumLossMode` se establece en `QuorumReplicas` para indicar 
 
 [Más información sobre los escenarios de capacidad de prueba](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

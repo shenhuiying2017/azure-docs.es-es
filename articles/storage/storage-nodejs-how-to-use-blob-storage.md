@@ -82,14 +82,14 @@ El objeto **BlobService** permite trabajar con contenedores y blobs. El código 
 Para crear un nuevo contenedor, use **createContainerIfNotExists**. En el siguiente ejemplo de código se crea un nuevo contenedor llamado "mycontainer":
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
-      if(!error){
-        // Container exists and allows
-        // anonymous read access to blob
-        // content and metadata within this container
-      }
+	    if(!error){
+	      // Container exists and allows
+	      // anonymous read access to blob
+	      // content and metadata within this container
+	    }
 	});
 
-Si se acaba de crear el contenedor, `result` es true. Si el contenedor ya existe, `result` es false. `response` contiene información sobre la operación, junto con la información de [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) del contenedor.
+Si se acaba de crear el contenedor, `result.created` es true. Si el contenedor ya existe, `result.created` es false. `response` contiene información sobre la operación, incluida la información de ETag del contenedor.
 
 ### Seguridad del contenedor
 
@@ -101,17 +101,17 @@ De forma predeterminada, los nuevos contenedores son privados, así que no se pu
 
 En el ejemplo de código siguiente se demuestra cómo configurar el nivel de acceso en **blob**:
 
-    blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
-      if(!error){
-        // Container exists and is private
-      }
+	blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
+	    if(!error){
+	      // Container exists and is private
+	    }
 	});
 
 También puede modificar el nivel de acceso de un contenedor usando **setContainerAcl** para especificarlo. En el ejemplo de código siguiente se cambia el nivel de acceso a container:
 
-    blobSvc.setContainerAcl('mycontainer', null /* signedIdentifiers */, 'container' /* publicAccessLevel*/, function(error, result, response){
+	blobSvc.setContainerAcl('mycontainer', null /* signedIdentifiers */, {publicAccessLevel : 'container'} /* publicAccessLevel*/, function(error, result, response){
 	  if(!error){
-		// Container access level set to 'container'
+	    // Container access level set to 'container'
 	  }
 	});
 
@@ -121,11 +121,11 @@ El resultado contiene información sobre la operación, junto con la informació
 
 Puede aplicar operaciones de filtrado opcionales a las operaciones realizadas mediante **BlobService**. Las operaciones de filtrado pueden incluir registros, reintentos automáticos, etc. Los filtros son objetos que implementan un método con la firma:
 
-		function handle (requestOptions, next)
+	function handle (requestOptions, next)
 
 Después de realizar el preprocesamiento en las opciones de solicitud, el método tiene que llamar a "next" pasando una devolución de llamada con la firma siguiente:
 
-		function (returnObject, finalCallback, next)
+	function (returnObject, finalCallback, next)
 
 En esta devolución de llamada y después de procesar returnObject (la respuesta de la solicitud al servidor), la devolución de llamada tiene que invocar a next, si existe, para continuar procesando otros filtros, o bien simplemente invocar a finalCallback para finalizar la invocación del servicio.
 
@@ -136,7 +136,7 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
 
 ## Cargar un blob en un contenedor
 
-Un blob se puede basar en un bloque o en una página. Los blobs en bloques le permiten cargar datos de gran tamaño con una mayor eficiencia, mientras que los blobs en páginas están optimizados para operaciones de lectura/escritura. Para obtener más información, consulte [Introducción a los blobs en bloques, los blobs de anexión y los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Hay tres tipos de blobs: blobs en bloques, blobs en páginas y blobs en anexos. Los blobs en bloques permiten cargar datos de gran tamaño de una forma más eficaz. Los blobs en anexos están optimizados para las operaciones de anexión. Los blobs en páginas están optimizados para las operaciones de lectura y escritura. Para obtener más información, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Blobs en bloques
 
@@ -160,6 +160,49 @@ En el siguiente ejemplo de código se carga el contenido del archivo **test.txt*
 
 El `result` que devuelven estos métodos contiene información sobre la operación, como el valor **ETag** del blob.
 
+### Blobs en anexos
+
+Para cargar datos en un nuevo blob en anexos, use lo siguiente:
+
+* **createAppendBlobFromLocalFile**: crea un nuevo blob en anexos y carga el contenido de un archivo.
+
+* **createAppendBlobFromStream**: crea un nuevo blob en anexos y carga el contenido de una transmisión.
+
+* **createAppendBlobFromText**: crea un nuevo blob en anexos y carga el contenido de una cadena.
+
+* **createWriteStreamToNewAppendBlob**: crea un nuevo blob en anexos y luego proporciona una transmisión para escribir en él.
+
+En el siguiente ejemplo de código se carga el contenido del archivo **test.txt** en **myappendblob**.
+
+	blobSvc.createAppendBlobFromLocalFile('mycontainer', 'myappendblob', 'test.txt', function(error, result, response){
+	  if(!error){
+	    // file uploaded
+	  }
+	});
+
+Para anexar un bloque a un blob en anexos existente, use lo siguiente:
+
+* **appendFromLocalFile**: anexa el contenido de un archivo a un blob en anexos existente.
+
+* **appendFromStream**: anexa el contenido de una transmisión a un blob en anexos existente.
+
+* **appendFromText**: anexa el contenido de una cadena a un blob en anexos existente.
+
+* **appendBlockFromStream**: anexa el contenido de una transmisión a un blob en anexos existente.
+
+* **appendBlockFromText**: anexa el contenido de una cadena a un blob en anexos existente.
+
+> [AZURE.NOTE] Las API appendFromXXX realizarán alguna validación de cliente de errores para evitar llamadas innecesarias al servidor. appendBlockFromXXX no.
+
+En el siguiente ejemplo de código se carga el contenido del archivo **test.txt** en **myappendblob**.
+
+	blobSvc.appendFromText('mycontainer', 'myappendblob', 'text to be appended', function(error, result, response){
+	  if(!error){
+	    // text appended
+	  }
+	});
+
+
 ### Blobs en páginas
 
 Para cargar datos en un blob en página, use lo siguiente:
@@ -172,7 +215,7 @@ Para cargar datos en un blob en página, use lo siguiente:
 
 * **createWriteStreamToExistingPageBlob**: proporciona una secuencia de escritura a un blob en páginas existente
 
-* **createWriteStreamToNewPageBlob**: crea un nuevo blob y luego proporciona una secuencia para escribir en él.
+* **createWriteStreamToNewPageBlob**: crea un nuevo blob en páginas y luego proporciona una transmisión para escribir en él.
 
 En el siguiente ejemplo de código se carga el contenido del archivo **test.txt** en **mypageblob**.
 
@@ -182,16 +225,16 @@ En el siguiente ejemplo de código se carga el contenido del archivo **test.txt*
 	  }
 	});
 
-> [AZURE.NOTE] Los blobs en páginas constan de 'páginas' de 512 bytes. Puede que al cargar datos con un tamaño que no es múltiplo de 512 reciba un error.
+> [AZURE.NOTE] Los blobs en páginas constan de 'páginas' de 512 bytes. Al cargar datos con un tamaño que no sea múltiplo de 512 recibirá un error.
 
 ## Enumerar los blobs de un contenedor
 
 Para enumerar los blobs de un contenedor, use el método **listBlobsSegmented**. Si desea devolver blobs con un prefijo determinado, use **listBlobsSegmentedWithPrefix**.
 
-    blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
-      if(!error){
-        // result.entries contains the entries
-        // If not all blobs were returned, result.continuationToken has the continuation token.
+	blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
+	  if(!error){
+	      // result.entries contains the entries
+	      // If not all blobs were returned, result.continuationToken has the continuation token.
 	  }
 	});
 
@@ -211,7 +254,7 @@ Para descargar datos de un blob, use lo siguiente:
 
 En el ejemplo de código siguiente se demuestra cómo usar **getBlobToStream** para descargar el contenido del blob **myblob** y almacenarlo en el archivo **output.txt** usando una secuencia:
 
-    var fs = require('fs');
+	var fs = require('fs');
 	blobSvc.getBlobToStream('mycontainer', 'myblob', fs.createWriteStream('output.txt'), function(error, result, response){
 	  if(!error){
 	    // blob retrieved
@@ -224,7 +267,7 @@ El `result` contiene información acerca del blob, lo que incluye información d
 
 Finalmente, para eliminar un blob, llame a **deleteBlob**. En el ejemplo de código siguiente se elimina el blob llamado **myblob**.
 
-    blobSvc.deleteBlob(containerName, 'myblob', function(error, response){
+	blobSvc.deleteBlob(containerName, 'myblob', function(error, response){
 	  if(!error){
 		// Blob has been deleted
 	  }
@@ -240,12 +283,12 @@ Para permitir el acceso simultáneo a un blob desde varios clientes o varias ins
 
 ### ETag
 
-Use las etiquetas ETag si es necesario permitir que varios clientes o instancias escriban en el blob de manera simultánea. La etiqueta ETag le permite determinar si el contenedor o el blob se modificó desde que inicialmente lo leyera o creara. De esta forma, puede evitar que los cambios efectuados por otro cliente o proceso se sobrescriban.
+Use ETag si necesita permitir que varios clientes o instancias escriban en el blob en bloques o en páginas de manera simultánea. La etiqueta ETag le permite determinar si el contenedor o el blob se modificó desde que inicialmente lo leyera o creara. De esta forma, puede evitar que los cambios efectuados por otro cliente o proceso se sobrescriban.
 
 Puede definir las condiciones de ETag mediante el parámetro opcional `options.accessConditions`. En el siguiente ejemplo de código solo se carga el archivo **test.txt** si el blob ya existe y tiene el valor ETag contenido por `etagToMatch`.
 
-	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
-      if(!error){
+	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { EtagMatch: etagToMatch} }, function(error, result, response){
+	    if(!error){
 	    // file uploaded
 	  }
 	});
@@ -319,36 +362,30 @@ También se puede usar una lista de control de acceso (ACL) para definir la dire
 
 Una ACL se implementa mediante el uso de un conjunto de directivas de acceso, con un Id. asociado a cada directiva. En el siguiente ejemplo de código se definen dos directivas; una para 'user1' y otra para 'user2':
 
-	var sharedAccessPolicy = [
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.BlobUtilities.SharedAccessPermissions.READ,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user1'
+	var sharedAccessPolicy = {
+	  user1: {
+	    Permissions: azure.BlobUtilities.SharedAccessPermissions.READ,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  },
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.BlobUtilities.SharedAccessPermissions.WRITE,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user2'
+	  user2: {
+	    Permissions: azure.BlobUtilities.SharedAccessPermissions.WRITE,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  }
-	];
+	};
 
 En el siguiente ejemplo de código se obtiene la ACL actual de **mycontainer** y, a continuación, se agregan las nuevas directivas mediante **setBlobAcl**. Este enfoque permite lo siguiente:
 
+	var extend = require('extend');
 	blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
-      if(!error){
-		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		blobSvc.setBlobAcl('mycontainer', result, function(error, result, response){
-	  	  if(!error){
-	    	// ACL set
-	  	  }
-		});
+	  if(!error){
+	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+	    blobSvc.setBlobAcl('mycontainer', newSignedIdentifiers, function(error, result, response){
+	      if(!error){
+	        // ACL set
+	      }
+	    });
 	  }
 	});
 
@@ -378,4 +415,4 @@ Para obtener más información, consulte los siguientes recursos:
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referencia del SDK de almacenamiento de Azure para la API de nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

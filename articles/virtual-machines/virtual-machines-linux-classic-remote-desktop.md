@@ -32,7 +32,7 @@ Esta guía le proporcionará la respuesta. Le ayudará a instalar y configurar x
 Xrdp es un servidor RDP de código abierto, que le permite conectar su servidor Linux a Escritorio remoto desde un equipo de Windows. Su rendimiento es mucho mejor que VNC (Virtual Network Computing). VNC tiene esta racha de calidad "JPEG" y comportamiento lento, mientras que RDP es rápido y clarísimo.
 
 
-> [AZURE.NOTE] Ya debe tener una VM de Microsoft Azure que ejecuta Linux. Para crear y configurar una VM Linux, consulte el [tutorial de máquinas virtuales Linux de Azure](virtual-machines-linux-cli-create.md).
+> [AZURE.NOTE] Ya debe tener una VM de Microsoft Azure que ejecuta Linux. Para crear y configurar una VM Linux, consulte el [tutorial de máquinas virtuales Linux de Azure](virtual-machines-linux-classic-createportal.md).
 
 
 ##Crear extremo para Escritorio remoto
@@ -116,4 +116,4 @@ Inicie sesión con `user` y `password` de su VM Linux y disfrute de Escritorio r
 ##Pasos siguientes
 Para obtener más información sobre el uso de xrdp, puede consultar [aquí](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

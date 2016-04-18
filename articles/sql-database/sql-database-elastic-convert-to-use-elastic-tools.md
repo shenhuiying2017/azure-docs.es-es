@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="04/01/2016"
    ms.author="SilviaDoomra"/>
 
 # Convert existing databases to use elastic database tools (Conversión de bases de datos existentes para usar herramientas para bases de datos elásticas)
 
-Si tiene una solución escalada horizontalmente y particionada existente, puede aprovechar las herramientas para bases de datos elásticas mediante las técnicas descritas aquí. Después de la conversión, puede usar la [Biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md) y la [Herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md).
+Si tiene una solución escalada horizontalmente y particionada, puede aprovechar las herramientas para bases de datos elásticas, como la [biblioteca cliente de Base de datos elástica](sql-database-elastic-database-client-library.md) y la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md) empleando las técnicas descritas aquí.
 
 Estas técnicas pueden implementarse mediante la [biblioteca de cliente de .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) o los scripts de PowerShell que se encuentran en [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (Azure SQL DB: scripts de herramientas para bases de datos elásticas). Los ejemplos siguientes usan los scripts de PowerShell.
+
+Tenga en cuenta que debe crear las bases de datos antes de ejecutar los cmdlets Add-Shard y New-ShardMapManager. Los cmdlets no crean bases de datos automáticamente.
 
 Hay cuatro pasos:
 
@@ -32,7 +34,7 @@ Hay cuatro pasos:
 Para obtener más información sobre ShardMapManager, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md). Si desea obtener información general de las herramientas para bases de datos elásticas, consulte [Información general de las características de bases de datos elásticas](sql-database-elastic-scale-introduction.md).
 
 ## Preparación de la base de datos de administrador de mapas de particiones
-Puede usar una base de datos nueva o existente como administrador de mapas de particiones. Esta operación solo se realiza una vez.
+Puede usar una base de datos nueva o existente como administrador de mapas de particiones.
 
 ## Paso 1: crear un administrador de mapas de particiones
 Tenga en cuenta que una base de datos que actúa como administrador de mapas de particiones no debe ser la misma base de datos que la de una partición.
@@ -160,16 +162,16 @@ Información sobre las particiones existentes y las asignaciones asociadas a ell
 
 ## Resumen
 
-Una vez haya completado la configuración, puede empezar a usar la Biblioteca de cliente de Base de datos elástica. También puede usar [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) y [Consulta a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md).
+Una vez haya completado la configuración, puede empezar a usar la Biblioteca de cliente de Base de datos elástica. También puede usar las características de [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) y [consulta a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md).
 
 ## Pasos siguientes
 
 
-Obtenga los scripts de PowerShell de [Azure SQL DB-Elastic Database tools sripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (Azure SQL DB: scripts de herramientas para bases de datos elásticas).
+Obtenga los scripts de PowerShell de [Azure SQL DB-Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (Azure SQL DB: scripts de herramientas para bases de datos elásticas).
 
-Las herramientas también están en GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+Las herramientas también se encuentran en GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Use la herramienta de división y combinación para mover datos a un modelo de varios inquilinos o desde este a un modelo de inquilino único. Consulte [Herramienta de división y combinación](sql-database-elastic-scale-get-started.md).
+Use la herramienta de división y combinación para mover datos a un modelo de varios inquilinos o desde este a un modelo de inquilino único. Consulte el artículo sobre la [herramienta de división y combinación](sql-database-elastic-scale-get-started.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -179,4 +181,4 @@ Use la herramienta de división y combinación para mover datos a un modelo de v
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

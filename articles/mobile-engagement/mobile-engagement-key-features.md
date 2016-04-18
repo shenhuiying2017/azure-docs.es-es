@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/01/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement: características principales
@@ -26,7 +26,7 @@ En este artículo se proporciona una introducción de alto nivel sobre las carac
 
 - **Portal de SaaS independiente.** Le facilita el acceso al equipo de marketing, sin que tenga que pasar por el Portal de administración de Azure.
 
-- **Disponibilidad de API de REST abiertas.** Para permitir la integración y la automatización con sistemas de CRM, CMS y TI mediante API de plataforma abierta, proporcionamos API de REST abiertas y SDK de .NET para que pueda usar estas API, que permiten una fácil integración y automatización con Mobile Engagement. Consulte [aquí](mobile-engagement-api-authentication.md) más información.
+- **Disponibilidad de API de REST abiertas.** Para permitir la integración y la automatización con sistemas de CRM, CMS y TI mediante API de plataforma abierta, proporcionamos API de REST abiertas y SDK de .NET para que pueda usar estas API, que permiten una fácil integración y automatización con Mobile Engagement. Consulte [este artículo](mobile-engagement-api-authentication.md) para obtener más información.
 
 - **Conector de Power BI disponible.** También puede extraer los gráficos de análisis clave a un panel de Power BI. Consulte esta [guía](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-azure-mobile/).
 
@@ -164,4 +164,4 @@ En este artículo se proporciona una introducción de alto nivel sobre las carac
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

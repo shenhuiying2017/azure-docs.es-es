@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # Orientación general sobre reintentos
@@ -115,4 +115,4 @@ Las directrices siguientes le ayudarán a diseñar un mecanismo de control de er
 * [Patrón de transacción de compensación](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Patrones de idempotencia](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

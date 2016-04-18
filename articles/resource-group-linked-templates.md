@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Uso de plantillas vinculadas con el Administrador de recursos de Azure"
+   pageTitle="Plantillas vinculadas con Azure Resource Manager | Microsoft Azure"
    description="Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Uso de plantillas vinculadas con el Administrador de recursos de Azure
@@ -113,7 +113,7 @@ También puede usar la función [deployment()](../resource-group-template-functi
 Si necesita pasar un valor de una plantilla vinculada a la plantilla principal, puede crear un valor en la sección de **resultados** de la plantilla vinculada. Para obtener un ejemplo, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
 ## Pasos siguientes
-- [Creación de plantillas](./resource-group-authoring-templates.md)
-- [Implementación de plantillas](resource-group-template-deploy.md)
+- Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md).
+- Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0406_2016-->

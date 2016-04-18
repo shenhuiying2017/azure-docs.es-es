@@ -14,7 +14,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="03/22/2016"
+ ms.date="04/04/2016"
  ms.author="cynthn"/>
 
 # Tamaños de las máquinas virtuales Windows en Azure
@@ -23,4 +23,4 @@ En este artículo se describen los tamaños y las opciones disponibles para las 
 
 [AZURE.INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 
-<!-----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

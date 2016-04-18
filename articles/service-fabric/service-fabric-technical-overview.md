@@ -13,32 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
+   ms.date="04/05/2016"
    ms.author="msfussell"/>
 
 # Información general sobre la terminología de Service Fabric
 
 Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. En este tema se describe la terminología que se usa en Service Fabric para comprender los términos que se usan en la documentación.
 
-## Conceptos terminológicos
-
-### Conceptos de infraestructura
+## Conceptos de infraestructura
 **Clúster**: conjunto de máquinas físicas o virtuales conectadas a la red en las que se implementan y administran los microservicios. Los clústeres pueden escalar a miles de equipos.
 
-**Nodo**: cada una de las máquinas físicas o virtuales que forman parte de un clúster se denominan un nodo. A cada nodo se le asigna un nombre de nodo (una cadena). Los nodos tienen características como las propiedades de colocación. Cada máquina física o virtual tiene un servicio de Windows de inicio automático, `FabricHost.exe` que empieza a ejecutarse en el arranque y luego inicia dos ejecutables: `Fabric.exe` y `FabricGateway.exe`. Estos dos ejecutables conforman el nodo. En los escenarios de prueba, es posible hospedar varios nodos en un solo equipo y máquina virtual mediante la ejecución de varias instancias de `Fabric.exe` y `FabricGateway.exe`.
+**Nodo**: cada una de las máquinas físicas o virtuales que forman parte de un clúster se denominan "nodo". A cada nodo se le asigna un nombre de nodo (una cadena). Los nodos tienen características como las propiedades de colocación. Cada máquina física o virtual tiene un servicio de Windows de inicio automático, `FabricHost.exe` que empieza a ejecutarse en el arranque y luego inicia dos ejecutables: `Fabric.exe` y `FabricGateway.exe`. Estos dos ejecutables conforman el nodo. En los escenarios de prueba, se pueden hospedar varios nodos en un solo equipo y máquina virtual mediante la ejecución de varias instancias de `Fabric.exe` y `FabricGateway.exe`.
 
-### Conceptos de las aplicaciones
-**Tipo de aplicación**: el nombre o la versión asignados a una colección de tipos de servicios. Esta información se define en un archivo `ApplicationManifest.xml`, insertado en un directorio del paquete de aplicación que luego se copia en el almacén de imágenes del clúster de Service Fabric. Después puede crear una aplicación con nombre de este tipo de aplicación en el clúster.
+## Conceptos de las aplicaciones
+**Tipo de aplicación**: el nombre o versión asignados a una colección de tipos de servicios. Esta información se define en un archivo `ApplicationManifest.xml`, insertado en un directorio del paquete de aplicación que luego se copia en el almacén de imágenes del clúster de Service Fabric. Después puede crear una aplicación con nombre de este tipo de aplicación en el clúster.
 
-Para obtener más información, consulte el artículo [Procedimiento para modelar una aplicación en Service Fabric](service-fabric-application-model.md).
+Para más información, consulte el artículo [Modelar una aplicación en Service Fabric](service-fabric-application-model.md).
 
 **Paquete de aplicación**: un directorio del disco que contiene el archivo `ApplicationManifest.xml` del tipo de aplicación. Este archivo hace referencia a los paquetes de servicios de cada uno de los tipos de servicios que conforman el tipo de aplicación. Los archivos en el directorio del paquete de aplicación se copian en el almacén de imágenes del clúster de Service Fabric. Por ejemplo, un paquete de aplicación de un tipo de aplicación de correo electrónico puede contener referencias a un paquete de servicios de cola, un paquete de servicios de front-end y un paquete de servicios de base de datos.
 
 **Aplicación con nombre**: una vez que un paquete de aplicación se haya copiado en el almacén de imágenes, puede crear una instancia de la aplicación en el clúster mediante la especificación de tipo de aplicación del paquete de aplicación (mediante su nombre o versión). A cada instancia del tipo de aplicación se le asigna un nombre de URI similar al siguiente: `"fabric:/MyNamedApp"`. En un clúster se pueden crear varias aplicaciones con nombre de un único tipo de aplicación. También se pueden crear aplicaciones con nombre de diferentes tipos de aplicación. Cada aplicación con nombre se administra de manera independiente y tiene versiones independientes.
 
-**Tipo de servicio**: el nombre o la versión asignados a los paquetes de código, paquetes de datos y paquetes de configuración de un servicio. Esta información se define en un archivo `ServiceManifest.xml`, insertado en un directorio del paquete de servicio y, después, un archivo `ApplicationManifest.xml` del paquete de aplicación hace referencia al directorio del paquete de servicios. En el clúster, después de crear una aplicación con nombre se pude crear un servicio con nombre desde uno de los tipos de servicio del tipo de aplicación. El archivo `ServiceManifest.xml` del tipo de servicio describe el servicio.
+**Tipo de servicio**: el nombre o versión asignados a los paquetes de código, paquetes de datos y paquetes de configuración de un servicio. Esta información se define en un archivo `ServiceManifest.xml`, insertado en un directorio del paquete de servicio y, a continuación, un archivo `ApplicationManifest.xml` del paquete de aplicación hace referencia al directorio del paquete de servicios. En el clúster, después de crear una aplicación con nombre se pude crear un servicio con nombre desde uno de los tipos de servicio del tipo de aplicación. El archivo `ServiceManifest.xml` del tipo de servicio describe el servicio.
 
-Para obtener más información, consulte el artículo [Procedimiento para modelar una aplicación en Service Fabric](service-fabric-application-model.md).
+Para más información, consulte el artículo [Modelar una aplicación en Service Fabric](service-fabric-application-model.md).
 
 Existen dos tipos de servicios:
 
@@ -62,25 +60,25 @@ Existen dos tipos de servicios:
 
 **Esquema de partición**: al crear un servicio con nombre, especifique un esquema de partición. Los servicios con grandes cantidades de estado dividen los datos entre las particiones que los distribuyen entre los nodos del clúster. Esto permite el escalado del estado del servicio con nombre. Dentro de una partición, los servicios con nombre sin estado tienen instancias, mientras que los servicios con nombre con estado tienen réplicas. Normalmente, los servicios con nombre sin estado solo tienen una partición, ya que no tienen un estado interno. Las instancias de la partición se proporcionan para disponibilidad; si se produce un error en una instancia, otras instancias seguirán operando con normalidad y luego Service Fabric creará una nueva instancia. Los servicios con nombre con estado mantienen su estado dentro de las réplicas y cada partición tiene su propio conjunto de réplicas en los que todos los estados se mantienen sincronizados. Si se produce algún error en una réplica, Service Fabric creará una nueva réplica a partir de las réplicas existentes.
 
-Para obtener más información, consulte [Partición de Reliable Services de Service Fabric](service-fabric-concepts-partitioning.md).
+Para obtener más información, consulte el artículo [Partición de Reliable Services de Service Fabric](service-fabric-concepts-partitioning.md).
 
-### Servicios del sistema
+## Servicios del sistema
 Hay servicios del sistema que se crean en cada clúster que proporcionan las funciones de la plataforma de Service Fabric.
 
-**Servicio de nombres**: cada clúster de Service Fabric tiene un servicio de nombres que resuelve los nombres de servicio en una ubicación del clúster y permite a los usuarios administrar las propiedades y los nombres de servicio. Funciona de la misma manera que un servicio de nombres de dominio de Internet (DNS) en el clúster. Con el servicio de nombres, los clientes pueden comunicarse de forma segura con cualquier nodo del clúster para resolver un nombre de servicio y su ubicación (es decir, obtener el puerto y la dirección IP real de la máquina donde se está ejecutando actualmente). Mediante las API del cliente de comunicación, puede desarrollar servicios y clientes que puedan resolver la ubicación de red actual a pesar de las aplicaciones que se mueven dentro del clúster (debido a errores o equilibrio de recursos) o volver a ajustar el tamaño del clúster.
+**Servicio de nombres**: cada clúster de Service Fabric tiene un servicio de nombres que resuelve los nombres de servicio en una ubicación del clúster y permite a los usuarios administrar las propiedades y los nombres de servicio. Funciona de la misma manera que un servicio de nombres de dominio de Internet (DNS) en el clúster. Con el servicio de nombres, los clientes pueden comunicarse de forma segura con cualquier nodo del clúster para resolver un nombre de servicio y su ubicación (es decir, obtener el puerto y la dirección IP real de la máquina donde se está ejecutando actualmente). Mediante las API del cliente de comunicación, puede desarrollar servicios y clientes que puedan resolver la ubicación de red actual a pesar de las aplicaciones que se mueven dentro del clúster (por ejemplo, debido a errores o equilibrio de recursos) o volver a ajustar el tamaño del clúster.
 
 Lea el artículo [Comunicación con los servicios](service-fabric-connect-and-communicate-with-services.md) para obtener más información sobre cómo usar la API de comunicación de servicio y cliente, que funciona junto con el servicio de nombres.
 
-**Servicio de almacenamiento de imágenes**: cada clúster de Service Fabric tiene un servicio de almacenamiento de imágenes donde se guardan los paquetes de aplicación implementados y con versión. Debe copiar el contenido de un paquete de aplicación en el almacén de imágenes y luego registrar el tipo de aplicación en dicho paquete. Una vez que se haya aprovisionado el tipo de aplicación, puede crear aplicaciones con nombre de la misma. El registro de un tipo de aplicación del almacén de imágenes solo se puede anular después de que se hayan eliminado todas sus aplicaciones con nombre.
+**Servicio de almacenamiento de imágenes**: cada clúster de Service Fabric tiene un servicio de almacenamiento de imágenes donde se guardan los paquetes de aplicación implementados y con versión. Debe copiar el contenido de un paquete de aplicación en el servicio de almacenamiento de imágenes y luego registrar el tipo de aplicación de dicho paquete. Después, cuando se haya aprovisionado el tipo de aplicación, puede crear aplicaciones con nombre de esta. El registro de un tipo de aplicación del servicio de almacenamiento de imágenes solo se puede anular después de que se hayan eliminado todas sus aplicaciones con nombre.
 
 Para obtener más información sobre la implementación en el almacén de imágenes, consulte el artículo [Implementación de una aplicación](service-fabric-deploy-remove-applications.md).
 
-### Modelos de programación integrados
+## Modelos de programación integrados
 Hay modelos de programación de .NET Framework disponibles para generar servicios de Service Fabric:
 
-**Reliable Services**: una API para generar servicios sin estado y con estado. Los servicios con estado almacenan su estado en Reliable Collections (como un diccionario o una cola). También le permiten de conectar una amplia variedad de pilas de comunicación, como la API de web y Windows Communication Foundation (WCF).
+**Reliable Services**: una API para generar servicios con y sin estado. Los servicios con estado almacenan su estado en Reliable Collections (como un diccionario o una cola). También le permiten de conectar una amplia variedad de pilas de comunicación, como la API de web y Windows Communication Foundation (WCF).
 
-**Reliable Actors**: una API para crear objetos sin estado y con estado a través del modelo de programación de actor virtual. Este modelo puede resultar útil cuando hay muchas unidades independientes de cálculo/estado. Dado que este modelo utiliza un modelo de subprocesos basado en turnos, es conveniente evitar usar código que llame a otros actores o servicios, ya que un actor individual no puede procesar otras solicitudes entrantes hasta que se completen todas sus solicitudes salientes.
+**Reliable Actors**: una API para crear objetos con y sin estado a través del modelo de programación de actor virtual. Este modelo puede resultar útil cuando hay muchas unidades independientes de cálculo/estado. Dado que este modelo utiliza un modelo de subprocesos basado en turnos, es conveniente evitar usar código que llame a otros actores o servicios, ya que un actor individual no puede procesar otras solicitudes entrantes hasta que se completen todas sus solicitudes salientes.
 
 Para obtener más información, consulte el artículo [Elección de un marco para su servicio](service-fabric-choose-framework.md).
 
@@ -92,4 +90,4 @@ Para más información acerca de Service Fabric
 - [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
 - [Escenarios de aplicación](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

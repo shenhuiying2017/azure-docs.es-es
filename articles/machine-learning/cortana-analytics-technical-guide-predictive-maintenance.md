@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Guía técnica de la plantilla de solución de Cortana Analytics para mantenimiento predictivo en empresas aeroespaciales y de otros tipos | Microsoft Azure"
-	description="Una guía técnica para la plantilla de solución con Microsoft Cortana Analytics para mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte."
+	pageTitle="Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos | Microsoft Azure"
+	description="Una guía técnica sobre la plantilla de solución con Microsoft Cortana Intelligence orientada al mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
@@ -16,14 +16,14 @@
 	ms.date="01/29/2016"
 	ms.author="fboylu" />
 
-# Guía técnica de la plantilla de solución de Cortana Analytics para mantenimiento predictivo en empresas aeroespaciales y de otros tipos
+# Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos
 
 ## **Agradecimientos**
 Los autores de este artículo son los científicos de datos Yan Zhang, Gauher Shaheen, Fidan Boylu Uz y el ingeniero de software Dan Grecoe de Microsoft.
 
 ## **Información general**
 
-Las plantillas de soluciones están diseñadas para acelerar el proceso de creación de una demostración E2E basada en Cortana Analytics Suite. Una plantilla implementada aprovisionará la suscripción con los componentes necesarios de Cortana Analytics y creará las relaciones entre ellos. También propaga la canalización de datos con datos de ejemplo generados a partir de una aplicación de generador de datos que descargará e instalará en el equipo local después de implementar la plantilla de la solución. Los datos generados a partir del generador hidratarán la canalización de datos e iniciarán la generación de predicciones de aprendizaje automático que podrán verse a continuación en el panel de Power BI. El proceso de implementación le guiará a través de varios pasos para configurar las credenciales de la solución. Asegúrese de que registra estas credenciales: nombre de la solución, nombre de usuario y contraseña que proporcionó durante la implementación.
+Las plantillas de solución están diseñadas para acelerar el proceso de creación de una demostración E2E basada en Cortana Intelligence Suite. Una plantilla implementada aprovisionará la suscripción con los componentes necesarios de Cortana Intelligence y creará las relaciones entre ellos. También propaga la canalización de datos con datos de ejemplo generados a partir de una aplicación de generador de datos que descargará e instalará en el equipo local después de implementar la plantilla de la solución. Los datos generados a partir del generador hidratarán la canalización de datos e iniciarán la generación de predicciones de aprendizaje automático que podrán verse a continuación en el panel de Power BI. El proceso de implementación le guiará a través de varios pasos para configurar las credenciales de la solución. Asegúrese de que registra estas credenciales: nombre de la solución, nombre de usuario y contraseña que proporcionó durante la implementación.
 
 El objetivo de este documento es explicar la arquitectura de referencia y los diferentes componentes aprovisionados en su suscripción como parte de esta plantilla de solución. El documento también trata sobre cómo reemplazar los datos de ejemplo con datos reales para poder ver recomendaciones y predicciones a partir de sus propios datos. Además, el documento explica las partes de la plantilla de solución que deberán modificarse si desea personalizar la solución con sus propios datos. Se proporcionan instrucciones sobre cómo crear el panel de Power BI para esta plantilla de solución al final.
 
@@ -272,4 +272,4 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -25,6 +25,7 @@
 En este artículo se muestra cómo utilizar Azure PowerShell para capturar una máquina virtual (VM) de Azure con Windows a fin de usarla para crear otras máquinas virtuales. Esta imagen incluye el disco del sistema operativo y los discos de datos conectados a la máquina virtual. No incluye los recursos de redes virtuales que necesitará para crear una VM de Windows, por lo que necesitará configurarlos antes de crear otra máquina virtual que usa la imagen. Esta imagen también estará preparada para ser una [imagen generalizada de Windows](https://technet.microsoft.com/library/hh824938.aspx).
 
 
+
 ## Requisitos previos
 
 En estos pasos se da por sentado que ya creó un máquina virtual de Azure con el modelo de implementación del Administrador de recursos, que configuró el sistema operativo, que adjuntó cualquier disco de datos y que realizó otras personalizaciones como la instalación de aplicaciones. Si no lo ha hecho aún, lea [Crear una máquina virtual de Windows con Resource Manager y PowerShell](virtual-machines-windows-ps-create.md). Puede crear fácilmente una máquina virtual de Windows con el [Portal de Azure](https://portal.azure.com). Lea [Creación de una máquina virtual de Windows en el Portal de Azure](virtual-machines-windows-hero-tutorial.md).
@@ -34,7 +35,9 @@ En estos pasos se da por sentado que ya creó un máquina virtual de Azure con e
 
 En esta sección se muestra cómo generalizar la máquina virtual de Windows. Entre otras cosas, se elimina toda la información personal de la cuenta. Normalmente, deseará hacer esto si quiere usar esta imagen de máquina virtual para implementar rápidamente máquinas virtuales similares.
 
-1. Inicie sesión en una máquina virtual de Windows. En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar** > **Máquinas virtuales** > *Su máquina virtual Windows* > **Conectar**.
+> [AZURE.WARNING] Tenga en cuenta que no se puede iniciar sesión en la máquina virtual mediante RDP una vez que se generaliza, ya que el proceso elimina todas las cuentas de usuario. Se trata de un cambio irreversible.
+
+1. Inicie sesión en una máquina virtual de Windows. En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar** > **Máquinas virtuales** > Su máquina virtual Windows > **Conectar**.
 
 2. Abra una ventana de símbolo del sistema como administrador.
 
@@ -59,7 +62,7 @@ Puede capturar la VM de Windows generalizada mediante Azure PowerShell o la nuev
 
 ### Uso de PowerShell
 
-En este artículo se supone que tiene instalada la versión Azure PowerShell 1.0.x. Se recomienda usar esta versión, ya que no se agregarán nuevas características del Administrador de recursos para las versiones anteriores de PowerShell. Lea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) para obtener más información sobre las diferencias de versión.
+En este artículo se supone que tiene instalada la versión Azure PowerShell 1.0.x. Se recomienda usar esta versión, ya que no se agregarán nuevas características del Administrador de recursos para las versiones anteriores de PowerShell. Lea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) para obtener más información sobre las diferentes versiones.
 
 1. Abra Azure PowerShell 1.0.x e inicie sesión en la cuenta de Azure.
 
@@ -75,15 +78,15 @@ En este artículo se supone que tiene instalada la versión Azure PowerShell 1.0
 
 		Select-AzureRmSubscription -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
 
-	Puede encontrar las suscripciones que su cuenta de Azure tiene mediante el comando `Get-AzureRmSubscription`.
+	Puede encontrar las suscripciones que tiene la cuenta de Azure mediante el comando `Get-AzureRmSubscription`.
 
 3. Ahora, mediante este comando, debe desasignar los recursos utilizados por esta máquina virtual.
 
 		Stop-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM
 
-	Verá que ha cambiado el *estado* de la VM en el Portal de Azure de **Detenido** a **Detenido (desasignado)**.
+	Verá que el *Estado* de la máquina virtual en el Portal de Azure ha cambiado de **Detenido** a **Detenido (desasignado)**.
 
-	>[AZURE.TIP] También puede averiguar el estado de la máquina virtual en PowerShell usando:</br> `$vm = Get-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM -status`</br> `$vm.Statuses`</br> El campo **DisplayStatus** se corresponde con el **estado** que se muestra en el Portal de Azure.
+	>[AZURE.TIP] También puede averiguar el estado de la máquina virtual en PowerShell con:</br> `$vm = Get-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM -status`</br> `$vm.Statuses`</br> El campo **DisplayStatus** se corresponde con el **Estado** que aparece en el Portal de Azure.
 
 4. A continuación, debe establecer el estado de la máquina virtual en **Generalizado**. Tenga en cuenta que debe hacer esto porque el paso de generalización anterior (`sysprep`) no lo hace de una manera que Azure pueda entender.
 
@@ -95,32 +98,32 @@ En este artículo se supone que tiene instalada la versión Azure PowerShell 1.0
 
 		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
-	La variable `-Path` es opcional. Puede usarlo para guardar la plantilla JSON localmente. La variable `-DestinationContainerName` es el nombre del contenedor en que desea almacenar las imágenes. La dirección URL de la imagen almacenada será similar a `https://YourStorageAccountName.blob.core.windows.net/system/Microsoft.Compute/Images/YourImagesContainer/YourTemplatePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. Se creará en la misma cuenta de almacenamiento que la de la máquina virtual original.
+	La variable `-Path` es opcional. Puede usarlo para guardar la plantilla JSON localmente. La variable `-DestinationContainerName` es el nombre del contenedor en el que quiere almacenar las imágenes. La dirección URL de la imagen almacenada será similar a `https://YourStorageAccountName.blob.core.windows.net/system/Microsoft.Compute/Images/YourImagesContainer/YourTemplatePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. Se creará en la misma cuenta de almacenamiento que la de la máquina virtual original.
 
-	>[AZURE.NOTE] Para buscar la ubicación de la imagen, abra la plantilla de archivo JSON local. Vaya a la sección **recursos** > **storageProfile** > **osDisk** > **image** > **uri** para ver la ruta de acceso completa de la imagen. A partir de ahora, no hay ninguna manera fácil para comprobar estas imágenes en el portal, ya que el contenedor *sistema* de la cuenta de almacenamiento está oculto. Por esta razón, aunque la variable `-Path` es opcional, definitivamente desea utilizarla para guardar la plantilla localmente y encontrar fácilmente la dirección URL de la imagen. Como alternativa, se puede averiguar mediante una herramienta denominada **Explorador de almacenamiento de Azure** que se explica en los pasos de la sección siguiente.
+	>[AZURE.NOTE] Para buscar la ubicación de la imagen, abra la plantilla de archivo JSON local. Vaya a la sección **recursos** > **storageProfile** > **osDisk** > **image** > **uri** para ver la ruta de acceso completa de la imagen. A partir de ahora, no hay una manera sencilla de ver estas imágenes en el portal, ya que el contenedor *sistema* de la cuenta de almacenamiento está oculto. Por esta razón, aunque la variable `-Path` es opcional, seguramente quiera usarla para guardar la plantilla localmente y para encontrar fácilmente la dirección URL de la imagen. También puede averiguarla mediante una herramienta denominada **Explorador de almacenamiento de Azure**, que se explica en los pasos de la sección siguiente.
 
 
 ### Uso del Explorador de recursos de Azure (vista previa)
 
-El [Explorador de recursos de Azure (versión preliminar)](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/) es una herramienta nueva que puede usar para administrar recursos de Azure que se han creado en el modelo de implementación de Resource Manager. Con esta herramienta, puede hacer lo siguiente de manera fácil:
+El [Explorador de recursos de Azure (vista previa)](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/) es una herramienta nueva que puede usar para administrar recursos de Azure que se han creado en el modelo de implementación de Administrador de recursos. Con esta herramienta, puede hacer lo siguiente de manera fácil:
 
 - Encontrar las API de administración de recursos de Azure.
 - Obtener la documentación de la API.
 - Realizar llamadas API directamente en las suscripciones de Azure.
 
-Para obtener más información sobre todo lo que puede hacer con esta poderosa herramienta, vea el vídeo en [Azure Resource Manager Explorer with David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo) (Azure Resource Manager Explorer con David Ebbo).
+Para obtener más información sobre todo lo que puede hacer con esta eficaz herramienta, vea el vídeo en [Azure Resource Manager Explorer with David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo) (Azure Resource Manager Explorer con David Ebbo).
 
 Puede utilizar el Explorador de recursos para capturar la máquina virtual, como una alternativa al método de PowerShell.
 
 1. Abra el [sitio web del Explorador de recursos](https://resources.azure.com/) e inicie sesión en su cuenta de Azure.
 
-2. En la parte superior derecha de la herramienta, seleccione **Lectura/escritura** para permitir operaciones _PUT_ y _POST_. Se establece en **Solo lectura** de forma predeterminada, lo que significa que, de forma predeterminada, solo se pueden realizar operaciones _GET_.
+2. En la parte superior derecha de la herramienta, seleccione **Lectura/escritura** para permitir operaciones _PUT_ y _POST_. Está establecida en **Solo lectura** de forma predeterminada, lo que significa que solo se pueden realizar operaciones _GET_ de forma predeterminada.
 
 	![Lectura/escritura del Explorador de recursos](./media/virtual-machines-windows-capture-image/ArmExplorerReadWrite.png)
 
-3. A continuación, busque la máquina virtual de Windows. Puede escribir el nombre en el *cuadro de búsqueda* en la parte superior de la herramienta, o puede navegar por el menú de la izquierda, siguiendo este itinerario: **subscriptions** > *su suscripción de Azure* > **resourceGroups** > *su grupo de recursos* > **providers** > **Microsoft.Compute** > **virtualMachines** > *su máquina virtual de Windows*. Al hacer clic en la máquina virtual en el panel de navegación izquierdo, verá su plantilla en la parte derecha de la herramienta.
+3. A continuación, busque la máquina virtual de Windows. Puede escribir el nombre en el *cuadro de búsqueda* de la parte superior de la herramienta o puede navegar por el menú de la izquierda siguiendo este itinerario: **suscripciones** > *su suscripción de Azure* > **grupos de recursos** > *su grupo de recursos* > **proveedores** > **Microsoft.Compute** > **máquinas virtuales** > *su máquina virtual de Windows*. Al hacer clic en la máquina virtual en el panel de navegación izquierdo, verá su plantilla en la parte derecha de la herramienta.
 
-4. En la parte superior derecha de la página de la plantilla, debería ver las pestañas de las distintas operaciones que están disponibles para esta máquina virtual. Haga clic en la pestaña **Actions (POST/DELETE)**.
+4. En la parte superior derecha de la página de la plantilla, debería ver las pestañas de las distintas operaciones que están disponibles para esta máquina virtual. Haga clic en la pestaña **Acciones (POST o DELETE)**.
 
 	![Menú Acción del Explorador de recursos](./media/virtual-machines-windows-capture-image/ArmExplorerActionMenu.png)
 
@@ -128,25 +131,25 @@ Puede utilizar el Explorador de recursos para capturar la máquina virtual, como
 
 	![Resource Explorer Action items](./media/virtual-machines-windows-capture-image/ArmExplorerActionItems.png)
 
-5. Desasigne la máquina virtual; para ello, haga clic en el botón de acción **deallocate**. El estado de la VM cambiará de **Detenido** a **Detenido (desasignado)**.
+5. Desasigne la máquina virtual; para ello, haga clic en el botón de acción **desasignar**. Cambiará el estado de la máquina virtual de **Detenido** a **Detenido (desasignado)**.
 
-6. Marque la máquina virtual como generalizada; para ello, haga clic en el botón de acción de **generalize**. Puede comprobar los cambios de estado haciendo clic en el menú **InstanceView** en el nombre de máquina virtual en el lado izquierdo y desplazándose a la sección **statuses** en el lado derecho.
+6. Marque la máquina virtual como generalizada; para ello, haga clic en el botón de acción **generalizar**. Puede comprobar los cambios de estado si hace clic en el menú **InstanceView** en el nombre de la máquina virtual del lado izquierdo y se desplaza a la sección **estados** del lado derecho.
 
-7. En el botón de acción **capture**, puede establecer los valores para capturar la imagen. Los valores rellenados podrían tener un aspecto similar al siguiente.
+7. En el botón de acción **capturar**, puede establecer los valores para capturar la imagen. Los valores rellenados podrían tener un aspecto similar al siguiente.
 
 	![Captura del Explorador de recursos](./media/virtual-machines-windows-capture-image/ArmExplorerCaptureAction.png)
 
-	Haga clic en el botón de acción **capture** para capturar la imagen de la máquina virtual. Esto crea un nuevo VHD para la imagen, así como un archivo de plantilla JSON. A partir de ahora, estos no son accesibles a través del Explorador de recursos o la [Portal de Azure](https://portal.azure.com).
+	Haga clic en el botón de acción **capturar** para capturar la imagen de la máquina virtual. Esto crea un nuevo VHD para la imagen, así como un archivo de plantilla JSON. A partir de este momento, estos no son accesibles a través del Explorador de recursos ni el [Portal de Azure](https://portal.azure.com).
 
 8. Para tener acceso a la nueva imagen de VHD y a la plantilla, descargue e instale la herramienta de Azure para administrar recursos de almacenamiento, el [Explorador de almacenamiento de Azure](http://storageexplorer.com/). El instalador instalará el Explorador de almacenamiento de Azure localmente en el equipo.
 
 	- Abra el Explorador de almacenamiento e inicie sesión en la suscripción de Azure. Debe mostrar todas las cuentas de almacenamiento que están disponibles para su suscripción.
 
-	- En el lado izquierdo, debe ver la cuenta de almacenamiento de la máquina virtual que capturamos en los pasos anteriores. Haga doble clic en el menú **system** situado debajo. Debería ver el contenido de la carpeta **system** en el lado derecho.
+	- En el lado izquierdo, debe ver la cuenta de almacenamiento de la máquina virtual que capturamos en los pasos anteriores. Haga doble clic en el menú **sistema** situado debajo. Debería ver el contenido de la carpeta **sistema** en el lado derecho.
 
 		![Sistema del Explorador de almacenamiento](./media/virtual-machines-windows-capture-image/StorageExplorer1.png)
 
-	- Haga doble clic en **Microsoft.Compute** y luego en **Images**, que mostrará todas las carpetas de la imagen. Haga doble clic en el nombre de la carpeta que especificó para la variable **destinationContainerName** mientras captura la imagen desde el Explorador de recursos. Mostrará el VHD así como el archivo de plantilla JSON.
+	- Haga doble clic en **Microsoft.Compute** y luego en **Imágenes** para ver todas las carpetas de la imagen. Haga doble clic en el nombre de la carpeta que especificó para la variable **destinationContainerName** mientras captura la imagen desde el Explorador de recursos. Mostrará el VHD así como el archivo de plantilla JSON.
 
 	- Desde aquí, puede averiguar la dirección URL o descargar la plantilla o el VHD; para ello, debe hacer clic con el botón derecho en el elemento correspondiente.
 
@@ -173,7 +176,7 @@ Use el siguiente script de PowerShell de ejemplo para configurar una red virtual
 
 ### Creación de una máquina virtual nueva
 
-El siguiente script de PowerShell muestra cómo establecer las configuraciones de máquina virtual y usar la imagen capturada de VM como origen para la nueva instalación. </br>
+El siguiente script de PowerShell muestra cómo configurar la máquina virtual y usar la imagen capturada de esta como origen para la nueva instalación. </br>
 
 	#Enter a new user name and password in the pop-up for the following
 	$cred = Get-Credential
@@ -199,7 +202,7 @@ El siguiente script de PowerShell muestra cómo establecer las configuraciones d
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 
-Debería ver la VM recién creada en el [Portal de Azure](https://portal.azure.com), en **Examinar** > **Máquinas virtuales**, O con la utilización de los comandos de PowerShell siguientes:
+Debería ver la máquina virtual recién creada en el [Portal de Azure](https://portal.azure.com), en **Examinar** > **Máquinas virtuales**, O con los comandos de PowerShell siguientes:
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
@@ -209,4 +212,4 @@ Debería ver la VM recién creada en el [Portal de Azure](https://portal.azure.c
 
 Para administrar la nueva máquina virtual con Azure PowerShell, consulte [Manage virtual machines using Azure Resource Manager and PowerShell (Administración de máquinas virtuales con Azure Resource Manager y PowerShell)](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

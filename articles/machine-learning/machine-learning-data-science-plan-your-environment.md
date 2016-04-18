@@ -76,7 +76,7 @@ Veamos por ejemplo el Estudio de aprendizaje automático de Azure:
 - Para obtener una lista de los formatos de datos y los tipos admitidos por Estudio de aprendizaje automático de Azure, consulte la sección [Tipos y formatos de datos admitidos](machine-learning-data-science-import-data.md#data-formats-and-data-types-supported).
 - Para más información sobre las limitaciones en los datos para Estudio de aprendizaje automático de Azure, consulte la sección **¿Cómo de grande puede ser el conjunto de datos para mis módulos?** en [Importación y exportación de datos para Aprendizaje automático](machine-learning-faq.md#machine-learning-studio-questions)
 
-Para más información sobre las limitaciones de otros servicios de Azure usados en el proceso de análisis, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md).
+Para más información sobre las limitaciones de otros servicios de Azure usados en el proceso de análisis, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
 ## Cuestiones sobre la calidad de los datos: exploración y procesamiento previo
 
@@ -104,7 +104,7 @@ Hay muchas opciones dependiendo de qué lenguajes y entornos de desarrollo o her
 
 
 ## Identificación del escenario de análisis avanzado
-Cuando haya respondido a las preguntas de la sección anterior, estará listo para determinar qué escenario se adapta mejor a su caso. Los escenarios de ejemplo que se describen en [Escenarios para análisis avanzado en Aprendizaje automático de Azure](../machine-learning-data-science-plan-sample-scenarios.md).
+Cuando haya respondido a las preguntas de la sección anterior, estará listo para determinar qué escenario se adapta mejor a su caso. Los escenarios de ejemplo que se describen en [Escenarios para análisis avanzado en Aprendizaje automático de Azure](machine-learning-data-science-plan-sample-scenarios.md).
 
 
 
@@ -114,4 +114,4 @@ Cuando haya respondido a las preguntas de la sección anterior, estará listo pa
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

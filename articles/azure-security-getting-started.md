@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/04/2016"
    ms.author="yuridio"/>
 
 #Introducción a la seguridad de Microsoft Azure
@@ -138,9 +138,9 @@ Azure proporciona tres niveles principales de segregación de red en cada clúst
 El tráfico de red hacia y desde máquinas virtuales debe pasar a través del conmutador virtual del hipervisor. El componente del filtro IP en el SO raíz aísla la máquina virtual raíz de las máquinas virtuales invitadas y estas entre sí. Realiza el filtrado del tráfico para restringir la comunicación entre los nodos del inquilino y la Internet pública (según la configuración del servicio del cliente), y los separa de otros inquilinos.
 
 El filtro IP ayuda a evitar que las máquinas virtuales invitadas:
- 
+
 - Generen tráfico falsificado
- 
+
 - Reciban tráfico que no está dirigido a ellas
 
 - Dirijan tráfico a puntos de conexión de la infraestructura protegida
@@ -209,7 +209,7 @@ Los administradores de Azure tienen acceso a los registros a través de un porta
 
 Microsoft recopila registros de dispositivos de red mediante el protocolo Syslog y de servidores de host mediante los servicios de recopilación de auditorías (ACS) de Microsoft. Estos registros se colocan en una base de datos de registro desde la que se generan alertas para los eventos sospechosos directamente a un administrador de Microsoft. El administrador puede acceder a estos registros y analizarlos.
 
-[Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) es una característica de Azure que permite recopilar datos de diagnóstico de una aplicación que se está ejecutando en Azure. Se trata de datos de diagnóstico para depurar y solucionar problemas, medir el rendimiento, supervisar el uso de los recursos, analizar el tráfico y planificar la capacidad y realizar auditorías. Después de recopilar los datos de diagnóstico, se pueden transferir a una cuenta de almacenamiento de Azure para la persistencia. Las transferencias pueden se programadas o a petición. El artículo [Administración de registros de auditoría y seguridad de Microsoft Azure](azure-security-audit-log-management.md) proporciona información acerca de cómo puede recopilar esta información y analizarla.
+[Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) es una característica de Azure que permite recopilar datos de diagnóstico de una aplicación que se está ejecutando en Azure. Se trata de datos de diagnóstico para depurar y solucionar problemas, medir el rendimiento, supervisar el uso de los recursos, analizar el tráfico y planificar la capacidad y realizar auditorías. Después de recopilar los datos de diagnóstico, se pueden transferir a una cuenta de almacenamiento de Azure para la persistencia. Las transferencias pueden se programadas o a petición.
 
 ##Mitigación de amenazas
 
@@ -241,4 +241,4 @@ Azure tiene controles de seguridad para implementar la mitigación de amenazas y
 
 [Blog de Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

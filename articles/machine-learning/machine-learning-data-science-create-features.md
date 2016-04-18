@@ -21,14 +21,15 @@
 
 La ingeniería de características intenta aumentar la eficacia predictiva de los algoritmos de aprendizaje creando características de los datos sin procesar que facilitan el proceso de aprendizaje.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea es un paso del [proceso de Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea es un paso del [proceso de Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##Introducción
 
 En este tema se explica el propósito del diseño de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Estos ejemplos se extraen de Estudio de aprendizaje automático de Azure.
 
-La ingeniería y la selección de características es una parte del proceso de CAP descrito en [¿Cuál es el proceso de análisis de Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) La selección y la ingeniería de características son partes del paso **Desarrollo de características** del CAP. * **Ingeniería de características**: este proceso intenta crear otras características pertinentes además de las características sin procesar existentes de los datos, y aumentar la eficacia de predicción del algoritmo de aprendizaje. * **Selección de características**: este proceso, selecciona el subconjunto de claves de características de datos originales en un intento de reducir las dimensionalidad del problema de entrenamiento.
+La ingeniería y la selección de características es una parte del proceso de CAP descrito en [¿Cuál es el proceso de análisis de Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) La selección y el diseño de características son fases del paso **Desarrollo de características** del CAP.
+* **Diseño de características**: este proceso trata de crear más características pertinentes a partir de las que tengamos sin procesar en los datos, así como de mejorar la eficacia predictiva del algoritmo de aprendizaje.
+* **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
 
 Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza el paso de **selección de características** para eliminar características irrelevantes, redundantes o altamente correlacionadas.
 
@@ -46,7 +47,7 @@ Los datos de entrenamiento constan de una matriz compuesta de ejemplos (registro
 
 Al comenzar con Aprendizaje automático de Azure, es más fácil comprender este proceso de manera concreta si se usan ejemplos proporcionados en Estudio. Aquí se muestran dos ejemplos:
 
-* Un ejemplo de regresión, [Predicción del número de bicicletas alquiladas](../machine-learning-sample-prediction-of-number-of-bike-rentals.md), en un experimento supervisado en el que se conocen los valores de destino
+* Un ejemplo de regresión, [Predicción del número de bicicletas alquiladas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4), en un experimento supervisado en el que se conocen los valores de destino
 * Un ejemplo de clasificación de minería de texto con [Hash de características](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ### Ejemplo 1: incorporación de características temporales para el modelo de regresión ###
@@ -96,4 +97,4 @@ Las características diseñadas y seleccionadas aumenta la eficiencia del proces
 Observe que no siempre es necesario realizar el diseño o la selección de características. Si es necesario o no depende de los datos que se tengan o que se hayan recopilado, del algoritmo que se elija y del objetivo del experimento.
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

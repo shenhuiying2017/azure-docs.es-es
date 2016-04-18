@@ -98,9 +98,9 @@ Los siguientes diagramas ilustran los datos usados.
 
 
 *Ilustración 7: Características extraídas de la fuente de datos*
-> Tenga en cuenta que estos datos son privados y, por tanto, no se pueden compartir el modelo y los datos. Sin embargo, para un modelo similar utilizando los datos disponibles públicamente, vea este experimento de ejemplo en la [Galería de análisis de Cortana](http://gallery.azureml.net/): [abandono de clientes de telecomunicaciones](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Tenga en cuenta que estos datos son privados y, por tanto, no se pueden compartir el modelo y los datos. Sin embargo, para un modelo similar utilizando los datos disponibles públicamente, vea este experimento de ejemplo en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/): [Pérdida de clientes de telecomunicaciones](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
-> Para obtener más información acerca de cómo se puede implementar un modelo de análisis de renovación con Cortana Analytics Suite, también se recomienda el visionado de [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del director del programa, Wee Hyong Tok.
+> Para obtener más información sobre cómo se puede implementar un modelo de análisis de renovación con Cortana Intelligence Suite, también se recomienda el visionado de [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del director del programa, Wee Hyong Tok.
 > 
 
 ###Algoritmos usados en el prototipo
@@ -221,7 +221,7 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 
 [4] [Marketing de Big Data: Atraer más eficazmente a los clientes e impulsar el valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Plantilla de modelo de renovación de Telco] (http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) en la Galería de Cortana Analytics
+[5] [Plantilla del modelo de pérdida de clientes en empresas de telecomunicaciones](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/)
 ##Anexo
 
 ![][10]
@@ -240,4 +240,4 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="03/15/2016"
+    ms.date="04/01/2016"
     ms.author="sstein"/>
 
 # Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas con PowerShell 
@@ -22,7 +22,7 @@
 - [Portal de Azure](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
-
+- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 Obtenga más información sobre cómo administrar un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) mediante cmdlets de PowerShell.
 
@@ -59,14 +59,14 @@ Para cambiar la configuración de rendimiento de un grupo de bases de datos elá
 
 ## Obtención del estado de las operaciones de los grupos
 
-Puede realizar un seguimiento del estado de las operaciones del grupo como la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
+Puede realizar un seguimiento del estado de las operaciones del grupo, como la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
 
 	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
 ## Obtención del estado entrada o salida de un grupo de una base de datos elástica
 
-Puede realizar un seguimiento del estado de las operaciones de las bases de datos elásticas, incluidas la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx).
+Puede realizar un seguimiento del estado de las operaciones de las bases de datos elásticas, como la creación y las actualizaciones, mediante el cmdlet [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx).
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
@@ -171,11 +171,11 @@ Exportación a un archivo CSV:
 
 ## Pasos siguientes
 
-- [Información general de Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md): los trabajos de base de datos elástica le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos en el grupo.
+- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos del grupo.
 
 
 ## Referencia de bases de datos elásticas
 
 Para obtener información detallada acerca de los grupos y las bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

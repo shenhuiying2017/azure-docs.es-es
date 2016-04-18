@@ -21,8 +21,9 @@
 
 
 > [AZURE.SELECTOR]
-- [CLI de Azure](dns-getstarted-create-recordset-cli.md)
+- [Portal de Azure](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
+- [CLI de Azure](dns-getstarted-create-recordset-cli.md)
 
 Después de crear la zona DNS, deberá agregar los registros DNS para su dominio. Para ello, primero debe saber qué son los registros y los conjuntos de registros DNS.
 
@@ -125,4 +126,4 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

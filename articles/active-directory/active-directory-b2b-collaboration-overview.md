@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="03/31/2016"
    ms.author="curtand"/>
 
-# Colaboración de Azure Active Directory (Azure AD) B2B
+# Colaboración de Azure Active Directory B2B
 
-La colaboración de Azure AD B2B le permite habilitar el acceso a sus aplicaciones corporativas desde identidades administradas por socios. Puede crear relaciones entre empresas invitando y autorizando a los usuarios de empresas asociadas para tener acceso a su recursos. La complejidad se reduce debido a que cada empresa federa una vez con Azure Active Directory y cada usuario está representado por una sola cuenta de Azure AD. La seguridad aumenta porque se revoca el acceso cuando se eliminan los usuarios de socios de sus organizaciones y se impide el acceso no deseado mediante la pertenencia en directorios internos. Para los socios comerciales que ya no tienen Azure AD, la colaboración de B2B tiene una experiencia de registro simplificada para ofrecer las cuentas de Azure AD a sus socios comerciales.
+Gracias a la colaboración B2B de Azure Active Directory (Azure AD), podrá habilitar el acceso a sus aplicaciones corporativas desde identidades administradas por socios. Puede crear relaciones entre empresas invitando y autorizando a los usuarios de empresas asociadas para tener acceso a su recursos. La complejidad se reduce debido a que cada empresa federa una vez con Azure Active Directory y cada usuario está representado por una sola cuenta de Azure AD. La seguridad aumenta porque se revoca el acceso cuando se eliminan los usuarios de socios de sus organizaciones y se impide el acceso no deseado mediante la pertenencia en directorios internos. Para los socios comerciales que ya no tienen Azure AD, la colaboración de B2B tiene una experiencia de registro simplificada para ofrecer las cuentas de Azure AD a sus socios comerciales.
 
 -   Los socios comerciales usan sus propias credenciales de inicio de sesión, lo que le libera de la administración de un directorio de socios externos y de la necesidad de quitar el acceso cuando los usuarios dejen la organización asociada.
 
@@ -30,7 +30,7 @@ La colaboración de B2B simplifica la administración y mejora la seguridad del 
 
 La colaboración de Azure Active Directory B2B es sencilla de configurar con registro simplificado para socios de todos los tamaños incluso si no disponen de su propio Azure Active Directory mediante un proceso comprobado por correo electrónico. También es sencillo de mantener sin directorios externos o configuraciones de federación por socio.
 
-El proceso:
+## Proceso de colaboración B2B
 
 1. La colaboración de Azure AD B2B permite a un administrador de compañía invitar y autorizar a un conjunto de usuarios externos cargando un archivo de valores separados por comas (CSV) de no más de 2000 líneas en el portal de colaboración de B2B.
 
@@ -46,25 +46,10 @@ No se admiten actualmente las invitaciones a las direcciones de correo electrón
 
 Para obtener más información sobre el funcionamiento de la colaboración de B2B, eche un vistazo a [este vídeo](http://aka.ms/aadshowb2b).
 
-## Formato de archivo CSV
-
-El archivo CSV sigue el siguiente formato. Agregue toda las comas necesarias aunque no especifique una o más opciones.
-
-**Email:** dirección de correo electrónico para el usuario invitado.<br/> **DisplayName:** el nombre para mostrar para el usuario invitado (normalmente, nombre y apellidos).<br/> **InviteAppID:** el id. de la aplicación que se usará para la personalización de marca de la invitación por correo electrónico y las páginas de aceptación.<br/> **InviteReplyURL:** dirección URL a la que se dirigirá un usuario invitado después de la aceptación de la invitación. Debería ser una URL específica de compañía (como [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). Si no se especifica este campo opcional, se generará la dirección URL del Panel de acceso de la compañía que realiza la invitación (esta dirección URL tiene el formato `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`).<br/> **InviteAppResources:** AppID a los que las aplicaciones pueden asignar usuarios. Los AppID son recuperables mediante una llamada a `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/> **InviteGroupResources:** los ObjectID para que los grupos agregarán el usuario. Los ObjectID son recuperables mediante una llamada a `Get-MsolGroup | fl DisplayName, ObjectId`<br/> **InviteContactUsUrl:** la URL de contacto que se incluirá en las invitaciones por correo electrónico en caso de que el usuario invitado quiera ponerse en contacto con su organización.<br/>
-
-## Archivo CSV de ejemplo
-Este es un CSV de ejemplo que puede modificar para sus objetivos. Guárdelo con cualquier nombre de archivo que prefiera, pero asegúrese de que tiene una extensión de archivo 'csv'.
-
-```
-Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
-wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
-jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
-bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
-```
 ## Pasos siguientes
-Examine nuestros otros artículos sobre la colaboración de Azure B2B
+Examine nuestros otros artículos sobre colaboración B2B de Azure.
 
-- [¿Qué es la colaboración de Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Cómo funciona](active-directory-b2b-how-it-works.md)
 - [Tutorial detallado](active-directory-b2b-detailed-walkthrough.md)
 - [Referencia de formato de archivo CSV](active-directory-b2b-references-csv-file-format.md)
@@ -73,4 +58,4 @@ Examine nuestros otros artículos sobre la colaboración de Azure B2B
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

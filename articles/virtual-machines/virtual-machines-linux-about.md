@@ -32,7 +32,7 @@ Esta tabla permite comparar las opciones de Azure.
 
 ## Pasos siguientes
 
-Pruebe una máquina virtual mediante la creación de una máquina virtual simple rápidamente. Para obtener instrucciones, consulte [Quickly Create a Linux VM on Azure using the CLI](virtual-machines-linux-cli-create.md) (Creación rápida de una máquina virtual Linux en Azure mediante la CLI) .
+Pruebe una máquina virtual mediante la creación de una máquina virtual simple rápidamente. Para obtener instrucciones, consulte [Creación de una máquina virtual con Linux desde la CLI de Azure para desarrollo y pruebas](virtual-machines-linux-quick-create-cli.md).
 
 Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestra una manera de hacerlo en lugar de describir las diversas herramientas que puede usar para crear máquinas virtuales. Para ver un resumen de estas herramientas y vínculos a instrucciones, consulte [Diferentes formas de crear una máquina virtual Linux con Resource Manager](virtual-machines-linux-creation-choices.md).
 
@@ -42,4 +42,4 @@ Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestr
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

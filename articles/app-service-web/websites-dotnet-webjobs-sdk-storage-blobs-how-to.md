@@ -30,7 +30,7 @@ En la guía se supone que sabe [cómo crear un proyecto de trabajos web en Visua
 
 Esta sección muestra cómo usar el atributo `BlobTrigger`.
 
-> [AZURE.NOTE]El SDK de WebJobs analiza los archivos de registro en busca de blobs nuevos o modificados. Este proceso no se produce en tiempo real; podrían tardarse varios minutos o más en desencadenar una función después de crear el blob. Además, los [registros de almacenamiento se crean como "el mejor esfuerzo"](https://msdn.microsoft.com/library/azure/hh343262.aspx); no hay ninguna garantía de que se capturarán todos los eventos. En algunos casos, podrían faltar registros. Si los límites de velocidad y confiabilidad de los desencadenadores de blobs no son aceptables para su aplicación, el método recomendado es crear un mensaje de cola al crear el blob y usar el atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) en lugar del atributo `BlobTrigger` en la función que procesa el blob.
+> [AZURE.NOTE] El SDK de WebJobs analiza los archivos de registro en busca de blobs nuevos o modificados. Este proceso no se produce en tiempo real; podrían tardarse varios minutos o más en desencadenar una función después de crear el blob. Además, los [registros de almacenamiento se crean como "el mejor esfuerzo"](https://msdn.microsoft.com/library/azure/hh343262.aspx); no hay ninguna garantía de que se capturarán todos los eventos. En algunos casos, podrían faltar registros. Si los límites de velocidad y confiabilidad de los desencadenadores de blobs no son aceptables para su aplicación, el método recomendado es crear un mensaje de cola al crear el blob y usar el atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) en lugar del atributo `BlobTrigger` en la función que procesa el blob.
 
 ### Único marcador de posición para el nombre de blob con extensión  
 
@@ -150,6 +150,21 @@ El código de enlace `WebImage` se proporciona en una clase `WebImageBinder` que
 		    }
 		}
 
+## Obtención de la ruta de acceso del blob de desencadenamiento
+
+Para obtener el nombre del contenedor y el del blob que desencadenó la función, incluya un parámetro de cadena `blobTrigger` en la firma de función.
+
+		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
+		    string name,
+		    string blobTrigger,
+		    TextWriter logger)
+		{
+		     logger.WriteLine("Full blob path: {0}", blobTrigger);
+		     logger.WriteLine("Content:");
+		     logger.WriteLine(logMessage);
+		}
+
+
 ## <a id="poison"></a> Cómo administrar los blobs dudosos
 
 Cuando una función `BlobTrigger` presenta un error, el SDK vuelve a llamarla, en caso de que se hubiese producido por un error transitorio. Si el error se produce debido al contenido del blob, la función presentará un error cada vez que intente procesar el blob. De manera predeterminada, el SDK llama una función hasta cinco veces para un blob determinado. Si el quinto intento falla, el SDK agrega un mensaje a una cola llamada *webjobs-blobtrigger-poison*.
@@ -238,4 +253,4 @@ Los temas relacionados tratados en ese artículo incluyen:
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con blobs de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

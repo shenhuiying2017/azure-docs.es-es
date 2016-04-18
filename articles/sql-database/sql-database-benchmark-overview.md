@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter="na"
 	authors="rothja"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/15/2015"
+	ms.date="04/04/2016"
 	ms.author="jroth" />
 
 # Información general sobre la prueba comparativa Base de datos SQL de Azure
@@ -130,4 +130,4 @@ La prueba comparativa Base de datos SQL de Azure Benchmark mide el rendimiento r
 
 [Guía de rendimiento de Base de datos SQL de Azure para bases de datos únicas](sql-database-performance-guidance.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0406_2016-->

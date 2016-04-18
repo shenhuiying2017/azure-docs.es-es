@@ -20,7 +20,7 @@
 
 ## Información general
 
-Esta guía proporciona muestras de código de C# que muestran la manera de desencadenar un proceso cuando se crea o actualiza un blob de Azure. Las muestras de código usan el [SDK de WebJobs](websites-dotnet-webjobs-sdk.md) versión 1.x.
+Esta guía proporciona muestras de código de C# que muestran la manera de desencadenar un proceso cuando se recibe un mensaje de Bus de servicio de Azure. Las muestras de código usan el [SDK de WebJobs](websites-dotnet-webjobs-sdk.md) versión 1.x.
 
 En la guía se supone que sabe [cómo crear un proyecto de trabajos web en Visual Studio con cadenas de conexión que señalan a su cuenta de almacenamiento](websites-dotnet-webjobs-sdk-get-started.md).
 
@@ -61,7 +61,7 @@ Las cadenas de conexión también se puede definir en el entorno de tiempo de ej
 
 Para escribir una función que el SDK de WebJobs llama cuando se recibe un mensaje en cola, use el atributo`ServiceBusTrigger`. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la cola que se va a sondear.
 
-### Cómo funciona ServicebusTrigger
+### Cómo funciona ServiceBusTrigger
 
 El SDK de recibe un mensaje en el modo `PeekLock` y llama a `Complete` en el mensaje si la función finaliza correctamente, o llama a `Abandon` si se produce un error en la función. Si la ejecución de la función dura más que el tiempo de espera de `PeekLock`, el bloqueo se renovará automáticamente.
 
@@ -186,4 +186,4 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con el Bus de servicio de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

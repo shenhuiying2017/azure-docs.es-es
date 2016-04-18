@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="03/31/2016" 
 	ms.author="ryancraw"/>
 
 # SDK de DocumentDB
@@ -36,7 +36,7 @@
 
 ## Notas de la versión
 
-### <a name="1.6.1"/>[1\.6.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.1)
+### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.1)
   - [Colecciones con particiones](documentdb-partition-data.md) implementadas y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md). 
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
@@ -82,7 +82,7 @@
   - Se agregó compatibilidad para consulta e indexación espacial
     - Nuevo espacio de nombres Microsoft.Azure.Documents.Spatial para serializar y deserializar tipos espaciales como punto y polígono
     - Nueva clase de SpatialIndex para la indexación de datos GeoJSON almacenados en DocumentDB
-  - **[Corregido]**: consulta SQL incorrecta generada a partir de la expresión linq [n.º 38](https://github.com/Azure/azure-documentdb-net/issues/38)
+  - **[Corregido]**: consulta SQL incorrecta generada a partir de la expresión linq [n.º 38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### <a name="1.2.0"/>[1\.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
 - Dependencia de Newtonsoft.Json v5.0.7 
@@ -90,9 +90,9 @@
   - Compatibilidad del proveedor LINQ para OrderBy() u OrderByDescending()
   - IndexingPolicy para admitir Order By 
   
-		**NB: Posible cambio brusco** 
+		**NB: Possible breaking change** 
   
-    	Si tiene un código existente que aprovisiona colecciones con una directiva de indexación personalizada, habrá que actualizar el código existente para admitir la nueva clase IndexingPolicy. Si no tiene ninguna directiva de indexación personalizada, este cambio no le afectará.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Compatibilidad para las particiones de datos mediante las nuevas clases HashPartitionResolver y RangePartitionResolver y el IPartitionResolver
@@ -124,21 +124,7 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
  
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1.6.1](#1.6.1) | 29 de marzo de 2016 |--- 
-| [1.5.3](#1.5.3) | 19 de febrero de 2016 |--- 
-| [1.5.2](#1.5.2) | 14 de diciembre de 2015 |--- 
-| [1.5.1](#1.5.1) | 23 de noviembre de 2015 |--- 
-| [1.5.0](#1.5.0) | 05 de octubre de 2015 |--- 
-| [1.4.1](#1.4.1) | 25 de agosto de 2015 |--- 
-| [1.4.0](#1.4.0) | 13 de agosto de 2015 |--- 
-| [1.3.0](#1.3.0) |05 de agosto de 2015 |--- 
-| [1.2.0](#1.2.0) | 06 de julio de 2015 |--- 
-| [1.1.0](#1.1.0) | 30 de abril de 2015 |--- 
-| [1.0.0](#1.0.0) | 08 de abril de 2015 |--- 
-| [0.9.3-versión preliminar](#0.9.x-preview) | 12 de marzo de 2015 | 29 de febrero de 2016 
-| [0.9.2-versión preliminar](#0.9.x-preview) | enero de 2015 | 29 de febrero de 2016 
-| [0.9.1-versión preliminar](#0.9.x-preview) | 13 de octubre de 2014 | 29 de febrero de 2016 
-| [0.9.0-versión preliminar](#0.9.x-preview) | 21 de agosto de 2014 | 29 de febrero de 2016
+| [1\.6.2](#1.6.2) | 29 de marzo de 2016 |--- | [1\.5.3](#1.5.3) | 19 de febrero de 2016 |--- | [1\.5.2](#1.5.2) | 14 de diciembre de 2015 |--- | [1\.5.1](#1.5.1) | 23 de noviembre de 2015 |--- | [1\.5.0](#1.5.0) | 05 de octubre de 2015 |--- | [1\.4.1](#1.4.1) | 25 de agosto de 2015 |--- | [1\.4.0](#1.4.0) | 13 de agosto de 2015 |--- | [1\.3.0](#1.3.0) |05 de agosto de 2015 |--- | [1\.2.0](#1.2.0) | 06 de julio de 2015 |--- | [1\.1.0](#1.1.0) | 30 de abril de 2015 |--- |[1\.0.0](#1.0.0) | 08 de abril de 2015 |--- | [0\.9.3-versión preliminar](#0.9.x-preview) | 12 de marzo de 2015 | 29 de febrero de 2016 | [0\.9.2-versión preliminar](#0.9.x-preview) | enero de 2015 | 29 de febrero de 2016 | [.9.1-versión preliminar](#0.9.x-preview) | 13 de octubre de 2014 | 29 de febrero de 2016 | [0\.9.0-versión preliminar](#0.9.x-preview) | 21 de agosto de 2014 | 29 de febrero de 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -147,4 +133,4 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
