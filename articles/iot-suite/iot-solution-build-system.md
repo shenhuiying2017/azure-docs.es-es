@@ -389,7 +389,8 @@ Y establezca el desencadenador de versión en implementación continua; es decir
 
 ![](./media/iot-solution-build-system/image8.png)
 
-Para las aplicaciones móviles, implementamos en HockeyApp: ![](./media/iot-solution-build-system/image9.png)
+Para las aplicaciones móviles, implementamos en HockeyApp:
+![](./media/iot-solution-build-system/image9.png)
 
 ## Application Insights
 
@@ -475,4 +476,4 @@ Si lo desea, puede registrar un [problema en GitHub] o dejar un comentario a con
 
 Esperamos sus noticias.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

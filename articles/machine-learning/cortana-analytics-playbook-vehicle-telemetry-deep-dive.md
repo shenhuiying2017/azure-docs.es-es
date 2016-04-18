@@ -387,7 +387,7 @@ Este patrón también es aplicable a escenarios donde desea integrar una aplicac
 
 Haga clic en la [descarga de RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) para descargar la solución de Visual Studio de RealtimeDashboardApp para las personalizaciones.
 
-**** Para ejecutar la aplicación de panel en tiempo real **
+**Para ejecutar la aplicación de panel en tiempo real**
 
 1.	CNAMEs are displayed directly below this graphHaga clic en el nodo PowerBI en la vista de diagrama y luego en el vínculo Descargar aplicación del panel en tiempo real, en el panel de propiedades. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Ilustración 17: Instrucciones de configuración del panel de Power BI*
 2.	Extraer y guardar localmente ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Ilustración 18: Carpeta RealtimeDashboardApp*

@@ -68,7 +68,7 @@ Cuando se usan SDK (o integraciones de productos) que no detectan el Centro de I
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] En ocasiones, el SDK requiere un valor de **nombre de host** o **espacio de nombres**. En ese caso, quite el esquema de **Punto de conexión compatible con Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** sería **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] En ocasiones, el SDK requiere un valor de **nombre de host** o **espacio de nombres**. En ese caso, quite el esquema de **Punto de conexión compatible con Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** sería **iothub-ns-myiothub-1234**.
 
 Luego, puede usar cualquier directiva de seguridad de acceso compartido que tenga permisos **ServiceConnect** para conectarse al Centro de eventos especificado.
 

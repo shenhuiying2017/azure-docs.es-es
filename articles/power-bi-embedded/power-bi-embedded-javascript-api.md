@@ -1,6 +1,6 @@
 <properties
    pageTitle="API de JavaScript para Power BI Embedded"
-   description=""
+   description="API de JavaScript para Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

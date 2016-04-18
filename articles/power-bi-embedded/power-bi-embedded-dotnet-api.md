@@ -1,6 +1,6 @@
 <properties
    pageTitle="API de Power BI Embedded .NET"
-   description=""
+   description="API de Power BI Embedded .NET"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

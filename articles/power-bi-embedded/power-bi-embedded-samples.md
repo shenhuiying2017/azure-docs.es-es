@@ -1,6 +1,6 @@
 <properties
    pageTitle="Get started with the sample (Introducción a la muestra)"
-   description=""
+   description="Get started with the sample (Introducción a la muestra)"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

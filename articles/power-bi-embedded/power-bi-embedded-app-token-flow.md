@@ -1,6 +1,6 @@
 <properties
    pageTitle="Acerca del flujo del token de aplicación en Power BI Embedded"
-   description=""
+   description="Acerca del flujo del token de aplicación en Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
