@@ -27,7 +27,7 @@ En este tema se ofrece información general acerca de algunos aspectos relaciona
 Al crear una máquina virtual Linux con el Portal de Azure clásico, se le pedirá que facilite un nombre de usuario, una contraseña o una clave pública SSH. La elección de un nombre de usuario para implementar una máquina virtual Linux en Azure está sujeta a la siguiente limitación: no se admiten los nombres de cuentas del sistema (UID <100) ya existentes en la máquina virtual, como por ejemplo, "root".
 
 
- - Consulte [Creación de una máquina virtual que ejecuta Linux](virtual-machines-linux-cli-create.md)
+ - Consulte [Creación de una máquina virtual que ejecuta Linux](virtual-machines-linux-quick-create-cli.md)
  - Consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-ssh-from-linux.md)
 
 
@@ -98,4 +98,4 @@ En Linux el kernel debe poner al disco de datos el nombre `/dev/sdc` y los usuar
 
  - **Consulte también:** [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

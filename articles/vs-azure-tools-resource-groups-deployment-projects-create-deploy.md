@@ -181,7 +181,7 @@ A estas alturas ha implementado la infraestructura de la aplicación, pero no ha
 
     ![agregar implementación web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Vuelva a implementar el proyecto del grupo de recursos en el grupo de recursos. Esta vez, hay algunos parámetros nuevos. No es necesario proporcionar valores para ** \_artifactsLocation ** o ** \_artifactsLocationSasToken ** ya que se generan automáticamente. Establezca la carpeta y el nombre de archivo en la ruta de acceso que contiene el paquete de implementación.
+1. Vuelva a implementar el proyecto del grupo de recursos en el grupo de recursos. Esta vez, hay algunos parámetros nuevos. No es necesario proporcionar valores para **\_artifactsLocation** o **\_artifactsLocationSasToken** ya que se generan automáticamente. Establezca la carpeta y el nombre de archivo en la ruta de acceso que contiene el paquete de implementación.
 
     ![agregar implementación web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
@@ -196,4 +196,4 @@ Una vez finalizada la implementación, puede ir al sitio y podrá observar que s
 - Para más información sobre cómo administrar sus recursos a través del portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

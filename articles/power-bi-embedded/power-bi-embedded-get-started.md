@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introducción a la versión preliminar de Microsoft Power BI Embedded"
-   description=""
+   description="Introducción a la versión preliminar de Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -74,17 +74,15 @@ Ahora que tiene una instancia de Power BI para su aplicación y las **claves de 
 
 ## Creación de conjuntos de datos e informes de Power BI para insertar en una aplicación
 
-Ya ha creado una instancia de Power BI para su aplicación y tiene las **claves de acceso**, ahora deberá crear los conjuntos de datos y los informes de Power BI que quiere insertar. Los conjuntos de datos y los informes se pueden crear con **Power BI Desktop**. Puede descargar [Power BI Desktop de forma gratuita](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). O bien, para empezar a trabajar rápidamente, puede descargar el [ejemplo de PBIX de análisis de datos de ventas](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix). Para más información sobre cómo usar **Power BI Desktop**, consulte [Getting Started with Power BI Desktop](https://powerbi.microsoft.com/es-ES/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop) (Introducción a Power BI Desktop).
-
-> [AZURE.NOTE] Para saber cómo se ha creado el archivo PBIX de análisis de datos de ventas, consulte [Tutorial: Analizar datos de ventas de Excel y una fuente de OData](https://powerbi.microsoft.com/es-ES/documentation/powerbi-desktop-tutorial-analyzing-sales-data-from-excel-and-an-odata-feed).
+Ya ha creado una instancia de Power BI para su aplicación y tiene las **claves de acceso**, ahora deberá crear los conjuntos de datos y los informes de Power BI que quiere insertar. Los conjuntos de datos y los informes se pueden crear con **Power BI Desktop**. Puede descargar [Power BI Desktop de forma gratuita](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). O bien, para empezar a trabajar rápidamente, puede descargar el [archivo PBIX con un ejemplo de análisis minorista](http://go.microsoft.com/fwlink/?LinkID=780547). Para más información sobre cómo usar **Power BI Desktop**, consulte [Getting Started with Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop) (Introducción a Power BI Desktop).
 
 Con **Power BI Desktop**, puede conectarse al origen de datos mediante la importación de una copia de los datos a **Power BI Desktop** o conectándose directamente al origen de datos mediante **DirectQuery**.
 
-Estas son las diferencias entre usar la **importación** y **DirectQuery**.
+Estas son las diferencias entre usar **Importación** y **DirectQuery**.
 
 |Importación | DirectQuery
 |---|---
-|Las tablas, las columnas y los *datos* se importan o se copian en **Power BI Desktop**. Mientras trabaja con visualizaciones, **Power BI Desktop** consulta una copia de los datos. Para ver los cambios que se han producido en los datos subyacentes, debe actualizar o importar de nuevo un conjunto de datos actual completo.|Solo se importan o copian en **Power BI Desktop** *tablas y columnas*. Mientras trabaja con visualizaciones, **Power BI Desktop** consulta el origen de datos subyacente, lo que significa que siempre se están viendo los datos actuales.
+|Las tablas, las columnas y los *datos* se importan o se copian en **Power BI Desktop**. Mientras trabaja con visualizaciones, **Power BI Desktop** consulta una copia de los datos. Para ver los cambios que se han producido en los datos subyacentes, debe actualizar o importar de nuevo un conjunto de datos actual completo.|Solo se importan o copian *tablas y columnas* en **Power BI Desktop**. Mientras trabaja con visualizaciones, **Power BI Desktop** consulta el origen de datos subyacente, lo que significa que siempre se están viendo los datos actuales.
 
 Para más información sobre cómo conectarse a un origen de datos, consulte [Connect to a data source](power-bi-embedded-connect-datasource.md) (Conexión a un origen de datos).
 
@@ -95,7 +93,7 @@ Después de guardar su trabajo en **Power BI Desktop**, se crea un archivo PBIX.
 ## Pasos siguientes
 En los pasos anteriores, ha creado una colección de áreas de trabajo y su primer informe y conjunto de datos. Ahora es el momento de aprender a escribir código para **Power BI Embedded**. Para ayudarle a empezar, hemos creado una aplicación web de ejemplo: [Get started with Microsoft Power BI Embedded sample](power-bi-embedded-get-started-sample.md) (Introducción a Microsoft Power BI Embedded: ejemplo). El ejemplo le muestra cómo:
 
-  -	Aprovisionar contenido:
+  -	Aprovisionar contenido
       - Crear un área de trabajo
       - Importar un archivo PBIX
       - Actualizar las cadenas de conexión y establecer las credenciales para los conjuntos de datos.
@@ -103,10 +101,10 @@ En los pasos anteriores, ha creado una colección de áreas de trabajo y su prim
   -	Insertar un informe de forma segura
 
 ## Otras referencias
-- [Get started with Microsoft Power BI Embedded sample](power-bi-embedded-get-started-sample.md) (Introducción a Microsoft Power BI Embedded: ejemplo)
-- [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md) (¿Qué es Microsoft Power BI Embedded?)
+- [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](power-bi-embedded-get-started-sample.md)
+- [What is Microsoft Power BI Embedded (¿Qué es Microsoft Power BI Embedded?)](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Introducción a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Precios Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -42,7 +42,7 @@ A grandes rasgos, para implementar un modelo de conmutación por error regional 
 
 * **Un Centro de IoT secundario y lógica de enrutamiento de dispositivo**: si se produce una interrupción del servicio en la región primaria, los dispositivos deben empezar a conectarse a la región secundaria. Como se conoce el estado de la mayoría de los servicios implicados, es habitual que los administradores de la solución desencadenen el proceso de conmutación por error entre regiones. La mejor forma de comunicar el nuevo extremo a los dispositivos, sin perder el control del proceso, es hacer que comprueben periódicamente un servicio de *conserje* para el extremo activo actual. El servicio de conserje puede ser una aplicación web simple que se replica y se mantiene accesible mediante técnicas de redirección de DNS (por ejemplo, con el [Administrador de tráfico de Azure][]).
 * **Replicación del registro de identidades**: para que el Centro de IoT secundario pueda usarse, debe contener todas las identidades de dispositivo que se pueden conectar a la solución. La solución debe conservar copias de seguridad de replicación geográfica de las identidades de dispositivo y cargarlas en el Centro de IoT secundario antes de cambiar el punto de conexión activo de los dispositivos. La funcionalidad de exportación de identidades de dispositivo del Centro de IoT resulta muy útil en este contexto. Para obtener más información, consulte [Guía para desarrolladores del Centro de IoT: Registro de identidades][].
-* **Lógica de combinación**: cuando la región primaria vuelve a estar disponible, todos los estados y datos que se crearon en el sitio secundario deben volver a migrarse a la región primaria. Esto tiene que ver principalmente con las identidades de dispositivo y los metadatos de aplicación, que deben combinarse con el Centro de IoT principal y con otros almacenes específicos de la aplicación en la región primaria. Para simplificar este paso, generalmente se recomienda usar operaciones idempotentes. Esto minimiza los efectos secundarios, no solo una posible distribución uniforme de eventos, sino también duplicados o entrega desordenada de eventos. Además, la lógica de aplicación debe diseñarse para que tolere posibles incoherencias o un estado "algo" desactualizado. Esto se debe al tiempo adicional que tarda el sistema en "reparar" según los objetivos de punto de recuperación (RPO). El siguiente artículo proporciona más información sobre este tema: [Failsafe: instrucciones para crear arquitecturas de nube resistentes][].
+* **Lógica de combinación**: cuando la región primaria vuelve a estar disponible, todos los estados y datos que se crearon en el sitio secundario deben volver a migrarse a la región primaria. Esto tiene que ver principalmente con las identidades de dispositivo y los metadatos de aplicación, que deben combinarse con el Centro de IoT principal y con otros almacenes específicos de la aplicación en la región primaria. Para simplificar este paso, generalmente se recomienda usar operaciones idempotentes. Esto minimiza los efectos secundarios, no solo una posible distribución uniforme de eventos, sino también duplicados o entrega desordenada de eventos. Además, la lógica de aplicación debe diseñarse para que tolere posibles incoherencias o un estado "algo" desactualizado. Esto se debe al tiempo adicional que tarda el sistema en "reparar" según los objetivos de punto de recuperación (RPO).
 
 ## Pasos siguientes
 
@@ -53,11 +53,11 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 
 [Orientación técnica de la continuidad del negocio de Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 [Consideraciones sobre la alta disponibilidad y la recuperación ante desastres para las aplicaciones de Azure]: https://msdn.microsoft.com/library/azure/dn251004.aspx
-[Failsafe: instrucciones para crear arquitecturas de nube resistentes]: https://msdn.microsoft.com/library/azure/jj853352.aspx
+[Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
 [Administrador de tráfico de Azure]: https://azure.microsoft.com/documentation/services/traffic-manager/
 [Guía para desarrolladores del Centro de IoT: Registro de identidades]: iot-hub-devguide.md#identityregistry
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

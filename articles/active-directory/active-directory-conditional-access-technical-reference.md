@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/11/2016"
+	ms.date="03/30/2016"
 	ms.author="femila"/>
 
 # Referencia técnica: acceso condicional a aplicaciones de Azure AD
@@ -31,14 +31,19 @@ Las reglas de acceso condicional se admiten en varios tipos de aplicaciones de A
 
 ## Habilitación de reglas de acceso
 
-Cada regla puede habilitarse o deshabilitarse en función de la aplicación. Cuando las reglas están 'ACTIVADAS', se habilitarán y se exigirán a los usuarios que acceden a la aplicación. Cuando están 'DESACTIVADAS', no se utilizarán ni afectarán a la experiencia de inicio de sesión de los usuarios.
+Cada regla puede habilitarse o deshabilitarse en función de la aplicación. Cuando las reglas estén **ACTIVADAS**, se habilitarán y se exigirán a los usuarios que accedan a la aplicación. Cuando estén **DESACTIVADAS**, no se usarán ni afectarán a la experiencia de inicio de sesión de los usuarios.
 
 ## Aplicación de reglas a usuarios específicos
-Las reglas se pueden aplicar a conjuntos específicos de usuarios basados en un grupo de seguridad mediante la configuración de 'Aplicar a'. 'Aplicar a' puede establecerse en 'Todos los usuarios' o 'Grupos. Cuando esté establecido en 'Todos los usuarios', las reglas se aplicarán a cualquier usuario con acceso a la aplicación. La opción 'Grupos' permite seleccionar grupos de seguridad y distribución específicos; las reglas solo se aplicarán a estos grupos. Al implementar por primera vez una regla, se suele aplicar primero a un conjunto limitado de usuarios, que sean miembros de grupos de proyectos piloto. Una vez finalizada la regla, se puede aplicar a "Todos los usuarios"; esto hará que la regla se pueda exigir a todos los usuarios de la organización. Asimismo, se pueden excluir de la directiva grupos seleccionados mediante la opción 'Excepto'. Aunque aparezcan en un grupo incluido, todos los miembros de estos grupos quedarán excluidos.
+Las reglas se pueden aplicar a conjuntos específicos de usuarios basados en un grupo de seguridad mediante la configuración de **Aplicar a**. **Aplicar a** puede establecerse en **Todos los usuarios** o **Grupos**. Cuando esté establecido en **Todos los usuarios**, las reglas se aplicarán a cualquier usuario con acceso a la aplicación. La opción **Grupos** permite seleccionar grupos de seguridad y distribución específicos; las reglas solo se aplicarán a estos grupos.
+
+  Al implementar una regla, se suele aplicar primero a un conjunto limitado de usuarios que sean miembros de grupos de proyectos piloto. Una vez finalizada la regla, puede aplicarse a **Todos los usuarios**. Esto hará que la regla se pueda exigir a todos los usuarios de la organización.
+
+Asimismo, se pueden excluir de la directiva grupos seleccionados mediante la opción **Excepto**. Aunque aparezcan en un grupo incluido, todos los miembros de estos grupos quedarán excluidos.
 
 ## Redes "en el trabajo"
 
-Las reglas de acceso condicional que utilizan una red "en el trabajo" se basan en intervalos IP de confianza que se han configurado en Azure AD. Estas reglas incluyen:
+
+Las reglas de acceso condicional que usan una red "en el trabajo" se basan en intervalos IP de confianza que se han configurado en Azure AD. Estas reglas incluyen:
 
 - Requerir autenticación multifactor fuera del trabajo
 - Bloquear el acceso fuera del trabajo
@@ -46,15 +51,23 @@ Las reglas de acceso condicional que utilizan una red "en el trabajo" se basan e
 Los intervalos IP de confianza se pueden configurar en la [página de configuración de autenticación multifactor](../multi-factor-authentication/multi-factor-authentication-whats-next.md). La directiva de acceso condicional usará los intervalos configurados en cada solicitud de autenticación y emisión de tokens para evaluar las reglas. La notificación de la red corporativa interna no se utiliza, ya que no está disponible para sesiones en directo más largas, como tokens de actualización en aplicaciones móviles.
 
 ## Reglas por aplicación
-Las reglas se configuran por aplicación, lo que permite a los servicios de alto valor estar protegidos sin que se vea afectado el acceso a otros servicios. Se pueden configurar reglas de acceso condicional en la pestaña 'Configurar' de la aplicación.
+Las reglas se configuran por aplicación, lo que permite a los servicios de alto valor estar protegidos sin que se vea afectado el acceso a otros servicios. Se pueden configurar reglas de acceso condicional en la pestaña **Configurar** de la aplicación.
 
-Las reglas que se ofrecen actualmente son:
+Reglas que se ofrecen actualmente:
 
-- Requerir autenticación multifactor
- - Todos los usuarios a los que se aplica la directiva deberán haber realizado la autenticación multifactor al menos una vez.
-- Requerir autenticación multifactor fuera del trabajo
- - Todos los usuarios a los que se aplica la directiva deberán haber realizado la autenticación multifactor al menos una vez si acceden al servicio desde una ubicación remota. Si pasan de un trabajo a una ubicación remota, se les exigirá que realicen la autenticación multifactor cuando accedan al servicio.
-- Bloquear el acceso fuera del trabajo 
- - Se bloqueará el acceso a todos los usuarios a los que se aplica la directiva cuando accedan al servicio desde una ubicación remota. Si pasan de un trabajo a una ubicación remota, se les permitirá el acceso cuando estén en una ubicación de trabajo.
+- **Requerir autenticación multifactor**
+ - Todos los usuarios a los que se aplica la directiva deberán autenticarse mediante la autenticación multifactor al menos una vez.
+ 
+- **Requerir autenticación multifactor fuera del trabajo**
+ - Si se aplica esta directiva, se exigirá a todos los usuarios que realicen la autenticación multifactor al menos una vez si acceden al servicio desde una ubicación remota fuera del trabajo. Si pasan de una ubicación en el trabajo a una ubicación remota, se les exigirá que realicen la autenticación multifactor cuando accedan al servicio.
+ 
+- **Bloquear el acceso fuera del trabajo**
+ - Cuando los usuarios pasan de una ubicación en el trabajo a una ubicación remota, se les bloqueará si se les aplica la directiva "Bloquear acceso cuando no está en el trabajo". Se les volverá a permitir el acceso cuando estén en una ubicación de trabajo.
 
-<!---HONumber=AcomDC_0218_2016-->
+
+## Temas relacionados
+
+- [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0406_2016-->

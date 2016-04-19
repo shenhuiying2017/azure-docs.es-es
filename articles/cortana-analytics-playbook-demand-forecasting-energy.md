@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cuaderno de estrategias de la plantilla de soluciones de Cortana Analytics para la previsión de demanda de energía | Microsoft Azure"
-	description="Una plantilla de soluciones con de Microsoft Cortana Analytics que ayuda a prever la demanda de una empresa de suministro de energía."
+	pageTitle="Cuaderno de estrategias de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía | Microsoft Azure"
+	description="Plantilla de solución con Microsoft Cortana Intelligence que ayuda a prever la demanda de una empresa de suministro de energía."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="ilanr9"
@@ -16,7 +16,7 @@
 	ms.date="01/24/2016"
 	ms.author="ilanr9;yijichen;garye"/>
 
-# Cuaderno de estrategias de la plantilla de soluciones de Cortana Analytics para la previsión de la demanda de energía  
+# Cuaderno de estrategias de la plantilla de soluciones de Cortana Intelligence para la previsión de la demanda de energía  
 
 ## Resumen ejecutivo  
 
@@ -24,11 +24,11 @@ En los últimos años, Internet de las cosas (IoT), las fuentes de energía alte
 
 En este cuaderno de estrategias se combinan las directrices analíticas y empresariales necesarias para desarrollar e implementar correctamente una solución de predicción de la demanda energética. Estas directrices propuestas pueden ayudar a los servicios públicos, científicos de datos e ingenieros de datos a establecer soluciones en la nube de previsión de demanda totalmente operativas. En el caso de las compañías que acaban de empezar su andadura en el análisis avanzado y en los macrodatos, esta solución puede representar el inicio de su estrategia a largo plazo para las redes de distribución eléctrica inteligentes.
 
->[AZURE.TIP] Para descargar un diagrama que proporcione una introducción a la arquitectura de esta plantilla, consulte [Cortana Analytics Solution Template architecture for demand forecasting of energy](cortana-analytics-architecture-demand-forecasting-energy.md) (Arquitectura de la plantilla de soluciones de Cortana Analytics para la previsión de la demanda energética).
+>[AZURE.TIP] Para descargar un diagrama que proporcione una introducción a la arquitectura de esta plantilla, consulte [Arquitectura de la plantilla de solución de Cortana Intelligence para la previsión de la demanda de energía](cortana-analytics-architecture-demand-forecasting-energy.md).
 
 ## Información general  
 
-Este documento trata los negocios, datos y aspectos técnicos del uso de Cortana Analytics y, en particular, Aprendizaje automático de Azure (AML) para la implementación de soluciones de previsión energética. El documento consta de tres partes principales:
+Este documento trata los negocios, datos y aspectos técnicos del uso de Cortana Intelligence y, en particular, Aprendizaje automático de Azure (AML) para la implementación de soluciones de previsión energética. El documento consta de tres partes principales:
 
 1. Conocimiento del negocio  
 2. Conocimiento de los datos  
@@ -66,7 +66,7 @@ En el resto de este documento, nos centraremos en una familia concreta de casos 
 El objetivo de **Demostración de la energía** es mostrar un análisis predictivo típico y una solución de Aprendizaje automático que se pueden implementar en un período muy breve. En concreto, actualmente nos centramos en habilitar soluciones de previsión de demanda de energía, con el fin de que su valor empresarial se pueda producir y aprovechar rápidamente. La información de este cuaderno de estrategias puede ayudar a lograr los siguientes objetivos:
 -   Poco tiempo para valorar la solución basada en Aprendizaje automático.
 -   Capacidad para expandir un caso de uso piloto a otros casos de uso o a un ámbito más amplio, según su necesidad de negocio.
--   Obtener rápidamente información de los productos de Cortana Analytics Suite.
+-   Obtener rápidamente información de los productos del conjunto de aplicaciones Cortana Intelligence.
 
 Teniendo en cuenta estos objetivos, el fin de este cuaderno de estrategias es proporcionar conocimientos empresariales y técnicos que le ayudarán a lograr dichos objetivos.
 
@@ -133,18 +133,18 @@ Los modelos a corto y a largo plazo se implementan individualmente en cada subes
 [Aquí](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945) puede encontrar más información acerca de este caso de uso.
 
 #### Criterios de cualificación de casos de uso: requisitos previos
-El principal punto fuerte de Cortana Analytics radica en su eficaz capacidad para implementar y escalar soluciones que giran en torno al aprendizaje automático. Está diseñado para admitir miles de predicciones que se ejecutan simultáneamente. Se puede escalar automáticamente para seguir un patrón de consumo cambiante. Por tanto el enfoque de la solución se encuentra en la precisión y el rendimiento de cálculo. Por ejemplo, una compañía de servicios está interesada en la producción del pronóstico preciso de la demanda de energía en la próxima hora y en cada hora del día. Por otra parte, nos interesa menos responder la pregunta de por qué la demanda se prevé que sea como es (el propio modelo se encargará de eso).
+El principal punto fuerte de Cortana Intelligence radica en su eficaz capacidad para implementar y escalar soluciones que giran en torno al aprendizaje automático. Está diseñado para admitir miles de predicciones que se ejecutan simultáneamente. Se puede escalar automáticamente para seguir un patrón de consumo cambiante. Por tanto el enfoque de la solución se encuentra en la precisión y el rendimiento de cálculo. Por ejemplo, una compañía de servicios está interesada en la producción del pronóstico preciso de la demanda de energía en la próxima hora y en cada hora del día. Por otra parte, nos interesa menos responder la pregunta de por qué la demanda se prevé que sea como es (el propio modelo se encargará de eso).
 
 Por lo tanto, es importante tener en cuenta que no todos los casos de uso y problemas empresariales pueden resolverse de forma eficaz mediante el aprendizaje automático.
 
-Cortana Analytics y el aprendizaje automático pueden ser muy eficaces para resolver un problema empresarial determinado cuando se cumplen los criterios siguientes:
+Cortana Intelligence y el aprendizaje automático pueden ser muy eficaces para resolver un problema empresarial determinado cuando se cumplen los criterios siguientes:
 -   El problema empresarial actual es **predictivo** por naturaleza. Un ejemplo de caso de uso predictivo es una empresa de servicios que desea predecir la carga de energía que tendrá un subestación determinada durante la siguiente hora. Por otro lado, el análisis y la clasificación de los potenciadores de demanda histórico serían **descriptivos** por naturaleza y, por tanto, menos aplicables.
 -   Una vez que la predicción está disponible, las **acciones que se deben** realizar son evidentes. Por ejemplo, si se predice que una subestación va a sufrir una sobrecarga en la próxima hora, se puede desencadenar la acción proactiva de reducir la carga asociada a dicha subestación, con lo que se evita potencialmente una sobrecarga.
 -   El caso de uso representa una **tipo de problema habitual** que, una vez resuelto, puede preparar el terreno para resolver otros casos de uso similares.
 -   El cliente puede establecer **objetivos cuantitativos y cualitativos** para demostrar una implementación correcta de una solución. Por ejemplo, un buen objetivo cuantitativo para la previsión de la demanda de energía sería el umbral de precisión necesario (*por ejemplo,*, se permite un error máximo del 5%) o cuando se predice la sobrecarga de la subestación, la precisión (índice de verdaderos positivos) y recuperación (grado de positivos verdaderos) deben estar por encima de un umbral determinado. Estos objetivos se deben derivar de los objetivos de negocio del cliente.
 -   Hay un claro **escenario de integración** con el flujo de trabajo de negocio de la compañía. Por ejemplo, el pronóstico de la carga de la subestación se puede integrar en el centro de control de la red de distribución de electricidad para permitir las actividades de prevención de sobrecarga.
 -   El cliente tiene **datos listos para su uso con la calidad suficiente** para dar soporte al caso de uso (en la siguiente sección de este cuaderno de estrategias, **Calidad de los datos**, encontrará más información al respecto).
--   El cliente utiliza una arquitectura de datos centrada en la nube o un **aprendizaje automático basado en la nube**, que incluye Aprendizaje automático de Azure y otros componentes de Cortana Analytics Suite.
+-   El cliente usa una arquitectura de datos centrada en la nube o un **aprendizaje automático basado en la nube**, que incluye Aprendizaje automático de Azure y otros componentes del conjunto de aplicaciones Cortana Intelligence.
 -   El cliente está dispuesto a establecer **un flujo de datos de un extremo al otro** que facilite el envío de datos a la nube de manera continua y a **poner en funcionamiento** la solución.
 -   El cliente está listo para **dedicar recursos** que se involucrarán activamente durante la implementación piloto inicial, con el fin de que el conocimiento y la propiedad de la solución pueda transferirse al cliente si dicha implementación se completa de manera correcta.
 -   El recurso del cliente debe ser un **profesional de datos cualificado**, preferiblemente un científico de datos.
@@ -152,29 +152,30 @@ Cortana Analytics y el aprendizaje automático pueden ser muy eficaces para reso
 La cualificación de un caso de uso según los criterios anteriores puede mejorar considerablemente su índice de éxito y establecer una buena punta de lanza para la implementación de casos de uso en el futuro.
 
 ### Soluciones basadas en la nube
-Cortana Analytics Suite en Azure es un entorno integrado que reside en la nube. La implementación de una solución de análisis avanzado en un entorno de nube aporta importantes beneficios a las empresas y, al mismo tiempo, pueden suponer un gran cambio para las empresas que aún utilizan soluciones de TI locales. En el sector energético, hay una tendencia clara hacia la migración gradual de las operaciones a la nube. Esta tendencia va de la mano con el desarrollo de la red de distribución inteligente de electricidad, como se ha explicado anteriormente en **Tendencias del sector**. Dado que este cuaderno de estrategias se centra en una solución basada en la nube del sector energético, es importante explicar las ventajas y otras consideraciones relativas a la implementación de una solución basada en la nube.
+El conjunto de aplicaciones Cortana Intelligence en Azure es un entorno integrado que reside en la nube. La implementación de una solución de análisis avanzado en un entorno de nube aporta importantes beneficios a las empresas y, al mismo tiempo, pueden suponer un gran cambio para las empresas que aún utilizan soluciones de TI locales. En el sector energético, hay una tendencia clara hacia la migración gradual de las operaciones a la nube. Esta tendencia va de la mano con el desarrollo de la red de distribución inteligente de electricidad, como se ha explicado anteriormente en **Tendencias del sector**. Dado que este cuaderno de estrategias se centra en una solución basada en la nube del sector energético, es importante explicar las ventajas y otras consideraciones relativas a la implementación de una solución basada en la nube.
 
 Quizás la mayor ventaja de una solución basada en la nube sea el costo. Dado que la solución hace uso de componentes implementados en la nube, no hay costos iniciales ni costos de COGS (costo de bienes vendidos) asociados a ellos. Esto significa que no es preciso invertir en hardware, software y mantenimiento de TI y, por consiguiente, se logra una reducción considerable del riesgo empresarial.
 
 Otra ventaja importante es la estructura de costos de pago por uso de las soluciones basadas en la nube. Los servidores basados en la nube para la realización de cálculo o almacenamiento se pueden implementar y escalar solo cuando sea necesario. Esto representa la ventaja de la eficacia de costo de las soluciones basadas en la nube.
 
-Por último, no es preciso invertir en el mantenimiento de TI ni en el desarrollo de una infraestructura para el futuro, ya que todo esto forma parte de la oferta basada en la nube. En ese contexto, Cortana Analytics Suite incluye los mejores servicios y su mapa de ruta sigue evolucionando. Constantemente se introducen nuevas características, componentes y capacidades, y evolucionan los existentes.
+Por último, no es preciso invertir en el mantenimiento de TI ni en el desarrollo de una infraestructura para el futuro, ya que todo esto forma parte de la oferta basada en la nube. En ese contexto, el conjunto de aplicaciones Cortana Intelligence incluye los mejores servicios y su mapa de ruta sigue evolucionando. Constantemente se introducen nuevas características, componentes y capacidades, y evolucionan los existentes.
 
 A las compañías que acaban de iniciar su transición hacia la nube les recomendamos encarecida que adopten un enfoque gradual, para lo que es conveniente implementar un mapa de ruta para la migración a la nube. Creemos que para los servicios y las compañías del sector de la energía, los casos de uso que se tratan en este cuaderno de estrategias representan una excelente oportunidad para realizar una fase piloto de las soluciones de análisis predictivo de la nube.
 
 #### Consideraciones que justifican los casos empresariales
-En muchos casos, el cliente puede estar interesado en realizar una justificación comercial en un caso de uso determinado en el que una solución basada en la nube y Aprendizaje automático son componentes importantes. A diferencia de las soluciones locales, en el caso de una solución basada en la nube, el componente de coste inicial es mínimo y la mayoría de los elementos del costo están asociados con el uso real. En lo que se refiere a la implementación de una solución para la previsión de la demanda energética en Cortana Analytics Suite, se pueden integrar varios servicios en una única estructura de costos comunes. Por ejemplo, las bases de datos (*por ejemplo,*, SQL Azure) pueden utilizarse para almacenar los datos sin procesar y, luego, para los pronósticos reales se utiliza Aprendizaje automático de Azure para hospedar los servicios de previsión. En este ejemplo, la estructura de costos podría incluir componentes transaccionales y de almacenamiento.
+En muchos casos, el cliente puede estar interesado en realizar una justificación comercial en un caso de uso determinado en el que una solución basada en la nube y Aprendizaje automático son componentes importantes. A diferencia de las soluciones locales, en el caso de una solución basada en la nube, el componente de coste inicial es mínimo y la mayoría de los elementos del costo están asociados con el uso real. En lo que se refiere a la implementación de una solución para la previsión de la demanda energética en el conjunto de aplicaciones Cortana Intelligence, se pueden integrar varios servicios en una única estructura de costos comunes. Por ejemplo, las bases de datos (*por ejemplo,*, SQL Azure) pueden utilizarse para almacenar los datos sin procesar y, luego, para los pronósticos reales se utiliza Aprendizaje automático de Azure para hospedar los servicios de previsión. En este ejemplo, la estructura de costos podría incluir componentes transaccionales y de almacenamiento.
 
 Por otra parte, es preciso conocer bien el valor empresarial de la realización de una previsión de la demanda energética (a corto o largo plazo). De hecho, es importante tener en cuenta el valor empresarial de cada operación de previsión. Por ejemplo, un pronóstico preciso de la carga de energía durante las 24 horas siguientes puede evitar un exceso de producción o puede ayudar a evitar sobrecargas en la red de distribución de electricidad, lo que se puede cuantificar en términos de ahorro diario.
 
-Una fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda sería: ![Fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Una fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda sería:
+![Fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
-Puesto que Cortana Analytics Suite proporciona un modelo de precios de pago por uso, no es preciso incluir un componente de costo fijo en esta fórmula. Esta fórmula se puede calcular diaria, mensual o anualmente.
+Puesto que el conjunto de aplicaciones Cortana Intelligence proporciona un modelo de precios de pago por uso, no es preciso incluir un componente de costo fijo en esta fórmula. Esta fórmula se puede calcular diaria, mensual o anualmente.
 
-Los planes de precios actuales de Cortana Analytics Suite y Aprendizaje automático de Azure se pueden encontrar [aquí](http://azure.microsoft.com/pricing/details/machine-learning/).
+Los planes de precios actuales del conjunto de aplicaciones Cortana Intelligence y del Aprendizaje automático de Azure se pueden encontrar [aquí](http://azure.microsoft.com/pricing/details/machine-learning/).
 
 ### Proceso de desarrollo de soluciones
-El ciclo de desarrollo de una solución de previsión de la demanda de energía normalmente contiene cuatro fases, en las que hacemos uso de las tecnologías y servicios basados en la nube de Cortana Analytics Suite.
+El ciclo de desarrollo de una solución de previsión de la demanda de energía normalmente contiene cuatro fases, en las que hacemos uso de las tecnologías y servicios basados en la nube del conjunto de aplicaciones Cortana Intelligence.
 
 Esto se ilustra en el diagrama siguiente:
 
@@ -259,14 +260,14 @@ Las tablas siguientes muestran ejemplos de un buen formato de datos de consumo y
 Como puede verse, este ejemplo incluye tres valores diferentes de consumo, asociados a tres fases de energía. Además, tenga en cuenta que los campos de fecha y hora son independientes, sin embargo también se pueden combinar en una sola columna. En este caso, la columna de ubicación se representa en formato de código postal de cinco dígitos y la temperatura en formato de grados Celsius.
 
 ### Formato de datos
-Cortana Analytics Suite puede admitir los formatos de datos más comunes como CSV, TSV, JSON, *etc.*. Es importante que el formato de datos sea el mismo durante todo el ciclo de vida del proyecto.
+El conjunto de aplicaciones Cortana Intelligence puede admitir los formatos de datos más comunes, como CSV, TSV, JSON, *etc.* Es importante que el formato de datos sea el mismo durante todo el ciclo de vida del proyecto.
 
 ### Ingesta de datos
 Dado que la previsión de la demanda de energía se realiza de forma constante y con frecuencia, debemos asegurarnos de que los datos sin procesar fluyen por medio de un proceso de ingesta de datos sólido y confiable. El proceso de ingesta debe garantizar que los datos sin procesar están disponibles para el proceso de previsión en el momento requerido. Eso implica que la frecuencia de la ingesta de datos debe ser mayor que la frecuencia de pronóstico.
 
 Por ejemplo: si nuestra solución de previsión de demanda genera una nueva previsión a las 8:00 A.M. a diario, es preciso que nos aseguremos de que todos los datos recopilados en las últimas 24 horas se han introducido completamente hasta ese momento e incluso tiene que incluir la última hora de datos.
 
-Para hacerlo, Cortana Analytics Suite ofrece varias formas de admitir un proceso de recopilación de datos confiable. Esto se explicará más adelante, en la sección **Implementación** de este documento.
+Para hacerlo, el conjunto de aplicaciones Cortana Intelligence ofrece varias formas de admitir un proceso de recopilación de datos confiable. Esto se explicará más adelante, en la sección **Implementación** de este documento.
 
 ### Calidad de los datos
 El origen de los datos sin procesar necesarios para realizar una previsión de la demanda precisa y confiable debe cumplir varios criterios básicos de calidad de los datos. Aunque se pueden usar métodos estadísticos avanzados para compensar los problemas de calidad de los datos, será preciso que nos aseguremos de que atravesamos un umbral básico de calidad de los datos al introducir datos nuevos. Estas son algunas consideraciones relativas a la calidad de los datos sin procesar:
@@ -274,7 +275,7 @@ El origen de los datos sin procesar necesarios para realizar una previsión de l
 -   **Precisión de la medida**: el valor real del consumo o temperatura debe registrarse con precisión. Unas medidas que no sean exactas generarán previsiones imprecisas. Normalmente, el error de medición debe ser inferior al 1% del valor verdadero.
 -   **Hora de medida**: se requiere que la marca de tiempo real de los datos recopilados no se desvíe en más de 10 segundos de la hora verdadera de la medida real.
 -   **Sincronización**: cuando se utilizan varios orígenes de datos (*por ejemplo*, consumo y temperatura) debemos asegurarnos de que no hay problemas de sincronización de hora entre ellos. Esto significa que la diferencia de hora entre la marca de hora recopilada de dos orígenes de datos independientes no debe superar los 10 segundos.
--   **Latencia**: como ya se ha explicado, en **Ingesta de datos**, dependemos de un flujo de datos y de un proceso de ingesta confiables. Para controlarlo, debemos asegurarnos de que controlamos la latencia de datos. Dicha latencia se especifica como la diferencia entre la hora en que se tomó la medida real y la hora a la que se ha cargado en el almacenamiento de Cortana Analytics Suite y está lista para su uso. En el caso de la previsión de carga a corto plazo, la latencia total no debe superar los 30 minutos. En el caso de la previsión de carga a largo plazo, la latencia total no debe ser superior a 1 día.
+-   **Latencia**: como ya se ha explicado, en **Ingesta de datos**, dependemos de un flujo de datos y de un proceso de ingesta confiables. Para controlarlo, debemos asegurarnos de que controlamos la latencia de datos. Dicha latencia se especifica como la diferencia entre la hora en que se tomó la medida real y la hora a la que se cargó en el almacenamiento del conjunto de aplicaciones Cortana Intelligence y está lista para su uso. En el caso de la previsión de carga a corto plazo, la latencia total no debe superar los 30 minutos. En el caso de la previsión de carga a largo plazo, la latencia total no debe ser superior a 1 día.
 
 ### Preparación de los datos e ingeniería de características
 Una vez que se han introducido los datos sin procesar (consulte **Ingesta de datos**) y que se han almacenado de forma segura, está listos para ser procesados. Básicamente, la fase de preparación de los datos consiste en tomar los datos sin procesar y convertirlos (transformarlos y volver a darles forma) en un formulario para la fase de modelado. Esta fase puede incluir operaciones sencillas, como el uso de la columna de datos sin procesar tal cual con su valor medido real y valores normalizados, y operaciones más complejas como el [retraso temporal](https://en.wikipedia.org/wiki/Lag_operator), entre otras. Las columnas de datos recién creadas se denominan características de datos y el proceso de generarlas se denomina ingeniería de características. Al final de este proceso, tendríamos un nuevo conjunto de datos derivado de los datos sin procesar que puede utilizarse para el modelado. Además, la fase de preparación de datos debe encargarse de los valores que faltan (consulte **Calidad de los datos**) y compensarlos. En algunos casos, también sería necesario que normalizáramos los datos para asegurarse de que todos los valores se representan en la misma escala.
@@ -363,7 +364,7 @@ El principal bloque de creación que se puede implementar en Aprendizaje automá
 
 ![Implementación y consumo de servicio web](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 
-Como se puede ver, el servicio web se implementa en la nube de Cortana Analytics Suite y se puede invocar a través de su punto de conexión de API de REST expuesto. Un tipo diferente de clientes de varios dominios puede invocar el servicio a través de la Web API simultáneamente. El servicio web también puede escalarse para admitir miles de llamadas simultáneas.
+Como se puede ver, el servicio web se implementa en la nube del conjunto de aplicaciones Cortana Intelligence y se puede invocar a través de su punto de conexión de API de REST expuesto. Un tipo diferente de clientes de varios dominios puede invocar el servicio a través de la Web API simultáneamente. El servicio web también puede escalarse para admitir miles de llamadas simultáneas.
 
 ### Arquitectura de una solución típica
 Al implementar una solución de previsión de la demanda de energía, nos interesa implementar una solución de un extremo a otro que vaya más allá del servicio web de predicción y que facilite todo el flujo de datos. En el momento en que se invoque una previsión nueva, será preciso asegurarse de que el modelo se alimenta con características de datos actualizadas. Eso implica que los datos sin procesar recopilados recientemente se introducen, procesan y transforman constantemente en el conjunto de características requerido en el que se creó el modelo. Al mismo tiempo, deseamos que los datos de la previsión estén a disposición de los clientes finales que los consumen. En el diagrama siguiente se ilustra un ciclo de flujo de datos (o canalización de datos) de ejemplo:
@@ -383,12 +384,12 @@ Estos son los pasos que se tienen lugar como parte del ciclo de previsión de de
 Es importante tener en cuenta que todo este ciclo está completamente automatizado y se ejecuta según una programación. Toda la orquestación de este ciclo de datos puede realizarse mediante herramientas como [Data Factory de Azure](http://azure.microsoft.com/services/data-factory/).
 
 ### Arquitectura de implementación de un extremo a otro
-Para implementar de forma práctica una solución de previsión de demanda de energía en Cortana Analytics, es preciso asegurarse de que los componentes necesarios están establecidos y configurados correctamente.
+Para implementar de forma práctica una solución de previsión de demanda de energía en Cortana Intelligence, es preciso asegurarse de que los componentes necesarios están establecidos y configurados correctamente.
 
-El siguiente diagrama muestra una arquitectura típica basada Cortana Analytics que implementa y orquesta el ciclo de flujo de datos que se ha descrito anteriormente:
+El siguiente diagrama muestra una arquitectura típica basada en Cortana Intelligence que implementa y orquesta el ciclo de flujo de datos que se ha descrito anteriormente:
 
 ![Arquitectura de implementación de un extremo a otro](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 Para más información tanto acerca de cada uno de los componentes como de la arquitectura completa, consulte la plantilla de soluciones energéticas.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0406_2016-->

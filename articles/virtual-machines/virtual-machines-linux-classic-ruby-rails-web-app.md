@@ -155,7 +155,7 @@ Para utilizar servicios de Azure desde su aplicación de Ruby, consulte:
 
 [tables]: /develop/ruby/how-to-guides/table-service/
 
-[vm-instructions]: virtual-machines-linux-cli-create.md
+[vm-instructions]: virtual-machines-linux-classic-createportal.md
 
 
 <!-- External Links -->
@@ -175,4 +175,4 @@ Para utilizar servicios de Azure desde su aplicación de Ruby, consulte:
 
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

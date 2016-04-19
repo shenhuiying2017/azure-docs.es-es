@@ -517,7 +517,7 @@ Si el origen especificado es un directorio del sistema de archivos, se aplican l
 
 Si el origen especificado es un contenedor de blobs o un directorio virtual, entonces los caracteres comodín no se aplican. Si se especifica la opción /S, AzCopy interpreta el patrón de archivos especificado como un prefijo de blobs. Si la opción /S no se especifica, AzCopy hará coincidir el patrón de archivos con los nombres de blob exactos.
 
-Si el origen especificado es un recurso compartido de archivos de Azure, debe especificar el nombre de archivo exacto (p. ej. abc.txt) para copiar un solo archivo, o especificar la opción /S para copiar todos los archivos en el recurso compartido de forma recursiva. Si intenta especificar tanto un patrón de archivos como la opción /S conjuntamente, se producirá un error.
+Si el origen especificado es un recurso compartido de archivos de Azure, debe especificar el nombre de archivo exacto (p. ej. abc.txt) para copiar un solo archivo, o especificar la opción /S para copiar todos los archivos en el recurso compartido de forma recursiva. Si intenta especificar tanto un patrón de archivos como la opción /S conjuntamente, se producirá un error.
 
 AzCopy utiliza la coincidencia entre mayúsculas y minúsculas cuando /Soure es un contenedor de blob o el directorio virtual de blob y utiliza la falta de coincidencia entre mayúsculas y minúsculas en todos los demás casos.
 
@@ -565,7 +565,7 @@ Especifica el modo recursivo para operaciones de copia. En el modo recursivo, Az
 
 ### /BlobType:"block" | "page" | "append"
 
-Especifica el modo recursivo para operaciones de copia. En el modo recursivo, AzCopy copiará todos los blobs o archivos que coincidan con el patrón de archivos especificado, incluidos los que se encuentren en las subcarpetas.
+Especifica si el blob de destino es un blob en bloques, un blob en páginas o un blob de anexo. Esta opción solo es aplicable cuando se carga un blob. De lo contrario, se producirá un error. Si el destino es un blob y esta opción no se especifica, AzCopy, de forma predeterminada, creará un blob en bloques.
 
 **Aplicable a:** blobs
 
@@ -864,4 +864,4 @@ Para más información acerca de Almacenamiento de Azure y AzCopy, consulte los 
 - [AzCopy: Uso de copia de blobs entre cuentas](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Carga y descarga de archivos para blobs de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

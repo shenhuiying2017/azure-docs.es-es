@@ -19,7 +19,7 @@
 # Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de Azure clásico)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
+- [Enmascaramiento de datos dinámicos: Portal de Azure](sql-database-dynamic-data-masking-get-started.md)
 
 ## Información general
 
@@ -88,6 +88,10 @@ El enmascaramiento de datos dinámicos puede configurarse mediante el administra
 9. Haga clic en **GUARDAR** para guardar la directiva de enmascaramiento nueva o actualizada.
 
 
+## Configuración del enmascaramiento de datos dinámicos para la base de datos mediante instrucciones Transact-SQL
+
+Consulte [Enmascaramiento de datos dinámicos](https://msdn.microsoft.com/library/mt130841.aspx).
+
 ## Configuración del enmascaramiento de datos dinámicos para la base de datos mediante cmdlets de PowerShell
 
 Consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx).
@@ -96,4 +100,4 @@ Consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/libr
 
 Consulte [Operaciones para Bases de datos SQL de Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

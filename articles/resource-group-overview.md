@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="04/11/2016"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
@@ -79,11 +79,13 @@ Administrador de recursos proporciona extensiones para escenarios en los que se 
 
 Cuando crea una solución desde Marketplace, la solución incluye automáticamente una plantilla de implementación. No tiene que crear la plantilla desde cero, puede empezar con la plantilla para la solución y personalizarla para satisfacer sus necesidades específicas.
 
+Puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos a una plantilla o la visualización de la plantilla que se usó para una implementación determinada. Ambas opciones se muestran en [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
+
 Por último, la plantilla se convierte en parte del código fuente de la aplicación. Puede protegerla en el repositorio de código fuente y actualizarla a medida que evoluciona la aplicación. Puede editar la plantilla mediante Visual Studio.
 
 Para obtener más información sobre la creación de plantillas, consulte [Crear plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
 
-Para más información acerca del uso de una plantilla para la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
+Para obtener instrucciones paso a paso sobre cómo crear una plantilla, consulte [Tutorial de la plantilla de Azure Resource Manager](resource-manager-template-walkthrough.md).
 
 Para obtener instrucciones sobre cómo estructurar las plantillas, consulte [Procedimientos recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
@@ -121,7 +123,7 @@ Para obtener información sobre PowerShell, consulte [Uso de Azure PowerShell co
 
 Para obtener información sobre CLI de Azure, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con administración de recursos de Azure](./xplat-cli-azure-resource-manager.md)).
 
-Para obtener información acerca de la API de REST, consulte [Referencia de la API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+Para obtener información acerca de la API de REST, consulte [Referencia de la API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). Para ver las operaciones de REST para los recursos implementados, consulte [Uso del Explorador de recursos de Azure para ver y modificar recursos](resource-manager-resource-explorer.md).
 
 Para más información sobre cómo usar el portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
 
@@ -138,4 +140,4 @@ La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,17 +13,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="04/07/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante la línea de comandos de Azure
 
 > [AZURE.SELECTOR]
-- [Uso del Portal](data-lake-store-get-started-portal.md)
-- [Uso de PowerShell](data-lake-store-get-started-powershell.md)
-- [Uso del SDK de .NET](data-lake-store-get-started-net-sdk.md)
-- [Uso de la CLI de Azure](data-lake-store-get-started-cli.md)
-- [Uso de Node.js](data-lake-store-manage-use-nodejs.md)
+- [Portal](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [SDK de Java](data-lake-store-get-started-java-sdk.md)
+- [API DE REST](data-lake-store-get-started-rest-api.md)
+- [CLI de Azure](data-lake-store-get-started-cli.md)
+- [Node.js](data-lake-store-manage-use-nodejs.md)
 
 Aprenda a usar la interfaz de la línea de comandos de Azure para crear una cuenta del Almacén de Azure Data Lake y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para obtener más información acerca del Almacén de Data Lake, consulte [Información general del Almacén de Data Lake](data-lake-store-overview.md).
 
@@ -177,12 +179,6 @@ Por ejemplo:
 
 Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 
-## Otras formas de crear una cuenta de Almacén de Data Lake
-
-- [Introducción al Almacén de Data Lake mediante el Portal](data-lake-store-get-started-portal.md)
-- [Introducción al Almacén de Data Lake mediante SDK de .NET](data-lake-store-get-started-net-sdk.md)
-- [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
-
 
 ## Pasos siguientes
 
@@ -193,4 +189,4 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

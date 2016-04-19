@@ -27,9 +27,9 @@ El servicio Tabla contiene los siguientes componentes:
 
 -   **Propiedades**: una propiedad es un par nombre-valor. Cada entidad puede incluir hasta 252 propiedades para almacenar datos. Cada entidad dispone también de tres propiedades del sistema que especifican una clave de partición, una clave de fila y una marca de tiempo. Pueden realizarse consultas en las entidades con la misma partición de manera más rápida e insertarse o actualizarse en operaciones atómicas. Una clave de fila de la entidad es el identificador exclusivo en una partición.
 
-
+Para más información sobre la nomenclatura de propiedades y tablas, consulte [Introducción al modelo de datos del servicio Tabla](https://msdn.microsoft.com/library/azure/dd179338.aspx).
   
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

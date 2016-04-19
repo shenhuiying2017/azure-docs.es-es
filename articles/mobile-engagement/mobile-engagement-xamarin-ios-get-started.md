@@ -24,7 +24,7 @@ En este tema se muestra cómo utilizar Azure Mobile Engagement para conocer el u
 
 Este tutorial requiere lo siguiente:
 
-+ [Xamarin Studio](http://xamarin.com/studio) 
++ [Xamarin Studio](http://xamarin.com/studio). También puede utilizar Visual Studio con Xamarin, pero en este tutorial se usa Xamarin Studio. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) para obtener instrucciones. 
 + [SDK de Mobile Engagement Xamarin](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started).
@@ -146,7 +146,7 @@ Mobile Engagement permite interactuar y llegar mediante notificaciones push y me
             Console.WriteLine("Failed to register for remote notifications: Error '{0}'", error);
         }
 
-4. En el archivo **Info.plist** de la solución, confirme que el **identificador de paquete** coincide con el **id. de aplicación** que tiene en el perfil de aprovisionamiento en el Centro para desarrolladores de Apple.
+4. En el archivo **Info.plist** de la solución, confirme que el **identificador de paquete** coincide con el **identificador de aplicación** que tiene en el perfil de aprovisionamiento en el Centro para desarrolladores de Apple.
 
 	![][7]
 
@@ -168,4 +168,4 @@ Mobile Engagement permite interactuar y llegar mediante notificaciones push y me
 [7]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-confirm-bundle.png
 [8]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-configure-push.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

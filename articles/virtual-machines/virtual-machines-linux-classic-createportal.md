@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación de una máquina virtual de Windows personalizada | Microsoft Azure"
-	description="Obtenga información sobre cómo crear una máquina virtual de Windows personalizada desde el Portal de Azure clásico usando el modelo de implementación clásica."
+	pageTitle="Creación de una máquina virtual personalizada Linux | Microsoft Azure"
+	description="Obtenga información acerca de cómo crear una máquina virtual personalizada Linux desde el Portal de Azure clásico usando el modelo de implementación clásica."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="03/15/2016"
 	ms.author="cynthn"/>
 
-# Cree una máquina virtual personalizada que ejecute Windows
+# Creación de una máquina virtual personalizada con Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
@@ -26,4 +26,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/11/2016"
    ms.author="terrylan"/>
 
 # Introducción al Centro de seguridad de Azure
@@ -45,7 +45,7 @@ En el portal, siga estos pasos para acceder al Centro de seguridad:
 
 Puede configurar directivas de seguridad para los grupos de recursos y las suscripciones de Azure. Configuremos una **directiva** de seguridad para su suscripción:
 
-1. Haga clic en el icono **Directiva de seguridad** en la hoja **Centro de seguridad**. ![Centro de seguridad][3]
+1. Haga clic en el icono **Directiva** en la hoja **Centro de seguridad**. ![Centro de seguridad][3]
 
 2. En la hoja **Directiva de seguridad: definir directiva por suscripción o grupo de recursos**, seleccione una suscripción. ![La hoja Directiva de seguridad en el Centro de seguridad de Azure][4]
 
@@ -64,13 +64,13 @@ Atender las **recomendaciones**:
 1. Vuelva a la hoja **Centro de seguridad** y haga clic en el icono **Recomendaciones**. El Centro de seguridad analiza periódicamente el estado de seguridad de los recursos de Azure. Una vez identificadas las posibles vulnerabilidades de seguridad, muestra una recomendación.
 2.	Haga clic en cada recomendación para ver más información o actuar para resolver el problema. ![Recomendaciones en el Centro de seguridad de Azure][5]
 
-Consulte el estado de y la seguridad de los recursos a través de **Estado de los recursos**:
+Consulte el estado de mantenimiento y seguridad de los recursos a través de **Estado de seguridad de los recursos**:
 
 1.	Vuelva a la hoja **Centro de seguridad**.
-2.	El icono **Estado de los recursos** contiene indicadores del estado de seguridad de las **Máquinas virtuales**, **Redes**, **SQL** y **Aplicaciones**.
+2.	El icono **Estado de seguridad de los recursos** contiene indicadores del estado de seguridad de las **Máquinas virtuales**, **Redes**, **SQL** y **Aplicaciones**.
 3.	Seleccione **Máquinas virtuales** para consultar más información.
 4.	La hoja **Máquinas virtuales** muestra un resumen del estado de los programas antimalware, las actualizaciones del sistema, los reinicios y las reglas de línea de base de sus máquinas virtuales.
-5.	Seleccione un elemento en **PASOS DE PREVENCIÓN** para ver más información o tomar medidas para configurar los controles necesarios.
+5.	Seleccione un elemento en **RECOMENDACIONES SOBRE MÁQUINAS VIRTUALES** para ver más información o tomar medidas para configurar los controles necesarios.
 6.	Explore en profundidad para ver información adicional para máquinas virtuales específicas. ![El icono Estado de los recursos en el Centro de seguridad de Azure][6]
 
 Atender las **Alertas de seguridad**:
@@ -79,13 +79,29 @@ Atender las **Alertas de seguridad**:
 
 2.	Seleccione una alerta para ver información adicional. ![Detalles de alertas de seguridad en el Centro de seguridad de Azure][8]
 
+Ver el estado de su **Soluciones de asociados**:
+
+1. Vuelva a la hoja **Centro de seguridad**. El icono **Soluciones de asociado** permite supervisar de un vistazo el estado de mantenimiento de las soluciones de asociados que se integran con su suscripción de Azure.
+2. Seleccione el icono **Soluciones de socios**. Se muestra una hoja con una lista de todas las soluciones de asociados conectadas a Centro de seguridad. ![Soluciones de socios][9]
+
+3. Seleccione una solución de asociado. En este ejemplo, seleccionaremos la solución **WAF2 F5**. Se abre una hoja que muestra que el estado de la solución de asociado y de sus recursos asociados. Seleccione **Consola de solución** para abrir la experiencia de administración de asociado de esta solución. ![Detalle de solución de asociado][10]
+
+El **Estado** de la solución de asociado puede ser:
+
+- Correcto (verde): no hay ningún problema de estado
+- Incorrecto (rojo): hay un problema de estado que requiere atención inmediata
+- Información detenida (naranja): la solución ha dejado de informar sobre su estado
+- Desconocido (naranja): el estado de la solución se desconoce en este momento debido a un error en el proceso de agregación de un nuevo recurso a la solución existente
+- Sin información (gris): la solución no ha notificado nada todavía, estado de una solución puede ser "Sin información" si acaba de conectarse y todavía se está implementando
+
+
 ## Pasos siguientes
 En este documento, se han presentado los componentes de supervisión de seguridad y de administración de directivas en el Centro de seguridad. Para obtener más información, consulte:
 
-- [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): obtenga información acerca de cómo configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-- [Administración de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): obtenga información sobre cómo las recomendaciones lo ayudan a proteger sus recursos de Azure.
-- [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
-- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
+- [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Administración de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): aprenda cómo las recomendaciones lo ayudan a proteger sus recursos de Azure.
+- [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): aprenda cómo supervisar el estado de los recursos de Azure.
+- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): aprenda cómo administrar y responder a las alertas de seguridad.
 - [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información de seguridad de Azure.
 
@@ -98,5 +114,7 @@ En este documento, se han presentado los componentes de supervisión de segurida
 [6]: ./media/security-center-get-started/resources-health.png
 [7]: ./media/security-center-get-started/security-alert.png
 [8]: ./media/security-center-get-started/security-alert-detail.png
+[9]: ./media/security-center-get-started/partner-solutions.png
+[10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

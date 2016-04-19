@@ -102,7 +102,7 @@ Para sitios web, bases de datos pequeñas y medianas y otras aplicaciones habitu
 | Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
 | --------------- | :-------: | ------: | ------: |
 | Standard\_D1 | 1 | 3,5 GB | 50 GB |
-| Standard\_D2 | 2 | 7 GB | 100 GB* |
+| Standard\_D2 | 2 | 7 GB | 100 GB |
 | Standard\_D3 | 4 | 14 GB | 200 GB |
 | Standard\_D4 | 8 | 28 GB | 400 GB |
 
@@ -112,7 +112,7 @@ Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones 
 
 | Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
 | --------------- | :-------: | ------: | ------: |
-| Standard\_D11 | 2 | 14 GB | 100 GB* |
+| Standard\_D11 | 2 | 14 GB | 100 GB |
 | Standard\_D12 | 4 | 28 GB | 200 GB |
 | Standard\_D13 | 8 | 56 GB | 400 GB |
 | Standard\_D14 | 16 | 112 GB | 800 GB |
@@ -128,7 +128,7 @@ Para sitios web, bases de datos pequeñas y medianas y otras aplicaciones habitu
 | Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
 | --------------- | :-------: | ------: | ------: |
 | Standard\_D1\_v2 | 1 | 3,5 GB | 50 GB |
-| Standard\_D2\_v2 | 2 | 7 GB | 100 GB* |
+| Standard\_D2\_v2 | 2 | 7 GB | 100 GB |
 | Standard\_D3\_v2 | 4 | 14 GB | 200 GB |
 | Standard\_D4\_v2 | 8 | 28 GB | 400 GB |
 | Standard\_D5\_v2 | 16 | 56 GB | 800 GB |
@@ -139,7 +139,7 @@ Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones 
 
 | Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
 | --------------- | :-------: | ------: | ------: |
-| Standard\_D11\_v2 | 2 | 14 GB | 100 GB* |
+| Standard\_D11\_v2 | 2 | 14 GB | 100 GB |
 | Standard\_D12\_v2 | 4 | 28 GB | 200 GB |
 | Standard\_D13\_v2 | 8 | 56 GB | 400 GB |
 | Standard\_D14\_v2 | 16 | 112 GB | 800 GB |
@@ -148,7 +148,7 @@ Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones 
 
 Puede especificar el tamaño de la máquina virtual de una instancia de rol como parte del modelo de servicio descrito por el [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). El tamaño del rol determina la cantidad de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a una instancia en ejecución. Elija el tamaño del rol en función del requisito de recursos de la aplicación.
 
-El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea [Standard\_D2] de Uso general (D) para una instancia de rol web:
+El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea [Standard\_D2](de Uso general (D)) para una instancia de rol web:
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">

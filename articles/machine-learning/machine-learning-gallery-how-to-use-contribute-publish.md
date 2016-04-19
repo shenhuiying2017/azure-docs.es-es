@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Galería de análisis de Cortana | Microsoft Azure"
-	description="Comparta y descubra soluciones de análisis, entre otras muchas cosas, en la Galería de análisis de Cortana. Aprenda de otros y realice sus propias contribuciones a la comunidad."
+	pageTitle="Galería de Cortana Intelligence | Microsoft Azure"
+	description="Comparta y descubra soluciones de análisis, entre otras muchas cosas, en la Galería de Cortana Intelligence. Aprenda de otros y realice sus propias contribuciones a la comunidad."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -17,11 +17,11 @@
 	ms.author="chhavib;cgronlun;garye"/>
 
 
-# Uso compartido y descubrimiento de soluciones en la Galería de análisis de Cortana
+# Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence
 
-La Galería de análisis de Cortana es un sitio gestionado por la comunidad cuyo fin es descubrir y compartir las soluciones creadas con el grupo de productos del conjunto de aplicaciones de análisis de Cortana. Es un destino para los usuarios que desean aprender de otros, comenzar a desarrollar sus propias soluciones o contribuir con su propio trabajo a la comunidad de análisis avanzado.
+La Galería de Cortana Intelligence es un sitio administrado por la comunidad cuyo fin es descubrir y compartir las soluciones creadas con el grupo de productos de Cortana Intelligence Suite. Es un destino para los usuarios que desean aprender de otros, comenzar a desarrollar sus propias soluciones o contribuir con su propio trabajo a la comunidad de análisis avanzado.
 
-**[IR A LA GALERÍA >>](http://gallery.cortanaanalytics.com)**
+**[IR A LA GALERÍA >>](http://gallery.cortanaintelligence.com)**
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -44,7 +44,7 @@ Podrá encontrar fácilmente en la Galería soluciones conocidas y recientemente
 Puede comentar, dar opiniones o formular preguntas en la sección de comentarios que se encuentra en cada página de la solución. Incluso puede compartir una solución de interés con amigos o colegas mediante las funcionalidades de uso compartido de LinkedIn o Twitter. También puede enviar por correo electrónico vínculos a estas soluciones para invitar a otros usuarios a ver las páginas.
 
 ## Descargar experimentos
-La Galería de análisis de Cortana le permite copiar fácilmente experimentos de análisis predictivo en el área de trabajo de Estudio de aprendizaje automático con un solo clic y comenzar a usarlos inmediatamente con la finalidad que quiera. Si no inició sesión aún mientras explora, se le pedirá que lo haga con su cuenta Microsoft antes de que el experimento se copie en el área de trabajo.
+La Galería de Cortana Intelligence permite copiar fácilmente experimentos de análisis predictivo en el área de trabajo de Estudio de aprendizaje automático con un solo clic y comenzar a usarlos inmediatamente con la finalidad que desee. Si no inició sesión aún mientras explora, se le pedirá que lo haga con su cuenta Microsoft antes de que el experimento se copie en el área de trabajo.
 
 ## Contribuciones
 Cuando inicia sesión se convierte en miembro de la comunidad de la Galería, lo que le permite contribuir con sus propios experimentos y colecciones y así otros pueden beneficiarse de las soluciones que descubrió.
@@ -53,7 +53,7 @@ Cuando inicia sesión se convierte en miembro de la comunidad de la Galería, lo
 
 Un *experimento* es un lienzo en Estudio de aprendizaje automático que le permite crear un modelo de análisis predictivo mediante la conexión de datos conjuntamente con varios módulos analíticos. Puede probar diferentes ideas, realizar pruebas y finalmente publicar el modelo como un servicio web en Azure. Para ver un ejemplo de creación de un experimento simple, consulte [Tutorial de aprendizaje automático: Creación de su primer experimento en Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md). Si lo que quiere es un tutorial más completo sobre la creación de una solución de análisis predictivo, consulte [Tutorial: Desarrollo de una solución de análisis predictivo para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md).
 
-Siga estos pasos para contribuir con un experimento a la Galería de análisis de Cortana:
+Siga estos pasos para contribuir con un experimento a la Galería de Cortana Intelligence:
 
 - Inicie sesión en Estudio de aprendizaje automático con su cuenta Microsoft.
 - Cree el experimento y ejecútelo.
@@ -61,11 +61,11 @@ Siga estos pasos para contribuir con un experimento a la Galería de análisis d
 
 ### Contribuir con colecciones
 
-Una *colección* es una lista de elementos relacionados de la Galería de análisis de Cortana que se agrupan para usarlos, compartirlos o tomarlos como referencia más tarde. La colección puede contener elementos de su propiedad o elementos con los que contribuyó a la comunidad.
+Una *colección* es una lista de elementos relacionados de la Galería de Cortana Intelligence que se agrupan para que se usen, compartan o tomen como referencia más tarde. La colección puede contener elementos de su propiedad o elementos con los que contribuyó a la comunidad.
 
 Por ejemplo, puede usar una colección para agrupar elementos sobre un tema específico, o puede agrupar un experimento de varios pasos que resuelve un problema complejo. Las colecciones iniciales con las que contribuyó Microsoft constan de plantillas de experimentos de aprendizaje automático de varios pasos para solucionar problemas del mundo real, como la detección de fraudes en línea, la clasificación de texto, la previsión de ventas y el mantenimiento predictivo.
 
-Siga estos pasos para crear una colección y contribuir con ella a la Galería de análisis de Cortana:
+Siga estos pasos para crear una colección y contribuir con ella a la Galería de Cortana Intelligence:
 
 - Inicie sesión en la galería con su cuenta Microsoft.
 - Haga clic en la imagen en la parte superior de la ventana y haga clic en su nombre.
@@ -74,7 +74,7 @@ Siga estos pasos para crear una colección y contribuir con ella a la Galería d
 - Agregar una imagen para identificar la colección.
 - Haga clic en **Crear**.
 
-La colección forma parte ahora de la Galería de análisis de Cortana.
+Con ello, la colección pasa a formar parte de la Galería de Cortana Intelligence.
 
 Puede agregar elementos a la colección; para ello, ábrala, haga clic en **Editar**, y, luego, haga clic en **Agregar elemento**. O bien, si mientras examina la Galería encuentra un elemento que desea incluir, solo tiene que abrir ese elemento, hacer clic en **Agregar a colección** y especificar la colección a la que desea agregarlo.
 
@@ -116,7 +116,7 @@ Si quiere reflejar el cambio más reciente en el perfil (la imagen de perfil, el
 
 **¿Cuáles son los requisitos de imagen en el momento de enviar o editar una imagen para mi experimento?**
 
-Las imágenes que envía junto con su experimento se usarán para crear un mosaico de experimento para su contribución. Se recomienda que el tamaño de la imagen sea inferior a 500 Kb, con una relación de aspecto de 3:2. Se recomienda una resolución de 960x640.
+Las imágenes que envía junto con su experimento se usarán para crear un mosaico de experimento para su contribución. Se recomienda que el tamaño de la imagen sea inferior a 500 Kb, con una relación de aspecto de 3:2. Se recomienda una resolución de 960x640.
 
 **¿Qué ocurre con el conjunto de datos que usé en el experimento? ¿El conjunto de datos también se publica en la galería?**
 
@@ -134,6 +134,6 @@ Puede usar la tecla TAB para delimitar las etiquetas.
 
 La representación de la descripción enriquecida no está disponible para todos los usuarios de la galería. Estamos trabajando activamente para que esta funcionalidad esté disponible mediante la compatibilidad con la representación de Markdown.
 
-**[IR A LA GALERÍA >>](http://gallery.cortanaanalytics.com)**
+**[IR A LA GALERÍA >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

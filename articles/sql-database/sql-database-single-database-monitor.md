@@ -1,4 +1,4 @@
-<properties pageTitle="Supervisión de rendimiento de bases de datos con la Base de datos SQL de Azure" | Microsoft Azure" description="Obtenga información sobre las opciones de supervisión de la base de datos con las herramientas y vistas de administración dinámicas de Azure." keywords="supervisión de base de datos, rendimiento de base de datos en la nube" services="sql-database" documentationCenter="" authors="jeffgoll" manager="jeffreyg" editor="jeffreyg"/>
+<properties pageTitle="Supervisión de rendimiento de bases de datos con la Base de datos SQL de Azure" | Microsoft Azure" description="Obtenga información sobre las opciones de supervisión de la base de datos con las herramientas y vistas de administración dinámicas de Azure." keywords="supervisión de base de datos, rendimiento de base de datos en la nube" services="sql-database" documentationCenter="" authors="carlrabeler" manager="jhubbard" editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -7,7 +7,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="03/25/2016"
-	ms.author="jeffreyg"/>
+	ms.author="carlrab"/>
 
 # Supervisión de rendimiento de bases de datos con la Base de datos SQL de Azure
 La supervisión del rendimiento de una base de datos SQL en Azure comienza con la supervisión del uso de recursos, en relación con el nivel de rendimiento elegido para la base de datos. La supervisión le ayudará a determinar si la base de datos tiene un exceso de capacidad o si tiene problemas porque se ha alcanzado el número máximo de recursos y, después, a decidir si es el momento de ajustar el nivel de rendimiento y el [nivel de servicio](sql-database-service-tiers.md) de la base de datos. Puede supervisar la base de datos mediante herramientas gráficas en el [Portal de Azure](https://portal.azure.com) o mediante las [vistas de administración dinámicas](https://msdn.microsoft.com/library/ms188754.aspx) de SQL.
@@ -39,4 +39,4 @@ Las mismas métricas que se exponen en el portal están también disponibles a t
 
 En los grupos de bases de datos elásticas, puede supervisar las bases de datos individuales del grupo con las técnicas descritas en esta sección. Sin embargo, también puede supervisar el grupo en conjunto. Para obtener información, consulte el artículo [Supervisión y administración de un grupo de bases de datos elásticas](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="03/30/2016"
 	ms.author="femila"/>
 
 # Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS
@@ -49,6 +49,7 @@ En esta sección se describe cómo configurar las reglas de acceso por aplicaci�
 ##Descripción de las reglas de acceso
 
 En esta sección se ofrece una descripción detallada de las reglas de acceso que se admiten en la vista previa de acceso condicional de las aplicaciones de Azure.
+
 ### Especificación de los usuarios a los que se aplican las reglas de acceso
 
 De forma predeterminada, la directiva se aplicará a todos los usuarios que tengan acceso a la aplicación. Sin embargo, la directiva también se puede restringir a los usuarios que son miembros de los grupos de seguridad especificados. El botón **Agregar grupo** se utiliza para seleccionar uno o varios grupos en el cuadro de diálogo de selección de grupos a los que se aplicará la regla de acceso. Este cuadro de diálogo también sirve para quitar grupos seleccionados. Cuando se seleccionan las reglas que se aplicarán a los grupos, solo se aplicarán las reglas de acceso para los usuarios que pertenezcan a uno de los grupos de seguridad especificados.
@@ -78,7 +79,7 @@ Cuando un usuario tiene acceso a una aplicación federada que usa OAuth 2.0, Ope
 
 En el caso de los inquilinos federados, puede que Azure Active Directory o el servidor local de AD FS ejecute Multi-Factor Authentication (MFA).
 
-De forma predeterminada, MFA se producirá en una página hospedada por Azure Active Directory. Para configurar MFA local, la propiedad – SupportsMFA debe establecerse en true en Azure Active Directory usando el módulo de Azure AD para Windows PowerShell.
+De forma predeterminada, MFA se producirá en una página hospedada por Azure Active Directory. Para configurar la MFA local, el valor de la propiedad –SupportsMFA debe definirse como **True** en Azure Active Directory usando el módulo de Azure AD para Windows PowerShell.
 
 En el ejemplo siguiente se muestra cómo habilitar MFA local mediante el cmdlet [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) en el inquilino contoso.com:
 
@@ -88,6 +89,7 @@ Además de establecer esta marca, la instancia de AD FS de inquilinos federados 
 
 ##Artículos relacionados
 
+- [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

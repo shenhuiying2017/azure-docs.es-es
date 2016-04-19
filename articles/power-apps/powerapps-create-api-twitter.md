@@ -27,21 +27,27 @@ Agregue la API de Twitter al entorno del Servicio de aplicaciones de su organiza
 
 ## Crear la API en el portal de Azure
 
-1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa. 
+1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@*SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa. 
 
-2. Seleccione **Examinar** en la barra de tareas: ![][14]
+2. Seleccione **Examinar** en la barra de tareas:  
+![][14]  
 
-3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: ![][15]
+3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*:  
+![][15]  
 
-4. En **PowerApps**, seleccione **Administrar API**: ![Examine las APIs registradas][1]
+4. En **PowerApps**, seleccione **Administrar API**:  
+![Examine las APIs registradas][1]
 
-5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API: ![Add API][2]
+5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:    
+![Add API][2]
 
-6. Escriba un **nombre** descriptivo para la API.
+6. Escriba un **nombre** descriptivo para la API.  
 	
-7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Twitter**: ![seleccionar api de Twitter][3]
+7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Twitter**:  
+![seleccionar api de Twitter][3]
 
-8. Seleccione **Configuración: Configure los ajustes necesarios**: ![establecer la configuración de la API de Twitter][4]
+8. Seleccione **Configuración: Configure los ajustes necesarios**:    
+![establecer la configuración de la API de Twitter][4]
 
 9. Escriba la *clave del consumidor* y el *secreto del consumidor* de la aplicación de Twitter. Si no dispone de estos, consulte la sección "Registrar una aplicación Twitter para su uso con PowerApps" de este tema para crear los valores de clave y secreto que necesita.
 
@@ -96,4 +102,5 @@ En este tema, ha agregado la API de Twitter a su empresa PowersApps. A continuac
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->
+

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="01/14/2016"
+	ms.date="04/04/2016"
 	ms.author="ccompy"/>
 
 # Creación de una aplicación web en un entorno del Servicio de aplicaciones
@@ -118,4 +118,4 @@ Después de crear la aplicación web y el plan del Servicio de aplicaciones, es 
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016" 
+	ms.date="02/05/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -26,7 +26,7 @@ El procedimiento sigue el flujo de trabajo del [proceso de Cortana Analytics (CA
 
 ## <a name="dataset"></a>Conjunto de datos NYC Taxi Trips
 
-El conjunto de datos NYC Taxi Trips consta de aproximadamente 20 GB de archivos de valores separados por comas (CSV) comprimidos (aproximadamente, 48 GB sin comprimir), que registran más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y la ubicación de recogida y de entrega, el número de licencia de (del conductor) anónimo y el número de ida y vuelta incluye la ubicación de entrega y recogida y el tiempo, la número de licencia y el número de identificador único del taxi. Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
+El conjunto de datos NYC Taxi Trips consta de aproximadamente 20 GB de archivos de valores separados por comas (CSV) comprimidos (aproximadamente, 48 GB sin comprimir), que registran más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y el lugar de recogida y llegada, el número de licencia del taxista anonimizado y el número de placa (número de identificación único del taxi). Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
 
 1. El archivo **trip\_data.csv** contiene información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración de las carreras y la longitud del recorrido. Estos son algunos registros de ejemplo:
 
@@ -48,11 +48,11 @@ El conjunto de datos NYC Taxi Trips consta de aproximadamente 20 GB de archivos
 
 La **clave única** para unir trip\_data y trip\_fare se compone de los tres campos siguientes:
 
-- medallion, 
-- hack\_license y 
+- medallion,
+- hack\_license y
 - pickup\_datetime.
 
-## <a name="mltasks"></a>Realicemos tres tipos de tareas de predicción 
+## <a name="mltasks"></a>Realicemos tres tipos de tareas de predicción
 
 Se formulan tres problemas de predicción basados en el valor *tip\_amount* para mostrar tres tipos de tareas de modelado:
 
@@ -75,23 +75,23 @@ Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
 
 **Cree su propia cuenta de Almacenamiento de blobs de Azure.**
 
-- Cuando aprovisiona su propio Almacenamiento de blobs de Azure, elija una ubicación geográfica para el Almacenamiento de blobs de Azure en la región **centro-sur de EE. UU.**, o lo más cerca posible de esta región, ya que es donde se almacenan los datos de NYC Taxi. Los datos se copian con AzCopy desde el contenedor de Almacenamiento de blobs público a un contenedor de su propia cuenta de almacenamiento. Cuanto más se acerque el Almacenamiento de blobs de Azure a la región centro-sur de EE. UU., más rápida se completará esta tarea (paso 4). 
-- Para crear su propia cuenta de almacenamiento de Azure, siga los pasos descritos en [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md). Asegúrese de hacer anotaciones en los valores de las credenciales de la cuenta de almacenamiento siguientes, que necesitará más adelante en este tutorial. 
+- Cuando aprovisiona su propio Almacenamiento de blobs de Azure, elija una ubicación geográfica para el Almacenamiento de blobs de Azure en la región **centro-sur de EE. UU.**, o lo más cerca posible de esta región, ya que es donde se almacenan los datos de NYC Taxi. Los datos se copian con AzCopy desde el contenedor de Almacenamiento de blobs público a un contenedor de su propia cuenta de almacenamiento. Cuanto más se acerque el Almacenamiento de blobs de Azure a la región centro-sur de EE. UU., más rápida se completará esta tarea (paso 4).
+- Para crear una cuenta propia de almacenamiento de Azure, siga los pasos descritos en [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). Asegúrese de hacer anotaciones en los valores de las credenciales de la cuenta de almacenamiento siguientes, que necesitará más adelante en este tutorial.
 
   - **Nombre de cuenta de almacenamiento**
   - **Clave de cuenta de almacenamiento**
   - **Nombre de contenedor** (en donde los datos se van a almacenar en el Almacenamiento de blobs de Azure)
 
-**Aprovisione la instancia de Almacenamiento de datos SQL de Azure.** Siga la documentación en [Creación de Almacenamiento de datos SQL](sql-data-warehouse-get-started-provision.md) para aprovisionar una instancia de Almacenamiento de datos SQL. Asegúrese de que hacer anotaciones en las credenciales de Almacenamiento de datos SQL siguientes que se usarán en los pasos posteriores.
- 
+**Aprovisione la instancia de Almacenamiento de datos SQL de Azure.** Siga la documentación de [Creación de Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para aprovisionar una instancia de Almacenamiento de datos SQL. Asegúrese de que hacer anotaciones en las credenciales de Almacenamiento de datos SQL siguientes que se usarán en los pasos posteriores.
+
   - **Nombre del servidor**: <server Name>.database.windows.net
-  - **Nombre de SQLDW (base de datos)** 
+  - **Nombre de SQLDW (base de datos)**
   - **Nombre de usuario**
   - **Password**
 
-**Instale Visual Studio 2015 y SQL Server Data Tools.** Para obtener instrucciones, vea [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](sql-data-warehouse-install-visual-studio.md).
+**Instale Visual Studio 2015 y SQL Server Data Tools.** Para obtener instrucciones, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Conéctese a Almacenamiento de datos SQL de Azure con Visual Studio.** Para obtener instrucciones, vea los pasos 1 y 2 de [Conexión a Almacenamiento de datos SQL con Visual Studio](sql-data-warehouse-get-started-connect.md).
+**Conéctese a Almacenamiento de datos SQL de Azure con Visual Studio.** Para obtener instrucciones, consulte los pasos 1 y 2 de [Conexión a Almacenamiento de datos SQL con Visual Studio](../sql-data-warehouse/sql-data-warehouse-get-started-connect.md).
 
 >[AZURE.NOTE] Ejecute la siguiente consulta SQL en la base de datos que creó en el Almacenamiento de datos SQL (en lugar de la consulta proporcionada en el paso 3 del tema sobre la conexión) para **crear una clave maestra**.
 
@@ -114,7 +114,7 @@ Abra una consola de comandos de Windows PowerShell. Ejecute los comandos PowerSh
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
 	$wc = New-Object System.Net.WebClient
-	$wc.DownloadFile($source, $ps1_dest) 
+	$wc.DownloadFile($source, $ps1_dest)
 	.\Download_Scripts_SQLDW_Walkthrough.ps1 –DestDir 'C:\tempSQLDW'
 
 Cuando se haya ejecutado correctamente, el directorio de trabajo actual cambia a *-DestDir*. Debe ver una pantalla similar a la siguiente:
@@ -125,7 +125,7 @@ En *-DestDir*, ejecute el siguiente script de PowerShell en modo de administrado
 
 	./SQLDW_Data_Import.ps1
 
-Cuando se ejecuta el script de PowerShell por primera vez, se le pedirá que introduzca información desde Almacenamiento de datos SQL de Azure y la cuenta de Almacenamiento de blobs de Azure. Cuando se complete este script de PowerShell al ejecutarse por primera vez, las credenciales indicadas se habrán escrito en el archivo de configuración SQLDW.conf en el directorio de trabajo actual. La ejecución futura de este archivo de script de PowerShell puede leer todos los parámetros necesarios de este archivo de configuración. Si necesita cambiar algunos parámetros, puede elegir escribir los parámetros en la pantalla después del aviso mediante la eliminación de este archivo de configuración y de escribir los valores de parámetros cuando se le solicite o cambiar los valores de parámetros mediante la edición del archivo SQLDW.conf en el directorio *-DestDir*.
+Cuando se ejecuta el script de PowerShell por primera vez, se le pedirá que introduzca información desde Almacenamiento de datos SQL de Azure y la cuenta de Almacenamiento de blobs de Azure. Cuando este script de PowerShell termine de ejecutarse por primera vez, las credenciales indicadas se habrán escrito en un archivo de configuración SQLDW.conf del directorio de trabajo actual. La ejecución futura de este archivo de script de PowerShell puede leer todos los parámetros necesarios de este archivo de configuración. Si necesita cambiar algunos parámetros, puede elegir escribir los parámetros en la pantalla después del aviso mediante la eliminación de este archivo de configuración y de escribir los valores de parámetros cuando se le solicite o cambiar los valores de parámetros mediante la edición del archivo SQLDW.conf en el directorio *-DestDir*.
 
 >[AZURE.NOTE] Para evitar conflictos de nombres de esquema con los que ya existen en Almacenamiento de datos SQL de Azure, al leer los parámetros directamente desde el archivo SQLDW.conf, se agrega un número aleatorio de tres dígitos al nombre del esquema desde el archivo SQLDW.conf como el nombre de esquema predeterminado para cada ejecución. El script de PowerShell puede pedirle un nombre de esquema: se puede especificar el nombre a discreción del usuario.
 
@@ -149,13 +149,13 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
 				if ($env_path -notlike '*' +$AzCopy_path_i+'*'){
 					Write-Host $AzCopy_path_i 'not in system path, add it...'
 					[Environment]::SetEnvironmentVariable("Path", "$AzCopy_path_i;$env_path", "Machine")
-					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") 
+					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 					$env_path = $env:Path
-				}	
+				}
 
 - **Copia datos en la cuenta de Almacenamiento de blobs privada** desde el blob público con AzCopy
 
-		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"	
+		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
 		$start_time = Get-Date
 		AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
 		$end_time = Get-Date
@@ -166,20 +166,20 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
 
 
 - **Carga datos mediante Polybase (mediante la ejecución de LoadDataToSQLDW.sql) para el Almacenamiento de datos SQL de Azure** de la cuenta de almacenamiento de blobs privada con los siguientes comandos.
-	
+
 	- Creación de un esquema
 
 			EXEC (''CREATE SCHEMA {schemaname};'');
 
 	- Creación de una credencial con ámbito de base de datos
-			
-			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias} 
-			WITH IDENTITY = ''asbkey'' , 
+
+			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
+			WITH IDENTITY = ''asbkey'' ,
 			Secret = ''{StorageAccountKey}''
 
 	- Creación de un origen de datos externo para un blob de Almacenamiento de Azure
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -188,7 +188,7 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
 			)
 			;
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -199,10 +199,10 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
 
 	- Cree un formato de archivo externo para un archivo .csv. Los datos se descomprimen y los campos se separan con el carácter de barra vertical.
 
-			CREATE EXTERNAL FILE FORMAT {csv_file_format} 
-			WITH 
+			CREATE EXTERNAL FILE FORMAT {csv_file_format}
+			WITH
 			(   
-    			FORMAT_TYPE = DELIMITEDTEXT, 
+    			FORMAT_TYPE = DELIMITEDTEXT,
     			FORMAT_OPTIONS  
     			(
         			FIELD_TERMINATOR ='','',
@@ -210,7 +210,7 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
     			)
 			)
 			;
-		
+
 	- Cree tablas externas de tarifas y propinas para el conjunto de datos de NYC Taxi en el Almacenamiento de blobs de Azure.
 
 			CREATE EXTERNAL TABLE {external_nyctaxi_fare}
@@ -244,7 +244,7 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
        			rate_code char(3),
        			store_and_fwd_flag char(3),
        			pickup_datetime datetime  not null,
-       			dropoff_datetime datetime, 
+       			dropoff_datetime datetime,
        			passenger_count int,
        			trip_time_in_secs bigint,
        			trip_distance float,
@@ -264,40 +264,40 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
 	- Carga de datos de tablas externas del Almacenamiento de blobs de Azure en Almacenamiento de datos SQL
 
 			CREATE TABLE {schemaname}.{nyctaxi_fare}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_fare}
 			;
 
 			CREATE TABLE {schemaname}.{nyctaxi_trip}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_trip}
 			;
 
 	- Cree una tabla de datos de ejemplo (NYCTaxi\_Sample) e inserte datos en ella mediante la selección de consultas SQL en las tablas de carreras y tarifas. (Algunos pasos de este tutorial necesitan usar esta tabla de ejemplo).
 
 			CREATE TABLE {schemaname}.{nyctaxi_sample}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
+			AS
 			(
 	    		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount,
 				tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
-				tip_class = CASE 
+				tip_class = CASE
 						WHEN (tip_amount = 0) THEN 0
                         WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
                         WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
@@ -321,7 +321,7 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
 ![Diagrama 21][21]
 
 >[AZURE.TIP] **Use sus propios datos:** si los datos están en la máquina local en la aplicación de la vida real, todavía puede usar AzCopy para cargar los datos locales al Almacenamiento de blobs de Azure privado. Solo tiene que cambiar la ubicación de **origen**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, en el comando de AzCopy del archivo de scripts de PowerShell por un directorio local que contiene los datos.
-	
+
 >[AZURE.TIP] Si los datos ya están en el Almacenamiento de blobs de Azure privado en la aplicación de la vida real, puede omitir el paso de AzCopy en el script de PowerShell y cargar directamente los datos en Almacenamiento de datos SQL de Azure. Esto requerirá modificaciones adicionales del script para adaptarlo al formato de los datos.
 
 
@@ -453,7 +453,7 @@ En este ejemplo se convierte la longitud y latitud de los puntos de recogida y d
 
 	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -474,7 +474,7 @@ En este ejemplo se convierte la longitud y latitud de los puntos de recogida y d
 	END
 	GO
 
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -500,7 +500,7 @@ Este es el script SQL que define la función de distancia.
 
 	-- User-defined function calculate the direct distance between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -519,12 +519,12 @@ Este es el script SQL que define la función de distancia.
   		END
   		RETURN @distance
 	END
-	GO 
+	GO
 
 Este es un ejemplo para llamar a esta función para generar características en la consulta SQL:
 
 	-- Sample query to call the function to create features
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -534,7 +534,7 @@ Este es un ejemplo para llamar a esta función para generar características en 
 
 **Salida:** esta consulta genera una tabla (con 2 803 538 filas) con las latitudes y longitud de los puntos de origen y destino y las distancias directas correspondientes en millas. Estos son los resultados de las tres primeras filas:
 
-|pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
+||pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
 |---| --------- | -------|-------| --------- | -------|
 |1 | 40,731804 | -74,001083 | 40,736622 | -73,988953 | 0,7169601222 |
 |2 | 40,715794 | -74,010635 | 40,725338 | -74,00399 | 0,7448343721 |
@@ -544,7 +544,7 @@ Este es un ejemplo para llamar a esta función para generar características en 
 
 ### Preparar datos para la generación de modelos
 
-La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped**, una etiqueta de clasificación multiclase **tip\\_class** y extrae una muestra del conjunto de datos combinado completo. El muestreo se realiza mediante la recuperación de un subconjunto de los viajes en función del tiempo de recogida. Esta consulta se puede copiar y pegar directamente en el módulo [Lector](https://studio.azureml.net) del [Estudio de aprendizaje automático de Azure][reader] para la ingesta directa de datos de la instancia de Base de datos SQL en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
+La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped**, una etiqueta de clasificación multiclase **tip\\_class** y extrae una muestra del conjunto de datos combinado completo. El muestreo se realiza mediante la recuperación de un subconjunto de los viajes en función de la hora de recogida. Esta consulta se puede copiar y pegar directamente en el módulo [Lector](https://studio.azureml.net) del [Estudio de aprendizaje automático de Azure][reader] para la ingesta directa de datos de la instancia de Base de datos SQL en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -564,7 +564,7 @@ La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, 
 Cuando esté listo para continuar con Aprendizaje automático de Azure, puede:
 
 1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Lector][reader] de Aprendizaje automático de Azure; o bien
-2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos de una nueva tabla de Almacenamiento de datos SQL y usar la nueva tabla en el módulo [Lector][reader] de Aprendizaje automático de Azure. El script de PowerShell en el paso anterior se ha encargado de hacerlo. Puede leer directamente desde esta tabla en el módulo Lector. 
+2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos de una nueva tabla de Almacenamiento de datos SQL y usar la nueva tabla en el módulo [Lector][reader] de Aprendizaje automático de Azure. El script de PowerShell del paso anterior se ha encargado de hacerlo. Puede leer directamente de esta tabla en el módulo Lector.
 
 
 ## <a name="ipnb"></a>Exploración de datos e ingeniería de características en IPython Notebook
@@ -575,7 +575,7 @@ La información necesaria de Almacenamiento de datos SQL de Azure en el cuaderno
 
 Si ya ha configurado un área de trabajo de Aprendizaje automático de Azure, puede cargar el cuaderno de IPython Notebook de ejemplo en el servicio IPython Notebook de Aprendizaje automático de Azure y comenzar a ejecutarlo. Estos son los pasos para cargar en el servicio IPython Notebook de Aprendizaje automático de Azure:
 
-1. Inicie sesión en el área de trabajo de Aprendizaje automático de Azure, haga clic en "Studio" en la parte superior y después en "CUADERNOS" en el lado izquierdo de la página web. 
+1. Inicie sesión en el área de trabajo de Aprendizaje automático de Azure, haga clic en "Estudio" en la parte superior y después en "CUADERNOS" en el lado izquierdo de la página web.
 
 	![Diagrama 22][22]
 
@@ -808,7 +808,7 @@ En esta sección, se explorarán las distribuciones de datos con los datos de mu
 
 	pd.read_sql(query,conn)
 
-#### Exploración: distribución de carreras por licencia y hack\_license
+#### Exploración: distribución de carreras por placa y número de licencia
 
 	query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
 	pd.read_sql(query,conn)
@@ -920,7 +920,7 @@ En la ilustración siguiente se muestra un ejemplo de experimento de puntuación
 
 
 ## Resumen
-Para recapitular lo que hemos hecho, en este tutorial paso a paso se ha creado un entorno de ciencia de datos de Azure, se ha trabajado con un conjunto grande de datos público de principio a fin, llevándolos a través del proceso de Cortana Analytics, desde la adquisición de los datos al entrenamiento del modelo, y después a la implementación de un servicio web de Aprendizaje automático de Azure.
+A modo de recapitulación, en este tutorial paso a paso se ha creado un entorno de ciencia de datos de Azure, se ha trabajado con un conjunto de datos público grande de principio a fin, llevándolo a través del proceso de Cortana Analytics, desde la adquisición de los datos al entrenamiento del modelo, para finalizar con la implementación de un servicio web de Aprendizaje automático de Azure.
 
 ### Información de licencia
 
@@ -964,4 +964,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

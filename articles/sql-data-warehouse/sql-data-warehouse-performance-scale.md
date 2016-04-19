@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/29/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Rendimiento y escala flexibles con Almacenamiento de datos SQL
@@ -36,7 +36,7 @@ Si su aplicación tiene una carga de trabajo que varía, suba o baje los niveles
 ## Escala de los recursos de proceso hacia un nivel superior o inferior
 Independientemente del almacenamiento en la nube, la elasticidad del almacenamiento de datos SQL permite aumentar, reducir o pausar la capacidad de proceso utilizando una escala deslizante de unidades de almacenamiento de datos (DWU). Esto le ofrece la flexibilidad para optimizar la capacidad de proceso con un ajuste óptimo para su empresa.
 
-Para aumentar la capacidad de proceso puede agregar más DWU al servicio mediante el control deslizante de escala en el Portal de Azure clásico. También puede agregar DWU mediante T-SQL, las API de REST o los cmdlets de Powershell. La escala hacia niveles superiores o inferiores cancela todas las actividades que están en ejecución o en cola, pero la operación se completa en segundos, de manera que puede reanudar las actividades con más o menos capacidad de proceso.
+Para aumentar la capacidad de proceso puede agregar más DWU al servicio mediante el control deslizante de escala en el Portal de Azure clásico. También puede agregar DWU mediante T-SQL, las API de REST o los cmdlets de Azure PowerShell. La escala hacia niveles superiores o inferiores cancela todas las actividades que están en ejecución o en cola, pero la operación se completa en segundos, de manera que puede reanudar las actividades con más o menos capacidad de proceso.
 
 En el [Portal de Azure clásico][], puede hacer clic en el icono "Escala" en la parte superior de la página de Almacenamiento de datos SQL y después usar el control deslizante para aumentar o disminuir la cantidad de DWU aplicada a su almacén de datos antes de hacer clic en "Guardar". Si prefiere cambiar la escala mediante programación, el código de T-SQL siguiente muestra cómo ajustar la asignación de DWU para Almacenamiento de datos SQL:
 
@@ -47,10 +47,10 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ```
 Tenga en cuenta que se debe ejecutar este código T-SQL con el servidor lógico y no con la propia instancia de Almacenamiento de datos SQL.
 
-También puede conseguir el mismo resultado mediante Powershell, utilizando el código siguiente:
+También puede lograr el mismo resultado mediante Azure PowerShell importando el módulo AzureRM.Sql y usando el código siguiente:
 
 ```Powershell
-Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
+Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -RequestedServiceObjectiveName "DW1000"
 ```
 
 ## Pausa de los recursos de proceso
@@ -60,22 +60,27 @@ La acción de pausar devuelve los recursos de proceso al grupo de recursos dispo
 
 > [AZURE.NOTE] Puesto que el almacenamiento es independiente de los procesos, el almacenamiento no se ve afectado por las pausas.
 
-Las operaciones de pausar y reanudar la capacidad de proceso se pueden realizar mediante el [Portal de Azure clásico][], a través de las API de REST o usando Powershell. Al pausar se cancela la ejecución de todas las actividades que están en ejecución o en cola, y cuando vuelva, puede reanudar el uso de los recursos de proceso en segundos.
+Las operaciones de pausar y reanudar la capacidad de proceso se pueden realizar mediante el [Portal de Azure clásico][], a través de las API de REST o usando Azure PowerShell. Al pausar se cancela la ejecución de todas las actividades que están en ejecución o en cola, y cuando vuelva, puede reanudar el uso de los recursos de proceso en segundos.
 
-El código siguiente muestra cómo realizar una pausa mediante PowerShell:
-
-```Powershell
-Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
-"Server01" –DatabaseName "Database02"
-```
-
-Reanudar el servicio también es muy sencillo con PowerShell:
+Para pausar y reanudar el servicio con Azure PowerShell, primero tendrá que importar el módulo AzureRM.Sql de la siguiente forma:
 
 ```Powershell
-Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+Import-Module AzureRM.Sql
 ```
 
-Para obtener más detalles sobre cómo usar PowerShell, consulte el artículo [Uso de las API de REST y los cmdlets de PowerShell con Almacenamiento de datos SQL][].
+El código siguiente muestra cómo realizar una pausa mediante Azure PowerShell:
+
+```Powershell
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+
+Reanudar el servicio también es muy sencillo con Azure PowerShell:
+
+```Powershell
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+
+Para obtener más información sobre cómo usar Azure PowerShell, consulte el artículo [Uso de las API de REST y los cmdlets de PowerShell con Almacenamiento de datos SQL][].
 
 ## Pasos siguientes
 Para obtener información general sobre el rendimiento, vea [Introducción al rendimiento][].
@@ -93,4 +98,4 @@ Para obtener información general sobre el rendimiento, vea [Introducción al re
 
 [Portal de Azure clásico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

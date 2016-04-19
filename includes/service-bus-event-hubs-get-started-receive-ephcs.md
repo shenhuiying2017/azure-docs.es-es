@@ -14,17 +14,15 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
 
     ![][12]
 
-    Copie la clave de acceso para utilizarla más adelante en este tutorial.
+    Copie la clave de acceso primaria para utilizarla más adelante en este tutorial.
 
 4. En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual C# con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **Receptor**.
 
     ![][14]
 
-5. En el Explorador de soluciones, haga clic con el botón derecho en la solución y, a continuación, haga clic en **Administrar paquetes de NuGet**.
+5. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego haga clic en **Administrar paquetes NuGet para la solución**.
 
-	Aparecerá el cuadro de diálogo **Administrar paquetes de NuGet**.
-
-6. Busque `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, haga clic en **Instalar** y acepte las condiciones de uso.
+6. Haga clic en la pestaña **Examinar** y, después, busque `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Asegúrese de que el nombre del proyecto (**Receiver**) se especifica en el cuadro **Versiones**. Haga clic en **Instalar** y acepte las condiciones de uso.
 
     ![][13]
 
@@ -37,7 +35,6 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
 	```
 	using Microsoft.ServiceBus.Messaging;
 	using System.Diagnostics;
-	using System.Threading.Tasks;
 	```
 
 	A continuación, sustituya el código siguiente por el cuerpo de la clase:
@@ -82,25 +79,23 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
             }
 	    }
 	}
-    ````
+    ```
 
 	**EventProcessorHost** llamará a esta clase para procesar los eventos recibidos del Centro de eventos. Tenga en cuenta que la clase `SimpleEventProcessor` usa un cronómetro para llamar periódicamente al método de punto de control en el contexto **EventProcessorHost**. Esto garantiza que, si se reinicia el destinatario, no perderá más de cinco minutos de trabajo de procesamiento.
 
-9. En la clase **Program.cs**, agregue las siguientes instrucciones `using` al principio del archivo:
+9. En la clase **Program.cs**, agregue la siguiente instrucción `using` al principio del archivo:
 
 	```
 	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.Threading;
-	using System.Threading.Tasks;
 	```
 
-	Después, modifique el método `Main` de la clase `Program` de la siguiente manera: sustituyendo el nombre del Centro de eventos y la cadena de conexión, y la cuenta de almacenamiento y la clave que ha copiado en las secciones anteriores:
+	Después, modifique el método `Main` de la clase `Program` de la siguiente manera: sustituyendo el nombre del Centro de eventos y la cadena de conexión **ReceiveRule**, y la cuenta de almacenamiento y la clave que ha copiado en las secciones anteriores. Asegúrese de quitar el sufijo `EntityPath` de la cadena de conexión:
 
     ```
 	static void Main(string[] args)
     {
-      string eventHubConnectionString = "{event hub connection string}";
-      string eventHubName = "{event hub name}";
+      string eventHubConnectionString = "{Event Hub connection string}";
+      string eventHubName = "{Event Hub name}";
       string storageAccountName = "{storage account name}";
       string storageAccountKey = "{storage account key}";
       string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
@@ -116,7 +111,7 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
       Console.ReadLine();
       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
-	````
+	```
 
 > [AZURE.NOTE] Este tutorial usa una sola instancia de [EventProcessorHost][]. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de [EventProcessorHost][], como se muestra en el ejemplo de [procesamiento de eventos escalados horizontalmente][]. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup**. Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de [EventProcessorHost][] según los equipos (o roles) en que se implementan. Para obtener más información acerca de estos temas, consulte [Información general de los Centros de eventos][] y [Guía de programación de Centros de eventos][].
 
@@ -135,4 +130,4 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

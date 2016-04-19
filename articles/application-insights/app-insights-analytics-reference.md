@@ -307,7 +307,7 @@ La columna expandida siempre tiene el tipo dinámico. Usar una conversión como 
 Se admiten dos modos de expansiones de contenedor de propiedades:
 
 * `bagexpansion=bag`: los contenedores de propiedades se expanden en contenedores de propiedades de entrada única. Esta es la expansión predeterminada.
-* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`* key*`,`*value*`]`, que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
+* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`*key*`,`*value*`]`, que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
 
 **Ejemplos**
 
@@ -361,10 +361,10 @@ En el ejemplo siguiente, supongamos que la columna `EventNarrative` de la tabla 
 
 |EventNarrative|
 |---|
-|The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12. Flood stage at Brownsville is 18 feet. Minor flooding occurs at this level. The river overflows lock walls and some of the lower banks, along with some agricultural bottom land.|
-|The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12. Flood stage at Boston is 35 feet. Minor flooding occurs at this level, with some agricultural bottom land covered.|
-|The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16. Flood stage at Woodbury is 33 feet. Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water.|
-|The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18. Flood stage at Tell City is 38 feet. At this level, the river begins to overflow its banks above the gage. Indiana Highway 66 floods between Rome and Derby.|
+|El río Green, en Brownsville, tuvo un punto máximo de crecida de 5,73 metros aproximadamente a las 9:30 EST del 12 de diciembre. (The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12). La cota de inundación en Brownsville es de 5,49 metros. (Flood stage at Brownsville is 18 feet). A este nivel se produce una inundación menor. (Minor flooding occurs at this level). El río desborda los muros de contención y algunas riberas bajas, así como algunas vegas dedicadas a la agricultura. (The river overflows lock walls and some of the lower banks, along with some agricultural bottom land).|
+|El río Rolling Fork, en Boston, tuvo un punto máximo de crecida de 11,98 metros aproximadamente a las 17:00 EST del 12 de diciembre. (The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12). La cota de inundación en Boston es de 10,67 metros. (Flood stage at Boston is 35 feet). A este nivel se produce una inundación menor, con algunas vegas dedicadas a la agricultura cubiertas. (Minor flooding occurs at this level, with some agricultural bottom land covered.)|
+|El río Green, en Woodbury, tuvo un punto máximo de crecida de 11,19 metros aproximadamente a las 6:00 EST el 16 de diciembre. (The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16.) La cota de inundación en Woodbury es de 10,06 metros. (Flood stage at Woodbury is 33 feet.) A este nivel se produce una inundación menor, con algunas tierras bajas en la ciudad de Woodbury cubierta por el agua. (Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water.)|
+|El río Ohio, en Tell City, tuvo un punto máximo de crecida de 11,89 metros aproximadamente a las 7:00 EST del 18 de diciembre. (The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18.) La cota de inundación en Tell City es de 11,56 metros (Flood stage at Tell City is 38 feet.) A este nivel, el rio empieza a desbordar sus orillas por encima del medidor. (At this level, the river begins to overflow its banks above the gage.) La autopista Indiana 66 se inunda entre Rome y Derby. (Indiana Highway 66 floods between Rome and Derby).|
 
 ```AIQL
 
@@ -673,7 +673,7 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 * `kind`: 
  * `inner` - El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
  * `outer` - El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
-* `withsource=`* ColumnName: * si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
+* `withsource=`*ColumnName:* si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
 
 **Devoluciones**
 
@@ -1240,7 +1240,17 @@ Tenga en cuenta que hay otras formas de conseguir este efecto:
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o Igual a |`>` |Mayor que |`>=`|Mayor que o Igual a |`<>`|No igual a |`!=`|No igual a
+| - | Restar |
+| * | Multiplicar |
+| / | Dividir |
+| % | Aplicar módulo |
+||
+|`<` |Menor que
+|`<=`|Menor que o Igual a
+|`>` |Mayor que
+|`>=`|Mayor que o Igual a
+|`<>`|No igual a
+|`!=`|No igual a
 
 
 
@@ -2138,4 +2148,6 @@ Observe que "[0]" indica la presencia de una matriz, pero no especifica el índi
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->
+
+

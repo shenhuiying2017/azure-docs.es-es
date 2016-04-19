@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
@@ -128,7 +128,7 @@ El Explorador de documentos admite la ingesta en masa de uno o varios documentos
 
 1. [Inicie el Explorador de documentos](#launch-document-explorer).
 
-2. Para iniciar el proceso de carga, haga clic en ** Agregar documento**.
+2. Para iniciar el proceso de carga, haga clic en **Agregar documento**.
 
 	![Captura de pantalla de la funcionalidad de ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/uploaddocument1.png)
 
@@ -158,4 +158,4 @@ Para más información acerca de la gramática de SQL de DocumentDB compatible c
 
 La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarle durante su aprendizaje de DocumentDB.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0406_2016-->

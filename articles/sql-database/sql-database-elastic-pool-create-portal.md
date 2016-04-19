@@ -4,21 +4,21 @@
 	keywords="base de datos escalable,configuración de base de datos"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="03/24/2016"
-	ms.author="jeffreyg"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creación de un grupo de bases de datos elásticas escalable para bases de datos SQL con el Portal de Azure
+# Creación de un grupo de bases de datos elásticas con el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](sql-database-elastic-pool-create-portal.md)
@@ -68,9 +68,9 @@ Puede agregar varios grupos a un servidor, pero no puede agregar bases de datos 
     | :--- | :--- |
     | **eDTU del grupo** y **GB del grupo** (según la configuración del grupo)| Las eDTU máximas disponibles y compartidas por todas las bases de datos del grupo. Las eDTU máximas disponibles en un grupo dependen del plan de tarifa (nivel de servicio). La **eDTU del grupo** está relacionada con el almacenamiento disponible para el grupo. Para cada eDTU que asigne al grupo, obtendrá una cantidad fija de almacenamiento de base de datos y viceversa. |
     | **eDTU mín.** (según la configuración de la base de datos)| El número mínimo de eDTU del grupo que se garantiza en todas las bases de datos del grupo en todo momento. Normalmente, la **eDTU mín.** se establece en cualquier valor entre 0 y el promedio de uso histórico de eDTU por base de datos. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. |
-    | **eDTU máx.** (según la configuración de la base de datos) | El número máximo de eDTU que puede usar una base de datos única del grupo. Puede establecer este límite máximo hasta la **eDTU del grupo**. Establezca la **eDTU máx.** por base de datos lo suficientemente alta como para controlar las ráfagas o picos máximos durante la actividad máxima de la base de datos. Se admite cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de demanda no tienen lugar en todas las bases de datos a la vez. **Ejemplo:** suponga que la utilización máxima por base de datos es de 50 DTU y solo el 20 % de las 100 bases de datos del grupo registran simultáneamente un pico de rendimiento. Si el límite máximo de eDTU por base de datos se establece en 50, puede asignar al grupo una cantidad cinco veces mayor y establecer la **eDTU del grupo** en 1000. La **eDTU máx.** no es un número garantizado de recursos para una base de datos, sino que es un valor máximo de eDTU que se puede llegar a alcanzar si está disponible. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. |
+    | **eDTU máx.** (según la configuración de la base de datos) | El número máximo de eDTU que puede usar una base de datos única del grupo. Puede establecer este límite máximo hasta la **eDTU del grupo**. Establezca la **eDTU máx.** por base de datos lo suficientemente alta como para controlar las ráfagas o picos máximos durante la actividad máxima de la base de datos. Se admite cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de demanda no tienen lugar en todas las bases de datos a la vez. **Ejemplo:** suponga que la utilización máxima por base de datos es de 50 DTU y solo el 20 % de las 100 bases de datos del grupo registran simultáneamente un pico de rendimiento. Si el límite máximo de eDTU por base de datos se establece en 50, puede asignar al grupo una cantidad cinco veces mayor y establecer la **eDTU del grupo** en 1000. La **eDTU máx.** no es un número garantizado de recursos para una base de datos, sino que es un valor máximo de eDTU que se puede llegar a alcanzar si está disponible. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. |
 
-    Consulte [Referencia de grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) para ver más detalles sobre los límites de cada nivel de servicio y [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md) para ver instrucciones detalladas sobre el ajuste de tamaño correcto de un grupo.
+    Consulte [Referencia de grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) para ver más detalles sobre los límites de cada nivel de servicio y [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md) para ver instrucciones detalladas sobre el ajuste de tamaño correcto de un grupo.
 
 7. Haga clic en **Seleccionar** al finalizar y luego en **Aceptar** para crear el grupo.
 
@@ -90,7 +90,6 @@ El servicio evalúa las necesidades de recursos y la rentabilidad de mover las b
 
 - [Manage a SQL Database elastic pool with the portal (Administración de un grupo elástico de Base de datos SQL con el portal)](sql-database-elastic-pool-manage-portal.md)
 - [Manage a SQL Database elastic pool with PowerShell (Administración de un grupo elástico de Base de datos SQL con PowerShell)](sql-database-elastic-pool-manage-powershell.md)
-- [Creación y administración de bases de datos SQL con C#](sql-database-client-library.md)
-- [Referencia de bases de datos elásticas](sql-database-elastic-pool-reference.md)
+- [Creación y administración de bases de datos SQL con C#](sql-database-elastic-pool-manage-csharp.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

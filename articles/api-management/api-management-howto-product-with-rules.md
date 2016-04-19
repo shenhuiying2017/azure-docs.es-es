@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="erikre"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/27/2016"
+	ms.date="04/13/2016"
 	ms.author="sdanie"/>
 
 # Protección de su API con límites de frecuencia mediante Administración de API de Azure
@@ -34,7 +34,7 @@ Para comenzar, haga clic en **Administrar** en el Portal de Azure clásico para 
 
 ![Portal del publicador][api-management-management-console]
 
->Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
+>Si aún no ha creado ninguna instancia del servicio de administración de API, consulte [Creación de una instancia de Administración de API][] en el tutorial [Administración de su primera API en Administración de API de Azure][].
 
 Haga clic en **Productos** en el menú **Administración de API** a la izquierda para mostrar la página **Productos**.
 
@@ -70,7 +70,7 @@ Seleccione la casilla **Desarrolladores** y, a continuación, haga clic en **Gua
 
 En este paso del tutorial, agregaremos la API Eco al nuevo producto Prueba gratuita.
 
->Cada instancia del servicio Administración de API viene previamente configurada con una API Eco que se puede usar para experimentar con Administración de API y aprender de esta. Para obtener más información, consulte [Introducción a Administración de API de Azure][].
+>Cada instancia del servicio Administración de API viene previamente configurada con una API Eco que se puede usar para experimentar con Administración de API y aprender de esta. Para más información, consulte [Administración de su primera API en Administración de API de Azure][].
 
 Haga clic en **Productos** en el menú **Administración de API** a la izquierda y luego haga clic en **Prueba gratuita** para configurar el producto.
 
@@ -80,7 +80,7 @@ Haga clic en **Agregar API al producto**.
 
 ![Add API to product][api-management-add-api]
 
-Seleccione **API Eco ** y luego haga clic en **Guardar**.
+Seleccione **API Eco** y luego haga clic en **Guardar**.
 
 ![Add Echo API][api-management-add-echo-api]
 
@@ -98,11 +98,11 @@ Para insertar directivas, posicione el cursor en la sección **entrante** o **sa
 
 ![Policy editor][api-management-policy-editor-inbound]
 
-Las dos directivas que estamos agregando en este tutorial son [Limitar frecuencia de llamadas][] y [Establecer cuota de uso][].
+Las dos directivas que se van a agregar en este tutorial son [Limitar la frecuencia de llamadas por suscripción](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) y [Establecer la cuota de uso por suscripción](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota).
 
 ![Policy statements][api-management-limit-policies]
 
-Una vez posicionado el cursor en el elemento de directiva **entrante**, haga clic en la flecha situada junto a **Limitar frecuencia de llamadas** para insertar su plantilla de directiva.
+Una vez que el cursor se ha situado en el elemento de directiva **inbound**, haga clic en la flecha situada junto a **Limitar la frecuencia de llamadas por suscripción** para insertar su plantilla de directiva.
 
 	<rate-limit calls="number" renewal-period="seconds">
 	<api name="name" calls="number">
@@ -110,7 +110,7 @@ Una vez posicionado el cursor en el elemento de directiva **entrante**, haga cli
 	</api>
 	</rate-limit>
 
-**Limitar frecuencia de llamadas** se puede usar a nivel de producto y también a nivel de API y de nombre de operación individual. En este tutorial solamente se usan directivas de nivel de producto; por tanto, elimine los elementos **api** y **operation** del elemento**rate-limit**, de manera que solo permanezca el elemento externo **rate-limit**, tal y como se muestra en el siguiente ejemplo.
+**Limitar la frecuencia de llamadas por suscripción** no solo se puede usar a nivel de producto sino también a los nivel de API y de nombre de operación individual. En este tutorial solamente se usan directivas de nivel de producto; por tanto, elimine los elementos **api** y **operation** del elemento**rate-limit**, de manera que solo permanezca el elemento externo **rate-limit**, tal y como se muestra en el siguiente ejemplo.
 
 	<rate-limit calls="number" renewal-period="seconds">
 	</rate-limit>
@@ -120,7 +120,7 @@ En el producto **Prueba gratuita**, la tasa máxima de llamadas permitida es de 
 	<rate-limit calls="10" renewal-period="60">
 	</rate-limit>
 
-Para configurar la directiva **Establecer cuota de uso**, posicione el cursor inmediatamente debajo del elemento **rate-limit** recién agregado dentro del elemento **inbound** y haga clic en la flecha situada a la izquierda de **Establecer cuota de uso**.
+Para configurar la directiva **Establecer la cuota de uso por suscripción**, sitúe el cursor inmediatamente debajo del elemento **rate-limit** recién agregado dentro del elemento **inbound** y haga clic en la flecha situada a la izquierda de **Establecer la cuota de uso por suscripción**.
 
 	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
 	<api name="name" calls="number" bandwidth="kilobytes">
@@ -275,12 +275,11 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Administración de su primera API en Administración de API de Azure]: api-management-get-started.md
 [Creación y uso de grupos en Administración de API de Azure]: api-management-howto-create-groups.md
 [View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
-[Introducción a Administración de API de Azure]: api-management-get-started.md
-[Introducción a la Administración de API de Azure]: api-management-get-started.md
-[Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Creación de una instancia de Administración de API]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
 
 [Create a product]: #create-product
@@ -291,7 +290,7 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 [Call an operation and test the rate limit]: #test-rate-limit
 [Introducción a la configuración de API avanzada]: api-management-get-started-advanced.md
 
-[Limitar frecuencia de llamadas]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Establecer cuota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

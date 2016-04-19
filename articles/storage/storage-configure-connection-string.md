@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configurar una cadena de conexión a Almacenamiento de Azure | Microsoft Azure"
-	description="Obtenga información acerca de cómo configurar una cadena de conexión para una cuenta de Almacenamiento de Azure Una cadena de conexión incluye la información necesaria para autenticar el acceso mediante programación a los recursos en una cuenta de almacenamiento. La cadena de conexión puede encapsular su clave de acceso de cuenta para una cuenta de la que es propietario, o puede incluir una firma de acceso compartido para tener acceso a los recursos en una cuenta sin la clave de acceso."
+	description="Crear una cadena de conexión en una cuenta de Almacenamiento de Azure Una cadena de conexión incluye la información necesaria para autenticar el acceso a los recursos de una cuenta de almacenamiento desde la aplicación."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/01/2016"
 	ms.author="tamram"/>
 
 # Configuración de las cadenas de conexión de Almacenamiento de Azure
@@ -96,13 +96,13 @@ Por ejemplo, una cadena de conexión para un extremo de blob en un dominio perso
 
 ### Especificación de un extremo de blob con una firma de acceso compartido
 
-Puede crear una cadena de conexión con extremos explícitos para permitir el acceso a recursos de almacenamiento a través de una firma de acceso compartida. En este caso, puede especificar una firma de acceso compartido como parte de la cadena de conexión, en lugar de las credenciales del nombre y clave de la cuenta. El token de firma de acceso compartido encapsula la información sobre el recurso al que se va a tener acceso, el período de tiempo durante el cual estará disponible y los permisos que se van a conceder. Para obtener más información acerca de las firmas de acceso compartido, consulte [Delegación del acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/ee395415.aspx).
+Puede crear una cadena de conexión con extremos explícitos para permitir el acceso a recursos de almacenamiento a través de una firma de acceso compartida. En este caso, puede especificar una firma de acceso compartido como parte de la cadena de conexión, en lugar de las credenciales del nombre y clave de la cuenta. El token de firma de acceso compartido encapsula la información sobre el recurso al que se va a tener acceso, el período de tiempo durante el cual estará disponible y los permisos que se van a conceder. Para obtener más información sobre las firmas de acceso compartido, consulte [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
 
 Para crear una cadena de conexión que incluya una firma de acceso compartido, especifique la cadena con el siguiente formato:
 
-    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=base64Signature
+    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=sasToken
 
-El extremo puede ser el extremo del servicio predeterminado o un extremo personalizado. `base64Signature` corresponde a la parte de la firma de una firma de acceso compartido. La firma es un HMAC calculado sobre una cadena para firmar y una clave válidas con el algoritmo SHA256, el resultado es un Base64 codificado.
+El extremo puede ser el extremo del servicio predeterminado o un extremo personalizado. `sasToken` es la cadena de consulta que sigue al signo de interrogación (?) en la dirección URL de SAS.
 
 ### Creación de una cadena de conexión con un sufijo de extremo
 
@@ -119,4 +119,9 @@ Por ejemplo, la cadena de conexión debe tener un aspecto similar a la siguiente
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0218_2016-->
+## Pasos siguientes
+
+- [Uso del emulador de almacenamiento de Azure para desarrollo y pruebas](storage-use-emulator.md)
+- [Exploradores de almacenamiento de Azure](storage-explorers.md)
+
+<!---HONumber=AcomDC_0406_2016-->

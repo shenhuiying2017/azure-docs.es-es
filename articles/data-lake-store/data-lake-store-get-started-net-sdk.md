@@ -13,17 +13,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/07/2016"
+   ms.date="04/07/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante SDK de .NET
 
 > [AZURE.SELECTOR]
-- [Uso del Portal](data-lake-store-get-started-portal.md)
-- [Uso de PowerShell](data-lake-store-get-started-powershell.md)
-- [Uso del SDK de .NET](data-lake-store-get-started-net-sdk.md)
-- [Uso de la CLI de Azure](data-lake-store-get-started-cli.md)
-- [Uso de Node.js](data-lake-store-manage-use-nodejs.md)
+- [Portal](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [SDK de Java](data-lake-store-get-started-java-sdk.md)
+- [API DE REST](data-lake-store-get-started-rest-api.md)
+- [CLI de Azure](data-lake-store-get-started-cli.md)
+- [Node.js](data-lake-store-manage-use-nodejs.md)
 
 Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una cuenta de Azure Data Lake y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para obtener más información sobre Data Lake, consulte [Almacén de Azure Data Lake](data-lake-store-overview.md).
 
@@ -32,7 +34,7 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 * Visual Studio 2013 o 2015 Las instrucciones siguientes usan Visual Studio 2015.
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
-* Cree una aplicación de Azure Active Directory (AAD) y recupere el **Id. de cliente** y el **URI de respuesta**. Para más información acerca de las aplicaciones de AAD y de las instrucciones sobre cómo obtener un identificador de cliente, consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md). El identificador URI de respuesta también estará disponible desde el portal una vez que la aplicación se haya creado.
+* Cree una aplicación de Azure Active Directory (AAD) y recupere el **id. de cliente** y el **URI de respuesta**. Para más información acerca de las aplicaciones de AAD y de las instrucciones sobre cómo obtener un identificador de cliente, consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md). El identificador URI de respuesta también estará disponible desde el portal una vez que la aplicación se haya creado.
 
 ## ¿Cómo se puede autenticar mediante Azure Active Directory?
 
@@ -67,7 +69,7 @@ Aunque el fragmento de código siguiente proporciona los métodos para ambos enf
 5. Agregue los paquetes de Nuget al proyecto.
 
 	1. Haga clic con el botón derecho en el Explorador de soluciones y haga clic en **Administrar paquetes de NuGet**.
-	2. En la pestaña **Administrador de paquetes de NuGet**, asegúrese de que la opción **Origen del paquete** está establecida como **nuget.org** y que la casilla **Incluir versión preliminar** está activada.
+	2. En la pestaña **Administrador de paquetes NuGet**, asegúrese de que la opción **Origen del paquete** está establecida como **nuget.org** y que la casilla **Incluir versión preliminar** está activada.
 	3. Busque e instale los siguientes paquetes del Almacén de Data Lake:
 
 		* `Microsoft.Azure.Management.DataLake.Store`
@@ -186,7 +188,7 @@ Aunque el fragmento de código siguiente proporciona los métodos para ambos enf
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see:
-                //   https://azure.microsoft.com/es-ES/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -200,7 +202,7 @@ Aunque el fragmento de código siguiente proporciona los métodos para ambos enf
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see:
-                //   https://azure.microsoft.com/es-ES/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -307,12 +309,6 @@ Aunque el fragmento de código siguiente proporciona los métodos para ambos enf
 
 8. Compile y ejecute la aplicación. Siga las indicaciones para ejecutar y completar la aplicación.
 
-## Otras formas de crear una cuenta de Almacén de Data Lake
-
-- [Introducción al Almacén de Data Lake mediante el Portal](data-lake-store-get-started-portal.md)
-- [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
-- [Introducción al Almacén de Data Lake mediante la CLI de Azure](data-lake-store-get-started-cli.md)
-
 
 ## Pasos siguientes
 
@@ -320,4 +316,4 @@ Aunque el fragmento de código siguiente proporciona los métodos para ambos enf
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

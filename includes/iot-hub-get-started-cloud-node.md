@@ -70,7 +70,9 @@ En esta sección, creará una aplicación de consola de Node.js que crea una nue
 
 En esta sección, creará una aplicación de consola de Node.js que lee los mensajes de dispositivo a nube del Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El tutorial [Procesamiento de mensajes de dispositivo a la nube][lnk-processd2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] se proporciona información adicional acerca de cómo procesar los mensajes desde los Centros de eventos. Dicha información se puede aplicar a los puntos de conexión compatibles con Centros de eventos de Centro de IoT.
 
-1. Cree una nueva carpeta vacía llamada **readdevicetocloudmessages**. En la carpeta **readdevicetocloudmessages**, cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
+> [AZURE.NOTE] El punto de conexión compatible con los Centros de eventos para leer mensajes de dispositivo a la nube siempre usa el protocolo AMQPS.
+
+1. Cree una nueva carpeta vacía denominada **readdevicetocloudmessages**. En la carpeta **readdevicetocloudmessages**, cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
 
     ```
     npm init
@@ -84,7 +86,7 @@ En esta sección, creará una aplicación de consola de Node.js que lee los mens
 
 3. Con un editor de texto, cree un nuevo archivo **ReadDeviceToCloudMessages.js** en la carpeta **readdevicetocloudmessages**.
 
-4. Agregue las siguientes `require` instrucciones al principio del archivo **ReadDeviceToCloudMessages.js**:
+4. Agregue las siguientes instrucciones `require` al principio del archivo **ReadDeviceToCloudMessages.js**:
 
     ```
     'use strict';
@@ -95,7 +97,7 @@ En esta sección, creará una aplicación de consola de Node.js que lee los mens
     var Promise = require('bluebird');
     ```
 
-5. Agregue las siguientes declaraciones de variables, reemplazando los marcadores de posición por los valores que anotó anteriormente. El valor del marcador de posición **{your event hub-compatible namespace}** proviene del campo de **Punto de conexión compatible con Centro de eventos** en el portal y adopta la forma siguiente: **namespace.servicebus.windows.net** (sin el prefijo **sb://*)
+5. Agregue las siguientes declaraciones de variables, reemplazando los marcadores de posición por los valores que anotó anteriormente. El valor del marcador de posición **{your event hub-compatible namespace}** proviene del campo de **Punto de conexión compatible con Centro de eventos** en el portal y adopta la forma siguiente: **namespace.servicebus.windows.net** (sin el prefijo **sb://*).
 
     ```
     var protocol = 'amqps';
@@ -177,9 +179,9 @@ En esta sección, creará una aplicación de consola de Node.js que lee los mens
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
-[lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-eventhubs-tutorial]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
+[lnk-event-hubs-overview]: ../articles/event-hubs/event-hubs-overview.md
+[lnk-processd2c-tutorial]: ../articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

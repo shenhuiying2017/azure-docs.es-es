@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/03/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 #Selección de la solución de seguridad multifactor más adecuada
@@ -65,7 +65,7 @@ SMS unidireccional como segundo factor | ● | ●
 SMS bidireccional como segundo factor | | ● 
 Tokens de hardware como segundo factor | | ● 
 Contraseñas de aplicación para los clientes que no son compatibles con MFA | ● |  
-Control de administración sobre los métodos de autenticación | (Vista previa pública) | ● 
+Control de administración sobre los métodos de autenticación | ● | ● 
 Modo de PIN | | ●
 Alerta de fraude | ● | ●
 Informes de MFA | ● | ● 
@@ -81,4 +81,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

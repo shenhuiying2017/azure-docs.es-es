@@ -30,8 +30,8 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 
 >[AZURE.NOTE] **Para todos los escenarios siguientes, debe:**
 
-*   [Cree una cuenta de almacenamiento](storage-whatis-account.md)
-*   [Cree un área de trabajo de Aprendizaje automático de Azure](machine-learning/machine-learning-create-workspace.md)
+*   [Cree una cuenta de almacenamiento](../storage/storage-create-storage-account.md)
+*   [Cree un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md)
 
 
 ## <a name="smalllocal"></a>Escenario nº 1: Conjunto de datos tabular de tamaño pequeño a medio de archivos locales
@@ -168,7 +168,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 
     f. Si se requieren combinaciones de tablas, cree índices para acelerar dichas combinaciones.
 
- > [AZURE.NOTE] Para acelerar la carga de tamaños de datos de gran tamaño, es recomendable crear tablas con particiones e importar en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE] Para acelerar la carga de tamaños de datos de gran tamaño, es recomendable crear tablas con particiones e importar en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore datos y cree características según sea necesario. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
 
@@ -208,7 +208,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 
 	f. Si se requieren combinaciones de tablas, cree índices para acelerar dichas combinaciones.
 
-> [AZURE.NOTE] Para acelerar la carga de tamaños de datos de gran tamaño, cree tablas con particiones e importe en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] Para acelerar la carga de tamaños de datos de gran tamaño, cree tablas con particiones e importe en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore datos y cree características según sea necesario. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
 
@@ -296,8 +296,8 @@ El diagrama siguiente resume los escenarios descritos anteriormente y las opcion
 Para los tutoriales de Aprendizaje automático de Azure completos que emplean la Tecnología y procesos de análisis avanzado mediante conjuntos de datos públicos, consulte:
 
 
-* [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Proceso de análisis de Cortana en acción: uso de clústeres de Hadoop de HDInsight](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+* [Proceso de análisis de Cortana en acción: uso de clústeres de Hadoop de HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -314,4 +314,4 @@ Para los tutoriales de Aprendizaje automático de Azure completos que emplean la
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

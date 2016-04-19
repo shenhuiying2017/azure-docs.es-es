@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016" 
+	ms.date="02/08/2016"
 	ms.author="mohabib;fashah;bradsev"/>
 
 
@@ -74,13 +74,15 @@ En este tutorial se mostrará la importación paralela en bloque de los datos en
 
 Para configurar el entorno de ciencia de datos de Azure:
 
-1. [Cree una cuenta de almacenamiento](../storage-create-storage-account.md)
+1. [Cree una cuenta de almacenamiento](../storage/storage-create-storage-account.md)
 
 2. [Cree un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md)
 
 3. [Aprovisione una máquina virtual de ciencia de datos](machine-learning-data-science-setup-sql-server-virtual-machine.md), que actuará no solo como servidor de SQL Server, sino también como servidor de Blocs de notas de IPython.
 
-	> [AZURE.NOTE] Los scripts y Blocs de notas de IPython de ejemplo se descargarán en la máquina virtual de ciencia de datos durante el proceso de instalación. Cuando se complete el script posterior a la instalación de la máquina virtual, los ejemplos estarán en la biblioteca de documentos de su máquina virtual: - Scripts de ejemplo: `C:\Users<user_name>\Documents\Data Science Scripts` - Blocs de notas de IPython de ejemplo: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` donde `<user_name>` es el nombre de inicio de sesión de Windows de la máquina virtual. Se hará referencia a las carpetas de ejemplo como **Scripts de ejemplo** y **Blocs de notas de IPython de ejemplo**.
+	> [AZURE.NOTE] Los scripts y Blocs de notas de IPython de ejemplo se descargarán en la máquina virtual de ciencia de datos durante el proceso de instalación. Cuando se complete el script posterior a la instalación de máquina virtual, los ejemplos estarán en la biblioteca de documentos de su máquina virtual:
+	> - Scripts de ejemplo: `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - Cuadernos de IPython Notebook de ejemplo: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`, donde `<user_name>` es el nombre de inicio de sesión de Windows de la máquina virtual. Se hará referencia a las carpetas de ejemplo como **Scripts de ejemplo** y **Blocs de notas de IPython de ejemplo**.
 
 
 Teniendo en cuenta el tamaño del conjunto de datos, la ubicación del origen de datos y el entorno destino de Azure seleccionado, este escenario es similar a [Escenario nº 5: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
@@ -714,4 +716,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

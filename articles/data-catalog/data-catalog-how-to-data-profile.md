@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="04/07/2016"
    ms.author="derrickv"/>
 
 # Orígenes de datos de perfiles de datos
@@ -91,4 +91,4 @@ La generación de perfiles de datos proporciona estadísticas e información sob
 -	[Registro de orígenes de datos](data-catalog-how-to-register.md)
 -	[Introducción al Catálogo de datos de Azure](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->
