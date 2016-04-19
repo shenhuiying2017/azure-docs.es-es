@@ -3,7 +3,7 @@
 	description="Obtenga información sobre cómo implementar una aplicación de Node.js en una aplicación web en el Servicio de aplicaciones de Azure."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="rmcmurray"
+	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
@@ -28,8 +28,6 @@
 
 Este tutorial muestra cómo crear una aplicación de [Node.js](http://nodejs.org) sencilla e implementarla en una [aplicación web](app-service-web-overview.md) del [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) desde una líneas de comandos como cmd.exe o bash. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Node.js.
 
-[Aplicaciones web del Servicio de aplicaciones de Azure](/services/app-service/web/)
-
 <a name="prereq"/>
 ## Requisitos previos
 
@@ -37,7 +35,7 @@ Este tutorial muestra cómo crear una aplicación de [Node.js](http://nodejs.org
 - Yoeman. Encontrará [aquí](http://yeoman.io/) las instrucciones de instalación.
 - Git. Encontrará [aquí](http://www.git-scm.com/downloads) los archivos binarios de instalación.
 - CLI de Azure. Encontrará [aquí](../xplat-cli-install.md) las instrucciones de instalación.
-- Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o bien [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para obtener una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o bien [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## Creación e implementación de una aplicación web de Node.js simple
 
@@ -51,7 +49,7 @@ Este tutorial muestra cómo crear una aplicación de [Node.js](http://nodejs.org
         
     Elija las opciones siguientes cuando se le solicite:
 
-    `? Would you like to create a new directory for your project?` **Yes** `? Enter directory name` **&lt;nombreDeAplicación>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **None** `? Select a database to use:` **None** `? Select a build tool to use:` **Grunt**
+    `? Would you like to create a new directory for your project?` **Sí** `? Enter directory name` **&lt;nombreDeAplicación>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **Ninguno** `? Select a database to use:` **Ninguno** `? Select a build tool to use:` **Grunt**
 
 3. Mediante `CD`, vaya al directorio raíz de la nueva aplicación e iníciela para asegurarse de que se ejecuta en el entorno de desarrollo:
 
@@ -89,7 +87,7 @@ Este tutorial muestra cómo crear una aplicación de [Node.js](http://nodejs.org
         git commit -m "<your commit message>"
         git push azure master
 
-    El generador Express ya proporciona un archivo .gitignore, por lo que su comando `git push` no consumirá ancho de banda al intentar cargar el directorio node\_modules.
+    El generador Express ya proporciona un archivo .gitignore, por lo que su comando `git push` no consumirá ancho de banda al intentar cargar el directorio node\_modules/.
 
 5. Por último, inicie la aplicación de Azure activa en el explorador:
 
@@ -134,8 +132,8 @@ En el flujo de trabajo típico, puede indicar al Servicio de aplicaciones que us
 
 El motor de implementación de Kudu determina qué motor de Node.js se usará en el orden siguiente:
 
-- Primero, vea en iisnode.yml si `nodeProcessCommandLine` está especificado. En caso afirmativo, úselo.
-- A continuación, mire package.json para ver si `"node": "..."` está especificado en el objeto `engines`. En caso afirmativo, úselo.
+- Primero, consulte en iisnode.yml si `nodeProcessCommandLine` está especificado. En caso afirmativo, úselo.
+- Después, consulte package.json para ver si `"node": "..."` está especificado en el objeto `engines`. En caso afirmativo, úselo.
 - De forma predeterminada, elija una versión predeterminada de Node.js.
 
 <a name="iisnodelog" />
@@ -207,8 +205,8 @@ Para habilitar Node-Inspector, siga estos pasos:
 - [Especificación de una versión de Node.js en una aplicación Azure](../nodejs-specify-node-version-azure-apps.md)
 - [Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure](web-sites-nodejs-debug.md)
 - [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps.md)
-- [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) (Aplicaciones web del Servicio de aplicaciones de Azure: Node.js)
+- [Azure App Service Web Apps: Node.js (Aplicaciones web del Servicio de aplicaciones de Azure: Node.js)](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
 - [Centro para desarrolladores de Node.js](/develop/nodejs/)
 - [Introducción a las aplicaciones web en el Servicio de aplicaciones de Azure](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

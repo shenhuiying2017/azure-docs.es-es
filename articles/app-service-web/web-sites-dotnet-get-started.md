@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación de una aplicación web con Visual Studio | Microsoft Azure"
+	pageTitle="Introducción a ASP.NET y el Servicio de aplicaciones de Azure | Microsoft Azure"
 	description="En este tutorial se muestra cómo crear un proyecto web de ASP.NET en Visual Studio e implementarlo en una aplicación web en el Servicio de aplicaciones de Azure."
 	services="app-service\web"
 	documentationCenter=".net"
@@ -12,11 +12,11 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="03/02/2016"
 	ms.author="tdykstra"/>
 
-# Creación de una aplicación web de ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio
+# Introducción a las aplicaciones web ASP.NET en el Servicio de aplicaciones de Azure con Visual Studio
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -42,7 +42,7 @@ Aprenderá a realizar los siguientes procedimientos:
 
 Al final del tutorial, una sección [Solución de problemas](#troubleshooting) le proporciona ideas sobre qué hacer si algo no funciona y una sección [Pasos siguientes](#next-steps) proporciona vínculos a otros tutoriales que profundizan más en el uso del Servicio de aplicaciones de Azure.
 
-> [AZURE.NOTE] Ayúdenos a conformar el ámbito y el enfoque de este tutorial; si hay otros temas que le gustaría que se trataran aquí o en un tutorial de introducción, déjenos un comentario en [Comentarios](#comments) al final del tutorial.
+## Requisitos previos
 
 [AZURE.INCLUDE [Requisitos previos](../../includes/app-service-web-dotnet-get-started-prereqs.md)]
 
@@ -176,7 +176,7 @@ En esta sección, implementará el proyecto web en la aplicación web, como se m
 	* Precompilar durante la publicación.
 	* Excluir archivos de la carpeta App\_Data.
 
-	Para este tutorial no necesita ninguna de ellas. Para obtener explicaciones detalladas de lo que hacen, consulte [Cómo: Implementar un proyecto de aplicación web mediante Publicación con un solo clic en Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+	Para este tutorial no necesita ninguna de ellas. Para obtener explicaciones detalladas de lo que hacen, consulte [Implementación de un proyecto de aplicación web mediante Publicación con un solo clic en Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 
 10. En la pestaña **Configuración**, haga clic en **Siguiente**.
 
@@ -210,13 +210,13 @@ El [Portal de Azure](/services/management-portal/) es una interfaz web que puede
 
 	![Servicios de aplicaciones en el Portal de Azure](./media/web-sites-dotnet-get-started/selinportal.png)
 
-	La hoja **Aplicación web** muestra información general acerca de la configuración y las estadísticas de uso de su aplicación web. (Las ventanas que se abren a la derecha del portal se llaman *hojas*.)
+	La hoja **Aplicación web** muestra información general acerca de la configuración y las estadísticas de uso de su aplicación web. (Las ventanas que se abren a la derecha se llaman *hojas*).
 
 	![Hoja Aplicación web en el Portal de Azure](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
 	La aplicación web no ha tenido mucho tráfico todavía y puede que no se muestre nada en el gráfico. Si explora la aplicación, actualiza la página varias veces y después actualiza la página la página del Portal, verá que aparecen algunas estadísticas.
 
-3. La hoja **Configuración** muestra más opciones para configurar una aplicación web.
+3. En la hoja **Configuración** se muestran más opciones para configurar su aplicación web.
 
 	![Hoja Configuración en el Portal de Azure](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
@@ -268,7 +268,7 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 * Otras maneras de crear aplicaciones web
 
-	También se puede crear aplicaciones web mediante el [Portal de Azure](https://portal.azure.com/), [cmdlets de Azure para Windows PowerShell](../powershell-install-configure.md) o la [interfaz de línea de comandos multiplataforma](../xplat-cli.md).
+	También se pueden crear aplicaciones web mediante el [Portal de Azure](https://portal.azure.com/), [cmdlets de Azure para Windows PowerShell](../powershell-install-configure.md) o la [interfaz de línea de comandos multiplataforma](../xplat-cli.md).
 
 * Creación de aplicaciones de API
 
@@ -276,7 +276,7 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 * Otros métodos de implementar un proyecto web
 
-	Para más información sobre otras formas de implementar proyectos web en aplicaciones web, ya sea con Visual Studio o mediante la [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Documentación de implementación del Servicio de aplicaciones de Azure](web-sites-deploy.md).
+	Para más información sobre otras formas de implementar proyectos web en aplicaciones web, ya sea con Visual Studio o mediante la [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Introducción a las aplicaciones web en el Servicio de aplicaciones de Azure](app-service-web-get-started.md) y [Documentación de implementación del Servicio de aplicaciones de Azure](web-sites-deploy.md).
 
 * Incorporación de un nombre de dominio personalizado y SSL
 
@@ -291,6 +291,6 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 * Selección entre Servicio de aplicaciones, Servicios en la nube y Máquinas virtuales de Azure para aplicaciones web
 
-	En Azure puede ejecutar aplicaciones web en Aplicaciones web del Servicio de aplicaciones, como se muestra en este tutorial, o bien en Servicios en la nube o en Máquinas virtuales. Para más información, consulte [Comparación de Servicio de aplicaciones de Azure, Servicios en la nube de Azure, Máquinas virtuales de Azure y Azure Service Fabric](/manage/services/web-sites/choose-web-app-service/).
+	En Azure puede ejecutar aplicaciones web en Aplicaciones web del Servicio de aplicaciones, como se muestra en este tutorial, o bien en Servicios en la nube o en Máquinas virtuales. Para más información, consulte [Comparación del Servicio de aplicaciones de Azure, Servicios en la nube de Azure, máquinas virtuales de Azure y Azure Service Fabric](/manage/services/web-sites/choose-web-app-service/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

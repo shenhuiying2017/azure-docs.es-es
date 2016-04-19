@@ -46,9 +46,11 @@ Después de crear el servicio móvil, puede seguir una sencilla introducción r�
 
 En esta sección va a descargar una nueva aplicación Xamarin iOS y un proyecto de servicio para su servicio móvil.
 
-1. En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
+1. Si aún no lo ha hecho, instale Visual Studio con Xamarin. Las instrucciones se pueden encontrar en [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx). También puede usar Xamarin Studio en un equipo Mac OS X, consulte [Configuración, instalación y comprobaciones para usuarios de Mac](https://msdn.microsoft.com/library/mt488770.aspx).
 
-2. En la pestaña de inicio rápido, haga clic en **Xamarin** en **Seleccionar plataforma** y, a continuación, expanda **Crear una nueva aplicación Xamarin**.
+2. En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
+
+3. En la pestaña de inicio rápido, haga clic en **Xamarin** en **Seleccionar plataforma** y, a continuación, expanda **Crear una nueva aplicación Xamarin**.
 
    	![][6]
 
@@ -56,15 +58,11 @@ En esta sección va a descargar una nueva aplicación Xamarin iOS y un proyecto 
 
   	![][7]
 
-3. Si todavía no lo ha hecho, descargue e instale <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> en el equipo local o máquina virtual.
-
-4. Descargue e instale [Xcode] v4.4 o una versión posterior y [Xamarin Studio]. También puede usar Xamarin para Visual Studio.
-
-5. En **Descargar y publicar el servicio en la nube**, seleccione **iOS** y haga clic en **Descargar**.
+4. En **Descargar y publicar el servicio en la nube**, seleccione **iOS** y haga clic en **Descargar**.
 
   	De esta forma, se descarga una solución que contiene proyectos tanto para el servicio móvil como para la aplicación _To do list_ de ejemplo conectada a su servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
-6. Descargue su perfil de publicación, guarde el archivo descargado en el equipo local y tome nota de dónde lo guarda.
+5. Descargue su perfil de publicación, guarde el archivo descargado en el equipo local y tome nota de dónde lo guarda.
 
 ## Prueba del servicio móvil
 
@@ -134,9 +132,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [versión back-end de JavaScript]: mobile-services-ios-get-started.md
 [Solución de problemas de un back-end de .NET de Servicios móviles]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

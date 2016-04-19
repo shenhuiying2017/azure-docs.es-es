@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="01/05/2016"
+    ms.date="04/08/2016"
     ms.author="ryancraw"/>
 
 # Desarrollo de aplicaciones web de Python Flask con DocumentDB
@@ -49,7 +49,7 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 - SDK de Azure Python para Visual Studio, versión 2.4 o posteriores disponible en [azure.com](https://azure.microsoft.com/downloads/). Usamos el SDK de Microsoft Azure para Python 2.7.
 - Python 2.7 en [python.org][2]. Usamos Python 2.7.11. 
 
-> [AZURE.IMPORTANT]Si va a instalar Python 2.7 por primera vez, asegúrese de que en la pantalla Personalizar Python 2.7.11 selecciona **Agregar python.exe a la ruta de acceso**.
+> [AZURE.IMPORTANT] Si va a instalar Python 2.7 por primera vez, asegúrese de que en la pantalla Personalizar Python 2.7.11 selecciona **Agregar python.exe a la ruta de acceso**.
 > 
 >    ![Captura de pantalla de la pantalla Personalizar Python 2.7.11, donde debe seleccionar Agregar python.exe a la ruta de acceso](./media/documentdb-python-application/image2.png)
 
@@ -85,7 +85,7 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
 
 	![Captura de pantalla del tutorial de base de datos: ventana Herramientas de Python para Visual Studio](./media/documentdb-python-application/image10_A.png)
 
-    Muestra la ventana de salida `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.3 itsdangerous-0.24 'requirements.txt' was installed successfully.` cuando el entorno está instalado correctamente.
+    Muestra la ventana de salida `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` cuando el entorno está instalado correctamente.
 
 ## Paso 3: Modificación de la aplicación web de Python Flask
 
@@ -93,7 +93,7 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
 
 Después de que el proyecto esté configurado, es preciso agregar el paquete Flask necesario al proyecto, incluido pydocumentdb, el paquete de Python para DocumentDB.
 
-1. En el Explorador de soluciones, abra el archivo llamado **requirements.txt** y reemplace su contenido por lo siguiente y después guarde el archivo:
+1. En el Explorador de soluciones, abra el archivo llamado **requirements.txt** y reemplace su contenido por lo siguiente:
 
     	flask==0.9
     	flask-mail==0.7.6
@@ -107,15 +107,16 @@ Después de que el proyecto esté configurado, es preciso agregar el paquete Fla
     	flup
     	pydocumentdb>=1.0.0
 
-2. En el Explorador de soluciones, haga clic con el botón derecho en **env** y haga clic en **Install from requirements.txt**.
+2. Guarde el archivo **requirements.txt**.
+3. En el Explorador de soluciones, haga clic con el botón derecho en **env** y haga clic en **Install from requirements.txt**.
 
 	![Captura de pantalla que muestra env (Python 2.7) seleccionado con Instalación desde requirements.txt resaltado en la lista](./media/documentdb-python-application/image11.png)
 
     Después de una instalación correcta, la ventana de salidas muestra lo siguiente:
 
-        Successfully installed Babel-2.1.1 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.0 blinker-1.4 decorator-4.0.6 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.4.2 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
+        Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
 
-    > [AZURE.NOTE]En casos excepcionales, es posible que aparezca un error en la ventana de salida. De ser así, compruebe si el error está relacionado con la limpieza. En ocasiones, se produce un error en la limpieza, pero la instalación se realiza correctamente (desplácese hacia arriba en la ventana de salida para comprobarlo). Puede comprobar la instalación mediante la [comprobación del entorno virtual](#verify-the-virtual-environment). Si se produjo un error en la instalación, pero la comprobación es correcta, se puede continuar sin problemas.
+    > [AZURE.NOTE] En casos excepcionales, es posible que aparezca un error en la ventana de salida. De ser así, compruebe si el error está relacionado con la limpieza. En ocasiones, se produce un error en la limpieza, pero la instalación se realiza correctamente (desplácese hacia arriba en la ventana de salida para comprobarlo). Puede comprobar la instalación mediante la [comprobación del entorno virtual](#verify-the-virtual-environment). Si se produjo un error en la instalación, pero la comprobación es correcta, se puede continuar sin problemas.
 
 ### Comprobación del entorno virtual
 
@@ -126,7 +127,7 @@ Asegurémonos de que todo esté instalado correctamente.
 
 	![Proyecto de desarrollo web de Python Flask vacío en un explorador](./media/documentdb-python-application/image12.png)
 
-3. Detenga la depuración del sitio web presionando **MAYÚS**+**F5**.
+3. Detenga la depuración del sitio web presionando **Mayús**+**F5** en Visual Studio.
 
 ### Creación de definiciones de base de datos, colección y documento
 
@@ -198,7 +199,7 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [AZURE.TIP]El método **CreateCollection** usa una clase **RequestOptions** opcional como tercer parámetro. Dicha clase puede usarse para especificar el tipo de oferta para la colección. Si no se proporciona ningún valor offerType, la colección se creará con el tipo de oferta predeterminada. Para obtener más información sobre los tipos de oferta de DocumentDB, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels.md).
+> [AZURE.TIP] El método **CreateCollection** usa una clase **RequestOptions** opcional como tercer parámetro. Dicha clase puede usarse para especificar el tipo de oferta para la colección. Si no se proporciona ningún valor offerType, la colección se creará con el tipo de oferta predeterminada. Para obtener más información sobre los tipos de oferta de DocumentDB, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels.md).
 
 
 ### Lectura de la base de datos, la colección y el documento, y envío del formulario
@@ -258,7 +259,7 @@ def vote():
 1. En el Explorador de soluciones, en la carpeta **tutorial**, haga clic con el botón derecho en la carpeta **templates**, haga clic en **Agregar** y, después, haga clic en **Nuevo elemento**. 
 2. Seleccione **Página HTML** y, a continuación, en el cuadro Nombre escriba **create.html**. 
 3. Repita los pasos 1 y 2 para crear dos archivos HTML adicionales: results.html y vote.html.
-4. Agregue el siguiente código a **create.html** en el elemento <body>. Se muestra un mensaje que indica que hemos creado una nueva base de datos, colección y documento.
+4. Agregue el siguiente código a **create.html** en el elemento `<body>`. Se muestra un mensaje que indica que hemos creado una nueva base de datos, colección y documento.
 
 	```html
 	{% extends "layout.html" %}
@@ -269,7 +270,7 @@ def vote():
 	{% endblock %}
 	```
 
-5. Agregue el siguiente código a **results.html** en el elemento <body>. Se muestran los resultados del sondeo.
+5. Agregue el siguiente código a **results.html** en el elemento `<body`>. Se muestran los resultados del sondeo.
 
 	```html
 	{% extends "layout.html" %}
@@ -295,7 +296,7 @@ def vote():
 	{% endblock %}
 	```
 
-6. Agregue el siguiente código a **vote.html** en el elemento <body>. Muestra el sondeo y acepta los votos. Al registrar los votos, el control se pasa a views.py, donde reconoceremos el voto emitido y se anexará al documento en consecuencia.
+6. Agregue el siguiente código a **vote.html** en el elemento `<body`>. Muestra el sondeo y acepta los votos. Al registrar los votos, el control se pasa a views.py, donde reconoceremos el voto emitido y se anexará al documento en consecuencia.
 
 	```html
 	{% extends "layout.html" %}
@@ -339,7 +340,7 @@ def vote():
 	DOCUMENTDB_DOCUMENT = 'voting document'
 	```
 
-3. En el [Portal de Azure](https://portal.azure.com/), navegue a la hoja **Claves** haciendo clic en **Examinar** y en **Cuentas de DocumentDB**; después haga doble clic en el nombre de la cuenta que desea usar y, a continuación, haga clic en **Claves**. En la hoja **Claves**, copie el valor del identificador **URI** y péguelo en el archivo **config.py**, como valor de la propiedad **DOCUMENTDB\_HOST**.
+3. En el [Portal de Azure](https://portal.azure.com/), navegue a la hoja **Claves** haciendo clic en **Examinar** y en **Cuentas de DocumentDB**; después haga doble clic en el nombre de la cuenta que desea usar y, a continuación, haga clic en el botón **Claves** en el área **Essentials**. En la hoja **Claves**, copie el valor del identificador **URI** y péguelo en el archivo **config.py**, como valor de la propiedad **DOCUMENTDB\_HOST**.
 4. De nuevo en el Portal de Azure, en la hoja **Claves**, copie el valor de la **clave principal** o de la **clave secundaria** y péguelo en el archivo **config.py**, como valor de la propiedad **DOCUMENTDB\_KEY**.
 5. En el archivo **\_\_init\_\_.py**, agregue la siguiente línea. 
 
@@ -388,15 +389,15 @@ Ahora que toda la aplicación funciona correctamente con DocumentDB, vamos a imp
 
  	![Captura de pantalla del tutorial seleccionado en el Explorador de soluciones, con la opción Publicar resaltada](./media/documentdb-python-application/image20.png)
 
-2. En la ventana **Publicar web**, seleccione **Sitios web Microsoft Azure**.
+2. En la ventana **Publicar web**, seleccione **Aplicaciones web de Microsoft Azure** y después haga clic en **Siguiente**.
 
-	![Captura de pantalla de la ventana Publicación web](./media/documentdb-python-application/image21.png)
+	![Captura de pantalla de la ventana de publicación web con Aplicaciones web de Microsoft Azure resaltada](./media/documentdb-python-application/image21.png)
 
-3. En la ventana **Seleccionar sitio web existente**, haga clic en **Nuevo**.
+3. En la ventana **Aplicaciones web de Microsoft Azure**, haga clic en **Nuevo**.
 
-	![Captura de pantalla de la ventana Seleccionar sitio web existente](./media/documentdb-python-application/select-existing-website.png)
+	![Captura de pantalla de la ventana Aplicaciones web de Microsoft Azure](./media/documentdb-python-application/select-existing-website.png)
 
-4. En la ventana **Crear sitio en Microsoft Azure**, escriba un valor en **Nombre del sitio**, seleccione un valor en **Región** y haga clic en **Crear**.
+4. En la ventana **Crear una aplicación web en Microsoft Azure**, escriba un **nombre de la aplicación web**, **Plan de Servicio de aplicaciones**, **Grupo de recursos** y **Región** y, después, haga clic en **Crear**.
 
 	![Captura de pantalla de la ventana Crear sitio en Microsoft Azure](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
 
@@ -432,4 +433,4 @@ Para ver tutoriales adicionales sobre Python Flask, consulte el tutorial [The Fl
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/11/2016"
    ms.author="yurid"/>
 
 #Supervisión del estado de seguridad en el Centro de seguridad de Azure
@@ -34,7 +34,7 @@ Para más información sobre cómo aplicar las recomendaciones, lea [Implementac
 
 El icono **Estado de seguridad de los recursos** permite supervisar el estado de seguridad de los recursos. En el ejemplo siguiente puede ver varios problemas con una gravedad alta y media que requieren atención. Las directivas de seguridad habilitadas afectarán a los tipos de controles que se supervisan.
 
-![Estado de los recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new.png)
+![Estado de los recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
 
 Si el Centro de seguridad identifica una vulnerabilidad que se debe abordar, como una máquina virtual donde faltan actualizaciones de seguridad o una subred sin un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md), se enumerará aquí.
 
@@ -188,4 +188,4 @@ En este documento, aprendió a usar las funcionalidades de supervisión en el Ce
 - [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

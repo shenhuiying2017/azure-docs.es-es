@@ -35,7 +35,7 @@ Este tutorial requiere lo siguiente:
 + [Xcode 6.0][Install Xcode]
 + Un dispositivo compatible con iOS 7.0 (o una versión posterior)
 + Pertenencia al programa para desarrolladores de iOS
-+ [Xamarin.iOS]
++ [Xamarin Studio]
 
    > [AZURE.NOTE] Debido a los requisitos de configuración de las notificaciones push de iOS, debe implementar y probar la aplicación de ejemplo en un dispositivo iOS físico (iPhone o iPad) en lugar de hacerlo en un simulador.
 
@@ -324,8 +324,8 @@ En este sencillo ejemplo, se difunden notificaciones push a todos los dispositiv
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Portal de Azure]: https://portal.azure.com
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

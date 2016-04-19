@@ -333,7 +333,7 @@ Lo primero que debe hacerse es agregar una clase que contenga toda la lógica pa
 			}
 		}
 
-	>	 [AZURE.TIP] Al crear DocumentCollection nuevo, puede proporcionar un parámetro RequestOptions opcional de OfferType, que le permite especificar el nivel de rendimiento de la nueva colección. Si no se pasa este parámetro, se utilizará el tipo de oferta predeterminado. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de coherencia de DocumentDB](documentdb-performance-levels.md)
+	> [AZURE.TIP] Al crear DocumentCollection nuevo, puede proporcionar un parámetro RequestOptions opcional de OfferType, que le permite especificar el nivel de rendimiento de la nueva colección. Si no se pasa este parámetro, se utilizará el tipo de oferta predeterminado. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de coherencia de DocumentDB](documentdb-performance-levels.md)
 
 3. Estamos leyendo algunos valores de la configuración; por tanto, abra el archivo **Web.config** de su aplicación y agregue las siguientes líneas debajo de la sección `<AppSettings>`.
 	
@@ -587,4 +587,4 @@ Para agregar la funcionalidad adicional a la aplicación, revise las API disponi
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->
