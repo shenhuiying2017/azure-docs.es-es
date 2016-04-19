@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introducción a la versión preliminar de Microsoft Power BI Embedded"
-   description=""
+   description="Introducción a la versión preliminar de Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -74,7 +74,7 @@ Ahora que tiene una instancia de Power BI para su aplicación y las **claves de 
 
 ## Creación de conjuntos de datos e informes de Power BI para insertar en una aplicación
 
-Ya ha creado una instancia de Power BI para su aplicación y tiene las **claves de acceso**, ahora deberá crear los conjuntos de datos y los informes de Power BI que quiere insertar. Los conjuntos de datos y los informes se pueden crear con **Power BI Desktop**. Puede descargar [Power BI Desktop de forma gratuita](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). O bien, para empezar a trabajar rápidamente, puede descargar el [archivo PBIX con un ejemplo de análisis minorista](http://go.microsoft.com/fwlink/?LinkID=780547). Para más información sobre cómo usar **Power BI Desktop**, consulte [Getting Started with Power BI Desktop](https://powerbi.microsoft.com/es-ES/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop) (Introducción a Power BI Desktop).
+Ya ha creado una instancia de Power BI para su aplicación y tiene las **claves de acceso**, ahora deberá crear los conjuntos de datos y los informes de Power BI que quiere insertar. Los conjuntos de datos y los informes se pueden crear con **Power BI Desktop**. Puede descargar [Power BI Desktop de forma gratuita](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). O bien, para empezar a trabajar rápidamente, puede descargar el [archivo PBIX con un ejemplo de análisis minorista](http://go.microsoft.com/fwlink/?LinkID=780547). Para más información sobre cómo usar **Power BI Desktop**, consulte [Getting Started with Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop) (Introducción a Power BI Desktop).
 
 Con **Power BI Desktop**, puede conectarse al origen de datos mediante la importación de una copia de los datos a **Power BI Desktop** o conectándose directamente al origen de datos mediante **DirectQuery**.
 

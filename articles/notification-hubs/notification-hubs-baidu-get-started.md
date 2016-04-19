@@ -85,7 +85,7 @@ Una vez activada la cuenta de Baidu, inicie sesión en el [portal de Baidu].
 
 7. Escriba el número de verificación del mensaje en **验证码** (**código de confirmación**).
 
-8. Por último, complete el registro para desarrolladores. Para ello, acepte el acuerdo de Baidu y haga clic en **提交 ** (**enviar**). Se mostrará la página siguiente cuando el registro se haya completado correctamente:
+8. Por último, complete el registro para desarrolladores. Para ello, acepte el acuerdo de Baidu y haga clic en **提交** (**enviar**). Se mostrará la página siguiente cuando el registro se haya completado correctamente:
 
   	![][11]
 
@@ -105,7 +105,7 @@ Cuando se crea un proyecto de inserción de nube Baidu, recibirá el identificad
 
   	![][7]
 
-4. En la siguiente página, haga clic en **云推送 ** (**inserción en nube**)en la sección **云服务** (**servicios en la nube**).
+4. En la siguiente página, haga clic en **云推送** (**inserción en nube**)en la sección **云服务** (**servicios en la nube**).
 
   	![][12]
 
