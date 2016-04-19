@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="03/01/2016"
+	ms.date="04/07/2016"
 	ms.author="klam"/>
 
 #¿Qué son las aplicaciones lógicas?
@@ -65,11 +65,12 @@ Las siguientes son algunas de las principales partes que componen la experiencia
 -  **Acciones**: cada paso después de la llamada a la acción de un desencadenador en un flujo de trabajo. Cada acción normalmente se asigna a una operación en sus aplicaciones de API administradas o personalizadas.
 - **BizTalk**: para escenarios más avanzados de integración, Aplicaciones lógicas incluye funcionalidades de BizTalk. BizTalk es la plataforma de integración líder del sector de Microsoft. Las aplicaciones de API de BizTalk permiten incluir fácilmente la validación, transformación, reglas y mucho más en sus flujos de trabajo de Aplicaciones lógicas. Obtenga más información en [Qué son las Aplicaciones de API de BizTalk][biztalk].
 
-## Introducción
+## Introducción  
 
-Para comenzar con las aplicaciones lógicas, siga el tutorial [Creación de una aplicación lógica][create].
-
-Para obtener más información sobre la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure][appservice].
+ - Para comenzar con las aplicaciones lógicas, siga el tutorial [Creación de una aplicación lógica][create].  
+ - [Con las aplicaciones lógicas puede automatizar procesos empresariales](http://channel9.msdn.com/Events/Build/2016/T694). 
+ - [Obtenga información acerca de cómo integrar sus sistemas con Aplicaciones lógicas](http://channel9.msdn.com/Events/Build/2016/P462)
+- Para obtener más información sobre la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure][appservice].
 
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
@@ -79,4 +80,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

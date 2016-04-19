@@ -196,4 +196,4 @@ Una vez finalizada la implementación, puede ir al sitio y podrá observar que s
 - Para más información sobre cómo administrar sus recursos a través del portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

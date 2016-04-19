@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/08/2016"
+	ms.date="04/12/2016"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -22,15 +22,15 @@
 
 ## Introducción
 
-Centros de eventos es un servicio que procesa grandes cantidades de datos de eventos desde dispositivos y aplicaciones conectados. Después de recopilar datos en Centros de eventos, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta capacidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT).
+Centros de eventos es un servicio que procesa grandes cantidades de datos de eventos (telemetría) desde aplicaciones y dispositivos conectados. Después de recopilar datos en Centros de eventos, puede almacenarlos mediante un clúster de almacenamiento o transformarlos por medio de un proveedor de análisis en tiempo real. Esta capacidad de recopilación y procesamiento de eventos a gran escala es un componente clave de las modernas arquitecturas de aplicaciones, entre las que se incluye Internet de las cosas (IoT).
 
-En este tutorial se muestra cómo usar el Portal de Azure clásico para crear un centro de eventos. También se muestra cómo recopilar mensajes en un centro de eventos mediante el uso de una aplicación de consola escrita en C# y cómo recuperarlos en paralelo por medio de la biblioteca [Host del procesador de eventos] de C#.
+En este tutorial se muestra cómo usar el Portal de Azure clásico para crear un centro de eventos. También se muestra cómo recopilar mensajes en un centro de eventos mediante el uso de una aplicación de consola escrita en C# y cómo recuperarlos en paralelo por medio de la biblioteca [Host del procesador de eventos][] de C#.
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Microsoft Visual Studio 2013 o Microsoft Visual Studio Express 2013 para Windows.
++ Microsoft Visual Studio 2013 o posterior, o Microsoft Visual Studio Express para Windows. Los ejemplos de este artículo utilizan Visual Studio 2015.
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
 
 ## Creación de un Centro de eventos
 
@@ -44,7 +44,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 	![][2]
 
-4. Haga clic en el espacio de nombres que acaba de crear (normalmente ***nombre del centro de eventos*-ns**).
+4. Si no selecciona explícitamente un espacio de nombres existente en una región determinada, el portal crea un espacio de nombres (normalmente ***nombre del centro de eventos*-ns**). Haga clic en ese espacio de nombres (en este ejemplo **eventhub-ns**).
 
 	![][3]
 
@@ -52,11 +52,11 @@ Para completar este tutorial, necesitará lo siguiente:
 
 	![][4]
 
-6. Haga clic en la pestaña **Configurar** en la parte superior, agregue una regla llamada **SendRule** con derechos para *enviar*, agregue otra regla llamada **ReceiveRule** con derechos para *administrar, enviar y escuchar* y luego haga clic en **Guardar**.
+6. Haga clic en la pestaña **Configurar** en la parte superior, agregue una regla llamada **SendRule** con derechos para enviar, agregue otra regla llamada **ReceiveRule** con derechos para *administrar*, *enviar* y *escuchar* y luego haga clic en **Guardar**.
 
 	![][5]
 
-7. Haga clic en la pestaña **Panel** en la parte superior de la página y, a continuación, haga clic en **Información de conexión**. Anote las cadenas de conexión o cópielas en algún sitio para usarlas más tarde en este tutorial.
+7. Haga clic en la pestaña **Panel** en la parte superior de la página y, a continuación, haga clic en **Información de conexión**. Copie las dos cadenas de conexión en una ubicación temporal, ya que las usará más adelante en este tutorial.
 
 	![][6]
 
@@ -71,13 +71,33 @@ Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que nece
 
 Ya está preparado para ejecutar las aplicaciones.
 
-1.	Desde Visual Studio, ejecute el proyecto **Receiver** y espere a que inicie los receptores para todas las particiones.
+1. Desde Visual Studio, abra el proyecto **Receiver** que creó anteriormente.
+
+2. Haga clic con el botón derecho en la solución **Receiver**, haga clic en **Agregar** y, a continuación en **Proyecto existente**.
+ 
+3. Busque el archivo Sender.csproj existente, y haga doble clic en él para agregarlo a la solución.
+ 
+4. Vuelva a hacer clic con el botón derecho en la solución **Receiver** y, después, en **Propiedades**. Se muestra la página de propiedades **Receiver**.
+
+5. Haga clic en **Proyecto de inicio**, a continuación, haga clic en el botón **Proyectos de inicio múltiples**. Establezca el cuadro **Acción** para ambos proyectos **Receiver** y **Sender** con el valor **Inicio**.
+
+	![][19]
+
+6. Haga clic en **Dependencias del proyecto**. En el cuadro **Proyectos**, haga clic en **Sender**. En el cuadro **Depende de:**, asegúrese de que **Receiver** está seleccionado.
+
+	![][20]
+
+7. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades**.
+
+1.	Pulse F5 para ejecutar el proyecto **Receiver** desde Visual Studio y espere a que inicie los receptores para todas las particiones.
 
 	![][21]
 
-2.	Ejecute el proyecto **Sender**, presione **Entrar** en las ventanas de la consola y verá que los eventos aparecen en la ventana del receptor.
+2.	El proyecto **Sender** proyecto se ejecutará automáticamente. Presione **Entrar** en la ventana de la consola y verá que los eventos aparecen en la ventana del receptor.
 
 	![][22]
+
+Presione **Ctrl + C** en la ventana de **Sender** para finalizar la aplicación Sender, y luego presione **ENTRAR** en la ventana de Receiver para cerrar la aplicación.
 
 ## Pasos siguientes
 
@@ -96,6 +116,8 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [5]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub5.png
 [6]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub6.png
 
+[19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
+[20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
@@ -108,4 +130,4 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

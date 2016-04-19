@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sidneyh"/>
 
 # Supervisión y administración de un grupo de bases de datos elásticas con Transact-SQL  
@@ -81,8 +81,13 @@ Utilice la [vista sys.elastic\_pool \_resource \_stats](https://msdn.microsoft.c
 ## Supervisión del uso de recursos de una base de datos en un grupo elástico
 Utilice la [vista sys.dm \_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) o la [vista sys.resource \_stats](https://msdn.microsoft.com/library/dn269979.aspx) para examinar las estadísticas de uso de los recursos de una base de datos en un grupo elástico. Este proceso es similar a la consulta de uso de recursos para cualquier base de datos única.
 
+## Latencia de las operaciones de grupos elásticos
+
+- El cambio del número garantizado de eDTU por base de datos o del número máximo de eDTU por base de datos suele completarse en cinco minutos o menos.
+- El cambio del límite de almacenamiento del grupo depende de la cantidad total de espacio que usen todas las bases de datos del grupo. Los cambios tienen un duración media de 90 minutos o menos por cada 100 GB. Por ejemplo, si el espacio total que usan todas las bases de datos del grupo es de 200 GB, la latencia esperada para el cambio del límite de eDTU o de almacenamiento es de tres horas o menos.
+
 ## Pasos siguientes
 
 Tras la creación de un grupo de bases de datos elásticas, puede administrar las bases de datos elásticas del grupo mediante la creación de trabajos elásticos. Los trabajos elásticos facilitan la ejecución de secuencias de comandos de T-SQL con cualquier número de bases de datos en el grupo. Para obtener más información, vea [Información general sobre los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

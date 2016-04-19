@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/28/2016"
+	ms.date="04/06/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # ¿Qué es la Copia de seguridad de Azure?
@@ -56,7 +56,7 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Agente de Copia de seguridad de Azure (MARS) | <li>Puede hacer copias de seguridad de los archivos y carpetas de una máquina con el sistema operativo Windows, ya sea física o virtual (las máquinas virtuales pueden estar en cualquier lugar local o en Azure)<li>No se requiere ningún servidor de copia de seguridad independiente<li>Utiliza el almacén de Copia de seguridad de Azure | <li>Copia de seguridad tres veces al día/restauración a nivel de archivo<li>Restauración solo a nivel de archivo, carpeta o volumen, sin reconocimiento de aplicaciones<li>No es compatible con Linux | archivos, carpetas y volúmenes |
 | System Center Data Protection Manager | <li>Instantáneas con reconocimiento de aplicaciones (VSS)<li>Total flexibilidad con respecto al momento de realizar copias de seguridad<li>Granularidad de recuperación (todos)<li>Puede usar el almacén de Copia de seguridad de Azure<li>Compatibilidad con Linux (si se hospeda en Hyper-V) | <li>Falta de soporte heterogéneo (copia de seguridad de máquina virtual de VMware, copia de seguridad de carga de trabajo de Oracle). | archivos, carpetas, volúmenes,<br>máquinas virtuales y aplicaciones |
 | Servidor de Copia de seguridad de Microsoft Azure | <li>Instantáneas con reconocimiento de aplicaciones (VSS)<li>Total flexibilidad con respecto al momento de realizar copias de seguridad<li>Granularidad de recuperación (todos)<li>Puede usar el almacén de Copia de seguridad de Azure<li>Compatibilidad con Linux (si se hospeda en Hyper-V)<li>No requiere licencia de System Center | <li>Falta de soporte heterogéneo (copia de seguridad de máquina virtual de VMware, copia de seguridad de carga de trabajo de Oracle).<li>Siempre se requiere una suscripción de Azure activa<li>No se admite la copia de seguridad en cinta | archivos, carpetas, volúmenes,<br>máquinas virtuales y aplicaciones |
-| Copia de seguridad de máquina virtual de IaaS de Azure | <li>Copias de seguridad nativas de Windows/Linux<li>No se requiere la instalación de ningún agente específico<li>Copia de seguridad de nivel de tejido sin necesidad de ninguna infraestructura de copia de seguridad<li>Utiliza el almacén de Copia de seguridad de Azure | <li>Copia de seguridad o restauración en el nivel de disco una vez al día<li>No puede realizar copias de seguridad locales | Máquinas virtuales<br>Discos individuales |
+| Copia de seguridad de máquina virtual de IaaS de Azure | <li>Copias de seguridad nativas de Windows/Linux<li>No se requiere la instalación de ningún agente específico<li>Copia de seguridad de nivel de tejido sin necesidad de ninguna infraestructura de copia de seguridad | <li>Copia de seguridad o restauración en el nivel de disco una vez al día<li>No puede realizar copias de seguridad locales | Máquinas virtuales<br>Todos los discos (con PowerShell) |
 
 ## ¿De qué aplicaciones y cargas de trabajo puedo hacer copias de seguridad?
 
@@ -69,8 +69,7 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
-| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) | 
-| Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
+| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) | | Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
 
 ## Compatibilidad con ARM y Linux
 
@@ -79,7 +78,7 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Agente de Copia de seguridad de Azure (MARS) | Sí | No (solo agente basado en Windows) |
 | System Center Data Protection Manager | Sí (agente en invitado) | Solo Hyper-V (no máquina virtual de Azure), solo es posible la copia de seguridad coherente con archivo |
 | Servidor de Copia de seguridad de Azure (MABS) | Sí (agente en invitado) | Solo Hyper-V (no máquina virtual de Azure), solo es posible la copia de seguridad coherente con archivo (igual que DPM) |
-| Copia de seguridad de máquina virtual de IaaS de Azure | Próximamente | Próximamente: máquinas virtuales con Linux V2 <br><br>(coherencia de nivel de sistema de archivos) |
+| Copia de seguridad de máquina virtual de IaaS de Azure | En vista previa pública | En vista previa pública: máquinas virtuales Linux en el modelo de implementación de Resource Manager <br>(Coherencia de nivel de sistema de archivos)<br><br>Sí para máquinas virtuales Linux en el modelo de implementación clásica |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -211,4 +210,4 @@ Dado que estos tutoriales le ayudan a hacer copias de seguridad rápidamente, le
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

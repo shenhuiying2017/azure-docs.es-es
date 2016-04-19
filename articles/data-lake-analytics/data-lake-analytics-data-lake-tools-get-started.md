@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio | Azure" 
-   description="Aprenda a instalar Data Lake Tools for Visual Studio, y a desarrollar y probar scripts U-SQL." 
-   services="data-lake-analytics" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
+<properties
+   pageTitle="Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio | Azure"
+   description="Aprenda a instalar Data Lake Tools for Visual Studio, y a desarrollar y probar scripts U-SQL."
+   services="data-lake-analytics"
+   documentationCenter=""
+   authors="mumian"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="03/15/2016"
    ms.author="jgao"/>
 
@@ -28,9 +28,9 @@ U-SQL es un lenguaje muy escalable y altamente extensible para preparar, transfo
 
 ###Requisitos previos
 
-- **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 Se admiten las ediciones Enterprise (Ultimate y Premium), Professional, Community; no se admite la edición Express.** 
+- **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 Se admiten las ediciones Enterprise (Ultimate y Premium), Professional, Community; no se admite la edición Express. En la actualidad no se admite Visual Studio "15" y estamos trabajando en ello.** 
 - **SDK de Microsoft Azure para .NET versión 2.7.1 o posterior**. Instálelo usando el [Instalador de plataforma web](http://www.microsoft.com/web/downloads/platform.aspx).
-- **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**. 
+- **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
 
     Una vez instalado Data Lake Tools para Visual Studio, verá el nodo de "Data Lake Analytics" en el Explorador de servidores bajo el nodo "Azure" (puede abrir el Explorador de servidores presionando Ctrl + Alt + S).
 
@@ -40,7 +40,7 @@ U-SQL es un lenguaje muy escalable y altamente extensible para preparar, transfo
 	- [Carga de SearchLog.tsv en la cuenta predeterminada de Almacén de Data Lake](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
     Para su comodidad, puede encontrar un script de ejemplo de PowerShell para crear un servicio de Análisis de Data Lake y cargar un archivo de datos de origen en [Ejemplo de PowerShell Appx-A para preparar el tutorial](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
-    
+
 	Data Lake Tools no permite crear cuentas de Análisis de Data Lake. Por lo tanto, tendrá que crearla mediante el Portal de Azure, Azure PowerShell, SDK para .NET o CLI de Azure. Para ejecutar un trabajo de Análisis de Data Lake, necesitará algunos datos. Aunque Data Lake Tools permite cargar datos, se usará el portal para cargar los datos de ejemplo para que el tutorial sea más fácil de seguir.
 
 ## Conexión a Azure
@@ -62,20 +62,20 @@ Si desea usar sus propios datos, estos son los procedimientos para cargar los da
 
 1. En el **Explorador de servidores**, expanda **Azure**, expanda **Análisis de Data Lake**, expanda su cuenta de Análisis de Data Lake y expanda **Cuentas de almacenamiento**. Verá la cuenta de Almacén de Data Lake predeterminada, las cuentas de Almacén de Data Lake vinculadas y las cuentas de almacenamiento de Azure vinculadas. La cuenta de Data Lake predeterminada tiene la etiqueta "Cuenta de almacenamiento predeterminada".
 2. Haga clic con el botón derecho en la cuenta de Almacén de Data Lake predeterminada y después haga clic en **Explorador**. Se abre el panel del explorador de Data Lake Tools for Visual Studio. En la izquierda muestra una vista de árbol y la vista de contenido está a la derecha.
-3. Vaya a la carpeta donde desea cargar los archivos. 
-4. Haga clic con el botón derecho en cualquier espacio en blanco y después haga clic en **Cargar**. 
+3. Vaya a la carpeta donde desea cargar los archivos.
+4. Haga clic con el botón derecho en cualquier espacio en blanco y después haga clic en **Cargar**.
 
 	![proyecto U-SQL de Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
 **Para cargar archivos en una cuenta de Almacenamiento de blobs de Azure vinculada**
 
-1. En el **Explorador de servidores**, expanda **Azure**, expanda **Análisis de Data Lake**, expanda su cuenta de Análisis de Data Lake y expanda **Cuentas de almacenamiento**. Verá la cuenta de Almacén de Data Lake predeterminada, las cuentas de Almacén de Data Lake vinculadas y las cuentas de almacenamiento de Azure vinculadas. 
+1. En el **Explorador de servidores**, expanda **Azure**, expanda **Análisis de Data Lake**, expanda su cuenta de Análisis de Data Lake y expanda **Cuentas de almacenamiento**. Verá la cuenta de Almacén de Data Lake predeterminada, las cuentas de Almacén de Data Lake vinculadas y las cuentas de almacenamiento de Azure vinculadas.
 2. Expanda la cuenta de almacenamiento de Azure.
 3. Haga clic con el botón derecho en el contenedor donde desea cargar los archivos y después haga clic en **Explorador**. Si no tiene un contenedor, primero debe crearlo en el Portal de Azure, con Azure PowerShell o con otras herramientas.
-4. Vaya a la carpeta donde desea cargar los archivos. 
-5. Haga clic con el botón derecho en cualquier espacio en blanco y después haga clic en **Cargar**. 
+4. Vaya a la carpeta donde desea cargar los archivos.
+5. Haga clic con el botón derecho en cualquier espacio en blanco y después haga clic en **Cargar**.
 
-## Desarrollar scripts U-SQL 
+## Desarrollar scripts U-SQL
 
 Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para obtener más información sobre U-SQL, consulte [Introducción al lenguaje U-SQL](data-lake-analytics-u-sql-get-started.md) y [Referencia sobre el lenguaje U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
@@ -109,15 +109,15 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
         USING Outputters.Csv();
 
 	Este script U-SQL lee el archivo de datos de origen mediante **Extractors.Tsv()** y después crea un archivo csv mediante **Outputters.Csv()**.
-    
+
     No modifique ninguna de las dos rutas a menos que copie el archivo de origen en una ubicación diferente. Análisis de Data Lake creará la carpeta de salida si no existe.
-	
+
 	Es más fácil usar rutas de acceso relativas para los archivos almacenados en cuentas predeterminadas de Data Lake. También puede usar rutas de acceso absolutas. Por ejemplo:
-    
+
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-        
+
     Debe usar rutas de acceso absolutas para acceder a los archivos de cuentas de almacenamiento vinculadas. La sintaxis de los archivos almacenados en la cuenta de Almacenamiento de Azure vinculada es:
-    
+
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
     >[AZURE.NOTE] Los contenedores de blobs de Azure con permisos de acceso de contenedores públicos o blobs públicos no se admiten actualmente.
@@ -125,35 +125,35 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 	Tenga en cuenta las siguientes características:
 
 	- **IntelliSense**
-	 
+
 		Se mostrarán los nombres completados automáticamente y los miembros de las entidades conjunto de filas, clases, bases de datos, esquemas y objetos definidos por el usuario (UDO).
-		 
+
 		IntelliSense para las entidades de catálogo (bases de datos, esquemas, tablas, UDO, etc.) está relacionado con la cuenta de proceso. Puede comprobar la cuenta de proceso activa actual, la base de datos y el esquema en la barra de herramientas superior y cambiarlos en las listas desplegables.
- 
+
     - **Expandir columnas ***
 
         Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mantenga el cursor del ratón sobre el subrayado azul y después haga clic en la flecha hacia abajo. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Haga clic en **Expandir columnas** y la herramienta reemplazará * por los nombres de columna.
-    
+
 	- **Formato automático**
-	
+
 		Los usuarios pueden cambiar la sangría del script Scope basándose en la estructura de código que aparece en Edición -> Opciones avanzadas:
-  
+
 		- Dar formato al documento (CTRL+E, D): da formato a todo el documento.   
 		- Dar formato a la selección (CTRL+K, CTRL+F): da formato a la selección. Si no se ha realizado ninguna selección, este método abreviado da formato a la línea en la que se encuentra el cursor.  
-		
+
 		Todas las reglas de formato se pueden configurar en Herramientas -> Opciones -> Editor de texto -> SIP -> Formato.  
 	- **Sangría inteligente**
-	 
+
 		Data Lake Tools for Visual Studio puede aplicar sangría automáticamente a las expresiones al escribir scripts. Esta característica está deshabilitada de forma predeterminada; los usuarios deben activarla en U-SQL -> Opciones y configuración -> Modificadores -> Habilitar sangría inteligente.
 
 	- **Ir a definición y Buscar todas las referencias**
-	
+
 		Hacer clic con el botón derecho en el nombre de un conjunto de filas, parámetro, columna, UDO, etc. y hacer clic en Ir a definición (F12) permite ir a su definición. Al hacer clic en Buscar todas las referencias (Mayús+F12) se mostrarán todas las referencias.
 
 	- **Insertar ruta de acceso de Azure**
-		
+
 		En lugar de tener que recordar la ruta de acceso de archivo de Azure y escribirla manualmente al escribir scripts, Data Lake Tools for Visual Studio proporciona una manera fácil: haga clic con el botón derecho en el editor Y haga clic en Insertar ruta de acceso de Azure. Vaya hasta el archivo en el cuadro de diálogo Explorador de blobs de Azure. Haga clic en **Aceptar**. La ruta de acceso del archivo se insertará en el código.
 
 5. Especifique la cuenta de Análisis de Data Lake, la base de datos y el esquema. Puede seleccionar **(local)** para ejecutar el script de forma local para pruebas. Para más información, vea [Ejecución de U-SQL localmente](#run-u-sql-locally).
@@ -176,9 +176,9 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 	* Detalles del trabajo. Se proporciona información detallada acerca de este trabajo, incluidos scripts, recursos y la vista de ejecución de vértices.
 	* Gráfico del trabajo. Se proporcionan cuatro gráficos para visualizar la información del trabajo: progreso, datos leídos, datos escritos, tiempo de ejecución, promedio de tiempo de ejecución por nodo, capacidad de proceso de entrada, capacidad de proceso de salida.
 	* Operaciones de metadatos. Muestra todas las operaciones de metadatos.
-	* Historial de estado. 
-	* Diagnóstico. Data Lake Tools for Visual Studio diagnosticará automáticamente la ejecución del trabajo. Recibirá alertas cuando en caso de errores o problemas de rendimiento en sus trabajos. Consulte Diagnóstico de trabajos (vínculo por determinar) para obtener más información. 
-	
+	* Historial de estado.
+	* Diagnóstico. Data Lake Tools for Visual Studio diagnosticará automáticamente la ejecución del trabajo. Recibirá alertas cuando en caso de errores o problemas de rendimiento en sus trabajos. Consulte Diagnóstico de trabajos (vínculo por determinar) para obtener más información.
+
 **Para comprobar el estado del trabajo**
 
 1. En el Explorador de servidores, expanda **Azure**, expanda **Análisis de Data Lake** y expanda el nombre de la cuenta de Análisis de Data Lake.
@@ -187,23 +187,23 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 
 **Para ver la salida del trabajo**
 
-1. En el **Explorador de servidores**, expanda **Azure**, **Análisis de Data Lake**, su cuenta de Análisis de Data Lake y **Cuentas de almacenamiento**; haga clic con el botón derecho en la cuenta de Almacén de Data Lake y después haga clic en **Explorador**. 
+1. En el **Explorador de servidores**, expanda **Azure**, **Análisis de Data Lake**, su cuenta de Análisis de Data Lake y **Cuentas de almacenamiento**; haga clic con el botón derecho en la cuenta de Almacén de Data Lake y después haga clic en **Explorador**.
 2.  Haga doble clic en **salida** para abrir la carpeta.
 3.  Haga doble clic en **SearchLog-From-adltools.csv**.
 
 
-###Reproducción del trabajo 
+###Reproducción del trabajo
 
 La reproducción del trabajo permite ver el progreso de la ejecución del trabajo y detectar visualmente los cuellos de botella y anomalías de rendimiento. Esta característica se puede usar antes de que finalice la ejecución del trabajo (es decir, durante el tiempo en que el trabajo se está ejecutando activamente), así como una vez finalizada la ejecución. Realizar la reproducción durante la ejecución del trabajo permitirá al usuario reproducir el progreso hasta el momento actual.
 
 **Para ver el progreso de la ejecución del trabajo**
 
 1. Haga clic en **Cargar perfil** en la esquina superior derecha. Consulte la captura de pantalla anterior.
-2. Haga clic en el botón Reproducir, en la esquina inferior izquierda, para revisar el progreso de la ejecución del trabajo. 
-3. Durante la reproducción, haga clic en **Pausa** para detenerla o arrastre directamente de la barra de progreso a posiciones específicas. 
+2. Haga clic en el botón Reproducir, en la esquina inferior izquierda, para revisar el progreso de la ejecución del trabajo.
+3. Durante la reproducción, haga clic en **Pausa** para detenerla o arrastre directamente de la barra de progreso a posiciones específicas.
 
 
-###Mapa térmico 
+###Mapa térmico
 
 Data Lake Tools for Visual Studio permite realizar superposiciones de colores seleccionables por el usuario en la vista del trabajo para indicar el progreso, la E/S de datos, el tiempo de ejecución, la capacidad de proceso de E/S de cada fase. De este modo, los usuarios pueden determinar posibles problemas y las propiedades de distribución del trabajo de forma directa e intuitiva. Puede elegir un origen de datos para mostrar en la lista desplegable.
 
@@ -211,9 +211,9 @@ Data Lake Tools for Visual Studio permite realizar superposiciones de colores se
 
 Con la experiencia de ejecución local de U-SQL en Visual Studio, puede:
 
-- Ejecutar scripts de U-SQL localmente, junto con los ensamblados de C#. 
-- Depurar ensamblados de C# localmente. 
-- Cree, elimine y vea bases de datos locales, ensamblados, esquemas y tablas en el Explorador de servidores de la misma manera que puede hacerlo para el servicio de Análisis con Azure Data Lake. 
+- Ejecutar scripts de U-SQL localmente, junto con los ensamblados de C#.
+- Depurar ensamblados de C# localmente.
+- Cree, elimine y vea bases de datos locales, ensamblados, esquemas y tablas en el Explorador de servidores de la misma manera que puede hacerlo para el servicio de Análisis con Azure Data Lake.
 
 Verá una cuenta *Local* en Visual Studio y el instalador creará una carpeta *DataRoot* que se encuentra en *C:\\LocalRunRoot*. Se usará la carpeta DataRoot:
 
@@ -228,16 +228,16 @@ El vídeo siguiente muestra la característica de ejecución local U-SQL:
 ### Problemas conocidos y limitaciones
 
 - La ejecución Local de U-SQL no admite consultas de conjuntos de archivos localmente. Vea [Conjuntos de archivos de U-SQL](https://msdn.microsoft.com/library/azure/mt621294.aspx). Esto se resolverá en el futuro.
-- Rendimiento lento debido al bajo paralelismo, porque los planes de trabajo se ejecutan en serie en un proceso único. 
-- La ejecución local no puede mostrar gráficos de trabajos en Visual Studio. Esto se tratará en el futuro. 
+- Rendimiento lento debido al bajo paralelismo, porque los planes de trabajo se ejecutan en serie en un proceso único.
+- La ejecución local no puede mostrar gráficos de trabajos en Visual Studio. Esto se tratará en el futuro.
 - No se puede crear la tabla/DB, etc. en el Explorador de servidores para la cuenta local.
 - Cuando se hace referencia a una ruta de acceso relativa:
 
-    - En la entrada del script (EXTRACT * FROM “/path/abc”): se buscará tanto en la ruta de acceso de DataRoot como en la ruta de acceso del script. 
-    - En la salida del script (OUTPUT TO “path/abc”): se usará la ruta de acceso de DataRoot como la carpeta de salida. 
-    - En el registro de ensamblado (CRREATE ASSEMBLY xyz FROM “/path/abc”): se buscará en la ruta de acceso del script, pero no la DataRoot. 
-    - En la vista/TVF registrada u otras entidades de metadatos: se buscará en la ruta de acceso de DataRoot, pero no en la ruta de acceso del script. 
-    
+    - En la entrada del script (EXTRACT * FROM “/path/abc”): se buscará tanto en la ruta de acceso de DataRoot como en la ruta de acceso del script.
+    - En la salida del script (OUTPUT TO “path/abc”): se usará la ruta de acceso de DataRoot como la carpeta de salida.
+    - En el registro de ensamblado (CRREATE ASSEMBLY xyz FROM “/path/abc”): se buscará en la ruta de acceso del script, pero no la DataRoot.
+    - En la vista/TVF registrada u otras entidades de metadatos: se buscará en la ruta de acceso de DataRoot, pero no en la ruta de acceso del script.
+
     Para los scripts ejecutados en el servicio de Data Lake, la cuenta de almacenamiento predeterminada se usará como carpeta raíz y se buscará en ella en consecuencia.
 
 ### Probar scripts de U-SQL localmente
@@ -251,17 +251,17 @@ También puede hacer clic con el botón derecho en un script y luego hacer clic 
 
 Hay dos maneras de ejecutar los archivos de C# personalizados:
 
-- Escriba ensamblados en el archivo de código subyacente y los ensamblados se registrarán automáticamente y se quitarán una vez finalizado el script. 
+- Escriba ensamblados en el archivo de código subyacente y los ensamblados se registrarán automáticamente y se quitarán una vez finalizado el script.
 - Cree un proyecto de ensamblado de C# y registrar la dll de salida a la cuenta local a través de un script como a continuación. Tenga en cuenta que la ruta de acceso es en relación con el script en lugar de con la carpeta DataRoot.
 
 ![Usar ensamblados en ejecución local de u-sql](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
- 
+
 ### Depurar scripts y ensamblados de C# localmente
 
 Puede depurar ensamblados de C# sin enviarlos y registrarlos en el servicio de análisis de Azure Data Lake. Puede establecer puntos de interrupción en el código subyacente del archivo y en un proyecto de C# al que se hace referencia.
 
 **Para depurar el código local en el código subyacente del archivo.**
-1.	Establezca puntos de interrupción en el archivo de código subyacente. 
+1.	Establezca puntos de interrupción en el archivo de código subyacente.
 2.	Presione **F5** para depurar el script localmente.
 
 El siguiente procedimiento solo funciona en Visual Studio 2015. En versiones anteriores de Visual Studio puede que necesite agregar manualmente los archivos pdb.
@@ -294,7 +294,7 @@ Para ver más temas de desarrollo:
 El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data Lake y los datos de origen para usted, por lo que puede ir directamente a [Desarrollar scripts U-SQL](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
-    $nameToken = "<Enter an alias>" 
+    $nameToken = "<Enter an alias>"
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
     #endregion
 
@@ -325,7 +325,7 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
     New-AzureRmDataLakeStoreAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $dataLakeStoreName `
-        -Location $location 
+        -Location $location
 
     Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
     New-AzureRmDataLakeAnalyticsAccount `
@@ -342,12 +342,12 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
 
     #region - prepare the source data
     Write-Host "Import the source data ..."  -ForegroundColor Green
-    $localFolder = "C:\Tutorials\Downloads" # A temp location for the file. 
+    $localFolder = "C:\Tutorials\Downloads" # A temp location for the file.
     $storageAccount = "adltutorials"  # Don't modify this value.
     $container = "adls-sample-data"  #Don't modify this value.
 
     # Create the temp location  
-    New-Item -Path $localFolder -ItemType Directory -Force 
+    New-Item -Path $localFolder -ItemType Directory -Force
 
     # Download the sample file from Azure Blob storage
     $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
@@ -361,4 +361,4 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

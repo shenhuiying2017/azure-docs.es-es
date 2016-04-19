@@ -13,12 +13,12 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="01/08/2016"
+	ms.date="04/11/2016"
 	ms.author="marsma"/>
 
-# Introducción a la biblioteca de Lote de Azure para .NET  
+# Introducción a la biblioteca de Lote de Azure para .NET
 
-En este artículo, aprenderá los datos básicos de [Lote de Azure ][azure_batch] y de la biblioteca de [.NET de Lote][net_api] a medida que examinamos paso a paso una aplicación de ejemplo en C#. Examinaremos la forma en que esta aplicación de ejemplo saca provecho del servicio Lote para procesar una carga de trabajo paralela en la nube y cómo interactúa con [Almacenamiento de Azure](./../storage/storage-introduction.md) para almacenar provisionalmente y recuperar archivos. Aprenderá técnicas comunes del flujo de trabajo de la aplicación Lote. También obtendrá conocimientos básicos de los componentes principales de Lote, como trabajos, tareas, grupos y nodos de proceso.
+En este artículo, aprenderá los datos básicos de [Lote de Azure ][azure_batch] y de la biblioteca de [.NET de Lote][net_api] a medida que examinamos paso a paso una aplicación de ejemplo en C#. Examinaremos la forma en que esta aplicación de ejemplo saca provecho del servicio Lote para procesar una carga de trabajo paralela en la nube y cómo interactúa con [Almacenamiento de Azure](../storage/storage-introduction.md) para almacenar provisionalmente y recuperar archivos. Aprenderá técnicas comunes del flujo de trabajo de la aplicación Lote. También obtendrá conocimientos básicos de los componentes principales de Lote, como trabajos, tareas, grupos y nodos de proceso.
 
 ![Flujo de trabajo de soluciones de Lote (básico)][11]<br/>
 
@@ -28,15 +28,15 @@ En este artículo se asume que tiene conocimientos prácticos de C# y Visual Stu
 
 ### Cuentas
 
-- **Cuenta de Azure**: si aún no dispone de una suscripción a Azure, puede [crear una cuenta de Azure gratuita][azure_free_account].
-- **Cuenta de Lote**: una vez que tenga una suscripción a Azure, [cree y administre de una cuenta de Lote de Azure](batch-account-create-portal.md).
-- **Cuenta de Almacenamiento**: consulte la sección "Crear una cuenta de almacenamiento" en [Acerca de las cuentas de almacenamiento de Azure](./../storage/storage-create-storage-account.md).
+- **Cuenta de Azure**: si aún no dispone de una suscripción a Azure, [cree una cuenta de Azure gratuita][azure_free_account].
+- **Cuenta de Lote**: una vez que tenga una suscripción a Azure, [cree una cuenta de Lote de Azure](batch-account-create-portal.md).
+- **Cuenta de Almacenamiento**: consulte [Crear una cuenta de Almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) en [Acerca de las cuentas de Almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
 Para generar el proyecto de ejemplo, debe tener **Visual Studio 2013** o **Visual Studio 2015**. En [Información general de los productos de Visual Studio 2015][visual_studio], puede encontrar las versiones de evaluación gratuita de Visual Studio.
 
-### Ejemplo de código de *DotNetTutorial*
+### Ejemplo de código *DotNetTutorial*
 
 El ejemplo [DotNetTutorial][github_dotnettutorial] es uno de los muchos ejemplos de código que se encuentra en el repositorio [azure-batch-samples][github_samples] en GitHub. Para descargar el ejemplo, haga clic en el botón **Download ZIP** (Descargar ZIP) de la página principal del repositorio o haga clic en el vínculo de descarga directa [azure-batch-samples-master.zip][github_samples_zip]. Una vez extraído el contenido del archivo ZIP, encontrará la solución en la carpeta siguiente:
 
@@ -48,7 +48,7 @@ El [Explorador de Lote de Azure][github_batchexplorer] es una utilidad gratuita 
 
 ## Información general del proyecto de ejemplo DotNetTutorial
 
-El código de ejemplo *DotNetTutorial* es una solución de Visual Studio 2013 que consta de dos proyectos: **DotNetTutorial** y **TaskApplication**.
+El ejemplo de código *DotNetTutorial* es una solución de Visual Studio 2013 que consta de dos proyectos: **DotNetTutorial** y **TaskApplication**.
 
 - **DotNetTutorial** es la aplicación cliente que interactúa con los servicios Lote y Almacenamiento para ejecutar una carga de trabajo paralela en los nodos de proceso (máquinas virtuales). DotNetTutorial se ejecuta en la estación de trabajo local.
 
@@ -58,7 +58,7 @@ El siguiente diagrama ilustra las operaciones principales que realiza la aplicac
 
 ![Flujo de trabajo de ejemplo de Lote][8]<br/>
 
-**Paso 1.** Crear **contenedores** en Almacenamiento de blobs de Azure.<br/> **Paso 2:** Cargar una aplicación de tarea y archivos de entrada en los contenedores.<br/> **Paso 3:** Crear un **grupo** de Lote.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**3a.** El grupo **StartTask** descarga los archivos binarios de la tarea (TaskApplication) en los nodos cuando se unen al grupo.<br/> **Paso 4** Crear un **trabajo** de Lote.<br/> **Paso 5.** Agregar **tareas** al trabajo<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Las tareas se programan para ejecutarse en los nodos.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarea descarga sus datos de entrada de Almacenamiento de Azure y después comienza la ejecución.<br/> **Paso 6.** Supervisar tareas.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**6a.** A medida que se completan las tareas, cargan sus datos de salida en Almacenamiento de Azure<br/> **Paso 7.** Descargar el resultado de la tarea de Almacenamiento
+[**Paso 1.**](#step-1-create-storage-containers) Crear **contenedores** en Almacenamiento de blobs de Azure.<br/> [**Paso 2.**](#step-2-upload-task-application-and-data-files) Cargar una aplicación de tarea y archivos de entrada en los contenedores.<br/> [**Paso 3.**](#step-3-create-batch-pool) Crear un **grupo** de Lote.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**3a.** El grupo **StartTask** descarga los archivos binarios de la tarea (TaskApplication) en los nodos cuando se unen al grupo.<br/> [**Paso 4.**](#step-4-create-batch-job) Crear un **trabajo** de Lote.<br/> [**Paso 5.**](#step-5-add-tasks-to-job) Agregar **tareas** al trabajo.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Las tareas se programan para ejecutarse en los nodos.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarea descarga sus datos de entrada de Almacenamiento de Azure y después comienza la ejecución.<br/> [**Paso 6.**](#step-6-monitor-tasks) Supervisar tareas.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**6a.** A medida que se completan las tareas, cargan sus datos de salida en Almacenamiento de Azure.<br/> [**Paso 7.**](#step-7-download-task-output) Descargar el resultado de la tarea de Almacenamiento
 
 Como se ha indicado, no todas las soluciones de Lote realizarán estos mismos pasos y pueden incluir muchos más, pero la aplicación de ejemplo *DotNetTutorial* muestra los procesos comunes que se encuentran en una solución de Lote.
 
@@ -69,8 +69,9 @@ Antes de ejecutar correctamente el ejemplo, debe especificar las credenciales de
 Abra `Program.cs` en el proyecto *DotNetTutorial*. Luego, agregue las credenciales en la parte superior del archivo como se ha especificado:
 
 ```
-// Update the Batch and Storage account credential strings below with the values unique to your accounts.
-// These are used when constructing connection strings for the Batch and Storage client objects.
+// Update the Batch and Storage account credential strings below with the values
+// unique to your accounts. These are used when constructing connection strings
+// for the Batch and Storage client objects.
 
 // Batch account credentials
 private const string BatchAccountName = "";
@@ -98,18 +99,20 @@ Para comenzar con el paso 1, navegue a la parte superior del método `MainAsync`
 
 ![Crear contenedores en Almacenamiento de Azure][1] <br/>
 
-Lote incluye compatibilidad integrada con la interacción con Almacenamiento de Azure. Los contenedores de la cuenta de Almacenamiento proporcionarán las tareas que se ejecutan en la cuenta de Lote con los archivos que se necesitan para ejecutarlas. Los contenedores también proporcionan un lugar para almacenar los datos de salida que producen las tareas. Lo primero que hace la aplicación cliente *DotNetTutorial* es crear tres contenedores en [Almacenamiento de blobs de Azure](./../storage/storage-introduction.md):
+Lote incluye compatibilidad integrada con la interacción con Almacenamiento de Azure. Los contenedores de la cuenta de Almacenamiento proporcionarán los archivos que necesitarán las tareas que se ejecutan en la cuenta de Lote. Los contenedores también proporcionan un lugar para almacenar los datos de salida que producen las tareas. Lo primero que hace la aplicación cliente *DotNetTutorial* es crear tres contenedores en [Almacenamiento de blobs de Azure](../storage/storage-introduction.md):
 
-- **application**: este contenedor albergará la aplicación que ejecutarán las tareas, así como todas sus dependencias, como archivos DLL.
-- **input**: las tareas descargarán del contenedor *input* los archivos de datos que se van a procesar.
+- **application**: este contenedor almacena la aplicación que las tareas ejecutarán, así como todas sus dependencias, como los archivos DLL.
+- **input**: las tareas descargarán los archivos de datos que se van a procesar desde el contenedor *input*.
 - **output**: cuando las tareas completan el procesamiento de los archivos de entrada, cargan los resultados en el contenedor *output*.
 
-Para interactuar con una cuenta de Almacenamiento y crear contenedores, se usa la [Biblioteca de cliente de Almacenamiento de Azure para .NET][net_api_storage] para crear una referencia a la cuenta con [CloudStorageAccount][net_cloudstorageaccount] (y a partir de ahí, se crea un cliente de blobs, [CloudBlobClient][net_cloudblobclient]):
+Para interactuar con una cuenta de Almacenamiento y crear contenedores, usamos la [biblioteca de cliente de Almacenamiento de Azure para .NET][net_api_storage]. Creamos una referencia a la cuenta con [CloudStorageAccount][net_cloudstorageaccount], y desde ahí creamos un objeto [CloudBlobClient][net_cloudblobclient]\:
 
 ```
 // Construct the Storage account connection string
-string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-                                                StorageAccountName, StorageAccountKey);
+string storageConnectionString = String.Format(
+    "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
+    StorageAccountName,
+    StorageAccountKey);
 
 // Retrieve the storage account
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -121,7 +124,8 @@ CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 Usamos la referencia `blobClient` en toda la aplicación y la pasamos como parámetro a varios métodos. Un ejemplo de esto es el bloqueo de código que sigue inmediatamente a lo anterior, donde llamamos a `CreateContainerIfNotExistAsync` para crear realmente los contenedores.
 
 ```
-// Use the blob client to create the containers in Azure Storage if they don't yet exist
+// Use the blob client to create the containers in Azure Storage if they don't
+// yet exist
 const string appContainerName    = "application";
 const string inputContainerName  = "input";
 const string outputContainerName = "output";
@@ -131,7 +135,9 @@ await CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
 ```
-private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobClient, string containerName)
+private static async Task CreateContainerIfNotExistAsync(
+    CloudBlobClient blobClient,
+    string containerName)
 {
 		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
@@ -141,7 +147,8 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 		}
 		else
 		{
-				Console.WriteLine("Container [{0}] exists, skipping creation.", containerName);
+				Console.WriteLine("Container [{0}] exists, skipping creation.",
+                    containerName);
 		}
 }
 ```
@@ -160,8 +167,8 @@ En la operación de carga de archivos, *DotNetTutorial* define primero las colec
 // Paths to the executable and its dependencies that will be executed by the tasks
 List<string> applicationFilePaths = new List<string>
 {
-    // The DotNetTutorial project includes a project reference to TaskApplication, allowing us to
-    // determine the path of the task application binary dynamically
+    // The DotNetTutorial project includes a project reference to TaskApplication,
+    // allowing us to determine the path of the task application binary dynamically
     typeof(TaskApplication.Program).Assembly.Location,
     "Microsoft.WindowsAzure.Storage.dll"
 };
@@ -174,13 +181,20 @@ List<string> inputFilePaths = new List<string>
     @"..\..\taskdata3.txt"
 };
 
-// Upload the application and its dependencies to Azure Storage. This is the application that will
-// process the data files, and will be executed by each of the tasks on the compute nodes.
-List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(blobClient, appContainerName, applicationFilePaths);
+// Upload the application and its dependencies to Azure Storage. This is the
+// application that will process the data files, and will be executed by each
+// of the tasks on the compute nodes.
+List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(
+    blobClient,
+    appContainerName,
+    applicationFilePaths);
 
-// Upload the data files. This is the data that will be processed by each of the tasks that are
-// executed on the compute nodes within the pool.
-List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(blobClient, inputContainerName, inputFilePaths);
+// Upload the data files. This is the data that will be processed by each of
+// the tasks that are executed on the compute nodes within the pool.
+List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
+    blobClient,
+    inputContainerName,
+    inputFilePaths);
 ```
 
 Hay dos métodos en `Program.cs` que intervienen en el proceso de carga:
@@ -189,9 +203,13 @@ Hay dos métodos en `Program.cs` que intervienen en el proceso de carga:
 - `UploadFileToContainerAsync`: es el método que realmente realiza la carga del archivo y crea los objetos [ResourceFile][net_resourcefile]. Después de cargar el archivo, obtiene una firma de acceso compartido (SAS) para el archivo y devuelve un objeto ResourceFile que lo representa. A continuación también se tratan las firmas de acceso compartido.
 
 ```
-private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClient blobClient, string containerName, string filePath)
+private static async Task<ResourceFile> UploadFileToContainerAsync(
+    CloudBlobClient blobClient,
+    string containerName,
+    string filePath)
 {
-		Console.WriteLine("Uploading file {0} to container [{1}]...", filePath, containerName);
+		Console.WriteLine(
+            "Uploading file {0} to container [{1}]...", filePath, containerName);
 
 		string blobName = Path.GetFileName(filePath);
 
@@ -199,8 +217,9 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClie
 		CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
 		await blobData.UploadFromFileAsync(filePath, FileMode.Open);
 
-		// Set the expiry time and permissions for the blob shared access signature. In this case, no start time is specified,
-		// so the shared access signature becomes valid immediately
+		// Set the expiry time and permissions for the blob shared access signature.
+        // In this case, no start time is specified, so the shared access signature
+        // becomes valid immediately
 		SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 		{
 				SharedAccessExpiryTime = DateTime.UtcNow.AddHours(2),
@@ -217,14 +236,14 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClie
 
 ### ResourceFiles
 
-Un objeto [ResourceFile][net_resourcefile] proporciona tareas de Lote con la dirección URL a un archivo de Almacenamiento de Azure que se descargarán en un nodo de ejecución antes de ejecutar esa tarea. La propiedad [ResourceFile.BlobSource][net_resourcefile_blobsource] especifica la dirección URL completa del archivo, tal como existe en Almacenamiento de Azure. La dirección URL también puede incluir una firma de acceso compartido (SAS) que proporcione acceso seguro al archivo. La mayoría de tipos de tareas dentro de .NET de Lote incluyen una propiedad *ResourceFiles*, que comprende las clases:
+Un objeto [ResourceFile][net_resourcefile] proporciona tareas de Lote con la dirección URL a un archivo de Almacenamiento de Azure que se descargarán en un nodo de proceso antes de ejecutar esa tarea. La propiedad [ResourceFile.BlobSource][net_resourcefile_blobsource] especifica la dirección URL completa del archivo, tal como existe en Almacenamiento de Azure. La dirección URL también puede incluir una firma de acceso compartido (SAS) que proporcione acceso seguro al archivo. La mayoría de tipos de tareas dentro de .NET de Lote incluyen una propiedad *ResourceFiles*, que comprende las clases:
 
 - [CloudTask][net_task]
 - [StartTask][net_pool_starttask]
 - [JobPreparationTask][net_jobpreptask]
 - [JobReleaseTask][net_jobreltask]
 
-La aplicación de ejemplo DotNetTutorial no usa los tipos de tarea JobPreparationTask o JobReleaseTask, pero puede leer más acerca de ellas en [Ejecución de tareas de preparación y finalización de trabajos en nodos de ejecución de Lote de Azure](batch-job-prep-release.md).
+La aplicación de ejemplo DotNetTutorial no usa los tipos de tarea JobPreparationTask o JobReleaseTask, pero puede leer más acerca de ellas en [Ejecución de tareas de preparación y finalización de trabajos en nodos de proceso de Lote de Azure](batch-job-prep-release.md).
 
 ### Firma de acceso compartido (SAS)
 
@@ -234,16 +253,20 @@ Las firmas de acceso compartido son cadenas que, cuando se incluyen como parte d
 
 - **Firmas de acceso compartido de contenedores**: cuando cada tarea finaliza su trabajo en el nodo de proceso, carga su archivo de salida en el contenedor *output* de Almacenamiento de Azure. Para ello, TaskApplication usa una firma de acceso compartido de contenedor que proporciona acceso de escritura al contenedor como parte de la ruta de acceso al cargar el archivo. La obtención de la firma de acceso compartido del contenedor se realiza de manera similar que cuando se obtiene la firma de acceso compartido de un blob. En DotNetTutorial, encontrará que el método auxiliar `GetContainerSasUrl` llama a [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] para hacerlo. En "Paso 6: Supervisar tareas", obtendrá más información acerca de la forma en que TaskApplication usa la firma de acceso compartido de un contenedor.
 
-> [AZURE.TIP] Para más información acerca de cómo proporcionar acceso seguro a los datos de una cuenta de Almacenamiento, consulte la serie de dos partes acerca de las firmas de acceso compartido, [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](./../storage/storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](./../storage/storage-dotnet-shared-access-signature-part-2.md).
+> [AZURE.TIP] Para más información acerca de cómo proporcionar acceso seguro a los datos de una cuenta de Almacenamiento, consulte la serie de dos partes acerca de las firmas de acceso compartido, [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](../storage/storage-dotnet-shared-access-signature-part-2.md).
 
-## Paso 3: Crear un grupo de Lote
+## Paso 3: Crear el grupo de Lote
 
 ![Crear un grupo de Lote][3] <br/>
 
 Después de cargar los archivos de datos y de aplicación en la cuenta de Almacenamiento, *DotNetTutorial* inicia su interacción con el servicio Lote mediante la biblioteca .NET de Lote. Para ello, primero se crea una clase [BatchClient][net_batchclient]\:
 
 ```
-BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
+BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
+    BatchAccountUrl,
+    BatchAccountName,
+    BatchAccountKey);
+
 using (BatchClient batchClient = BatchClient.Open(cred))
 {
 	...
@@ -252,31 +275,37 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 Después, se crea un grupo de nodos de proceso en la cuenta de Lote con una llamada a `CreatePoolAsync`. `CreatePoolAsync` usa el método [BatchClient.PoolOperations.CreatePool][net_pool_create] para crear un grupo en el servicio Lote.
 
 ```
-private static async Task CreatePoolAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
+private static async Task CreatePoolAsync(
+    BatchClient batchClient,
+    string poolId,
+    IList<ResourceFile> resourceFiles)
 {
     Console.WriteLine("Creating pool [{0}]...", poolId);
 
-    // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(), no pool is actually created in the
-    // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
+    // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(),
+    // no pool is actually created in the Batch service. This CloudPool instance is
+    // therefore considered "unbound," and we can modify its properties.
     CloudPool pool = batchClient.PoolOperations.CreatePool(
-				poolId: poolId,
-				targetDedicated: 3,           // 3 compute nodes
-				virtualMachineSize: "small",  // single-core, 1.75 GB memory, 225 GB disk
-				osFamily: "4");               // Windows Server 2012 R2
+			poolId: poolId,
+			targetDedicated: 3,           // 3 compute nodes
+			virtualMachineSize: "small",  // single-core, 1.75 GB memory, 224 GB disk
+			cloudServiceConfiguration:
+			    new CloudServiceConfiguration(osFamily: "4")); // Win Server 2012 R2
 
-    // Create and assign the StartTask that will be executed when compute nodes join the pool.
-    // In this case, we copy the StartTask's resource files (that will be automatically downloaded
-    // to the node by the StartTask) into the shared directory that all tasks will have access to.
+    // Create and assign the StartTask that will be executed when compute nodes join
+    // the pool. In this case, we copy the StartTask's resource files (that will be
+    // automatically downloaded to the node by the StartTask) into the shared
+    // directory that all tasks will have access to.
     pool.StartTask = new StartTask
     {
-        // Specify a command line for the StartTask that copies the task application files to the
-        // node's shared directory. Every compute node in a Batch pool is configured with several
-        // pre-defined environment variables that you can reference by using commands or applications
-        // run by tasks.
+        // Specify a command line for the StartTask that copies the task application
+        // files to the node's shared directory. Every compute node in a Batch pool
+        // is configured with several pre-defined environment variables that you can
+        // reference by using commands or applications run by tasks.
 
-        // Since a successful execution of robocopy can return a non-zero exit code (e.g. 1 when one or
-        // more files were successfully copied) we need to manually exit with a 0 for Batch to recognize
-        // StartTask execution success.
+        // Since a successful execution of robocopy can return a non-zero exit code
+        // (e.g. 1 when one or more files were successfully copied) we need to
+        // manually exit with a 0 for Batch to recognize StartTask execution success.
         CommandLine = "cmd /c (robocopy %AZ_BATCH_TASK_WORKING_DIR% %AZ_BATCH_NODE_SHARED_DIR%) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
         ResourceFiles = resourceFiles,
         WaitForSuccess = true
@@ -286,13 +315,15 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 }
 ```
 
-Al crear un grupo con [CreatePool][net_pool_create], especifique varios parámetros, como el número de nodos de proceso, el [tamaño de los nodos](./../cloud-services/cloud-services-sizes-specs.md) y el [sistema operativo](./../cloud-services/cloud-services-guestos-update-matrix.md) de los nodos.
+Al crear un grupo con [CreatePool][net_pool_create], se especifican varios parámetros, como el número de nodos de proceso, el [tamaño de los nodos](../cloud-services/cloud-services-sizes-specs.md) y el sistema operativo de los nodos. En *DotNetTutorial*, usamos [CloudServiceConfiguration][net_cloudserviceconfiguration] para especificar Windows Server 2012 R2 desde [Servicios en la nube](../cloud-services/cloud-services-guestos-update-matrix.md). Sin embargo, si especificamos [VirtualMachineConfiguration][net_virtualmachineconfiguration] en su lugar, puede crear grupos de nodos a partir de imágenes de Marketplace, que incluye imágenes de Windows y Linux, consulte [Introducing Linux support on Azure Batch][blog_linux] (Introducción a la compatibilidad con Linux en Lote de Azure) para más información.
 
 > [AZURE.IMPORTANT] Se cobrará por recursos de proceso en Lote. Para minimizar los costos, puede reducir `targetDedicated` a 1 antes de ejecutar el ejemplo.
 
 Junto con estas propiedades de nodo físicas, también puede especificar una clase [StartTask][net_pool_starttask] para el grupo. La clase StartTask se ejecutará en cada nodo cuando el nodo se una al grupo, así como cada vez que se reinicie el nodo. Esta clase es especialmente útil para instalar aplicaciones en nodos de ejecución antes de la ejecución de tareas. Por ejemplo, si las tareas procesan los datos mediante scripts de Python, puede usar una clase StartTask para instalar Python en los nodos de proceso.
 
-En esta aplicación de ejemplo, la clase StartTask copia los archivos que descarga de Almacenamiento (que se especifican mediante la propiedad *ResourceFiles* de StartTask) desde el directorio de trabajo de clase StartTask al directorio compartido al que pueden acceder *todas* las tareas que se ejecutan en el nodo.
+En esta aplicación de ejemplo, la clase StartTask copia los archivos que descarga de Almacenamiento (que se especifican mediante la propiedad [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) desde el directorio de trabajo de StartTask al directorio compartido al que pueden acceder *todas* las tareas que se ejecutan en el nodo. Básicamente, se copia `TaskApplication.exe` y sus dependencias en el directorio compartido en cada nodo cuando el nodo se une al grupo, para que las tareas que se ejecutan en el nodo puedan acceder a él.
+
+> [AZURE.TIP] La característica **paquetes de aplicación** de Lote de Azure ofrece otra manera de implementar la aplicación en los nodos de proceso de un grupo. Para más información, consulte [Implementación de aplicaciones con paquetes de aplicación de Lote de Azure](batch-application-packages.md).
 
 En el fragmento de código anterior destaca también el uso de dos variables de entorno en la propiedad *CommandLine* de la clase StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` y `%AZ_BATCH_NODE_SHARED_DIR%`. Cada nodo de proceso de un grupo de Lote se configura automáticamente con un número de variables de entorno específicas de Lote. Todos los procesos que ejecute una tarea tienen acceso a estas variables de entorno.
 
@@ -307,7 +338,10 @@ Un trabajo de Lote es básicamente una colección de tareas asociadas a un grupo
 Todos los trabajos de Lote están asociados a un grupo específico. Esta asociación indica en qué nodos se ejecutarán las tareas del trabajo. Para especificarlo, use la propiedad [CloudJob.PoolInformation][net_job_poolinfo], como se muestra en el siguiente fragmento de código.
 
 ```
-private static async Task CreateJobAsync(BatchClient batchClient, string jobId, string poolId)
+private static async Task CreateJobAsync(
+    BatchClient batchClient,
+    string jobId,
+    string poolId)
 {
     Console.WriteLine("Creating job [{0}]...", jobId);
 
@@ -328,7 +362,11 @@ Ahora que se ha creado un trabajo, se agregan las tareas para realizar dicho tra
 Para realizar el trabajo, las tareas deben agregarse a un trabajo. Las clases [CloudTask][net_task] se configuran con una propiedad de línea de comandos y la colección [ResourceFiles][net_task_resourcefiles] (al igual que la clase StartTask del grupo) que la tarea descarga en el nodo antes de que su línea de comandos se ejecute automáticamente. En el proyecto de ejemplo *DotNetTutorial*, cada tarea procesa un solo archivo. Por lo tanto, su colección ResourceFiles contiene un único elemento.
 
 ```
-private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient, string jobId, List<ResourceFile> inputFiles, string outputContainerSasUrl)
+private static async Task<List<CloudTask>> AddTasksAsync(
+    BatchClient batchClient,
+    string jobId,
+    List<ResourceFile> inputFiles,
+    string outputContainerSasUrl)
 {
     Console.WriteLine("Adding {0} tasks to job [{1}]...", inputFiles.Count, jobId);
 
@@ -341,15 +379,19 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"", inputFile.FilePath, outputContainerSasUrl);
+        string taskCommandLine = String.Format(
+            "cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"",
+            inputFile.FilePath,
+            outputContainerSasUrl);
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };
         tasks.Add(task);
     }
 
-    // Add the tasks as a collection, as opposed to adding a separate AddTask call for each. Bulk task submission
-    // helps to ensure efficient underlying API calls to the Batch service.
+    // Add the tasks as a collection, as opposed to issuing a separate AddTask call
+    // for each. Bulk task submission helps to ensure efficient underlying API calls
+    // to the Batch service.
     await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
 
     return tasks;
@@ -392,9 +434,10 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 				Console.WriteLine("Additional error information: " + e.Message);
 				Console.WriteLine();
 
-				// Indicate that a failure has occurred so that when the Batch service sets the
-				// CloudTask.ExecutionInformation.ExitCode for the task that executed this application,
-				// it properly indicates that there was a problem with the task.
+				// Indicate that a failure has occurred so that when the Batch service
+                // sets the CloudTask.ExecutionInformation.ExitCode for the task that
+                // executed this application, it properly indicates that there was a
+                // problem with the task.
 				Environment.ExitCode = -1;
 		}
 }
@@ -412,29 +455,37 @@ En el método `MonitorTasks` de `Program.cs` de DotNetTutorial, hay tres concept
 
 2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] proporciona aplicaciones de .NET de Lote con utilidades auxiliares para la supervisión de los estados de la tarea. En `MonitorTasks`, *DotNetTutorial* espera hasta que todas las tareas alcanzan el estado [TaskState.Completed][net_taskstate] dentro de un límite de tiempo. Luego finaliza el trabajo.
 
-3. **TerminateJobAsync**: la finalización de un trabajo con [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (o con JobOperations.TerminateJob de bloqueo) marcará el trabajo como completado. Esta operación es esencial para hacerlo la solución de Lote usa [JobReleaseTask][net_jobreltask]. Se trata de un tipo especial de tarea, que se describe en [Ejecución de tareas de preparación y finalización de trabajos en nodos de ejecución de Lote de Azure](batch-job-prep-release.md).
+3. **TerminateJobAsync**: la finalización de un trabajo con [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (o con JobOperations.TerminateJob de bloqueo) marcará el trabajo como completado. Esta operación es esencial para hacerlo la solución de Lote usa [JobReleaseTask][net_jobreltask]. Se trata de un tipo especial de tarea, que se describe en [Ejecución de tareas de preparación y finalización de trabajos en nodos de proceso de Lote de Azure](batch-job-prep-release.md).
 
 A continuación se muestra el método `MonitorTasks` de `Program.cs` de *DotNetTutorial*:
 
 ```
-private static async Task<bool> MonitorTasks(BatchClient batchClient, string jobId, TimeSpan timeout)
+private static async Task<bool> MonitorTasks(
+    BatchClient batchClient,
+    string jobId,
+    TimeSpan timeout)
 {
     bool allTasksSuccessful = true;
     const string successMessage = "All tasks reached state Completed.";
     const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
 
-    // Obtain the collection of tasks currently managed by the job. Note that we use a detail level to
-    // specify that only the "id" property of each task should be populated. Using a detail level for
-    // all list operations helps to lower response time from the Batch service.
+    // Obtain the collection of tasks currently managed by the job. Note that we use
+    // a detail level to specify that only the "id" property of each task should be
+    // populated. Using a detail level for all list operations helps to lower
+    // response time from the Batch service.
     ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
-    List<CloudTask> tasks = await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
+    List<CloudTask> tasks =
+        await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
 
     Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
 
-    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we will wait for all tasks to
-    // reach the Completed state.
+    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
+    // will wait for all tasks to reach the Completed state.
     TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
-    bool timedOut = await taskStateMonitor.WaitAllAsync(tasks, TaskState.Completed, timeout);
+    bool timedOut = await taskStateMonitor.WaitAllAsync(
+        tasks,
+        TaskState.Completed,
+        timeout);
 
     if (timedOut)
     {
@@ -448,12 +499,14 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
     {
         await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
 
-        // All tasks have reached the "Completed" state. However, this does not guarantee that all tasks were completed successfully.
-        // Here we further check each task's ExecutionInfo property to ensure that it did not encounter a scheduling error
-        // or return a non-zero exit code.
+        // All tasks have reached the "Completed" state. However, this does not
+        // guarantee that all tasks were completed successfully. Here we further
+        // check each task's ExecutionInfo property to ensure that it did not
+        // encounter a scheduling error or return a non-zero exit code.
 
-        // Update the detail level to populate only the task id and executionInfo properties.
-        // We refresh the tasks below, and need only this information for each task.
+        // Update the detail level to populate only the task id and executionInfo
+        // properties. We refresh the tasks below, and need only this information
+        // for each task.
         detail.SelectClause = "id, executionInfo";
 
         foreach (CloudTask task in tasks)
@@ -463,17 +516,23 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
 
             if (task.ExecutionInformation.SchedulingError != null)
             {
-                // A scheduling error indicates a problem starting the task on the node. It is important to note that
-                // the task's state can be "Completed," yet the task still might have encountered a scheduling error.
+                // A scheduling error indicates a problem starting the task on the
+                // node. It is important to note that the task's state can be
+                // "Completed," yet the task still might have encountered a
+                // scheduling error.
 
                 allTasksSuccessful = false;
 
-                Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}", task.Id, task.ExecutionInformation.SchedulingError.Message);
+                Console.WriteLine(
+                    "WARNING: Task [{0}] encountered a scheduling error: {1}",
+                    task.Id,
+                    task.ExecutionInformation.SchedulingError.Message);
             }
             else if (task.ExecutionInformation.ExitCode != 0)
             {
-                // A non-zero exit code may indicate that the application executed by the task encountered an error
-                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // A non-zero exit code may indicate that the application executed by
+                // the task encountered an error during execution. As not every
+                // application returns non-zero on failure by default (e.g. robocopy),
                 // your implementation of error checking may differ from this example.
 
                 allTasksSuccessful = false;
@@ -499,7 +558,10 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
 Ahora que se ha completado el trabajo, el resultado de las tareas se puede descargar desde Almacenamiento de Azure. Para ello, es preciso realizar una llamada a `DownloadBlobsFromContainerAsync` en `Program.cs` de *DotNetTutorial*:
 
 ```
-private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobClient, string containerName, string directoryPath)
+private static async Task DownloadBlobsFromContainerAsync(
+    CloudBlobClient blobClient,
+    string containerName,
+    string directoryPath)
 {
 		Console.WriteLine("Downloading all files from container [{0}]...", containerName);
 
@@ -507,7 +569,9 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
 		// Get a flat listing of all the block blobs in the specified container
-		foreach (IListBlobItem item in container.ListBlobs(prefix: null, useFlatBlobListing: true))
+		foreach (IListBlobItem item in container.ListBlobs(
+                    prefix: null,
+                    useFlatBlobListing: true))
 		{
 				// Retrieve reference to the current blob
 				CloudBlob blob = (CloudBlob)item;
@@ -537,7 +601,9 @@ await DeleteContainerAsync(blobClient, outputContainerName);
 El propio método simplemente obtiene una referencia al contenedor y después llama a [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]\:
 
 ```
-private static async Task DeleteContainerAsync(CloudBlobClient blobClient, string containerName)
+private static async Task DeleteContainerAsync(
+    CloudBlobClient blobClient,
+    string containerName)
 {
     CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
@@ -547,7 +613,8 @@ private static async Task DeleteContainerAsync(CloudBlobClient blobClient, strin
     }
     else
     {
-        Console.WriteLine("Container [{0}] does not exist, skipping deletion.", containerName);
+        Console.WriteLine("Container [{0}] does not exist, skipping deletion.",
+            containerName);
     }
 }
 ```
@@ -630,6 +697,7 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
+[blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
@@ -639,6 +707,11 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [net_api]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_api_storage]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
+[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
+[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
+[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
+[net_cloudserviceconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudserviceconfiguration.aspx
+[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
 [net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_poolinfo]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.protocol.models.cloudjob.poolinformation.aspx
 [net_joboperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.joboperations
@@ -655,15 +728,14 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [net_resourcefile_blobsource]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.blobsource.aspx
 [net_sas_blob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature.aspx
 [net_sas_container]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblobcontainer.getsharedaccesssignature.aspx
+[net_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.aspx
+[net_starttask_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.resourcefiles.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_task_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.resourcefiles.aspx
 [net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
 [net_taskstatemonitor]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
 [net_thread_sleep]: https://msdn.microsoft.com/library/274eh01d(v=vs.110).aspx
-[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
-[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
-[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
-[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
+[net_virtualmachineconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
 [nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx
@@ -681,4 +753,4 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciales de Almacenamiento en el Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flujo de trabajo de solución de Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -75,7 +75,7 @@ En la hoja **Crear máquina virtual**, en **Datos básicos** proporcione la info
 >![Conceptos básicos de SQL ARM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png) <br/>
 
 ## 2\. Elección del tamaño de la máquina virtual
-En la hoja **Crear máquina virtual**, bajo **Tamaño**, seleccione un tamaño de máquina virtual. El Portal de Azure mostrará los tamaños recomendados. Para más información sobre el tamaño de las máquinas virtuales, consulte [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md). Los tamaños se basan en la plantilla seleccionada. El tamaño calcula el costo mensual para ejecutar la máquina virtual. Seleccione un tamaño de máquina virtual para el servidor. Para más información sobre los tamaños de las máquinas virtuales de SQL Server, consulte [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-perf.md) (Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure).
+En la hoja **Crear máquina virtual**, bajo **Tamaño**, seleccione un tamaño de máquina virtual. El Portal de Azure mostrará los tamaños recomendados. Para más información sobre el tamaño de las máquinas virtuales, consulte [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md). Los tamaños se basan en la plantilla seleccionada. El tamaño calcula el costo mensual para ejecutar la máquina virtual. Seleccione un tamaño de máquina virtual para el servidor. Para más información sobre los tamaños de las máquinas virtuales de SQL Server, consulte [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md) (Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure).
 
 ## 3\. Configuración de la máquina virtual
 En la hoja **Crear máquina virtual**, en **Configuración**, configure el almacenamiento de Azure, las redes y la supervisión de la máquina virtual.
@@ -146,7 +146,7 @@ En la siguiente imagen se muestra la hoja Configuración de almacenamiento. <br/
 
 <br/>![Aplicación de revisiones de SQL ARM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png) <br/>
 
-Para obtener más información, consulte [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-patch.md) (Aplicación de revisiones automatizada para SQL Server en Máquinas virtuales de Azure).
+Para más información, consulte [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md) (Aplicación de revisiones automatizada para SQL Server en Máquinas virtuales de Azure).
 
 ### Copias de seguridad
 Habilite las copias de seguridad automáticas de la base de datos para todas las bases de datos en **Copia de seguridad automatizada de SQL**. Cuando habilita esta opción puede configurar lo siguiente:
@@ -157,7 +157,7 @@ Habilite las copias de seguridad automáticas de la base de datos para todas las
 
 <br/>![Copia de seguridad de SQL ARM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png) <br/>
 
- Para obtener más información, vea [Copia de seguridad automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-ps-sql-backup.md).
+ Para obtener más información, vea [Copia de seguridad automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ### Integración del Almacén de claves
 Para almacenar información confidencial de seguridad en Azure para el cifrado, haga clic en **Integración del almacén de claves de Azure** y en **Habilitar**.
@@ -201,6 +201,6 @@ Los siguientes pasos no son necesarios si solo necesita tener acceso a la máqui
 > [AZURE.INCLUDE [Conexión a SQL Server en el Administrador de recursos de una máquina virtual](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ##<a id="Next"> Pasos siguientes
-Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-sql-overview.md).
+Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

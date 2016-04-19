@@ -52,7 +52,7 @@ Estas son algunas directrices básicas para seleccionar un tamaño de máquina v
 * La serie Dv2 es la versión más reciente de la serie D y cuenta con una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 * Las máquinas virtuales de la serie G ofrecen la mayor cantidad de memoria y se ejecutan en hosts con procesadores de la familia Intel Xeon E5 V3.
 
-Nota: Las máquinas virtuales de las series DS y GS tienen acceso a Almacenamiento premium, nuestro almacenamiento de alto rendimiento, baja latencia y respaldado por SSD para cargas de trabajo con uso intensivo de E/S. Almacenamiento premium está disponible en determinadas regiones. Para más información, consulte **[Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage-preview-portal.md)**.
+Nota: Las máquinas virtuales de las series DS y GS tienen acceso a Almacenamiento premium, nuestro almacenamiento de alto rendimiento, baja latencia y respaldado por SSD para cargas de trabajo con uso intensivo de E/S. Almacenamiento premium está disponible en determinadas regiones. Para más información, consulte **[Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md)**.
 
 Cada suscripción de Azure tiene límites de cuota predeterminados que pueden afectar a la implementación de un gran número de máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites de cuota, envíe una incidencia de soporte técnico y solicite un aumento del límite. Para más información sobre los límites de cuota, consulte **[Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md)**.
 
@@ -60,4 +60,4 @@ Cada suscripción de Azure tiene límites de cuota predeterminados que pueden af
 
 Una cuenta de evaluación gratuita. **[Obtenga una.](https://azure.microsoft.com/pricing/free-trial/)** Si ya tiene una, **[instale la CLI de Azure.](../xplat-cli-install.md)** para probarla. Si ya lo ha hecho, [vaya a crear la máquina virtual de Linux ahora](virtual-machines-linux-quick-create-cli.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

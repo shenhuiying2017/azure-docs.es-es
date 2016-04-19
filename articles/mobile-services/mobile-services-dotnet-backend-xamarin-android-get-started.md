@@ -45,9 +45,11 @@ Después de crear el servicio móvil, puede seguir un sencillo inicio rápido en
 
 En esta sección va a descargar una nueva aplicación Xamarin Android y un proyecto de servicio para su servicio móvil.
 
-1. En el [portal clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
+1. Si aún no lo ha hecho, instale Visual Studio con Xamarin. Las instrucciones se pueden encontrar en [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx). También puede usar Xamarin Studio en un equipo Mac OS X, consulte [Configuración, instalación y comprobaciones para usuarios de Mac](https://msdn.microsoft.com/library/mt488770.aspx).  
 
-2. En la pestaña de inicio rápido, haga clic en **Xamarin** en **Seleccionar plataforma** y, a continuación, expanda **Crear una nueva aplicación Xamarin**.
+2. En el [portal clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
+
+3. En la pestaña de inicio rápido, haga clic en **Xamarin** en **Seleccionar plataforma** y, a continuación, expanda **Crear una nueva aplicación Xamarin**.
 
    	![][6]
 
@@ -55,15 +57,11 @@ En esta sección va a descargar una nueva aplicación Xamarin Android y un proye
 
   	![][7]
 
-3. Si todavía no lo ha hecho, descargue e instale [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546) en el equipo local o máquina virtual.
-
-4. Si aún no lo ha hecho, descargue e instale [Xamarin Studio] o Xamarin para Visual Studio.
-
-5. En **Descargar y publicar el servicio en la nube**, seleccione **Android** y haga clic en **Descargar**.
+4. En **Descargar y publicar el servicio en la nube**, seleccione **Android** y haga clic en **Descargar**.
 
   	De esta forma se descarga una solución que contiene proyectos tanto para el servicio móvil como para la aplicación _To do list_ de ejemplo conectada a su servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
-6. Descargue su perfil de publicación, guarde el archivo descargado en el equipo local y tome nota de dónde lo guarda.
+5. Descargue su perfil de publicación, guarde el archivo descargado en el equipo local y tome nota de dónde lo guarda.
 
 ## Prueba del servicio móvil
 
@@ -79,7 +77,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 1. Navegue al proyecto de cliente en la solución del servicio móvil, en Visual Studio o en Xamarin Studio.
 
-2. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación. Se le solicitará que seleccione un emulador o un dispositivo USB conectado.
+2. Presione el botón **Run** para compilar el proyecto e iniciar la aplicación. Se le solicitará que seleccione un emulador o un dispositivo USB conectado.
 
 	> [AZURE.NOTE] Para poder ejecutar el proyecto en el emulador de Android, debe definir al menos un dispositivo virtual de Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.
 
@@ -132,9 +130,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [versión back-end de JavaScript]: mobile-services-android-get-started.md
 [Solución de problemas de un back-end de .NET de Servicios móviles]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

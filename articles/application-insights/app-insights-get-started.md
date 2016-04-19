@@ -25,6 +25,8 @@ La configuración es muy sencilla y obtendrá resultados en cuestión de minutos
 
 Actualmente se admiten aplicaciones de iOS, Android y Windows; aplicaciones web de J2EE y ASP.NET, y servicios de WCF. Las aplicaciones web se pueden ejecutar en Azure o en sus propios servidores locales. El SDK de JavaScript se ejecuta en cualquier página web.
 
+[Eche un vistazo a la animación de introducción](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
+
 ## Primeros pasos
 
 Comience con cualquier combinación, en cualquier orden, de los puntos de entrada que aparecen en el siguiente diagrama. Siga la ruta de acceso que se adapte a sus necesidades.
@@ -74,4 +76,4 @@ Lo que desea | Lo que debe hacer | Lo que obtiene
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/11/2016"
+	ms.date="04/11/2016"
 	ms.author="mandia"/>
 
 
 # Lista de conectores y aplicaciones de API para usarlas en sus aplicaciones lógicas
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para consultar la versión de esquema 2015-08-01-preview, haga clic en la opción [Lista de API](../connectors/apis-list.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview, haga clic en la [nueva lista de conectores](../connectors/apis-list.md).
 
 Obtenga información acerca de todos los conectores disponibles y las aplicaciones de API creados por Microsoft para usarlos con Aplicaciones lógicas.
 
@@ -33,23 +33,13 @@ Nombre | Descripción
 --- | ---
 [HDInsight de Azure](app-service-logic-connector-hdinsight.md) | Use este conector para crear un clúster de Hadoop en Azure, enviar diferentes trabajos de Hadoop y mucho más.
 [Bus de servicio de Azure](app-service-logic-connector-azureservicebus.md) | Puede enviar mensajes desde los temas y las colas del Bus de servicio y recibir mensajes de suscripciones y colas del Bus de servicio.
-[Blob de almacenamiento de Azure](app-service-logic-connector-azurestorageblob.md) | Se conecta al almacenamiento de blobs y puede realizar las operaciones de obtener, eliminar, enumerar, etc. 
 [Traductor de Bing](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Use Bing para traducir texto en otro idioma.
-[Box](app-service-logic-connector-box.md) | Se conecta a Box y puede realizar las operaciones de cargar, obtener, eliminar, enumerar y más tareas de archivos.
 [Chatter](app-service-logic-connector-chatter.md) | Se conecta a Chatter y puede publicar mensajes, buscar e incluso recuperar mensajes nuevos.
-[Dropbox](app-service-logic-connector-dropbox.md) | Se conecta a Dropbox y puede realizar las operaciones de obtener, eliminar, enumerar y más tareas de archivos.
-[Facebook](app-service-logic-connector-facebook.md) | Se conecta a Facebook y puede publicar mensajes, imágenes, etc. También puede obtener mensajes y comentarios, obtener la información de usuario sobre gustos diferentes, incluidos libros y películas.
 [HTTP](app-service-logic-connector-http.md) | El agente de escucha HTTP abre un extremo que actúa como servidor HTTP y escucha las solicitudes HTTP o HTTPS entrantes. La acción HTTP no requiere una aplicación de API y se admite de forma nativa en las aplicaciones lógicas.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | El conector Office 365 puede enviar y recibir correos electrónicos, administrar su calendario y administrar sus contactos con su cuenta de Office 365.
-[Microsoft OneDrive](app-service-logic-connector-onedrive.md) | Se conecta a su Microsoft OneDrive personal y cargue, elimine, mostrar archivos, etc.
-[Microsoft SharePoint](app-service-logic-connector-sharepoint.md) | Se conecta a Microsoft SharePoint Server o SharePoint Online local, administra documentos y enumera elementos. Se admiten métodos de autenticación diferentes, como credenciales predeterminadas, OAuth 2.0, autenticación de Windows y autenticación basada en formularios.
-[Microsoft Yammer](app-service-logic-connector-yammer.md) | Se conecta a Yammer para publicar mensajes y obtener nuevos mensajes.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Puede completar tareas diferentes incluidas crear, actualizar y consultar diferentes entidades de Intuit QuickBooks como clientes, artículos, facturas, etc.
 [Slack](app-service-logic-connector-slack.md) | Conéctese a Slack y publique mensajes en los canales de Slack.
-[Salesforce](app-service-logic-connector-salesforce.md) | Se conecta a su cuenta de Salesforce y puede administrar cuentas, clientes potenciales, oportunidades y mucho más.
 [SugarCRM](app-service-logic-connector-sugarcrm.md) | Se conecta a SugarCRM en línea y puede crear, actualizar, leer, etc. con diferentes tipos de módulos, como cuentas, contactos, etc.
-[Twilio](app-service-logic-connector-twilio.md) | Se conecta a Twilio y puede enviar y recibir mensajes, obtener los números disponibles, administrar los números de teléfono entrantes y mucho más.
-[Twitter](app-service-logic-connector-twitter.md) | Se conecta a Twitter y puede obtener escalas de tiempo, publicar tweets, etc.
 [Esperar](app-service-logic-connector-wait.md) | Utilice este conector para retrasar la ejecución de la aplicación. Puede retrasar la aplicación durante un tiempo determinado o hasta una repetición en un momento determinado.
 
 
@@ -77,8 +67,6 @@ MQ | Se conecta a la versión 8 de IBM WebSphere MQ Server, en local y en una m�
 [Base de datos de Oracle](app-service-logic-connector-oracle.md) | Se conecta a la base de datos de Oracle local y puede crear, actualizar, obtener y eliminar entradas en una tabla de base de datos.
 [POP3](app-service-logic-connector-pop3.md) (Protocolo de oficina de correos)| Se conecta a un servidor POP3 para recuperar correos electrónicos con datos adjuntos.
 [SAP](app-service-logic-connector-sap.md) | Se conecta a un servidor SAP local e invoca RFC, BAPI y tRFC, y envía IDOC.
-[SFTP](app-service-logic-connector-sftp.md) (Protocolo de transferencia de archivos SSH)| Se conecta a SFTP y puede cargar, obtener, eliminar archivos, etc.
-[SMTP](app-service-logic-connector-smtp.md) (Protocolo simple de transferencia de correo) | Se conecta a un servidor SMTP y envía correo con datos adjuntos.
 
 ## Conectores como desencadenadores
 Varios conectores proporcionan desencadenadores para aplicaciones lógicas. Estos desencadenadores son de dos tipos:
@@ -95,4 +83,4 @@ Los conectores también pueden utilizarse como acciones dentro de una aplicació
 ## Más sobre los conectores y las aplicaciones de API
 [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md) [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

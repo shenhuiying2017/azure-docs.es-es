@@ -1,9 +1,9 @@
 <properties
 	pageTitle="¿Qué son los Centros de eventos de Azure? | Microsoft Azure"
-	description="Información general de los Centros de eventos de Azure"
+	description="Información general y descripción de Centros de eventos de Azure"
 	services="event-hubs"
 	documentationCenter=".net"
-	authors="nberdy"
+	authors="sethmanheim"
 	manager="timlt"
 	editor=""/>
 
@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
-	ms.author="sethm"/>
+	ms.date="04/12/2016"
+	ms.author="sethm;nberdy"/>
 
 # ¿Qué es Centros de eventos de Azure?
 
-Centros de eventos de Azure es un servicio de introducción de datos altamente escalable que permite la introducción de millones de eventos por segundo para que pueda procesar y analizar grandes cantidades de datos generados por los dispositivos y aplicaciones conectados. Centros de eventos actúa como la "puerta principal" de una canalización de eventos y, una vez que los datos se recopilan en un centro de eventos, se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes/almacenamiento. Centros de eventos desacopla la producción de un flujo de eventos desde el consumo de los eventos, para que los consumidores de eventos pueden tener acceso a los eventos según su propia programación.
+Centros de eventos de Azure es un servicio de introducción de datos altamente escalable que permite la introducción de millones de eventos por segundo para que pueda procesar y analizar grandes cantidades de datos generados por los dispositivos y aplicaciones conectados. Centros de eventos actúa como la "puerta principal" de una canalización de eventos y, una vez que los datos se recopilan en un Centro de eventos, se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes/almacenamiento. Centros de eventos desacopla la producción de un flujo de eventos desde el consumo de los eventos, para que los consumidores de eventos pueden tener acceso a los eventos según su propia programación.
 
 ## Capacidades de los Centros de eventos
 
 Centros de eventos es un servicio de procesamiento de eventos que ofrece introducción de telemetría y eventos en la nube a escala masiva, con una latencia baja y una alta confiabilidad. Este servicio es especialmente útil para:
 
-* Instrumentación de aplicaciones
-* La experiencia del usuario o el procesamiento de flujos de trabajo
-* Escenarios de Internet de las cosas (IoT)
+- Instrumentación de aplicaciones
+- La experiencia del usuario o el procesamiento de flujos de trabajo
+- Escenarios de Internet de las cosas (IoT)
 
-Algunas otras capacidades de Centros de eventos son el seguimiento del comportamiento en aplicaciones móviles, la información sobre el tráfico de granjas de servidores web, la captura de eventos en el juego de juegos de consola o los datos de telemetría recopilados de máquinas industriales o vehículos conectados.
+Otras funcionalidades de Centros de eventos incluyen el seguimiento del comportamiento en aplicaciones móviles, la información sobre el tráfico de granjas de servidores web, la captura de eventos en el juego de juegos de consola o telemetría recopilados de máquinas industriales o vehículos conectados.
 
-A diferencia de [Temas y colas de Bus de servicio](../service-bus/service-bus-messaging-overview.md), los Centros de eventos se centran en ofrecer control de flujo de mensajes a escala. Las capacidades de los Centros de eventos se diferencian de las de los temas en que están fuertemente orientadas a escenarios de alto procesamiento y procesamiento de eventos. Como resultado, los Centros de eventos no implementan algunas de las capacidades de mensajería que están disponibles para los [temas](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Si necesita esas capacidades, los temas siguen siendo la opción óptima.
+A diferencia de [Temas y colas de Bus de servicio](../service-bus/service-bus-messaging-overview.md), los Centros de eventos se centran en ofrecer control de flujo de mensajes a escala. Las funcionalidades de Centros de eventos de Azure se diferencian de las de los temas del Bus de servicio, por ejemplo, en que están fuertemente orientadas a escenarios de alto rendimiento y procesamiento de eventos. Como resultado, los Centros de eventos no implementan algunas de las capacidades de mensajería que están disponibles para los [temas](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Si necesita esas capacidades, los temas siguen siendo la opción óptima.
 
 ## Pasos siguientes
 
@@ -45,4 +45,4 @@ Para obtener información detallada acerca de los Centros de eventos, consulte l
 [tutorial de Centros de eventos]: event-hubs-csharp-ephcs-getstarted.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

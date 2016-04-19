@@ -225,7 +225,7 @@ El directorio raíz contiene la siguiente estructura de directorio:
 
 - **Shared**: esta ubicación es un directorio compartido para todas las tareas que se ejecutan en un nodo, con independencia del trabajo. En el nodo, se tiene acceso al directorio compartido a través de `%AZ_BATCH_NODE_SHARED_DIR%`. Este directorio proporciona acceso de lectura y escritura a todas las tareas que se ejecutan en el nodo. Las tareas pueden crear, leer, actualizar y eliminar archivos de este directorio.
 
-- **Startup**: una tarea de inicio usa esta ubicación como directorio de trabajo. Todos los archivos descargados por el servicio Lote para iniciar la tarea de inicio también se almacenan en este directorio. En el nodo, el directorio de inicio está disponible a través de la variable de entorno `%AZ_BATCH_NODE_START_DIR%`. La tarea de inicio puede crear, leer, actualizar y eliminar archivos de este directorio, y puede usar este directorio para configurar el sistema operativo.
+- **Startup**: una tarea de inicio usa esta ubicación como directorio de trabajo. Todos los archivos descargados por el servicio Lote para iniciar la tarea de inicio también se almacenan en este directorio. En el nodo, el directorio de inicio está disponible a través de la variable de entorno `%AZ_BATCH_NODE_STARTUP_DIR%`. La tarea de inicio puede crear, leer, actualizar y eliminar archivos de este directorio, y puede usar este directorio para configurar el sistema operativo.
 
 - **Tasks**: se crea un directorio para cada tarea que se ejecuta en el nodo, a la que se tiene acceso a través de `%AZ_BATCH_TASK_DIR%`. Dentro de cada directorio de la tarea, el servicio Lote crea un directorio de trabajo (`wd`) cuya ruta de acceso único se especifica con la variable de entorno `%AZ_BATCH_TASK_WORKING_DIR%`. Este directorio proporciona acceso de lectura y escritura a la tarea. La tarea puede crear, leer, actualizar y eliminar archivos de este directorio, y este directorio se conserva en función de la restricción *RetentionTime* especificada para la tarea.
   - `stdout.txt` y `stderr.txt`: estos archivos se escriben en la carpeta de tareas durante la ejecución de la tarea.
@@ -411,4 +411,4 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->
