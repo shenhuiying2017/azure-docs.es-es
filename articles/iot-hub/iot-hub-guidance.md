@@ -38,7 +38,7 @@ Los datos del dispositivo que almacena una solución de IoT determinada dependen
 
 *Aprovisionamiento de dispositivos* es el proceso de agregar los datos iniciales del dispositivo a los almacenes de la solución. Para habilitar un nuevo dispositivo para conectarse al centro, debe agregar un nuevo identificador de dispositivo y claves al [registro de identidades del Centro de IoT][lnk-devguide-identityregistry]. Como parte del proceso de aprovisionamiento, es posible que tenga que inicializar datos específicos del dispositivo en otros almacenes de la solución.
 
-El artículo [Guía de administración de dispositivos del Centro de IoT][lnk-device-management] describe algunas estrategias habituales para el aprovisionamiento de dispositivos. Las [API de registro de identidad del Centro de IoT][lnk-devguide-identityregistry] le permiten integrarlo en el proceso de aprovisionamiento.
+Las [API de registro de identidad del Centro de IoT][lnk-devguide-identityregistry] le permiten integrarlo en el proceso de aprovisionamiento.
 
 ## Puertas de enlace de campo
 
@@ -97,13 +97,13 @@ El modelo de servicio de token es el método recomendado para implementar un esq
 
 ## Latido de dispositivo <a id="heartbeat"></a>
 
-El [registro de la identidad de Centro de IoT][lnk-devguide-identityregistry] contiene un campo llamado **connectionState**. Solo debe utilizar el campo **connectionState** durante el desarrollo y la depuración, las soluciones de IoT no deben consultar el campo en tiempo de ejecución (por ejemplo, para comprobar si un dispositivo está conectado con el fin de decidir si enviar un mensaje de nube a dispositivo o un SMS). Si la solución de IoT necesita saber si un dispositivo está conectado (ya sea en tiempo de ejecución, o con más precisión que la ofrecida por la propiedad **connectionState**), debe implementar el *patrón de latido*.
+El [registro de identidades del Centro de IoT][lnk-devguide-identityregistry] contiene un campo llamado **connectionState**. Solo debe utilizar el campo **connectionState** durante el desarrollo y la depuración, las soluciones de IoT no deben consultar el campo en tiempo de ejecución (por ejemplo, para comprobar si un dispositivo está conectado con el fin de decidir si enviar un mensaje de nube a dispositivo o un SMS). Si la solución de IoT necesita saber si un dispositivo está conectado (ya sea en tiempo de ejecución o con una precisión superior a que ofrece la propiedad **connectionState**), debe implementar el *patrón de latido*.
 
 En el patrón de latido, el dispositivo envía mensajes de dispositivo a la nube al menos una vez en un período de tiempo predeterminado (por ejemplo, al menos una vez cada hora). Esto significa que incluso si un dispositivo no tiene ningún dato que enviar, seguirá enviando un mensaje de dispositivo a la nube vacío (normalmente con una propiedad que lo identifica como un latido). En el lado del servicio, la solución mantiene un mapa con el último latido recibido para cada dispositivo, y supone que hay un problema con un dispositivo si no recibe un mensaje de latido en el tiempo esperado.
 
-Una implementación más compleja podría incluir la información de [supervisión de operaciones][lnk-devguide-opmon] para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Al implementar el patrón de latidos, asegúrese de comprobar [las cuotas y limitaciones de Centro de IoT][].
+Una implementación más compleja podría incluir la información de [supervisión de operaciones][lnk-devguide-opmon] para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Al implementar el patrón de latidos, asegúrese de echar un vistazo a [las cuotas y limitaciones de Centro de IoT][].
 
-> [AZURE.NOTE] Si una solución de IoT requiere el estado de conexión de dispositivos únicamente para determinar si enviar mensajes de la nube a dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, un patrón mucho más sencillo a tener en cuenta es usar un breve tiempo de expiración. Así se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta mucho más eficiente. También es posible hacer que el Centro de IoT le notifique, solicitando acuses de recibo de mensajes, de qué dispositivos pueden recibir mensajes y cuáles no se encuentran conectados o presentan errores. Consulte la [Guía para desarrolladores del Centro de IoT][lnk-devguide-messaging] para obtener más información sobre los mensajes C2D.
+> [AZURE.NOTE] Si una solución de IoT requiere el estado de conexión de dispositivos únicamente para determinar si enviar mensajes de la nube a dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, un patrón mucho más sencillo a tener en cuenta es usar un breve tiempo de expiración. Así se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta mucho más eficiente. También es posible hacer que el Centro de IoT le notifique, solicitando acuses de recibo de mensajes, de qué dispositivos pueden recibir mensajes y cuáles no se encuentran conectados o presentan errores. Consulte la [Guía del desarrollador del Centro de IoT de Azure][lnk-devguide-messaging] para obtener más información sobre los mensajes C2D.
 
 ## Pasos siguientes
 
@@ -115,7 +115,6 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-device-management]: iot-hub-device-management.md
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md
@@ -134,4 +133,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [las cuotas y limitaciones de Centro de IoT]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

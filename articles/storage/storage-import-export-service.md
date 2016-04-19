@@ -53,16 +53,16 @@ Cuando cree un trabajo de importación o de exportación, deberá tener también
 
   > [AZURE.NOTE] Aún no se admiten las cuentas de almacenamiento que usan el modelo ARM.
 
-2.	**Discos duros:** el servicio de importación y exportación solo admite unidades de disco duro internas SATA II/III de 3,5 pulgadas. Las unidades de disco duro hasta 8 TB son compatibles. Para los trabajos de importación, solo se procesará el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS. Es posible conectar un disco SATA II/III externo a la mayoría de los equipos con un adaptador USB SATA II/III externo.
+2.	**Discos duros:** el servicio de importación y exportación solo admite unidades de disco duro internas SATA II/III de 3,5 pulgadas. Las unidades de disco duro hasta 8 TB son compatibles. Para los trabajos de importación, solo se procesará el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS. Es posible conectar un disco SATA II/III externo a la mayoría de los equipos con un adaptador USB SATA II/III externo.
 3.	**Cifrado BitLocker:** todos los datos almacenados en unidades de disco duro deben estar cifrados mediante BitLocker con claves de cifrado protegidas mediante contraseñas numéricas.
 4.	**Destinos de almacenamiento de blobs:** los datos pueden cargarse o descargarse de blobs en bloques y blobs de página.
 5.	**Número de trabajos:** un cliente puede tener hasta 20 trabajos activos por cuenta de almacenamiento.
 6.	**Tamaño máximo de un trabajo:** el tamaño de un trabajo lo determina la capacidad de los discos duros utilizados y la cantidad máxima de datos que se pueden almacenar en una cuenta de almacenamiento. Cada trabajo puede incluir hasta 10 discos duros.
-7.  **Sistemas operativos compatibles:** el cliente puede usar uno de los siguientes sistemas operativos de 64 bits para preparar el disco duro con la herramienta de importación y exportación de Azure antes de enviar a Azure - Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.  
+7.  **Sistemas operativos compatibles:** el cliente puede usar uno de los siguientes sistemas operativos de 64 bits para preparar el disco duro con la herramienta de importación y exportación de Azure antes de enviar un trabajo a Azure: Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.  
 
   > [AZURE.IMPORTANT]
   >  
-  >  - Si usa un equipo de Windows 10 para preparar el disco duro, descargue la versión más reciente de la herramienta de importación y exportación de Azure.
+  >  - Si usa una máquina con Windows 10 para preparar el disco duro, descargue la versión más reciente de la herramienta de importación y exportación de Azure.
   >  
   >  - No se admiten unidades de disco duro externas que incorporen un adaptador USB integrado en este servicio. No prepare una unidad de disco duro externa. El disco que se encuentra dentro de la carcasa externa tampoco no se puede usar para importar datos. Use una unidad de disco duro **interna** SATA II/III de 3,5 pulgadas. Si no puede conectar el disco SATA directamente a la máquina, use un adaptador SATA a USB externo. Consulte la lista de adaptadores recomendados en la sección de preguntas más frecuentes.
 
@@ -237,7 +237,7 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 
 **¿Qué servicios de paquetería se pueden utilizar?**
 
-- Para las regiones en EE. UU. y Europa, solo se admite [Federal Express](http://www.fedex.com/us/oadr/) (FedEx). Todos los paquetes se devolverán a través de FedEx Ground o FedEx International Economy.
+- Para las regiones en EE. UU. y Europa, solo se admite [Federal Express](http://www.fedex.com/us/oadr/) (FedEx). Todos los paquetes se devolverán a través de FedEx Ground o FedEx International Economy.
 
 - Para las regiones de Asia, solo se admite [DHL](http://www.dhl.com/). Todos los paquetes se devolverán a través de DHL Express Worldwide.
 
@@ -245,15 +245,15 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 
 **¿Existe algún coste asociado al envío de devolución?**
 
-- Microsoft utilizará el número de cuenta del transportista que facilite en el momento de creación del trabajo para enviar las unidades a la dirección de devolución desde el centro de datos. Asegúrese de proporcionar un número de cuenta del transportista para el transportista admitido en la región del centro de datos. Puede crear una cuenta de transportista de [FedEx](http://www.fedex.com/us/oadr/) (en EE. UU. y Europa) o [DHL](http://www.dhl.com/) (Asia) si no dispone de una.
+- Microsoft utilizará el número de cuenta del transportista que facilite en el momento de creación del trabajo para enviar las unidades a la dirección de devolución desde el centro de datos. Asegúrese de proporcionar un número de cuenta del transportista para el transportista admitido en la región del centro de datos. Puede crear una cuenta de transportista de [FedEx](http://www.fedex.com/us/oadr/) (en EE. UU. y Europa) o [DHL](http://www.dhl.com/) (Asia) si no dispone de una.
 
 - Los gastos de la devolución se cargan en su cuenta de transportista, y dependen de este último.
 
 **¿Desde y hasta dónde puedo enviar mis datos?**
 
 - El servicio Importación/Exportación admite la importación a cuentas de almacenamiento y la exportación desde las mismas en las regiones siguientes:
-	- Este de EE. UU.
-	- Oeste de EE. UU.
+	- Este de EE. UU.
+	- Oeste de EE. UU.
 	- Centro-Norte de EE. UU
 	- Centro-Sur de EE. UU
 	- Europa del Norte
@@ -261,7 +261,7 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 	- Asia oriental
 	- Sudeste asiático
 
-- Se le proporcionará una dirección de envío del lugar de residencia de su cuenta de almacenamiento. Por ejemplo, si vive en EE. UU. y la cuenta de almacenamiento se encuentra en el centro de datos de Europa occidental, se le proporcionará una dirección de envío en Europa para enviar las unidades.
+- Se le proporcionará una dirección de envío del lugar de residencia de su cuenta de almacenamiento. Por ejemplo, si vive en EE. UU. y la cuenta de almacenamiento se encuentra en el centro de datos de Europa occidental, se le proporcionará una dirección de envío en Europa para enviar las unidades.
 
 	> [AZURE.IMPORTANT] Tenga en cuenta que es posible que los medios físicos que está enviando deban cruzar alguna frontera internacional. Usted es el responsable de asegurar que los medios y datos físicos se importan o exportan de acuerdo con todas las normativas aplicables. Antes de enviar los medios físicos, pida asesoramiento para comprobar que los medios y datos se pueden enviar legalmente al centro de datos identificado. De este modo, se asegurará de que llegan a Microsoft de manera puntual.
 
@@ -284,8 +284,8 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 
 
-[import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
-[export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
-[export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
+[import-job-03]: ./media/storage-import-export-service/import-job-03.png
+[export-job-03]: ./media/storage-import-export-service/export-job-03.png
+[export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

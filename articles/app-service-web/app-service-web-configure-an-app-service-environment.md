@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 
@@ -31,6 +31,7 @@ A un alto nivel, un entorno del Servicio de aplicaciones consta de varios compon
 - Almacenamiento
 - Base de datos
 - Una red virtual clásica "v1" con al menos una subred
+- En estos momentos solo se admiten redes virtuales con un espacio de direcciones de RFC1918 (es decir, direcciones privadas).
 - Subred con el servicio hospedado del entorno del Servicio de aplicaciones de Azure que se ejecuta en él
 
 Se usan los recursos de proceso para los cuatro grupos de recursos. Cada entorno del Servicio de aplicaciones tiene un conjunto de servidores front-end y tres grupos de trabajo. No es necesario usar los 3 grupos de trabajo y, si lo desea, puede usar solo uno. Los servidores front-end son los puntos de conexión HTTP para las aplicaciones que se mantienen en el ASE. Los trabajadores están donde las aplicaciones que ejecutan realmente. Si se necesita agregar más servidores front-end o más trabajadores dependerá de cómo se realizan las aplicaciones que se colocan en el ASE. Por ejemplo, supongamos que solo tiene una aplicación en el ASE y es una aplicación de tipo Hola a todos que obtiene un gran número de solicitudes. En ese caso sería necesario escalar verticalmente los servidores front-end para controlar la carga HTTP pero en cambio no necesita escalar verticalmente sus trabajos. Intentar controlar todo esto a mano es bastante complicado, especialmente cuando se considera que cada ASE probablemente tiene una mezcla de aplicaciones que se ejecutan en él con distintos criterios de rendimiento. Afortunadamente, hemos agregado suficiente escalado automático a entornos del Servicio de aplicaciones y esto es lo que simplifica considerablemente todo. Para obtener más información sobre el escalado y el escalado automático de los entornos del Servicio de aplicaciones, siga el vínculo de [Configuración del escalado automático en un entorno del Servicio de aplicaciones][ASEAutoscale]
@@ -94,7 +95,10 @@ Para proporcionar una mejor perspectiva sobre cómo escalar las aplicaciones en 
 
 Los grupos de recursos, los servidores front-end y los trabajos no son accesibles directamente a los inquilinos. Es decir, no puede usar RDP en ellos, cambiar su aprovisionamiento o actuar como administrador. Son administrados y mantenidos por Azure. Dicho esto, es el usuario quien debe decidir la cantidad y los tamaños de los recursos de proceso.
 
-Existen tres formas de controlar cuántos servidores hay en los grupos de recursos: - Operación de escala de la hoja del ASE principal en la parte superior - Operación de escala manual de la hoja Escala del grupo de recursos individual, que se encuentra en Configuración - Escalado automático que se configura en la hoja Escala del grupo de recursos individual
+Existen tres formas de controlar el número de servidores de los grupos de recursos:
+- Realizando una operación de escalado desde la hoja de ASE principal de la parte superior
+- Realizando una operación de escalado manual desde la hoja Escala de grupos de recursos individuales (debajo de Configuración)
+- Realizando una operación de escalado automático (se configura desde la hoja Escala de grupos de recursos individuales)
 
 Para usar la operación de escala en la hoja del ASE basta con hacer clic en ella, arrastrar el control deslizante a la cantidad deseada y guardar. Esta interfaz de usuario también admite el cambio del tamaño.
 
@@ -200,4 +204,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -25,7 +25,7 @@ La respuesta a la pregunta "¿qué algoritmo de aprendizaje automático debería
 
 La **Hoja de referencia rápida de algoritmos de aprendizaje automático de Microsoft Azure** ayuda a elegir el algoritmo de aprendizaje automático adecuado para sus soluciones de análisis predictivos de la biblioteca de algoritmos de aprendizaje automático de Microsoft Azure. En este artículo se explica cómo usarla.
 
-> [AZURE.NOTE]Para descargar la hoja de referencia rápida y usarla con las instrucciones de este artículo, consulte la [hoja de referencia rápida de algoritmos de aprendizaje automático de Estudio de aprendizaje automático de Microsoft Azure](machine-learning-algorithm-cheat-sheet.md).
+> [AZURE.NOTE] Para descargar la hoja de referencia rápida y usarla con las instrucciones de este artículo, consulte la [hoja de referencia rápida de algoritmos de aprendizaje automático de Estudio de aprendizaje automático de Microsoft Azure](machine-learning-algorithm-cheat-sheet.md).
 
 Esta hoja de referencia rápida está pensada para un público muy específico: científicos de datos principiantes con conocimientos de aprendizaje automático de nivel universitario que intentan elegir un algoritmo para empezar en Estudio de aprendizaje automático de Azure. Eso significa que en ella se hacen algunas generalizaciones y simplificaciones exageradas, pero le servirá para orientarse bien. También significa que hay muchos algoritmos que no están incluidos aquí. A medida que Aprendizaje automático de Azure vaya creciendo y abarcando un conjunto más completo de métodos disponibles, iremos agregándolos.
 
@@ -35,9 +35,9 @@ Estas recomendaciones son una recopilación de los comentarios y las sugerencias
 
 Lea las etiquetas de ruta de acceso y algoritmo del gráfico con el siguiente formato: "Para *&lt;etiqueta de ruta de acceso&gt;*, use *&lt;algoritmo&gt;*". Por ejemplo, "Para *velocidad*, use la *regresión logística de dos clases*". Ciertas veces, se aplicará más de una rama. Otras, ninguna de ellas será la ideal. Tienen la finalidad de ser recomendaciones generales, así que no se preocupe si no son exactas. Varios de los científicos de datos con los que hablé dijeron que la única forma de encontrar el mejor algoritmo es probarlos todos.
 
-Este es un ejemplo de la [Galería de análisis de Cortana](http://gallery.azureml.net/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+Este es un ejemplo de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
->[AZURE.TIP]Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, vea [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, vea [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 
 ## Variantes del aprendizaje automático
 
@@ -156,7 +156,7 @@ Aunque la inclusión de la palabra «regresión» en el nombre se preste a confu
 
 ![Regresión logística a datos de dos clases con una sola característica][4]
 
-***Regresión logística a datos de dos clases con una sola característica*** *: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
+***Regresión logística a datos de dos clases con una sola característica****: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
 
 ### Árboles, bosques y selvas
 
@@ -209,7 +209,7 @@ Si tiene un objetivo muy específico, puede que sea su día de suerte. Dentro de
 
 ![Detección de anomalías basada en PCA][8]
 
-***Detección de anomalías basada en PCA*** *: la inmensa mayoría de los datos entra en una distribución típica; los puntos que se desvían mucho de esa distribución son sospechosos*
+***Detección de anomalías basada en PCA****: la inmensa mayoría de los datos entra en una distribución típica; los puntos que se desvían mucho de esa distribución son sospechosos*
 
 ![Conjunto de datos agrupados mediante K-Means][9]
 
@@ -237,4 +237,4 @@ Aprendizaje automático de Azure también incluye acceso a un marco de aprendiza
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

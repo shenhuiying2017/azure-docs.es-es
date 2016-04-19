@@ -1,6 +1,6 @@
-El [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) admite la implementación continua en Aplicaciones web de herramientas de control de código fuente y de repositorio como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial y TFS. Estas herramientas se pueden utilizar para mantener el contenido y el código de una aplicación y, a continuación, aplicar rápida y fácilmente los cambios realizados en la aplicación web de Azure en el momento que se desee.
+El [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) admite la implementación continua en herramientas de repositorio y control de código fuente como GitHub, BitBucket y Visual Studio Team Services. Puede utilizar estas herramientas para mantener el contenido y el código de su aplicación y, después, insertar los cambios de forma rápida y fácil en su aplicación del Servicio de aplicaciones.
 
-En este artículo, aprenderá a utilizar Git para publicar directamente desde su equipo local en Aplicaciones web (en Azure, este método de publicación se denomina **Git local**). También aprenderá a habilitar la implementación continua desde sitios repositorio como BitBucket, CodePlex, Dropbox, GitHub o Mercurial. Para obtener información acerca de la utilización de TFS para la implementación continua, consulte [Entrega continua a Azure con Visual Studio Team Services].
+En este artículo, aprenderá a utilizar Git para publicar directamente desde su equipo local en Aplicaciones web (en Azure, este método de publicación se denomina **Git local**). También aprenderá a habilitar la implementación continua en sitios de repositorio como BitBucket y GitHub. Para obtener información sobre el uso de VSTS para la implementación continua, consulte [Entrega continua a Azure con Visual Studio Team Services].
 
 > [AZURE.NOTE] Muchos de los comandos de Git que se describen en este artículo se ejecutan automáticamente al crear una aplicación web con las [Herramientas de la línea de comandos de Azure para Mac y Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
@@ -295,4 +295,4 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 [Uso de Dropbox para compartir repositorios de Git]: https://gist.github.com/trey/2722927
 [Entrega continua a Azure con Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

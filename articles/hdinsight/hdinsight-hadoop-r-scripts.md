@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="04/05/2016"
 	ms.author="jgao"/>
 
 # Instalación y uso de R en clústeres de Hadoop para HDInsight
 
-
-Obtenga información sobre cómo personalizar un clúster de HDInsight basado en Windows con R mediante la acción de script, y cómo usar R en clústeres de HDInsight. Para obtener información sobre el uso de R con un clúster basado en Linux, consulte [Instalación y uso de R en clústeres de Hadoop para HDinsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)
+Obtenga información sobre cómo personalizar un clúster de HDInsight basado en Windows con R mediante la acción de script, y cómo usar R en clústeres de HDInsight. La oferta de [nivel Premium](https://azure.microsoft.com/pricing/details/hdinsight/) para HDInsight incluye R Server como parte del clúster de HDInsight. Esto permite que los scripts de R usen MapReduce y Spark para ejecutar cálculos distribuidos. Para obtener más información, consulte [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md) (Introducción a R Server en HDInsight). Para obtener información sobre el uso de R con un clúster basado en Linux, consulte [Instalación y uso de R en clústeres de Hadoop para HDinsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)
  
 Puede instalar R en cualquier tipo de clúster (Hadoop, Storm, HBase, Spark) en HDInsight de Azure mediante la *acción de script*. Hay un script de ejemplo para instalar R en un clúster de HDInsight disponible desde un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
@@ -49,16 +48,18 @@ Un [script de ejemplo](https://hdiconfigactions.blob.core.windows.net/rconfigact
 	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Uso de la acción de script para personalizar un clúster")
 
 	<table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Nombre</td>
-		<td>Especifique un nombre para la acción de script, por ejemplo, <b>Instalar R</b>.</td></tr>
-	<tr><td>URI de script</td>
-		<td>Especifique el URI al script que se invoca para personalizar el clúster, por ejemplo, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
-	<tr><td>Tipo de nodo</td>
-		<td>Especifique los nodos en los que se ejecuta el script de personalización. Puede elegir <b>Todos los nodos</b>, <b>Solo los nodos principales</b> o <b>Solo los nodos de trabajo</b>.
-	<tr><td>Parámetros</td>
-		<td>Especifique los parámetros, si lo requiere el script. Sin embargo, el script para instalar R no requiere ningún parámetro, por lo que puede dejarlo en blanco.</td></tr>
-</table>Puede agregar más de una acción de script para instalar varios componentes en el clúster. Una vez agregados los scripts, haga clic en la marca de verificación para comenzar a crear el clúster.
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Nombre</td>
+			<td>Especifique un nombre para la acción de script, por ejemplo, <b>Instalar R</b>.</td></tr>
+		<tr><td>URI de script</td>
+			<td>Especifique el URI al script que se invoca para personalizar el clúster, por ejemplo, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
+		<tr><td>Tipo de nodo</td>
+			<td>Especifique los nodos en los que se ejecuta el script de personalización. Puede elegir <b>Todos los nodos</b>, <b>Solo los nodos principales</b> o <b>Solo los nodos de trabajo</b>.
+		<tr><td>Parámetros</td>
+			<td>Especifique los parámetros, si lo requiere el script. Sin embargo, el script para instalar R no requiere ningún parámetro, por lo que puede dejarlo en blanco.</td></tr>
+	</table>
+
+	Puede agregar más de una acción de script para instalar varios componentes en el clúster. Una vez agregados los scripts, haga clic en la marca de verificación para comenzar a crear el clúster.
 
 También puede utilizar el script para instalar R en HDInsight con Azure PowerShell o el SDK de .NET de HDInsight. Más adelante en este artículo se proporcionan instrucciones para estos procedimientos.
 
@@ -113,4 +114,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

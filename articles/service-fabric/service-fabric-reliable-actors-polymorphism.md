@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="seanmck"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="03/25/2016"
    ms.author="seanmck"/>
 
 # Polimorfismo en el marco de trabajo de Reliable Actors
 
-El marco de Reliable Actors simplifica la programación de sistemas distribuidos. Para ello, le permite generar el servicio al usar muchas de las mismas técnicas que usaría en el diseño orientado a objetos. Una de esas técnicas es el polimorfismo, que los tipos y las interfaces hereden de elementos primarios más generalizados. La herencia en el marco de Reliable Actors suele seguir el modelo de .NET con algunas restricciones adicionales.
+El marco de Reliable Actors permite compilar actores empleando muchas de las mismas técnicas que usaría en el diseño orientado a objetos. Una de esas técnicas es el polimorfismo, que los tipos y las interfaces hereden de elementos primarios más generalizados. La herencia en el marco de Reliable Actors suele seguir el modelo de .NET con algunas restricciones adicionales.
 
 ## Interfaces
 
@@ -29,53 +29,58 @@ El marco Reliable Actors requiere la definición de al menos una interfaz que se
 
 ## Tipos
 
-También puede crear una jerarquía de tipos de actores, que se derivan de la clase Actor base proporcionada por la plataforma. Para actores con estado, puede crear del mismo modo una jerarquía de tipos de estado. En el caso de formas, es posible tener un tipo `Shape` base con un tipo de estado de `ShapeState`.
+También puede crear una jerarquía de tipos de actores, que se derivan de la clase Actor base proporcionada por la plataforma. En el caso de las formas, es posible tener un tipo `Shape` base:
 
-    public abstract class Shape : Actor<ShapeState>, IShape
+```csharp
+public abstract class Shape : Actor, IShape
+{
+    public abstract Task<int> GetVerticeCount();
+    
+    public abstract Task<double> GetAreaAsync();
+}
+```
+
+Los subtipos de `Shape` pueden invalidar métodos del tipo base.
+
+```csharp
+[ActorService(Name = "Circle")]
+[StatePersistence(StatePersistence.Persisted)]
+public class Circle : Shape, ICircle
+{
+    public override Task<int> GetVerticeCount()
     {
-        ...
+        return Task.FromResult(0);
     }
 
-Los subtipos de `Shape` pueden usar subtipos de `ShapeType` para almacenar propiedades más específicas.
-
-    [ActorService(Name = "Circle")]
-    public class Circle : Shape, ICircle
+    public override async Task<double> GetAreaAsync()
     {
-        private CircleState CircleState => this.State as CircleState;
+        CircleState state = await this.StateManager.GetStateAsync<CircleState>("circle");
 
-        public override ShapeState InitializeState()
-        {
-            return new CircleState();
-        }
-
-        [Readonly]
-        public override Task<int> GetVerticeCount()
-        {
-            return Task.FromResult(0);
-        }
-
-       [Readonly]
-       public override Task<double> GetArea()
-       {
-           return Task.FromResult(
-               Math.PI*
-               this.CircleState.Radius*
-               this.CircleState.Radius);
-       }
-
-       ...
+        return Math.PI *
+            state.Radius *
+            state.Radius;
     }
+}
+```
 
-Observe el atributo `ActorService` en el tipo de actor. Esto indica al SDK de Azure Service Fabric que debería crear automáticamente un servicio para hospedar actores de este tipo. En algunos casos, quizás quiera crear un tipo base que esté pensado únicamente para compartir la funcionalidad con subtipos y que nunca se usará para crear instancias de actores concretos. En esos casos, debe usar la palabra clave `abstract` para indicar que nunca va a crear un actor basado en ese tipo.
+Observe el atributo `ActorService` en el tipo de actor. Este atributo indica al marco de Reliable Actors que debe crear automáticamente un servicio para hospedar actores de este tipo. En algunos casos, quizás quiera crear un tipo base que esté pensado únicamente para compartir la funcionalidad con subtipos y que nunca se usará para crear instancias de actores concretos. En esos casos, debe usar la palabra clave `abstract` para indicar que nunca va a crear un actor basado en ese tipo.
 
 
 ## Pasos siguientes
 
-- Vea [cómo el marco de trabajo de Reliable Actors aprovecha la plataforma de Service Fabric](service-fabric-reliable-actors-platform.md) para ofrecer confiabilidad, escalabilidad y un estado coherente.
-- Más información sobre el [ciclo de vida de los actores](service-fabric-reliable-actors-lifecycle.md)
+- Consulte [cómo el marco de trabajo de Reliable Actors aprovecha la plataforma de Service Fabric](service-fabric-reliable-actors-platform.md) para ofrecer confiabilidad, escalabilidad y un estado coherente.
+- Obtenga información sobre el [ciclo de vida de los actores](service-fabric-reliable-actors-lifecycle.md).
 
 <!-- Image references -->
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
 
-<!---HONumber=AcomDC_0309_2016-->
+## Pasos siguientes
+ - [Administración de estados de los actores](service-fabric-reliable-actors-state-management.md)
+ - [Ciclo de vida de un actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md)
+ - [Recordatorios y temporizadores de los actores](service-fabric-reliable-actors-timers-reminders.md)
+ - [Eventos de actor](service-fabric-reliable-actors-events.md)
+ - [Reentrada de actor](service-fabric-reliable-actors-reentrancy.md)
+ - [Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
+
+<!---HONumber=AcomDC_0406_2016-->

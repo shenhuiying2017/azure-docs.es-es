@@ -11,14 +11,18 @@
 	ms.service="na"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="12/16/2015"
 	ms.author="dwrede"/>
 
 # Información general del Portal de Microsoft Azure
 
-El Portal de Microsoft Azure es una ubicación central desde donde se pueden aprovisionar y administrar los recursos de Azure. Este tutorial le permitirá familiarizarse con el portal y le mostrará cómo usar algunas de estas funcionalidades clave: - Un **marketplace completo** que le permite examinar miles de elementos de Microsoft y otros proveedores que se pueden comprar y/o aprovisionar. - Una **experiencia de exploración unificada y escalable** que facilita encontrar los recursos que le interesan y realizar diversas operaciones de administración. - **Páginas de administración coherente** (u hojas) que le permiten administrar la amplia variedad de servicios de Azure a través de una forma coherente de exponer configuraciones, acciones, información de facturación, seguimiento de estado y datos de uso, etc. - Una **experiencia personal** que le permite crear una pantalla de inicio personalizada que muestra la información que desea ver cada vez que inicia sesión. También puede personalizar cualquiera de las hojas de administración que contienen mosaicos.
+El Portal de Microsoft Azure es una ubicación central desde donde se pueden aprovisionar y administrar los recursos de Azure. Este tutorial le familiarizará con el portal y le mostrará cómo utilizar algunas de estas capacidades clave:
+- Un **marketplace completo** que permite examinar miles de elementos, tanto de Microsoft como de otros proveedores, que se pueden adquirir o aprovisionar.
+- Una **experiencia de exploración unificada y escalable** que facilita la búsqueda de los recursos que le interesan y la realización de varias operaciones de administración.
+- **Páginas de administración coherente** (u hojas) que permiten administrar la gran variedad de servicios de Azure a través de una forma coherente de exponer la configuración, las acciones, la información de facturación, la supervisión del estado y los datos de uso, y mucho más.
+- Un **experiencia personal** que le permite crear una pantalla de inicio personalizada que muestra la información que desea ver cada vez que se inicie sesión. También puede personalizar cualquiera de las hojas de administración que contienen mosaicos.
 
  ![Orientación sobre la interfaz de usuario del Portal de Azure][UIOrientation]
 
@@ -47,7 +51,7 @@ Siempre tiene la posibilidad de anclar los recursos de acceso más frecuente en 
 
 ## Cómo administrar y delegar acceso a un recurso
 
-Desde esta hoja puede conectarse a la máquina virtual a través de Escritorio remoto, supervisar las métricas de rendimiento clave, controlar el acceso a esta máquina virtual mediante el uso de control de acceso basado en rol (RBAC), configurar la máquina virtual y realizar otras importantes tareas de administración. Delegar el acceso basado en rol resulta fundamental para la administración a escala. Haga clic [aquí](role-based-access-control-configure.md) para obtener más información al respecto. Para delegar el acceso a un recurso, realice las siguientes acciones:
+Desde esta hoja puede conectarse a la máquina virtual a través de Escritorio remoto, supervisar las métricas de rendimiento clave, controlar el acceso a esta máquina virtual mediante el uso de control de acceso basado en rol (RBAC), configurar la máquina virtual y realizar otras importantes tareas de administración. Delegar el acceso basado en rol resulta fundamental para la administración a escala. Haga clic [aquí](./active-directory/role-based-access-control-configure.md) para obtener más información al respecto. Para delegar el acceso a un recurso, realice las siguientes acciones:
 
 1.	Vaya a su sitio.
 2.	En la sección Essentials, haga clic en "Toda la configuración".
@@ -76,7 +80,14 @@ Estamos aquí para ayudarle en caso de tener problemas. El portal cuenta con una
 
 ## Resumen
 
-Revisemos lo aprendido en este tutorial: - Aprendió a suscribirse, obtener una suscripción y navegar al portal. - Se le orientó respecto de la interfaz de usuario del portal y aprendió a crear y explorar recursos. - Aprendió a crear y explorar recursos. - Aprendió sobre la estructura o las hojas de administración y cómo administrar de manera coherente distintos tipos de recursos. - Aprendió a personalizar el portal para poner la información que le interesa al frente y al centro del mismo. - Aprendió a controlar el acceso a los recursos mediante el uso del acceso basado en rol (RBAC). - Aprendió a obtener ayuda y soporte técnico.
+Revisemos lo que ha aprendido en este tutorial:
+- Ha aprendido a registrarse, obtener una suscripción y desplazarse al portal.
+- Ha recibido orientación sobre la interfaz de usuario del portal y ha aprendido a crear y examinar los recursos.
+- Ha aprendido tanto a crear recursos como a examinarlos.
+- Ha obtenido información acerca de la estructura y de las hojas de administración, y cómo puede administrar coherentemente diferentes tipos de recursos.
+- Ha aprendido a personalizar el portal para colocar la información que le interesa en la parte delantera y central.
+- Ha aprendido a controlar el acceso a los recursos mediante el acceso basado en roles (RBAC).
+- Ha aprendido a obtener ayuda y soporte técnico.
 
 El Portal de Microsoft Azure simplifica radicalmente la compilación y administración de las aplicaciones en la nube. Eche un vistazo al [blog de administración](https://azure.microsoft.com/blog/topics/management/) para mantenerse al día, dado que constantemente [prestamos atención a los comentarios](https://feedback.azure.com/forums/223579-azure-preview-portal/) y realizamos mejoras. El [blog de ScottGu](http://weblogs.asp.net/scottgu) es otro excelente lugar para buscar todas las actualizaciones de Azure.
 
@@ -87,4 +98,4 @@ El Portal de Microsoft Azure simplifica radicalmente la compilación y administr
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

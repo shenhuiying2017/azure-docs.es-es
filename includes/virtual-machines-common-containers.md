@@ -1,11 +1,11 @@
 
- 
+
 
 Azure ofrece soluciones de nube excelentes, integradas en máquinas virtuales y basadas en la emulación de hardware de equipo físico para habilitar el movimiento ágil de implementaciones de software y mejorar considerablemente la consolidación de los recursos respecto al hardware físico. En los últimos años, en gran medida gracias al enfoque [Docker](https://www.docker.com) de los contenedores y el ecosistema de docker, la tecnología de contenedores de Linux ha ampliado considerablemente las maneras en que puede desarrollar y administrar el software distribuido. El código de la aplicación de un contenedor está aislado de la máquina virtual de Azure host, así como otros contenedores de la misma máquina virtual, que le ofrecen más agilidad de desarrollo e implementación en el nivel de la aplicación, además de la agilidad que ya proporcionan las máquinas virtuales de Azure.
 
 **Pero eso son viejas noticias.** La *nueva* noticia es que Azure ofrece incluso más adecuación Docker:
 
-- [Muchas](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md) [formas](virtual-machines-linux-classic-portal-use-docker.md) [diferentes](virtual-machines-linux-classic-docker-quickstart.md) de [crear hosts Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) para que los contenedores se adapten a su situación
+- [Muchas](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md) [formas](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md) [diferentes](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md) de [crear hosts Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) para que los contenedores se adapten a su situación
 - [Administrador de recursos de Azure](../articles/resource-group-overview.md) y las [plantillas de grupo de recursos](../articles/resource-group-authoring-templates.md) para simplificar la implementación y actualización de aplicaciones distribuidas complejas
 - integración con una matriz grande de ambas herramientas de administración de configuración patentadas y de código abierto
 
@@ -56,7 +56,7 @@ En general, es fácil darse cuenta de que la tecnología de contenedores es un p
 Los desarrolladores recurren a contenedores Docker rápidamente, porque por encima de todo, facilitan el uso de contenedores de Linux:
 
 - Pueden usar comandos incrementales simplificados para crear una imagen fija que sea fácil de implementar y que pueda automatizar la creación de esas imágenes mediante un dockerfile
-- Pueden compartir esas imágenes fácilmente mediante comandos simples de estilo [git](https://git-scm.com/) de inserción y extracción en registros de docker [privados](https://registry.hub.docker.com/) o [públicos](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md) 
+- Pueden compartir esas imágenes fácilmente mediante comandos simples de estilo [git](https://git-scm.com/) de inserción y extracción en registros de docker [privados](https://registry.hub.docker.com/) o [públicos](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)
 - Pueden pensar en componentes de aplicación asilados en lugar de equipos
 - Pueden usar un gran número de herramientas que comprenden los contenedores docker y diferentes imágenes base
 
@@ -90,7 +90,7 @@ En la siguiente tabla se describe a muy alto nivel el tipo de diferencias de car
 | Compatibilidad con la seguridad "Predeterminada" | en un mayor grado | en un grado ligeramente menor |
 | Memoria en disco necesaria | Sistema operativo más aplicaciones completos | Solo requisitos de aplicación |
 | Tiempo que se tarda en iniciar | Significativamente más largo: el arranque del SO más la carga de la aplicación | Significativamente más corto: solamente es necesario que se inicien las aplicaciones porque el kernel ya está en ejecución |
-| Portabilidad | Portable con la preparación adecuada | Portable en formato de imagen; suelen ser más pequeños | 
+| Portabilidad | Portable con la preparación adecuada | Portable en formato de imagen; suelen ser más pequeños |
 | Automatización de imágenes | Varía considerablemente dependiendo del sistema operativo y las aplicaciones | [Registro docker](https://registry.hub.docker.com/); otros
 
 ## Creación y administración de grupos de máquinas virtuales y contenedores
@@ -122,7 +122,7 @@ Además, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with
 
 [Deis](http://deis.io/overview/) es una "Plataforma como-servicio" (PaaS) de código abierto que facilita la implementación y administración de aplicaciones en sus propios servidores. Deis se basa en Docker y CoreOS para proporcionar un PaaS ligero con un flujo de trabajo inspirado en Heroku. Puede [crear un grupo de máquina virtual de Azure de tres nodos e instalar Deis](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md) fácilmente en Azure y luego [instalar una aplicación Hello World Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-[CoreOS](./articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md), una distribución de Linux con un espacio optimizado, soporte de Docker y su propio sistema de contenedor denominado [rkt](https://github.com/coreos/rkt), también tiene una herramienta de administración de grupos de contenedores denominada [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md).
+[CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md), una distribución de Linux con un espacio optimizado, soporte de Docker y su propio sistema de contenedor denominado [rkt](https://github.com/coreos/rkt), también tiene una herramienta de administración de grupos de contenedores denominada [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md).
 
 Ubuntu, otra distribución de Linux muy popular, admite Docker muy bien, pero también admite [clústeres de Linux (estilo LXC)](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -170,7 +170,7 @@ Docker en Microsoft Azure:
 - [Introducción a Docker y Compose en Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
 - [Uso de una plantilla de grupo de recursos de Azure para crear rápidamente un host Docker en Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 - [Compatibilidad integrada para `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) para aplicaciones independientes
-- [Implementar un registro privado Docker en Azure](virtual-machines-linux-docker-registry-in-blob-storage.md)
+- [Implementar un registro privado Docker en Azure](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)
 
 Distribuciones de Linux y ejemplos de Azure:
 
@@ -182,27 +182,27 @@ Configuración, administración del clúster y orquestación de contenedor:
 
 -	Deis
 	- [Cree un grupo de máquina virtual de Azure de tres nodos, instale Deis e inicie una aplicación Hello World Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md)
-	
+
 -	Kubernetes
 	- [Guía completa para la implementación automatizada del clúster de Kubernetes con CoreOS y Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
 	- [Visualizador de Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
-	
+
 -	[Mesos](http://mesos.apache.org/)
 	-	[Sistema operativo de centro de datos de Mesosphere (DCOS)](http://beta-docs.mesosphere.com/install/azurecluster/)
-	
+
 -	[Jenkins](https://jenkins-ci.org/) y [Hudson](http://hudson-ci.org/)
 	- [Blog: Complemento esclavo de Jenkins para Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
 	- [Repositorio de GitHub: Complemento de almacenamiento de Jenkins para Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
 	- [Terceros: Complemento esclavo de Hudson para Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
 	- [Terceros: Complemento de almacenamiento de Hudson para Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
-	
+
 -	[Chef](https://docs.chef.io/index.html)
 	- [Chef y máquinas virtuales](../articles/virtual-machines/virtual-machines-windows-install-chef-client.md)
 	- [Vídeo: ¿Qué es Chef y cómo funciona?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
 -	[Automatización de Azure](https://azure.microsoft.com/services/automation/)
 	- [Vídeo: Cómo utilizar la automatización de Azure con máquinas virtuales Linux](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
-	
+
 -	PowerShell DSC para Linux
     - [Blog: Cómo hacer DSC de Powershell para Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
     - [GitHub: DSC de cliente Docker](https://github.com/anweiss/DockerClientDSC)
@@ -216,4 +216,4 @@ Desmarque [Docker](https://www.docker.com) y [Contenedores de Windows](https://m
 [microservicio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

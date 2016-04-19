@@ -86,9 +86,4 @@ Este script crea un nuevo servidor, por lo que cuando se le solicite un nombre d
 - [Administración del grupo](sql-database-elastic-pool-manage-powershell.md)
 - [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos en el grupo.
 
-
-## Referencia de bases de datos elásticas
-
-Para más información acerca de grupos y bases de datos elásticas, consulte [Referencia de grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool-reference.md).
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

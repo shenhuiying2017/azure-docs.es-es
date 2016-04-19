@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="03/03/2016"
+	  ms.date="04/07/2016"
       ms.author="minet" />
 
 # Introducción a Almacenamiento de archivos de Azure en Windows
@@ -172,10 +172,12 @@ Ahora cargará un archivo local al directorio. El siguiente ejemplo carga un arc
 
 ### Visualización de los archivos del directorio en una lista
 
-Para ver el archivo en el directorio, puede mostrar los archivos de este en una lista. Este comando también mostrará subdirectorios, pero en este ejemplo, no hay ningún subdirectorio, por lo que solamente se mostrará el archivo.
+Para ver el archivo en el directorio, puede mostrar todos los archivos de este en una lista. Este comando devuelve los archivos y subdirectorios (si hay alguno) del directorio CustomLogs.
 
 	# list files in the new directory
-	Get-AzureStorageFile -Share $s -Path CustomLogs
+	Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+
+Get-AzureStorageFile devuelve una lista de archivos y directorios para cualquier objeto de directorio que se pase. "Get-AzureStorageFile -Share $s" devuelve una lista de archivos y directorios en el directorio raíz. Para obtener una lista de los archivos de un subdirectorio, tiene que pasar el subdirectorio a Get-AzureStorageFile. Esto es lo que hace: la primera parte del comando hasta la barra vertical devuelve una instancia de directorio del subdirectorio CustomLogs. A continuación, esto se pasa a Get-AzureStorageFile, que devuelve los archivos y directorios en CustomLogs.
 
 ### Copiar archivos
 
@@ -199,7 +201,7 @@ Cuando un cliente accede al almacenamiento de archivos, la versión SMB que se u
 
 | Cliente Windows | Versión de SMB que admite |
 |------------------------|----------------------|
-| Windows 7 | SMB 2.1 |
+| Windows 7 | SMB 2.1 |
 | Windows Server 2008 R2 | SMB 2.1 |
 | Windows 8 | SMB 3.0 |
 | Windows Server 2012 | SMB 3.0 |
@@ -211,8 +213,8 @@ Cuando un cliente accede al almacenamiento de archivos, la versión SMB que se u
 Para mostrar cómo montar un recurso compartido de archivos de Azure, ahora crearemos una máquina virtual de Azure en la que se ejecuta Windows y accederemos a ella de forma remota para montar el recurso compartido.
 
 
-1. En primer lugar, cree una máquina virtual de Azure nueva según las instrucciones de [Creación de una máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Después, acceda de forma remota a la máquina virtual según las instrucciones de [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-log-on.md) (Inicio de sesión en una máquina virtual de Windows mediante el Portal de Azure).
+1. En primer lugar, cree una nueva máquina virtual de Azure siguiendo las instrucciones que encontrará en [Creación de una máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+2. Después, acceda de forma remota a la máquina virtual siguiendo las instrucciones en [Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines/virtual-machines-windows-log-on.md).
 3. Abra una ventana de PowerShell en la máquina virtual.
 
 ### Persistencia de las credenciales de la cuenta de almacenamiento para la máquina virtual
@@ -266,21 +268,14 @@ Para trabajar mediante programación con el almacenamiento de archivos, puede us
 
 ### Incorporación de declaraciones de espacio de nombres
 
-Abra el archivo program.cs desde el Explorador de soluciones y agregue las siguientes declaraciones de espacio de nombres en la parte superior del archivo.
+Abra el archivo `program.cs` desde el Explorador de soluciones y agregue las siguientes declaraciones de espacio de nombres en la parte superior del archivo.
 
 	using Microsoft.Azure; // Namespace for Azure Configuration Manager
-	using Microsoft.WindowsAzure.Storage; // Namespaces for Storage Client Library
-	using Microsoft.WindowsAzure.Storage.Blob;
-	using Microsoft.WindowsAzure.Storage.File;
+	using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
+	using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
+	using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
 
-### Recuperación de la cadena de conexión mediante programación
-
-Puede recuperar las credenciales guardadas desde el archivo app.config usando una de estas dos clases: `Microsoft.WindowsAzure.CloudConfigurationManager` o `System.Configuration.ConfigurationManager `. El paquete del Administrador de configuración de Microsoft Azure, que incluye la clase `Microsoft.WindowsAzure.CloudConfigurationManager`, está disponible en [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager).
-
-El siguiente ejemplo muestra cómo recuperar las credenciales usando la clase `CloudConfigurationManager` y cómo encapsularlas con la clase `CloudStorageAccount`. Agregue el siguiente código al método `Main()` en program.cs.
-
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Obtener acceso al recurso compartido de archivos mediante programación
 
@@ -402,7 +397,7 @@ En el ejemplo siguiente se crea una directiva de acceso compartido en un recurso
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Para obtener más información sobre la creación y el uso de firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](storage-dotnet-shared-access-signature-part-2.md).
+Para más información sobre la creación y el uso de firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiar archivos
 
@@ -614,11 +609,11 @@ Tenga en cuenta que mientras que los almacenamientos de blobs, tablas y en cola 
 
 13. **Revisión publicada para corregir el problema de rendimiento lento con archivos de Azure**
 
-	El equipo de Windows ha publicado recientemente una revisión para solucionar un problema de rendimiento lento cuando el cliente accede a Almacenamiento de archivos de Azure desde Windows 8.1 o Windows Server 2012 R2. Para obtener más información, consulte el artículo de la Knowledge Base asociado, [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/es-ES/kb/3114025) (Rendimiento lento al acceder a Almacenamiento de archivos de Azure desde Windows 8.1 o Server 2012 R2).
+	El equipo de Windows ha publicado recientemente una revisión para solucionar un problema de rendimiento lento cuando el cliente accede a Almacenamiento de archivos de Azure desde Windows 8.1 o Windows Server 2012 R2. Para más información, consulte el artículo asociado de la Knowledge Base, [Rendimiento lento en el acceso a Almacenamiento de archivos de Azure desde Windows 8.1 o Server 2012 R2](https://support.microsoft.com/es-ES/kb/3114025).
 
 14. **Uso del Almacenamiento de archivos de Azure con IBM MQ**
 
-	IBM ha publicado un documento para guiar a los clientes de IBM MQ a la hora de configurar el Almacenamiento de archivos de Azure con su servicio. Para obtener más información, consulte [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Configuración del administrador de colas de varias instancias de IBM MQ con el servicio de archivos de Microsoft Azure).
+	IBM ha publicado un documento para guiar a los clientes de IBM MQ a la hora de configurar el Almacenamiento de archivos de Azure con su servicio. Para más información, consulte [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Configuración del administrador de colas de varias instancias de IBM MQ con el servicio de archivos de Microsoft Azure).
 
 ## Pasos siguientes
 
@@ -647,4 +642,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

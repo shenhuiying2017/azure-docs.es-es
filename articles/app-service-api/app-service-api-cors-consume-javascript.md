@@ -58,7 +58,7 @@ Puede configurar CORS en el Portal de Azure o mediante las herramientas de [Azur
 
 	Tras hacer clic en **Guardar**, la aplicación de API aceptará llamadas de JavaScript desde las direcciones URL especificadas.
 
-### Configuración de CORS mediante las herramientas del Administrador de recursos de Azure
+#### Configuración de CORS mediante las herramientas del Administrador de recursos de Azure
 
 También puede configurar CORS para una aplicación de API mediante las [plantillas de Azure Resource Manager](../resource-group-authoring-templates.md) de las herramientas de línea de comandos como [Azure PowerShell](../powershell-install-configure.md) y la [CLI de Azure](../xplat-cli-install.md).
 
@@ -261,14 +261,12 @@ Los pasos siguientes resumen el proceso para habilitar la compatibilidad con Web
 		namespace ToDoListAPI.Controllers 
 		{
 		    [HttpOperationExceptionFilterAttribute]
-		    [EnableCors(origins:"*", headers:"*", methods: "*")]
+		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
-	> **Nota**: use este atributo con cuidado. Al especificar caracteres comodín para todos los parámetros se abre la API para todos los orígenes y todas las solicitudes HTTP. La configuración mostrada aquí solo tiene fines de demostración.
-
 ## Solución de problemas
 
-Si experimenta problemas mientras avanza por este tutorial, asegúrese de que está usando la versión más reciente del SDK de Azure para. NET. La forma más fácil de hacerlo es [descargar el SDK de Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003); si tiene instalada la versión actual, el Instalador de plataforma web indica que no es preciso realizar la instalación.
+Si experimenta problemas mientras avanza por este tutorial, asegúrese de que está usando la versión más reciente del SDK de Azure para. NET. La forma más fácil de hacerlo es [descargar el SDK de Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003); si tiene instalada la versión actual, el Instalador de plataforma web indicará que no es preciso realizar la instalación.
 
 Si sigue obteniendo errores CORS después de configurar una dirección URL en la hoja CORS del portal, compruebe que se realizaron los cambios correctos en los lugares correctos. Por ejemplo:
 
@@ -283,4 +281,4 @@ Para más información acerca de las características de Visual Studio que simpl
 
 En este artículo, se ha explicado cómo habilitar la compatibilidad con CORS del Servicio de aplicaciones para que el código JavaScript del cliente pueda llamar a una API de un dominio diferente. En el siguiente artículo de la serie de introducción a Aplicaciones de API, aprenderá sobre la [autenticación de aplicaciones de API del Servicio de aplicaciones](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

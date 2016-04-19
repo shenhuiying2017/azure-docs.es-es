@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
+	ms.date="04/06/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(vista previa)*: introducción
@@ -44,9 +44,9 @@ En este paso puede habilitar los Servicios de dominio de Azure AD para su direct
 7. Especifique el **Nombre de dominio DNS de Servicios de dominio**.
    - El nombre de dominio predeterminado del directorio (es decir, que termina con el sufijo de dominio **. onmicrosoft.com**) se seleccionará de forma predeterminada.
    - La lista contiene todos los dominios que se han configurado para el directorio de Azure AD, incluidos también los dominios comprobados y sin comprobar que configura en la pestaña 'Dominios'.
-   - Además, puede agregar también un nombre de dominio personalizado a esta lista con solo escribirlo.
+   - Además, puede agregar también un nombre de dominio personalizado a esta lista con solo escribirlo. En este ejemplo, hemos escrito un nombre de dominio personalizado 'contoso100.com'.
 
-     > [AZURE.WARNING] Asegúrese de que el prefijo de dominio del nombre de dominio que especifique (por ejemplo, "contoso" en el nombre de dominio 'contoso.com') tenga menos de 15 caracteres. No se puede crear un dominio de Servicios de dominio de Azure AD con un prefijo de dominio de más de 15 caracteres.
+     > [AZURE.WARNING] Asegúrese de que el prefijo de dominio del nombre de dominio que especifique (por ejemplo, "contoso100" en el nombre de dominio 'contoso100.com') tenga menos de 15 caracteres. No se puede crear un dominio de Servicios de dominio de Azure AD con un prefijo de dominio de más de 15 caracteres.
 
 8. El siguiente paso consiste en seleccionar una red virtual en la que quiere que los Servicios de dominio de Azure AD estén disponibles. Seleccione la red virtual que acaba de crear en la lista desplegable **Conectar Servicios de dominio a esta red virtual**.
    - Asegúrese de que la red virtual que ha especificado pertenece a una región de Azure compatible con los Servicios de dominio de Azure AD.
@@ -81,4 +81,4 @@ En este paso puede habilitar los Servicios de dominio de Azure AD para su direct
 ---
 [**Siguiente paso: Actualización de la configuración DNS para la red virtual de Azure.**](active-directory-ds-getting-started-dns.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/28/2016" 
-	ms.author="ealsur@hotmail.com"/>
+	ms.author="mimig"/>
 
 # Redes sociales y DocumentDB
 
@@ -183,7 +183,7 @@ Pero, ¿qué podemos aprender? Por ejemplo, [análisis de opinión](https://en.w
 
 Ahora que ya está interesado, probablemente pensará que necesita un doctorado en ciencias matemáticas para extraer estos patrones y la información de los archivos y las bases de datos, pero no es así.
 
-[Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/), parte de la [Cortana Analytics Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), es un servicio en la nube totalmente administrado que permite crear flujos de trabajo mediante algoritmos en una sencilla interfaz de arrastrar y colocar en [R] (https://en.wikipedia.org/wiki/R_(programming_language)) o usar algunas de las API integradas y listas para usar como: [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) o [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/), parte del [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), es un servicio en la nube totalmente administrado que permite crear flujos de trabajo mediante algoritmos en una sencilla interfaz de arrastrar y colocar, programar sus propios algoritmos en [R] (https://en.wikipedia.org/wiki/R_(programming_language)) o usar algunas de las API integradas y listas para usar, como [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) o [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 ## Conclusión
 
@@ -199,4 +199,4 @@ Obtenga más información sobre el modelado de datos en el artículo [Modelado d
 
 U obtenga más información acerca de DocumentDB siguiendo la [ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

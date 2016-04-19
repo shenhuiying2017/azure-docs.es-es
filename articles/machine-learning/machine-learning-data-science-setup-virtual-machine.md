@@ -33,7 +33,7 @@ Antes de comenzar el proceso de creación de una máquina virtual en Azure, debe
 2. Elija una de las siguientes imágenes:
 
 	* Windows Server 2012 R2 Datacenter
-	* Experiencia con Windows Server Essentials (Windows Server 2012 R2)
+	* Experiencia con Windows Server Essentials (Windows Server 2012 R2)
 
 	A continuación, haga clic en la flecha que señala a la derecha, en la parte inferior derecha, para ir a la siguiente página de configuración.
 
@@ -85,9 +85,11 @@ El *&#60;nombre DNS de la máquina virtual>* puede encontrarse en el Portal de A
 
 Aparecerá una advertencia que indica que _Existe un problema con el certificado de seguridad de este sitio web_ (Internet Explorer) o _Tu conexión no es privada_ (Chrome), tal y como se muestra en las ilustraciones siguientes. Haga clic en **Vaya a este sitio web (no recomendado)** (Internet Explorer) o **Avanzadas** y, a continuación, **continuar a &#60;*Nombre DNS*> (no seguro)** (Chrome) para continuar. A continuación, escriba la contraseña que especificó anteriormente para tener acceso a Blocs de notas de IPython.
 
-Internet Explorer: ![Creación del espacio de trabajo][20]
+Internet Explorer:
+![Creación del espacio de trabajo][20]
 
-Chrome: ![Creación del espacio de trabajo][21]
+Chrome:
+![Creación del espacio de trabajo][21]
 
 Después de iniciar sesión en IPython Notebook, se mostrará en el explorador el directorio *DataScienceSamples*. Este directorio contiene Blocs de notas de IPython de ejemplo que Microsoft comparte para ayudar a los usuarios a realizar tareas de ciencia de datos. Estos cuadernos de IPython de ejemplo se desprotegen desde el [**repositorio de Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) a las máquinas virtuales durante el proceso de configuración del servidor de IPython Notebook. Microsoft mantiene y actualiza con frecuencia este repositorio. Los usuarios pueden visitar el repositorio de Github para obtener los Blocs de notas de IPython de ejemplo más recientes.![Creación del espacio de trabajo][18]
 
@@ -122,9 +124,9 @@ Se desasignará la máquina virtual, pero no se eliminará. Puede reiniciar la m
 
 ## La máquina virtual de Azure está lista para su uso: ¿qué es lo siguiente?
 
-La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para su uso como un servidor de Notebook de IPython para la exploración y el procesamiento de datos, y otras tareas junto con el Aprendizaje automático de Azure y el proceso de análisis de Cortana (CAP).
+La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para usarse como un servidor de IPython Notebook con el objetivo de explorar y procesar datos, además de otras tareas con Aprendizaje automático de Azure y el proceso de Cortana Analytics (CAP).
 
-Los pasos siguientes de Tecnología y procesos de análisis avanzado se asignan en la [Guía de aprendizaje: procesamiento avanzado de datos en Azure](machine-learning-data-science-advanced-data-processing.md) y pueden incluir pasos que muevan datos a HDInsight, los procese y muestree allí como preparación para el aprendizaje a partir de los datos con Aprendizaje automático de Azure.
+Los pasos siguientes del proceso de Cortana Analytics se asignan en la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y puede incluir otros que muevan datos a HDInsight, los procese y muestree en esa plataforma con el fin de prepararlos para el aprendizaje a partir de los datos mediante Aprendizaje automático de Azure.
 
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png
@@ -141,6 +143,5 @@ Los pasos siguientes de Tecnología y procesos de análisis avanzado se asignan 
 [27]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-4.png
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0406_2016-->

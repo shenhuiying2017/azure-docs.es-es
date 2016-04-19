@@ -57,7 +57,7 @@ En la última página de configuración de **Acciones de script**, haga clic en 
  
 * **NOMBRE**: cualquier cadena como el nombre de esta acción de script. 
 * **TIPO DE NODO**: seleccione **Todos los nodos**. 
-* **URI DE SCRIPT**: *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+* **URI DE SCRIPT**: **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
 	* *publicscripts* es un contenedor público situado en la cuenta de almacenamiento. 
 	* *getgoing* se usa para compartir archivos de script de PowerShell para facilitar el trabajo de los usuarios en Azure. 
 * **PARÁMETROS**: (dejar en blanco)
@@ -88,7 +88,7 @@ Los usuarios deben habilitar el acceso remoto al clúster de Hadoop en Azure par
 
 	 ![Creación del espacio de trabajo][9]
 
-Los pasos siguientes del proceso de análisis avanzado se asignan en la [Guía de aprendizaje: procesamiento avanzado de datos en Azure](machine-learning-data-science-advanced-data-processing.md) y pueden incluir pasos que muevan datos a HDInsight, los procese y muestree allí como preparación para el aprendizaje a partir de los datos con Aprendizaje automático de Azure.
+Los pasos siguientes del proceso de análisis avanzado se asignan en el [proceso de Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y pueden incluir otros que muevan datos a HDInsight, los procese y muestree en esa plataforma con el fin de prepararlos para el aprendizaje a partir de los datos mediante Aprendizaje automático de Azure.
 
 Consulte [Envío de consultas de Hive a clústeres de Hadoop de HDInsight en el proceso de análisis avanzado](machine-learning-data-science-process-hive-tables.md) para obtener instrucciones sobre cómo tener acceso a los módulos de Python que se incluyen en Anaconda desde el nodo principal del clúster en las funciones definidas por el usuario (UDF) que se usan para procesar registros de Hive almacenados en el clúster.
 
@@ -104,4 +104,4 @@ Consulte [Envío de consultas de Hive a clústeres de Hadoop de HDInsight en el 
 
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

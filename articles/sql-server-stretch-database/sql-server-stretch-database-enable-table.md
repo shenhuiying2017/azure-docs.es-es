@@ -22,7 +22,7 @@ Para configurar una tabla para Stretch Database, seleccione **Stretch | Habilita
 
 -   Si almacena los datos históricos en una tabla independiente, puede migrar toda la tabla.
 
--   Si la tabla contiene datos históricos y actuales, puede especificar un predicado de filtro para seleccionar las filas que migrar. En CTP 3.1 a través de RC1, la opción de especificar un predicado de filtro no está disponible en el asistente para habilitar una base de datos para Stretch. Tendrá que usar la instrucción CREATE TABLE o ALTER TABLE para configurar una tabla para Stretch Database con esta opción.
+-   Si la tabla contiene datos históricos y actuales, puede especificar un predicado de filtro para seleccionar las filas que migrar. En CTP 3.1 a través de RC2, la opción de especificar un predicado de filtro no está disponible en el asistente para habilitar una base de datos para Stretch. Tendrá que usar la instrucción CREATE TABLE o ALTER TABLE para configurar una tabla para Stretch Database con esta opción.
 
 **Requisitos previos**. Si selecciona **Stretch | Habilitar** para una tabla y no ha habilitado todavía Stretch Database para la base de datos, el asistente configura primero la base de datos para Stretch Database. Siga los pasos de [Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md) (Asistente para habilitar Stretch Database) en lugar de los pasos de este tema.
 
@@ -43,7 +43,7 @@ Consulte el propósito del asistente y los requisitos previos.
 
 Confirme que se muestra y se selecciona la tabla que desea habilitar.
 
-En CTP 3.1 a través de RC1, solo puede migrar una tabla completa mediante el asistente. Si desea especificar un predicado para seleccionar las filas que migrar desde una tabla que contenga los datos históricos y actuales, ejecute la instrucción ALTER TABLE para especificar un predicado después de salir del asistente o salga del asistente y ejecute la instrucción ALTER TABLE, tal como se describe más adelante en este tema.
+En CTP 3.1 a través de RC2, solo puede migrar una tabla completa mediante el asistente. Si desea especificar un predicado para seleccionar las filas que migrar desde una tabla que contenga los datos históricos y actuales, ejecute la instrucción ALTER TABLE para especificar un predicado después de salir del asistente o salga del asistente y ejecute la instrucción ALTER TABLE, tal como se describe más adelante en este tema.
 
 **Resumen**
 
@@ -59,11 +59,11 @@ Puede habilitar Stretch Database para una tabla existente o crear una nueva tabl
 ### Opciones comunes
 Utilice las siguientes opciones al ejecutar CREATE TABLE o ALTER TABLE para habilitar Stretch Database en una tabla.
 
--   Opcionalmente, use la cláusula `FILTER_PREDICATE = <predicate>` para especificar un predicado y seleccionar las filas que migrar si la tabla contiene tanto datos históricos como actuales. El predicado debe llamar a una función con valores de tabla insertada. Para obtener más información, vea [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md). Si no especifica un predicado de filtro, se migra toda la tabla.
+-   Opcionalmente, use la cláusula `FILTER_PREDICATE = <predicate>` para especificar un predicado y seleccionar las filas que migrar si la tabla contiene tanto datos históricos como actuales. El predicado debe llamar a una función con valores de tabla insertada. Para obtener más información, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md). Si no especifica un predicado de filtro, se migra toda la tabla.
 
     >   [AZURE.NOTE] Si proporciona un predicado de filtro que tiene un rendimiento insuficiente, la migración de datos también lo tendrá. Stretch Database aplica el predicado de filtro a la tabla con el operador CROSS APPLY.
 
-    En CTP 3.1 a través de RC1, esta opción no está disponible en el asistente para habilitar la base de datos para Stretch. Tendrá que usar la instrucción CREATE TABLE o ALTER TABLE para configurar una tabla para Stretch Database con esta opción. Para más información, consulte [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+    En CTP 3.1 a través de RC2, esta opción no está disponible en el asistente para habilitar la base de datos para Stretch. Tendrá que usar la instrucción CREATE TABLE o ALTER TABLE para configurar una tabla para Stretch Database con esta opción. Para más información, consulte [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 -   Especifique `MIGRATION_STATE = OUTBOUND` para iniciar la migración de datos inmediatamente o `MIGRATION_STATE = PAUSED` para posponer el inicio de la migración de datos.
 
@@ -76,7 +76,7 @@ Este es un ejemplo en el que se migra toda la tabla y en el que la migración de
 ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-En el ejemplo siguiente se migran solo las filas identificadas mediante la función con valores de tabla insertada `dbo.fn_stretchpredicate` y pospone la migración de datos. Para más información sobre el predicado de filtro, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md).
+En el ejemplo siguiente se migran solo las filas identificadas mediante la función con valores de tabla insertada `dbo.fn_stretchpredicate` y pospone la migración de datos. Para obtener más información sobre el predicado de filtro, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 ALTER TABLE <table name>
@@ -96,7 +96,7 @@ Este es un ejemplo en el que se migra toda la tabla y en el que la migración de
 CREATE TABLE <table name> ...
     WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-En el ejemplo siguiente se migran solo las filas identificadas mediante la función con valores de tabla insertada `dbo.fn_stretchpredicate` y pospone la migración de datos. Para más información sobre el predicado de filtro, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md).
+En el ejemplo siguiente se migran solo las filas identificadas mediante la función con valores de tabla insertada `dbo.fn_stretchpredicate` y pospone la migración de datos. Para obtener más información sobre el predicado de filtro, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 CREATE TABLE <table name> ...
@@ -114,4 +114,4 @@ Para más información, consulte [CREATE TABLE (Transact-SQL)](https://msdn.micr
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,29 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="04/04/2016" 
 	ms.author="ccompy"/>
 
 # Escalado de aplicaciones en un entorno del Servicio de aplicaciones #
 
-A alto nivel, los entornos del Servicio de aplicaciones son esencialmente implementaciones personales del Servicio de aplicaciones de Azure en la red virtual y solo puede se pueden administrar mediante su suscripción. Ofrecen nuevas capacidades de red porque se encuentran en la red virtual y también se pueden escalar más allá de lo que normalmente está disponible en los entornos del Servicio de aplicaciones de Azure. Si necesita obtener más información sobre lo que es un entorno del Servicio de aplicaciones (ASE), vea [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE]. Para ver detalles sobre la creación de un entorno del Servicio de aplicaciones o una aplicación web en un entorno del Servicio de aplicaciones, vea [Creación de un entorno del Servicio de aplicaciones][HowtoCreateASE] y [Creación de una aplicación web en un entorno del Servicio de aplicaciones][CreateWebappinASE].
-
-Como recordatorio rápido, al cambiar normalmente un atributo de escala para una aplicación web, móvil o de API en el Servicio de aplicaciones de Azure, lo está cambiado en el nivel del plan del Servicio de aplicaciones (ASP). Para obtener detalles sobre el escalado planes del Servicio de aplicaciones o solamente detalles sobre planes del Servicio de aplicaciones fuera de los entornos del Servicio de aplicaciones, vea [Escalado de una aplicación web en el Servicio de aplicaciones de Azure][ScaleWebapp] e [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure][Appserviceplans].
-
-Escalar una aplicación en un entorno del Servicio de aplicaciones es muy parecido a escalar normalmente las aplicaciones. En el Servicio de aplicaciones de Azure hay normalmente tres cosas que puede escalar:
+En el Servicio de aplicaciones de Azure hay normalmente tres cosas que puede escalar:
 
 - plan de precios
-- tamaño de trabajo (para instancias dedicadas)
+- tamaño de trabajo 
 - número de instancias.
 
-En un entorno del Servicio de aplicaciones no es necesario seleccionar o cambiar el plan de precios. En términos de capacidades ya está en un nivel de capacidad de precios Premium. En un entorno del Servicio de aplicaciones tampoco hay trabajos compartidos. Son todos trabajos dedicados.
+En un entorno del Servicio de aplicaciones no es necesario seleccionar o cambiar el plan de precios. En términos de capacidades ya está en un nivel de capacidad de precios Premium.
 
 Con respecto a los tamaños de trabajo, el administrador de ASE puede asignar el tamaño del recurso de proceso para que lo use cada grupo de trabajo. Eso significa que puede tener el grupo de trabajo 1 con recursos de proceso P4 y el grupo de trabajo 2 con recursos de proceso P1, si lo desea. No tienen que estar en orden de tamaño. Para obtener información sobre los tamaños y sus precios consulte el documento [Precios de Servicio de aplicaciones de Azure][AppServicePricing]. Esto deja las opciones de escalado para aplicaciones web y planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones para que sean:
 
 - selección de grupo de trabajo
 - número de instancias
 
-El cambio de cualquier elemento se realiza a través de la IU adecuada mostrada con sus planes del Servicio de aplicaciones hospedados en el ASE. No podrá escalar verticalmente el plan del Servicio de aplicaciones por encima de la cantidad de recursos de proceso disponibles en el grupo de trabajo en el que se encuentra dicho plan. Si necesita más, tendrá que agregar más recursos de proceso al grupo de trabajo en el que los necesita a través del administrador de ASE. Para obtener información sobre la reconfiguración de su ASE, lea esta información: [Configuración de un entorno del Servicio de aplicaciones][HowtoConfigureASE]. Puede que también quiera aprovechar las características de escalado automático de ASE para agregar capacidad en función de una programación o unas métricas. Para obtener más detalles sobre la configuración de escalado automático para el propio entorno de ASE, consulte [Escalado automático y entorno del Servicio de aplicaciones][ASEAutoscale].
+El cambio de cualquier elemento se realiza a través de la IU adecuada mostrada con sus planes del Servicio de aplicaciones hospedados en el ASE. No podrá escalar verticalmente el plan del Servicio de aplicaciones por encima de la cantidad de recursos de proceso disponibles en el grupo de trabajo en el que se encuentra dicho plan. Si necesita recursos de proceso de ese grupo de trabajo, tendrá que obtener el administrador de ASE para agregarlos. Para obtener información sobre la reconfiguración de su ASE, lea esta información: [Configuración de un entorno del Servicio de aplicaciones][HowtoConfigureASE]. Puede que también quiera aprovechar las características de escalado automático de ASE para agregar capacidad en función de una programación o unas métricas. Para obtener más detalles sobre la configuración de escalado automático para el propio entorno de ASE, consulte [Escalado automático y entorno del Servicio de aplicaciones][ASEAutoscale].
 
 ![][1]
 
@@ -83,4 +79,4 @@ Para obtener más información acerca de la plataforma Servicio de aplicaciones 
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

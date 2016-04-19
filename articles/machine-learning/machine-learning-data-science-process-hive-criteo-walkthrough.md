@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Proceso de análisis de Cortana: uso de clústeres de Hadoop de HDInsight en un conjunto de datos de 1 TB de Criteo | Microsoft Azure" 
-	description="Uso del proceso analítico avanzado y tecnología (ADAPT) para un escenario integral con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)" 
-	services="machine-learning,hdinsight" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Proceso de análisis de Cortana: uso de clústeres de Hadoop de HDInsight en un conjunto de datos de 1 TB de Criteo | Microsoft Azure"
+	description="Uso del proceso analítico avanzado y tecnología (ADAPT) para un escenario integral con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)"
+	services="machine-learning,hdinsight"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/08/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
 	ms.author="ginathan;bradsev" />
 
 # Proceso de análisis de Cortana en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB
@@ -29,15 +29,15 @@ Los datos de Criteo son un conjunto de datos de predicción de clics que ocupan 
 
 Cada registro de este conjunto de datos contiene 40 columnas:
 
-- La primera columna es una columna de etiqueta que indica si un usuario hace clic en un anuncio (valor 1) o si no hace clic (valor 0). 
-- Las 13 columnas siguientes son numéricas. 
-- Las últimas 26 son columnas de categorías. 
+- La primera columna es una columna de etiqueta que indica si un usuario hace clic en un anuncio (valor 1) o si no hace clic (valor 0).
+- Las 13 columnas siguientes son numéricas.
+- Las últimas 26 son columnas de categorías.
 
 Las columnas son anónimas y utilizan una serie de nombres enumerados: desde "Col1" (para la columna de etiqueta) hasta 'Col40 "(para la última columna de categoría).
 
 Este es un extracto de las 20 primeras columnas de dos observaciones (filas) de este conjunto de datos:
 
-	Col1	Col2	Col3	Col4	Col5	Col6	Col7	Col8	Col9	Col10	Col11	Col12	Col13	Col14	Col15			Col16			Col17			Col18			Col19		Col20	
+	Col1	Col2	Col3	Col4	Col5	Col6	Col7	Col8	Col9	Col10	Col11	Col12	Col13	Col14	Col15			Col16			Col17			Col18			Col19		Col20
 
 	0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
 	0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
@@ -62,7 +62,7 @@ En este tutorial, se describen dos problemas de predicción de ejemplo:
 
 Configure su entorno de ciencia de datos de Azure para crear soluciones de análisis predictivos con los clústeres de HDInsight en tres pasos:
 
-1. [Cree una cuenta de almacenamiento](storage-whatis-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en el almacenamiento de blobs de Azure. Los datos utilizados en los clústeres de HDInsight se almacenan aquí.
+1. [Cree una cuenta de almacenamiento](../storage/storage-create-storage-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en el almacenamiento de blobs de Azure. Los datos utilizados en los clústeres de HDInsight se almacenan aquí.
 
 2. [Personalice los clústeres de Hadoop de HDInsight de Azure para la ciencia de los datos](machine-learning-data-science-customize-hadoop-cluster.md): en este paso, se crea un clúster de Hadoop de HDInsight de Azure con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay que llevar a cabo dos pasos importantes (descritos en este tema) para personalizar el clúster de HDInsight.
 
@@ -80,10 +80,10 @@ Para acceder al conjunto de datos de [Criteo](http://labs.criteo.com/downloads/d
 
 Haga clic en **Continue to download** (Continuar para descarga) para obtener más información sobre el conjunto de datos y su disponibilidad.
 
-Los datos residen en una ubicación pública de [almacenamiento de blobs de Azure](storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. "wasb" hace referencia a la ubicación de almacenamiento de blobs de Azure.
+Los datos residen en una ubicación pública de [almacenamiento de blobs de Azure](../storage/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. "wasb" hace referencia a la ubicación de almacenamiento de blobs de Azure.
 
 1. Los datos de este almacenamiento de blobs públicos constan de tres subcarpetas de datos sin comprimir.
-		
+
 	1. La subcarpeta *raw/count/* contiene los primeros 21 días de datos, desde day\_00 hasta day\_20.
 	2. La subcarpeta *raw/train/* consta de un único día de datos, day\_21.
 	3. La subcarpeta *raw/test/* consta de dos días de datos, day\_22 y day\_23.
@@ -120,9 +120,9 @@ Después de que aparezca Hive REPL con un signo "hive >", solo tendrá que corta
 El código siguiente crea una base de datos "criteo" y, a continuación, genera 4 tablas:
 
 
-* Una *tabla para generar números*, correspondientes a los días desde day\_00 hasta day\_20. 
-* Una *tabla que se usa como el conjunto de datos de entrenamiento*, correspondiente a day\_21. 
-* Dos *tablas que se usan como los conjuntos de datos de prueba* correspondientes a day\_22 y day\_23, respectivamente. 
+* Una *tabla para generar números*, correspondientes a los días desde day\_00 hasta day\_20.
+* Una *tabla que se usa como el conjunto de datos de entrenamiento*, correspondiente a day\_21.
+* Dos *tablas que se usan como los conjuntos de datos de prueba* correspondientes a day\_22 y day\_23, respectivamente.
 
 Dividimos nuestro conjunto de datos de prueba en dos tablas distintas porque uno de los días es festivo y queremos determinar si el modelo puede detectar las diferencias entre un día festivo y uno laborable a partir del porcentaje de clics.
 
@@ -225,7 +225,7 @@ Ahora vamos a contar el número de ejemplos que hay en los dos conjuntos de dato
 		SELECT COUNT(*) FROM criteo.criteo_test_day_22;
 
 El resultado es:
-	
+
 		189747893
 		Time taken: 267.968 seconds, Fetched: 1 row(s)
 
@@ -240,7 +240,7 @@ El comando para hacer esto es similar a la anterior (consulte [sample&#95;hive&#
 		SELECT COUNT(*) FROM criteo.criteo_test_day_23;
 
 Este es el resultado:
-	
+
 		178274637
 		Time taken: 253.089 seconds, Fetched: 1 row(s)
 
@@ -257,12 +257,12 @@ De esta forma, obtenemos la distribución de etiquetas:
 		Time taken: 459.435 seconds, Fetched: 2 row(s)
 
 Tenga en cuenta que el porcentaje de las etiquetas positivas es del 3,3 % (coherente con el conjunto de datos original).
-		
+
 ### Distribuciones del histograma de algunas variables numéricas en el conjunto de datos "train"
 
 Podemos usar la función nativa de Hive "histogram\_numeric" para conocer la distribución de las variables numéricas. El contenido de [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql) es el siguiente:
 
-		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM 
+		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
 			(SELECT
             histogram_numeric(col2, 20) as col2_hist
             FROM
@@ -324,7 +324,7 @@ Tenga en cuenta que Col15 tiene 19 millones de valores únicos. Usar técnicas s
 
 Terminamos esta subsección examinando también el número de valores únicos de algunas otras columnas de categorías. El contenido de [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) es el siguiente:
 
-		SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)), 
+		SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
 		COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
 		FROM criteo.criteo_train;
 
@@ -458,7 +458,7 @@ Para el módulo **Lector**, los valores de los parámetros que se proporcionan e
 6. **Ubicación de los datos de salida**: elija "Azure".
 7. **Nombre de la cuenta de almacenamiento de Azure**: la cuenta de almacenamiento asociada al clúster.
 8. **Clave de la cuenta de almacenamiento de Azure**: la clave de almacenamiento asociada al clúster.
-9. **Nombre del contenedor de Azure**: si el nombre de clúster es "abc", este campo suele ser simplemente "abc". 
+9. **Nombre del contenedor de Azure**: si el nombre de clúster es "abc", este campo suele ser simplemente "abc".
 
 
 Una vez que el módulo **Lector** finaliza la obtención de datos (se muestra una marca de verificación verde en el módulo), guarde estos datos como un conjunto de datos (con el nombre que desee). Este es el aspecto:
@@ -472,7 +472,7 @@ Para seleccionar el conjunto de datos guardado para usarlo en un experimento de 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
 ***NOTA IMPORTANTE:*** **Realice esta acción para los conjuntos de datos "test" y "train". Además, recuerde usar el nombre de la base de datos y los nombres de tabla que ha asignado para este propósito. Los valores usados en la ilustración son únicamente con fines ilustrativos.**
- 
+
 ### <a name="step2"></a> Paso 2: creación de un experimento sencillo en el estudio de Aprendizaje automático de Azure para predecir los clics y los "no clics"
 
 Nuestro experimento de Aprendizaje automático de Azure es similar al siguiente:
@@ -600,7 +600,7 @@ Para ello, primero guardamos el modelo con el que hemos entrenado como un objeto
 
 A continuación, necesitamos crear puertos de entrada y salida para nuestro servicio web:
 
-* Un puerto de entrada toma los datos de la misma forma que los datos para los que necesitamos predicciones 
+* Un puerto de entrada toma los datos de la misma forma que los datos para los que necesitamos predicciones
 * Un puerto de salida devuelve las etiquetas puntuadas y las probabilidades asociadas.
 
 #### Selección de algunas filas de datos para el puerto de entrada
@@ -643,7 +643,7 @@ Una vez publicado el servicio web, accedemos a una página como esta:
 
 Podemos ver los dos vínculos a los servicios web en el lado izquierdo:
 
-* El servicio **Request/Response** (Solicitud/respuesta) (o RRS) está destinados a predicciones únicas y es lo que vamos a utilizar en este taller. 
+* El servicio **Request/Response** (Solicitud/respuesta) (o RRS) está destinados a predicciones únicas y es lo que vamos a utilizar en este taller.
 * El Servicio de **EJECUCIÓN POR LOTES** (BES) se usa para las predicciones por lotes y requiere que los datos de entrada usados para realizar predicciones residan en Almacenamiento de blobs de Azure.
 
 Al hacer clic en el vínculo **Request/Response** (Solicitud/respuesta), accedemos a una página que nos da un código predefinido en C#, python y R. Este código puede utilizarse fácilmente para realizar llamadas al servicio web. Tenga en cuenta que hay que utilizar la clave de API en esta página para la autenticación.
@@ -663,4 +663,4 @@ Podemos ver que para los dos ejemplos de prueba por los que hemos preguntado (en
 
 Esto concluye nuestro tutorial completo que muestra cómo controlar un conjunto de datos grande mediante Aprendizaje automático de Azure. Hemos empezado con un terabyte de datos, hemos creado un modelo de predicción y lo hemos implementado como un servicio web en la nube.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

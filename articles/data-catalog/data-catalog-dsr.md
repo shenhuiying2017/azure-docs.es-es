@@ -1,6 +1,6 @@
 <properties
    pageTitle="Orígenes de datos compatibles con el Catálogo de datos de Azure | Microsoft Azure"
-   description="Especificación de los orígenes de datos compatibles actualmente."
+   description="En este artículo se enumeran todos los tipos de recursos y orígenes de datos admitidos para su registro en el Catálogo de datos de Azure."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,20 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Orígenes de datos compatibles con el Catálogo de datos de Azure
 
-Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante una API pública, una herramienta de registro con un solo clic o la especificación manual de información directamente en el portal web del Catálogo de datos. En la siguiente cuadrícula se resumen todos los orígenes que admite el catálogo actualmente y las funcionalidades de publicación de cada uno de ellos. También se enumeran las herramientas de datos externos que cada origen puede iniciar desde nuestra experiencia "abierta" del portal. A continuación encontrará una segunda cuadrícula que tiene una especificación más técnica de las propiedades de conexión de los orígenes de datos.
+Los usuarios del **Catálogo de datos de Azure** pueden publicar metadatos mediante una API pública, una herramienta de registro de orígenes de datos ClickOnce o la especificación manual de información directamente en el portal web del Catálogo de datos.
+
+En la siguiente tabla se resumen todos los orígenes que admite el Catálogo de datos en este momento y las opciones de publicación de cada uno de ellos. También se enumeran las herramientas de datos externas que cada origen puede iniciar desde el portal del Catálogo de datos gracias a su opción "Abrir en".
+
+A continuación encontrará una segunda tabla en la que se ofrece una especificación más técnica de las propiedades de conexión de cada origen de datos, así como la especificación de referencia de origen de datos (DSR) utilizada para cada recurso de datos compatible cuando se emplea la API del Catálogo de datos.
 
 
-## Lista de orígenes de datos que se admiten
+## Lista de orígenes y recursos de datos admitidos
 
 <table>
 
     <tr>
-       <td><b>Objeto de origen de datos</b></td>
+       <td><b>Recurso de datos</b></td>
        <td><b>API</b></td>
        <td><b>Entrada manual</b></td>
        <td><b>Herramienta de registro</b></td>
@@ -260,7 +264,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
     </tr>
 
     <tr>
-      <td>Tabla de Db2</td>
+      <td>Tabla de DB2</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -269,7 +273,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
     </tr>
 
     <tr>
-      <td>Vista de Db2</td>
+      <td>Vista de DB2</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -398,6 +402,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
 
 
 <br> <br>
+
 ## Especificación de referencia de origen de datos
 
 <table>
@@ -517,7 +522,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Contenedor</td>
       <td>Base de datos</td>
       <td>N/D</td>
@@ -531,7 +536,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Tabla</td>
       <td>Tabla</td>
       <td>Base de datos</td>
@@ -547,7 +552,7 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Tabla</td>
       <td>Ver</td>
       <td>Base de datos</td>
@@ -1284,4 +1289,4 @@ Los usuarios del Catálogo de datos de Azure pueden publicar metadatos mediante 
 
 </table>
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

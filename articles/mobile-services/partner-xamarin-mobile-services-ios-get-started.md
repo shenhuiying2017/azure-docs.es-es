@@ -34,7 +34,7 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 ![][0]
 
-Para completar este tutorial es necesario XCode y [Xamarin Studio] para OS X o el complemento Xamarin Visual Studio para Visual Studio en Windows. El ejemplo se ejecutará en iOS 5.0 y más reciente.
+Para completar este tutorial es necesario XCode y Xamarin Studio para OS X o Visual Studio en Windows con un Mac en red. Las instrucciones de instalación completas se encuentran en [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) para obtener instrucciones.
 
 > [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -136,4 +136,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

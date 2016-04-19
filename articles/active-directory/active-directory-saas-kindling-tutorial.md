@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="04/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con Kindling, necesita los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Kindling
+- Suscripción de Kindling
 
 
 > [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -84,7 +84,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Kindling, e
 
 El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Kindling. Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-Para configurar el inicio de sesión único para Kindling, se necesita un dominio registrado. Si no dispone de un dominio registrado, póngase en contacto con el equipo de soporte técnico de Kindling a través de [support@flatterfiles.com](mailto:support@flatterfiles.com).
+Para configurar el inicio de sesión único para Kindling, se necesita un dominio registrado. Si aún no dispone de un dominio registrado, póngase en contacto con el equipo de soporte técnico de Kindling enviando un mensaje de correo electrónico a [support@flatterfiles.com](mailto:support@kindlingapp.com).
 
 
 
@@ -97,11 +97,15 @@ Para configurar el inicio de sesión único para Kindling, se necesita un domini
 3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
 
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación Kindling (por ejemplo, **https://fabrikam.Kindling.com/*)).
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Kindling (por ejemplo, *https://\<nombre de la compañía>.kindlingapp.com/*).
 
-    b. Póngase en contacto con el equipo de soporte técnico de Kindling para obtener el valor de **Emisor** y **URL de respuesta**.
+    b. Póngase en contacto con el equipo de soporte técnico de Kindling enviando un mensaje de correo electrónico a [support@kindlingapp.com](mailto:support@kindlingapp.com) para obtener el valor de **Emisor** y **URL de respuesta**.
+
+    c. En el cuadro de texto **Emisor**, escriba la dirección URL del emisor.
+
+    d. En el cuadro de texto **URL de respuesta**, escriba la dirección URL de respuesta.
  
-    c. Haga clic en **Siguiente**.
+    e. Haga clic en **Siguiente**.
  
  
 4. En la página **Configurar inicio de sesión único en Kindling**, siga estos pasos: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_05.png) <br>
@@ -216,4 +220,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

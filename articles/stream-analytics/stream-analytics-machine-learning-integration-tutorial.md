@@ -21,7 +21,7 @@
 
 # Tutorial: realizar análisis de opiniones mediante Análisis de transmisiones y Aprendizaje automático #
 
-Este tutorial está pensado para ayudarle a configurar rápidamente un trabajo sencillo de Análisis de transmisiones con la integración de Aprendizaje automático. Aprovecharemos un modelo de Aprendizaje automático de análisis de opinión de la galería de Cortana Analytics para analizar datos de texto de transmisión y determinar la puntuación de opinión en tiempo real. Es un tutorial excelente para entender escenarios como el análisis de opinión en tiempo real al transmitir datos de Twitter, análisis del registro de chats de clientes con el personal de soporte técnico, comentarios en foros, blogs y vídeos y muchos otros escenarios de puntuación predictiva en tiempo real.
+Este tutorial está pensado para ayudarle a configurar rápidamente un trabajo sencillo de Análisis de transmisiones con la integración de Aprendizaje automático. Aprovecharemos un modelo de Aprendizaje automático de análisis de opinión de la galería de Cortana Intelligence para analizar datos de texto de transmisión y determinar la puntuación de opinión en tiempo real. Es un tutorial excelente para entender escenarios como el análisis de opinión en tiempo real al transmitir datos de Twitter, análisis del registro de chats de clientes con el personal de soporte técnico, comentarios en foros, blogs y vídeos y muchos otros escenarios de puntuación predictiva en tiempo real.
   
 En este tutorial se incluye un archivo CSV de ejemplo con texto (como se muestra en la ilustración 1 a continuación) como entrada del almacén de blobs de Azure. El trabajo aplicará el modelo de análisis de opinión como una función definida por el usuario (UDF) en los datos de texto de ejemplo desde el almacén de blobs. El resultado final se colocará en el mismo almacén de blobs de Azure en otro archivo CSV. En la lustración 2 más abajo se muestra un diagrama de esta configuración. Para un escenario más realista, esta entrada del almacén de blobs puede sustituirse por datos de Twitter de transmisión desde una entrada del Centro de eventos de Azure. Además, se puede crear la visualización en tiempo real de [Power BI](https://powerbi.microsoft.com/) de la opinión agregada. Las futuras iteraciones de este artículo incluirán dichas extensiones.
 
@@ -43,7 +43,7 @@ Los requisitos previos de este artículo son los siguientes:
 A nivel general, se llevarán a cabo los pasos siguientes:
 
 1.	Carga del archivo de entrada CSV en Almacenamiento de blobs
-2.	Adición de un modelo de análisis de opinión de la galería de Cortana Analytics al área de trabajo de Aprendizaje automático
+2.	Adición de un modelo de análisis de opinión de la galería de Cortana Intelligence al área de trabajo de Aprendizaje automático
 3.	Implementación de este modelo como un servicio web dentro del área de trabajo de Aprendizaje automático de Azure
 4.	Creación de un trabajo de Análisis de transmisiones que llama a este servicio web como una función para determinar la opinión sobre la entrada de texto
 5.	Inicio del trabajo de Análisis de transmisiones y observación de la salida 
@@ -63,9 +63,9 @@ En este paso puede usar cualquier archivo CSV, incluso el especificado en la int
 
 3.	Para cargar el archivo CSV, haga clic en el icono **Cargar blob** y elija el **archivo desde el disco local**.
 
-## Adición del modelo de análisis de opinión desde la galería de Cortana Analytics
+## Adición del modelo de análisis de opinión desde la galería de Cortana Intelligence
 
-1.	Descargue el [modelo de análisis de opinión predictivo](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) desde la galería de Cortana Analytics.  
+1.	Descargue el [modelo de análisis de opinión predictivo](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) desde la galería de Cortana Intelligence.  
 2.	Haga clic en **Abrir** en Studio:  
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - abrir studio de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
@@ -140,7 +140,7 @@ Tome nota de la clave de acceso y de la dirección URL de servicio web desde el 
 
 ## Conclusión
 
-En este tutorial, se creó un trabajo de Análisis de transmisiones que lee datos de texto de trasmisiones y aplica el análisis de opinión en tiempo real. Puede hacerlo sin tener que preocuparse por las complejidades de la creación de un modelo de análisis de opinión. Esta es una de las ventajas de Cortana Analytics Suite.
+En este tutorial, se creó un trabajo de Análisis de transmisiones que lee datos de texto de trasmisiones y aplica el análisis de opinión en tiempo real. Puede hacerlo sin tener que preocuparse por las complejidades de la creación de un modelo de análisis de opinión. Esta es una de las ventajas de Cortana Intelligence Suite.
 
 También se pueden observar las métricas relacionadas con funciones de Aprendizaje automático de Azure. Haga clic en la pestaña **MONITOR**. Se muestran tres métricas relacionadas con funciones.
   
@@ -150,4 +150,4 @@ También se pueden observar las métricas relacionadas con funciones de Aprendiz
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - vista de monitor de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

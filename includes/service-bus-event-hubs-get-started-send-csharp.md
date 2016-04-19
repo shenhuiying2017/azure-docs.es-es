@@ -6,27 +6,25 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 
    ![][7]
 
-2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego haga clic en **Administrar paquetes de NuGet para la solución...**. 
+2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego haga clic en **Administrar paquetes NuGet para la solución**. 
 
-	Esto muestra el cuadro de diálogo Administrar paquetes de NuGet.
-
-3. Busque `Microsoft Azure Service Bus`, haga clic en **Instalar** y acepte las condiciones de uso.
+3. Haga clic en la pestaña **Examinar** y, después, busque `Microsoft Azure Service Bus`. Asegúrese de que el nombre del proyecto (**Remitente**) se especifica en el cuadro **Versiones**. Haga clic en **Instalar** y acepte las condiciones de uso.
 
 	![][8]
 
 	De esta forma, se descarga, instala y agrega una referencia al <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">paquete de NuGet de la biblioteca del Bus de servicio de Azure</a>.
 
-4. Agregue la siguiente instrucción `using` en la parte superior del archivo **Program.cs**:
+4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs**:
 
 	```
 	using System.Threading;
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-5. Agregue los siguientes campos a la clase **Program**; para ello, sustituya los valores del marcador de posición por el nombre del Centro de eventos creado en la sección anterior y la cadena de conexión con derechos de **envío**:
+5. Agregue los siguientes campos a la clase **Program**; para ello, sustituya los valores del marcador de posición por el nombre del Centro de eventos creado en la sección anterior y la cadena de conexión con derechos de **envío** (la cadena de conexión **SendRule**). Asegúrese de quitar el sufijo `EntityPath` de la cadena de conexión:
 
 	```
-	static string eventHubName = "{event hub name}";
+	static string eventHubName = "{Event Hub name}";
 	static string connectionString = "{send connection string}";
 	```
 
@@ -72,4 +70,4 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

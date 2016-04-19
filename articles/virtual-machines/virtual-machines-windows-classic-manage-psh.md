@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/31/2016"
    ms.author="kasing"/>
 
 # Administración de las máquinas virtuales con Azure PowerShell
@@ -105,4 +105,4 @@ Use las instrucciones de [Creación y preconfiguración de una máquina virtual 
 - Como miembro de un conjunto de carga equilibrada;
 - Con una dirección IP estática.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

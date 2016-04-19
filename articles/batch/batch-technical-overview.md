@@ -44,8 +44,6 @@ El servicio Lote también puede realizar cálculos paralelos con un paso de redu
 
 Para obtener una comparación entre Lote y otras opciones de solución HPC en Azure, consulte [Soluciones de lote y HPC en la nube de Azure](batch-hpc-solutions.md).
 
->[AZURE.NOTE] En la actualidad, Lote solo es compatible con las cargas de trabajo que se ejecutan en máquinas virtuales basadas en Windows Server.
-
 ## Desarrollo con Lote
 
 Cuando compila soluciones que usan Lote de Azure para el procesamiento paralelo de la carga de trabajo, lo hace mediante programación utilizando las API de Lote. Con las API de Lote, puede crear y administrar grupos de nodos de proceso (máquinas virtuales) y programar trabajos y tareas para que se ejecuten en esos nodos. Un servicio o una aplicación cliente que usted cree, usa las API de Lote para comunicarse con el servicio Lote. Puede procesar de forma eficiente cargas de trabajo a gran escala para su organización, o proporcionar un servicio front-end a los clientes para que estos pueden ejecutar trabajos y tareas (a petición o dentro de una programación) en uno, cientos o miles de nodos. También puede usar Lote como parte de un flujo de trabajo mayor, administrado mediante herramientas como [Data Factory de Azure][data_factory].
@@ -56,7 +54,7 @@ Cuando compila soluciones que usan Lote de Azure para el procesamiento paralelo 
 
 Cuando se desarrollan soluciones de Lote, es necesario usar las siguientes cuentas en Microsoft Azure.
 
-- **Cuenta de Azure y suscripción**: si aún no tiene una suscripción de Azure, puede activar su [crédito de Azure para suscriptores de MSDN][msdn_benefits] o bien registrarse para obtener una [cuenta gratuita de Azure][free_account]. Al crear una cuenta, se creará una suscripción predeterminada para usted.
+- **Suscripción y cuenta de Azure**: si aún no tiene una suscripción de Azure, puede activar su [Crédito mensual de Azure para suscriptores de Visual Studio][msdn_benefits] o bien registrarse para obtener una [cuenta gratuita de Azure][free_account]. Al crear una cuenta, se creará una suscripción predeterminada para usted.
 
 - **Cuenta de Lote**: cuando las aplicaciones interactúan con el servicio Lote, el nombre de cuenta, la dirección URL de la cuenta y una clave de acceso se utilizarán como credenciales. Todos los recursos de Lote como grupos, nodos de proceso, trabajos y tareas están asociados a una cuenta de Lote. Puede [crear y administrar una cuenta de Lote](batch-account-create-portal.md) en el Portal de Azure.
 
@@ -76,7 +74,7 @@ Para compilar soluciones mediante Lote de Azure, puede usar las bibliotecas de c
 
 - [Explorador de Lote de Azure][batch_explorer]\: el Explorador de Lote es una de las aplicaciones de ejemplo de .NET de Lote que está [disponible en GitHub][github_samples]. Compile esta aplicación de Windows Presentation Foundation (WPF) con Visual Studio 2013 o 2015 y úsela para examinar y administrar los recursos de la cuenta de Lote durante el desarrollo y depuración de las soluciones de Lote. Vea los detalles de trabajos, grupos y tareas, descargue archivos desde los nodos de proceso, o incluso conecte con nodos de forma remota mediante el uso de archivos de Escritorio remoto (RDP) que puede obtener con unos cuantos clics en la interfaz del Explorador de Lote.
 
-- [Explorador de almacenamiento de Microsoft Azure][storage_explorer]\: aunque no es estrictamente una herramienta de Lote de Azure, el Explorador de almacenamiento es otra herramienta valiosa con la que contar mientras desarrolla y depura las soluciones de Lote.
+- [Explorador de Almacenamiento de Microsoft Azure][storage_explorer]\: aunque no es estrictamente una herramienta de Lote de Azure, el Explorador de Almacenamiento es otra herramienta valiosa con la que contar para el desarrollo y depuración de las soluciones de Lote.
 
 ## Escenario: Escalar horizontalmente una carga de trabajo paralela
 
@@ -88,7 +86,7 @@ El siguiente diagrama muestra un flujo de trabajo común de Lote, con una aplica
 
 En este escenario común, la aplicación o servicio procesa una carga de trabajo de computación en Lote de Azure realizando los pasos siguientes:
 
-1. Carga de los **archivos de entrada** y de la **aplicación** que procesará esos archivos a su cuenta de Almacenamiento de Azure. Los archivos de entrada pueden ser cualquier dato que vaya a procesar la aplicación, como diseños de modelos financieros, o archivos de vídeo que se van a transcodificar. Los archivos de aplicación pueden ser cualquier aplicación que se use para procesar los datos, como una aplicación de representación de 3D o un transcodificador de medios.
+1. Carga de los **archivos de entrada** y de la **aplicación** que procesará esos archivos en su cuenta de Almacenamiento de Azure. Los archivos de entrada pueden ser cualquier dato que vaya a procesar la aplicación, como diseños de modelos financieros, o archivos de vídeo que se van a transcodificar. Los archivos de aplicación pueden ser cualquier aplicación que se use para procesar los datos, como una aplicación de representación de 3D o un transcodificador de medios.
 
 2. Creación de un **grupo** de nodos de proceso de Lote en su cuenta de Lote, estas son las máquinas virtuales que ejecutarán las tareas. Especifique las propiedades como el [tamaño de nodo](./../cloud-services/cloud-services-sizes-specs.md), su sistema operativo y la ubicación en Almacenamiento de Azure de la aplicación para instalar cuando los nodos se unan al grupo (la aplicación que ha cargado en el paso 1). También puede configurar el grupo para [escalar automáticamente](batch-automatic-scaling.md) (ajustar de forma dinámica el número de nodos de proceso en el grupo), en respuesta a la carga de trabajo que generen las tareas.
 
@@ -110,11 +108,11 @@ No olvide que esto es simplemente una forma de usar Lote, y que este escenario d
 
 Ahora que ha visto un escenario de proceso por lotes de ejemplo, ha llegado el momento de profundizar en el servicio para obtener información sobre cómo puede utilizarlo para procesar las cargas de trabajo paralelas de proceso intensivo.
 
-- Consulte [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md) para obtener información sobre cómo usar C# y la biblioteca .NET de Lote para realizar las técnicas descritas anteriormente. Esta debería ser una de sus primeras lecturas mientras está aprendiendo a utilizar el servicio Lote.
+- Consulte [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md) para más información sobre cómo usar C# y la biblioteca .NET de Lote para realizar las técnicas descritas anteriormente. Esta debería ser una de sus primeras lecturas mientras está aprendiendo a utilizar el servicio Lote.
 
 - Eche un vistazo a [Información general de las características de Lote de Azure](batch-api-basics.md) para ver información más detallada sobre las funciones de API que proporciona Lote para procesar las cargas de trabajo intensivas de proceso.
 
-- Además del Explorador de Lote, los otros [códigos de ejemplo en GitHub][github_samples] muestran cómo utilizar muchas de las características de Lote mediante la biblioteca de .NET de Lote.
+- Además del Explorador de Lote, los otros [ejemplos de código en GitHub][github_samples] muestran cómo utilizar muchas de las características de Lote mediante la biblioteca de .NET de Lote.
 
 - Consulte la [ruta de aprendizaje de Lote][learning_path] para hacerse una idea de los recursos que tiene a su disposición a medida que va aprendiendo a trabajar con Lote.
 
@@ -136,4 +134,4 @@ Ahora que ha visto un escenario de proceso por lotes de ejemplo, ha llegado el m
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-### Tipo de VPN para el modelo de implementación de Resource Manager
+#### Tipo de VPN: modelo de implementación de Resource Manager
 
 | | **Basada en enrutamiento** | **Basada en directivas** |
 |-----------------------------------|--------------------|------------------|
@@ -10,7 +10,7 @@
 | **Clásico a Resource Manager** | yes | no |
 
 
-### Tipo de VPN para el modelo de implementación clásica
+#### Tipo de VPN: modelo de implementación clásica
 
 
 | | **Dinámica** | **Estática** |
@@ -22,4 +22,4 @@
 | **De punto a sitio** | yes | no |
 | **Clásico a Resource Manager** | yes | no |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

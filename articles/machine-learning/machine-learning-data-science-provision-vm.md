@@ -147,6 +147,6 @@ Estos son algunos pasos para proseguir con el aprendizaje y la exploración.
 * Vaya a **C:\\Archivos de programa\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** para ver ejemplos de uso de la biblioteca RevoScaleR de R que admite análisis de datos a escala empresarial.  
 * Lea el artículo: [Diez cosas que puede hacer en Data Science Virtual Machine](http://aka.ms/dsvmtenthings)
 * Aprenda a crear soluciones analíticas de un extremo a otro mediante el uso sistemático del [proceso de ciencia de datos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
-* Visite [Cortana Analytics Gallery (Galería de análisis de Cortana)](http://gallery.cortanaanalytics.com) para ver ejemplos de aprendizaje automático y de análisis de datos con Cortana Analytics Suite. También hemos proporcionado un icono en el menú Inicio y en el escritorio de la máquina virtual para facilitar el acceso 
+* Visite la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com) para ver muestras de aprendizaje automático y de análisis de datos mediante Cortana Intelligence Suite. También hemos proporcionado un icono en el menú Inicio y en el escritorio de la máquina virtual para facilitar el acceso 
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

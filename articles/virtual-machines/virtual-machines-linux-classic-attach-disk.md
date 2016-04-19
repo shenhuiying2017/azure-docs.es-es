@@ -3,7 +3,7 @@
 	description="Obtenga información sobre cómo acoplar un disco de datos a una máquina virtual de Azure que esté ejecutando Linux e inicialícelo para que esté listo para usarse."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="dkshir"/>
+	ms.date="04/04/2016"
+	ms.author="iainfou"/>
 
 # Acoplamiento de un disco de datos a una máquina virtual Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
-Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos casos, se trata realmente de archivos .vhd que residen en una cuenta de almacenamiento de Azure. También en ambos casos, una vez acoplado el disco, tendrá que inicializarlo para que esté listo para utilizarse.
+Puede acoplar tanto discos vacíos como discos que contienen datos. Se trata realmente de archivos .vhd que residen en una cuenta de almacenamiento de Azure. Una vez asociado el disco, tendrá que inicializarlo para que esté listo para utilizarse.
 
-> [AZURE.NOTE] Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo y un disco temporal. **No utilice el disco temporal para almacenar datos.** Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure. El Agente de Linux de Azure normalmente administra el disco temporal, y este se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otro lado, el kernel de Linux podría denominar al disco de datos de forma similar a `/dev/sdc`, y los usuarios necesitarán crear particiones, dar formato y montar ese recurso. Consulte la [Guía de usuario del Agente de Linux de Azure][Agent] para obtener más información.
+> [AZURE.NOTE] Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo y un disco temporal. **No utilice el disco temporal para almacenar datos permanentes.** Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure. El Agente de Linux de Azure normalmente administra el disco temporal, y este se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otro lado, el kernel de Linux podría denominar al disco de datos de forma similar a `/dev/sdc`, y los usuarios necesitarán crear particiones, dar formato y montar ese recurso. Consulte la [Guía de usuario del Agente de Linux de Azure][Agent] para obtener más información.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
@@ -38,7 +38,7 @@ Puede usar las mismas instrucciones para inicializar varios discos de datos, usa
 
 2. A continuación deberá buscar el identificador de dispositivo para inicializar el disco de datos. Existen dos formas de hacerlo:
 
-	a) En la ventana SSH, escriba el siguiente comando y especifique la contraseña de la cuenta que creó para administrar la máquina virtual:
+	a) En la ventana SSH, escriba el siguiente comando:
 
 			$sudo grep SCSI /var/log/messages
 
@@ -76,11 +76,9 @@ Puede usar las mismas instrucciones para inicializar varios discos de datos, usa
 
 	El último número de la tupla en cada fila es el _lun_. Vea `man lsscsi` para obtener más información.
 
-3. En la ventana SSH, escriba el siguiente comando para crear un nuevo dispositivo y, a continuación, especifique la contraseña de la cuenta:
+3. En la ventana SSH, escriba el siguiente comando para crear un nuevo dispositivo:
 
 		$sudo fdisk /dev/sdc
-
-	>[AZURE.NOTE] En este ejemplo, es posible que tenga que utilizar `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no se encuentran en su `$PATH`.
 
 
 4. Cuando se le pida, escriba **n** para crear otra partición.
@@ -107,7 +105,7 @@ Puede usar las mismas instrucciones para inicializar varios discos de datos, usa
 
 	![Escribir los cambios del disco](./media/virtual-machines-linux-classic-attach-disk/DiskWrite.png)
 
-8. Cree el sistema de archivos en la partición nueva. Anexe el número de partición (1) al identificador del dispositivo. Por ejemplo, escriba el siguiente comando y luego especifique la contraseña de la cuenta:
+8. Cree el sistema de archivos en la partición nueva. Anexe el número de partición (1) al identificador del dispositivo. Por ejemplo, para crear una partición ext4 en/dev/sdc1:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -116,7 +114,7 @@ Puede usar las mismas instrucciones para inicializar varios discos de datos, usa
 	>[AZURE.NOTE] Tenga en cuenta que los sistemas SUSE Linux Enterprise 11 únicamente admiten acceso de solo lectura a sistemas de archivos ext4. Para estos sistemas, es recomendable dar formato al nuevo sistema de archivos como ext3 en vez de ext4.
 
 
-9. Cree un directorio para montar el nuevo sistema de archivos. Como ejemplo, escriba el siguiente comando y, a continuación, especifique la contraseña de la cuenta:
+9. Cree un directorio para montar el nuevo sistema de archivos. Por ejemplo, escriba el siguiente comando:
 
 		# sudo mkdir /datadrive
 
@@ -143,7 +141,7 @@ Puede usar las mismas instrucciones para inicializar varios discos de datos, usa
 
 	>[AZURE.NOTE] La edición incorrecta del archivo **/etc/fstab** puede tener como resultado un sistema que no se pueda arrancar. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente ese archivo. También se recomienda realizar una copia de seguridad del archivo /etc/fstab antes de editarlo.
 
-	Después abra el archivo **/etc/fstab** en un editor de texto. Tenga en cuenta que /etc/fstab es un archivo del sistema, por lo que deberá utilizar `sudo` para editarlo, por ejemplo:
+	Después, abra el archivo **/etc/fstab** en un editor de texto:
 
 		# sudo vi /etc/fstab
 
@@ -173,10 +171,10 @@ Puede usar las mismas instrucciones para inicializar varios discos de datos, usa
 
 [Desconexión de un disco de una máquina virtual de Linux](virtual-machines-linux-classic-detach-disk.md)
 
-[Uso de la CLI de Azure con la API de administración de servicios](virtual-machines-command-line-tools.md)
+[Uso de la CLI de Azure con la API de administración de servicios](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"  />
 
 <tags
@@ -16,7 +16,7 @@
 	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Envío de consultas de Hive a clústeres de Hadoop de HDInsights en la tecnología y procesos de análisis avanzado 
+#<a name="heading"></a> Envío de consultas de Hive a clústeres de Hadoop de HDInsights en la tecnología y procesos de análisis avanzado
 
 En este documento se describen distintas formas de enviar consultas de subárbol a los clústeres de Hadoop administrados por un servicio HDInsight de Azure. Esta tarea forma parte del proceso de análisis de Cortana (CAP). Se tratan varias tareas de controversia de datos: generación de características y exploración de datos. Se presentan las consultas de Hive genéricas que muestran cómo explorar datos o generar características mediante Hive en un clúster de Hadoop de HDInsight de Azure. Estas consultas de subárbol usan las funciones definidas por el usuario (UDF de subárbol) que se proporcionan.
 
@@ -106,7 +106,7 @@ Los usuarios también pueden generar resultados de consulta de subárbol en un b
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un directorio blob `queryoutputdir` dentro del contenedor predeterminado del clúster de Hadoop. Aquí solo debe proporcionar el nombre del directorio, sin el nombre del blob. Se producirá un error si proporciona los nombres de directorio y de blob, como *wasb:///queryoutputdir/queryoutput.txt*.
+En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un directorio blob `queryoutputdir` dentro del contenedor predeterminado del clúster de Hadoop. Aquí solo debe proporcionar el nombre del directorio, sin el nombre del blob. Se producirá un error si proporciona los nombres de directorio y de blob, como **wasb:///queryoutputdir/queryoutput.txt*.
 
 ![Creación del espacio de trabajo](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
@@ -167,7 +167,7 @@ A continuación presentamos algunos scripts de subárbol que se pueden usar para
 
 En esta sección se describen maneras de generar características mediante consultas de subárbol.
 
-> [AZURE.NOTE] En las consultas de subárbol de esta sección se supone que los datos se han cargado en las tablas de subárbol de los clústeres Hadoop de HDInsight de Azure. De no ser así, siga el proceso para [crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) a fin de cargar datos en tablas de Hive en primer lugar.
+> [AZURE.NOTE] En las consultas de subárbol de esta sección se supone que los datos se han cargado en las tablas de subárbol de los clústeres Hadoop de HDInsight de Azure. De no ser así, siga el proceso para [crear y cargar datos en tablas de Hive](machine-learning-data-science-move-hive-tables.md) a fin de cargar datos en tablas de Hive en primer lugar.
 
 Una vez que haya generado características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar a continuación con la tabla original.
 
@@ -310,8 +310,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-
-
- 
-
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

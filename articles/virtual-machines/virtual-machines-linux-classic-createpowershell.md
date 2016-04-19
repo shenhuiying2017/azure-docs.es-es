@@ -19,12 +19,6 @@
 
 # Creación y preconfiguración de una máquina virtual Linux con Azure Powershell
 
-> [AZURE.SELECTOR]
-- [CLI de Azure](virtual-machines-linux-cli-create.md)
-- [PowerShell](virtual-machines-linux-classic-createpowershell.md)
-
-
-<br>
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
  
@@ -36,7 +30,7 @@ Para ver el tema complementario acerca de las máquinas virtuales basadas en Win
 
 ## Azure PowerShell
 
-Si aún no lo ha hecho, [instale y configure Azure PowerShell](powershell-install-configure.md). A continuación, abra un símbolo del sistema de Azure PowerShell.
+Si aún no lo ha hecho, [instale y configure Azure PowerShell](../powershell-install-configure.md). A continuación, abra un símbolo del sistema de Azure PowerShell.
 
 ## Establecimiento de la cuenta de suscripción y almacenamiento
 
@@ -62,9 +56,9 @@ A continuación, debe determinar el valor del elemento ImageFamily para la image
 
 A continuación, se muestran algunos ejemplos de valores de ImageFamily de equipos basados en Linux:
 
-- Ubuntu Server 12.10
+- Ubuntu Server 12.10
 - CoreOS Alpha
-- SUSE Linux Enterprise Server 12
+- SUSE Linux Enterprise Server 12
 
 Abra una nueva instancia del editor de texto que prefiera o una instancia del entorno de scripting integrado de PowerShell (ISE). Copie lo siguiente en el nuevo archivo de texto o PowerShell ISE, sustituyendo el valor de ImageFamily.
 
@@ -189,9 +183,9 @@ A continuación se muestran dos ejemplos de uso de los pasos anteriores para cre
 
 Se necesita un conjunto de comandos de PowerShell que cree la máquina virtual de Linux inicial de un servidor de MySQL que:
 
-- Use la imagen de Ubuntu Server 12.10.
+- Use la imagen de Ubuntu Server 12.10.
 - Tenga el nombre AZMYSQL1.
-- Tenga un disco de datos adicional de 500 GB.
+- Tenga un disco de datos adicional de 500 GB.
 - Tenga la dirección IP estática 192.168.244.4.
 - Se encuentre en la subred BackEnd de la red virtual AZDatacenter.
 - Se encuentre en el servicio en la nube Azure-TailspinToys.
@@ -226,9 +220,9 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 Se necesita un conjunto de comandos de PowerShell que cree una máquina virtual de Linux para un servidor Apache que:
 
-- Use la imagen de SUSE Linux Enterprise Server 12.
+- Use la imagen de SUSE Linux Enterprise Server 12.
 - Tenga el nombre LOB1.
-- Tenga un disco de datos adicional de 50 GB.
+- Tenga un disco de datos adicional de 50 GB.
 - Sea miembro del conjunto de equilibrador de carga de LOBServers para el tráfico web estándar.
 - Se encuentre en la subred FrontEnd de la red virtual AZDatacenter.
 - Se encuentre en el servicio en la nube Azure-TailspinToys.
@@ -275,10 +269,10 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Información general sobre las máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Instalación y configuración de Azure PowerShell](powershell-install-configure.md)
+[Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
 
 [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-classic-log-on.md)
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-windows-classic-create-powershell.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

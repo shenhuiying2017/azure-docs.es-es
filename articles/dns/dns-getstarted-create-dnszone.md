@@ -18,10 +18,10 @@
 
 # Introducción a DNS de Azure con PowerShell
 
-
 > [AZURE.SELECTOR]
-- [CLI de Azure](dns-getstarted-create-dnszone-cli.md)
+- [Portal de Azure](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
+- [CLI de Azure](dns-getstarted-create-dnszone-cli.md)
 
 El dominio “contoso.com” puede contener una serie de registros DNS como “mail.contoso.com” (para un servidor de correo) y “www.contoso.com” (para un sitio web). Una zona DNS se usa para hospedar los registros DNS de un dominio concreto.
 
@@ -52,7 +52,7 @@ Creación de un grupo de recursos (omitir este paso si se usa un grupo de recurs
 
 El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Sin embargo, puesto que todos los recursos DNS son globales y no regionales, la elección de la ubicación del grupo de recursos no incide en DNS de Azure.
 
-### Paso 4
+### Paso 4
 El proveedor de recursos Microsoft.Network administra el servicio DNS de Azure. La suscripción a Azure debe estar registrada para usar este proveedor de recursos antes de utilizar DNS de Azure. Se trata de una operación única para cada suscripción.
 
 	PS c:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
@@ -147,4 +147,4 @@ Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesita
 [Introducción a la creación de registros y conjuntos de registros](dns-getstarted-create-recordset.md)<BR> [Administración de zonas DNS](dns-operations-dnszones.md)<BR> [Administración de registros DNS](dns-operations-recordsets.md)<BR> [Automatización de operaciones de Azure con .NET SDK](dns-sdk.md)<BR> [Referencia de la API de REST del DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

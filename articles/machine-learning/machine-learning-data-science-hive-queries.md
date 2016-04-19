@@ -36,7 +36,7 @@ En este artículo se supone que ha:
  
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../hdinsight-get-started.md#storage). 
 * Aprovisionado un clúster de Hadoop con el servicio HDInsight. Si necesita instrucciones, consulte [Aprovisionamiento de un clúster de HDInsight](../hdinsight-get-started.md#provision).
-* Cargado los datos en tablas de Hive en clústeres de Hadoop en HDInsight de Azure. Si no es así, siga las instrucciones proporcionadas en [Crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) para cargar los datos en tablas de Hive primero.
+* Cargado los datos en tablas de Hive en clústeres de Hadoop en HDInsight de Azure. Si no es así, siga las instrucciones proporcionadas en [Crear y cargar datos en tablas de Hive](machine-learning-data-science-move-hive-tables.md) para cargar los datos en tablas de Hive primero.
 * Habilitado el acceso remoto al clúster. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster de Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
@@ -127,7 +127,7 @@ En esta sección, se describen las siguientes tareas de tratamiento de datos med
 1. [Exploración de datos](#hive-dataexploration)
 2. [Generación de características](#hive-featureengineering)
 
-> [AZURE.NOTE] Las consultas de subárbol de ejemplo dan por hecho que se han cargado los datos a tablas de subárbol en clústeres de Hadoop de Azure HDInsight. De no ser así, siga [Crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) para cargar los datos en tablas de Hive primero.
+> [AZURE.NOTE] Las consultas de subárbol de ejemplo dan por hecho que se han cargado los datos a tablas de subárbol en clústeres de Hadoop de Azure HDInsight. De no ser así, siga [Crear y cargar datos en tablas de Hive](machine-learning-data-science-move-hive-tables.md) para cargar los datos en tablas de Hive primero.
 
 ###<a name="hive-dataexploration"></a>Exploración de datos
 A continuación presentamos algunos scripts de subárbol que se pueden usar para explorar los datos de las tablas de subárbol.
@@ -325,4 +325,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

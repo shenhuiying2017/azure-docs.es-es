@@ -35,9 +35,7 @@ Por ejemplo, podría crear un grupo de recursos denominado *MyResourceGroup* en 
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:latest -u <your-user-name> -p <your-password>
 
-Después de aprovisionar y ejecutar la máquina virtual, debe asociar y montar un disco de datos. Consulte las instrucciones [aquí](virtual-machines-linux-cli-create.md#attach-and-mount-a-disk).
-
-Para realizar otras personalizaciones, deberá conectarse a la máquina virtual mediante un cliente SSH de su elección. Para más información, consulte [Conexión a una máquina virtual con Linux de Azure mediante SSH](virtual-machines-linux-portal-create.md#connect-to-your-azure-linux-vm-using-strongsshstrong).
+Después de aprovisionar y ejecutar la máquina virtual, debe asociar y montar un disco de datos. Consulte las instrucciones [aquí](virtual-machines-linux-add-disk).
 
 
 ## Captura de la imagen de la máquina virtual
@@ -200,4 +198,4 @@ Para obtener opciones de comando adicionales, ejecute `azure help vm create`.
 
 Para administrar las máquinas virtuales con la CLI, consulte las tareas de [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

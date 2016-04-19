@@ -21,7 +21,7 @@
 
 ## IMPORTANTE: ESTE SERVICIO ESTÁ DESUSADO
 
-**La característica Artículos que se suelen comprar juntos que ofrece este servicio se ha integrado ahora en nuestra [API Recomendaciones](http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c) más amplia. Le recomendamos que utilice Recomendaciones en lugar de este servicio.**
+**La característica de artículos que se suelen comprar juntos que ofrece este servicio se ha integrado ahora en nuestra [API de recomendaciones](http://gallery.cortanaintelligence.com/MachineLearningAPI/3574432384684cac9cc766e57729ea4c) más amplia. Le recomendamos que utilice Recomendaciones en lugar de este servicio.**
 
 ##Información general
 
@@ -39,4 +39,4 @@ Este servicio contiene API para crear modelos de la aplicación Frequently Bough
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 
@@ -151,8 +151,7 @@ Considere la posibilidad de implementar una caché privada local en cada instanc
 
 Este enfoque requiere tener mucho cuidado con la configuración para evitar que la caché local se vuelva demasiado obsoleta con respecto a la caché compartida. Sin embargo, la caché local actúa como búfer si la caché compartida es inaccesible. En la Figura 3 se muestra esta estructura.
 
-![Uso de una caché local y privada con una caché compartida](media/best-practices-caching/Caching3.png) 
-_Figura 3: Uso de una memoria caché local y privada con una memoria caché compartida_
+![Uso de una caché local y privada con una caché compartida](media/best-practices-caching/Caching3.png) _Figura 3: Uso de una memoria caché local y privada con una memoria caché compartida_
 
 Para admitir cachés de gran tamaño con datos de duración relativamente larga, algunos servicios de caché ofrecen una opción de alta disponibilidad que implementa la conmutación automática por error si la memoria caché dejar de estar disponible. Este enfoque implica normalmente la réplica de los datos en caché que se almacenan en un servidor de caché principal en un servidor de caché secundario y el cambio al servidor secundario si el servicio principal genera error o se pierde la conectividad.
 
@@ -269,7 +268,7 @@ Para más información, visite la página [Redis Security](http://redis.io/topic
 
 ### Uso de la caché en Redis de Azure
 
-La caché en Redis de Azure ofrece acceso a servidores de Redis que se ejecutan en servidores hospedados en un centro de datos de Azure; actúa como una fachada que ofrece seguridad y control de acceso. Puede aprovisionar una caché mediante el portal de Administración de Azure. El portal ofrece varias configuraciones predefinidas, que van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones de SSL (para privacidad) y replicación de maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (ninguna garantía de disponibilidad) que se ejecuta en hardware compartido.
+La caché en Redis de Azure ofrece acceso a servidores de Redis que se ejecutan en servidores hospedados en un centro de datos de Azure; actúa como una fachada que ofrece seguridad y control de acceso. Puede aprovisionar una caché mediante el portal de Administración de Azure. El portal ofrece varias configuraciones predefinidas, que van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones de SSL (para privacidad) y replicación de maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (ninguna garantía de disponibilidad) que se ejecuta en hardware compartido.
 
 Mediante el portal de administración de Azure, también puede configurar la directiva de expulsión de la caché y controlar el acceso a la caché agregando usuarios a los roles ofrecidos: Propietario, Colaborador, Lector. Estos roles definen las operaciones que los miembros pueden realizar. Por ejemplo, los miembros del rol Propietario tienen control completo sobre la caché (incluida la seguridad) y su contenido, los miembros del rol Colaborador pueden leer y escribir información en la caché y los miembros del rol Lector solo pueden recuperar datos de la caché.
 
@@ -301,7 +300,7 @@ De forma similar, el proveedor de caché de resultados para caché en Redis de A
 
 Caché en Redis de Azure proporciona acceso a servidores de Redis que se hospedan en un centro de datos de Azure. Actúa como una fachada que ofrece control de acceso y seguridad. Puede aprovisionar una caché mediante el Portal de Azure.
 
-En él se proporcionan varias configuraciones predefinidas. Estas van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones SSL (para la privacidad) y la replicación maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (sin garantía de disponibilidad) que se ejecuta en hardware compartido.
+En él se proporcionan varias configuraciones predefinidas. Estas van desde una caché de 53 GB que se ejecuta como un servicio dedicado que admite comunicaciones SSL (para la privacidad) y la replicación maestro/subordinado con un SLA del 99,9 % de disponibilidad, hasta una caché de 250 MB sin replicación (sin garantía de disponibilidad) que se ejecuta en hardware compartido.
 
 Mediante el Portal de Azure, también puede configurar la directiva de expulsión de la caché y agregar usuarios a los roles proporcionados con el fin de controlar el acceso. Estos roles, que definen las operaciones que pueden realizar los miembros, incluyen Propietario, Colaborador y Lector. Por ejemplo, los miembros del rol Propietario tienen control completo sobre la caché (incluida la seguridad) y su contenido, los miembros del rol Colaborador pueden leer y escribir información en la caché y los miembros del rol Lector solo pueden recuperar datos de la caché.
 
@@ -334,7 +333,7 @@ De igual forma, el proveedor de caché de resultados para Caché en Redis de Azu
 
 ## Creación de una caché en Redis personalizada
 
-Caché en Redis de Azure actúa como una fachada para los servidores de Redis subyacentes. Actualmente admite un conjunto fijo de configuraciones pero no se ofrece para la agrupación en clústeres de Redis. Si necesita una configuración avanzada que escapa del ámbito de Caché en Redis de Azure (por ejemplo, una caché mayor de 53 GB) puede crear y hospedar sus propios servidores Redis con máquinas virtuales de Azure.
+Caché en Redis de Azure actúa como una fachada para los servidores de Redis subyacentes. Actualmente admite un conjunto fijo de configuraciones pero no se ofrece para la agrupación en clústeres de Redis. Si necesita una configuración avanzada que escapa del ámbito de Caché en Redis de Azure (por ejemplo, una caché mayor de 53 GB) puede crear y hospedar sus propios servidores Redis con máquinas virtuales de Azure.
 
 Este es un proceso potencialmente complejo ya que podría tener que crear varias máquinas virtuales para que actúen como nodos maestros y subordinados si desea implementar la replicación. Además, si desea crear un clúster, necesita varios servidores maestros y subordinados. Una topología mínima de replicación en clúster que proporciona un alto grado de disponibilidad y escalabilidad consta de seis máquinas virtuales como mínimo organizadas en tres pares de servidores maestro/subordinado (un clúster debe contener al menos tres nodos maestros).
 
@@ -565,7 +564,7 @@ Redis admite una serie de operaciones atómicas de get y set en valores de caden
   ConnectionMultiplexer redisHostConnection = ...;
   IDatabase cache = redisHostConnection.GetDatabase();
   ...
-  // Create a list of key/value pairs
+  // Create a list of key-value pairs
   var keysAndValues =
       new List<KeyValuePair<RedisKey, RedisValue>>()
       {
@@ -574,7 +573,7 @@ Redis admite una serie de operaciones atómicas de get y set en valores de caden
           new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
       };
 
-  // Store the list of key/value pairs in the cache
+  // Store the list of key-value pairs in the cache
   cache.StringSet(keysAndValues.ToArray());
   ...
   // Find all values that match a list of keys
@@ -935,4 +934,4 @@ El siguiente patrón también puede ser pertinente para su escenario al implemen
 - La página [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) (Transacciones en Redis) del repositorio de StackExchange.Redis.
 - La [guía de creación de particiones de datos](http://msdn.microsoft.com/library/dn589795.aspx) del sitio web de Microsoft.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

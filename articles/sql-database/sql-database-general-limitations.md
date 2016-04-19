@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Instrucciones y limitaciones generales de Base de datos SQL de Azure"
    description="En esta página se describen algunas limitaciones generales para Base de datos SQL de Azure, así como las áreas de interoperatividad y compatibilidad."
    services="sql-database"
@@ -6,7 +6,7 @@
    authors="rothja"
    manager="jeffreyg"
    editor="monicar" />
-<tags 
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"
@@ -19,15 +19,15 @@
 
 En este tema se describen las instrucciones y las limitaciones generales de Base de datos SQL de Azure. Para obtener una visión global que le ayude a comprender las cuotas, la administración de recursos y el soporte técnico, consulte la sección [recursos adicionales](#additional-guidelines) al final de este tema.
 
-## Conectividad
+## Conectividad y autenticación
 
- - La autenticación de Windows no es compatible. Consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md). 
+  - La autenticación de Windows no es compatible. Consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md). No obstante, la autenticación de Azure Active Directory se admite con ciertas limitaciones. Consulte [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md).
 
- - La Base de datos SQL de Microsoft Azure admite el cliente de protocolo de secuencia de datos tabular (TDS) en la versión 7.3 o posterior.
+  - La Base de datos SQL de Microsoft Azure admite el cliente de protocolo de secuencia de datos tabular (TDS) en la versión 7.3 o posterior.
 
- - Se permiten únicamente las conexiones TCP/IP.
+  - Se permiten únicamente las conexiones TCP/IP.
 
- - El explorador de SQL Server 2008 no se admite porque la Base de datos SQL de Microsoft Azure no tiene puertos dinámicos, solo el puerto 1433.
+  - El explorador de SQL Server 2008 no se admite porque la Base de datos SQL de Microsoft Azure no tiene puertos dinámicos, solo el puerto 1433.
 
 ## Trabajos/Agente SQL Server
 
@@ -41,11 +41,11 @@ La intercalación de bases de datos predeterminada que utiliza Base de datos SQL
 
 Algunos nombres de usuario no se permiten por razones de seguridad. No puede usar los siguientes nombres:
 
- - **admin** 
- - **administrator** 
- - **guest** 
- - **root** 
- - **sa** 
+ - **admin**
+ - **administrator**
+ - **guest**
+ - **root**
+ - **sa**
 
 Los nombres de todos los objetos nuevos deben cumplir las reglas de SQL Server para los identificadores. Para obtener más información, consulte [Identificadores](https://msdn.microsoft.com/library/ms175874.aspx).
 
@@ -63,4 +63,4 @@ Además, los nombres de inicio de sesión y el usuario no pueden contener el car
 
 - Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

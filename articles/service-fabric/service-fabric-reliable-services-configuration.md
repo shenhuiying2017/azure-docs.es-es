@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="sumukhs"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -32,7 +32,7 @@ La configuración global de los servicios de confianza se especifica en el manif
 |WriteBufferMemoryPoolMaximumInKB|Kilobytes|Ilimitado|Tamaño máximo al que puede aumentar el grupo de memoria del búfer de escritura del registrador.|
 |SharedLogId|GUID|""|Especifica un GUID único que se usará para identificar el archivo de registro compartido predeterminado que usan todos los servicios de confianza en todos los nodos del clúster que no especifican SharedLogId en su configuración específica del servicio. Si se especifica SharedLogId, también se debe especificar SharedLogPath.|
 |SharedLogPath|Nombre de ruta de acceso completo|""|Especifica la ruta de acceso completa donde se encuentra el archivo de registro compartido que usan todos los servicios de confianza en todos los nodos del clúster que no especifican SharedLogPath en su configuración específica del servicio. Sin embargo, si se especifica SharedLogPath, también se debe especificar SharedLogId.|
-|SharedLogSizeInMB|Megabytes|8192|Especifica el número de MB de espacio en disco que se van a asignar estáticamente para el registro compartido. El valor deber ser 2048 o superior.|
+|SharedLogSizeInMB|Megabytes|8192|Especifica el número de MB de espacio en disco que se va a asignar estáticamente para el registro compartido. El valor deber ser 2048 o superior.|
 
 ### Ejemplo de sección de manifiesto de clúster
 ```xml
@@ -57,7 +57,7 @@ SharedLogSizeInMB especifica la cantidad de espacio en disco que se va a preasig
 Puede modificar la configuración predeterminada de Reliable Services con estado mediante el paquete de configuración (Config) o la implementación del servicio (código).
 
 + **Config**: la configuración mediante el paquete de configuración se realiza cambiando el archivo Settings.xml generado en la raíz del paquete de Visual Studio, en la carpeta Config de cada servicio de la aplicación.
-+ **Código**: la configuración mediante código se realiza invalidando StatefulService.CreateReliableStateManager y creando un objeto ReliableStateManager mediante un objeto ReliableStateManagerConfiguration con el conjunto de opciones adecuado.
++ **Código**: la configuración a través del código se consigue creando una clase ReliableStateManager con un objeto ReliableStateManagerConfiguration con el conjunto de opciones adecuado.
 
 De forma predeterminada, el tiempo de ejecución de Azure Service Fabric busca los nombres de sección predefinidos en el archivo Settings.xml y usa los valores de configuración mientras crea los componentes en tiempo de ejecución subyacentes.
 
@@ -97,14 +97,32 @@ ReplicatorConfig
 
 ### Ejemplo de configuración mediante código
 ```csharp
-protected override IReliableStateManager CreateReliableStateManager()
+class Program
 {
-    return new ReliableStateManager(
+    /// <summary>
+    /// This is the entry point of the service host process.
+    /// </summary>
+    static void Main()
+    {
+        ServiceRuntime.RegisterServiceAsync("HelloWorldStatefulType",
+            context => new HelloWorldStateful(context, 
+                new ReliableStateManager(context, 
         new ReliableStateManagerConfiguration(
-            new ReliableStateManagerReplicatorSettings
+                        new ReliableStateManagerReplicatorSettings()
             {
                 RetryInterval = TimeSpan.FromSeconds(3)
-            }));
+                        }
+            )))).GetAwaiter().GetResult();
+    }
+}    
+```
+```csharp
+class MyStatefulService : StatefulService
+{
+    public MyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica stateManager)
+        : base(context, stateManager)
+    { }
+    ...
 }
 ```
 
@@ -136,8 +154,12 @@ BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "
 
 El valor de CheckpointThresholdInMB controla la cantidad de espacio en disco que el replicador puede usar para almacenar información de estado en el archivo de registro específico de la réplica. Aumentar este valor a un valor mayor que el predeterminado puede acelerar los tiempos de reconfiguración cuando se agrega una nueva réplica al conjunto. Esto se debe a la transferencia de estado parcial que tiene lugar debido a la disponibilidad de mayor cantidad de historial de operaciones en el registro. Esto podría aumentar el tiempo de recuperación de una réplica después de un error.
 
-El parámetro MaxRecordSizeInKB define el tamaño máximo de un registro que el replicador puede escribir en el archivo de registro. En la mayoría de los casos, el tamaño predeterminado de 1024 KB del registro es óptimo. Sin embargo, si el servicio hace que elementos de datos de mayor tamaño formen parte de la información de estado, es posible que este valor se tenga que aumentar. Cambiar MaxRecordSizeInKB para que tenga un tamaño inferior a 1024 presenta pocas ventajas, ya que los registros más pequeños solamente usan el espacio necesario para el registro más pequeño. Se espera que este valor solo tenga que cambiarse en raras ocasiones.
+El parámetro MaxRecordSizeInKB define el tamaño máximo de un registro que el replicador puede escribir en el archivo de registro. En la mayoría de los casos, el tamaño predeterminado de 1024 KB del registro es óptimo. Sin embargo, si el servicio hace que elementos de datos de mayor tamaño formen parte de la información de estado, es posible que este valor se tenga que aumentar. Cambiar MaxRecordSizeInKB para que tenga un tamaño inferior a 1024 presenta pocas ventajas, ya que los registros más pequeños solamente usan el espacio necesario para el registro más pequeño. Se espera que este valor solo tenga que cambiarse en raras ocasiones.
 
 Los parámetros SharedLogId y SharedLogPath siempre se usan en conjunto para obligar a un servicio a usar un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Para reducir la contención del movimiento de encabezados, los archivos de registro compartidos deben colocarse en discos que se usen únicamente para el archivo de registro compartido. Se espera que este valor solo tenga que cambiarse en raras ocasiones.
 
-<!---HONumber=AcomDC_0330_2016-->
+## Pasos siguientes
+ - [Depuración de la aplicación del Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
+ - [Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
+
+<!---HONumber=AcomDC_0406_2016-->

@@ -68,4 +68,8 @@ En un **Plan del servicio de aplicaciones dinámico** no tiene que preocuparse a
 
 Un **Plan del servicio de aplicaciones clásico** permite ejecutar funciones igual que aplicaciones web, móviles y de API. Es una gran solución si ya está utilizando el Servicio de aplicaciones para otras aplicaciones: sus funciones pueden ejecutarse en el mismo plan sin ningún coste adicional. Puede encontrar detalles completos en la [página Precios de Servicio de aplicaciones](/pricing/details/app-service/).
 
-<!---HONumber=AcomDC_0406_2016-->
+## Problemas de informes
+
+[AZURE.INCLUDE [Problemas de informes](../../includes/functions-reporting-issues.md)]
+
+<!---HONumber=AcomDC_0413_2016-->

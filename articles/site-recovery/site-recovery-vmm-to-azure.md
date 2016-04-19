@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Portal de Azure clásico](site-recovery-vmm-to-azure.md)
 - [PowerShell: clásico](site-recovery-deploy-with-powershell.md)
-- [PowerShell: administrador de recursos](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+- [PowerShell: administrador de recursos](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 
 
 El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Las máquinas se pueden replicar a Azure o a un centro de datos secundario local. Para obtener una introducción rápida, lea [¿Qué es Azure Site Recovery?](site-recovery-overview.md).
@@ -48,9 +48,9 @@ Esto es lo que necesita en Azure:
 
 **Requisito previo** | **Detalles**
 --- | ---
-**Cuenta de Azure**| Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/). [Obtenga más información](https://azure.microsoft.com/pricing/details/site-recovery/) sobre los precios de Site Recovery. 
+**Cuenta de Azure**| Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/). [Obtenga más información](https://azure.microsoft.com/pricing/details/site-recovery/) sobre los precios de Site Recovery.
 **Almacenamiento de Azure** | Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados. Los datos replicados se almacenan en el almacenamiento de Azure y las máquinas virtuales de Azure se ponen en marcha cuando se produce la conmutación por error. <br/><br/>Necesita una [cuenta de almacenamiento con redundancia geográfica de tipo estándar](../storage/storage-redundancy.md#geo-redundant-storage). La cuenta debe encontrarse en la misma región que el servicio Site Recovery y debe estar asociada a la misma suscripción. Tenga en cuenta que la replicación en cuentas de almacenamiento Premium no se admite actualmente y no se debe usar.<br/><br/>[Más información sobre](../storage/storage-introduction.md) Almacenamiento de Azure.
-**Red de Azure** | Necesitará una red virtual de Azure a la que se conectarán las máquinas virtuales de Azure cuando se produzca la conmutación por error. La red virtual de Azure debe estar en la misma región que el almacén de Site Recovery. 
+**Red de Azure** | Necesitará una red virtual de Azure a la que se conectarán las máquinas virtuales de Azure cuando se produzca la conmutación por error. La red virtual de Azure debe estar en la misma región que el almacén de Site Recovery.
 
 ## Requisitos previos locales
 
@@ -113,17 +113,18 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 ## Paso 3: Instalación del proveedor de Azure Site Recovery
 
 1. En **Inicio rápido** > **Preparar servidores VMM**, haga clic en **Descargar el proveedor de Microsoft Azure Site Recovery para instalarlo en servidores VMM** para obtener la versión más reciente del archivo de instalación del proveedor.
-2. Ejecute este archivo en el servidor VMM de origen. Si VMM está implementado en un clúster y va a instalar el proveedor por primera vez, instálelo en un nodo activo y finalice la instalación para registrar el servidor VMM en el almacén. A continuación, instale el proveedor en los demás nodos. Tenga en cuenta que si está actualizando el proveedor, tendrá que actualizarlo en todos los nodos, ya que deben ejecutar la misma versión del proveedor.
-3. El instalador realiza una comprobación de los requisitos previos y solicita permiso para detener el servicio VMM y así comenzar la instalación del proveedor. El servicio VMM se reiniciará automáticamente cuando finalice la instalación. Si va a instalarlo en un clúster VMM, se le pedirá que detenga el rol de clúster.
+2. Ejecute este archivo en el servidor VMM de origen.
 
-	![Requisitos previos](./media/site-recovery-vmm-to-azure/prereq.png)
+	>[AZURE.NOTE] Si VMM está implementado en un clúster y va a instalar el proveedor por primera vez, instálelo en un nodo activo y finalice la instalación para registrar el servidor VMM en el almacén. A continuación, instale el proveedor en los demás nodos. Tenga en cuenta que si está actualizando el proveedor, tendrá que actualizarlo en todos los nodos, ya que deben ejecutar la misma versión del proveedor.
+	
+3. El instalador realiza una comprobación de los requisitos previos y solicita permiso para detener el servicio VMM y así comenzar la instalación del proveedor. El servicio VMM se reiniciará automáticamente cuando finalice la instalación. Si va a instalarlo en un clúster VMM, se le pedirá que detenga el rol de clúster.
 
 4. En **Microsoft Update** puede optar por recibir actualizaciones. Con esta configuración habilitada, las actualizaciones del proveedor se instalarán según su directiva de Microsoft Update.
 
 	![Microsoft Updates](./media/site-recovery-vmm-to-azure/updates.png)
 
 
-5.  La ubicación de instalación del proveedor está establecida en **<SystemDrive>\\Archivos de programa\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Haga clic en **Instalar**.
+5.  La ubicación de instalación para el proveedor está establecida en **<SystemDrive>\\Archivos de programa\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Haga clic en **Instalar**.
 
 	![InstallLocation](./media/site-recovery-vmm-to-azure/install-location.png)
 
@@ -143,12 +144,12 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net
 		- *.store.core.windows.net
-	- Permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) y el protocolo HTTPS (443). Deberá también incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del oeste de EE. UU.
+	- Permita las direcciones IP que se describen en [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalos de direcciones IP de los centros de datos de Azure) y el protocolo HTTPS (443). Deberá también incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del oeste de EE. UU.
 
 	- Si utiliza un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) mediante el uso automático de las credenciales de proxy especificadas. Configure el servidor proxy para que esta cuenta pueda autenticarse correctamente. La configuración de la cuenta de ejecución de VMM puede modificarse en la consola VMM. Para ello, abra el área de trabajo Configuración, expanda Seguridad, haga clic en Cuentas de ejecución y, a continuación, modifique la contraseña de DRAProxyAccount. Deberá reiniciar el servicio VMM para que esta configuración surta efecto.
 
 8. En **Clave de registro**, seleccione lo que ha descargado de Azure Site Recovery y copiado en el servidor VMM.
-9. En **Nombre del almacén**, compruebe el nombre del almacén en el que se registrará el servidor. 
+9. En **Nombre del almacén**, compruebe el nombre del almacén en el que se registrará el servidor.
 
 	![Registro de servidor](./media/site-recovery-vmm-to-azure/credentials.png)
 
@@ -191,13 +192,13 @@ Los parámetros son los siguientes:
  - **/EncryptionEnabled**: parámetro opcional para especificar si desea cifrar las máquinas virtuales en Azure (cifrado de datos en reposo). El nombre de archivo debe tener una extensión **.pfx**.
  - **/proxyAddress**: parámetro opcional que especifica la dirección del servidor proxy.
  - **/proxyport**: parámetro opcional que especifica el puerto del servidor proxy.
- - **/proxyusername**: parámetro opcional que especifica el nombre de usuario del proxy.
- - **/proxypassword**: parámetro opcional que especifica la contraseña del proxy.  
+ - **/proxyUsername**: parámetro opcional que especifica el nombre de usuario del proxy.
+ - **/proxyPassword**: parámetro opcional que especifica la contraseña del proxy.  
 
 
 ## Paso 4: Creación de una cuenta de almacenamiento de Azure
 
-1. Si no dispone de una cuenta de Almacenamiento de Azure, haga clic en **Agregar cuenta de almacenamiento de Azure** para crear una.
+1. Si no dispone de una cuenta de Almacenamiento de Azure, haga clic en **Agregar cuenta de almacenamiento de Azure** para crear una cuenta.
 2. Cree una cuenta con la replicación geográfica habilitada. Además, debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción.
 
 	![Cuenta de almacenamiento](./media/site-recovery-vmm-to-azure/storage.png)
@@ -216,16 +217,16 @@ Instale el Agente de Servicios de recuperación de Azure en cada servidor host d
 	![Prerequisites Recovery Services Agent](./media/site-recovery-vmm-to-azure/agent-prereqs.png)
 
 4. En la página **Configuración de la instalación**, especifique dónde desea instalar el agente y seleccione la ubicación de la caché en la que se instalarán los metadatos de copia de seguridad. Luego haga clic en **Instalar**.
-5. Una vez finalizada instalación, haga clic en **Cerrar** para completar el asistente.
-	
+5. Una vez finalizada la instalación, haga clic en **Cerrar** para completar el asistente.
+
 	![Registro del agente MARS](./media/site-recovery-vmm-to-azure/agent-register.png)
 
-### Instalación de la línea de comandos 
+### Instalación de la línea de comandos
 
 También puede instalar el Agente de Servicios de recuperación de Microsoft Azure desde la línea de comandos mediante el comando siguiente:
 
     marsagentinstaller.exe /q /nu
-	
+
 ## Paso 6: Configuración de la protección de la nube
 
 Una vez registrado el servidor de VMM, puede configurar los valores de protección de la nube. La opción **Sincronizar datos de nube con el almacén** se habilita cuando se instala el proveedor, de modo que todas las nubes del servidor VMM aparecerán en la pestaña <b>Elementos protegidos</b> del almacén.
@@ -268,7 +269,7 @@ Tenga en cuenta que si la red de destino tiene varias subredes y una de estas su
 
 Una vez que los servidores, las nubes y las redes se configuran correctamente, puede habilitar la protección para las máquinas virtuales en la nube. Tenga en cuenta lo siguiente:
 
-- Las máquinas virtuales deben cumplir los [requisitos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+- Las máquinas virtuales tienen que cumplir los [requisitos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 - Para habilitar la protección del sistema operativo y el disco del sistema operativo, deben establecerse las propiedades de la máquina virtual. Al crear una máquina virtual en VMM con una plantilla de máquina virtual puede establecer la propiedad. También puede establecer estas propiedades para máquinas virtuales existentes en las pestañas **General** y **Configuración del hardware** de las propiedades de la máquina virtual. Si no ve estas propiedades en VMM, podrá configurarlas en el portal de Azure Site Recovery.
 
 	![Create virtual machine](./media/site-recovery-vmm-to-azure/enable-new.png)
@@ -281,7 +282,7 @@ Una vez que los servidores, las nubes y las redes se configuran correctamente, p
 
 	![Enable virtual machine protection](./media/site-recovery-vmm-to-azure/select-vm.png)
 
-	Siga el progreso de la acción **Habilitar protección** en la pestaña **Trabajos**, incluida la replicación inicial. La máquina virtual estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar protección**. Después de habilitar la protección y replicar las máquinas virtuales, podrá verlas en Azure.
+	Siga el desarrollo de la acción **Habilitar protección** en la pestaña **Trabajos**, incluida la replicación inicial. La máquina virtual estará preparada para la conmutación por error después de que finalice el trabajo de **Finalizar la protección**. Después de habilitar la protección y replicar las máquinas virtuales, podrá verlas en Azure.
 
 
 	![Virtual machine protection job](./media/site-recovery-vmm-to-azure/vm-jobs.png)
@@ -320,6 +321,8 @@ La conmutación por error de prueba simula su mecanismo de conmutación por erro
 - Si después de la conmutación por error desea conectarse a la máquina virtual de Azure mediante Escritorio remoto, habilite Conexión a Escritorio remoto en la máquina virtual antes de ejecutar la prueba.
 - Después de la conmutación por error, usará una dirección IP pública para conectarse a la máquina virtual de Azure mediante Escritorio remoto. Si desea realizar esto, asegúrese de no tener ninguna directiva de dominio que impida que se conecte a una máquina virtual mediante una dirección pública.
 
+>[AZURE.NOTE] Para obtener el mejor rendimiento cuando realice una conmutación por error a Azure, asegúrese de que ha instalado al agente de Azure en el equipo protegido. Esto ayuda a que el arranque se realice con más rapidez y también a realizar el diagnóstico en caso de problemas. Se puede encontrar el agente de Linux [aquí](https://github.com/Azure/WALinuxAgent) - y el agente de Windows [aquí](http://go.microsoft.com/fwlink/?LinkID=394789)
+
 ### Creación de un plan de recuperación
 
 1. En la pestaña **Planes de recuperación**, agregue un plan nuevo. Especifique un nombre, **VMM** en **Tipo de origen** y el servidor VMM de origen en **Origen**. El destino será Azure.
@@ -329,7 +332,7 @@ La conmutación por error de prueba simula su mecanismo de conmutación por erro
 2. En la página **Seleccionar máquinas virtuales**, seleccione las máquinas virtuales que se agregarán al plan de recuperación. Estas máquinas virtuales se agregan al grupo predeterminado del plan de recuperación: grupo 1. Se ha probado un máximo de 100 máquinas virtuales en un solo plan de recuperación.
 
 	- Si desea comprobar las propiedades de la máquina virtual antes de agregarlas al plan, haga clic en la máquina virtual en la página de propiedades de la nube en la que se encuentra. También puede configurar las propiedades de la máquina virtual en la consola VMM.
-	- Todas las máquinas virtuales que se muestran se han habilitado para la protección. La lista incluye las máquinas virtuales que se han habilitado para protección y cuya replicación inicial se ha completado, así como las que están habilitadas para protección y cuya replicación inicial está pendiente. Solo las máquinas virtuales con la replicación inicial completada pueden conmutar por error como parte de un plan de recuperación. 
+	- Todas las máquinas virtuales que se muestran se han habilitado para la protección. La lista incluye las máquinas virtuales que se han habilitado para protección y cuya replicación inicial se ha completado, así como las que están habilitadas para protección y cuya replicación inicial está pendiente. Solo las máquinas virtuales con la replicación inicial completada pueden conmutar por error como parte de un plan de recuperación.
 
 
 	![Creación de un plan de recuperación](./media/site-recovery-vmm-to-azure/select-rp.png)
@@ -372,4 +375,4 @@ Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 
 Más información sobre la [configuración de los planes de recuperación](site-recovery-create-recovery-plans.md) y la [conmutación por error](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

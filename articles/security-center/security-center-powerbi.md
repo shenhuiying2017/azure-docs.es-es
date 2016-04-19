@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/25/2016"
+   ms.date="04/11/2016"
    ms.author="yurid"/>
 
 # Obtención de información mediante los datos de Azure Security Center con Power BI
@@ -77,7 +77,7 @@ También puede utilizar el panel de Azure Security Center para tener acceso a in
 
 1\. En el panel de **Azure Security Center** haga clic en el botón **Explorar en Power BI**.
 
-![Conexión a Azure Security Center mediante Power BI](./media/security-center-powerbi/security-center-powerbi-fig9.png)
+![Conexión a Azure Security Center mediante Power BI](./media/security-center-powerbi/security-center-powerbi-fig9-new.png)
 
 2\. La hoja **Explorar en Power BI** se abre en el lado derecho como se muestra a continuación:
 
@@ -95,6 +95,8 @@ También puede utilizar el panel de Azure Security Center para tener acceso a in
 
 8\. Se le redirigirá a una página de autenticación donde debe escribir las credenciales que usa para conectarse a Azure Security Center. Una vez finalizado el proceso de autenticación, Power BI iniciará la importación de datos para generar los informes.
 
+> [AZURE.NOTE] Una actualización del informe está programada para realizarse diariamente, si se produce un error en esta actualización, consulte [Potential Refresh Issues with the Azure Security Center Power BI](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/) (Posibles problemas de actualización en Azure Security Center con Power BI), para más información acerca de cómo solucionar problemas.
+
 ## Pasos siguientes
 En este documento, ha aprendido a usar Power BI en Azure Security Center. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
@@ -103,4 +105,4 @@ En este documento, ha aprendido a usar Power BI en Azure Security Center. Para o
 - [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): Encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

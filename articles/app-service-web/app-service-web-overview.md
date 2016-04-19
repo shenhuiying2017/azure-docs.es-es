@@ -25,6 +25,8 @@ Aproveche la eficacia de las [Aplicaciones web del Servicio de aplicaciones](htt
 
 ![Marketplace web](./media/app-service-web-overview/marketplace.png)
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 ## Mucho más que simples sitios web##
 
 Las empresas modernas interactúan con sus clientes de formas cada vez más sofisticadas. Compañías de todos los tipos consideran su presencia web corporativa como una parte crítica de su empresa y componente principal de su plan de negocio. Para adaptarse a este importante hecho, las empresas buscan una plataforma que proporcione agilidad, escalabilidad y seguridad. Además, necesitan poder vincularse a sus sistemas de negocio existentes, ser capaces de implementar rápidamente nuevo código y poner al día las instancias en todo el planeta. Con el Servicio de aplicaciones y Aplicaciones web de Azure, las organizaciones pueden satisfacer los requisitos de sus clientes de forma rápida y rentable.
@@ -64,4 +66,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

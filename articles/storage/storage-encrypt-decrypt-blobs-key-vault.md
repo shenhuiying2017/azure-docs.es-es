@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Cifrado y descifrado de blobs en Almacenamiento de Microsoft Azure con Almacén de claves de Azure | Microsoft Azure"
+   pageTitle="Tutorial: Cifrado y descifrado de blobs en Almacenamiento de Microsoft Azure con Almacén de claves de Azure | Microsoft Azure"
    description="Este tutorial le guiará por los pasos para cifrar y descifrar un blob mediante el cifrado del lado cliente de Almacenamiento de Microsoft Azure con Almacén de claves de Azure."
    services="storage"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="01/06/2016"
+   ms.date="03/31/2016"
    ms.author="lakasa"/>
 
-# Cifrado y descifrado de blobs en Almacenamiento de Microsoft Azure con Almacén de claves de Azure
+# Tutorial: Cifrado y descifrado de blobs en Almacenamiento de Microsoft Azure con Almacén de claves de Azure
 
 ## Introducción
 
@@ -235,4 +235,4 @@ Para obtener la información más reciente sobre Almacenamiento de Microsoft Azu
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

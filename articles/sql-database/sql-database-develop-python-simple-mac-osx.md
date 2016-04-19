@@ -101,4 +101,4 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 
 Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

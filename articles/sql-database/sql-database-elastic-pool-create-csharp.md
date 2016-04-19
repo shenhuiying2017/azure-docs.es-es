@@ -278,6 +278,5 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
 
 - [Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-- [Referencias acerca del grupo de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

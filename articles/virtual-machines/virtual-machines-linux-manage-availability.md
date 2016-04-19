@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="04/01/2016"
+	ms.author="iainfou"/>
 
 # Manage the availability of Linux virtual machines (Administración de la disponibilidad de las máquinas virtuales con Linux)
 
@@ -25,4 +25,4 @@ Aprenda a configurar y administrar varias máquinas virtuales para garantizar un
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

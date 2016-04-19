@@ -3,8 +3,8 @@
    description="Explica cómo usar la página del catálogo de copias de seguridad del Administrador de StorSimple para restaurar un volumen de StorSimple desde un conjunto de copias de seguridad."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
-   ms.author="v-sharos" />
+   ms.date="03/23/2016"
+   ms.author="alkohli" />
 
 # Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
 
@@ -25,7 +25,7 @@ La página **Catálogo de copias de seguridad** muestra todos los conjuntos de c
 
  ![Página del catálogo de copias de seguridad](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
-Este tutorial explica cómo usar la página **Catálogo de copias de seguridad** para restaurar el dispositivo desde un conjunto de copia de seguridad.
+En este tutorial se explica cómo usar la página **Catálogo de copias de seguridad** para restaurar un volumen desde un conjunto de copia de seguridad.
 
 ## Cómo usar el catálogo de copias de seguridad 
 
@@ -45,10 +45,11 @@ A continuación, los conjuntos de copias de seguridad filtrados se presentan en 
 
 ## Cómo restaurar un volumen de StorSimple de una copia de seguridad.
 
-Puede usar la página **Catálogo de copias de seguridad** para restaurar el volumen StorSimple a partir de una copia de seguridad específica. Sin embargo, debe tener en cuenta que, cuando se restaura un volumen, el volumen volverá al estado en el que se encontraba cuando se realizó la copia de seguridad. Se perderán todos los datos que se agregaron después de la operación de copia de seguridad.
+Puede usar la página **Catálogo de copias de seguridad** para restaurar el volumen StorSimple a partir de una copia de seguridad específica.
 
 > [AZURE.WARNING] Cuando se realice una restauración a partir de una copia de seguridad, se reemplazarán los volúmenes existentes desde la copia de seguridad. Esto puede provocar la pérdida de los datos que se escribieron después de que se realizase la copia de seguridad.
 
+Antes de iniciar una restauración en un volumen, asegúrese de que el volumen está sin conexión. Deberá desconectar primero el volumen en el host y, luego, en el dispositivo. Siga los pasos de [Desconexión de un volumen](storsimple-manage-volumes.md#take-a-volume-offline). Realice los siguientes pasos para restaurar un volumen a partir de conjunto de copia de seguridad.
 
 ### Para restaurar desde un conjunto de copias de seguridad
 
@@ -64,13 +65,11 @@ Puede usar la página **Catálogo de copias de seguridad** para restaurar el vol
  
     Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
 
-3. Expanda el conjunto de copias de seguridad para ver los volúmenes asociados. Estos volúmenes deben desconectarse en el host y en el dispositivo para que pueda restaurarlos. Acceda a los volúmenes de la página **Contenedores de volúmenes** y, a continuación, siga los pasos indicados en [Desconectar un volumen](storsimple-manage-volumes.md#take-a-volume-offline) para desconectarlos.
+3. Expanda el conjunto de copias de seguridad para ver los volúmenes asociados. Estos volúmenes deben desconectarse en el host y en el dispositivo para que pueda restaurarlos. Siga los pasos de [Desconexión de un volumen](storsimple-manage-volumes.md#take-a-volume-offline).
 
     >  [AZURE.IMPORTANT] Asegúrese de desconectar primero los volúmenes del host y, después, desconectar los volúmenes del dispositivo. Si no establece los volúmenes sin conexión en el host, esto podría causar daños en los datos.
 
-4. Vuelva a la pestaña **Catálogo de copias de seguridad** y seleccione un conjunto de copias de seguridad.
-
-5. Haga clic en **Restaurar** en la parte inferior de la página.
+4. Seleccione un conjunto de copia de seguridad. Haga clic en **Restaurar** en la parte inferior de la página.
 
 6. Se le pedirá confirmación.
 
@@ -90,4 +89,4 @@ Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las
 
 - Obtenga información sobre cómo [usar el servicio del administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

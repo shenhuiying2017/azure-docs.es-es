@@ -1,6 +1,6 @@
 <properties
    pageTitle="Descripción general de Reliable Actors de Service Fabric | Microsoft Azure"
-   description="Introducción al modelo de programación de Service Fabric Reliable Actors"
+   description="Introducción al modelo de programación de Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,79 +13,104 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Introducción a Service Fabric Reliable Actors.
-La API de Reliable Actors es uno de los dos marcos de alto nivel proporcionados por [Service Fabric](service-fabric-technical-overview.md), junto con la [API de Reliable Services](service-fabric-reliable-services-introduction.md).
 
-En función del patrón de actor, la API de Reliable Actors proporciona un modelo de programación asincrónico y uniproceso que simplifica el código mientras se beneficia de la confiabilidad y escalabilidad que Service Fabric proporciona.
+Reliable Actors es un marco de trabajo de la aplicación de Service Fabric que se basa en el modelo [Virtual Actor](http://research.microsoft.com/es-ES/projects/orleans/). La API de Reliable Actors proporciona un modelo de programación uniproceso basado en las garantías de escalabilidad y confiabilidad que ofrece Service Fabric.
 
-## Actores
-Los actores son componentes de subproceso único aislados que encapsulan el comportamiento y el estado. Son similares a los objetos de .NET y, por tanto, ofrecen un modelo de programación natural. Cada actor es una instancia de un tipo de actor, similar a la forma en que un objeto de .NET es una instancia de un tipo de .NET. Por ejemplo, un tipo de actor puede implemente la funcionalidad de una calculadora, y muchos actores de ese tipo podrían distribuirse por varios nodos de un clúster. Cada uno de esos actores se identifica de forma única mediante un identificador de actor.
+## ¿Qué son los actores?
+Un actor es una unidad aislada e independiente de proceso y estado con ejecución uniproceso. El [patrón de actor](https://en.wikipedia.org/wiki/Actor_model) es un modelo informático para sistemas simultáneos o distribuidos en que un gran número de estos actores puede ejecutarse simultánea e independientemente unos de otros. Los actores pueden comunicarse entre sí y pueden crear más actores.
 
-## Definición e implementación de las interfaces de actor
+### Cuándo usar Reliable Actors
 
-Los actores interactúan con el resto del sistema, incluidos otros actores, mediante el intercambio de mensajes asincrónicos con un patrón de solicitud-respuesta. Estas interacciones se definen en una interfaz como métodos asincrónicos. Por ejemplo, la interfaz de un tipo de actor que implementa la funcionalidad de una calculadora se puede definir del modo indicado a continuación:
+Service Fabric Reliable Actors es una implementación del modelo de diseño del actor. Al igual que sucede con cualquier modelo de diseño de software, la decisión sobre si usar un modelo específico se toma en función de si un problema de diseño de software se adapta al modelo o no.
+
+Aunque el modelo de diseño del actor puede resultar adecuado para un número de problemas y escenarios de sistemas distribuidos, se requiere una consideración cuidadosa de las restricciones del modelo y el marco de trabajo que lo implementa. Como regla general, tenga en cuenta el patrón de actor para modelar su problema o escenario si:
+
+ - El espacio del problema implica un gran número (miles o más) de unidades pequeñas, independientes y aisladas de estado y lógica.
+
+ - Desea trabajar con objetos uniproceso que no requieren una interacción importante de los componentes externos, incluida la consulta del estado en un conjunto de actores.
+
+ - Las instancias de actor no bloquearán a los autores de llamadas con retrasos imprevisibles emitiendo operaciones de E/S.
+
+## Actores en Service Fabric
+
+En Service Fabric, los actores se implementan en el marco de trabajo de Reliable Actors: un marco de trabajo de la aplicación basado en el patrón de actor y en [Reliable Services de Service Fabric](service-fabric-reliable-services-introduction.md). Cada servicio de Reliable Actors que escribe es en realidad un servicio de confianza con estado particionado.
+
+Cada actor se define como una instancia de un tipo de actor, similar a la forma en que un objeto de .NET es una instancia de un tipo de .NET. Por ejemplo, puede haber un tipo de actor que implemente la funcionalidad de una calculadora y podría haber muchos actores de ese tipo que se distribuyesen en varios nodos en un clúster. Cada uno de esos actores se identifica de forma única mediante un identificador de actor.
+
+### Duración del actor
+
+Los actores de Service Fabric son virtuales, lo que significa que su duración no está vinculada a su representación en memoria. Como resultado, no es necesario crearlas ni destruirlas explícitamente. El tiempo de ejecución de Reliable Actors activa automáticamente un actor la primera vez que recibe una solicitud para ese identificador de actor. Si no se usa un actor durante un período de tiempo, el tiempo de ejecución de Reliable Actors recopila el objeto en memoria como elemento no utilizado. También mantendrá conocimientos de la existencia del actor por si es necesario reactivarlo más adelante. Para más información, consulte [Ciclo de vida de un actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md).
+
+Esta abstracción de la duración del actor virtual incluye algunas advertencias como resultado del modelo Virtual Actor y, de hecho, la implementación de Reliable Actors se desvía en ocasiones de este modelo.
+
+ - Un actor se activa automáticamente (provocando la creación de un objeto de actor) la primera vez que se envía un mensaje a su identificador de actor. Transcurrido un período de tiempo, el objeto de actor se recolecta como elemento no utilizado. En el futuro, usar de nuevo el identificador de actor provoca la creación de un nuevo objeto de actor. La duración del estado del actor equivale a la vida útil del objeto al almacenarse en el administrador de estado.
+ 
+ - Al llamar a cualquier método de actor para un identificador de actor se activa dicho actor. Por este motivo, se llama de forma implícita al creador de los tipos de actor mediante el tiempo de ejecución. Por lo tanto, el código de cliente no puede pasar parámetros al creador del tipo de actor, aunque se pueden pasar parámetros al creador del actor mediante el propio servicio. El resultado es que los actores se pueden crear en un estado inicializado de forma parcial en el momento en que se llama a otros métodos en él, en caso de que el actor requiera parámetros de inicialización del cliente. No hay ningún punto de entrada único para la activación de un actor desde el cliente.
+
+ - Aunque Reliable Actors crea de forma implícita objetos de actor, tiene la posibilidad de eliminar explícitamente un actor y su estado.
+
+### Distribución y conmutación por error
+
+Para proporcionar escalabilidad y confiabilidad, Service Fabric distribuye actores en el clúster y los migra automáticamente desde los nodos con errores hasta los correctos según sea necesario. Se trata de una abstracción sobre un [servicio de confianza con estado particionado](./service-fabric-concepts-partitioning.md). Distribución, escalabilidad, confiabilidad y conmutación por error automática se proporcionan en virtud del hecho de que los actores se ejecuten en un servicio de confianza con estado denominado *Servicio de actor*.
+
+Los actores se distribuyen entre las particiones del Servicio de actor y dichas particiones se distribuyen entre los nodos en un clúster de Service Fabric. Cada partición del servicio contiene un conjunto de actores. Service Fabric administra la distribución y conmutación por error de las particiones del servicio.
+
+Por ejemplo, un Servicio de actor con nueve particiones implementadas en tres nodos mediante la ubicación predeterminada de la partición del actor se distribuiría del siguiente modo:
+
+![Distribución de Reliable Actors][2]
+
+El marco de trabajo de actores administra la configuración del intervalo de claves y el esquema de partición por usted. Esto simplifica algunas opciones, pero también implica cierta consideración:
+
+ - Reliable Services le permite elegir un esquema de creación de particiones, el intervalo de claves (al usar un esquema de creación de particiones por rangos) y el recuento de particiones. Reliable Actors se restringe al esquema de creación de particiones por rangos (el esquema Int64 uniforme) y requiere que use el intervalo de claves Int64 completo.
+ 
+ - De forma predeterminada, los actores se colocan aleatoriamente en particiones, dando como resultado una distribución uniforme.
+ 
+ - Como los actores se colocan aleatoriamente, debe esperarse que las operaciones del actor requieran siempre la comunicación de red, incluidas la serialización y deserialización de datos de la llamada al método, incurriendo en latencia y sobrecarga.
+ 
+ - En escenarios avanzados, es posible controlar la ubicación de la partición del actor mediante los identificadores de actor Int64 que se asignan a particiones específicas. Sin embargo, esto puede dar lugar a una distribución desequilibrada de los actores entre particiones.
+
+Para más información sobre cómo se particionan los servicios de actor, consulte [Partitioning concepts for actors](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) (Conceptos de creación de particiones para actores).
+
+### Comunicación con actores
+Las interacciones entre actores se definen en una interfaz compartida por el actor que implementa la interfaz y el cliente que consigue un proxy a un actor a través de la misma interfaz. Como esta interfaz se usa para invocar métodos de actor de forma asincrónica, cada método de la interfaz debe devolver tareas.
+
+Las invocaciones de método y sus respuestas tienen como resultado final solicitudes de red en el clúster, de modo que los argumentos y los tipos de resultado de las tareas que devuelven deben ser serializables por parte de la plataforma. En particular, deben ser [serializables mediante contrato de datos](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+
+#### El proxy de actor
+La API de cliente de Reliable Actors ofrece comunicación entre una instancia de actor y un cliente de actor. Para comunicarse con un actor, un cliente crea un objeto proxy de actor que implementa la interfaz del actor. El cliente interactúa con el actor mediante la invocación de métodos en el objeto proxy. El proxy de actor puede usarse para la comunicación de cliente a actor y de actor a actor.
 
 ```csharp
-public interface ICalculatorActor : IActor
-{
-    Task<double> AddAsync(double valueOne, double valueTwo);
-    Task<double> SubtractAsync(double valueOne, double valueTwo);
-}
-```
-
-Un tipo de actor podría implementar esta interfaz de la siguiente manera:
-
-```csharp
-public class CalculatorActor : StatelessActor, ICalculatorActor
-{
-    public Task<double> AddAsync(double valueOne, double valueTwo)
-    {
-        return Task.FromResult(valueOne + valueTwo);
-    }
-
-    public Task<double> SubtractAsync(double valueOne, double valueTwo)
-    {
-        return Task.FromResult(valueOne - valueTwo);
-    }
-}
-```
-
-Dado que las invocaciones de método y sus respuestas tienen como resultado final solicitudes de red en el clúster, los argumentos y el tipo de resultado de la tarea que devuelve deben ser serializables por parte de la plataforma. En particular, deben ser [serializables mediante contrato de datos](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
-
-> [AZURE.TIP] El tiempo de ejecución de Service Fabric Actors emite algunos [eventos y contadores de rendimiento relacionados con los métodos de actor](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
-
-Conviene destacar las siguientes reglas que pertenecen a los métodos de interfaz de actor:
-- No se pueden sobrecargar los métodos de interfaz de actor.
-- Los métodos de interfaz de actor no deben tener parámetros out, ref u opcionales.
-
-## Comunicación con actores
-### El proxy de actor
-La API de cliente de Reliable Actors ofrece comunicación entre una instancia de actor y un cliente de actor. Para comunicarse con un actor, un cliente crea un objeto proxy de actor que implementa la interfaz del actor. El cliente interactúa con el actor mediante la invocación de métodos en el objeto proxy. El proxy de actor puede usarse para la comunicación de cliente a actor y de actor a actor. Siguiendo con nuestro ejemplo de la calculadora, el código de cliente de un actor de calculadora podría escribirse como sigue:
-
-```csharp
+// Create a randomly distributed actor ID
 ActorId actorId = ActorId.NewId();
-string applicationName = "fabric:/CalculatorActorApp";
-ICalculatorActor calculatorActor = ActorProxy.Create<ICalculatorActor>(actorId, applicationName);
-double result = calculatorActor.AddAsync(2, 3).Result;
+
+// This only creates a proxy object, it does not activate an actor or invoke any methods yet.
+IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/MyActorService"));
+
+// This will invoke a method on the actor. If an actor with the given ID does not exist, it will be activated by this method call.
+await myActor.DoWorkAsync();
 ```
 
 Tenga en cuenta que los dos tipos de datos que se usan para crear el objeto de proxy de actor son el identificador del actor y el nombre de la aplicación. El identificador de actor identifica de forma única al actor, mientras que el nombre de la aplicación identifica la [Aplicación de Service Fabric](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors) en la que se implementa el actor.
 
-### Duración del actor
+La clase `ActorProxy` del cliente realiza la resolución necesaria para localizar el actor mediante el identificador y abre un canal de comunicación con él. `ActorProxy` también vuelve a intentar ubicar el actor en caso de que se produzcan errores de comunicación y conmutaciones por error. Como resultado, la entrega de mensajes tiene las siguientes características:
 
-Los actores de Service Fabric son virtuales, lo que significa que su duración no está vinculada a su representación en memoria. Como resultado, no es necesario crearlas ni destruirlas explícitamente. El tiempo de ejecución de los actores activa automáticamente un actor la primera vez que recibe una solicitud para ese actor. Si no se usa un actor durante un período determinado, el tiempo de ejecución de actores recopila el objeto en memoria como elemento no utilizado. También mantendrá conocimientos de la existencia del actor por si es necesario reactivarlo más adelante. Para obtener más información, vea [Ciclo de vida de actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md).
+ - La entrega de mensajes es la mejor opción.
+ - Los actores pueden recibir mensajes duplicados del mismo cliente.
 
-### Transparencia de ubicación y conmutación por error automática
+### Simultaneidad
 
-Para proporcionar una alta confiabilidad y escalabilidad, Service Fabric distribuye actores en el clúster y los migra automáticamente desde los nodos con errores hasta las correctos según sea necesario. La clase `ActorProxy` del cliente realiza la resolución necesaria para localizar el actor mediante el identificador [partición](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) y abre un canal de comunicación con él. `ActorProxy` también vuelve a intentar ubicar el actor en caso de que se produzcan errores de comunicación y conmutaciones por error. Esto garantiza que los mensajes se entregarán de manera confiable a pesar de la presencia de errores. Pero esto también significa que es posible que la implementación de un actor reciba mensajes duplicados del mismo cliente.
+El tiempo de ejecución de Reliable Actors ofrece un modelo de acceso simple basado en turnos para obtener acceso a los métodos de actor. Esto significa que no puede haber más de un subproceso activo dentro del código del objeto de actor en ningún momento. El acceso basado en turnos simplifica considerablemente sistemas simultáneos, pues no es necesario que los mecanismos de sincronización tengan acceso a datos. También significa que los sistemas deben diseñarse con consideraciones especiales para la naturaleza de acceso uniproceso de cada instancia de actor.
 
-## Simultaneidad
-### Acceso basada en turnos
+ - Una sola instancia de actor no puede procesar más de una solicitud cada vez. Una instancia de actor puede provocar un cuello de botella de procesamiento si se espera que controle solicitudes simultáneas. 
+ - Los actores pueden interbloquearse si hay una solicitud circular entre dos actores mientras se realiza una solicitud externa destinada a uno de los actores simultáneamente. El tiempo de ejecución del actor agotará el tiempo de expiración en llamadas de actor automáticamente y generará una excepción al autor de llamada para interrumpir posibles situaciones de interbloqueo.
 
-El tiempo de ejecución de los actores ofrece un modelo simple basado en turnos para obtener acceso a los métodos de actor. Esto significa que no puede haber más un subproceso activo dentro del código del actor en ningún momento.
+![Comunicación de Reliable Actors][3]
+
+#### Acceso basada en turnos
 
 Un turno es la ejecución completa de un método de actor en respuesta a la solicitud de otros actores o clientes, o la ejecución completa de la devolución de llamada de un [temporizador o recordatorio](service-fabric-reliable-actors-timers-reminders.md). Aunque estos métodos y devoluciones de llamada son asincrónicos, el tiempo de ejecución de los actores no los intercala. Un turno debe completarse por completo antes de que se permita uno nuevo. En otras palabras, la devolución de llamada de un método de actor, un temporizador o recordatorio que se esté ejecutando se debe completar totalmente antes de que se permita una llamada a un método o una devolución de llamada nuevas. Un método o una devolución de llamada se consideran finalizadas si la ejecución ha devuelto desde el método o la devolución de llamada y la tarea devuelta por el método o la devolución de llamada ha terminado. Merece la pena resaltar que la simultaneidad basada en turnos se respeta incluso entre devoluciones de llamada, temporizadores y métodos diferentes.
 
@@ -95,108 +120,42 @@ En el ejemplo siguiente se muestran los conceptos anteriores. Supongamos un tipo
 
 ![Acceso y simultaneidad basada en turnos de tiempo de ejecución de Reliable Actors][1]
 
-El diagrama anterior sigue estas convenciones:
+Este diagrama sigue estas convenciones:
 
 - Cada línea vertical muestra el flujo lógico de ejecución de un método o una devolución de llamada en nombre de un actor determinado.
 - Los eventos marcados en cada línea vertical se producen en orden cronológico, con los eventos más recientes por debajo de los más antiguos.
 - Se usan colores diferentes para las escalas de tiempo correspondientes a actores distintos.
 - Se usa el resaltado para indicar la duración durante la cual se mantiene el bloqueo por actor en nombre de un método o una devolución de llamada.
 
-Los puntos siguientes sobre el diagrama anterior son relevantes:
+Algunos puntos importantes a tener en cuenta:
 
 - Cuando *Method1* se ejecuta en nombre de *ActorId2* en respuesta a la solicitud de cliente *xyz789*, llega otra solicitud de cliente (*abc123*) que también requiere que *Method1* lo ejecute *ActorId2*. Sin embargo, la segunda ejecución de *Method1* no comienza hasta que se haya completado la ejecución anterior. De forma similar, un recordatorio que haya registrado *ActorId2* se activa cuando *Method1* se ejecuta en respuesta a la solicitud de cliente *xyz789*. La devolución de llamada del recordatorio se ejecuta solo después de que las dos ejecuciones de *Method1* se hayan completado. Todo esto se debe a la simultaneidad basada en turnos que se exige para *ActorId2*.
 - De forma similar, también se aplica la simultaneidad basada en turnos para *ActorId1*, como se muestra en la ejecución de *Method1*, la ejecución de *Method2* y la devolución de llamada del temporizador en nombre de *ActorId1*, que suceden en serie.
 - La ejecución de *Method1* en nombre de *ActorId1* se superpone con su ejecución en nombre de *ActorId2*. Esto es así porque solo se exige la simultaneidad basada en turnos dentro de un actor y no para todos los actores.
-- En algunas ejecuciones de métodos y devoluciones de llamada, el elemento `Task` que devuelve el método o la devolución de llamada se completa después de la devolución del método. En otras palabras, `Task` ya se ha completado antes de la devolución del método o la devolución de llamada. En ambos casos, el bloqueo por actor se libera solo después de la devolución del método o la devolución de llamada, y `Task` finaliza.
+- En algunas ejecuciones de métodos y devoluciones de llamada, el elemento `Task` que devuelve el método o la devolución de llamada se completa después de la devolución del método. En otras palabras, `Task` ya se ha completado antes de la devolución del método o la devolución de llamada. En ambos casos, el bloqueo por actor se libera solo después de la devolución del método o la devolución de llamada y `Task` finaliza.
 
-### Reentrada
+#### Reentrada
 
-El tiempo de ejecución de los actores permite la reentrada de forma predeterminada. Esto significa que si un método de actor del *actor A* llama a un método del *actor B*, que a su vez llama a otro método del *actor A*, se permite que ese método se ejecute. Esto es porque forma parte del mismo contexto lógico de la cadena de llamada. Todas las llamadas del temporizador y el recordatorio comienzan con el nuevo contexto de llamada lógico. Vea [Reentrada de Reliable Actors](service-fabric-reliable-actors-reentrancy.md) para obtener más detalles.
+El tiempo de ejecución de los actores permite la reentrada de forma predeterminada. Esto significa que si un método de actor del *actor A* llama a un método del *actor B*, que a su vez llama a otro método del *actor A*, se permite que ese método se ejecute. Esto es porque forma parte del mismo contexto lógico de la cadena de llamada. Todas las llamadas del temporizador y el recordatorio comienzan con el nuevo contexto de llamada lógico. Consulte [Reentrada en Reliable Actors](service-fabric-reliable-actors-reentrancy.md) para más detalles.
 
-### Ámbito de garantías de simultaneidad
+#### Ámbito de garantías de simultaneidad
 
 El tiempo de ejecución de los actores ofrece estas garantías de simultaneidad en situaciones donde controla la invocación de estos métodos. Por ejemplo, ofrece estas garantías para las invocaciones de método que se realizan en respuesta a una solicitud de cliente y para las devoluciones de llamada de temporizadores y recordatorios. Sin embargo, si el código del actor invoca directamente a estos métodos fuera de los mecanismos que ofrece el tiempo de ejecución de los actores, el tiempo de ejecución no puede ofrecer ninguna garantía de simultaneidad. Por ejemplo, si el método se invoca en el contexto de una tarea que no está asociada con la tarea que han devuelto los métodos de actor, el tiempo de ejecución no puede ofrecer garantías de simultaneidad. Si el método se invoca desde un subproceso que el actor crea por sí mismo, entonces el tiempo de ejecución tampoco puede proporcionar garantías de simultaneidad. Por lo tanto, para realizar operaciones en segundo plano, los actores deben usar [temporizadores de actor o recordatorios de actor](service-fabric-reliable-actors-timers-reminders.md) que respeten la simultaneidad basada en turnos.
 
-> [AZURE.TIP] El tiempo de ejecución de Service Fabric Actors emite algunos [eventos y contadores de rendimiento relacionados con la simultaneidad](service-fabric-reliable-actors-diagnostics.md#concurrency-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
-
-## Administración de estados de los actores
-Puede usar Service Fabric para crear actores con o sin estado.
-
-### Actores sin estado
-Los actores sin estado, que se derivan de la clase base `StatelessActor`, no tiene ningún estado administrado por el tiempo de ejecución de los actores. Sus variables miembro se conservan a lo largo de su duración en memoria, como cualquier otro tipo .NET. Sin embargo, cuando se recolectan como elementos no necesarios tras un período de inactividad, su estado se pierde. De forma similar, el estado puede perderse debido a las conmutaciones por error, que se producen durante las actualizaciones, las operaciones de equilibrio de recursos o como consecuencia de errores en el proceso de actor o en su nodo de hospedaje.
-
-A continuación se muestra un ejemplo de un actor sin estado:
-
-```csharp
-class HelloActor : StatelessActor, IHello
-{
-    public Task<string> SayHello(string greeting)
-    {
-        return Task.FromResult("You said: '" + greeting + "', I say: Hello Actors!");
-    }
-}
-```
-
-### Actores con estado
-Los actores con estado tienen un estado que debe conservarse entre las recolecciones de elementos no utilizados y las conmutaciones por error. Se derivan de `StatefulActor<TState>`, donde `TState` es el tipo de estado que debe conservarse. Es posible obtener acceso al estado en los métodos de actor a través de la propiedad `State` en la clase base.
-
-A continuación se muestra un ejemplo de un actor con estado que obtiene acceso al estado:
-
-```csharp
-class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
-{
-    public Task<List<Voicemail>> GetMessagesAsync()
-    {
-        return Task.FromResult(State.MessageList);
-    }
-    ...
-}
-```
-
-El estado del actor se conserva en recolecciones de elementos no utilizados y conmutaciones por error al mantenerlos en el disco y replicándolos en varios nodos del clúster. Esto significa que, como los argumentos de método y los valores devueltos, el tipo de estado del actor debe ser [serializable por contrato de datos](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
-
-> [AZURE.NOTE] Vea el artículo sobre las [notas de serialización de Reliable Actors](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) para obtener información detallada sobre cómo se deben definir las interfaces y los tipos de estado de los actores.
-
-#### proveedores de estado de actor
-Un proveedor de estado de actor proporciona el almacenamiento y la recuperación del estado. Los proveedores de estado se puede configurar por actor o para todos los actores dentro de un ensamblado, mediante el atributo específico de proveedor de estado. Cuando se activa un actor, su estado se carga en memoria. Cuando se completa un método de actor, el tiempo de ejecución de actores guarda automáticamente el estado modificado mediante una llamada a un método en el proveedor de estado. Si se produce un error durante la operación de **guardado**, el tiempo de ejecución de los actores crea una nueva instancia de actor y carga el último estado coherente desde el proveedor de estados.
-
-De forma predeterminada, los actores con estado usan el proveedor de estado de actor de almacén de pares clave-valor, que se integra en el almacén de pares clave-valor proporcionado por la plataforma Service Fabric. Para obtener más información, vea el tema sobre [opciones de proveedores de estado](service-fabric-reliable-actors-platform.md#actor-state-provider-choices).
-
-> [AZURE.TIP] El tiempo de ejecución de los actores emite algunos [eventos y contadores de rendimiento relacionados con la administración de estados de los actores](service-fabric-reliable-actors-diagnostics.md#actor-state-management-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
-
-#### Métodos de solo lectura
-De forma predeterminada, el tiempo de ejecución de los actores guarda el estado del actor tras la finalización de la llamada a un método de actor, la devolución de llamada de un temporizador o la devolución de llamada de un recordatorio. No se permite ninguna otra llamada de actor hasta que la operación de almacenamiento de estado se complete.
-
-Puede haber métodos de actor que no modifican el estado. En ese caso, el tiempo adicional que se dedica a guardar el estado puede afectar al rendimiento general del sistema. Para evitarlo, se pueden marcar los métodos y las devoluciones de llamada de temporizador que no modifiquen el estado como solo lectura.
-
-En el ejemplo siguiente se muestra cómo marcar un método de actor como de solo lectura mediante el atributo `Readonly`:
-
-```csharp
-public interface IVoicemailBoxActor : IActor
-{
-    [Readonly]
-    Task<List<Voicemail>> GetMessagesAsync();
-}
-```
-
-Las devoluciones de llamada de temporizador se pueden marcar con el atributo `Readonly` de forma similar. Para los recordatorios, el indicador de solo lectura se pasa como argumento al método `RegisterReminder` que se invoca para registrar el recordatorio.
-
 ## Pasos siguientes
-[Ciclo de vida de un actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md)
-
-[Recordatorios y temporizadores de los actores](service-fabric-reliable-actors-timers-reminders.md)
-
-[Eventos de actor](service-fabric-reliable-actors-events.md)
-
-[Reentrada de actor](service-fabric-reliable-actors-reentrancy.md)
-
-[Uso de la plataforma Service Fabric por parte de Reliable Actors](service-fabric-reliable-actors-platform.md)
-
-[Configuración del actor KVSActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-
-[Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
+ - [Introducción a Reliable Actors](service-fabric-reliable-actors-get-started.md)
+ - [Uso de la plataforma Service Fabric por parte de Reliable Actors](service-fabric-reliable-actors-platform.md)
+ - [Administración de estados de los actores](service-fabric-reliable-actors-state-management.md)
+ - [Ciclo de vida de un actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md)
+ - [Recordatorios y temporizadores de los actores](service-fabric-reliable-actors-timers-reminders.md)
+ - [Eventos de actor](service-fabric-reliable-actors-events.md)
+ - [Reentrada de actor](service-fabric-reliable-actors-reentrancy.md)
+ - [Polimorfismo de actores y patrones de diseño orientado a objetos](service-fabric-reliable-actors-polymorphism.md)
+ - [Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
+[2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
+[3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

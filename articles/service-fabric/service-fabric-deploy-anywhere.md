@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="04/05/2016"
    ms.author="chackdan"/>
 
 # Creación de clústeres independientes de Service Fabric en Windows Server o Linux
@@ -25,11 +25,12 @@ Service Fabric proporciona un paquete de instalación para crear estos clústere
 
 ## Sistemas operativos compatibles
 Podrá crear clústeres en máquinas virtuales o equipos que ejecuten estos sistemas operativos:
+
 * Windows Server 2012 R2
 * Windows Server 2016
 * Linux
 
-Para obtener más información sobre Windows Server, lea [Service Fabric cluster creation for Windows Server (Creación de clústeres de Service Fabric para Windows Server)](service-fabric-creation-for-windows-server).
+Para obtener más información sobre Windows Server, lea [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md) (Creación de clústeres de Service Fabric para Windows Server).
 
 ## Configuración y creación de clústeres
 Service Fabric proporciona un paquete de instalación que se puede descargar. Una vez que haya descargado este paquete, deberá realizar cambios en un archivo de configuración JSON para especificar la configuración del clúster. Una vez que se haya modificado la configuración del clúster, se ejecuta un script de instalación que crea el clúster abarcando las máquinas que especificó en la configuración del clúster. También puede ejecutar un script para quitar un clúster de un conjunto de máquinas.
@@ -52,8 +53,13 @@ La ejecución de clústeres de Service Fabric en Azure proporciona ventajas fren
 
 * **Administrador de recursos de Azure:** el uso del Administrador de recursos de Azure permite una administración sencilla de todos los recursos que usa el clúster como una unidad y simplifica el costo del seguimiento y la facturación.
 * **Clúster de Service Fabric como recurso de Azure** Un clúster de Service Fabric es un recurso de ARM, por tanto, puede ajustarlo como hace con otros recursos de ARM en Azure.
-* **Integración con la infraestructura de Azure** Service Fabric se coordina con la infraestructura de Azure subyacente para el SO, la red y otras actualizaciones con el fin de mejorar la disponibilidad y la confiabilidad de las aplicaciones.  
+* **Integración con la infraestructura de Azure**: Service Fabric se coordina con la infraestructura de Azure subyacente para el SO, la red y otras actualizaciones con el fin de mejorar la disponibilidad y la confiabilidad de las aplicaciones.  
 * **Diagnósticos:** en Azure se proporciona la integración con Diagnósticos y Visión operativa de Azure.
 * **Escalado automático:** para los clústeres hospedados en Azure, proporcionamos una funcionalidad integrada de escalado automático debido a los conjuntos de escalas de la máquina virtual. En los entornos locales y otros entornos en la nube, hay que crear una característica propia de escalado automático o realizar el escalado manualmente mediante las API que ofrece Service Fabric para escalar los clústeres.
 
-<!---HONumber=AcomDC_0330_2016-->
+## Pasos siguientes
+Creación de un clúster en máquinas virtuales o equipos que ejecutan Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md) (Creación de clústeres de Service Fabric para Windows Server)
+
+Creación de un clúster en máquinas virtuales o equipos que ejecutan Linux: [Service Fabric en Linux](service-fabric-linux-overview.md)
+
+<!---HONumber=AcomDC_0406_2016-->

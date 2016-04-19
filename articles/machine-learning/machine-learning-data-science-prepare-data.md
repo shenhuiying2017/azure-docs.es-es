@@ -20,7 +20,7 @@
 # Tareas para preparar los datos para el aprendizaje automático mejorado
 
 ## Introducción
-El preprocesamiento y la limpieza de datos son tareas importantes que normalmente se deben llevar a cabo para que el conjunto de datos se pueda usar de forma eficaz para el aprendizaje automático. Los datos sin procesar son a menudo ruidosos no confiables y es posible que les falten valores. El uso de estos datos para el modelado puede producir resultados engañosos. Estas tareas forman parte del proceso de análisis de Cortana (CAP) y normalmente siguen una exploración inicial de un conjunto de datos que se usa para detectar y planear el procesamiento previo necesario. Para obtener más instrucciones detalladas sobre el proceso de CAP, vea los pasos que se describen en el [proceso de análisis de Cortana](cortana-analytics-process.md).
+El preprocesamiento y la limpieza de datos son tareas importantes que normalmente se deben llevar a cabo para que el conjunto de datos se pueda usar de forma eficaz para el aprendizaje automático. Los datos sin procesar son a menudo ruidosos no confiables y es posible que les falten valores. El uso de estos datos para el modelado puede producir resultados engañosos. Estas tareas forman parte del proceso de análisis de Cortana (CAP) y normalmente siguen una exploración inicial de un conjunto de datos que se usa para detectar y planear el procesamiento previo necesario. Para obtener más instrucciones detalladas sobre el proceso de CAP, vea los pasos que se describen en el [proceso de análisis de Cortana](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 Las tareas de procesamiento previo y de limpieza, como la tarea de exploración de datos, se pueden llevar a cabo en una amplia variedad de entornos, como SQL o Hive o Estudio de aprendizaje automático de Azure, y con diversas herramientas y lenguajes, como R o Python, en función de dónde se almacenen los datos y cómo se le apliquen formato. Como CAP es iterativo por naturaleza, estas tareas pueden tener lugar en diversos pasos del flujo de trabajo del proceso.
 
@@ -47,9 +47,9 @@ Podemos comprobar la calidad general de los datos comprobando:
 * El número de **atributos** (o **características**).
 * Los **tipos de datos** de atributo (nominales, ordinales o continuos).
 * El número de **valores que faltan**.
-* El **formato correcto** de los datos. 
-	* Si los datos se encuentran en TSV o CSV, comprueba que los separadores de columnas y los separadores de líneas siempre separen correctamente líneas y columnas. 
-	* Si los datos están en formato HTML o XML, compruebe si los datos tienen el formato correcto basándose en sus estándares respectivos. 
+* El **formato correcto** de los datos.
+	* Si los datos se encuentran en TSV o CSV, comprueba que los separadores de columnas y los separadores de líneas siempre separen correctamente líneas y columnas.
+	* Si los datos están en formato HTML o XML, compruebe si los datos tienen el formato correcto basándose en sus estándares respectivos.
 	* El análisis también puede ser necesario para extraer información estructurada de datos semiestructurados o no estructurados.
 * **Registros de datos incoherentes**. Compruebe el intervalo de valores permitidos, por ejemplo. Si los datos contienen GPA de estudiante, compruebe si el GPA está en el intervalo designado, por ejemplo, 0~4.
 
@@ -92,7 +92,7 @@ Los datos se pueden discretizar mediante la conversión de valores continuos en 
 * **Discretización de mismo ancho**: divida el intervalo de todos los valores posibles de un atributo en N grupos del mismo tamaño y asigne los valores que se encuentran en una ubicación con el número de ubicación.
 * **Discretización igual alto**: divida el intervalo de todos los valores posibles de un atributo en N grupos, cada uno de los cuales contiene el mismo número de instancias y, a continuación, asigne los valores que se encuentran en una ubicación con el número de ubicación.  
 
-## ¿Cómo reducir los datos? 
+## ¿Cómo reducir los datos?
 
 Existen varios métodos para reducir el tamaño de los datos para un tratamiento más sencillo de los datos. Según el tamaño de los datos y el dominio, se pueden aplicar los siguientes métodos:
 
@@ -109,6 +109,5 @@ La **exploración de los datos** ofrece una vista anticipada de los datos. Una s
 ## Referencias
 
 >*\_Minería de datos: conceptos y técnicas*, Tercera edición, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber y Jian Pei
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->
