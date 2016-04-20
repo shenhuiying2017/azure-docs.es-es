@@ -133,7 +133,7 @@ Asegurémonos de que todo esté instalado correctamente.
 
 Ahora vamos a crear la aplicación de votación mediante la adición de archivos nuevos y de la actualización de otros.
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de **tutorial**, a continuación haga clic en **Agregar **y, por último, en **Nuevo elemento**. Seleccione **Archivo Python vacío** y asigne el nombre **forms.py** al archivo.  
+1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de **tutorial**, a continuación haga clic en **Agregar** y, por último, en **Nuevo elemento**. Seleccione **Archivo Python vacío** y asigne el nombre **forms.py** al archivo.  
 2. Agregue el código siguiente al archivo forms.py y, después, guárdelo.
 
 ```python
@@ -433,4 +433,4 @@ Para ver tutoriales adicionales sobre Python Flask, consulte el tutorial [The Fl
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0413_2016-->
+<!------HONumber=AcomDC_0413_2016-->
