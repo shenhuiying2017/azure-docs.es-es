@@ -43,4 +43,4 @@ Usará el botón **Conectar** en el Portal de Azure para iniciar una sesión de 
 
 Si las sugerencias sobre el inicio de sesión no ayudan o no son lo que necesita, consulte [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->
