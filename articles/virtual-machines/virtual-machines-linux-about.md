@@ -42,4 +42,4 @@ Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestr
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!------HONumber=AcomDC_0406_2016-->
