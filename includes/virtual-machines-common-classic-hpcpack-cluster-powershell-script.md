@@ -72,4 +72,4 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 El archivo de configuración para el script de implementación es un archivo XML. El archivo de esquema HPCIaaSClusterConfig.xsd está en la carpeta de scripts de implementación de HPC Pack IaaS. **IaaSClusterConfig** es el elemento raíz del archivo de configuración que contiene los elementos secundarios descritos en detalle en el archivo Manual.rtf de la carpeta de scripts de implementación. Para ver ejemplos de archivos para distintos escenarios, consulte [Archivos de configuración de ejemplo](#Example-configuration-files) en este artículo.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

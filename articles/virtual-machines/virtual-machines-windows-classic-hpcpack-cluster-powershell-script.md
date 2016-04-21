@@ -273,4 +273,4 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 * También puede usar una plantilla del Administrador de recursos de Azure para implementar un clúster de HPC Pack. Para ver ejemplos, consulte [Creación de un clúster de HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) y [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/) (Creación de un clúster de HPC con una imagen de nodo de proceso personalizado).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->
