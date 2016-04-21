@@ -61,7 +61,7 @@ El período de vida, o TTL, especifica durante cuánto tiempo los clientes almac
 
 DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín). Los conjuntos de registros de carácter comodín son compatibles con todos los tipos de registro, excepto NS y SOA.
 
-Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "*" o un nombre cuya primera etiqueta sea "*", por ejemplo, "*.foo".
+Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "\*" o un nombre cuya primera etiqueta sea "\*", por ejemplo, "\*.foo".
 
 #### Conjuntos de registros CNAME
 
@@ -104,4 +104,4 @@ Puede probar su zona DNS con herramientas DNS, como nslookup, dig o el [cmdlet d
 
 Para obtener más información sobre DNS de Azure, consulte [Introducción a DNS de Azure](dns-overview.md). Para obtener información sobre la automatización de DNS, consulte [Creación de conjuntos de registros y zonas DNS con el SDK de .NET](dns-sdk.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!------HONumber=AcomDC_0406_2016-->
