@@ -46,7 +46,9 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 | ---- | ---- |
 | type | Enum<br />Obligatorio<br />**{namespace}/{type}/providers/links**<br /><br />Tipo de recurso que se creará. Los valores {namespace} y {type} hacen referencia al espacio de nombres del proveedor y al tipo de recurso del recurso de origen. |
 | apiVersion | Enum<br />Obligatorio<br />**2015-01-01**<br /><br />Versión de la API que se usará para crear el recurso. |  
-| name | Cadena<br />Obligatorio<br />**{resouce}/Microsoft.Resources/{linkname}****<br /> Hasta 64 caracteres y no puede incluir <, > %, &, ? ni ningún carácter de control.<br /><br />Valor que especifica el nombre del recurso y el del vínculo. | | dependsOn | Matriz<br />Opcional<br />Lista separada por comas de nombres o identificadores únicos de recursos.<br /><br />Colección de recursos de los que depende este vínculo. Si el recurso que está vinculando se implementa en la misma plantilla, incluya los nombres de esos recursos en este elemento para garantizar que se implementen primero. | | properties | Objeto<br />Obligatorio<br />[Objeto de propiedades](#properties)<br /><br />Objeto que identifica el recurso que se bloqueará y notas sobre el vínculo. | 
+| name | Cadena<br />Obligatorio<br />**{resouce}/Microsoft.Resources/{linkname}****<br /> Hasta 64 caracteres y no puede incluir <, > %, &, ? ni ningún carácter de control.<br /><br />Valor que especifica el nombre del recurso y el del vínculo. | 
+| dependsOn | Matriz<br />Opcional<br />Lista separada por comas de nombres o identificadores únicos de recursos.<br /><br />Colección de recursos de los que depende este vínculo. Si el recurso que está vinculando se implementa en la misma plantilla, incluya los nombres de esos recursos en este elemento para garantizar que se implementen primero. | 
+| properties | Objeto<br />Obligatorio<br />[Objeto de propiedades](#properties)<br /><br />Objeto que identifica el recurso que se bloqueará y notas sobre el vínculo. | 
 
 <a id="properties" />
 ### properties object

@@ -88,4 +88,4 @@ El archivo de configuración siguiente crea un nuevo bosque de dominio e impleme
 
 * También puede usar una plantilla del Administrador de recursos de Azure para implementar un clúster de HPC Pack. Si desea consultar un ejemplo, consulte [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) (Creación de un clúster de HPC con nodos de proceso de Linux).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->
