@@ -127,4 +127,4 @@ Averigüe también qué más puede hacer con la aplicación que ha implementado.
 - [Acceso a recursos locales](web-sites-hybrid-connection-get-started.md)
 - [Obtener información acerca de cómo funciona el Servicio de aplicaciones](../app-service/app-service-how-works-readme.md) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0323_2016--->
