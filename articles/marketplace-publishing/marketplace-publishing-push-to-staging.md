@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="04/08/2016"
    ms.author="hascipio"/>
 
 # Finalización de la creación de ofertas con contenido de marketing
@@ -25,6 +25,8 @@ En este paso del proceso de publicación, deberá proporcionar determinados cont
   1. Vaya al portal de publicación, [https://publish.windowsazure.com](https://publish.windowsazure.com).
   2. En el menú de la izquierda, haga clic en la pestaña **Marketing**.
   3. En el panel principal, haga clic en el botón **Inglés (Estados Unidos)**.
+
+  > [AZURE.IMPORTANT] Todos los campos deben tener entradas, incluidas las imágenes, para poder pasar a la etapa de ensayo.
 
 ### Detalles
 1. Escriba un resumen de la oferta, un resumen amplio y la descripción de la oferta.
@@ -52,8 +54,7 @@ En la pestaña **Imágenes de ejemplo** del menú izquierdo, cargue una nueva im
 ### Información legal
 En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos de uso. Escriba o pegue los términos en el cuadro grande **Términos de uso**.
 
-> [AZURE.IMPORTANT] Todos los campos deben tener entradas, incluidas las imágenes, para poder pasar a la etapa de ensayo.
-
+> [AZURE.NOTE] Para Máquinas virtuales, no se puede cambiar lo siguiente una vez que un SKU se ha orquestado o activado: **identificador de oferta**, **identificador de publicador** e **identificador de SKU**.
 
 ## Paso 2: Establecimiento de precios
 ### Modelos de precios
@@ -83,12 +84,14 @@ En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos d
 3.	Si la SKU es BYOL, active la casilla para disponibilidad de SKU con licencia externa (BYOL).
 4.	Si la SKU es cada hora, escriba los precios del software. Las SKU sin precios no estarán disponibles para su compra o uso.
 
-  >[AZURE.NOTE] Si tiene SKU tanto con licencia BYOL como con base horaria, asegúrese de que ambos requisitos se incluyen: casilla BYOL y valores de precio para cada hora.
+  > [AZURE.NOTE] Si tiene SKU tanto con licencia BYOL como con base horaria, asegúrese de que ambos requisitos se incluyen: casilla BYOL y valores de precio para cada hora.
 
 5.	Se abrirá un asistente para precios. Sígalo hasta completar sus precios, incluidos los precios en otros países si opta por permitir compras desde fuera del mercado especificado.
 6.	Algunos países son países de envío ISV. Para vender en un país de envío ISV, debe poder cobrar y recaudar impuestos por sus SKU, así como calcular y pagar impuestos al gobierno del país. Microsoft no puede proporcionar asesoramiento legal ni fiscal. Vea la sección "Países a los que se vende de la oferta" en la Introducción de este documento para obtener más información sobre los países a los que se vende.
 
-### 2.2. Establecer precios de servicio para desarrolladores
+  > [AZURE.NOTE] Para Máquinas virtuales, no se puede cambiar lo siguiente una vez que un SKU se ha activado, puesto que esto afecta a la facturación de los clientes existentes: **cambio de precios**, **cambio del modelo de facturación** y **eliminación de regiones de facturación**.
+
+### 2\.2. Establecer precios de servicio para desarrolladores
 Los planes pueden ser cualquier combinación de base y consumo, donde base es precio mensual y superávit es el precio de pago por uso. (Vea a continuación para obtener más información).
 
 **Ejemplo:** oferta de servicio de desarrolladores de Contoso
@@ -144,9 +147,9 @@ A continuación se muestra una vista detallada de cómo se utiliza la informaci�
 ## Pasos siguientes
 Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la oferta en ensayo. Sin embargo, debe seleccionar el tipo de la oferta adecuado en la lista siguiente, ya que los pasos varían según el tipo de oferta.
 
-|Imagen de máquina virtual |Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
+||Imagen de máquina virtual |Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
 |----|----|----|----|----|
-| **Paso 3. Traslado de la oferta al entorno de ensayo** | [Prueba de la oferta de máquina virtual en el entorno de ensayo](marketplace-publishing-vm-image-test-in-staging.md) | Prueba de la oferta de servicio de desarrollador en el entorno de ensayo | [Prueba de la oferta de servicio de datos en el entorno de ensayo](marketplace-publishing-data-service-test-in-staging.md) | [Prueba de la plantilla de solución en el entorno de ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Paso 3. Traslado de la oferta al entorno de ensayo** | [Prueba de la oferta de máquina virtual en el entorno de ensayo](marketplace-publishing-vm-image-test-in-staging.md) | Vista previa privada | [Prueba de la oferta de servicio de datos en el entorno de ensayo](marketplace-publishing-data-service-test-in-staging.md) | [Prueba de la plantilla de solución en el entorno de ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Consulte también
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +163,4 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

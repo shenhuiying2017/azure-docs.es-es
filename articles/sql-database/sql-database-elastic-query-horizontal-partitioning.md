@@ -3,7 +3,7 @@
     description="Cómo configurar consultas elásticas en particiones horizontales"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="torsteng"/>
 
 <tags
@@ -192,31 +192,20 @@ Una vez que defina el origen de datos externo y las tablas externas, puede usar 
 	where w_id > 100 and w_id < 200 
 	group by w_id, o_c_id 
  
-### 2\.2 Procedimiento almacenado SP\_ EXECUTE\_FANOUT 
+### 2\.2 Procedimiento almacenado para la ejecución remota de T-SQL
 
-La consulta elástica también incluye un procedimiento almacenado que proporciona acceso directo a las particiones. El procedimiento almacenado se llama sp\_execute\_fanout y admite los siguientes parámetros:
+La consulta elástica también incluye un procedimiento almacenado que proporciona acceso directo a las particiones. El procedimiento almacenado se denomina "sp\_execute\_remote" y puede utilizarse para ejecutar procedimientos almacenados remotos o código T-SQL en las bases de datos remotas. Toma los parámetros siguientes:
+* Nombre de origen de datos (nvarchar): nombre del origen de datos externo de tipo RDBMS. 
+* Consulta (nvarchar): la consulta T-SQL que se va a ejecutar en cada partición. 
+* Declaración de parámetro (nvarchar) - opcional: cadena con definiciones de tipos de datos de los parámetros usados en el parámetro Query (como sp\_executesql). 
+* Lista de valores de los parámetros (opcional): lista separada por comas de valores de los parámetros (por ejemplo, sp\_executesql)
 
-* Nombre del servidor (nvarchar): nombre completo del servidor lógico que hospeda el mapa de particiones. 
-* Nombre de la base de datos del mapa de particiones (nvarchar): nombre de la base de datos del mapa de particiones. 
-* Nombre del usuario (nvarchar): nombre del usuario para iniciar sesión en la base de datos del mapa de particiones. 
-* Contraseña (nvarchar): contraseña del usuario. 
-* Nombre del mapa de particiones (nvarchar): nombre del mapa de particiones que se va a usar para la consulta. El nombre se encuentra en la tabla \_ShardManagement.ShardMapsGlobal, que es el nombre predeterminado que se utiliza al crear bases de datos con la aplicación de ejemplo que se encuentra en [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md). El nombre predeterminado que se encuentra en la aplicación es "CustomerIDShardMap".
-*  Consulta: la consulta T-SQL que se va a ejecutar en cada partición. 
-*  Declaración de parámetro (nvarchar) - opcional: cadena con definiciones de tipos de datos de los parámetros usados en el parámetro Query (como sp\_executesql). 
-*  Lista de valores de los parámetros - opcional: lista separada por comas de valores de los parámetros (por ejemplo, sp\_executesql)  
-
-sp\_execute\_fanout usa la información del mapa de particiones proporcionada en los parámetros de invocación para ejecutar la instrucción T-SQL especificada en todas las particiones registradas con el mapa de particiones. Los resultados se combinan con la semántica UNION ALL. El resultado también incluye la columna ‘virtual’ adicional con el nombre de la partición.
-
-Tenga en cuenta que se usan las mismas credenciales para conectarse a la base de datos del mapa de particiones y para las particiones.
+sp\_execute\_remote utiliza el origen de datos externo proporcionado en los parámetros de invocación para ejecutar la instrucción T-SQL determinada en las bases de datos remotas. Utiliza la credencial del origen de datos externo para conectarse a la base de datos de ShardMapManager y las bases de datos remotas.
 
 Ejemplo:
 
-	sp_execute_fanout 
-		N'myserver.database.windows.net', 
-		N'ShardMapDb', 
-		N'myuser', 
-		N'MyPwd', 
-		N'ShardMap', 
+	EXEC sp_execute_remote
+		N'MyExtSrc',
 		N'select count(w_id) as foo from warehouse' 
 
 ## Conectividad para herramientas  
@@ -241,4 +230,4 @@ Use cadenas de conexión de SQL Server normales para conectar su aplicación, su
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

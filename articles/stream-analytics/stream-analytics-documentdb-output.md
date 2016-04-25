@@ -30,11 +30,11 @@ A continuación se detallan algunas de las opciones de la colección de Document
 
 ## Ajustar la coherencia, la disponibilidad y la latencia
 
-Para satisfacer las necesidades de su aplicación, DocumentDB permite optimizar la base de datos y las colecciones y buscar el equilibrio entre coherencia, disponibilidad y latencia. En función de los niveles de coherencia de lectura que requiera su situación en comparación con la latencia de lectura y escritura, puede elegir un nivel de coherencia u otro en la cuenta de base de datos. También de forma predeterminada, DocumentDB permite la indexación sincrónica en cada operación CRUD de la colección. Esta es otra opción útil para controlar el rendimiento de escritura o lectura en DocumentDB. Para obtener más información sobre este tema, revise el artículo [Cambio de los niveles de coherencia de la base de datos y las consultas](../articles/documentdb-consistency-levels.md).
+Para satisfacer las necesidades de su aplicación, DocumentDB permite optimizar la base de datos y las colecciones y buscar el equilibrio entre coherencia, disponibilidad y latencia. En función de los niveles de coherencia de lectura que requiera su situación en comparación con la latencia de lectura y escritura, puede elegir un nivel de coherencia u otro en la cuenta de base de datos. También de forma predeterminada, DocumentDB permite la indexación sincrónica en cada operación CRUD de la colección. Esta es otra opción útil para controlar el rendimiento de escritura o lectura en DocumentDB. Para obtener más información sobre este tema, revise el artículo [Cambio de los niveles de coherencia de la base de datos y las consultas](../documentdb/documentdb-consistency-levels.md).
 
 ## Elegir un nivel de rendimiento
 
-Se pueden crear colecciones de DocumentDB a 3 niveles de rendimiento diferentes (S1, S2 o S3), que determinan el rendimiento disponible para las operaciones CRUD de esa colección. Además, el rendimiento se ve afectado por los niveles de indexación y coherencia de la colección. Consulte [este artículo](../articles/documentdb-performance-levels.md) para entender estos niveles de rendimiento en detalle.
+Se pueden crear colecciones de DocumentDB a 3 niveles de rendimiento diferentes (S1, S2 o S3), que determinan el rendimiento disponible para las operaciones CRUD de esa colección. Además, el rendimiento se ve afectado por los niveles de indexación y coherencia de la colección. Consulte [este artículo](../documentdb/documentdb-performance-levels.md) para entender estos niveles de rendimiento en detalle.
 
 ## Upserts de Análisis de transmisiones
 
@@ -62,4 +62,4 @@ La creación de DocumentDB como una salida en Análisis de transmisiones genera 
 -   **Clave de partición**: el nombre del campo en los eventos de salida que se usa para especificar la clave de la salida de la creación de particiones entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).  
 -   **Identificador de documento**: opcional. Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

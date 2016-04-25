@@ -28,18 +28,14 @@ Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización si
 
 Esta tabla permite comparar las opciones de Azure.
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## Pasos siguientes
 
-Pruebe una máquina virtual mediante la creación de una máquina virtual simple rápidamente. Para obtener instrucciones, consulte [Creación de una máquina virtual con Linux desde la CLI de Azure para desarrollo y pruebas](virtual-machines-linux-quick-create-cli.md).
+Pruebe una máquina virtual mediante la creación de una máquina virtual simple rápidamente. Para obtener instrucciones, consulte [Crear una máquina virtual que ejecute Linux](virtual-machines-linux-quick-create-cli.md).
 
 Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestra una manera de hacerlo en lugar de describir las diversas herramientas que puede usar para crear máquinas virtuales. Para ver un resumen de estas herramientas y vínculos a instrucciones, consulte [Diferentes formas de crear una máquina virtual Linux con Resource Manager](virtual-machines-linux-creation-choices.md).
 
-
-<!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
-
-<!------HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Carga de imágenes en el almacenamiento de blobs de Azure desde una aplicación universal de Windows | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar un servicio móvil de back-end de JavaScript para cargar imágenes al almacenamiento de blobs de Azure y acceder a ellas desde la aplicación universal de Windows." 
-	services="mobile-services,storage" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Carga de imágenes en el almacenamiento de blobs de Azure desde una aplicación universal de Windows | Microsoft Azure"
+	description="Obtenga información acerca de cómo usar un servicio móvil de back-end de JavaScript para cargar imágenes al almacenamiento de blobs de Azure y acceder a ellas desde la aplicación universal de Windows."
+	services="mobile-services,storage"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/16/2015"
 	ms.author="glenga"/>
 
 # Carga de imágenes al almacenamiento de blobs de Azure mediante Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-##Información general 
+##Información general
 
 Este tema muestra cómo utilizar Servicios móviles de Azure para permitir que su aplicación cargue y almacene imágenes generadas por el usuario en el almacenamiento de Azure. Servicios móviles utiliza una Base de datos SQL para almacenar datos. Sin embargo, los datos de objetos binarios grandes (BLOB) se almacenan de manera eficiente en el servicio de almacenamiento de blobs de Azure.
 
@@ -33,7 +33,7 @@ En este tutorial agregará funcionalidad a la aplicación de inicio rápido de S
 Este tutorial requiere lo siguiente:
 
 + Microsoft Visual Studio 2013 Update 3 o una versión posterior.
-+ [Cuenta de almacenamiento de Azure](../storage-create-storage-account.md)
++ [Cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md)
 + Una cámara u otro dispositivo de captura de imágenes conectado a su equipo.
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, debe leer [Introducción a los Servicios móviles].
@@ -55,12 +55,12 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 + [Referencia del script del servidor de servicios móviles]
 
     Temas de referencia para utilizar scripts de servidor con la finalidad de ejecutar tareas del lado servidor e integración con otros componentes de Azure y recursos externos.
- 
+
 + [Referencia conceptual de Servicios móviles con .NET]
 
     Obtenga más información sobre el uso de Servicios móviles con .NET.
-  
- 
+
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -83,6 +83,5 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Referencia conceptual de Servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

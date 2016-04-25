@@ -30,7 +30,7 @@ Conéctese a Office 365 Outlook para obtener correo electrónico, responder a un
 
 &nbsp;
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [API de Office 365](../app-service-logic/app-service-logic-connector-office365.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con Office 365 Outlook, puede:
 
@@ -61,7 +61,7 @@ Al agregar esta API a las aplicaciones lógicas, debe iniciar sesión en su cuen
 1. Inicie sesión en su cuenta de Office 365 Outlook.
 2. Permita que las aplicaciones lógicas se conecten a su cuenta de Office 365 y la usen. 
 
-Después de crear la conexión, especifique las propiedades de Office 365 Outlook, como la ruta de acceso a la carpeta Bandeja de entrada o el mensaje de correo. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de Office 365 Outlook, como la ruta de acceso a la carpeta Bandeja de entrada o el mensaje de correo. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Office 365 Outlook en otras aplicaciones lógicas.
 
@@ -260,7 +260,7 @@ Envía un correo electrónico con varias opciones y espera a que el destinatario
 
 
 ### Enviar correo electrónico de aprobación 
-Envía un correo electrónico de aprobación y espera una respuesta del destinatario Para. ```POST: /approvalmail/$subscriptions```
+Envía un correo electrónico de aprobación y espera una respuesta del destinatario del campo Para. ```POST: /approvalmail/$subscriptions```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -754,9 +754,9 @@ Actualiza parcialmente un contacto. ```PATCH: /datasets/contacts/tables/{table}/
 
 ## Pasos siguientes
 
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-Volver a la [lista de API](apis-list.md).
+Volver a la [lista de API](apis-list.md)
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -768,4 +768,4 @@ Volver a la [lista de API](apis-list.md).
 [12]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

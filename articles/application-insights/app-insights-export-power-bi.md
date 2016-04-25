@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usar Análisis de transmisiones para exportar Power BI desde Application Insights" 
-	description="Muestra cómo usar Análisis de transmisiones para procesar los datos exportados." 
+	pageTitle="Exportación a Power BI desde Application Insights" 
+	description="Artículos" 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,46 +12,50 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/05/2016" 
 	ms.author="awills"/>
- 
-# Usar Análisis de transmisiones para alimentar Power BI desde Application Insights
 
-En este artículo se muestra cómo usar el [Análisis de transmisiones](https://azure.microsoft.com/services/stream-analytics/) para procesar datos [exportados](app-insights-export-telemetry.md) de [Application Insights de Visual Studio ](app-insights-overview.md). Como destino de ejemplo, enviamos los datos a [Microsoft Power BI](https://powerbi.microsoft.com/).
+# Alimentación de Power BI desde Application Insights
 
+[Power BI](http://www.powerbi.com/) es un conjunto de herramientas de análisis de negocios que sirve para analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluido [Application Insights de Visual Studio](app-insights-overview.md).
 
-> [AZURE.NOTE] La manera más fácil de obtener datos en Power BI de Application Insights es [mediante el adaptador](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-application-insights/) que encontrará en la Galería de Power BI en Servicios. Lo que se describe en este artículo es actualmente más versátil, pero también es una demostración de cómo usar Análisis de transmisiones con Application Insights.
+Para comenzar, consulte [Paquete de contenido de Application Insights para Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/).
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presenta los datos en objetos visuales enriquecidos y variados, con la capacidad de reunir información de varios orígenes.
+Obtendrá un panel inicial que puede personalizar, combinando los gráficos de Application Insights con los de otras fuentes. Tiene a su disposición una galería de visualización en la que puede obtener más gráficos; y cada gráfico tiene a su vez parámetros que puede configurar.
 
-
-![Ejemplo de vista en Power BI de los datos de uso de Application Insights](./media/app-insights-export-power-bi/010.png)
-
-El [Análisis de transmisiones](https://azure.microsoft.com/services/stream-analytics/) es un servicio de Azure que funciona como adaptador, procesando continuamente los datos exportados de Application Insights.
-
-![Ejemplo de vista en Power BI de los datos de uso de Application Insights](./media/app-insights-export-power-bi/020.png)
+![](./media/app-insights-export-power-bi/010.png)
 
 
+Después de la importación inicial, el panel y los informes seguirán actualizándose a diario. Puede controlar la programación de la actualización en el conjunto de datos.
 
 
-## Vídeo
+**Muestreo.** Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. Esto se aplica igualmente si ha configurado el muestreo manualmente en el SDK o en la recopilación. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
 
-Noam Ben Zeev muestra lo que describimos en este artículo.
+## Formas alternativas para ver datos de Application Insights
 
-> [AZURE.VIDEO export-to-power-bi-from-application-insights]
+* Los [paneles de Azure que contienen gráficos de Application Insights](app-insights-dashboards.md) pueden ser la opción más adecuada si no necesita mostrar datos que no son de Azure. Por ejemplo, si desea configurar un panel de gráficos de Application Insights que supervisen los diferentes componentes de un sistema, quizás junto con algunos monitores de servicios de Azure, la mejor opción es un panel de Azure. Se actualiza con más frecuencia de manera predeterminada. 
+* La [exportación continua](app-insights-export-telemetry.md) copia los datos entrantes en Almacenamiento de Azure, donde puede moverlos y procesarlos como desee.
+* El [análisis](app-insights-analytics.md) le permite realizar consultas complejas en los datos sin procesar conservados por Application Insights.
 
 
-**Muestreo.** Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
+## Creación de su propio adaptador de Power BI mediante Análisis de transmisiones
 
-## Supervisión de aplicaciones con Application Insights
+El paquete de contenido de Power BI para Application Insights muestra un práctico subconjunto de telemetría de su aplicación que probablemente será suficiente para sus necesidades. Sin embargo, si desea obtener una gama más amplia de telemetría, o si desea calcular algunos datos a partir de la telemetría sin procesar, puede crear su propio adaptador mediante el servicio Análisis de transmisiones de Azure.
 
-Si aún no lo ha intentado, ahora es el momento de empezar. Application Insights puede supervisar cualquier aplicación web o de dispositivo en una amplia gama de plataformas, entre ellas, Windows, iOS, Android, J2EE y muchas más. [Primeros pasos](app-insights-overview.md).
+En este esquema, exportaremos datos desde Application Insights a Almacenamiento de Azure. [Análisis de transmisiones](https://azure.microsoft.com/services/stream-analytics/) extraerá los datos desde ahí, cambiará el nombre de algunos de los campos y los procesará, y canalizará los datos en Power BI. Análisis de transmisiones es un servicio que puede filtrar, agregar y realizar cálculos en una secuencia continua de datos.
 
-## Creación de almacenamiento en Azure
+![Diagrama de bloques para exportar a través de SA a PBI](./media/app-insights-export-power-bi/020.png)
+
+
+>[AZURE.TIP] **No es necesario seguir el procedimiento que se explica en el resto de este artículo** (mediante Análisis de transmisiones) para ver los datos de Application Insights en Power BI. Hay una manera mucho más fácil de hacerlo: [utilice el adaptador gratuito](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/). Siga el resto de este artículo solo si ese adaptador no proporciona todos los datos que desea, o si desea definir sus propias agregaciones o funciones en los datos.
+
+### Creación de almacenamiento en Azure
 
 La exportación continua siempre envía los datos a una cuenta de almacenamiento de Azure, por lo que necesitará crear primero el almacenamiento.
 
-1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [portal de Azure](https://portal.azure.com).
+1. ¿Ha probado el [Paquete de contenido de Application Insights para Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/)? Si esto es suficiente para sus necesidades, no necesita hacer nada más en el resto de este artículo.
+
+2.  Cree una cuenta de almacenamiento "clásica" en su suscripción en el [Portal de Azure](https://portal.azure.com).
 
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-power-bi/030.png)
 
@@ -65,7 +69,7 @@ La exportación continua siempre envía los datos a una cuenta de almacenamiento
 
     ![En el almacenamiento, abra Configuración, Claves y realice una copia de la clave de acceso principal.](./media/app-insights-export-power-bi/045.png)
 
-## Inicio de la exportación continua al almacenamiento de Azure
+### Inicio de la exportación continua al almacenamiento de Azure
 
 La [Exportación continua](app-insights-export-telemetry.md) transfiere los datos de Application Insights al almacenamiento de Azure.
 
@@ -98,7 +102,7 @@ La [Exportación continua](app-insights-export-telemetry.md) transfiere los dato
 
 Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en usar Stream Analytics para canalizar los datos a Power BI.
 
-## Creación de una instancia de Análisis de transmisiones de Azure
+### Creación de una instancia de Análisis de transmisiones de Azure
 
 Desde el [Portal de Azure clásico](https://manage.windowsazure.com/), seleccione el servicio Análisis de transmisiones de Azure y cree un nuevo trabajo de Análisis de transmisiones:
 
@@ -154,7 +158,7 @@ Cierre el asistente y espere a que el programa de instalación finalice.
 
 > [AZURE.TIP] Use el comando de ejemplo para descargar algunos datos. Guardarlo como un ejemplo de prueba para depurar la consulta.
 
-## Establecimiento de la salida
+### Establecimiento de la salida
 
 Ahora seleccione el trabajo y establezca la salida.
 
@@ -164,7 +168,7 @@ Ofrezca su **cuenta profesional o educativa** para autorizar el Análisis de tra
 
 ![Invente tres nombres](./media/app-insights-export-power-bi/170.png)
 
-## Definición de la consulta
+### Definición de la consulta
 
 La consulta controla la traducción de la entrada en la salida.
 
@@ -237,7 +241,7 @@ Pegue esta consulta:
 
 * Esta consulta incluye valores de las propiedades de dimensión sin depender de la fijación de una dimensión determinada en un índice fijo en la matriz de dimensión.
 
-## Ejecución del trabajo
+### Ejecución del trabajo
 
 Puede seleccionar una fecha en el pasado desde la que iniciar el trabajo.
 
@@ -245,7 +249,7 @@ Puede seleccionar una fecha en el pasado desde la que iniciar el trabajo.
 
 Espere hasta que el trabajo esté en ejecución.
 
-## Visualización de resultados en Power BI
+### Visualización de resultados en Power BI
 
 Abra Power BI con su cuenta profesional o educativa y seleccione el conjunto de datos y la tabla que ha definido como la salida del trabajo del Análisis de transmisiones.
 
@@ -256,7 +260,7 @@ Ahora puede usar este conjunto de datos en informes y paneles de [Power BI](http
 
 ![En Power BI, seleccione el conjunto de datos y los campos.](./media/app-insights-export-power-bi/210.png)
 
-## Vídeo
+### Vídeo
 
 Noam Ben Zeev muestra cómo exportar a Power BI.
 
@@ -268,5 +272,6 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
+ 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

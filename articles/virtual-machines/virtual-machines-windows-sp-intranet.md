@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint de intranet
@@ -35,8 +35,6 @@ El hospedaje de una granja de SharePoint de intranet en Servicios de infraestruc
 
 El siguiente paso es configurar una granja de SharePoint de intranet de desarrollo y pruebas hospedada en Azure.
 
-> [AZURE.NOTE] Microsoft ha publicado la versión de vista previa de TI de SharePoint Server 2016. Para facilitar la instalación y prueba de esta vista previa, puede utilizar una imagen de la galería de máquinas virtuales de Azure con la vista previa de TI de SharePoint Server 2016 y sus requisitos previos preinstalados. Para obtener más información, consulte [Prueba de la vista previa de TI de SharePoint 2016 en Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
-
 ## Creación de una granja de SharePoint de intranet de desarrollo y pruebas hospedada en Azure
 
 Tiene dos opciones para crear un entorno de desarrollo y pruebas para una granja de SharePoint hospedada en Azure:
@@ -44,7 +42,7 @@ Tiene dos opciones para crear un entorno de desarrollo y pruebas para una granja
 - Red virtual solo en la nube
 - Red virtual entre locales
 
-Puede crear estos entornos de desarrollo y pruebas de forma gratuita con su [suscripción a Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una [suscripción de evaluación de Azure](https://azure.microsoft.com/pricing/free-trial/).
+Puede crear estos entornos de desarrollo y pruebas con su [suscripción a Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una suscripción de Azure.
 
 ### Red virtual solo en la nube
 
@@ -54,7 +52,7 @@ La red virtual solo en la nube no está conectada a una red local. Si desea crea
 
 ### Red virtual entre locales
 
-Una red virtual entre locales está conectada a una red local con una conexión de ExpressRoute o VPN de sitio a sitio. Si desea crear un entorno de desarrollo y pruebas que imita la configuración final y experimentar con el acceso al servidor de SharePoint y realizar la administración remota a través de una conexión VPN, consulte [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
+Una red virtual entre locales está conectada a una red local con una conexión de ExpressRoute o VPN de sitio a sitio. Si desea crear un entorno de desarrollo y pruebas que imita la configuración final y experimentar con el acceso al servidor de SharePoint y realizar la administración remota a través de una conexión VPN, consulte [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md).
 
 ![](./media/virtual-machines-windows-sp-intranet/CreateSPFarmHybridCloud.png)
 
@@ -102,4 +100,4 @@ Una vez configurada, puede expandir esta granja de SharePoint con ayuda de [Arqu
 
 - Obtenga [información general](virtual-machines-windows-sp-intranet-overview.md) de la carga de trabajo de producción antes de comenzar con la configuración.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

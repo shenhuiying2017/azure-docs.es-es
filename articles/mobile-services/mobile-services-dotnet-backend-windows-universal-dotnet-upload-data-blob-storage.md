@@ -8,13 +8,13 @@
 	editor=""/>
 
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/01/2015"
 	ms.author="glenga"/>
 
 # Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
@@ -38,7 +38,7 @@ En este tutorial agregará funcionalidad a la aplicación de inicio rápido de S
 Este tutorial requiere lo siguiente:
 
 + Microsoft Visual Studio 2013 Update 3 o una versión posterior.
-+ [Cuenta de almacenamiento de Azure](../storage-create-storage-account.md)
++ [Cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md)
 + Una cámara u otro dispositivo de captura de imágenes conectado a su equipo.
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles].
@@ -51,11 +51,11 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 Ahora que ha podido cargar de manera segura imágenes al integrar su servicio móvil con el servicio BLOB, revise algunos de los otros temas relacionados con la integración y el servicio back-end:
 
-+ [Programar trabajos de back-end en Servicios móviles](../mobile-services-dotnet-backend-schedule-recurring-tasks.md)
++ [Programar trabajos de back-end en Servicios móviles](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 
      Aprenda a utilizar la funcionalidad del programador de trabajos de Servicios móviles para definir el código de script de servidor que se ejecuta según una programación que define usted.
 
-+ [Referencia conceptual de Servicios móviles con .NET](../mobile-services-windows-dotnet-how-to-use-client-library.md)
++ [Referencia conceptual de Servicios móviles con .NET](mobile-services-dotnet-how-to-use-client-library.md)
 
      Obtenga más información sobre el uso de Servicios móviles con .NET.
 
@@ -71,8 +71,8 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introducción a los Servicios móviles]: ../mobile-services-windows-store-dotnet-get-started.md
-[How To Create a Storage Account]: ../storage-create-storage-account.md
+[Introducción a los Servicios móviles]: mobile-services-windows-store-dotnet-get-started.md
+[How To Create a Storage Account]: ../storage/storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

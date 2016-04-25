@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/10/2016"
 	ms.author="robmcm"/>
 
 
@@ -31,7 +31,8 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 ## Creación de una aplicación de Ruby
 
-Para obtener instrucciones sobre cómo crear una aplicación de Ruby, consulte [Aplicación web de Ruby on Rails en una máquina virtual de Azure](../virtual-machines/virtual-machines-ruby-rails-linux-classic-web-app.md).
+Para obtener instrucciones sobre cómo crear una aplicación de Ruby, consulte [Aplicación web de Ruby on Rails en una máquina virtual de Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+
 
 ## Configuración de la aplicación para obtener acceso al almacenamiento
 
@@ -163,4 +164,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Repositorio de [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

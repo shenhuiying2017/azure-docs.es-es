@@ -38,7 +38,8 @@ Para usar la aplicación de API de C# deberá crear primero una instancia de ell
 ###Desencadenador
 Puede crear un desencadenador que el Servicio de aplicaciones lógicas sondee (en el intervalo que defina) y, si devuelve algo distinto de `false`, la aplicación lógica se ejecuta. De lo contrario, espera hasta el siguiente intervalo de sondeo para volver a comprobarlo.
 
-Las entradas para el desencadenador son: - **Expresión de C#**: una expresión que se evalúa. Se invoca dentro de una función y debe devolver `false` cuando no desee que se ejecute la aplicación lógica, y puede devolver algo diferente cuando sí desee que se ejecute. Puede usar el contenido de la respuesta en las acciones de la aplicación lógica.
+Las entradas para el desencadenador son las siguientes:
+- **Expresión de C#**: una expresión que se evalúa. Se invoca dentro de una función y debe devolver `false` cuando no desee que se ejecute la aplicación lógica, mientras que podría devolver cualquier otro valor cuando sí desee su ejecución. Puede usar el contenido de la respuesta en las acciones de la aplicación lógica.
 
 Por ejemplo, podría disponer de un desencadenador simple que solo ejecute la aplicación lógica entre los 15 y los 30 minutos de cada hora:
 
@@ -50,7 +51,10 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 
 Del mismo modo, puede proporcionar la acción que desea ejecutar.
 
-Las entradas para la acción son: - **Expresión de C#**: una expresión que se evalúa. Debe incluir la instrucción de `return` para obtener cualquier contenido. -**Objetos de contexto**: un objeto de contexto opcional que se puede pasar al desencadenador. Puede definir todas las propiedades que desee, pero la base debe ser un objeto JObject `{ ... }`, y puede hacerse referencia a los objetos en el script a través del nombre clave (el valor se pasa como a JToken correspondiente al nombre). - **Bibliotecas**: una matriz opcional de archivos .dll que incluir en la compilación del script. La matriz usa la siguiente estructura y funciona mejor junto a un conector de almacenamiento de blobs con el .dll como resultado:
+Las entradas para la acción son las siguientes:
+- **Expresión de C#**: una expresión que se evalúa. Debe incluir la instrucción `return` para obtener cualquier contenido. 
+- **Objetos de contexto**: un objeto de contexto opcional que se puede pasar al desencadenador. Puede definir todas las propiedades que desee, pero la base debe ser un elemento JObject `{ ... }`; asimismo, puede hacerse referencia a los objetos en el script a través del nombre de clave (el valor se pasa como un elemento JToken correspondiente al nombre).
+- **Bibliotecas**: una matriz opcional de archivos .dll que se va a incluir en la compilación del script. La matriz usa la siguiente estructura y funciona mejor junto a un conector de almacenamiento de blobs con el .dll como resultado:
 
 ```javascript
 [{"filename": "name.dll", "assembly": {Base64StringFromConnector}, "usingstatment": "using Library.Reference;"}]
@@ -101,11 +105,11 @@ La acción devuelve el objeto que usted devolvió a partir de la función en un 
 ## Aplicaciones adicionales del conector
 Después de crear el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
-También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

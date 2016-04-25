@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Fase 3 de la carga de trabajo de aplicación de línea de negocio: Configuración de la infraestructura de SQL Server
@@ -180,7 +180,7 @@ El servicio SQL Server requiere un puerto que los clientes usen para tener acces
 
 Cierre la sesión como administrador local en cada una de las máquinas virtuales de SQL Server.
 
-Para obtener más información acerca de la optimización del rendimiento de SQL Server en Azure, consulte [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-classic-sql-perf.md). También puede deshabilitar el almacenamiento de redundancia geográfica (GRS) en la cuenta de almacenamiento de la aplicación de línea de negocio y usar espacios de almacenamiento para optimizar la tasa de E/S por segundo.
+Para obtener más información acerca de la optimización del rendimiento de SQL Server en Azure, consulte [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md). También puede deshabilitar el almacenamiento de redundancia geográfica (GRS) en la cuenta de almacenamiento de la aplicación de línea de negocio y usar espacios de almacenamiento para optimizar la tasa de E/S por segundo.
 
 ## Configuración del servidor de nodos de mayoría de clúster
 
@@ -259,4 +259,4 @@ Este diagrama muestra la configuración resultante de la realización correcta d
 
 - Para continuar con la configuración de esta carga de trabajo, vaya a la [Fase 4](virtual-machines-windows-ps-lob-ph4.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

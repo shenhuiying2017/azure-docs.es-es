@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/02/2016"
 	ms.author="dastrock"/>
 
 # Inicio de sesión de usuarios de cuentas de Microsoft y de Azure AD en una sola aplicación
@@ -39,6 +39,7 @@ La información conceptual que aquí se describe será útil para entender qué 
 ## Referencia
 Estos vínculos le servirán para explorar la plataforma en profundidad:
 
+- Compilación 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/) (Introducción a las identidades de Microsoft: inicio de sesión de categoría empresarial para sus aplicaciones)
 - Obtenga ayuda acerca del desbordamiento de pila con las etiquetas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
 - [Referencia de protocolos de v2.0](active-directory-v2-protocols.md)
 - [Referencia de los tokens de v2.0](active-directory-v2-tokens.md)
@@ -56,10 +57,4 @@ Estos vínculos le servirán para explorar la plataforma en profundidad:
   - [Cliente de OAuth2 para Android](https://github.com/wuman/android-oauth-client)
   - [Cliente de OpenID Connect para Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!-- TODO: These articles
-- [ADAL Library Reference]()
-- [v2 Endpoint FAQs](active-directory-v2-faq.md)
-- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
--->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -21,10 +21,7 @@
 
 Azure Media Hyperlapse es un procesador de multimedia (MP) que crea vídeos fluidos con la técnica time-lapse a partir de contenido generado en primera persona o con una cámara de acción. Microsoft Hyperlapse para Servicios multimedia de Azure, el correspondiente producto para la nube de [Hyperlapse Pro (para equipos de escritorio) y Hyperlapse Mobile (para móviles) de Microsoft Research](http://aka.ms/hyperlapse), usa la escalación masiva de la plataforma de procesamiento de medios de Servicios multimedia de Azure para escalar horizontalmente y establecer paralelismos en el procesamiento masivo de Hyperlapse.
 
->[AZURE.IMPORTANT] Microsoft Hyperlapse para Servicios multimedia de Azure se encuentra en un estado de vista previa pública gratuita. Los trabajos se limitan a los primeros 10.000 fotogramas de los recursos de entrada.
-
-
-> Microsoft Hyperlapse está diseñado para funcionar mejor con los contenidos grabados en primera persona con una cámara móvil. Aunque la grabación con cámara fija también puede funcionar, no se garantiza el rendimiento y la calidad del procesador multimedia Azure Media Hyperlapse para otros tipos de contenido. Para obtener más información acerca de Microsoft Hyperlapse para Servicios multimedia de Azure y ver algunos vídeos de ejemplo, consulte la [publicación de blog de introducción](http://aka.ms/azurehyperlapseblog) en la vista previa pública.
+>[AZURE.IMPORTANT]Microsoft Hyperlapse está diseñado para funcionar mejor con los contenidos grabados en primera persona con una cámara móvil. Aunque la grabación con cámara fija también puede funcionar, no se garantiza el rendimiento y la calidad del procesador multimedia Azure Media Hyperlapse para otros tipos de contenido. Para obtener más información acerca de Microsoft Hyperlapse para Servicios multimedia de Azure y ver algunos vídeos de ejemplo, consulte la [publicación de blog de introducción](http://aka.ms/azurehyperlapseblog) en la vista previa pública.
 
 Un trabajo de Azure Media Hyperlapse toma como entrada un archivo de recurso en formato MP4, MOV o WMV, junto con un archivo de configuración que especifica a qué fotogramas de vídeo se debe aplicar el time-lapse y a qué velocidad (por ejemplo, los primeros 10.000 fotogramas a 2x). El resultado es una representación estabilizada y en time-lapse del vídeo de entrada.
 
@@ -212,13 +209,8 @@ El método siguiente carga un archivo multimedia como un recurso y crea un traba
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
+##Vínculos relacionados
 
+[Información general de análisis de Servicios multimedia de Azure](media-services-analytics-overview.md)
 
-
-<!-- Anchors. -->
-
-<!-- Images. -->
-
-<!-- URLs. -->
-
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Incorporación de runbooks de automatización de Azure a los planes de recuperación | Microsoft Azure" 
-   description="Este artículo describe cómo Azure Site Recovery ahora le permite ampliar los planes de recuperación mediante Automatización de Azure para completar tareas complejas durante la recuperación en Azure" 
-   services="site-recovery" 
-   documentationCenter="" 
-   authors="ruturaj" 
-   manager="mkjain" 
+<properties
+   pageTitle="Incorporación de runbooks de automatización de Azure a los planes de recuperación | Microsoft Azure"
+   description="Este artículo describe cómo Azure Site Recovery ahora le permite ampliar los planes de recuperación mediante Automatización de Azure para completar tareas complejas durante la recuperación en Azure"
+   services="site-recovery"
+   documentationCenter=""
+   authors="ruturaj"
+   manager="mkjain"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="powershell"
    ms.tgt_pltfrm="na"
    ms.topic="article"
-   ms.workload="required" 
+   ms.workload="required"
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
@@ -103,7 +103,7 @@ Ahora ambas configuraciones están disponibles en los activos.
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Se proporciona más información acerca de cómo conectarse a su suscripción mediante powershell [aquí](../install-configure-powershell.md).
+Se proporciona más información acerca de cómo conectarse a su suscripción mediante powershell [aquí](../powershell-install-configure.md).
 
 A continuación, creará un runbook en Automatización de Azure que puede agregar un extremo para la máquina virtual front-end después de la conmutación por error.
 
@@ -137,11 +137,11 @@ La tabla siguiente contiene el nombre y la descripción de cada variable en el c
 **Nombre de la variable** | **Descripción**
 ---|---
 RecoveryPlanName | Nombre del plan que se va a ejecutar. Permite realizar acciones según el nombre mediante el mismo script.
-FailoverType | Especifica si la conmutación por error se probó y si se planeó o no. 
+FailoverType | Especifica si la conmutación por error se probó y si se planeó o no.
 FailoverDirection | Especifica si la recuperación es al principal o secundario.
 GroupID | Identifica el número de grupo dentro del plan de recuperación cuando se ejecuta el plan.
 VmMap | Tabla con todas las máquinas virtuales del grupo.
-Clave de VMMap | Clave única (GUID) para cada máquina virtual. Es el mismo que el identificador de VMM de la máquina virtual, si procede. 
+Clave de VMMap | Clave única (GUID) para cada máquina virtual. Es el mismo que el identificador de VMM de la máquina virtual, si procede.
 RoleName | Nombre de la máquina virtual de Azure que se está recuperando.
 CloudServiceName | Nombre del servicio en la nube de Azure con el que se crea la máquina virtual.
 
@@ -161,7 +161,7 @@ Ahora cree el runbook para abrir el puerto 80 en la máquina virtual front-end.
 2.  Desplácese a la vista del autor del runbook y entre en el modo de borrador.
 
 3.  Especifique primero la variable que se usará como contexto del plan de recuperación
-  
+
 	```
 		param (
 			[Object]$RecoveryPlanContext
@@ -173,7 +173,7 @@ Ahora cree el runbook para abrir el puerto 80 en la máquina virtual front-end.
 
 	```
 		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
+
 		# Connect to Azure
 		$AzureAccount = Add-AzureAccount -Credential $Cred
 		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -229,7 +229,7 @@ El script completo se muestra a continuación para su referencia
 	)
 
 	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
+
 	# Connect to Azure
 	$AzureAccount = Add-AzureAccount -Credential $Cred
 	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -241,7 +241,7 @@ El script completo se muestra a continuación para su referencia
 	$AEPublicPort = 80
 	$AEName = "Port 80 for HTTP"
 	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-	
+
 	#Read the VM GUID from the context
 	$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
@@ -266,7 +266,8 @@ El script completo se muestra a continuación para su referencia
 
 Una vez que el script esté listo, puede agregarlo al plan de recuperación que creó anteriormente.
 
-1.  En el plan de recuperación que creó, elija agregar un script después del grupo 2. ![](media/site-recovery-runbook-automation/15.png)
+1.  En el plan de recuperación que creó, elija agregar un script después del grupo 2.
+![](media/site-recovery-runbook-automation/15.png)
 
 2.  Especifique un nombre de script. Se trata simplemente de un nombre descriptivo para este script que se muestra en el plan de recuperación.
 
@@ -308,6 +309,4 @@ Mientras describimos la automatización de la tarea habitual de agregar un extre
 
 [Scripts de Automatización de Azure de ejemplo](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Scripts de Automatización de Azure de ejemplo")
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

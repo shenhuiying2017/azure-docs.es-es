@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="04/11/2016"
 	ms.author="wesmc"/>
 
 # Administración de registros
@@ -77,9 +77,9 @@ Una instalación puede contener las siguientes propiedades. Para ver una lista c
 
  
 
-Es importante tener en cuenta que los registros y las instalaciones, junto con los identificadores de PNS que contienen, sí expiran. Puede establecer el período de vida en el Centro de notificaciones, hasta un máximo de 90 días. Este límite significa que se deben actualizar de forma periódica y, además, no deben ser el único lugar de almacenamiento para la información importante. Esta expiración automática también simplifica la limpieza cuando se desinstala la aplicación móvil.
+Es importante tener en cuenta que los registros y las instalaciones, de forma predeterminada, ya no expiran.
 
-Los registros y las instalaciones deben contener el identificador de PNS más reciente de cada dispositivo o canal. Debido a que los identificadores de PNS solo se pueden obtener en una aplicación cliente del dispositivo, un patrón es registrarse directamente en ese dispositivo con la aplicación cliente. Por otro lado, las consideraciones de seguridad y la lógica de negocios relacionadas con las etiquetas pueden requerir que administre el registro de dispositivos en el back-end de la aplicación.
+Los registros y las instalaciones deben contener un controlador PNS válido para cada dispositivo o canal. Debido a que los identificadores de PNS solo se pueden obtener en una aplicación cliente del dispositivo, un patrón es registrarse directamente en ese dispositivo con la aplicación cliente. Por otro lado, las consideraciones de seguridad y la lógica de negocios relacionadas con las etiquetas pueden requerir que administre el registro de dispositivos en el back-end de la aplicación.
 
 #### Plantillas
 
@@ -241,7 +241,6 @@ Estos métodos crean o actualizan un registro para el dispositivo en el que se l
 	}
 	catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 	{
-		// regId likely expired, delete from local storage and try again
 		settings.Remove("__NHRegistrationId");
 	}
 
@@ -330,4 +329,4 @@ Desde el back-end de la aplicación, puede ejecutar operaciones de tipo CRUD en 
 
 El back-end debe controlar la simultaneidad entre las actualizaciones de los registros. Bus de servicio ofrece un control de simultaneidad optimista para la administración de registros. A nivel de HTTP, se implementa con el uso de ETag en las operaciones de administración de registros. Los SDK de Microsoft utilizan esta característica de manera transparente y generan una excepción si se rechaza una actualización por motivos de simultaneidad. El back-end de aplicación es responsable de controlar estas excepciones y de volver a intentar la actualización, si es necesario.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

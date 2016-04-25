@@ -25,14 +25,14 @@ La API de SQL Azure puede usarse desde:
 
 - Aplicaciones lógicas 
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 01/12/2014-Versión preliminar, haga clic en [Conector de SQL](../app-service-logic/app-service-logic-connector-sql.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con SQL Azure puede:
 
 - Compilar el flujo de negocio en función de los datos que obtiene de SQL Azure. 
 - Usar acciones para obtener una fila, insertar una fila y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede obtener una fila de datos de SQL Azure y luego agregar datos a Excel. 
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Desencadenadores y acciones
@@ -227,4 +227,4 @@ Actualiza una fila existente en una tabla SQL. ```PATCH: /datasets/default/table
 
 [Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

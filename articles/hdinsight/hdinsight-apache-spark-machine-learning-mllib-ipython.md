@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="04/08/2016" 
 	ms.author="nitinme"/>
 
 
@@ -49,7 +49,7 @@ En resumen, el proceso de regresión logística genera una *función logística*
 
 ## ¿Cuál es la meta de este artículo?
 
-Va a usar Spark para realizar un análisis predictivo sobre datos de inspección de alimentos (**Food\_Inspections1.csv**) que se han adquirido a través del [portal de datos de la ciudad de Chicago](https://data.cityofchicago.org/). Este conjunto de datos contiene información sobre los controles alimentarios que se realizaron en Chicago, incluida la información sobre cada establecimiento de alimentos que se inspeccionó, las infracciones que se encontraron (si existen) y los resultados de la inspección.
+Va a usar Spark para realizar un análisis predictivo sobre datos de inspección de alimentos (**Food\_Inspections1.csv**) que se han adquirido a través del [portal de datos de la ciudad de Chicago](https://data.cityofchicago.org/). Este conjunto de datos contiene información sobre los controles alimentarios que se realizaron en Chicago, incluida la información sobre cada establecimiento de alimentos que se inspeccionó, las infracciones que se encontraron (si existen) y los resultados de la inspección. El archivo de datos CSV ya está disponible en la cuenta de almacenamiento asociada al clúster de **/HdiSamples/HdiSamples/FoodInspectionData/Food\_Inspections1.csv**.
 
 En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario para superar o no una inspección de alimentos.
 
@@ -63,7 +63,7 @@ En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y luego en **PySpark**.
+2. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
 	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
 
@@ -71,7 +71,7 @@ En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario
 
 	![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
 
-3. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark, SQL y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar a crear la aplicación de aprendizaje automático importando los tipos necesarios para este escenario. Para ello, coloque el cursor en la celda y presione **MAYÚS + ENTRAR**.
+3. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar a crear la aplicación de aprendizaje automático importando los tipos necesarios para este escenario. Para ello, coloque el cursor en la celda y presione **MAYÚS + ENTRAR**.
 
 
 		from pyspark.ml import Pipeline
@@ -83,7 +83,7 @@ En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario
 
 ## Construcción de una trama de datos de entrada
 
-Ya tenemos un SQLContext que podemos usar para realizar las transformaciones de datos estructurados. La primera tarea consiste en cargar los datos de ejemplo ((**Food\_Inspections1.csv**)) en una *trama de datos* de SQL Spark. Los fragmentos de código siguientes consideran que los datos ya se han cargado en el contenedor de almacenamiento predeterminado asociado con el clúster Spark.
+Podemos usar `sqlContext` para realizar las transformaciones de datos estructurados. La primera tarea consiste en cargar los datos de ejemplo ((**Food\_Inspections1.csv**)) en una *trama de datos* de SQL Spark.
 
 1. Dado que los datos sin procesar están en formato CSV, tiene que usar el contexto de Spark para extraer cada línea del archivo en memoria como texto no estructurado; a continuación, utilice la biblioteca CSV de Python para analizar cada línea individualmente. 
 
@@ -194,13 +194,13 @@ Ya tenemos un SQLContext que podemos usar para realizar las transformaciones de 
 		%%sql -o countResultsdf
 		SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
 
-	La instrucción mágica `%%sql` seguida de `-o countResultsdf` garantiza que el resultado de la consulta persiste localmente en el servidor de Jupyter (normalmente, el nodo principal del clúster). El resultado se conserva como una trama de datos [Pandas](http://pandas.pydata.org/) con el nombre especificado **countResultsdf**.
+	La instrucción mágica `%%sql` seguida de `-o countResultsdf` garantiza que el resultado de la consulta persista localmente en el servidor de Jupyter (normalmente, el nodo principal del clúster). El resultado se conserva como una trama de datos [Pandas](http://pandas.pydata.org/) con el nombre especificado **countResultsdf**.
 	
 	Debe ver algo parecido a lo siguiente:
 	
 	![Resultado de la consulta SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "Resultado de la consulta SQL")
 
-	Para obtener más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles en los cuadernos de Jupyter con clústeres de HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+	Para obtener más información sobre la instrucción mágica `%%sql`, así como otras que hay disponible con el kernel de PySpark, consulte [Kernels disponibles para cuadernos de Jupyter Notebook con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
 3. También puede utilizar Matplotlib, una biblioteca que se usa para construir la visualización de datos, para crear un gráfico. Dado que el gráfico se debe crear a partir de la trama de datos **countResultsdf** persistente localmente, el fragmento de código debe comenzar con la instrucción mágica `%%local`. Esto garantiza que el código se ejecuta localmente en el servidor de Jupyter.
 
@@ -339,39 +339,32 @@ Podemos usar el modelo que hemos creado anteriormente para *predecir* cuáles se
 
 ## Creación de una representación visual de la predicción
 
-Podemos crear una visualización final que nos ayude a analizar los resultados de esta prueba:
+Ahora podemos crear una visualización final que nos ayude a analizar los resultados de esta prueba.
 
-1. Empezaremos por extraer los distintos resultados y predicciones de la tabla temporal **Predictions** creada anteriormente.
+1. Empezaremos por extraer los distintos resultados y predicciones de la tabla temporal **Predictions** creada anteriormente. Las siguientes consultas separan el resultado como *true\_positive*, *false\_positive*, *true\_negative* y *false\_negative*. En las consultas siguientes, hay que desactivar la visualización mediante el uso de `-q` y guardar también la salida (usando `-o`) como tramas de datos que pueden usarse con la instrucción mágica `%%local`. 
 
-		%%sql -o predictionstable
-		SELECT prediction, results FROM Predictions
+		%%sql -q -o true_positive
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
 
-2. En el fragmento de código anterior, **predictionstable** es la trama de datos local en el servidor de Jupyter que conserva el resultado de la consulta SQL. Ahora puede usar la instrucción mágica `%%local` para ejecutar los fragmentos de código siguientes en la trama de datos persistente localmente.
+		%%sql -q -o false_positive
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
 
-		%%local
-		failSuccess = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results == 'Fail')]['prediction'].count()
-		failFailure = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results <> 'Fail')]['prediction'].count()
-		passSuccess = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results <> 'Fail')]['prediction'].count()
-		passFailure = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results == 'Fail')]['prediction'].count()
-		failSuccess,failFailure,passSuccess,passFailure
+		%%sql -q -o true_negative
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
 
-	El resultado tendrá un aspecto similar al siguiente:
-	
-		# -----------------
-		# THIS IS AN OUTPUT
-		# -----------------
-	
-		(276, 46, 1917, 261)
+		%%sql -q -o false_negative
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions') 
 
-3. Por último, utilice el siguiente fragmento de código para generar el gráfico.
+2. Por último, utilice el siguiente fragmento de código para generar el gráfico mediante **Matplotlib**.
 
 		%%local
 		%matplotlib inline
 		import matplotlib.pyplot as plt
 		
 		labels = ['True positive', 'False positive', 'True negative', 'False negative']
-		sizes = [failSuccess, failFailure, passSuccess, passFailure]
-		plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+		sizes = [true_positive['cnt'], false_positive['cnt'], false_negative['cnt'], true_negative['cnt']]
+		colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
 		plt.axis('equal')
 	
 	Debería ver la siguiente salida.
@@ -397,7 +390,7 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 
 * [Análisis del registro del sitio web con Spark en HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -405,7 +398,7 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Envío de trabajos de Spark de manera remota mediante Livy con clústeres de Spark en HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
+* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Herramientas y extensiones
 
@@ -419,4 +412,4 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

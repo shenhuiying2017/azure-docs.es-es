@@ -21,14 +21,14 @@ ms.author="deonhe"/>
 
 El proveedor de la conexión de SharePoint proporciona una API para trabajar con listas de SharePoint.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [API de Slack](../app-service-logic/app-service-logic-connector-SharePoint.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con SharePoint, puede:
 
 * Usarlo para crear aplicaciones lógicas
 * Usarlo para crear PowerApps  
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Hablemos de acciones y desencadenadores
 
@@ -66,23 +66,27 @@ Se pueden escuchar estos eventos:
 
 
 ## Creación de una conexión a SharePoint
-Para usar la API de SharePoint, cree primero una **conexión** y después proporcione los detalles para estas propiedades:
+Para usar la API de SharePoint, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
 
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
 |Se necesita el cifrado de tokens|Sí|Proporcionar credenciales de SharePoint|
 
-Para poder conectarse con **SharePoint Online** tiene que proporcionar su identidad (nombre de usuario y contraseña, credenciales de tarjeta inteligente, etc.) a SharePoint Online. Una vez que se ha autenticado, podrá usar la API de SharePoint Online en la aplicación lógica.
+Para poder efectuar la conexión con **SharePoint Online**, tiene que proporcionar su identidad (nombre de usuario y contraseña, credenciales de tarjeta inteligente, etc.) a SharePoint Online. Una vez que se ha autenticado, podrá usar la API de SharePoint Online en la aplicación lógica.
 
 Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pasos para iniciar sesión en SharePoint y crear la **conexión** para su uso en la aplicación lógica:
 
-1. Escriba SharePoint en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan SharePoint en el nombre:![Configurar SharePoint][1]  
-2. Seleccione **SharePoint Online - cuando se crea un archivo**   
-3. Seleccione **Sign in to SharePoint Online** (Iniciar sesión en Sharepoint Online): ![Configurar SharePoint][2]    
-4. Proporcione sus credenciales de SharePoint para iniciar sesión y autenticarse con SharePoint ![Configurar SharePoint][3]     
-5. Cuando finalice la autenticación se le redirigirá a la aplicación lógica para terminarla y configurar el cuadro de diálogo de SharePoint **When a file is created** (Cuando se crea un archivo). ![Configurar SharePoint][4]  
+1. Escriba "SharePoint" en el cuadro de búsqueda y espere a que aparezcan todas las entradas que incluyan "SharePoint" en el nombre.
+![Configurar SharePoint][1]  
+2. Seleccione **SharePoint Online - When a file is created** (SharePoint Online - cuando se crea un archivo).   
+3. Seleccione **Sign in to SharePoint Online** (Iniciar sesión en Sharepoint Online).
+![Configurar SharePoint][2]    
+4. Proporcione sus credenciales de SharePoint para iniciar sesión y autenticarse con SharePoint.
+![Configurar SharePoint][3]     
+5. Cuando finalice la autenticación, se le redirigirá a la aplicación lógica para que la complete configurando el diálogo de SharePoint **When a file is created** (Cuando se crea un archivo).
+![Configurar SharePoint][4]  
 6. A continuación, puede agregar otros desencadenadores y acciones que necesita para completar la aplicación lógica.   
-7. Para guardar el trabajo, seleccione **Guardar** en la barra de menús superior.  
+7. Guarde el trabajo seleccionando **Guardar** en la barra de menús superior.  
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas, en PowerApps o en ambas.
 
@@ -97,7 +101,7 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. Por ejemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
 |id|cadena|yes|path|Ninguna|Identificador único del archivo|
 
 
@@ -118,7 +122,7 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. Por ejemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
 |id|cadena|yes|path|Ninguna|Identificador único del archivo|
 |body| |yes|body|Ninguna|Contenido del archivo:|
 
@@ -140,7 +144,7 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. Por ejemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
 |id|cadena|yes|path|Ninguna|Identificador único del archivo|
 
 
@@ -161,7 +165,7 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. Por ejemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
 |path|cadena|yes|query|Ninguna|Ruta de acceso del archivo|
 
 
@@ -182,7 +186,7 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. Por ejemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
 |path|cadena|yes|query|Ninguna|Ruta de acceso del archivo|
 
 
@@ -203,7 +207,7 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. Por ejemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
 |id|cadena|yes|path|Ninguna|Identificador único del archivo|
 
 
@@ -224,7 +228,7 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. Por ejemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
 |folderPath|cadena|yes|query|Ninguna|Ruta de acceso a la carpeta|
 |name|cadena|yes|query|Ninguna|Nombre del archivo|
 |body| |yes|body|Ninguna|Contenido del archivo:|
@@ -247,7 +251,7 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. Por ejemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
 |de origen|cadena|yes|query|Ninguna|Ruta de acceso al archivo de origen|
 |de destino|cadena|yes|query|Ninguna|Ruta de acceso al archivo de destino|
 |overwrite|boolean|no|query|false|Especifica si se sobrescribe un archivo existente|
@@ -312,7 +316,7 @@ Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pas
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. Por ejemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|cadena|yes|path|Ninguna|Dirección URL del sitio de SharePoint. P. ej., http://contoso.sharepoint.com/sites/mysite|.
 |de origen|cadena|yes|query|Ninguna|Ruta de acceso al archivo de origen|
 |de destino|cadena|yes|query|Ninguna|Ruta de acceso a la carpeta de destino|
 |overwrite|boolean|no|query|false|Especifica si se sobrescribe un archivo existente|
@@ -642,7 +646,7 @@ Ninguna de las propiedades es obligatoria.
 
 
 
- **Elemento**:
+ **Item**:
 
 Propiedades obligatorias para Item:
 
@@ -693,7 +697,7 @@ Ninguna de las propiedades es obligatoria.
 
 
 ## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Creación de una PowerApp](../power-apps/powerapps-get-started-azure-portal.md)
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Crear una PowerApp](../power-apps/powerapps-get-started-azure-portal.md)
 
 [1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
@@ -701,4 +705,4 @@ Ninguna de las propiedades es obligatoria.
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

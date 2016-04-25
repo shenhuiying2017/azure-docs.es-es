@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="¿Qué es una lista de control de acceso (ACL) de red?"
    description="Más información acerca de las ACL"
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -21,7 +21,7 @@ Una lista de control de acceso (ACL) de extremo es una mejora de seguridad dispo
 
 > [AZURE.IMPORTANT] Siempre que sea posible, se recomienda utilizar grupos de seguridad de red (NSG) en lugar de ACL. Para obtener más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red?](virtual-networks-nsg.md).
 
-Las listas de control de acceso se pueden configurar mediante PowerShell o el Portal de administración. Para configurar una ACL de red con PowerShell, consulte [Administración de listas de control de acceso (ACL) para extremos usando PowerShell](virtual-networks-acl-powershell.md). Para configurar una ACL de red mediante el Portal de administración, consulte [Configuración de extremos en una máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md).
+Las listas de control de acceso se pueden configurar mediante PowerShell o el Portal de administración. Para configurar una ACL de red con PowerShell, consulte [Administración de listas de control de acceso (ACL) para extremos usando PowerShell](virtual-networks-acl-powershell.md). Para configurar una ACL de red mediante el Portal de administración, consulte [Configuración de extremos en una máquina virtual](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 
 Con las ACL de red, puede hacer lo siguiente:
 
@@ -99,4 +99,4 @@ Las ACL de red pueden especificarse en un extremo del conjunto con equilibrio de
 
 [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](virtual-networks-acl-powershell.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

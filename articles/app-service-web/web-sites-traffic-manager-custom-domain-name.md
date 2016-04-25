@@ -1,12 +1,12 @@
 <properties pageTitle="Configurar un nombre de dominio personalizado para una aplicación web en el Servicio de aplicaciones de Azure que usa el Administrador de tráfico"wpickett"Usar un nombre de dominio personalizado para una aplicación web en el Servicio de aplicaciones de Azure que incluye Administrador de tráfico para el equilibrio de cargas". description="Use un nombre de dominio personalizado para una aplicación web en el Servicio de aplicaciones de Azure que incluye Administrador de tráfico para el equilibrio de cargas". services="app-service\\web" documentationCenter="" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/04/2016" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 #Configuración de un nombre de dominio personalizado para una aplicación web en Servicio de aplicaciones de Azure utilizando el Administrador de tráfico
@@ -59,4 +59,4 @@ Para asociar su dominio personalizado con una aplicación web del Servicio de ap
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

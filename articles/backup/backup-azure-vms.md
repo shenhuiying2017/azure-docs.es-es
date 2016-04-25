@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="04/08/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -34,21 +34,39 @@ La realización de copias de seguridad de máquinas virtuales de Azure consta tr
 ## Paso 1: Detección de máquinas virtuales de Azure
 Para asegurarse de identificar antes del registro todas las máquinas virtuales nuevas agregadas a la suscripción, ejecute el proceso de detección. El proceso consulta a Azure la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, por ejemplo, el nombre del servicio en la nube y la región.
 
-1. Vaya al almacén de copia de seguridad en **Servicios de recuperación** en el Portal de Azure y haga clic en **Elementos registrados**.
+1. Inicie sesión en el [Portal clásico](http://manage.windowsazure.com/).
 
-2. Seleccione **Máquina virtual de Azure** en el menú desplegable.
+2. En la lista de servicios de Azure, haga clic en **Servicios de recuperación** para abrir la lista de almacenes de copia de seguridad y recuperación del sitio.
+![Abrir lista de almacenes](./media/backup-azure-vms/choose-vault-list.png)
+
+3. En la lista de almacenes de copia de seguridad, seleccione el almacén de copia de una máquina virtual.
+
+    Si se trata de un nuevo almacén, el portal se abrirá en la página **Inicio rápido**.
+
+    ![Abrir menú de elementos registrados](./media/backup-azure-vms/vault-quick-start.png)
+
+    Si el almacén se ha configurado previamente, el portal se abrirá en el menú de usados recientemente.
+
+4. En el menú del almacén (en la parte superior de la página), haga clic en **Elementos registrados**.
+
+    ![Abrir menú de elementos registrados](./media/backup-azure-vms/vault-menu.png)
+
+5. En el menú **Tipo**, seleccione **Máquina virtual de Azure**.
 
     ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **DETECTAR** en la parte inferior de la página. ![Botón Detectar](./media/backup-azure-vms/discover-button-only.png)
+6. Haga clic en **DETECTAR** en la parte inferior de la página.
+![Botón Detectar](./media/backup-azure-vms/discover-button-only.png)
 
     El proceso de detección puede tardar unos minutos mientras se tabulan las máquinas virtuales. Hay una notificación en la parte inferior de la pantalla que informa de que el proceso se está ejecutando.
 
     ![Detectar máquinas virtuales](./media/backup-azure-vms/discovering-vms.png)
 
-    La notificación cambia cuando el proceso se completa.
+    La notificación cambia cuando el proceso se completa. Si el proceso de detección no encontró las máquinas virtuales, primero asegúrese de que existan las máquinas virtuales. Si efectivamente es así, asegúrese de que las máquinas virtuales están en la misma región que el almacén de copia de seguridad. Si las máquinas virtuales existen y están en la misma región, asegúrese de que no están registradas en un almacén de copia de seguridad. Si se asigna una máquina virtual a un almacén de copia de seguridad, no será posible asignarla a otros almacenes de copia de seguridad.
 
     ![Detección realizada](./media/backup-azure-vms/discovery-complete.png)
+
+    Una vez que haya encontrado los nuevos elementos, vaya al paso 2 y registre las máquinas virtuales.
 
 ##  Paso 2: Registro de máquinas virtuales de Azure
 Se registra una máquina virtual de Azure para asociarla con el servicio Copia de seguridad de Azure. El registro suele ser una actividad que solo se realiza una vez.
@@ -59,7 +77,8 @@ Se registra una máquina virtual de Azure para asociarla con el servicio Copia d
 
     ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **REGISTRAR** en la parte inferior de la página. ![Botón Registrar](./media/backup-azure-vms/register-button-only.png)
+3. Haga clic en **REGISTRAR** en la parte inferior de la página.
+![Botón Registrar](./media/backup-azure-vms/register-button-only.png)
 
 4. En el menú contextual **Elementos registrados**, seleccione las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguirlas.
 
@@ -75,7 +94,7 @@ Se registra una máquina virtual de Azure para asociarla con el servicio Copia d
 
     ![Registrando estado 1](./media/backup-azure-vms/register-status01.png)
 
-    Una vez completada la operación, el estado cambiará a *registrado*.
+    Una vez completada la operación, el estado cambiará a *Registrado*.
 
     ![Registrando estado 2](./media/backup-azure-vms/register-status02.png)
 
@@ -162,4 +181,4 @@ Si se encuentra con problemas mientras realiza la copia de seguridad de la máqu
 - [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

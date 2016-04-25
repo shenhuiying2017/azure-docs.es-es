@@ -4,15 +4,15 @@
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="04/01/2016"
-	ms.author="jeffreyg"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -125,11 +125,10 @@ Los trabajos elásticos le permiten ejecutar scripts de Transact-SQL con cualqui
 
 ## Recursos adicionales
 
-- [Referencia de bases de datos elásticas](sql-database-elastic-pool-reference.md)
 - [Grupo elástico de bases de datos SQL](sql-database-elastic-pool.md)
 - [Creación de un grupo de bases de datos elásticas con el portal](sql-database-elastic-pool-create-csharp.md)
 - [Creación de un grupo de bases de datos elásticas con PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [Creación de un grupo de bases de datos elásticas con C#](sql-database-elastic-pool-create-csharp.md)
 - [Consideraciones de precio y rendimiento para grupos de bases de datos elásticas](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,8 +3,8 @@
 	description="Este tutorial le ayuda a comenzar con SQL Data Sync de Azure (vista previa)."
 	services="sql-database"
 	documentationCenter=""
-	authors="spelluru"
-	manager="JennieHubbard"
+	authors="jhubbard"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -202,4 +202,4 @@ Para obtener más información acerca de Base de datos SQL y SQL Data Sync, cons
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

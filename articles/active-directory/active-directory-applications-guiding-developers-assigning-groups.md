@@ -17,7 +17,7 @@
 	ms.author="inhenk"/>
 
 # Azure AD y aplicaciones: asignación de grupos a una aplicación
-Para poder asignar usuarios y grupos a una aplicación, debe requerir la asignación de usuarios. Para obtener información sobre cómo requerir asignación de usuarios, consulte el artículo [Necesidad de asignación de usuario](active-directory-applications-guiding-developers-requiring-user-assignment.md).
+Para poder asignar usuarios y grupos a una aplicación, debe requerir la asignación de usuarios. Para obtener información sobre cómo requerir la asignación de usuarios, consulte el artículo [Necesidad de asignación de usuario](active-directory-applications-guiding-developers-requiring-user-assignment.md).
 
 En este artículo se supone que ya ha creado grupos en el Active Directory que está usando para esta aplicación.
 
@@ -36,4 +36,4 @@ En este artículo se supone que ya ha creado grupos en el Active Directory que e
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

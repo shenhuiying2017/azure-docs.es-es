@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Implementar una máquina virtual con una dirección IP pública estática mediante una plantilla en el Administrador de recursos | Microsoft Azure"
    description="Aprender a implementar las máquinas virtuales con una dirección IP pública estática mediante una plantilla en el Administrador de recursos"
    services="virtual-network"
@@ -101,7 +101,7 @@ La plantilla de ejemplo disponible en el repositorio público usa un archivo de 
 
 Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
-1. Si nunca usó Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md) y siga las instrucciones en los pasos 1 a 3.
+1. Si nunca usó Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) y siga los pasos 1 a 3 de las instrucciones.
 
 2. En una consola de PowerShell, ejecute el cmdlet **New-AzureRmResourceGroup** para crear un nuevo grupo de recursos, si fuera necesario. Si ya tiene un grupo de recursos creado, vaya al paso 3.
 
@@ -112,7 +112,7 @@ Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 		ResourceGroupName : StaticPublicIP
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
+		Tags              :
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
 
 3. En una consola de PowerShell, ejecute el cmdlet **AzureRmResourceGroupDeployment nuevo** para implementar la plantilla.
@@ -128,31 +128,31 @@ Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 		ProvisioningState : Succeeded
 		Timestamp         : 1/8/2016 7:04:44 PM
 		Mode              : Incremental
-		TemplateLink      : 
+		TemplateLink      :
 		                    Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
 		                    ter/IaaS-Story/03-Static-public-IP/azuredeploy.json
 		                    ContentVersion : 1.0.0.0
-		                    
-		Parameters        : 
+
+		Parameters        :
 		                    Name                      Type                       Value     
 		                    ========================  =========================  ==========
-		                    vnetName                  String                     WTestVNet 
+		                    vnetName                  String                     WTestVNet
 		                    vnetPrefix                String                     192.168.0.0/16
 		                    frontEndSubnetName        String                     FrontEnd  
 		                    frontEndSubnetPrefix      String                     192.168.1.0/24
 		                    storageAccountNamePrefix  String                     iaasestd  
 		                    stdStorageType            String                     Standard_LRS
 		                    osType                    String                     Windows   
-		                    adminUsername             String                     adminUser 
+		                    adminUsername             String                     adminUser
 		                    adminPassword             SecureString                         
-		                    
-		Outputs           : 
+
+		Outputs           :
 
 ## Implementación la plantilla ARM mediante la CLI de Azure
 
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
@@ -184,4 +184,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

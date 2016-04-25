@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Conectarse a Yammer para acceder a conversaciones en la red empresarial.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema de vista previa de 01/12/2014, haga clic en [Yammer](../app-service-logic/app-service-logic-connector-yammer.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con Yammer, puede:
 
@@ -36,12 +36,12 @@ Dropbox incluye los desencadenadores y las acciones siguientes.
 
 Desencadenador | Acciones
 --- | ---
-<ul><li>Cuando haya un nuevo mensaje en un grupo</li><li>Cuando haya un nuevo mensaje en una fuente que me sigue</li></ul>| <ul><li>Obtener todos los mensajes</li><li>Obtiene mensajes de un grupo</li><li>Obtiene mensajes de una fuente que me sigue</li><li>Publicar mensaje</li><li>Cuando haya un nuevo mensaje en un grupo</li><li>Cuando haya un nuevo mensaje en una fuente que me sigue</li></ul>
+<ul><li>Cuando haya un nuevo mensaje en un grupo</li><li>Cuando haya un nuevo mensaje en la fuente de las personas a quienes sigo</li></ul>| <ul><li>Obtener todos los mensajes</li><li>Obtiene mensajes de un grupo</li><li>Obtiene mensajes de la fuente de las personas a quienes sigo</li><li>Publicar mensaje</li><li>Cuando haya un nuevo mensaje en un grupo</li><li>Cuando haya un nuevo mensaje en la fuente de las personas a quienes sigo</li></ul>
 
 Todas las API admiten datos en formato JSON y XML.
 
 ## Creación de una conexión a Yammer
-Para usar la API de Yammer, cree primero una **conexión** y después proporcione los detalles para estas propiedades:
+Para usar la API de Yammer, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
 
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
@@ -50,15 +50,20 @@ Para usar la API de Yammer, cree primero una **conexión** y después proporcion
 Siga estos pasos para iniciar sesión en Yammer y completar la configuración de la **conexión** de Yammer en la aplicación lógica:
 
 1. Seleccione **Periodicidad**.
-2. Seleccione una **Frecuencia** y escriba un **Intervalo**
-3. Seleccione **Agregar una acción** ![Configurar Yammer][1]
+2. Seleccione un valor para **Frecuencia** y especifique el correspondiente a **Intervalo**.
+3. Seleccione **Agregar una acción**.
+![Configurar Yammer][1]
 4. Escriba yammer en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan Yammer en el nombre.
-5. Seleccione **Yammer: obtener todos los mensajes**
-6. Seleccione **Sign in to Yammer** (Iniciar sesión en Yammer): ![Configurar Yammer][2]
-7. Proporcione sus credenciales de Yammer para iniciar sesión y autorizar la aplicación ![Configurar Yammer][3]  
-8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** a Yammer a interactuar con la aplicación lógica: ![Configurar Yammer][4] 
-9. Después de iniciar sesión, vuelva a la aplicación lógica para completar el proceso y configurar la sección **Yammer - Get all messages** (Yammer: obtener todos los mensajes) y agregar otros desencadenadores y acciones que necesite. ![Configurar Yammer][5]  
-10. Para guardar el trabajo, seleccione **Guardar** en la barra de menús superior.
+5. Seleccione **Yammer - Get all messages** (Yammer: obtener todos los mensajes).
+6. Seleccione **Sign in to Yammer** (Iniciar sesión en Yammer).
+![Configurar Yammer][2]
+7. Proporcione sus credenciales de Yammer para iniciar sesión y autorizar la aplicación.
+![Configurar Yammer][3]  
+8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** la interacción de Yammer con la aplicación lógica.
+![Configurar Yammer][4] 
+9. Después de iniciar sesión, vuelva a la aplicación lógica para que la complete configurando la sección **Yammer - Get all messages** (Yammer: obtener todos los mensajes) y agregando otros desencadenadores y acciones que necesite.
+![Configurar Yammer][5]  
+10. Guarde el trabajo seleccionando **Guardar** en la barra de menús superior.
 
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
@@ -93,7 +98,7 @@ Corresponde a las conversaciones "All" en la interfaz web de Yammer. ```GET: /me
 
 
 ### Publicar un mensaje en un grupo o una fuente de toda la compañía
-Si se proporciona el identificador de grupo el mensaje se publicará en el grupo especificado, si no, se publicará en la fuente de toda la compañía. ```POST: /messages.json```
+Si se proporciona el identificador de grupo, el mensaje se publicará en el grupo especificado; si no, se publicará en la fuente de toda la empresa. ```POST: /messages.json```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -198,7 +203,7 @@ Si se proporciona el identificador de grupo el mensaje se publicará en el grupo
 
 
 ## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
 [2]: ./media/connectors-create-api-yammer/connectionconfig2.png
@@ -206,4 +211,4 @@ Si se proporciona el identificador de grupo el mensaje se publicará en el grupo
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

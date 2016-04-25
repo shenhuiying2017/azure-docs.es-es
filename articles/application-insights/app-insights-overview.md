@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="03/31/2016" 
 	ms.author="awills"/>
  
 # ¿Qué es Application Insights?
@@ -22,6 +22,8 @@ Application Insights es un servicio de análisis extensible que supervisa su apl
 ![Cree un gráfico de estadísticas de la actividad del usuario o explore en profundidad eventos específicos.](./media/app-insights-overview/00-sample.png)
 
 Funciona tanto con aplicaciones web como independientes en una amplia variedad de plataformas: .NET o J2EE, hospedadas localmente o en la nube.
+
+[Eche un vistazo a la animación de introducción](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 Application Insights está destinada al equipo de desarrollo. Con ella, puede:
 
@@ -119,7 +121,7 @@ Para obtener más detalles, elija el tipo de aplicación en Introducción, en la
 * Errores:
  * [Conectar](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Sugerencias
- * [Voz del usuario](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+ * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 
 
 ## Vídeos
@@ -130,6 +132,8 @@ Para obtener más detalles, elija el tipo de aplicación en Introducción, en la
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
 > [AZURE.VIDEO performance-monitoring-application-insights]
+
+> [Animación de introducción](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 
 <!--Link references-->
@@ -151,4 +155,4 @@ Para obtener más detalles, elija el tipo de aplicación en Introducción, en la
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Implementación de varias máquinas virtuales de NIC con la CLI de Azure en el Administrador de recursos | Microsoft Azure"
    description="Aprenda a implementar varias máquinas virtuales de NIC con la CLI de Azure en el Administrador de recursos"
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Puesto que en este momento no puede tener máquinas virtuales con una sola NIC y las máquinas virtuales con varias NIC en el mismo grupo de recursos, se implementarán los servidores back-end en un grupo de recursos distinto de todos los demás componentes. Los pasos siguientes usan un grupo de recursos denominado *IaaSStory* para el grupo de recursos principal y *IaaSStory-back-end* para los servidores back-end.
+Actualmente, no puede tener máquinas virtuales con una sola NIC ni máquinas virtuales con varias NIC en el mismo grupo de recursos. Por lo tanto, debe implementar los servidores back-end en un grupo de recursos distinto de todos los demás componentes. Los pasos siguientes usan un grupo de recursos denominado *IaaSStory* para el grupo de recursos principal y *IaaSStory-back-end* para los servidores back-end.
 
 ## Requisitos previos
 
@@ -47,7 +47,7 @@ Las máquinas virtuales back-end dependen de la creación de los recursos mencio
 
 - **Cuenta de almacenamiento de discos de datos**. Para mejorar el rendimiento, los discos de datos en los servidores de base de datos usarán la tecnología de unidad de estado sólido (SSD), que requiere una cuenta de almacenamiento Premium. Asegúrese de que la ubicación de Azure que implementa admita el almacenamiento Premium.
 - **NIC**. Cada VM tendrá dos NIC, una para el acceso de la base de datos y otra para la administración.
-- **Conjunto de disponibilidad**. Todos los servidores de base de datos se agregarán al conjunto de disponibilidad único para asegurarse de que al menos una de las máquinas virtuales está activa y ejecutándose durante el mantenimiento. 
+- **Conjunto de disponibilidad**. Todos los servidores de base de datos se agregarán al conjunto de disponibilidad único para asegurarse de que al menos una de las máquinas virtuales está activa y ejecutándose durante el mantenimiento.
 
 ### Paso 1: inicio del script
 
@@ -60,7 +60,7 @@ Puede descargar el script de Bash completo que haya usado [aquí](https://raw.gi
 		vnetName="WTestVNet"
 		backendSubnetName="BackEnd"
 		remoteAccessNSGName="NSG-RemoteAccess"
-		
+
 2. Cambie los valores de las variables siguientes según los valores que desee usar para la implementación back-end.
 
 		backendRGName="IaaSStory-Backend"
@@ -107,7 +107,7 @@ Puede descargar el script de Bash completo que haya usado [aquí](https://raw.gi
 		azure storage account create $prmStorageAccountName \
 		    --resource-group $backendRGName \
 		    --location $location \
-			--type PLRS 
+			--type PLRS
 
 3. Cree un conjunto de disponibilidad para las máquinas virtuales.
 
@@ -171,7 +171,7 @@ Puede descargar el script de Bash completo que haya usado [aquí](https://raw.gi
 		        --vhd-name $dataDiskName$suffixNumber-1.vhd \
 		        --size-in-gb $diskSize \
 		        --lun 0
-		
+
 		    azure vm disk attach-new --resource-group $backendRGName \
 		        --vm-name $vmNamePrefix$suffixNumber \        
 		        --storage-account-name $prmStorageAccountName \
@@ -330,4 +330,4 @@ Ahora que descargó y cambió el script según sus necesidades, ejecute el scrip
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

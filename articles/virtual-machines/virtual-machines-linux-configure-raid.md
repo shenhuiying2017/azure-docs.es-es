@@ -2,11 +2,10 @@
 	pageTitle="Configuración de RAID de software en una máquina virtual que ejecuta Linux | Microsoft Azure" 
 	description="Aprenda a utilizar mdadm para configurar RAID en Linux en Azure." 
 	services="virtual-machines-linux" 
-	documentationCenter="" 
-	authors="szarkos" 
-	writer="szark" 
+	documentationCenter="na" 
+	authors="rickstercdn"  
 	manager="timlt" 
-	editor=""
+	editor="tysonn"
 	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
@@ -16,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/25/2016" 
-	ms.author="szark"/>
+	ms.author="rclaus"/>
 
 
 
@@ -25,9 +24,7 @@ Es un escenario habitual usar el software RAID en máquinas virtuales con Linux 
 
 
 ## Conexión de discos de datos
-Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID. Este artículo no entrará en detalles acerca de cómo conectar discos de datos a una máquina virtual con Linux. Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](virtual-machines-windows-classic-attach-disk.md#attachempty) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
-
->[AZURE.NOTE] El tamaño ExtraSmall de la máquina virtual no admite más de un disco de datos conectado a la máquina virtual. Consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) para obtener información detallada acerca de los tamaños de máquinas virtuales y el número de discos de datos admitidos.
+Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID. La razón principal para crear un dispositivo RAID es mejorar el rendimiento de la E/S de disco. Según sus requisitos de E/S, puede decidir asociar discos que estén almacenados en nuestro almacenamiento estándar con hasta 500 E/S por segundo por disco o Almacenamiento Premium con hasta 5000 E/S por segundo por disco. En este artículo no entramaremos en detalles sobre cómo asociar discos de datos a una máquina virtual Linux. Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](virtual-machines-linux-add-disk.md) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
 
 
 ## Instalación de la utilidad mdadm
@@ -49,7 +46,7 @@ Dos o más discos de datos vacíos se necesitarán habitualmente para configurar
 ## Creación de las particiones de disco
 En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por tanto, la partición de disco nueva se llamará /dev/sdc1.
 
-- Inicie fdisk para empezar a crear las particiones.
+1. Inicie fdisk para empezar a crear las particiones.
 
 		# sudo fdisk /dev/sdc
 		Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -61,38 +58,37 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
-- Presione "n" en el símbolo del sistema para crear una partición **n**ueva:
+2. Presione "n" en el símbolo del sistema para crear una partición **n**ueva:
 
 		Command (m for help): n
 
-- A continuación, presione "p" para crear una partición **p**rincipal:
+3. A continuación, presione "p" para crear una partición **p**rincipal:
 
 		Command action
 			e   extended
 			p   primary partition (1-4)
-		p
 
-- Presione "1" para seleccionar el número de la partición 1:
+4. Presione "1" para seleccionar el número de la partición 1:
 
 		Partition number (1-4): 1
 
-- Seleccione el punto de partida de la partición nueva o presione `<enter>` para aceptar el valor predeterminado para colocar la partición al principio del espacio disponible en la unidad:
+5. Seleccione el punto de partida de la partición nueva o presione `<enter>` para aceptar el valor predeterminado para colocar la partición al principio del espacio disponible en la unidad:
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-- Seleccione el tamaño de la partición; por ejemplo, escriba "+10G" para crear una partición de 10 gigabytes. O simplemente presione `<enter>` para crear una única partición que extienda la unidad completa:
+6. Seleccione el tamaño de la partición; por ejemplo, escriba "+10G" para crear una partición de 10 gigabytes. O simplemente presione `<enter>` para crear una única partición que extienda la unidad completa:
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- A continuación, cambie el identificador y el **t**ipo de la partición del identificador predeterminado "83" (Linux) por el identificador "fd" (Linux raid auto):
+7. A continuación, cambie el identificador y el **t**ipo de la partición del identificador predeterminado "83" (Linux) por el identificador "fd" (Linux raid auto):
 
 		Command (m for help): t
 		Selected partition 1
 		Hex code (type L to list codes): fd
 
-- Por último, escriba la tabla de particiones en la unidad y cierre fdisk:
+8. Por último, escriba la tabla de particiones en la unidad y cierre fdisk:
 
 		Command (m for help): w
 		The partition table has been altered!
@@ -100,13 +96,10 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 
 ## Creación de la matriz RAID
 
-1. En el siguiente ejemplo, se "seccionan" (RAID nivel 0) tres particiones ubicadas en tres discos de datos independientes (sdc1, sdd1 y sde1):
+1. En el siguiente ejemplo, se "seccionan" (RAID nivel 0) tres particiones ubicadas en tres discos de datos independientes (sdc1, sdd1 y sde1). Después de ejecutar este comando, se creará un nuevo dispositivo RAID llamado **/dev/md127**. Tenga en cuenta también que, si estos discos de datos formaban parte anteriormente de otra matriz RAID inactiva, puede ser necesario agregar el parámetro `--force` al comando `mdadm`:
 
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
-
-En este ejemplo, después de ejecutar este comando, se creará un nuevo dispositivo RAID llamado **/dev/md127**. Tenga en cuenta también que, si estos discos de datos formaban parte anteriormente de otra matriz RAID inactiva, puede ser necesario agregar el parámetro `--force` al comando `mdadm`.
-
 
 2. Cree el sistema de archivos en el nuevo dispositivo RAID.
 
@@ -118,7 +111,7 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES 11 y openSUSE**: habilite boot.md y cree mdadm.conf.
+	**SLES 11 y openSUSE**: habilite boot.md y cree mdadm.conf.
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
@@ -178,6 +171,4 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo "`/boot/grub/menu.lst`". En Ubuntu, este parámetro puede agregarse a la variable `GRUB_CMDLINE_LINUX_DEFAULT` en "/etc/default/grub".
 
- 
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

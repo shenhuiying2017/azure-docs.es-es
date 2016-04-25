@@ -32,9 +32,9 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)
 
 ##Notas de la versión
 
-###3\.2.1 (12/11/2015)
+###3\.2.2 (04/07/2016)
 
--   Se ha corregido el retraso que se produce cuando se desencadena una nueva instancia de aplicación por una notificación con vínculos profundos. 
+-   Se ha corregido el error en la cancelación de solicitud HTTP que provocaba a veces bloqueos. 
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-ios-release-notes.md)
 
@@ -59,4 +59,4 @@ El método `application:didReceiveRemoteNotification:` debe reemplazarse por `ap
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

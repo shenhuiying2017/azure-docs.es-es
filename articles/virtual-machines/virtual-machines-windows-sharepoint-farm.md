@@ -13,8 +13,8 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="02/03/2016"
+	ms.topic="article"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Creación de granjas de servidores de SharePoint
@@ -49,7 +49,9 @@ Para crear la granja de SharePoint de alta disponibilidad (de nueve servidores):
 1. Haga clic [aquí](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/).
 2. Haga clic en **Implementar**.
 3. En el panel **Granja de SharePoint 2013 de alta disponibilidad**, haga clic en **Crear**.
-4. Especifique la configuración en los 7 pasos del panel **Crear granja de SharePoint 2013 de alta disponibilidad** y, luego, haga clic en **Crear**.
+4. Especifique la configuración en los 7 pasos del panel **Crear granja de SharePoint 2013 con alta disponibilidad** y, luego, haga clic en **Crear**.
+
+> [AZURE.NOTE] No se puede crear la **granja sin alta disponibilidad de SharePoint 2013** o la **granja con alta disponibilidad de SharePoint 2013** con una prueba gratuita de Azure.
 
 ## Administración de las granjas de SharePoint
 
@@ -59,8 +61,9 @@ En el sitio de Administración central de SharePoint, puede configurar Mis sitio
 
 > [AZURE.NOTE] El Portal de Azure crea los dos tipos de granja en una red virtual que se encuentra solo en la nube y que tiene presencia web orientada a Internet. No hay una conexión VPN de sitio a sitio o conexión ExpressRoute con la red de su organización.
 
-## Paso siguiente
+## Pasos siguientes
 
-- Descubra configuraciones adicionales de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) en los servicios de infraestructura de Azure.
+- Implementar un [granja de servidores de intranet de SharePoint 2013](virtual-machines-windows-sp-intranet-overview.md) como una carga de trabajo de producción en los servicios de infraestructura de Azure
+- Descubra más configuraciones de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) en los servicios de infraestructura de Azure.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

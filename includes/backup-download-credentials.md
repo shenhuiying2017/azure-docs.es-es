@@ -29,4 +29,4 @@ El archivo de credenciales de almacén se descarga a través de un canal seguro 
 - El archivo de credenciales de almacén caduca después de 48 horas y puede descargarse desde el portal.
 - Consulte las [P+F de Copia de seguridad de Azure](../articles/backup/backup-azure-backup-faq.md) si tiene preguntas relacionadas con el flujo de trabajo.
 
-<!-----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

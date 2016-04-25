@@ -30,7 +30,7 @@ Conéctese a Usuarios de Office 365 para obtener perfiles, buscar usuarios, etc.
 
 &nbsp;
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [API de Office 365](../app-service-logic/app-service-logic-connector-office365.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 
 Con Usuarios de Office 365, puede:
@@ -39,7 +39,7 @@ Con Usuarios de Office 365, puede:
 - Usar acciones que obtienen informes directos, obtienen el perfil de usuario de un administrador, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, obtenga informes directos de la persona y, luego, tome esta información y actualice una base de datos de SQL Azure. 
 - Agregar la API de Usuarios de Office 365 a PowerApps Enterprise A continuación, los usuarios pueden usar esta API en sus aplicaciones. 
 
-Si desea información sobre cómo agregar una API en PowerApps Enterprise, acuda a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -49,7 +49,7 @@ La API de Usuarios de Office 365 tiene las siguientes acciones disponibles: No h
 
 | Desencadenadores | Acciones|
 | --- | --- |
-|None | <ul><li>Obtener administrador</li><li>Obtener mi perfil</li><li>Obtener informes directos</li><li>Obtener perfil de usuario</li><li>Buscar usuarios</li></ul>|
+|None | <ul><li>Obtener administrador</li><li>Obtener mi perfil</li><li>Obtener subordinados directos</li><li>Obtener perfil de usuario</li><li>Buscar usuarios</li></ul>|
 
 Todas las API admiten datos en formato JSON y XML.
 
@@ -61,7 +61,7 @@ Al agregar esta API a las aplicaciones lógicas, tiene que iniciar sesión en su
 1. Inicie sesión en su cuenta de Usuarios de Office 365.
 2. Permita que las aplicaciones lógicas se conecten a su cuenta de Office 365 y la usen. 
 
-Después de crear la conexión, especifique las propiedades de Usuarios de Office 365, como el identificador de usuario. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de Usuarios de Office 365, como el identificador de usuario. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
 >[AZURE.TIP] Esta misma conexión de Usuarios de Office 365 se puede usar en otras aplicaciones lógicas.
 
@@ -129,7 +129,7 @@ Recupera el perfil de usuario del administrador del usuario especificado. ```GET
 
 
 ### Obtener informes directos 
-Obtiene informes directos. ```GET: /users/{userId}/directReports```
+Obtiene subordinados directos. ```GET: /users/{userId}/directReports```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -150,7 +150,7 @@ Obtiene informes directos. ```GET: /users/{userId}/directReports```
 
 
 ### Buscar usuarios 
-Recupera los resultados de búsqueda de los perfiles de usuario. ```GET: /users```
+Recupera los resultados de búsqueda de perfiles de usuario. ```GET: /users```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -192,9 +192,9 @@ Recupera los resultados de búsqueda de los perfiles de usuario. ```GET: /users`
 
 ## Pasos siguientes
 
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-Volver a la [lista de API](apis-list.md).
+Volver a la [lista de API](apis-list.md)
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -204,4 +204,4 @@ Volver a la [lista de API](apis-list.md).
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

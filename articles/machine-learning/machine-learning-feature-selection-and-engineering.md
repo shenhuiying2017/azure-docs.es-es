@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Diseño y selección de características en Aprendizaje automático de Azure | Microsoft Azure" 
+	pageTitle="Diseño y selección de características en Aprendizaje automático de Azure | Microsoft Azure"
 	description="Explica el propósito del diseño de características y de la selección de características, además de proporcionar ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático."
 	services="machine-learning"
 	documentationCenter=""
@@ -51,7 +51,7 @@ Los datos de entrenamiento constan de una matriz compuesta de ejemplos (registro
 
 Al comenzar con Aprendizaje automático de Azure, es más fácil comprender este proceso de manera concreta si se usan ejemplos proporcionados en Estudio. Aquí se muestran dos ejemplos:
 
-* Un ejemplo de regresión, [Predicción del número de bicicletas alquiladas](../machine-learning-sample-prediction-of-number-of-bike-rentals.md), en un experimento supervisado en el que se conocen los valores de destino
+* Un ejemplo de regresión, [Predicción del número de bicicletas alquiladas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4), en un experimento supervisado en el que se conocen los valores de destino
 * Un ejemplo de clasificación de minería de texto con [Hash de características][feature-hashing]
 
 ### Ejemplo 1: incorporación de características temporales para el modelo de regresión ###
@@ -133,6 +133,5 @@ Observe que no siempre es necesario realizar el diseño o la selección de carac
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Directivas de Administración de API de Azure" 
+	pageTitle="Directivas de Administración de API de Azure | Microsoft Azure" 
 	description="Obtenga información acerca de cómo crear, editar y configurar directivas en Administración de API." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/12/2016" 
 	ms.author="sdanie"/>
 
 
@@ -51,6 +51,8 @@ La directiva aparece como de solo lectura al principio. Para editar la definici�
 La definición de la directiva es un documento XML simple que describe una secuencia de declaraciones de entrada y de salida. El XML se puede editar directamente en la ventana de definición. Se ofrece una lista de instrucciones a la derecha y las instrucciones aplicables al ámbito actual están habilitadas y resaltadas; como demuestra la instrucción **Límite de tasa de llamadas** de la captura de pantalla anterior.
 
 Al hacer clic en una declaración habilitada se agregará el XML correspondiente en la ubicación del cursor en la vista de definición.
+
+>[AZURE.NOTE] Si la directiva que desea agregar no está habilitada, asegúrese de que se encuentra en el ámbito correcto para esa directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, compruebe la sección **Uso** de esa directiva en la [Referencia de directivas][].
 
 Hay una lista completa de instrucciones de directivas y su configuración disponible en la [Referencia de directivas][].
 
@@ -148,4 +150,4 @@ Visualice el siguiente vídeo acerca de expresiones de directivas.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

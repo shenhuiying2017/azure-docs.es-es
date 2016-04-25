@@ -203,6 +203,10 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ## Notas de la versión del emulador de almacenamiento
 
+### Versión 4.3
+
+- El emulador de almacenamiento admite ahora la versión 2015-07-08 de los servicios de almacenamiento en los puntos de conexión de los servicios Blob, Cola y Tabla.
+
 ### Versión 4.2
 
 - El emulador de almacenamiento admite ahora la versión 2015-04-05 de los servicios de almacenamiento en los extremos de servicio Blob, Cola y Tabla.
@@ -232,4 +236,4 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 - La versión 2013-08-15 de los servicios de almacenamiento de Azure ahora es totalmente compatible. (Anteriormente esta versión solo era compatible con versión la versión 2.2.1 Preview del emulador de almacenamiento.)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

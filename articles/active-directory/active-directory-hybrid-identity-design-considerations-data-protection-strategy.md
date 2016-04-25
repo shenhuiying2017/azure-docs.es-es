@@ -12,7 +12,7 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.workload="identity" 
+    ms.workload="identity"
 	ms.date="03/18/2016"
 	ms.author="yuridio"/>
 
@@ -21,7 +21,7 @@
 
 En esta tarea, se definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen en:
 
-- [Determinación de los requisitos de protección de datos](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md) 
+- [Determinación de los requisitos de protección de datos](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 - [Determinación de los requisitos de administración de contenido](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 - [Determinación de los requisitos de control de acceso](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 - [Determinación de los requisitos de respuesta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
@@ -104,11 +104,11 @@ Una vez que el usuario se autentica mediante Azure AD, es importante evaluar el 
 
 Cada una de las interacciones del diagrama que se muestra en la Ilustración X representa un escenario de control de acceso que se pueden cubrir con Azure AD. A continuación encontrará una descripción de cada escenario:
 
-1. Acceso condicional a las aplicaciones hospedadas localmente: puede usar dispositivos registrados con directivas de acceso en las aplicaciones configuradas para usar AD FS con Windows Server 2012 R2. Para obtener más información sobre cómo configurar el acceso condicional localmente, consulte [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-on-premises-setup.md). 
+1. Acceso condicional a las aplicaciones hospedadas localmente: puede usar dispositivos registrados con directivas de acceso en las aplicaciones configuradas para usar AD FS con Windows Server 2012 R2. Para obtener más información sobre cómo configurar el acceso condicional localmente, consulte [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-on-premises-setup.md).
 2. Control de acceso al Portal de administración de Azure: Azure también tiene la capacidad de controlar el acceso al Portal de administración mediante el uso de RBAC (Control de acceso basado en roles). Este método permite a la empresa restringir la cantidad de operaciones que una persona puede hacer una vez que tenga acceso al Portal de administración de Azure. Si se usa RBAC para controlar el acceso al portal, los administradores de TI pueden delegar el acceso con los siguientes enfoques de administración de acceso:
 
  - Asignación de roles basada en grupo: se puede asignar acceso a los grupos de Azure AD que se puedan sincronizar desde Active Directory local. Esto le permite aprovechar las inversiones que su organización realizó en herramientas y procesos para administrar grupos. También puede usar la característica de administración de grupos delegados de Azure AD Premium.
- - Sacar provecho a los roles integrados de Azure: se pueden usar tres roles (Propietario, Colaborador y Lector) para asegurarse de que los usuarios y grupos tienen permiso para realizar solo las tareas que necesitan para sus trabajos. 
+ - Sacar provecho a los roles integrados de Azure: se pueden usar tres roles (Propietario, Colaborador y Lector) para asegurarse de que los usuarios y grupos tienen permiso para realizar solo las tareas que necesitan para sus trabajos.
  - Acceso granular a los recursos: puede asignar roles a los usuarios y grupos para una suscripción concreta, un grupo de recursos o un recurso individual de Azure como un sitio web o una base de datos. De esta forma, puede asegurarse de que los usuarios tengan acceso a todos los recursos que necesitan y ningún acceso a los que no necesitan administrar.
 
  >[AZURE.NOTE]
@@ -123,8 +123,8 @@ Dado que las opciones de control de acceso usan un enfoque multicapa, la compara
 ## Definición de las opciones de respuesta ante incidentes
 Azure AD puede ayudar a TI a identificar potenciales riesgos de seguridad en el entorno mediante la supervisión de la actividad del usuario, TI puede sacar provecho a la capacidad de informes de acceso y uso de Azure AD para obtener visibilidad de la integridad y seguridad del directorio de la organización. Con esta información, un administrador de TI puede determinar mejor dónde puede haber posibles riesgos de seguridad, con el fin de que puedan planear adecuadamente la mitigación de dichos riesgos. La [suscripción a Azure AD Premium](active-directory-get-started-premium.md) tiene un conjunto de informes de seguridad que pueden permitir al departamento de TI obtener esta información. Los [informes de Azure AD](active-directory-view-access-usage-reports.md) se clasifican como se muestra a continuación:
 
-- **Informes de anomalías**: contienen eventos de inicio de sesión que se consideran anómalos. Nuestro objetivo es que sea consciente de dicha actividad y que pueda tomar una decisión sobre si un evento es sospechoso. 
-- **Informe de aplicaciones integradas**: proporciona información sobre cómo se usan en la organización las aplicaciones en la nube. Azure Active Directory ofrece integración con miles de aplicaciones en la nube. 
+- **Informes de anomalías**: contienen eventos de inicio de sesión que se consideran anómalos. Nuestro objetivo es que sea consciente de dicha actividad y que pueda tomar una decisión sobre si un evento es sospechoso.
+- **Informe de aplicaciones integradas**: proporciona información sobre cómo se usan en la organización las aplicaciones en la nube. Azure Active Directory ofrece integración con miles de aplicaciones en la nube.
 - **Informes de errores**: indican errores que se pueden producir al aprovisionar cuentas a aplicaciones externas.
 - **Informes específicos del usuario**: muestran los datos de actividad de dispositivo o de inicio de sesión de un usuario concreto.
 - **Registros de actividad**: contienen un registro de todos los eventos auditados en las últimas 24 horas, los últimos 7 días o los últimos 30 días, así como los cambios en la actividad del grupo y la actividad de registro y de restablecimiento de contraseña.
@@ -150,10 +150,10 @@ Además de la capacidad de generación de informes principales disponible en Azu
 Dado que las opciones para la respuesta ante incidentes usan un enfoque multicapa, la comparación entre ellas no se puede aplicar a esta tarea. Asegúrese de que saca provecho de todas las opciones disponibles para cada escenario que requiere que se use la capacidad de generación de informes de Azure AD como parte del proceso de respuesta ante incidentes de su compañía.
 
 ## Pasos siguientes
-[Determinación de las tareas de administración de identidades híbridas](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)
+[Determinación de las tareas de administración de identidades híbridas](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
 
 ## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

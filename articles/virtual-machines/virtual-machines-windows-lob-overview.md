@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure
@@ -91,6 +91,6 @@ Para obtener más información sobre el diseño de cargas de trabajo de TI en Az
 
 ## Paso siguiente
 
-Para iniciar la configuración de esta carga de trabajo, vaya a [Fase 1: Configuración de Azure](virtual-machines-windows-ps-lob-ph1.md).
+- Inicie la configuración de esta carga de trabajo con la [Fase 1](virtual-machines-windows-ps-lob-ph1.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

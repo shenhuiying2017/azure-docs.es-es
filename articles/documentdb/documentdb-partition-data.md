@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="04/10/2016" 
 	ms.author="arramac"/>
 
 # Partición y escalado en Azure DocumentDB
@@ -210,7 +210,7 @@ A continuación leeremos el documento por su clave de partición e identificador
     // Read document. Needs the partition key and the ID to be specified
     Document result = await client.ReadDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new object[] { "XMS-0001" }});
+      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
     DeviceReading reading = (DeviceReading)(dynamic)result;
 
@@ -225,7 +225,7 @@ A continuación leeremos el documento por su clave de partición e identificador
     // Delete document. Needs partition key
     await client.DeleteDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new object[] { "XMS-0001" } });
+      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
 
 
@@ -261,11 +261,9 @@ En la siguiente sección, veremos cómo puede moverse a colecciones con particio
 ### Migración desde colecciones de partición única a colecciones con varias particiones
 Cuando una aplicación que usa colecciones con partición única necesita mayor procesamiento (>10 000 RU/s) o almacenamiento de datos más grande (>10 GB), puede utilizar la [Herramienta de migración de datos de DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar los datos desde la colección de partición única a una colección con varias particiones.
 
-Además, dado que las claves de partición se pueden especificar solo durante la creación de la colección, debe exportar y volver a importar los datos mediante la [Herramienta de migración de datos de DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para crear una colección con particiones.
-
 Para migrar desde una colección de partición única a una colección con varias particiones
 
-1. Exporte los datos desde la colección de partición única a JSON. Consulte [Exportación a archivos JSON](documentdb-import-data.md#export-to-json-file) para más detalles.
+1. Exporte los datos desde la colección de partición única a JSON. Consulte [Exportación a archivos JSON](documentdb-import-data.md#export-to-json-file) para obtener más detalles.
 2. Importe los datos a una colección con particiones creada con una definición de clave de partición y un procesamiento de más de 10 000 unidades de solicitud por segundo, como se muestra en el ejemplo siguiente. Consulte [Importación a DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para obtener detalles adicionales.
 
 ![Migración de datos a una colección con particiones en DocumentDB][3]
@@ -278,7 +276,7 @@ Ahora que hemos completado los aspectos básicos, echemos un vistazo a algunas c
 La elección de la clave de partición es una decisión importante que deberá realizarse en el tiempo de diseño. En esta sección se describen algunos de los compromisos que implica la selección de una clave de partición para la colección.
 
 ### Clave de partición como límite de transacción
-La elección de una clave de partición debe equilibrar la necesidad de habilitar el uso de transacciones frente a la necesidad de distribuir las entidades en varias particiones para garantizar que la solución sea escalable. En un extremo, se pueden almacenar todas las entidades en una sola partición, pero esto puede limitar la escalabilidad de su solución. En el otro extremo, se puede almacenar un documento por clave de partición, que podría ser altamente escalable, pero podría impedir el uso de transacciones entre documentos a través de desencadenadores y procedimientos almacenados. Una clave de partición idónea es la que permite usar consultas eficaces y que tiene suficientes particiones para asegurarse de que la solución sea escalable.
+La elección de una clave de partición debe equilibrar la necesidad de permitir el uso de transacciones frente a la necesidad de distribuir las entidades en varias claves de partición para garantizar que la solución sea escalable. En un extremo, se puede establecer la misma clave de partición para todos los documentos, pero esto puede limitar la escalabilidad de su solución. En el otro extremo, se puede asignar una clave de partición única para cada documento, que podría ser altamente escalable, pero podría impedir el uso de transacciones entre documentos a través de desencadenadores y procedimientos almacenados. Una clave de partición idónea es la que permite usar consultas eficaces y que tiene suficiente cardinalidad para asegurar que la solución es escalable.
 
 ### Evitar cuellos de botella de rendimiento y almacenamiento 
 También es importante elegir una propiedad que permita distribuir las escrituras entre una serie de valores distintos. Las solicitudes dirigidas a la misma clave de partición no pueden superar el procesamiento de una sola partición y se limitarán. Por tanto, es importante elegir una clave de partición que no dé como resultado **"zonas activas"** dentro de la aplicación. Además, el tamaño de almacenamiento total de documentos que tengan la misma clave de partición no puede superar los 10 GB.
@@ -321,4 +319,4 @@ En este artículo hemos descrito el funcionamiento de las particiones en Azure D
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,7 +3,7 @@
     description="Explica cómo manipular las particiones y mover los datos a través de un servicio autohospedado mediante las API de bases de datos elásticas." 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove"/>
 
 <tags 
@@ -27,7 +27,13 @@ Para comenzar, consulte [Herramienta de división y combinación de Base de dato
 
 La versión 1.1.0 de la herramienta de división-combinación ofrece la capacidad de limpiar automáticamente los metadatos de la solicitud completada. Una opción de configuración controla cuánto tiempo se conservan estos metadatos antes de eliminarse.
 
-La versión 1.0.0 de la herramienta división-combinación ofrece las siguientes mejoras: *Las API de .Net se incluyen para la interfaz con la división-combinación; el rol web es opcional ahora * Los tipos de fecha y ahora se admiten ahora para claves de particionamiento * Se admiten ahora asignaciones de particiones de lista. * Los límites del intervalo en las solicitudes pueden coincidir con mayor facilidad con intervalos almacenados en la asignación de particiones. * Ahora se admiten varias instancias de rol de trabajo para mejorar la disponibilidad. * Las credenciales almacenadas como parte de su operación de división-combinación se cifran ahora en reposo.
+La versión 1.0.0 de la herramienta de división y combinación ofrecen las siguientes mejoras:
+* Se incluyen API de .NET para la interfaz con el servicio de División y combinación; el rol web ahora es opcional. 
+* Ahora se admiten los tipos de fecha y hora para las claves de particionamiento. 
+* Ahora se admiten los mapas de particiones de lista. 
+* Los límites de intervalo de solicitudes pueden coincidir con mayor facilidad con intervalos almacenados en el mapa de particiones.
+* Ahora se admiten varias instancias de rol de trabajo para mejorar la disponibilidad. 
+* Las credenciales almacenadas como parte de la operación de División y combinación se cifran ahora en reposo.
 
 ## Procedimiento de actualización
 
@@ -169,7 +175,7 @@ El servicio División y combinación proporciona la tabla **RequestStatus** en l
 
 ### Diagnóstico de Azure
 
-El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Para controlar la configuración de diagnóstico, consulte la información explicada aquí: [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../service-fabric/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Estas configuraciones de diagnóstico para el servicio siguen la guía que aparece en [Fundamentos de servicios en la nube en Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
+El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Para controlar la configuración de diagnóstico, consulte la información explicada aquí: [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Estas configuraciones de diagnóstico para el servicio siguen la guía que aparece en [Fundamentos de servicios en la nube en Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
 
 ## Implementación de diagnósticos 
 
@@ -195,7 +201,7 @@ Para habilitar la supervisión y el diagnóstico mediante el uso de la configura
     
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-Puede encontrar más información sobre cómo configurar e implementar los ajustes de diagnóstico aquí: [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../cloud-services-dotnet-diagnostics.md).
+Puede encontrar más información sobre cómo configurar e implementar los ajustes de diagnóstico aquí: [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## Recuperación de diagnósticos 
 
@@ -239,4 +245,4 @@ Además, una propiedad de unicidad con la clave de particionamiento como la colu
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

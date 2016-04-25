@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -36,7 +36,7 @@ En las tablas siguientes se muestra qué servicios admiten la implementación y 
 | Service Fabric (vista previa) | Sí | [Rest de Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Máquinas virtuales | Sí | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
 | Máquinas virtuales (clásicas) | Limitado | - | - | 
-|Aplicación remota | No | - | - |
+| Aplicación remota | No | - | - | 
 | Servicios en la nube (clásicos) | Limitado (ver a continuación) | - | - | - |
 
 Máquinas virtuales (clásicas) hace referencia a recursos que se implementaron mediante el modelo de implementación clásica, en lugar de a través del modelo de implementación del Administrador de recursos. En general, estos recursos no admiten las operaciones del Administrador de recursos, pero hay algunas operaciones que se han habilitado. Para obtener más información sobre estos modelos de implementación, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
@@ -90,7 +90,7 @@ Los Servicios en la nube (clásicos) se pueden usar con otros recursos clásicos
 | Almacén de Data Lake | Sí | | | |
 | HDInsights | Sí | [REST de HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Análisis de transmisiones | Sí | [REST de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| Aprendizaje automático | No | - | - |
+| Aprendizaje automático | No | - | - | 
 | Catálogo de datos | No | - | - |
 
 ## Internet de las cosas
@@ -163,7 +163,7 @@ Para obtener todos los proveedores de recursos disponibles, incluidos sus tipos,
 
 En el ejemplo siguiente se muestra cómo obtener todos los proveedores de recursos disponibles.
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
     
 La salida debe ser similar a:
 
@@ -175,7 +175,7 @@ La salida debe ser similar a:
 
 En el ejemplo siguiente se muestra cómo obtener los tipos de recursos para un proveedor de recursos determinado.
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
     
 La salida debe ser similar a:
 
@@ -187,7 +187,7 @@ La salida debe ser similar a:
     
 Para registrar un proveedor de recursos, proporcione el espacio de nombres:
 
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
 
 ### Azure CLI
 
@@ -228,7 +228,7 @@ Para detectar qué regiones están disponibles para un tipo de recurso determina
 
 En el ejemplo siguiente se muestra cómo obtener las regiones admitidas para sitios web.
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
 La salida debe ser similar a:
 
@@ -304,4 +304,4 @@ Puede abrir el archivo y buscar el elemento **apiVersions**.
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

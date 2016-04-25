@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Movimiento de datos desde o hacia el almacenamiento de blobs de Azure con conectores SSIS | Microsoft Azure" 
-	description="Movimiento de datos desde o hacia el almacenamiento de blobs de Azure con conectores SSIS." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Movimiento de datos desde o hacia el almacenamiento de blobs de Azure con conectores SSIS | Microsoft Azure"
+	description="Movimiento de datos desde o hacia el almacenamiento de blobs de Azure con conectores SSIS."
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/08/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
 	ms.author="bradsev" />
 
 # Movimiento de datos desde o hacia el almacenamiento de blobs de Azure con conectores SSIS
@@ -32,14 +32,14 @@ Generalmente, este será el primero paso de los tutoriales de [SQL](machine-lear
 
 Si desea ver un análisis de los escenarios canónicos que usan SSIS para satisfacer las necesidades de negocio comunes en escenarios de integración de datos híbridos, visite el blog [Doing more with SQL Server Integration Services Feature Pack for Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) (Aprovechar más el Feature Pack de SQL Server Integration Services para Azure).
 
-> [AZURE.NOTE] Para ver una introducción completa al almacenamiento de blobs de Azure, consulte [Aspectos básicos del blob de Azure](../storage-dotnet-how-to-use-blobs.md) y [Servicio BLOB de Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Para ver una introducción completa al almacenamiento de blobs de Azure, consulte [Aspectos básicos del blob de Azure](../storage/storage-dotnet-how-to-use-blobs.md) y [Servicio BLOB de Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Requisitos previos
 
 Si desea realizar las tareas que describe este artículo, debe tener configurada una suscripción de Azure y una cuenta de almacenamiento de Azure. Debe saber cuál es el nombre de la cuenta de almacenamiento de Azure y la clave de la cuneta para cargar o descargar datos.
 
 - Para configurar una **suscripción a Azure**, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
-- Para obtener instrucciones sobre cómo crear una **cuenta de almacenamiento** y cómo obtener información sobre la cuenta y la clave, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage-create-storage-account.md).
+- Para obtener instrucciones sobre cómo crear una **cuenta de almacenamiento** y cómo obtener información sobre la cuenta y la clave, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
 
 Para usar los **conectores SSIS**, debe descargar:
@@ -77,7 +77,7 @@ Campo|Descripción|
 
 
 > [AZURE.NOTE] Es necesario corregir las credenciales de **AzureStorageConnection** y se debe salir de **BlobContainer** antes de intentar realizar la transferencia.
- 
+
 ## Cargar datos desde el almacenamiento de blobs de Azure
 
 Para descargar datos desde el almacenamiento de blobs de Azure a un almacenamiento local con SSIS, use una instancia de la [tarea de carga de blobs de Azure](https://msdn.microsoft.com/library/mt146779.aspx).
@@ -88,4 +88,4 @@ Aquí podemos observar que el Feature Pack de SSIS permite administrar flujos m�
 - Para ejecutar un script de Hive en un clúster de HDInsight de Azure con SSIS, use [Tarea de Hive para HDInsight de Azure](https://msdn.microsoft.com/library/mt146771.aspx).
 - Para ejecutar un script de Pig en un clúster de HDInsight de Azure con SSIS, use [Tarea de Pig para HDInsight de Azure](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

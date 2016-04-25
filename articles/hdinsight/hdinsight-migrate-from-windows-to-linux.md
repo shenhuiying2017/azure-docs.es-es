@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/28/2016"
+ms.date="04/07/2016"
 ms.author="larryfr"/>
 
 #Migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux
@@ -21,6 +21,8 @@ ms.author="larryfr"/>
 Aunque HDInsight basado en Windows facilita el uso de Hadoop en la nube, tal vez descubra que requiere un clúster basado en Linux para aprovechar las herramientas y tecnologías necesarias para la solución. Muchos de los elementos del ecosistema de Hadoop se desarrollan en sistemas basados en Linux, y puede algunos no estén disponibles para su uso con HDInsight basado en Windows. Además, en muchos libros, vídeos y otros materiales de aprendizaje se da por sentado que cuando se trabaja con Hadoop se usa un sistema Linux.
 
 En este documento se ofrece información sobre las diferencias entre HDInsight en Windows y en Linux, e instrucciones sobre cómo migrar cargas de trabajo existentes a un clúster basado en Linux.
+
+> [AZURE.NOTE] Ubuntu 12.04.05 LTS es la distribución de Linux que se utiliza en los clústeres de HDInsight basados en Linux.
 
 ## Tareas de migración
 
@@ -30,7 +32,7 @@ El flujo de trabajo general de migración es el siguiente.
 
 1.  Leer cada sección de este documento para entender los cambios que pueden ser necesarios al migrar el flujo de trabajo existente, trabajos, etc. a un clúster basado en Linux.
 
-2.  Cree un clúster basado en Linux como entorno de control de calidad o de pruebas. Para más información sobre cómo crear un clúster basado en Linux, consulte [Creación de clústeres basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+2.  Cree un clúster basado en Linux como entorno de control de calidad o de pruebas. Para obtener más información sobre cómo crear un clúster basado en Linux, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 3.  Copie los trabajos, los orígenes de datos y los receptores existentes en el nuevo entorno. Consulte la sección Copia de datos en el entorno de prueba para obtener más detalles.
 
@@ -67,7 +69,7 @@ Puede utilizar el comando HDFS de Hadoop para copiar directamente datos desde el
 
 3. En la hoja Configuración opcional, seleccione **Cuentas de almacenamiento vinculadas**.
 
-4. Seleccione **Agregar una clave de almacenamiento**, y cuando se le pida, la cuenta de almacenamiento que devolvió el script de PowerShell en el paso 1. Haga clic en **Seleccionar** en cada hoja para cerrarlas. Por último, cree el clúster.
+4. Seleccione **Agregar una clave de almacenamiento** y, cuando se le pida, la cuenta de almacenamiento que devolvió el script de PowerShell en el paso 1. Haga clic en la opción **Seleccionar** de cada hoja para cerrarlas. Por último, cree el clúster.
 
 5. Una vez creado el clúster, conéctese a él con **SSH**. Si no está familiarizado con el uso de SSH con HDInsight, consulte uno de los siguientes artículos:
 
@@ -83,7 +85,7 @@ Puede utilizar el comando HDFS de Hadoop para copiar directamente datos desde el
 
         hdfs dfs -mkdir -p /new/path/to/create
 
-    El conmutador `-p` permite la creación de todos los directorios de la ruta de acceso.
+    El conmutador `-p` permite crear todos los directorios de la ruta de acceso.
 
 #### Copia directa entre blobs de almacenamiento de Azure
 
@@ -91,7 +93,7 @@ También puede utilizar el cmdlet de Azure PowerShell `Start-AzureStorageBlobCop
 
 ##Tecnologías de cliente
 
-Por lo general, las tecnologías de cliente, como [cmdlets de Azure PowerShell](../powershell-install-configure.md), [CLI de Azure](../xplat-cli-install.md) o [.NET SDK para Hadoop](https://hadoopsdk.codeplex.com/) seguirán funcionando igual con clústeres basados en Linux, ya que se basan en API de REST que son iguales en ambos tipos de SO de clúster.
+Por lo general, las tecnologías de cliente, como los [cmdlets de Azure PowerShell](../powershell-install-configure.md), la [CLI de Azure](../xplat-cli-install.md) o el [SDK de .NET para Hadoop](https://hadoopsdk.codeplex.com/), seguirán funcionando igual con clústeres basados en Linux, ya que se basan en API de REST que son iguales en ambos tipos de SO de clúster.
 
 ##Tecnologías de servidor
 
@@ -110,9 +112,9 @@ Esta sección ofrece información sobre las diferencias en la creación de clús
 
 ### Usuario de SSH
 
-Los clústeres de HDInsight basado en Linux usan el protocolo **Secure Shell (SSH)** para proporcionar acceso remoto a los nodos del clúster. A diferencia de los clústeres basados en el Escritorio remoto para Windows, la mayoría de los clientes SSH no ofrecen una experiencia gráfica de usuario, sino una línea de comandos que permite ejecutar comandos en el clúster. Algunos clientes (como [MobaXterm](http://mobaxterm.mobatek.net/)), ofrecen un explorador gráfico del sistema de archivos además de una línea de comandos remota.
+Los clústeres de HDInsight basados en Linux usan el protocolo **Secure Shell (SSH)** para proporcionar acceso remoto a los nodos del clúster. A diferencia de los clústeres basados en el Escritorio remoto para Windows, la mayoría de los clientes SSH no ofrecen una experiencia gráfica de usuario, sino una línea de comandos que permite ejecutar comandos en el clúster. Algunos clientes (como [MobaXterm](http://mobaxterm.mobatek.net/)) ofrecen un explorador gráfico del sistema de archivos, además de una línea de comandos remota.
 
-Durante la creación del clúster, debe especificar un usuario SSH y bien una **contraseña** o bien un **certificado de clave pública** para la autenticación.
+Durante la creación del clúster, debe especificar un usuario SSH y una **contraseña**, o bien un **certificado de clave pública** para la autenticación.
 
 Se recomienda usar el certificado de clave pública, ya que es más seguro que usar una contraseña. La autenticación de certificado funciona generando un par de claves pública y privada con signo y especificando la clave pública al crear el clúster. Al conectarse al servidor mediante SSH, la clave privada en el cliente proporciona autenticación para la conexión.
 
@@ -124,21 +126,21 @@ Para más información sobre cómo usar SSH con HDInsight, consulte:
 
 ### Personalización del clúster
 
-**Acciones de script** se utiliza con clústeres basados en Linux y deben escribirse en script de Bash. Aunque las acciones de script se pueden utilizar durante la creación del clúster, en el caso de clústeres basados en Linux también pueden usarse para realizar la personalización cuando un clúster está activo y en ejecución. Para más información, consulte [Personalización de HDInsight basado en Linux con acciones de script](hdinsight-hadoop-customize-cluster-linux.md) y [Desarrollo de acciones de script para HDInsight basado en Linux](hdinsight-hadoop-script-actions-linux.md).
+Las **acciones de script** se utilizan con clústeres basados en Linux y deben escribirse en script de Bash. Aunque las acciones de script se pueden utilizar durante la creación del clúster, en el caso de clústeres basados en Linux también pueden usarse para realizar la personalización cuando un clúster está activo y en ejecución. Para obtener más información, consulte [Personalización de HDInsight basado en Linux con acciones de script](hdinsight-hadoop-customize-cluster-linux.md) y [Desarrollo de acciones de script para HDInsight basado en Linux](hdinsight-hadoop-script-actions-linux.md).
 
-Otra característica de personalización es **arranque**. En el caso de clústeres de Windows, permite especificar la ubicación de bibliotecas adicionales para su uso con Hive. Después de la creación del clúster, estas bibliotecas están automáticamente disponibles para su uso con consultas de Hive sin necesidad de utilizar `ADD JAR`.
+Otra característica de personalización es **arranque**. En el caso de clústeres de Windows, permite especificar la ubicación de bibliotecas adicionales para su uso con Hive. Después de crear el clúster, estas bibliotecas están automáticamente disponibles para usarse con consultas de Hive sin necesidad de utilizar `ADD JAR`.
 
 El arranque para clústeres basados en Linux proporciona esta funcionalidad. En su lugar, use la acción de script que se documenta en [Incorporación de bibliotecas de Hive durante la creación del clúster](hdinsight-hadoop-add-hive-libraries.md).
 
 ### Redes virtuales
 
-Los clústeres de HDInsight basados en Windows solo funcionan con redes virtuales clásicas, mientras que los clústeres HDInsight basados en Linux requieren redes virtuales del Administrador de recursos. Si tiene recursos en una red virtual clásica a la que el clúster de HDInsight en Linux debe conectarse, consulte [Conexión de una red virtual clásica a una red virtual del Administrador de recursos](../virtual-network/virtual-networks-arm-asm-s2s.md).
+Los clústeres de HDInsight basados en Windows solo funcionan con redes virtuales clásicas, mientras que los clústeres HDInsight basados en Linux requieren redes virtuales del Administrador de recursos. Si tiene recursos en una red virtual clásica a la que debe conectarse el clúster de HDInsight en Linux, consulte [Conexión de una red virtual clásica a una red virtual del Administrador de recursos](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
-Para más información sobre los requisitos de configuración para usar redes virtuales de Azure con HDInsight, consulte [Extensión de las funcionalidades de HDInsight con una red virtual](hdinsight-extend-hadoop-virtual-network.md).
+Para obtener más información sobre los requisitos de configuración para usar redes virtuales de Azure con HDInsight, consulte [Extensión de las funcionalidades de HDInsight con una red virtual](hdinsight-extend-hadoop-virtual-network.md).
 
 ##Administración y supervisión
 
-Es posible que muchas de las interfaces de usuario web que haya utilizado con HDInsight basado en Windows, como el historial de trabajos o la interfaz de usuario de Yarn, estén disponibles a través de Ambari. Además, la vista Ambari Hive ofrece una forma de ejecutar consultas de Hive mediante el explorador web. La interfaz de usuario de Web Ambari está disponible en clústeres basados en Linux en https://CLUSTERNAME.azurehdinsight.net.
+Es posible que muchas de las interfaces de usuario web que haya utilizado con HDInsight basado en Windows, como el historial de trabajos o la interfaz de usuario de Yarn, estén disponibles a través de Ambari. Además, la vista Ambari Hive ofrece una forma de ejecutar consultas de Hive mediante el explorador web. La interfaz de usuario de Ambari Web está disponible en clústeres basados en Linux (en https://CLUSTERNAME.azurehdinsight.net).
 
 Para más información sobre cómo trabajar con Ambari, consulte los documentos siguientes:
 
@@ -150,7 +152,7 @@ Para más información sobre cómo trabajar con Ambari, consulte los documentos 
 
 Ambari tiene un sistema de alertas que puede indicarle posibles problemas con el clúster. Las alertas aparecen como entradas en rojo o amarillo en la interfaz de usuario de Web de Ambari, pero también se pueden recuperar a través de la API de REST.
 
-> [AZURE.IMPORTANT] Las alertas de Ambari indican que *puede* que haya un problema, no que lo *haya*. Por ejemplo, puede recibir una alerta que indica que no se puede tener acceso a HiveServer2, aunque pueda tener acceso a él normalmente.
+> [AZURE.IMPORTANT] Las alertas de Ambari indican que *puede* que haya un problema, no que *exista realmente*. Por ejemplo, puede recibir una alerta que indica que no se puede tener acceso a HiveServer2, aunque pueda tener acceso a él normalmente.
 >
 > Las alertas se implementan como consultas basadas en intervalos en un servicio y esperan una respuesta en un plazo de tiempo específico. Por lo que la alerta no necesariamente significa que el servicio no funcione, sino que no devuelve resultados en el plazo previsto.
 
@@ -164,14 +166,14 @@ El sistema de archivos de clústeres de Linux se distribuye de manera diferente 
 | ----- | ----- |
 | Configuración | `/etc`. Por ejemplo, `/etc/hadoop/conf/core-site.xml` |
 | Archivos de registro | `/var/logs` |
-| HortonWorks Data Platform (HDP) | `/usr/hdp`. Hay dos directorios ubicados aquí, uno que corresponde a la versión HDP actual (por ejemplo, `2.2.9.1-1`) y `current`. El directorio `current` contiene vínculos simbólicos a archivos y directorios que se encuentran en el directorio de número de versión y se ofrece como una forma cómoda de obtener acceso a archivos HDP, ya que el número de versión cambiará cuando se actualice la versión HDP. |
+| HortonWorks Data Platform (HDP) | `/usr/hdp`. Aquí hay dos directorios ubicados, uno que corresponde a la versión HDP actual (por ejemplo, `2.2.9.1-1`) y `current`. El directorio `current` contiene vínculos simbólicos a archivos y directorios que se encuentran en el directorio de número de versión y se ofrece como una forma cómoda de acceder a archivos HDP, ya que el número de versión cambiará cuando se actualice la versión HDP. |
 | hadoop-streaming.jar | `/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 Por lo general, si conoce el nombre del archivo, puede utilizar el siguiente comando desde una sesión de SSH para encontrar la ruta de archivo:
 
     find / -name FILENAME 2>/dev/null
 
-También puede utilizar caracteres comodín con el nombre de archivo. Por ejemplo, `find / -name *streaming*.jar 2>/dev/null` devolverá la ruta de acceso a los archivos jar que contengan la palabra 'streaming' como parte del nombre de archivo.
+También puede utilizar caracteres comodín con el nombre de archivo. Por ejemplo, `find / -name *streaming*.jar 2>/dev/null` devolverá la ruta de acceso a los archivos JAR que contengan la palabra "streaming" en el nombre de archivo.
 
 ##Hive, Pig y MapReduce
 
@@ -197,7 +199,7 @@ El gráfico siguiente ofrece orientación sobre cómo migrar las cargas de traba
 | En basado en Windows, se usa... | En basado en Linux... |
 | ----- | ----- |
 | Panel de Storm | El panel de Storm no está disponible. Consulte [Implementación y administración de topologías de Storm en HDInsight basado en Linux ](hdinsight-storm-deploy-monitor-topology-linux.md) para ver formas de enviar topologías. |
-| UI de Storm | La interfaz de usuario de Storm está disponible en https://CLUSTERNAME.azurehdinsight.net/stormui |
+| UI de Storm | La interfaz de usuario de Storm está disponible en https://CLUSTERNAME.azurehdinsight.net/stormui. |
 | Visual Studio para crear, implementar y administrar topologías de C# o híbridas | Los clústeres basados en Linux no son compatibles actualmente con topologías .NET; pero se agregará compatibilidad en una futura actualización. Si necesita migrar antes de que esto ocurra, tendrá que volver a implementar las topologías en Java. Consulte [Desarrollo de topologías basadas en Java](hdinsight-storm-develop-java-topology.md) para obtener más información sobre cómo crear topologías basadas en Java. |
 
 ##HBase
@@ -216,9 +218,9 @@ Los clústeres de Spark estaban disponibles en los clústeres de Windows durante
 
 Las actividades de .NET personalizadas de Data Factory de Azure no son compatibles actualmente con clústeres de HDInsight basado en Linux. En su lugar, se debe usar uno de los métodos siguientes para implementar actividades personalizadas como parte de la canalización de ADF.
 
--   Ejecute actividades de .NET en grupo de Lote de Azure. Consulte la sección Servicio vinculado de Lote de Azure de [Uso de actividades personalizadas en una canalización de Data Factory de Azure](../data-factory/data-factory-use-custom-activities.md/#AzureBatch)
+-   Ejecute actividades de .NET en grupo de Lote de Azure. Consulte la sección Servicio vinculado de Lote de Azure de [Uso de actividades personalizadas en una canalización de Data Factory de Azure](../data-factory/data-factory-use-custom-activities.md/#AzureBatch).
 
--   Implemente la actividad como una actividad MapReduce. Consulte [Invocación de programas MapReduce desde Data Factory](../data-factory/data-factory-map-reduce.md) para más información.
+-   Implemente la actividad como una actividad MapReduce. Consulte [Invocación de programas MapReduce desde Data Factory](../data-factory/data-factory-map-reduce.md) para obtener más información.
 
 ### Fin de línea
 
@@ -252,4 +254,4 @@ Si sabe que los scripts no contienen cadenas de caracteres CR incrustados, puede
 
 -   [Administración de un clúster basado en Linux mediante Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

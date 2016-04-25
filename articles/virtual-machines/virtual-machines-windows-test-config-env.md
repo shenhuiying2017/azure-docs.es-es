@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Entorno de prueba de la configuración base con Administrador de recursos de Azure"
-	description="Obtenga información acerca de cómo crear un entorno de desarrollo o prueba sencillo que simule una intranet simplificada en Microsoft Azure con Administrador de recursos."
+	description="Obtenga información acerca de cómo crear un entorno de desarrollo/prueba sencillo que simula una intranet simplificada en Microsoft Azure."
 	documentationCenter=""
 	services="virtual-machines-windows"
 	authors="JoeDavies-MSFT"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
-# Entorno de prueba de la configuración base con Administrador de recursos de Azure
+# Entorno de prueba de la configuración básica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-test-config-env.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 En este artículo se proporcionan instrucciones paso a paso para crear el entorno de prueba de la configuración básica en una red virtual de Microsoft Azure mediante las máquinas virtuales creadas en Administrador de recursos.
 
@@ -30,7 +30,7 @@ Puede utilizar el entorno de prueba resultante:
 
 El entorno de prueba de la configuración base consta de la subred de la red corporativa en una red virtual solo en la nube denominada TestLab que simula una intranet privada simplificada conectada a Internet.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG04.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph4.png)
 
 Contiene:
 
@@ -50,7 +50,7 @@ Hay cuatro fases de configuración de la subred de la red corporativa del entorn
 3.	Configuración de APP1.
 4.	Configuración de CLIENT1.
 
-Si no dispone de ninguna cuenta de Azure, puede registrarse para una prueba gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si no dispone de ninguna cuenta de Azure, puede registrarse para una prueba gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 > [AZURE.NOTE] Las máquinas virtuales en Azure suponen en un costo económico constante cuando se están ejecutando. Este costo se factura en su prueba gratuita, la suscripción de MSDN o la suscripción de pago. Para obtener más información acerca de los costos de ejecutar máquinas virtuales de Azure, consulte [Detalles de precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/) y [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/). Para reducir los costos, consulte [Reducción del costo de las máquinas virtuales del entorno de prueba en Azure](#costs).
 
@@ -94,16 +94,22 @@ Cree una nueva cuenta de almacenamiento para el nuevo entorno de prueba con esto
 	$saName="<storage account name>"
 	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
-A continuación, cree la red virtual de Azure TestLab que va a hospedar la subred de la red corporativa de la configuración base.
+Después, cree la red virtual de Azure TestLab que va a hospedar la subred de la red corporativa de la configuración base y protéjala con un grupo de seguridad de red.
 
 	$rgName="<name of your new resource group>"
 	$locName="<Azure location name, such as West US>"
+	$locShortName="<the location of your new resource group in lowercase with spaces removed, example: westus>"
 	$corpnetSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name Corpnet -AddressPrefix 10.0.0.0/24
 	New-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/8 -Subnet $corpnetSubnet –DNSServer 10.0.0.4
+	$rule1=New-AzureRMNetworkSecurityRuleConfig -Name "RDPTraffic" -Description "Allow RDP to all VMs on the subnet" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
+	New-AzureRMNetworkSecurityGroup -Name Corpnet -ResourceGroupName $rgName -Location $locShortName -SecurityRules $rule1
+	$vnet=Get-AzureRMVirtualNetwork -ResourceGroupName $rgName -Name TestLab
+	$nsg=Get-AzureRMNetworkSecurityGroup -Name Corpnet -ResourceGroupName $rgName
+	Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name Corpnet -AddressPrefix "10.0.0.0/24" -NetworkSecurityGroup $nsg
 
 Esta es su configuración actual.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG01.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph1.png)
 
 ## Fase 2: Configuración de DC1
 
@@ -189,7 +195,7 @@ A continuación, para permitir el tráfico de la herramienta Ping, ejecute este 
 
 Se trata de la configuración actual.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG02.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph2.png)
 
 ## Fase 3: Configuración de APP1
 
@@ -238,7 +244,7 @@ A continuación, cree una carpeta compartida y un archivo de texto dentro de la 
 
 Se trata de la configuración actual.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG03.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph3.png)
 
 ## Fase 4: Configuración de CLIENT1
 
@@ -283,7 +289,7 @@ A continuación, compruebe que puede tener acceso a recursos compartidos de arch
 2.	En **Propiedades de CLIENT1**, haga clic en **Activo** al lado de **Configuración de seguridad mejorada de IE**.
 3.	En **Configuración de seguridad mejorada de IE**, haga clic en **Desactivar** para **Administradores** y **Usuarios** y, a continuación, haga clic en **Aceptar**.
 4.	En la pantalla Inicio, haga clic en **Internet Explorer** y, a continuación, en **Aceptar**.
-5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y, a continuación, presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
+5.	En la barra de direcciones, escriba **http://app1.corp.contoso.com/** y, a continuación, presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
 6.	En la barra de tareas del escritorio, haga clic en el icono Explorador de archivos.
 7.	En la barra de direcciones, escriba **\\\app1\\Files** y, a continuación, presione ENTRAR.
 8.	Debería ver una ventana de carpeta con el contenido de la carpeta compartida Archivos.
@@ -292,13 +298,13 @@ A continuación, compruebe que puede tener acceso a recursos compartidos de arch
 
 Se trata de la configuración final.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG04.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph4.png)
 
 La configuración base de Azure ya está lista para entornos de pruebas y desarrollo de aplicaciones o para entornos de prueba adicionales.
 
 ## Paso siguiente
 
-- [Agregar una nueva máquina virtual](virtual-machines-windows-create-powershell.md) a la subred de la red corporativa, como un Microsoft SQL Server en ejecución.
+- Agregar una nueva máquina virtual mediante el [Portal de Azure](virtual-machines-windows-hero-tutorial.md) o generar el [entorno de prueba de nube híbrida simulado](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)
 
 
 ## <a id="costs"></a>Reducción del costo de las máquinas virtuales del entorno de prueba en Azure
@@ -328,4 +334,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Fase 4 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configuración de servidores de SharePoint
@@ -181,7 +181,7 @@ Siga estos pasos para configurar el primer servidor de SharePoint en la granja d
 
 Realice el procedimiento siguiente en el segundo servidor de aplicaciones de SharePoint y los dos servidores web front-end:
 
-1.	En el escritorio, haga doble clic en ** Asistente para la configuración de productos de SharePoint 2013**. Cuando se le pida que permita al programa realizar cambios en el equipo, haga clic en **Sí**.
+1.	En el escritorio, haga doble clic en **Asistente para la configuración de productos de SharePoint 2013**. Cuando se le pida que permita al programa realizar cambios en el equipo, haga clic en **Sí**.
 2.	En la página de **productos de SharePoint**, haga clic en **Siguiente**.
 3.	Aparece un cuadro de diálogo **Asistente para configuración de productos de SharePoint** que le advierte que se reiniciarán o restablecerán los servicios (como IIS). Haga clic en **Sí**.
 4.	En la página **Conectar a una granja de servidores**, haga clic en **Conectar con un conjunto de servidores existente** y después haga clic en **Siguiente**.
@@ -205,4 +205,4 @@ Esta es la configuración resultante de la realización correcta de esta fase.
 
 - Para continuar con la configuración de esta carga de trabajo, vaya a la [Fase 5](virtual-machines-windows-ps-sp-intranet-ph5.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

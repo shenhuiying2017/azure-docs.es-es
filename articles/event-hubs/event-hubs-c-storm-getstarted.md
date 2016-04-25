@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
@@ -30,7 +30,7 @@ En este tutorial, obtendrá información sobre cómo insertar mensajes en un Cen
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines/virtual-machines-linux-cli-create.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
++ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines/virtual-machines-linux-quick-create-cli.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
 
 + Un entorno de desarrollo de Java configurado para ejecutar [Maven](http://maven.apache.org/). Para este tutorial, asumimos que vamos a trabajar con [Eclipse](https://www.eclipse.org/).
 
@@ -109,6 +109,5 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 [Introducción a Storm en HDInsight]: ../hdinsight/hdinsight-storm-overview.md/
 [Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

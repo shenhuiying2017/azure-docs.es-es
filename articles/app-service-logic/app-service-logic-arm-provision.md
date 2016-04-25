@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="04/04/2016" 
 	ms.author="tomfitz"/>
 
 # Creación de una aplicación lógica mediante una plantilla
 
 Use una plantilla del Administrador de recursos de Azure para crear una aplicación lógica vacía que pueda utilizarse para definir los flujos de trabajo. Puede definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para obtener más detalles sobre las propiedades de la aplicación lógica, consulte [API de administración de flujos de trabajo de aplicaciones lógicas](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+Para obtener más detalles sobre las propiedades de la aplicación lógica, consulte [API de administración de flujos de trabajo de aplicaciones lógicas](https://msdn.microsoft.com/library/azure/mt643788.aspx).
 
 Para obtener ejemplos de la propia definición, consulte [Creación de definiciones de aplicaciones lógicas](app-service-logic-author-definitions.md).
 
@@ -34,7 +34,7 @@ Con esta plantilla, implementará una aplicación lógica.
 
 Para ejecutar automáticamente la implementación, seleccione el botón siguiente:
 
-[![Implementación en Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Implementación en Azure](media/app-service-logic-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 ## Parámetros
 
@@ -142,4 +142,4 @@ Esta definición determinada se ejecuta una vez cada hora y hace ping en la ubic
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0413_2016-->

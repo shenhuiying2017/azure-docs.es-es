@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/07/2016"
 	ms.author="anhoh"/>
 
 # Solicitud de aumento de los límites de la cuenta de DocumentDB
@@ -25,9 +25,9 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 -	¿Qué cuotas de la cuenta de DocumentDB pueden ajustarse estableciendo contacto con el soporte técnico de Azure?
 -	¿Cómo puedo solicitar un ajuste en la cuota de la cuenta de DocumentDB?
 
-##<a id="AdjustableQuotas"></a> Cuotas ajustables de la cuenta de DocumentDB
+##<a id="Quotas"></a>Cuotas de cuenta de DocumentDB
 
-En la tabla siguiente se describen las cuotas de DocumentDB que se pueden ajustar estableciendo contacto con el soporte técnico de Azure:
+La siguiente tabla muestra las cuotas de DocumentDB. Las cuotas que tienen un asterisco (*) se pueden ajustar poniéndose en contacto con el soporte técnico de Azure:
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
@@ -63,4 +63,4 @@ Una vez creada la incidencia de soporte técnico, debería recibir el número de
 ##<a name="NextSteps"></a> Pasos siguientes
 - Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

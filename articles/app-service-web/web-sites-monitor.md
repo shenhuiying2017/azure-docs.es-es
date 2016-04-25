@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="04/04/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Supervisión de Aplicaciones web en el Servicio de aplicaciones de Azure
@@ -123,7 +123,7 @@ La sección **Diagnósticos del sitio** de la página de administración **Confi
 
  Para guardar los registros de servidores web en una cuenta de almacenamiento de Azure, elija **Almacenamiento** y, a continuación, **Administrar almacenamiento** para especificar un contenedor de blobs de Azure donde se conservarán los registros. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento](/manage/services/storage/how-to-manage-a-storage-account/).
 
-   Para guardar registros de servidores web en el sistema de archivos, elija **Sistema de archivos**. Con esto se habilitará la casilla **Cuota**, en la que puede definir la cantidad máxima de espacio en disco para los archivos de registro. El tamaño mínimo es de 25 MB, mientras que el máximo es de 100 MB. El tamaño predeterminado es de 35 MB.
+   Para guardar registros de servidores web en el sistema de archivos, elija **Sistema de archivos**. Con esto se habilitará la casilla **Cuota**, en la que puede definir la cantidad máxima de espacio en disco para los archivos de registro. El tamaño mínimo es de 25 MB, mientras que el máximo es de 100 MB. El tamaño predeterminado es de 35 MB.
 
  De manera predeterminada, nunca se eliminan los registros de servidores web. Para especificar un período después del cual los registros se eliminarán automáticamente, seleccione **Establecer retención** y escriba el número de días durante los cuales se conservarán los registros en el cuadro **Período de retención**. Esta configuración está disponible para las opciones de almacenamiento de Azure y del sistema de archivos.
 
@@ -150,13 +150,13 @@ Es posible seguir modificando los diagnósticos si agrega pares clave-valor a la
 
 - El tamaño máximo de búfer que se utilizará cuando se capturen registros de aplicación. La información inicialmente se escribe en el búfer antes de vaciarla al archivo o el almacenamiento. Si se escribe información nueva en el búfer antes de poder vaciarla, es posible que pierda la información anteriormente registrada. Si la aplicación genera grandes ráfagas de información de registro, considere aumentar el tamaño del búfer.
 
-- Valor predeterminado: 10 MB
+- Valor predeterminado: 10 MB
 
 **DIAGNOSTICS\_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
 
 - El tamaño máximo de la carpeta de **aplicaciones**, en la que se almacenan los diagnósticos de la aplicación escritos en el archivo.
 
-- Valore predeterminado: 1 MB
+- Valore predeterminado: 1 MB
 
 ###Descarga de archivos de registro para una aplicación web
 
@@ -201,7 +201,7 @@ También puede ver una secuencia en vivo de eventos de registro a través del si
 
 Con esto aparecerá información de registros en la sesión de Terminal, sesión Bash, PowerShell o símbolo del sistema desde donde se ejecuta el comando.
 
-> [AZURE.NOTE] Si el comando **azure** no está instalado, consulte [Cómo usar la CLI de Azure](../virtual-machines/virtual-machines-command-line-tools.md) para obtener información sobre la instalación y la configuración.
+> [AZURE.NOTE] Si el comando **azure** no está instalado, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) para obtener información sobre la instalación y la configuración.
 
 ### Lectura de archivos de registro ###
 
@@ -248,7 +248,7 @@ Esta característica, disponible en el modo **Estándar**, permite supervisar ha
 
 La supervisión de extremo configura pruebas web desde ubicaciones distribuidas geográficamente que prueban el tiempo de respuesta y el tiempo activo de direcciones URL web. La prueba realiza una operación HTTP Get en la dirección URL web para determinar el tiempo de respuesta y el tiempo activo desde cada ubicación. Cada ubicación configurada ejecuta una prueba cada cinco minutos.
 
-El tiempo activo se supervisa a través de códigos de respuesta de HTTP y el tiempo de respuesta se mide en milisegundos. Se considera que el tiempo de actividad es total cuando el tiempo de respuesta es inferior a 30 segundos y el código de estado HTTP es inferior a 400. Se considera que el tiempo de actividad es del 0 % cuando el tiempo de respuesta es superior a 30 segundos o el código de estado HTTP es superior a 400.
+El tiempo activo se supervisa a través de códigos de respuesta de HTTP y el tiempo de respuesta se mide en milisegundos. Se considera que el tiempo de actividad es total cuando el tiempo de respuesta es inferior a 30 segundos y el código de estado HTTP es inferior a 400. Se considera que el tiempo de actividad es del 0 % cuando el tiempo de respuesta es superior a 30 segundos o el código de estado HTTP es superior a 400.
 
 Después de configurar la supervisión de extremo, puede obtener detalles sobre los extremos individuales para ver el estado del tiempo activo y el tiempo de respuesta sobre el intervalo de supervisión desde cada una de las ubicaciones de prueba. También puede configurar una regla de alerta cuando el extremo tarda mucho en responder, por ejemplo.
 
@@ -268,7 +268,7 @@ Para crear una regla de correo electrónico, realice las siguientes tareas:
 9.	En la barra del servicio, situada a la izquierda, haga clic en **Servicios de administración**.
 10.	Haga clic en **Agregar regla** en la parte inferior.
 11.	En **Tipo de servicio**, seleccione **Aplicación web** y, a continuación, seleccione la aplicación web para la que configuró anteriormente la supervisión de extremos. Haga clic en **Siguiente**.
-12.	En **Métrica**, ahora puede seleccionar métricas adicionales para el extremo configurado. Por ejemplo: **Tiempo de respuesta (página principal/EE. UU.: IL-Chicago)**. Seleccione la métrica Tiempo de respuesta y escriba 3 en **Valor de umbral** para especificar un umbral de 3 segundos.
+12.	En **Métrica**, ahora puede seleccionar métricas adicionales para el extremo configurado. Por ejemplo: **Tiempo de respuesta (página principal/EE. UU.: IL-Chicago)**. Seleccione la métrica Tiempo de respuesta y escriba 3 en **Valor de umbral** para especificar un umbral de 3 segundos.
 13.	Seleccione **Envíe un correo electrónico al administrador y a los coadministradores del servicio**. Haga clic en **Completo**.
 
 	Azure ahora supervisará de forma activa el extremo y enviará una alerta por correo electrónico si tarda más de 3 segundos en responder.
@@ -286,6 +286,5 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

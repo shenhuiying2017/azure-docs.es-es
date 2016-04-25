@@ -32,8 +32,8 @@ Máquinas virtuales de Azure, Administrador de recursos de Azure y Almacén de c
 - Las plantillas solo contienen referencias URI a los secretos, lo que significa que los secretos reales no están en los repositorios de código, configuración o código fuente. Esto impide ataques de suplantación de identidad de claves en repositorios internos o externos, como los robots de recolección de GitHub.
 - Los secretos almacenados en el almacén de claves están bajo el control total de RBAC de un operador de confianza. Si el operador de confianza deja la compañía o pasa a un nuevo grupo dentro de la compañía, ya no tendrán acceso a las claves que crearon en el almacén.
 - Compartimentación completa de todos los activos:
-      - las plantillas para implementar las claves 
-      - las plantillas para implementar una máquina virtual con referencias a las claves 
+      - las plantillas para implementar las claves
+      - las plantillas para implementar una máquina virtual con referencias a las claves
       - los materiales de clave reales en el almacén. Cada plantilla (y acción) pueden estar bajo roles RBAC diferentes para una separación completa de responsabilidades.
 - La carga de secretos en una máquina virtual durante la implementación se produce a través de un canal directo entre el tejido de Azure y el Almacén de claves dentro de los confines del centro de datos de Microsoft. Una vez que las claves se encuentran en el Almacén de claves, nunca salen a la luz través de un canal que no sea de confianza fuera del centro de datos.  
 - Los almacenes de claves son siempre regionales, por lo que los secretos siempre tienen la localidad (y soberanía) con las máquinas virtuales. No hay almacenes de claves globales.
@@ -172,11 +172,11 @@ Una combinación de una entidad de servicio y RBAC puede utilizarse para satisfa
 
 Muchos escenarios tendrán requisitos que especifican cómo se controla el tráfico a una o más instancias de máquina virtual en la red virtual. Puede usar un grupo de seguridad de red (NSG) para hacer esto como parte de una implementación de la plantilla ARM.
 
-Un grupo de seguridad de red es un objeto de nivel superior que está asociado a su suscripción. Un grupo de seguridad de red contiene reglas de control de acceso que permiten o deniegan el tráfico a instancias de máquina virtual. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas. Para usar un grupo de seguridad de red, debe tener una red virtual asociada a una región (ubicación). Los grupos de seguridad de red no son compatibles con redes virtuales asociadas a un grupo de afinidad. Si no tiene una red virtual regional y desea controlar el tráfico a los extremos, consulte [Listas de control de acceso (ACL) de red?](../virtual-network/virtual-networks-acl.md).
+Un grupo de seguridad de red es un objeto de nivel superior que está asociado a su suscripción. Un grupo de seguridad de red contiene reglas de control de acceso que permiten o deniegan el tráfico a instancias de máquina virtual. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas. Para usar un grupo de seguridad de red, debe tener una red virtual asociada a una región (ubicación). Los grupos de seguridad de red no son compatibles con redes virtuales asociadas a un grupo de afinidad. Si no tiene una red virtual regional y desea controlar el tráfico a los extremos, consulte [Listas de control de acceso (ACL) de red?](./virtual-network/virtual-networks-acl.md).
 
 Puede asociar un grupo de seguridad de red a una máquina virtual o a una subred dentro de una red virtual. Cuando se asocia a una máquina virtual, el grupo de seguridad de red se aplica a todo el tráfico enviado y recibido por la instancia de máquina virtual. Cuando se aplica a una subred dentro de la red virtual, se aplica a todo el tráfico enviado y recibido por todas las instancias de máquina virtual de la subred. Una máquina virtual o una subred solo puede asociarse a 1 grupo de seguridad de red, pero cada grupo de seguridad de red puede contener hasta 200 reglas. Puede tener 100 grupos de seguridad de red por suscripción.
 
->[AZURE.NOTE]  No se admiten ACL basadas en el extremo y grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para obtener información acerca de cómo hacerlo, consulte [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+>[AZURE.NOTE]  No se admiten ACL basadas en el extremo y grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para obtener información acerca de cómo hacerlo, consulte [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](./virtual-network/virtual-networks-acl-powershell.md).
 
 ### Funcionamiento de los grupos de seguridad de red
 
@@ -292,7 +292,7 @@ Los paquetes se enrutan sobre una red TCP/IP basada en una tabla de enrutamiento
   - Internet. Representa la puerta de enlace de Internet predeterminada proporcionada por la infraestructura de Azure.
   - Dispositivo virtual. Representa un dispositivo virtual agregado a la red virtual de Azure.
   - NULL. Representa un agujero negro. Los paquetes enviados a un agujero negro no se reenviarán de ninguna manera.
--	Valor del próximo salto. El valor del próximo salto contiene los paquetes de la dirección IP a la que se deben reenviar. Solo se permiten valores de próximo salto en las rutas donde el tipo de próximo salto es *Dispositivo virtual*. El próximo salto debe estar en la subred (la interfaz local del dispositivo virtual según el identificador de red), no en una subred remota. 
+-	Valor del próximo salto. El valor del próximo salto contiene los paquetes de la dirección IP a la que se deben reenviar. Solo se permiten valores de próximo salto en las rutas donde el tipo de próximo salto es *Dispositivo virtual*. El próximo salto debe estar en la subred (la interfaz local del dispositivo virtual según el identificador de red), no en una subred remota.
 
 ![Enrutamiento](./media/best-practices-resource-manager-security/routing.png)
 
@@ -306,7 +306,7 @@ Cada subred que se creó en una red virtual se asocia automáticamente a una tab
 
 ### Rutas BGP
 
-En el momento de redactar este artículo, todavía no se admite [ExpressRoute](expressroute/expressroute-introduction.md) en el [Proveedor de recursos de red](virtual-network/resource-groups-networking.md) del Administrador de recursos de Azure. Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilitar BGP para propagar las rutas desde la red local a Azure una vez que ExpressRoute se admita en NRP. Estas rutas BGP se usan en la misma forma que las rutas predeterminadas y las rutas definidas por el usuario en cada subred de Azure. Para obtener más información, consulte [Introducción a ExpressRoute](expressroute/expressroute-introduction.md).
+En el momento de redactar este artículo, todavía no se admite [ExpressRoute](./expressroute/expressroute-introduction.md) en el [Proveedor de recursos de red](virtual-network/resource-groups-networking.md) del Administrador de recursos de Azure. Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilitar BGP para propagar las rutas desde la red local a Azure una vez que ExpressRoute se admita en NRP. Estas rutas BGP se usan en la misma forma que las rutas predeterminadas y las rutas definidas por el usuario en cada subred de Azure. Para obtener más información, consulte [Introducción a ExpressRoute](./expressroute/expressroute-introduction.md).
 
 >[AZURE.NOTE] Cuando ExpressRoute se admita en NRP, podrá configurar el entorno de Azure para forzar la tunelización a través de la red local creando una ruta definida por el usuario para la subred 0.0.0.0/0 que use la puerta de enlace de VPN como próximo salto. Sin embargo, esto solo funciona si se utiliza una puerta de enlace de VPN, no ExpressRoute. Para ExpressRoute, la tunelización forzada se configura a través de BGP.
 
@@ -336,7 +336,7 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 ## Pasos siguientes
 - Para comprender cómo configurar las entidades de seguridad con el acceso correcto para trabajar con recursos en su organización, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 - Si desea bloquear el acceso a un recurso, puede usar bloqueos de administración. Consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
-- Para configurar el enrutamiento y el reenvío IP, vea [Creación de rutas y habilitación del reenvío IP en Azure](virtual-network/virtual-networks-udr-how-to.md). 
-- Para obtener información general sobre el control de acceso basado en roles, vea [Control de acceso basado en roles en el portal de Microsoft Azure](role-based-access-control-configure.md).
+- Para configurar el enrutamiento y el reenvío IP, consulte [Creación de enrutamientos definidos por el usuario (UDR) en el administrador de recursos mediante una plantilla](./virtual-network/virtual-network-create-udr-arm-template.md).
+- Para obtener información general sobre el control de acceso basado en roles, vea [Control de acceso basado en roles en el portal de Microsoft Azure](./active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

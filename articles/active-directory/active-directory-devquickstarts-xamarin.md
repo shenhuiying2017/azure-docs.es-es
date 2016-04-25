@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Xamarin le permite escribir aplicaciones en C# que se pueden ejecutar en distintas plataformas, incluidos los dispositivos móviles y equipos similares. Si está creando una aplicación con Xamarin, Azure AD le facilita la autenticación de sus usuarios con sus cuentas de Active Directory. También permite a la aplicación consumir con seguridad cualquier API web protegida por Azure AD, como las API de Office 365 o la API de Azure.
+Xamarin le permite escribir aplicaciones móviles en C# que se pueden ejecutar en iOS, Android y Windows (PC y dispositivos móviles). Si está creando una aplicación con Xamarin, Azure AD le facilita la autenticación de sus usuarios con sus cuentas de Active Directory. También permite a la aplicación consumir con seguridad cualquier API web protegida por Azure AD, como las API de Office 365 o la API de Azure.
 
 Para las aplicaciones Xamarin que necesitan tener acceso a recursos protegidos, Azure AD proporciona la biblioteca de autenticación de Active Directory o ADAL. El único propósito de ADAL es facilitar a su aplicación la obtención de tokens de acceso. Para demostrar lo sencillo que es, crearemos a continuación una aplicación de "buscador de directorios" que:
 
@@ -41,12 +41,9 @@ Para crear la aplicación de trabajo completa, deberá:
 Para empezar, [descargue el proyecto del esquema](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) o [descargue el ejemplo finalizado](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Cualquiera de los dos es una solución de Visual Studio 2013. También necesitará a un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación. Si aún no tiene un inquilino, [descubra cómo conseguir uno](active-directory-howto-tenant.md).
 
 ## *0. Configuración de su entorno de desarrollo de Xamarin*
-Hay varias maneras diferentes en las que puede desear configurar Xamarin, dependiendo de las plataformas específicas a las que quiera dirigirse. Puesto que este tutorial incluye proyectos para iOS, Android y Windows, seleccionaremos usar Visual Studio 2013 y el [host de compilación Xamarin.iOS](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/), que requerirá: - Una máquina Windows para ejecutar Visual Studio y las aplicaciones Windows - Una máquina OSX (si desea ejecutar la aplicación iOS) - Una suscripción Xamarin Business (una [prueba gratuita](http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/) es suficiente) - [Xamarin para Windows](https://xamarin.com/download), que incluye Xamarin.iOS, Xamarin.Android y la integración de Visual Studio (recomendada para este ejemplo). - [Xamarin para OS X](https://xamarin.com/download), que incluye Xamarin.iOS (y el host de compilación de Xamarin.iOS), Xamarin.Android, Xamarin.Mac y Xamarin Studio.
-
-Se recomienda comenzar con la [página de descargas de Xamarin](https://xamarin.com/download) e instalar Xamarin en su Mac y PC. Si no dispone de los equipos disponibles, puede ejecutar el ejemplo, pero tendrán que omitirse determinados proyectos. Siga el [guías detalladas de instalación](http://developer.xamarin.com/guides/cross-platform/getting_started/installation/) para iOS y Android, y si desea saber más acerca de las opciones disponibles para el desarrollo, eche un vistazo a la guía [Creación de aplicaciones de plataformas cruzadas](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/part_1_-_understanding_the_xamarin_mobile_platform/). No es necesario configurar un dispositivo para el desarrollo en este momento, ni necesita una suscripción al programa para desarrolladores de Apple (a menos que, por supuesto, desee ejecutar la aplicación iOS en un dispositivo).
+Como este tutorial incluye proyectos de iOS, Android y Windows, necesitará tanto Visual Studio como Xamarin. Para crear el entorno necesario, siga las instrucciones completas que se detallan en [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) en MSDN. Estas instrucciones incluyen material que puede examinar para obtener más información acerca de Xamarin mientras espera a que finalicen los instaladores.
 
 Una vez que haya completado la configuración necesaria, abra la solución en Visual Studio para comenzar. Encontrará seis proyectos: cinco proyectos específicos de la plataforma y una biblioteca de clases portable que se compartirá entre todas las plataformas, `DirectorySearcher.cs`.
-
 
 ## *1. Registro de la aplicación de buscador de directorios*
 Para habilitar la aplicación para obtener tokens, primero deberá registrarla en su inquilino de Azure AD y concederle permiso de acceso a la API de gráficos de Azure AD:
@@ -62,7 +59,8 @@ Para habilitar la aplicación para obtener tokens, primero deberá registrarla e
 - También en la pestaña **Configurar**, busque la sección "Permisos para otras aplicaciones". Para la aplicación "Azure Active Directory", agregue el permiso de **acceso al directorio de la organización** en **Permisos delegados**. Esto permitirá a su aplicación consultar la API Graph para los usuarios.
 
 ## *2. Instalación y configuración de ADAL*
-Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, tiene que proporcionarle información sobre el registro de la aplicación. Comience agregando ADAL a cada uno de los proyectos de la solución con la Consola del Administrador de paquetes.
+Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, hay que proporcionarle información sobre el registro de la aplicación.
+-	Comience agregando ADAL a cada uno de los proyectos de la solución mediante la Consola del Administrador de paquetes.
 
 `
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib -IncludePrerelease
@@ -193,7 +191,7 @@ await UnivDirectoryHelper.Search(
 
 ¡Enhorabuena! Ahora dispone de una aplicación de Xamarin en funcionamiento que tiene la capacidad de autenticar usuarios y llamar de forma segura a las API de Web mediante OAuth 2.0 en cinco plataformas distintas. Si no lo ha hecho ya, ahora es el momento de completar el inquilino con algunos usuarios. Ejecute la aplicación DirectorySearcher e inicie sesión con uno de esos usuarios. Busque otros usuarios según su UPN.
 
-ADAL facilita la incorporación de características comunes de identidad en la aplicación. Hace el trabajo sucio por usted: administración en caché, compatibilidad con protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de tokens expirados, etc. Todo lo que necesita saber es una única llamada de API, `authContext.AcquireToken*(…)`.
+ADAL facilita la incorporación de características comunes de identidad en la aplicación. Se encarga de todo el trabajo duro: administración de la caché, compatibilidad con el protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de los tokens caducados, etc. Todo lo que necesita saber es una única llamada de API, `authContext.AcquireToken*(…)`.
 
 Como referencia, se proporciona el ejemplo finalizado (sin sus valores de configuración) [aquí](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Ahora puede trasladarse a escenarios de identidad adicionales. Es posible que desee probar:
 
@@ -201,4 +199,4 @@ Como referencia, se proporciona el ejemplo finalizado (sin sus valores de config
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,9 +3,9 @@
 	description="Este tema proporciona instrucciones para ayudarle a determinar qué nivel de servicio es el adecuado para su aplicación y proporciona recomendaciones para optimizar la aplicación y para obtener el máximo partido de Base de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" />
+	authors="carlrabeler"
+	manager="jhubbard"
+	editor="" />
 
 
 <tags
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
-	ms.author="jroth" />
+	ms.date="04/11/2016"
+	ms.author="carlrab" />
 
 # Guía de rendimiento de Base de datos SQL de Azure
 
@@ -23,7 +23,7 @@
 
 Base de datos SQL de Microsoft Azure tiene tres [niveles de servicio](sql-database-service-tiers.md), Básico, Estándar y Premium. Todos aíslan de forma estricta el recurso proporcionado a Base de datos SQL Azure y garantizan un rendimiento predecible. El rendimiento garantizado para la base de datos aumenta de Básico, pasando por Estándar, hasta Premium.
 
->[AZURE.NOTE] Los niveles de servicio Business y Web se retirarán en septiembre de 2015. Para obtener más información, consulte [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Para obtener información detallada sobre cómo actualizar las bases de datos Web o Business existentes a los nuevos niveles de servicio, consulte [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-new-service-tiers.md).
+>[AZURE.NOTE] Los niveles de servicio Business y Web se retirarán en septiembre de 2015. Para obtener más información, consulte [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Para obtener información detallada sobre cómo actualizar las bases de datos Web o Business existentes a los nuevos niveles de servicio, consulte [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-server-portal.md).
 
 Este documento proporciona instrucciones para ayudarle a determinar qué nivel de servicio es el adecuado para su aplicación y proporciona recomendaciones para optimizar la aplicación para obtener el máximo partido de Base de datos SQL de Azure.
 
@@ -173,7 +173,7 @@ Hay dos vistas que permiten supervisar el uso de recursos para una Base de datos
 ### Uso de sys.dm\_db\_resource\_stats
 La vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe en cada Base de datos SQL y proporciona datos sobre el uso de recursos recientes en relación con el nivel de servicio. Porcentajes medios para CPU, E/S de datos, escritura de registros y memoria, se registran cada 15 segundos y se mantienen durante una hora.
 
-Dado que esta vista proporciona una panorámica más granular del uso de recursos, debe usar primero **sys.dm\_db\_resource\_stats ** para cualquier análisis o la solución de problemas de estado actual. Por ejemplo, la consulta siguiente muestra el uso de recursos promedio y máximo para la base de datos actual durante la última hora:
+Dado que esta vista proporciona una panorámica más granular del uso de recursos, debe usar primero **sys.dm\_db\_resource\_stats** para cualquier análisis o la solución de problemas de estado actual. Por ejemplo, la consulta siguiente muestra el uso de recursos promedio y máximo para la base de datos actual durante la última hora:
 
 	SELECT  
 	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
@@ -324,7 +324,7 @@ En el ejemplo siguiente se crea un caso donde el plan de consulta seleccionado c
 
 Base de datos SQL de Azure contiene funcionalidad que ayuda a los administradores de bases de datos de sugerencias a encontrar y corregir casos frecuentes de índices que faltan. Las vistas de administración dinámica (DMV) integradas en Base de datos SQL de Azure miran la compilación de consultas en la que un índice reduciría considerablemente el costo estimado para ejecutar una consulta. Durante la ejecución de las consultas, hace un seguimiento de cuándo se ejecuta cada plan de consulta, así como de la diferencia estimada entre el plan de consulta en ejecución y uno imaginado en el que exista ese índice. Esto permite a un administrador de bases de datos adivinar rápidamente qué cambios de diseño de la base de datos física pueden mejorar el costo total de la carga de trabajo para una base de datos específica y su carga de trabajo real.
 
->[AZURE.NOTE] Antes de usar las DMV para buscar índices que faltan, revise la sección sobre [Query Performance Insight y Index Advisor](query-performance-insight-and-index-advisor.md).
+>[AZURE.NOTE] Antes de usar las DMV para buscar índices que faltan, revise la sección sobre [Query Performance Insight y Index Advisor](#query-performance-insight-and-index-advisor).
 
 La consulta siguiente puede usarse para evaluar posibles índices que faltan.
 
@@ -491,4 +491,4 @@ Algunas aplicaciones de base de datos contienen cargas de trabajo con operacione
 
 Los niveles de servicio de Base de datos SQL de Azure le permiten elevar el listón de los tipos de aplicaciones que puede compilar en la nube. Cuando se combina con la optimización de aplicaciones, puede obtener un rendimiento eficaz y confiable para su aplicación. Este documento describe las técnicas recomendadas para optimizar el consumo de recursos de la base de datos que encaja perfectamente en uno de los niveles de rendimiento. La optimización es un ejercicio continuado en el modelo de nube, y los niveles de servicio y sus niveles de rendimiento permiten a los administradores maximizar el rendimiento y minimizar los costos en la plataforma de Microsoft Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

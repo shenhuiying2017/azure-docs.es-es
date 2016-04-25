@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Interfaz de usuario de Azure Mobile Engagement: supervisión" 
-   description="Obtenga información acerca de cómo supervisar datos en tiempo real acerca de la aplicación mediante Azure Mobile Engagement." 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
+<properties
+   pageTitle="Interfaz de usuario de Azure Mobile Engagement: supervisión"
+   description="Obtenga información acerca de cómo supervisar datos en tiempo real acerca de la aplicación mediante Azure Mobile Engagement."
+   services="mobile-engagement"
+   documentationCenter=""
+   authors="piyushjo"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,23 +12,23 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
+   ms.workload="mobile"
    ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Cómo supervisar datos en tiempo real acerca de la aplicación
 
-Este artículo describe la pestaña **SUPERVISIÓN** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**. Para obtener más información, consulte [Crear una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md).
+Este artículo describe la pestaña **SUPERVISIÓN** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**.
 
 
 La sección de supervisión de la interfaz de usuario proporciona información de análisis en tiempo real y le permite establecer alertas cuando se alcanzan los umbrales de la mayor parte de la misma información que está disponible históricamente en la sección [ANÁLISIS](mobile-engagement-user-interface-analytics.md) de la interfaz de usuario. Vea la sección **Glosario** en el tema [Conceptos](http://go.microsoft.com/fwlink/?LinkId=525555) para las definiciones de términos y abreviaturas en análisis y supervisión, (como las siguientes: usuario activo, nuevo usuario, usuario conservado, sesión, gráfico de ruta de acceso de usuario, asignación de usuarios, direcciones URL de seguimiento, tendencias, actividad, evento, trabajo, error, información adicional, bloqueo e información de aplicación).
 
->[AZURE.NOTE]Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
+>[AZURE.NOTE] Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
 
 ## Supervisión - Sesiones, trabajos, eventos, errores y bloqueos
 
 Puede ver cuántos usuarios están actualmente en sesión y en pantallas específicas o realizando acciones específicas. Puede ver la actividad de los usuarios dividida en sesiones, trabajos, eventos, errores y bloqueos. Puede ver la información actual y mostrar la información de la última hora, día o semana. Puede ver toda la información de cada categoría u ordenar por sesión, trabajo, evento, error y bloqueo específico. La supervisión activa es útil para utilizar durante eventos como una campaña de inserción para ver si hay un repunte en la acción justo después de enviar la notificación de inserción.
- 
+
 ![Monitor1][14]
 
 ## Solución de problemas con Supervisión - Eventos - Detalles
@@ -49,7 +49,7 @@ Para obtener más información, consulte [Documentación de SDK - notas de la ve
 
 ## Supervisión - Alertas
 También puede especificar condiciones para las alertas que se le enviarán automáticamente por correo electrónico o mensajes instantáneos. (Los servicios compatibles con XMPP como GTalk de Google o iChat de Apple son compatibles). Las alertas se basan en un umbral de detección predefinido mayor que (>) o menor que (<) un número específico de sesiones, trabajos, eventos, errores o bloqueos por hora, minuto o segundo. Las alertas pueden supervisar todas las actividades de un tipo determinado o supervisar un trabajo, evento o actividad de error específico. También puede especificar una tasa de detección mínima, que es la cantidad mínima de tiempo que separa dos notificaciones para la misma alerta para asegurarse de que cuando se desencadene la alerta, nunca recibirá más de una notificación cada X minutos.
- 
+
 ![Monitor4][17]
 
 
@@ -152,6 +152,5 @@ También puede especificar condiciones para las alertas que se le enviarán auto
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

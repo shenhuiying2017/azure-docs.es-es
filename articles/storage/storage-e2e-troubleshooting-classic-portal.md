@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="04/06/2016" 
 	ms.author="robinsh"/>
 
 # Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes 
@@ -36,7 +36,9 @@ Para solucionar problemas en aplicaciones cliente que usan Almacenamiento de Mic
 
 	- El **registro de almacenamiento** deja constancia en un registro del servidor de cada solicitud realizada al servicio Almacenamiento de Azure. Este registro hace un seguimiento de los datos detallados de cada solicitud, como la operación realizada, el estado de la operación y la información de latencia. Vea [Formato del registro del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343259.aspx) para más información sobre los datos de solicitud y de respuesta que se escriben en los registros del análisis de almacenamiento.
 
-- **Portal de Azure clásico** Puede configurar las métricas y el registro de su cuenta de almacenamiento en el [Portal de Azure clásico](https://manage.windowsazure.com). Asimismo, también puede ver diagramas y gráficos que le mostrarán el rendimiento de su aplicación conforme avanza el tiempo, así como configurar alertas que le avisarán si el rendimiento de su aplicación es diferente a lo esperado según lo establecido en una métrica específica.
+> [AZURE.NOTE] En este momento, las cuentas de almacenamiento con un tipo de replicación de almacenamiento con redundancia de zona (ZRS) no tienen habilitadas las métricas o la funcionalidad de registro.
+
+- **Portal de Azure clásico** Puede configurar las métricas y el registro de su cuenta de almacenamiento en el [Portal de Azure clásico](https://manage.windowsazure.com). Asimismo, también puede ver diagramas y gráficos que le mostrarán el rendimiento de su aplicación conforme avanza el tiempo, así como configurar alertas que le avisarán si el rendimiento de su aplicación es diferente a lo esperado según lo establecido en una métrica específica. 
 	
 	Consulte [Supervisión de una cuenta de almacenamiento en el Portal de Azure](storage-monitor-storage-account.md) para obtener más información sobre la configuración de la supervisión en el Portal de Azure clásico.
 
@@ -58,7 +60,7 @@ En nuestro escenario de ejemplo, una vez que hayamos establecido la métrica de 
 
 En los siguientes ejemplos se exponen algunas muestras de errores de intervalo 400 para solicitudes de almacenamiento de blobs de Azure, así como sus posibles causas. Cualquiera de estos errores, además de los errores en el intervalo 300 y el intervalo 500, pueden ser la razón de una tasa de bajo porcentaje de éxito.
 
-Tenga en cuenta que las siguientes listas no están ni mucho menos completas. Vea [Códigos de estado y de error](http://msdn.microsoft.com/library/azure/dd179382.aspx) para más información sobre los errores generales de Almacenamiento de Azure y sobre los errores específicos de cada uno de los servicios de almacenamiento.
+Tenga en cuenta que las siguientes listas no están ni mucho menos completas. Consulte [Códigos de estado y de error](http://msdn.microsoft.com/library/azure/dd179382.aspx) para obtener más información sobre los errores generales de Almacenamiento de Azure y sobre los errores específicos de cada uno de los servicios de almacenamiento.
 
 **Ejemplos de código de estado 404 (no encontrado)**
 
@@ -88,7 +90,7 @@ En este tutorial, usaremos el analizador de mensajes para trabajar con tres tipo
 
 ### Configurar el registro y las métricas del lado servidor
 
-Primero, necesitaremos configurar el registro y las métricas de Almacenamiento de Azure para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través del [Portal de Azure clásico](https://manage.windowsazure.com), con PowerShell o mediante programación. Vea [Habilitación de las Métricas de almacenamiento y las Métricas de visualización](http://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitación del registro de almacenamiento y acceso a los datos del registro](http://msdn.microsoft.com/library/azure/dn782840.aspx) para más información sobre la configuración del registro y las métricas
+Primero, necesitaremos configurar el registro y las métricas de Almacenamiento de Azure para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través del [Portal de Azure clásico](https://manage.windowsazure.com), con PowerShell o mediante programación. Consulte [Habilitar las métricas de almacenamiento y ver los datos de métricas](http://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitar el almacenamiento de registro y obtener acceso a los datos de registro](http://msdn.microsoft.com/library/azure/dn782840.aspx) para obtener más información sobre la configuración del registro y las métricas.
 
 **Mediante el Portal de Azure clásico**
 
@@ -347,7 +349,7 @@ Ahora que ya está familiarizado con el analizador de mensajes y su uso para ana
 | Retrasos inesperados en la entrega de mensajes en una cola | AzureStorageClientDotNetV4.Description contiene "Intentando de nuevo la operación con error." | Cliente |
 | Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Red |
 | Aumento en PercentTimeoutError | HTTP.Response.StatusCode == 500 | Red |
-| Aumento en PercentTimeoutError (todos) |    **StatusCode == 500 | Todos | 
+| Aumento en PercentTimeoutError (todos) |    *StatusCode == 500 | Todos | 
 | Aumento en PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | 
 | Mensajes HTTP 403 (prohibido) | HTTP.Response.StatusCode == 403 | Red | 
 | Mensajes HTTP 404 (no encontrado) | HTTP.Response.StatusCode == 404 | Red | 
@@ -373,4 +375,4 @@ Para más información sobre los escenarios de solución integral de problemas e
  
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

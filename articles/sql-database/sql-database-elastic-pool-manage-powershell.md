@@ -32,9 +32,6 @@ Para ver los códigos de error comunes, consulte [Códigos de error para las apl
 
 Debe ejecutar Azure PowerShell 1.0 o superior. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
-
-
-
 ## Creación de una nueva base de datos elástica en un grupo
 
 Para crear una nueva base de datos directamente dentro de un grupo, use el cmdlet [AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) y establezca el parámetro **ElasticPoolName**.
@@ -132,6 +129,12 @@ Exportación a un archivo CSV:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
+## Latencia de las operaciones de grupos elásticos
+
+- El cambio del número garantizado de eDTU por base de datos (DatabaseDtuMin) o del número máximo de eDTU por base de datos (DatabaseDtuMax) suele completarse en cinco minutos o menos.
+- El cambio del límite de eDTU o de almacenamiento (DTU) del grupo depende de la cantidad total de espacio que usen todas las bases de datos del grupo. Los cambios tienen un duración media de 90 minutos o menos por cada 100 GB. Por ejemplo, si el espacio total que usan todas las bases de datos del grupo es de 200 GB, la latencia esperada para el cambio del límite de eDTU o de almacenamiento es de tres horas o menos.
+
+
 ## Ejemplo de PowerShell de supervisión y administración de un grupo
 
 
@@ -171,11 +174,6 @@ Exportación a un archivo CSV:
 
 ## Pasos siguientes
 
-- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos del grupo.
+- [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos del grupo.
 
-
-## Referencia de bases de datos elásticas
-
-Para obtener información detallada acerca de los grupos y las bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

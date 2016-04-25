@@ -3,9 +3,9 @@
 	description="Compara las herramientas y opciones para administrar Base de datos SQL de Azure"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="jeffreyg"/>
+	ms.date="04/04/2016"
+	ms.author="sstein"/>
 
 # Información general: herramientas de administración para Base de datos SQL
 
@@ -36,4 +36,12 @@ Puede usar herramientas de línea de comandos como PowerShell para administrar b
 
 Para obtener más información acerca de cómo administrar Bases de datos SQL de Azure con las herramientas de línea de comandos, consulte [Administrar Base de datos SQL con PowerShell](sql-database-command-line-tools.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+## Herramientas de Base de datos elástica
+Use las herramientas de bases de datos elásticas para realizar acciones como las siguientes:
+
+* Ejecutar un script de T-SQL con un conjunto de bases de datos mediante un [trabajo elástico](sql-database-elastic-jobs-overview.md)
+* Mover bases de datos de modelos de varios inquilinos a un modelo de inquilino único con la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md)
+* Administrar bases de datos en un modelo de inquilino único o un modelo de varios inquilinos con la [biblioteca cliente de escalado elástico](sql-database-elastic-database-client-library.md)
+ 
+
+<!---HONumber=AcomDC_0413_2016-->

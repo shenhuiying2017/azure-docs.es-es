@@ -49,7 +49,7 @@ A menos que tenga una necesidad específica, recomendamos las dos primeras opcio
 
 ## Instalación en Windows, Linux y MacOS (solo bibliotecas de cliente)
 
-Si ya tiene instalado Python, puede usar pip para instalar una agrupación de todas las bibliotecas de cliente en su entorno de Python 2.7 o Python 3.3+ existente. Esto descargará los paquetes del [Índice de paquetes de Python][] (PyPI).
+Si ya tiene instalado Python, puede usar pip para instalar una agrupación de todas las bibliotecas de cliente en su entorno de Python 2.7 o Python 3.3+ existente. Esto descargará los paquetes del [Índice de paquetes de Python](PyPI).
 
 Tenga en cuenta que es posible que deba usar el comando `sudo` en Linux y MacOS. `sudo pip install azure`.
 
@@ -124,12 +124,12 @@ A continuación, vuelva a ejecuta WebPI.
 
 ## Instalación de otros paquetes
 
-[Python Package Index][] (Índice de paquetes de Python, PyPI) dispone de una abundante selección de bibliotecas de Python. Si ha optado por instalar una distribución, ya dispondrá de los bits más interesantes para diversos escenarios que van desde el desarrollo web a la informática técnica.
+[Python Package Index](Índice de paquetes de Python, PyPI) dispone de una abundante selección de bibliotecas de Python. Si ha optado por instalar una distribución, ya dispondrá de los bits más interesantes para diversos escenarios que van desde el desarrollo web a la informática técnica.
 
 
 ## Python Tools para Visual Studio
 
-[Python Tools para Visual Studio][] (PTVS) es un complemento gratuito de OSS de Microsoft que convierte VS en un IDE de Python completo:
+[Python Tools para Visual Studio](PTVS) es un complemento gratuito de OSS de Microsoft que convierte VS en un IDE de Python completo:
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
@@ -196,7 +196,7 @@ Para obtener más información acerca del desarrollo y la publicación de Sitios
 [SDK de Microsoft Azure para Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-cli-create.md
+[Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-quick-create-cli.md
 [Creación de sitios web con Django en Azure]: web-sites-python-create-deploy-django-app.md
 [Creación de sitios web con Bottle]: web-sites-python-create-deploy-bottle-app.md
 [Creación de sitios web con Flask]: web-sites-python-create-deploy-flask-app.md
@@ -205,4 +205,4 @@ Para obtener más información acerca del desarrollo y la publicación de Sitios
 [almacenamiento de colas]: storage-python-how-to-use-queue-storage.md
 [almacenamiento de blobs]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

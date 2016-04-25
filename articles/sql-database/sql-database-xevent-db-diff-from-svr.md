@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Eventos extendidos en Base de datos SQL | Microsoft Azure" 
-	description="Describe los eventos extendidos (XEvents) en Base de datos SQL de Azure y cómo las sesiones de eventos difieren ligeramente de las sesiones de eventos en Microsoft SQL Server." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
-	editor="" 
+<properties
+	pageTitle="Eventos extendidos en Base de datos SQL | Microsoft Azure"
+	description="Describe los eventos extendidos (XEvents) en Base de datos SQL de Azure y cómo las sesiones de eventos difieren ligeramente de las sesiones de eventos en Microsoft SQL Server."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
+	editor=""
 	tags=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 
@@ -27,14 +27,14 @@ Este tema explica cómo la implementación de eventos extendidos en Base de dato
 
 - La versión 12 de Base de datos SQL adquirió la característica de eventos extendidos en la segunda mitad del calendario de 2015.
 - SQL Server tiene eventos extendidos desde 2008.
-- El conjunto de características de eventos extendidos en Base de datos SQL es un subconjunto sólido de las características en SQL Server. 
+- El conjunto de características de eventos extendidos en Base de datos SQL es un subconjunto sólido de las características en SQL Server.
 
 
 *XEvents* es un sobrenombre informal que a veces se usa para los eventos extendidos en blogs y otras referencias informales.
 
 
 > [AZURE.NOTE] A partir de octubre de 2015, la característica de sesión de eventos extendidos está activada en Base de datos SQL de Azure en el nivel de vista previa. Aún no se ha establecido una fecha de disponibilidad general (GA).
-> 
+>
 > Cuando hay un anuncio de GA, la página de Azure [Actualizaciones del servicio](https://azure.microsoft.com/updates/?service=sql-database) lo publica .
 
 
@@ -58,7 +58,7 @@ Exposición anterior a los elementos siguientes es útil cuando se elige el arch
 
 
 - PowerShell
- - [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md) proporciona información completa sobre PowerShell y el servicio Almacenamiento de Azure.
+ - [Usar Azure PowerShell con Almacenamiento de Azure](../storage/storage-powershell-guide-full.md) proporciona información completa sobre PowerShell y el servicio Almacenamiento de Azure.
 
 
 ## Ejemplos de código
@@ -244,12 +244,12 @@ El destino del **archivo de eventos** puede experimentar latencia de red o error
 ## Vínculos relacionados
 
 
-- [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md)
+- [Usar Azure PowerShell con Almacenamiento de Azure](../storage/storage-powershell-guide-full.md)
 - [Cmdlets del almacenamiento de Azure](http://msdn.microsoft.com/library/dn806401.aspx)
 
 
-- [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md) proporciona información completa sobre PowerShell y el servicio Almacenamiento de Azure.
-- [Uso del almacenamiento de blobs de .NET](storage-dotnet-how-to-use-blobs.md)
+- [Usar Azure PowerShell con Almacenamiento de Azure](../storage/storage-powershell-guide-full.md) proporciona información completa sobre PowerShell y el servicio Almacenamiento de Azure.
+- [Uso del almacenamiento de blobs de .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
 
 - [ CREATE CREDENTIAL (Transact-SQL).](http://msdn.microsoft.com/library/ms189522.aspx)
@@ -269,4 +269,4 @@ Otros temas de ejemplo de código para eventos extendidos están disponibles en 
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

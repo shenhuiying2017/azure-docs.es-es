@@ -1,12 +1,12 @@
 <properties pageTitle="Usar el Almacén de claves de Azure desde una aplicación web | Microsoft Azure" description="Use este tutorial como ayuda para aprender a usar el Almacén de claves de Azure desde una aplicación web." services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
 
-<tags 
-	ms.service="key-vault" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/29/2016" 
+<tags
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/29/2016"
 	ms.author="adhurwit"/>
 
 # Uso del Almacén de claves de Azure desde una aplicación web #
@@ -19,19 +19,19 @@ Use este tutorial como ayuda para aprender a usar el Almacén de claves de Azure
 
 Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](key-vault-whatis.md)
 
-## Requisitos previos 
+## Requisitos previos
 
 Para realizar este tutorial, necesitará lo siguiente:
 
 - Un URI de un secreto en un almacén de claves de Azure.
 - Un Id. de cliente y un secreto de cliente para una aplicación web registrada en Azure Active Directory que tenga acceso a su Almacén de claves.
-- Una aplicación web. Vamos a mostrarle los pasos para una aplicación ASP.NET MVC implementada en Azure como una aplicación web. 
+- Una aplicación web. Vamos a mostrarle los pasos para una aplicación ASP.NET MVC implementada en Azure como una aplicación web.
 
 > [AZURE.NOTE]  Para los fines de este tutorial, es esencial que haya realizado los pasos enumerados en [Introducción al Almacén de claves de Azure](key-vault-get-started.md) para así disponer del URI de un secreto y del id. de cliente y el secreto de cliente de una aplicación web.
 
 La aplicación web que va a tener acceso el Almacén de claves es la que está registrada en Azure Active Directory y a la que se le ha concedido para él. Si este no es el caso, vuelva al apartado sobre cómo registrar una aplicación del tutorial de introducción y repita los pasos enumerados.
 
-Este tutorial está diseñado para desarrolladores web que comprendan los conceptos básicos de la creación de aplicaciones web en Azure. Para obtener más información sobre las aplicaciones web de Azure, consulte [Información general de aplicaciones web](../app-service-web-overview.md).
+Este tutorial está diseñado para desarrolladores web que comprendan los conceptos básicos de la creación de aplicaciones web en Azure. Para obtener más información sobre las aplicaciones web de Azure, consulte [Información general de aplicaciones web](../app-service-web/app-service-web-overview.md).
 
 
 
@@ -47,7 +47,7 @@ Los dos paquetes se pueden instalar mediante la Consola del Administrador de paq
 	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-	Install-Package Microsoft.Azure.KeyVault 
+	Install-Package Microsoft.Azure.KeyVault
 
 
 ## <a id="webconfig"></a>Modificación de Web.Config ##
@@ -72,7 +72,7 @@ A continuación se muestra el código para obtener un token de acceso de Azure A
 	//add these using statements
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 	using System.Web.Configuration;
-	
+
 	//this is an optional property to hold the secret after it is retrieved
 	public static string EncryptSecret { get; set; }
 
@@ -83,10 +83,10 @@ A continuación se muestra el código para obtener un token de acceso de Azure A
 	    ClientCredential clientCred = new ClientCredential(WebConfigurationManager.AppSettings["ClientId"],
                     WebConfigurationManager.AppSettings["ClientSecret"]);
 	    AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
-	    
+
 	    if (result == null)
 	    	throw new InvalidOperationException("Failed to obtain the JWT token");
-	    
+
 	    return result.AccessToken;
     }
 
@@ -101,12 +101,12 @@ Ahora tenemos el código para llamar a la API de Almacén de claves y recuperar 
 	using Microsoft.Azure.KeyVault;
 	using System.Web.Configuration;
 
-	// I put my GetToken method in a Utils class. Change for wherever you placed your method. 
+	// I put my GetToken method in a Utils class. Change for wherever you placed your method.
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
 	var sec = kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]).Result.Value;
-	
-	//I put a variable in a Utils class to hold the secret for general  application use. 
+
+	//I put a variable in a Utils class to hold the secret for general  application use.
     Utils.EncryptSecret = sec;
 
 
@@ -117,7 +117,7 @@ Si tiene una aplicación web de Azure ahora puede agregar los valores reales par
 ![Configuración de la aplicación mostrada en el Portal de Azure][1]
 
 
-## Autenticación con un certificado, en lugar de con un secreto de cliente 
+## Autenticación con un certificado, en lugar de con un secreto de cliente
 Otra forma de autenticar una aplicación de Azure AD es mediante el uso de un Id. de cliente y un certificado, en lugar de un Id. de cliente y un secreto de cliente. Estos son los pasos necesarios para usar un certificado en una aplicación web de Azure:
 
 1. Obtener o crear un certificado
@@ -139,22 +139,22 @@ Para más información sobre cómo crear un certificado de prueba, vea [Procedim
 **Asociar el certificado a una aplicación de Azure AD** Ahora que tiene un certificado, tendrá que asociarlo a una aplicación de Azure AD. Pero actualmente el Portal de administración de Azure no lo admite. Por consiguiente, tendrá que usar Powershell. A continuación verá los comandos que debe ejecutar:
 
 	$x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-	
+
 	PS C:\> $x509.Import("C:\data\KVWebApp.cer")
-	
+
 	PS C:\> $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
-	
+
 	PS C:\> $now = [System.DateTime]::Now
-	
+
 	# this is where the end date from the cert above is used
-	PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31") 
-	
+	PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31")
+
 	PS C:\> $adapp = New-AzureADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
-	
+
 	PS C:\> $sp = New-AzureADServicePrincipal -ApplicationId $adapp.ApplicationId
-	
+
 	PS C:\> Set-AzureKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
-	
+
 	# get the thumbprint to use in your app settings
 	PS C:\>$x509.Thumbprint
 
@@ -176,7 +176,7 @@ En primer lugar, este es el código para tener acceso al certificado.
             try
             {
                 store.Open(OpenFlags.ReadOnly);
-                X509Certificate2Collection col = store.Certificates.Find(X509FindType.FindByThumbprint, 
+                X509Certificate2Collection col = store.Certificates.Find(X509FindType.FindByThumbprint,
                     findValue, false); // Don't validate certs, since the test root isn't installed.
                 if (col == null || col.Count == 0)
                     return null;
@@ -241,6 +241,5 @@ Para conocer las referencias de programación, consulte [Referencia de la API de
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/07/2016"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
@@ -81,11 +81,11 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 
 	![Portal de Azure clúster de hdinsight operaciones básicas](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 	
-	- Para personalizar el menú, haga doble clic en cualquier lugar del menú y, después, haga clic en **Personalizar**.
+	- Para personalizar el menú, haga clic con el botón secundario en el menú y, después, haga clic en **Personalizar**.
 	- **Configuración** y **Toda la configuración**: Muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
-	- **Panel**, **panel del clúster** y **URL: estas son todas las formas que existen de acceder al panel del clúster, que usa Web de Ambari para clústeres basados en Linux. 
+	- **Panel**, **Panel de clúster** y **URL: se trata, en los tres casos, de formas de acceder al panel de clúster, que es Ambari Web para clústeres basados en Linux. 
 	- **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante una conexión de Secure Shell (SSH).
-	- **Escalar clúster**: permite cambiar el número de nodos de trabajo de este clúster.
+	- **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
 	- **Eliminar**: elimina el clúster.
 	- **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
 	- **Usuarios (![icono de usuarios](./media/hdinsight-administer-use-portal-linux/users.png))**: permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
@@ -127,7 +127,7 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 	- **Sistema operativo**: **Windows** o **Linux**.
 	- **Tipo**: Hadoop, HBase, Storm, Spark. 
 	- **Versión**. Consulte [Versiones de HDInsight](hdinsight-component-versioning.md).
-	- **Subscripción**: nombre de la suscripción.
+	- **Suscripción**: el nombre de la suscripción.
 	- **Id. de suscripción**.
 	- **Origen de datos principal**. Cuenta de almacenamiento de blobs de Azure usada como sistema de archivos predeterminado de Hadoop.
 	- **Plan de tarifa de los nodos de trabajo**.
@@ -135,7 +135,7 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 
 ##Eliminación de clústeres
 
-Eliminar un clúster no elimina la cuenta de almacenamiento predeterminada u otras cuentas de almacenamiento vinculadas. Puede volver a crear el clúster con las mismas cuentas de almacenamiento y las mismas tiendas de metadatos.
+Al eliminar un clúster, no se elimina la cuenta de almacenamiento predeterminada ni otras cuentas de almacenamiento vinculadas. Puede volver a crear el clúster con las mismas cuentas de almacenamiento y las mismas tiendas de metadatos.
 
 1. Inicie sesión en el [Portal][azure-portal].
 2. En el menú de la izquierda, haga clic en **Examinar todo**, **Clústeres de HDInsight** y en el nombre del clúster.
@@ -317,7 +317,7 @@ También puede usar la utilidad **Examinar el sistema de archivos** de la **UI d
 
 ##Supervisión del uso de los clústeres
 
-En la sección __Uso__ de la hoja del clúster de HDInsight se muestra información sobre el número de núcleos disponibles con la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y cómo se asignan a los nodos de este clúster. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
+La sección __Uso__ de la hoja del clúster de HDInsight muestra información sobre el número de núcleos disponibles con la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y la forma en que dicha asignación se ha llevado a cabo para los nodos del clúster. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
 > [AZURE.IMPORTANT] Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para más información sobre el uso de Ambari, vea [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -343,7 +343,7 @@ Las credenciales para el clúster que proporcionó en su creación dan acceso a 
 
 	![hdinsight habilitar deshabilitar configurar escritorio remoto](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
-	El valor predeterminado de Expira en es de una semana.
+	El valor predeterminado de "Expira el" es de una semana.
 > [AZURE.NOTE] También puede usar .NET SDK de HDInsight para habilitar el Escritorio remoto en un clúster. Use el método **EnableRdp** en el objeto de cliente de HDInsight de la siguiente manera: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. De forma similar, para deshabilitar el Escritorio remoto en el clúster, puede usar **client.DisableRdp(clustername, location)**. Para obtener más información sobre estos métodos, consulte [Referencia de .NET SDK de HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Esto solo se aplica a los clústeres de HDInsight que se ejecutan en Windows.
 
 **Para conectarse a un clúster con RDP**
@@ -389,4 +389,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

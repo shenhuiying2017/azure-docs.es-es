@@ -46,9 +46,10 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 Este tutorial requiere lo siguiente:
 
-* Visual Studio con la [extensión Xamarin] **o** [Xamarin Studio] en OS X.
-* XCode 4.5 y iOS 6.0 (o versiones posteriores).
-* Finalización del tutorial [Introducción a los Servicios móviles].
+* Visual Studio con Xamarin. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) para obtener instrucciones. 
+* Un equipo Mac con Xcode v7.0 o versiones posteriores y Xamarin Studio Community instalados. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) y [Configuración, instalación y comprobaciones para usuarios de Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+* Finalización del tutorial [Introducción a Servicios móviles].
+
 
 ## <a name="review-offline"></a>Revisión del código de sincronización de Servicios móviles
 
@@ -177,12 +178,10 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 
 <!-- URLs. -->
 [Control de conflictos con compatibilidad sin conexión para Servicios móviles]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md
+[Introducción a Servicios móviles]: mobile-services-ios-get-started.md
 [Introducción a los Servicios móviles]: mobile-services-ios-get-started.md
 [Uso del cliente del componente Xamarin para servicios móviles de Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [eliminación temporal]: mobile-services-using-soft-delete.md
-
-[Xamarin Studio]: http://xamarin.com/download
-[extensión Xamarin]: http://xamarin.com/visual-studio
 [Portal de Azure clásico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

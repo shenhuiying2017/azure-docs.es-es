@@ -103,29 +103,29 @@ En este paso, aprenderá a comprobar la verificación de la propiedad del domini
 
     * **Comprobación del Servicio de aplicaciones** 
     
-        1. Este es el proceso más conveniente si ya tiene **el dominio personalizado asignado a las aplicaciones del Servicio de aplicaciones**. Este método mostrará una lista con todas las aplicaciones del Servicio de aplicaciones que cumplen este criterio. Por ejemplo, en este caso, **contosocertdemo.com** es un dominio personalizado que se asigna a la aplicación del Servicio de aplicaciones llamado **“ContosoCertDemo”**, por lo que es la única aplicación del Servicio de aplicaciones enumerada aquí. Si hubiera una implementación en varias regiones, la enumeraría en todas las regiones.
-            > [AZURE.NOTE]
-            El método de verificación SOLO está disponible para compras de certificado de tipo Estándar (Básico). Para los certificados comodín, omita esta opción y pase a la opción B, C o D siguiente. 
-        2. Haga clic en el botón **“Comprobar”** para completar este paso.
-        3. Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
+        * Este es el proceso más conveniente si ya tiene **el dominio personalizado asignado a las aplicaciones del Servicio de aplicaciones**. Este método mostrará una lista con todas las aplicaciones del Servicio de aplicaciones que cumplen este criterio. Por ejemplo, en este caso, **contosocertdemo.com** es un dominio personalizado que se asigna a la aplicación del Servicio de aplicaciones llamado **“ContosoCertDemo”**, por lo que es la única aplicación del Servicio de aplicaciones enumerada aquí. Si hubiera una implementación en varias regiones, la enumeraría en todas las regiones.
         
-            ![insertar imagen de comprobación del Servicio de aplicaciones](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)
+           El método de verificación SOLO está disponible para compras de certificado de tipo Estándar (Básico). Para los certificados comodín, omita esta opción y pase a la opción B, C o D siguiente.
+        * Haga clic en el botón **"Comprobar"** para completar este paso.
+        * Haga clic en **"Actualizar"** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
+        
+        ![insertar imagen de comprobación del Servicio de aplicaciones](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)
 
     * **Comprobación del dominio**
 
-        1. Este es el proceso más conveniente **SOLO SI** ha **[adquirido el dominio personalizado desde el Servicio de aplicaciones de Azure.](custom-dns-web-site-buydomains-web-app.md)**
+        * Este es el proceso más conveniente **SOLO SI** ha **[adquirido el dominio personalizado desde el Servicio de aplicaciones de Azure.](custom-dns-web-site-buydomains-web-app.md)**
         
-        2. Haga clic en el botón **“Comprobar”** para completar este paso.
+        * Haga clic en el botón **"Comprobar"** para completar este paso.
         
-        3. Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
+        * Haga clic en **"Actualizar"** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
 
     * **Comprobación del correo**
         
-        1. El correo electrónico de comprobación ya se envió a las direcciones de correo electrónico asociadas a este dominio personalizado.
+        * El correo electrónico de comprobación ya se envió a las direcciones de correo electrónico asociadas a este dominio personalizado.
          
-        2. Abra el correo electrónico y haga clic en el vínculo de comprobación para completar el paso de comprobación del correo electrónico.
+        * Abra el correo electrónico y haga clic en el vínculo de comprobación para completar el paso de comprobación del correo electrónico.
         
-        3. Si necesita volver a enviar el correo electrónico de comprobación, haga clic en el botón **"Reenviar correo electrónico"**.
+        * Si necesita volver a enviar el correo electrónico de comprobación, haga clic en el botón **"Reenviar correo electrónico"**.
          
     * **Comprobación manual**
                  
@@ -137,24 +137,24 @@ En este paso, aprenderá a comprobar la verificación de la propiedad del domini
             
             * Cargue este archivo en la raíz del servidor web que hospeda el dominio.
             
-            * Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
+            * Haga clic en **"Actualizar"** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
             
-            Por ejemplo, si va a comprar un certificado estándar de contosocertdemo.com con el Token de comprobación de dominio **'cAGgQrKc'**, entonces una solicitud web hecha a **‘http://contosocertdemo.com/cAGgQrKc.html’** debe devolver **cAGgQrKc.**
+            Por ejemplo, si va a comprar un certificado estándar de contosocertdemo.com con el Token de comprobación de dominio **"cAGgQrKc"**, una solicitud web realizada a **"http://contosocertdemo.com/cAGgQrKc.html"** debe devolver **cAGgQrKc.**
         2. **Comprobación del registro TXT de DNS**
 
-            * Mediante el administrador de DNS, cree un registro TXT en el subdominio **'DZC'** con valor igual al **token de comprobación de dominio.**
+            * Mediante el administrador de DNS, cree un registro TXT en el subdominio **"DZC"** con valor igual al **token de comprobación de dominio.**
             
-            * Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
+            * Haga clic en **"Actualizar"** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
                               
             Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host ***.contosocertdemo.com** o ***.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
 
 
-##<a name="bkmk_AssignCertificate"></a>Paso 3: Asignar el certificado a la aplicación del Servicio de aplicaciones
+##<a name="bkmk_AssignCertificate"></a>Paso 3: asignar el certificado a la aplicación del Servicio de aplicaciones
 
 En este paso, aprenderá a asignar este certificado recién adquirido a las aplicaciones del Servicio de aplicaciones.
 
 > [AZURE.NOTE]
-Antes de realizar los pasos de esta sección, debe haber asociado un nombre de dominio personalizado a la aplicación. Para más información, consulte **[Configurar un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](web-sites-custom-domain-name.md)**.
+Antes de realizar los pasos de esta sección, debe haber asociado un nombre de dominio personalizado a la aplicación. Para obtener más información, consulte **[Configurar un nombre de dominio personalizado en el servicio de aplicaciones de Azure](web-sites-custom-domain-name.md)**.
 
 1.	En el explorador, abra el **[Portal de Azure](https://portal.azure.com/)**.
 2.	Haga clic en la opción **Servicio de aplicaciones** del lado izquierdo de la página.
@@ -164,11 +164,11 @@ Antes de realizar los pasos de esta sección, debe haber asociado un nombre de d
 
     ![insertar imagen de Importar certificado](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.jpg)
 
-6. En la sección **Enlaces SSL** de la pestaña **Configuración de SSL**, use las listas desplegables para seleccionar el nombre de dominio que desea proteger con SSL y el certificado que va a usar. Es posible que también desee seleccionar el uso de **[Indicación de nombre de servido (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** (SNI) o SSL basada en IP.
+6. En la sección **Enlaces SSL** de la pestaña **Configuración de SSL**, use las listas desplegables para seleccionar el nombre de dominio que desea proteger con SSL y el certificado que va a usar. Es posible que también desee seleccionar el uso de **[Indicación de nombre de servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** (SNI) o SSL basada en IP.
 
     ![insertar imagen de enlaces de SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.jpg)
 
-       • SSL basada en IP asocia un certificado a un nombre de dominio mediante la asignación de una dirección IP pública dedicada del servidor al nombre de dominio. En este caso es necesario que cada nombre de dominio (contoso.com, fabrikam.com, etc.) asociado a un servicio tenga una dirección IP dedicada. Este es el método tradicional de asociación de certificados SSL a un servidor web. • SSL basada en SNI es una extensión de SSL y **[Seguridad de la capa de transporte](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) que permite que varios dominios compartan la misma dirección IP con certificados de seguridad independientes para cada dominio. Los exploradores más modernos (entre los que se incluyen Internet Explorer, Chrome, Firefox y Opera) son compatibles con la extensión SNI; sin embargo, es posible que los exploradores más antiguos no sean compatibles con la extensión SNI. Para más información sobre la extensión SNI, consulte el artículo **[Indicación de nombre de servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** en Wikipedia.
+       • SSL basada en IP asocia un certificado a un nombre de dominio mediante la asignación de una dirección IP pública dedicada del servidor al nombre de dominio. En este caso es necesario que cada nombre de dominio (contoso.com, fabrikam.com, etc.) asociado a un servicio tenga una dirección IP dedicada. Este es el método tradicional de asociación de certificados SSL a un servidor web. • SSL basada en SNI es una extensión de SSL y **[Seguridad de la capa de transporte](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) que permite que varios dominios compartan la misma dirección IP con certificados de seguridad independientes para cada dominio. Los exploradores más modernos (entre los que se incluyen Internet Explorer, Chrome, Firefox y Opera) son compatibles con la extensión SNI; sin embargo, es posible que los exploradores más antiguos no sean compatibles con la extensión SNI. Para obtener más información sobre la extensión SNI, consulte el artículo **[Indicación de nombre de servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** de Wikipedia.
        
 7. Haga clic en *Guardar* para guardar los cambios y habilitar SSL.
 
@@ -187,7 +187,7 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
 
 ##<a name="bkmk_Rekey"></a>Regeneración de la clave del certificado y sincronización de este
 
-1. Por motivos de seguridad, si necesita regenerar la clave del certificado, simplemente seleccione la opción **"Regenerar clave y sincronizar"** en la hoja **"Propiedades del certificado"**. 
+1. Por motivos de seguridad, si necesita regenerar la clave del certificado, simplemente seleccione la opción **"Regenerar clave y sincronizar"** de la hoja **"Propiedades del certificado"**. 
 
 2. Haga clic en el botón **"Regenerar clave"** para iniciar el proceso. Este proceso puede tardar de 1 a 10 minutos en completarse.
 
@@ -208,4 +208,4 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
 
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

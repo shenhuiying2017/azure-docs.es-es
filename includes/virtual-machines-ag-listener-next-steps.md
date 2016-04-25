@@ -2,6 +2,6 @@ Además de conectar automáticamente los clientes a la réplica principal, un ag
 
 >[AZURE.NOTE] Para obtener sugerencias sobre solución de problemas en los agentes de escucha de Azure, vea [Troubleshooting Availability Group Listener in Azure](http://blogs.msdn.com/b/alwaysonpro/archive/2016/02/01/troubleshooting-availability-group-listener-in-azure.aspx) (Solución de problemas de agentes de escucha de grupos de disponibilidad en Azure) en el [blog](http://blogs.msdn.com/b/alwaysonpro/) del equipo de soporte técnico de AlwaysOn.
 
-Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

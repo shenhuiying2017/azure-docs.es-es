@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Habilitar el diagnóstico en Servicios en la nube de Azure mediante PowerShell | Microsoft Azure" 
-	description="Obtener información sobre cómo habilitar el diagnóstico en servicios en la nube mediante PowerShell" 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="sbtron" 
-	manager="" 
+<properties
+	pageTitle="Habilitar el diagnóstico en Servicios en la nube de Azure mediante PowerShell | Microsoft Azure"
+	description="Obtener información sobre cómo habilitar el diagnóstico en servicios en la nube mediante PowerShell"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="sbtron"
+	manager=""
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/09/2016" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/09/2016"
 	ms.author="saurabh"/>
 
 
 # Habilitar el diagnóstico en Servicios en la nube de Azure mediante PowerShell
 
-Puede recopilar datos de diagnóstico como registros de aplicaciones, contadores de rendimiento, etc., de un servicio en la nube mediante la extensión de Diagnósticos de Azure. En este artículo se describe cómo habilitar la extensión de Diagnósticos de Azure para un servicio en la nube mediante PowerShell. Para conocer los requisitos previos necesarios para este artículo, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
+Puede recopilar datos de diagnóstico como registros de aplicaciones, contadores de rendimiento, etc., de un servicio en la nube mediante la extensión de Diagnósticos de Azure. En este artículo se describe cómo habilitar la extensión de Diagnósticos de Azure para un servicio en la nube mediante PowerShell. Para conocer los requisitos previos necesarios para este artículo, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
 ## Habilitar la extensión de diagnósticos como parte de la implementación de un servicio en la nube
 
@@ -30,13 +30,13 @@ En el ejemplo siguiente se muestra cómo habilitar el diagnóstico de un servici
 	$service_name = "MyService"
 	$service_package = "CloudService.cspkg"
 	$service_config = "ServiceConfiguration.Cloud.cscfg"
-	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
+	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-	 
-	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig) 
+
+	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 
 Si el archivo de configuración de diagnóstico especifica un elemento StorageAccount con un nombre de cuenta de almacenamiento, el cmdlet New-AzureServiceDiagnosticsExtensionConfig usará automáticamente esa cuenta de almacenamiento. Para que esto funcione, la cuenta de almacenamiento debe estar en la misma suscripción que el servicio en la nube que se está implementando.
 
@@ -45,10 +45,10 @@ A partir de Azure SDK 2.6, los archivos de configuración de extensión generado
 	$service_name = "MyService"
 	$service_package = "C:\build\output\CloudService.cspkg"
 	$service_config = "C:\build\output\ServiceConfiguration.Cloud.cscfg"
-	
+
 	#Find the Extensions path based on service configuration file
 	$extensionsSearchPath = Join-Path -Path (Split-Path -Parent $service_config) -ChildPath "Extensions"
-	
+
 	$diagnosticsExtensions = Get-ChildItem -Path $extensionsSearchPath -Filter "PaaSDiagnostics.*.PubConfig.xml"
 	$diagnosticsConfigurations = @()
 	foreach ($extPath in $diagnosticsExtensions)
@@ -58,7 +58,7 @@ A partir de Azure SDK 2.6, los archivos de configuración de extensión generado
 	$roles = $extPath -split ".",0,"simplematch"
 	if ($roles -is [system.array] -and $roles.Length -gt 1)
 	    {
-	    $roleName = $roles[1] 
+	    $roleName = $roles[1]
 	    $x = 2
 	    while ($x -le $roles.Length)
 	        {
@@ -87,7 +87,7 @@ Si la cuenta de almacenamiento de diagnóstico está en una suscripción distint
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
- 
+
 
 ## Habilitar la extensión de diagnóstico en un servicio en la nube existente
 
@@ -95,18 +95,18 @@ Puede usar el cmdlet [Set-AzureServiceDiagnosticsExtension](https://msdn.microso
 
 
 	$service_name = "MyService"
-	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
+	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-	
-	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name 
-	  
+
+	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name
+
 
 ## Obtener la configuración actual de la extensión de diagnósticos
 Use el cmdlet [Get-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx) para obtener la configuración actual de diagnósticos para un servicio en la nube.
-	
+
 	Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 
 ## Eliminar la extensión de diagnósticos
@@ -127,4 +127,4 @@ Para quitar la extensión de diagnóstico de cada rol individual:
 - En el [Esquema de configuración de diagnósticos](https://msdn.microsoft.com/library/azure/dn782207.aspx) se explican las distintas opciones de configuración xml para la extensión de diagnósticos.
 - Para obtener información sobre cómo habilitar la extensión de diagnósticos para las máquinas virtuales, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla de Administrador de recursos de Azure](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

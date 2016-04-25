@@ -17,8 +17,8 @@ Azure AD le permite integrar sus aplicaciones y cuentas aprovisionadas. Esto pue
 
 - Si la aplicación no está en la galería, todavía puede configurar la mayoría de las aplicaciones de Azure AD como una aplicación personalizada. Esto requiere un poco más experiencia técnica para configurarlo. Puede agregar cualquier aplicación que admita SAML 2.0 como aplicación federada o cualquier aplicación que tenga una página de inicio de sesión basada en HTML para usar SSO con contraseña.
 
-En el caso de aquellos usuarios que crearon sus propias cuentas para las aplicaciones SaaS sin estar administradas por TI, la herramienta [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) ofrece una solución. Esta herramienta supervisa el tráfico web para identificar qué aplicaciones se usan en toda la organización y el número de personas que usa cada una de ellas. TI puede usar esta información para saber qué aplicaciones prefieren los usuarios y decidir cuál se va a integrar en Azure AD para SSO.
+En el caso de aquellos usuarios que crearon sus propias cuentas para las aplicaciones SaaS sin estar administradas por TI, la herramienta [Cloud App Discovery](../articles/active-directory/active-directory-cloudappdiscovery-whatis.md) ofrece una solución. Esta herramienta supervisa el tráfico web para identificar qué aplicaciones se usan en toda la organización y el número de personas que usa cada una de ellas. TI puede usar esta información para saber qué aplicaciones prefieren los usuarios y decidir cuál se va a integrar en Azure AD para SSO.
 
 Al integrar una aplicación en Azure AD, puede asignar las identidades de aplicaciones establecidas de los usuarios a sus respectivas identidades de Azure AD.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

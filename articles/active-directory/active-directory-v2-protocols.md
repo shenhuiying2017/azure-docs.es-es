@@ -79,6 +79,5 @@ Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los 
 - Obtención de tokens en una API web con el flujo "en nombre de" de OAuth 2.0 (próximamente)
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
-<!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -18,6 +18,10 @@
 
 #Notas de la versión
 
+##3\.2.2 (04/07/2016)
+
+-   Se ha corregido el error en la cancelación de solicitud HTTP que provocaba a veces bloqueos. 
+
 ##3\.2.1 (12/11/2015)
 
 -   Se ha corregido el retraso que se produce cuando se desencadena una nueva instancia de aplicación por una notificación con vínculos profundos. 
@@ -58,4 +62,4 @@
 -   Mejoras de seguridad.
 -   Se ha eliminado el seguimiento de SmartAd.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

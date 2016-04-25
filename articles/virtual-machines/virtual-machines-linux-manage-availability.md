@@ -17,7 +17,7 @@
 	ms.date="04/01/2016"
 	ms.author="iainfou"/>
 
-# Manage the availability of Linux virtual machines (Administración de la disponibilidad de las máquinas virtuales con Linux)
+# Administración de la disponibilidad de las máquinas virtuales
 
 Aprenda a configurar y administrar varias máquinas virtuales para garantizar una alta disponibilidad de la aplicación Linux en Azure. También puede [administrar la disponibilidad de las máquinas virtuales Windows](virtual-machines-windows-manage-availability.md).
 
@@ -25,4 +25,4 @@ Aprenda a configurar y administrar varias máquinas virtuales para garantizar un
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -48,7 +48,7 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 
     ![][7]
 
-5. Puede ver en la ventana del compilador de mbed que se importaron varias bibliotecas durante la importación de este proyecto. El equipo de IoT de Azure proporciona y mantiene algunas ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)), mientras que otras son bibliotecas de terceros que están disponibles en el catálogo de bibliotecas de mbed.
+5. Puede ver en la ventana del compilador de mbed que se importaron varias bibliotecas durante la importación de este proyecto. El equipo de IoT de Azure proporciona y mantiene algunas ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), mientras que otras son bibliotecas de terceros que están disponibles en el catálogo de bibliotecas de mbed.
 
     ![][8]
 
@@ -61,7 +61,7 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Reemplace "[Device Id]" y "[Device Key] por los datos de su dispositivo. Use el Nombre de host del Centro de IoT para reemplazar los marcadores de posición [IoTHub Name] y [IoTHub Suffix, i.e. azure-devices.net]. Por ejemplo, si el nombre de host del Centro de IoT es contoso.azure-devices.net, Contoso será el **hubName** y todo lo que aparece detrás será el **hubSuffix**:
+7. Reemplace [Device Id] y [Device Key] con los datos del dispositivo para habilitar el programa de ejemplo para conectarse a su centro de IoT. Use el Nombre de host del Centro de IoT para reemplazar los marcadores de posición [IoTHub Name] y [IoTHub Suffix, i.e. azure-devices.net]. Por ejemplo, si el nombre de host del Centro de IoT es contoso.azure-devices.net, Contoso será **hubName** y todo lo que aparece detrás será **hubSuffix**:
 
     ```
     static const char* deviceId = "mydevice";
@@ -72,6 +72,123 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 
     ![][9]
 
+### Recorrido del código
+
+Si está interesado en cómo funciona el programa, esta sección describe algunas partes clave del código de ejemplo. Si desea ejecutar el código, vaya a [Compilar y ejecutar el programa](#buildandrun).
+
+#### Definición del modelo
+
+Este ejemplo utiliza la biblioteca [serializer][lnk-serializer] para definir un modelo que especifica los mensajes. El dispositivo puede enviar al Centro de IoT y recibir de dicho centro. En este ejemplo, el espacio de nombres **Contoso** define un modelo **Thermostat** que especifica los datos de telemetría de **Temperature**, **ExternalTemperature** y **Humidity** junto los metadatos, como el identificador de dispositivo, las propiedades del dispositivo y los a los que el dispositivo responde:
+
+```
+BEGIN_NAMESPACE(Contoso);
+
+DECLARE_STRUCT(SystemProperties,
+    ascii_char_ptr, DeviceID,
+    _Bool, Enabled
+);
+
+DECLARE_STRUCT(DeviceProperties,
+ascii_char_ptr, DeviceID,
+_Bool, HubEnabledState
+);
+
+DECLARE_MODEL(Thermostat,
+
+    /* Event data (temperature, external temperature and humidity) */
+    WITH_DATA(int, Temperature),
+    WITH_DATA(int, ExternalTemperature),
+    WITH_DATA(int, Humidity),
+    WITH_DATA(ascii_char_ptr, DeviceId),
+
+    /* Device Info - This is command metadata + some extra fields */
+    WITH_DATA(ascii_char_ptr, ObjectType),
+    WITH_DATA(_Bool, IsSimulatedDevice),
+    WITH_DATA(ascii_char_ptr, Version),
+    WITH_DATA(DeviceProperties, DeviceProperties),
+    WITH_DATA(ascii_char_ptr_no_quotes, Commands),
+
+    /* Commands implemented by the device */
+    WITH_ACTION(SetTemperature, int, temperature),
+    WITH_ACTION(SetHumidity, int, humidity)
+);
+
+END_NAMESPACE(Contoso);
+```
+
+Relacionadas con la definición del modelo están las definiciones de los comandos **SetTemperature** y **SetHumidity** a los que el dispositivo responde:
+
+```
+EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
+{
+    (void)printf("Received temperature %d\r\n", temperature);
+    thermostat->Temperature = temperature;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+
+EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
+{
+    (void)printf("Received humidity %d\r\n", humidity);
+    thermostat->Humidity = humidity;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+```
+
+#### Conexión del modelo a la biblioteca
+
+Las funciones **sendMessage** y **IoTHubMessage** son código reutilizable para enviar telemetría desde el dispositivo y mensajes de conexión desde el Centro de IoT a los controladores de comandos.
+
+#### La función remote\_monitoring\_run
+
+El función **principal** del programa invoca la función **remote\_monitoring\_run** cuando se inicia la aplicación para ejecutar el comportamiento del dispositivo como un cliente de dispositivo del Centro de IoT. Esta función **remote\_monitoring\_run** consta principalmente de pares anidados de funciones:
+
+- **platform\_init** y **platform\_deinit** realizan las operaciones de inicialización y cierre específicas de plataforma.
+- **serializer\_init** y **serializer\_deinit** inicializan y desinicializan la biblioteca serializer.
+- **IoTHubClient\_Create** y **IoTHubClient\_Destroy** crean un controlador de cliente, **iotHubClientHandle**, utilizando las credenciales del dispositivo para conectarse a su centro de IoT.
+
+En la sección principal de la función **remote\_monitoring\_run**, el programa realiza las siguientes operaciones mediante el controlador **iotHubClientHandle**:
+
+- Crea una instancia del modelo de termostato Contoso y configura las devoluciones de llamada de mensaje para los dos comandos.
+- Envía información sobre el propio dispositivo, incluidos los comandos que admite, a su centro de IoT mediante la biblioteca serializer. Cuando el centro recibe este mensaje, cambia el estado del dispositivo en el panel de **Pendiente** a **En ejecución**.
+- Inicia un bucle **while** que envía los valores de temperatura, temperatura exterior y humedad al Centro de IoT cada segundo.
+
+Como referencia, este es un ejemplo del mensaje **DeviceInfo** enviado al Centro de IoT durante el inicio:
+
+```
+{
+  "ObjectType":"DeviceInfo",
+  "Version":"1.0",
+  "IsSimulatedDevice":false,
+  "DeviceProperties":
+  {
+    "DeviceID":"mydevice01", "HubEnabledState":true
+  }, 
+  "Commands":
+  [
+    {"Name":"SetHumidity", "Parameters":[{"Name":"humidity","Type":"double"}]},
+    { "Name":"SetTemperature", "Parameters":[{"Name":"temperature","Type":"double"}]}
+  ]
+}
+```
+
+Como referencia, este es un mensaje de **telemetría** de ejemplo enviado al Centro de IoT:
+
+```
+{"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
+```
+
+Como referencia, este es un **comando** de ejemplo recibido del Centro de IoT:
+
+```
+{
+  "Name":"SetHumidity",
+  "MessageId":"2f3d3c75-3b77-4832-80ed-a5bb3e233391",
+  "CreatedTime":"2016-03-11T15:09:44.2231295Z",
+  "Parameters":{"humidity":23}
+}
+```
+
+<a id="buildandrun"/>
 ### Compilar y ejecutar el programa
 
 1. Haga clic en **Compilar** para compilar el programa. Puede omitir con seguridad las advertencias, pero si la compilación genera errores, corríjalos antes de continuar.
@@ -82,7 +199,7 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 
     ![][11]
 
-4. En PuTTY, haga clic en el tipo de conexión **serie**. Normalmente, el dispositivo se conecta a 115.200 baudios, por lo que introduzca 115.200 en el cuadro **Velocidad**. A continuación, haga clic en **Abrir**.
+4. En PuTTY, haga clic en el tipo de conexión **serie**. Como el dispositivo normalmente se conecta a 115 200 baudios, especifique 115200 en el cuadro **Velocidad**. A continuación, haga clic en **Abrir**.
 
 5. El programa comienza a ejecutarse. Puede que tenga que restablecer la placa (presione CTRL+pausa o el botón de reinicio de la placa) si el programa no se inicia automáticamente cuando se conecta.
 
@@ -101,5 +218,6 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 [lnk-mbed-home]: https://developer.mbed.org/platforms/FRDM-K64F/
 [lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
+[lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -35,7 +35,7 @@ El Centro de IoT supervisa cuatro categorías de eventos:
 
     ![][1]
 
-3. Seleccione las categorías que desea supervisar y luego haga clic en **Guardar**. Los eventos están disponibles para su lectura desde el punto de conexión compatible con el Centro de eventos que aparece en **Configuración de supervisión**.
+3. Seleccione las categorías que desea supervisar y luego haga clic en **Guardar**. Los eventos están disponibles para su lectura desde el punto de conexión compatible con el Centro de eventos que aparece en **Configuración de supervisión**. El punto de conexión del Centro de IoT se denomina `messages/operationsmonitoringevents`.
 
     ![][2]
 
@@ -139,4 +139,4 @@ Ahora que vio información general sobre la supervisión de operaciones, siga es
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

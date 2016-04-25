@@ -20,7 +20,7 @@
 # Preparación para la copia de seguridad de cargas de trabajo en Azure con DPM
 
 > [AZURE.SELECTOR]
-- [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md)
 - [System Center DPM](backup-azure-dpm-introduction.md)
 
 En este artículo se proporciona una introducción al uso de Copia de seguridad de Microsoft Azure con el objeto de proteger los servidores y las cargas de trabajo de System Center Data Protection Manager (DPM). Cuando lo lea, comprenderá:
@@ -93,4 +93,4 @@ No se admiten los siguientes:
 
 >[AZURE.NOTE] A partir de System Center 2012 DPM con SP1 en adelante, puede realizar una copia de seguridad de las cargas protegidas por DPM en Azure con Copia de seguridad de Microsoft Azure.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

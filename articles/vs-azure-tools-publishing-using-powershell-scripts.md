@@ -37,7 +37,7 @@ Tiene a su disposición herramientas y recursos adicionales para trabajar con Po
 
 ## Generación de los scripts de publicación
 
-Puede generar los scripts de publicación para una máquina virtual que hospeda el sitio web al crea un nuevo proyecto siguiendo [estas instrucciones](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md). También puede [generar scripts de publicación para aplicaciones web en el Servicio de aplicaciones de Azure](/app-service-web/web-sites-dotnet-get-started.md).
+Puede generar los scripts de publicación para una máquina virtual que hospeda el sitio web al crea un nuevo proyecto siguiendo [estas instrucciones](./virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md). También puede [generar scripts de publicación para aplicaciones web en el Servicio de aplicaciones de Azure](./app-service-web/web-sites-dotnet-get-started.md).
 
 ## Scripts que genera Visual Studio
 
@@ -149,7 +149,7 @@ Cuando crea una máquina virtual, el archivo de configuración de JSON es simila
 
 Puede editar la configuración de JSON para cambiar lo que ocurre al ejecutar los scripts de publicación. Las secciones `cloudService` y `virtualMachine` son necesarias, pero puede eliminar la sección `databases` si no la necesita. Las propiedades que están vacías en el archivo de configuración predeterminado que Visual Studio genera son opcionales; se requieren las que tienen valores en el archivo de configuración predeterminado.
 
-Si tiene un sitio web que cuenta con varios entornos de implementación (conocidos como ranuras) en lugar de un único sitio de producción en Azure, puede incluir el nombre de la ranura en el nombre del sitio web en el archivo de configuración de JSON. Por ejemplo, si tiene un sitio web llamado **mysite** y una ranura para él llamada **prueba**, URI es mysite-test.cloudapp.net, pero el nombre correcto que se usará en el archivo de configuración es mysite(test). Solo puede hacerlo si el sitio web y las ranuras ya existen en su suscripción. De no ser así, cree el sitio web ejecutando el script sin especificar la ranura y luego créela en el portal de administración de Azure; después ejecute el script con el nombre del sitio web modificado. Para obtener más información sobre las ranuras de implementación para las aplicaciones web, vea [Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure](/app-service-web/web-sites-staged-publishing.md).
+Si tiene un sitio web que cuenta con varios entornos de implementación (conocidos como ranuras) en lugar de un único sitio de producción en Azure, puede incluir el nombre de la ranura en el nombre del sitio web en el archivo de configuración de JSON. Por ejemplo, si tiene un sitio web llamado **mysite** y una ranura para él llamada **prueba**, URI es mysite-test.cloudapp.net, pero el nombre correcto que se usará en el archivo de configuración es mysite(test). Solo puede hacerlo si el sitio web y las ranuras ya existen en su suscripción. De no ser así, cree el sitio web ejecutando el script sin especificar la ranura y luego créela en el portal de administración de Azure; después ejecute el script con el nombre del sitio web modificado. Para obtener más información sobre las ranuras de implementación para las aplicaciones web, vea [Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure](./app-service-web/web-sites-staged-publishing.md).
 
 ## Cómo ejecutar los scripts de publicación
 
@@ -351,4 +351,4 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 Obtenga más información sobre el scripting de PowerShell leyendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) y vea otros scripts de Azure PowerShell en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

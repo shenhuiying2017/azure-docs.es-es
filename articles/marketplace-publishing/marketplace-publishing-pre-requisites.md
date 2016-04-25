@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="01/07/2016"
+  ms.date="04/07/2016"
   ms.author="hascipio; v-divte"/>
 
 # Requisitos previos generales para crear una oferta para Azure Marketplace
@@ -31,7 +31,11 @@ Para instrucciones detalladas sobre cómo registrar una cuenta de vendedor en Mi
 
 > Debe completar el registro de la empresa para comenzar. Sin embargo, aunque la compañía trabaja en la información bancaria y fiscal de la cuenta de desarrollador de Microsoft, los desarrolladores pueden comenzar a trabajar en la creación de la imagen de máquina virtual en el [portal de publicación](https://publish.windowsazure.com), y luego certificarla y probarla en el entorno de ensayo de Azure. Solo necesitará la aprobación de la cuenta de vendedor completa en el paso final de la publicación de la oferta en Azure Marketplace.
 
-> Si tiene problemas para completar el registro como vendedor, abra una incidencia de soporte técnico, tal como se indica a continuación: 1. Póngase en contacto con [Soporte técnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=es-ES&pesid=15635&ccsid=635847950577064286). 2. Elija **Centro de desarrolladores**. 3. Elija **Perfil de publicador**. 4. Elija el método de contacto.
+> Si tiene problemas para completar el registro como vendedor, abra una incidencia de soporte técnico, tal como se indica a continuación:
+> 1. Póngase en contacto con [Soporte técnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=es-ES&pesid=15635&ccsid=635847950577064286).
+> 2. Elija **Centro de desarrolladores**.
+> 3. Elija **Perfil de publicador**.
+> 4. Elija el método de contacto.
 
 
 ## Adquisición de una suscripción de Azure de "pago por uso"
@@ -46,9 +50,9 @@ Seguidamente, se indican los requisitos previos técnicos para cada tipo de ofer
 
 | Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
 |-----|-----|-----|-----|
-| [Requisitos previos técnicos de máquina virtual](marketplace-publishing-vm-image-creation-prerequisites.md) | Requisitos previos técnicos del servicio de desarrolladores | [Requisitos previos técnicos del servicio de datos](marketplace-publishing-data-service-creation-prerequisites.md) | [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [Requisitos previos técnicos de máquina virtual](marketplace-publishing-vm-image-creation-prerequisites.md) | Vista previa privada | [Requisitos previos técnicos del servicio de datos](marketplace-publishing-data-service-creation-prerequisites.md) | [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## Consulte también
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->
