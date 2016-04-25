@@ -28,15 +28,20 @@ Esta experiencia simplificada es posible porque previamente creamos y registramo
 
 Incluso en el contexto de Aplicaciones lógicas, puede utilizar su propia aplicación en lugar de utilizar la aplicación predeterminada que proporcionamos. Si el botón "Autorizar" no se puede conectar, intente crear su propia aplicación. A continuación se enumeran estos pasos para el conector de Twitter:
 
-1. Abra el conector de Twitter en el portal de vista previa de Azure. Vaya a **Examinar** > **Aplicaciones de API**. Seleccione el conector de Twitter: ![][1]
+1. Abra el conector de Twitter en el portal de vista previa de Azure. Vaya a **Examinar** > **Aplicaciones de API**. Seleccione el conector de Twitter:
+![][1]
 
-2. Seleccione **Configuración** > **Autenticación**: ![][2]
+2. Seleccione **Configuración** > **Autenticación**:
+![][2]
 
-3. Copie el valor de **URI de redirección**: ![][3]
+3. Copie el valor de **URI de redirección**:
+![][3]
 
-4. Vaya a [Twitter](http://apps.twitter.com)y **Crear una nueva aplicación**. En la propiedad **Dirección URL de devolución de llamadas**, pegue el valor de **URI de redirección** copiado del conector de Twitter: ![][4]
+4. Vaya a [Twitter](http://apps.twitter.com)y **Crear una nueva aplicación**. En la propiedad **Dirección URL de devolución de llamadas**, pegue el valor de **URI de redirección** copiado del conector de Twitter:
+![][4]
 5. Cuando la aplicación de Twitter se cree, seleccione **Clave y tokens de acceso**. Copie estos valores.
-6. En la configuración de autenticación del conector de Twitter, pegue estos valores en las propiedades **Id. de cliente** y **Secreto del cliente**: ![][5]  
+6. En la configuración de autenticación del conector de Twitter, pegue estos valores en las propiedades **Id. de cliente** y **Secreto del cliente**:
+![][5]  
 7. Guarde la configuración del conector.  
 
 Ahora, podrá usar el conector de Aplicaciones lógicas. Cuando utilice este conector de Aplicaciones lógicas, este usa su aplicación en lugar de la aplicación predeterminada.

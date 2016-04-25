@@ -44,7 +44,8 @@ Para registrarse para obtener una suscripción de evaluación gratuita de Azure,
 
 1. Abra la [página de evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/) y luego seleccione **Probar ahora**.
 2. Inicie sesión con su cuenta Microsoft o en su cuenta profesional o educativa.
-3. En la sección **Sobre usted**, escriba su información personal. ![La captura de pantalla de información personal](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+3. En la sección **Sobre usted**, escriba su información personal.
+![La captura de pantalla de información personal](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
  **Nota** La dirección de correo electrónico y la información del país que proporcione al suscribirse a Azure siempre estarán asociados a la suscripción y no se pueden cambiar posteriormente.</br>
 4. En la sección **Comprobación por teléfono**, debe proporcionar un número de teléfono para recibir un código de comprobación que deberá proporcionar para completar el proceso.

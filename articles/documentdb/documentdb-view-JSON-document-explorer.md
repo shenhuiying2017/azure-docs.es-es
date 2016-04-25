@@ -128,7 +128,7 @@ El Explorador de documentos admite la ingesta en masa de uno o varios documentos
 
 1. [Inicie el Explorador de documentos](#launch-document-explorer).
 
-2. Para iniciar el proceso de carga, haga clic en ** Agregar documento**.
+2. Para iniciar el proceso de carga, haga clic en **Agregar documento**.
 
 	![Captura de pantalla de la funcionalidad de ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/uploaddocument1.png)
 

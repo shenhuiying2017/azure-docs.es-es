@@ -148,7 +148,8 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
 
-1.  Aparece una ventana **Crear nueva máquina virtual**. En la página **Configuración**, seleccione la opción **Personalizado**. Haga clic en **Siguiente**. ![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
+1.  Aparece una ventana **Crear nueva máquina virtual**. En la página **Configuración**, seleccione la opción **Personalizado**. Haga clic en **Siguiente**.
+![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
 
 2.  En la página **Nombre y ubicación**, especifique el nombre de la máquina virtual. Este nombre debe coincidir con el nombre de carpeta (práctica recomendada) que especificó anteriormente en el paso 8.
 

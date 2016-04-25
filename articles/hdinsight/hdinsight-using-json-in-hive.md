@@ -81,7 +81,7 @@ Los métodos enumerados en la siguiente sección requieren que el documento JSON
 
 	SELECT * FROM StudentsOneLine
 
-El archivo sin formato de JSON se encuentra en ****wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabla de Hive *StudentsRaw* apunta al documento JSON sin formato y no acoplado.
+El archivo sin formato de JSON se encuentra en **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabla de Hive *StudentsRaw* apunta al documento JSON sin formato y no acoplado.
 
 La tabla de Hive *StudentsOneLine* almacenará los datos en el sistema de archivos predeterminado de HDInsight en la ruta de acceso */json/students/*.
 

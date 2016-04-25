@@ -238,7 +238,7 @@ Para poder acceder a esta aplicación, debe registrar el dispositivo.
 Una el dispositivo iOS al área de trabajo.
 
 
-**Si usa un dispositivo Windows 8.1**, puede conectarlo desde **Configuración de PC ** > **Red** > **Área de trabajo**.
+**Si usa un dispositivo Windows 8.1**, puede conectarlo desde **Configuración de PC** > **Red** > **Área de trabajo**.
 
 
 Donde "**nombre de confianza de usuario de confianza**" es el nombre del objeto Confianza de usuario de confianza en AD FS. Donde **yourdomain.com** es el nombre de dominio que configuró en Azure Active Directory. Por ejemplo, contoso.com. Asegúrese de quitar los saltos de línea (si existen) del contenido HTML que se pasa al cmdlet **Set-AdfsRelyingPartyWebContent**.

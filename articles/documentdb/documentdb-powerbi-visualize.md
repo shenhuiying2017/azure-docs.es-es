@@ -111,7 +111,8 @@ Quiere recuperar los datos de los volcanes de la cuenta DocumentDB y visualizar 
 11. Haga clic en **Editar** para iniciar el Editor de consultas, para que podamos transformar los datos.
 
 ## Eliminación de formato y transformación de documentos JSON
-1. En el Editor de consultas de Power BI, debería ver la columna **Documento** en el panel central. ![Editor de consultas de Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
+1. En el Editor de consultas de Power BI, debería ver la columna **Documento** en el panel central.
+![Editor de consultas de Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 
 2. Haga clic en el botón de expansión en el lado derecho del encabezado de columna **Documento**. Se muestra el menú contextual con una lista de campos. Seleccione los campos necesarios para el informe, por ejemplo, nombre de volcán, país, región, ubicación, elevación, tipo, estado y última erupción conocida y, después, haga clic en **Aceptar**.
 

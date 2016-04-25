@@ -26,23 +26,27 @@ Azure realiza un anuncio cada vez que hay una interrupción del servicio o una d
 
 2. En **Inicio** debería ver un icono denominado **Estado del servicio** ![Inicio](./media/insights-service-health/Insights_Home.png)
 
-3. Al hacer clic en él, aparecerá una lista de todas las regiones de Azure. Puede hacer clic en cualquier región para ver el historial de estados del servicio de dicha región. ![Inicio](./media/insights-service-health/Insights_Regions.png)
+3. Al hacer clic en él, aparecerá una lista de todas las regiones de Azure. Puede hacer clic en cualquier región para ver el historial de estados del servicio de dicha región.
+![Inicio](./media/insights-service-health/Insights_Regions.png)
 
 4. También puede ver los detalles de cualquier incidente individual, para lo que debe hacer clic en el mismo en la tabla.
 
 ## Examen de los registros completos del estado del servicio
 
-2. Haga clic en **Examinar** y seleccione **Registros de auditoría**. ![Centro de exploración](./media/insights-service-health/Insights_Browse.png)
+2. Haga clic en **Examinar** y seleccione **Registros de auditoría**.
+![Centro de exploración](./media/insights-service-health/Insights_Browse.png)
 
 3. Se abrirá una hoja en la que se muestran todos los eventos que han influido en cualquiera de sus suscripciones durante los últimos 7 días. Las entradas del estado del servicio aparecerán en esta lista, pero puede que sea difícil encontrarlas, ya que la lista puede ser grande.
 
 4. Haga clic en el comando **Filtro**.
 
-5. Seleccione **Categoría de eventos** y elija **Estado del servicio**: ![Todos los eventos](./media/insights-service-health/Insights_Filter.png)
+5. Seleccione **Categoría de eventos** y elija **Estado del servicio**:
+![Todos los eventos](./media/insights-service-health/Insights_Filter.png)
 
 6. Haga clic en **Actualizado**.
 
-7. Verá todos los eventos del estado del servicio que han afectado a la suscripción: ![Grupos de recursos](./media/insights-service-health/Insights_HealthEvent.png)
+7. Verá todos los eventos del estado del servicio que han afectado a la suscripción:
+![Grupos de recursos](./media/insights-service-health/Insights_HealthEvent.png)
 
 8. Desde ahí puede ir a la hoja de detalles para ver las particularidades del evento.
 

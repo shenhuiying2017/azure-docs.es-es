@@ -142,7 +142,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/402.png)
 
-    d. En el cuadro de diálogo **SAML Settings ** (Configuración de SAML), haga clic en **Edit** (Editar).
+    d. En el cuadro de diálogo **SAML Settings** (Configuración de SAML), haga clic en **Edit** (Editar).
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/404.png)
   
@@ -173,11 +173,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
    
     j. En el campo **Auto-provision security config** (Configuración de seguridad de aprovisionamiento automático), seleccione **Standard User Configuration** (Configuración de usuario estándar).
    
-    k. En el cuadro de texto Email Attribute (Atributo de correo electrónico), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    k. En el cuadro de texto Email Attribute (Atributo de correo electrónico), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    l. En el cuadro de texto **First name attribute** (Atributo de nombre), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    l. En el cuadro de texto **First name attribute** (Atributo de nombre), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    m. En el cuadro de texto **Last name attribute** (Atributo de apellido), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    m. En el cuadro de texto **Last name attribute** (Atributo de apellido), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
     n. Haga clic en **Guardar**.
    

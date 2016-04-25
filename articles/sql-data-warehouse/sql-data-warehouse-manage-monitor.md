@@ -154,7 +154,7 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 El resultado de esta consulta mostrará el número de filas de tabla que se almacenan en cada una de las 60 distribuciones de la base de datos. Para obtener un rendimiento óptimo, las filas de la tabla distribuida se deben repartir uniformemente entre todas las distribuciones.
 
-Para obtener más información, consulte [Manage data skew for distributed tables][] (Administración de asimetría de datos para tablas distribuidas) o [Diseño de tablas en el Almacenamiento de datos SQL][].
+Para obtener más información, consulte [Manage data skew for distributed tables](Administración de asimetría de datos para tablas distribuidas) o [Diseño de tablas en el Almacenamiento de datos SQL][].
 
 ## Pasos siguientes
 Para obtener más información sobre las vistas de administración dinámica (DMV) y de Transact-SQL, consulte la [información general de referencia][]. Para obtener más sugerencias sobre la administración del almacenamiento de datos SQL, consulte [Herramientas de administración para Almacenamiento de datos SQL][].

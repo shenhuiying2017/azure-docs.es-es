@@ -51,13 +51,18 @@ Siga estos pasos para iniciar sesión en Yammer y completar la configuración de
 
 1. Seleccione **Periodicidad**.
 2. Seleccione un valor para **Frecuencia** y especifique el correspondiente a **Intervalo**.
-3. Seleccione **Agregar una acción**. ![Configurar Yammer][1]
+3. Seleccione **Agregar una acción**.
+![Configurar Yammer][1]
 4. Escriba yammer en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan Yammer en el nombre.
 5. Seleccione **Yammer - Get all messages** (Yammer: obtener todos los mensajes).
-6. Seleccione **Sign in to Yammer** (Iniciar sesión en Yammer). ![Configurar Yammer][2]
-7. Proporcione sus credenciales de Yammer para iniciar sesión y autorizar la aplicación. ![Configurar Yammer][3]  
-8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** la interacción de Yammer con la aplicación lógica. ![Configurar Yammer][4] 
-9. Después de iniciar sesión, vuelva a la aplicación lógica para que la complete configurando la sección **Yammer - Get all messages** (Yammer: obtener todos los mensajes) y agregando otros desencadenadores y acciones que necesite. ![Configurar Yammer][5]  
+6. Seleccione **Sign in to Yammer** (Iniciar sesión en Yammer).
+![Configurar Yammer][2]
+7. Proporcione sus credenciales de Yammer para iniciar sesión y autorizar la aplicación.
+![Configurar Yammer][3]  
+8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** la interacción de Yammer con la aplicación lógica.
+![Configurar Yammer][4] 
+9. Después de iniciar sesión, vuelva a la aplicación lógica para que la complete configurando la sección **Yammer - Get all messages** (Yammer: obtener todos los mensajes) y agregando otros desencadenadores y acciones que necesite.
+![Configurar Yammer][5]  
 10. Guarde el trabajo seleccionando **Guardar** en la barra de menús superior.
 
 

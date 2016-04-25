@@ -36,7 +36,8 @@ Para asegurarse de identificar antes del registro todas las máquinas virtuales 
 
 1. Inicie sesión en el [Portal clásico](http://manage.windowsazure.com/).
 
-2. En la lista de servicios de Azure, haga clic en **Servicios de recuperación** para abrir la lista de almacenes de copia de seguridad y recuperación del sitio. ![Abrir lista de almacenes](./media/backup-azure-vms/choose-vault-list.png)
+2. En la lista de servicios de Azure, haga clic en **Servicios de recuperación** para abrir la lista de almacenes de copia de seguridad y recuperación del sitio.
+![Abrir lista de almacenes](./media/backup-azure-vms/choose-vault-list.png)
 
 3. En la lista de almacenes de copia de seguridad, seleccione el almacén de copia de una máquina virtual.
 
@@ -54,7 +55,8 @@ Para asegurarse de identificar antes del registro todas las máquinas virtuales 
 
     ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-6. Haga clic en **DETECTAR** en la parte inferior de la página. ![Botón Detectar](./media/backup-azure-vms/discover-button-only.png)
+6. Haga clic en **DETECTAR** en la parte inferior de la página.
+![Botón Detectar](./media/backup-azure-vms/discover-button-only.png)
 
     El proceso de detección puede tardar unos minutos mientras se tabulan las máquinas virtuales. Hay una notificación en la parte inferior de la pantalla que informa de que el proceso se está ejecutando.
 
@@ -75,7 +77,8 @@ Se registra una máquina virtual de Azure para asociarla con el servicio Copia d
 
     ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **REGISTRAR** en la parte inferior de la página. ![Botón Registrar](./media/backup-azure-vms/register-button-only.png)
+3. Haga clic en **REGISTRAR** en la parte inferior de la página.
+![Botón Registrar](./media/backup-azure-vms/register-button-only.png)
 
 4. En el menú contextual **Elementos registrados**, seleccione las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguirlas.
 

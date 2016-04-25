@@ -56,7 +56,8 @@ El SDK proporciona una API para que pueda [escribir telemetría personalizada](.
 Use la aplicación para generar telemetría.
 
 1. A continuación, desde la hoja de la máquina virtual o la aplicación web, podrá ver la extensión instalada.
-2. Haga clic en la fila que representa la aplicación para navegar a ese proveedor: ![Haga clic en Actualizar](./media/insights-perf-analytics/06-overview.png)
+2. Haga clic en la fila que representa la aplicación para navegar a ese proveedor:
+![Haga clic en Actualizar](./media/insights-perf-analytics/06-overview.png)
 
 También puede usar **Examinar** para ir directamente al componente Application Insights o a la cuenta de New Relic que utilizó previamente.
 

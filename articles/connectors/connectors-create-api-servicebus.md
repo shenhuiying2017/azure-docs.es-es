@@ -60,12 +60,17 @@ Para usar la API del bus de servicio de Azure, cree primero una **conexión** y,
 Siga estos pasos para crear una **conexión** de bus de servicio, que podrá usar después en la aplicación lógica:
 
 1. Seleccione **Periodicidad**.
-2. Seleccione un valor para **Frecuencia** y especifique el correspondiente a **Intervalo**. ![Configurar Bus de servicio][1] 
-3. Seleccione **Agregar una acción**. ![Configurar Bus de servicio][2]   
+2. Seleccione un valor para **Frecuencia** y especifique el correspondiente a **Intervalo**.
+![Configurar Bus de servicio][1] 
+3. Seleccione **Agregar una acción**.
+![Configurar Bus de servicio][2]   
 4. Escriba **Bus de servicio** en el cuadro de búsqueda y espere a que aparezcan todas las entradas que incluyan "Bus de servicio" en el nombre.
-5. Seleccione **Bus de servicio - Enviar mensaje**. ![Configurar Bus de servicio][3]
-7. Escriba un valor para **Nombre de conexión** y otro para **Cadena de conexión**. Luego, seleccione **Crear conexión**. ![Configurar Bus de servicio][4]
-7. Una vez creada la conexión, se mostrará el diálogo **Enviar mensaje**. Escriba toda la información necesaria para enviar un mensaje. ![Configurar Bus de servicio][5]
+5. Seleccione **Bus de servicio - Enviar mensaje**.
+![Configurar Bus de servicio][3]
+7. Escriba un valor para **Nombre de conexión** y otro para **Cadena de conexión**. Luego, seleccione **Crear conexión**.
+![Configurar Bus de servicio][4]
+7. Una vez creada la conexión, se mostrará el diálogo **Enviar mensaje**. Escriba toda la información necesaria para enviar un mensaje.
+![Configurar Bus de servicio][5]
 8. Seleccione el botón **Guardar** en el menú superior para guardar su trabajo.    
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.

@@ -78,7 +78,8 @@ Comience con una nueva cuenta de prueba de Azure. Cuando haya terminado de confi
 |---|---|
 |Detalles de red virtual|**NOMBRE = ContosoNET**<br/>**REGIÓN = West US**|
 |Servidores DNS y conectividad VPN|None|
-|Espacios de direcciones de la red virtual|La configuración se muestra en la captura de pantalla siguiente: ![Cree una red virtual:](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
+|Espacios de direcciones de la red virtual|La configuración se muestra en la captura de pantalla siguiente:
+![Cree una red virtual:](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
 
 1. A continuación, cree la máquina virtual que se usará como controlador de dominio (DC). Vuelva a hacer clic en **Nuevo**, luego en **Proceso**, en **Máquina Virtual** y en **De la galería**, tal y como se muestra a continuación.
 

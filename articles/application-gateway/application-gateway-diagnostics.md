@@ -30,9 +30,11 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 ##Habilitación del registro
 El registro de auditoría se habilita automáticamente siempre para todos los recursos del Administrador de recursos. Debe habilitar el registro de acceso y rendimiento para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, siga estos pasos.
 
-1. Observe el identificador de recurso de la cuenta de almacenamiento, donde se almacenarán los datos de registro. Este tendrá el formato siguiente: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Es posible utilizar cualquier cuenta de almacenamiento de la suscripción. Puede usar el portal de vista previa para buscar esta información. ![Portal de vista previa: diagnóstico de la Puerta de enlace de aplicaciones](./media/application-gateway-diagnostics/diagnostics1.png)
+1. Observe el identificador de recurso de la cuenta de almacenamiento, donde se almacenarán los datos de registro. Este tendrá el formato siguiente: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Es posible utilizar cualquier cuenta de almacenamiento de la suscripción. Puede usar el portal de vista previa para buscar esta información.
+![Portal de vista previa: diagnóstico de la Puerta de enlace de aplicaciones](./media/application-gateway-diagnostics/diagnostics1.png)
  
-2. Observe el identificador de recurso de la Puerta de enlace de aplicaciones para la que se está habilitando el registro. Este tendrá el formato siguiente: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. Puede usar el portal de vista previa para buscar esta información. ![Portal de vista previa: diagnóstico de la Puerta de enlace de aplicaciones](./media/application-gateway-diagnostics/diagnostics2.png)
+2. Observe el identificador de recurso de la Puerta de enlace de aplicaciones para la que se está habilitando el registro. Este tendrá el formato siguiente: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. Puede usar el portal de vista previa para buscar esta información.
+![Portal de vista previa: diagnóstico de la Puerta de enlace de aplicaciones](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Habilite el registro de diagnóstico mediante el siguiente cmdlet de PowerShell.
 

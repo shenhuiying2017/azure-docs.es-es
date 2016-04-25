@@ -121,7 +121,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 	c. En el cuadro de texto **Identificador**, escriba la dirección URL de inquilino.
 
-    d. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: "****https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
+    d. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
 
 	e. Haga clic en **Siguiente**.
 

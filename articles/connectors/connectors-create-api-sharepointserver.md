@@ -76,11 +76,15 @@ Para poder efectuar la conexión con **SharePoint Online**, tiene que proporcion
 
 Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pasos para iniciar sesión en SharePoint y crear la **conexión** para su uso en la aplicación lógica:
 
-1. Escriba "SharePoint" en el cuadro de búsqueda y espere a que aparezcan todas las entradas que incluyan "SharePoint" en el nombre. ![Configurar SharePoint][1]  
+1. Escriba "SharePoint" en el cuadro de búsqueda y espere a que aparezcan todas las entradas que incluyan "SharePoint" en el nombre.
+![Configurar SharePoint][1]  
 2. Seleccione **SharePoint Online - When a file is created** (SharePoint Online - cuando se crea un archivo).   
-3. Seleccione **Sign in to SharePoint Online** (Iniciar sesión en Sharepoint Online). ![Configurar SharePoint][2]    
-4. Proporcione sus credenciales de SharePoint para iniciar sesión y autenticarse con SharePoint. ![Configurar SharePoint][3]     
-5. Cuando finalice la autenticación, se le redirigirá a la aplicación lógica para que la complete configurando el diálogo de SharePoint **When a file is created** (Cuando se crea un archivo). ![Configurar SharePoint][4]  
+3. Seleccione **Sign in to SharePoint Online** (Iniciar sesión en Sharepoint Online).
+![Configurar SharePoint][2]    
+4. Proporcione sus credenciales de SharePoint para iniciar sesión y autenticarse con SharePoint.
+![Configurar SharePoint][3]     
+5. Cuando finalice la autenticación, se le redirigirá a la aplicación lógica para que la complete configurando el diálogo de SharePoint **When a file is created** (Cuando se crea un archivo).
+![Configurar SharePoint][4]  
 6. A continuación, puede agregar otros desencadenadores y acciones que necesita para completar la aplicación lógica.   
 7. Guarde el trabajo seleccionando **Guardar** en la barra de menús superior.  
 

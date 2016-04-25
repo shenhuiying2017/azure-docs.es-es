@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introducción al ejemplo"
-   description=""
+   description="Introducción al ejemplo"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

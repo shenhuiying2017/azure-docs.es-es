@@ -198,7 +198,8 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
     e. Haga clic en **Siguiente**.
 
-7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
+![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
 
 
 8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:

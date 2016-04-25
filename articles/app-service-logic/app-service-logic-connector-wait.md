@@ -28,13 +28,16 @@ Para usar el conector espera, deberá crear primero una instancia de la aplicaci
 El conector de espera se puede usar como una acción. No tiene ningún desencadenador.
 
 ### Acción
-- Haga clic en el conector de espera en el panel derecho: ![Lista de acciones][1]
+- Haga clic en el conector de espera en el panel derecho:
+![Lista de acciones][1]
 - El conector de espera admite dos acciones: 
 	- Retraso
 	- Retrasar hasta
 	 
-- Seleccione *Retraso*: ![Entrada de retraso][2]
-- Proporcione las entradas para la acción y configúrela: ![Acción configurada][3]
+- Seleccione *Retraso*:
+![Entrada de retraso][2]
+- Proporcione las entradas para la acción y configúrela:
+![Acción configurada][3]
 
 Parámetro|Tipo|Descripción del parámetro
 ---|---|---

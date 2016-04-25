@@ -106,7 +106,7 @@ Con las **acciones** disponibles en la parte derecha de la consola del agente de
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 
-3. Si quiere agregar o cambiar elementos, en la pantalla ** Seleccionar elementos de los que realizar copia de seguridad**, haga clic en **Agregar elementos**.
+3. Si quiere agregar o cambiar elementos, en la pantalla **Seleccionar elementos de los que realizar copia de seguridad**, haga clic en **Agregar elementos**.
 
     También puede establecer preferencias en **Configuración de exclusión**, en esta página del asistente. Si quiere excluir archivos o tipos de archivos, lea el procedimiento para agregar [configuración de exclusión](#exclusion-settings).
 

@@ -102,7 +102,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     2.  En el portal de Azure, en la página del cuadro de diálogo **Configurar inicio de sesión único en XMatters OnDemand**, copie el valor del **Id. de proveedor de identidades** y luego péguelo en el cuadro de texto **Id. de proveedor de identidades**.
     3.  En el portal de Azure, en la página del cuadro de diálogo **Configurar inicio de sesión único en XMatters OnDemand**, copie el valor de la **Dirección URL del servicio de inicio de sesión único** y luego péguelo en el cuadro de texto **Dirección URL de inicio de sesión único**.
     4.  En el portal de Azure, en la página del cuadro de diálogo **Configurar inicio de sesión único en XMatters OnDemand**, copie el valor de la **Dirección URL del servicio de cierre de sesión único** y luego péguelo en el cuadro de texto **Dirección URL de cierre de sesión único**.
-    5.  En la página de detalles de la compañía, en la parte superior, haga clic en**Guardar cambios**. ![Detalles de la compañía](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Detalles de la compañía")
+    5.  En la página de detalles de la compañía, en la parte superior, haga clic en**Guardar cambios**.
+![Detalles de la compañía](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Detalles de la compañía")
 
 8.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 

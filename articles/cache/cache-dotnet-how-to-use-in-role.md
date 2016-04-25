@@ -309,7 +309,7 @@ El proveedor del estado de sesión de la caché en rol es un mecanismo de almace
       </sessionState>
     </system.web>-->
 
->Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation][] (Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
+>Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation](Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
 
 Para habilitar el proveedor del estado de sesión para la caché en rol, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
 
@@ -333,7 +333,7 @@ El proveedor de la caché de resultados para la caché en rol es un mecanismo de
       </outputCache>
     </caching>-->
 
->Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation][] (Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
+>Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation](Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
 
 Para habilitar el proveedor de la caché de resultados para la caché en rol, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
 
@@ -353,7 +353,7 @@ Ahora que está familiarizado con los aspectos básicos de la caché en rol, uti
 -   Consulte la referencia de MSDN: [Caché en rol][]
 -   Obtenga información acerca de cómo migrar a la caché en rol: [Migración a Caché en rol][]
 -   Consulte los ejemplos: [Ejemplos de Caché en rol][]
--	Vea la sesión [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching][] (Rendimiento máximo: agilización de las aplicaciones de servicios en la nube con el almacenamiento en caché de Azure) de TechEd 2013 sobre la caché en rol
+-	Vea la sesión [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching](Rendimiento máximo: agilización de las aplicaciones de servicios en la nube con el almacenamiento en caché de Azure) de TechEd 2013 sobre la caché en rol
 
 <!-- INTRA-TOPIC LINKS -->
 [Pasos siguientes]: #next-steps

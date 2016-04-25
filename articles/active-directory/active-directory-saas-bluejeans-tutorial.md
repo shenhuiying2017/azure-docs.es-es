@@ -110,8 +110,8 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Guardar cambios](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Guardar cambios")
 
-    1.  En el cuadro de texto **Identificador de usuario**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-2.  En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    1.  En el cuadro de texto **Identificador de usuario**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+2.  En el cuadro de texto **Correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
 3.  Haga clic en **Guardar cambios**.
 
 10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.

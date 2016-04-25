@@ -76,8 +76,10 @@ Azure ofrece una galería de imágenes para toda la solución. Para encontrar la
 
 1. 	Inicie sesión en el Portal de Azure con su cuenta.
 1.	En el Portal de Azure, haga clic en **+Nuevo**. El portal abrirá la hoja Nuevo.
-1.	En la hoja Nuevo, busque **AlwaysOn**. ![Buscar la plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-1.	En los resultados de búsqueda, localice **Clúster AlwaysOn de SQL Server**. ![Plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
+1.	En la hoja Nuevo, busque **AlwaysOn**.
+![Buscar la plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
+1.	En los resultados de búsqueda, localice **Clúster AlwaysOn de SQL Server**.
+![Plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	En **Seleccionar un modelo de implementación**, elija **Resource Manager**.
 
 ### Aspectos básicos
@@ -243,7 +245,8 @@ Para la RDP al controlador de dominio principal, siga estos pasos:
 
 1.	En la hoja **Recursos**, haga clic en **ad-primary-dc**, que es el nombre del equipo de la máquina virtual del controlador de dominio principal.
 
-1.	En la hoja de **ad-primary-dc**, haga clic en **Conectar**. El explorador le preguntará si desea abrir o guardar el objeto de conexión remota. Haga clic en **Abrir**. ![Conectarse al controlador de dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
+1.	En la hoja de **ad-primary-dc**, haga clic en **Conectar**. El explorador le preguntará si desea abrir o guardar el objeto de conexión remota. Haga clic en **Abrir**.
+![Conectarse al controlador de dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
 1.	**Conexión a Escritorio remoto**: puede advertirle de que no se puede identificar el publicador de esta conexión remota. Haga clic en **Conectar**.
 
 1.	Seguridad de Windows le pide que escriba sus credenciales para conectarse a la dirección IP del controlador de dominio principal. Haga clic en **Usar otra cuenta**. En **Nombre de usuario**, escriba **contoso\\DomainAdmin**. Esta es la cuenta que eligió para el nombre de usuario del administrador. Utilice la contraseña compleja que eligió al configurar la plantilla.

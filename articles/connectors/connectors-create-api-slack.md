@@ -52,13 +52,18 @@ Siga estos pasos para iniciar sesión en Slack y completar la configuración de 
 
 1. Seleccione **Periodicidad**.
 2. Seleccione un valor para **Frecuencia** y especifique el correspondiente a **Intervalo**.
-3. Seleccione **Agregar una acción**. ![Configurar Slack][1]  
+3. Seleccione **Agregar una acción**.
+![Configurar Slack][1]  
 4. Escriba Slack en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan Slack en el nombre.
 5. Seleccione **Slack - Post message** (Slack - exponer mensaje).
-6. Seleccione **Sign in to Slack** (Iniciar sesión en Slack). ![Configurar Slack][2]
-7. Proporcione sus credenciales de Slack para iniciar sesión y autorizar la aplicación. ![Configurar Slack][3]  
-8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** la interacción de Slack con la aplicación lógica. ![Configurar Slack][5] 
-9. Una vez completada la autorización, se le redirigirá a la aplicación lógica para que la complete configurando la sección **Slack - Get all messages** (Slack - obtener todos los mensajes). Agregue otros desencadenadores y acciones que necesite. ![Configurar Slack][6]
+6. Seleccione **Sign in to Slack** (Iniciar sesión en Slack).
+![Configurar Slack][2]
+7. Proporcione sus credenciales de Slack para iniciar sesión y autorizar la aplicación.
+![Configurar Slack][3]  
+8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** la interacción de Slack con la aplicación lógica.
+![Configurar Slack][5] 
+9. Una vez completada la autorización, se le redirigirá a la aplicación lógica para que la complete configurando la sección **Slack - Get all messages** (Slack - obtener todos los mensajes). Agregue otros desencadenadores y acciones que necesite.
+![Configurar Slack][6]
 10. Para guardar el trabajo, seleccione **Guardar** en la barra de menús anterior.
 
 

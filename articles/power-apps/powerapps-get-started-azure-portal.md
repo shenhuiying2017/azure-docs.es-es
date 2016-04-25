@@ -53,14 +53,14 @@ Cuando la organización o empresa se suscribe en un servicio en la nube de Micro
 Siga estos pasos para determinar si ya tiene un inquilino o para saber cómo crear uno nuevo.
 
 #### Dispone de una suscripción de Office 365 existente
-Si tiene una suscripción de Office 365 existente (o Microsoft Dynamic CRM Online, Enterprise Mobility Suite u otros servicios de Microsoft), tiene una suscripción gratis a Azure Active Directory. Puede usar Azure AD para crear y administrar cuentas de usuario y grupo. Si no puede iniciar sesión en el Portal de Azure, es probable que deba activar la suscripción. Para hacerlo, vaya al [Portal de Azure clásico](https://manage.windowsazure.com/) y complete un proceso de registro único. Siga estos [pasos](https://technet.microsoft.com/library/dn832618.aspx) para obtener acceso al inquilino de Azure AD.
+Si tiene una suscripción de Office 365 existente (o Microsoft Dynamic CRM Online, Enterprise Mobility Suite u otros servicios de Microsoft), tiene una suscripción gratis a Azure Active Directory. Puede usar Azure AD para crear y administrar cuentas de usuario y grupo. Si no puede iniciar sesión en el Portal de Azure, es probable que deba activar la suscripción. Para hacerlo, vaya al [Portal de Azure clásico]( https://manage.windowsazure.com/) y complete un proceso de registro único. Siga estos [pasos]( https://technet.microsoft.com/library/dn832618.aspx) para obtener acceso al inquilino de Azure AD.
 
 #### Tiene una suscripción de Azure asociada a una cuenta Microsoft.
-Si se registró anteriormente a una suscripción de Azure con su cuenta Microsoft individual (Hotmail o Live), ya dispone de un inquilino. En el [Portal de Azure clásico](https://manage.windowsazure.com/), **Inquilino predeterminado** aparece en **Todos los elementos** y en **Active Directory**. Pueden usa este inquilino como considere oportuno, pero es posible que desee crear una cuenta de administrador organizativo.
+Si se registró anteriormente a una suscripción de Azure con su cuenta Microsoft individual (Hotmail o Live), ya dispone de un inquilino. En el [Portal de Azure clásico]( https://manage.windowsazure.com/), **Inquilino predeterminado** aparece en **Todos los elementos** y en **Active Directory**. Pueden usa este inquilino como considere oportuno, pero es posible que desee crear una cuenta de administrador organizativo.
 
 Para ello, siga estos pasos. También es posible que quiera crear a un nuevo inquilino y crear un administrador en ese inquilino siguiendo un proceso similar.
 
-1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) con su cuenta individual.
+1.	Inicie sesión en el [Portal de Azure clásico]( https://manage.windowsazure.com/) con su cuenta individual.
 2.	Seleccione **Active Directory** en la barra de menús de la izquierda.
 3.	Seleccione **Directorio predeterminado** en la lista de directorios disponibles.
 4.	Seleccione la pestaña **Usuarios** en la parte superior. Hay un usuario único que aparece con "Cuenta Microsoft" en la columna Con origen en.
@@ -78,14 +78,14 @@ Opcional | Habilite Multi-Factor Authentication
 
 	Seleccione el botón **CREAR** para completar y mostrar la contraseña temporal.
 
-Cuando termine, anote esta contraseña temporal para el nuevo usuario administrativo. Para cambiar la contraseña temporal, inicie sesión en [https://login.microsoftonline.com](https://login.microsoftonline.com) con esta cuenta de usuario nueva y cambie la contraseña. También puede enviar la contraseña directamente al usuario mediante un correo electrónico alternativo.
+Cuando termine, anote esta contraseña temporal para el nuevo usuario administrativo. Para cambiar la contraseña temporal, inicie sesión en [https://login.microsoftonline.com]( https://login.microsoftonline.com) con esta cuenta de usuario nueva y cambie la contraseña. También puede enviar la contraseña directamente al usuario mediante un correo electrónico alternativo.
 
 
 #### Dispone de una suscripción de Azure existente asociada a una cuenta de organización
-Si se registró anteriormente a una suscripción de Azure con su cuenta de organización, ya dispone de un inquilino. En el [Portal de Azure clásico](https://manage.windowsazure.com/), el inquilino aparece en **Todos los elementos** y también en **Active Directory**. Pueden usar a este inquilino como considere oportuno. También puede crear un nuevo inquilino con el menú **Nuevo** en la barra de tareas que aparece en la parte inferior.
+Si se registró anteriormente a una suscripción de Azure con su cuenta de organización, ya dispone de un inquilino. En el [Portal de Azure clásico]( https://manage.windowsazure.com/), el inquilino aparece en **Todos los elementos** y también en **Active Directory**. Pueden usar a este inquilino como considere oportuno. También puede crear un nuevo inquilino con el menú **Nuevo** en la barra de tareas que aparece en la parte inferior.
 
 #### No dispone de ninguna de las opciones anteriores y desea comenzar desde el principio
-Si en su caso no se aplica ninguna de las opciones anteriores, vaya a [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) para suscribirse a Azure con una organización nueva. Una vez suscrito, tendrá su propio inquilino de Azure AD con el nombre de dominio de su elección. En el [Portal de Azure clásico](https://manage.windowsazure.com/), puede ver el inquilino en **Active Directory** en el menú de la izquierda.
+Si en su caso no se aplica ninguna de las opciones anteriores, vaya a [https://account.windowsazure.com/organization]( https://account.windowsazure.com/organization) para suscribirse a Azure con una organización nueva. Una vez suscrito, tendrá su propio inquilino de Azure AD con el nombre de dominio de su elección. En el [Portal de Azure clásico]( https://manage.windowsazure.com/), puede ver el inquilino en **Active Directory** en el menú de la izquierda.
 
 ## Paso 2: Crear una suscripción de Azure nueva o utilizar una existente
 Ahora que ya cuenta con un inquilino de AD, puede crear una suscripción de Azure nueva o utilizar una existente. La suscripción de Azure AD incluye varias ediciones. Para PowerApps Enterprise, puede usar la edición gratuita. Sin embargo, si necesita usar el proxy de AAD para crear una conectividad híbrida con los datos locales, debe usar la edición básica o premium.
@@ -98,7 +98,7 @@ Puede encontrar más características en las [ediciones de Azure Active Director
 
 Ahora que dispone de un inquilino de AD y una suscripción de Azure, los administradores de la suscripción profesional pueden registrarse en PowerApps Enterprise. El administrador también puede agregar a usuarios de la empresa para "administrar" PowerApps, lo que incluye otorgar permisos de usuario, y administren las instancias de PowerApps publicadas en la suscripción de Azure.
 
-Si no se registra en PowerApps Enterprise, no verá ninguna hoja de acceso si va al [Portal de Azure](https://portal.azure.com/) y busca PowerApps. Para suscribir la empresa, el **administrador de suscripciones** puede ir a [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=716848) y ponerse en contacto con nosotros para obtener más información sobre los precios y el proceso de suscripción.
+Si no se registra en PowerApps Enterprise, no verá ninguna hoja de acceso si va al [Portal de Azure]( https://portal.azure.com/) y busca PowerApps. Para suscribir la empresa, el **administrador de suscripciones** puede ir a [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=716848) y ponerse en contacto con nosotros para obtener más información sobre los precios y el proceso de suscripción.
 
 ![][4]
 
@@ -135,17 +135,27 @@ El entorno del Servicio de aplicaciones de Azure tiene características distinta
 ### Crear un entorno del Servicio de aplicaciones
 > [AZURE.NOTE] Si no ve la opción para crear el entorno del Servicio de aplicaciones, es porque ya está creado para su inquilino. Si desea ver los detalles, seleccione **Configuración** para abrir el entorno del Servicio de aplicaciones.
 
-1. En el [Portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta profesional. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
+1. En el [Portal de Azure]( https://portal.azure.com/), inicie sesión con su cuenta profesional. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
 
-2. Seleccione **Examinar** en la barra de tareas: ![Buscar PowerApps][1]
+2. Seleccione **Examinar** en la barra de tareas:
 
-3. En la lista, puede desplazarse para encontrar PowerApps o escriba *powerapps*: ![Búsqueda de PowerApps][2]
+	![Buscar PowerApps][1]
 
-4. En la hoja **PowerApps**, seleccione **Crear Entorno del Servicio de aplicaciones para comenzar** o **Entorno del Servicio de aplicaciones** en *Configuración*: ![][5]
+3. En la lista, puede desplazarse para encontrar PowerApps o escriba *powerapps*:
+
+	![Búsqueda de PowerApps][2]
+
+4. En la hoja **PowerApps**, seleccione **Crear Entorno del Servicio de aplicaciones para comenzar** o **Entorno del Servicio de aplicaciones** en *Configuración*:
+
+	![][5]
 
 	> [AZURE.NOTE] Si hace clic en **Crear Entorno del Servicio de aplicaciones para comenzar**, verá una hoja adicional con detalles sobre el Entorno del Servicio de aplicaciones. Solo haga clic en el vínculo Crear de esa hoja para iniciar la hoja de creación.
 
-5. Luego, escriba el nombre, seleccione la suscripción que desea usar, seleccione un grupo de recursos o cree uno nuevo y seleccione una red virtual. **Tenga en cuenta** que después de elegir una red virtual, no puede cambiarla: ![][6] Para obtener más información sobre cómo funcionan las redes virtuales con un entorno del Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md).
+5. Luego, escriba el nombre, seleccione la suscripción que desea usar, seleccione un grupo de recursos o cree uno nuevo y seleccione una red virtual. **Tenga en cuenta** que después de elegir una red virtual, no puede cambiarla:
+
+![][6]
+
+Para obtener más información sobre cómo funcionan las redes virtuales con un entorno del Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md).
 
 6. Seleccione **Agregar** para terminar de crear el entorno del Servicio de aplicaciones.
 
@@ -158,8 +168,15 @@ Recuerde que también puede agregar aplicaciones web, aplicaciones móviles y ap
 Para obtener acceso al entorno del Servicio de aplicaciones, crear API, conexiones y otros recursos, los usuarios se deben agregar con el rol Propietario.
 
 1. Seleccione el entorno del Servicio de aplicaciones que acaba de crear.
-2. En Aspectos esenciales, seleccione la propiedad **Grupo de recursos**. Se abrirá el grupo de recursos que contiene el entorno del Servicio de aplicaciones: ![][7]
-3. Seleccione el icono RBAC para administrar los permisos: ![][8] Agregar usuarios y asignar roles es como utilizar [Control de acceso basado en roles](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dentro de Azure.
+2. En Aspectos esenciales, seleccione la propiedad **Grupo de recursos**. Se abrirá el grupo de recursos que contiene el entorno del Servicio de aplicaciones:
+
+	![][7]
+
+3. Seleccione el icono RBAC para administrar los permisos:
+
+	![][8]
+
+Agregar usuarios y asignar roles es como utilizar [Control de acceso basado en roles]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dentro de Azure.
 
 > [AZURE.NOTE] Actualmente, no puede otorgar permisos de RBAC al entorno del Servicio de aplicaciones. Puede otorgar permisos de RBAC al nivel de grupo de recursos primario.
 

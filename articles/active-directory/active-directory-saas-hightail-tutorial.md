@@ -165,7 +165,7 @@ La aplicación Hightail espera las aserciones de SAML en un formato concreto. Co
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_06.png)
 
-	a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Hightail con el siguiente patrón: ****https://www.hightail.com/loginSSO**. Esta es la página de inicio de sesión común para todos los clientes que quieren usar el inicio de sesión único.
+	a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Hightail con el siguiente patrón: **https://www.hightail.com/loginSSO**. Esta es la página de inicio de sesión común para todos los clientes que quieren usar el inicio de sesión único.
 
 	b. Haga clic en **Siguiente**.
 

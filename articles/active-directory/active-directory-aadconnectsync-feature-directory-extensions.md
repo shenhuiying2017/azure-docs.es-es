@@ -21,7 +21,8 @@ Las extensiones de directorio le permiten ampliar el esquema de Azure AD con sus
 
 En la actualidad, ninguna carga de trabajo de Office 365 consumirá estos atributos.
 
-Configure qué atributos adicionales desea sincronizar en la ruta de acceso de configuración personalizada en el Asistente para instalación. ![Asistente para la extensión de esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) La instalación mostrará los atributos siguientes, que son candidatos válidos:
+Configure qué atributos adicionales desea sincronizar en la ruta de acceso de configuración personalizada en el Asistente para instalación.
+![Asistente para la extensión de esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) La instalación mostrará los atributos siguientes, que son candidatos válidos:
 
 - Tipos de objetos de usuario y de grupo
 - Atributos de valor único: cadena, booleano, entero y binario
@@ -29,7 +30,8 @@ Configure qué atributos adicionales desea sincronizar en la ruta de acceso de c
 
 Un objeto puede tener hasta 100 atributos de extensiones de directorio. La longitud máxima es de 250 caracteres. Si un valor de atributo es mayor, el motor de sincronización lo truncará.
 
-Durante la instalación de Azure AD Connect, se registrará una aplicación donde estos atributos estarán disponibles. Puede ver esta aplicación en el Portal de Azure. ![Aplicación de extensión de esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
+Durante la instalación de Azure AD Connect, se registrará una aplicación donde estos atributos estarán disponibles. Puede ver esta aplicación en el Portal de Azure.
+![Aplicación de extensión de esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
 
 Estos atributos ahora estarán disponibles mediante Graph:![Gráfico](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 

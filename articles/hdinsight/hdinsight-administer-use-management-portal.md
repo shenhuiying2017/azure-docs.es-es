@@ -83,14 +83,15 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 	
 	- Para personalizar el menú, haga clic con el botón secundario en el menú y, después, haga clic en **Personalizar**.
 	- **Configuración** y **Toda la configuración**: Muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
-	- **Panel**, **Panel de clúster** y **URL: se trata, en los tres casos, de formas de acceder al panel de clúster, que es Ambari Web para clústeres basados en Linux. **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante una conexión de Secure Shell (SSH).
+	- **Panel**, **Panel de clúster** y **URL: se trata, en los tres casos, de formas de acceder al panel de clúster, que es Ambari Web para clústeres basados en Linux. 
+	- **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante una conexión de Secure Shell (SSH).
 	- **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
 	- **Eliminar**: elimina el clúster.
 	- **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
 	- **Usuarios (![icono de usuarios](./media/hdinsight-administer-use-portal-linux/users.png))**: permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
 	
 		> [AZURE.IMPORTANT] Esto _solo_ afecta al acceso y a los permisos para este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
-	- **Etiquetas (![icono de etiqueta](./media/hdinsight-administer-use-portal-linux/tags.png))**: las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
+	- **Etiquetas** (![icono de etiqueta](./media/hdinsight-administer-use-portal-linux/tags.png)): las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
 	- **Vistas de Ambari**: se trata de vínculos a Web de Ambari.
 	
 	> [AZURE.IMPORTANT] Para administrar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para obtener más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md).
@@ -199,7 +200,8 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
 ##Pausa o apagado de clústeres
 
-La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan sol ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso. También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso.
+La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan sol ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso. 
+También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso.
 
 Hay muchas maneras de programar el proceso:
 
