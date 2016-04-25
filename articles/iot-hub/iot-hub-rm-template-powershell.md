@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="04/07/2016"
      ms.author="dobett"/>
 
 # Creación de un Centro de IoT con Powershell
@@ -31,7 +31,7 @@ Para completar este tutorial, necesitará lo siguiente:
 - Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] o versiones posteriores.
 
-> [AZURE.TIP] El artículo [Uso de Azure PowerShell con Administrador de recursos de Azure][lnk-powershell-arm] proporciona más información acerca de cómo usar scripts de PowerShell y plantillas del Administrador de recursos de Azure para crear recursos de Azure.
+> [AZURE.TIP] El artículo [Uso de Azure PowerShell con Azure Resource Manager][lnk-powershell-arm] proporciona más información acerca de cómo usar scripts de PowerShell y plantillas del Administrador de recursos de Azure para crear recursos de Azure.
 
 ## Conectarse a su suscripción de Azure
 
@@ -58,7 +58,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 Use una plantilla de JSON para crear un nuevo centro de IoT en el grupo de recursos. También puede usar la plantilla para realizar cambios en un centro de IoT existente.
 
-1. Utilice un editor de texto para crear una plantilla del Administrador de recursos de Azure llamada **template.json** con la siguiente definición de recursos a fin de crear un nuevo Centro de IoT estándar. En este ejemplo se agrega el Centro de IoT a la región **Este de EE. UU.** y se usa la versión de API **2016-02-03**. En esta plantilla se espera también que pase el nombre del Centro de IoT como un parámetro denominado **hubName**.
+1. Utilice un editor de texto para crear una plantilla del Administrador de recursos de Azure llamada **template.json** con la siguiente definición de recursos a fin de crear un nuevo Centro de IoT estándar. Este ejemplo agrega el Centro de IoT e la región **Este de EE. UU.**, crea dos grupos de consumidores (**cg1** y **cg2**) en el punto de conexión compatible con Centro de eventos y usa la versión de API **2016-02-03**. En esta plantilla se espera también que pase el nombre del centro de IoT como un parámetro denominado **hubName**.
 
     ```
     {
@@ -83,6 +83,22 @@ Use una plantilla de JSON para crear un nuevo centro de IoT en el grupo de recur
         "properties": {
           "location": "East US"
         }
+      },
+      {
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
+        "name": "[concat(parameters('hubName'), '/events/cg1')]",
+        "dependsOn": [
+          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
+        ]
+      },
+      {
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
+        "name": "[concat(parameters('hubName'), '/events/cg2')]",
+        "dependsOn": [
+          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
+        ]
       }
       ],
       "outputs": {
@@ -96,7 +112,7 @@ Use una plantilla de JSON para crear un nuevo centro de IoT en el grupo de recur
 
 2. Guarde el archivo de plantilla en el equipo local. En este ejemplo se da por supuesto que lo guarda en una carpeta denominada **c:\\templates**.
 
-3. Ejecute el comando siguiente para implementar el nuevo Centro de IoT, pasando el nombre de su Centro de IoT como un parámetro. En este ejemplo, el nombre del centro de IoT es **myiothub**:
+3. Ejecute el comando siguiente para implementar el nuevo Centro de IoT, pasando el nombre de su Centro de IoT como un parámetro. En este ejemplo, el nombre del Centro de IoT es **myiothub** (tenga en cuenta que este nombre debe ser único global).
 
     ```
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName myiothub
@@ -112,7 +128,7 @@ Use una plantilla de JSON para crear un nuevo centro de IoT en el grupo de recur
 
 Ahora que ha implementado un Centro de IoT mediante una plantilla del Administrador de recursos de Azure con PowerShell, quizá desee seguir explorando:
 
-- Lea sobre las capacidades de la API de REST en [IoT Hub Resource Provider REST API][lnk-rest-api] (API de REST del proveedor de recursos del centro de IoT).
+- Lea sobre las funcionalidades de la [API de REST del proveedor de recursos del Centro de IoT][lnk-rest-api].
 - Lea la [Información general de Administrador de recursos de Azure][lnk-azure-rm-overview] para más información sobre las capacidades del Administrador de recursos de Azure.
 
 <!-- Links -->
@@ -123,4 +139,4 @@ Ahora que ha implementado un Centro de IoT mediante una plantilla del Administra
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

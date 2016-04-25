@@ -388,9 +388,7 @@ En esta sección se resumen los extremos de máquina virtual de Microsoft Azure 
 
 	|Port|Tipo|Descripción|
 |---|---|---|
-|**80**|TCP|Acceso remoto al servidor de informes (*).|
-|**1433**|TCP|SQL Server Management Studio (*).|
-|**1434**|UDP|SQL Server Browser. Esto es necesario cuando la máquina virtual se une a un dominio.|
+|**80**|TCP|Acceso remoto al servidor de informes (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|SQL Server Browser. Esto es necesario cuando la máquina virtual se une a un dominio.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instancia predeterminada de SQL Server Analysis Services e instancias con nombre en clúster.|
 |**Definida por el usuario**|TCP|Cree un puerto de instancia con nombre de Analysis Services estático para un número de puerto que elija y luego desbloquee el número de puerto en el firewall.|
@@ -409,7 +407,7 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - Revise la directiva de compatibilidad para software de servidor de Microsoft usado en el entorno de máquina virtual de Azure. En el tema siguiente se resume la compatibilidad para características como BitLocker, agrupación en clústeres de conmutación por error y equilibrio de carga de red. [Compatibilidad de software de servidor de Microsoft para máquinas virtuales Azure](http://support.microsoft.com/kb/2721672).
 
-- [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-classic-sql-overview.md)
+- [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
 - [Máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -417,7 +415,7 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - [Acoplamiento de un disco de datos a una máquina virtual](virtual-machines-windows-classic-attach-disk.md)
 
-- [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-windows-classic-migrate-sql.md)
+- [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-windows-migrate-sql.md)
 
 - [Determinar el modo de servidor de una instancia de Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 
@@ -433,4 +431,4 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - [Administración de Base de datos SQL de Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

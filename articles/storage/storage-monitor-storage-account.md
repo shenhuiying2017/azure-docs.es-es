@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="04/06/2016"
 	ms.author="robinsh"/>
 
 # Supervisión de una cuenta de almacenamiento en el Portal de Azure
@@ -25,6 +25,8 @@ Puede supervisar su cuenta de almacenamiento en el [Portal de Azure](https://por
 > [AZURE.NOTE] Existen costos adicionales asociados con el análisis de los datos de supervisión en el [Portal de Azure](https://portal.azure.com). Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Facturación y análisis de almacenamiento</a>. <br />
 
 > Almacenamiento de archivos de Azure admite actualmente las métricas del Análisis de almacenamiento, pero aún no admite el registro. Puede habilitar las métricas para el Almacenamiento de archivos de Azure a través del [Portal de Azure](https://portal.azure.com).
+
+> En este momento, las cuentas de almacenamiento con un tipo de replicación de almacenamiento con redundancia de zona (ZRS) no tienen habilitadas las métricas o la funcionalidad de registro.
 
 > Para obtener orientación exhaustiva sobre el uso de análisis de almacenamiento y otras herramientas para identificar, diagnosticar y solucionar problemas relacionados con el Almacenamiento de Azure, consulte [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -157,4 +159,4 @@ Para cada uno de los servicios de almacenamiento disponibles en su cuenta de alm
 
 Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor $logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

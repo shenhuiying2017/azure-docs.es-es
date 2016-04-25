@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sstein"/>
 
 # Administración y cambio de tamaño de un grupo de bases de datos elásticas con C#
@@ -34,7 +34,6 @@ Para ver los códigos de error comunes, consulte [Códigos de error para las apl
 En los ejemplos se utiliza la [biblioteca de Base de datos SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), por lo que tendrá que instalar la biblioteca. Puede instalarla ejecutando el siguiente comando en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
-
 
 
 ## Actualización de un grupo
@@ -124,7 +123,10 @@ En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
         Console.WriteLine("  Database {0}", db.Name);
     }
 
+## Latencia de las operaciones de grupos elásticos
 
+- El cambio del número garantizado de eDTU por base de datos (databaseDtuMin) o del número máximo de eDTU por base de datos (databaseDtuMax) suele completarse en cinco minutos o menos.
+- El cambio del límite de eDTU o de almacenamiento (storageMB) del grupo depende de la cantidad total de espacio que usen todas las bases de datos del grupo. Los cambios tienen un duración media de 90 minutos o menos por cada 100 GB. Por ejemplo, si el espacio total que usan todas las bases de datos del grupo es de 200 GB, la latencia esperada para el cambio del límite de eDTU o de almacenamiento es de tres horas o menos.
 
 
 ## Administración de un ejemplo de grupo con C#
@@ -135,7 +137,7 @@ Las bibliotecas siguientes son necesarias para ejecutar este ejemplo. Puede inst
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Cree una aplicación de consola y reemplace el contenido de Program.cs por el código siguiente. Para obtener el identificador de cliente necesario y valores relacionados, consulte [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md) (Registro de la aplicación y obtención de los valores de cliente obligatorios para conectar la aplicación a Base de datos SQL).
+Cree una aplicación de consola y reemplace el contenido de Program.cs por el código siguiente. Para obtener el identificador de cliente necesario y valores relacionados, consulte [Obtención del identificador de cliente y la clave para conectarse a Base de datos SQL desde el código](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -458,4 +460,4 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
 - [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Referencia de grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="04/06/2016"
 	ms.author="renash"/>
 
 
@@ -58,7 +58,7 @@ Cuando cree un trabajo de importación o de exportación, deberá tener también
 4.	**Destinos de almacenamiento de blobs:** los datos pueden cargarse o descargarse de blobs en bloques y blobs de página.
 5.	**Número de trabajos:** un cliente puede tener hasta 20 trabajos activos por cuenta de almacenamiento.
 6.	**Tamaño máximo de un trabajo:** el tamaño de un trabajo lo determina la capacidad de los discos duros utilizados y la cantidad máxima de datos que se pueden almacenar en una cuenta de almacenamiento. Cada trabajo puede incluir hasta 10 discos duros.
-7.  **Sistemas operativos compatibles:** el cliente puede usar uno de los siguientes sistemas operativos de 64 bits para preparar el disco duro con la herramienta de importación y exportación de Azure antes de enviar un trabajo a Azure: Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.  
+7.  **Sistemas operativos compatibles:** el cliente puede usar uno de los siguientes sistemas operativos de 64 bits para preparar el disco duro con la herramienta de importación y exportación de Azure antes de enviar un trabajo a Azure: Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10*, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. Todos estos sistemas operativos admiten el cifrado de unidad BitLocker.  
 
   > [AZURE.IMPORTANT]
   >  
@@ -288,4 +288,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

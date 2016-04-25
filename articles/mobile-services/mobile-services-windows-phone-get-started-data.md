@@ -172,7 +172,7 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 
 * [Agregar notificaciones de inserción a su aplicación](mobile-services-javascript-backend-windows-phone-get-started-push.md) <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
-* [Referencia conceptual de Servicios móviles con C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
+* [Referencia conceptual de Servicios móviles con C#](mobile-services-dotnet-how-to-use-client-library.md) <br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 <!-- Anchors. -->
 [Download the Windows Phone 8 app project]: #download-app
@@ -196,4 +196,4 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

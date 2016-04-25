@@ -9,7 +9,7 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
+	ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
 	ms.date="11/17/2015"
@@ -17,7 +17,7 @@
 
 # Configuración del registro de diagnóstico de Azure en Application Insights
 
-Cuando se configura un proyecto de Servicios en la nube o una máquina Virtual en Microsoft Azure, [Azure puede generar un registro de diagnóstico](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). Puede hacer que dicho registro se envíe a Application Insights para poder analizarlo junto con los datos de telemetría de diagnóstico y uso que el SDK de Application Insights envía desde la aplicación. El registro de Azure incluye eventos de la administración de la aplicación, como inicio, detención, bloqueos, así como contadores de rendimiento. El registro también incluye llamadas de la aplicación a System.Diagnostics.Trace.
+Cuando se configura un proyecto de Servicios en la nube o una máquina Virtual en Microsoft Azure, [Azure puede generar un registro de diagnóstico](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md/). Puede hacer que dicho registro se envíe a Application Insights para poder analizarlo junto con los datos de telemetría de diagnóstico y uso que el SDK de Application Insights envía desde la aplicación. El registro de Azure incluye eventos de la administración de la aplicación, como inicio, detención, bloqueos, así como contadores de rendimiento. El registro también incluye llamadas de la aplicación a System.Diagnostics.Trace.
 
 En este artículo se describe la configuración de la captura de diagnóstico en detalle.
 
@@ -62,7 +62,7 @@ Cuando usa las propiedades de rol para establecer "Enviar datos a Application In
         <Channel logLevel="Verbose" name="MyLogData"  />
       </Channels>
      </Sink>
-    </SinksConfig> 
+    </SinksConfig>
 
 ```
 
@@ -116,7 +116,7 @@ Este es un ejemplo completo del archivo de configuración pública que envía to
         <DataSource name="Application!*" />
       </WindowsEventLog>
       <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose"
-            sinks="ApplicationInsights.MyLogData"/> 
+            sinks="ApplicationInsights.MyLogData"/>
        <!-- This specific info sent to this channel -->
      </DiagnosticMonitorConfiguration>
 
@@ -136,9 +136,9 @@ Este es un ejemplo completo del archivo de configuración pública que envía to
 
 Existen algunas limitaciones que se deben tener en cuenta con esta funcionalidad:
 
-* Los canales solo están diseñados para funcionar con tipos de registros y no con contadores de rendimiento. Si especifica un canal con un elemento de contador de rendimiento se pasará por alto. 
-* El nivel de registro de un canal no puede superar el nivel de registro de lo que va a recopilar con Diagnósticos de Azure. Por ejemplo, no puede recopilar errores de registro de aplicación del elemento Logs e intentar enviar registros detallados al receptor de Application Insights. El atributo scheduledTransferLogLevelFilter debe recopilar siempre un número de registros igual o superior a los registros que intenta enviar a un receptor. 
-* No puede enviar datos de blob recopilados mediante la extensión de Diagnósticos de Azure a Application Insights. Por ejemplo, nada de lo especificado en el nodo Directories. En el caso de volcados de memoria, el volcado real se sigue enviando al almacenamiento de blobs y solo se enviará a Application Insights una notificación de que el volcado de memoria se ha generado. 
+* Los canales solo están diseñados para funcionar con tipos de registros y no con contadores de rendimiento. Si especifica un canal con un elemento de contador de rendimiento se pasará por alto.
+* El nivel de registro de un canal no puede superar el nivel de registro de lo que va a recopilar con Diagnósticos de Azure. Por ejemplo, no puede recopilar errores de registro de aplicación del elemento Logs e intentar enviar registros detallados al receptor de Application Insights. El atributo scheduledTransferLogLevelFilter debe recopilar siempre un número de registros igual o superior a los registros que intenta enviar a un receptor.
+* No puede enviar datos de blob recopilados mediante la extensión de Diagnósticos de Azure a Application Insights. Por ejemplo, nada de lo especificado en el nodo Directories. En el caso de volcados de memoria, el volcado real se sigue enviando al almacenamiento de blobs y solo se enviará a Application Insights una notificación de que el volcado de memoria se ha generado.
 
 ## Temas relacionados
 
@@ -146,4 +146,4 @@ Existen algunas limitaciones que se deben tener en cuenta con esta funcionalidad
 * [Uso de PowerShell para enviar diagnósticos de Azure a Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Archivo de configuración de Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0413_2016-->

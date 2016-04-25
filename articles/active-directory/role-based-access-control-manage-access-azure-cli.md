@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="02/29/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Administración del control de acceso basado en rol con la interfaz de la línea de comandos de Azure
@@ -23,9 +23,14 @@
 - [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
 - [API DE REST](role-based-access-control-manage-access-rest.md)
 
-## Enumeración de roles de control de acceso basado en rol (RBAC)
+El control de acceso basado en rol (RBAC) del Portal de Azure y la API de Azure Resource Manager permiten administrar el acceso a su suscripción y sus recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
 
->[AZURE.IMPORTANT] Para poder usar los cmdlets de este artículo, debe [instalar la CLI de Azure](../xplat-cli-install.md).
+Para poder usar la CLI de Azure para administrar RBAC, necesita lo siguiente:
+
+- CLI de Azure versión 0.8.8 o posterior. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
+- Azure Resource Manager en la CLI de Azure Para obtener más información, consulte [Uso de la interfaz de la línea de comandos de Azure con Resource Manager](../xplat-cli-azure-resource-manager.md).
+
+## Lista de roles
 
 ###	Lista de todos los roles disponibles
 Para enumerar todos los roles disponibles, use:
@@ -47,17 +52,17 @@ El ejemplo siguiente muestra las acciones del rol *Colaborador* y del rol *Colab
 
 ##	Lista de acceso
 ###	Lista de las asignaciones de rol vigentes en un grupo de recursos
-Para enumerar las asignaciones de rol vigentes en un grupo de recursos, use:
+Para mostrar las asignaciones de roles de un grupo de recursos, utilice:
 
     azure role assignment list --resource-group <resource group name>
 
-El ejemplo siguiente muestra las asignaciones de rol vigentes en el grupo *pharma-sales-projecforcast*.
+En el ejemplo siguiente, se muestran las asignaciones de roles del grupo *pharma-sales-projecforcast*.
 
 ![Línea de comandos de Azure RBAC: lista de asignación de roles de Azure por grupo (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ###	Lista de asignaciones de rol para un usuario, incluidas las asignadas a los grupos de un usuario
 
-El ejemplo siguiente muestra las asignaciones de rol vigentes en el usuario **sameert@aaddemo.com*.
+En el ejemplo siguiente, se muestran las asignaciones de roles concedidas al usuario **sameert@aaddemo.com*. Entre ellas, los roles asignados directamente al usuario y también aquellos heredados de los grupos.
 
 ![Línea de comandos de Azure RBAC: lista de asignación de roles de Azure por usuario (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -122,7 +127,7 @@ En el ejemplo siguiente se crea un rol personalizado denominado *Operador de má
 
 ## Modificación de un rol personalizado
 
-Para modificar un rol personalizado, use en primer lugar el comando `azure role show` para recuperar la definición de rol. Seguidamente, realice los cambios que quiera en la definición del rol. Por último, use `azure role set` para guardar la definición de rol modificada.
+Para modificar un rol personalizado, use en primer lugar el comando `azure role show` para recuperar la definición de rol. Seguidamente, realice los cambios que quiera en la definición del rol. Por último, use `azure role set` para guardar la definición de roles modificada.
 
 En el ejemplo siguiente, se agrega la operación Microsoft.Insights/diagnosticSettings/* a **Acciones** y una suscripción de Azure al valor de **AssignableScopes** del rol personalizado de operador de máquina virtual.
 
@@ -132,7 +137,7 @@ En el ejemplo siguiente, se agrega la operación Microsoft.Insights/diagnosticSe
 
 ## Eliminación de un rol personalizado
 
-Para eliminar un rol personalizado, use primero el comando `azure role show` para determinar el **identificador** del rol. Luego, use el comando `azure role delete` para eliminar el rol especificando el **identificador**.
+Para eliminar un rol personalizado, use primero el comando `azure role show` para determinar el **id.** del rol. Luego, use el comando `azure role delete` para eliminar el rol especificando el **id**.
 
 En el ejemplo siguiente se quita el rol personalizado *Operador de máquina virtual*.
 
@@ -157,4 +162,4 @@ En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no 
 ## Temas de RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

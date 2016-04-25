@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="04/08/2016" 
 	ms.author="johnmac"/>
 
 # Niveles de rendimiento en DocumentDB
@@ -97,9 +97,9 @@ Es recomendable que la aplicación haga uso de un pequeño número de coleccione
 
 ## Cambio de los niveles de rendimiento mediante el Portal de Azure clásico
 
-El Portal de Azure clásico es una opción disponible al administrar los niveles de rendimiento de las colecciones. Siga estos pasos para cambiar el nivel de rendimiento de una colección desde el Portal de Azure clásico.
+El Portal de Azure clásico es una opción disponible al administrar los niveles de rendimiento de las colecciones. Siga estos pasos para pasar de usar niveles de rendimiento predefinidos a niveles de rendimiento definidos por el usuario en el Portal de Azure, o vea el [vídeo de Channel 9](https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance) de 75 segundos. Para obtener más información sobre el cambio a las opciones de precios, consulte la entrada de blog [DocumentDB: Everything you need to know about using the new pricing options (DocumentDB: todo lo que necesita saber acerca del uso de las nuevas opciones de precios)](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
 
-1. Vaya al [**Portal de Microsoft Azure**](https://portal.azure.com) desde el explorador.
+1. Vaya al [**Portal de Azure**](https://portal.azure.com) desde el explorador.
 2. Haga clic en **Examinar** en la barra de accesos directos del lado izquierdo.
 3. En el concentrador **Examinar**, haga clic en **Cuentas de DocumentDB** en la etiqueta **Filtrar por**.
 4. En la hoja **Cuentas de DocumentDB**, haga clic en la cuenta de DocumentDB que contiene la colección deseada.
@@ -113,15 +113,15 @@ El Portal de Azure clásico es una opción disponible al administrar los niveles
 
 9. En la hoja **Elija su plan de tarifa**, haga clic en **Seleccionar**.
 
-10. De vuelta en la hoja **Administración colección**, el valor de la opción **Plan de tarifa** se habrá cambiado a **Estándar** y se mostrará el cuadro **Rendimiento (RU/s)**.
+10. De vuelta en la hoja **Administrar colección**, el valor de la opción **Plan de tarifa** se habrá cambiado a **Estándar** y se mostrará el cuadro **Rendimiento (RU/s)**.
 
-    Cambie el valor del cuadro **Rendimiento (RU/s)** a uno comprendido entre 400 y 10 000 [unidades de solicitud](documentdb-request-units.md) por segundo (RU/s). El **resumen de precios** de la parte inferior de la página se actualiza automáticamente para ofrecer una estimación del coste mensual.
+    Cambie el valor del cuadro **Rendimiento (RU/s)** a uno comprendido entre 400 y 10 000 [unidades de solicitud](documentdb-request-units.md) por segundo (RU/s). La opción **Resumen de precios** situada en la parte inferior de la página se actualiza automáticamente para ofrecer una estimación del costo mensual.
 
     ![Captura de pantalla de la hoja Administrar colección en la que se muestra dónde cambiar el valor de rendimiento de la colección.][2]
 
 9. En la hoja **Administrar colección**, haga clic en **Aceptar** para actualizar su colección al rendimiento definido por el usuario.
 
-Si cree que necesita más rendimiento (superior a 10 000 RU/s) o espacio de almacenamiento (mayor que 10 GB), puede crear una colección con particiones. Para crear una colección con particiones, consulte el [artículo sobre cómo crear una colección](documentdb-create-collection.md).
+Si cree que necesita más rendimiento (superior a 10 000 RU/s) o espacio de almacenamiento (mayor que 10 GB), puede crear una colección con particiones. Para crear una colección con particiones, consulte [Creación de una colección](documentdb-create-collection.md).
 
 >[AZURE.NOTE] Cambiar los niveles de rendimiento de una colección puede llevar hasta 2 minutos.
 
@@ -176,4 +176,4 @@ Para obtener más información acerca de DocumentDB, consulte la [documentación
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

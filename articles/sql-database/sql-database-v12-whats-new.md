@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Novedades de Base de datos SQL V12 | Microsoft Azure" 
-	description="Describe cuáles son las ventajas que van a obtener los sistemas empresariales que están utilizando Base de datos SQL de Azure en la nube al actualizarse a la versión V12 ahora." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Novedades de Base de datos SQL V12 | Microsoft Azure"
+	description="Describe cuáles son las ventajas que van a obtener los sistemas empresariales que están utilizando Base de datos SQL de Azure en la nube al actualizarse a la versión V12 ahora."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/21/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/21/2016"
 	ms.author="genemi"/>
 
 
@@ -39,8 +39,9 @@ La información más reciente sobre los límites de recursos de Base de datos SQ
 
 Uno de los principales objetivos de Base de datos SQL V12 era mejorar la compatibilidad con Microsoft SQL Server 2014 y mantenerla a medida que se publican nuevas versiones de SQL Server. Entre otros ámbitos, V12 logra la paridad con SQL Server en el importante campo de la programación. Por ejemplo:
 
+- [Compatibilidad con JSON](https://msdn.microsoft.com/library/dn921897.aspx)
 
-- [Funciones de ventana](http://msdn.microsoft.com/library/ms189798.aspx), con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Funciones de ventana](http://msdn.microsoft.com/library/ms189798.aspx), con [OVER](http://msdn.microsoft.com/library/ms189461.aspx)
 
 - [Índices XML](http://msdn.microsoft.com/library/bb934097.aspx) e [Índices XML selectivos](http://msdn.microsoft.com/library/jj670104.aspx)
 
@@ -166,4 +167,4 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 
 [Términos de uso complementarios para versiones de vista previa de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,9 +1,9 @@
 <properties
    pageTitle="Límites de capacidad de Almacenamiento de datos SQL | Microsoft Azure"
-   description="Valores máximos para conexiones, consultas, DDL y DML de Transact-SQL y vistas del sistema de Almacenamiento de datos SQL."
+   description="Valores máximos para las bases de datos, tablas, conexiones y consultas de Almacenamiento de datos SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="barbkess;jrj;sonyama"/>
+   ms.date="04/12/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # Límites de capacidad de Almacenamiento de datos SQL
 
@@ -24,31 +24,23 @@ Valores máximos para respaldar las cargas de trabajo de análisis más exigente
 
 | Categoría | Descripción | Máxima |
 | :---------------- | :------------------------------------------- | :----------------- |
+| Base de datos | Tamaño máximo | 60 TB comprimidos<br/><br/>Almacenamiento de datos SQL tiene cabida para un máximo de 60 TB de espacio sin formato en disco por base de datos. El espacio en disco es el tamaño comprimido de las tablas permanentes. Este espacio es independiente del espacio de tempdb o de registro y, por tanto, está dedicado a las tablas permanentes. La compresión del almacén de columnas agrupado se calcula mediante un factor de 5, lo que significa que el tamaño sin comprimir de la base de datos podría aumentar hasta unos 300 TB cuando todas las tablas se agrupan en el almacén de columnas (que es el tipo de tabla predeterminado). El límite de 60 TB aumentará a 240 TB al final de la vista previa, algo que debería permitir que casi todas las bases de datos crezcan por encima de 1 PB de datos sin comprimir.|
 | Base de datos | Sesiones abiertas simultáneas | 1024<br/><br/>Se admite un máximo de 1024 conexiones activas que pueden enviar solicitudes a cada base de datos de Almacenamiento de datos SQL de forma simultánea. Tenga en cuenta que hay límites en el número de consultas que se pueden ejecutar a la vez. Cuando se supera un límite, la solicitud entra en una cola interna donde espera a ser procesada.|
 | Conexión de base de datos | Memoria máxima para instrucciones preparadas | 20 MB |
+| Administración de cargas de trabajo | N.º máximo de consultas simultáneas | 32<br/><br/> Almacenamiento de datos SQL tiene 32 unidades de simultaneidad denominadas ranuras de simultaneidad.<br/><br/>Si todas las consultas se ejecutan con la asignación de recursos predeterminada de una ranura de simultaneidad, se pueden llegar a tener 32 consultas de usuario simultáneas. En la práctica, el número máximo de consultas simultáneas depende del objetivo de nivel de servicio (SLO) y de los requisitos de recursos de cada consulta. Cuando no hay recursos disponibles, las consultas esperan en una cola interna. Para obtener más información, consulte [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL][].|
+| Administración de cargas de trabajo | Número máximo de ranuras de simultaneidad por objetivo de nivel de servicio (SLO) |Se trata del número de ranuras de simultaneidad que cada nivel de servicio puede usar para ejecutar consultas que requieren más recursos de CPU y memoria. En la administración de cargas de trabajo, puede usar clases de recursos integradas para aumentar los recursos de CPU y memoria de una consulta. Una ejecución con más recursos conlleva que haya más ranuras de simultaneidad.<br/><br/>Algunas consultas no se ejecutan con clases de recursos. Estas consultas usan una unidad de simultaneidad y no ocupan ninguna de las ranuras de simultaneidad enumeradas a continuación. Para ver una lista de las consultas que Almacenamiento de datos SQL ejecuta (y las que no ejecuta) dentro de las clases de recursos, consulte [Simultaneidad y administración de cargas de trabajo][].<br/><br/>DWU100 = 4<br/><br/>DWU200 = 8<br/><br/>DWU300 = 12<br/><br/>DWU400 = 16<br/><br/>DWU500 = 20<br/><br/>DWU600 = 24<br/><br/>DWU1000 = 40<br/><br/>DWU1200 = 48<br/><br/>DWU1500 = 60 |
 
 
-## Procesamiento de consultas
-
-| Categoría | Descripción | Máxima |
-| :---------------- | :------------------------------------------- | :----------------- |
-| Consultar | Consultas simultáneas en tablas de usuario | 32<br/><br/>Número máximo de consultas que se pueden ejecutar al mismo tiempo. El número real en un momento dado depende el objetivo de nivel de servicio de la base de datos y la clase de recurso de la consulta. Cuando no hay recursos disponibles, las consultas esperan en una cola interna. Para obtener más información, consulte [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL][].|
-| Consultar | Consultas en cola en tablas de usuario | 1000 |
-| Consultar | Consultas simultáneas en vistas de sistema | 100 |
-| Consultar | Consultas en cola en vistas de sistema | 1000 |
-| Consultar | Parámetros máximos | 2098 |
-| Lote | Tamaño máximo | 65 536*4096 |
-
-
-## Lenguaje de definición de datos (DDL)
+## Objetos de base de datos
 
 | Categoría | Descripción | Máxima |
 | :---------------- | :------------------------------------------- | :----------------- |
+| Tabla | Tamaño máximo | 60 TB comprimidos en disco |
 | Tabla | Tablas por base de datos | 2 mil millones |
 | Tabla | Columnas por tabla | 1024 columnas |
 | Tabla | Bytes por columna | 8000 bytes |
-| Tabla | Bytes por fila, tamaño definido | 8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página activada. Al igual que SQL Server, Almacenamiento de datos SQL admite el almacenamiento con desbordamiento de fila, lo que permite insertar columnas de longitud variable de forma no consecutiva. Solo se almacena una raíz de 24 bytes en el registro principal para las columnas de longitud variable insertadas de manera no consecutiva. Para obtener más información, consulte el tema [Datos de desbordamiento de fila superiores a 8 kB](https://msdn.microsoft.com/library/ms186981.aspx) disponible en los Libros en pantalla de SQL Server.<br/><br/>Para ver una lista de tamaños de los tipos de datos de Almacenamiento de datos SQL, consulte [CREATE TABLE (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt203953.aspx) (CREATE TABLE [Almacenamiento de datos SQL de Azure]). |
-| Tabla | Bytes por fila, tamaño de búfer interno para el movimiento de los datos | 32 768<br/><br/>Nota: Este límite existe actualmente, pero desaparecerá pronto.<br/><br/>Almacenamiento de datos SQL utiliza un búfer interno para mover filas dentro del sistema distribuido de este servicio. El servicio que mueve las filas se denomina Servicio de movimiento de datos (DMS) y almacena filas en un formato diferente al de SQL Server.<br/><br/>Si una fila no cabe en el búfer interno, obtendrá un error de compilación de consulta o un error de movimiento de datos internos. Para evitar este problema, consulte [Detalles sobre el tamaño de búfer de DMS](#details-about-the-dms-buffer-size).|
+| Tabla | Bytes por fila, tamaño definido | 8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página activada. Al igual que SQL Server, Almacenamiento de datos SQL admite el almacenamiento con desbordamiento de fila, lo que permite insertar columnas de longitud variable de forma no consecutiva. Solo se almacena una raíz de 24 bytes en el registro principal para las columnas de longitud variable insertadas de manera no consecutiva. Para obtener más información, consulte el tema [Datos de desbordamiento de fila superiores a 8 KB](https://msdn.microsoft.com/library/ms186981.aspx) disponible en los Libros en pantalla de SQL Server.<br/><br/>Para ver una lista de tamaños de los tipos de datos de Almacenamiento de datos SQL, consulte [CREATE TABLE (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt203953.aspx) (CREATE TABLE [Almacenamiento de datos SQL de Azure]). |
+| Tabla | Bytes por fila, tamaño de búfer interno para el movimiento de los datos | 32 768<br/><br/>Nota: Este límite existe actualmente, pero desaparecerá pronto.<br/><br/>Almacenamiento de datos SQL usa un búfer interno para mover filas dentro del sistema distribuido de este servicio. El servicio que mueve las filas se denomina Servicio de movimiento de datos (DMS) y almacena filas en un formato diferente al de SQL Server.<br/><br/>Si una fila no cabe en el búfer interno, obtendrá un error de compilación de consulta o un error de movimiento de datos internos. Para evitar este problema, consulte [Detalles sobre el tamaño de búfer de DMS](#details-about-the-dms-buffer-size).|
 | Tabla | Particiones por tabla | 15 000<br/><br/>Para obtener un alto rendimiento, se recomienda reducir el número de particiones que necesita pero sin perder de vista sus necesidades empresariales. A medida que crece el número de particiones, la sobrecarga de operaciones de lenguaje de definición de datos (DDL) y lenguaje de manipulación de datos (DML) crece y da lugar a un rendimiento más lento.|
 | Tabla | Caracteres por valor de límite de partición| 4000 |
 | Índice | Índices no agrupados por tabla | 999<br/><br/>Solo se aplica a tablas de almacén de filas.|
@@ -64,10 +56,15 @@ Valores máximos para respaldar las cargas de trabajo de análisis más exigente
 | Ver | Columnas por vista | 1024 |
 
 
-## Lenguaje de manipulación de datos (DML)
+## Consultas
 
 | Categoría | Descripción | Máxima |
 | :---------------- | :------------------------------------------- | :----------------- |
+| Consultar | Consultas en cola en tablas de usuario | 1000 |
+| Consultar | Consultas simultáneas en vistas de sistema | 100 |
+| Consultar | Consultas en cola en vistas de sistema | 1000 |
+| Consultar | Parámetros máximos | 2098 |
+| Lote | Tamaño máximo | 65 536*4096 |
 | Resultados de SELECT | Columnas por fila | 4096<br/><br/>Nunca puede tener más de 4096 columnas por fila en el resultado de SELECT. No hay ninguna garantía de que pueda tener siempre 4096. Si el plan de consulta requiere una tabla temporal, se podría aplicar el máximo de 1024 columnas por tabla.|
 | SELECT | Subconsultas anidadas | 32<br/><br/>Nunca se pueden tener más de 32 subconsultas anidadas en una instrucción SELECT. No hay ninguna garantía de que siempre pueda tener 32. Por ejemplo, una instrucción JOIN puede introducir una subconsulta en el plan de consulta. El número de subconsultas también puede estar limitado por la memoria disponible.|
 | SELECT | Columnas por JOIN | 1024 columnas<br/><br/>Nunca se pueden tener más de 1024 columnas en la instrucción JOIN. No hay ninguna garantía de que siempre pueda tener 1024. Si el plan JOIN requiere una tabla temporal con más columnas que el resultado de JOIN, se aplica el límite de 1024 a la tabla temporal. |
@@ -75,7 +72,9 @@ Valores máximos para respaldar las cargas de trabajo de análisis más exigente
 | SELECT | Bytes por columnas ORDER BY | 8060 bytes<br/><br/>Las columnas de la cláusula ORDER BY pueden tener como máximo 8060 bytes.|
 | Identificadores y constantes por instrucción | Número de identificadores y constantes de referencia. | 65 535<br/><br/>Almacenamiento de datos SQL limita el número de identificadores y constantes que pueden incluirse en una única expresión de una consulta. Este límite es 65 535 GB. Si se supera este número se produce el error de SQL Server 8632. Para obtener más información, consulte [Mensaje de error cuando ejecuta una consulta en SQL Server 2005: "error interno: se ha alcanzado un límite de servicios de expresión"](http://support.microsoft.com/kb/913050/).|
 
-## Vistas de sistema
+
+
+## Metadatos
 
 | Vista de sistema | Número máximo de filas |
 | :--------------------------------- | :------------|
@@ -230,8 +229,9 @@ Para obtener más información de referencia, vea [Información general de refer
 
 <!--Article references-->
 [Información general de referencia de Almacenamiento de datos SQL]: sql-data-warehouse-overview-reference.md
+[Simultaneidad y administración de cargas de trabajo]: sql-data-warehouse-develop-concurrency.md
 [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

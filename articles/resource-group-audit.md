@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="tfitzmac"
 	manager="timlt"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -64,19 +64,21 @@ Observe que el registro de auditoría se filtra automáticamente por el recurso 
 
 1. Para recuperar las entradas de registro, ejecute el comando **Get-AzureRmLog**. Ofrezca parámetros adicionales para filtrar la lista de entradas. Si no especifica una hora de inicio y de finalización, se devuelven las entradas de la última hora. Por ejemplo, para recuperar las operaciones de un grupo de recursos durante la última hora ejecute:
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup
+        Get-AzureRmLog -ResourceGroup ExampleGroup
 
     En el ejemplo siguiente se muestra cómo usar el registro de auditoría para investigar operaciones llevadas a cabo durante un tiempo especificado. Las fechas inicial y final se especifican en un formato de fecha.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
 
     También puede usar funciones de fecha para especificar el intervalo de fechas, como los últimos 14 días.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
 
-2. En función de la hora de inicio que especifique, los comandos anteriores pueden devolver una lista larga de operaciones para el grupo de recursos. Puede filtrar los resultados para lo que busca ofreciendo criterios de búsqueda. Por ejemplo, si intenta investigar cómo se detuvo una aplicación web, podría ejecutar el siguiente comando y ver que someone@contoso.com realizó una acción de detención.
+2. En función de la hora de inicio que especifique, los comandos anteriores pueden devolver una lista larga de operaciones para el grupo de recursos. Puede filtrar los resultados para lo que busca ofreciendo criterios de búsqueda. Por ejemplo, si trata de investigar cómo se detuvo una aplicación web, podría ejecutar el siguiente comando.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+        
+    En este ejemplo se muestra que someone@contoso.com ha realizado una acción de detención.
         
         Authorization     :
         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -96,7 +98,7 @@ Observe que el registro de auditoría se filtra automáticamente por el recurso 
 
 3. Puede buscar las acciones realizadas por un usuario determinado, incluso para un grupo de recursos que ya no existe.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+        Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
 
 ## CLI de Azure para ver registros de auditoría
 
@@ -118,9 +120,9 @@ Las operaciones REST para trabajar con el registro de auditoría forman parte de
 
 ## Pasos siguientes
 
-- Los registros de auditoría de Azure se pueden usar con Power BI para obtener mayor información sobre las acciones en su suscripción. Consulte [View and analyze Azure Audit Logs in Power BI and more (Ver y analizar registros de auditoría de Azure en Power BI y más)](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
+- Los registros de auditoría de Azure se pueden usar con Power BI para obtener mayor información sobre las acciones en su suscripción. Consulte [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Consulta y análisis de registros de auditoría de Azure en Power BI y más).
 - Para información sobre cómo establecer directivas de seguridad, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
-- Para más información sobre los comandos para la solución de problemas en implementaciones, consulte [Troubleshooting resource group deployments in Azure (Solución de problemas de implementaciones de grupos de recursos en Azure)](resource-manager-troubleshoot-deployments-portal.md).
+- Para obtener más información sobre los comandos para la solución de problemas en implementaciones, consulte [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Para aprender a evitar eliminaciones en un recurso para todos los usuarios, vea [Bloqueo de recursos con Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="04/11/2016" 
 	ms.author="billmath"/>
 
 # Administración de la configuración de usuario con Azure Multi-Factor Authentication en la nube
@@ -22,7 +22,7 @@ Como administrador, puede gestionar las siguientes opciones de configuración de
 
 - [Requerir a los usuarios seleccionados que vuelvan a proporcionar métodos de contacto](#require-selected-users-to-provide-contact-methods-again)
 - [Eliminar las contraseñas de aplicación existentes de los usuarios](#delete-users-existing-app-passwords)
-- [Restaurar MFA en todos los dispositivos suspendidos para un usuario (vista previa pública)](#restore-mfa-on-all-suspended-devices-for-a-user)
+- [Restauración de MFA en todos los dispositivos suspendidos para un usuario](#restore-mfa-on-all-suspended-devices-for-a-user)
 
 
 
@@ -86,4 +86,4 @@ Los administradores tienen la capacidad de restablecer Multi-Factor Authenticati
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

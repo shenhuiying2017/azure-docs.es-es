@@ -1,47 +1,51 @@
 <properties 
-    pageTitle="Creación y exportación de un BACPAC de una base de datos SQL de Azure mediante PowerShell" 
-    description="Creación y exportación de un BACPAC de una base de datos SQL de Azure mediante PowerShell" 
+    pageTitle="Archivo de una base de datos SQL de Azure en un archivo BACPAC mediante PowerShell" 
+    description="Archivo de una base de datos SQL de Azure en un archivo BACPAC mediante PowerShell" 
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="04/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creación y exportación de un BACPAC de una base de datos SQL de Azure mediante PowerShell
-
+# Archivo de una base de datos SQL de Azure en un archivo BACPAC mediante PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-export.md)
+- [Portal de Azure](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
 
-Este artículo proporciona instrucciones para exportar un archivo BACPAC de la base de datos SQL de Azure con PowerShell.
+En este artículo encontrará instrucciones para archivar la base de datos SQL de Azure en un archivo BACPAC guardado en Almacenamiento de blobs de Azure usando PowerShell.
 
-Un [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) es un archivo .bacpac que contiene datos y un esquema de base de datos. El caso de uso principal para un BACPAC es mover una base de datos de un servidor a otro, para [migrar una base de datos local a la nube](sql-database-cloud-migrate.md) y para archivar una base de datos existente en un formato abierto.
+Cuando necesite crear un archivo de una base de datos SQL de Azure, puede exportar los datos y el esquema de base de datos a un archivo BACPAC. Un archivo BACPAC es, sencillamente, un archivo ZIP con la extensión BACPAC. Este archivo BACPAC se puede guardar en el almacenamiento de blobs de Azure o en cualquier almacenamiento en una ubicación local y, luego, importarlo a Base de datos SQL de Azure o a una instalación local de SQL Server.
 
+***Consideraciones***
+
+- Para que un archivo sea transaccionalmente coherente, hay que procurar que no haya ninguna actividad de escritura durante la exportación, o bien exportar desde una [copia transaccionalmente coherente](sql-database-copy.md) de la base de datos SQL de Azure.
+- El tamaño máximo de un archivo BACPAC guardado en el almacenamiento de blobs de Azure es de 200 GB. Use la utilidad de símbolo del sistema [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) para guardar archivos BACPAC de mayor tamaño en un almacenamiento local. Esta utilidad se incluye con Visual Studio y SQL Server. También puede [descargar](https://msdn.microsoft.com/library/mt204009.aspx) la versión más reciente de SQL Server Data Tools para obtener esta utilidad.
+- No se puede archivar en Almacenamiento premium de Azure usando un archivo BACPAC.
+- Si la operación de exportación tarda más de 20 horas, es posible que se cancele. Para aumentar el rendimiento durante la exportación, puede hacer lo siguiente:
+ - Aumentar el nivel de servicio temporalmente 
+ - Detener toda actividad de lectura y escritura durante la exportación
+ - Usar un índice agrupado en todas las tablas de gran tamaño. Sin índices agrupados, la exportación podría no producirse si tarda más de 6-12 horas. Esto se debe a que el servicio de exportación necesita completar el recorrido de tabla para exportar toda la tabla.
+ 
 > [AZURE.NOTE] Los BACPAC no están diseñados para usarse en operaciones de copia de seguridad y restauración. La Base de datos SQL de Azure crea automáticamente copias de seguridad para cada base de datos de usuario. Para obtener detalles, vea [Información general sobre la continuidad del negocio](sql-database-business-continuity.md).
-
-
-El BACPAC se exporta a un contenedor de blobs de almacenamiento de Azure que puede descargar cuando se completa la operación correctamente.
-
 
 Para completar este artículo, necesitará lo siguiente:
 
-- Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **CUENTA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
-- Una Base de datos SQL de Azure. Si no tiene una base de datos SQL, siga los pasos de este artículo para crear uno: [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
-- Una [cuenta de Almacenamiento de Azure](../storage/storage-create-storage-account.md) con un contenedor de blobs para almacenar el BACPAC. Actualmente la cuenta de almacenamiento debe usar el modelo de implementación clásico; por tanto, elija **Clásica** al crear una cuenta de almacenamiento.
+- Una suscripción de Azure. 
+- Una Base de datos SQL de Azure. 
+- Una [cuenta de almacenamiento estándar de Azure](../storage/storage-create-storage-account.md) con un contenedor de blobs para almacenar el BACPAC.
 - Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
-
 
 
 ## Configuración de las credenciales y selección de la suscripción
@@ -145,6 +149,6 @@ Al ejecutar este comando se le solicitará una contraseña. Escriba la contrase�
 
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
-- [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

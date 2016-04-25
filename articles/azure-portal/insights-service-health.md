@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Realización de seguimiento del estado " 
-	description="Averigüe en qué momentos ha sufrido Azure interrupciones del servicio o degradación del rendimiento." 
-	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="Realización de seguimiento del estado "
+	description="Averigüe en qué momentos ha sufrido Azure interrupciones del servicio o degradación del rendimiento."
+	authors="stepsic-microsoft-com"
+	manager="kamrani"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Realización de seguimiento del estado
@@ -45,12 +45,11 @@ Azure realiza un anuncio cada vez que hay una interrupción del servicio o una d
 7. Verá todos los eventos del estado del servicio que han afectado a la suscripción: ![Grupos de recursos](./media/insights-service-health/Insights_HealthEvent.png)
 
 8. Desde ahí puede ir a la hoja de detalles para ver las particularidades del evento.
-   
+
 ## Pasos siguientes
 
 * [Reciba notificaciones de alerta](insights-receive-alert-notifications.md) cada vez que se produzca un evento.
 * [Supervise las métricas de servicio](insights-how-to-customize-monitoring.md) para asegurarse de que el servicio está disponible y que responde adecuadamente.
-* [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
- 
+* [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

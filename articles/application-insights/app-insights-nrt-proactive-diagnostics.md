@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnóstico proactivo en tiempo casi real en Application Insights" 
-	description="El diagnóstico proactivo NRT le notifica automáticamente si el tiempo de respuesta del servidor muestra un comportamiento inusual. No necesita ninguna configuración." 
+	description="Le alerta de patrones de error poco comunes en la aplicación y proporciona un análisis de diagnóstico. No necesita ninguna configuración." 
 	services="application-insights" 
     documentationCenter=""
 	authors="yorac" 
@@ -138,4 +138,4 @@ El diagnóstico proactivo NRT complementa a otras características diferentes pe
 
 *Estamos muy interesados en saber lo que piensa sobre esto. Envíe sus comentarios a* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

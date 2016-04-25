@@ -1,25 +1,27 @@
-You must create a VNet and a gateway subnet first, before working on the following tasks. See the article [Configure a Virtual Network using the classic portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) for more information.   
+Antes de efectuar las siguientes tareas, debe crear una red virtual y una subred de puerta de enlace. Consulte el artículo [Configuración de una red virtual para ExpressRoute en el Portal clásico](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) para obtener más información.
 
-## Add a gateway
+## Adición de una puerta de enlace
 
-Use the command below to create a gateway. Be sure to substitute any values for your own.
+Utilice el siguiente comando para crear una puerta de enlace. Asegúrese de sustituir los valores por los suyos propios.
 
 	New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
 
-## Verify the gateway was created
+## Comprobación de la creación de la puerta de enlace
 
-Use the command below to verify that the gateway has been created. This command also retrieves the gateway ID, which you need for other operations.
+Utilice el siguiente comando para comprobar si se ha creado la puerta de enlace. Este comando también recupera el identificador de la puerta de enlace, que necesita para realizar otras operaciones.
 
 	Get-AzureVirtualNetworkGateway
 
-## Resize a gateway
+## Cambio del tamaño de una puerta de enlace
 
-There are three [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). You can use the following command to change the Gateway SKU at any time.
+Hay tres [SKU de puerta de enlace](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Puede utilizar el siguiente comando para cambiar en cualquier momento la SKU de puerta de enlace.
 
 	Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 
-## Remove a gateway
+## Eliminación de una puerta de enlace
 
-Use the command below to remove a gateway
+Utilice el siguiente comando para quitar una puerta de enlace.
 
 	Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+
+<!---HONumber=AcomDC_0413_2016-->

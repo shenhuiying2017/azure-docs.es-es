@@ -30,7 +30,7 @@ Conéctese a OneDrive para administrar los archivos, incluyendo las tareas de ca
 
 &nbsp;
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01 Versión preliminar, haga clic en [API de OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con OneDrive, puede:
 
@@ -59,7 +59,7 @@ Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para
 1. Inicie sesión en su cuenta de OneDrive.
 2. Permita que las aplicaciones lógicas se conecten y usen su OneDrive. 
 
-Después de crear la conexión, especifique las propiedades de OneDrive, como la ruta de acceso a la carpeta o el nombre de archivo. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de OneDrive, como la ruta de acceso a la carpeta o el nombre de archivo. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión en otras aplicaciones lógicas.
 
@@ -68,7 +68,7 @@ Se aplica a la versión: 1.0.
 
 
 ### Obtener metadatos de archivo mediante el identificador
-Recupera los metadatos de un archivo de OneDrive mediante el identificador. ```GET: /datasets/default/files/{id}```
+Recupera metadatos de un archivo de OneDrive mediante el identificador. ```GET: /datasets/default/files/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -82,7 +82,7 @@ Recupera los metadatos de un archivo de OneDrive mediante el identificador. ```G
 
 
 ### Actualizar archivo
-Actualiza un archivo en OneDrive. ```PUT: /datasets/default/files/{id}```
+Actualiza un archivo de OneDrive. ```PUT: /datasets/default/files/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -112,7 +112,7 @@ Elimina un archivo de OneDrive. ```DELETE: /datasets/default/files/{id}```
 
 
 ### Obtener metadatos de archivo mediante la ruta de acceso
-Recupera los metadatos de un archivo de OneDrive mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
+Recupera metadatos de un archivo de OneDrive mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -129,7 +129,7 @@ Recupera los metadatos de un archivo de OneDrive mediante la ruta de acceso. ```
 
 
 ### Obtener contenido de archivo mediante la ruta de acceso
-Recupera el contenido de un archivo en OneDrive mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera el contenido de un archivo de OneDrive mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -147,7 +147,7 @@ Recupera el contenido de un archivo en OneDrive mediante la ruta de acceso. ```G
 
 
 ### Obtener contenido de archivo mediante el identificador
-Recupera el contenido de un archivo en OneDrive mediante el identificador. ```GET: /datasets/default/files/{id}/content```
+Recupera el contenido de un archivo de OneDrive mediante el identificador. ```GET: /datasets/default/files/{id}/content```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -220,7 +220,7 @@ Desencadena un flujo cuando se crea un nuevo archivo en una carpeta de OneDrive.
 
 
 ### Desencadena un flujo al modificar un archivo en una carpeta de OneDrive
-Desencadena un flujo al modificar un archivo en una carpeta de OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
+Desencadena un flujo al modificar un archivo de una carpeta de OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -312,4 +312,4 @@ Volver a la [lista de API](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

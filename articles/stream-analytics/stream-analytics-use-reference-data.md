@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Uso de tablas de búsqueda y datos de referencia en Análisis de transmisiones | Microsoft Azure" 
-	description="Uso de datos de referencia en una consulta de Análisis de transmisiones" 
+<properties
+	pageTitle="Uso de tablas de búsqueda y datos de referencia en Análisis de transmisiones | Microsoft Azure"
+	description="Uso de datos de referencia en una consulta de Análisis de transmisiones"
 	keywords="tabla de búsqueda, datos de referencia"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 # Uso de datos de referencia o tablas de consulta en una transmisión de entrada de Análisis de transmisiones
 
-Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Para usar los datos de referencia en el trabajo de Análisis de transmisiones de Azure, por lo general usará una [combinación de datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. Análisis de transmisiones usa el almacenamiento de blobs de Azure como la capa de almacenamiento de datos de referencia y con los datos de referencia de Factoría de datos de Azure se puede transformar o copiar al almacenamiento de blobs de Azure, para su uso como datos de referencia, desde [cualquier número de almacenes de datos locales y en la nube](./articles/data-factory-data-movement-activities.md). Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se pueden agregar al final de la secuencia con una fecha y hora **posterior** a la especificada en el último blob de la secuencia.
+Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Para usar los datos de referencia en el trabajo de Análisis de transmisiones de Azure, por lo general usará una [combinación de datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. Análisis de transmisiones usa el almacenamiento de blobs de Azure como la capa de almacenamiento de datos de referencia y con los datos de referencia de Factoría de datos de Azure se puede transformar o copiar al almacenamiento de blobs de Azure, para su uso como datos de referencia, desde [cualquier número de almacenes de datos locales y en la nube](../data-factory/data-factory-data-movement-activities.md). Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se pueden agregar al final de la secuencia con una fecha y hora **posterior** a la especificada en el último blob de la secuencia.
 
 ## Configuración de datos de referencia
 
@@ -76,7 +76,7 @@ Si los datos de referencia es un conjunto de datos que cambia con poca frecuenci
 
 > [AZURE.NOTE] Actualmente los trabajos de Análisis de transmisiones buscan la actualización de blobs solo cuando la hora del equipo coincide con la hora codificada en el nombre del blob. Por ejemplo el trabajo buscará /sample/2015-04-16/17:30/products.csv entre las 5:30 p.m. y las 5:30:59.9 p.m. el 16 de abril de 2015, zona horaria UTC. Cuando el reloj de la máquina marca las 5:31 p.m., para de buscar /sample/2015-04-16/17:30/products.csv y comienza a buscar /sample/2015-04-16/17:31/products.csv. Una excepción se produce cuando el trabajo debe volver a procesar datos anteriores en el tiempo o cuando se inicia por primera vez. En momento de iniciarse, el trabajo busca el blob más reciente generado antes de la hora de inicio del trabajo especificada. Esto se hace para garantizar que haya un conjunto de datos de referencia no vacío al iniciarse el trabajo. Si no se encuentra ninguno, se producirá un error en el trabajo y se mostrará un aviso de diagnóstico al usuario.
 
-[Factoría de datos de Azure](https://azure.microsoft.com/documentation/services/data-factory/) puede usarse para orquestar la tarea de crear los blobs actualizados requeridos por Análisis de transmisiones para actualizar las definiciones de datos de referencia. Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Factoría de datos admite la [conexión a un gran número de almacenes de datos locales y en la nube](./articles/data-factory-data-movement-activities.md) y el desplazamiento sencillo de los datos con la regularidad que se especifique. Para obtener más información e instrucciones paso a paso sobre cómo configurar una canalización de Factoría de datos para generar datos de referencia para Análisis de transmisiones que se actualiza según una programación predefinida, consulte este [ejemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+[Factoría de datos de Azure](https://azure.microsoft.com/documentation/services/data-factory/) puede usarse para orquestar la tarea de crear los blobs actualizados requeridos por Análisis de transmisiones para actualizar las definiciones de datos de referencia. Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Factoría de datos admite la [conexión a un gran número de almacenes de datos locales y en la nube](../data-factory/data-factory-data-movement-activities.md) y el desplazamiento sencillo de los datos con la regularidad que se especifique. Para obtener más información e instrucciones paso a paso sobre cómo configurar una canalización de Factoría de datos para generar datos de referencia para Análisis de transmisiones que se actualiza según una programación predefinida, consulte este [ejemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## Sugerencias sobre cómo actualizar los datos de referencia ##
 
@@ -103,4 +103,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

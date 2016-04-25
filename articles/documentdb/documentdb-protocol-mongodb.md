@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Soporte de protocolo de DocumentDB para MongoDB | Microsoft Azure" 
 	description="Obtenga información acerca del soporte de protocolo de DocumentDB para MongoDB, ahora disponible para vista previa." 
-	keywords="protocolo de mongoDB, mongoDB"
+	keywords="protocolo de mongodb, mongodb, base de datos de mongo"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -13,7 +13,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="03/31/2016" 
 	ms.author="stbaro"/>
 
@@ -36,11 +36,11 @@ Para solicitar acceso a la vista previa, realice los pasos siguientes.
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Haga clic en **NUEVO**, haga clic en **Datos y almacenamiento**, haga clic en **Ver todos**, haga clic en **Más** y, a continuación, haga clic en **DocumentDB: soporte de protocolo para MongoDB**.
 
-	![Captura de pantalla de las hojas de Marketplace y Datos y almacenamiento, en las que se resalta DocumentDB: soporte de protocolo para MongoDB](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
+	![Captura de pantalla de las hojas de Marketplace y Datos y almacenamiento, en las que se resalta DocumentDB: soporte de protocolo para MongoDB y base de datos de Mongo](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
 
 3. O bien, busque la categoría **Datos y almacenamiento** de un "protocolo de DocumentDB".
 
-	![Captura de pantalla de las hojas de búsqueda de Marketplace y Datos y almacenamiento, en las que se resalta DocumentDB: soporte de protocolo para MongoDB](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
+	![Captura de pantalla de las hojas de búsqueda de Marketplace y Datos y almacenamiento, en las que se resalta DocumentDB: soporte de protocolo para MongoDB y base de datos de Mongo](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
 
 4. Haga clic en **Crear** para iniciar el proceso de suscripción de la vista previa.
 
@@ -56,4 +56,4 @@ Para solicitar acceso a la vista previa, realice los pasos siguientes.
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

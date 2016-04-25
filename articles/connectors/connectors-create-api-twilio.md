@@ -21,14 +21,14 @@ ms.author="mandia"/>
 
 Conectarse a Twilio para enviar y recibir mensajes SMS, MMS y IP globales.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema de vista previa de 01/12/2014, haga clic en [Twilio](../app-service-logic/app-service-logic-connector-twilio.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con Twilio, puede:
 
 - Compilar el flujo de negocio en función de los datos que obtiene de Twilio. 
 - Usar acciones que obtienen un mensaje, enumeran mensajes y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando reciba un nuevo mensaje de Twilio, puede tomar este mensaje y usarlo como flujo de trabajo de Bus de servicio. 
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 La API de Twilio incluye las siguientes acciones. No hay desencadenadores.
@@ -49,7 +49,7 @@ Cuando agregue esta API a las aplicaciones lógicas, escriba los valores Twilio 
 
 Consulte [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) para crear un token de acceso.
 
-Después de crear la conexión, escriba las propiedades de Twilio. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, escriba las propiedades de Twilio. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Twilio en otras aplicaciones lógicas.
 
@@ -57,7 +57,7 @@ Después de crear la conexión, escriba las propiedades de Twilio. En la **refer
 #### Esta documentación corresponde a la versión: 1.0
 
 ### Obtener mensaje
-Devuelve un único mensaje especificado por el identificador de mensaje proporcionado. ```GET: /Messages/{MessageId}.json```
+Devuelve un único mensaje que queda especificado mediante el identificador de mensaje proporcionado. ```GET: /Messages/{MessageId}.json```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -95,7 +95,7 @@ Devuelve una lista de mensajes asociados a su cuenta. ```GET: /Messages.json```
 
 
 ### Enviar mensaje
-Envíe un nuevo mensaje a un número de teléfono móvil. ```POST: /Messages.json```
+Envía un nuevo mensaje a un número de teléfono móvil. ```POST: /Messages.json```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -247,4 +247,4 @@ Envíe un nuevo mensaje a un número de teléfono móvil. ```POST: /Messages.jso
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

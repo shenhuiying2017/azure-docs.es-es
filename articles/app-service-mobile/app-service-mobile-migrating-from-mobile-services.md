@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/11/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migración del servicio móvil de Azure existente al Servicio de aplicaciones de Azure
@@ -344,6 +344,14 @@ Para ver los registros:
 
 Los registros se transmitirán a la ventana proporcionada cuando se generen. También puede descargar los registros para analizarlos posteriormente mediante sus credenciales de implementación. Consulte la documentación de [Registro] para más información.
 
+## <a name="known-issues"></a>Problemas conocidos
+
+### La eliminación de un clon de aplicaciones móviles migradas provocará una interrupción del sitio
+
+Si clona el servicio móvil migrado con Azure PowerShell y después elimina el clon, se quitará la entrada DNS del servicio de producción. Como consecuencia de ello, el sitio dejará de estar accesible desde Internet.
+
+Resolución: se está trabajando para corregir este problema. Si quiere clonar su sitio, hágalo a través del portal.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, hay incluso más características que puede aprovechar:
@@ -393,4 +401,4 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [red virtual]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

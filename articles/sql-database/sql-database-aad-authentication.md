@@ -4,8 +4,8 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
-   editor="jeffreyg"
+   manager="jhubbard"
+   editor=""
    tags=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/04/2016"
+   ms.date="04/06/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Conexión a Base de datos SQL mediante autenticación de Azure Active Directory
@@ -249,8 +249,9 @@ Para confirmar que el administrador de Azure AD está correctamente configurado,
 
 Use este método si tiene la sesión iniciada en Windows con sus credenciales de Azure Active Directory desde un dominio federado.
 
-1. Inicie Management Studio y, en el cuadro de diálogo **Conectar con el servidor** (o **Conectarse al motor de base de datos**), en el cuadro **Autenticación**, seleccione **Autenticación integrada de Active Directory**. No se necesita contraseña ni se puede especificar porque se presentarán las credenciales existentes para la conexión.
-2. Haga clic en el botón **Opciones** y, en la página **Propiedades de conexión**, en el cuadro **Conectarse a la base de datos**, escriba el nombre de la base de datos de usuarios a la que quiere conectarse.
+1. Inicie Management Studio y, en el cuadro de diálogo **Conectar con el servidor** (o **Conectarse al motor de base de datos**), en el cuadro **Autenticación**, seleccione **Autenticación integrada de Active Directory**. No se necesita contraseña ni se puede especificar porque se presentarán las credenciales existentes para la conexión. ![Selección de autenticación integrada de Active Directory][11]
+
+2. Haga clic en el botón **Opciones** y, en la página **Propiedades de conexión**, en el cuadro **Conectarse a una base de datos**, escriba el nombre de la base de datos de usuarios a la que quiere conectarse.
 
 #### Conectarse mediante la autenticación de contraseña de Active Directory
 
@@ -260,7 +261,8 @@ Use este método si tiene la sesión iniciada en Windows con las credenciales de
 
 1. Inicie Management Studio y, en el cuadro de diálogo **Conectar con el servidor** (o **Conectarse al motor de base de datos**), en el cuadro **Autenticación**, seleccione **Autenticación de contraseña de Active Directory**.
 2. En el cuadro **Nombre de usuario**, escriba el nombre de usuario de Azure Active Directory en el formato ****username@domain.com**. Debe tratarse de una cuenta de Azure Active Directory o una cuenta de un dominio federado con el directorio de Azure Active Directory.
-3. En el cuadro **Contraseña**, escriba la contraseña de usuario de la cuenta de Azure Active Directory o la de la cuenta de dominio federado.
+3. En el cuadro **Contraseña**, escriba la contraseña de usuario de la cuenta de Azure Active Directory o la de la cuenta de dominio federado. ![Selección de autenticación de contraseña de Active Directory][12]
+
 4. Haga clic en el botón **Opciones** y, en la página **Propiedades de conexión**, en el cuadro **Conectarse a una base de datos**, escriba el nombre de la base de datos de usuarios a la que quiere conectarse.
 
 
@@ -326,6 +328,7 @@ Para ejemplos de código específicos y que estén relacionados con la autentica
 
 ### 7\.3 Conexión con un token de Azure AD
 Este método de autenticación permite a los servicios de nivel intermedio conectarse a Base de datos SQL de Azure o Almacenamiento de datos SQL de Azure mediante la obtención de un token de Azure Active Directory (AAD). Permite escenarios sofisticados, incluida la autenticación basada en certificados. Para usar la autenticación de token de Azure AD tiene que realizar cuatro pasos básicos:
+
 1. Registrar la aplicación con Azure Active Directory y obtener el identificador de cliente para el código. 
 2. Crear un usuario de base de datos que represente a la aplicación. (Completado anteriormente en el paso 6).
 3. Crear un certificado en el equipo cliente que va a ejecutar la aplicación.
@@ -353,5 +356,7 @@ Este método de autenticación permite a los servicios de nivel intermedio conec
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
+[11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
+[12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configuración del acceso condicional local mediante el Registro de dispositivos de Azure Active Directory | Microsoft Azure"
-	description="Guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2."
+	description="Guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -19,7 +19,7 @@
 
 # Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory
 
-Los dispositivos de propiedad personal de los usuarios pueden marcarse como conocidos para la organización exigiendo a los usuarios la unión de sus dispositivos al área de trabajo para el servicio Registro de dispositivos de Azure Active Directory. A continuación, se ofrece una guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2.
+Los dispositivos de propiedad personal de los usuarios pueden marcarse como conocidos para la organización exigiendo a los usuarios la unión de sus dispositivos al área de trabajo para el servicio Registro de dispositivos de Azure Active Directory. A continuación, se ofrece una guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2.
 
 > [AZURE.NOTE]
 Se requiere licencia de Azure AD Premium o de Office 365 al usar dispositivos registrados en directivas de acceso condicional del servicio Registro de dispositivos de Azure Active Directory. Esto incluye las directivas que exigen los Servicios de federación de Active Directory (AD FS) con recursos locales.
@@ -80,7 +80,7 @@ Siga la lista de comprobación mostrada a continuación para habilitar y configu
 
 | Tarea | Referencia |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Implemente el dominio de Servicios de dominio de Active Directory con las extensiones de esquema de Windows Server 2012 R2. No es preciso actualizar los controladores de dominio a Windows Server 2012 R2. El único requisito es la actualización del esquema. | [Actualizar el esquema de Servicios de dominio de Active Directory] (#Upgrade your Active Directory Domain Services Schema) |
+| Implemente el dominio de Servicios de dominio de Active Directory con las extensiones de esquema de Windows Server 2012 R2. No es preciso actualizar los controladores de dominio a Windows Server 2012 R2. El único requisito es la actualización del esquema. | [Actualizar el esquema de Servicios de dominio de Active Directory] (#Upgrade your Active Directory Domain Services Schema) |
 | Los dispositivos detectarán el servicio Registro de dispositivos de Azure Active Directory buscando registros DNS conocidos. Debe configurar el DNS de su compañía para que los dispositivos puedan detectar el servicio Registro de dispositivos de Azure Active Directory. | [Preparación de dispositivos de soporte de Active Directory] (#Prepare your Active Directory to support devices) |
 
 
@@ -120,13 +120,13 @@ Esto le ayudará a integrar un inquilino de Azure AD con la versión local de Ac
   1.	Adición de dominios.
   2.	Instalar y ejecutar Azure AD Connect: para instalar Azure AD Connect, siga las instrucciones que se indican a continuación, [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso.
-  >[AZURE.NOTE] Configurar la federación con AD FS como se describe en el documento vinculado arriba.
-  >[AZURE.NOTE] No es preciso configurar las características de vista previa.
-
-
+  
+  > [AZURE.NOTE] 
+  Configurar la federación con AD FS como se describe en el documento vinculado arriba. No es preciso configurar las características de vista previa.
 
 
 ## Actualizar el esquema de Servicios de dominio de Active Directory
+
 > [AZURE.NOTE]
 La actualización del esquema de Active Directory no se puede revertir. Se recomienda realizar la operación primero en un entorno de prueba.
 
@@ -136,6 +136,7 @@ La actualización del esquema de Active Directory no se puede revertir. Se recom
 4. En un símbolo del sistema, navegue hasta el directorio adprep y ejecute: **adprep.exe /forestprep**. Siga las instrucciones en pantalla para completar la actualización del esquema.
 
 ## Preparación de Active Directory para que admita los dispositivos
+
 >[AZURE.NOTE] Se trata de una operación que se realiza una sola vez que debe ejecutar para preparar el bosque de Active Directory para admitir los dispositivos. Para completar este procedimiento, debió iniciar sesión con permisos de administrador de organización y el bosque de Active Directory debe tener el esquema de Windows Server 2012 R2.
 
 
@@ -189,7 +190,7 @@ Existen varias formas de comunicar la URL a los usuarios. Una forma que se recom
 4. Cuando se lo pidan, inicie sesión con sus credenciales. El dispositivo ahora está unido.
 
 ###Unión de un dispositivo Windows 7 al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
-Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el paquete de software de registro del dispositivo. El paquete de software se llama Unión al lugar de trabajo para Windows 7 y está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). Las instrucciones para utilizar el paquete están disponibles en [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
+Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el paquete de software de registro del dispositivo. El paquete de software se llama "Workplace Join" para Windows 7 y está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). Las instrucciones para utilizar el paquete están disponibles en [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
 ### Unión de un dispositivo Android al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
 
@@ -206,6 +207,7 @@ De forma predeterminada, los objetos de dispositivo que se reescriben desde Azur
 Considere el siguiente escenario: se crea una aplicación de confianza para usuario autenticado en AD FS y se configura una regla de autorización de emisión que solo permite dispositivos registrados. Ahora solo los dispositivos que están registrados pueden tener acceso a la aplicación. Para que a los usuarios les resulte más fácil obtener acceso a la aplicación, configure un mensaje personalizado de acceso denegado que incluya instrucciones sobre cómo deben unir el dispositivo. Ahora los usuarios disponen de una manera directa de registrar sus dispositivos para tener acceso a una aplicación.
 
 Los pasos siguientes le indicarán cómo implementar este escenario:
+
 >[AZURE.NOTE]
 En esta sección se supone que ya configuró una relación de confianza para usuario autenticado para la aplicación en AD FS.
 
@@ -250,4 +252,4 @@ Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no 
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

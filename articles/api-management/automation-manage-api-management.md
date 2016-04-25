@@ -40,8 +40,6 @@ Administración de API se puede administrar en Automatización de Azure mediante
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar Administración de API de Azure, siga estos vínculos para obtener más información.
 
-* Consulte el [Tutorial de introducción](../automation-create-runbook-from-samples.md) de Automatización de Azure.
 * Lea la entrada de blog de la comunidad [#Módulo de PowerShell para las API de REST de Administración de API de Azure](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/).
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

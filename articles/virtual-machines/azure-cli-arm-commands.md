@@ -23,7 +23,7 @@
 
 En este artículo se proporcionan la sintaxis y las opciones de los comandos de la interfaz de la línea de comandos (CLI) de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación de Azure Resource Manager. Para acceder a estos comandos, ejecute la CLI en el modo de Resource Manager (ARM). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes.
 
-Para comenzar, primero [instale la CLI de Azure](xplat-cli-install.md) y [conéctese a su suscripción de Azure](xplat-cli-connect.md) mediante una cuenta profesional o educativa o una identidad de cuenta de Microsoft.
+Para comenzar, primero [instale la CLI de Azure](../xplat-cli-install.md) y [conéctese a su suscripción de Azure](../xplat-cli-connect.md) mediante una cuenta profesional o educativa, o bien una identidad de cuenta de Microsoft.
 
 Para las opciones y la sintaxis de comando actuales de la línea de comandos en el modo del Administrador de recursos, escriba `azure help` o, para mostrar la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
 
@@ -208,11 +208,11 @@ Ejemplo: Crear un archivo de configuración que contenga una acción de sript pa
 **Comando para crear un clúster en un grupo de recursos**
 
 	hdinsight cluster create [options] <clusterName>
-	 
+
 Ejemplo: Crear una clúster de Linux o Storm
 
 	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
-	
+
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
 	info:    hdinsight cluster create command OK
@@ -220,11 +220,11 @@ Ejemplo: Crear una clúster de Linux o Storm
 Ejemplo: Crear un clúster con una acción de script
 
 	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
-	
+
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
 	info:    hdinsight cluster create command OK
-	
+
 Opciones de parámetro:
 
 	-h, --help                                                 output usage information
@@ -255,7 +255,7 @@ Opciones de parámetro:
 	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
 	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
 	For example 12/12/2015 (only for Windows clusters)
-	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster. 
+	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster.
 	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
 	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
 	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
@@ -328,7 +328,7 @@ Opciones de parámetro:
 **Comandos para administrar redes virtuales**
 
 	network vnet create [options] <resource-group> <name> <location>
-Permite crear una nueva red virtual. En el ejemplo siguiente, crearemos una red virtual denominada newvnet para myresourcegroup de grupo de recursos en la región Oeste de EE. UU.
+Permite crear una nueva red virtual. En el ejemplo siguiente, crearemos una red virtual denominada newvnet para myresourcegroup de grupo de recursos en la región Oeste de EE. UU.
 
 
 	azure network vnet create myresourcegroup newvnet "west us"
@@ -1872,4 +1872,4 @@ Opciones de parámetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

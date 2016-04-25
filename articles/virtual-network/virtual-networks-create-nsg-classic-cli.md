@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Creación de grupos de seguridad de red en el modo clásico mediante la CLI de Azure | Microsoft Azure"
    description="Aprenda a crear e implementar grupos de seguridad de red en modo clásico mediante la CLI de Azure"
    services="virtual-network"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-service-management"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -32,7 +32,7 @@ En los siguientes comandos de CLI de Azure de ejemplo se presupone que ya se ha 
 ## Creación del grupo de seguridad de red para la subred front-end
 Para crear un grupo de seguridad de red denominado **NSG-FrontEnd** según el escenario anterior, siga estos pasos.
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 
 2. Ejecute el comando **`azure config mode`** para cambiar al modo clásico, como se muestra a continuación.
 
@@ -104,12 +104,12 @@ Para crear un grupo de seguridad de red denominado **NSG-FrontEnd** según el es
 	- **-n (o --name)**. Nombre de la nueva regla. En este escenario, *rdp-rule*.
 	- **-c (o --action)**. Nivel de acceso de la regla (Denegar o Permitir).
 	- **-p (o --protocol)**. Protocolo (Tcp, Udp o *) para la regla.
-	- **-r (o --type)**. Dirección de conexión (Entrante o Saliente).
+- **-r (o --type)**. Dirección de conexión (Entrante o Saliente).
 	- **-y (o --priority)**. Prioridad de la regla.
 	- **-f (o --source-address-prefix)**. Prefijo de dirección de origen en CIDR o con las etiquetas predeterminadas.
 	- **-o (o --source-port-range)**. Puerto de origen, o intervalo de puertos.
 	- **-e (o --destination-address-prefix)**. Prefijo de dirección de destino en CIDR o con las etiquetas predeterminadas.
-	- **-u (o --destination-port-range)**. Puerto de destino, o intervalo de puertos.	
+	- **-u (o --destination-port-range)**. Puerto de destino, o intervalo de puertos.
 
 5. Ejecute el comando **`azure network nsg rule create`** para crear una regla que permita el acceso al puerto 80 (HTTP) desde Internet.
 
@@ -134,7 +134,7 @@ Para crear un grupo de seguridad de red denominado **NSG-FrontEnd** según el es
 
 6. Ejecute el comando **`azure network nsg subnet add`** para vincular el grupo de seguridad de red a la subred front-end.
 
-		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd 
+		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd
 
 	Resultado esperado:
 
@@ -228,7 +228,7 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 
 6. Ejecute el comando **`azure network nsg subnet add`** para vincular el grupo de seguridad de red a la subred de back-end.
 
-		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd 
+		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd
 
 	Resultado esperado:
 
@@ -239,4 +239,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

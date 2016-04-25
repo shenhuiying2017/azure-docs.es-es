@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Implementación de máquinas virtuales con varias NIC mediante la CLI de Azure en el modelo de implementación clásico | Microsoft Azure"
    description="Aprenda cómo implementar las máquinas virtuales con varias NIC mediante la CLI de Azure en el modelo de implementación clásico"
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Puesto que en este momento no puede tener máquinas virtuales con una sola NIC, ni máquinas virtuales con varias NIC en el mismo servicio en la nube, se implementarán los servidores back-end en un servicio en la nube distinto de todos los demás componentes. En los pasos siguientes usaremos un servicio en la nube denominado *IaaSStory* para los recursos principales, y *IaaSStory-back-end* para los servidores back-end.
+Actualmente, no puede tener máquinas virtuales con una sola NIC ni máquinas virtuales con varias NIC en el mismo servicio en la nube. Por lo tanto, debe implementar los servidores back-end en un servicio en la nube distinto de todos los demás componentes del escenario. En los pasos siguientes usaremos un servicio en la nube denominado *IaaSStory* para los recursos principales, y *IaaSStory-back-end* para los servidores back-end.
 
 ## Requisitos previos
 
@@ -41,7 +41,7 @@ Las máquinas virtuales back-end dependen de la creación de los recursos mencio
 
 - **Cuenta de almacenamiento de discos de datos**. Para mejorar el rendimiento, los discos de datos en los servidores de base de datos usarán la tecnología de unidad de estado sólido (SSD), que requiere una cuenta de almacenamiento Premium. Asegúrese de que la ubicación de Azure que implementa admita el almacenamiento Premium.
 - **NIC**. Cada VM tendrá dos NIC, una para el acceso de la base de datos y otra para la administración.
-- **Conjunto de disponibilidad**. Todos los servidores de base de datos se agregarán al conjunto de disponibilidad único para asegurarse de que al menos una de las máquinas virtuales está activa y ejecutándose durante el mantenimiento. 
+- **Conjunto de disponibilidad**. Todos los servidores de base de datos se agregarán al conjunto de disponibilidad único para asegurarse de que al menos una de las máquinas virtuales está activa y ejecutándose durante el mantenimiento.
 
 ### Paso 1: inicio del script
 
@@ -81,7 +81,7 @@ Puede descargar el script de Bash completo que haya usado [aquí](https://raw.gi
 
 		azure storage account create $prmStorageAccountName \
 		    --location $location \
-		    --type PLRS 
+		    --type PLRS
 
 ### Paso 3: crear máquinas virtuales con varias NIC
 
@@ -95,7 +95,7 @@ Puede descargar el script de Bash completo que haya usado [aquí](https://raw.gi
 		    nic1Name=$vmNamePrefix$suffixNumber-DA
 		    x=$((suffixNumber+3))
 		    ipAddress1=$ipAddressPrefix$x
-		
+
 		    nic2Name=$vmNamePrefix$suffixNumber-RA
 		    x=$((suffixNumber+53))
 		    ipAddress2=$ipAddressPrefix$x
@@ -117,7 +117,7 @@ Puede descargar el script de Bash completo que haya usado [aquí](https://raw.gi
 		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		        $diskSize \
 		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
-		
+
 		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		        $diskSize \
 		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
@@ -174,4 +174,4 @@ Ahora que descargó y cambió el script según sus necesidades, ejecute el scrip
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Directiva de almacenamiento en caché de CDN en extensión de Servicios multimedia" 
-	description="En este tema se proporciona información general sobre una directiva de almacenamiento en caché CDM en extensión de Servicios multimedia." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="Directiva de almacenamiento en caché de CDN en extensión de Servicios multimedia"
+	description="En este tema se proporciona información general sobre una directiva de almacenamiento en caché CDM en extensión de Servicios multimedia."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/01/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/01/2016"
 	ms.author="juliako"/>
 
 #Directiva de almacenamiento en caché de CDN en extensión de Servicios multimedia
@@ -32,7 +32,7 @@ Servicios multimedia de Azure proporciona [CDN integrado ](https://azure.microso
 
 Puede usar el Portal de administración de Azure o las API de Servicios multimedia de Azure para configurar valores de encabezados de caché.
 
-1. Para configurar encabezados de caché mediante el Portal de administración, consulte [Administración de extremos de streaming](../media-services-manage-origins.md), sección Configuración del extremo de streaming.
+1. Para configurar encabezados de caché mediante el Portal de administración, consulte [Administración de extremos de streaming](../media-services/media-services-manage-origins.md), sección Configuración del extremo de streaming.
 2. API de REST de Servicios multimedia de Azure, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
 3. .NET SDK de Servicios multimedia de Azure, [Propiedades de StreamingEndpointCacheControl](http://go.microsoft.com/fwlink/?LinkId=615302).
 
@@ -41,6 +41,5 @@ Puede usar el Portal de administración de Azure o las API de Servicios multimed
 1. El valor de caché configurado de Servicios multimedia de Azure reemplaza el valor predeterminado.
 2. Si no hay ninguna configuración manual, se aplican los valores predeterminados.
 3. De forma predeterminada, se aplican encabezados de caché de 2 segundos para manifest(playlist) de streaming en directo independientemente de la configuración multimedia o de almacenamiento de Azure y la anulación de este valor no está disponible.
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

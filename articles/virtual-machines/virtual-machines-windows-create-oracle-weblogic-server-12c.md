@@ -43,7 +43,7 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 	2. Deje **Conjunto de disponibilidad** como "No configurado".
 	3. No agregue ningún **extremo** en este momento.
 
-9.	Elija o cree un [grupo de recursos](../resource-group-portal.md)
+9.	Elija o cree un [grupo de recursos](../azure-portal/resource-group-portal.md)
 
 10. Elija una **Suscripción**.
 
@@ -187,4 +187,4 @@ Ahora que ha configurado la máquina virtual que se está ejecutando en el Oracl
 
 -	[Imágenes de máquina virtual de Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

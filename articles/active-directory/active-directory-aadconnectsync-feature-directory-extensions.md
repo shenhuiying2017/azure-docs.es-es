@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="04/12/2016"
    ms.author="andkjell"/>
 
 # Sincronización de Azure AD Connect: Extensiones de directorio
@@ -24,8 +24,8 @@ En la actualidad, ninguna carga de trabajo de Office 365 consumirá estos atribu
 Configure qué atributos adicionales desea sincronizar en la ruta de acceso de configuración personalizada en el Asistente para instalación. ![Asistente para la extensión de esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) La instalación mostrará los atributos siguientes, que son candidatos válidos:
 
 - Tipos de objetos de usuario y de grupo
-- Atributos de valor único
-- Cadenas, entero, binario
+- Atributos de valor único: cadena, booleano, entero y binario
+- Atributos multivalor: cadena y binario
 
 Un objeto puede tener hasta 100 atributos de extensiones de directorio. La longitud máxima es de 250 caracteres. Si un valor de atributo es mayor, el motor de sincronización lo truncará.
 
@@ -40,4 +40,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

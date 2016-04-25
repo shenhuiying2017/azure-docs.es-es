@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 # Configuración de Azure Multi-Factor Authentication
@@ -36,7 +36,7 @@ Característica| Descripción| ¿Qué se va a tratar?
 [Direcciones IP de confianza](#trusted-ips)|IP de confianza es una característica de la autenticación multifactor que permite a los administradores de un inquilino administrado o federado la capacidad de omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet local de la empresa.|Configurar e instalar las direcciones IP que están exentas para la autenticación multifactor	
 [Contraseñas de aplicación](#app-passwords)|Las contraseñas de aplicación permiten omitir la autenticación multifactor a una aplicación que no sea compatible con la misma y poder seguir trabajando.|Información acerca de las contraseñas de aplicación.
 [Recordar Multi-Factor Authentication para exploradores y dispositivos recordados](#remember-multi-factor-authentication-for-devices-users-trust)|Permite recordar dispositivos durante un número determinado de días después de que un usuario inicie sesión correctamente mediante MFA.|Información sobre cómo habilitar esta característica y configurar el número de días.
-[Métodos de verificación seleccionables (versión preliminar pública)](#selectable-verification-methods-public-preview)|Le permite elegir los métodos de autenticación que están disponibles para que los usuarios los utilicen.|Información acerca de cómo habilitar o deshabilitar métodos de autenticación específicos, como mensajes de texto o llamada.
+[Métodos de verificación seleccionables](#selectable-verification-methods)|Le permite elegir los métodos de autenticación que están disponibles para que los usuarios los utilicen.|Información acerca de cómo habilitar o deshabilitar métodos de autenticación específicos, como mensajes de texto o llamada.
 
 
 
@@ -355,7 +355,7 @@ Sin embargo, como los usuarios pueden recordar MFA para los dispositivos de conf
 10. Haga clic en Cerrar.
 
 
-## Métodos de verificación seleccionables (versión preliminar pública)
+## Métodos de verificación seleccionables
 Ahora es posible elegir los métodos de autenticación que están disponibles para los usuarios cuando se usa la Azure Multi-Factor Authentication. Esta característica anteriormente solo estaba disponible en la versión de servidor local. La tabla siguiente proporciona una breve descripción de los distintos métodos de autenticación que se pueden habilitar o deshabilitar para los usuarios.
 
 Método|Descripción
@@ -376,4 +376,4 @@ Método|Descripción
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

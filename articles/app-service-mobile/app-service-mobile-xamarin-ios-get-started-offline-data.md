@@ -24,17 +24,9 @@
 
 Este tutorial presenta la característica de sincronización sin conexión de Aplicaciones móviles de Azure para Xamarin.iOS. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red. Los cambios se almacenan en una base de datos local; una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el servicio remoto.
 
-En este tutorial, actualizará el proyecto de aplicación Xamarin.iOS del tutorial [Creación de una aplicación Xamarin iOS] para conseguir compatibilidad con las características sin conexión de Aplicaciones móviles de Azure. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+En este tutorial, actualizará el proyecto de aplicación Xamarin.iOS de [Creación de una aplicación Xamarin.iOS] para conseguir compatibilidad con las características sin conexión de Aplicaciones móviles de Azure. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
-
-## Requisitos
-
-Este tutorial requiere lo siguiente:
-
-* Visual Studio 2013
-* Visual Studio con la [extensión Xamarin] **o** [ Xamarin Studio] en OS X.
-* Finalización del tutorial [Creación de una aplicación Xamarin iOS]. Este tutorial usa la aplicación completa que se explicó en ese tutorial.
 
 ## Revisión del código de sincronización de cliente
 
@@ -65,7 +57,7 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
     En el ejemplo proporcionado, se consultan todos los registros de la tabla `TodoItem` remota, pero también es posible filtrar registros pasando un identificador de consulta y una consulta a `PushAsync`. Para obtener más información, consulte la sección *Sincronización incremental* en [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
- 	-->
+	-->
 
 
 		// QSTodoService.cs
@@ -143,7 +135,7 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 
-* [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure] \(nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure\)
+* [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure] (nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
 
 <!-- ##Summary
 
@@ -159,14 +151,10 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 <!-- Images -->
 
 <!-- URLs. -->
-[Creación de una aplicación Xamarin iOS]: ../app-service-mobile-xamarin-ios-get-started.md
-[Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: ../app-service-mobile-offline-data-sync.md
-
-[How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
-
-[ Xamarin Studio]: http://xamarin.com/download
-[extensión Xamarin]: http://xamarin.com/visual-studio
-
+[Creación de una aplicación Xamarin iOS]: app-service-mobile-xamarin-ios-get-started.md
+[Creación de una aplicación Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
+[Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
+[How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

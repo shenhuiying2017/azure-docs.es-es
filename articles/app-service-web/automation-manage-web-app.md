@@ -40,7 +40,6 @@ Las aplicaciones web se pueden administrar en Automatización de Azure mediante 
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar Aplicaciones web de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
-* Consulte el [Tutorial de introducción](../automation-intro.md) de Automatización de Azure.
- 
+* Consulte el [Tutorial de introducción](../automation/automation-intro.md) de Automatización de Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

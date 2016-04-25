@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management" 
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -60,7 +60,7 @@ A partir de V12, la Base de datos SQL de Azure solo será compatible con los niv
 Para obtener información detallada acerca de los niveles de servicio Basic, Standard y Premium, consulte:
 
 - [Niveles de servicio de Base de datos SQL](sql-database-service-tiers.md)
-- [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-new-service-tiers.md)
+- [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-server-portal.md)
 
 
 
@@ -225,7 +225,7 @@ En el siguiente escenario se explica que una base de datos SQL de Azure V11 pued
 
 Los cmdlets de PowerShell se pueden usar para iniciar, detener o supervisar una actualización de la Base de datos SQL de Azure V12 a partir de la versión V11, o desde cualquier otra versión anterior a la V12.
 
-- [Actualización a la base de datos SQL V12 con PowerShell](sql-database-upgrade-server.md)
+- [Actualización a la base de datos SQL V12 con PowerShell](sql-database-upgrade-server-powershell.md)
 
 Para obtener documentación de referencia acerca de estos cmdlets de Powershell, consulte:
 
@@ -252,6 +252,5 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

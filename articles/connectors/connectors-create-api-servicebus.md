@@ -21,13 +21,13 @@ ms.author="deonhe"/>
 
 Conéctese al Bus de servicio de Azure para enviar y recibir mensajes. Puede realizar acciones como enviar a la cola, enviar al tema, recibir de la cola, recibir de la suscripción, etc.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-Versión preliminar, haga clic en [Bus de servicio de Azure](../app-service-logic/app-service-logic-connector-azureservicebus.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con el Bus de servicio de Azure, puede:
 
 * Usarlo para crear aplicaciones lógicas  
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Hablemos de desencadenadores y acciones
 
@@ -51,20 +51,20 @@ Se pueden escuchar estos eventos:
 
 
 ## Crear una conexión al Bus de servicio de Azure
-Para usar la API del Bus de servicio de Azure, cree primero una **conexión** y después proporcione los detalles para estas propiedades:
+Para usar la API del bus de servicio de Azure, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
 
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
 |ConnectionString|Sí|Proporcionar una cadena de conexión del Bus de servicio de Azure|  
 
-Siga estos pasos para crear una **conexión** de bus de servicio que, a continuación, puede usar en la aplicación lógica:
+Siga estos pasos para crear una **conexión** de bus de servicio, que podrá usar después en la aplicación lógica:
 
 1. Seleccione **Periodicidad**.
-2. Seleccione un valor para **Frecuencia** y escriba un valor para **Intervalo** ![Configurar Bus de servicio][1] 
-3. Seleccione **Agregar una acción** ![Configurar Bus de servicio][2]   
-4. Escriba **Bus de servicio** en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan Bus de servicio en el nombre.
-5. Seleccione **Bus de servicio - Enviar mensaje** ![Configurar Bus de servicio][3]
-7. Escriba un valor para **Nombre de conexión** y otro valor para **Cadena de conexión** y luego seleccione **Crear conexión**: ![Configurar Bus de servicio][4]
+2. Seleccione un valor para **Frecuencia** y especifique el correspondiente a **Intervalo**. ![Configurar Bus de servicio][1] 
+3. Seleccione **Agregar una acción**. ![Configurar Bus de servicio][2]   
+4. Escriba **Bus de servicio** en el cuadro de búsqueda y espere a que aparezcan todas las entradas que incluyan "Bus de servicio" en el nombre.
+5. Seleccione **Bus de servicio - Enviar mensaje**. ![Configurar Bus de servicio][3]
+7. Escriba un valor para **Nombre de conexión** y otro para **Cadena de conexión**. Luego, seleccione **Crear conexión**. ![Configurar Bus de servicio][4]
 7. Una vez creada la conexión, se mostrará el diálogo **Enviar mensaje**. Escriba toda la información necesaria para enviar un mensaje. ![Configurar Bus de servicio][5]
 8. Seleccione el botón **Guardar** en el menú superior para guardar su trabajo.    
 
@@ -138,7 +138,7 @@ Siga estos pasos para crear una **conexión** de bus de servicio que, a continua
 
 ## Definiciones de objeto: 
 
- **ServiceBusMessage**: el mensaje consta de contenido y propiedades
+ **ServiceBusMessage**: el mensaje consta de contenido y propiedades.
 
 Propiedades necesarias para ServiceBusMessage:
 
@@ -156,7 +156,7 @@ ContentTransferEncoding
 
 
 ## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 [1]: ./media/connectors-create-api-servicebus/connectionconfig1.png
 [2]: ./media/connectors-create-api-servicebus/connectionconfig2.png
@@ -165,4 +165,4 @@ ContentTransferEncoding
 [5]: ./media/connectors-create-api-servicebus/connectionconfig5.png
 [6]: ./media/connectors-create-api-servicebus/connectionconfig6.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

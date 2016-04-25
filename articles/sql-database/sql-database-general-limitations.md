@@ -3,8 +3,8 @@
    description="En esta página se describen algunas limitaciones generales para Base de datos SQL de Azure, así como las áreas de interoperatividad y compatibilidad."
    services="sql-database"
    documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor="monicar" />
 <tags
    ms.service="sql-database"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/15/2016"
-   ms.author="jroth" />
+   ms.date="04/11/2016"
+   ms.author="carlrab" />
 
 # Instrucciones y limitaciones generales de Base de datos SQL de Azure
 
@@ -59,8 +59,8 @@ Además, los nombres de inicio de sesión y el usuario no pueden contener el car
 
 - Para obtener directrices relacionadas con la seguridad, consulte [Instrucciones y limitaciones de seguridad de la Base de datos SQL de Azure](sql-database-security-guidelines.md).
 
-- Otro asunto relacionado hace referencia a la compatibilidad de Base de datos SQL de Azure con las versiones locales de SQL Server, como SQL Server 2014. La última versión V12 de Base de datos SQL de Azure ha conseguido muchas mejoras en este sentido. Para obtener más detalles, consulte [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md).
+- Otro asunto relacionado hace referencia a la compatibilidad de Base de datos SQL de Azure con las versiones locales de SQL Server, como SQL Server 2014 y SQL Server 2016. La última versión V12 de Base de datos SQL de Azure ha conseguido muchas mejoras en este sentido. Para obtener más detalles, consulte [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md).
 
 - Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/31/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/08/2016" 
+	ms.author="rnagpal"/>
 
 # SDK de DocumentDB
 
@@ -36,8 +36,11 @@
 
 ## Notas de la versión
 
-### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.1)
-  - [Colecciones con particiones](documentdb-partition-data.md) implementadas y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md). 
+### <a name="1.6.3"/>[1\.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
+  - Se corrige un error en el paquete de Nuget del SDK de .NET para empaquetarlo como parte de una solución de servicio en la nube de Azure.
+  
+### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
+  - [Colecciones con particiones](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md) implementados. 
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
   - **[Corregido]** La consulta del punto de conexión de DocumentDB genera: 'System.Net.Http.HttpRequestException: Error al copiar el contenido en una transmisión.
@@ -47,7 +50,7 @@
     - Operador Take para habilitar el comportamiento de SELECT TOP en LINQ
     - Operador CompareTo para habilitar las comparaciones de intervalos de cadenas
     - Operadores conditional (?) y coalesce (??)
-  - **[Corregido]** ArgumentOutOfRangeException al combinar la proyección Model en la consulta Where-In de LINQ [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Corregido]** ArgumentOutOfRangeException al combinar la proyección Model en la consulta Where-In de LINQ. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Corregido]** Si Select no es la última expresión, el proveedor LINQ suponía que no había ninguna proyección y generaba SELECT * incorrectamente. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -124,21 +127,7 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
  
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.6.2](#1.6.2) | 29 de marzo de 2016 |---
-| [1\.5.3](#1.5.3) | 19 de febrero de 2016 |---
-| [1\.5.2](#1.5.2) | 14 de diciembre de 2015 |---
-| [1\.5.1](#1.5.1) | 23 de noviembre de 2015 |---
-| [1\.5.0](#1.5.0) | 05 de octubre de 2015 |---
-| [1\.4.1](#1.4.1) | 25 de agosto de 2015 |---
-| [1\.4.0](#1.4.0) | 13 de agosto de 2015 |---
-| [1\.3.0](#1.3.0) |05 de agosto de 2015 |---
-| [1\.2.0](#1.2.0) | 06 de julio de 2015 |---
-| [1\.1.0](#1.1.0) | 30 de abril de 2015 |---
-|[1\.0.0](#1.0.0) | 08 de abril de 2015 |---
-| [0\.9.3-versión preliminar](#0.9.x-preview) | 12 de marzo de 2015 | 29 de febrero de 2016
-| [0\.9.2-versión preliminar](#0.9.x-preview) | enero de 2015 | 29 de febrero de 2016
-| [.9.1-versión preliminar](#0.9.x-preview) | 13 de octubre de 2014 | 29 de febrero de 2016
-| [0\.9.0-versión preliminar](#0.9.x-preview) | 21 de agosto de 2014 | 29 de febrero de 2016
+| [1\.6.3](#1.6.3) | 8 de abril de 2016 |--- | [1\.6.2](#1.6.2) | 29 de marzo de 2016 |--- | [1\.5.3](#1.5.3) | 19 de febrero de 2016 |--- | [1\.5.2](#1.5.2) | 14 de diciembre de 2015 |--- | [1\.5.1](#1.5.1) | 23 de noviembre de 2015 |--- | [1\.5.0](#1.5.0) | 05 de octubre de 2015 |--- | [1\.4.1](#1.4.1) | 25 de agosto de 2015 |--- | [1\.4.0](#1.4.0) | 13 de agosto de 2015 |--- | [1\.3.0](#1.3.0) | 05 de agosto de 2015 |--- | [1\.2.0](#1.2.0) | 6 de julio de 2015 |--- | [1\.1.0](#1.1.0) | 30 de abril de 2015 |--- | [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- | [0\.9.3-versión preliminar](#0.9.x-preview) | 12 de marzo de 2015 | 29 de febrero de 2016 | [0\.9.2-versión preliminar](#0.9.x-preview) | Enero de 2015 | 29 de febrero de 2016 | [.9.1-versión preliminar](#0.9.x-preview) | 13 de octubre de 2014 | 29 de febrero de 2016 | [0\.9.0-versión preliminar](#0.9.x-preview) | 21 de agosto de 2014 | 29 de febrero de 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -147,4 +136,4 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

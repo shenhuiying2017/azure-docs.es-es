@@ -38,7 +38,7 @@ Implemente AD FS y conéctese a Azure Active Directory con Azure Active Director
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
-    
+
 8. Haga clic en **Aceptar** dos veces para completar el cuadro de diálogo.
 
 Configure una referencia de clase de autenticación de relación de confianza para usuario de confianza de Azure Active Directory adicional.
@@ -47,7 +47,7 @@ En el servidor de federación, abra una ventana de comandos de Windows PowerShel
 
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
-   
+
 Donde <RPObjectName> es el nombre del objeto para usuario de confianza para su objeto de confianza para usuario de confianza de Azure Active Directory. Este objeto normalmente se denomina Plataforma de identidad de Microsoft Office 365.
 
 Directiva de autenticación global de AD FS
@@ -83,7 +83,7 @@ Por ejemplo, si usa dos sufijos UPN en la organización denominados @contoso.com
 
 Configure el registro automático de dispositivos para sus dispositivos Windows 7 y Windows 8.1 unidos a un dominio con los vínculos siguientes. Asegúrese de que ha completado los requisitos previos anteriores antes de continuar.
 
-* [Configure el registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+* [Configure el registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 
 * [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
@@ -102,7 +102,7 @@ Puede obtener más información acerca de cómo implementar el registro de dispo
 
 - [Información general sobre el Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 - [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
-- [Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows 10 unidos a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

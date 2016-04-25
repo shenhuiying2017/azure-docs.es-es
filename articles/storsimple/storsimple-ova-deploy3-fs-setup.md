@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli"/>
 
 # Implementar una matriz virtual de StorSimple: Configurar un servidor de archivos
@@ -128,7 +128,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
     1.  Introduzca la **Clave de registro del servicio** que obtuvo en [Paso 2: Obtener la clave de registro del servicio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para la matriz virtual de StorSimple.
 
-    2.  Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **Clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para obtener más información, consulte para obtener la [clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
+    2.  Omita este paso si se trata del primer dispositivo que va a registrar con este servicio y vaya al paso siguiente. Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **Clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para obtener más información, consulte para obtener la [clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
 
     3.  Haga clic en **Registrar**. Se reiniciará el dispositivo. Debe esperar de 2 a 3 minutos antes de que el dispositivo se registre correctamente. Una vez que se haya reiniciado el dispositivo, irá a la página de inicio de sesión.
 
@@ -192,9 +192,9 @@ Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.co
 
     3.  Seleccione un tipo de uso para el recurso compartido. El tipo de uso puede ser **En capas** o **Anclado localmente**, donde el tipo en capas es el valor predeterminado. Para las cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione un recurso compartido **Anclado localmente**. Para todos los demás datos, seleccione un recurso compartido **En capas**.
 
-	Un recurso compartido anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del recurso compartido continúen siendo locales en el dispositivo y que no se traspasan a la nube. Por otro lado, un recurso compartido en capas se aprovisiona de manera fina y se puede crear muy rápidamente. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas.
+	Un recurso compartido anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del recurso compartido continúen siendo locales en el dispositivo y que no se traspasan a la nube. Por otro lado, un recurso compartido en capas se aprovisiona de manera fina y se puede crear muy rápidamente. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas.
 
-1.  Especifique la capacidad aprovisionada para el recurso compartido. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si usa un recurso compartido en capas, el tamaño del recurso compartido debe estar entre 500 GB y 20 TB. Para un recurso compartido anclado localmente, especifique un tamaño de recurso compartido de 50 GB a 2 TB. Use la capacidad disponible como guía para aprovisionar un recurso compartido. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar recursos compartidos locales o en capas.
+1.  Especifique la capacidad aprovisionada para el recurso compartido. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si usa un recurso compartido en capas, el tamaño del recurso compartido debe estar entre 500 GB y 20 TB. Para un recurso compartido anclado localmente, especifique un tamaño de recurso compartido de 50 GB a 2 TB. Use la capacidad disponible como guía para aprovisionar un recurso compartido. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar recursos compartidos locales o en capas.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image18.png)
 
@@ -232,4 +232,4 @@ Mire el vídeo para ver cómo puede configurar y registrar una matriz virtual de
 
 Obtenga más información acerca de usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

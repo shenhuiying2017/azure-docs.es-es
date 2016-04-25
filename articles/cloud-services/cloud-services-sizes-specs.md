@@ -31,7 +31,7 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 * Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 
-* Los roles web y los roles de trabajo requieren más espacio en el disco temporal que las máquinas virtuales de Azure debido a los requisitos del sistema. Los archivos del sistema reservan 4 GB de espacio para el archivo de paginación de Windows y 2 GB de espacio para el archivo de volcado de memoria de Windows.
+* Los roles web y los roles de trabajo requieren más espacio en el disco temporal que las máquinas virtuales de Azure debido a los requisitos del sistema. Los archivos del sistema reservan 4 GB de espacio para el archivo de paginación de Windows y 2 GB de espacio para el archivo de volcado de memoria de Windows.
 
 * El disco del sistema operativo contiene el sistema operativo invitado de Windows e incluye la carpeta Archivos de programa (incluidas las instalaciones realizadas a través de tareas de inicio a menos que especifique otro disco), cambios del Registro, la carpeta System32 y .NET Framework.
 
@@ -41,7 +41,7 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 * Los tamaños de máquina virtual A8/A10 y A9/A11 tienen las mismas capacidades. Las instancias de máquina virtual A8 y A9 incluyen otro adaptador de red que se conecta a una red de acceso de memoria directa remota (RDMA) para una rápida comunicación entre máquinas virtuales. Las instancias A8 y A9 están diseñadas para aplicaciones informáticas de alto rendimiento que requieren una comunicación constante y de baja latencia entre nodos durante la ejecución, por ejemplo, aplicaciones que utilizan la interfaz de paso de mensajes (MPI). Las instancias de máquina virtual A10 y A11 no incluyen el adaptador de red adicional. Las instancias A10 y A11 están diseñadas para aplicaciones informáticas de alto rendimiento que no requieren la comunicación constante y de baja latencia entre nodos, también conocidas como aplicaciones paramétricas o embarazosamente paralelas.
 
-    >[AZURE.NOTE] Si está considerando la posibilidad de usar tamaños de A8 a A11, lea [esta información](..\virtual-machines\virtual-machines-a8-a9-a10-a11-specs.md).
+    >[AZURE.NOTE] Si está considerando la posibilidad de usar tamaños de A8 a A11, lea [esta información](..\virtual-machines\virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 >[AZURE.NOTE] Todos los tamaños de máquina proporcionan un **disco de aplicaciones** que almacena todos los archivos del paquete de servicio de la nube. Tiene aproximadamente 1,5 GB de tamaño.
 
@@ -102,7 +102,7 @@ Para sitios web, bases de datos pequeñas y medianas y otras aplicaciones habitu
 | Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
 | --------------- | :-------: | ------: | ------: |
 | Standard\_D1 | 1 | 3,5 GB | 50 GB |
-| Standard\_D2 | 2 | 7 GB | 100 GB |
+| Standard\_D2 | 2 | 7 GB | 100 GB* |
 | Standard\_D3 | 4 | 14 GB | 200 GB |
 | Standard\_D4 | 8 | 28 GB | 400 GB |
 
@@ -112,7 +112,7 @@ Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones 
 
 | Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
 | --------------- | :-------: | ------: | ------: |
-| Standard\_D11 | 2 | 14 GB | 100 GB |
+| Standard\_D11 | 2 | 14 GB | 100 GB* |
 | Standard\_D12 | 4 | 28 GB | 200 GB |
 | Standard\_D13 | 8 | 56 GB | 400 GB |
 | Standard\_D14 | 16 | 112 GB | 800 GB |
@@ -128,7 +128,7 @@ Para sitios web, bases de datos pequeñas y medianas y otras aplicaciones habitu
 | Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
 | --------------- | :-------: | ------: | ------: |
 | Standard\_D1\_v2 | 1 | 3,5 GB | 50 GB |
-| Standard\_D2\_v2 | 2 | 7 GB | 100 GB |
+| Standard\_D2\_v2 | 2 | 7 GB | 100 GB* |
 | Standard\_D3\_v2 | 4 | 14 GB | 200 GB |
 | Standard\_D4\_v2 | 8 | 28 GB | 400 GB |
 | Standard\_D5\_v2 | 16 | 56 GB | 800 GB |
@@ -139,7 +139,7 @@ Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones 
 
 | Tamaño (id.) | Núcleos | RAM | Tamaño total del disco |
 | --------------- | :-------: | ------: | ------: |
-| Standard\_D11\_v2 | 2 | 14 GB | 100 GB |
+| Standard\_D11\_v2 | 2 | 14 GB | 100 GB* |
 | Standard\_D12\_v2 | 4 | 28 GB | 200 GB |
 | Standard\_D13\_v2 | 8 | 56 GB | 400 GB |
 | Standard\_D14\_v2 | 16 | 112 GB | 800 GB |
@@ -148,7 +148,7 @@ Para bases de datos grandes, granjas de servidores de SharePoint y aplicaciones 
 
 Puede especificar el tamaño de la máquina virtual de una instancia de rol como parte del modelo de servicio descrito por el [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). El tamaño del rol determina la cantidad de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a una instancia en ejecución. Elija el tamaño del rol en función del requisito de recursos de la aplicación.
 
-El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea [Standard\_D2](de Uso general (D)) para una instancia de rol web:
+El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea [Standard\_D2](#general-purpose-d) para una instancia de rol web:
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
@@ -156,4 +156,4 @@ El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea [Stand
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

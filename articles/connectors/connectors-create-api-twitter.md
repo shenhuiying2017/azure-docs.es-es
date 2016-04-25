@@ -30,7 +30,7 @@ Conectarse a Twitter para publicar un tweet, obtener la escala de tiempo de un u
 
 &nbsp;
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 01/12/2014-Versión preliminar, haga clic en [Conector de Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con Twitter, puede:
 
@@ -59,9 +59,9 @@ Todas las API admiten datos en formato JSON y XML.
 Al agregar esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su instancia de Twitter.
 
 1. Inicie sesión en su cuenta de Twitter.
-2. Seleccione **Autorizar** y permita que sus aplicaciones lógicas se conecten y utilicen su cuenta de Twitter. 
+2. Seleccione **Autorizar** y permita que las aplicaciones lógicas se conecten y utilicen su cuenta de Twitter. 
 
-Después de crear la conexión, especifique las propiedades de Twitter, como texto del tweet. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de Twitter, como texto del tweet. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Twitter en otras aplicaciones lógicas.
 
@@ -94,7 +94,7 @@ Activa un flujo de trabajo cuando se publica un nuevo tweet que coincide con su 
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|searchQuery|cadena|yes|query|Ninguna|Texto de consulta (puede usar los operadores de consulta de Twitter admitidos: http://www.twitter.com/search)|
+|searchQuery|cadena|yes|query|Ninguna|Texto de consulta (puede usar los operadores de consulta de Twitter admitidos). http://www.twitter.com/search)|
 
 #### Respuesta
 |Nombre|Descripción|
@@ -110,7 +110,7 @@ Activa un flujo de trabajo cuando se publica un nuevo tweet que coincide con su 
 
 
 ### Obtener escala de tiempo de inicio 
-Recupera los tweets y retweets más recientes enviados por mí y mis seguidores. ```GET: /hometimeline```
+Recupera los tweets y retweets más recientes que hemos publicado mis seguidores y yo. ```GET: /hometimeline```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -129,7 +129,7 @@ Recupera los tweets y retweets más recientes enviados por mí y mis seguidores.
 
 
 ### Obtener usuario 
-Recupera los detalles sobre el usuario especificado (ejemplo: nombre de usuario, descripción, número de seguidores, etc.) ```GET: /user```
+Recupera los detalles sobre el usuario especificado (ejemplo: nombre de usuario, descripción, número de seguidores, etc.). ```GET: /user```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -148,7 +148,7 @@ Recupera los detalles sobre el usuario especificado (ejemplo: nombre de usuario,
 
 
 ### Obtener biografía de usuario 
-Recupera una colección de los tweets más recientes publicados por el usuario especificado. ```GET: /usertimeline```
+Recupera una colección de los tweets más recientes que ha publicado el usuario especificado. ```GET: /usertimeline```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -168,11 +168,11 @@ Recupera una colección de los tweets más recientes publicados por el usuario e
 
 
 ### Buscar tweet 
-Recupera una colección de tweets relevantes que coincidan con una consulta especificada. ```GET: /searchtweets```
+Recupera una colección de tweets pertinentes que coincidan con una consulta especificada. ```GET: /searchtweets```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|searchQuery|cadena|yes|query|Ninguna|Texto de consulta (puede usar los operadores de consulta de Twitter admitidos: http://www.twitter.com/search)|
+|searchQuery|cadena|yes|query|Ninguna|Texto de consulta (puede usar los operadores de consulta de Twitter admitidos). http://www.twitter.com/search)|
 |maxResults|integer|no|query|20|Número máximo de tweets que recuperar|
 
 #### Respuesta
@@ -315,4 +315,4 @@ Volver a la [lista de API](apis-list.md).
 [6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
 [7]: ./media/connectors-create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

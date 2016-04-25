@@ -46,9 +46,9 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 Este tutorial requiere lo siguiente:
 
-* Visual Studio con la [extensión Xamarin] **o** [Xamarin Studio]
-* Finalización del tutorial [Introducción a los Servicios móviles].
-
+* Las instrucciones completas de instalación de Visual Studio con Xamarin en Windows o Xamarin Studio en Mac OS X se encuentran en [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx).
+* Finalización del tutorial [Introducción a Servicios móviles].
+ 
 ## <a name="review-offline"></a>Revisión del código de sincronización de Servicios móviles
 
 La sincronización sin conexión de Servicios móviles de Azure permite a los usuarios finales interactuar con una base de datos local cuando la red no está accesible. Para usar estas características en la aplicación, inicialice `MobileServiceClient.SyncContext` en un almacén local. A continuación, obtenga una referencia a la tabla mediante la interfaz `IMobileServiceSyncTable`. Esta sección le guía a través del código relacionado con la sincronización sin conexión en `ToDoActivity.cs`.
@@ -165,15 +165,13 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 
 <!-- URLs. -->
 [Control de conflictos con compatibilidad sin conexión para Servicios móviles]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
+[Introducción a Servicios móviles]: mobile-services-android-get-started.md
 [Introducción a los Servicios móviles]: mobile-services-android-get-started.md
 [Uso del cliente del componente Xamarin para servicios móviles de Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [eliminación temporal]: mobile-services-using-soft-delete.md
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
-[Xamarin Studio]: http://xamarin.com/download
-[extensión Xamarin]: http://xamarin.com/visual-studio
-[NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [Portal de Azure clásico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli" />
 
 # Usar la interfaz de usuario web para administrar la matriz virtual de StorSimple
@@ -39,12 +39,12 @@ Si ha perdido su clave de cifrado de los datos del servicio y necesita recuperar
 #### Cómo obtener la clave de cifrado de los datos del servicio
 
 1. Conéctese a la interfaz de usuario web local Vaya a **Configuración** > **Configuración de nube**.
+  
 
-    ![obtener la clave de cifrado de los datos del servicio 1](./media/storsimple-ova-web-ui-admin/image27.png)
-
-2. En la parte inferior de la página, haga clic en **Obtener la clave de cifrado de los datos del servicio**. Aparecerá una clave. Cópiela y guárdela.
-
-    ![obtener la clave de cifrado de los datos del servicio 2](./media/storsimple-ova-web-ui-admin/image28.png)
+2. En la parte inferior de la página, haga clic en **Obtener clave de cifrado de datos del servicio**. Aparecerá una clave. Cópiela y guárdela.
+  	
+	![obtener la clave de cifrado de los datos del servicio 1](./media/storsimple-ova-web-ui-admin/image27.png)
+   
 
 
 ## Solucionar los problemas de instalación de la interfaz de usuario web
@@ -99,7 +99,7 @@ Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario 
 
     ![apagar el dispositivo 1](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. Aparecerá una advertencia que le indicará que si apaga el dispositivo se interrumpirá cualquier operación de E/S que estuviera en curso, lo que resultará en un tiempo de inactividad. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Aparecerá una advertencia que le indicará que si apaga el dispositivo se interrumpirá cualquier operación de E/S que estuviera en curso, lo que producirá un tiempo de inactividad. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-web-ui-admin/image3.png).
 
     ![advertencia de apagado del dispositivo](./media/storsimple-ova-web-ui-admin/image37.png)
 
@@ -131,4 +131,4 @@ Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario 
 
 Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

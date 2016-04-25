@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/08/2016"
+   ms.date="04/06/2016"
    ms.author="seanmck"/>
 
 # Solución de problemas de instalación del clúster de desarrollo local
@@ -50,6 +50,8 @@ Si intenta ejecutar cualquiera de los cmdlets de PowerShell de Service Fabric, c
 #### Solución
 
 Ejecute siempre los cmdlets de Service Fabric directamente desde Windows PowerShell.
+
+>[AZURE.NOTE] La versión más reciente de Azure PowerShell no crea un acceso directo especial, por lo que esto ya no debería ocurrir.
 
 ### Excepción de inicialización de tipo
 
@@ -96,4 +98,4 @@ Asegúrese de que no tenga ningún proyecto de servicio establecido como proyect
 - [Comprensión y solución de problemas de clústeres con informes de mantenimiento del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

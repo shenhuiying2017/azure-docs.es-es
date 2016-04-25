@@ -173,7 +173,7 @@ Describimos cada una de estas opciones:
 
 ### Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure
 
-El **Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure** es una manera sencilla y recomendada de mover datos de una instancia local de SQL Server a SQL Server en una máquina virtual de Azure. Para obtener pasos detallados así como un debate sobre otras alternativas, consulte [Migrar una base de datos a SQL Server en una máquina virtual de Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md).
+El **Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure** es una manera sencilla y recomendada de mover datos de una instancia local de SQL Server a SQL Server en una máquina virtual de Azure. Para obtener pasos detallados así como un debate sobre otras alternativas, consulte [Migrar una base de datos a SQL Server en una máquina virtual de Azure](../virtual-machines/virtual-machines-windows-migrate-sql.md).
 
 ### <a name="export-flat-file"></a>Exportación a un archivo plano
 
@@ -217,11 +217,11 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 
 ## Recursos
 
-[Migración de una base de datos a SQL Server en una máquina virtual de Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
+[Migración de una base de datos a SQL Server en una máquina virtual de Azure](../virtual-machines/virtual-machines-windows-migrate-sql.md)
 
-[Información general sobre SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
+[Información general sobre SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

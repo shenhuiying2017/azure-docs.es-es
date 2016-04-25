@@ -17,15 +17,14 @@
 	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-# Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure
+# Cómo configurar puntos de conexión de máquinas virtuales Linux clásicas en Azure
 
 
-
-Todas las máquinas virtuales de Windows que se crean en Azure con el modelo de implementación clásico se pueden comunicar automáticamente a través de un canal de red privado con otras máquinas virtuales del mismo servicio en la nube o la misma red virtual. Sin embargo, los equipos en Internet o en otras redes virtuales necesitan extremos para dirigir el tráfico de red entrante a una máquina virtual. Si desea obtener información acerca de los puntos de conexión en máquinas virtuales de Linux, consulte [Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure](virtual-machines-linux-classic-setup-endpoints.md).
+Todas las máquinas virtuales de Windows que se crean en Azure con el modelo de implementación clásico se pueden comunicar automáticamente a través de un canal de red privado con otras máquinas virtuales del mismo servicio en la nube o la misma red virtual. Sin embargo, los equipos en Internet o en otras redes virtuales necesitan extremos para dirigir el tráfico de red entrante a una máquina virtual. Este artículo también está disponible para [máquinas virtuales Linux](virtual-machines-linux-classic-setup-endpoints.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
-Al crear una máquina virtual de Windows en el Portal de Azure clásico, los puntos de conexión comunes, como los de Escritorio remoto o Windows PowerShell Remoting se suelen crear automáticamente, según el sistema operativo que elija. Puede configurar extremos adicionales al crear la máquina virtual o posteriormente, según sea necesario.
+Al crear una máquina virtual Windows en el Portal de Azure clásico, los puntos de conexión comunes, como los de Escritorio remoto y Windows PowerShell Remoting se suelen crear automáticamente. Puede configurar extremos adicionales al crear la máquina virtual o posteriormente, según sea necesario.
 
 
 
@@ -39,4 +38,4 @@ Al crear una máquina virtual de Windows en el Portal de Azure clásico, los pun
 
 * Si ha creado una máquina virtual en el modelo de implementación de Resource Manager, también puede usar Azure PowerShell para [crear un equilibrador de carga con conexión a Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

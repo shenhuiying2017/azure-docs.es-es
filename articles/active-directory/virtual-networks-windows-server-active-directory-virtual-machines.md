@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="04/07/2016" 
 	ms.author="markusvi"/>
 
 
@@ -33,8 +33,8 @@ Este tema de navegación contiene vínculos a otros temas acerca de cómo implem
 ## Artículos de procedimientos
 
 - [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md)
-- [Instalación de una réplica del Controlador de dominio de Active Directory en Redes virtuales de Azure](../virtual-networks-install-replica-active-directory-domain-controller.md) 
-- [Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing.md)
+- [Instalación de una réplica del Controlador de dominio de Active Directory en Redes virtuales de Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) 
+- [Configuración de un entorno de nube híbrida para pruebas](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 
 ## Recursos adicionales
@@ -47,4 +47,4 @@ Este tema de navegación contiene vínculos a otros temas acerca de cómo implem
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,9 +3,9 @@
 	description="Este tutorial le guiará a través de los pasos necesarios para crear un agente de escucha de grupo de disponibilidad AlwaysOn en Azure que sea accesible desde el exterior usando la dirección IP virtual pública del servicio en la nube asociado."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="jroth" />
+	ms.date="04/05/2016"
+	ms.author="mikeray" />
 
 # Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure
 
@@ -27,7 +27,7 @@ En este tema se muestra cómo configurar un agente de escucha para un grupo de d
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
-El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](virtual-machines-windows-classic-portal-sql-availability.md) pero no un agente de escucha.
+El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) pero no un agente de escucha.
 
 ## Instrucciones y limitaciones de los agentes de escucha externos
 
@@ -37,7 +37,7 @@ Tenga en cuenta las siguientes instrucciones acerca del agente de escucha del gr
 
 - La aplicación cliente debe residir en un servicio en la nube diferente al que contiene el grupo de disponibilidad de las máquinas virtuales. Azure no es compatible con Direct Server Return cuando el cliente y el servidor se encuentran en el mismo servicio en la nube.
 
-- Los pasos descritos en este artículo le mostrarán de forma predeterminada cómo configurar un agente de escucha para usar la dirección IP Virtual (VIP) del servicio en la nube. De todos modos, es posible reservar y crear varias direcciones VIP para el servicio en la nube. Esto le permitirá usar los pasos de este artículo para crear varios agentes de escucha asociados a una VIP diferente. Para obtener información sobre cómo crear varias direcciones VIP, consulte [Varias direcciones VIP por cada servicio en la nube](load-balancer-multivip.md).
+- Los pasos descritos en este artículo le mostrarán de forma predeterminada cómo configurar un agente de escucha para usar la dirección IP Virtual (VIP) del servicio en la nube. De todos modos, es posible reservar y crear varias direcciones VIP para el servicio en la nube. Esto le permitirá usar los pasos de este artículo para crear varios agentes de escucha asociados a una VIP diferente. Para obtener información sobre cómo crear varias direcciones VIP, consulte [Varias direcciones VIP por cada servicio en la nube](../load-balancer/load-balancer-multivip.md).
 
 - Si crea un agente de escucha para un entorno híbrido, la red local debe tener conectividad a Internet pública así como a la VPN de sitio a sitio con la red virtual de Azure. Cuando se encuentra en la subred de Azure, el agente de escucha del grupo de disponibilidad solo está disponible con la dirección IP pública del servicio en la nube respectivo.
 
@@ -130,4 +130,4 @@ Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán q
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

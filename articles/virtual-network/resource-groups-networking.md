@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Información general del Proveedor de recursos de red | Microsoft Azure"
    description="Más información sobre el nuevo Proveedor de recursos de red del Administrador de recursos de Azure"
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -23,9 +23,9 @@ El Administrador de recursos de Azure utiliza distintos proveedores de recursos 
 - **Metadatos**: puede agregar información a los recursos mediante etiquetas. Estas etiquetas pueden utilizarse para realizar el seguimiento de la utilización de recursos en todas las suscripciones y los grupos de recursos.
 - **Mayor control de la red**: los recursos de red están acoplados holgadamente y los puede controlar de forma más detallada. Esto significa que tendrá una mayor flexibilidad en la administración de los recursos de red.
 - **Configuración más rápida**: dado que los recursos de red están acoplados holgadamente, puede crear y organizar los recursos de red en paralelo. Esto ha reducido drásticamente el tiempo de configuración.
-- **Control de acceso basado en rol (RBAC)**: RBAC proporciona roles predeterminados, con un ámbito de seguridad específico, además de permitir la creación de roles personalizados para una administración segura. 
+- **Control de acceso basado en rol (RBAC)**: RBAC proporciona roles predeterminados, con un ámbito de seguridad específico, además de permitir la creación de roles personalizados para una administración segura.
 - **Administración e implementación más sencillas**: resulta más fácil implementar y administrar aplicaciones, ya que puede crear una pila de toda la aplicación como una única colección de recursos en un grupo de recursos. Y más rápido de implementar, ya que es posible hacerlo con solo proporcionar una carga JSON de la plantilla.
-- **Personalización rápida**: puede utilizar las plantillas de estilo declarativo para habilitar la personalización repetible y rápida de las implementaciones. 
+- **Personalización rápida**: puede utilizar las plantillas de estilo declarativo para habilitar la personalización repetible y rápida de las implementaciones.
 - **Personalización repetible**: puede utilizar las plantillas de estilo declarativo para habilitar la personalización repetible y rápida de las implementaciones.
 - **Interfaces de administración**: puede utilizar cualquiera de las siguientes interfaces para administrar los recursos:
 	- API basadas en REST
@@ -37,7 +37,7 @@ El Administrador de recursos de Azure utiliza distintos proveedores de recursos 
 	- Portal de vista previa
 	- Lenguaje de la plantilla del Administrador de recursos de Azure
 
-## Recursos de red 
+## Recursos de red
 Ahora puede administrar los recursos de red de forma independiente, en lugar de tener hacerlo a través de un recurso de proceso único (una máquina virtual). Esto garantiza un mayor grado de flexibilidad y agilidad a la hora de componer una infraestructura compleja y de gran escala en un grupo de recursos.
 
 A continuación se presenta una vista conceptual de una implementación de ejemplo que implica una aplicación de varios niveles. Todos los recursos que vea, por ejemplo, las NIC, las direcciones IP públicas y las máquinas virtuales, pueden administrarse de forma independiente.
@@ -77,7 +77,7 @@ Puede comprobar las propiedades individuales de los recursos en las secciones si
 ## Interfaces de administración
 Puede administrar los recursos de redes de Azure mediante distintas interfaces. En este documento, nos centraremos en las interfaces API de REST y las plantillas.
 
-### API de REST 
+### API de REST
 Como se mencionó anteriormente, se pueden administrar los recursos de red a través de una variedad de interfaces, incluidas API de REST, .NET SDK, SDK de Node.JS, SDK de Java, PowerShell, CLI, Portal de Azure y plantillas.
 
 Las API de REST se ajustan a la especificación del protocolo HTTP 1.1. A continuación se presenta la estructura general de URI de la API:
@@ -92,7 +92,7 @@ Y los parámetros entre llaves representan los elementos siguientes:
 
 Se admiten los siguientes métodos HTTP cuando se realizan llamadas a la API de REST:
 
-- **PUT**: se utiliza para crear un recurso de un tipo determinado, modificar una propiedad de recurso o cambiar una asociación entre recursos. 
+- **PUT**: se utiliza para crear un recurso de un tipo determinado, modificar una propiedad de recurso o cambiar una asociación entre recursos.
 - **GET**: se utiliza para recuperar información para un recurso aprovisionado.
 - **DELETE**: se utiliza para eliminar un recurso existente.
 
@@ -138,7 +138,7 @@ La plantilla es principalmente una descripción de JSON de los recursos y los va
 	        "metadata" : {
 	          "Description" : "Address prefix"
 	        }
-	
+
 	      },
 	      "subnet1Name": {
 	        "type" : "string",
@@ -229,9 +229,9 @@ Tiene la opción de proporcionar los valores de los parámetros manualmente cuan
 
 Las principales ventajas derivadas del uso de plantillas son las siguientes:
 
-- Puede crear una infraestructura compleja en un grupo de recursos de estilo declarativo. La coordinación de la creación de recursos, incluida la administración de dependencias, se controla mediante el Administrador de recursos de Azure. 
-- La infraestructura se puede crear de una manera repetible en diferentes regiones y dentro de una misma región cambiando simplemente parámetros. 
-- El estilo declarativo permite reducir el tiempo necesario para generar las plantillas y distribuir la infraestructura. 
+- Puede crear una infraestructura compleja en un grupo de recursos de estilo declarativo. La coordinación de la creación de recursos, incluida la administración de dependencias, se controla mediante el Administrador de recursos de Azure.
+- La infraestructura se puede crear de una manera repetible en diferentes regiones y dentro de una misma región cambiando simplemente parámetros.
+- El estilo declarativo permite reducir el tiempo necesario para generar las plantillas y distribuir la infraestructura.
 
 Para ver plantillas de ejemplo, consulte [Plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 
@@ -260,8 +260,8 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 
 [Redes de Azure: plantillas utilizadas habitualmente](https://github.com/Azure/azure-quickstart-templates)
 
-[Proveedor de recursos de proceso](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Proveedor de recursos de proceso](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
 [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

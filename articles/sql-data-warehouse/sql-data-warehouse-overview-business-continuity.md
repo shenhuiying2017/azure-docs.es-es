@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="04/07/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -51,7 +51,7 @@ Puesto que Almacenamiento de datos SQL separa el proceso y el almacenamiento, to
 
 ### Restauración de base de datos
 
-La restauración de base de datos está diseñada para restablecer la base de datos a un punto anterior en el tiempo. El servicio Almacenamiento de datos SQL de Azure protege todas las bases de datos con instantáneas de almacenamiento automáticas cada 8 horas como mínimo y las conserva durante 7 días para ofrecerle un conjunto discreto de puntos de restauración. Estas copias de seguridad se almacenan en el Almacenamiento de Azure RA-GRS y, por tanto, tienen redundancia geográfica de forma predeterminada. Las características de copia de seguridad y restauración automáticas se incluyen sin cargos adicionales y permiten proteger las bases de datos de daños o eliminaciones accidentales sin costos ni esfuerzos de administración. Para obtener más información sobre la restauración de bases de datos, consulte [Recuperación de errores de usuario][].
+La restauración de base de datos está diseñada para restablecer la base de datos a un punto anterior en el tiempo. El servicio Almacenamiento de datos SQL de Azure protege todas las bases de datos con instantáneas de almacenamiento automáticas cada 8 horas como mínimo y las conserva durante 7 días para ofrecerle un conjunto discreto de puntos de restauración. Estas copias de seguridad se almacenan en el Almacenamiento de Azure RA-GRS y, por tanto, tienen redundancia geográfica de forma predeterminada. Las características de copia de seguridad y restauración automáticas se incluyen sin cargos adicionales y permiten proteger las bases de datos de daños o eliminaciones accidentales sin costos ni esfuerzos de administración. Para obtener más información sobre la restauración de bases de datos, consulte [Recuperación de una base de datos de un error de usuario en Almacenamiento de datos SQL][].
 
 ### Restauración geográfica
 
@@ -68,7 +68,7 @@ Para obtener información sobre las características de continuidad del negocio 
 [Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [Opciones de redundancia de Almacenamiento de Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Información general sobre la continuidad del negocio de Base de datos SQL]: ../sql-database/sql-database-business-continuity.md
-[Recuperación de errores de usuario]: sql-data-warehouse-business-continuity-recover-from-user-error.md
+[Recuperación de una base de datos de un error de usuario en Almacenamiento de datos SQL]: sql-data-warehouse-backup-and-restore-from-snapshot.md
 
 <!--MSDN references-->
 [Create database restore request]: http://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -78,4 +78,4 @@ Para obtener información sobre las características de continuidad del negocio 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

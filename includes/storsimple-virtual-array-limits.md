@@ -13,7 +13,6 @@
 | Número máximo de copias de seguridad retenidas por el dispositivo virtual en la carpeta *.backups* del servidor de archivos | 5 | Esto incluye las últimas copias de seguridad manuales y programadas (generadas por la directiva de copias de seguridad predeterminada). |
 | Número máximo de copias de seguridad programadas retenidas por el dispositivo | 55 | 30 copias de seguridad diarias<br>12 copias de seguridad mensuales<br>13 copias de seguridad anuales |
 | Número máximo de copias de seguridad manuales retenidas por el dispositivo | 45 | |
-| Número máximo de volúmenes que se pueden procesar en paralelo para realizar una copia de seguridad o una restauración | 3 | Si hay más de 3 volúmenes, se procesarán secuencialmente a medida que las ranuras de procesamiento estén disponibles. |
-| Tiempo de recuperación de la restauración | Restauración rápida | La restauración se basa en el mapa de calor y depende del tamaño del volumen.<br>Pueden llevarse a cabo operaciones de copia de seguridad mientras esté en curso una operación de restauración. |
+| Tiempo de recuperación de la restauración | Restauración rápida | La restauración se basa en el mapa térmico y depende del tamaño del volumen. <br>Pueden llevarse a cabo operaciones de copia de seguridad mientras esté en curso una operación de restauración. |
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

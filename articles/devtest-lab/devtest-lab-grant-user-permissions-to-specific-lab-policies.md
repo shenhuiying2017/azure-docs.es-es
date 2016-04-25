@@ -24,13 +24,13 @@ Este artículo muestra cómo usar PowerShell para conceder permisos de usuario a
 
 ## Directivas como recursos
 
-Tal y como se describe en el artículo [Control de acceso basado en roles de Azure](/role-based-access-control-configure.md), RBAC habilita la administración de acceso específica de recursos para Azure. Gracias a RBAC puede dividir las tareas entre el equipo de DevOps, y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
+Tal y como se describe en el artículo [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md), RBAC permite la administración de acceso específica de recursos para Azure. Gracias a RBAC puede dividir las tareas entre el equipo de DevOps, y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 En el Laboratorio de desarrollo y pruebas, una directiva es un tipo de recurso que permite la acción de RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Cada directiva de Laboratorio de desarrollo y pruebas es un recurso en el tipo de recurso Directiva, y se puede asignar como ámbito a un rol RBAC.
 
 Por ejemplo, para conceder permisos de lectura y escritura a los usuarios para la directiva **Tamaños permitidos de máquina virtual**, debe crear un rol personalizado que funcione con la acción **Microsoft.DevTestLab/labs/policySets/policies/*** y, a continuación, asignar los usuarios adecuados a este rol personalizado en el ámbito de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Para obtener más información acerca de los roles personalizados en RBAC, consulte la sección [Roles personalizados en RBAC de Azure](/role-based-access-control-configure.md#custom-roles-in-azure-rbac) del artículo [Control de acceso basado en roles de Azure](/role-based-access-control-configure.md).
+Para obtener más información acerca de los roles personalizados en RBAC, consulte la sección [Roles personalizados en RBAC de Azure](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) del artículo [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
 
 ##Creación de un rol personalizado Laboratorio de desarrollo y pruebas con PowerShell
 Para empezar, debe leer el artículo siguiente, donde se explica cómo instalar y configurar los cmdlets de Azure PowerShell: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
@@ -95,4 +95,4 @@ Una vez que haya concedido permisos de usuario a las directivas específicas de 
 
 - [Incorporación de una máquina virtual con artefactos a un laboratorio de desarrollo y pruebas de Azure](devtest-lab-add-vm-with-artifacts.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

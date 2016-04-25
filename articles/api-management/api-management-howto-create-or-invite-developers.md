@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Administración de cuentas de usuario en Administración de API de Azure" 
+	pageTitle="Administración de cuentas de usuario en Administración de API de Azure | Microsoft Azure" 
 	description="Más información acerca de cómo crear usuarios o invitarlos en Administración de API de Azure" 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/12/2016" 
 	ms.author="sdanie"/>
 
 # Administración de cuentas de usuario en Administración de API de Azure
 
-En Administración de API, los desarrolladores son los usuarios de las API que se exponen mediante Administración de API. En esta guía se muestra cómo crear desarrolladores e invitarlos a usar las API y los productos que usted pone a su disposición con la instancia de Administración de API.
+En Administración de API, los desarrolladores son los usuarios de las API que se exponen mediante Administración de API. En esta guía se muestra cómo crear desarrolladores e invitarlos a usar las API y los productos que usted pone a su disposición con la instancia de Administración de API. Para obtener información acerca de cómo administrar cuentas de usuario mediante programación, consulte la documentación de [Entidad de usuario](https://msdn.microsoft.com/library/azure/dn776330.aspx) en la referencia sobre [REST de Administración de API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 
 ## <a name="create-developer"> </a>Creación de un desarrollador
 
@@ -60,9 +60,25 @@ Una vez aceptada la invitación, la cuenta se activa.
 
 ## <a name="block-developer"> </a> Desactivación o reactivación de una cuenta de desarrollador
 
-De forma predeterminada, las cuentas de desarrollador recién creadas o a las que se ha invitado se encuentran en estado **Activo**. Para desactivar una cuenta de desarrollador, haga clic en **Bloquear**. Para reactivar una cuenta de desarrollador bloqueada, haga clic en **Activar**. Una cuenta de desarrollador bloqueada no puede obtener acceso al portal para desarrolladores ni llamar a ninguna API.
+De forma predeterminada, las cuentas de desarrollador recién creadas o a las que se ha invitado se encuentran en estado **Activo**. Para desactivar una cuenta de desarrollador, haga clic en **Bloquear**. Para reactivar una cuenta de desarrollador bloqueada, haga clic en **Activar**. Una cuenta de desarrollador bloqueada no puede obtener acceso al portal para desarrolladores ni llamar a ninguna API. Para eliminar una cuenta de usuario, haga clic en **Eliminar**.
 
 ![Block developer][api-management-new-developer]
+
+## Restablecimiento de la contraseña del usuario
+
+Para restablecer la contraseña de una cuenta de usuario, haga clic en el nombre de la cuenta.
+
+![Restablecimiento de contraseña][api-management-view-developer]
+
+Haga clic en **Restablecer contraseña** para enviar un vínculo al usuario para restablecer su contraseña.
+
+![Restablecimiento de contraseña][api-management-reset-password]
+
+Para trabajar con cuentas de usuario mediante programación, consulte la documentación de [Entidad de usuario](https://msdn.microsoft.com/library/azure/dn776330.aspx) en la referencia sobre [REST de Administración de API](https://msdn.microsoft.com/library/azure/dn776326.aspx). Para restablecer la contraseña de una cuenta de usuario a un valor específico, puede utilizar la operación [Actualizar un usuario](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) y especificar la contraseña que desea utilizar.
+
+## Pendiente de comprobación
+
+![Pendiente de comprobación][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
@@ -76,7 +92,10 @@ Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribir
 [api-management-new-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-new-developer.png
 [api-management-invite-developer-window]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-window.png
 [api-management-invite-developer-confirmation]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-confirmation.png
-[api-management-]: ./media/api-management-howto-create-or-invite-developers/api-management-.png
+[api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
+[api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
+[api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
+: ./media/api-management-howto-create-or-invite-developers/.png
 
 
 
@@ -91,4 +110,4 @@ Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribir
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [Configuración de plantillas de correo electrónico]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

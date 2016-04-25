@@ -52,7 +52,6 @@ Requisitos previos para cada equipo que desee agregar al clúster:
 - Windows Server 2012 R2 o Windows Server 2012 (debe tener instalado KB2858668).
 - .NET framework 4.5.1 o posterior (instalación completa).
 - Windows PowerShell 3.0.
-- Paquete redistribuible de Visual C++ 2012 (VC ++ 11.0)
 - El administrador de clústeres que implementa y configura el clúster debe tener privilegios de administrador en cada uno de los equipos.
 
 ### Paso 3: Determinar el tamaño inicial del clúster
@@ -61,7 +60,7 @@ Cada nodo consta de una pila completa de Service Fabric y es un miembro individu
 ### Paso 4: Determinar el número de dominios de error y de actualización
 Un **dominio de error (FD)** es una unidad física de error y está directamente relacionada con la infraestructura física de los centros de datos. Un dominio de error consta de componentes de hardware (equipos, conmutadores etc.) que comparten un único punto de error. Aunque no hay ninguna asignación 1:1 entre dominios de error y racks, en términos generales, cada bastidor puede considerarse un dominio de error. Al tener en cuenta los nodos del clúster, se recomienda encarecidamente que los nodos se distribuyan entre, al menos, 3 dominios de error.
 
-Cuando se especifica FD en *ClusterConfig.JSON*, elija el nombre del FD. Service Fabric admite FD jerárquicos, así que puede reflejar la topología de infraestructura en ellos. Por ejemplo, se permiten o siguientes
+Cuando especifique dominios de error en *ClusterConfig.JSON*, elija el nombre del dominio de error. Service Fabric admite FD jerárquicos, así que puede reflejar la topología de infraestructura en ellos. Por ejemplo, se permiten o siguientes
 
 - "faultDomain": "fd:/Room1/Rack1/Machine1"
 - "faultDomain": "fd:/FD1"
@@ -72,7 +71,7 @@ Un **dominio de actualización (UD)** es una unidad lógica de nodos. Durante un
 
 La manera más sencilla de pensar en estos conceptos es considerar los FD como la unidad de error no planeada, y los UD, como la unidad de mantenimiento planeado.
 
-Al especificar dominios de actualización en *ClusterConfig.JSON*, elija el nombre del UD. Por ejemplo, se permiten todos los siguientes:
+Cuando especifique dominios de actualización en *ClusterConfig.JSON*, elija el nombre del dominio de actualización. Por ejemplo, se permiten todos los siguientes:
 
 - "upgradeDomain": "UD0"
 - "upgradeDomain": "UD1A"
@@ -89,9 +88,9 @@ Después de haber realizado los pasos descritos en la sección de planeación y 
 ### Paso 1: Modificar la configuración de clúster
 Abra *ClusterConfig.JSON* desde el paquete descargado. Puede usar cualquier editor que elija y modificar las siguientes opciones:
 
-|**Opciones de configuración**.|**Descripción**|
+|**Opciones de configuración.**|**Descripción**|
 |-----------------------|--------------------------|
-|NodeTypes|Los tipos de nodo permiten separar los nodos de clúster en grupos distintos. Un clúster debe tener al menos un tipo NodeType. Todos los nodos de un grupo tienen las siguientes características comunes. <br> *Name*: se trata del nombre del tipo de nodo. <br>*EndPoints*: se trata de diversos extremos con nombre (puertos) asociados a este tipo de nodo. Puede usar cualquier número de puerto que desee, siempre que no entren en conflicto con cualquier elemento de este manifiesto y que no lo esté utilizando otro programa de la máquina o la VM. <br> *PlacementProperties*: describen propiedades para este tipo de nodo, que se utilizará como restricciones de posición en los servicios del sistema o los suyos. Estas propiedades son pares de clave/valor definidos por el usuario que proporcionan metadatos adicionales para un nodo determinado. Entre los ejemplos de propiedades de nodos estarían si el nodo tiene una unidad de disco duro o una tarjeta de vídeo, el número de ejes de su unidad de disco duro, núcleos y otras propiedades físicas. <br> *Capacities*: las capacidades de nodo definen el nombre y la cantidad de un recurso concreto que un nodo específico tiene disponible para utilizar. Por ejemplo, un nodo puede definir que tenga capacidad para una métrica llamada "MemoryInMb" y 2048 MB de memoria disponible de forma predeterminada. Estas capacidades se usan en tiempo de ejecución para garantizar que los servicios que requieren una cantidad determinada de recursos se colocan en nodos con esos recursos sigan estando disponibles.|
+|NodeTypes|Los tipos de nodo permiten separar los nodos de clúster en grupos distintos. Un clúster debe tener al menos un tipo NodeType. Todos los nodos de un grupo tienen las siguientes características comunes. <br> *Name*: se trata del nombre del tipo de nodo. <br>*EndPoints*: se trata de diversos puntos de conexión con nombre (puertos) asociados a este tipo de nodo. Puede usar cualquier número de puerto que desee, siempre que no entren en conflicto con cualquier elemento de este manifiesto y que no lo esté utilizando otro programa de la máquina o la VM. <br> *PlacementProperties*: describen propiedades para este tipo de nodo, que se utilizará como restricciones de posición en los servicios del sistema o los suyos. Estas propiedades son pares de clave/valor definidos por el usuario que proporcionan metadatos adicionales para un nodo determinado. Entre los ejemplos de propiedades de nodos estarían si el nodo tiene una unidad de disco duro o una tarjeta de vídeo, el número de ejes de su unidad de disco duro, núcleos y otras propiedades físicas. <br> *Capacities*: las capacidades de nodo definen el nombre y la cantidad de un recurso concreto que un nodo específico tiene disponible para utilizar. Por ejemplo, un nodo puede definir que tenga capacidad para una métrica llamada "MemoryInMb" y 2048 MB de memoria disponible de forma predeterminada. Estas capacidades se usan en tiempo de ejecución para garantizar que los servicios que requieren una cantidad determinada de recursos se colocan en nodos con esos recursos sigan estando disponibles.|
 |Nodos|Se trata de los detalles de cada uno de los nodos que formarán parte del clúster (tipo de nodo, nombre de nodo, dirección IP, dominio de error y dominio de actualización del nodo). Las máquinas que desee que cree el clúster en función de las necesidades se mostrarán aquí con su dirección IP. <br> Si utiliza las mismas direcciones IP para todos los nodos, se creará un clúster one-box, que puede usar con fines de prueba. Los clústeres one-box no deben usarse para implementar cargas de trabajo de producción.|
 
 ### Paso 2: Ejecutar el script de creación de clúster
@@ -100,7 +99,7 @@ Una vez que se haya modificado la configuración del clúster en el documento JS
 Este script puede ejecutarse en cualquier máquina que tenga acceso de administrador a todas las máquinas que se muestran como nodos en el archivo de configuración del clúster. La máquina donde se ejecuta este script puede o no formar parte del clúster.
 
 ```
-C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590> .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
 ```
 
 ## Pasos siguientes
@@ -115,4 +114,4 @@ Lea la información siguiente para empezar a trabajar en el desarrollo o la impl
 Obtenga más información sobre los clústeres independientes y los de Azure:
 - [Información general de la función de creación de clúster independiente y una comparación con los clústeres administrados de Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

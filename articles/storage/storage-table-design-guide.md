@@ -24,7 +24,7 @@ Para diseñar tablas escalables y de rendimiento debe tener en cuenta una serie 
 
 ## Acerca del servicio Tabla de Azure
 
-En esta sección se resaltan algunas de las características clave del servicio Tabla que son especialmente importantes para obtener un diseño que confiera rendimiento y escalabilidad. Si está familiarizado con el almacenamiento de Azure y el servicio Tabla, primero lea [Introducción al almacenamiento de Microsoft Azure](storage-introduction.md) y [Cómo utilizar el almacenamiento de tablas de .NET](storage-dotnet-how-to-use-tables.md) antes de leer el resto de este artículo. Aunque el enfoque de esta guía se encuentra en el servicio Tabla, incluirá información sobre los servicios de cola de Azure y Blob, y cómo puede usarlos junto con el servicio Tabla en una solución.
+En esta sección se resaltan algunas de las características clave del servicio Tabla que son especialmente importantes para obtener un diseño que confiera rendimiento y escalabilidad. Si no está familiarizado con Almacenamiento de Azure y el servicio Tabla, consulte primero [Introducción a Almacenamiento de Microsoft Azure](storage-introduction.md) e [Introducción al Almacenamiento de tablas de Azure mediante .NET](storage-dotnet-how-to-use-tables.md) antes de leer el resto de este artículo. Aunque el enfoque de esta guía se encuentra en el servicio Tabla, incluirá información sobre los servicios de cola de Azure y Blob, y cómo puede usarlos junto con el servicio Tabla en una solución.
 
 ¿Qué es el servicio Tabla? Como cabría esperar del nombre, el servicio Tabla usa un formato tabular para almacenar los datos. En la terminología estándar, cada fila de la tabla representa una entidad y las columnas almacenan las distintas propiedades de la entidad. Cada entidad tiene un par de claves para identificar de forma exclusiva y una columna de marca de tiempo que el servicio Tabla utiliza para realizar un seguimiento de cuando la entidad se ha actualizado por última vez (esto ocurre automáticamente y no se puede sobrescribir manualmente la marca de tiempo con un valor arbitrario). El servicio Tabla usa esta última marca de tiempo modificada (LMT) para administrar la simultaneidad optimista.
 
@@ -120,14 +120,14 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 </table>
 
 
-Hasta ahora, parece muy similar a una tabla en una base de datos relacional, con las diferencias clave de las columnas obligatorias y la capacidad de almacenar varios tipos de entidad en la misma tabla. Además, cada una de las propiedades definidas por el usuario como **FirstName** o **Age** tienen un tipo de datos, como un número entero o una cadena, como una columna en una base de datos relacional. Aunque a diferencia de una base de datos relacional, la naturaleza sin esquema del servicio Tabla significa que una propiedad no necesita tener los mismos tipos de datos en cada entidad. Para almacenar tipos de datos complejos en una sola propiedad, debe utilizar un formato serializado como JSON o XML. Para obtener más información acerca del servicio Tabla, como los tipos de datos admitidos, intervalos de fechas admitidos, reglas de nomenclatura y restricciones de tamaño, consulte [Introducción al modelo de datos de servicio de tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx) en MSDN.
+Hasta ahora, parece muy similar a una tabla en una base de datos relacional, con las diferencias clave de las columnas obligatorias y la capacidad de almacenar varios tipos de entidad en la misma tabla. Además, cada una de las propiedades definidas por el usuario como **FirstName** o **Age** tienen un tipo de datos, como un número entero o una cadena, como una columna en una base de datos relacional. Aunque a diferencia de una base de datos relacional, la naturaleza sin esquema del servicio Tabla significa que una propiedad no necesita tener los mismos tipos de datos en cada entidad. Para almacenar tipos de datos complejos en una sola propiedad, debe utilizar un formato serializado como JSON o XML. Para obtener más información sobre el servicio Tabla, como los tipos de datos admitidos, los intervalos de fechas admitidos, las reglas de nomenclatura y las restricciones de tamaño, consulte [Introducción al modelo de datos de servicio de tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Como puede ver, la elección del **PartitionKey** y **RowKey** es fundamental para el diseño de tabla válida. Todas las entidades almacenadas en una tabla deben tener una combinación única de **PartitionKey** y **RowKey**. Al igual que con las claves en una tabla de base de datos relacional, los valores **PartitionKey** y **RowKey** están indexados para crear un índice agrupado que permite búsquedas rápidas; sin embargo, el servicio Tabla no crea índices secundarios, por lo que estas son las dos únicas propiedades indexadas (algunos de los patrones descritos más adelante muestran cómo evitar esta limitación aparente).
 
 Una tabla está formada por una o varias particiones y, como podrá ver, muchas de las decisiones de diseño que tome estarán relacionadas con la elección de un **PartitionKey** y **RowKey** adecuado para optimizar la solución. Una solución puede constar de solo una única tabla que contenga todas las entidades que se organizan en particiones, pero normalmente las soluciones tendrán varias tablas. Tablas le ayuda a organizar las entidades de manera lógica, le ayudará a administrar el acceso a los datos mediante listas de control de acceso y puede quitar una tabla completa mediante una sola operación de almacenamiento.
 
 ### Particiones de tabla  
-El nombre de la cuenta, el nombre de la tabla y **PartitionKey** juntos identifican la partición dentro del servicio de almacenamiento donde el servicio Tabla almacena la entidad. Además de ser parte del esquema de direccionamiento de las entidades, las particiones definen un ámbito para las transacciones (vea [Transacciones de grupo de entidad](#entity-group-transactions) a continuación) y forman la base de cómo escala el servicio de tabla. Para obtener más información sobre las particiones, vea [Objetivos de rendimiento y escalabilidad de almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx).
+El nombre de la cuenta, el nombre de la tabla y **PartitionKey** juntos identifican la partición dentro del servicio de almacenamiento donde el servicio Tabla almacena la entidad. Además de ser parte del esquema de direccionamiento de las entidades, las particiones definen un ámbito para las transacciones (vea [Transacciones de grupo de entidad](#entity-group-transactions) a continuación) y forman la base de cómo escala el servicio de tabla. Para obtener más información sobre las particiones, vea [Objetivos de rendimiento y escalabilidad de almacenamiento de Azure](storage-scalability-targets.md).
 
 En el servicio Tabla, un nodo individual da servicio a una o más particiones completas y el servicio se escala equilibrando dinámicamente la carga de las particiones entre nodos. Si un nodo está bajo carga, el servicio Tabla puede *dividir* el intervalo de particiones atendidas por ese nodo en nodos diferentes; cuando el tráfico disminuye, el servicio puede *combinar* los intervalos de la partición de nodos silenciosos a un único nodo.
 
@@ -136,7 +136,7 @@ Para obtener más información acerca de los detalles internos del servicio Tabl
 ### Transacciones de grupos de entidades
 En el servicio Tabla, Transacciones de grupo de entidad (EGT) son el único mecanismo integrado para realizar actualizaciones atómicas en varias entidades. Las EGT también se conocen como *transacciones por lotes* en algunos documentos. Las EGT funcionan únicamente en entidades almacenadas en la misma partición (comparten la misma clave de partición en una tabla determinada), por lo que siempre que necesite un comportamiento transaccional atómico a través de varias entidades, debe asegurarse de que las entidades se encuentren en la misma partición. Este suele ser un motivo para mantener varios tipos de entidad en la misma tabla (y partición) y no utilizar varias tablas para diferentes tipos de entidad. Una sola EGT puede operar en 100 entidades como máximo. Si envía varias EGT simultáneas para procesamiento, es importante asegurarse de que esas EGT no funcionan en las entidades que son comunes en EGT, ya que de lo contrario se puede retrasar el procesamiento.
 
-Las EGT también presentan una desventaja potencial que debe evaluar en su diseño: el uso de más particiones aumentará la escalabilidad de la aplicación porque Azure tiene más oportunidades para equilibrar la carga de solicitudes entre nodos, pero esto podría limitar la capacidad de la aplicación de realizar transacciones atómicas y mantener la coherencia segura para sus datos. Además, existen destinos de escalabilidad específicos en el nivel de una partición que puede limitar el rendimiento de las transacciones que se pueden esperar de un solo nodo: para obtener más información acerca de los objetivos de escalabilidad para las cuentas de almacenamiento de Azure y el servicio Tabla, consulte [Objetivos de rendimiento y escalabilidad de almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dd179338.aspx) en MSDN. En secciones posteriores de esta guía se trata sobre diversas estrategias de diseño que le ayudarán a administrar los inconvenientes de este, y se explica cómo elegir mejor su clave de partición según los requisitos específicos de su aplicación cliente.
+Las EGT también presentan una desventaja potencial que debe evaluar en su diseño: el uso de más particiones aumentará la escalabilidad de la aplicación porque Azure tiene más oportunidades para equilibrar la carga de solicitudes entre nodos, pero esto podría limitar la capacidad de la aplicación de realizar transacciones atómicas y mantener la coherencia segura para sus datos. Además, existen destinos de escalabilidad específicos en el nivel de una partición que puede limitar el rendimiento de las transacciones que se pueden esperar de un solo nodo. Para obtener más información sobre los objetivos de escalabilidad para las cuentas de almacenamiento de Azure y el servicio Tabla, consulte [Objetivos de rendimiento y escalabilidad de almacenamiento de Azure](storage-scalability-targets.md). En secciones posteriores de esta guía se trata sobre diversas estrategias de diseño que le ayudarán a administrar los inconvenientes de este, y se explica cómo elegir mejor su clave de partición según los requisitos específicos de su aplicación cliente.
 
 ### Consideraciones de capacidad
 En la tabla siguiente se incluyen algunos de los valores de clave a tener en cuenta al diseñar una solución de servicio Tabla:
@@ -151,13 +151,10 @@ En la tabla siguiente se incluyen algunos de los valores de clave a tener en cue
 | Tamaño de la **RowKey** | Una cadena de hasta 1 KB |
 |Tamaño de una transacción de un grupo de entidades | Una transacción puede incluir como máximo 100 entidades y la carga debe ser inferior a 4 MB. Un EGT solo puede actualizar una entidad una vez. |
 
-Para obtener más información, vea [Introducción al modelo de datos del servicio Tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx) en MSDN.
+Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 ### Consideraciones sobre el coste  
-El almacenamiento de tablas es relativamente económico, pero debe incluir las estimaciones de costes para el uso de la capacidad y la cantidad de transacciones como parte de la evaluación de cualquier solución que utilice el servicio Tabla. Sin embargo, en muchos escenarios, el almacenamiento de datos duplicados o sin normalizar para mejorar el rendimiento o la escalabilidad de su solución es un enfoque válido que se puede tomar. Para obtener más información acerca de los precios, consulte [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/).
-
-### Comparación de las tablas Azure y SQL Azure  
-Para obtener una comparación entre la base de datos de Azure SQL (un servicio de base de datos relacional) y el servicio Tabla, consulte [Almacenamiento de tablas de Microsoft Azure y Base de datos SQL de Microsoft Azure: comparación y diferencias](http://msdn.microsoft.com/library/azure/jj553018.aspx) en MSDN.
+El almacenamiento de tablas es relativamente económico, pero debe incluir las estimaciones de costes para el uso de la capacidad y la cantidad de transacciones como parte de la evaluación de cualquier solución que utilice el servicio Tabla. Sin embargo, en muchos escenarios, el almacenamiento de datos duplicados o sin normalizar para mejorar el rendimiento o la escalabilidad de su solución es un enfoque válido que se puede tomar. Para obtener más información sobre los precios, consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## Directrices para el diseño de tablas  
 En estas listas se resumen algunas de las instrucciones claves que debe tener en cuenta al diseñar las tablas y esta guía abordará todo con más detalle posteriormente. Estas instrucciones son muy diferentes de las directrices que seguiría normalmente para el diseño de la base de datos relacional.
@@ -181,7 +178,7 @@ Diseñe su solución de servicio Tabla cuya *escritura* sea eficaz:
 A medida que lea esta guía, verá ejemplos en los que se ponen en práctica todos estos principios.
 
 ## Diseño de consulta  
-Las soluciones del servicio Tabla pueden requerir mucha lectura, escritura o una combinación de ambas. Esta sección se centra en los aspectos a tener en cuenta al diseñar el servicio Tabla para admitir operaciones de lectura de forma eficaz. Normalmente, un diseño que admite operaciones de lectura eficazmente también es eficaz para las operaciones de escritura. Sin embargo, hay algunas consideraciones adicionales a tener en cuenta durante el diseño para admitir operaciones de escritura y que se debaten en la siguiente sección, [Diseño de modificación de datos](#design-for-data-modification).
+Las soluciones del servicio Tabla pueden requerir mucha lectura, escritura o una combinación de ambas. Esta sección se centra en los aspectos a tener en cuenta al diseñar el servicio Tabla para admitir operaciones de lectura de forma eficaz. Normalmente, un diseño que admite operaciones de lectura eficazmente también es eficaz para las operaciones de escritura. Sin embargo, hay algunas consideraciones adicionales que hay que tener en cuenta durante el diseño para admitir operaciones de escritura y que se explican en la siguiente sección, [Diseño para la modificación de datos](#design-for-data-modification).
 
 Un buen punto de partida para diseñar la solución del servicio Tabla para que pueda leer los datos de manera eficiente es preguntar "¿Qué consultas necesitará ejecutar mi aplicación para recuperar los datos que necesita del servicio Tabla?"
 
@@ -191,8 +188,8 @@ Esta sección se centra en los problemas clave que se deben solucionar al diseñ
 
 - [Cómo afecta al rendimiento de las consultas su elección de PartitionKey y RowKey](#how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance)
 - [Elegir un PartitionKey apropiado](#choosing-an-appropriate-partitionkey)
-- [Optimizar las consultas con un almacén de valores clave para el servicio Tabla](#optimizing-queries-with-a-key-value-store-for-the-table-service)
-- [Ordenar datos en un almacén de valores clave en el servicio Tabla](#sorting-data-in-a-key-value-store-in-the-table-service)
+- [Optimización de consultas para el servicio Tabla](#optimizing-queries-for-the-table-service)
+- [Ordenación de los datos del servicio Tabla](#sorting-data-in-the-table-service)
 
 ### Cómo afecta al rendimiento de las consultas su elección de PartitionKey y RowKey  
 
@@ -207,7 +204,7 @@ Los ejemplos siguientes asumen que el servicio Tabla almacena las entidades empl
 |**Edad**|Entero|
 |**EmailAddress**|String|
 
-En la sección [Descripción general del servicio Tabla de Azure](#azure-table-service-overview) se describen algunas de las características clave del servicio Tabla de Azure que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas del servicio Tabla. Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST del servicio Tabla. Para obtener más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) en MSDN.
+En la sección [Descripción general del servicio Tabla de Azure](#overview) se describen algunas de las características clave del servicio Tabla de Azure que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas del servicio Tabla. Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST del servicio Tabla. Para obtener más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
 -	Una ***consulta de punto*** es la búsqueda más eficaz que puede usar y se recomienda para búsquedas de gran volumen o búsquedas que requieren menor latencia. Este tipo de consulta puede utilizar los índices para localizar una entidad individual con gran eficacia si se especifican los valores **PartitionKey** y **RowKey**. Por ejemplo: $filter=(PartitionKey eq 'Sales') y (RowKey eq '2')  
 -	La segunda opción más eficaz es una ***Consulta por rango*** que use **PartitionKey** y filtre un rango de valores **RowKey** para devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores **RowKey** identifican un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales”, RowKey ge 'S' y RowKey lt 'T'  
@@ -219,7 +216,7 @@ Tenga en cuenta que si usa un "**or**" para especificar un filtro basado en valo
 
 Para obtener ejemplos de código de cliente que utilizan la biblioteca de cliente de almacenamiento para ejecutar consultas eficaces, consulte:
 
--	[Recuperar una única entidad mediante la biblioteca de cliente de almacenamiento](#retrieving-a-single-entity-using-the-storage-client-library)
+-	[Ejecutar una consulta de punto mediante la biblioteca de cliente de almacenamiento](#executing-a-point-query-using-the-storage-client-library)
 -	[Recuperar varias entidades con LINQ](#retrieving-multiple-entities-using-linq)
 -	[Proyección de servidor](#server-side-projection)  
 
@@ -249,7 +246,7 @@ Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de enti
 -	[Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
 -	[Patrón de entidades de índice](#index-entities-pattern): mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
 
-### Ordenar los datos del servicio Tabla  
+### Ordenación de los datos del servicio Tabla  
 
 El servicio Tabla devuelve entidades ordenadas en orden ascendente según **PartitionKey** y, a continuación, por **RowKey**. Estas claves son valores de cadena y para asegurarse de que los valores numéricos se ordenen correctamente, debe convertirlos a una longitud fija y rellenarlos con ceros. Por ejemplo, si el valor de identificador de empleado que utiliza como **RowKey** es un valor entero, debe convertir el Id. de empleado **123** en **00000123**.
 
@@ -301,7 +298,7 @@ Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-des
      
 La biblioteca de clientes de almacenamiento de Azure de .net admite el cifrado de propiedades de entidades de cadena en operaciones de insertar y reemplazar. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.
 
-Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] \(para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
+Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] (para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
 
 Tenga en cuenta que actualmente no se admite la combinación. Puesto que un subconjunto de propiedades puede haberse cifrado previamente con una clave distinta, si simplemente se combinan las nuevas propiedades y se actualizan los metadatos, se producirá una pérdida de datos. Para realizar una combinación es necesario realizar llamadas de servicio adicionales para leer la entidad existente desde el servicio. También puede usar una nueva clave por propiedad. Ninguno de estos procedimientos es adecuado por motivos de rendimiento.
 
@@ -392,7 +389,7 @@ Es posible que los modelos de dominio incluyan relaciones uno a uno entre las en
 
 Tenga en cuenta que también hay consideraciones de implementación que podrían provocar la implementación de relaciones uno a uno en el servicio Tabla:
 
--	Administrar entidades de gran tamaño (para obtener más información, consulte [Trabajar con entidades de gran tamaño](#working-with-large-entities)).  
+-	Administración de entidades de gran tamaño (para obtener más información, consulte [Patrón de entidades de gran tamaño](#large-entities-pattern)).  
 -	Implementación de controles de acceso (para más información, consulte [Control de acceso con firmas de acceso compartido](#controlling-access-with-shared-access-signatures)).  
 
 ### Únase al cliente  
@@ -418,7 +415,7 @@ En las secciones anteriores, ha visto algunas discusiones detalladas acerca de c
 
 ![][5]
 
-La asignación de patrones anterior resalta algunas relaciones entre patrones (azules) y antipatrones (naranja) que se documentan en esta guía. Por supuesto, existen muchos otros patrones que merece la pena tener en cuenta. Por ejemplo, uno de los escenarios clave para el servicio Tabla es almacenar [Vistas materializadas](https://msdn.microsoft.com/library/azure/dn589782.aspx) desde el patrón [Comando segregación de responsabilidad de consulta](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).
+La asignación de patrones anterior resalta algunas relaciones entre patrones (azules) y antipatrones (naranja) que se documentan en esta guía. Por supuesto, existen muchos otros patrones que merece la pena tener en cuenta. Por ejemplo, uno de los escenarios clave del servicio Tabla es almacenar el [patrón de vistas materializadas](https://msdn.microsoft.com/library/azure/dn589782.aspx) desde [Segregación de responsabilidades de consultas de comandos (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx).
 
 ### Patrón de índice secundario dentro de la partición
 Almacene varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**. Las actualizaciones entre copias se pueden mantener coherentes mediante EGT.
@@ -445,7 +442,7 @@ Si consulta un intervalo de entidades de empleado, puede especificar un interval
 -	Para buscar todos los empleados del departamento de ventas con un id. de empleado en el rango de 000100 a 000199 use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid\_000100') and (RowKey le 'empid\_000199')  
 -	Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por la letra 'a' use: $filter=(PartitionKey eq 'Sales') y (RowKey ge 'email\_a') y (RowKey lt 'email\_b')  
 
- Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos anteriores pertenece a la API de REST del servicio Tabla. Para más información, consulte [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) en MSDN.
+ Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos anteriores corresponde a la API de REST del servicio Tabla. Para obtener más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
 #### Problemas y consideraciones  
 
@@ -502,7 +499,7 @@ Si consulta un intervalo de entidades de empleado, puede especificar un interval
 -	Para buscar todos los empleados del departamento de ventas con un id. de empleado en el rango de **000100** a **000199** ordenados en orden de id. de empleado, use: $filter=(PartitionKey eq 'empid\_Sales') y (RowKey ge '000100') y (RowKey le '000199')  
 -	Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por 'a' ordenados en el orden de dirección de correo electrónico, use: $filter=(PartitionKey eq 'email\_Sales') y (RowKey ge 'a') y (RowKey lt 'b')  
 
-Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos anteriores corresponde a la API de REST del servicio Tabla. Para obtener más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) en MSDN.
+Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos anteriores corresponde a la API de REST del servicio Tabla. Para obtener más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
 #### Problemas y consideraciones  
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
@@ -634,11 +631,11 @@ Con la tercera opción, no puede utilizar EGT para mantener la coherencia porque
 #### Problemas y consideraciones  
 
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
--	Esta solución requiere al menos dos consultas para recuperar las entidades coincidentes: una para consultar las entidades de índice para obtener la lista de valores **RowKey** y, después, las consultas para recuperar cada entidad de la lista.  
+-	Esta solución requiere al menos dos consultas para recuperar las entidades coincidentes: una para consultar las entidades de índice con el fin de obtener la lista de valores **RowKey** y, después, las consultas para recuperar cada entidad de la lista.  
 -	Dado que una entidad individual tiene un tamaño máximo de 1 MB, la opción nº2 y la opción nº3 de la solución dan por hecho que la lista de identificadores de empleado de cualquier apellido determinado nunca es mayor que 1 MB. Si la lista de identificadores de empleado es probable que sea mayor que 1 MB de tamaño, utilice la opción nº1 y almacene los datos del índice en el almacenamiento de blobs.  
 -	Si utiliza la opción nº2 (mediante EGT para controlar la adición y eliminación de empleados y el cambio del apellido de un empleado) debe evaluar si el volumen de transacciones se aproxima a los límites de escalabilidad de una partición determinada. Si este es el caso, debe considerar una solución coherente (opción nº1 o nº3) que utilice colas para controlar las solicitudes de actualización y le permita almacenar entidades de índice en una partición independiente de las entidades employee.  
 -	La opción nº2 en esta solución da por hecho que desea buscar por apellido dentro de un departamento: por ejemplo, desea recuperar una lista de empleados que tienen un apellido Jones del departamento de ventas. Si desea buscar todos los empleados con apellido Jones en toda la organización, utilice opción nº1 o la opción nº3.
--	Puede implementar una solución basada en cola que ofrezca coherencia eventual ([consulte el patrón de coherencia final de transacciones](#eventually-consistent-transactions-pattern)).  
+-	Puede implementar una solución basada en cola que ofrezca coherencia eventual (consulte [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) para obtener más información).  
 
 #### Cuándo usar este patrón  
 
@@ -812,7 +809,7 @@ Utilice este patrón cuando tenga un gran volumen de entidades que deba eliminar
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
 -	[Transacciones de grupos de entidades](#entity-group-transactions)
--	[Modificación de entidades](#working-with-heterogeneous-entity-types)  
+-	[Modificación de entidades](#modifying-entities)  
 
 ### Patrón de serie de datos  
 
@@ -848,8 +845,8 @@ Utilice este patrón cuando necesite actualizar y recuperar una serie de datos a
 
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
--	[Modelo de entidad grande](#large-entity-pattern)  
--	[Combinar o reemplazar](#working-with-heterogeneous-entity-types)  
+-	[Patrón de entidades de gran tamaño](#large-entities-pattern)  
+-	[Combinar o reemplazar](#merge-or-replace)  
 -	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) (si va a almacenar la serie de datos en un blob)  
 
 ### Patrón de entidades amplio  
@@ -883,7 +880,7 @@ Utilice este patrón cuando necesite almacenar entidades cuyo tamaño o número 
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
 -	[Transacciones de grupos de entidades](#entity-group-transactions)
--	[Combinar o reemplazar](#working-with-heterogeneous-entity-types)
+-	[Combinar o reemplazar](#merge-or-replace)
 
 ### Patrón de entidades de gran tamaño  
 
@@ -915,8 +912,9 @@ Utilice este patrón cuando necesite almacenar entidades cuyo tamaño supere los
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:
 
 -	[Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)  
--	[Patrón de entidades amplio](#large-entity-pattern)
+-	[Patrón de entidades amplio](#wide-entities-pattern)
 
+<a name="prepend-append-anti-pattern"></a>
 ### Antipatrón de anteponer/anexar  
 
 Aumente la escalabilidad cuando tenga un alto volumen de inserciones al repartir estas en varias particiones.
@@ -952,7 +950,7 @@ Los patrones y las directrices siguientes también pueden ser importantes a la h
 
 -	[Patrón de clave compuesta](#compound-key-pattern)  
 -	[Patrón de cola de registro](#log-tail-pattern)  
--	[Modificación de entidades](#working-with-heterogeneous-entity-types)  
+-	[Modificación de entidades](#modifying-entities)  
 
 ### Antipatrón de datos de registro  
 
@@ -1000,7 +998,7 @@ En esta sección se describen algunas de las consideraciones a tener en cuenta a
 
 ### Recuperación de entidades  
 
-Como se describe en la sección [Diseño para consultas](#design-for-querying), "la consulta más eficiente es una consulta puntual. Sin embargo, en algunos casos puede que necesite recuperar varias entidades. En esta sección se describen algunos enfoques comunes para recuperar entidades mediante la biblioteca de cliente de almacenamiento.
+Como se describe en la sección [Diseño para consultas](#design-for-querying), la consulta más eficaz es una puntual. Sin embargo, en algunos casos puede que necesite recuperar varias entidades. En esta sección se describen algunos enfoques comunes para recuperar entidades mediante la biblioteca de cliente de almacenamiento.
 
 #### Ejecutar una consulta de punto mediante la biblioteca de cliente de almacenamiento  
 
@@ -1058,7 +1056,7 @@ Una consulta óptima devuelve una entidad individual basada en un valor **Partit
 
 Siempre se debe probar a fondo el rendimiento de la aplicación en estas situaciones.
 
-Una consulta en el servicio Tabla puede devolver un máximo de 1.000 entidades al mismo tiempo y se puede ejecutar durante un máximo de cinco segundos. Si el conjunto de resultados contiene más de 1.000 entidades, si la consulta no se completa antes de cinco segundos, o si la consulta cruza el límite de partición, el servicio Tabla devuelve un token de continuación para habilitar la aplicación cliente para solicitar el siguiente conjunto de entidades. Para más información acerca del funcionamiento de los tokens de continuación, consulte [Tiempo de espera de consulta y paginación](http://msdn.microsoft.com/library/azure/dd135718.aspx) en MSDN.
+Una consulta en el servicio Tabla puede devolver un máximo de 1.000 entidades al mismo tiempo y se puede ejecutar durante un máximo de cinco segundos. Si el conjunto de resultados contiene más de 1.000 entidades, si la consulta no se completa antes de cinco segundos, o si la consulta cruza el límite de partición, el servicio Tabla devuelve un token de continuación para habilitar la aplicación cliente para solicitar el siguiente conjunto de entidades. Para obtener más información sobre el funcionamiento de los tokens de continuación, consulte [Tiempo de espera de consulta y paginación](http://msdn.microsoft.com/library/azure/dd135718.aspx).
 
 Si utiliza la biblioteca de cliente de almacenamiento, puede controlar automáticamente tokens de continuación para usted cuando devuelve entidades del servicio Tabla. El siguiente ejemplo de código de C# que utiliza la biblioteca de cliente de almacenamiento maneja automáticamente tokens de continuación si el servicio Tabla los devuelve en una respuesta:
 
@@ -1133,7 +1131,7 @@ También debe considerar cómo afecta su diseño a la forma en que la aplicació
 
 #### Administrar la simultaneidad  
 
-De forma predeterminada, el servicio Tabla implementa comprobaciones de simultaneidad optimista en el nivel de entidades individuales para las operaciones **Insertar**, **Combinar** y **Eliminar**, aunque es posible que un cliente fuerce al servicio Tabla a omitir estas comprobaciones. Para más información acerca de la forma en que el servicio Tabla administra la simultaneidad, consulte [Administración de la simultaneidad en Almacenamiento de Microsoft Azure](storage-concurrency.md) en el sitio web de Microsoft Azure.
+De forma predeterminada, el servicio Tabla implementa comprobaciones de simultaneidad optimista en el nivel de entidades individuales para las operaciones **Insertar**, **Combinar** y **Eliminar**, aunque es posible que un cliente fuerce al servicio Tabla a omitir estas comprobaciones. Para obtener más información sobre cómo el servicio Tabla administra la simultaneidad, consulte [Administración de la simultaneidad en Almacenamiento de Microsoft Azure](storage-concurrency.md).
 
 #### Combinar o reemplazar  
 
@@ -1346,7 +1344,7 @@ En el resto de esta sección se describen algunas de las características de la 
 
 Si utiliza la biblioteca de cliente de almacenamiento, tiene tres opciones para trabajar con varios tipos de entidad.
 
-Si conoce el tipo de la entidad que se almacena con un valor concreto **RowKey** y **PartitionKey**, podrá especificar el tipo de entidad al recuperar la entidad, como se muestra en los dos ejemplos anteriores que recuperan entidades de tipo **EmployeeEntity**: [Recuperar una única entidad mediante la biblioteca de cliente de almacenamiento](#retrieving-a-single-entity-using-the-storage-client-library) y [Recuperar varias entidades con LINQ](#retrieving-multiple-entities-using-linq).
+Si conoce el tipo de la entidad que se almacena con un valor concreto **RowKey** y **PartitionKey**, podrá especificar el tipo de entidad al recuperar la entidad, como se muestra en los dos ejemplos anteriores que recuperan entidades de tipo **EmployeeEntity**: [Ejecutar una consulta de punto mediante la biblioteca de cliente de almacenamiento](#executing-a-point-query-using-the-storage-client-library) y [Recuperar varias entidades con LINQ](#retrieving-multiple-entities-using-linq).
 
 La segunda opción es usar el tipo **DynamicTableEntity** (un contenedor de propiedades), en lugar de un tipo concreto de entidad POCO (esta opción también puede mejorar el rendimiento, ya que no es preciso serializar y deserializar la entidad de los tipos. NET). Potencialmente, el siguiente código de C# recupera varias entidades de distintos tipos de la tabla, pero devuelve todas las entidades como instancias de **DynamicTableEntity**. A continuación, usa la propiedad **EntityType** para determinar el tipo de cada entidad:
 
@@ -1579,4 +1577,4 @@ También nos gustaría dar las gracias a los siguientes MVP de Microsoft por sus
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 # P+F sobre Azure Multi-Factor Authentication
@@ -161,6 +161,11 @@ La forma en que el servidor de Azure MFA se enlaza con el paquete de seguridad d
 
 Sin embargo, si va a utilizar Windows Server 2012 R2, necesitará una puerta de enlace de Escritorio remoto.
 
+**P: ¿Por qué recibo una llamada MFA de una persona anónima después de configurar el identificador de autor de llamada?**
+
+A veces, cuando las llamadas MFA se realizan a través de la red telefónica pública, se enrutan a través de un operador que no admite identificadores de autor de llamada. Por lo tanto, el identificador de autor de llamada no está garantizado, aunque el sistema MFA siempre lo envíe.
+
+
 ## Errors
 
 **P: ¿Qué tengo que hacer cuando al autenticar con las notificaciones de aplicación móvil aparece un error que me informa de que la solicitud de autenticación no es para una cuenta activada?**
@@ -180,4 +185,4 @@ Actualmente, la comprobación de seguridad adicional solo puede utilizarse con a
 
 Una forma de solucionar este problema es tener una cuenta de usuario independiente para las operaciones relacionadas con la administración, diferenciándolas de las operaciones no administrativas. Más adelante puede vincular los buzones entre la cuenta de administrador y una cuenta sin derechos administrativos, y así que podrá iniciar sesión en Outlook con su cuenta sin derechos administrativos. Para obtener más detalles acerca de esta información, consulte [Dar a un administrador la capacidad de abrir y ver el contenido del buzón de correo de un usuario] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

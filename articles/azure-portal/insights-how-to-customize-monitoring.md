@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Supervisión de las métricas del servicio" 
-	description="Obtenga información acerca de cómo personalizar los gráficos de supervisión en Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
+<properties
+	pageTitle="Supervisión de las métricas del servicio"
+	description="Obtenga información acerca de cómo personalizar los gráficos de supervisión en Azure."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
 	services="azure-portal"
 documentationCenter=""/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Supervisión de las métricas del servicio
@@ -22,7 +22,7 @@ Todos los servicios de Azure realizan un seguimiento de las métricas clave que 
 
 Para algunos servicios, puede que necesite activar diagnósticos para ver las métricas. Para otros, como las máquinas virtuales, obtendrá un conjunto básico de métricas, pero necesita habilitar el conjunto completo de métricas de alta frecuencia. Consulte [Habilitación de supervisión y diagnóstico](insights-how-to-use-diagnostics.md) para obtener más información.
 
-## Uso de gráficos de supervisión 
+## Uso de gráficos de supervisión
 
 Puede representar en gráficos cualquier métrica durante cualquier período de tiempo que elija.
 
@@ -51,7 +51,7 @@ Con las potentes opciones de personalización del portal, puede agregar tantos g
 
 1. En el menú **...** de la parte superior de la hoja, haga clic en **Agregar iconos**: ![Adición de menú](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
 2. A continuación, se puede seleccionar un gráfico desde la **Galería** en el lado derecho de la pantalla: ![Galería](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
-3. Si no ve la métrica que desea, siempre puede agregar una de las métricas presentes y **Editar** el gráfico para que aparezca la métrica que necesita. 
+3. Si no ve la métrica que desea, siempre puede agregar una de las métricas presentes y **Editar** el gráfico para que aparezca la métrica que necesita.
 
 ## Supervisión de las cuotas de uso
 
@@ -69,8 +69,7 @@ Al igual que con las métricas, puede utilizar la [API de REST](https://msdn.mic
 * [Habilite la supervisión y el diagnóstico](insights-how-to-use-diagnostics.md) para recopilar métricas detalladas de alta frecuencia en su servicio.
 * [Escale el número de instancias automáticamente](insights-how-to-scale.md) para asegurarse de que el servicio está disponible y tiene capacidad de respuesta.
 * [Supervise el rendimiento de la aplicación](insights-perf-analytics.md) si desea comprender exactamente cómo está actuando su código en la nube.
-* Utilice [aplicaciones y páginas web de Application Insights para JavaScript](../app-insights-web-track-usage.md) para obtener el análisis del cliente acerca de los exploradores que visitan una página web.
-* [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
- 
+* Utilice [aplicaciones y páginas web de Application Insights para JavaScript](../application-insights/app-insights-web-track-usage.md) para obtener el análisis del cliente acerca de los exploradores que visitan una página web.
+* [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->
