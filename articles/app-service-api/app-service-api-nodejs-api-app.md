@@ -130,11 +130,11 @@ Los comandos siguientes se deben ejecutar con la línea de comandos de Node.js. 
 
     Al ejecutar este comando, se inicia el servidor HTTP de Node.js y se empieza a atender a la API.
 
-1. Cuando se desplace a ****http://localhost:8000/contacts**, aparecerá el resultado de JSON de la lista de contactos (o se le solicita que lo descargue, según el navegador).
+1. Cuando se desplace a **http://localhost:8000/contacts**, aparecerá el resultado de JSON de la lista de contactos (o se le solicita que lo descargue, según el navegador).
 
     ![Todas las llamadas de la API de contactos](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. Cuando vaya a ****http://localhost:8000/contacts/2**, verá el contacto representado por ese valor de identificador.
+1. Cuando vaya a **http://localhost:8000/contacts/2**, verá el contacto representado por ese valor de identificador.
 
     ![Llamada de la API de contactos específica](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 

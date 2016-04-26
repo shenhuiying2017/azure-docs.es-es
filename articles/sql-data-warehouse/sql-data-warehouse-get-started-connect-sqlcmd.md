@@ -34,7 +34,7 @@ En este tutorial se muestra cómo conectarse y realizar consultas a una base de 
 
 ## Obtención del nombre completo del servidor de Azure SQL Server
 
-Para conectarse a la base de datos, necesita el nombre completo del servidor (****servername**.database.windows.net*) que contiene la base de datos a la que quiere conectarse.
+Para conectarse a la base de datos, necesita el nombre completo del servidor (**servername**.database.windows.net*) que contiene la base de datos a la que quiere conectarse.
 
 1. Vaya al [Portal de Azure](https://portal.azure.com).
 2. Vaya a la base de datos a la que quiere conectarse.

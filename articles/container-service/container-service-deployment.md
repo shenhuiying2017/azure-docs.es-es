@@ -191,6 +191,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
  
 Ahora que tiene un clúster funcionando, consulte los siguientes documentos para obtener información detallada sobre conexión y administración.
  
-[Conexión a un clúster del servicio Contenedor de Azure](./container-service-connect.md) [Trabajo con el servicio Contenedor de Azure y DC/OS](./container-service-mesos-marathon-rest.md) [Trabajo con el servicio de contenedor de Azure y Docker Swarm](./container-service-docker-swarm.md)
+[Conexión a un clúster del servicio Contenedor de Azure](./container-service-connect.md) 
+[Trabajo con el servicio Contenedor de Azure y DC/OS](./container-service-mesos-marathon-rest.md) 
+[Trabajo con el servicio de contenedor de Azure y Docker Swarm](./container-service-docker-swarm.md)
 
 <!---HONumber=AcomDC_0420_2016-->
