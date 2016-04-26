@@ -112,8 +112,8 @@ La configuración del inicio de sesión único para TOPdesk - Public requiere ca
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configurar dirección URL de la aplicación")
 
     1.  En el cuadro de texto **URL de inicio de sesión de TOPdesk - Public**, escriba la dirección URL usada por los usuarios para iniciar sesión en su aplicación TOPdesk - Public (por ejemplo, "*https://qssolutions.topdesk.net*").
-2.  En el cuadro de texto**URL de respuesta de TOPdesk – Public**, pegue la **URL de AssertionConsumerService de TOPdesk - Public** (por ejemplo, "*https://qssolutions.topdesk.net/tas/public/login/saml*").
-3.  Haga clic en **Siguiente**.
+	2.  En el cuadro de texto**URL de respuesta de TOPdesk – Public**, pegue la **URL de AssertionConsumerService de TOPdesk - Public** (por ejemplo, "*https://qssolutions.topdesk.net/tas/public/login/saml*").
+	3.  Haga clic en **Siguiente**.
 
 10. En la página **Configuración de inicio de sesión único en TOPdesk - Public**, para descargar su archivo de metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo localmente en el equipo.
 
@@ -152,7 +152,7 @@ La configuración del inicio de sesión único para TOPdesk - Public requiere ca
     2.  Para cargar el archivo del certificado, en **Certificate (RSA)** (Certificado [RSA]), haga clic en **Browse** (Examinar).
     3.  Para cargar el archivo de logotipo que obtuvo del equipo de soporte técnico de TOPdesk, en el **icono del logotipo**, haga clic en **Browse** (Examinar).
     4.  En el cuadro de texto **User name attribute** (Atributo de nombre de usuario), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-5.  En el cuadro de texto **Display name** (Nombre para mostrar), escriba un nombre para su configuración.
+	5.  En el cuadro de texto **Display name** (Nombre para mostrar), escriba un nombre para su configuración.
     6.  Haga clic en **Guardar**.
 
 17. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
