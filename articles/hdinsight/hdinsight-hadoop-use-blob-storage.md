@@ -103,6 +103,8 @@ Al crear un clúster de HDInsight desde el portal, tiene la opción de usar una 
 
 ###Uso de la CLI de Azure
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 Si ha [instalado y configurado la CLI Azure](../xplat-cli-install.md), se puede usar el comando siguiente para una cuenta de almacenamiento y contenedor.
 
 	azure storage account create <storageaccountname> --type LRS
@@ -155,7 +157,7 @@ El esquema URI para obtener acceso a los archivos del almacenamiento de blobs de
 
 
 
-El esquema URI proporciona acceso sin cifrar (con el prefijo *wasb:*) y acceso cifrado SSL con *wasbs*). Se recomienda usar *wasbs* siempre que sea posible, incluso al acceder a los datos que se encuentran en la misma región de Azure.
+El esquema URI proporciona acceso sin cifrar (con el prefijo *wasb:*) y acceso cifrado SSL con *wasbs*). Se recomienda usar *wasbs* siempre que sea posible, incluso cuando se acceda a datos que se encuentren en la misma región de Azure.
 
 El valor de &lt;BlobStorageContainerName&gt; identifica el nombre del contenedor de almacenamiento de blobs de Azure. El valor de &lt;StorageAccountName&gt; identifica el nombre de la cuenta de almacenamiento de Azure. Se necesita el nombre completo de dominio (FQDN).
 
@@ -300,4 +302,4 @@ Para más información, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

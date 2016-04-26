@@ -65,13 +65,13 @@ Vamos a implementar una aplicación web en el Servicio de aplicaciones de Azure.
     
     Siga las indicaciones para continuar el inicio de sesión en un explorador con una cuenta de Microsoft que tenga su suscripción de Azure.
 
-4. Cree el recurso de aplicación del Servicio de aplicaciones en Azure con un nombre de aplicación único con el comando siguiente. La dirección URL de la aplicación web será http://&lt;app_name>.azurewebsites.net.
+4. Cree el recurso de aplicación del Servicio de aplicaciones en Azure con un nombre de aplicación único con el comando siguiente.
 
         azure site create --git <app_name>
       
     >[AZURE.NOTE] Si nunca ha configurado credenciales de implementación para su suscripción de Azure, se le solicitará que las cree. El Servicio de aplicaciones usa estas credenciales, no las de su cuenta de Azure, solo en implementaciones de Git e inicios de sesión FTP.
     
-    Ahora no solo se crea la aplicación en Azure, sino que su directorio actual también se inicializa con Git y se conecta a la nueva aplicación del Servicio de aplicaciones como un Git remoto. Puede dirigirse a la dirección URL de la aplicación para ver la bonita página HTML predeterminada, pero de hecho ahora vamos a obtener allí su propio código.
+    La aplicación se crea en Azure ahora. El directorio actual también se inicializa con Git y se conecta a la nueva aplicación del Servicio de aplicaciones como un Git remoto. Puede dirigirse a la dirección URL de la aplicación (http://&lt;app_name>.azurewebsites.net) para ver la bonita página HTML predeterminada pero, de hecho, ahora vamos a obtener allí su propio código.
 
 4. Ahora, implemente su código de ejemplo en la nueva aplicación del Servicio de aplicaciones igual que insertaría cualquier código con Git:
 
@@ -79,7 +79,7 @@ Vamos a implementar una aplicación web en el Servicio de aplicaciones de Azure.
     
     >[AZURE.NOTE] Se le pedirá la contraseña de implementación. Si no está familiarizado con el Servicio de aplicaciones, proporcione la contraseña de implementación que acaba de crear y listo.
     
-    `git push` no solo inserta código en Azure, sino que también desencadena tareas de implementación en el motor de implementación. Si tiene algún archivo package.json (Node.js) o requirements.txt (Python) en la raíz del proyecto (repositorio), o tiene un archivo packages.config en su proyecto ASP.NET, los scripts de implementación restaurarán los paquetes necesarios de forma automática. También puede [habilitar la extensión Composer](web-sites-php-mysql-deploy-use-git.md#composer) para procesar automáticamente los archivos composer.json en la aplicación PHP.
+    `git push` no solo inserta código en Azure, sino que también desencadena tareas de implementación en el motor de implementación. Si tiene algún archivo package.json (Node.js) o requirements.txt (Python) en la raíz del proyecto (repositorio), o tiene un archivo packages.config en su proyecto ASP.NET, los scripts de implementación restaurarán los paquetes necesarios. También puede [habilitar la extensión Composer](web-sites-php-mysql-deploy-use-git.md#composer) para procesar automáticamente los archivos composer.json en la aplicación PHP.
 
 Enhorabuena, ha implementado la aplicación en el Servicio de aplicaciones de Azure.
 
@@ -109,7 +109,7 @@ Ahora, vayamos al Portal de Azure para ver lo que ha creado:
 
 2. En la barra de la izquierda, haga clic en **Servicios de aplicaciones**.
 
-3. Haga clic en la aplicación del Servicio de aplicaciones que acaba de crear para abrir su hoja en el portal. Verá que, para su comodidad, también se abre la hoja **Configuración** de forma predeterminada.
+3. Haga clic en la aplicación del Servicio de aplicaciones que acaba de crear para abrir su hoja en el portal (denominada una [hoja](../azure-portal-overview.md)). Verá que, para su comodidad, también se abre la hoja **Configuración** de forma predeterminada.
 
     ![Vista del portal de la primera aplicación del Servicio de aplicaciones de Azure](./media/app-service-web-get-started/portal-view.png)
 
@@ -139,4 +139,4 @@ También puede encontrar numeroso contenido sobre el abanico de aplicaciones que
 - [Create mobile apps (Creación de aplicaciones móviles)](/documentation/learning-paths/appservice-mobileapps/)
 - [Create API apps (Creación de aplicaciones de API)](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

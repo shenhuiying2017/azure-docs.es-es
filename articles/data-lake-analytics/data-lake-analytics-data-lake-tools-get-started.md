@@ -28,7 +28,7 @@ U-SQL es un lenguaje muy escalable y altamente extensible para preparar, transfo
 
 ###Requisitos previos
 
-- **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 Se admiten las ediciones Enterprise (Ultimate y Premium), Professional, Community; no se admite la edición Express. En la actualidad no se admite Visual Studio "15" y estamos trabajando en ello.** 
+- **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 Se admiten las ediciones Enterprise (Ultimate y Premium), Professional, Community; no se admite la edición Express. En la actualidad no se admite Visual Studio "15" y estamos trabajando en ello.**
 - **SDK de Microsoft Azure para .NET versión 2.7.1 o posterior**. Instálelo usando el [Instalador de plataforma web](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -361,4 +361,4 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

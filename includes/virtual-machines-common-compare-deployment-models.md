@@ -1,9 +1,9 @@
-La inclusión de funcionalidades de proceso, redes y almacenamiento con Azure Resource Manager fundamentalmente simplificará la implementación y administración de aplicaciones complejas que se ejecuta en IaaS. Muchas aplicaciones requieren una combinación de recursos, como una red virtual, una cuenta de almacenamiento, una máquina virtual y una interfaz de red. El Administrador de recursos de Azure ofrece la capacidad de crear una plantilla JSON para implementar y administrar todos estos recursos como una sola aplicación.
 
 
-## Ventajas de la integración de procesos, redes y almacenamiento en el Administrador de recursos de Azure
 
-El Administrador de recursos de Azure ofrece la capacidad de aprovechar fácilmente las plantillas de aplicación pregenerada o crear una plantilla de aplicación para implementar y administrar los recursos de procesos, redes y almacenamiento de Azure. En esta sección, analizaremos las ventajas de implementar recursos a través del Administrador de recursos de Azure.
+## Ventajas de la integración de procesos, redes y almacenamiento en el modelo de implementación de Azure Resource Manager
+
+El modelo de implementación de Azure Resource Manager ofrece la posibilidad de aprovechar fácilmente plantillas de aplicación pregeneradas o crear una plantilla de aplicación para implementar y administrar recursos de procesos, redes y almacenamiento en Azure. En esta sección, analizaremos las ventajas de implementar recursos a través del modelo de implementación de Azure Resource Manager.
 
 -	La complejidad simplificada: cree, integre y colabore en aplicaciones complicadas que pueden incluir toda la gama de recursos de Azure (por ejemplo, sitios web, bases de datos SQL, máquinas virtuales o redes virtuales) desde un archivo de plantilla que se puede compartir
 -	Flexibilidad para tener implementaciones repetibles para administradores de sistemas, devOps y desarrollo cuando se utiliza el mismo archivo de plantilla
@@ -15,7 +15,7 @@ El Administrador de recursos de Azure ofrece la capacidad de aprovechar fácilme
 
 ## Avances de las API de procesos, redes y almacenamiento en el Administrador de recursos de Azure
 
-Además de las ventajas que se han mencionado anteriormente, existen algunos avances de rendimiento significativos en las API publicadas.
+Además de las ventajas que se han mencionado anteriormente, existen algunos avances de rendimiento significativos en las API publicadas:
 
 -	Habilitación de la implementación masiva y paralela de las máquinas virtuales
 -	Compatibilidad con tres dominios de error en conjuntos de disponibilidad
@@ -83,7 +83,7 @@ Las cuotas de las máquinas virtuales, redes virtuales y cuentas de almacenamien
 
 **¿Puedo continuar y usar mis scripts automatizados para aprovisionar máquinas virtuales, redes virtuales, cuentas de almacenamiento, etc. a través de las nuevas API de administrador de recursos de Azure?**
 
-Toda la automatización y los scripts que ha creado continuarán funcionando para las máquinas virtuales existentes, las redes virtuales se crean en el modo de administración de servicios de Azure. Sin embargo, los scripts deben actualizarse para utilizar el nuevo esquema para crear los mismos recursos a través del nuevo modo Administrador de recursos de Azure. Obtenga más información acerca de cómo modificar los [scripts de CLI de Azure](../articles/virtual-machines/virtual-machines-linux-cli-manage.md).
+Toda la automatización y los scripts que ha creado continuarán funcionando para las máquinas virtuales existentes, las redes virtuales se crean en el modo de administración de servicios de Azure. Sin embargo, los scripts deben actualizarse para utilizar el nuevo esquema para crear los mismos recursos a través del nuevo modo Administrador de recursos de Azure.
 
 **¿Las redes virtuales creadas mediante las nuevas API del Administrador de recursos de Azure se pueden conectar a mi circuito de Express Route?**
 
@@ -93,4 +93,4 @@ Esto no se admite en este momento. No se pueden conectar las redes virtuales cre
 
 Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido del Administrador de recursos de Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -69,9 +69,12 @@ Esta tarea puede realizarse mediante el portal de cuentas de Office 365, el port
 
 En Azure AD, puede configurar fácilmente una regla sencilla (es decir, una regla que solo realiza una comparación) para determinar qué usuarios van a ser miembros del grupo. Por ejemplo, si se asigna un grupo a una aplicación SaaS, y configura una regla para agregar los usuarios que tienen el puesto de trabajo "Representante de ventas", todos los usuarios de su directorio de Azure AD con ese puesto de trabajo tendrán acceso a esta aplicación SaaS.
 
-> [AZURE.NOTE] Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365. En este momento, no se admiten las pertenencias a grupos anidadas para la asignación basada en grupos a aplicaciones. La pertenencia dinámica a grupos requiere que haya una licencia de Azure AD Premium asignada
->- Al administrador que administra la regla en un grupo
->- A todos los usuarios seleccionados por la regla para que sean miembros del grupo
+> [AZURE.NOTE] Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365. En este momento, no se admiten las pertenencias a grupos anidadas para la asignación basada en grupos a aplicaciones.
+>
+> La pertenencia dinámica a grupos requiere que haya una licencia de Azure AD Premium asignada
+> 
+> - Al administrador que administra la regla en un grupo
+> - A todos los usuarios seleccionados por la regla para que sean miembros del grupo
 
 **Para habilitar la pertenencia dinámica para un grupo**
 
@@ -99,4 +102,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

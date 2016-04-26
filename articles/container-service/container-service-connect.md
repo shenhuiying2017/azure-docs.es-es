@@ -15,13 +15,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="04/12/2016"
    ms.author="rogardle"/>
 
 
 # Conexión a un clúster del servicio Contenedor de Azure
 
-Los clústeres de Mesos y Swarm que implementa el servicio Contenedor de Azure exponen los puntos de conexión REST. Sin embargo, estos puntos de conexión no están abiertos al mundo exterior. Para administrar dichos puntos de conexión, es preciso crear un túnel de Secure Shell (SSH). Cuando se haya establecido un túnel SSH, puede ejecutar comandos contra los puntos de conexión y ver la interfaz de usuario del clúster a través de un explorador en su propio sistema. Este documento le guía en la creación de un túnel de SSH en Linux, OSX y Windows.
+Los clústeres de DC/OS y Swarm que implementa el servicio Contenedor de Azure exponen los puntos de conexión REST. Sin embargo, estos puntos de conexión no están abiertos al mundo exterior. Para administrar dichos puntos de conexión, es preciso crear un túnel de Secure Shell (SSH). Cuando se haya establecido un túnel SSH, puede ejecutar comandos contra los puntos de conexión y ver la interfaz de usuario del clúster a través de un explorador en su propio sistema. Este documento le guía en la creación de un túnel de SSH en Linux, OSX y Windows.
 
 >[AZURE.NOTE] Puede crear una sesión de SSH con un sistema de administración de clústeres. Sin embargo, no es aconsejable. Si se trabaja directamente en un sistema de administración, es preciso asumir el riesgo de que se produzcan cambios involuntarios en la configuración.
 
@@ -29,42 +29,52 @@ Los clústeres de Mesos y Swarm que implementa el servicio Contenedor de Azure e
 
 Lo primero que se hace al crear un túnel de SSH en Linux u OS X es buscar el nombre DNS público de los patrones de carga equilibrada. Para ello, expanda el grupo de recursos de forma que se muestren todos los recursos. Busque y seleccione la dirección IP pública del patrón. Se abrirá una hoja que contiene información acerca de la dirección IP pública, que incluye el nombre DNS. Guarde este nombre para usarlo más adelante. <br />
 
+
 ![Nombre DNS público](media/pubdns.png)
 
 Ahora, abra un shell y ejecute el siguiente comando, donde:
 
-**PORT** es el puerto del punto de conexión que desea exponer. En el caso de Swarm, es el 2375. En el caso de Mesos, utilice el puerto 80. **USERNAME** es el nombre de usuario que se especificó cuando se implementó el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó al implementar el clúster. **REGION** es la región en la que está ubicado el grupo de recursos.
+**PORT** es el puerto del punto de conexión que desea exponer. En el caso de Swarm, es el 2375. En el de DC/OS, utilice el puerto 80. **USERNAME** es el nombre de usuario que se especificó cuando se implementó el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó al implementar el clúster. **REGION** es la región en la que está ubicado el grupo de recursos.
 
-```
+> El puerto de conexión SSH es el 2200 y no el 22 estándar.
+
+```bash
+# ssh sample
+
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
 ```
-### Túnel de Mesos
 
-Para abrir un túnel a los puntos de conexión relacionados con Mesos, ejecute un comando similar al siguiente:
+### Túnel de DC/OS
 
-```
+Para abrir un túnel a los puntos de conexión relacionados con DC/OS, ejecute un comando similar al siguiente:
+
+```bash
+# ssh sample
+
 ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-Ya puede acceder a los puntos de conexión relacionados con Mesos en:
+Ya puede acceder a los puntos de conexión relacionados con DC/OS en:
 
-- Mesos: `http://localhost/mesos`
+- DC/OS: `http://localhost/`
 - Marathon: `http://localhost/marathon`
-- Chronos: `http://localhost/chronos`
+- Mesos: `http://localhost/mesos`
 
-De igual forma, se puede acceder a las API de REST de cada aplicación a través de este túnel: Marathon: `http://localhost/marathon/v2`. Para más información acerca de las distintas API disponibles, consulte [Marathon REST API](https://mesosphere.github.io/marathon/docs/rest-api.html) (API de REST de Marathon) en la documentación de Mesosphere. Consulte la [Chronos Rest API](https://mesos.github.io/chronos/docs/api.html) (API de REST de Chronos) y [Scheduler HTTP API](http://mesos.apache.org/documentation/latest/scheduler-http-api/) (API de HTTP de programador) en la documentación de Apache.
+De igual forma, se puede acceder a las API de REST de cada aplicación a través de este túnel.
 
 ### Túnel de Swarm
 
 Para abrir un túnel al punto de conexión de Swarm, ejecute un comando parecido al siguiente:
 
-```
+```bash
+# ssh sample
+
 ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Ya puede establecer la variable de entorno DOCKER\_HOST como se indica a continuación y seguir usando la interfaz de línea de comandos (CLI) de Docker de la manera habitual.
 
-```
+```bash
 export DOCKER_HOST=:2375
 ```
 
@@ -83,10 +93,10 @@ Seleccione `SSH` y `Authentication`. Agregue el archivo de clave privada para la
 ![Configuración 2 de PuTTY](media/putty2.png)
 
 Seleccione `Tunnels` y configure los siguientes puertos reenviados:
-- **Puerto de origen:** su preferencia (use 80 para Mesos o 2375 para Swarm).
-- **Destino:** use localhost:80 para Mesos o localhost:2375 para Swarm.
+- **Puerto de origen:** su preferencia (use 80 para DC/OS o 2375 para Swarm).
+- **Destino:** use localhost:80 para DC/OS o localhost:2375 para Swarm.
 
-En el siguiente ejemplo se configura para Mesos, pero su aspecto sería similar para Docker Swarm.
+En el siguiente ejemplo se configura para DC/OS, pero su aspecto sería similar para Docker Swarm.
 
 >[AZURE.NOTE] El puerto 80 no debe estar en uso cuando se cree este túnel.
 
@@ -96,47 +106,18 @@ Cuando haya terminado, guarde la configuración de conexión y conecte la sesió
 
 ![Registro de eventos de PuTTY](media/putty4.png)
 
-Cuando haya configurado el túnel para Mesos, podrá acceder al punto de conexión relacionado en:
+Cuando haya configurado el túnel para DC/OS, podrá acceder al punto de conexión relacionado en:
 
-- Mesos: `http://localhost/mesos`
+- DC/OS: `http://localhost/`
 - Marathon: `http://localhost/marathon`
-- Chronos: `http://localhost/chronos`
+- Mesos: `http://localhost/mesos`
 
 Cuando haya configurado el túnel para Docker y enjambre, podrá acceder al clúster de Swarm a través de la CLI de Docker. Primero será preciso que configure una variable de entorno de Windows denominada `DOCKER_HOST` cuyo valor será ` :2375`.
 
-## Solución de problemas
-
-### Después de crear el túnel e ir a la dirección url de mesos o marathon, obtengo el error 502 de puerta de enlace incorrecta...
-La manera más fácil de resolverlo es eliminar el clúster y volver a implementarlo. También puede hacer lo siguiente para forzar a Zookeeper a repararse a sí mismo:
-
-Inicie sesión en cada servidor maestro y haga lo siguiente:
-
-```
-sudo service nginx stop
-sudo service marathon stop
-sudo service chronos stop
-sudo service mesos-dns stop
-sudo service mesos-master stop 
-sudo service zookeeper stop
-```
-
-Después, cuando todos los servicios se hayan detenido en todos los maestros:
-```
-sudo mkdir /var/lib/zookeeperbackup
-sudo mv /var/lib/zookeeper/* /var/lib/zookeeperbackup
-sudo service zookeeper start
-sudo service mesos-master start
-sudo service mesos-dns start
-sudo service chronos start
-sudo service marathon start
-sudo service nginx start
-```
-Poco después de que se hayan reiniciado todos los servicios, debería poder trabajar con el clúster, tal como se describe en la documentación.
-
 ## Pasos siguientes
 
-Implemente y administre contenedores con Mesos o Swarm.
+Implemente y administre contenedores con DC/OS o Swarm.
 
-- [Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md)
+[Trabajo con el servicio Contenedor de Azure y DC/OS](./container-service-mesos-marathon-rest.md) [Trabajo con el servicio de contenedor de Azure y Docker Swarm](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

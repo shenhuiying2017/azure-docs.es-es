@@ -1,6 +1,6 @@
 <properties
  pageTitle="Introducción al Programador de Azure en el Portal de Azure | Microsoft Azure"
- description=""
+ description="Introducción al Programador de Azure en el Portal de Azure"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -182,4 +182,4 @@ El control de acceso basado en roles (RBAC) de Azure permite realizar una admini
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->
