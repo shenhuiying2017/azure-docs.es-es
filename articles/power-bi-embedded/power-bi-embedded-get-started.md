@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introducción a la versión preliminar de Microsoft Power BI Embedded"
-   description="Introducción a la versión preliminar de Microsoft Power BI Embedded"
+   description="Power BI Embedded, agregar informes interactivos de Power BI a la aplicación de inteligencia empresarial"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="04/18/2016"
    ms.author="derrickv"/>
 
 # Introducción a la versión preliminar de Microsoft Power BI Embedded
@@ -58,7 +58,7 @@ En la siguiente sección se describe cómo se utilizan las **claves de acceso** 
 <a name="view-access-keys"/>
 ## Visualización de las claves de acceso de API de Power BI
 
-Uno de los elementos de información más importantes que se necesitan para llamar a las API de REST de Power BI son las **claves de acceso**. Se utilizan para generar los **tokens de aplicación** que se emplean para autenticar las solicitudes de API. Para ver las **claves de acceso**, haga clic en **Claves de acceso** en la hoja **Configuración**. Para más información sobre los **tokens de aplicación**, consulte la sección sobre [cómo funciona el flujo de tokens de aplicación](power-bi-embedded-get-started-sample.md#key-flow).
+Uno de los elementos de información más importantes que se necesitan para llamar a las API de REST de Power BI son las **claves de acceso**. Se utilizan para generar los **tokens de aplicación** que se emplean para autenticar las solicitudes de API. Para ver las **claves de acceso**, haga clic en **Claves de acceso** en la hoja **Configuración**. Para más información sobre los **tokens de aplicación**, consulte [Acerca del flujo del token de aplicación en Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -74,7 +74,7 @@ Ahora que tiene una instancia de Power BI para su aplicación y las **claves de 
 
 ## Creación de conjuntos de datos e informes de Power BI para insertar en una aplicación
 
-Ya ha creado una instancia de Power BI para su aplicación y tiene las **claves de acceso**, ahora deberá crear los conjuntos de datos y los informes de Power BI que quiere insertar. Los conjuntos de datos y los informes se pueden crear con **Power BI Desktop**. Puede descargar [Power BI Desktop de forma gratuita](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). O bien, para empezar a trabajar rápidamente, puede descargar el [archivo PBIX con un ejemplo de análisis minorista](http://go.microsoft.com/fwlink/?LinkID=780547). Para más información sobre cómo usar **Power BI Desktop**, consulte [Getting Started with Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop) (Introducción a Power BI Desktop).
+Ya ha creado una instancia de Power BI para su aplicación y tiene las **claves de acceso**, ahora deberá crear los conjuntos de datos y los informes de Power BI que quiere insertar. Los conjuntos de datos y los informes se pueden crear con **Power BI Desktop**. Puede descargar [Power BI Desktop de forma gratuita](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). O bien, para empezar a trabajar rápidamente, puede descargar el [archivo PBIX con un ejemplo de análisis minorista](http://go.microsoft.com/fwlink/?LinkID=780547). Para más información sobre cómo usar **Power BI Desktop**, consulte [Getting Started with Power BI Desktop](https://powerbi.microsoft.com/es-ES/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop) (Introducción a Power BI Desktop).
 
 Con **Power BI Desktop**, puede conectarse al origen de datos mediante la importación de una copia de los datos a **Power BI Desktop** o conectándose directamente al origen de datos mediante **DirectQuery**.
 
@@ -107,4 +107,4 @@ En los pasos anteriores, ha creado una colección de áreas de trabajo y su prim
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Precios Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

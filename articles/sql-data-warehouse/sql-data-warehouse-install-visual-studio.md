@@ -3,7 +3,7 @@
    description="Instalación de herramientas de desarrollo de Visual Studio y SSDT para Almacenamiento de datos SQL de Azure"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="04/20/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL
 
-Para desarrollar aplicaciones para Almacenamiento de datos SQL, se recomienda usar Visual Studio 2013 o versiones posteriores junto con la versión más reciente de SQL Server Data Tools (SSDT).
+Para desarrollar aplicaciones para Almacenamiento de datos SQL, se recomienda usar Visual Studio 2015 junto con la versión más reciente de SQL Server Data Tools (SSDT). También se admite Visual Studio 2013 con SSDT.
 
 Para ejecutar consultas desde el entorno de desarrollo integrado (IDE) de Visual Studio, solo necesita instalar SSDT. Esto instalará el IDE de Visual Studio junto con SSDT, para que pueda usar el Explorador de objetos de SQL Server para conectarse al servidor Azure SQL Server. Después podrá ver y ejecutar consultas en las bases de datos de Almacenamiento de datos SQL.
 
@@ -49,4 +49,4 @@ Ahora que tiene la versión más reciente de SSDT, está listo para [conectar](.
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

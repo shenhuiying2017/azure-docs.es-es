@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 # Creación de un laboratorio de desarrollo y pruebas de Azure
@@ -61,4 +61,4 @@ Una vez creado el laboratorio, le presentamos algunos pasos que se deben tener e
 
 - [Incorporación de una máquina virtual con artefactos a un laboratorio de desarrollo y pruebas de Azure](devtest-lab-add-vm-with-artifacts.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

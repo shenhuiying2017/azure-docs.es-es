@@ -55,11 +55,13 @@ Agregue las siguientes instrucciones `using` en la parte superior del archivo `p
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
+### Análisis de la cadena de conexión
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Creación del cliente del servicio BLOB
 
-La clase **CloudBlobClient** permite recuperar objetos que representan contenedores y blobs almacenados en Almacenamiento de blobs. Agregue el siguiente código al método **Main()**:
+La clase **CloudBlobClient** permite recuperar contenedores y blobs almacenados en Almacenamiento de blobs. Esta es una forma de crear el cliente de servicio:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -87,8 +89,7 @@ En este ejemplo se muestra cómo crear un contenedor si todavía no existe:
 De manera predeterminada, el nuevo contenedor es privado, lo que significa que debe especificar su clave de acceso de almacenamiento para descargar blobs de él. Si desea poner los archivos del contenedor a disposición de todo el mundo, puede convertir el contenedor en público utilizando el código siguiente:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
- 	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
 Cualquier usuario de Internet puede ver los blobs de los contenedores públicos, pero solo es posible modificarlos o eliminarlos si se dispone de la clave de acceso apropiada o una firma de acceso compartido.
 
@@ -364,7 +365,6 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 - [Introducción al Almacenamiento de archivos para .NET](storage-dotnet-how-to-use-files.md)
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 - [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-- [Uso de bases de datos SQL de .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -377,4 +377,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -52,7 +52,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 Como paso final, haga clic en **Configuración** en la hoja Centro de IoT y luego en **Mensajes** en la hoja **Configuración**. En la hoja **Mensajes**, anote los valores de **Nombre compatible con Centro de eventos** y **Punto de conexión compatible de Centro de eventos**. Necesitará estos valores al crear la aplicación **read-d2c-messages**.
 
-    ![][6]
+![][6]
 
 Ahora que ha creado un Centro de IoT y que tiene el nombre de host del Centro de IoT, la cadena de conexión del Centro de IoT, el nombre compatible con el Centro de eventos y los valores de punto de conexión compatibles con el Centro de eventos, es preciso que complete el resto del tutorial.
 
@@ -109,4 +109,4 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

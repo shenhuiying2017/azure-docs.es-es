@@ -89,7 +89,7 @@ Observe que **name** se establece en el valor de una variable. Esta plantilla, e
 
 El valor especificado para **type** contiene el proveedor de recursos y el tipo de recurso. En el caso de los conjuntos de disponibilidad, el proveedor de recursos es **Microsoft.Compute** y el tipo de recurso es **availabilitySets**. Para obtener la lista de proveedores de recursos disponible, ejecute el siguiente comando de PowerShell:
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
 
 O bien, si usa la CLI de Azure, puede ejecutar el comando siguiente:
 
@@ -103,7 +103,7 @@ Dado que en este tema se está creando con cuentas de almacenamiento, máquinas 
 
 Para ver los tipos de recursos de un proveedor determinado, ejecute el siguiente comando de PowerShell:
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 
 O bien, para la CLI de Azure, el siguiente comando devolverá los tipos disponibles en formato JSON y los guardará en un archivo.
 
@@ -133,7 +133,7 @@ El método de asignación se establece en **Dynamic** pero puede establecerlo en
 
 Ahora, echemos un vistazo para ver cómo determinar el valor de **apiVersion**. El valor que especifique coincide con la versión de la API de REST que se usará al crear el recurso. Por lo tanto, puede consultar la documentación de la API de REST de ese tipo de recurso. O bien, puede ejecutar el siguiente comando de PowerShell para un tipo determinado.
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
 
 Que devuelve los siguientes valores:
 
@@ -503,4 +503,4 @@ Ha terminado de crear la plantilla y está listo para la implementación.
 - Para más información sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para más información sobre cómo implementar una plantilla, consulte [Implementación de un grupo de recursos con la plantilla de Azure Resource Manager](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

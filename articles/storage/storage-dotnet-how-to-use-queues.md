@@ -54,11 +54,13 @@ Agregue las siguientes instrucciones `using` en la parte superior del archivo `p
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
+### Análisis de la cadena de conexión
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Creación del cliente del servicio Cola
 
-La clase **CloudQueueClient** le permite recuperar las colas almacenadas en Almacenamiento en cola. Agregue el siguiente código al método **Main()**:
+La clase **CloudQueueClient** le permite recuperar las colas almacenadas en Almacenamiento en cola. Esta es una forma de crear el cliente de servicio:
 
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
@@ -273,4 +275,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

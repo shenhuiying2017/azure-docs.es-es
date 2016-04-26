@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/26/2016"
+   ms.date="04/12/2016"
    ms.author="seanmck"/>
 
 # Introducción a la implementación y actualización de aplicaciones en un clúster local
@@ -84,7 +84,7 @@ En este tutorial, se usará una aplicación de ejemplo existente (denominada Wor
 
     ![Implementación de una aplicación en el clúster local][deploy-app-to-local-cluster]
 
-7. Para ver la aplicación en acción, inicie el explorador y navegue a [http://localhost:8081/wordcount/índex](http://localhost:8081/wordcount/index). Puede ver algo así:
+7. Para ver la aplicación en acción, inicie el explorador y vaya a [http://localhost:8081/wordcount/índex.html](http://localhost:8081/wordcount/index.html). Puede ver algo así:
 
     ![Interfaz de usuario de aplicación implementada][deployed-app-ui]
 
@@ -148,11 +148,11 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
 
     ![Progreso de la actualización en PowerShell][ps-appupgradeprogress]
 
-3. Mientras que la actualización se lleva a cabo, le resultará más fácil supervisar su estado desde el Explorador de Service Fabric. Inicie una ventana del explorador y navegue a [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Haga clic en **Aplicaciones** en el árbol de la izquierda y, a continuación, elija **Actualizaciones en curso**.
+3. Mientras que la actualización se lleva a cabo, le resultará más fácil supervisar su estado desde el Explorador de Service Fabric. Inicie una ventana del explorador y navegue a [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expanda **Aplicaciones** en el árbol de la izquierda, elija **WordCount** y finalmente **fabric:/WordCount**. En la pestaña Essentials, verá el estado de la actualización mientras progresa por los dominios de actualización del clúster.
 
     ![Progreso de la actualización en el Explorador de Service Fabric][sfx-upgradeprogress]
 
-    Tenga en cuenta que el indicador de progreso de la actualización representa el estado de la actualización en los dominios de actualización del clúster. Mientras se realiza la actualización en cada dominio, se realizan comprobaciones de mantenimiento para asegurarse de que la aplicación se comporta correctamente.
+    Mientras se realiza la actualización en cada dominio, se realizan comprobaciones de mantenimiento para asegurarse de que la aplicación se comporta correctamente.
 
 4. Si vuelve a ejecutar la consulta anterior en el conjunto de servicios incluidos en la aplicación fabric:/WordCount, observará que aunque la versión de WordCountService cambió, la versión de WordCountWebService no lo hizo:
 
@@ -190,4 +190,4 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

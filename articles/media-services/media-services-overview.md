@@ -3,8 +3,8 @@
 	description="En este tema se proporciona información general de Servicios multimedia de Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,anilmur" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="02/02/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 #Información general y escenarios comunes de Servicios multimedia de Azure
 
@@ -57,7 +57,7 @@ Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
 2. Una cuenta de Servicios multimedia de Azure. Use el Portal de Azure clásico, .NET o API de REST para crear la cuenta de Servicios multimedia de Azure. Para obtener más información, consulte [Creación de una cuenta](media-services-create-account.md).
 3. (Opcional) Configurar el entorno de desarrollo. Elija .NET o API de REST para el entorno de desarrollo. Para obtener más información, consulte [Configuración del entorno](media-services-dotnet-how-to-use.md). 
 
-	Además, aprenda a conectarse mediante programación [Conexión](media-services-dotnet-connect_programmatically.md).
+	Además, aprenda a conectarse mediante programación [Conexión](media-services-dotnet-connect-programmatically.md).
 4. (Recomendado) Asignar una o más unidades de escalado. Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Para obtener más información, vea [Administración de extremos de streaming](media-services-manage-origins.md).
 
 ##Introducción y conceptos
@@ -223,7 +223,7 @@ El [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) pro
 
 - Garantizamos la disponibilidad del 99,9% de las transacciones de API de REST para la codificación de Servicios multimedia.
 - Para el streaming, atenderemos correctamente las solicitudes de servicio con una garantía de disponibilidad del 99,9% para el contenido multimedia existente cuando se adquiera al menos una unidad de streaming.
-- Para los canales en directo, garantizamos que los canales en ejecución tendrán una conectividad externa como mínimo el 99,9 % del tiempo.
+- Para los canales en directo, garantizamos que los canales en ejecución tendrán una conectividad externa como mínimo el 99,9 % del tiempo.
 - Para la protección de contenido, garantizamos que procesaremos correctamente las solicitudes clave como mínimo el 99,9% del tiempo.
 - Para el indizador, atenderemos correctamente las solicitudes de tarea de indizador procesadas con una unidad reservada de codificación el 99,9% del tiempo.
 
@@ -236,4 +236,4 @@ El [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) pro
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

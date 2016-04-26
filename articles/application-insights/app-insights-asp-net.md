@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/06/2016" 
+	ms.date="04/14/2016" 
 	ms.author="awills"/>
 
 
@@ -179,7 +179,19 @@ Abra Búsqueda para investigar solicitudes individuales y sus eventos asociados.
 
 Implemente ahora la aplicación y observe cómo se acumulan los datos.
 
-Si se trabaja en modo de depuración, la telemetría se agiliza a través de la canalización y los datos aparecen en cuestión de segundos. Cuando se implementa una aplicación, los datos se acumulan a menor velocidad.
+### Transmisión en directo
+
+Los primeros minutos de una implementación indican si la aplicación funciona correctamente. En particular, al reemplazar una versión anterior, desea saber si el rendimiento ha mejorado. Si hay un problema, quizá desee volver a la versión anterior.
+
+Transmisión en directo proporciona una vista inmediata de un conjunto de métricas de rendimiento clave. Está diseñada para que pueda verla durante una reimplementación o reconfiguración.
+
+![En la hoja de información general, haga clic en Transmisión en directo.](./media/app-insights-asp-net/45.png)
+
+A diferencia de los demás gráficos de métricas, Transmisión en directo muestra datos solo de los últimos minutos y no conserva ningún dato. La canalización de agregación es mínima y la presentación se actualiza a cada segundo.
+
+Transmisión en directo requiere la versión 2.1.0-beta1 o posterior del SDK.
+
+*¿Transmisión en directo está bloqueado en la página de configuración?: actualice el explorador (F5).*
 
 #### ¿Tiene problemas el servidor de compilación?
 
@@ -234,4 +246,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

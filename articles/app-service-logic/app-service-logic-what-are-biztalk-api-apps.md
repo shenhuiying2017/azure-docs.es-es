@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="04/20/2016" 
 	ms.author="mandia"/>
 
 # Qué son los conectores y las aplicaciones de API de BizTalk
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 Servicios de aplicaciones de Azure se basa en un principio de extensibilidad y conectividad común a través de aplicaciones de API. Un *conector* es un tipo de aplicación de API que se centra en la conectividad. Los conectores, al igual que cualquier otra aplicación de API, se utilizan desde aplicaciones web, aplicaciones móviles y aplicaciones lógicas. Los conectores hacen que sea fácil conectarse a servicios existentes y ayuda a administrar la autenticación, ofrece supervisión, proporciona análisis, etc.
 
@@ -42,10 +44,10 @@ Recursos adicionales: [Conectores negocio a negocio y aplicaciones de API en el 
 
 
 ## Reglas
-Las reglas de negocio encapsulan las directivas y decisiones que controlan los procesos de negocio. Normalmente, las reglas son dinámicas y cambian con el tiempo por diferentes motivos, incluidos los planes de negocios, normas y muchas otras razones. [Reglas de BizTalk en Servicios de aplicaciones](app-service-logic-use-biztalk-rules.md) le permite separar estas directivas desde el código de aplicación y hacer que el proceso de cambio sea más rápido y sencillo.
+Las reglas de negocio encapsulan las directivas y decisiones que controlan los procesos de negocio. Normalmente, las reglas son dinámicas y cambian con el tiempo por diferentes motivos, incluidos los planes de negocios, normas y muchas otras razones. [Reglas de BizTalk en Servicios de aplicaciones](app-service-logic-use-biztalk-rules.md) le permite separar estas directivas del código de aplicación y hacer que el proceso de cambio sea más rápido y sencillo.
 
 ## Lista de conectores y aplicaciones de API
 Consulte [Lista de conectores y aplicaciones de API](app-service-logic-connectors-list.md) para obtener una lista completa de conectores y aplicaciones de API incluidas en cada categoría, incluidos los conectores estándar, EAI de BizTalk, conectores de Premium, etc.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

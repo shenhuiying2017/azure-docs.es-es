@@ -37,7 +37,7 @@ La siguiente captura de pantalla muestra la aplicación completada.
 
 ![][0]
 
-> [AZURE.NOTE]Azure también proporciona funcionalidad de colas de almacenamiento. Para obtener más información sobre las colas de almacenamiento de Azure y las colas del bus de servicio, consulte [Colas de Microsoft Azure y Colas de Service Bus de Microsoft Azure: comparación y diferencias][sbqueuecomparison].
+> [AZURE.NOTE] Azure también proporciona funcionalidad de colas de almacenamiento. Para obtener más información sobre las colas de almacenamiento de Azure y las colas del bus de servicio, consulte [Colas de Microsoft Azure y Colas de Service Bus de Microsoft Azure: comparación y diferencias][sbqueuecomparison].
 
 ## Información general del escenario: comunicación entre roles
 
@@ -103,7 +103,7 @@ El siguiente paso es crear un espacio de nombres de servicio y obtener una clave
 
 5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso). Además, asegúrese de seleccionar **Mensajería** en el espacio de nombres de campo **Tipo** y **Estándar** en el campo **Capa de mensajería**.
 
-    > [AZURE.IMPORTANT]Seleccione la **misma región** que vaya a elegir para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
+    > [AZURE.IMPORTANT] Seleccione la **misma región** que vaya a elegir para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
 
 6.  Haga clic en la marca de verificación Aceptar. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
@@ -159,7 +159,7 @@ En esta sección, va a crear el front-end de la aplicación. En primer lugar, va
 
 8.  Tenga en cuenta que ahora se hace referencia a los ensamblados del cliente requeridos y que se han agregado algunos archivos de código nuevos.
 
-9.  En el **Explorador de soluciones**, haga clic con el botón derecho en **Modelos**, en **Agregar** y, por último, en **Clase**. En el cuadro **Nombre**, escriba el nombre **OnlineOrder.cs**. A continuación, haga clic en **Agregar**.
+9.  En el **Explorador de soluciones**, haga clic con el botón secundario en **Modelos** y, luego, en **Agregar** y, por último, en **Clase**. En el cuadro **Nombre**, escriba el nombre **OnlineOrder.cs**. A continuación, haga clic en **Agregar**.
 
 ### Especificación del código del rol web
 
@@ -434,7 +434,7 @@ Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo
 
 	![][24]
 
-7.  En el **Explorador de soluciones**, haga clic con el botón derecho en el **OrderProcessingRole** que creó en el paso 5 (asegúrese de hacer clic con el botón derecho en **OrderProcessingRole** en **Roles** y no en la clase). A continuación, haga clic en **Propiedades**.
+7.  En el **Explorador de soluciones**, haga clic con el botón secundario en el **OrderProcessingRole** que creó en el paso 5 (asegúrese de hacer clic con el botón secundario en **OrderProcessingRole** en **Roles** y no en la clase). A continuación, haga clic en **Propiedades**.
 
 8.  En la pestaña **Configuración** del cuadro de diálogo **Propiedades**, haga clic dentro del cuadro **Valor** para **Microsoft.ServiceBus.ConnectionString** y, a continuación, pegue el valor de extremo que copió en el paso 6.
 
@@ -479,7 +479,7 @@ Para obtener más información sobre los escenarios de niveles múltiples o sobr
 
 * [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][mutitierstorage]  
 
-Es posible que desee implementar el front-end de una aplicación de niveles múltiples en un sitio web de Azure en lugar de en un servicio en la nube de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][executionmodels].
+Es posible que desee implementar el front-end de una aplicación de niveles múltiples en un sitio web de Azure en lugar de en un servicio en la nube de Azure.
 
 Para implementar la aplicación que ha creado en este tutorial como un proyecto web estándar en lugar de como un rol web de servicio en la nube, siga los pasos de este tutorial con las diferentes siguientes:
 
@@ -543,6 +543,6 @@ Para obtener información sobre cómo implementar el front-end en un Sitio web d
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-  [executionmodels]: ../cloud-services/fundamentals-application-models.md
+  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

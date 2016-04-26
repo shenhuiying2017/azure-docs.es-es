@@ -35,7 +35,9 @@
 
 OR
 
-* [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md).
+* [Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##¿Qué es SSH?
 
@@ -123,7 +125,7 @@ Para obtener más información acerca del uso de este comando, consulte [Aprovis
 
 3. En **Category** (Categoría), seleccione **Session** (Sesión). En la pantalla **Basic options for your PuTTY session** (Opciones básicas de la sesión de PuTTY), escriba la dirección SSH del servidor de HDInsight en el campo **Host name (or IP address)** (Nombre de host (o dirección IP)). Hay dos posibles direcciones SSH que puede utilizar al conectarse a un clúster:
 
-    * __Dirección de nodo principal__: para conectarse al nodo principal del clúster, utilice el nombre del clúster y, a continuación, **-ssh.azurehdinsight.net**. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.
+    * __Dirección de nodo principal__: para conectarse al nodo principal del clúster, utilice el nombre del clúster y, luego, **-ssh.azurehdinsight.net**. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.
     
     * __Dirección de nodo perimetral__: si se va a conectar a un servidor de R en un clúster de HDInsight, puede conectarse al nodo perimetral del servidor de R mediante la dirección __RServer.CLUSTERNAME.ssh.azurehdinsight.net__, donde CLUSTERNAME es el nombre del clúster. Por ejemplo, __RServer.mycluster.ssh.azurehdinsight.net__.
 
@@ -233,4 +235,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

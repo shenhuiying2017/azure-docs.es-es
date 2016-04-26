@@ -24,7 +24,7 @@
 
 ## Información general
 
-En este tutorial se muestra cómo crear una aplicación .NET de múltiples niveles con un front-end ASP.NET MVC e implementarla en un [servicio en la nube de Azure](fundamentals-application-models.md#CloudServices). La aplicación usa [Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/ee336279), el [servicio Blob de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) y el [servicio Cola de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Puede [descargar el proyecto de Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) desde la Galería de código de MSDN.
+En este tutorial se muestra cómo crear una aplicación .NET de múltiples niveles con un front-end ASP.NET MVC e implementarla en un [servicio en la nube de Azure](cloud-services-choose-me.md). La aplicación usa [Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/ee336279), el [servicio Blob de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) y el [servicio Cola de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Puede [descargar el proyecto de Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) desde la Galería de código de MSDN.
 
 En el tutorial se muestra cómo crear y ejecutar la aplicación localmente, cómo implementarla en Azure y ejecutarla en la nube y, por último, cómo crearla desde cero. Puede comenzar por crearla desde cero y después llevar a cabo los pasos de prueba e implementación si lo prefiere.
 
@@ -51,7 +51,7 @@ En este tutorial se muestra cómo ejecutar un front-end y un back-end en un serv
 
 ## Requisitos previos
 
-En este tutorial se asume que comprende los [conceptos básicos sobre los servicios en la nube de Azure](fundamentals-application-models.md#CloudServices) como por ejemplo la terminología*rol web* y *rol de trabajo*. También se asume que sabe cómo trabajar con proyectos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms.
+En este tutorial se asume que comprende los [conceptos básicos sobre los servicios en la nube de Azure](cloud-services-choose-me.md) como por ejemplo la terminología*rol web* y *rol de trabajo*. También se asume que sabe cómo trabajar con proyectos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms.
 
 Puede ejecutar la aplicación localmente sin una suscripción de Azure, pero necesitará una para implementar la aplicación en la nube. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) o bien [registrarse para obtener una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -205,7 +205,7 @@ En una aplicación real, normalmente crearía cuentas independientes para los da
 
 6. Establezca la lista desplegable **Replicación** en **Localmente redundante**.
 
-	Cuando se habilita la replicación geográfica para una cuenta de almacenamiento, el contenido almacenado se replica en un centro de datos secundario para habilitar la conmutación por error en caso de que se produzca un desastre importante en la ubicación principal. La replicación geográfica puede suponer costes adicionales. Lo normal es que no quiera pagar por el servicio de replicación geográfica para las cuentas de prueba y desarrollo. Para obtener más información, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage-create-storage-account/#replication-options).
+	Cuando se habilita la replicación geográfica para una cuenta de almacenamiento, el contenido almacenado se replica en un centro de datos secundario para habilitar la conmutación por error en caso de que se produzca un desastre importante en la ubicación principal. La replicación geográfica puede suponer costes adicionales. Lo normal es que no quiera pagar por el servicio de replicación geográfica para las cuentas de prueba y desarrollo. Para obtener más información, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#replication-options).
 
 5. Haga clic en **Crear cuenta de almacenamiento**.
 
@@ -869,4 +869,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Administración de servicios en la nube](cloud-services-how-to-manage.md)
 * [Almacenamiento de Azure](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

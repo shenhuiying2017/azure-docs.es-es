@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Protección de máquinas virtuales de ARM con Copia de seguridad de Azure | Microsoft Azure"
-	description="Proteja las máquinas virtuales de ARM con el servicio Copia de seguridad de Azure. Use copias de seguridad de máquinas virtuales de ARM para proteger los datos. Cree y registre un almacén de Servicios de recuperación. Registre máquinas virtuales, cree directivas y proteja máquinas virtuales en Azure."
+	description="Proteja las máquinas virtuales de ARM con el servicio Copia de seguridad de Azure. Use copias de seguridad de máquinas virtuales de ARM y máquinas virtuales de almacenamiento premium para proteger los datos. Cree y registre un almacén de Servicios de recuperación. Registre máquinas virtuales, cree directivas y proteja máquinas virtuales en Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -24,7 +24,14 @@
 - [Copia de seguridad de máquinas virtuales en ARM](backup-azure-vms-first-look-arm.md)
 - [Copia de seguridad de máquinas virtuales en modo clásico](backup-azure-vms-first-look.md)
 
-Este tutorial le guiará por los pasos para crear un almacén de Servicios de recuperación y realizar copias de seguridad de una máquina virtual (VM) de Azure. En este tutorial se usan almacenes de Servicios de recuperación para proteger las máquinas virtuales basadas en Azure Resource Manager (ARM) o IaaS v.2.
+Este tutorial le guiará por los pasos para crear un almacén de Servicios de recuperación y realizar copias de seguridad de una máquina virtual (VM) de Azure. Los almacenes de Servicios de recuperación protegen:
+
+- Las máquinas virtuales de Azure Resource Manager (ARM)
+- Máquinas virtuales clásicas
+- Máquinas virtuales de almacenamiento estándar
+- Máquinas virtuales de almacenamiento premium
+
+Para obtener información adicional sobre la protección de máquinas virtuales de almacenamiento premium, consulte [Copia de seguridad y restauración de máquinas virtuales de almacenamiento premium](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
 >[AZURE.NOTE] Aquí se da por hecho que tiene una máquina virtual en su suscripción de Azure y que ha tomado las medidas necesarias para que el servicio de copia de seguridad tenga acceso a dicha máquina virtual. Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../resource-manager-deployment-model.md). Este artículo es para su uso con Resource Manager y máquinas virtuales basadas en ARM.
 
@@ -65,7 +72,7 @@ Para crear un almacén de Servicios de recuperación:
 
 5. Haga clic en **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo habrá varias opciones si la cuenta de su organización está asociada a varias suscripciones de Azure.
 
-6. Haga clic en **Grupo de recursos** para ver la lista disponible de grupos de recursos, o haga clic en **Nuevo** para crear uno nuevo. Para información completa acerca de los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
+6. Haga clic en **Grupo de recursos** para ver la lista disponible de grupos de recursos o haga clic en **Nuevo** para crear uno nuevo. Para información completa acerca de los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
 
 7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. El almacén **debe** estar en la misma región que las máquinas virtuales que quiere proteger.
 
@@ -84,10 +91,10 @@ Para crear un almacén de Servicios de recuperación:
 ## Paso 2: Selección de la directiva de establecimiento de escenario y definición de los elementos para proteger
 Antes de registrar una máquina virtual en un almacén, ejecute el proceso de detección para asegurarse de que se identifican todas las nuevas máquinas virtuales que se hayan agregado a la suscripción. El proceso consulta a Azure la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, por ejemplo, el nombre del servicio en la nube y la región.
 
-1. Si ya tiene un abierto de almacén de Servicios de recuperación, vaya al paso 2. Si no tiene un abierto de almacén de Servicios de recuperación, pero está en el Portal de Azure, en el menú Concentrador, haga clic en **Examinar**.
+1. Si ya tiene un abierto de almacén de Servicios de recuperación, vaya al paso 2. Si no tiene un almacén de Servicios de recuperación abierto, pero está en el Portal de Azure, en el menú Concentrador, haga clic en **Examinar**.
 
     - En la lista de recursos, escriba **Servicios de recuperación**.
-    - Cuando comience a escribir, la lista se filtrará en función de la entrada. Cuando vea **Almacén de Servicios de recuperación**, haga clic en él.
+    - Cuando comience a escribir, la lista se filtrará en función de la entrada. Cuando vea **Almacenes de Servicios de recuperación**, haga clic en él.
 
     ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
@@ -198,7 +205,7 @@ Para crear una directiva:
 
 4. Después de configurar todas las opciones de la directiva, en la parte inferior de la hoja, haga clic en **Aceptar**.
 
-    La nueva directiva está establecida para aplicarse al almacén una vez completada la configuración del almacén de Servicios de recuperación. Vuelva al paso 6 de la sección, [Selección de la directiva de establecimiento de escenario y definición de los elementos para proteger](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect).
+    La nueva directiva está establecida para aplicarse al almacén una vez completada la configuración del almacén de Servicios de recuperación. Vuelva al paso 6 de la sección, [Selección de la directiva de establecimiento de escenario y definición de los elementos a proteger](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect).
 
 ## Instale el agente de máquina virtual en la máquina virtual.
 
@@ -211,7 +218,7 @@ La tabla siguiente proporciona información adicional acerca del agente de máqu
 | **Operación** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalación del agente de la máquina virtual | <li>Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necesitará privilegios de administrador para efectuar la instalación. <li>[Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. | <li> Instale el [agente de Linux](https://github.com/Azure/WALinuxAgent) más reciente desde GitHub. Necesitará privilegios de administrador para efectuar la instalación. <li> [Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. |
-| Actualización del agente de la máquina virtual | Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se ejecuta ninguna operación de copia de seguridad durante la actualización del agente de máquina virtual. | Siga las instrucciones que se indican en la sección sobre la [actualización del agente de máquina virtual Linux](../virtual-machines-linux-update-agent.md). <br>Asegúrese de que no se ejecutan operaciones de copia de seguridad durante la actualización del agente de máquina virtual. |
+| Actualización del agente de la máquina virtual | Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se ejecuta ninguna operación de copia de seguridad durante la actualización del agente de máquina virtual. | Siga las instrucciones que se indican en la sección sobre la [actualización del agente de máquina virtual Linux](../virtual-machines-linux-update-agent.md). <br>Asegúrese de que no se ejecuta ninguna operación de copia de seguridad durante la actualización del agente de máquina virtual. |
 | Validación de la instalación del agente de máquina virtual | <li>Vaya a la carpeta *C:\\WindowsAzure\\Packages* de la máquina virtual de Azure. <li>El archivo WaAppAgent.exe debe estar ahí.<li> Haga clic con el botón derecho en el archivo, vaya a **Propiedades** y, luego, seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior. | N/D |
 
 
@@ -221,8 +228,6 @@ Una vez que el agente de máquina virtual está instalado en la máquina virtual
 
 El servicio Copia de seguridad instala la extensión de copia de seguridad tanto si la máquina virtual está en ejecución como si no lo está. Una máquina virtual en ejecución ofrece más probabilidad de obtener un punto de recuperación coherente con la aplicación. Sin embargo, el servicio Copia de seguridad de Azure realizará la copia de seguridad aunque esté apagada y no haya sido posible instalar la extensión. Esto se conoce como máquina virtual sin conexión. En este caso, el punto de recuperación será *coherente con los bloqueos*.
 
-
-
 ## Información sobre solución de problemas
 Si tiene problemas para realizar algunas de las tareas en este artículo, consulte la [Guía de solución de problemas](backup-azure-vms-troubleshoot.md).
 
@@ -230,4 +235,4 @@ Si tiene problemas para realizar algunas de las tareas en este artículo, consul
 ## ¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

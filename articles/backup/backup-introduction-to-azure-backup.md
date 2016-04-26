@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/06/2016"
+	ms.date="04/13/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # ¿Qué es la Copia de seguridad de Azure?
@@ -69,8 +69,7 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Copia de seguridad de Azure),</p> <p>[servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Copia de seguridad de Azure)</p> |
-| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
-| Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
+| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) | | Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
 
 ## Compatibilidad con ARM y Linux
 
@@ -82,6 +81,30 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Copia de seguridad de máquina virtual de IaaS de Azure | En vista previa pública | En vista previa pública: máquinas virtuales Linux en el modelo de implementación de Resource Manager <br>(Coherencia de nivel de sistema de archivos)<br><br>Sí para máquinas virtuales Linux en el modelo de implementación clásica |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
+
+## Copia de seguridad y restauración de máquinas virtuales de almacenamiento premium
+
+El servicio de copia de seguridad de Azure protege las máquinas virtuales de almacenamiento premium.
+
+### Copia de seguridad de máquinas virtuales de almacenamiento premium
+
+Durante la copia de seguridad de máquinas virtuales de almacenamiento premium, el servicio de copia de seguridad crea una ubicación de ensayo temporal en la cuenta de almacenamiento premium. La ubicación de ensayo, denominada "AzureBackup-" es igual al tamaño total de los datos de los discos premium conectados a la máquina virtual.
+
+>[AZURE.NOTE] No modifique ni edite la ubicación de ensayo.
+
+Una vez finalizado el trabajo de copia de seguridad, se elimina la ubicación de ensayo. El precio del almacenamiento utilizado para la ubicación de ensayo es coherente con todos los [precios de almacenamiento premium](../storage/storage-premium-storage.md#pricing-and-billing).
+
+### Restauración de máquinas virtuales de almacenamiento premium
+
+El proceso habitual de restauración consiste en restaurar un punto de recuperación de la máquina virtual de almacenamiento premium a almacenamiento premium. Sin embargo, puede ser más rentable restaurar un punto de recuperación de la máquina virtual de almacenamiento premium a almacenamiento estándar. Este tipo de restauración se puede utilizar si necesita un subconjunto de archivos de la máquina virtual.
+
+Los pasos para restaurar un punto de recuperación de la máquina virtual de almacenamiento premium a almacenamiento premium son:
+
+1. [Restaure el punto de recuperación de la máquina virtual a almacenamiento estándar.](backup-azure-restore-vms.md)
+2. [Copie los discos en el almacenamiento premium.](../storage/storage-use-azcopy.md)
+3. [Cree la máquina virtual IaaS de Azure.](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+
 
 ## Funcionalidad
 Estas cinco tablas resumen cómo se controla la funcionalidad de copia de seguridad en cada componente.
@@ -108,7 +131,7 @@ Cada componente admite la copia de seguridad incremental independientemente del 
 Las copias de seguridad se comprimen para reducir el espacio de almacenamiento necesario. El único componente que no utiliza compresión es la extensión de VM. Con la extensión de VM, todos los datos de copia de seguridad se copian desde la cuenta de almacenamiento del cliente hasta el almacén de copia de seguridad en la misma región sin comprimirlos. Aunque la falta de compresión aumenta ligeramente el almacenamiento consumido, permite tiempos de restauración más rápidos.
 
 #### Desduplicación
-La desduplicación se admite en System Center DPM y el servidor de Copia de seguridad cuando se [implementa en una máquina virtual de Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La desduplicación se realiza en el nivel de host mediante la desduplicación de Windows Server en discos duros virtuales (VHD) que están conectados a la máquina virtual como almacenamiento de copia de seguridad.
+La desduplicación es compatible con System Center DPM y con el servidor de Copia de seguridad cuando se [implementa en una máquina virtual de Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La desduplicación se realiza en el nivel de host mediante la desduplicación de Windows Server en discos duros virtuales (VHD) que están conectados a la máquina virtual como almacenamiento de copia de seguridad.
 
 >[AZURE.WARNING] La desduplicación no está disponible en Azure para ninguno de los componentes de Copia de seguridad. Cuando System Center DPM y el Servidor de Copia de seguridad se implementan en Azure, los discos de almacenamiento conectados a la VM no se pueden desduplicar.
 
@@ -190,7 +213,7 @@ Los siguientes conceptos le ayudarán a tomar decisiones importantes en torno a 
 | ------- | ------- | ------ | ----------------- |
 | Objetivo de punto de recuperación (RPO) | La cantidad aceptable de pérdida de datos si debe realizarse una recuperación. | Las soluciones de copia de seguridad tienen una gran variabilidad en su RPO aceptable. Las copias de seguridad de máquina virtual normalmente tienen un RPO de un día, mientras que las copias de seguridad de base de datos tienen RPO bajos, de hasta 15 minutos. | Las soluciones de recuperación ante desastres tienen RPO bajos. La copia de DR puede estar detrás de algunos segundos o minutos. |
 | Objetivo de tiempo de recuperación (RTO) | La cantidad de tiempo que se tarda en completar una recuperación o restauración. | Debido a un RPO mayor, la cantidad de datos que una solución de copia de seguridad debe procesar es normalmente mucho mayor, lo que da lugar a RTO más largos. Por ejemplo, la restauración de datos de cintas puede tardar días, dependiendo del tiempo necesario para transportar la cinta desde una ubicación externa. | Las soluciones de recuperación ante desastres tienen RTO más pequeños, ya que están más en sincronización con el origen. Además, se necesita procesar menos cambios. |
-| Retención | ¿Cuánto tiempo necesitan almacenarse los datos? | En escenarios que requieren recuperación de operaciones (daños en los datos, eliminación involuntaria de archivos o errores del SO), los datos de copia de seguridad normalmente se conservan durante 30 días, o menos. <br>Desde el punto de vista del cumplimiento normativo los datos deben almacenarse durante meses, o incluso años. Los datos de copia de seguridad son perfectos para el archivado en tales casos. | La recuperación ante desastres solo necesita datos de recuperación operativos, lo que normalmente tarda unas pocas horas o hasta un día. Debido a la captura de datos específicos que se usa en soluciones de recuperación ante desastres, la retención a largo plazo no se recomienda si se usan datos de recuperación ante desastres. |
+| Retención | ¿Cuánto tiempo necesitan almacenarse los datos? | En escenarios que requieren recuperación de operaciones (daños en los datos, eliminación involuntaria de archivos o errores del SO), los datos de copia de seguridad normalmente se conservan durante 30 días, o menos. <br>Desde el punto de vista del cumplimiento normativo los datos deben almacenarse durante meses o incluso años. Los datos de copia de seguridad son perfectos para el archivado en tales casos. | La recuperación ante desastres solo necesita datos de recuperación operativos, lo que normalmente tarda unas pocas horas o hasta un día. Debido a la captura de datos específicos que se usa en soluciones de recuperación ante desastres, la retención a largo plazo no se recomienda si se usan datos de recuperación ante desastres. |
 
 ## Pasos siguientes
 
@@ -211,4 +234,4 @@ Dado que estos tutoriales le ayudan a hacer copias de seguridad rápidamente, le
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

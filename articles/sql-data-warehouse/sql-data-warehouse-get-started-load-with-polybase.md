@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/18/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -72,7 +72,7 @@ Para preparar un archivo de texto de ejemplo:
 
 Para buscar el punto de conexión del servicio BLOB:
 
-1. En el Portal de Azure clásico, seleccione **Examinar** > **Cuentas de almacenamiento**.
+1. En el Portal de Azure, seleccione **Examinar** > **Cuentas de almacenamiento**.
 2. Haga clic en la cuenta de almacenamiento que desea usar.
 3. En la hoja de la cuenta de almacenamiento, haga clic en Blobs.
 
@@ -86,7 +86,7 @@ Para buscar el punto de conexión del servicio BLOB:
 
 Para buscar la clave de almacenamiento de Azure:
 
-1. En el pantalla principal, seleccione **Examinar** > **Cuentas de almacenamiento**.
+1. En el Portal de Azure, seleccione **Examinar** > **Cuentas de almacenamiento**.
 2. Haga clic en la cuenta de almacenamiento que desea usar.
 3. Seleccione **Toda la configuración** > **Claves de acceso**.
 4. Haga clic en el cuadro de copia para copiar una de las claves de acceso en el Portapapeles.
@@ -128,7 +128,7 @@ Para ver el archivo cargado en el almacenamiento de blobs:
 
 En esta sección se creará una tabla externa que defina los datos de ejemplo.
 
-PolyBase utiliza tablas externas para acceder a los datos de Almacenamiento de blobs de Azure o Hadoop. Dado que los datos no se almacenan en Almacenamiento de datos SQL, PolyBase controla la autenticación de los datos externos mediante una credencial cuyo ámbito es la base de datos.
+PolyBase emplea tablas externas para acceder a los datos en Almacenamiento de blobs de Azure. Dado que los datos no se almacenan en Almacenamiento de datos SQL, PolyBase controla la autenticación de los datos externos mediante una credencial cuyo ámbito es la base de datos.
 
 El ejemplo de este paso usa estas instrucciones Transact-SQL para crear una tabla externa.
 
@@ -162,6 +162,7 @@ WITH
 
 
 -- C: Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
 -- CREDENTIAL: Provide the credential created in the previous step.
 
@@ -233,7 +234,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## Paso 4: Crear estadísticas de los datos recién cargados
+## Paso 4: Crear estadísticas de los datos recién cargados
 
 Almacenamiento de datos SQL no crea ni actualiza automáticamente las estadísticas. Por lo tanto, para lograr un rendimiento elevado de las consultas, es importante crear estadísticas de todas las columna de cada tabla después de la primera carga. También es importante actualizar las estadísticas si se realizan cambios significativos en los datos.
 
@@ -286,4 +287,4 @@ Para más información que debe conocer cuando desarrolle una solución que use 
 [Create Database Scoped Credential (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

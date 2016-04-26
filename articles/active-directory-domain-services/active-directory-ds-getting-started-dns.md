@@ -1,4 +1,11 @@
-<properties pageTitle="Vista previa de Servicios de dominio de Azure Active Directory: introducción | Microsoft Azure" description="Introducción a los Servicios de dominio de Azure Active Directory" services="active-directory-ds" documentationCenter="" authors="mahesh-unnikrishnan" manager="stevenpo editor="curtand"/>
+<properties
+	pageTitle="Vista previa de los Servicios de dominio de Azure Active Directory: introducción | Microsoft Azure"
+	description="Introducción a los Servicios de dominio de Azure Active Directory"
+	services="active-directory-ds"
+	documentationCenter=""
+	authors="mahesh-unnikrishnan"
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -6,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="04/11/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(vista previa)*: introducción
@@ -39,4 +46,4 @@ Realice los siguientes pasos de configuración para actualizar la configuración
 ---
 [**Siguiente paso: Habilitación de la sincronización de contraseñas con los Servicios de dominio de Azure AD.**](active-directory-ds-getting-started-password-sync.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

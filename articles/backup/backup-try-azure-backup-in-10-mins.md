@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="04/09/2016"
+   ms.date="04/14/2016"
    ms.author="jimpark;"/>
 
 # Primer análisis: copia de seguridad de archivos y carpetas del servidor o cliente de Windows Server en Azure
@@ -142,4 +142,4 @@ Enhorabuena, ha realizado correctamente la copia de seguridad de los archivos y 
 - Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 - Si necesita restaurar una copia de seguridad, use este artículo para [restaurar archivos en una máquina Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

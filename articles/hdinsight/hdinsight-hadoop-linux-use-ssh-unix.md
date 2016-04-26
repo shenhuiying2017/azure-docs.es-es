@@ -35,7 +35,9 @@
 
 OR
 
-* [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md).
+* [Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##¿Qué es SSH?
 
@@ -120,11 +122,11 @@ Desde una sesión de terminal, use el comando SSH para conectarse al nodo princi
 
     * **Conexión al nodo principal**: el nombre del clúster, seguido de **-ssh.azurehdinsight.net**. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.
     
-    * **Conexión con el nodo perimetral**: si el clúster es el servidor de R en HDInsight, el clúster también contendrá un nodo perimetral al que se puede acceder mediante **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, donde __CLUSTERNAME__ es el nombre del clúster.
+    * **Conexión al nodo perimetral**: si el clúster es un servidor de R en HDInsight, el clúster también contendrá un nodo perimetral al que se puede acceder mediante **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, donde __CLUSTERNAME__ es el nombre del clúster.
 
 * **Nombre de usuario**: el nombre de usuario SSH que proporcionó al crear el clúster.
 
-En el siguiente ejemplo se conectará al nodo principal 0 de **mycluster** como el usuario **yo**:
+En el siguiente ejemplo se conectará al nodo principal 0 de **mycluster** como el usuario **me**:
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -243,4 +245,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

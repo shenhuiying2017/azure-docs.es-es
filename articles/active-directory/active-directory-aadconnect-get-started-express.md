@@ -53,11 +53,11 @@ Configuración rápida es la opción predeterminada que se selecciona y es uno d
 
 Para ver un vídeo sobre el uso de la instalación exprés, consulte lo siguiente:
 
-[AZURE.VIDEO azure-active-directory-connect-express-settings]
+>[AZURE.VIDEO azure-active-directory-connect-express-settings]
 
 ## Pasos siguientes
 Ahora que tiene instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](active-directory-aadconnect-whats-next.md).
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

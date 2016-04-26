@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/08/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Introducción: creación de clústeres Apache Spark en HDInsight de Azure (Linux) y ejecución de consultas interactivas mediante Spark SQL
+# Introducción: creación de clústeres Apache Spark en HDInsight para Linux y ejecución de consultas interactivas mediante Spark SQL (versión preliminar)
 
 Obtenga información sobre cómo crear un clúster Apache Spark en HDInsight y después usar cuadernos de [Jupyter](https://jupyter.org) para ejecutar consultas interactivas de Spark SQL en el clúster Spark.
 
@@ -79,12 +79,12 @@ En esta sección, se crea un clúster de HDInsight versión 3.3 (Spark versión 
 
 ## Ejecución de consultas SQL Spark mediante un cuaderno de Jupyter Notebook
 
-En esta sección, utilice un cuaderno de Jupyter Notebook, para ejecutar consultas Spark SQL en un clúster Spark. De forma predeterminada el cuaderno de Jupyter incorpora un kernel **Python2**. Los clústeres de HDInsight Spark proporcionan dos kernels adicionales que puede utilizar con el cuaderno de Jupyter. Dichos componentes son:
+En esta sección, utilice un cuaderno de Jupyter Notebook, para ejecutar consultas Spark SQL en un clúster Spark. Los clústeres de HDInsight Spark proporcionan dos kernels que se pueden utilizar con el cuaderno de Jupyter Notebook. Dichos componentes son:
 
 * **PySpark** (para aplicaciones escritas con Python)
 * **Spark** (para aplicaciones escritas con Scala)
 
-En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) encontrará información detallada sobre las ventajas de usar el kernel de PySpark. Sin embargo, algunas de las ventajas principales de usar el kernel de PySpark son:
+En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) encontrará información detallada acerca de las ventajas de usar el kernel de PySpark. Sin embargo, algunas de las ventajas principales de usar el kernel de PySpark son:
 
 * No es necesario establecer los contextos de Spark ni Hive. Se establecen automáticamente para usted.
 * Puede usar instrucciones mágicas de celda, como `%%sql`, para ejecutar directamente las consultas de SQL o Hive, sin los fragmentos de código anteriores.
@@ -135,7 +135,7 @@ En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponi
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Al usar un kernel de PySpark, puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para más información sobre la instrucción mágica `%%sql`, así como de otras instrucciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Al usar un kernel de PySpark, puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
@@ -206,4 +206,4 @@ En este artículo, usará el kernel de PySpark. En el artículo [Kernels disponi
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

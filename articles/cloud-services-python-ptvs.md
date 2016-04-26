@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Roles web y de trabajo de Python con Python Tools 2.2 para Visual Studio | Microsoft Azure"
 	description="Información general sobre el uso de Python Tools para Visual Studio para crear servicios en la nube de Azure, incluidos roles web y roles de trabajo."
-	services=""
+	services="cloud-services"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="thraka"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="hero-article"
 	ms.date="08/30/2015"
-	ms.author="huvalo"/>
+	ms.author="adegeo"/>
 
 
 
@@ -38,7 +38,7 @@ Azure ofrece tres modelos de proceso para la ejecución de aplicaciones: [caract
 
 Para obtener más información, consulte [¿Qué es un servicio en la nube?].
 
-> [AZURE.NOTE]*¿Desea compilar un sitio web sencillo?* Si el escenario solo requiere un sitio web de front-end sencillo, considere el uso de la característica Aplicaciones web ligera en el Servicio de aplicaciones de Azure. Puede actualizar a un Servicio en la nube más adelante, cuando su sitio web sea más grande y sus requisitos cambien. Consulte el <a href="/develop/python/">Centro para desarrolladores de Python</a> para obtener artículos sobre el desarrollo de la característica de aplicaciones web en el Servicio de aplicaciones de Azure. <br />
+> [AZURE.NOTE] *¿Desea compilar un sitio web sencillo?* Si el escenario solo requiere un sitio web de front-end sencillo, considere el uso de la característica Aplicaciones web ligera en el Servicio de aplicaciones de Azure. Puede actualizar a un Servicio en la nube más adelante, cuando su sitio web sea más grande y sus requisitos cambien. Consulte el <a href="/develop/python/">Centro para desarrolladores de Python</a> para obtener artículos sobre el desarrollo de la característica de aplicaciones web en el Servicio de aplicaciones de Azure. <br />
 
 
 ## Creación de un proyecto
@@ -114,17 +114,17 @@ Para obtener más información sobre el uso de servicios de Azure desde roles we
 
 <!--Link references-->
 
-[¿Qué es un servicio en la nube?]: /manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: fundamentals-application-models.md#WebSites
-[execution model-vms]: fundamentals-application-models.md#VMachine
-[execution model-cloud services]: fundamentals-application-models.md#CloudServices
+[¿Qué es un servicio en la nube?]: ./cloud-services/cloud-services-choose-me.md
+[execution model-web sites]: ./app-service-web/app-service-web-overview.md
+[execution model-vms]: ./virtual-machines/virtual-machines-windows-about.md
+[execution model-cloud services]: ./cloud-services/cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Servicio BLOB]: storage-python-how-to-use-blob-storage.md
-[Servicio Cola]: storage-python-how-to-use-queue-storage.md
-[Servicio Tabla]: storage-python-how-to-use-table-storage.md
-[Colas de Bus de servicio]: service-bus-python-how-to-use-queues.md
-[Temas de Bus de servicio]: service-bus-python-how-to-use-topics-subscriptions.md
+[Servicio BLOB]: ./storage/storage-python-how-to-use-blob-storage.md
+[Servicio Cola]: ./storage/storage-python-how-to-use-queue-storage.md
+[Servicio Tabla]: ./storage/storage-python-how-to-use-table-storage.md
+[Colas de Bus de servicio]: ./service-bus/service-bus-python-how-to-use-queues.md
+[Temas de Bus de servicio]: ./service-bus/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
@@ -138,4 +138,4 @@ Para obtener más información sobre el uso de servicios de Azure desde roles we
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

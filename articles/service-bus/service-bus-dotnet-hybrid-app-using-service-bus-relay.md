@@ -402,7 +402,7 @@ Ejecute la aplicación para comprobar que funciona.
 
 ## Preparación de la aplicación para que se implemente en Azure
 
-Cualquier aplicación se puede implementar en un servicio en la nube de Azure o en un sitio web de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][executionmodels]. Para obtener información sobre cómo implementar la aplicación en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). Esta sección contiene los pasos detallados para implementar la aplicación en un servicio en la nube de Azure.
+Cualquier aplicación se puede implementar en un [servicio en la nube][executionmodels] de Azure o en un [sitio web de Azure][azureweb]. Para obtener información sobre cómo implementar la aplicación en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). Esta sección contiene los pasos detallados para implementar la aplicación en un servicio en la nube de Azure.
 
 Para implementar una aplicación en un servicio en la nube, va a agregar a la solución un proyecto de implementación de un proyecto de servicio en la nube. El proyecto de implementación contiene información de configuración necesaria para ejecutar correctamente la aplicación en la nube.
 
@@ -531,8 +531,6 @@ El siguiente paso es conectar el servidor de productos local con la aplicación 
 
     ![][37]
 
-Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][executionmodels].
-
 ## Detención y eliminación de una aplicación
 
 Después de implementar su aplicación, puede deshabilitarla, por lo que puede compilar e implementar otras aplicaciones dentro de las 750 horas gratuitas al mes (31 días al mes) de tiempo del servidor.
@@ -608,6 +606,7 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
-  [executionmodels]: ../cloud-services/fundamentals-application-models.md
+  [executionmodels]: ../cloud-services/cloud-services-choose-me.md
+  [azureweb]: ../app-service-web/app-service-web-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

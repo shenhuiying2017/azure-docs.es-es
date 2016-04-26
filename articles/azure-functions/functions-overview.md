@@ -66,10 +66,10 @@ Hay dos maneras de ejecutar Funciones de Azure: mediante un Plan del Servicio de
 
 En un **Plan del servicio de aplicaciones dinámico** no tiene que preocuparse acerca de la administración de recursos. Cada vez que se ejecuta la función, Azure proporcionará todos los recursos informáticos necesarios. Pague solo el tiempo durante el que se ejecuta el código. Hay completos detalles de precios en la [página Precios de Funciones](/pricing/details/functions).
 
-Un **Plan del servicio de aplicaciones clásico** permite ejecutar funciones igual que aplicaciones web, móviles y de API. Es una gran solución si ya está utilizando el Servicio de aplicaciones para otras aplicaciones: sus funciones pueden ejecutarse en el mismo plan sin ningún coste adicional. Puede encontrar detalles completos en la [página Precios de Servicio de aplicaciones](/pricing/details/app-service/).
+Un **Plan del servicio de aplicaciones clásico** permite ejecutar funciones igual que aplicaciones web, móviles y de API. Es una excelente solución si ya se usa el Servicio de aplicaciones para otras aplicaciones: las funciones pueden ejecutarse en el mismo plan sin costo adicional. Puede encontrar detalles completos en la [página Precios de Servicio de aplicaciones](/pricing/details/app-service/).
 
 ## Problemas de informes
 
 [AZURE.INCLUDE [Problemas de informes](../../includes/functions-reporting-issues.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

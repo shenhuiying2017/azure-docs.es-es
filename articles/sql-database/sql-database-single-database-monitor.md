@@ -1,4 +1,12 @@
-<properties pageTitle="Supervisión de rendimiento de bases de datos con la Base de datos SQL de Azure" | Microsoft Azure" description="Obtenga información sobre las opciones de supervisión de la base de datos con las herramientas y vistas de administración dinámicas de Azure." keywords="supervisión de base de datos, rendimiento de base de datos en la nube" services="sql-database" documentationCenter="" authors="carlrabeler" manager="jhubbard" editor=""/>
+<properties
+	pageTitle="Supervisión del rendimiento de base de datos en Base de datos SQL de Azure | Microsoft Azure"
+	description="Conozca las opciones para la supervisión de la base de datos con herramientas de Azure y vistas de administración dinámica."
+	keywords="supervisión de base de datos, rendimiento de base de datos"
+	services="sql-database"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -21,7 +29,7 @@ En el [Portal de Azure](https://portal.azure.com/), puede supervisar la utilizac
 - Porcentaje de E/S de datos
 - Porcentaje de almacenamiento
 
-Una vez agregadas estas métricas, podrá verlas en el gráfico **Supervisión**; si desea ver más detalles, podrá hacerlo en la ventana **Métrica**. Las cuatro métricas muestran el porcentaje de uso medio, en relación con la **DTU** de la base de datos. Consulte el artículo de [niveles de servicio](sql-database-service-tiers.md) para más información acerca de la DTU.
+Una vez agregadas estas métricas, podrá verlas en el gráfico **Supervisión**; si desea ver más detalles, podrá hacerlo en la ventana **Métrica**. Las cuatro métricas muestran el porcentaje de uso medio, en relación con la **DTU** de la base de datos. Consulte el artículo de [niveles de servicio](sql-database-service-tiers.md) para más información sobre las unidades de transmisión estándar (DTU).
 
 ![Supervisión del nivel de servicio del rendimiento de la base de datos.](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
 
@@ -33,10 +41,10 @@ Las métricas de rendimiento también pueden ayudarle a determinar si puede camb
 
 ## Supervisión de bases de datos mediante DMV
 
-Las mismas métricas que se exponen en el portal están también disponibles a través de las vistas del sistema: [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) en la base de datos **maestra** lógica del servidor y [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) en la base de datos de usuario. Use **sys.resource\_stats** si necesita supervisar datos menos pormenorizados en un periodo de tiempo más amplio. Use **sys.dm\_db\_resource\_stats** si necesita supervisar datos más pormenorizados en un período de tiempo más breve. Para obtener más información, consulte la [Guía de rendimiento de la Base de datos SQL de Azure](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
+Las mismas métricas que se exponen en el Portal están también disponibles a través de las vistas del sistema: [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) en la base de datos **maestra** lógica del servidor y [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) en la base de datos de usuario. Use **sys.resource\_stats** si necesita supervisar datos menos pormenorizados en un periodo de tiempo más amplio. Use **sys.dm\_db\_resource\_stats** si necesita supervisar datos más pormenorizados en un período de tiempo más breve. Para obtener más información, consulte la [Guía de rendimiento de la Base de datos SQL de Azure](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
 
->[AZURE.NOTE] **sys.dm\_db\_resource\_stats** devuelve un conjunto de resultados vacío cuando se utiliza en las bases de datos Web y Business Edition, que se retiraron.
+>[AZURE.NOTE] **sys.dm\_db\_resource\_stats** devuelve un conjunto de resultados vacío cuando se utiliza en las bases de datos Web Edition y Business Edition, que se retiraron.
 
 En los grupos de bases de datos elásticas, puede supervisar las bases de datos individuales del grupo con las técnicas descritas en esta sección. Sin embargo, también puede supervisar el grupo en conjunto. Para obtener información, consulte el artículo [Supervisión y administración de un grupo de bases de datos elásticas](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

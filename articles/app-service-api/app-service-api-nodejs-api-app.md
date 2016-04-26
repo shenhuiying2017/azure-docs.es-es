@@ -4,7 +4,7 @@
 	services="app-service\api"
 	documentationCenter="node"
 	authors="bradygaster"
-	manager="mohisri" 
+	manager="mohisri"
 	editor="tdykstra "/>
 
 <tags
@@ -243,4 +243,4 @@ Ya ha creado e implementado correctamente su primera aplicación de API con Node
 
 Para basarse en este ejemplo, puede agregar código a los controladores para almacenar los datos en una base de datos o en el disco de la instancia de la aplicación de API. Ahora que ya conectó la implementación continua, el cambio de la funcionalidad de la aplicación de API y la su ampliación es tan fácil como cambiar en insertar de código en el repositorio de Git.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->
