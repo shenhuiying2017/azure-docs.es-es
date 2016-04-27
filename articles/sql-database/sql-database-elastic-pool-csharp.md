@@ -5,7 +5,7 @@
     keywords="base de datos de c#, desarrollo de sql"
     documentationCenter=""
     authors="stevestein"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -285,7 +285,7 @@ El ejemplo siguiente actualiza las características de rendimiento de un grupo d
 
 ## Movimiento de una base de datos existente a un grupo de bases de datos elásticas
 
-*Después de crear un grupo, también puede usar Transact-SQL para mover bases de datos ya existentes dentro y fuera de un grupo. Para obtener información detallada, consulte [Material de referencia del grupo de bases de datos elásticas: Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+Después de crear un grupo, también puede usar Transact-SQL para mover bases de datos que ya existan dentro y fuera de un grupo. Para obtener información, consulte [Supervisión y administración de un grupo de bases de datos elásticas con Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 En el ejemplo siguiente se mueve una Base de datos SQL de Azure existente a un grupo:
 
@@ -576,4 +576,4 @@ En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

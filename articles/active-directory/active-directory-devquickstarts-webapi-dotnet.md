@@ -23,9 +23,11 @@
 
 Si crea una aplicación que proporciona acceso a recursos protegidos, deberá saber cómo proteger dichos recursos frente a accesos injustificados. Azure AD facilita la protección de una API web mediante tokens de acceso portadores de OAuth 2.0 con solo unas pocas líneas de código.
 
-En las aplicaciones web Asp.NET, puede realizar esto con la implementación del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. Aquí, usaremos OWIN para crear una API web "Lista de tareas pendientes" que: -Designe las API protegidas. -Valide que las llamadas de API web contienen un token de acceso válido.
+En las aplicaciones web Asp.NET, puede realizar esto con la implementación del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. En este caso, usaremos OWIN para compilar una API web de "Lista de tareas pendientes" que lleve a cabo las siguientes acciones:
+-	Designar las API que están protegidas.
+-	Validar que las llamadas API web contengan un token de acceso válido.
 
-Para llevar a cabo esta tarea, deberá hacer lo siguiente:
+Para ello, deberá hacer lo siguiente:
 
 1. Registrar una aplicación con Azure AD
 2. Configurar la aplicación para usar la canalización de autenticación OWIN.
@@ -134,10 +136,8 @@ Para poder ver el servicio de lista Todo en acción, deberá configurar el clien
 
 Por último, limpie, compile y ejecute cada proyecto. Si aún no lo ha hecho, ahora es el momento de crear un nuevo usuario en su inquilino con un dominio *.onmicrosoft.com. Inicie sesión en el cliente de lista de tareas pendientes con ese usuario y agregue algunas tareas a la lista de tareas pendientes del usuario.
 
-Como referencia, [aquí](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip) puede ver el ejemplo finalizado (sin sus valores de configuración). Ahora puede pasar a más escenarios de identidad adicionales que es posible que desee probar:
-
-[Crear un cliente nativo de .NET con Azure AD >>](../active-directory-devquickstarts-native-dotnet.md)
+Como referencia, [aquí](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip) puede ver el ejemplo finalizado (sin sus valores de configuración). Ahora puede pasar a una mayor variedad de escenarios de identidad adicionales.
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

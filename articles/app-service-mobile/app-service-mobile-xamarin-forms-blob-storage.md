@@ -30,25 +30,17 @@ En este tutorial, creará una cuenta de almacenamiento y agregará una cadena de
 
 ## Requisitos previos
 
-Para completar este tutorial, necesitará lo siguiente:
-
-* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* [Visual Studio Community 2013] o posterior.
-
-* Un equipo Mac con [Xcode](https://go.microsoft.com/fwLink/?LinkID=266532) v7.0 o versiones posteriores y [Xamarin Studio](http://xamarin.com/download) instalados.
-
-* Realización del tutorial [Creación de una aplicación Xamarin.Forms]. En este artículo se usa la aplicación realizada en ese tutorial.
+* Complete el tutorial [Creación de una aplicación Xamarin.Forms], donde se enumeran otros requisitos previos. En este artículo se usa la aplicación realizada en ese tutorial.
 
 >[AZURE.NOTE] Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile). Allí puede crear de forma inmediata una aplicación móvil de corta duración para iniciarse en el Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
 ## Crear una cuenta de almacenamiento
 
-1. Cree una cuenta de almacenamiento siguiendo el tutorial [Crear una cuenta de almacenamiento]. 
+1. Cree una cuenta de almacenamiento siguiendo el tutorial [Creación de una cuenta de almacenamiento de Azure]. 
 
-2. En el Portal de Azure, diríjase a su cuenta de almacenamiento recién creada y haga clic en el icono **Claves**. Copie la **cadena de conexión primaria**.
+2. En el Portal de Azure, navegue hasta la cuenta de almacenamiento recién creada y haga clic en el icono **Claves**. Copie la **Cadena de conexión principal**.
 
-3. Vaya al back-end de la aplicación móvil. En **Todas las configuraciones** -> **Configuración de la aplicación** -> **Cadena de conexión**, cree una nueva clave llamada `MS_AzureStorageAccountConnectionString` y use el valor copiado de la cuenta de almacenamiento. Utilice **Personalizado** como el tipo de clave.
+3. Vaya al back-end de la aplicación móvil. En **Todas las configuraciones** -> **Configuración de la aplicación** -> **Cadena de conexión**, cree una nueva clave llamada `MS_AzureStorageAccountConnectionString` y use el valor copiado de la cuenta de almacenamiento. Use **Personalizado** como el tipo de clave.
 
 ## Agregar un controlador de almacenamiento a su proyecto de servidor
 
@@ -123,7 +115,7 @@ El nuevo `TodoItemStorageController` expone dos recursos secundarios en el regis
 
 Tenga en cuenta que `TodoItemStorageController` *no* tiene una ruta para la carga o descarga de un blob. La razón es que un cliente móvil interactúa *directamente* con el almacenamiento de blobs para realizar estas operaciones, después de obtener primero un token de SAS (firma de acceso compartido) para acceder de forma segura a un blob o un contenedor en particular. Se trata de un diseño de arquitectura importante, ya que, de lo contrario, el acceso al almacenamiento estaría limitado por la escalabilidad y la disponibilidad del back-end móvil. De este modo, al conectarse directamente a Almacenamiento de Azure, el cliente móvil puede aprovechar sus características, como el particionamiento automático o la distribución geográfica.
 
-Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Esto significa que puede conceder permisos limitados de los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas. Para más información, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS].
+Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Esto significa que puede conceder permisos limitados de los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas. Para más información, consulte [Understanding Shared Access Signatures] (Descripción de las firmas de acceso compartido).
 
 El diagrama siguiente muestra las interacciones entre el cliente y el servidor. Antes de cargar un archivo, el cliente solicita al servicio un token de SAS. El servicio utiliza la cadena de conexión de almacenamiento para generar una nueva clave de SAS, que luego se devuelve al cliente. La clave de SAS tiene un límite de tiempo y restringe los permisos a solo un archivo o contenedor determinados. El cliente móvil utiliza entonces la clave de SAS y el SDK de cliente de Almacenamiento de Azure para cargar el archivo en el almacenamiento de blobs.
 
@@ -145,7 +137,7 @@ Haga clic con el botón derecho en la solución y seleccione **Administrar paque
 
   - [PCLStorage]
 
-Para mayor comodidad, en este ejemplo se utiliza la biblioteca [PCLStorage], pero no es necesaria para el SDK de cliente de Aplicaciones móviles de Azure.
+Para mayor comodidad, en este ejemplo se usa la biblioteca [PCLStorage], pero no es necesaria para el SDK de cliente de Aplicaciones móviles de Azure.
 
 [PCLStorage]: https://www.nuget.org/packages/PCLStorage/
 
@@ -381,7 +373,7 @@ En esta sección, agregará una nueva vista de detalles para un elemento de tare
 
         public static object UIContext { get; set; }
 
-4. Haga clic con el botón derecho en el proyecto de biblioteca portable y seleccione **Agregar** -> **Nuevo elemento** -> **Multiplataforma** -> **Página Xaml de Forms**. Asigne a la vista el nombre `TodoItemDetailsView`.
+4. Haga clic con el botón derecho en el proyecto de biblioteca portable y seleccione **Agregar** -> **Nuevo elemento** -> **Multiplataforma** -> **Forms Xaml Page** (Página Xaml de Forms). Asigne a la vista el nombre `TodoItemDetailsView`.
 
 5. Abra **TodoItemDetailsView.xaml** y reemplace el cuerpo de ContentPage por lo siguiente:
 
@@ -480,7 +472,7 @@ En **TodoList.xaml.cs**, reemplace la implementación de `OnSelected` por lo sig
 
 Agregue código específico de la plataforma al proyecto Android, por ejemplo, código para descargar un archivo y usar la cámara para capturar una nueva imagen.
 
-Este código utiliza [DependencyService](https://developer.xamarin.com/guides/xamarin-forms/dependency-service/) de Xamarin.Forms para cargar la clase correcta específica de la plataforma en tiempo de ejecución.
+Este código usa [DependencyService](https://developer.xamarin.com/guides/xamarin-forms/dependency-service/) de Xamarin.Forms para cargar la clase correcta específica de la plataforma en tiempo de ejecución.
 
 1. Agregue el componente **Xamarin.Mobile** al proyecto Android.
 
@@ -682,9 +674,9 @@ Agregue código específico de la plataforma al proyecto iOS.
 
 En este artículo se describe cómo utilizar la nueva compatibilidad de archivos del SDK de cliente y servidor de Azure Mobile para que funcione con el Almacenamiento de Azure.
 
-- Cree una cuenta de almacenamiento y agregue la cadena de conexión al back-end de la aplicación móvil. Solo el back-end tiene la llave al Almacenamiento de Azure: el cliente móvil solicita un token de SAS (Firma de acceso compartido) cada vez que necesita acceder al Almacenamiento de Azure. Para obtener más información sobre los tokens de SAS de Almacenamiento de Azure, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS].
+- Cree una cuenta de almacenamiento y agregue la cadena de conexión al back-end de la aplicación móvil. Solo el back-end tiene la llave al Almacenamiento de Azure: el cliente móvil solicita un token de SAS (Firma de acceso compartido) cada vez que necesita acceder al Almacenamiento de Azure. Para obtener más información sobre los tokens de SAS de Almacenamiento de Azure, consulte [Understanding Shared Access Signatures] (Descripción de las firmas de acceso compartido).
 
-- Cree un controlador que aplique las subclases `StorageController` para controlar las solicitudes de tokens de SAS y para obtener los archivos que están asociados con un registro. De forma predeterminada, los archivos están asociados con un registro mediante el identificador de registro como parte del nombre del contenedor; este comportamiento se puede personalizar especificando una implementación de `IContainerNameResolver`. También se puede personalizar la directiva de token de SAS.
+- Cree un controlador que aplique las subclases `StorageController` para controlar las solicitudes de tokens de SAS y para obtener los archivos que están asociados con un registro. De forma predeterminada, los archivos están asociados con un registro mediante el identificador de registro como parte del nombre del contenedor; para personalizar este comportamiento, se puede especificar una implementación de `IContainerNameResolver`. También se puede personalizar la directiva de token de SAS.
 
 - El SDK de cliente de Azure Mobile no almacena realmente los datos de archivo. En su lugar, el SDK de cliente invoca su `IFileSyncHandler`, el cual luego decide cómo se almacenan los archivos en el dispositivo local, si es que lo hacen. El controlador de sincronización se registra de la manera siguiente:
 
@@ -696,7 +688,7 @@ En este artículo se describe cómo utilizar la nueva compatibilidad de archivos
 
 - Un elemento `MobileServiceFile` se puede usar en modo en línea o sin conexión, mediante `IMobileServiceTable` o `IMobileServiceSyncTable`, respectivamente. En el escenario sin conexión, la carga se produce cuando la aplicación llama a `PushFileChangesAsync`. Esto hace que se procese la cola de la operación sin conexión; para cada operación de archivo, el SDK de cliente de Azure Mobile invocará el método `GetDataSource` en la instancia `IFileSyncHandler` para recuperar el contenido del archivo para la carga.
 
-- Para recuperar archivos de un elemento, llame al método '`GetFilesAsync` en la instancia `IMobileServiceTable<T>` o IMobileServiceSyncTable<T>'. Este método devuelve una lista de archivos asociados con el elemento de datos proporcionado. (Nota: Se trata de una operación *local* y los archivos se devolverán en función del estado del objeto cuando se sincronizó por última vez. Para obtener una lista actualizada de archivos del servidor, debe iniciar primero una operación de sincronización).
+- Para recuperar archivos de un elemento, llame al método '`GetFilesAsync` en la instancia `IMobileServiceTable<T>` o IMobileServiceSyncTable<T>'. Este método devuelve una lista de archivos asociados con el elemento de datos proporcionado. (Nota: Se trata de una operación *local* y los archivos se devolverán en función del estado que tenía el objeto cuando se sincronizó por última vez. Para obtener una lista actualizada de archivos del servidor, debe iniciar primero una operación de sincronización).
 
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 
@@ -708,7 +700,7 @@ En este artículo se describe cómo utilizar la nueva compatibilidad de archivos
 
             jobService.MobileService.EventManager.Subscribe<StoreOperationCompletedEvent>(StoreOperationEventHandler);
 
-- Es posible agregar o quitar archivos de un registro modificando directamente el almacenamiento de blobs, ya que la asociación se logra a través de una convención de nomenclatura. Sin embargo, en este caso debe **actualizar siempre la marca de tiempo del registro cuando se modifiquen los blobs asociados**. El SDK de cliente de Azure Mobile siempre actualiza un registro al agregar o quitar un archivo.
+- Es posible agregar o quitar archivos de un registro modificando directamente el almacenamiento de blobs, ya que la asociación se logra a través de una convención de nomenclatura. Sin embargo, en este caso se deberá **actualizar siempre la marca de tiempo del registro cuando se modifiquen los blobs asociados**. El SDK de cliente de Azure Mobile siempre actualiza un registro al agregar o quitar un archivo.
 
     El motivo de este requisito es que algunos clientes móviles ya tendrán el registro en el almacenamiento local. Cuando estos clientes realicen un extracción incremental, este registro no se devolverá y el cliente no consultará los nuevos archivos asociados. Para evitar este problema, se recomienda que actualice la marca de tiempo del registro al realizar un cambio en el almacenamiento de blobs que no use el SDK de cliente de Azure Mobile.
 
@@ -717,12 +709,12 @@ En este artículo se describe cómo utilizar la nueva compatibilidad de archivos
 <!-- URLs. -->
 
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-[Creación de una aplicación Xamarin.Forms]: ../app-service-mobile-xamarin-forms-get-started.md
+[Creación de una aplicación Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Xamarin.Forms DependencyService]: https://developer.xamarin.com/guides/xamarin-forms/dependency-service/
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[Firmas de acceso compartido, Parte 1: Descripción del modelo SAS]: ../storage/storage-dotnet-shared-access-signature-part-1.md
-[Crear una cuenta de almacenamiento]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Understanding Shared Access Signatures]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[Creación de una cuenta de almacenamiento de Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

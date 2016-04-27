@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="04/06/2016"
    ms.author="carlrab"/>
 
 # Importar desde BACPAC a la Base de datos SQL con SSMS
@@ -32,26 +32,24 @@ En este artículo se muestra cómo importar desde un archivo [BACPAC](https://ms
 
 	 > [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-2. Abra Management Studio y conéctese a la base de datos de origen en el Explorador de objetos.
-
-	![Exportar una aplicación de capa de datos desde el menú Tareas](./media/sql-database-cloud-migrate/MigrateUsingBACPAC01.png)
-
-3. Una vez creado el archivo BACPAC, conéctese al servidor de Base de datos SQL de Azure, haga clic con el botón secundario en la carpeta **Bases de datos** y haga clic en **Importar aplicación de capa de datos...**.
+2. Conéctese al servidor de Base de datos SQL de Azure, haga clic con el botón secundario en la carpeta **Bases de datos** y haga clic en **Importar la aplicación de capa de datos**.
 
     ![Importar elemento de menú de aplicación de capa de datos](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
 
-4.	En el Asistente para importación, elija el archivo BACPAC que acaba de exportar para crear la nueva base de datos en Base de datos SQL de Azure.
+3.	En el Asistente para importación, importe el archivo BACPAC desde el disco local o seleccione la cuenta de almacenamiento de Azure y el contenedor en el que cargó el archivo BACPAC para crear la nueva base de datos en Base de datos SQL de Azure.
 
     ![Importar configuración](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
 
-5.	Proporcione el **Nuevo nombre de base de datos** para la base de datos en Base de datos SQL de Azure, establezca **Edición de Base de datos SQL de Microsoft Azure** (nivel de servicio), **Tamaño máximo de la base de datos** y **Objetivo de servicio** (nivel de rendimiento).
+    ***Importante***: Al importar un archivo BACPAC a Almacenamiento de blobs de Azure, utilice el almacenamiento estándar. No se admite la importación de un archivo BACPAC de Almacenamiento premium.
+
+4.	Proporcione el **Nuevo nombre de base de datos** para la base de datos en Base de datos SQL de Azure, establezca **Edición de Base de datos SQL de Microsoft Azure** (nivel de servicio), **Tamaño máximo de la base de datos** y **Objetivo de servicio** (nivel de rendimiento).
 
     ![Configuración de base de datos](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
 
-6.	Haga clic en **Siguiente** y, luego, en **Finalizar** para importar el archivo BACPAC a una nueva base de datos en el servidor de Base de datos SQL de Azure.
+5.	Haga clic en **Siguiente** y, luego, en **Finalizar** para importar el archivo BACPAC a una nueva base de datos en el servidor de Base de datos SQL de Azure.
 
-7. Con el Explorador de objetos, conéctese a la base de datos migrada en el servidor de Base de datos SQL de Azure.
+6. Con el Explorador de objetos, conéctese a la base de datos migrada en el servidor de Base de datos SQL de Azure.
 
-8.	Mediante el Portal de Azure, vea la base de datos y sus propiedades.
+6.	Mediante el Portal de Azure, vea la base de datos y sus propiedades.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

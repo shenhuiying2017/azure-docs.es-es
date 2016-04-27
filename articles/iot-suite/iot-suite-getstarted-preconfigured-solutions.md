@@ -33,7 +33,7 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
 1.  Inicie sesión en [azureiotsuite.com][lnk-azureiotsuite] con sus credenciales de la cuenta de Azure y haga clic en **+** para crear una nueva solución.
 
-    > [AZURE.NOTE] Si tiene problemas con los permisos necesarios para aprovisionar una solución, eche un vistazo a [Permisos en el sitio azureiotsuite.com](iot-suite-permissions.md) para obtener instrucciones.
+    > [AZURE.NOTE] Si tiene problemas con los permisos necesarios para aprovisionar una solución, examine [Permisos en el sitio azureiotsuite.com][lnk-permissions], donde obtendrá las instrucciones necesarias.
 
 2.  Haga clic en **Seleccionar** en el icono **Supervisión remota**.
 
@@ -53,7 +53,9 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
 4. Haga clic en el icono y verá los detalles de la solución en el panel derecho.
 
-¿Hay detalles que esperaría ver que no aparezcan para su solución? Envíenos sugerencias de características en la [Voz del usuario](https://feedback.azure.com/forums/321918-azure-iot).
+> [AZURE.NOTE] Si surgen problemas al implementar la solución preconfigurada, consulte [Permisos en el sitio azureiotsuite.com][lnk-permissions] y [Preguntas más frecuentes][lnk-faq]. Si los problemas persisten, cree un vale de servicio en el [portal][lnk-portal].
+
+¿Hay detalles que esperaría ver que no aparezcan para su solución? Puede sugerirnos nuevas en características en [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ## Visualización del panel de la solución de supervisión remota
 
@@ -66,6 +68,12 @@ El panel de la solución permite administrar la solución implementada. Por ejem
 2.  De forma predeterminada, el portal de la solución muestra el *panel de la solución*. Puede seleccionar otras vistas mediante el menú izquierdo.
 
     ![][img-dashboard]
+
+El panel muestra la siguiente información:
+
+- El mapa muestra la ubicación de cada dispositivo conectado a la solución. La primera vez que se ejecuta la solución hay cuatro dispositivos simulados. Los dispositivos simulados se implementan como WebJobs de Azure y la solución utiliza la API de Mapas de Bing para trazar la información en el mapa.
+- El panel **Telemetry History** traza los datos de telemetría de temperatura y humedad de un dispositivo seleccionado prácticamente en tiempo real y muestra los datos agregados, como la humedad máxima, mínima y media.
+- El panel **Alarm History** muestra los eventos de alarma recientes cuando un valor de telemetría ha superado un umbral. Puede definir sus propias alarmas, además de los ejemplos que crea la solución preconfigurada.
 
 ## Visualización de la lista de dispositivos de la solución
 
@@ -81,9 +89,15 @@ La lista de dispositivos muestra todos los dispositivos registrados en la soluci
 
     ![][img-devicedetails]
 
+El panel **Device Details** contiene tres secciones:
+
+- En la sección **Actions** se enumeran las acciones que se pueden realizar en el dispositivo. Si se deshabilita el dispositivo, no se podrán enviar datos de telemetría ni recibir comandos. Aunque se deshabilite un dispositivo, se puede volver a habilitar posteriormente. Se puede agregar una regla asociada con el dispositivo que desencadena una alarma cuando un valor de telemetría supera un umbral. También se puede enviar un comando a un dispositivo. La primera vez que un dispositivo se conecta indica a la solución los comandos a los que puede responder.
+- En la sección **Device Properties** se enumeran los metadatos del dispositivo. Algunos de estos metadatos proceden del propio dispositivo (como por ejemplo, el fabricante), mientras que otros los genera la solución (como la hora de creación). Los metadatos del dispositivo se pueden editar desde aquí.
+- En la sección **Authentication Key** se enumeran las claves que puede usar el dispositivo para autenticarse en la solución.
+
 ## Envío de un comando a un dispositivo
 
-El panel de detalles del dispositivo muestra todos los comandos que admite el dispositivo y le permite enviar comandos a dispositivos específicos.
+El panel de detalles del dispositivo muestra todos los comandos que admite un dispositivo concreto y le permite enviar comandos a un dispositivo. La primera vez que se inicia un dispositivo, este envía a la solución información acerca de los comandos que admite.
 
 1.  Haga clic en **Comandos** en el panel de detalles del dispositivo para el dispositivo seleccionado.
 
@@ -97,6 +111,8 @@ El panel de detalles del dispositivo muestra todos los comandos que admite el di
 
     ![][img-pingcommand]
 
+La solución hace un seguimiento del estado de cada comando que envía. Inicialmente, el resultado es **Pendiente**. Cuando el dispositivo informa de que ha ejecutado el comando, el resultado se establece en **Correcto**.
+
 ## Adición de un nuevo dispositivo simulado
 
 1.  Vuelva a navegar hasta la lista de dispositivos.
@@ -108,6 +124,8 @@ El panel de detalles del dispositivo muestra todos los comandos que admite el di
 3.  Haga clic en **Agregar nuevo** en el icono **Dispositivo simulado**.
 
     ![][img-addnew]
+    
+    Si elige crear un **dispositivo personalizado**, además de crear un dispositivo simulado nuevo, también puede agregar un dispositivo físico. Para más información al respecto, consulte [Conexión del dispositivo a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT][lnk-connecting-devices].
 
 4.  Seleccione **Permitirme definir mi propio identificador de dispositivo** y escriba un nombre de identificador de dispositivo único como **mydevice\_01**.
 
@@ -117,45 +135,83 @@ El panel de detalles del dispositivo muestra todos los comandos que admite el di
 
 6. En el paso 3 de **Agregar un dispositivo simulado**, haga clic en **Listo** para volver a la lista de dispositivos.
 
-7.  Puede ver su dispositivo **En ejecución** en la lista de dispositivos.
+7. Puede ver su dispositivo **En ejecución** en la lista de dispositivos.
 
     ![][img-runningnew]
 
-## Incorporación de un nuevo dispositivo físico
+8. También puede ver la telemetría simulada del dispositivo nuevo en el panel:
 
-Para agregar un nuevo dispositivo físico a la solución, consulte [Conexión del dispositivo a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT][lnk-connecting-devices].
+    ![][img-runningnew-2]
 
-## Visualización y edición de reglas de solución
+## Edición de los metadatos del dispositivo
 
-La solución preconfigurada aprovisiona dos reglas para SampleDevice001. Las reglas le envían una notificación mediante el icono **Historial de alarmas** del panel cuando la temperatura o la humedad superan un umbral.
+1.  Vuelva a navegar hasta la lista de dispositivos.
 
-1.  Vuelva al panel de la solución y vea el icono **Historial de alarmas**.
+2.  Seleccione el nuevo dispositivo en la **lista de dispositivos**, y, luego, haga clic en **Editar** para editar las **propiedades del dispositivo**:
 
-    ![][img-alarmhistory]
+    ![][img-editdevice]
 
-2.  La regla **AlarmTemp** desencadena estas alarmas.
+3. Desplácese hacia abajo y realice un cambio en los valores de latitud y longitud. Luego, haga clic en **Save changes to device registry** (Guardar cambios en registro de dispositivo).
 
-3.  Haga clic en **Reglas** en el menú izquierdo para ver las reglas de esta solución.
+    ![][img-editdevice2]
+
+4. Vuelva a navegar al panel y observará que ha cambiado la ubicación del dispositivo en el mapa:
+
+    ![][img-editdevice3]
+
+## Adición de una regla para el nuevo dispositivo
+
+No hay reglas para el nuevo dispositivo que acaba de agregar. En esta sección, agregará una regla que desencadenará una alarma cuando la temperatura notificada por el nuevo dispositivo supere los 47 grados. Antes de comenzar, observe que el historial de telemetría del nuevo dispositivo en el panel muestra que la temperatura de dispositivo nunca supera los 45 grados.
+
+1.  Vuelva a navegar hasta la lista de dispositivos.
+
+2.  Seleccione el nuevo dispositivo en la **lista de dispositivos**, y, luego, haga clic en **Agregar regla** para agregar una regla nueva al dispositivo.
+
+3. Crear una regla que utilice **Temperature** como campo de datos y **AlarmTemp** como resultado cuando la temperatura supere los 47 grados:
+
+    ![][img-adddevicerule]
+
+4. Haga clic en **Save and View Rules** (Guardar y ver reglas) para guardar los cambios.
+
+5.  Haga clic en **Commands** (Comandos) en el panel de detalles del dispositivo nuevo.
+
+    ![][img-adddevicerule2]
+
+6.  Seleccione **ChangeSetPointTemp** en la lista de comandos y establezca **SetPointTemp** en 45. Después, haga clic en **Send Command** (Enviar comando):
+
+    ![][img-adddevicerule3]
+
+7.  Vuelva a navegar al panel de la solución. Al poco tiempo, verá una nueva entrada en el panel **Alarm History** cuando la temperatura que notifique el nuevo dispositivo supere el umbral de 47 grados:
+
+    ![][img-adddevicerule4]
+
+8. Todas las reglas se pueden revisar y editar en la página **Rules** (Reglas) del panel:
 
     ![][img-rules]
 
-5.  Haga clic en la regla **Temperature** en la lista de reglas para ver las propiedades de la regla.
+9. Todas las acciones que se pueden realizar en respuesta a una regla se pueden revisar y editar en la página **Actions** (Acciones) del panel:
 
-6.  Para modificar una regla, haga clic en **Editar** en el panel de propiedades de la regla.
+    ![][img-actions]
 
-    ![][img-displayrule]
+> [AZURE.NOTE] Es posible definir las acciones que pueden enviar un mensaje de correo electrónico o un SMS en respuesta a una regla, o bien integrarse en un sistema de línea de negocio a través de una [aplicación lógica][lnk-logic-apps].
 
-7.  Cambie el valor de **Umbral** a 30 y conserve todas las demás propiedades.
+## Entre bambalinas
 
-8.  Haga clic en **Guardar y ver reglas**.
+Al implementar una solución preconfigurada, el proceso de implementación crea varios recursos en la suscripción de Azure seleccionada. Dichos recursos se pueden ver en el [Portal][lnk-portal] de Azure. El proceso de implementación crea un **grupo de recursos** cuyo nombre se basa en el nombre que eligió para la solución preconfigurada:
 
-    ![][img-editrule]
+![][img-portal]
 
-9.  Vuelva a la tabla **Historial de alarmas** en el **Panel de la solución** y observe el cambio en el comportamiento que resulta de la regla actualizada.
+Para ver la configuración de cada recurso, selecciónelo en la lista de recursos del grupo de recursos. La captura de pantalla anterior muestra la configuración del Centro de IoT usada en la solución preconfigurada.
 
-    ![][img-newhistory]
-    
-Cuando haya terminado, puede eliminar la solución preconfigurada de su suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite]; esto le permite eliminar fácilmente todos los recursos aprovisionados cuando crea la solución preconfigurada.
+También puede ver el código fuente de la solución preconfigurada. El código fuente de la solución preconfigurada de supervisión remota está en [azure-iot-remote-monitoring][lnk-rmgithub]\:
+
+- La carpeta **DeviceAdministration** contiene el código fuente del panel.
+- La carpeta **Simulator** contiene el código fuente del dispositivo simulado.
+- La carpeta **EventProcessor** contiene el código fuente del proceso de back-end que controla la telemetría entrante.
+
+Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite]; esto le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando se creó la solución preconfigurada.
+
+> [AZURE.NOTE] Para asegurarse de que elimina todo lo relacionado con la solución preconfigurada, elimínelo de m [azureiotsuite.com][lnk-azureiotsuite], no elimine simplemente el grupo de recursos del portal.
 
 ## Pasos siguientes
 
@@ -174,11 +230,17 @@ Ahora que ha creado una solución preconfigurada que funciona, puede pasar a los
 [img-addnew]: media/iot-suite-getstarted-preconfigured-solutions/addnew.png
 [img-definedevice]: media/iot-suite-getstarted-preconfigured-solutions/definedevice.png
 [img-runningnew]: media/iot-suite-getstarted-preconfigured-solutions/runningnew.png
-[img-alarmhistory]: media/iot-suite-getstarted-preconfigured-solutions/alarmhistory.png
+[img-runningnew-2]: media/iot-suite-getstarted-preconfigured-solutions/runningnew2.png
 [img-rules]: media/iot-suite-getstarted-preconfigured-solutions/rules.png
-[img-displayrule]: media/iot-suite-getstarted-preconfigured-solutions/displayrule.png
-[img-editrule]: media/iot-suite-getstarted-preconfigured-solutions/editrule.png
-[img-newhistory]: media/iot-suite-getstarted-preconfigured-solutions/newhistory.png
+[img-editdevice]: media/iot-suite-getstarted-preconfigured-solutions/editdevice.png
+[img-editdevice2]: media/iot-suite-getstarted-preconfigured-solutions/editdevice2.png
+[img-editdevice3]: media/iot-suite-getstarted-preconfigured-solutions/editdevice3.png
+[img-adddevicerule]: media/iot-suite-getstarted-preconfigured-solutions/addrule.png
+[img-adddevicerule2]: media/iot-suite-getstarted-preconfigured-solutions/addrule2.png
+[img-adddevicerule3]: media/iot-suite-getstarted-preconfigured-solutions/addrule3.png
+[img-adddevicerule4]: media/iot-suite-getstarted-preconfigured-solutions/addrule4.png
+[img-actions]: media/iot-suite-getstarted-preconfigured-solutions/actions.png
+[img-portal]: media/iot-suite-getstarted-preconfigured-solutions/portal.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -186,5 +248,10 @@ Ahora que ha creado una solución preconfigurada que funciona, puede pasar a los
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-connecting-devices]: iot-suite-connecting-devices.md
+[lnk-permissions]: https://azure.microsoft.com/documentation/articles/iot-suite-permissions/
+[lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
+[lnk-portal]: http://portal.azure.com/
+[lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-faq]: https://azure.microsoft.com/documentation/articles/iot-suite-faq/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

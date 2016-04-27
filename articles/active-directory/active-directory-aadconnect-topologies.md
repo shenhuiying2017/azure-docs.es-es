@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="get-started-article"
-    ms.date="02/12/2016"
+    ms.date="04/14/2016"
     ms.author="andkjell"/>
 
 # Topologías de Azure AD Connect
@@ -110,6 +110,8 @@ En una topología de bosque de cuenta-recurso, tiene uno o más bosques de cuent
 
 Este escenario incluye un bosque que confía en todos los bosques de cuenta. Normalmente, este bosque tiene un esquema de AD extendido con Exchange y Lync. Todos los servicios de Exchange y Lync, así como otros servicios compartidos, se encuentran en este bosque. Los usuarios tienen una cuenta de usuario deshabilitada en este bosque y el buzón está vinculado al bosque de cuenta.
 
+También se admite el uso de varios bosques de recursos. Este podría ser el estado después de una fusión. Se espera que un usuario solo tenga una única cuenta deshabilitada en un bosque de recursos.
+
 ## Consideraciones sobre la topología y Office 365
 Algunas cargas de trabajo de Office 365 presenta ciertas restricciones para las topologías compatibles. Si planea usar cualquiera de ellas, consulte las páginas de topologías admitidas de cada carga de trabajo.
 
@@ -147,7 +149,10 @@ En esta topología, un servidor de AAD Connect Sync está conectado a cada direc
 
 En esta topología no hay ninguna "GALsync" entre las instancias de directorio de Azure AD, de modo que la libreta de direcciones de Exchange Online y Skype Empresarial solo mostrarán a los usuarios del mismo directorio.
 
-Con esta topología, solo uno de los directorios de Azure AD puede permitir la implementación híbrida de Exchange con Active Directory local.
+Esta topología presenta las siguientes restricciones para escenarios, por lo demás, admitidos:
+
+- Solo uno de los directorios de Azure AD puede habilitar la implementación híbrida de Exchange con la instancia de Active Directory local.
+- Los dispositivos de Windows 10 solo pueden estar asociados a un directorio de Azure AD.
 
 El requisito del conjunto de objetos mutuamente excluyente también se aplica a la reescritura. Esto hace que algunas características de reescritura no se admitan con esta topología, ya que estas asumen una sola configuración local. Esto incluye:
 
@@ -177,4 +182,4 @@ Obtenga más información sobre la configuración de [sincronización de Azure A
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

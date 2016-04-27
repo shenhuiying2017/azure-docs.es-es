@@ -27,7 +27,7 @@ Azure Tools para Microsoft Visual Studio proporciona páginas de propiedades que
 
 ![VS\_Solution\_Explorer\_Roles\_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Para obtener información acerca de los esquemas subyacentes para los archivos de configuración y definición de servicio, consulte [Referencia de esquemas](https://msdn.microsoft.com/library/azure/dd179398.aspx). Para obtener más información sobre la configuración del servicio, consulte [Configuración de servicios en la nube](/cloud-services/cloud-services-how-to-configure.md).
+Para obtener información acerca de los esquemas subyacentes para los archivos de configuración y definición de servicio, consulte [Referencia de esquemas](https://msdn.microsoft.com/library/azure/dd179398.aspx). Para obtener más información sobre la configuración del servicio, consulte [Configuración de servicios en la nube](./cloud-services/cloud-services-how-to-configure.md).
 
 ## Configuración de las propiedades de rol
 
@@ -43,7 +43,7 @@ En la página **Configuración**, puede establecer estas propiedades:
 
 Establezca la propiedad **Número de instancias** en el número de instancias que el servicio debe ejecutar para este rol
 
-Establezca la propiedad **Tamaño de VM** en **Extra pequeño**, **Pequeño**, **Mediano**, **Grande** o **Extra grande**. Para obtener más información, consulte [Tamaños de los servicios en la nube](/cloud-services/cloud-services-sizes-specs.md).
+Establezca la propiedad **Tamaño de VM** en **Extra pequeño**, **Pequeño**, **Mediano**, **Grande** o **Extra grande**. Para obtener más información, consulte [Tamaños de los servicios en la nube](./cloud-services/cloud-services-sizes-specs.md).
 
 **Acción de inicio** (solo para el rol web)
 
@@ -55,7 +55,7 @@ Si ya se ha agregado un extremo HTTPS, la opción de extremo HTTPS se habilita d
 
 **Diagnóstico**
 
-De manera predeterminada, la funcionalidad de diagnóstico está habilitada para el rol web. El proyecto de servicio en la nube de Azure y la cuenta de almacenamiento se establecen para usar el emulador de almacenamiento local. Cuando esté listo para realizar la implementación en Azure, puede hacer clic en el botón del generador (**…**) para actualizar la cuenta de almacenamiento de modo que use el almacenamiento de Azure en la nube. Los datos de diagnóstico se pueden transferir a la cuenta de almacenamiento a petición o a intervalos programados automáticamente. Para obtener más información sobre los diagnósticos de Azure, consulte [Habilitación de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](/cloud-services/cloud-services-dotnet-diagnostics.md).
+De manera predeterminada, la funcionalidad de diagnóstico está habilitada para el rol web. El proyecto de servicio en la nube de Azure y la cuenta de almacenamiento se establecen para usar el emulador de almacenamiento local. Cuando esté listo para realizar la implementación en Azure, puede hacer clic en el botón del generador (**…**) para actualizar la cuenta de almacenamiento de modo que use el almacenamiento de Azure en la nube. Los datos de diagnóstico se pueden transferir a la cuenta de almacenamiento a petición o a intervalos programados automáticamente. Para obtener más información sobre los diagnósticos de Azure, consulte [Habilitación de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## Página Configuración
 
@@ -65,9 +65,9 @@ En la página **Configuración**, se pueden agregar valores de configuración pa
 
 Una cadena de conexión es un valor de configuración que proporciona información de conexión y autenticación para el emulador de almacenamiento o para una cuenta de almacenamiento de Azure. Siempre que el código deba tener acceso a datos de servicios de almacenamiento de Azure, es decir, datos de blob, cola o tabla, desde el código que se ejecuta en un rol, necesitará definir una cadena de conexión para esa cuenta de almacenamiento.
 
-Una cadena de conexión que señala a una cuenta de almacenamiento de Azure debe usar un formato específico. Para obtener información sobre cómo crear cadenas de conexión, consulte [Configuración de cadenas de conexión de Almacenamiento de Azure](/storage/storage-configure-connection-string.md).
+Una cadena de conexión que señala a una cuenta de almacenamiento de Azure debe usar un formato específico. Para obtener información sobre cómo crear cadenas de conexión, consulte [Configuración de cadenas de conexión de Almacenamiento de Azure](./storage/storage-configure-connection-string.md).
 
-Cuando esté preparado para probar su servicio con los servicios de almacenamiento de Azure o cuando lo esté para implementar su servicio en la nube en Azure, puede cambiar el valor de cualquier cadena de conexión de modo que señale a su cuenta de almacenamiento de Azure. Haga clic en (**...**), seleccione **Especificar credenciales de cuenta de almacenamiento**. Escriba la información de la cuenta, incluidos el nombre y la clave de acceso. En el cuadro de diálogo **Cadena de conexión de cuenta de almacenamiento**, puede indicar también si desea usar los extremos HTTPS predeterminados (opción predeterminada), los extremos HTTP predeterminados o extremos personalizados. Puede decidir usar extremos personalizados si ha registrado un nombre de dominio personalizado para su servicio, tal y como se describe en [Configuración de un nombre de dominio personalizado para datos Blob en una cuenta de almacenamiento de Azure](/storage/storage-custom-domain-name.md).
+Cuando esté preparado para probar su servicio con los servicios de almacenamiento de Azure o cuando lo esté para implementar su servicio en la nube en Azure, puede cambiar el valor de cualquier cadena de conexión de modo que señale a su cuenta de almacenamiento de Azure. Haga clic en (**...**), seleccione **Especificar credenciales de cuenta de almacenamiento**. Escriba la información de la cuenta, incluidos el nombre y la clave de acceso. En el cuadro de diálogo **Cadena de conexión de cuenta de almacenamiento**, puede indicar también si desea usar los extremos HTTPS predeterminados (opción predeterminada), los extremos HTTP predeterminados o extremos personalizados. Puede decidir usar extremos personalizados si ha registrado un nombre de dominio personalizado para su servicio, tal y como se describe en [Configuración de un nombre de dominio personalizado para datos Blob en una cuenta de almacenamiento de Azure](./storage/storage-custom-domain-name.md).
 
 >[AZURE.IMPORTANT] Debe modificar las cadenas de conexión de modo que señalen a una cuenta de almacenamiento de Azure antes de implementar su servicio. De no hacerlo, es posible que su rol no se inicie, o pase de inicializarse a no estar disponible, para detenerse finalmente.
 
@@ -85,7 +85,7 @@ Un rol de trabajador puede tener un número indeterminado de extremos HTTP, HTTP
 
 ## Pagina Almacenamiento local
 
-Puede usar la página de propiedades **Almacenamiento local** para reservar uno o más recursos de almacenamiento local para un rol. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual de Azure donde se ejecuta una instancia de un rol. Para obtener más información acerca de cómo trabajar con los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](/cloud-services/cloud-services-configure-local-storage-resources.md).
+Puede usar la página de propiedades **Almacenamiento local** para reservar uno o más recursos de almacenamiento local para un rol. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual de Azure donde se ejecuta una instancia de un rol. Para obtener más información acerca de cómo trabajar con los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](./cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ## Página Certificados
 
@@ -110,4 +110,4 @@ Para configurar los valores que se aplican a todo un proyecto de servicio en la 
 |Desarrollo|Desde esta página, puede especificar las instrucciones de la configuración de compilación y las condiciones bajos las cuales se ejecutan los eventos posteriores a la compilación.|
 |Web|Desde esta página, puede configurar los valores relacionados con el servidor web.|
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

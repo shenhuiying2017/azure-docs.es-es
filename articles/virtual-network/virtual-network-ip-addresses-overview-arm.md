@@ -28,7 +28,7 @@ Las direcciones IP privadas se usa para la comunicación dentro de una red virtu
 Si está familiarizado con el modelo de implementación clásica, revise las [diferencias en el direccionamiento IP entre la implementación clásica y el Administrador de recursos](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
 ## Direcciones IP públicas
-Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Caché en Redis de Azure](https://azure.microsoft.com/services/cache), [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs), [Bases de datos SQL](sql-database-technical-overview.md) y [Almacenamiento de Azure](storage-introduction.md).
+Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Caché en Redis de Azure](https://azure.microsoft.com/services/cache), [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs), [Bases de datos SQL](../sql-database/sql-database-technical-overview.md) y [Almacenamiento de Azure](../storage/storage-introduction.md).
 
 En el Administrador de recursos de Azure, una dirección [IP pública](resource-groups-networking.md#public-ip-address) es un recurso que cuenta con propiedades específicas. Puede asociar un recurso de dirección IP pública con cualquiera de los siguientes recursos:
 
@@ -62,13 +62,13 @@ Puede especificar una etiqueta de nombre de dominio DNS para un recurso de IP p�
 Para asociar una dirección IP pública con una [máquina virtual](../virtual-machines/virtual-machines-linux-about.md) (VM), se asigna a la **tarjeta de interfaz de red** (NIC) de esta. En una máquina virtual con varias tarjetas NIC, puede asignarla solamente a la *principal*. Puede asignar una dirección IP pública estática o dinámica a una máquina virtual.
 
 ### Equilibradores de carga accesibles desde Internet
-Puede asociar una dirección IP pública con un [Equilibrador de carga de Azure](load-balancer-overview.md) asignándola a la configuración del **front-end** del equilibrador de carga. Esta dirección IP pública actúa como dirección IP virtual (VIP) de carga equilibrada. Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. También le puede asignar varias direcciones IP públicas a un front-end del equilibrador de carga, lo que hace posibles aquellos escenarios con [varias VIP](load-balancer-multivip.md), como un entorno de varios inquilinos con sitios web basados en SSL.
+Puede asociar una dirección IP pública con un [Equilibrador de carga de Azure](../load-balancer/load-balancer-overview.md) asignándola a la configuración del **front-end** del equilibrador de carga. Esta dirección IP pública actúa como dirección IP virtual (VIP) de carga equilibrada. Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. También le puede asignar varias direcciones IP públicas a un front-end del equilibrador de carga, lo que hace posibles aquellos escenarios con [varias VIP](../load-balancer/load-balancer-multivip.md), como un entorno de varios inquilinos con sitios web basados en SSL.
 
 ### Puertas de enlace de VPN
-Se usa una [puerta de enlace de VPN de Azure](vpn-gateway-about-vpngateways.md) para conectar una red virtual (VNet) de Azure a otras redes virtuales de Azure o a la red local. Debe asignar una dirección IP pública a su **configuración de IP** para habilitar la comunicación con la red remota. Actualmente, solo puede asignar una dirección IP pública de dinámica a una puerta de enlace de VPN.
+Se usa una [puerta de enlace de VPN de Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md) para conectar una red virtual (VNet) de Azure a otras redes virtuales de Azure o a la red local. Debe asignar una dirección IP pública a su **configuración de IP** para habilitar la comunicación con la red remota. Actualmente, solo puede asignar una dirección IP pública de dinámica a una puerta de enlace de VPN.
 
 ### Puertas de enlace de aplicaciones
-Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](application-gateway-introduction.md) de Azure asignándola a la configuración del **front-end** de la puerta de enlace. Esta dirección IP pública actúa como VIP de carga equilibrada. Actualmente, solo se puede asignar un dirección IP pública *dinámica* a una configuración del front-end de la puerta de enlace de aplicaciones.
+Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md) de Azure asignándola a la configuración del **front-end** de la puerta de enlace. Esta dirección IP pública actúa como VIP de carga equilibrada. Actualmente, solo se puede asignar un dirección IP pública *dinámica* a una configuración del front-end de la puerta de enlace de aplicaciones.
 
 ### De un vistazo
 La siguiente tabla muestra la propiedad específica a través de la cual una dirección IP pública se puede asociar a un recurso de nivel superior y los métodos de asignación posibles (dinámicos o estáticos) que se pueden usar.
@@ -113,7 +113,7 @@ Cuando se crea una máquina virtual, se agrega a los servidores DNS administrado
 Las máquinas virtuales que se configuran con servidores DNS administrados por Azure podrán resolver los nombres de host de todas las máquinas virtuales de su red virtual como sus direcciones IP privadas.
 
 ### Equilibradores de carga internos (ILB) y puertas de enlace de aplicaciones
-Puede asignar una dirección IP privada a la configuración del **front-end** de un [equilibrador de carga interno de Azure](load-balancer-internal-overview.md) (ILB) o una [puerta de enlace de aplicaciones de Azure](application-gateway-introduction.md). Esta dirección IP privada actúa como punto de conexión interno, accesible solo a los recursos en su red virtual y a las redes remotas conectadas a la red virtual. Puede asignar una dirección IP privada estática o dinámica a la configuración del front-end.
+Puede asignar una dirección IP privada a la configuración del **front-end** de un [equilibrador de carga interno de Azure](../load-balancer/load-balancer-internal-overview.md) (ILB) o una [puerta de enlace de aplicaciones de Azure](../application-gateway/application-gateway-introduction.md). Esta dirección IP privada actúa como punto de conexión interno, accesible solo a los recursos en su red virtual y a las redes remotas conectadas a la red virtual. Puede asignar una dirección IP privada estática o dinámica a la configuración del front-end.
 
 ### De un vistazo
 La siguiente tabla muestra la propiedad específica a través de la cual una dirección IP privada se puede asociar a un recurso de nivel superior y los métodos de asignación posibles (dinámicos o estáticos) que se pueden usar.
@@ -137,4 +137,4 @@ En la mayoría de los casos, las direcciones IP públicas son gratis. El uso de 
 - Aprenda a [implementar una VM con una dirección IP pública estática mediante una plantilla](virtual-network-deploy-static-pip-arm-template.md).
 - [Implemente una VM con una dirección IP privada estática](virtual-networks-static-private-ip-arm-pportal.md) mediante el portal de Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

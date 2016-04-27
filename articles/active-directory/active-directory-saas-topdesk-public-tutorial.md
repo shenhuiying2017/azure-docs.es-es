@@ -1,8 +1,8 @@
 <properties 
-    pageTitle="Tutorial: integración de Azure Directory con TOPdesk - Public | Microsoft Azure" 
+    pageTitle="Tutorial: integración de Azure Active Directory con TOPdesk - Public | Microsoft Azure" 
     description="Aprenda cómo usar TOPdesk - Public con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: integración de Azure Directory con TOPdesk - Public
 
@@ -95,7 +95,7 @@ La configuración del inicio de sesión único para TOPdesk - Public requiere ca
         ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
     3.  Copie el valor **AssertionConsumerService**.  
 
-        >[AZURE.NOTE]Necesitará el valor de la sección **Configurar dirección URL de la aplicación** más adelante en este tutorial.
+        >[AZURE.NOTE] Necesitará el valor de la sección **Configurar dirección URL de la aplicación** más adelante en este tutorial.
 
 6.  En otra ventana del explorador web, inicie sesión en su portal de **Azure Active Directory** como administrador.
 
@@ -112,8 +112,8 @@ La configuración del inicio de sesión único para TOPdesk - Public requiere ca
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configurar dirección URL de la aplicación")
 
     1.  En el cuadro de texto **URL de inicio de sesión de TOPdesk - Public**, escriba la dirección URL usada por los usuarios para iniciar sesión en su aplicación TOPdesk - Public (por ejemplo, "*https://qssolutions.topdesk.net*").
-    2.  En el cuadro de texto**URL de respuesta de TOPdesk – Public**, pegue la **URL de AssertionConsumerService de TOPdesk - Public**(por ejemplo, "*https://qssolutions.topdesk.net/tas/public/login/saml*")
-    3.  Haga clic en **Siguiente**.
+	2.  En el cuadro de texto**URL de respuesta de TOPdesk – Public**, pegue la **URL de AssertionConsumerService de TOPdesk - Public** (por ejemplo, "*https://qssolutions.topdesk.net/tas/public/login/saml*").
+	3.  Haga clic en **Siguiente**.
 
 10. En la página **Configuración de inicio de sesión único en TOPdesk - Public**, para descargar su archivo de metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo localmente en el equipo.
 
@@ -152,7 +152,7 @@ La configuración del inicio de sesión único para TOPdesk - Public requiere ca
     2.  Para cargar el archivo del certificado, en **Certificate (RSA)** (Certificado [RSA]), haga clic en **Browse** (Examinar).
     3.  Para cargar el archivo de logotipo que obtuvo del equipo de soporte técnico de TOPdesk, en el **icono del logotipo**, haga clic en **Browse** (Examinar).
     4.  En el cuadro de texto **User name attribute** (Atributo de nombre de usuario), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    5.  En el cuadro de texto **Display name** (Nombre para mostrar), escriba un nombre para su configuración.
+	5.  En el cuadro de texto **Display name** (Nombre para mostrar), escriba un nombre para su configuración.
     6.  Haga clic en **Guardar**.
 
 17. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
@@ -181,7 +181,7 @@ En el caso de TOPdesk - Public, el aprovisionamiento es una tarea manual.
     3.  Seleccione un **sitio** para la cuenta.
     4.  Haga clic en **Guardar**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de TOPdesk - Public ofrecida por TOPdesk - Public para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de TOPdesk - Public ofrecida por TOPdesk - Public para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -201,4 +201,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

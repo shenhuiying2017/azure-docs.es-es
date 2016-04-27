@@ -28,7 +28,7 @@ U-SQL es un lenguaje muy escalable y altamente extensible para preparar, transfo
 
 ###Requisitos previos
 
-- **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 Se admiten las ediciones Enterprise (Ultimate y Premium), Professional, Community; no se admite la edición Express. En la actualidad no se admite Visual Studio "15" y estamos trabajando en ello.** 
+- **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 Se admiten las ediciones Enterprise (Ultimate y Premium), Professional, Community; no se admite la edición Express. En la actualidad no se admite Visual Studio "15" y estamos trabajando en ello.**
 - **SDK de Microsoft Azure para .NET versión 2.7.1 o posterior**. Instálelo usando el [Instalador de plataforma web](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -130,7 +130,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 
 		IntelliSense para las entidades de catálogo (bases de datos, esquemas, tablas, UDO, etc.) está relacionado con la cuenta de proceso. Puede comprobar la cuenta de proceso activa actual, la base de datos y el esquema en la barra de herramientas superior y cambiarlos en las listas desplegables.
 
-    - **Expandir columnas ***
+    - **Expandir * columnas**
 
         Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mantenga el cursor del ratón sobre el subrayado azul y después haga clic en la flecha hacia abajo. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
@@ -361,4 +361,4 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

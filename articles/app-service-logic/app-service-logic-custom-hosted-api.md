@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Llamada a una API personalizada en aplicaciones lógicas" 
-	description="Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas" 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+<properties
+	pageTitle="Llamada a una API personalizada en aplicaciones lógicas"
+	description="Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas"
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
 	ms.service="app-service-logic"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na"	
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/23/2016"
 	ms.author="stepsic"/>
-	
+
 # Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas
 
 Aunque Aplicaciones lógicas tiene un conjunto completo de más de 40 conectores para una gran variedad de servicios, puede que desee recurrir a su propia API personalizada que puede ejecutar su propio código. Una de las maneras más fáciles y escalables de hospedar sus propias API web personalizadas es usar Servicio de aplicaciones. En este artículo se explica cómo llamar a cualquier API web hospedada en una aplicación de API del Servicio de aplicaciones, en una aplicación web o en una aplicación móvil.
@@ -37,7 +37,7 @@ Si desea proteger su API, existen distintas formas de hacerlo:
 1. No se requiere ningún cambio de código; se puede usar Azure Active Directory para proteger su API sin necesidad de cambiar el código ni volver a implementarlo.
 1. Exija autenticación básica, autenticación de AAD o autenticación de certificado en el código de la API.
 
-## Protección de las llamadas a la API sin cambios en el código 
+## Protección de las llamadas a la API sin cambios en el código
 
 En esta sección, creará dos aplicaciones de Azure Active Directory: una para la aplicación lógica y otra para la aplicación web. Podrá autenticar las llamadas a la aplicación web mediante la entidad de servicio (id. de cliente y secreto) asociada a la aplicación AAD para la aplicación lógica. Por último, incluirá el identificador de la aplicación en la definición de la aplicación lógica.
 
@@ -71,12 +71,12 @@ Si ya se implementó la aplicación web, basta con habilitarla en el portal. De 
 #### Habilitación de la autorización en el Portal de Azure
 
 1. Vaya a la aplicación web y haga clic en **Configuración** en la barra de comandos.
-2. Haga clic en **Autorización/Autenticación**. 
+2. Haga clic en **Autorización/Autenticación**.
 3. **Actívelo**.
 
 En este momento, se crea una aplicación automáticamente. Necesita el identificador de cliente de esta aplicación para la parte 3, por lo que tendrá que hacer lo siguiente:
 
-1. Vaya a [Active Directory en el Portal de Azure clásico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) y seleccione su directorio. 
+1. Vaya a [Active Directory en el Portal de Azure clásico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) y seleccione su directorio.
 2. Busque la aplicación en el cuadro de búsqueda.
 3. Haga clic en ella en la lista.
 4. Haga clic en la pestaña **Configurar**.
@@ -110,7 +110,9 @@ Una vez que disponga del identificador de cliente y el de inquilino, incluya lo 
 ]
 ```
 
-Para ejecutar automáticamente una implementación conjunta de una aplicación web en blanco y una aplicación lógica que usen AAD, haga clic en el siguiente botón: [![Implementación en Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+Para ejecutar automáticamente una implementación conjunta de una aplicación web vacía y una aplicación lógica que usen AAD, haga clic en el siguiente botón:
+
+[![Implementación en Azure](./media/app-service-logic-custom-hosted-api/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 Para ver la plantilla completa, consulte la página sobre las [llamadas de aplicación lógica a una API personalizada hospedada en Servicio de aplicaciones y protegida mediante AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
 
@@ -122,10 +124,10 @@ En la sección **Autorización** de la acción **HTTP**: `{"tenant":"<<tenantId>
 | Elemento | Descripción |
 |---------|-------------|
 | type | Tipo de autenticación. En la autenticación ActiveDirectoryOAuth, el valor es ActiveDirectoryOAuth. |
-| tenant | Identificador de inquilino que se usa para identificar al inquilino de AD. |
+| tenant | Identificador de inquilino que se usa para identificar al inquilino de AD. |
 | audience | Obligatorio. El recurso al que se está conectando. |
-| clientID | Identificador de cliente para la aplicación de Azure AD. |
-| secret | Obligatorio. Secreto del cliente que solicita el token. | 
+| clientID | Identificador de cliente para la aplicación de Azure AD. |
+| secret | Obligatorio. Secreto del cliente que solicita el token. |
 
 La plantilla anterior ya tiene esta configuración pero, si va a crear la aplicación lógica directamente, deberá incluir la sección de autorización completa.
 
@@ -147,14 +149,14 @@ En la sección *Autorización*, debe proporcionar: `{"type": "clientcertificate"
 
 Puede usar la autenticación básica (por ejemplo, nombre de usuario y contraseña) para validar las solicitudes entrantes. La autenticación básica es un patrón común que se puede usar en cualquier lenguaje en que compile la aplicación.
 
-En la sección *Autorización*, debe proporcionar: `{"type": "basic","username": "test","password": "test"}`.
+En la sección *Autorización*, debe especificar los siguientes elementos: `{"type": "basic","username": "test","password": "test"}`.
 
 | Elemento | Descripción |
 |---------|-------------|
 | type | Obligatorio. Tipo de autenticación. En la autenticación básica, el valor debe ser Basic. |
 | nombre de usuario | Obligatorio. Nombre de usuario para autenticar. |
 | contraseña | Obligatorio. Contraseña para autenticar. |
- 
+
 ### Control de la autenticación de AAD en el código
 
 De forma predeterminada, la autenticación de Azure Active Directory que se habilita en el Portal no lleva a cabo una autorización específica. Por ejemplo, no bloquea la API para una aplicación o un usuario específicos, sino solo para un inquilino determinado.
@@ -165,4 +167,4 @@ Además, si desea implementarla totalmente en su propio código y no aprovechar 
 
 Necesita seguir los pasos anteriores para crear una identidad de aplicación para la aplicación lógica y usarla para llamar a la API.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

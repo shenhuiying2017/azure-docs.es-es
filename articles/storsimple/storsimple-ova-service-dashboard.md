@@ -3,7 +3,7 @@
    description="Describe el panel de servicio StorSimple Manager y explica cómo usarlo para supervisar el estado de la matriz virtual de StorSimple."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="04/07/2016"
+   ms.author="alkohli" />
 
-# Uso del panel de servicio StorSimple Manager para la matriz virtual de StorSimple (vista previa)
+# Uso del panel de servicio StorSimple Manager para la matriz virtual de StorSimple
 
 ## Información general
 
@@ -62,4 +62,4 @@ Para ver los registros de operaciones, haga clic en el vínculo de registros de 
 
 Obtener información sobre cómo [usar la interfaz de usuario web local para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

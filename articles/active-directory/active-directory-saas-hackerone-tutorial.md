@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Integración de Azure Active Directory con Novatus | Microsoft Azure"
+	pageTitle="Tutorial: integración de Azure Active Directory con HackerOne | Microsoft Azure"
 	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y HackerOne."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 
 Para configurar la integración de Azure AD con HackerOne, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
+- Una suscripción de Azure
 - Una suscripción habilitada para el inicio de sesión único en HackerOne
 
 
@@ -86,38 +86,60 @@ Para configurar y probar el inicio de sesión único de Azure AD con HackerOne, 
 
 A continuación, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación HackerOne.
 
+Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+
 **Para configurar el inicio de sesión único de Azure AD con HackerOne, realice los pasos siguientes:**
 
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **HackerOne**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en HackerOne?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_03.png) <br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en HackerOne?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.<br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_03.png) <br>
 
 3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes y luego haga clic en **Siguiente**: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png) <br>
 
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación HackerOne con el siguiente patrón: **“https://hackerone.com/nombreDeCompañía/authentication”**. Cuando se hace referencia a un nombre genérico, debe reemplazar **nombreDeCompañía** por un nombre real.<br>
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación HackerOne con el siguiente patrón: **“https://hackerone.com/<company name>/authentication”**.
 
-	b. En el cuadro de texto IDENTIFICADOR, escriba la dirección URL del inquilino. Póngase en contacto con el equipo de soporte técnico de HackerOne a través de support@hackerone.com para obtener la dirección URL del inquilino.
+    b. Póngase en contacto con el equipo de soporte técnico de HackerOne mediante [support@hackerone.com](mailto:support@hackerone.com) para obtener la dirección URL del inquilino si no la sabe.
 
-	c. Haga clic en **Siguiente**.
+	c. En el cuadro de texto **Identificador**, escriba la dirección URL del inquilino.
+
+	d. Haga clic en **Siguiente**.
 
 
-4. En la página **Configurar inicio de sesión único en HackerOne**, lleve a cabo estos pasos y luego haga clic en **Siguiente**: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
+4. En la página **Configurar inicio de sesión único en HackerOne**, lleve a cabo estos pasos y luego haga clic en **Siguiente**:<br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
 
     a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo.
 
     b. Haga clic en **Siguiente**.
 
 
-5. Para configurar el inicio de sesión único para la aplicación, primero debe iniciar sesión en el inquilino de HackerOne con el usuario administrador.
+1. Inicie la sesión en el inquilino de HackerOne como administrador.
+
+1. En el menú de la parte superior, haga clic en **Configuración**.<br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+
+1. A continuación, vaya a "**Autenticación**" y haga clic en el botón "**Agregar configuración de SAML**".<br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+
+
+1. En el diálogo **Configuración de SAML**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br>
+
+    a. En el cuadro de texto **Dominio de correo electrónico**, escriba un dominio registrado.
+
+	b. En el Portal de Azure clásico, copie la **Dirección URL del servicio de inicio de sesión único** y péguela en el cuadro de texto Dirección URL de inicio de sesión único.
+
+    c. Cree un archivo **codificado en base 64** a partir del certificado descargado.
+
+       >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 	
-	a. Vaya al panel y haga clic en **Configuración**, en la esquina superior derecha de la página.<br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+    d. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido en el Portapapeles y péguelo en el cuadro de texto **Certificado X509**.
 
-	b. A continuación, vaya a "**Autenticación**" y haga clic en el botón "**Agregar configuración de SAML**".<br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+    e. Haga clic en **Guardar**
 
-	c. Rellene el formulario de **Configuración de SAML**.<br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br> c1. Escriba un dominio registrado en el cuadro de texto **Dominio de correo electrónico**. Para registrar el dominio en HackerOne, póngase en contacto con support@hackerone.com.<br><br> c2. Copie la dirección URL del servicio de inicio de sesión único de Azure AD en **Dirección URL de inicio de sesión único** en HackerOne.<br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_006.png) <br> c3. Convierta el certificado descargado en un archivo en base64 y ábralo en el Bloc de notas, cópielo y péguelo en el cuadro de texto **Certificado X509** de HackerOne.<br>
 
-	d. Haga clic en el botón **Guardar**.<br><br> e. Haga clic en el botón **Ejecutar prueba** y asegúrese de que la prueba funciona. Si funciona, solicite la revisión de la configuración de SAML al equipo de soporte técnico de HackerOne a través de support@hackerone.com, y el equipo la aprobará.<br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+1. En el diálogo Configuración de autenticación, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+
+    a. Haga clic en **Ejecutar prueba**.
+
+    b. Si el valor del campo **Estado** es igual al de **Último estado de la prueba: creado**, póngase en contacto con el equipo de soporte técnico de HackerOne mediante [support@hackerone.com](mailto:support@hackerone.com) para solicitar una revisión de la configuración.
 
 
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
@@ -182,7 +204,7 @@ No hay ningún elemento de acción para usted en esta sección. Al acceder a Hac
 
 ### Asignación del usuario de prueba de Azure AD
 
-A continuación, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a HackerOne. <br><br>![Asignar usuario][200] <br>
+A continuación, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a HackerOne. <br><br>![Asignar usuario][200] <br>
 
 **Para asignar a Britta Simon a HackerOne, realice los pasos siguientes:**
 
@@ -200,7 +222,7 @@ A continuación, permitirá que Britta Simon use el inicio de sesión único de 
 
 ### Prueba del inicio de sesión único
 
-Por último, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.<br> Al hacer clic en el icono de HackerOne en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación HackerOne.
+Por último, probará la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.<br> Al hacer clic en el icono de HackerOne en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación HackerOne.
 
 
 ## Recursos adicionales
@@ -227,4 +249,4 @@ Por último, probará la configuración de inicio de sesión único de Azure AD 
 [204]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

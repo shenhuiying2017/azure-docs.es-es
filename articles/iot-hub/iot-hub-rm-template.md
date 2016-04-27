@@ -115,7 +115,7 @@ Use una plantilla de JSON y un archivo de parámetro para crear un nuevo Centro 
 
 3. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y luego en **Nuevo elemento**. Agregue un nuevo archivo JSON denominado **parameters.json** a su proyecto.
 
-4. Reemplace el contenido de **parameters.json** por la siguiente información de parámetro que establece el nombre del nuevo Centro de IoT en **mynewiothub**:
+4. Reemplace el contenido de **parameters.json** por la siguiente información de parámetro que establece el nombre del nuevo Centro de IoT en **mynewiothub** (tenga en cuenta que este nombre debe ser único global):
 
     ```
     {
@@ -215,4 +215,4 @@ Ahora que ha implementado un Centro de IoT mediante una plantilla del Administra
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

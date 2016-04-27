@@ -158,7 +158,7 @@ Para controlar el acceso a los contenedores de blobs, puede elegir los comandos 
 	![][20]
 
 ## Pasos siguientes
-Obtenga más información sobre las características de los servicios de Almacenamiento de Azure en los artículos que encontrará en [Introducción a Almacenamiento de Microsoft Azure](/storage/storage-introduction.md).
+Obtenga más información sobre las características de los servicios de Almacenamiento de Azure en los artículos que encontrará en [Introducción a Almacenamiento de Microsoft Azure](./storage/storage-introduction.md).
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
@@ -182,4 +182,4 @@ Obtenga más información sobre las características de los servicios de Almacen
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

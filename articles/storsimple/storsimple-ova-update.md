@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli" />
 
-# Aplicar actualizaciones y revisiones a la matriz virtual de StorSimple (vista previa)
+# Aplicación de actualizaciones y revisiones en la matriz virtual de StorSimple
 
 ## Información general
 
@@ -39,4 +39,4 @@ Antes de instalar la actualización o la revisión, asegúrese de que tiene la a
 
 Obtenga más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

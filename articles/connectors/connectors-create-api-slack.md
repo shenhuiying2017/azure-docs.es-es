@@ -21,13 +21,13 @@ ms.author="deonhe"/>
 
 Slack es una herramienta de comunicación de equipo, que reúne todas las comunicaciones del equipo en un solo lugar, inmediatamente localizables y disponibles dondequiera que vaya.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema de vista previa de 2014-12-01, haga clic en [API de Slack](../app-service-logic/app-service-logic-connector-Slack.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con el conector de Slack, puede:
 
 * Usarlo para crear aplicaciones lógicas
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Hablemos de acciones y desencadenadores
 
@@ -42,7 +42,7 @@ Puede realizar estas acciones:
 |--- | ---|
 |PostMessage|Publicar un mensaje en un canal especificado.|
 ## Creación de una conexión a Slack
-Para usar la API de Slack, cree primero una **conexión** y después proporcione los detalles para estas propiedades:
+Para usar la API de Slack, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
 
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
@@ -51,15 +51,20 @@ Para usar la API de Slack, cree primero una **conexión** y después proporcione
 Siga estos pasos para iniciar sesión en Slack y completar la configuración de la **conexión** de Slack en la aplicación lógica:
 
 1. Seleccione **Periodicidad**.
-2. Seleccione una **Frecuencia** y escriba un **Intervalo**
-3. Seleccione **Agregar una acción** ![Configurar Slack][1]  
+2. Seleccione un valor para **Frecuencia** y especifique el correspondiente a **Intervalo**.
+3. Seleccione **Agregar una acción**.
+![Configurar Slack][1]  
 4. Escriba Slack en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan Slack en el nombre.
-5. Seleccione **Slack - exponer mensaje**
-6. Seleccione **Sign in to Slack** (Iniciar sesión en Slack): ![Configurar Slack][2]
-7. Proporcione sus credenciales de Slack para iniciar sesión y autorizar la aplicación ![Configurar Slack][3]  
-8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** a Slack a interactuar con la aplicación lógica: ![Configurar Slack][5] 
-9. Una vez completada la autorización se le redirigirá a la aplicación lógica para terminar mediante la configuración de la sección **Slack - obtener todos los mensajes**. Agregue otros desencadenadores y acciones que necesite. ![Configurar Slack][6]
-10. Para guardar el trabajo, seleccione **Guardar** en la barra de menús superior.
+5. Seleccione **Slack - Post message** (Slack - exponer mensaje).
+6. Seleccione **Sign in to Slack** (Iniciar sesión en Slack).
+![Configurar Slack][2]
+7. Proporcione sus credenciales de Slack para iniciar sesión y autorizar la aplicación.
+![Configurar Slack][3]  
+8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** la interacción de Slack con la aplicación lógica.
+![Configurar Slack][5] 
+9. Una vez completada la autorización, se le redirigirá a la aplicación lógica para que la complete configurando la sección **Slack - Get all messages** (Slack - obtener todos los mensajes). Agregue otros desencadenadores y acciones que necesite.
+![Configurar Slack][6]
+10. Para guardar el trabajo, seleccione **Guardar** en la barra de menús anterior.
 
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
@@ -76,10 +81,10 @@ Siga estos pasos para iniciar sesión en Slack y completar la configuración de 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
 |channel|cadena|yes|query|Ninguna|Canal, grupo privado o canal de mensajería instantánea al que se envía el mensaje. Puede ser un nombre (por ejemplo: #general) o un identificador codificado.|
-|text|cadena|yes|query|Ninguna|Texto del mensaje para enviar. Para opciones de formato, consulte https://api.slack.com/docs/formatting.|
+|text|cadena|yes|query|Ninguna|Texto del mensaje para enviar. Para obtener más información sobre opciones de formato, consulte https://api.slack.com/docs/formatting.|.
 |nombre de usuario|cadena|no|query|Ninguna|Nombre del bot|
 |as\_user|boolean|no|query|Ninguna|Pasar true para publicar el mensaje como usuario autenticado y no como bot|
-|parse|cadena|no|query|Ninguna|Cambie la forma en que se tratan los mensajes. Para más información, consulte https://api.slack.com/docs/formatting.|
+|parse|cadena|no|query|Ninguna|Cambie la forma en que se tratan los mensajes. Para obtener más información, consulte https://api.slack.com/docs/formatting.|.
 |link\_names|integer|no|query|Ninguna|Buscar y vincular nombres de usuario y nombres de canal.|
 |unfurl\_links|boolean|no|query|Ninguna|Pasar true para habilitar el despliegue de contenido basado principalmente en texto.|
 |unfurl\_media|boolean|no|query|Ninguna|Pasar false para deshabilitar el despliegue de contenido multimedia.|
@@ -105,7 +110,7 @@ Siga estos pasos para iniciar sesión en Slack y completar la configuración de 
 
 ## Definiciones de objeto: 
 
- **Mensaje**: mensaje de Yammer
+ **Message**: mensaje de Yammer
 
 Propiedades obligatorias para Message:
 
@@ -142,7 +147,7 @@ Ninguna de las propiedades es obligatoria.
 
 
 
- **PostOperationRequest**: representa una solicitud post del conector de Yammer para publicar en Yammer
+ **PostOperationRequest**: una solicitud POST del conector de Yammer para publicar en Yammer
 
 Propiedades necesarias para PostOperationRequest:
 
@@ -217,7 +222,7 @@ Ninguna de las propiedades es obligatoria.
 
 
 
- **LikedBy**: le gusta a
+ **LikedBy**: a quién le gusta
 
 Propiedades obligatorias para LikedBy:
 
@@ -235,7 +240,7 @@ Ninguna de las propiedades es obligatoria.
 
 
 
- **YammmerEntity**: le gusta a
+ **YammmerEntity**: a quién le gusta
 
 Propiedades obligatorias para YammmerEntity:
 
@@ -257,7 +262,7 @@ Ninguna de las propiedades es obligatoria.
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 ## Definiciones de objeto: 
 
- **WebResultModel**: resultados de búsqueda en web de Bing
+ **WebResultModel**: resultados de búsqueda en Web de Bing
 
 Propiedades obligatorias para WebResultModel:
 
@@ -278,7 +283,7 @@ Ninguna de las propiedades es obligatoria.
 
 
 
- **VideoResultModel**: resultados de la búsqueda de vídeo de Bing
+ **VideoResultModel**: resultados de búsqueda de vídeo de Bing
 
 Propiedades necesarias para VideoResultModel:
 
@@ -430,7 +435,7 @@ Ninguna de las propiedades es obligatoria.
 
 ## Definiciones de objeto: 
 
- **PostOperationResponse**: representa la respuesta de una operación post del conector de Slack para publicar en Slack
+ **PostOperationResponse**: la respuesta de una operación POST del conector de Slack para publicar en Slack
 
 Propiedades obligatorias para PostOperationResponse:
 
@@ -451,7 +456,7 @@ Ninguna de las propiedades es obligatoria.
 
 
 
- **MessageItem**: un mensaje de canal.
+ **MessageItem**: un mensaje de canal
 
 Propiedades obligatorias para MessageItem:
 
@@ -481,4 +486,4 @@ Ninguna de las propiedades es obligatoria.
 [5]: ./media/connectors-create-api-slack/connectionconfig5.png
 [6]: ./media/connectors-create-api-slack/connectionconfig6.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
-# Introducción a Apache Spark en HDInsight de Azure (Linux)
+# Introducción a Apache Spark en HDInsight para Linux (versión preliminar)
  
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data. El motor de procesamiento Spark se ha creado para ofrecer velocidad, facilidad de uso y análisis sofisticados. Las capacidades de cálculo en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático. Spark también es compatible con el almacenamiento de blobs de Azure (WASB), por lo que se pueden procesar los datos existentes almacenados en Azure fácilmente mediante Spark.
 
@@ -46,7 +46,7 @@ HDInsight de Azure ofrece un servicio Spark completamente administrado. Estas so
 | Integración con herramientas de BI | Spark para HDInsight ofrece conectores para herramientas de BI habituales como [Power BI](http://www.powerbi.com/) y [Tableau](http://www.tableau.com/products/desktop) para el análisis de datos.|
 | Bibliotecas de Anaconda precargadas | Los clústeres Spark en HDInsight incluyen bibliotecas de Anaconda preinstaladas. [Anaconda](http://docs.continuum.io/anaconda/) ofrece prácticamente 200 bibliotecas para el aprendizaje automático, el análisis de datos, la visualización, etc.|
 | Escalabilidad | Aunque puede especificar el número de nodos del clúster durante la creación, puede que desee aumentar o reducir el clúster para que coincida con la carga de trabajo. Todos los clústeres de HDInsight le permiten cambiar el número de nodos del clúster. Además, se pueden quitar clústeres Spark sin que se pierdan datos, ya que todos están almacenados en el almacenamiento de blobs de Azure. |
-| Soporte técnico ininterrumpido | Spark en HDInsight incluye soporte técnico ininterrumpido de nivel empresarial y un SLA del 99,9 % de tiempo de actividad.|
+| Soporte técnico ininterrumpido | Spark en HDInsight incluye soporte técnico ininterrumpido de nivel empresarial y un SLA del 99,9 % de tiempo de actividad.|
 
 
 
@@ -124,4 +124,4 @@ Empiece por crear un clúster de Spark en HDInsight Linux. Vea [Inicio rápido: 
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

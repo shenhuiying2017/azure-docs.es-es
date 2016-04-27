@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prácticas recomendadas para controlar el estado en las plantillas del Administrador de recursos de Azure"
+	pageTitle="Controlar el estado en las plantillas de Resource Manager | Microsoft Azure"
 	description="Muestra los enfoques recomendados para usar objetos complejos a fin de compartir datos de estado con plantillas vinculadas y plantillas del Administrador de recursos de Azure"
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,26 +13,52 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/06/2016"
 	ms.author="tomfitz"/>
 
 # Uso compartido del estado en las plantillas del Administrador de recursos de Azure
 
-En este tema se muestran prácticas recomendadas para administrar y compartir el estado de una plantilla del Administrador de recursos de Azure y a través de plantillas vinculadas. Los parámetros y variables que se muestran en este tema son ejemplos del tipo de objetos que puede definir para organizar con facilidad sus requisitos de implementación. Desde estos ejemplos, puede implementar sus propios objetos con valores de propiedad que tengan sentido para su entorno.
+En este tema se muestran los procedimientos recomendados para administrar y compartir el estado en las plantillas. Los parámetros y variables que se muestran en este tema son ejemplos del tipo de objetos que puede definir para organizar con facilidad sus requisitos de implementación. Desde estos ejemplos, puede implementar sus propios objetos con valores de propiedad que tengan sentido para su entorno.
 
 Este tema forma parte de un artículo más extenso. Si desea leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] (Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 
-## Uso de objetos complejos para compartir el estado
+## Proporcionar opciones de configuración estándar
 
 En lugar de ofrecer una plantilla que proporcione flexibilidad total e incontables variaciones, un patrón común es proporcionar la posibilidad de seleccionar configuraciones conocidas, de hecho, tamaños de camiseta estándar como pequeña, mediana y grande. Otros ejemplos de tamaños de camiseta son ofertas de productos, como edición para la comunidad o edición para impresa. En otros casos, pueden ser configuraciones de una tecnología específicas de la carga de trabajo, como MapReduce o NoSQL.
 
-Con objetos complejos, puede crear las variables que contengan colecciones de datos, a veces conocidas como "contenedores de propiedades" y usar esos datos para dirigir la declaración de recursos de tu plantilla. Este enfoque proporciona configuraciones bien conocidas de tamaños variables que están preconfiguradas para los clientes. Sin configuraciones conocidas, los clientes finales deben determinar el tamaño del clúster por su cuenta, tener en cuenta las restricciones de recursos de plataforma y realizar cálculos matemáticos para identificar el particionamiento resultante de las cuentas de almacenamiento y otros recursos (debido a restricciones en el tamaño del clúster y los recursos). Las configuraciones conocidas permiten a los clientes seleccionar fácilmente el tamaño correcto de camiseta, es decir, una implementación determinada. Además de crear una experiencia mejor para el cliente, un número pequeño de configuraciones conocidas es más fácil de mantener y puede ayudarle a ofrecer un nivel mayor de densidad.
-
+Con objetos complejos, puede crear las variables que contengan colecciones de datos, a veces conocidas como "contenedores de propiedades" y usar esos datos para dirigir la declaración de recursos de tu plantilla. Este enfoque proporciona configuraciones bien conocidas de tamaños variables que están preconfiguradas para los clientes. Sin configuraciones conocidas, los clientes finales deben determinar el tamaño del clúster por su cuenta, tener en cuenta las restricciones de recursos de plataforma y realizar cálculos matemáticos para identificar el particionamiento resultante de las cuentas de almacenamiento y otros recursos (debido a restricciones en el tamaño del clúster y los recursos). Además de crear una experiencia mejor para el cliente, un número pequeño de configuraciones conocidas es más fácil de mantener y puede ayudarle a ofrecer un nivel mayor de densidad.
 
 En el ejemplo siguiente se muestra cómo definir variables que contienen objetos complejos para representar colecciones de datos. Las colecciones definen valores que se usan para el tamaño de la máquina virtual, la configuración de red, la configuración del sistema operativo y la configuración de disponibilidad.
 
     "variables": {
+      "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
+      "tshirtSizeSmall": {
+        "vmSize": "Standard_A1",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
+        "vmCount": 2,
+        "storage": {
+          "name": "[parameters('storageAccountNamePrefix')]",
+          "count": 1,
+          "pool": "db",
+          "map": [0,0],
+          "jumpbox": 0
+        }
+      },
+      "tshirtSizeMedium": {
+        "vmSize": "Standard_A3",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-8disk-resources.json')]",
+        "vmCount": 2,
+        "storage": {
+          "name": "[parameters('storageAccountNamePrefix')]",
+          "count": 2,
+          "pool": "db",
+          "map": [0,1],
+          "jumpbox": 0
+        }
+      },
       "tshirtSizeLarge": {
         "vmSize": "Standard_A4",
         "diskSize": 1023,
@@ -53,7 +79,7 @@ En el ejemplo siguiente se muestra cómo definir variables que contienen objetos
           "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
         ],
         "imageReference": {
-	  "publisher": "Canonical",
+          "publisher": "Canonical",
           "offer": "UbuntuServer",
           "sku": "14.04.2-LTS",
           "version": "latest"
@@ -82,6 +108,8 @@ En el ejemplo siguiente se muestra cómo definir variables que contienen objetos
       }
     }
 
+Tenga en cuenta que la variable **tshirtSize** concatena el tamaño de la camiseta que proporcionó mediante un parámetro (**Pequeño**, **Mediano**, **Grande**) en el texto **tshirtSize**. Usará esta variable para recuperar la variable asociada del objeto complejo para ese tamaño de camiseta.
+
 Luego, puede hacer referencia a estas variables más adelante en la plantilla. La posibilidad de hacer referencia a variables con nombre y sus propiedades simplifica la sintaxis de la plantilla y facilita la comprensión del contexto. En el ejemplo siguiente se define un recurso para implementar mediante los objetos mostrados anteriormente para definir los valores. Por ejemplo, tenga en cuenta que el tamaño de la máquina virtual se establece al recuperar el valor de `variables('tshirtSize').vmSize` mientras que el valor del tamaño del disco se recupera de `variables('tshirtSize').diskSize`. Además, el URI de una plantilla vinculada se establece con el valor de `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
@@ -104,7 +132,7 @@ Luego, puede hacer referencia a estas variables más adelante en la plantilla. L
             "value": "[parameters('replicatorPassword')]"
           },
           "osSettings": {
-	    "value": "[variables('osSettings')]"
+            "value": "[variables('osSettings')]"
           },
           "subnet": {
             "value": "[variables('networkSettings').subnets.data]"
@@ -137,18 +165,11 @@ Luego, puede hacer referencia a estas variables más adelante en la plantilla. L
       }
     }
 
-## Paso del estado a una plantilla y sus plantillas vinculadas
+## Pasar el estado a una plantilla
 
-Puede compartir información de estado en una plantilla y sus plantillas vinculadas mediante:
-
-- Parámetros que se proporcionan directamente a la plantilla principal durante la implementación
-- Parámetros, variables estáticas y variables generadas que la plantilla principal comparte con sus plantillas vinculadas
-
-### Parámetros comunes proporcionados a la plantilla principal
+Comparte el estado en una plantilla mediante parámetros que proporciona directamente durante la implementación.
 
 En la tabla siguiente se enumeran los parámetros usados normalmente en las plantillas.
-
-**Los parámetros usados con frecuencia se pasan a la plantilla principal.**
 
 Nombre | Valor | Descripción
 ---- | ----- | -----------
@@ -161,111 +182,64 @@ tshirtSize | Cadena de una lista restringida de tamaños de camiseta ofrecidos |
 virtualNetworkName | String | Nombre de la red virtual que el consumidor desea usar.
 enableJumpbox | Cadena de una lista restringida (habilitada o deshabilitada) | Parámetro que identifica si se habilitará un JumpBox para el entorno. Valores: "habilitado", "deshabilitado"
 
-### Parámetros enviados a plantillas vinculadas
+El parámetro **tshirtSize** usado en la sección anterior se define como:
+
+    "parameters": {
+      "tshirtSize": {
+        "type": "string",
+        "defaultValue": "Small",
+        "allowedValues": [
+          "Small",
+          "Medium",
+          "Large"
+        ],
+        "metadata": {
+          "Description": "T-shirt size of the MongoDB deployment"
+        }
+      }
+    }
+
+
+## Pasar el estado a las plantillas vinculadas
 
 Al conectarse a plantillas vinculadas, a menudo usará una combinación de variables estáticas y generadas.
 
-#### Variables estáticas
+### Variables estáticas
 
-Las variables estáticas se suelen usar para proporcionar valores base, como direcciones URL, que se utilizan en toda la plantilla o como valores que se usan para crear valores para variables dinámicas.
+Las variables estáticas se suelen usar para proporcionar valores base, como direcciones URL, que se usan en toda la plantilla.
 
-En el fragmento de la plantilla siguiente, *templateBaseUrl* especifica la ubicación de la raíz de la plantilla en GitHub. La línea siguiente crea una nueva variable *sharedTemplateUrl* que concatena el valor de *templateBaseUrl* con el nombre conocido de la plantilla de recursos compartidos. Debajo de esta, una variable de objeto complejo se usa para almacenar un tamaño de camiseta, donde *templateBaseUrl* se concatena para especificar la ubicación de la plantilla de configuración conocida almacenada en la propiedad *vmTemplate*.
+En el fragmento de la plantilla siguiente, `templateBaseUrl` especifica la ubicación raíz de la plantilla en GitHub. La línea siguiente crea una nueva variable `sharedTemplateUrl` que concatena la dirección URL base con el nombre conocido de la plantilla de recursos compartidos. Debajo de esta, una variable de objeto complejo se usa para almacenar un tamaño de camiseta, donde la dirección URL base se concatena a la ubicación de la plantilla de configuración conocida y almacenada en la propiedad `vmTemplate`.
 
-La ventaja de este enfoque es que puede mover, bifurcar o usar fácilmente la plantilla como base para una nueva. Si cambia la ubicación de la plantilla, solo tendrá que cambiar la variable estática en el lugar, la plantilla principal, que la pasa en todas las plantillas.
+La ventaja de este enfoque es que si cambia la ubicación de la plantilla, solo tendrá que cambiar la variable estática en un lugar que la pase a todas las plantillas vinculadas.
 
-    "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-    "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-    "tshirtSizeSmall": {
-      "vmSize": "Standard_A1",
-      "diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
-      "vmCount": 2,
-      "slaveCount": 1,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 1,
-        "pool": "db",
-        "map": [0,0],
-        "jumpbox": 0
+    "variables": {
+      "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+      "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
+      "tshirtSizeSmall": {
+        "vmSize": "Standard_A1",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
+        "vmCount": 2,
+        "slaveCount": 1,
+        "storage": {
+          "name": "[parameters('storageAccountNamePrefix')]",
+          "count": 1,
+          "pool": "db",
+          "map": [0,0],
+          "jumpbox": 0
+        }
       }
     }
 
-#### Variables generadas
+### Variables generadas
 
 Además de las variables estáticas, hay una serie de variables que se generan dinámicamente. En esta sección se identifican algunos de los tipos comunes de variables generadas.
 
-##### tshirtSize
+#### tshirtSize
 
-Al llamar a la plantilla principal, puede seleccionar un tamaño de camiseta de un número fijo de opciones, que normalmente incluyen valores como *Pequeña*, *Mediana* y *Grande*.
+Está familiarizado con esta variable generada de los ejemplos mencionados anteriormente.
 
-En la plantilla principal, esta opción aparece como parámetro, por ejemplo *tshirtSize*:
-
-    "tshirtSize": {
-      "type": "string",
-      "defaultValue": "Small",
-      "allowedValues": [
-        "Small",
-        "Medium",
-        "Large"
-      ],
-      "metadata": {
-        "Description": "T-shirt size of the MongoDB deployment"
-      }
-    }
-
-Dentro de la plantilla principal, las variables se corresponden con cada uno de los tamaños. Por ejemplo, si los tamaños disponibles son pequeña, mediana y grande, la sección de variables incluiría variables denominadas *tshirtSizeSmall*, *tshirtSizeMedium* y *tshirtSizeLarge*.
-
-Como se muestra en el siguiente ejemplo, estas variables definen las propiedades de un determinado tamaño de camiseta. Cada uno de ellos identifica el tipo de máquina virtual, el tamaño del disco, la plantilla de recursos de unidad de escalado asociada a la que vincular, el número de instancias, los detalles de la cuenta de almacenamiento y el estado de JumpBox.
-
-El prefijo del nombre de la cuenta de almacenamiento procede de un parámetro proporcionado por el usuario, y la plantilla vinculada es la concatenación de la dirección URL base de la plantilla y el nombre de archivo de una plantilla de recurso de unidad de escalado específica.
-
-    "tshirtSizeSmall": {
-      "vmSize": "Standard_A1",
-			"diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
-      "vmCount": 2,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 1,
-        "pool": "db",
-        "map": [0,0],
-        "jumpbox": 0
-      }
-    },
-    "tshirtSizeMedium": {
-      "vmSize": "Standard_A3",
-      "diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-8disk-resources.json')]",
-      "vmCount": 2,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 2,
-        "pool": "db",
-        "map": [0,1],
-        "jumpbox": 0
-      }
-    },
-    "tshirtSizeLarge": {
-      "vmSize": "Standard_A4",
-      "diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
-      "vmCount": 3,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 2,
-        "pool": "db",
-        "map": [0,1,1],
-        "jumpbox": 0
-      }
-    }
-
-La variable *tshirtSize* aparece más abajo en la sección de variables. El final del tamaño de camiseta que ha proporcionado (*Pequeña*, *Mediana*, *Grande*) se concatena con el texto *tshirtSize* para recuperar la variable de objeto complejo asociada con ese tamaño de camiseta:
-
-    "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
-
-Esta variable se pasa a la plantilla de recursos de unidad de escalado vinculada.
-
-##### networkSettings
+#### networkSettings
 
 En una plantilla de solución de capacidad o con ámbito completo, las plantillas vinculadas suele crean recursos que existen en una red. Un enfoque sencillo es usar un objeto complejo para almacenar la configuración de red y pasarla a las plantillas vinculadas.
 
@@ -288,7 +262,7 @@ A continuación puede verse un ejemplo de comunicación de la configuración de 
       }
     }
 
-##### availabilitySettings
+#### availabilitySettings
 
 Los recursos creados en las plantillas vinculadas a menudo se colocan en un conjunto de disponibilidad. En el ejemplo siguiente, se especifica el nombre del conjunto de disponibilidad y también el número de dominios de error y dominios de actualización que se van a usar.
 
@@ -300,7 +274,7 @@ Los recursos creados en las plantillas vinculadas a menudo se colocan en un conj
 
 Si necesita varios conjuntos de disponibilidad (por ejemplo, uno para los nodos principales y otro para los nodos de datos), puede usar un nombre como prefijo, especificar varios conjuntos de disponibilidad o seguir el modelo mostrado anteriormente para la creación de una variable para un tamaño de camiseta específico.
 
-##### storageSettings
+#### storageSettings
 
 Los detalles de almacenamiento a menudo se comparten con las plantillas vinculadas. En el ejemplo siguiente, un objeto *storageSettings* proporciona detalles sobre los nombres del contenedor y la cuenta de almacenamiento.
 
@@ -310,7 +284,7 @@ Los detalles de almacenamiento a menudo se comparten con las plantillas vinculad
         "destinationVhdsContainer": "[concat('https://', parameters('storageAccountName'), variables('vmStorageAccountDomain'), '/', variables('vmStorageAccountContainerName'), '/')]"
     }
 
-##### osSettings
+#### osSettings
 
 Con las plantillas vinculadas, tendrá que pasar la configuración del sistema operativo a varios tipos de nodos a través de diferentes tipos de configuración conocidos. Un objeto complejo es una forma sencilla de almacenar y compartir información del sistema operativo y también facilita la compatibilidad con varias opciones de sistema operativo en la implementación.
 
@@ -325,7 +299,7 @@ En el ejemplo siguiente se muestra un objeto de *osSettings*:
       }
     }
 
-##### machineSettings
+#### machineSettings
 
 Una variable generada, *machineSettings* es un objeto complejo que contiene una combinación de variables principales para crear una nueva máquina virtual: el nombre del usuario administrador y la contraseña, un prefijo para los nombres de máquina virtual y una referencia de imagen del sistema operativo, como se muestra a continuación:
 
@@ -343,7 +317,7 @@ Una variable generada, *machineSettings* es un objeto complejo que contiene una 
 
 Tenga en cuenta que *osImageReference* recupera los valores de la variable *osSettings* definida en la plantilla principal. Eso significa que puede cambiar fácilmente el sistema operativo de una máquina virtual, por completo, o en función de la preferencia de un consumidor de plantilla.
 
-##### vmScripts
+#### vmScripts
 
 El objeto *vmScripts* contiene detalles sobre los scripts que se descargarán y ejecutarán en una instancia de máquina virtual, incluidas las referencias externas e internas. Las referencias externas incluyen la infraestructura. Las referencias internas incluyen el software instalado y la configuración.
 
@@ -366,7 +340,7 @@ En la sección de variables es donde encontrará las variables que definen el te
     },
 
 
-## Devolución del estado de una plantilla
+## Devolver el estado de una plantilla
 
 No solo puede pasar datos a una plantilla, también puede compartir datos de nuevo con la plantilla de llamada. En la sección **Salidas** de una plantilla vinculada, puede proporcionar pares de clave/valor que pueden usarse en la plantilla de origen.
 
@@ -381,12 +355,75 @@ En el ejemplo siguiente se muestra cómo pasar la dirección IP privada generada
 
 Dentro de la plantilla principal, puede usar esos datos con la sintaxis siguiente:
 
-    "masterIpAddress": {
-        "value": "[reference('master-node').outputs.masterip.value]"
+    "[reference('master-node').outputs.masterip.value]"
+
+Puede usar esta expresión en la sección de salidas o en la sección de recursos de la plantilla principal. No puede usar la expresión en la sección de variables porque se basa en el estado de tiempo de ejecución. Para devolver este valor desde la plantilla principal, use:
+
+    "outputs": { 
+      "masterIpAddress": {
+        "value": "[reference('master-node').outputs.masterip.value]",
+        "type": "string"
+      }
+     
+Para obtener un ejemplo de cómo usar la sección de salidas de una plantilla vinculada para devolver discos de datos para una máquina virtual, consulte [Crear varios discos de datos para una máquina virtual](./resource-group-create-multiple/#creating-multiple-data-disks-for-a-virtual-machine).
+
+## Definir la configuración de autenticación de una máquina virtual
+
+Puede usar el mismo patrón que se mostró anteriormente para las opciones de configuración para especificar la configuración de autenticación de una máquina virtual. Cree un parámetro para pasarlo en el tipo de autenticación.
+
+    "parameters": {
+      "authenticationType": {
+        "allowedValues": [
+          "password",
+          "sshPublicKey"
+        ],
+        "defaultValue": "password",
+        "metadata": {
+          "description": "Authentication type"
+        },
+        "type": "string"
+      }
     }
 
-## Pasos siguientes
-- [Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
-- [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md)
+Agregue variables para los diferentes tipos de autenticación, y una variable para almacenar qué tipo se usa en esta implementación basándose en el valor del parámetro.
 
-<!---HONumber=AcomDC_0406_2016-->
+    "variables": {
+      "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
+      "osProfilepassword": {
+        "adminPassword": "[parameters('adminPassword')]",
+        "adminUsername": "notused",
+        "computerName": "[parameters('vmName')]",
+        "customData": "[base64(variables('customData'))]"
+      },
+      "osProfilesshPublicKey": {
+        "adminUsername": "notused",
+        "computerName": "[parameters('vmName')]",
+        "customData": "[base64(variables('customData'))]",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": "true",
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "[parameters('sshPublicKey')]",
+                "path": "/home/notused/.ssh/authorized_keys"
+              }
+            ]
+          }
+        }
+      }
+    }
+
+Al definir la máquina virtual, establece **osProfile** a la variable que creó.
+
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      ...
+      "osProfile": "[variables('osProfile')]"
+    }
+
+
+## Pasos siguientes
+- Para obtener información sobre las secciones de la plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
+- Para ver las funciones que están disponibles en una plantilla, consulte [Funciones de plantillas de Azure Resource Manager](resource-group-template-functions.md).
+
+<!---HONumber=AcomDC_0413_2016-->

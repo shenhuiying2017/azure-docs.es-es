@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Escalación del recuento de instancias de forma manual o automática" 
-	description="Aprenda a escalar los servicios de Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="Escalación del recuento de instancias de forma manual o automática"
+	description="Aprenda a escalar los servicios de Azure."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Escalación del recuento de instancias de forma manual o automática
@@ -28,14 +28,16 @@ Puede reducir horizontalmente en el portal, y también puede utilizar la [API de
 
 1. En el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar** y, a continuación, navegue hasta el recurso que desea escalar, como un **plan de Servicio de aplicaciones**.
 
-2. El icono **Escalar** en **Operaciones** le indicará el estado del escalado: **Desactivado** cuando esté escalando manualmente y **Activado** cuando esté escalando mediante una o varias de las métricas de rendimiento. ![Icono de escalación](./media/insights-how-to-scale/Insights_UsageLens.png)
+2. El icono **Escalar** en **Operaciones** le indicará el estado del escalado: **Desactivado** cuando esté escalando manualmente y **Activado** cuando esté escalando mediante una o varias de las métricas de rendimiento.
+![Icono de escalación](./media/insights-how-to-scale/Insights_UsageLens.png)
 
-3. Al hacer clic en el icono aparecerá la hoja **Escalar**. En la parte superior de la hoja Escalar puede ver un historial de las acciones de escalado automático del servicio. ![Hoja Escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-    
->[AZURE.NOTE]Solo aparecerán en este gráfico las acciones que se lleven a cabo mediante el escalado automático. Si ajusta manualmente el recuento de instancias, el cambio no se reflejará en este gráfico.
+3. Al hacer clic en el icono aparecerá la hoja **Escalar**. En la parte superior de la hoja Escalar puede ver un historial de las acciones de escalado automático del servicio.
+![Hoja Escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
+
+>[AZURE.NOTE] Solo aparecerán en este gráfico las acciones que se lleven a cabo mediante el escalado automático. Si ajusta manualmente el recuento de instancias, el cambio no se reflejará en este gráfico.
 
 4. Puede ajustar manualmente el número de **Instancias** con el control deslizante.
-5. Haga clic en el comando **Guardar** y se le escalará a ese número de instancias casi de inmediato. 
+5. Haga clic en el comando **Guardar** y se le escalará a ese número de instancias casi de inmediato.
 
 ## Escalado según una métrica preestablecida
 
@@ -44,7 +46,7 @@ Si desea que el número de instancias se ajuste automáticamente en función de 
 1. Cuando seleccione una métrica aparecerá un control deslizante o cuadros de texto para que especifique el número de instancias entre el que desea escalar:
 
     ![Hoja Escala con Porcentaje de la CPU](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png)
-    
+
     El escalado automático nunca llevará a su servicio por debajo o por encima de los límites que establezca, independientemente de la carga.
 
 2. En segundo lugar, se elige el intervalo de destino para la métrica. Por ejemplo, si elige **Porcentaje de CPU**, puede establecer un objetivo para el promedio de CPU entre todas las instancias del servicio. Se producirá un escalado horizontal cuando el promedio de CPU supere el valor máximo definido; del mismo modo, se producirá una reducción horizontal cuando el promedio de CPU caiga por debajo del mínimo.
@@ -61,13 +63,14 @@ Puede escalar en función de métricas diferentes de los valores preestablecidos
 
 2. Si anteriormente tenía el escalado automático, obtendrá una vista de las reglas exactas que tenía.
 
-3. Para escalar según otra métrica , haga clic en la fila **Agregar regla**. También puede hacer clic en una de las filas existentes para cambiar de la métrica que tenía anteriormente a la métrica por la que desea escalar. ![Agregar regla](./media/insights-how-to-scale/Insights_AddRule.png)
+3. Para escalar según otra métrica , haga clic en la fila **Agregar regla**. También puede hacer clic en una de las filas existentes para cambiar de la métrica que tenía anteriormente a la métrica por la que desea escalar.
+![Agregar regla](./media/insights-how-to-scale/Insights_AddRule.png)
 
 4. Ahora debe seleccionar por qué métrica desea escalar. Al elegir una métrica hay un par de cosas que debe tener en cuenta:
     * El *recurso* del que proviene la métrica. Normalmente, este será el mismo que el recurso que está escalando. Sin embargo, si desea escalar por la longitud de una cola de Almacenamiento, el recurso es la cola por la que desea escalar.
-    * El propio *nombre de la métrica*. 
+    * El propio *nombre de la métrica*.
     * La *agregación de tiempo* de la métrica. Se trata de cómo se combinan los datos sobre la *duración*.
-    
+
 5. Después de elegir la métrica, se debe elegir el umbral para dicha métrica y el operador. Por ejemplo, podría decir **Mayor que** **80 %**.
 
 6. A continuación, elija la acción que desee realizar. Hay un par de diferentes tipos de acciones:
@@ -76,7 +79,7 @@ Puede escalar en función de métricas diferentes de los valores preestablecidos
     * Aumentar o disminuir a : establecerá el recuento de instancias en el **valor** que defina.
 
 7. Por último, puede elegir espera: el tiempo que tiene que esperar esta regla tras una acción de escalado anterior para volver a escalar.
-    
+
 8. Después de configurar la regla, haga clic en **Aceptar**.
 
 9. Una vez que haya configurado todas las reglas que desea, asegúrese de hacer clic en el comando **Guardar**.
@@ -105,11 +108,13 @@ Sin embargo, es posible que desee una escalación más agresiva en el día, o en
 
 2. Por ejemplo, para tener un perfil que se aplique durante la semana, en el desplegable **Días**, desactive **Sábado** y **Domingo**.
 
-3. Para tener un perfil que se aplique durante el día, establezca la **Hora de inicio** en la hora del día en que desee que comience. ![Periodicidad predeterminada](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
+3. Para tener un perfil que se aplique durante el día, establezca la **Hora de inicio** en la hora del día en que desee que comience.
+![Periodicidad predeterminada](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
 
 4. Haga clic en **Aceptar**.
 
-5. A continuación, deberá agregar el perfil que desee aplicar a otras horas. Haga clic en la fila **Agregar perfil**. ![No laborable](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+5. A continuación, deberá agregar el perfil que desee aplicar a otras horas. Haga clic en la fila **Agregar perfil**.
+![No laborable](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 
 6. Ponga un nombre a su nuevo segundo perfil; por ejemplo, podría llamarlo **No laborable**.
 
@@ -117,11 +122,12 @@ Sin embargo, es posible que desee una escalación más agresiva en el día, o en
 
 8. Al igual que con el perfil predeterminado, elija los **Días** que desee aplicar a este perfil y la **Hora de inicio** durante el día.
 
->[AZURE.NOTE]El escalado automático utilizará las reglas del horario de verano sin importar la **Zona horaria** que seleccione. Sin embargo, durante el horario de verano, la diferencia UTC mostrará la diferencia de la zona horaria básica, no la diferencia UTC del horario de verano.
+>[AZURE.NOTE] El escalado automático utilizará las reglas del horario de verano sin importar la **Zona horaria** que seleccione. Sin embargo, durante el horario de verano, la diferencia UTC mostrará la diferencia de la zona horaria básica, no la diferencia UTC del horario de verano.
 
 9. Haga clic en **Aceptar**.
 
-10. Ahora, necesitará agregar las reglas que desee aplicar cuando esté en vigor el segundo perfil. Haga clic en **Agregar regla**, y, a continuación, puede crear la misma regla que tenga para el perfil predeterminado. ![Agregar una regla para el horario no laborable](./media/insights-how-to-scale/Insights_RuleOffWork.png)
+10. Ahora, necesitará agregar las reglas que desee aplicar cuando esté en vigor el segundo perfil. Haga clic en **Agregar regla**, y, a continuación, puede crear la misma regla que tenga para el perfil predeterminado.
+![Agregar una regla para el horario no laborable](./media/insights-how-to-scale/Insights_RuleOffWork.png)
 
 11. Asegúrese de crear una regla tanto para el escalado horizontal como para la reducción horizontal; si no, cuando el perfil esté en vigor, el recuento de instancias únicamente crecerá (o disminuirá).
 
@@ -134,7 +140,6 @@ Sin embargo, es posible que desee una escalación más agresiva en el día, o en
 * [Reciba notificaciones de alerta](insights-receive-alert-notifications.md) cada vez que se produzcan eventos de operaciones o las métricas traspasen un umbral.
 * [Supervise el rendimiento de la aplicación](insights-perf-analytics.md) si desea comprender exactamente cómo está actuando su código en la nube.
 * [Vea eventos y registros de auditoría](insights-debugging-with-events.md) para saber todo lo que ha sucedido en el servicio.
-* [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
- 
+* [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

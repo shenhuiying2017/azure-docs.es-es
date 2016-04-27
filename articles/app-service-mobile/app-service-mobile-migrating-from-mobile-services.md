@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/11/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migración del servicio móvil de Azure existente al Servicio de aplicaciones de Azure
@@ -344,6 +344,14 @@ Para ver los registros:
 
 Los registros se transmitirán a la ventana proporcionada cuando se generen. También puede descargar los registros para analizarlos posteriormente mediante sus credenciales de implementación. Consulte la documentación de [Registro] para más información.
 
+## <a name="known-issues"></a>Problemas conocidos
+
+### La eliminación de un clon de aplicaciones móviles migradas provocará una interrupción del sitio
+
+Si clona el servicio móvil migrado con Azure PowerShell y después elimina el clon, se quitará la entrada DNS del servicio de producción. Como consecuencia de ello, el sitio dejará de estar accesible desde Internet.
+
+Resolución: se está trabajando para corregir este problema. Si quiere clonar su sitio, hágalo a través del portal.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, hay incluso más características que puede aprovechar:
@@ -366,17 +374,17 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Precios de Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
+[Precios de Servicio de aplicaciones]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Escalado automático]: ../app-service-web/web-sites-scale.md
 [Servicio de aplicaciones de Azure]: ../app-service/app-service-value-prop-what-is.md
 [documentación de implementación del Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-deploy.md
 [Portal de Azure clásico]: https://manage.windowsazure.com
 [Portal de Azure]: https://portal.azure.com
-[región de Azure]: https://azure.microsoft.com/es-ES/regions/
+[región de Azure]: https://azure.microsoft.com/regions/
 [planes del Programador de Azure]: ../scheduler/scheduler-plans-billing.md
 [implementar su sitio de forma continuada]: ../app-service-web/web-sites-publish-source-control.md
-[convertir los espacios de nombres mixtos]: https://azure.microsoft.com/es-ES/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[convertir los espacios de nombres mixtos]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nombres de dominio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -393,4 +401,4 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [red virtual]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

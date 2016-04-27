@@ -3,8 +3,8 @@
 	description="En este tema, se explican las consideraciones de seguridad para administrar escenarios de Replicación geográfica activa o estándar para Base de datos SQL."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/22/2015"
-	ms.author="jroth" />
+	ms.date="02/01/2016"
+	ms.author="carlrab" />
 
 # Configuración de seguridad para Replicación geográfica activa o estándar
 
@@ -27,7 +27,7 @@ Con la [versión V12 de Base de datos SQL de Azure](sql-database-v12-whats-new.m
 
 Con los usuarios independientes, si tiene varias bases de datos que usan el mismo inicio de sesión, debe administrar ese usuario por separado para cada base de datos (por ejemplo, para un cambio de contraseña), en lugar de administrar el inicio de sesión en el servidor.
 
->[AZURE.NOTE]Si desea cambiar el acceso de lectura de la base de datos principal y la secundaria por separado, debe usar usuarios e inicios de sesión tradicionales. No se pueden administrar los usuarios independientes en la base de datos secundaria con independencia de la principal.
+>[AZURE.NOTE] Si desea cambiar el acceso de lectura de la base de datos principal y la secundaria por separado, debe usar usuarios e inicios de sesión tradicionales. No se pueden administrar los usuarios independientes en la base de datos secundaria con independencia de la principal.
 
 ## Uso de usuarios e inicios de sesión tradicionales
 Si usa usuarios e inicios de sesión tradicionales (en lugar de usuarios independientes), debe realizar pasos adicionales para asegurarse de que existan los mismos inicios de sesión en el servidor de la base de datos secundaria. En las secciones siguientes, se describen los pasos necesarios y otras consideraciones.
@@ -67,7 +67,7 @@ La consulta siguiente se puede usar para ver todas las entidades de seguridad de
 	FROM [sys].[database_principals]
 	WHERE [type_desc] = 'SQL_USER'
 
->[AZURE.NOTE]Los usuarios de **sys** e **INFORMATION\_SCHEMA** tienen SID *NULL*, mientras que el SID de **guest** es **0x00**. El SID de **dbo** puede empezar por *0x01060000000001648000000000048454* si el creador de la base de datos era el administrador del servidor en lugar de un miembro de **DbManager**.
+>[AZURE.NOTE] Los usuarios de **sys** e **INFORMATION\_SCHEMA** tienen SID *NULL*, mientras que el SID de **guest** es **0x00**. El SID de **dbo** puede empezar por *0x01060000000001648000000000048454* si el creador de la base de datos era el administrador del servidor en lugar de un miembro de **DbManager**.
 
 #### 3\. Generar los inicios de sesión en el servidor de destino:
 El último paso consiste en ir al servidor o los servidores de destino y generar los inicios de sesión con los SID correspondientes. Esta es la sintaxis básica.
@@ -76,7 +76,7 @@ El último paso consiste en ir al servidor o los servidores de destino y generar
 	WITH PASSWORD = <login password>,
 	SID = <desired login SID>
 
->[AZURE.NOTE]Si desea conceder acceso de usuario a la base de datos secundaria, pero no a la principal, puede hacerlo modificando el inicio de sesión de usuario en el servidor principal con la sintaxis siguiente.
+>[AZURE.NOTE] Si desea conceder acceso de usuario a la base de datos secundaria, pero no a la principal, puede hacerlo modificando el inicio de sesión de usuario en el servidor principal con la sintaxis siguiente.
 >
 >ALTER LOGIN <login name> DISABLE
 >
@@ -98,4 +98,4 @@ Para obtener más información sobre los pasos necesarios después de la conmuta
 ## Pasos siguientes
 Para obtener más información sobre la replicación geográfica y otras características de continuidad empresarial de Base de datos SQL, consulte [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0413_2016-->

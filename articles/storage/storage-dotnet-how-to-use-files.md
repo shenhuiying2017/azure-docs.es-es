@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-	  ms.date="04/07/2016"
+	  ms.date="04/11/2016"
       ms.author="minet" />
 
 # Introducción a Almacenamiento de archivos de Azure en Windows
@@ -214,7 +214,7 @@ Para mostrar cómo montar un recurso compartido de archivos de Azure, ahora crea
 
 
 1. En primer lugar, cree una nueva máquina virtual de Azure siguiendo las instrucciones que encontrará en [Creación de una máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Después, acceda de forma remota a la máquina virtual siguiendo las instrucciones en [Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines/virtual-machines-windows-log-on.md).
+2. Después, acceda de forma remota a la máquina virtual siguiendo las instrucciones que se indican en [Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines/virtual-machines-windows-connect-logon.md).
 3. Abra una ventana de PowerShell en la máquina virtual.
 
 ### Persistencia de las credenciales de la cuenta de almacenamiento para la máquina virtual
@@ -642,4 +642,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

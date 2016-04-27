@@ -45,7 +45,7 @@ El instalador crea una tarea programada en el sistema que se ejecuta en el conte
 Puede elegir anular el registro de sus dispositivos Windows 7 unidos a un dominio haciendo lo siguiente: desinstale el paquete de software de Unión al área de trabajo de sus dispositivos Windows 7 unidos a un dominio con un sistema de distribución de software como System Center Configuration Manager.
 
 A continuación, abra un símbolo del sistema en el equipo con Windows 7 y ejecute el siguiente comando para anular el registro del dispositivo:
-    
+
     %ProgramFiles%\Microsoft Workplace Join\AutoWorkplace.exe /leave
 
 >[AZURE.NOTE]
@@ -57,9 +57,7 @@ El registro de eventos de Windows en el equipo con Windows 7 mostrará mensajes 
 
 - [Información general sobre el Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 - [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)
-- [Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows 10 unidos a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
- 
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

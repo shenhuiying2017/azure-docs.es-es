@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Equilibrio de carga para servicios de infraestructura | Microsoft Azure"
-	description="Describe los dos tipos diferentes de equilibrio de carga compatibles con Azure: El Equilibrador de carga para servicios en la nube y el Administrador de tráfico de Azure para el tráfico del cliente."
+	description="Describe los dos tipos diferentes de equilibrio de carga compatibles con Azure: el Equilibrador de carga para servicios en la nube y el Administrador de tráfico de Microsoft Azure para el tráfico del cliente."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="joaoma"
@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-load-balance](../../includes/virtual-machines-common-load-balance.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

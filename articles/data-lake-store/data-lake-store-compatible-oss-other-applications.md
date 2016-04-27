@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Aplicaciones Big Data compatibles con el Almacén de Data Lake | Azure" 
-   description="Lista de aplicaciones de código abierto que funcionan con el Almacén de Azure Data Lake" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Aplicaciones Big Data compatibles con el Almacén de Data Lake | Azure"
+   description="Lista de aplicaciones de código abierto que funcionan con el Almacén de Azure Data Lake"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Abrir aplicaciones Big Data de origen que funcionan con el Almacén de Azure Data Lake
 
-En este artículo se enumeran las aplicaciones Big Data de código abierto que funcionan con el Almacén de Azure Data Lake Para las aplicaciones de la tabla siguiente, solo se admiten las versiones disponibles con la distribución indicada. Para obtener información sobre qué versiones de estas aplicaciones están disponibles con HDInsight, consulte [Versiones de componentes de HDInsight](/hdinsight/hdinsight-component-versioning.md).
+En este artículo se enumeran las aplicaciones Big Data de código abierto que funcionan con el Almacén de Azure Data Lake Para las aplicaciones de la tabla siguiente, solo se admiten las versiones disponibles con la distribución indicada. Para obtener información sobre qué versiones de estas aplicaciones están disponibles con HDInsight, consulte [Versiones de componentes de HDInsight](../hdinsight/hdinsight-component-versioning.md).
 
 
 | Software de código abierto | Distribución |
@@ -39,6 +39,5 @@ En este artículo se enumeran las aplicaciones Big Data de código abierto que f
 ## Consulte también
 
 - [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties pageTitle="Ejecución de Cassandra con Linux en Azure | Microsoft Azure" description="Ejecución de un clúster de Cassandra en Linux en Máquinas virtuales de Azure desde una aplicación Node.js app" services="virtual-machines-linux" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor="" azure-service-management"/>
+<properties pageTitle="Ejecución de Cassandra con Linux en Azure | Microsoft Azure" description="Ejecución de un clúster de Cassandra en Linux en Máquinas virtuales de Azure desde una aplicación Node.js app" services="virtual-machines-linux" documentationCenter="nodejs" authors="hanuk" manager="wpickett" editor="" azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -6,8 +6,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
-	ms.author="robmcm"/>
+	ms.date="04/12/2016" 
+	ms.author="hanuk;robmcm"/>
 
 # Ejecución de Cassandra con Linux en Azure y acceso desde Node.js 
 
@@ -457,7 +457,7 @@ Tenga en cuenta que el espacio de claves que creó en el paso 4 utiliza SimpleSt
 Aprovechará la implementación de región única completada y repetirá el mismo proceso para la instalación de la segunda región. La diferencia clave entre la implementación de región única o múltiple es la configuración de túnel VPN para la comunicación entre regiones; empezaremos con la instalación de red, aprovisionamiento de las máquinas virtuales y configuración de Cassandra.
 
 ###Paso 1: Creación de la red virtual en la segunda región
-Inicie sesión en el Portal de Azure clásico y cree una red virtual con los atributos que se muestran en la tabla. Consulte [Configurar una red virtual solo en la nube en el Portal de Azure clásico](../virtual-network/virtual-networks-create-vnet.md) para obtener pasos detallados del proceso.
+Inicie sesión en el Portal de Azure clásico y cree una red virtual con los atributos que se muestran en la tabla. Consulte [Configurar una red virtual solo en la nube en el Portal de Azure clásico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para obtener pasos detallados del proceso.
 
 <table>
 <tr><th>Nombre del atributo    </th><th>Valor	</th><th>Comentarios</th></tr>
@@ -486,8 +486,8 @@ Cree dos redes locales con los siguientes detalles:
 
 | Nombre de red | Dirección de puerta de enlace VPN | Espacio de direcciones | Comentarios |
 | ------------ | ------------------- | ------------- | ------- |
-| hk-lnet-map-to-east-us | 23\.1.1.1 | 10\.2.0.0/16 | Al crear la red local, proporcione una dirección de puerta de enlace de marcador de posición. La dirección de puerta de enlace real se completará una vez creada la puerta de enlace. Asegúrese de que el espacio de direcciones coincide exactamente con la red virtual remota correspondiente; en este caso, la red virtual se ha creado en la región Este de EE. UU. |
-| hk-lnet-map-to-west-us | 23\.2.2.2 | 10\.1.0.0/16 | Al crear la red local, proporcione una dirección de puerta de enlace de marcador de posición. La dirección de puerta de enlace real se completará una vez creada la puerta de enlace. Asegúrese de que el espacio de direcciones coincide exactamente con la red virtual remota correspondiente; en este caso, la red virtual se ha creado en la región Oeste de EE. UU. |
+| hk-lnet-map-to-east-us | 23\.1.1.1 | 10\.2.0.0/16 | Al crear la red local, proporcione una dirección de puerta de enlace de marcador de posición. La dirección de puerta de enlace real se completará una vez creada la puerta de enlace. Asegúrese de que el espacio de direcciones coincide exactamente con la red virtual remota correspondiente; en este caso, la red virtual se ha creado en la región Este de EE. UU. |
+| hk-lnet-map-to-west-us | 23\.2.2.2 | 10\.1.0.0/16 | Al crear la red local, proporcione una dirección de puerta de enlace de marcador de posición. La dirección de puerta de enlace real se completará una vez creada la puerta de enlace. Asegúrese de que el espacio de direcciones coincide exactamente con la red virtual remota correspondiente; en este caso, la red virtual se ha creado en la región Oeste de EE. UU. |
 
 
 ###Paso 3: Asignación de red "Local" a las redes virtuales respectivas
@@ -697,4 +697,4 @@ Microsoft Azure es una plataforma flexible que permite la ejecución de Microsof
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

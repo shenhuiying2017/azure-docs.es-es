@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/15/2016"
+   ms.date="04/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: historial de versiones
@@ -27,6 +27,14 @@ Vínculos relacionados:
 - Diferentes métodos para [actualizar de una versión anterior a la última](active-directory-aadconnect-upgrade-previous-version.md) versión de Azure AD Connect.
 - Para obtener información sobre los permisos necesarios para aplicar una actualización, vea [cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.130.0
+Fecha de publicación: abril de 2016
+
+**Nuevas características:**
+
+- Se ha añadido compatibilidad con atributos multivalor en [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md).
+- Se ha añadido compatibilidad con más variaciones de configuración para que la [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) se considere apta para la actualización.
 
 ## 1\.1.119.0
 Publicación: marzo de 2016
@@ -43,22 +51,22 @@ Fecha de publicación: febrero de 2016
 **Problemas corregidos:**
 
 - La actualización desde versiones anteriores no funciona si la instalación no está en la carpeta predeterminada **C:\\Archivos de programa**.
-- Si instala y anula la selección de **Iniciar el proceso de sincronización..** al final del asistente para la instalación, el Programador no se habilitará al volver a ejecutar el asistente para la instalación.
+- Si efectúa la instalación y anula la selección de **Start the synchronization process** (Iniciar el proceso de sincronización) al final del Asistente para instalación, el programador no se habilitará al volver a ejecutar dicho Asistente.
 - El programador no funcionará según lo previsto en los servidores en los que el formato de fecha y hora no sea US-en. Además, impedirá que `Get-ADSyncScheduler` devuelva las horas correctas.
-- Si ha instalado una versión anterior de Azure AD Connect con AD FS como opción de inicio de sesión y actualización, no puede volver a ejecutar el asistente para la instalación.
+- Si ha instalado una versión anterior de Azure AD Connect con AD FS como opción de inicio de sesión y actualización, no puede volver a ejecutar el asistente para la instalación.
 
 ## 1\.1.105.0
 Fecha de publicación: febrero de 2016
 
 **Nuevas características:**
 
-- Característica [Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) para los clientes de configuración rápida.
+- Característica de [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) para los clientes de configuración rápida.
 - Soporte para el administrador global que utiliza MFA y PIM en el Asistente para instalación.
     - Debe hacer que el proxy también permita el tráfico a https://secure.aadcdn.microsoftonline-p.com si usa MFA.
     - Debe agregar https://secure.aadcdn.microsoftonline-p.com a la lista de sitios de confianza para que MFA funcione correctamente.
 - Permite cambiar el método de inicio de sesión del usuario después de la instalación inicial.
-- Permite el [filtrado por dominio y unidad organizativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) en el asistente para la instalación. Esto también permite conectar con bosques donde no todos los dominios están disponibles.
-- El [Programador](active-directory-aadconnectsync-feature-scheduler.md) está integrado en el motor de sincronización.
+- Permite el [filtrado por dominio y unidad organizativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) en el Asistente para instalación. Esto también permite conectar con bosques donde no todos los dominios están disponibles.
+- El [programador](active-directory-aadconnectsync-feature-scheduler.md) está integrado en el motor de sincronización.
 
 **Características promocionadas desde la vista previa a GA:**
 
@@ -67,7 +75,7 @@ Fecha de publicación: febrero de 2016
 
 **Nuevas características de la versión preliminar:**
 
-- El nuevo intervalo de ciclo de sincronización predeterminado es de 30 minutos. Solía ser 3 horas en todas las versiones anteriores. Permite agregar compatibilidad para cambiar el comportamiento del [Programador](active-directory-aadconnectsync-feature-scheduler.md).
+- El nuevo intervalo de ciclo de sincronización predeterminado es de 30 minutos. Solía ser 3 horas en todas las versiones anteriores. Agrega compatibilidad para cambiar el comportamiento del [programador](active-directory-aadconnectsync-feature-scheduler.md).
 
 **Problemas corregidos:**
 
@@ -257,4 +265,4 @@ Fecha de publicación: septiembre de 2014
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

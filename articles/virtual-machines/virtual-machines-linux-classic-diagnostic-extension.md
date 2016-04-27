@@ -49,7 +49,7 @@ Este artículo se centra en habilitar y configurar la extensión mediante comand
 
 ## Requisitos previos
 - Agente Linux de Microsoft Azure versión 2.0.6 o posterior. Tenga en cuenta que la mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.0.6 o posterior. Puede ejecutar **WAAgent -version** para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior a 2.0.6, puede seguir estas [instrucciones](https://github.com/Azure/WALinuxAgent "instrucciones") para actualizarla.
-- [CLI de Azure](./xplat-cli-install.md). Siga [esta guía](./xplat-cli-install.md) para configurar el entorno de la CLI de Azure en su máquina. Cuando se haya instalado la CLI de Azure, puede usar el comando **azure** desde su interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema) para obtener acceso a los comandos de la CLI de Azure. Por ejemplo, ejecute **azure vm extension set --help** para un uso detallado, ejecute **azure login** para iniciar sesión en Azure, ejecute **azure vm list** para enumerar todas las máquinas virtuales que tiene en Azure.
+- [CLI de Azure](../xplat-cli-install.md). Siga [esta guía](../xplat-cli-install.md) para configurar el entorno de la CLI de Azure en su máquina. Cuando se haya instalado la CLI de Azure, puede usar el comando **azure** desde su interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema) para obtener acceso a los comandos de la CLI de Azure. Por ejemplo, ejecute **azure vm extension set --help** para un uso detallado, ejecute **azure login** para iniciar sesión en Azure, ejecute **azure vm list** para enumerar todas las máquinas virtuales que tiene en Azure.
 - Una cuenta de almacenamiento para almacenar los datos. Necesitará un nombre de la cuenta de almacenamiento creada previamente y una clave de acceso para cargar los datos en el almacenamiento.
 
 
@@ -68,7 +68,7 @@ Paso 1. Cree un archivo llamado PrivateConfig.json con el siguiente contenido.
      	"storageAccountKey":"the key of the account"
 	}
 
-Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
 
 ###   Escenario 2. Personalización de la métrica del monitor de rendimiento  
@@ -90,7 +90,7 @@ De forma predeterminada, siempre se recopilan los datos de Rsyslog.
 	}
 
 
-Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
 
 ###   Escenario 3. Carga de sus propios archivos de registro
@@ -109,7 +109,7 @@ Paso 1. Cree un archivo llamado PrivateConfig.json con el siguiente contenido.
 	}
 
 
-Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
 
 ###   Escenario 4. Deshabilitación de la extensión de diagnóstico de Linux
@@ -123,11 +123,11 @@ Paso 1. Cree un archivo llamado PrivateConfig.json con el siguiente contenido.
 	}
 
 
-Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
 
 ## Revisión de los datos
-Los datos de diagnóstico y rendimiento y se almacenan en una tabla de almacenamiento de Azure. Revise [este artículo](storage-ruby-how-to-use-table-storage.md) para información sobre cómo obtener acceso a los datos de la tabla de almacenamiento mediante scripts de la CLI de Azure.
+Los datos de diagnóstico y rendimiento y se almacenan en una tabla de almacenamiento de Azure. Revise [este artículo](../storage/storage-ruby-how-to-use-table-storage.md) para información sobre cómo obtener acceso a los datos de la tabla de almacenamiento mediante scripts de la CLI de Azure.
 
 Además, puede utilizar las siguientes herramientas de la interfaz de usuario para tener acceso a los datos:
 
@@ -143,4 +143,4 @@ Si ha habilitado el archivo fileCfg o perfCfg especificado en los escenarios 2 y
 ## Problemas conocidos
 - En la versión 2.0, solo puede tener acceso a la información de Rsyslog y el archivo de registro del cliente especificado a través de scripts.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

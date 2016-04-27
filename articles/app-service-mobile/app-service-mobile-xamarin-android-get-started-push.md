@@ -22,7 +22,7 @@
 
 ##Información general
 
-En este tutorial, agregará notificaciones push al proyecto de [inicio rápido de Xamarin.Android] para que cada vez que se inserte un registro, se envíe una notificación push. Este tutorial se basa en el tutorial de [inicio rápido de Xamarin.Android], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de notificaciones push al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+En este tutorial, agregará notificaciones push al proyecto de [Creación de una aplicación Xamarin.Android] para que cada vez que se inserte un registro, se envíe una notificación push. Este artículo se basa en el tutorial [Creación de una aplicación Xamarin.Android], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de notificaciones push al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Requisitos previos
 
@@ -32,10 +32,7 @@ Este tutorial requiere lo siguiente:
 
 + [Componente cliente Servicio de mensajería en la nube de Google](http://components.xamarin.com/view/GCMClient/) Agregará este componente durante este tutorial.
 
-+ Tutorial de [inicio rápido de Xamarin.Android] completado.
-
-
-##<a name="create-hub"></a>Crear un Centro de notificaciones
+##<a name="create-hub"></a>Creación de un centro de notificaciones
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
@@ -77,10 +74,9 @@ Puede probar la aplicación con un dispositivo virtual en el emulador. Hay pasos
 
 
 <!-- URLs. -->
-[inicio rápido de Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
-
+[Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
+[Creación de una aplicación Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

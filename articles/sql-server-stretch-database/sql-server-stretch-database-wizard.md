@@ -44,9 +44,29 @@ Seleccione las tablas que desee habilitar para Stretch.
 |**Name**|Especifica el nombre de la columna en la tabla.|
 |(sin título)|Un símbolo en esta columna indica normalmente que no puede habilitar la tabla seleccionada para Stretch debido a un problema de bloqueo. Esto puede deberse a que la tabla usa un tipo de datos no compatible. Mantenga el mouse sobre el símbolo para mostrar más información en una información sobre herramientas. Para más información, vea [Limitaciones de área expuesta y problemas de bloqueo de Stretch Database](sql-server-stretch-database-limitations.md).|
 |**Extendida**|Indica si la tabla ya está habilitada.|
+|**Migrar**|En RC3, puede migrar una tabla entera (**Toda la tabla**) o puede especificar un predicado de filtro basado en la fecha en el asistente. Si desea usar un predicado de filtro diferente para seleccionar las filas que se van a migrar, ejecute la instrucción ALTER TABLE para especificar el predicado de filtro después de salir del asistente. Para más información sobre el predicado de filtro, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md). Para más información sobre cómo aplicar el predicado, consulte [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**Filas**|Especifica el número de filas de la tabla.|
 |**Tamaño (KB)**|Especifica el tamaño de la tabla en KB.|
-|**Migrar**|En CTP 3.1 a través de RC2, solo puede migrar una tabla completa mediante el asistente. Si desea especificar un predicado para seleccionar las filas que migrar desde una tabla que contenga los datos históricos y actuales, ejecute la instrucción ALTER TABLE para especificar un predicado después de salir del asistente. Para más información, vea [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+
+## <a name="Filter"></a>Opcionalmente, proporcionar un predicado de filtro basado en la fecha
+
+Si desea proporcionar un predicado de filtro basado en la fecha para seleccionar las filas que se van a migrar, haga lo siguiente en la página **Seleccionar tablas**.
+
+1.  En la lista **Seleccione las tablas que desea expandir**, haga clic **Toda la tabla** en la fila de la tabla. Se abre el cuadro de diálogo **Seleccionar las filas para expandir**.
+
+    ![Definición de un predicado de filtro basado en la fecha][StretchWizardImage2a]
+
+2.  En el cuadro de diálogo **Seleccionar las filas para expandir**, seleccione **Elegir filas**.
+
+3.  En el campo **Nombre**, proporcione un nombre para el predicado de filtro.
+
+4.  En la cláusula **Where**, elija una columna de fecha de la tabla, seleccione un operador y proporcione un valor de fecha.
+
+5. Haga clic en **Comprobar** para probar el predicado. Si el predicado devuelve resultados de la tabla, es decir, si hay filas para migrar que satisfacen la condición, la prueba indica **Correcto**.
+
+6.  Haga clic en Hecho para volver a la página **Seleccionar tablas**.
+
+    ![Selección de la página Tablas después de definir un predicado de filtro][StretchWizardImage2b]
 
 ## <a name="Configure"></a>Configuración de la implementación de Azure
 
@@ -58,11 +78,11 @@ Seleccione las tablas que desee habilitar para Stretch.
 
 3.  Seleccione una región de Azure. Si crea un nuevo servidor, el servidor se crea en esta región.
 
-    Para minimizar la latencia, seleccione la región de Azure en la que se encuentra SQL Server. Para más información acerca de las regiones, vea [Regiones de Azure](https://azure.microsoft.com/regions/).
+    Para minimizar la latencia, seleccione la región de Azure en la que se encuentra SQL Server. Para más información sobre las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
 
 4.  Especifique si desea usar un servidor existente o crear un nuevo servidor de Azure.
 
-    Si Active Directory en SQL Server está federado con Azure Active Directory, también puede usar una cuenta de servicio federado para SQL Server para comunicarse con el servidor remoto de Azure. Para más información sobre los requisitos para esta opción, vea [ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx).
+    Si Active Directory en SQL Server está federado con Azure Active Directory, también puede usar una cuenta de servicio federado para SQL Server para comunicarse con el servidor remoto de Azure. Para más información sobre los requisitos para esta opción, consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx).
 
 	-   **Creación de un servidor nuevo**
 
@@ -78,7 +98,7 @@ Seleccione las tablas que desee habilitar para Stretch.
 
         2.  Seleccione el método de autenticación
 
-            -   Si selecciona **Autenticación de SQL Server**, cree un nuevo inicio de sesión y contraseña.
+            -   Si selecciona **Autenticación de SQL Server**, cree un inicio de sesión y una contraseña nuevos.
 
             -   Seleccione **Autenticación integrada de Active Directory** para usar una cuenta de servicio federado para que SQL Server se comunique con el servidor remoto de Azure.
 
@@ -91,7 +111,7 @@ Debe tener una clave maestra de base de datos para proteger las credenciales que
 
 ![Página de credenciales seguras del asistente para Stretch Database][StretchWizardImage6]
 
-Para obtener más información sobre la clave maestra de base de datos, vea [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) y [Creación de una clave maestra de base de datos](https://msdn.microsoft.com/library/aa337551.aspx). Para obtener más información sobre la credencial que crea el asistente, consulte [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
+Para más información sobre la clave maestra de base de datos, consulte [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) y [Crear la clave maestra de una base de datos](https://msdn.microsoft.com/library/aa337551.aspx). Para más información sobre la credencial que crea el asistente, consulte [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
 
 ## <a name="Network"></a>Selección de la dirección IP
 Use la dirección IP pública de SQL Server, o escriba un intervalo de direcciones IP, para crear una regla de firewall en Azure que permita a SQL Server comunicarse con el servidor remoto de Azure.
@@ -111,14 +131,14 @@ Consulte los resultados.
 Opcionalmente, seleccione **Monitor** para iniciar el monitor del estado de la migración de datos en Stretch Database Monitor. Para más información, consulte [Supervisión y solución de problemas de migración de datos (Stretch Database)](sql-server-stretch-database-monitor.md).
 
 ## <a name="KnownIssues"></a>Solución de problemas del asistente
-**Error en el asistente de Stretch Database** Si Stretch Database aún no se ha habilitado aún en el nivel de servidor y ejecuta el asistente sin los permisos del administrador del sistema para habilitarlo, se produce un error en el asistente. Solicite al administrador del sistema que habilite Stretch Database en la instancia del servidor local y, a continuación, ejecute de nuevo el asistente. Para obtener más información, consulte [Requisito previo: Permiso para habilitar Stretch Database en el servidor](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
+**Error en el asistente de Stretch Database** Si Stretch Database aún no se ha habilitado aún en el nivel de servidor y ejecuta el asistente sin los permisos del administrador del sistema para habilitarlo, se produce un error en el asistente. Solicite al administrador del sistema que habilite Stretch Database en la instancia del servidor local y, a continuación, ejecute de nuevo el asistente. Para más información, consulte [Requisito previo: Permiso para habilitar Stretch Database en el servidor](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
 
 ## Pasos siguientes
 Habilitación tablas adicionales para Stretch Database Supervisión de la migración de datos y administración de tablas y bases de datos habilitadas para Stretch
 
--   [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) para habilitar las tablas adicionales
+-   [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) para habilitar tablas adicionales
 
--   [Supervisión de Stretch Database](sql-server-stretch-database-monitor.md) para ver el estado de la migración de datos
+-   [Supervisión y solución de problemas de migración de datos (Stretch Database)](sql-server-stretch-database-monitor.md) para ver el estado de la migración de datos
 
 -   [Pausa y reanudación Stretch Database](sql-server-stretch-database-pause.md)
 
@@ -134,6 +154,8 @@ Habilitación tablas adicionales para Stretch Database Supervisión de la migrac
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
+[StretchWizardImage2a]: ./media/sql-server-stretch-database-wizard/stretchwiz2a.png
+[StretchWizardImage2b]: ./media/sql-server-stretch-database-wizard/stretchwiz2b.png
 [StretchWizardImage3]: ./media/sql-server-stretch-database-wizard/stretchwiz3.png
 [StretchWizardImage4]: ./media/sql-server-stretch-database-wizard/stretchwiz4.png
 [StretchWizardImage5]: ./media/sql-server-stretch-database-wizard/stretchwiz5.png
@@ -141,4 +163,4 @@ Habilitación tablas adicionales para Stretch Database Supervisión de la migrac
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

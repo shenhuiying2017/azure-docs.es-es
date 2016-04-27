@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="awills"/>
  
 # Exploración de métricas en Application Insights
@@ -97,13 +97,14 @@ El método predeterminado para cada métrica se muestra cuando se crea un nuevo 
 ![Cancelar la selección de todas las métricas para ver los valores predeterminados](./media/app-insights-metrics-explorer/06-total.png)
 
 
+
 ## Edición de gráficos y cuadrículas
 
 Para agregar un nuevo gráfico a la hoja:
 
 ![En el Explorador de métricas, elija Agregar gráfico](./media/app-insights-metrics-explorer/04-add.png)
 
-Seleccione un gráfico nuevo o uno existente para editar lo siguiente:
+Seleccione **Editar** en un gráfico nuevo o uno existente para editar lo siguiente:
 
 ![Seleccionar una o más métricas](./media/app-insights-metrics-explorer/08-select.png)
 
@@ -135,21 +136,25 @@ Si no selecciona ningún valor para una propiedad determinada, es lo mismo que s
 
 Observe los recuentos de eventos junto a cada valor de propiedad. Al seleccionar valores de una propiedad, se ajustan los recuentos junto con otros valores de propiedades.
 
+Los filtros se aplican a todos los gráficos de una hoja. Si desea que se apliquen filtros diferentes a gráficos a diferentes, cree y guarde hojas de métricas diferentes. Si lo desea, puede anclar gráficos de distintas hojas al panel; de este modo, podrá verlos en paralelo.
+
+
+### Supresión de bots y de tráfico de prueba web
+
+Utilice el filtro **Tráfico real o sintético** y active+ **Real**.
+
+También puede filtrar por **Origen del tráfico sintético**.
+
 ### Para agregar propiedades a la lista de filtros
 
 ¿Quiere filtrar telemetría en una categoría de su propia elección? Por ejemplo, quizás divida los usuarios en distintas categorías y quiera segmentar los datos por estas categorías.
 
 [Cree su propia propiedad](app-insights-api-custom-events-metrics.md#properties). Establézcala en un [inicializador de telemetría](app-insights-api-custom-events-metrics.md#telemetry-initializers) para que aparezca en toda la telemetría, incluida la telemetría estándar enviada por distintos módulos SDK.
 
-## Supresión de bots y de tráfico de prueba web
-
-Utilice el filtro **Tráfico real o sintético** y active+ **Real**.
-
-También puede filtrar por **Origen del tráfico sintético**.
 
 ## Edición del tipo de gráfico
 
-En concreto, tenga en cuenta que puede cambiar entre cuadrículas y gráficos:
+Observe que puede cambiar entre cuadrículas y gráficos:
 
 ![Seleccionar una cuadrícula o gráfico y elegir un tipo de gráfico](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
@@ -200,6 +205,23 @@ Si desea que los datos se exporten continuamente para procesarlos externamente, 
 
 Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportarlos a Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
+## Análisis
+
+El [análisis](app-insights-analytics.md) es una forma más versátil de analizar los datos de telemetría mediante un eficaz lenguaje de consulta. Utilícelo si desea combinar o calcular resultados a partir de métricas, o realizar una exploración en profundidad del rendimiento reciente de su aplicación. Por otro lado, utilice el Explorador de métricas si desea actualizaciones automáticas, gráficos en el panel y alertas.
+
+## Solución de problemas
+
+*No veo ningún dato en el gráfico*.
+
+* Los filtros se aplican a todos los gráficos de la hoja. Asegúrese de que, al centrarse en un gráfico, no ha establecido un filtro que excluya todos los datos en otro. 
+
+    Si desea establecer filtros diferentes en gráficos diferentes, créelos en hojas diferentes y guárdelos como elementos favoritos independientes. Si lo desea, puede anclarlos al panel para verlos en paralelo.
+
+* Si agrupa un gráfico por una propiedad que no está definida en la métrica, no habrá nada en el gráfico. Intente borrar "Agrupar por" o elija una propiedad de agrupación diferente.
+* Los datos de rendimiento (CPU, velocidad de E/S etc.) están disponibles para servicios web de Java, aplicaciones de escritorio de Windows, [servicios y aplicaciones web IIS si instala el Monitor de estado](app-insights-monitor-performance-live-website-now.md) y [Servicios en la nube de Azure](app-insights-azure.md). No están disponible para los sitios web de Azure.
+
+
+
 ## Pasos siguientes
 
 * [Supervisión del uso con Application Insights](app-insights-overview-usage.md)
@@ -214,4 +236,4 @@ Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportar
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 # Escalado de aplicaciones en un entorno del Servicio de aplicaciones #
@@ -31,13 +31,17 @@ Con respecto a los tamaños de trabajo, el administrador de ASE puede asignar el
 - selección de grupo de trabajo
 - número de instancias
 
-El cambio de cualquier elemento se realiza a través de la IU adecuada mostrada con sus planes del Servicio de aplicaciones hospedados en el ASE. No podrá escalar verticalmente el plan del Servicio de aplicaciones por encima de la cantidad de recursos de proceso disponibles en el grupo de trabajo en el que se encuentra dicho plan. Si necesita recursos de proceso de ese grupo de trabajo, tendrá que obtener el administrador de ASE para agregarlos. Para obtener información sobre la reconfiguración de su ASE, lea esta información: [Configuración de un entorno del Servicio de aplicaciones][HowtoConfigureASE]. Puede que también quiera aprovechar las características de escalado automático de ASE para agregar capacidad en función de una programación o unas métricas. Para obtener más detalles sobre la configuración de escalado automático para el propio entorno de ASE, consulte [Escalado automático y entorno del Servicio de aplicaciones][ASEAutoscale].
+El cambio de cualquier elemento se realiza a través de la IU adecuada mostrada con sus planes del Servicio de aplicaciones hospedados en el ASE.
 
 ![][1]
 
+No podrá escalar verticalmente el plan del Servicio de aplicaciones por encima de la cantidad de recursos de proceso disponibles en el grupo de trabajo en el que se encuentra dicho plan. Si necesita recursos de proceso de ese grupo de trabajo, tendrá que obtener el administrador de ASE para agregarlos. Para obtener información sobre la reconfiguración de su ASE, lea esta información: [Configuración de un entorno del Servicio de aplicaciones][HowtoConfigureASE]. Puede que también quiera aprovechar las características de escalado automático de ASE para agregar capacidad en función de una programación o unas métricas. Para obtener más detalles sobre la configuración de escalado automático para el propio entorno de ASE, consulte [Escalado automático y entorno del Servicio de aplicaciones][ASEAutoscale].
+
+Puede crear varios planes de servicio de aplicaciones mediante recursos de proceso de distintos grupos de trabajo, o bien puede utilizar el mismo grupo de trabajo. Por ejemplo, si cuenta con 10 recursos de proceso disponibles en el grupo de trabajo 1, puede optar por crear un plan de servicio de aplicaciones utilizando 6 de estos recursos, así como un segundo plan que emplee los 4 restantes.
+
 ### Escalado del número de instancias ###
 
-Cuando crea la aplicación web en un entorno del Servicio de aplicaciones por primera vez, debe escalarlo hasta al menos 2 instancias para proporcionar tolerancia a errores.
+Cuando cree su aplicación web por primera vez en un Entorno del Servicio de aplicaciones, comenzará con una instancia. Después, puede escalar horizontalmente instancias adicionales para conferir más recursos de proceso a la aplicación.
 
 Si su ASE tiene suficiente capacidad, entonces esto es bastante sencillo. Vaya a su plan del Servicio de aplicaciones que contiene los sitios que desea escalar verticalmente y seleccione Escalar. Se abre la interfaz de usuario, donde puede establecer manualmente la escala del ASP o configurar reglas de escalado automático para este. Para escalar manualmente la aplicación, simplemente establezca ***Escalar por*** en ***un recuento de instancias que escribe manualmente***. Desde aquí, arrastre el control deslizante a la cantidad deseada o escríbala en el cuadro situado junto a él.
 
@@ -54,7 +58,7 @@ Como se indicó anteriormente, a la selección del grupo de trabajo se accede de
 
 Antes de mover el ASP de un grupo de trabajo a otro, es importante asegurarse de que tendrá la capacidad adecuada para él. En la lista de grupos de trabajo, no solo se muestra el nombre del grupo de trabajo, sino que también puede ver cuántos trabajos están disponibles en ese grupo de trabajo. Asegúrese de que hay suficientes instancias disponibles para contener su plan de Servicio de aplicaciones. Si necesita más recursos de proceso en el grupo de trabajo al que desea moverse, tendrá que agregarlos a través del administrador de ASE.
 
-> [AZURE.NOTE] Al mover un ASP de un grupo de trabajo se reiniciarán las aplicaciones de ese ASP. Esto puede ocasionar un pequeño tiempo de inactividad en la aplicación dependiendo de lo que tarde en reiniciarse.
+> [AZURE.NOTE] Si se mueve un ASP de un grupo de trabajo, se provocarán arranques en frío de las aplicaciones de ese ASP. Esto puede provocar que las solicitudes se ejecuten lentamente, ya que la aplicación se ha arrancado en frío en los nuevos recursos de proceso. Es posible evitar el arranque en frío con la [característica de preparación de aplicaciones][AppWarmup] del Servicio de aplicaciones de Azure. El módulo de inicialización de aplicaciones descrito en el artículo también funciona para los arranques frío, porque el proceso de inicialización también se invoca cuando las aplicaciones se arrancan en frío en los nuevos recursos de proceso.
 
 ## Introducción
 
@@ -78,5 +82,6 @@ Para obtener más información acerca de la plataforma Servicio de aplicaciones 
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
+[AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

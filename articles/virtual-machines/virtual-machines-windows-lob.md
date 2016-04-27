@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 
 Configure la primera o siguiente aplicación de línea de negocio basada en web solo de intranet en Microsoft Azure y aprovéchese de la facilidad de configuración y de la posibilidad de ampliar rápidamente la aplicación para que incluya una nueva capacidad.
  
@@ -36,11 +35,11 @@ El siguiente paso es configurar una aplicación de línea de negocio de desarrol
 
 ## Creación de una aplicación de línea de negocio de desarrollo y pruebas hospedada en Azure
 
-Una red virtual entre locales está conectada a una red local con una conexión de ExpressRoute o VPN de sitio a sitio. Si quiere crear un entorno de desarrollo y pruebas que imite la configuración final y experimentar con el acceso a la aplicación y realizar la administración remota a través de una conexión VPN, vea [Configuración de una aplicación de línea de negocio (LOB) basada en web en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
+Una red virtual entre locales está conectada a una red local con una conexión de ExpressRoute o VPN de sitio a sitio. Si quiere crear un entorno de desarrollo y pruebas que imite la configuración final y experimentar con el acceso a la aplicación y realizar la administración remota a través de una conexión VPN, vea [Configuración de una aplicación de línea de negocio (LOB) basada en web en una nube híbrida para pruebas](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md).
 
 ![](./media/virtual-machines-windows-lob/CreateLOBAppHybridCloud_3.png)
  
-Puede crear este entorno de desarrollo y pruebas de forma gratuita con su [suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una [suscripción de evaluación de Azure](https://azure.microsoft.com/pricing/free-trial/).
+Puede crear este entorno de desarrollo y pruebas de forma gratuita con su [suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una suscripción de Azure.
 
 El siguiente paso es crear una aplicación de línea de negocio de alta disponibilidad en Azure.
 
@@ -86,4 +85,4 @@ Una vez configurada, puede ampliar fácilmente esta aplicación de línea de neg
 
 - Obtenga [información general](virtual-machines-windows-lob-overview.md) de la carga de trabajo de producción antes de comenzar con la configuración.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -31,7 +31,7 @@ En este artículo se proporciona información general sobre el Explorador de doc
 
  	>[AZURE.NOTE] El Explorador de consultas también aparece en las hojas de bases de datos y colecciones.
 
-    En la hoja **Explorador de documentos**, las listas desplegables **Bases de datos** y **Colecciones** se rellenan previamente según el contexto en el que se inició el Explorador de consultas.
+    En la hoja **Explorador de documentos**, las listas desplegables **Bases de datos** y **Colecciones** se rellenan previamente según el contexto en el que se inició el Explorador de documentos.
 
 	![Captura de pantalla de la hoja Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
@@ -158,4 +158,4 @@ Para más información acerca de la gramática de SQL de DocumentDB compatible c
 
 La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarle durante su aprendizaje de DocumentDB.
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

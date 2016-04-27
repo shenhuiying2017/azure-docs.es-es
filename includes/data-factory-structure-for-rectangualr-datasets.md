@@ -24,7 +24,7 @@ Utilice las siguientes directrices sobre cuándo incluir la información de la "
 1.	**Para los orígenes de datos estructurados** que almacenan el esquema de datos e información de tipo junto con los mismos datos (orígenes como SQL Server, Oracle, tabla de Azure etc.), debe especificar la sección "structure" solo si desea realizar una asignación de columna de las columnas de orígenes específicos en columnas específicas de receptor y sus nombres no son iguales (consulte los detalles en la siguiente sección de asignación de columna). 
 
 	Como se ha mencionado antes, la información de tipo es opcional en la sección «structure». En los orígenes estructurados, ya está disponible la información de tipo como parte de la definición del conjunto de datos en el almacén de datos, por lo que no debería incluir la información de tipo cuando se incluye la sección "structure".
-2. **Para el esquema en los orígenes de datos de lectura (específicamente el blob de Azure)** puede elegir almacenar datos sin almacenar el esquema o la información de tipo con los datos. Para estos tipos de orígenes de datos debe incluir la sección "structure" en los dos casos siguientes:
+2. **En cuanto al esquema en los orígenes de datos de lectura (específicamente, el blob de Azure)**, puede elegir guardar datos sin almacenar el esquema o la información de tipo con ellos. Para estos tipos de orígenes de datos debe incluir la sección "structure" en los dos casos siguientes:
 	1. Quiere realizar una asignación de columna.
 	2. Cuando el conjunto de datos es un origen en una actividad de copia, puede proporcionar la información de tipo en la «estructura» y Factoría de datos usará esta información de tipo para la conversión a tipos nativos para el receptor. Consulte el artículo [Mover datos a y desde el blob de Azure](../articles/data-factory/data-factory-azure-blob-connector.md) para obtener más información.
 
@@ -47,4 +47,4 @@ Factoría de datos admite los siguientes valores de tipo basados en .NET compati
 
 Para Datetime y Datetimeoffset, también puede opcionalmente especificar la cadena "culture" y "format" para facilitar el análisis de la cadena de fecha y hora personalizada. Consulte el ejemplo de conversión de tipos siguiente.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,7 +3,7 @@
 
 Si no tiene acceso a una aplicación que se ejecuta en una máquina virtual de Azure, en este artículo se describe un enfoque metódico para aislar la causa del problema y corregirlo.
 
-> [AZURE.NOTE]  Para obtener ayuda para la conexión a una máquina virtual de Azure, consulte [Solución de problemas de conexiones de escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-windows-troubleshoot-rdp-connection.md) o [Solución de problemas de conexiones Secure Shell (SSH) a una máquina virtual de Azure basada en Linux](virtual-machines-linux-troubleshoot-ssh-connection.md).
+> [AZURE.NOTE]  Para obtener ayuda para la conexión a una máquina virtual de Azure, consulte [Solución de problemas de conexiones de escritorio remoto a una máquina virtual de Azure basada en Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) o [Solución de problemas de conexiones Secure Shell (SSH) a una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
 
@@ -65,10 +65,10 @@ Por ejemplo, si la aplicación es un servidor web, intente tener acceso a la pá
 
 Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 
-- En las VM creadas con el modelo de implementación clásica, que la configuración del punto de conexión de la VM permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-windows-classic-setup-endpoints.md).
-- En las VM creadas con el modelo de implementación clásica, que las listas de control de acceso (ACL) del punto de conexión no impidan el tráfico entrante desde Internet. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-windows-classic-setup-endpoints.md).
+- En las VM creadas con el modelo de implementación clásica, que la configuración del punto de conexión de la VM permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
+- En las VM creadas con el modelo de implementación clásica, que las listas de control de acceso (ACL) del punto de conexión no impidan el tráfico entrante desde Internet. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 - En las VM creadas con el modelo de implementación de Resource Manager, que la configuración de la regla NAT entrante de la VM permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
-- Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente. Para obtener más información, vea [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
+- Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente. Para obtener más información, vea [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/virtual-networks-nsg.md)
 
 Si la máquina virtual o el extremo es un miembro de un conjunto con equilibrio de carga:
 
@@ -98,8 +98,8 @@ Para obtener más información, consulte [Solución de problemas con la conectiv
 
 ## Recursos adicionales
 
-[Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows ](virtual-machines-windows-troubleshoot-rdp-connection.md)
+[Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows ](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-[Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-linux-troubleshoot-ssh-connection.md)
+[Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

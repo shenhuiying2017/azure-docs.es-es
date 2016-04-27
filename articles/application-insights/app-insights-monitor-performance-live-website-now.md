@@ -159,7 +159,6 @@ Deberá abrir algunos puertos de salida en el firewall del servidor para permiti
  -	`login.live.com:443`
 + Instalación:
  +	`packages.nuget.org:443`
- +	`appinsightsstatusmonitor.blob.core.windows.net:80`
 
 Esta lista puede cambiar de forma esporádica.
 
@@ -208,11 +207,11 @@ Puede iniciar y detener la supervisión mediante PowerShell.
  * `SdkState==Disabled`: la aplicación no se ha instrumentado para Application Insights. Nunca se ha instrumentado o se deshabilitó la supervisión en tiempo de ejecución mediante la herramienta Monitor de estado o mediante `Stop-ApplicationInsightsMonitoring`.
  * `SdkState==EnabledByCodeInstrumentation`: se ha instrumentado la aplicación agregando el SDK al código fuente. El SDK no se puede actualizar ni detener.
  * `SdkVersion` muestra la versión en uso para la supervisión de esta aplicación.
- * `LatestAvailableSdkVersion`muestra la versión disponible actualmente en la galería de NuGet. Para actualizar la aplicación a esta versión, utilice `Update-ApplicationInsightsMonitoring`.
+ * `LatestAvailableSdkVersion` muestra la versión disponible actualmente en la galería de NuGet. Para actualizar la aplicación a esta versión, utilice `Update-ApplicationInsightsMonitoring`.
 
 `Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
 
-* `-Name` el nombre de la aplicación en IIS
+* `-Name` El nombre de la aplicación en IIS
 * `-InstrumentationKey` El valor ikey del recurso de Application Insights donde desea que se muestren los resultados.
 
 * Este cmdlet solo afecta a las aplicaciones que no se han instrumentado, es decir, aquellas cuyo SdkState == NotInstrumented.
@@ -235,7 +234,7 @@ Puede iniciar y detener la supervisión mediante PowerShell.
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
-* `-Name` el nombre de una aplicación en IIS
+* `-Name` El nombre de una aplicación en IIS
 * `-All` Detiene la supervisión de todas las aplicaciones en este servidor IIS para las que `SdkState==EnabledAfterDeployment`
 
 * Detiene la supervisión de las aplicaciones especificadas y quita la instrumentación. Solo funciona para las aplicaciones que se han instrumentado en tiempo de ejecución mediante la herramienta Monitor de estado o Start-ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
@@ -302,4 +301,4 @@ Si la aplicación web está en Azure y crea los recursos mediante una plantilla 
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -32,7 +32,6 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
 - __Visual Studio 2013 o 2015__
 
 ## Creación de clústeres
@@ -365,4 +364,11 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+### Ejecución de trabajos
+
+- [Run Hive jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md) (Ejecución de trabajos de Hive en HDInsight mediante el SDK de .NET)
+- [Run Pig jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md) (Ejecución de trabajos de Pig en HDInsight mediante el SDK de .NET)
+- [Run Sqoop jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) (Ejecución de trabajos de Sqoop en HDInsight mediante el SDK de .NET)
+- [Run Oozie jobs in HDInsightt](hdinsight-use-oozie.md) (Ejecución de trabajos de Oozie en HDInsight)
+
+<!---HONumber=AcomDC_0413_2016-->

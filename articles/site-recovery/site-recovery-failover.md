@@ -253,6 +253,7 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 9. Puede iniciar sesión en la máquina virtual local para comprobar que todo funciona según lo esperado. A continuación, haga clic en **Confirmar** para finalizar la conmutación por error.
 10. Haga clic en **Replicación inversa** para comenzar a proteger la máquina virtual local.
 
+	>[AZURE.NOTE] Si cancela el trabajo de conmutación por recuperación mientras se está en el paso de sincronización de datos, la VM local tendrá un estado dañado. Esto se debe a que la sincronización de datos copia los datos más recientes de los discos de VM de Azure a los discos de datos locales y hasta que la sincronización se complete, es posible que los datos de discos no tengan un estado coherente. Si se desea arrancar la VM local una vez que se cancela la sincronización de datos, es posible que no arranque. Vuelva a desencadenar la conmutación por error para completar la sincronización de datos.
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

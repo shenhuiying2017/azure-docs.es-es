@@ -4,7 +4,7 @@
 	services="cache" 
 	documentationCenter=".net" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="sdanie"/>
 
 
@@ -25,7 +25,7 @@
 
 En esta guía se explica cómo comenzar a usar **Caché en rol para Caché de Azure**. Los ejemplos se escriben en código C# y usan la API .NET. Entre los escenarios tratados se incluyen la **configuración de un clúster de caché**, la **configuración de clientes de caché**, la **incorporación y eliminación de objetos en la caché, el almacenamiento del estado de sesión ASP.NET en la caché** y la **activación de la caché de resultados de la página ASP.NET con el uso de la caché**. Para obtener más información acerca del uso de la caché en rol, consulte la sección [Pasos siguientes][].
 
->[AZURE.IMPORTANT]El 30 de noviembre de 2016 se retirará el Servicio de caché administrado de Azure y la Caché en rol de Azure. Se recomienda que migre a la Caché en Redis de Azure con vistas a prepararse para la mencionada retirada. Para obtener más información sobre las fechas y la guía de migración, consulte [¿Qué oferta de caché de Azure es adecuada para mí?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+>[AZURE.IMPORTANT]Según el [anuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) del último año, Servicio de caché administrado de Azure y el servicio Caché en rol de Azure se retirarán el 30 de noviembre de 2016. Nuestra recomendación es usar [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Para más información sobre la migración, consulte [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](../redis-cache/cache-migrate-to-redis.md).
 
 <a name="what-is"></a>
 ## ¿Qué es Caché en rol?
@@ -38,7 +38,7 @@ La caché en rol proporciona una capa de almacenamiento en caché para las aplic
 
 La caché en rol proporciona una nueva forma de ejecutar el almacenamiento en caché con la utilización de una parte de la memoria de las máquinas virtuales que hospedan las instancias de rol en los servicios en la nube de Azure (también conocidos como servicios hospedados). Si dispone de mayor flexibilidad en términos de opciones de implementación, las cachés pueden tener un gran tamaño y no presentar restricciones de cuota específicas de caché.
 
->[AZURE.IMPORTANT] A partir de Azure SDK 2.6, caché en rol utiliza Almacenamiento de Microsoft Azure SDK versión 4.3. En versiones anteriores del SDK de Azure, caché en rol utilizaba Almacenamiento de Azure SDK 1.7. Las aplicaciones que usan la caché en rol con las versiones del SDK de Azure anteriores a 2.6 deberían migrar a Azure SDK 2.6 antes de que la versión de Almacenamiento de Azure 2011-08-18 se retire el 1 de agosto de 2016. Para obtener más información, consulte [Notas de la versión del SDK 2.6 de Azure: caché en rol](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) y [Actualización de la eliminación de la versión del servicio Almacenamiento de Microsoft Azure: extensión hasta 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+>[AZURE.IMPORTANT] A partir de Azure SDK 2.6, caché en rol utiliza Almacenamiento de Microsoft Azure SDK versión 4.3. En versiones anteriores del SDK de Azure, caché en rol utilizaba Almacenamiento de Azure SDK 1.7. Las aplicaciones que usan la caché en rol con las versiones del SDK de Azure anteriores a 2.6 deberían migrar a Azure SDK 2.6 antes de que la versión de Almacenamiento de Azure 2011-08-18 se retire el 1 de agosto de 2016. Para obtener más información, consulte [Notas de la versión del SDK 2.6 de Azure: caché en rol](../azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) y [Actualización de la eliminación de la versión del servicio Almacenamiento de Microsoft Azure: extensión hasta 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 El almacenamiento en caché de instancias de rol presenta las siguientes ventajas:
 
@@ -309,7 +309,7 @@ El proveedor del estado de sesión de la caché en rol es un mecanismo de almace
       </sessionState>
     </system.web>-->
 
->Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation][] (Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
+>Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation](Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
 
 Para habilitar el proveedor del estado de sesión para la caché en rol, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
 
@@ -333,7 +333,7 @@ El proveedor de la caché de resultados para la caché en rol es un mecanismo de
       </outputCache>
     </caching>-->
 
->Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation][] (Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
+>Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation](Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
 
 Para habilitar el proveedor de la caché de resultados para la caché en rol, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
 
@@ -353,7 +353,7 @@ Ahora que está familiarizado con los aspectos básicos de la caché en rol, uti
 -   Consulte la referencia de MSDN: [Caché en rol][]
 -   Obtenga información acerca de cómo migrar a la caché en rol: [Migración a Caché en rol][]
 -   Consulte los ejemplos: [Ejemplos de Caché en rol][]
--	Vea la sesión [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching][] (Rendimiento máximo: agilización de las aplicaciones de servicios en la nube con el almacenamiento en caché de Azure) de TechEd 2013 sobre la caché en rol
+-	Vea la sesión [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching](Rendimiento máximo: agilización de las aplicaciones de servicios en la nube con el almacenamiento en caché de Azure) de TechEd 2013 sobre la caché en rol
 
 <!-- INTRA-TOPIC LINKS -->
 [Pasos siguientes]: #next-steps
@@ -410,4 +410,4 @@ Ahora que está familiarizado con los aspectos básicos de la caché en rol, uti
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

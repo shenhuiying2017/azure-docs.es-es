@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/14/2016"
+    ms.date="04/07/2016"
     ms.author="markusvi"/>
 
 
@@ -84,13 +84,13 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 
 - [Habilitación del directorio para la administración híbrida con Azure AD Connect](active-directory-aadconnect.md)
 
-- [Seguridad adicional en un mundo conectado permanentemente](multi-factor-authentication.md)
+- [Seguridad adicional en un mundo conectado permanentemente](../multi-factor-authentication/multi-factor-authentication.md)
 
 - [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
 
 - [Introducción a los informes de Azure AD](active-directory-reporting-getting-started.md)
 
-- [Administración de contraseñas desde cualquier lugar](articles/active-directory-passwords.md)
+- [Administración de contraseñas desde cualquier lugar](active-directory-passwords.md)
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -104,4 +104,4 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 
 - [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

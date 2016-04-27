@@ -28,9 +28,9 @@
 7. Cambie la opción **Asignación de usuario necesaria para acceder a la aplicación** a Sí.
 8. Haga clic en el botón **Guardar** de la parte inferior de la pantalla.
 
-Ahora tendrá que asignar usuarios o grupos a la aplicación. Vea [Asignación de usuarios a una aplicación](active-directory-guiding-developers-assigning-users.md) y [Asignación de grupos a una aplicación](active-directory-guiding-developers-assigning-groups.md).
+Ahora tendrá que asignar usuarios o grupos a la aplicación. Vea [Asignación de usuarios a una aplicación](active-directory-applications-guiding-developers-assigning-users.md) y [Asignación de grupos a una aplicación](active-directory-applications-guiding-developers-assigning-groups.md).
 
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

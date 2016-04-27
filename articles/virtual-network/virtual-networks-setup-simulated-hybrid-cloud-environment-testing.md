@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/28/2016" 
 	ms.author="josephd"/>
 
 # Configuración de un entorno simulado de nube híbrida para hacer pruebas (modelo de implementación clásica)
@@ -79,7 +79,7 @@ En primer lugar, cree una nueva red virtual denominada TestVNET.
 	- En la columna **CIDR (recuento de direcciones)** de TestSubnet, haga clic en **/24 (256)**.
 7.	Haga clic en el icono Completar. Espere hasta que se cree la red virtual antes de continuar.
 
-A continuación, siga las instrucciones en [Cómo instalar y configurar Azure PowerShell para instalar Azure PowerShell en el equipo local](../install-configure-powershell.md).
+A continuación, siga las instrucciones en [Cómo instalar y configurar Azure PowerShell para instalar Azure PowerShell en el equipo local](../powershell-install-configure.md).
 
 A continuación, cree un nuevo servicio en la nube para la red virtual TestVNET. Debe elegir un nombre único. Por ejemplo, podría asignarle el nombre **TestVNET-***UniqueSequence*, en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría llamar al servicio en la nube **TestVNET-Tailspin**.
 
@@ -225,7 +225,7 @@ Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
 ## <a id="costs"></a>Minimizar los costos de este entorno
 
-Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en las redes virtuales TestLab y Test\_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](../automation-create-runbook-from-samples.md). Cuando vuelva a iniciar las máquinas virtuales en la subred de la red corporativa, inicie en primer lugar DC1.
+Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en las redes virtuales TestLab y Test\_VNET al final de cada día laborable. Cuando vuelva a iniciar las máquinas virtuales en la subred de la red corporativa, inicie en primer lugar DC1.
 
 Una puerta de enlace VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure que incurren en un coste económico continuo. Para obtener más información, consulte [Precios: red virtual](https://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar el coste de las dos puertas de enlace VPN (una para TestLab y otra para TestVNET), cree el entorno de prueba y realice las pruebas y demostraciones necesarias tan rápido como sea posible o elimine las puertas de enlace con estos pasos.
  
@@ -261,4 +261,4 @@ A continuación, configure la clave previamente compartida para que ambas puerta
 
 A continuación, en la página Red del Portal de administración de Azure, haga clic en la red virtual **TestLab** y, a continuación, haga clic en **Conectar** en la barra de tareas. Espere hasta que la red virtual TestLab muestre un estado conectado a la red local TestVNET.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

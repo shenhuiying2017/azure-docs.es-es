@@ -3,7 +3,7 @@
 	description="Pasos de solución de problemas detallada para las conexiones de RDP a una máquina virtual de Azure con Windows."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
-	ms.author="dkshir"/>
+	ms.date="04/06/2016"
+	ms.author="iainfou"/>
 
 # Solución de problemas detallada de conexiones de Escritorio remoto a máquinas virtuales de Azure basadas en Windows
 
@@ -195,4 +195,4 @@ Compruebe que el punto de conexión de Escritorio remoto para la máquina virtua
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

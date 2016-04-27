@@ -20,7 +20,7 @@
 
 ## Introducción
 
-[El control de acceso basado en rol](../role-based-access-control-configure.md) es una función potente que le permite delegar accesos específicos a recursos en Azure. Esto significa que puede tener la seguridad de que concede a una determinada persona el acceso exclusivamente a lo que necesita y nada más. No obstante, algunas veces el modelo de recursos para los recursos de Azure puede ser complicado y puede costar entender a qué se están concediendo permisos exactamente.
+[El control de acceso basado en rol](role-based-access-control-configure.md) es una función eficaz que le permite delegar accesos específicos a recursos en Azure. Esto significa que puede tener la seguridad de que concede a una determinada persona el acceso exclusivamente a lo que necesita y nada más. No obstante, algunas veces el modelo de recursos para los recursos de Azure puede ser complicado y puede costar entender a qué se están concediendo permisos exactamente.
 
 En este documento se explica qué puede esperar al usar algunos de los nuevos roles del Portal de Azure. Se incluyen tres roles comunes que cubren todos los tipos de recursos:
 
@@ -28,7 +28,7 @@ En este documento se explica qué puede esperar al usar algunos de los nuevos ro
 - Colaborador  
 - Lector  
 
-Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más cosas que comentar. Consulte el [artículo de introducción de Control de acceso basado en rol](../role-based-access-control-configure.md) para obtener más información sobre cómo conceder acceso.
+Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más cosas que comentar. Consulte el artículo de [introducción de Control de acceso basado en rol](role-based-access-control-configure.md) para obtener más información sobre cómo conceder acceso.
 
 ## Cargas de trabajo del Servicio de la aplicaciones
 
@@ -92,4 +92,4 @@ Las máquinas virtuales tienen estos recursos relacionados:
 
 Si no puede acceder a ninguno de estos iconos, deberá pedirle al administrador el acceso de colaborador al grupo de recursos.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

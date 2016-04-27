@@ -17,7 +17,7 @@
 	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
-# Administración de la disponibilidad de las máquinas virtuales de Windows
+# Administración de la disponibilidad de las máquinas virtuales
 
 Aprenda a configurar y administrar varias máquinas virtuales para garantizar la alta disponibilidad de la aplicación de Windows en Azure. También puede [administrar la disponibilidad de las máquinas virtuales Linux](virtual-machines-linux-manage-availability.md).
 
@@ -25,4 +25,4 @@ Aprenda a configurar y administrar varias máquinas virtuales para garantizar la
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

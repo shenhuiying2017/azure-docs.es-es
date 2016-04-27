@@ -13,14 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="03/25/2016"
+	ms.date="04/18/2016"
 	ms.author="kgremban"/>
 
 
 # Roles personalizados en RBAC de Azure
 
 
-Cree un rol personalizado en Control de acceso basado en rol (RBAC) de Azure si ninguno de los roles integrados satisface sus necesidades de acceso específicas. Se pueden crear roles personalizados mediante Azure PowerShell, la interfaz de línea de comandos de Azure (CLI) y la API de REST. Igual que los roles integrados, los roles personalizados pueden asignarse a usuarios, grupos y aplicaciones en ámbitos de suscripciones, grupos de recursos y recursos.
+Cree un rol personalizado en Control de acceso basado en rol (RBAC) de Azure si ninguno de los roles integrados satisface sus necesidades de acceso específicas. Se pueden crear roles personalizados mediante [Azure PowerShell](role-based-access-control-manage-access-powershell.md), la [interfaz de la línea de comandos de Azure](role-based-access-control-manage-access-azure-cli.md) (CLI) y la [API de REST](role-based-access-control-manage-access-rest.md). Igual que los roles integrados, los roles personalizados pueden asignarse a usuarios, grupos y aplicaciones en ámbitos de suscripciones, grupos de recursos y recursos.
 
 A continuación se muestra un ejemplo de un rol personalizado para supervisar y reiniciar máquinas virtuales:
 
@@ -92,11 +92,11 @@ La propiedad **AssignableScopes** del rol personalizado también controla quién
 - ¿Quién puede ver los roles personalizados? Todos los roles integrados de RBAC de Azure permiten ver los roles que están disponibles para la asignación. Los usuarios que pueden realizar la operación `Microsoft.Authorization/roleDefinition/read` en un ámbito, pueden ver los roles RBAC que están disponibles para su asignación en ese ámbito.
 
 ## Consulte también
-- Introducción al [Control de acceso basado en roles de Azure](role-based-access-control-configure.md) en el Portal de Azure.
+- [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 - Aprenda a administrar el acceso con:
 	- [PowerShell](role-based-access-control-manage-access-powershell.md)
 	- [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
 	- [API DE REST](role-based-access-control-manage-access-rest.md)
-- [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md)
+- [RBAC: Roles integrados](role-based-access-built-in-roles.md): obtenga información sobre los roles que se incluyen como estándar en RBAC.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

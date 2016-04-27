@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="04/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -66,7 +66,8 @@ Para configurar la integración de Heroku en Azure AD, es preciso agregar Heroku
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **Heroku**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_01.png)<br>
-7. En el panel de resultados, seleccione **Heroku** y después haga clic en **Completar** para agregar la aplicación. <br><br>
+7. En el panel de resultados, seleccione **Heroku** y después haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_02.png)<br>
+
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Heroku con un usuario de prueba llamado "Britta Simon".
@@ -88,16 +89,20 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 **Para configurar el inicio de sesión único de Azure AD con Heroku, realice los pasos siguientes:**
 
-1. En el Portal clásico, en la página de integración de aplicaciones de **Heroku**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
+1. En el Portal clásico, en la página de integración de aplicaciones de **Heroku**, haga clic en **Configurar inicio de sesión único** para abrir el diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en Heroku?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_03.png) <br>
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_04.png) <br>
 
+    > [AZURE.NOTE] Si no sabe cuáles son los valores correctos para las direcciones URL de inicio de sesión y del identificador, consulte "[Para habilitar SSO en Heroku, realice los pasos siguientes](#x123)" con el fin de recibir instrucciones acerca de cómo obtenerlos.
 
-    a. En el cuadro de texto de URL de inicio de sesión, escriba la dirección URL que los usuarios usan para iniciar sesión en su aplicación Heroku con el siguiente patrón: **"https://sso.heroku.com/saml/<nombreDeCompañía>/init"**.
 
-    b. Haga clic en **Siguiente**.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en su aplicación de Heroku con el siguiente patrón: **"https://sso.heroku.com/saml/<nombreDeCompañía>/init"**.
+
+    b. En el cuadro de texto **Identificador**, escriba una URL con el siguiente patrón: "**https://sso.heroku.com/saml/\<nombreDeCompañía>**".
+
+    c. Haga clic en **Siguiente**.
 
 
 4. En la página **Configurar inicio de sesión único en Heroku**, siga estos pasos: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_05.png) <br>
@@ -119,7 +124,8 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
     e. Cuando la instalación se realice correctamente, los administradores verán un cuadro de diálogo de confirmación y se mostrará la dirección URL de inicio de sesión único para los usuarios finales.
 
-    f. Copie la **dirección URL de inicio de sesión de Heroku** y, después, en el Portal de Azure AD clásico, vuelva a la página **Configurar las opciones de la aplicación** y pegue el valor en el cuadro de texto **URL de inicio de sesión**.
+    f. <a name="x123"></a>Copie la **dirección URL de inicio de sesión de Heroku** y el **identificador de entidad de Heroku** y, después, en el Portal clásico de Azure AD, vuelva a la página **Configurar las opciones de la aplicación** y pegue los valores en los cuadros de texto correspondientes.
+
   
     <br>![Configurar inicio de sesión único](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_52.png) <br><br>
 
@@ -133,7 +139,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 
 ### Creación de un usuario de prueba de Azure AD
-En esta sección, creará un usuario de prueba llamado Britta Simon en el Portal clásico.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
+En esta sección, creará un usuario de prueba llamado "Britta Simon" en el Portal clásico.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
@@ -186,11 +192,11 @@ No hay ningún elemento de acción para usted en esta sección. Se crea un nuevo
 
 ### Asignación del usuario de prueba de Azure AD
 
-En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Heroku. <br><br>![Asignar usuario][200] <br>
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Heroku. <br><br>![Asignar usuario][200] <br>
 
 **Para asignar a Britta Simon a Heroku, realice los pasos siguientes:**
 
-1. En el Portal clásico, para abrir la vista de aplicaciones, haga clic en **Aplicaciones** en el menú superior de la vista del directorio. <br><br>![Asignar usuario][201] <br>
+1. En el Portal clásico, para abrir la vista de aplicaciones, haga clic en la opción **Aplicaciones** del menú superior de la vista del directorio. <br><br>![Asignar usuario][201] <br>
 
 2. En la lista de aplicaciones, seleccione **Heroku**. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_50.png) <br>
 
@@ -204,7 +210,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 ### Prueba del inicio de sesión único
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.<br> Al hacer clic en el icono de Heroku en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Heroku.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.<br> Al hacer clic en el icono de Heroku en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Heroku.
 
 
 ## Recursos adicionales
@@ -232,4 +238,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 [204]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

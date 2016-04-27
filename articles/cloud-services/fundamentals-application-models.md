@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Cálculo de las opciones de hospedaje proporcionadas por Azure" 
-	description="Obtenga información sobre la forma en que Azure hospeda las opciones y cómo funcionan: Máquinas virtuales, Sitios web y Servicios en la nube, entre otros" 
-	headerExpose="" 
-	footerExpose="" 
-	services="cloud-services,virtual-machines"
-	authors="Thraka" 
+<properties
+	pageTitle="Cálculo de las opciones de hospedaje proporcionadas por Azure"
+	description="Obtenga información sobre la forma en que Azure hospeda las opciones y cómo funcionan: Máquinas virtuales, Sitios web y Servicios en la nube, entre otros"
+	headerExpose=""
+	footerExpose=""
+	services="cloud-services"
+	authors="Thraka"
 	documentationCenter=""
 	manager="timlt"/>
 
@@ -14,68 +14,50 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
-	ms.author="adegeo;cephalin;kathydav"/>
+	ms.date="03/28/2016" 
+	ms.author="adegeo"/>
 
 
+# ¿Debo elegir los servicios en la nube o alguna otra opción?
 
+¿Son los servicios en la nube de Azure la opción que mejor se adapta a sus necesidades? Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cada una de ellas proporciona un conjunto diferente de servicios; por tanto, lo que elija dependerá exactamente lo intenta hacer.
 
-# Cálculo de las opciones de hospedaje proporcionadas por Azure
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
-Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cada uno de ellos proporciona un conjunto diferente de servicios; por tanto, el que elija dependerá exactamente de lo que intente hacer. En este artículo se analizan las distintas opciones, se describe cada una de las tecnologías y se dan ejemplos de cuándo se podrían utilizar.
+<a name="tellmecs"></a>
+## Información sobre los servicios en la nube
 
-| Opciones de proceso | Público |
-| ------------------ | --------   |
-| [Servicio de aplicaciones] | Aplicaciones web, aplicaciones móviles, aplicaciones de API y aplicaciones lógicas escalables para cualquier dispositivo |
-| [Servicios en la nube] | Aplicaciones en la nube de n niveles escalables y altamente disponibles con mayor control del sistema operativo |
-| [Máquinas virtuales] | Máquinas virtuales Linux y Windows personalizadas con un control completo del sistema operativo |
+Los servicios en la nube son un ejemplo de plataforma como-servicio (PaaS). Al igual que [Servicio de aplicaciones](../app-service-web/app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. Al igual que un Servicio de aplicaciones, se hospedan en máquinas virtuales, así que también son servicios en la nube; sin embargo, se tiene más control sobre las máquinas virtuales. Puede instalar su propio software en máquinas virtuales de Servicio en la nube y tener acceso remoto a ellas.
 
-[AZURE.INCLUDE [contenido](../../includes/app-service-choose-me-content.md)]
+![cs\_diagram](./media/cloud-services-choose-me/diagram.png)
 
-[AZURE.INCLUDE [contenido](../../includes/cloud-services-choose-me-content.md)]
+Más control también significa que es menos fácil de usar; a menos que necesite opciones de control adicionales, por lo general es más rápido y fácil poner en marcha una aplicación web y que funcione en Aplicaciones web en Servicio de aplicaciones que en Servicios en la nube.
 
-[AZURE.INCLUDE [contenido](../../includes/virtual-machines-choose-me-content.md)]
+La tecnología proporciona dos opciones de VM ligeramente diferentes: las instancias de *roles web* ejecutan una variante de Windows Server con IIS mientras que las instancias de *roles de trabajo* ejecutan la misma variante de Windows Server sin IIS. Una aplicación de Servicios en la nube se basa en alguna combinación de estas dos opciones.
 
-## Otras opciones
+Cualquier combinación de estas dos opciones ligeramente diferentes de hospedaje de máquinas virtuales está disponibles en un servicio en la nube:
 
-Azure también ofrece otros modelos de hospedaje de proceso con fines más especializadas, como los siguientes:
+* **Rol web** se ejecuta Windows Server con la aplicación web que se implementa automáticamente en IIS.
+  
+* **Rol de trabajo** se ejecuta Windows Server sin IIS.
 
-* [Servicios móviles](/services/mobile-services/) Optimizado para proporcionar un back-end de nube para aplicaciones que se ejecutan en dispositivos móviles.
-* [Lote](/services/batch/) Optimizado para el procesamiento de grandes volúmenes de tareas similares, idealmente cargas de trabajo que se prestan a ejecutarse como tareas paralelas en varios equipos.
-* [HDInsight (Hadoop)](/services/hdinsight/) Optimizado para ejecutar trabajos de [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) en clústeres de Hadoop. 
+Por ejemplo, una aplicación simple podría utilizar solo un rol web, mientras que una aplicación más compleja podría utilizar un rol web para manejar solicitudes entrantes provenientes de los usuarios y luego transmitir el trabajo que crean esas solicitudes a un rol de trabajo para su procesamiento (esta comunicación podría utilizar [Bus de servicio](../service-bus/service-bus-fundamentals-hybrid-solutions.md) o [colas de Azure](../storage/storage-introduction.md)).
 
-## ¿Cuál debo utilizar? Toma de decisión
+Como sugiere la ilustración anterior, todas las máquinas virtuales de una sola aplicación se ejecutan en el mismo servicio en la nube. Debido a esto, los usuarios tienen acceso a la aplicación a través de una dirección IP pública única y se realiza automáticamente el equilibrio de carga de las solicitudes en todas las máquinas virtuales de la aplicación. La plataforma [escalará e implementará](cloud-services-how-to-scale.md) las máquinas virtuales en una aplicación de Servicios en la nube para así evitar un único punto de errores de hardware.
 
-Los tres modelos de hospedaje de proceso de Azure de propósito general le permiten crear aplicaciones escalables y confiables en la nube. Dada esta similitud esencial, ¿cuál de estos modelos debería utilizar?
+A pesar de que las aplicaciones se ejecutan en máquinas virtuales, resulta importante comprender que Servicios en la nube proporciona PaaS y no IaaS. Piénselo así: con IaaS, como en máquinas virtuales de Azure, primero crea y configura el entorno en que se ejecutará la aplicación, para luego implementar la aplicación en este entorno. Es responsabilidad suya administrar gran parte de este mundo, como por ejemplo, implementar nuevas versiones revisadas del sistema operativo en cada máquina virtual. Por el contrario, en PaaS ocurre como si el entorno ya existiese. Todo lo que tiene que hacer es implementar la aplicación. Usted maneja la administración de la plataforma en que se ejecuta, incluida la implementación de versiones nuevas del sistema operativo.
 
-El Servicio de aplicaciones es la opción más adecuada para la mayoría de las aplicaciones web. La implementación y la administración están integradas en la plataforma, los sitios pueden escalarse rápidamente para asumir altas cargas de tráfico y el equilibrio de carga y el administrador de tráfico incluidos ofrecen una gran disponibilidad. Los sitios actuales se pueden mover fácilmente al Servicio de aplicaciones con una [herramienta de migración en línea](https://www.migratetoazure.net/) y también se puede utilizar una aplicación de código abierto de la galería de aplicaciones web o crear un sitio nuevo con el marco y las herramientas preferidos. La característica [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) facilita la incorporación del procesamiento de trabajos en segundo plano a la aplicación o incluso la ejecución de una carga de trabajo de proceso que no sea una aplicación web.
+## Escalado y administración
+Con Servicios en la nube no se crean máquinas virtuales. En lugar de eso, se proporciona un archivo de configuración que le indica a Azure qué cantidad de cada una le gustaría tener, como por ejemplo,** tres instancias de rol web** y **dos instancias de rol de trabajo**, y la plataforma las crea por usted. Sigue siendo necesario que elija [qué tamaño](cloud-services-sizes-specs.md) deben tener esas máquinas virtuales (las opciones son las mismas que con las máquinas virtuales de Azure), pero no tiene que crearlas por sí mismo explícitamente. Si la aplicación necesita manejar una carga mayor, puede pedir más máquinas virtuales y Azure creará esas instancias. Si la carga disminuye, puede apagar esas instancias y así dejar de pagar por ellas.
 
-Si necesita más control sobre el entorno del servidor web, como la posibilidad de tener acceso remoto al servidor o configurar las tareas de inicio del servidor, Servicios en la nube de Azure es por lo general la mejor opción.
+Una aplicación de Servicios en la nube normalmente está a disposición de los usuarios a través de un proceso de dos pasos. Un desarrollador primero [carga la aplicación](cloud-services-how-to-create-deploy.md) en el área de ensayo de la plataforma. Cuando el desarrollador está preparado activar definitivamente la aplicación, utiliza el Portal de administración de Azure para solicitar ponerla en producción. Este [intercambio entre el área de ensayo y la producción](cloud-services-nodejs-stage-application.md) se puede llevar a cabo sin tiempo de inactividad, lo que permite actualizar una aplicación en ejecución a una versión nueva sin interrumpir ni molestar a sus usuarios.
 
-Si tiene actualmente una aplicación que requeriría cambios sustanciales para ejecutarse en Sitios web Azure o Servicios en la nube de Azure, podría elegir Máquinas virtuales de Azure a fin de simplificar la migración a la nube. Sin embargo, se requiere más tiempo para configurar, proteger y mantener adecuadamente las Máquinas virtuales, además de mayores conocimientos informáticos, en comparación con Sitios web Azure y Servicios en la nube. Si está considerando la opción de Máquinas virtuales Azure, tenga en cuenta el esfuerzo constante de mantenimiento requerido para aplicar revisiones al entorno de Máquina virtual, así como para actualizarlo y administrarlo.
+## Supervisión
+Servicios en la nube también brinda supervisión. Al igual que con Máquinas virtuales de Azure, detectará un servidor físico con errores y reiniciará las máquinas virtuales que se ejecutaban en ese servidor en una máquina nueva. Pero Servicios en la nube también detecta máquinas virtuales y aplicaciones con errores, no solo errores de hardware. A diferencia de Máquinas virtuales, Servicios en la nube tiene un agente dentro de cada rol web o rol de trabajo, por lo que puede iniciar nuevas instancias de aplicaciones y máquinas virtuales cuando se produce un error.
 
-A veces, ninguna opción individualmente es correcta. En situaciones así, es perfectamente posible combinar opciones. Por ejemplo, imagine que va a compilar una aplicación en la que desea contar con los beneficios de administración de los roles web de Servicios en la nube, pero también necesita utilizar un SQL Server estándar hospedado en una máquina virtual por motivos de compatibilidad o rendimiento.
-
-<!-- In this case, the best option is to combine compute hosting options, as the figure below shows.--
-
-<a name="fig4"></a>
-![07_CombineTechnologies][07_CombineTechnologies] 
- 
-**Figure: A single application can use multiple hosting options.**
-
-As the figure illustrates, the Cloud Services VMs run in a separate cloud service from the Virtual Machines VMs. Still, the two can communicate quite efficiently, so building an app this way is sometimes the best choice.
-[07_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png
-!-->
-
-[Servicio de aplicaciones]: #tellmeas
-[Máquinas virtuales]: #tellmevm
-[Servicios en la nube]: #tellmecs
+La naturaleza de PaaS de Servicios en la nube tiene también otras implicaciones. Una de las más importantes es que las aplicaciones creadas sobre la base de esta tecnología deben estar escritas para ejecutarse correctamente en caso de cualquier error en instancia de rol web o de trabajo. Para lograrlo, una aplicación de Servicios en la nube no debiera mantener estado en el sistema de archivos de sus propias máquinas virtuales. A diferencia de las máquinas virtuales creadas con Máquinas virtuales de Azure, las escrituras que se realizan en las máquinas virtuales de Servicios en la nube no son permanentes; no hay nada parecido a un disco de datos de Máquinas virtuales. En lugar de eso, una aplicación de Servicios en la nube debe escribir explícitamente todo estado en la base de datos de SQL, blogs, tablas u algún otro tipo de almacenamiento externo. Cuando se crean aplicaciones de esta manera, estas resultan más fáciles de escalar y son más resistentes ante los errores, ambos objetivos importantes de Servicios en la nube.
 
 ## Pasos siguientes
+[Creación de una aplicación de servicio en la nube en .NET](cloud-services-dotnet-get-started.md) [Creación de una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md) [Creación de una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md) [Creación de una aplicación de servicio en la nube en Python](../cloud-services-python-ptvs.md)
 
-* [Comparación de](../choose-web-site-cloud-service-vm/) Servicio de aplicaciones, Servicios en la nube y Máquinas virtuales
-* Más información sobre [Servicio de aplicaciones](../app-service-web-overview.md)
-* Más información sobre [Servicio en la nube](services/cloud-services/)
-* Más información sobre [Máquinas virtuales](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

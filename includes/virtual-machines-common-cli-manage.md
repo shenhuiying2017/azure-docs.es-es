@@ -42,6 +42,6 @@ Obtención de todos los tamaños disponibles de la máquina virtual | No disponi
 
 ## Pasos siguientes
 
-* Para ejemplos adicionales de los comandos CLI, vea [Uso de la interfaz de la línea de comandos de Azure con la administración de servicios de Azure](../articles/virtual-machines-command-line-tools.md) y [Uso de la CLI de Azure con el Administrador de recursos de Azure](../articles/azure-cli-arm-commands.md).
+* Para ejemplos adicionales de los comandos CLI, vea [Uso de la interfaz de la línea de comandos de Azure con la administración de servicios de Azure](../articles/virtual-machines-command-line-tools.md) y [Uso de la CLI de Azure con el Administrador de recursos de Azure](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

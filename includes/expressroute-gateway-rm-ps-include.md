@@ -1,5 +1,3 @@
-## Información general sobre la configuración
-
 Para los pasos de esta tarea, se utiliza una red virtual basada en los valores siguientes. En esta lista también se enumeran nombres y valores de configuración adicionales. No se utiliza esta lista directamente en ninguno de los pasos, aunque se agregan variables basadas en los valores que aparecen en ella. Puede copiar la lista para utilizarla como referencia y reemplazar los valores por los suyos propios.
 
 Lista de referencia de configuración:
@@ -9,13 +7,13 @@ Lista de referencia de configuración:
 - Grupo de recursos: "TestRG"
 - Nombre de subred 1 = "FrontEnd" 
 - Espacio de direcciones de subred 1 = "192.168.0.0/16"
-- Nombre de subred de puerta de enlace: "GatewaySubnet" (siempre debe asignar a las subredes de puerta de enlace el nombre *GatewaySubnet*)
+- Nombre de subred de puerta de enlace: "GatewaySubnet" (siempre debe asignar a las subredes de puerta de enlace el nombre *GatewaySubnet*).
 - Espacio de direcciones de subred de puerta de enlace = "192.168.200.0/26"
 - Región = "East US"
 - Nombre de puerta de enlace = "GW"
 - Nombre de IP de puerta de enlace = "GWIP"
 - Nombre de configuración de IP de puerta de enlace = "gwipconf"
-- Tipo de VPN = "ExpressRoute" (este tipo de VPN es obligatorio para una configuración ExpressRoute)
+-  Tipo = "ExpressRoute" (este tipo es obligatorio para una configuración de ExpressRoute).
 - Nombre de IP pública de puerta de enlace = "gwpip"
 
 
@@ -61,8 +59,27 @@ Lista de referencia de configuración:
 
 		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -SubnetId $subnet.Id -PublicIpAddressId $pip.Id 
 
-9. Cree la puerta de enlace. En este paso, el elemento **- GatewayType** resulta especialmente importante. Debe utilizar el valor **ExpressRoute**. Tenga en cuenta que, después de ejecutar estos cmdlets, la puerta de enlace puede tardar 20 minutos o más en crearse.
+9. Cree la puerta de enlace. En este paso, el elemento **-GatewayType** resulta especialmente importante. Debe utilizar el valor **ExpressRoute**. Tenga en cuenta que, después de ejecutar estos cmdlets, la puerta de enlace puede tardar 20 minutos o más en crearse.
 
-		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute
+		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
 
-<!---HONumber=AcomDC_0309_2016-->
+## Comprobación de la creación de la puerta de enlace
+
+Utilice el siguiente comando para comprobar si se ha creado la puerta de enlace.
+
+	Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
+
+## Cambio del tamaño de una puerta de enlace
+
+Hay tres [SKU de puerta de enlace](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Puede utilizar el siguiente comando para cambiar en cualquier momento la SKU de puerta de enlace.
+
+	$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+
+## Eliminación de una puerta de enlace
+
+Utilice el siguiente comando para quitar una puerta de enlace.
+
+	Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
+
+<!---HONumber=AcomDC_0413_2016-->

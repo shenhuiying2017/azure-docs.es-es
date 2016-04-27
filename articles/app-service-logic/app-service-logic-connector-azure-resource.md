@@ -16,7 +16,7 @@
    ms.date="02/10/2016"
    ms.author="stepsic"/>
 
-# Introducción al conector de recursos de Azure y su incorporación a su aplicación lógica 
+# Introducción al conector de recursos de Azure y su incorporación a su aplicación lógica
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
 Use el conector de recursos de Azure para administrar de manera fácil los recursos de Azure dentro de la aplicación lógica.
@@ -32,18 +32,18 @@ David Ebbo ha escrito [una gran cantidad de entradas de blog ](http://blog.david
 ### Desencadenador
 Hay dos desencadenadores admitidos en el Conector:
 
-Nombre | Descripción 
----- | ----------- 
-Se produce el evento | Se activa cuando se produce un evento en un recurso en la suscripción. 
+Nombre | Descripción
+---- | -----------
+Se produce el evento | Se activa cuando se produce un evento en un recurso en la suscripción.
 Métrica supera el umbral | Se activa cuando una métrica alcanza un umbral determinado.
 
 ### Acción
 
 Del mismo modo, puede proporcionar un gran número de acciones dentro de la suscripción de Azure:
- 
+
 Para **Grupos de recursos**, puede:
 
-Nombre | Descripción 
+Nombre | Descripción
 ---- | -----------
 Enumeración de grupos de recursos | Enumere todos los grupos de recursos en la suscripción.
 Obtención de un grupo de recursos | Obtenga un grupo de recursos por su identificador.
@@ -52,7 +52,7 @@ Eliminación de un grupo de recursos | Elimine un grupo de recursos.
 
 Para **Recursos**, puede:
 
-Nombre | Descripción 
+Nombre | Descripción
 ---- | -----------
 Enumeración de recursos | Enumere recursos en la suscripción por diferentes tipos de filtros.
 Obtención de recursos | Obtenga un único recurso por su id. de recurso.
@@ -62,13 +62,13 @@ Eliminación de un recurso | Elimine un recurso.
 
 Para **Proveedores de recursos**, puede:
 
-Nombre | Descripción 
+Nombre | Descripción
 ---- | -----------
 Enumeración de proveedores de recursos | Enumere todos los proveedores de recursos disponibles en esta suscripción.
 
 Para **Implementaciones de grupo de recursos**, puede:
 
-Nombre | Descripción 
+Nombre | Descripción
 ---- | -----------
 Enumeración de implementaciones | Enumere todas las implementaciones en un grupo de recursos.
 Obtención de implementación | Obtenga una implementación de plantilla por su id.
@@ -93,11 +93,9 @@ Una vez creado el conector, puede agregarlo a un flujo empresarial mediante una 
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
-
 <!--References -->
 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

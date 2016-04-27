@@ -22,7 +22,7 @@ Conéctese a Facebook y publique en una biografía, obtenga una fuente de págin
 
 - Aplicaciones lógicas 
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Introducción al conector de Facebook y su incorporación a una aplicación lógica](../app-service-logic/app-service-logic-connector-facebook.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 
 Con Facebook, puede hacer lo siguiente:
@@ -31,14 +31,14 @@ Con Facebook, puede hacer lo siguiente:
 - Utilizar un desencadenador cuando se reciba un nuevo mensaje.
 - Usar acciones para publicar en la biografía, obtener una fuente de página y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando haya un nuevo mensaje en su biografía, puede tomar ese mensaje e insertarlo en su fuente de Twitter. 
 
-Para agregar una operación a las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 La API de Facebook incluye los siguientes desencadenadores y acciones.
 
 | Desencadenadores | Acciones|
 | --- | --- |
-| <ul><li>Cuando haya un nuevo mensaje en mi escala de tiempo</li></ul> |<ul><li>Obtener fuente de mi escala de tiempo</li><li>Publicar en mi escala de tiempo</li><li>Cuando haya un nuevo mensaje en mi escala de tiempo</li><li>Obtener fuente de página</li><li>Obtener escala de tiempo de usuario</li><li>Publicar en página</li></ul>
+| <ul><li>Cuando haya un nuevo mensaje en mi biografía</li></ul> |<ul><li>Obtener fuente de mi biografía</li><li>Publicar en mi biografía</li><li>Cuando haya un nuevo mensaje en mi biografía</li><li>Obtener fuente de página</li><li>Obtener biografía de usuario</li><li>Publicar en la página</li></ul>
 
 Todas las API admiten datos en formato JSON y XML.
 
@@ -48,7 +48,7 @@ Al agregar esta API a las aplicaciones lógicas, debe autorizar a estas para que
 1. Inicie sesión en su cuenta de Facebook.
 2. Seleccione **Authorize** (Autorizar) y permita que sus aplicaciones lógicas se conecten y utilicen su aplicación de Facebook. 
 
-Después de crear la conexión, especifique las propiedades de Facebook. La **referencia de la API de REST** de este tema describe estas propiedades.
+Después de crear la conexión, especifique las propiedades de Facebook. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Facebook en otras aplicaciones lógicas.
 
@@ -56,7 +56,7 @@ Después de crear la conexión, especifique las propiedades de Facebook. La **re
 Se aplica a la versión: 1.0.
 
 ### Obtener fuente de mi biografía
-Obtiene las fuentes de la escala de tiempo del usuario que ha iniciado sesión. ```GET: /me/feed```
+Obtiene las fuentes de la biografía del usuario que ha iniciado sesión. ```GET: /me/feed```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -75,7 +75,7 @@ Obtiene las fuentes de la escala de tiempo del usuario que ha iniciado sesión. 
 
 
 ### Publicar en mi biografía
-Publica un mensaje de estado en la escala de tiempo del usuario que ha iniciado la sesión. ```POST: /me/feed```
+Publica un mensaje de estado en la biografía del usuario que ha iniciado la sesión. ```POST: /me/feed```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -91,7 +91,7 @@ Publica un mensaje de estado en la escala de tiempo del usuario que ha iniciado 
 
 
 ### Cuando haya un nuevo mensaje en mi biografía
-Desencadena un nuevo flujo cuando hay un nuevo mensaje en la escala de tiempo del usuario que ha iniciado la sesión. ```GET: /trigger/me/feed```
+Desencadena un nuevo flujo cuando hay un nuevo mensaje en la biografía del usuario que ha iniciado la sesión. ```GET: /trigger/me/feed```
 
 No hay ningún parámetro.
 
@@ -105,7 +105,7 @@ No hay ningún parámetro.
 
 
 ### Obtener fuente de página
-Obtener mensajes de la fuente de una página especificada. ```GET: /{pageId}/feed```
+Obtiene entradas de la fuente de una página especificada. ```GET: /{pageId}/feed```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -124,7 +124,7 @@ Obtener mensajes de la fuente de una página especificada. ```GET: /{pageId}/fee
 
 
 ### Obtener biografía de usuario
-Obtener mensajes de la escala de tiempo de un usuario. ```GET: /{userId}/feed```
+Obtiene los mensajes de la biografía de un usuario. ```GET: /{userId}/feed```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -144,7 +144,7 @@ Obtener mensajes de la escala de tiempo de un usuario. ```GET: /{userId}/feed```
 
 
 ### Publicar en la página
-Publicar un mensaje en una página de Facebook con el usuario que inició sesión. ```POST: /{pageId}/feed```
+Publica un mensaje en una página de Facebook con el usuario que inició sesión. ```POST: /{pageId}/feed```
 
 | Nombre|Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -433,6 +433,6 @@ Es más probable que cualquier miembro de estos grupos vea este mensaje y existe
 
 ## Pasos siguientes
 
-[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

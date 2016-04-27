@@ -4,8 +4,8 @@
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
-   manager="jeffreyg"
-   editor="jeffreyg"/>
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/01/2015"
+   ms.date="04/11/2016"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 # Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de Azure clásico)
@@ -100,4 +100,4 @@ Consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/libr
 
 Consulte [Operaciones para Bases de datos SQL de Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

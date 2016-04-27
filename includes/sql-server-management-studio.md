@@ -1,14 +1,16 @@
 
-   * Sign in to the Azure account by entering your credentials.
+   * Inicie sesión en la cuenta de Azure con sus credenciales.
 
-     This method is quicker and easier, but if you use this method you won't be able to see Azure SQL Database or Mobile Services in the **Server Explorer** window.
+     Este método es más rápido y sencillo pero, si lo utiliza, no podrá ver la Base de datos SQL de Azure ni los Servicios móviles en la ventana **Server Explorer**.
 
-     In **Server Explorer**, click the **Connect to Azure** button. An alternative is to right-click the **Azure** node, and then click **Connect to Azure** in the context menu.
+     En **Server Explorer**, haga clic en el botón **Conectar a Azure**. También puede hacer clic con el botón derecho en el nodo **Azure** y, a continuación, en **Conectar a Azure** en el menú contextual.
 
-   * Install a management certificate that enables access to your account.
+   * Instale un certificado de administración que permita el acceso a su cuenta.
 
-     In **Server Explorer**, right-click the **Azure** node, and then click **Manage Subscriptions** in the context menu. In the **Manage Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and then import a subscription file (also called a *.publishsettings* file) for your Azure account.
+     En **Server Explorer**, haga clic con el botón derecho en el nodo **Azure** y, a continuación, haga clic en **Administrar suscripciones** en el menú contextual. En el cuadro de diálogo **Administrar suscripciones de Azure**, haga clic en la pestaña **Certificados** y, a continuación, en **Importar**. Siga las instrucciones para descargar e importar un archivo de suscripción (también conocido como archivo *.publishsettings*) para su cuenta de Azure.
 
-     > [AZURE.NOTE] Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Azure services.
+     > [AZURE.NOTE] Descargue el archivo de suscripción en una carpeta ajena a los directorios de código fuente (por ejemplo, en la carpeta Descargas) y elimínelo una vez que finalice la importación. Si un usuario malintencionado obtuviera acceso al archivo de suscripción, podría editar, crear y eliminar servicios de Azure.
 
-	For more information, see [How to Connect to Azure from Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
+	Para obtener más información, consulte [Conexión a Azure desde Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
+
+<!---HONumber=AcomDC_0413_2016-->

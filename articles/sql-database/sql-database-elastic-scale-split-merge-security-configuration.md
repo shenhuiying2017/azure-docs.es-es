@@ -2,7 +2,8 @@
     pageTitle="Configuraciones de seguridad de escala elástica | Microsoft Azure" 
     description="Configuración de certificados x409 para cifrado" 
     metaKeywords="Elastic Database certificates security" 
-    services="sql-database" documentationCenter="" 
+    services="sql-database" 
+    documentationCenter="" 
     manager="jhubbard" 
     authors="torsteng"/>
 
@@ -206,7 +207,9 @@ Ejecute:
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
-Escriba la contraseña y luego exporte el certificado con estas opciones: * Sí, exportar la clave privada * Exportar todas las propiedades extendidas
+Escriba la contraseña y, a continuación, exporte el certificado con estas opciones:
+* Sí, exportar la clave privada
+* Exportar todas las propiedades extendidas
 
 ## Exportación del certificado SSL desde el almacén de certificados
 
@@ -347,7 +350,14 @@ Cada persona para quien se ha emitido un certificado de cliente debe importar el
     * Incluir todas las propiedades extendidas comprobadas
 
 ## Copia de las huellas digitales de certificados de cliente
-Cada usuario para el que se ha emitido un certificado de cliente debe seguir estos pasos para obtener la huella digital de su certificado, el que se agregará al archivo de configuración de servicio: * Ejecute certmgr.exe * Seleccione la pestaña Personal * Haga doble clic en el certificado de cliente que se usará para la autenticación * En el cuadro de diálogo Certificado que se abre, seleccione la pestaña Detalles * Asegúrese de que Mostrar esté mostrando Todo * Seleccione el campo denominado Huella digital en la lista * Copie el valor de la huella digital ** Elimine los caracteres Unicode no visibles delante del primer dígito ** Elimine todos los espacios
+Cada usuario para el que se ha emitido un certificado de cliente debe seguir estos pasos para obtener la huella digital de su certificado, el que se agregará al archivo de configuración de servicio:
+* Ejecute certmgr.exe
+* Seleccione la pestaña Personal
+* Haga doble clic en el certificado de cliente que se usará para la autenticación
+* En el cuadro de diálogo Certificado que se abre, seleccione la pestaña Detalles
+* Asegúrese de que Mostrar esté mostrando Todo
+* Seleccione el campo denominado Huella digital en la lista
+* Copie el valor de la huella digital. **Elimine los caracteres Unicode no visibles delante del primer dígito.** Elimine todos los espacios.
 
 ## Configuración de clientes autorizados en el archivo de configuración de servicio
 
@@ -371,7 +381,10 @@ Personalización:
 
     MyID.pvk and MyID.cer with the filename for the encryption certificate
 
-Escriba la contraseña y luego exporte el certificado con estas opciones: * Sí, exportar la clave privada * Exportar todas las propiedades extendidas * Necesitará la contraseña al cargar el certificado en el servicio en la nube.
+Escriba la contraseña y, a continuación, exporte el certificado con estas opciones:
+*    Sí, exportar la clave privada
+*    Exportar todas las propiedades extendidas
+*    Necesitará la contraseña al cargar el certificado en el servicio en la nube.
 
 ## Exportar el certificado de cifrado del almacén de certificados
 
@@ -454,7 +467,7 @@ En el asistente para importar certificados:
 
 ## Carga del certificado
 
-En el [Portal de Azure](https://portal.azure.com/)
+En el [Portal de Azure](https://portal.azure.com/):
 
 1. Seleccione **Servicios en la nube**.
 2. Seleccione el servicio en la nube.
@@ -474,4 +487,4 @@ Las credenciales almacenadas en esta base de datos están cifradas. Sin embargo,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

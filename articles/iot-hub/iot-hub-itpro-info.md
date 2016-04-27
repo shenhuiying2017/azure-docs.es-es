@@ -31,7 +31,7 @@ Los dispositivos pueden comunicarse con el Centro de IoT en Azure mediante una v
 | AMQP sobre WebSockets | 443 |
 | MQTT | 8883 |
 
-Una vez creado un Centro de IoT en una región de Azure, el centro mantendrá la misma dirección IP durante toda su existencia. Sin embargo, en un escenario de recuperación ante desastres, si Microsoft mueve el Centro de IoT a una unidad de escalado diferente, se le asignará una nueva dirección IP.
+Una vez creado un Centro de IoT en una región de Azure, el centro mantendrá la misma dirección IP durante toda su existencia. Sin embargo, para mantener la calidad de servicio, si Microsoft mueve el Centro de IoT a una unidad de escalado diferente, se le asignará una nueva dirección IP.
 
 ## Centro de IoT y seguridad
 
@@ -51,4 +51,4 @@ Este artículo contiene información específica para que los desarrolladores y 
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

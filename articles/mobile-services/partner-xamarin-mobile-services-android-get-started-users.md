@@ -35,7 +35,7 @@ En este tutorial se realiza un recorrido por los pasos básicos para habilitar l
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles].
 
-Para completar este tutorial necesita Xamarin.Android y el SDK de Android 4.2 o una versión posterior.
+Para completar este tutorial, se precisa Visual Studio con Xamarin en Windows o Xamarin Studio en Mac OS X. Las instrucciones completas de instalación se encuentran en [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx).
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
@@ -107,7 +107,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
             await RefreshItemsFromTableAsync();
         }
 
-5. A continuación, llame al nuevo método **CreateTable** de **OnCreate** después de la llamada a **Authenticate** que se agregó en el paso 2:
+5. A continuación, llame al nuevo método **CreateTable** de **OnCreate** después de la llamada a **Authenticate** que se agregó en el paso 2:
 
 		await CreateTable();
 
@@ -143,4 +143,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 [Autorización de usuarios con scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

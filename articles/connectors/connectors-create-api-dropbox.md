@@ -30,7 +30,7 @@ Conéctese a Dropbox para administrar archivos, por ejemplo, crearlos, obtenerlo
 
 &nbsp;
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Conector de Dropbox](../app-service-logic/app-service-logic-connector-dropbox.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 
 Con Dropbox, puede hacer lo siguiente:
@@ -58,7 +58,7 @@ Todas las API admiten datos en formato JSON y XML.
 Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su instancia de Dropbox.
 
 1. Inicie sesión en su cuenta de Dropbox.
-2. Seleccione **Authorize** (Autorizar) y permita que sus aplicaciones lógicas se conecten a Dropbox y utilicen esta aplicación. 
+2. Seleccione **Autorizar** y permita que sus aplicaciones lógicas se conecten a Dropbox y utilicen esta aplicación. 
 
 Después de crear la conexión, especifique las propiedades de Dropbox, como el nombre de archivo o la ruta de acceso de la carpeta. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
@@ -272,9 +272,9 @@ Desencadena un flujo cuando se modifica un archivo en una carpeta de Dropbox. ``
 
 ## Pasos siguientes
 
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-Volver a la [lista de API](apis-list.md).
+Volver a la [lista de API](apis-list.md)
 
 
 <!--References-->
@@ -286,4 +286,4 @@ Volver a la [lista de API](apis-list.md).
 [10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -17,11 +17,13 @@
 	ms.date="01/05/2016"
 	ms.author="drewm"/>
 
-# Mantenimiento planeado de máquinas virtuales Windows en Azure
+# Mantenimiento planeado de máquinas virtuales Linux en Azure
+
+
+Entienda qué es el mantenimiento planeado de Azure y cómo afecta a la disponibilidad de sus máquinas virtuales Windows. Este artículo también está disponible para [máquinas virtuales Linux](virtual-machines-linux-planned-maintenance.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Entienda qué es el mantenimiento planeado de Azure y cómo afecta a la disponibilidad de sus máquinas virtuales Windows. También puede leer sobre [mantenimiento planeado de máquinas virtuales Linux](virtual-machines-linux-planned-maintenance.md).
 
 ## Por qué Azure realiza mantenimiento planeado
 
@@ -33,4 +35,4 @@ Tenga en cuenta que hay dos tipos de mantenimiento que pueden afectar a la dispo
 
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

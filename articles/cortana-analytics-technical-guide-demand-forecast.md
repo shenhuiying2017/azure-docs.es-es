@@ -213,8 +213,7 @@ Los siguientes pasos le guiarán por los pasos para visualizar la salida de dato
 3. Cree el icono "Demanda por marca de hora":
 	-	Haga clic en el conjunto de datos **"EnergyStreamData"** en la sección Conjuntos de datos del panel izquierdo.
 
-	-	Haga clic en el icono **"Gráfico de líneas"**
-		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
+	-	Haga clic en el icono **"Gráfico de líneas"** ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
 
 	-	Haga clic en "EnergyStreamData" en el panel **Campos**.
 
@@ -226,7 +225,8 @@ Los siguientes pasos le guiarán por los pasos para visualizar la salida de dato
 
 	-	Mantenga el mouse sobre este icono en el panel y haga clic en el icono "Editar" en la esquina superior derecha para cambiar el título a "Demanda por marca de hora".
 
-4.	Cree otros iconos de panel basados en conjuntos de datos adecuados. La vista final del panel se muestra a continuación. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	Cree otros iconos de panel basados en conjuntos de datos adecuados. La vista final del panel se muestra a continuación.
+![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
 
 
 ### Configuración del panel de análisis en frío
@@ -253,7 +253,8 @@ En la canalización de datos de análisis en frío, el objetivo principal es obt
 
 	-	En la carpeta **"DemandForecastingDataGeneratorv1.0"** que ha descargado, haga doble clic en el archivo **‘Power BI Template\\DemandForecastPowerBI.pbix’**. Las visualizaciones iniciales se basan en datos ficticios. **Nota:** Si ve un mensaje de error, asegúrese de que ha instalado la versión más reciente de Power BI Desktop.
 
-		Cuando abra el archivo, en la parte superior, haga clic en **"Editar consultas"**. En la ventana emergente, haga doble clic en **"Origen"** en el panel derecho. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		Cuando abra el archivo, en la parte superior, haga clic en **"Editar consultas"**. En la ventana emergente, haga doble clic en **"Origen"** en el panel derecho.
+![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   En la ventana emergente, reemplace **"Servidor"** y **"Base de datos"** por los nombres de su servidor y su base de datos y después haga clic en **"Aceptar"**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**SuNombreDeSolución.database.windows.net, 1433**). Ignore los mensajes de advertencia que aparezcan en la pantalla.
 
@@ -278,7 +279,7 @@ En la canalización de datos de análisis en frío, el objetivo principal es obt
 
 	-   Expanda la sección **Programar actualización**. Active "Mantener los datos actualizados".
 
-	-   Programe la actualización según sus necesidades. Para obtener más información, consulte [Actualizar datos en Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+	-   Programe la actualización según sus necesidades. Para obtener más información, consulte [Actualizar datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
 
 ## **Herramientas de estimación de costos**
@@ -289,4 +290,4 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

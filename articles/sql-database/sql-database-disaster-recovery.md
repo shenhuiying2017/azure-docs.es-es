@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -66,7 +66,7 @@ En el caso de una interrupción en una base de datos, es posible recuperar la ba
 
 > [AZURE.NOTE] Al recuperar una base de datos se crea una nueva base de datos. Es importante asegurarse de que el servidor en el que va a efectuar la recuperación tenga suficiente capacidad DTU para la nueva base de datos. Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
-###Portal de Azure (recuperación de una base de datos independiente)
+###Portal de Azure (recuperación en una base de datos independiente)
 Para restaurar una Base de datos SQL mediante la restauración geográfica en el Portal de Azure, siga estos pasos.
 
 1. Inicie sesión en el [portal de Azure](https://portal.Azure.com).
@@ -75,7 +75,7 @@ Para restaurar una Base de datos SQL mediante la restauración geográfica en el
 3. Especifique el resto de propiedades de la base de datos y, a continuación, haga clic en **Crear**.
 4. El proceso de restauración de base de datos se iniciará y se puede supervisar mediante **NOTIFICACIONES**, en el lado izquierdo de la pantalla.
 
-###Portal de Azure (recuperación de un grupo de bases de datos elásticas)
+###Portal de Azure (recuperación en un grupo de bases de datos elásticas)
 Para restaurar una base de datos SQL en un grupo de bases de datos elásticas mediante la restauración geográfica a través del portal, siga las instrucciones que se muestran a continuación.
 
 1. Inicie sesión en el [portal de Azure](https://portal.Azure.com).
@@ -137,11 +137,11 @@ Compruebe si la configuración de las reglas de alerta existente se ha asignado 
   + La base de datos recuperada utiliza un nombre diferente del nombre de la base de datos de origen
   + La base de datos recuperada está en un servidor diferente del servidor de origen
 
-Para obtener más información sobre las reglas de alerta de las bases de datos, consulte [Recepción de notificaciones de alerta](insights-receive-alert-notifications.md) y [Estado del servicio de seguimiento](insights-service-health.md).
+Para obtener más información sobre las reglas de alerta de las bases de datos, consulte [Recepción de notificaciones de alerta](../azure-portal/insights-receive-alert-notifications.md) y [Estado del servicio de seguimiento](../azure-portal/insights-service-health.md).
 
 
 ### Habilitar auditoría
 
 Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Un buen indicador de que es necesaria una auditoría es que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *.database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de la Base de datos SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

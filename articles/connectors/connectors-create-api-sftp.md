@@ -22,7 +22,7 @@ Conéctese a un servidor SFTP para administrar sus archivos. Puede realizar dife
 
 - Aplicaciones lógicas
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-Versión preliminar, haga clic en [Conector de SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con SFTP, puede:
 
@@ -30,7 +30,7 @@ Con SFTP, puede:
 - Usar un desencadenador cuando se actualiza un archivo.
 - Usar acciones que crean archivos, eliminan archivos, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede obtener el contenido de un archivo y después actualizar una base de datos SQL. 
 
-Para agregar una operación a las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Desencadenadores y acciones
@@ -38,7 +38,7 @@ La API de SFTP tiene los siguientes desencadenadores y acciones disponibles.
 
 Desencadenadores | Acciones
 --- | ---
-<ul><li>Cuando se crea o modifica un archivo</li></ul> | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Actualizar archivo</li><li>Cuando se crea o modifica un archivo</li></ul>
+<ul><li>Cuando se crea o modifica un archivo </li></ul> | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar el archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Actualizar archivo</li><li>Cuando se crea o modifica un archivo</li></ul>
 
 Todas las API admiten datos en formato JSON y XML.
 
@@ -51,7 +51,7 @@ Cuando agregue esta API a las aplicaciones lógicas, escriba los valores siguien
 |Dirección del servidor host| Sí | Escriba el dominio completo (FQDN) o la dirección IP del servidor SFTP.|
 |Nombre de usuario| Sí | Escriba el nombre de usuario para conectarse al servidor SFTP.|
 |Password | Sí | Escriba la contraseña del nombre de usuario.|
-|Huella digital de la tecla del host del servidor SSH | Sí | Especifique la huella digital de la tecla del host pública para el servidor SSH. <br/><br/>Normalmente, el administrador del servidor puede proporcionarle esta clave. También puede utilizar las herramientas ```WinSCP``` o ```ssh-keygen-g3 -F``` para obtener la huella digital de la clave. | 
+|Huella digital de la tecla del host del servidor SSH | Sí | Especifique la huella digital de la tecla del host pública para el servidor SSH. <br/><br/>Normalmente, el administrador del servidor puede proporcionarle esta tecla. También puede utilizar las herramientas ```WinSCP``` o ```ssh-keygen-g3 -F``` para obtener la huella digital de la tecla. | 
 
 Después de crear la conexión, especifique las propiedades de SFTP, como la ruta de acceso a la carpeta o el archivo. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
@@ -92,7 +92,7 @@ Copia un archivo en SFTP. ```POST: /datasets/default/copyFile```
 |default|Error en la operación.|
 
 ### Eliminar archivo 
-Elimina un archivo en SFTP. ```DELETE: /datasets/default/files/{id}```
+Elimina un archivo de SFTP. ```DELETE: /datasets/default/files/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -105,7 +105,7 @@ Elimina un archivo en SFTP. ```DELETE: /datasets/default/files/{id}```
 |default|Error en la operación.|
 
 ### Extraer carpeta
-Extrae un archivo de almacenamiento en una carpeta mediante SFTP (ejemplo: .zip) ```POST: /datasets/default/extractFolderV2```
+Extrae un archivo de almacenamiento en una carpeta mediante SFTP (ejemplo: .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -120,7 +120,7 @@ Extrae un archivo de almacenamiento en una carpeta mediante SFTP (ejemplo: .zip)
 |default|Error en la operación.|
 
 ### Obtener contenido de archivo
-Recupera el contenido del archivo desde SFTP mediante el identificador. ```GET: /datasets/default/files/{id}/content```
+Recupera el contenido de un archivo de SFTP mediante el identificador. ```GET: /datasets/default/files/{id}/content```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -134,7 +134,7 @@ Recupera el contenido del archivo desde SFTP mediante el identificador. ```GET: 
 
 
 ### Obtener contenido de archivo mediante la ruta de acceso
-Recupera el contenido del archivo desde SFTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera contenido de archivo de SFTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -148,7 +148,7 @@ Recupera el contenido del archivo desde SFTP mediante la ruta de acceso. ```GET:
 
 
 ### Obtener metadatos de archivo 
-Recupera los metadatos de archivo de SFTP mediante el identificador de archivo. ```GET: /datasets/default/files/{id}```
+Recupera metadatos de un archivo de SFTP mediante el identificador de archivo. ```GET: /datasets/default/files/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -162,7 +162,7 @@ Recupera los metadatos de archivo de SFTP mediante el identificador de archivo. 
 
 
 ### Obtener metadatos de archivo mediante la ruta de acceso
-Recupera los metadatos del archivo de SFTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
+Recupera metadatos de un archivo de SFTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -176,7 +176,7 @@ Recupera los metadatos del archivo de SFTP mediante la ruta de acceso. ```GET: /
 
 
 ### Actualizar archivo
-Actualiza el contenido del archivo mediante SFTP. ```PUT: /datasets/default/files/{id}```
+Actualiza el contenido de un archivo mediante SFTP. ```PUT: /datasets/default/files/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -248,6 +248,6 @@ Desencadena un flujo al modificar un archivo en SFTP. ```GET: /datasets/default/
 
 
 ## Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

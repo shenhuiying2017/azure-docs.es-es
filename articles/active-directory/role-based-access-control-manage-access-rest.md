@@ -13,21 +13,24 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Administración del control de acceso basado en rol con la API de REST
 
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
+- [API DE REST](role-based-access-control-manage-access-rest.md)
+
+El control de acceso basado en roles (RBAC) del Portal de Azure y la API de Azure Resource Manager le permite administrar el acceso a la suscripción y los recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
+
 
 ## Lista de todas las asignaciones de roles
 
 Proporciona una lista todas las asignaciones de roles en el ámbito y los ámbitos secundarios especificados.
 
-Para obtener una lista de las asignaciones de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/read` en el ámbito. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para obtener una lista de las asignaciones de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/read` en el ámbito. Se concede acceso a esta operación a todos los roles integrados. Para obtener más información sobre las asignaciones de roles y la administración del acceso a los recursos de Azure, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
@@ -37,7 +40,7 @@ Use el método **GET** con el identificador URI siguiente:
 
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
-Reemplace *{scope}* por el ámbito para el que desee obtener una lista de asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+Reemplace *{scope}* por el ámbito cuya lista de asignaciones de roles quiere obtener. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
 | Level | *{Scope}* |
 |-------|-----------|
@@ -47,7 +50,7 @@ Reemplace *{scope}* por el ámbito para el que desee obtener una lista de asigna
 
 Reemplace *{api-version}* por 2015-07-01.
 
-Reemplace *{filter}* por la condición que desea aplicar para filtrar la lista de asignaciones de roles. Se admiten las condiciones siguientes.
+Reemplace *{filter}* por la condición que quiere aplicar para filtrar la lista de asignación de roles. Se admiten las condiciones siguientes.
 
 
 | Condición | *{Filter}* | Sustituya |
@@ -89,7 +92,7 @@ Código de estado: 200
 
 Obtiene información sobre una única asignación de roles especificada por el identificador de asignación de roles.
 
-Para obtener información sobre una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/read`. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para obtener información sobre una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/read`. Se concede acceso a esta operación a todos los roles integrados. Para obtener más información sobre las asignaciones de roles y la administración del acceso a los recursos de Azure, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
@@ -99,7 +102,7 @@ Use el método **GET** con el identificador URI siguiente:
 
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
-Reemplace *{scope}* por el ámbito para el que desee obtener una lista de asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+Reemplace *{scope}* por el ámbito cuya lista de asignaciones de roles quiere obtener. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
 | Level | *{Scope}* |
 |-------|-----------|
@@ -137,7 +140,7 @@ Código de estado: 200
 
 Cree una asignación de roles en el ámbito especificado para la entidad de seguridad especificada que concede el rol especificado.
 
-Para crear una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/write`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para crear una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/write`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuario*. Para obtener más información sobre las asignaciones de roles y la administración del acceso a los recursos de Azure, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
@@ -147,7 +150,7 @@ Use el método **PUT** con el identificador URI siguiente:
 
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
-Reemplace *{scope}* por el ámbito en el que desee crear las asignaciones de roles. Cuando se crea una asignación de roles en un ámbito primario, todos los ámbitos secundarios heredan la misma asignación de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+Reemplace *{scope}* por el ámbito en el que quiere crear las asignaciones de roles. Cuando se crea una asignación de roles en un ámbito primario, todos los ámbitos secundarios heredan la misma asignación de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
 | Level | *{Scope}* |
 |-------|-----------|
@@ -202,7 +205,7 @@ Código de estado: 201
 
 Elimine una asignación de roles en el ámbito especificado.
 
-Para eliminar una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/delete`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para eliminar una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/delete`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuario*. Para obtener más información sobre las asignaciones de roles y la administración del acceso a los recursos de Azure, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
@@ -212,7 +215,7 @@ Use el método **DELETE** con el identificador URI siguiente:
 
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
-Reemplace *{scope}* por el ámbito en el que desee crear las asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+Reemplace *{scope}* por el ámbito en el que quiere crear las asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
 | Level | *{Scope}* |
 |-------|-----------|
@@ -250,7 +253,7 @@ Código de estado: 200
 
 Proporciona una lista de todos los roles disponibles para asignarse en el ámbito especificado.
 
-Para obtener una lista de roles, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/read` en el ámbito. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para obtener una lista de roles, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/read` en el ámbito. Se concede acceso a esta operación a todos los roles integrados. Para obtener más información sobre las asignaciones de roles y la administración del acceso a los recursos de Azure, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
@@ -260,7 +263,7 @@ Use el método **GET** con el identificador URI siguiente:
 
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
-Reemplace *{scope}* por el ámbito para el que desee obtener una lista de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+Reemplace *{scope}* por el ámbito cuya lista de roles quiere obtener. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
 | Level | *{Scope}* |
 |-------|-----------|
@@ -270,12 +273,12 @@ Reemplace *{scope}* por el ámbito para el que desee obtener una lista de roles.
 
 Reemplace *{api-version}* por 2015-07-01.
 
-Reemplace *{filter}* por la condición que desea aplicar para filtrar la lista de roles. Se admiten las condiciones siguientes.
+Reemplace *{filter}* por la condición que quiere aplicar para filtrar la lista de roles. Se admiten las condiciones siguientes.
 
 | Condición | *{Filter}* | Sustituya |
 |-----------|------------|---------|
 | Para obtener una lista de los roles disponibles para asignarse en el ámbito especificado y cualquiera de sus ámbitos secundarios | `atScopeAndBelow()` | |
-| Para buscar un rol con un nombre para mostrar exacto | `roleName%20eq%20'{role-display-name}'` | Reemplace *{rol-display-name}* por la forma con codificación URL del nombre para mostrar exacto del rol. Por ejemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+| Para buscar un rol con un nombre para mostrar exacto | `roleName%20eq%20'{role-display-name}'` | Reemplace *{rol-display-name}* por el formato con codificación URL del nombre para mostrar exacto del rol. Por ejemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 
 
@@ -344,7 +347,7 @@ Código de estado: 200
 
 Obtiene información sobre un único rol especificado por el identificador de la definición de roles. Para obtener información sobre un solo rol utilizando su nombre para mostrar, consulte Lista de todos los roles y el filtro roleName.
 
-Para obtener información sobre un rol, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/read`. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para obtener información sobre un rol, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/read`. Se concede acceso a esta operación a todos los roles integrados. Para obtener más información sobre las asignaciones de roles y la administración del acceso a los recursos de Azure, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
@@ -354,7 +357,7 @@ Use el método **GET** con el identificador URI siguiente:
 
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
-Reemplace *{scope}* por el ámbito para el que desee obtener una lista de asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+Reemplace *{scope}* por el ámbito cuya lista de asignaciones de roles quiere obtener. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
 | Level | *{Scope}* |
 |-------|-----------|
@@ -428,7 +431,7 @@ Código de estado: 200
 ## Creación de un rol personalizado
 Cree un rol personalizado.
 
-Para crear un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/write` en todos sus `AssignableScopes`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para crear un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/write` en todos sus `AssignableScopes`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuario*. Para obtener más información sobre las asignaciones de roles y la administración del acceso a los recursos de Azure, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
@@ -538,7 +541,7 @@ Código de estado: 201
 
 Modifique un rol personalizado.
 
-Para modificar un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/write` en todos sus `AssignableScopes`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para modificar un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/write` en todos sus `AssignableScopes`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuario*. Para obtener más información sobre las asignaciones de roles y la administración del acceso a los recursos de Azure, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
@@ -648,7 +651,7 @@ Código de estado: 201
 
 Elimine un rol personalizado.
 
-Para eliminar un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/delete` en todos sus `AssignableScopes`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para eliminar un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/delete` en todos sus `AssignableScopes`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuario*. Para obtener más información sobre las asignaciones de roles y la administración del acceso a los recursos de Azure, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
@@ -658,7 +661,7 @@ Use el método **DELETE** con el identificador URI siguiente:
 
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
-Reemplace *{scope}* por el ámbito en el que desee eliminar la definición de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+Reemplace *{scope}* por el ámbito en el que quiere eliminar la definición de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
 | Level | *{Scope}* |
 |-------|-----------|
@@ -711,4 +714,4 @@ Código de estado: 200
 
 ```
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

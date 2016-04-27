@@ -37,7 +37,7 @@ Es importante comprender el proceso de extremo a extremo para usar el almacenami
 - Enfoques de migración posibles.
 - Ejemplo completo de un extremo a extremo que muestra los pasos de Azure, Windows y SQL Server para la migración de una implementación existente de AlwaysOn.
 
-Para obtener información general sobre SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-classic-sql-overview.md).
+Para obtener información general sobre SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
 **Autor:** Daniel Sol **Revisores técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
@@ -402,8 +402,6 @@ Debe aprovisionar tiempo donde se pueda realizar una conmutación por error manu
 1. Copie las de copias de seguridad completas y restáurelas con **NORECOVERY**.
 1. Copie los objetos dependientes “fuera de la base de datos de usuario”, como los inicios de sesión, etc.
 1. Cree un equilibrador de carga interno nuevo (ILB) o use un equilibrador de carga externo (ELB) y, a continuación, configure los extremos de carga equilibrada en ambos nodos nuevos.
-
-
 > [AZURE.NOTE] Compruebe que todos los nodos tienen la configuración de extremo correcta antes de continuar
 
 1. Detenga el acceso de usuario/aplicación al servidor SQL Server (si usa grupos de almacenamiento).
@@ -1121,7 +1119,7 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 ## Recursos adicionales
 - [Almacenamiento Premium de Azure](../storage/storage-premium-storage.md)
 - [Máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/)
-- [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-classic-sql-overview.md)
+- [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png
@@ -1150,4 +1148,4 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -20,13 +20,13 @@
 
 # Introducción al Servicio de aplicaciones de Azure: parte 2
 
-En [Introducción al Servicio de aplicaciones de Azure](app-service-web-get-started.md), implementó una aplicación web en el Servicio de aplicaciones de Azure y todo está configurado para realizar actualizaciones rápidas y sencillas. En este artículo, agregará rápidamente funcionalidad fundamental a su aplicación implementada para que funcione perfectamente y resulte más atractiva. De esta manera, descubrirá por sí mismo que el Servicio de aplicaciones es mucho más que un proveedor de hospedaje de sitios web. Aporta funcionalidades de nivel empresarial a su fantástica aplicación para que pueda centrar su energía creativa en satisfacer a los usuarios con su aplicación y no en satisfacer las demandas del mundo real de seguridad, escalabilidad, rendimiento, administración, etc.
+En [Introducción al Servicio de aplicaciones de Azure](app-service-web-get-started.md), implementó una aplicación web en el Servicio de aplicaciones de Azure. En este artículo, agregará rápidamente funcionalidad fundamental a su aplicación implementada. Servicio de aplicaciones ofrece funcionalidades de clase empresarial a su excelente aplicación para satisfacer las necesidades reales de seguridad, escalabilidad, rendimiento, administración, etc..
 
 En unos pocos clics, aprenderá cómo:
 
 - aplicar autenticación para los usuarios
 - escalar automáticamente la aplicación
-- recibir alertas sobre el rendimiento de su aplicación
+- recibir alertas sobre el rendimiento de la aplicación
 
 Independientemente de qué aplicación de ejemplo implementó en el artículo anterior, puede seguir el tutorial.
 
@@ -46,7 +46,7 @@ Ahora, veamos lo fácil que es agregar autenticación a su aplicación.
 
     Una vez realizado el cambio correctamente, verá que el indicador de notificación cambia a verde y aparece un mensaje descriptivo.
 
-7. De nuevo en la hoja del portal de su aplicación, haga clic en el vínculo **URL** (o **Examinar** en la barra de menús). El vínculo es una dirección HTTP. ![Autenticar, ir a dirección URL](./media/app-service-web-get-started/aad-login-browse-click.png) Pero, una vez que la aplicación se abre en una nueva pestaña, el cuadro de Dirección URL redirecciona varias veces y termina en la aplicación con una dirección HTTPS. Lo que está viendo es que ya ha iniciado sesión en la cuenta de Microsoft con su suscripción de Azure, e iniciará sesión automáticamente en la aplicación con esa cuenta. ![Autenticar, sesión iniciada](./media/app-service-web-get-started/aad-login-browse-http-postclick.png) Si ahora abre una sesión no autenticada en otro explorador, verá una pantalla de inicio de sesión cuando vaya a la misma dirección URL: ![Autenticar, página de inicio de sesión](./media/app-service-web-get-started/aad-login-browse.png) Si nunca ha hecho nada con Azure Active Directory, puede que el directorio predeterminado no tenga usuarios de Azure AD. En ese caso, probablemente la única cuenta aquí es la cuenta de Microsoft con su suscripción de Azure. Por eso se inició sesión automáticamente en la aplicación en el mismo explorador antes. Puede usar la misma cuenta Microsoft para iniciar sesión también en esta página de inicio de sesión.
+7. De nuevo en la hoja del portal de su aplicación, haga clic en el vínculo **URL** (o **Examinar** en la barra de menús). El vínculo es una dirección HTTP. ![Autenticar, ir a dirección URL](./media/app-service-web-get-started/aad-login-browse-click.png) Pero, una vez que la aplicación se abre en una nueva pestaña, el cuadro de Dirección URL redirecciona varias veces y termina en la aplicación con una dirección HTTPS. Lo que está viendo es que ya ha iniciado sesión en la suscripción de Azure y se le autentica de forma automática en la aplicación. ![Autenticar, sesión iniciada](./media/app-service-web-get-started/aad-login-browse-http-postclick.png) Si ahora abre una sesión no autenticada en otro explorador, verá una pantalla de inicio de sesión cuando vaya a la misma dirección URL: ![Autenticar, página de inicio de sesión](./media/app-service-web-get-started/aad-login-browse.png) Si nunca ha hecho nada con Azure Active Directory, puede que el directorio predeterminado no tenga usuarios de Azure AD. En ese caso, probablemente la única cuenta aquí es la cuenta de Microsoft con su suscripción de Azure. Por eso se inició sesión automáticamente en la aplicación en el mismo explorador antes. Puede usar la misma cuenta Microsoft para iniciar sesión también en esta página de inicio de sesión.
 
 Enhorabuena, se está autenticando todo el tráfico a su sitio.
 
@@ -62,7 +62,7 @@ El Servicio de aplicaciones proporciona una solución completa para algunas de l
 
 A continuación, vamos a escalar la aplicación. La aplicación del Servicio de aplicaciones se escala de dos maneras:
 
-- [Escalado vertical](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): cuando una aplicación del Servicio de aplicaciones se escala verticalmente, se cambia el plan de tarifa del plan del Servicio de aplicaciones al que pertenece la aplicación. El escalado proporciona más CPU, memoria y espacio en disco, así como características adicionales, como instancias de máquinas virtuales dedicadas, escalado automático, SLA del 99,95 %, dominios personalizados, certificados SSL personalizados, ranuras de implementación, copia de seguridad y restauración, etc. Los niveles más altos proporcionan más características a la aplicación del Servicio de aplicaciones.  
+- [Escalado vertical](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): cuando una aplicación del Servicio de aplicaciones se escala verticalmente, se cambia el plan de tarifa del plan del Servicio de aplicaciones al que pertenece la aplicación. El escalado vertical le ofrece más espacio de CPU, memoria o disco. También le ofrece características adicionales como máquinas virtuales dedicadas, escalado automático, una disponibilidad del 99,95%, dominios y certificados personalizados, ranuras de implementación, copia de seguridad, etc.. Los niveles más altos proporcionan más características a la aplicación del Servicio de aplicaciones.  
 - [Escalado horizontal](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): al escalar horizontalmente una aplicación del Servicio de aplicaciones, cambia el número de instancias de máquina virtual en las que se ejecuta su aplicación (o aplicaciones en el mismo plan del Servicio de aplicaciones). Con el nivel Estándar o superior, puede habilitar el escalado automático de instancias de máquina virtual en función de las métricas de rendimiento. 
 
 Sin más rodeos, vamos a configurar el escalado automático de la aplicación.
@@ -73,13 +73,13 @@ Sin más rodeos, vamos a configurar el escalado automático de la aplicación.
 
     Ya ha terminado con el escalado vertical.
     
-    >[AZURE.IMPORTANT] Este nivel agotará sus créditos de la evaluación gratuita. Si tiene una cuenta de pago por uso, incurrirá en cargos en su cuenta.
+    >[AZURE.IMPORTANT] Este nivel gastará los créditos de la evaluación gratuita. Si tiene una cuenta de pago por uso, incurrirá en cargos.
     
 3. A continuación, vamos a configurar el escalado automático. En la hoja del portal de su aplicación, haga clic en **Configuración** > **Escalar horizontalmente (plan del Servicio de aplicaciones)**. ![Escalado horizontal, hoja de configuración](./media/app-service-web-get-started/scale-out-settings.png)
 
-4. Cambie **Escalar por** a **Porcentaje de CPU**. Los controles deslizantes debajo de la lista desplegable cambiarán. A continuación, defina un rango de **Instancias** entre **1** y **2** y un **Rango objetivo** entre **40** y **80**. Para hacerlo, escriba en los cuadros o mueva los controles deslizantes. ![Escalado horizontal, configurar el escalado automático.](./media/app-service-web-get-started/scale-out-configure.png)
+4. Cambie **Escalar por** a **Porcentaje de CPU**. Los controles deslizantes debajo de la lista desplegable se actualizarán como corresponde. A continuación, defina un rango de **Instancias** entre **1** y **2** y un **Rango objetivo** entre **40** y **80**. Para hacerlo, escriba en los cuadros o mueva los controles deslizantes. ![Escalado horizontal, configurar el escalado automático.](./media/app-service-web-get-started/scale-out-configure.png)
     
-    Según esta configuración, la aplicación escalará horizontalmente de forma automática cuando el uso de CPU sea superior al 80 % y se escalará cuando el uso de CPU sea inferior al 40 %.
+    Según esta configuración, la aplicación se escalará horizontalmente de forma automática cuando el uso de CPU sea superior al 80 % y se reducirá horizontalmente cuando el uso de CPU sea inferior al 40 %.
     
 5. Haga clic en **Guardar** en la barra de menús.
 
@@ -109,7 +109,7 @@ Ahora que la aplicación tiene el escalado automático, ¿qué sucede cuando alc
 
 Enhorabuena, ya recibe alertas.
 
-Ahora, esta configuración de alertas comprobará el uso de la CPU cada cinco minutos. Si esa cifra supera el 90 %, se le enviará una alerta por correo electrónico, además a otras personas que estén autorizadas. Para ver todos los usuarios que están autorizados para recibir las alertas, vuelva a la hoja del portal y haga clic en el botón **Acceso**. ![Ver quién recibe las alertas](./media/app-service-web-get-started/alert-rbac.png)
+Esta configuración de alertas comprobará el uso de la CPU cada cinco minutos. Si esa cifra supera el 90 %, se le enviará una alerta por correo electrónico, además a otras personas que estén autorizadas. Para ver todos los usuarios que están autorizados para recibir las alertas, vuelva a la hoja del portal y haga clic en el botón **Acceso**. ![Ver quién recibe las alertas](./media/app-service-web-get-started/alert-rbac.png)
 
 Verá que en **Administradores de suscripciones** ya aparece el **Propietario** de la aplicación. Este grupo le incluiría si fuera el administrador de cuentas de su suscripción de Azure (por ejemplo, su suscripción de evaluación). Para más información sobre el control de acceso basado en roles de Azure, vea [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
 
@@ -127,4 +127,4 @@ Averigüe también qué más puede hacer con la aplicación que ha implementado.
 - [Acceso a recursos locales](web-sites-hybrid-connection-get-started.md)
 - [Obtener información acerca de cómo funciona el Servicio de aplicaciones](../app-service/app-service-how-works-readme.md) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

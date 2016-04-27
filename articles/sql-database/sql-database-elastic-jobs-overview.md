@@ -2,8 +2,9 @@
 	pageTitle="Información general sobre los trabajos de base de datos elástica | Microsoft Azure" 
 	description="Muestra el servicio de trabajo de base de datos elástica" 
 	metaKeywords="azure sql database elastic databases" 
-	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
+	services="sql-database" 
+    documentationCenter=""  
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -124,4 +125,6 @@ Hay varios tipos de tareas de trabajo que efectúan la ejecución de trabajos:
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0224_2016-->
+ 
+
+<!---HONumber=AcomDC_0413_2016-->

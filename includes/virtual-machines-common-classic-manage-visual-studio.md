@@ -18,7 +18,7 @@ Si bien puede crear una máquina virtual en el [Portal de administración de Azu
 
     Si no ha iniciado sesión en Azure, haga clic en **Iniciar sesión** para iniciar una. A continuación, seleccione su suscripción de Azure en el cuadro de lista desplegable, en caso de que no esté seleccionada.
 
-1. En la página ** Seleccionar una imagen de máquina virtual **, seleccione un tipo de imagen en el cuadro de lista desplegable **Tipo de imagen** y, a continuación, seleccione una imagen de máquina virtual en el cuadro de lista **Nombre de imagen**. Cuando haya terminado, haga clic en **Siguiente**.
+1. En la página **Seleccionar una imagen de máquina virtual**, seleccione un tipo de imagen en el cuadro de lista desplegable **Tipo de imagen** y, a continuación, seleccione una imagen de máquina virtual en el cuadro de lista **Nombre de imagen**. Cuando haya terminado, haga clic en **Siguiente**.
 
     ![Seleccionar una página de imágenes de máquinas virtuales](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
 
@@ -156,6 +156,6 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 
 ## Pasos siguientes
 
-Para obtener más información sobre la creación de máquinas virtuales, consulte [Creación de una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-cli-create.md) y [Creación de una máquina virtual con Windows en el Portal de vista previa de Azure](../articles/virtual-machines/virtual-machines-windows-tutorial.md).
+Para obtener más información sobre la creación de máquinas virtuales, consulte [Creación de una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) y [Creación de una máquina virtual con Windows en el Portal de vista previa de Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -29,7 +29,7 @@ Conéctese a Salesforce y cree objetos, obtenga objetos, etc. La API de Salesfor
 
 &nbsp;
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-Versión preliminar, haga clic en [Conector de Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
 Con Salesforce, puede:
 
@@ -58,7 +58,7 @@ Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para
 1. Inicie sesión en su cuenta de Salesforce.
 2. Permita que las aplicaciones lógicas se conecten a su cuenta de Salesforce y la usen. 
 
-Después de crear la conexión, especifique las propiedades de Salesforce, como el nombre de tabla. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de Salesforce, como el nombre de tabla. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión en otras aplicaciones lógicas.
 
@@ -266,4 +266,4 @@ Volver a la [lista de API](apis-list.md).
 [7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
 [8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

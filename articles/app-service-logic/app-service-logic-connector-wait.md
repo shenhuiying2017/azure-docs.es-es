@@ -28,13 +28,16 @@ Para usar el conector espera, deberá crear primero una instancia de la aplicaci
 El conector de espera se puede usar como una acción. No tiene ningún desencadenador.
 
 ### Acción
-- Haga clic en el conector de espera en el panel derecho: ![Lista de acciones][1]
+- Haga clic en el conector de espera en el panel derecho:
+![Lista de acciones][1]
 - El conector de espera admite dos acciones: 
 	- Retraso
 	- Retrasar hasta
 	 
-- Seleccione *Retraso*: ![Entrada de retraso][2]
-- Proporcione las entradas para la acción y configúrela: ![Acción configurada][3]
+- Seleccione *Retraso*:
+![Entrada de retraso][2]
+- Proporcione las entradas para la acción y configúrela:
+![Acción configurada][3]
 
 Parámetro|Tipo|Descripción del parámetro
 ---|---|---
@@ -48,11 +51,11 @@ Una vez creado el conector, puede agregarlo a un flujo empresarial mediante una 
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 [1]: ./media/app-service-logic-wait/ListOfActions.PNG
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

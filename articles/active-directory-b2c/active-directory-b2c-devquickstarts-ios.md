@@ -1,4 +1,11 @@
-<properties pageTitle="Versión preliminar de Azure Active Directory B2C: llamar a una API web desde una aplicación iOS | Microsoft Azure" description="Este artículo le mostrará cómo crear una aplicación de "lista de tareas pendientes" para iOS que llame a una API web de Node.js mediante tokens de portador de OAuth 2.0. Tanto la aplicación iOS como la API web usan Azure Active Directory B2C para administrar las identidades de usuario y autenticar usuarios." services="active-directory-b2c" documentationCenter="ios" authors="brandwe" manager="mbaldwin" editor=""/>
+<properties
+	pageTitle="Vista previa de Azure Active Directory B2C: Llamada a una API web desde una aplicación iOS | Microsoft Azure"
+	description="Este artículo le mostrará cómo crear una aplicación iOS de ";lista de tareas pendientes"; que llama a una API web de Node.js con tokens de portador de OAuth 2.0. Tanto la aplicación iOS como la API web usan Azure Active Directory B2C para administrar identidades de usuario y autenticar usuarios."
+	services="active-directory-b2c"
+	documentationCenter="ios"
+	authors="brandwe"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -18,10 +25,10 @@ Con Azure Active Directory (Azure AD) B2C es posible agregar eficaces caracterí
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
-	Para trabajar perfectamente, esta Guía de inicio rápido requiere tener una API web protegida por medio de Azure AD B2C. Hemos creado una tanto para .NET como para Node.js que puede usar. En este tutorial se asume que se ha configurado el ejemplo de API web de Node.js. Para más información, consulte el [ejemplo de API web de Azure Active Directory para Node.js ejemplo](active-directory-b2c-devquickstarts-api-node.md).
+	Para trabajar perfectamente, esta Guía de inicio rápido requiere tener una API web protegida por medio de Azure AD B2C. Hemos creado una tanto para .NET como para Node.js que puede usar. En este tutorial se asume que se ha configurado el ejemplo de API web de Node.js. Para más información, consulte el [ejemplo de API web de Azure Active Directory para Node.js](active-directory-b2c-devquickstarts-api-node.md).
 
 > [AZURE.NOTE]
-	Este artículo no trata sobre cómo implementar el inicio de sesión, el registro y la administración de perfiles con Azure AD B2C. Más bien se centra en la realización de llamadas a las API web después de que el usuario está autenticado. Si aún no lo ha hecho, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
+	Este artículo no trata sobre cómo implementar el inicio de sesión, el registro y la administración de perfiles con Azure AD B2C. Más bien se centra en la realización de llamadas a las API web después de que el usuario está autenticado. Si aún no lo ha hecho, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para más información sobre los conceptos básicos de Azure AD B2C.
 
 ## Obtener un directorio de Azure AD B2C
 
@@ -32,19 +39,19 @@ Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directori
 A continuación, debe crear una aplicación en su directorio B2C. Esto proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación. Tanto la aplicación como la API web se representarán mediante un único **identificador de aplicación** en este caso, ya que conforman una aplicación lógica. Para crear una aplicación, siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de:
 
 - Incluir una **aplicación web/API web** en la aplicación.
-- Escribir `http://localhost:3000/auth/openid/return` como **URL de respuesta**. Es la dirección URL predeterminada para este ejemplo de código.
+- Escribir `http://localhost:3000/auth/openid/return` como **Dirección URL de respuesta**. Es la dirección URL predeterminada para este ejemplo de código.
 - Crear un **secreto de aplicación** para la aplicación y copiarlo. Lo necesitará más adelante.
-- Copiar el **identificador de aplicación** asignado a la aplicación. También lo necesitará más adelante.
+- Copiar el **Id. de aplicación** asignado a la aplicación. También lo necesitará más adelante.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Crear sus directivas
 
-En Azure AD B2C, cada experiencia de usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Esta aplicación contiene tres experiencias de identidad: registro, inicio de sesión e inicio de sesión mediante Facebook. Es preciso que cree una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Cuando cree las tres directivas, asegúrese de:
+En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Esta aplicación contiene tres experiencias de identidad: registro, inicio de sesión e inicio de sesión mediante Facebook. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Cuando cree las tres directivas, asegúrese de:
 
 - Elegir el **nombre para mostrar** y los atributos de registro en la directiva de registro.
 - Elegir las notificaciones de aplicación **Nombre para mostrar** e **Id. de objeto** en todas las directivas. Puede elegir también otras notificaciones.
-- Copiar el **nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará estos nombres de directiva más adelante.
+- Copiar el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará estos nombres de directiva más adelante.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -54,7 +61,7 @@ Tenga en cuenta que este artículo no trata sobre cómo usar las directivas que 
 
 ## Descargar el código
 
-El código de este tutorial [se mantiene en GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Para generar el ejemplo a medida que avance, puede [descargar un proyecto de esqueleto en forma de archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip). También puede clonar el esqueleto:
+El código de este tutorial [se mantiene en GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Para generar el ejemplo a medida que avance, puede [descargar un proyecto de esqueleto como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip). También puede clonar el esqueleto:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
@@ -255,7 +262,7 @@ El método es simple. Tome como entradas el objeto `samplesPolicyData` que creó
 
 - Tenga en cuenta que `completionBlock` tiene `ADProfileInfo` como tipo que se devolverá mediante el uso de un objeto `userInfo`. `ADProfileInfo` es el tipo que contiene todas las respuestas del servidor, incluyendo las notificaciones.
 - Tenga también en cuenta `readApplicationSettings`. Este método lee los datos que se proporcionaron en `settings.plist`
-- Por último, tiene una método `getClaimsWithPolicyClearingCache` grande. Se trata de la llamada real a ADAL para iOS que debe escribir. Volveremos a este tema más adelante.
+- Por último, tiene un método `getClaimsWithPolicyClearingCache` grande. Se trata de la llamada real a ADAL para iOS que debe escribir. Volveremos a este tema más adelante.
 
 Luego escriba su método `getClaimsWithPolicyClearingCache` grande. Este método es suficientemente grande como para que merecer su propia sección.
 
@@ -315,12 +322,12 @@ Escriba el código ahora:
 
 La primera parte de esto debe resultarle familiar.
 
-- Cargar la configuración que se proporcionó en `settings.plist` y se asigna a `data`.
-- Configurar `ADAuthenticationError`, que toma todos los errores procedentes de ADAL para iOS.
-- Crear `authContext`, que configura la llamada a ADAL. Pásele su autoridad para comenzar.
-- Dar a `authContext` una referencia al controlador primario para que pueda volver a él.
-- Convertir `redirectURI`, que era una cadena de `settings.plist`, en el tipo de NSURL que ADAL espera.
-- Configurar `correlationId`, que es un UUID que puede seguir la llamada a través del cliente hasta el servidor y la devolución de la misma. Esto resulta útil para la depuración.
+- Cargue la configuración que se proporcionó en `settings.plist` y se asigna a `data`.
+- Configure `ADAuthenticationError`, que toma todos los errores procedentes de ADAL para iOS.
+- Cree `authContext`, que configura la llamada a ADAL. Pásele su autoridad para comenzar.
+- Otorgue a `authContext` una referencia al controlador primario para que pueda volver a él.
+- Convierta `redirectURI`, que era una cadena de `settings.plist`, en el tipo de NSURL que ADAL espera.
+- Configure `correlationId`, que es un UUID que puede seguir la llamada a través del cliente hasta el servidor y la devolución de la misma. Esto resulta útil para la depuración.
 
 A continuación, llegará a la llamada real al ADAL, que es donde la llamada cambia de lo que aparecería en los usos anteriores de ADAL para iOS:
 
@@ -619,8 +626,8 @@ Como referencia, el ejemplo completo [se proporciona en forma de archivo .zip](h
 
 Ahora puede pasar a temas más avanzados de B2C. Puede probar:
 
-[Llamada a una API web de Node.js desde una aplicación web de Node.js]() (Llamada a una API web de Node.js desde una aplicación web de Node.js)
+[Llamada a una API web de Node.js desde una aplicación web de Node.js (Llamada a una API web de Node.js desde una aplicación web de Node.js)]()
 
 [Personalización de la experiencia de usuario en una aplicación B2C]()
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

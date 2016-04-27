@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="03/07/2016"
+   ms.date="04/11/2016"
    ms.author="robinsh" />
 
 # Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
@@ -57,25 +57,25 @@ Consulte [Tamaños de máquina virtual](../virtual-machines/virtual-machines-lin
 
 ## Particiones de Almacenamiento de Azure
 
-Cada objeto que contiene datos almacenados en Almacenamiento de Azure (blobs, mensajes, entidades y archivos) pertenece a una partición y se identifica mediante una clave de partición. La partición determina cómo Almacenamiento de Azure equilibra entre servidores la carga de blobs, mensajes, entidades y archivos para satisfacer las necesidades de tráfico de esos objetos. La clave de partición es única dentro de la cuenta de almacenamiento y se utiliza para ubicar un blob, un mensaje o una entidad.
+Cada objeto que contiene datos almacenados en Almacenamiento de Azure (blobs, mensajes, entidades y archivos) pertenece a una partición y se identifica mediante una clave de partición. La partición determina cómo Almacenamiento de Azure equilibra entre servidores la carga de blobs, mensajes, entidades y archivos para satisfacer las necesidades de tráfico de esos objetos. La clave de partición es única y se utiliza para ubicar un blob, un mensaje o una entidad.
 
 La tabla anterior que aparece en [Objetivos de escalabilidad para las cuentas de almacenamiento estándar](#standard-storage-accounts) muestra los objetivos de rendimiento para una partición única para cada servicio.
 
 Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de los servicios de almacenamiento de las maneras siguientes:
 
-- **Blobs**: la clave de partición de un blob es el nombre del contenedor + el nombre del blob. Esto significa que cada blob tiene su propia partición. Los blobs, por tanto, se pueden distribuir en varios servidores para escalar horizontalmente el acceso a ellos. Aunque los blobs pueden agruparse lógicamente en contenedores de blob, esta agrupación no afecta a las particiones.
+- **Blobs**: la clave de partición de un blob es el nombre de la cuenta, el nombre del contenedor y el nombre del blob. Es decir, cada blob puede tener su propia partición si así lo exige la carga en el blob. Los blobs se pueden distribuir en varios servidores para escalar horizontalmente el acceso a ellos, pero los blobs únicos solo pueden proporcionarse mediante servidores únicos. Aunque los blobs pueden agruparse lógicamente en contenedores de blob, esta agrupación no afecta a las particiones.
 
 - **Archivos**: la clave de partición para un archivo es nombre de cuenta + nombre de recurso compartido de archivos. Esto significa que todos los archivos de un recurso compartido de archivos también están en una sola partición.
 
-- **Mensajes**: la clave de partición de un mensaje es el nombre de la cola, por lo que todos los mensajes de una cola se agrupan en una sola partición y se sirven mediante un solo servidor. Las distintas colas pueden ser procesadas por distintos servidores para equilibrar la carga de todas las colas que tenga una cuenta de almacenamiento.
+- **Mensajes**: la clave de partición de un mensaje es el nombre de la cuenta y el de la cola, por lo que todos los mensajes de una cola se agrupan en una sola partición y se proporcionan mediante un solo servidor. Las distintas colas pueden ser procesadas por distintos servidores para equilibrar la carga de todas las colas que tenga una cuenta de almacenamiento.
 
-- **Entidades**: la clave de partición de una entidad es el nombre de tabla + la clave de partición, donde la clave de partición es el valor de la propiedad obligatoria **PartitionKey** definida por el usuario para la entidad.
+- **Entidades**: la clave de partición de una entidad es el nombre de la cuenta, el nombre de la tabla y la clave de partición, donde la clave de partición es el valor de la propiedad obligatoria **PartitionKey** definida por el usuario para la entidad. Todas las entidades con el mismo valor de clave de partición se agrupan en la misma partición y se proporcionan mediante el mismo servidor de particiones. Se trata de un punto importante a tener en cuenta en el diseño de la aplicación. La aplicación debería equilibrar las ventajas de escalabilidad que supone propagar las entidades por varias particiones con las ventajas de acceso que supone agrupar las entidades en una sola partición.
 
-	Todas las entidades con el mismo valor de clave de partición se agrupan en la misma partición y se almacenan en el mismo servidor de particiones. Se trata de un punto importante a tener en cuenta en el diseño de la aplicación. La aplicación debería equilibrar las ventajas de escalabilidad que supone propagar las entidades por varias particiones con las ventajas de acceso que supone agrupar las entidades en una sola partición.
+Una ventaja fundamental de la agrupación de un conjunto de entidades de una tabla en una partición única es que permite realizar operaciones por lotes atómicas entre entidades de la misma partición, ya que la partición está en un solo servidor. Por lo tanto, si desea realizar operaciones por lotes en un grupo de entidades, considere la posibilidad de agruparlas con la misma clave de partición.
 
-	Una ventaja fundamental de la agrupación de un conjunto de entidades de una tabla en una partición única es que permite realizar operaciones por lotes atómicas entre entidades de la misma partición, ya que la partición está en un solo servidor. Por lo tanto, si desea realizar operaciones por lotes, considere la posibilidad de agrupar las entidades con la misma clave de partición.
+Por otra parte, las entidades que se encuentren en la misma tabla y tengan claves de distintas particiones, pueden tener la carga equilibrada entre distintos servidores, lo que permite disfrutar de una mayor escalabilidad.
 
-	Por otra parte, las entidades que, estando en la misma tabla, pertenecen a distintas particiones pueden tener la carga equilibrada entre distintos servidores, lo que permite disponer de una tabla grande con mayor escalabilidad.
+Puede obtener recomendaciones detalladas sobre el diseño de la estrategia de partición para tablas [aquí](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
 ## Otras referencias
 
@@ -86,4 +86,4 @@ Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de
 - [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](storage-performance-checklist.md)
 - [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

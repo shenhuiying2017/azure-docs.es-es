@@ -33,7 +33,7 @@ Este tutorial requiere lo siguiente:
 + Una cuenta de Google activa.
 + [Componente cliente Servicio de mensajería en la nube de Google] Agregará este componente durante este tutorial.
 
-Ya debe tener instalados los componentes [Xamarin.Android] y [Servicios móviles de Azure] en el proyecto desde el momento en que completó [Introducción a Servicios móviles].
+Ya debe tener instalados el componente [Servicios móviles de Azure] y Xamarin en el proyecto desde el momento en que completó [Introducción a Servicios móviles].
 
 ##<a id="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
@@ -84,7 +84,6 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Introducción a Servicios móviles]: mobile-services-ios-get-started.md
 
 [Componente cliente Servicio de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

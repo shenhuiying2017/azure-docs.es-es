@@ -33,9 +33,9 @@ Al completar este tutorial, el servicio móvil le enviará una notificación pus
 
 Este tutorial requiere lo siguiente:
 
-+ Un dispositivo iOS 8 (no se pueden probar las notificaciones de inserción en el simulador de iOS)
++ Un dispositivo iOS 8 (no se pueden probar las notificaciones de inserción en el simulador de iOS)
 + Pertenencia al programa para desarrolladores de iOS
-+ [Xamarin.iOS Studio]
++ [Xamarin Studio]
 + [Componente de Servicios móviles de Azure]
 + Una cuenta de Google activa
 + [Componente cliente Servicio de mensajería en la nube de Google] Agregará este componente durante este tutorial.
@@ -230,7 +230,7 @@ Una vez que haya registrado su aplicación con APNS y haya configurado su proyec
 
     Se mostrará el cuadro de diálogo Upload Certificate.
 
-4. Haga clic en **Archivo**, seleccione el archivo .p12 del certificado exportado, escriba la **Contraseña**, asegúrese de que selecciona el **Modo** correcto, haga clic en el icono de marca de verificación y haga clic en **Guardar**.
+4. Haga clic en **Archivo**, seleccione el archivo .p12 del certificado exportado, escriba la **Contraseña**, asegúrese de que selecciona el **Modo** correcto, haga clic en el icono de marca de verificación y haga clic en **Guardar**.
 
     ![][20]
 
@@ -838,7 +838,7 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 [127]: ./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/notification-area-received.png
 
 
-[Xamarin.iOS Studio]: http://xamarin.com/platform
+[Xamarin Studio]: http://xamarin.com/download
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -852,10 +852,9 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Componente de Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
-[Xamarin.iOS]: http://xamarin.com/download
 [Componente cliente Servicio de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
 [Componente del Cliente del Servicio de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
 [ejemplo de inicio de notificación push de Xamarin.Forms Azure]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [ejemplo de notificación push de Xamarin.Forms Azure completada]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

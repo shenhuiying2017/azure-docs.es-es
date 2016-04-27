@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Preguntas más frecuentes sobre máquinas virtuales | Microsoft Azure"
-	description="Proporciona respuestas a algunas de las preguntas más comunes sobre las máquinas virtuales de Azure creadas con el modelo de implementación clásica"
+	description="Proporciona respuestas a algunas de las preguntas más comunes sobre las máquinas virtuales de Azure creadas con el modelo de implementación clásica."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

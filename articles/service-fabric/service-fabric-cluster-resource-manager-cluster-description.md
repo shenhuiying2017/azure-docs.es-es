@@ -17,7 +17,7 @@
    ms.author="masnider"/>
 
 # Descripción de un clúster de Service Fabric
-Service Fabric Cluster Resource Manager proporciona varios mecanismos para describir un clúster. Durante el tiempo de ejecución, Resource Manager proporciona esta información para garantizar la alta disponibilidad de los servicios que se ejecutan en el clúster y para asegurarse de que los recursos del clúster se estén usando de la forma adecuada.
+Service Fabric Cluster Resource Manager proporciona varios mecanismos para describir un clúster. Durante el tiempo de ejecución, Resource Manager usa esta información para garantizar la alta disponibilidad de los servicios que se ejecutan en el clúster y para asegurarse de que los recursos del clúster se estén usando de la forma adecuada.
 
 ## Conceptos clave
 Las características de Cluster Resource Manager que describen un clúster son:
@@ -262,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->
