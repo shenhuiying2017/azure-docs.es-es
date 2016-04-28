@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de BlueJeans**, escriba su dirección URL con el siguiente patrón "**https://company.BlueJeans.com*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de BlueJeans**, escriba su dirección URL con el siguiente patrón "**https://company.BlueJeans.com**" y, a continuación, haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configurar dirección URL de la aplicación")
 
