@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Solución de problemas de errores de Docker
@@ -100,4 +100,4 @@ R: Una forma es usando OpenSSL en el servidor para generar los certificados y cl
 
 Otra opción es descargando OpenSSL para Windows y generando los certificados y claves necesarios y, a continuación, cargar la CA, certificados de servidor y claves en el equipo Linux. Para obtener más información acerca de cómo establecer una conexión segura con Docker, consulte el artículo sobre [protección del socket de demonio de Docker con HTTPS](https://docs.docker.com/articles/https/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

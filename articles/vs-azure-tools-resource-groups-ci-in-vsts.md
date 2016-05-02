@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="01/26/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher" />
 
 # Integración continua en Visual Studio Team Services mediante proyectos de implementación del Grupo de recursos de Azure
@@ -121,7 +121,7 @@ Los pasos siguientes le guiarán por los pasos necesarios para configurar la imp
 
     | Parámetro | Descripción|
     |---|---|
-    | -ResourceGroupLocation | El valor de la ubicación geográfica donde se encuentra el grupo de recursos, como **eastus** o **'Este de EE. UU.'**. (Agregue comillas simples si hay un espacio en el nombre). Para obtener más información, consulte [Regiones de Azure](https://azure.microsoft.com/es-ES/regions/).| |
+    | -ResourceGroupLocation | El valor de la ubicación geográfica donde se encuentra el grupo de recursos, como **eastus** o **'Este de EE. UU.'**. (Agregue comillas simples si hay un espacio en el nombre). Para obtener más información, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).| |
     | -ResourceGroupName | El nombre del grupo de recursos que se usa para esta implementación.| |
     | -UploadArtifacts | Este parámetro, cuando está presente, especifica que los artefactos tienen que cargarse en Azure desde el sistema local. Solo debe establecer este modificador si su implementación de plantilla requiere artefactos adicionales que desea almacenar provisionalmente mediante el script de PowerShell (como scripts de configuración o plantillas anidadas). |
     | -StorageAccountName | El nombre de la cuenta de almacenamiento utilizada para almacenar provisionalmente los artefactos en esta implementación. Este parámetro solo es necesario si está copiando artefactos en Azure. La implementación no creará automáticamente esta cuenta de almacenamiento, que debe existir previamente.| |
@@ -160,4 +160,4 @@ Lea [Información general del Administrador de recursos de Azure](resource-group
 [10]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough11b.png
 [11]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough12.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

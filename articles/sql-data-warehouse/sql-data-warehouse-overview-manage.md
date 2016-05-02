@@ -3,7 +3,7 @@
    description="Introducción a las herramientas de administración para Almacenamiento de datos SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="HappyNicolle"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/03/2016"
-   ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
+   ms.author="barbkess;sonyama;"/>
 
 # Herramientas de administración para Almacenamiento de datos SQL
 En este tema se examinan y comparan distintas herramientas y opciones para administrar Almacenamiento de datos SQL, con objeto de que se elija la herramienta adecuada para cada necesidad específica. Elegir la herramienta adecuada depende del número de bases de datos que administre, la tarea y la frecuencia con la que se realiza una tarea.
@@ -48,4 +48,4 @@ Para comenzar a usar estas herramientas, vaya al tema [conexión][].
 <!--Other web references-->
 [Portal de Azure clásico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

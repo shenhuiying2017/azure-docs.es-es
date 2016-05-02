@@ -36,13 +36,13 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
   - El [Portal de Azure](https://portal.azure.com/).
 
-   ![Portal de Azure](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-   Para los recursos de Proceso, Almacenamiento y redes, puede usar el Administrador de recursos o la implementación clásica. Select **Administrador de recursos**.
+        Para recursos de proceso, almacenamiento y red, puede usar el Administrador de recursos o la implementación clásica. Select **Administrador de recursos**.
 
-   ![Implementación de Resource Manager](./media/resource-manager-deployment-model/select-resource-manager.png)
+        ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Para Azure PowerShell, use la versión Resource Manager de comandos. Estos comandos tienen el formato *Verbo-AzureRmNombre*, tal como se muestra a continuación.
+  - Para Azure PowerShell, use la versión Resource Manager de comandos. Estos comandos tienen el formato *Verb-AzureRmNoun*, tal como se muestra a continuación.
 
             Get-AzureRmResourceGroupDeployment
 
@@ -53,7 +53,7 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
 - El tipo de recurso no incluye **(clásico)** en el nombre. La imagen siguiente muestra el tipo como **cuenta de almacenamiento**.
 
-   ![aplicación web](./media/resource-manager-deployment-model/resource-manager-type.png)
+    ![aplicación web](./media/resource-manager-deployment-model/resource-manager-type.png)
 
 La aplicación que se muestra en el diagrama siguiente muestra cómo los recursos implementados a través del Administrador de recursos están incluidos en un único grupo de recursos.
 
@@ -83,11 +83,11 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
   - [Portal clásico](https://manage.windowsazure.com)
 
-   ![Portal clásico](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-   O bien, el Portal de Azure y el usuario deben especificar la implementación **clásica** (para Proceso, Almacenamiento y redes).
+        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
 
-   ![Implementación clásica](./media/resource-manager-deployment-model/select-classic.png)
+        ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
   - Para Azure PowerShell, use la versión para Service Management de comandos. Estos nombres de comandos tienen el formato *Verbo-AzureNombre*, tal como se muestra a continuación.
 
@@ -97,7 +97,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
   - Los comandos de la CLI de Azure se ejecutan en modo **asm** o predeterminado.
 - El tipo de recurso incluye **(clásico)** en el nombre. La imagen siguiente muestra el tipo como **cuenta de almacenamiento (clásica)**.
 
-   ![tipo clásico](./media/resource-manager-deployment-model/classic-type.png)
+    ![tipo clásico](./media/resource-manager-deployment-model/classic-type.png)
 
 Todavía puede usar el Portal de Azure para administrar los recursos creados a través de la implementación clásica.
 
@@ -169,8 +169,6 @@ Hay algunas consideraciones importantes al trabajar con máquinas virtuales.
 
 Si puede permitirse disponer de tiempo de inactividad para las máquinas virtuales, puede realizar la transición desde la implementación clásica hasta el administrador de recursos con los [scripts PowerShell de ASM2ARM](https://github.com/fullscale180/asm2arm).
 
-Para obtener una lista de los comandos de la CLI de Azure equivalentes al realizar la transición desde la implementación clásica al Administrador de recursos, consulte [Comandos equivalentes del Administrador de recursos y de Administración de servicios para las operaciones de VM](./virtual-machines/virtual-machines-linux-cli-manage.md).
-
 Para obtener más detalles acerca de la transición de recursos de procesos, almacenamiento y redes, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 Para obtener información sobre cómo conectar redes virtuales de diferentes modelos de implementación, consulte [Conexión de redes virtuales clásicas a redes virtuales nuevas](./virtual-network/virtual-networks-arm-asm-s2s.md).
@@ -181,4 +179,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para conocer la estructura de las plantillas de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

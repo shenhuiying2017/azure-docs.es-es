@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Configuración del firewall | Microsoft Azure"
+	pageTitle="Configuración de un firewall de Base de datos SQL de Azure | Microsoft Azure"
 	description="Aprenda a configurar el firewall para direcciones IP que obtengan acceso a bases de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -18,14 +18,14 @@
 	ms.author="rickbyh"/>
 
 
-# Configuración del firewall en la Base de datos SQL mediante PowerShell
+# Configuración del firewall en la Base de datos SQL de Azure mediante PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-configure-firewall-settings.md)
+- [Portal de Azure](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-- [REST API](sql-database-configure-firewall-settings-rest.md)
+- [API DE REST](sql-database-configure-firewall-settings-rest.md)
 
 
 Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexiones con servidores y bases de datos. Puede definir la configuración de firewall de nivel de servidor y de base de datos para el maestro o una base de datos de usuario en el servidor de Base de datos SQL de Azure para permitir el acceso a la base de datos de forma selectiva.
@@ -66,4 +66,6 @@ Para obtener un tutorial sobre la creación de una base de datos, consulte [Crea
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0211_2016-->
+ 
+
+<!---HONumber=AcomDC_0420_2016-->

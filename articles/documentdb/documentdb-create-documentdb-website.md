@@ -2,7 +2,7 @@
 	pageTitle="Implementación de DocumentDB y aplicaciones web del Servicio de aplicaciones de Azure mediante una plantilla del Administrador de recursos de Azure | Microsoft Azure" 
 	description="Aprenda a implementar una cuenta de DocumentDB, aplicaciones web del Servicio de aplicaciones de Azure y una aplicación web de ejemplo mediante una plantilla del Administrador de recursos de Azure." 
 	services="documentdb, app-service\web" 
-	authors="ryancrawcour" 
+	authors="stephbaron" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,9 +14,9 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/01/2016" 
-	ms.author="ryancraw"/>
+	ms.author="stbaro"/>
 
-# Implementación de DocumentDB y aplicaciones web de servicio de aplicación de Azure mediante una plantilla del Administrador de recursos de Azure #
+# Implementación de DocumentDB y aplicaciones web de servicio de aplicación de Azure mediante una plantilla del Administrador de recursos de Azure
 
 En este tutorial se muestra cómo usar una plantilla del Administrador de recursos de Azure para implementar e integrar [DocumentDB de Microsoft Azure](https://azure.microsoft.com/services/documentdb/), una aplicación web del [servicio de aplicación de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
 
@@ -26,7 +26,7 @@ Después de completar este tutorial, podrá responder a las preguntas siguientes
 -	¿Cómo puedo usar una plantilla del Administrador de recursos de Azure para implementar e integrar una cuenta de DocumentDB, una aplicación web de Servicio de aplicaciones de Azure y una aplicación Webdeploy?
 
 <a id="Prerequisites"></a>
-## Requisitos previos ##
+## Requisitos previos
 > [AZURE.TIP] Si bien en este tutorial no se supone que se deba tener experiencia anterior con plantillas del Administrador de recursos de Azure, JSON o Azure PowerShell, si desea modificar las plantillas a las que se hace referencia o las opciones de implementación, sí se requerirá entonces el conocimiento de cada una de estas áreas.
 
 Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo siguiente:
@@ -47,7 +47,7 @@ Vamos a empezar descargando los archivos de ejemplo que usaremos en este tutoria
 ![Captura de pantalla de la ventana Propiedades con el botón Desbloquear resaltado](./media/documentdb-create-documentdb-website/image1.png)
 
 <a id="Build"></a>
-##Paso 2: Implementación del ejemplo de cuenta de documento, aplicación web de servicio de aplicación y aplicación de demostración ##
+##Paso 2: Implementación del ejemplo de cuenta de documento, aplicación web de servicio de aplicación y aplicación de demostración
 
 Ahora vamos a implementar nuestra primera plantilla.
 
@@ -147,7 +147,7 @@ Ahora vamos a implementar nuestra primera plantilla.
 12. No dude en explorar la experiencia del portal de DocumentDB o modificar la aplicación Todo de ejemplo. Cuando esté preparado, implementaremos otra plantilla.
 	
 <a id="Build"></a>
-## Paso 3: Implementación de la cuenta de documentos y del ejemplo de aplicación web ##
+## Paso 3: Implementación de la cuenta de documentos y del ejemplo de aplicación web
 
 Ahora implementaremos nuestra segunda plantilla.
 
@@ -210,4 +210,4 @@ Ahora implementaremos nuestra segunda plantilla.
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

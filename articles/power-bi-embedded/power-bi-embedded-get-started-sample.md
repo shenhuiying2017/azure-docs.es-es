@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introducción al ejemplo"
-   description="Introducción al ejemplo"
+   description="Power BI Embedded, usar el SDK para agregar informes interactivos de Power BI a la aplicación de inteligencia empresarial"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -21,7 +21,7 @@
 **Microsoft Power BI Embedded Preview** (Versión preliminar de Microsoft Power BI Embedded) le permite integrar informes de Power BI en las aplicaciones web o móviles, por lo que no necesita crear soluciones personalizadas para visualizar datos de los usuarios. Los siguientes recursos pueden ayudarle a empezar a integrar informes de Power BI en la aplicación.
 
  -	[Aplicación web de panel de ejemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Referencia de API Power BI Embedded](https://msdn.microsoft.com/library/mt712303.aspx)
+ -	[Referencia de API Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
  -	[SDK de .NET de Power BI Embedded (disponible a través de NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 En este artículo, se ofrece el ejemplo introductorio de **Power BI Embedded**. Empecemos por configurar la aplicación de ejemplo para que pueda ejecutar la aplicación web de ejemplo.
@@ -242,4 +242,4 @@ $filter={tableName/fieldName} eq '{fieldValue}'
 - [Get started with Microsoft Power BI Embedded Preview (Introducción a la versión preliminar de Microsoft Power BI Embedded)](power-bi-embedded-get-started.md)
 - [Acerca del flujo del token de aplicación en Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

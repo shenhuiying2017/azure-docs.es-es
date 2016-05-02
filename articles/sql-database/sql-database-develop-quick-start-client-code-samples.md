@@ -3,8 +3,8 @@
 	description="Proporciona ejemplos de código y controladores para Node.js en Linux, Python en Mac OS, Java y Windows, Enterprise Library y muchos más, todos para clientes de Base de datos SQL de Azure."
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	authors="annemill" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/10/2016" 
-	ms.author="genemi"/>
+	ms.author="annemill"/>
 
 
 # Ejemplos de código de inicio rápido de cliente para Base de datos SQL
@@ -94,4 +94,4 @@ Esta sección proporciona vínculos a temas de ejemplo de código para programas
 - [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md)
 - [Entity Framework 6 aquí, EF 7 en GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

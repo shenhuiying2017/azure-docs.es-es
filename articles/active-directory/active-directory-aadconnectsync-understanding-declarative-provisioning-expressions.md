@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="04/14/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -76,7 +76,7 @@ Pueden utilizarse los siguientes operadores:
 - **Lógico**: && (and), || (or)
 - **Orden de evaluación**: ( )
 
-Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (\*) no se evalúa antes que la resta (-). 2\*(5+3) no es lo mismo que 2\*5+3. Los corchetes () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
+Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (*) no se evalúa antes que la resta (-). 2*(5+3) no es lo mismo que 2*5+3. Los corchetes () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
 
 ## Escenarios comunes
 
@@ -112,13 +112,13 @@ Existen dos constantes distintas que utilizar par alas reglas de sincronización
 
 ### ImportedValue
 
-La función ImportedValues es diferente de todas las demás funciones, ya que el nombre del atributo debe incluirse entre comillas, en lugar de corchetes: ImportedValue(“proxyAddresses”).
+La función ImportedValue es diferente de todas las demás funciones, ya que el nombre del atributo debe incluirse entre comillas, en lugar de corchetes: ImportedValue("proxyAddresses").
 
 Normalmente, un atributo usará el valor esperado durante la sincronización, incluso si no se ha exportado todavía o se recibió un error durante la exportación ("parte superior de la torre"). Una sincronización entrante supondrá que un atributo que todavía no haya llegado a un directorio conectado lo alcanzará en algún momento. En algunos casos es importante sincronizar únicamente un valor confirmado por el directorio conectado y, en este caso, se usa la función ImportedValue ("torre de importación delta y holograma").
 
 Encontrará un ejemplo de esto en la regla de sincronización lista para su aplicación en AD – User Common desde Exchange, donde en Hybrid Exchange el valor agregado por Exchange Online solo debe sincronizarse si se ha confirmado que el valor se ha exportado correctamente:
 
-`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 Para una lista completa de funciones, vea [Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md).
 
@@ -130,4 +130,4 @@ Para una lista completa de funciones, vea [Azure AD Connect Sync: referencia de 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -45,7 +45,9 @@ Este tutorial cuenta con los siguientes requisitos previos:
 -	Visual Studio 2013 con el [SDK de Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) para GUI de administración de blobs
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (utilizado por [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN](#upload))
 
-> [AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Sitios web. + Puede [activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure:
+> + Puede [abrir una cuenta de Azure de manera gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) - Obtiene crédito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web.
+> + Puede [activar las ventajas de suscriptor de MSDN](/pricing/member-offers/msdn-benefits-details/) - Su suscripción a MSDN le proporciona crédito todos los meses que puede utilizar para servicios de Azure de pago.
 
 <a name="static"></a>
 ## Entrega de contenido estático desde un extremo de la red CDN de Azure ##
@@ -256,7 +258,9 @@ La integración de Servicio de aplicaciones de Azure o Servicios en la nube de A
 - Actualización sencilla de los paquetes de NuGet servidos por CDN, como versiones de jQuery o Bootstrap 
 - Administración de la aplicación web y del contenido servido por CDN desde la misma interfaz de Visual Studio
 
-Para ver tutoriales relacionados, consulte: - [Uso de la red CDN de Azure del Servicio de aplicaciones de Azure](../app-service-web/cdn-websites-with-cdn.md) - [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
+Para ver tutoriales relacionados, consulte:
+- [Uso de la red CDN de Azure del Servicio de aplicaciones de Azure](../app-service-web/cdn-websites-with-cdn.md)
+- [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
 
 Sin la integración con Aplicaciones web del Servicio de aplicaciones de Azure o Servicios en la nube de Azure, es posible utilizar la red CDN de Azure para sus uniones de scripts, con las siguientes reservas:
 
@@ -270,7 +274,7 @@ Sin la integración con Aplicaciones web del Servicio de aplicaciones de Azure o
 - [Uso de la red CDN de Azure del Servicio de aplicaciones de Azure](../app-service-web/cdn-websites-with-cdn.md)
 - [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
 - [Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado](http://msdn.microsoft.com/library/azure/gg680307.aspx)
-- [Uso de la red CDN en Azure](cdn-how-to-use-cdn.md)
+- [Uso de CDN de Azure](cdn-create-new-endpoint.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

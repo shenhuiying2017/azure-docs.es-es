@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual
@@ -52,4 +52,4 @@ Consulte el siguiente artículo para obtener una plantilla totalmente completa c
 
 Una vez creada la plantilla, puede implementarla con Azure PowerShell.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

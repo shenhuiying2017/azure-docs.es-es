@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Asistente Publicar aplicaciones de Azure.
@@ -139,4 +139,4 @@ Puede modificar la configuración avanzada y la configuración común para una i
 
 [Probar el rendimiento de un servicio en la nube](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

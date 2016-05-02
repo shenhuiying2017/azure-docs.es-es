@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="04/15/2016" 
 	ms.author="casoper"/>
 
 # Invalidar el comportamiento HTTP predeterminado mediante el motor de reglas
 
 ## Información general
 
-El motor de reglas le permite personalizar cómo se controlan las solicitudes HTTP, tales como el bloqueo de la entrega de determinados tipos de contenido, la definición de una directiva de almacenamiento en caché y la modificación de encabezados HTTP. En este tutorial se mostrará la creación de una regla que cambiará el comportamiento del almacenamiento en caché de los activos de CDN.
+El motor de reglas le permite personalizar cómo se controlan las solicitudes HTTP, tales como el bloqueo de la entrega de determinados tipos de contenido, la definición de una directiva de almacenamiento en caché y la modificación de encabezados HTTP. En este tutorial se mostrará la creación de una regla que cambiará el comportamiento del almacenamiento en caché de los activos de CDN. También hay contenido de vídeo en la sección "[Consulte también](#see-also)".
 
 > [AZURE.NOTE] El motor de reglas es una característica del nivel de CDN Premium. Para una comparación de las características de los niveles Standard y Premium de CDN, vea [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md).
 
@@ -63,10 +63,7 @@ El motor de reglas le permite personalizar cómo se controlan las solicitudes HT
 - El orden en que se muestran varias reglas afecta a la manera en que se controlan. Una regla posterior puede invalidar las acciones especificadas por una regla anterior.
 
 ## Consulte también
+* [Azure Fridays: Características nuevas y eficaces de la edición Premium de CDN de Azure](../../videos/azure-cdns-powerful-new-premium-features/) (vídeo)
 * [Detalles de características y condiciones de coincidencia del motor de reglas de](cdn-rules-engine-details.md)
-* [Información general de la red CDN de Azure](cdn-overview.md)
-* [Estadísticas en tiempo real en CDN de Microsoft Azure](cdn-real-time-stats.md)
-* [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
-* [Analizar el rendimiento perimetral](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,10 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="04/14/2016"
    ms.author="subramar"/>
 
 # Actualización de la aplicación de Service Fabric: temas avanzados
+
+## Adición o eliminación de servicios durante la actualización de una aplicación
+
+Si se agrega un nuevo servicio a una aplicación que ya está implementada, y publicada como una actualización, se agregará el nuevo servicio a la aplicación implementada (sin la actualización que afecte a cualquiera de los servicios que ya formaban parte de la aplicación). Sin embargo, tendrá que iniciarse una instancia del servicio que se agregó para que el nuevo servicio esté activo (mediante el cmdlet `New-ServiceFabricService`).
+
+También se pueden quitar servicios de una aplicación como parte de una actualización. Sin embargo, debe asegurarse de que todas las instancias actuales del servicio (es decir, que se quiten como parte de la actualización) se detienen antes de continuar con la actualización (mediante el cmdlet `Remove-ServiceFabricService`).
 
 ## Modo de actualización manual
 
@@ -47,6 +53,40 @@ Casos en los que usar un paquete de diferencias sería una buena opción:
 
 * Asimismo, se prefiere un paquete de diferencias cuando dispone de un sistema de implementación que genera el diseño de compilación directamente desde el proceso de compilación de su aplicación. En este caso, aunque no haya cambiado nada en el código, los ensamblados recién creados tendrán una suma de comprobación diferente. Para usar un paquete de aplicación completo, sería necesario que actualizara la versión de todos los paquetes de código. Con un paquete de diferencias, solo proporciona los archivos que cambiaron y los archivos de manifiesto cuya versión ha cambiado.
 
+Cuando se actualiza una aplicación mediante Visual Studio, el paquete de diferencias se publica automáticamente. Si desea crear un paquete de diferencias manualmente (por ejemplo, para realizar la actualización con PowerShell), debe actualizar la aplicación y los manifiestos de servicio, pero solo incluir los paquetes que se han cambiado en el paquete de aplicación final.
+
+Por ejemplo, comencemos con la siguiente aplicación (se proporcionan los números de versión para facilitar la comprensión):
+
+```text
+app1       	1.0.0
+  service1 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+  service2 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+```
+
+Ahora, supongamos que desea actualizar solo el paquete de código de service1 mediante un paquete de diferencias con PowerShell. Ahora, la aplicación actualizada tendrá un aspecto similar al siguiente:
+
+```text
+app1       	2.0.0      <-- new version
+  service1 	2.0.0      <-- new version
+    code   	2.0.0      <-- new version
+    config 	1.0.0
+  service2 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+```
+
+En este caso, actualice el manifiesto de aplicación 2.0.0 y el manifiesto de servicio de service1 para reflejar la actualización del paquete de código. La estructura de carpetas para el paquete de aplicación sería similar al siguiente:
+
+```text
+app1/
+  service1/
+    code/
+```
+
 ## Pasos siguientes
 
 El procedimiento de [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
@@ -60,4 +100,4 @@ Consiga que sus actualizaciones de aplicaciones sean compatibles aprendiendo a u
 Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="04/15/2016"
 	ms.author="ryanwi"/>
 
 # Automatización del ciclo de vida de las aplicaciones con PowerShell
 
-Muchos aspectos del [ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md) pueden automatizarse. En este artículo se muestra cómo usar PowerShell para automatizar las tareas comunes para implementar, actualizar, quitar y probar aplicaciones de Service Fabric.
+Muchos aspectos del [ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md) pueden automatizarse. En este artículo se muestra cómo usar PowerShell para automatizar las tareas comunes para implementar, actualizar, quitar y probar aplicaciones de Service Fabric. Las API HTTP y administradas para la administración de aplicaciones también están disponible, consulte el [ciclo de vida de la aplicación](service-fabric-application-lifecycle.md) para obtener más información.
 
 ## Requisitos previos
 Antes de empezar con las tareas del artículo, no olvide de hacer lo siguiente:
@@ -101,7 +101,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/WordCount -Applic
 Tenga en cuenta que el nombre de la aplicación es el mismo nombre de la aplicación v1.0.0 implementada anteriormente (fabric:/WordCount). Service Fabric usa este nombre para identificar qué aplicación se está actualizando. Si los tiempos de espera que estableció son demasiado breves, es probable que reciba un mensaje de error de tiempo de espera que indica el problema. Consulte [Solución de problemas de actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md) o aumente los tiempos de expiración.
 
 ### Paso 4: Comprobación del progreso de la actualización
-Puede supervisar el progreso de la actualización de la aplicación mediante el [Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md) o el cmdlet [**Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx):
+Puede supervisar el progreso de la actualización de la aplicación mediante el [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) o el cmdlet [**Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx):
 
 ```powershell
 Get-ServiceFabricApplicationUpgrade fabric:/WordCount
@@ -172,4 +172,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Cmdlets de comprobación de Azure Service Fabric](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

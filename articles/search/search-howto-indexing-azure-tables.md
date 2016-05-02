@@ -71,7 +71,7 @@ En Búsqueda de Azure, la clave del documento identifica de forma exclusiva a un
 
 Debido a que las filas de tablas tienen una clave compuesta, Búsqueda de Azure genera un campo sintético llamado `Key`, que es una concatenación de valores clave de partición y clave de fila. Por ejemplo, si el valor PartitionKey de una fila es `PK1` y el valor RowKey es `RK1`, el valor del campo `Key` será `PK1RK1`.
 
-> AZURE.NOTE El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Puede resolver el problema de los caracteres no válidos habilitando la opción `base64EncodeKeys` en las propiedades del indexador; si lo hace, no olvide codificar las claves de documento al transferirlas en llamadas API, tal como las búsquedas. (Por ejemplo, en .NET puede usar el [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para ese fin).
+> [AZURE.NOTE] El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Puede resolver el problema de los caracteres no válidos habilitando la opción `base64EncodeKeys` en las propiedades del indexador; si lo hace, no olvide codificar las claves de documento al transferirlas en llamadas API, tal como las búsquedas. (Por ejemplo, en .NET puede usar el [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para ese fin).
 
 ## Manejo de distintos nombres de campos
 
@@ -100,4 +100,4 @@ Para indicar que determinados documentos se deben quitar del índice, puede usar
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

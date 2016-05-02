@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 #  Muestreo en Application Insights.
@@ -42,6 +42,7 @@ Establezca la frecuencia de muestreo en la hoja Cuotas y precios:
 
 Al igual que otros tipos de muestreo, el algoritmo conserva elementos de telemetría relacionados. Por ejemplo, cuando se inspeccione la telemetría en Búsqueda, podrá buscar la solicitud relacionada con una excepción determinada. Los recuentos de métrica, como la tasa de solicitudes y la tasa de excepciones se mantienen correctamente.
 
+El muestreo de ingesta no funciona mientras el muestreo adaptativo o de frecuencia fija basado en el SDK está en funcionamiento. Si la velocidad de muestreo en el SDK es inferior al 100 %, se omite la velocidad de muestreo de ingesta que haya establecido.
 
 
 ## Muestreo adaptable en el servidor web
@@ -342,4 +343,4 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
  * Inicialice una instancia independiente de TelemetryClient con un nuevo valor de TelemetryConfiguration (no el activo de forma predeterminada). Úsela para enviar sus eventos excepcionales.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

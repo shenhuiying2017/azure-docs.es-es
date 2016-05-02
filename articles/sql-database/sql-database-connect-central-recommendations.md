@@ -3,8 +3,8 @@
 	description="Tema de punto de partida que reúne vínculos y recomendaciones de prácticas recomendadas para programas cliente que se conectan a Base de datos SQL de Azure a partir de tecnologías como ADO.NET y PHP." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	authors="annemill" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/07/2016" 
-	ms.author="genemi"/>
+	ms.author="annemill"/>
 
 
 # Conexión a Base de datos SQL: prácticas recomendadas y directrices de diseño
@@ -177,4 +177,4 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 
 - [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0420_2016-->

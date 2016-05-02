@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Servidor de trabajo Spark en clústeres de HDInsight de Azure (Windows)
+# Spark Job Server para clústeres de HDInsight Windows de Azure (versión preliminar)
 
 > [AZURE.NOTE] HDInsight ofrece ahora clústeres de Spark en Linux, que usa Livy para enviar trabajos de forma remota a un clúster de Spark. Para información sobre cómo usar Livy con HDInsight Spark clústeres en Linux, vea [trabajos Spark enviar remotamente con Livio con clústeres de Spark en HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
 
@@ -84,4 +84,4 @@ Ejemplo:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

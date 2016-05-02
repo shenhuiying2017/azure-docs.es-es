@@ -58,7 +58,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
     * **-u**: el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
     * **-G**: indica que esta es una solicitud GET.
 
-    El comienzo del URI, ****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo para todas las solicitudes.
+    El comienzo del URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo para todas las solicitudes.
 
 2. Para enviar un trabajo de MapReduce, utilice lo siguiente:
 
@@ -69,7 +69,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 	* **-d** : `-G` no se usa, la solicitud tiene como valor predeterminado el método POST. `-d` especifica los valores de datos que se envían con la solicitud.
 
         * **user.name**: el usuario que ejecuta el comando.
-        * ** jar**: la ubicación del archivo jar que contiene la clase que se va a ejecutar.
+        * **jar**: la ubicación del archivo jar que contiene la clase que se va a ejecutar.
         * **class**: la clase que contiene la lógica de MapReduce.
         * **arg**: los argumentos que se pasarán al trabajo de MapReduce; en este caso, el archivo de texto de entrada y el directorio que se utilizan para la salida.
 
@@ -85,9 +85,9 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
     > [AZURE.NOTE] Esta solicitud de Curl devuelve un documento JSON con información acerca del trabajo; jq se usa para recuperar solo el valor de estado.
 
-4. Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde el almacenamiento de blobs de Azure. El parámetro `statusdir` transmitido con la consulta contiene la ubicación del archivo de salida; en este caso,****wasb:///example/curl**. Esta dirección almacena la salida del trabajo en el directorio **example/curl** en el contenedor de almacenamiento predeterminado que su clúster de HDInsight usa.
+4. Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde el almacenamiento de blobs de Azure. El parámetro `statusdir` transmitido con la consulta contiene la ubicación del archivo de salida; en este caso,**wasb:///example/curl**. Esta dirección almacena la salida del trabajo en el directorio **example/curl** en el contenedor de almacenamiento predeterminado que su clúster de HDInsight usa.
 
-Puede enumerar y descargar estos archivos mediante el [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md). Por ejemplo, para enumerar los archivos existentes en **example/curl**, use el siguiente comando:
+Puede enumerar y descargar estos archivos mediante la [CLI de Azure](../xplat-cli-install.md). Por ejemplo, para enumerar los archivos existentes en **example/curl**, use el siguiente comando:
 
 	azure storage blob list <container-name> example/curl
 
@@ -115,4 +115,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

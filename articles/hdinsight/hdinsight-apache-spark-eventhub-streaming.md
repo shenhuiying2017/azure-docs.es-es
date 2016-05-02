@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Streaming de Spark: proceso de eventos desde Centros de eventos de Azure con Apache Spark en HDInsight (Linux)
+# Streaming de Spark: Proceso de eventos desde Centros de eventos de Azure con Apache Spark en HDInsight Linux (versión preliminar)
 
 La transmisión de Spark amplía la API de Spark de núcleo para crear aplicaciones escalables de procesamiento de transmisión de alto rendimiento y tolerantes a errores. Los datos pueden ser introducidos desde varios orígenes. En este artículo se usan Centros de eventos de Azure para introducir datos. Los Centros de eventos son un sistema de introducción altamente escalable que introduce millones de eventos por segundo.
 
@@ -374,4 +374,4 @@ Debería ver una salida similar a la siguiente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

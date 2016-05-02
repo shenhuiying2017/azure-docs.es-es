@@ -13,13 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 
 # Información general del archivo de mensajes del conector AS2
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 El [conector AS2](app-service-logic-connector-as2.md) expone la posibilidad de archivar mensajes. El archivado almacena el mensaje en el **contenedor de blobs de Azure** que forma parte de la configuración del paquete.
 
@@ -41,4 +42,4 @@ Use la URL recuperada anteriormente para recuperar el mensaje archivado del Alma
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

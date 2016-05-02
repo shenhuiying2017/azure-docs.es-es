@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@ Para obtener información acerca de cómo ampliar unidades de codificación, con
 
 [AZURE.INCLUDE [media-services-selector-scale-encoding-units](../../includes/media-services-selector-scale-encoding-units.md)]
 
-Tenga en cuenta que las unidades reservadas son las mismas para las tareas de codificación y de indización.
+Tenga en cuenta que las unidades reservadas son las mismas para las tareas de codificación y de indexación.
 
 ##<a id="storage"></a>Almacenamiento de escala
 
@@ -51,4 +51,4 @@ Para obtener más información, consulte [Administración de recursos de Servici
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Comandos de la CLI de Azure equivalentes para las tareas de máquina virtual | Microsoft Azure"
-	description="Comandos equivalentes de la CLI de Azure para crear y administrar máquinas virtuales de Azure en los modos Administrador de recursos y Administración de servicios."
+	pageTitle="Comandos de la CLI equivalentes para las tareas de máquina virtual de Windows | Microsoft Azure"
+	description="Comandos equivalente de la CLI de Azure para crear y administrar máquinas virtuales de Windows en los modos Azure Resource Manager y Administración de servicios de Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,14 +14,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="12/14/2015"
+	ms.date="04/08/2016"
 	ms.author="danlep"/>
 
-# Comandos equivalentes de Resource Manager y Service Management para las tareas de VM de Windows con la interfaz de la línea de comandos de Azure
+# Comandos del modo Administración de servicios de Azure y Azure Resource Manager para las tareas de máquina virtual con la CLI de Azure
 
+Este artículo muestra la interfaz de la línea de comandos equivalente de Azure (CLI de Azure) para crear y administrar máquinas virtuales de Windows en el modo Administración de servicios de Azure y Azure Resource Manager. Utilícelo como una guía para migrar los scripts de un modo de comando a otro.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

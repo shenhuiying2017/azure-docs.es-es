@@ -3,7 +3,7 @@
    description="Comprender la flexibilidad del Almacenamiento de datos SQL mediante las unidades de almacenamiento de datos para escalar los recursos de proceso hacia niveles superiores o inferiores. Ejemplos de código proporcionados."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/29/2016"
-   ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
+   ms.author="barbkess;sonyama"/>
 
 # Rendimiento y escala flexibles con Almacenamiento de datos SQL
 Para aumentar o reducir de manera elástica la potencia de proceso, solo hay que ajustar el número de unidades de almacenamiento de datos (DWU) asignado a su Almacenamiento de datos SQL. Las unidades de almacenamiento de datos son un concepto nuevo que proporciona el Almacenamiento de datos SQL para que la administración le resulte más sencilla y eficaz. Este tema sirve de introducción a las unidades de almacenamiento de datos; explica cómo puede escalar de manera elástica su potencia de proceso. El artículo también proporciona una orientación inicial sobre cómo establecer un valor de DWU razonable para su entorno.
@@ -98,4 +98,4 @@ Para obtener información general sobre el rendimiento, vea [Introducción al re
 
 [Portal de Azure clásico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -14,18 +14,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/18/2016" 
 	ms.author="nitinme"/>
 
 
-# Uso de herramientas de BI con Apache Spark en HDInsight de Azure (Linux)
+# Uso de herramientas de BI con Apache Spark en HDInsight Linux (versión preliminar)
 
 Obtenga información sobre cómo usar Apache Spark en HDInsight de Azure para hacer lo siguiente:
 
 * Tomar datos de ejemplo sin procesar y guardarlos como tabla de Hive;
 * Usar herramientas de BI como Power BI y Tableau para analizar y visualizar los datos.
 
-> [AZURE.TIP] Este tutorial también está disponible como un cuaderno de Jupyter en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio cuaderno. Para realizar el tutorial desde un cuaderno, cree un clúster Spark, inicie un cuaderno de Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y luego ejecute el cuaderno **Uso de herramientas de BI con Apache Spark en HDInsight.ipynb** en la carpeta **Python**.
+> [AZURE.NOTE] Este tutorial solo es aplicable para los clústeres de Spark 1.5.2 creados en HDInsight de Azure.
+
+Este tutorial también está disponible como un cuaderno de Jupyter en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio cuaderno. Para realizar el tutorial desde un cuaderno, cree un clúster Spark, inicie un cuaderno de Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y luego ejecute el cuaderno **Uso de herramientas de BI con Apache Spark en HDInsight.ipynb** en la carpeta **Python**.
 
 **Requisitos previos:**
 
@@ -79,12 +81,12 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 		hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
 		
 		# Infer the schema and create a table       
-		hvacTable = hiveContext.createDataFrame(hvac)
+		hvacTable = sqlContext.createDataFrame(hvac)
 		hvacTable.registerTempTable('hvactemptable')
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. Compruebe que la tabla se creó correctamente. Puede usar la instrucción mágica `%%sql` para ejecutar directamente las consultas de Hive. Para obtener más información sobre la instrucción mágica `%%sql`, así como otras que hay disponible con el kernel de PySpark, consulte [Kernels disponibles para cuadernos de Jupyter Notebook con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Compruebe que la tabla se creó correctamente. Puede usar la instrucción mágica `%%sql` para ejecutar directamente consultas de Hive. Para obtener más información sobre la función mágica `%%sql`, así como otras función mágicas disponibles con el kernel de PySpark, vea [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
 		%%sql
 		SHOW TABLES
@@ -231,4 +233,4 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

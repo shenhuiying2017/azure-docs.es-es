@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Traslado y procesamiento de archivos de registro con Data Factory [PowerShell]
@@ -108,7 +108,7 @@ En este tutorial, realizará los siguientes pasos:
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Supervisar canalizaciones y segmentos de datos](#monitor-pipelines). En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure clásico.
+6. [Supervisar canalizaciones y segmentos de datos](#monitor-pipelines). En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure.
 
 ## Cargue los scripts y datos de ejemplo.
 En este paso, cargará todos los datos de ejemplo (incluidos todos los registros y datos de referencia) y los scripts Hive y Pig, que se invocan mediante los flujos de trabajo. Los scripts que ejecuta también crean una base de datos SQL de Azure llamada **MarketingCampaigns**, tablas, tipos definidos por el usuario y procedimientos almacenados.
@@ -129,7 +129,7 @@ Las tablas, los tipos definidos por el usuario y procedimientos almacenados se u
 	
 	Si lo prefiere, puede utilizar los archivos de la carpeta: C:\\ADFWalkthrough\\Scripts cargar los scripts pig y hive y los archivos de ejemplo en el contenedor adfwalkthrough, en el almacenamiento de blobs, y crear la tabla MarketingCampaignEffectiveness en la base de datos SQL de Azure MarketingCamapaigns.
    
-2. Confirme que el equipo local tiene acceso a la base de datos SQL de Azure. Para permitir el acceso, use el [Portal de Azure clásico](http://manage.windowsazure.com) o **sp\_set\_firewall\_rule** en la base de datos maestra para crear una regla de firewall para la dirección IP del equipo. Puede tardar hasta cinco minutos que este cambio surta efecto. Consulte [Definición de reglas de firewall para SQL Azure][azure-sql-firewall].
+2. Confirme que el equipo local tiene acceso a la base de datos SQL de Azure. Para permitir el acceso, use el [Portal de Azure](http://manage.windowsazure.com) o **sp\_set\_firewall\_rule** en la base de datos maestra para crear una regla de firewall para la dirección IP del equipo. Puede tardar hasta cinco minutos que este cambio surta efecto. Consulte [Definición de reglas de firewall para SQL Azure][azure-sql-firewall].
 4. En Azure PowerShell, vaya a la ubicación donde ha extraído los ejemplos (por ejemplo, **C:\\ADFWalkthrough**).
 5. Ejecute **uploadSampleDataAndScripts.ps1** 
 6. Una vez que el script se ejecute correctamente, verá lo siguiente:
@@ -250,7 +250,7 @@ En este paso, creará las tablas siguientes:
  
 La imagen anterior muestra los procesos en la fila central y las tablas de las filas superior e inferior.
 
-El Portal de Azure clásico no admite crear conjuntos de datos y tablas, por lo que deberá usar Azure PowerShell para crear tablas en esta versión.
+El Portal de Azure no admite crear conjuntos de datos y tablas, por lo que deberá usar Azure PowerShell para crear tablas en esta versión.
 
 ### Para crear las tablas
 
@@ -504,4 +504,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises-us
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

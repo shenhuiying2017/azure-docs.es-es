@@ -358,6 +358,14 @@ La información de la aplicación está limitada a **1024** caracteres por llama
 En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 44 caracteres:
 
 			{"birthdate":"1983-12-07","gender":"female"}
+
+##Registro
+###Habilitación del registro
+
+El SDK puede configurarse para generar registros de prueba en la consola del IDE. Estos registros no están activados de forma predeterminada. Para personalizar esto, actualice la propiedad `EngagementAgent.Instance.TestLogEnabled` a uno de los valores disponibles en la enumeración `EngagementTestLogLevel`, por ejemplo:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

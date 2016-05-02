@@ -477,6 +477,8 @@ Antes de continuar, asegúrese de que ha instalado y configurado Azure PowerShel
 
 Antes de continuar, asegúrese de que ha instalado y configurado la CLI de Azure. Para obtener más información, vea [Instalación de la CLI de Azure](../xplat-cli-install.md).
 
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+
 1. Abra una sesión del shell, terminal, símbolo del sistema u otra línea de comandos para el sistema y use el comando siguiente para cambiar al modo de Azure Resource Manager.
 
         azure config mode arm
@@ -612,7 +614,7 @@ Si se produce un error en la creación del clúster debido a un error en la acci
 	En este caso, los registros se organizan por separado para el nodo principal, el nodo de trabajo y el nodo de Zookeeper. A continuación, se indican algunos ejemplos:
 	* **Nodo principal**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 	* **Nodo de trabajo**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **Nodo Zookeeper**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	* **Nodo de Zookeeper**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Todos los stdout y stderr del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-*.txt** y **errors-*.txt** para cada acción de script. El archivo de output-*.txt contiene información sobre el identificador URI del script que se ejecuta en el host. Por ejemplo:
 
@@ -678,4 +680,4 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

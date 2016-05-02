@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="04/18/2016"
 	ms.author="kgremban"/>
 
 #RBAC: Roles integrados
 
 ## Roles integrados
 
-El control de acceso basado en roles de Azure (RBAC) dispone de los siguientes roles integrados que se pueden asignar a usuarios, grupos y servicios. La definición de los roles integrados no se puede modificar. En una próxima versión del RBAC de Azure se podrán definir roles personalizados formando un conjunto de acciones elegidas a partir de una lista de acciones disponibles que se pueden realizar en recursos de Azure.
+El control de acceso basado en roles de Azure (RBAC) dispone de los siguientes roles integrados que se pueden asignar a usuarios, grupos y servicios. Las definiciones de los roles integrados no se puede modificar. Sin embargo, puede crear [roles personalizados en Azure RBAC](role-based-access-control-custom-roles.md) para satisfacer las necesidades específicas de su organización.
 
-Haga clic en los vínculo a continuación para ver las propiedades **acciones** y **no acciones** de una definición de rol. La propiedad **acciones** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **no acciones** de una definición de rol especifica las acciones que se deben excluir de las acciones permitidas.
+La tabla siguiente proporciona breves descripciones de los roles integrados. Haga clic en el nombre de rol para ver una lista detallada de propiedades **acciones** y **no acciones** para el rol. La propiedad **acciones** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **no acciones** especifica las acciones que se deben excluir de las acciones permitidas.
 
 
 | Nombre de rol | Descripción |
@@ -47,7 +47,7 @@ Haga clic en los vínculo a continuación para ver las propiedades **acciones** 
 | [Administrador de seguridad](#security-manager) | Puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales |
 | [Colaborador de Base de datos de SQL](#sql-db-contributor) | Puede administrar bases de datos SQL, pero no las directivas relacionadas con la seguridad |
 | [Administrador de seguridad SQL](#sql-security-manager) | Puede administrar las directivas relacionadas con la seguridad de las bases de datos y los servidores SQL |
-| [Colaborador de SQL Server](#sql-server-contributor) | Puede administrar las bases de datos y los servidores SQL, pero no las directivas relacionadas con su seguridad |
+| [Colaborador de SQL Server](#sql-server-contributor) | Puede administrar las bases de datos y los servidores SQL, pero no las directivas relacionadas con la seguridad |
 | [Colaborador de cuentas de almacenamiento clásico](#classic-storage-account-contributor) | Puede administrar las cuentas de almacenamiento clásico |
 | [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Puede administrar las cuentas de almacenamiento |
 | [Administrador de acceso de usuario](#user-access-administrator) | Puede administrar el acceso de usuarios a los recursos de Azure |
@@ -134,7 +134,7 @@ Puede administrar todo el contenido, excepto el acceso
 | ------- | ------ |
 | * | Crear y administrar recursos de todos los tipos |
 
-| **No acciones** | |
+| **No acciones** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | No puede crear roles ni asignaciones de roles |
 | Microsoft.Authorization/*/Delete | No puede eliminar roles ni asignaciones de roles |
@@ -304,7 +304,7 @@ Puede administrar bases de datos SQL, pero no las directivas relacionadas con la
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
-| **No acciones** | |
+| **No acciones** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | No puede editar las directivas de conexión |
@@ -346,7 +346,7 @@ Puede administrar las bases de datos y los servidores SQL, pero no las directiva
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
-| **No acciones** | |
+| **No acciones** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | No puede editar las directivas de auditoría de SQL Server |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría de bases de datos de SQL Server |
@@ -486,7 +486,10 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 | Microsoft.Insights/components/* | Crear y administrar componentes de Insights |
 
-## Temas de RBAC
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+## Consulte también
+- [Control de acceso basado en roles de Azure](role-based-access-control-configure.md): obtenga una introducción a RBAC en el Portal de Azure.
+- [Roles personalizados en Azure RBAC](role-based-access-control-custom-roles.md): aprenda a crear roles personalizados para satisfacer sus necesidades de acceso.
+- [Creación de un informe de historial de cambios de acceso](role-based-access-control-access-change-history-report.md): realice un seguimiento del cambio de asignaciones de rol en el RBAC.
+- [Solución de problemas del control de acceso basado en roles](role-based-access-control-troubleshooting.md): obtenga sugerencias para solucionar problemas frecuentes.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

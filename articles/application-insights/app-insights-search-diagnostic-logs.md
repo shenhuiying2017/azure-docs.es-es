@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/08/2016" 
 	ms.author="awills"/>
  
 # Registros, excepciones y diagnósticos personalizados para ASP.NET en Application Insights
@@ -241,11 +241,11 @@ Por lo tanto, resulta útil incluir información de la compilación (como la dir
 En lugar de agregar la propiedad por separado a cada llamada de excepción, puede establecer la información en el contexto predeterminado.
 
     // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (TelemetryContext context)
+        public void Initialize (ITelemetry telemetry)
         {
-            context.Properties["AppVersion"] = "v2.1";
+            telemetry.Properties["AppVersion"] = "v2.1";
         }
     }
 
@@ -254,7 +254,7 @@ En el inicializador de la aplicación como Global.asax.cs:
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.ContextInitializers
+        TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
 
@@ -305,4 +305,4 @@ Si la aplicación envía una gran cantidad de datos y usa el SDK de Application 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

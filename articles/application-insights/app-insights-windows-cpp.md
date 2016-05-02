@@ -1,4 +1,10 @@
-<properties pageTitle="Analytics para aplicaciones C++ de la Tienda Windows" description="Analice el uso y el rendimiento de su aplicación C++ de la Tienda Windows." services="application-insights" documentationCenter="cpp" authors="alancameronwills" manager="douge""/>
+<properties 
+    pageTitle="Analytics para aplicaciones de C++ de la Tienda Windows" 
+    description="Analice el uso y el rendimiento de la aplicación de C++ de la Tienda Windows." 
+    services="application-insights" 
+    documentationCenter="cpp"
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
     ms.service="application-insights" 
@@ -11,7 +17,7 @@
 
 # Analytics para aplicaciones C++ de la Tienda Windows
 
-Microsoft ofrece dos soluciones para DevOps de dispositivos: [HockeyApp](http://hockeyapp.net/), para dispositivos cliente, y [Application Insights](app-insights-overview.md), para las páginas web en el cliente y en el servidor.
+Microsoft ofrece dos soluciones para DevOps de dispositivos: [HockeyApp](http://hockeyapp.net/) para dispositivos cliente y [Application Insights](app-insights-overview.md) para el lado servidor y las páginas web del cliente.
 
 [HockeyApp](http://hockeyapp.net/) es nuestra solución de DevOps de móviles para compilar aplicaciones de dispositivos iOS, OS X, Android o Windows, así como aplicaciones multiplataforma basadas en Xamarin, Cordova y Unity. Con ella, podrá distribuir compilaciones a evaluadores de la versión beta, recopilar datos de bloqueo y obtener comentarios de los usuarios. Está integrada en Visual Studio Team Services, lo que facilita las implementaciones de compilaciones y la integración de elementos de trabajo.
 
@@ -30,4 +36,4 @@ También puede usar [Application Insights para aplicaciones de escritorio de Win
 
 [Más información sobre este cambio](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

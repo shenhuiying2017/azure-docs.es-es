@@ -35,7 +35,7 @@ Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las a
 Para obtener información general de cómo funciona Multi-Factor Authentication, vea el siguiente vídeo.
 
 
-<center>[AZURE.VIDEO multi-factor-authentication-overview]</center>
+> [AZURE.VIDEO multi-factor-authentication-overview]
 
 ##¿Por qué usar Azure Multi-Factor Authentication?
 
@@ -54,7 +54,7 @@ Azure Multi-Factor Authentication es una solución fácil de usar, escalable y c
 
 Para obtener más información sobre por qué usar Azure Multi-Factor Authenticaton, vea el vídeo siguiente.
 
-<center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
+> [AZURE.VIDEO windows-azure-multi-factor-authentication]
 
 
 ## Cómo funciona Azure Multi-Factor Authentication
@@ -75,7 +75,7 @@ Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las a
 
 Para obtener información adicional sobre cómo funciona, vea el vídeo siguiente.
 
-[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
+> [AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ## Métodos disponibles para la autenticación multifactor
 Cuando un usuario inicia sesión, se envía una comprobación adicional al usuario. Lo siguiente es una lista de métodos que pueden usarse para esta segunda comprobación.
@@ -209,4 +209,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,13 +1,21 @@
-<properties" pageTitle="title="Lista de imágenes de máquinas virtuales de Oracle | Microsoft Azure" description="Obtenga la lista de imágenes de Oracle en la galería de Azure y obtenga información acerca de cómo crear una máquina virtual Oracle." services="virtual-machines-linux" documentationCenter="" authors="bbenz" manager="" editor="" tags="azure-service-management, azure-resource-manager"/>
+<properties
+  pageTitle="Lista de imágenes de máquina virtual de Oracle | Microsoft Azure"
+  description="Obtenga la lista de imágenes de Oracle en la Galería de Azure y aprenda a crear una máquina virtual de Oracle."
+  services="virtual-machines-linux"
+  documentationCenter=""
+  authors="bbenz"
+  manager=""
+  editor=""
+  tags="azure-service-management, azure-resource-manager"/>
 
 <tags
-ms.service="virtual-machines-linux"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="vm-linux"
-ms.workload="infrastructure-services"
-ms.date="06/22/2015"
-ms.author="bbenz" />
+  ms.service="virtual-machines-linux"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.tgt_pltfrm="vm-linux"
+  ms.workload="infrastructure-services"
+  ms.date="06/22/2015"
+  ms.author="bbenz" />
 
 #Lista de imágenes de máquinas virtuales de Oracle
 
@@ -15,4 +23,4 @@ ms.author="bbenz" />
 
 [AZURE.INCLUDE [virtual-machines-common-classic-oracle-images](../../includes/virtual-machines-common-classic-oracle-images.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

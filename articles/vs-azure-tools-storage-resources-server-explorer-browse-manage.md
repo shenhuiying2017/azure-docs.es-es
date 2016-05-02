@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Exploración y administración de recursos de almacenamiento con el Explorador de servidores
@@ -314,4 +314,4 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
 Para obtener más información sobre cómo usar los servicios de almacenamiento de Azure, vea [Acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

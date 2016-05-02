@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Configurar alertas de facturación para las suscripciones de Microsoft Azure | Microsoft Azure"
-	description="Describe cómo puede configurar alertas en su factura de Azure para que pueda evitar sorpresas de facturación."
-	services=""
-	documentationCenter=""
-	authors="vikdesai"
-	manager="msmbaldwin"
-	editor=""/>
+<properties pageTitle="Configurar alertas de facturación para las suscripciones de Microsoft Azure | Microsoft Azure" description="Describe cómo puede configurar alertas en su factura de Azure para que pueda evitar sorpresas de facturación." services="billing" documentationCenter="" authors="vikdesai" manager="msmbaldwin" editor=""/ tags="billing" />
 
 <tags
 	ms.service="multiple"
@@ -13,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015" 
+	ms.date="04/17/2016"
 	ms.author="vikdesai"/>
 
 # Configurar alertas de facturación para las suscripciones de Microsoft Azure
@@ -46,4 +39,4 @@ Después de configurar las alertas, el centro de cuentas enumera y muestra cuán
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

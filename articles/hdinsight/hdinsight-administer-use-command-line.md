@@ -25,6 +25,8 @@ Aprenda a usar la [interfaz de la línea de comandos de Azure](../xplat-cli-inst
 
 Este artículo solo trata del uso de la CLI de Azure con HDInsight. Para obtener información general sobre cómo usar la CLI de Azure CLI, consulte [Instalación y configuración de la CLI de Azure][azure-command-line-tools].
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 ##Requisitos previos
 
 Antes de empezar este artículo, debe tener lo siguiente:
@@ -106,4 +108,4 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Enumeración y visualización de clústeres"
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

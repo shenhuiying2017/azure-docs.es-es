@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Configuración de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure
@@ -357,4 +357,4 @@ En la ventana **Propiedades**, establezca la propiedad **Copiar en el directorio
 
 Para obtener más información sobre el registro de diagnósticos de Azure, consulte [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](./cloud-services/cloud-services-dotnet-diagnostics.md) y [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

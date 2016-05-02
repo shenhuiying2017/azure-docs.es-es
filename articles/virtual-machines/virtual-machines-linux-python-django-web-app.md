@@ -6,7 +6,7 @@
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""
-	tags=“azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -129,4 +129,4 @@ La máquina virtual de Linux (Ubuntu) ya tiene preinstalado Python 2.7, pero no 
 
 Cuando finalice este tutorial, apague o quite la máquina virtual de Azure recién creada para liberar recursos para otros tutoriales y así evitar incurrir en cargos por uso de Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

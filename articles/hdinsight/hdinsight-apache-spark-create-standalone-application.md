@@ -14,20 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Creación de una aplicación independiente con Scala para ejecutarla en un clúster de HDInsight Spark
+# Creación de una aplicación independiente con Scala para ejecutarla en clústeres de Linux de HDInsight Spark
 
-En este artículo se proporcionan instrucciones paso a paso sobre cómo desarrollar aplicaciones de Spark independiente escritas con Scala mediante IntelliJ IDEA. En el artículo se utiliza Apache Maven como el sistema de compilación y el inicio con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA. En un nivel superior, para crear una aplicación con Scala en IntelliJ IDEA, es necesario seguir estos pasos:
+En este artículo se proporcionan instrucciones paso a paso sobre cómo desarrollar aplicaciones de Spark independiente escritas con Scala mediante Maven con IntelliJ IDEA. En el artículo se utiliza Apache Maven como el sistema de compilación y comienza con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA. En un nivel superior, para crear una aplicación con Scala en IntelliJ IDEA, es necesario seguir estos pasos:
 
 
 * Use Maven como el sistema de compilación.
-* Actualize el archivo del modelo de objetos de proyectos (POM) para resolver las dependencias de módulo de Spark.
+* Actualice el archivo del modelo de objetos de proyectos (POM) para resolver las dependencias de módulo de Spark.
 * Escriba la aplicación con Scala.
 * Genere un archivo jar que se pueda enviar a los clústeres de HDInsight Spark.
-* Ejecute la aplicación en el clúster Spark mediante la utilización de spark-submit.
+* Ejecute la aplicación en un clúster Spark mediante Livy.
+
+>[AZURE.NOTE] HDInsight también proporciona una herramienta de complemento IntelliJ IDEA para facilitar el proceso de creación y envío de aplicaciones a un clúster de HDInsight Spark en Linux. Para obtener más información, vea [Uso del complemento Herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Spark en Scala (Linux)](hdinsight-apache-spark-intellij-tool-plugin.md).
+
 
 **Requisitos previos**
 
@@ -196,4 +199,4 @@ Para ejecutar la aplicación en el clúster, debe hacer lo siguiente:
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

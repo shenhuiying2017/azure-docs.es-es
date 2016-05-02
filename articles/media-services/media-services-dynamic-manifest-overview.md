@@ -3,8 +3,8 @@
 	description="En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una secuencia. Servicios multimedia crea manifiestos dinámicos par lograr este streaming selectivo." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="cenkdin,Juliako" 
-	manager="dwrede" 
+	authors="cenkdin" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016" 
+	ms.author="cenkdin;juliako"/>
 
 #Filtros y manifiestos dinámicos
 
@@ -236,4 +236,4 @@ Para obtener más información, consulte [este blog](https://azure.microsoft.com
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

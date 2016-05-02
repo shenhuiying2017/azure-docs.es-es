@@ -2,7 +2,7 @@
 	pageTitle="Desarrollo de aplicaciones para reproductor de vídeo" 
 	description="El tema también proporciona vínculos a Player Framework y complementos que puede usar para desarrollar sus propias aplicaciones cliente que pueden consumir contenido multimedia en streaming desde Servicios multimedia." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -81,4 +81,4 @@ Para obtener información sobre la compatibilidad con anuncios y subtítulos en 
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

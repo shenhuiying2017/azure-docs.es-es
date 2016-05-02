@@ -439,7 +439,7 @@ Crea un URI absoluto mediante la combinación de la cadena de relativeUri y base
 | baseUri | Sí | La cadena de uri base.
 | relativeUri | Sí | La cadena de uri relativo que se agregará a la cadena de uri base.
 
-El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar ****http://contoso.com/resources/azuredeploy.json** como parámetro baseUri dará como resultado un identificador URI base de ****http://contoso.com/resources/**.
+El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar **http://contoso.com/resources/azuredeploy.json** como parámetro baseUri dará como resultado un identificador URI base de **http://contoso.com/resources/**.
 
 En el ejemplo siguiente se muestra cómo construir un vínculo a una plantilla anidada en función del valor de la plantilla principal.
 
@@ -611,7 +611,7 @@ Se devuelve información acerca de un proveedor de recursos y sus tipos de recur
 | providerNamespace | Sí | Espacio de nombres del proveedor
 | resourceType | No | El tipo de recurso en el espacio de nombres especificado.
 
-Se devuelve cada tipo admitido en el formato siguiente:
+Se devuelve cada tipo admitido en el formato siguiente (no se garantiza la ordenación de matrices):
 
     {
         "resourceType": "",
@@ -807,4 +807,4 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 - Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

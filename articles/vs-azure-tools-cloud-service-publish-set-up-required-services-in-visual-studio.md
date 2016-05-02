@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Preparación para publicar o implementar una aplicación de Azure desde Visual Studio
@@ -104,7 +104,7 @@ Una cuenta de almacenamiento proporciona acceso a los servicios Blob, Cola y Tab
 
 Después de crear la cuenta de almacenamiento, verá las direcciones URL que puede usar para tener acceso a recursos en cada uno de los servicios de almacenamiento de Azure, además de las claves de acceso principal y secundaria para la cuenta. Use estas claves para autenticar las solicitudes realizadas en los servicios de almacenamiento.
 
->[AZURE.NOTE]La clave de acceso secundaria proporciona el mismo acceso a la cuenta de almacenamiento que la clave de acceso principal y se genera como copia de seguridad en caso de que la clave de acceso principal estuviese en peligro. Además, se recomienda volver a generar las claves de acceso de forma periódica. Puede modificar la configuración de una cadena de conexión para que use la clave secundaria mientras se regenera la clave principal y, luego, volver a modificarla para que use la clave principal regenerada mientras se regenera la clave secundaria.
+>[AZURE.NOTE] La clave de acceso secundaria proporciona el mismo acceso a la cuenta de almacenamiento que la clave de acceso principal y se genera como copia de seguridad en caso de que la clave de acceso principal estuviese en peligro. Además, se recomienda volver a generar las claves de acceso de forma periódica. Puede modificar la configuración de una cadena de conexión para que use la clave secundaria mientras se regenera la clave principal y, luego, volver a modificarla para que use la clave principal regenerada mientras se regenera la clave secundaria.
 
 ## Configuración de la aplicación para que use servicios proporcionados por la cuenta de almacenamiento
 
@@ -130,7 +130,7 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 
 1. Escriba el nombre de la cuenta de almacenamiento en **Nombre de cuenta**.
 
-    >[AZURE.NOTE]Inicie sesión en el Portal de administración y elija el botón **Almacenamiento**. El portal muestra una lista de cuentas de almacenamiento. Si elige una cuenta, se abre una página para ella. Puede copiar el nombre de la cuenta de almacenamiento que aparece en esta página. Si usa una versión anterior del Portal de administración, el nombre de la cuenta de almacenamiento aparece en la vista **Cuentas de almacenamiento** del Portal de administración. Para copiar este nombre, resáltelo en la ventana **Propiedades** de esta vista y presione las teclas CTRL+C. Para pegar el nombre en Visual Studio, elija el cuadro de texto **Nombre de cuenta** y presione las teclas CTRL+V.
+    >[AZURE.NOTE] Inicie sesión en el Portal de administración y elija el botón **Almacenamiento**. El portal muestra una lista de cuentas de almacenamiento. Si elige una cuenta, se abre una página para ella. Puede copiar el nombre de la cuenta de almacenamiento que aparece en esta página. Si usa una versión anterior del Portal de administración, el nombre de la cuenta de almacenamiento aparece en la vista **Cuentas de almacenamiento** del Portal de administración. Para copiar este nombre, resáltelo en la ventana **Propiedades** de esta vista y presione las teclas CTRL+C. Para pegar el nombre en Visual Studio, elija el cuadro de texto **Nombre de cuenta** y presione las teclas CTRL+V.
 
 1. En el cuadro **Clave de cuenta**, escriba la clave principal o cópiela del [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=213885) y péguela. Para copiar esta clave del Portal de administración:
 
@@ -145,7 +145,7 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
         - **Usar HTTPS** para una conexión segura. Por ejemplo: `https://<accountname>.blob.core.windows.net`.
         - **Especificar extremos personalizados** para cada uno de los tres servicios. Luego puede escribir estos extremos en el campo para el servicio específico.
 
-        >[AZURE.NOTE]Si crea extremos personalizados, puede crear una cadena de conexión más compleja. Cuando se usa este formato de cadena, se pueden especificar extremos de servicio de almacenamiento que incluyan el nombre de dominio personalizado que se registre para la cuenta de almacenamiento con el servicio Blob. También puede conceder acceso solo a los recursos de blob en un contenedor único a través de una firma de acceso compartido. Para obtener más información sobre cómo crear extremos personalizados, consulte [Configuración de las cadenas de conexión de Almacenamiento de Azure](storage-configure-connection-string.md).
+        >[AZURE.NOTE] Si crea extremos personalizados, puede crear una cadena de conexión más compleja. Cuando se usa este formato de cadena, se pueden especificar extremos de servicio de almacenamiento que incluyan el nombre de dominio personalizado que se registre para la cuenta de almacenamiento con el servicio Blob. También puede conceder acceso solo a los recursos de blob en un contenedor único a través de una firma de acceso compartido. Para obtener más información sobre cómo crear extremos personalizados, consulte [Configuración de las cadenas de conexión de Almacenamiento de Azure](storage-configure-connection-string.md).
 
 1. Para guardar estos cambios de la cadena de conexión, elija el botón **Aceptar** y luego el botón **Guardar** de la barra de herramientas. Después de guardar estos cambios, puede obtener el valor de esta cadena de conexión en el código mediante [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Al publicar su aplicación en Azure, elija la configuración del servicio que contiene la cuenta de almacenamiento de Azure para la cadena de conexión. Una vez publicada la aplicación, compruebe que funciona según lo previsto con los servicios de almacenamiento de Azure
 
@@ -153,4 +153,4 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 
 Para obtener más información acerca de la publicación de aplicaciones en Azure desde Visual Studio, consulte [Publicar un servicio en la nube mediante Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->

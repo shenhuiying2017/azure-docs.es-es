@@ -27,6 +27,9 @@ Muchos de los pasos de este documento utilizan las siguientes utilidades, que pu
 
 * [cURL](https://curl.haxx.se/): se usa para comunicarse con servicios basados en web
 * [jq](https://stedolan.github.io/jq/): se usa para analizar documentos JSON
+* [CLI de Azure](../xplat-cli-install.md): se usa para administrar servicios de Azure remotamente
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## Nombres de dominio
 
@@ -95,7 +98,7 @@ Debido a que es el almacén predeterminado para HDInsight, normalmente no tiene 
 
 	hadoop fs -ls /example/data
 
-Es posible que algunos comandos requieran que especifique que usa almacenamiento de blobs. En estos casos, puede usar el prefijo ****WASB://** en el comando.
+Es posible que algunos comandos requieran que especifique que usa almacenamiento de blobs. En estos casos, puede usar el prefijo **wasb://** en el comando.
 
 HDInsight también le permite asociar varias cuentas de almacenamiento de blobs a un clúster. Para tener acceso a los datos ubicados en una cuenta de almacenamiento de blobs no predeterminada, puede usar el formato **WASB://&lt;container-name>@&lt;nombre de la cuenta>.blob.core.windows.net/**. Por ejemplo, lo siguiente enumerará los contenidos del directorio **/example/data** para la cuenta de almacenamiento de blobs y el contenedor especificados:
 
@@ -249,9 +252,9 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 
 ## Pasos siguientes
 
-* [Migrate from Windows-based HDInsight to Linux-based](hdinsight-migrate-from-windows-to-linux.md) (Migración desde HDInsight basado en Windows a HDInsight basado en Linux)
+* [Migrate from Windows-based HDInsight to Linux-based (Migración desde HDInsight basado en Windows a HDInsight basado en Linux)](hdinsight-migrate-from-windows-to-linux.md)
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

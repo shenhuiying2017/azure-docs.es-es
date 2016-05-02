@@ -1,17 +1,15 @@
-Este artículo muestra la interfaz de línea de comandos equivalente de Microsoft Azure (CLI de Azure) para crear y administrar máquinas virtuales de Azure en Administración de servicios de Azure y Administrador de recursos de Azure. Utilícelo como una guía para migrar los scripts de un modo de comando a otro.
-
-* Si aún no ha instalado la CLI de Azure y se ha conectado a su suscripción, consulte [Instalación de la CLI de Azure](../articles/xplat-cli-install.md) y [Conexión a una suscripción de Azure desde la CLI de Azure](../articles/xplat-cli-connect.md). Si desea usar los comandos de modo del Administrador de recursos, asegúrese de conectar con el método de inicio de sesión.
+* Si aún no ha instalado la CLI de Azure y se ha conectado a su suscripción, consulte [Instalación de la CLI de Azure](../articles/xplat-cli-install.md) y [Conexión a una suscripción de Azure desde la CLI de Azure](../articles/xplat-cli-connect.md). Si desea usar los comandos de modo Resource Manager, asegúrese de conectar con el comando `azure login`.
 
 * Para empezar a usar el modo del Administrador de recursos en la CLI de Azure, es posible que tenga que cambiar los modos de comando. De forma predeterminada, la CLI se inicia en el modo de administración de servicio. Para cambiar al modo del Administrador de recursos, ejecute `azure config mode arm`. Para volver al modo de Administración de servicios, ejecute `azure config mode asm`.
 
 * Para obtener ayuda en pantalla sobre los conozco y conocer las distintas opciones, escriba `azure <command> <subcommand> --help` o `azure help <command> <subcommand>`.
 
 ## Tareas de la máquina virtual
-En la tabla siguiente, se comparan tareas comunes de la máquina virtual que se pueden realizar con los comandos de CLI de Azure en Administración de servicios y el Administrador de recursos. En el caso de muchos comandos del Administrador de recursos, es preciso agregar el nombre de un grupo de recursos existente.
+En la tabla siguiente, se comparan tareas comunes de la máquina virtual que se pueden realizar con los comandos de CLI de Azure en los modos Administración de servicios y Resource Manager. En el caso de muchos comandos del Administrador de recursos, es preciso agregar el nombre de un grupo de recursos existente.
 
 > [AZURE.NOTE] En estos ejemplos no se incluyen las operaciones basadas en plantillas que se recomiendan generalmente para implementaciones de máquina virtual en el Administrador de recursos. Para información, vea [Usar la CLI de Azure con el Administrador de recursos de Azure](../articles/xplat-cli-azure-resource-manager.md) e [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
-Tarea | Administración de servicios | Resource Manager
+Tarea | Modo Administración de servicios | Modelo del Administrador de recursos
 -------------- | ----------- | -------------------------
 Creación de la máquina virtual más básica | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenga `image-urn` desde el comando `azure vm image list`. Vea [este artículo](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) para ejemplos.)
 Creación de una máquina virtual Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
@@ -25,7 +23,7 @@ Reinicio de una máquina virtual | `azure vm restart [options] <vname>` | `azure
 Eliminación de una máquina virtual | `azure vm delete [options] <name>` | `azure vm delete [options] <resource_group> <name>`
 Captura de una máquina virtual | `azure vm capture [options] <name>` | `azure vm capture [options] <resource_group> <name>`
 Creación de una máquina virtual a partir de una imagen del usuario | `azure  vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>`
-Creación de una máquina virtual a partir de un disco especializado | `azure  vm create [options]-d <custom-data-file> <dns-name> [userName] [password]` | `azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>`
+Creación de una máquina virtual a partir de un disco especializado | `azure  vm create [options]-d <custom-data-file> <dns-name> [userName] [password]` | `azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>`
 Incorporación de un disco de datos a una máquina virtual | `azure  vm disk attach [options] <vm-name> <disk-image-name>`, O BIEN <br/> `vm disk attach-new [options] <vm-name> <size-in-gb> [blob-url]` | `azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]`
 Eliminación de un disco de datos de una máquina virtual | `azure  vm disk detach [options] <vm-name> <lun>` | `azure  vm disk detach [options] <resource-group> <vm-name> <lun>`
 Incorporación de una extensión genérica a una máquina virtual | `azure  vm extension set [options] <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>`
@@ -42,6 +40,6 @@ Obtención de todos los tamaños disponibles de la máquina virtual | No disponi
 
 ## Pasos siguientes
 
-* Para ejemplos adicionales de los comandos CLI, vea [Uso de la interfaz de la línea de comandos de Azure con la administración de servicios de Azure](../articles/virtual-machines-command-line-tools.md) y [Uso de la CLI de Azure con el Administrador de recursos de Azure](../articles/virtual-machines/azure-cli-arm-commands.md).
+* Para obtener ejemplos adicionales de los comandos de la CLI, consulte [Comandos de la CLI de Azure en el modo Administración de servicios de Azure](../articles/virtual-machines-command-line-tools.md) y [Comandos de la CLI de Azure en el modo Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

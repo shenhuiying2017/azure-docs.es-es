@@ -1,7 +1,7 @@
 <properties
    pageTitle="Visualización del mantenimiento agregado de entidades de Azure Service Fabric | Microsoft Azure"
    description="Se describe cómo consultar, ver y evaluar el mantenimiento agregado de entidades de Azure Service Fabric, a través de consultas de mantenimiento y consultas generales."
-   services="service-fabric"HealthManager
+   services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
    manager="timlt"
@@ -1132,4 +1132,4 @@ Siempre que haya un problema con el clúster o una aplicación, consulte el mant
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

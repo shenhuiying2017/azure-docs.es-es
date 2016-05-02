@@ -33,7 +33,9 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**
 
-- **Azure CLI**: para obtener más información, consulte [Instalación y configuración de Azure CLI](../xplat-cli-install.md)
+- **CLI de Azure**
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Configuración de las variables de entorno
 
@@ -288,4 +290,4 @@ Para más información, consulte también el [Centro de desarrolladores de Java]
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

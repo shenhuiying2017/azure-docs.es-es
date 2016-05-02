@@ -1,13 +1,13 @@
 <properties 
-   pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN mediante PowerShell | Microsoft Azure"
-   description="Si tiene una red virtual de modelo de implementación clásica con una puerta de enlace de VPN entre entornos, puede redirigir o "forzar" todo el tráfico enlazado a Internet de nuevo a la ubicación local. "
+   pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN con PowerShell | Microsoft Azure"
+   description="Si tiene una red virtual de modelo de implementación clásica con una puerta de enlace de VPN entre locales, puede redirigir o forzar todo el tráfico vinculado a Internet a la ubicación local."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="carmonm"
    editor=""
    tags="azure-service-management"/>
-<tags  
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -71,7 +71,7 @@ Las conexiones salientes desde estas dos subredes a Internet se fuerzan o rediri
 
 Antes de comenzar con la configuración, comprueba que dispones de los elementos siguientes:
 
-- Una suscripción de Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
+- Una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
 
 - Una red virtual configurada.
 
@@ -175,4 +175,4 @@ A continuación se muestran algunos cmdlets de PowerShell adicionales que pueden
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

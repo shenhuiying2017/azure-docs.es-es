@@ -30,7 +30,7 @@ La documentación de referencia para el SDK de cliente se encuentra aquí: [Refe
 
 ##<a name="setup"></a>Configuración y requisitos previos
 
-Se supone que ya ha creado y publicado el proyecto de back-end de la aplicación móvil, que se incluye en una tabla. En el código usado en este tema, el nombre de la tabla es `TodoItem` y dispondrá de las siguientes columnas: `Id`, `Text` y `Complete`. Se trata de la misma tabla que se crea cuando se completa la [Guía de inicio rápido de Aplicaciones móviles de Azure].
+Se supone que ya ha creado y publicado el proyecto de back-end de la aplicación móvil, que incluye al menos una tabla. En el código usado en este tema, el nombre de la tabla es `TodoItem` y dispondrá de las siguientes columnas: `Id`, `Text` y `Complete`. Se trata de la misma tabla que se crea cuando se completa la [Guía de inicio rápido de Aplicaciones móviles de Azure].
 
 El tipo del cliente con tipo correspondiente en C# es el siguiente:
 
@@ -911,4 +911,4 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 [SymbolSource]: http://www.symbolsource.org/
 [Instrucciones de SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -539,6 +539,7 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 		    }
 		}
 		return true;
+            }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -568,10 +569,10 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 - [Entrega de contenido desde la red CDN de Azure en su aplicación web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
 - [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Unión y minificación de ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Uso de la red CDN en Azure](../cdn/cdn-how-to-use-cdn.md)
+- [Uso de CDN de Azure](../cdn/cdn-create-new-endpoint.md)
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

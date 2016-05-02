@@ -3,7 +3,7 @@
    description="Introducción a las características de rendimiento y escala de Almacenamiento de datos SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/03/2016"
-   ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
+   ms.author="barbkess;sonyama"/>
 
 # Información general sobre rendimiento y escala
 Al colocar el Almacenamiento de datos en la nube, ya no es necesario preocuparse por los problemas de hardware de bajo nivel. Lejos quedan los días en que había que investigar qué tipo de procesadores, qué cantidad de memoria o qué tipo de almacenamiento era necesario para obtener un rendimiento excelente en el almacenamiento de datos. En su lugar, Almacenamiento de datos SQL formula esta pregunta: ¿con qué rapidez se desean analizar los datos?
@@ -83,4 +83,4 @@ Consulte el artículo [Introducción al desarrollo][] para obtener orientación 
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

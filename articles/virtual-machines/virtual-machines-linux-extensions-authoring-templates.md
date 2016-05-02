@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Creación de plantillas de Azure Resource Manager con extensiones de máquina virtual de Linux
@@ -49,4 +49,4 @@ Consulte el siguiente artículo para obtener una plantilla totalmente completa c
 
 Una vez creada la plantilla, puede implementarla con la CLI de Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

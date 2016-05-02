@@ -15,16 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/17/2016"
 	ms.author="genli"/>
 
 # ¿Por qué ha recibido una notificación de que su suscripción de Azure tiene un saldo pendiente?
-Si es el administrador de cuenta de su suscripción de Azure y no ha realizado el pago puntualmente, recibirá una notificación por correo electrónico para indicarle su saldo pendiente, o bien verá una alerta en http://accounts.windowsazure.com o http://portal.azure.com.
+Si es el administrador de cuenta de su suscripción de Azure y no ha realizado el pago puntualmente, recibirá una notificación por correo electrónico para indicarle su saldo pendiente, o bien verá una alerta en [https://account.windowsazure.com](https://account.windowsazure.com) o [https://portal.azure.com](https://portal.azure.com).
 
-### ¿Qué sucede si me olvido de pagar?
+## ¿Qué sucede si me olvido de pagar?
 Se cancelará el servicio y los recursos ya no estarán disponibles. Los datos se eliminarán a los 90 días de terminarse el servicio.
 
-### ¿Qué puede hacer para resolver el problema?
+## ¿Qué puede hacer para resolver el problema?
 
 Pagar el saldo pendiente en su totalidad.
 
@@ -35,4 +35,4 @@ Pagar el saldo pendiente en su totalidad.
 
 **Escenario 3**: si el aviso de la factura no se ha recibido porque el administrador de cuenta ha dejado la compañía o su rol ha cambiado, póngase en contacto con el [servicio de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

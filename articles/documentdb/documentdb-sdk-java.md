@@ -3,7 +3,7 @@
 	description="Obtenga toda la información sobre el SDK para Java como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios de una versión a otra del SDK para Java de DocumentDB." 
 	services="documentdb" 
 	documentationCenter="java" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/18/2016" 
+	ms.author="andrl"/>
 
 # SDK de DocumentDB
 
@@ -77,15 +77,15 @@ Todas las versiones del SDK de Azure DocumentDB para Java anteriores a la versi�
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1.6.0](#1.6.0) | 29 de marzo de 2016 |--- 
-| [1.5.1](#1.5.1) | 31 de diciembre de 2015 |--- 
-| [1.5.0](#1.5.0) | 04 de diciembre de 2015 |--- 
-| [1.4.0](#1.4.0) | 05 de octubre de 2015 |--- 
-| [1.3.0](#1.3.0) | 05 de octubre de 2015 |--- 
-| [1.2.0](#1.2.0) | 05 de agosto de 2015 |--- 
-| [1.1.0](#1.1.0) | 09 de julio de 2015 |--- 
-| [1.0.1](#1.0.1) | 12 de mayo de 2015 |--- 
-| [1.0.0](#1.0.0) | 07 de abril de 2015 |--- 
+| [1\.6.0](#1.6.0) | 29 de marzo de 2016 |--- 
+| [1\.5.1](#1.5.1) | 31 de diciembre de 2015 |--- 
+| [1\.5.0](#1.5.0) | 04 de diciembre de 2015 |--- 
+| [1\.4.0](#1.4.0) | 05 de octubre de 2015 |--- 
+| [1\.3.0](#1.3.0) | 05 de octubre de 2015 |--- 
+| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- 
+| [1\.1.0](#1.1.0) | 09 de julio de 2015 |--- 
+| [1\.0.1](#1.0.1) | 12 de mayo de 2015 |--- 
+| [1\.0.0](#1.0.0) | 07 de abril de 2015 |--- 
 | 0.9.5- versión preliminar | 09 de marzo 2015 | 29 de febrero de 2016 
 | 0.9.4 versión preliminar | 17 de febrero de 2015 | 29 de febrero de 2016 
 | 0.9.3-versión preliminar | 13 de enero de 2015 | 29 de febrero de 2016 
@@ -100,4 +100,4 @@ Todas las versiones del SDK de Azure DocumentDB para Java anteriores a la versi�
 
 Para más información sobre DocumentDB, consulte la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

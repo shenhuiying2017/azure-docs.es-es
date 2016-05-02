@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos desde Oracle local mediante Factoría de datos de Azure 
@@ -292,7 +292,7 @@ XML | String
 
 ## Sugerencias de solución de problemas
 
-****Problema: ** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: "UnknownParameterName". Mensaje detallado: No se encuentra el proveedor de datos .NET Framework solicitado. Puede que no esté instalado".
+**Problema:** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: "UnknownParameterName". Mensaje detallado: No se encuentra el proveedor de datos .NET Framework solicitado. Puede que no esté instalado".
 
 **Causas posibles**
 
@@ -312,4 +312,8 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+
+## Rendimiento y optimización  
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2016" 
+	ms.date="04/20/2016" 
 	ms.author="mandia"/>
 
 # Conectores negocio a negocio y aplicaciones de API en el Servicio de aplicaciones de Microsoft Azure
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 El Servicio de aplicaciones de Microsoft Azure (o Servicio de aplicaciones para abreviar) incluye muchas aplicaciones de API de BizTalk que son esenciales para los entornos de integración. Estas aplicaciones de API se basan en conceptos y herramientas que se usan en BizTalk Server, pero que ahora están disponibles como parte de Servicios de aplicaciones de Azure.
 
@@ -193,7 +194,7 @@ En los siguientes pasos se agregan las aplicaciones de API B2B a las aplicacione
 
 4. Seleccione **Aceptar** para guardar los cambios.
 
->[AZURE.NOTE] Si desea empezar a usar Aplicaciones lógicas de Azure antes de suscribirse para obtener una cuenta de Azure, [pruebe Aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a usar Aplicaciones lógicas de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a [Probar aplicación lógica](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Más recursos B2B
 
@@ -208,4 +209,4 @@ En los siguientes pasos se agregan las aplicaciones de API B2B a las aplicacione
 
 [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

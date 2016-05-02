@@ -18,6 +18,12 @@
 
 #Notas de la versión del SDK de Windows Phone Silverlight
 
+
+##3\.3.0 (04/19/2016)
+Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.4.0**
+
+-   API "TestLogLevel" agregada para habilitar, deshabilitar y filtrar registros de consola emitidos por el SDK.
+
 ##3\.2.0 (01/22/2016)
 Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.3.0**
 
@@ -43,4 +49,4 @@ Parte del paquete de Nuget *MicrosoftAzure.MobileEngagement* **v3.2.0**
 -   Mejoras de seguridad.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

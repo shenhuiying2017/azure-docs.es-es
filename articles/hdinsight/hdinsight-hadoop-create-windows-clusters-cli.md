@@ -31,7 +31,9 @@ Aprenda a crear clústeres de HDInsight con la CLI de Azure. Para consultar otra
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 - **Suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **CLI de Azure** - Vea [Instalar y configurar la CLI de Azure](../xplat-cli-install.md) para obtener información de instalación y configuración.
+- **Azure CLI**.
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Conexión a Azure
 
@@ -137,4 +139,4 @@ Puede utilizar la CLI para crear clústeres llamando a plantillas de ARM. Consul
 - [Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md)
 - [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

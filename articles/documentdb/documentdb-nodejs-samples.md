@@ -3,7 +3,7 @@
 	description="Encontrará ejemplos de Node.js en github sobre tareas comunes en DocumentDB, por ejemplo, operaciones CRUD para documentos JSON en bases de datos NoSQL." 
 	keywords="ejemplos de Node.js"
 	services="documentdb" 
-	authors="mimig1" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter="nodejs"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/22/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/18/2016" 
+	ms.author="andrl"/>
 
 
 # Ejemplos de Node.js de DocumentDB
@@ -120,4 +120,4 @@ Tarea | Referencia de API
 
 Para obtener más información sobre la creación de particiones de datos en DocumentDB, consulte [Partición y escalado de datos en DocumentDB](documentdb-partition-data.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

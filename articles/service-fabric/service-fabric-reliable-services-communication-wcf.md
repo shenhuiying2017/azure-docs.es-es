@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/17/2015"
-   ms.author="bharatn@microsoft.com"/>
+   ms.date="03/28/2016"
+   ms.author="bharatn"/>
 
 # Pila de comunicación basada en WCF de Reliable Services
 El marco de Reliable Services permite a los autores de servicio elegir la pila de comunicación que desean usar para su servicio. Pueden conectar la pila de comunicaciones que deseen mediante la clase **ICommunicationListener** devuelta desde los métodos [CreateServiceReplicaListeners o CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md). El marco proporciona una implementación de la pila de comunicación basada en Windows Communication Foundation (WCF) para los autores de servicio que desean usar la comunicación basada en WCF.
@@ -122,4 +122,4 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 * [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded - Conectarse a un origen de datos"
-   description="Microsoft Power BI Embedded - Conectarse a un origen de datos"
+   description="Power BI Embedded, conectarse a orígenes de datos"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -55,4 +55,4 @@ Para asegurarse de que las consultas que se envían al origen de datos subyacent
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Introducción a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

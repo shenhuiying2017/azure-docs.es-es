@@ -74,6 +74,7 @@ El indexador de blob puede extraer texto de los siguientes formatos de documento
 - ZIP
 - EML
 - Texto sin formato  
+- JSON (consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) para obtener más información)
 
 ## Proceso de extracción de documentos
 
@@ -191,7 +192,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extraer texto, incluidos los datos adjuntos
 ZIP (application/zip) | `metadata_content_type` | Extraer el texto de todos los documentos en el archivo
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Seccionar el marcado XML y extraer texto
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraer texto<br/>NOTA: si necesita extraer varios campos de documentos de un blob JSON, vote [esta sugerencia de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/)
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraer texto<br/>NOTA: si necesita extraer varios campos de documentos de un blob JSON, consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) para obtener más información.
 EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extraer texto, incluidos los datos adjuntos
 Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
@@ -223,4 +224,4 @@ Si precisa extraer metadatos, pero omitir la extracción de contenidos para todo
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="04/19/2016"
    ms.author="larryfr"/>
 
 #Administración de clústeres de HDInsight con la API de REST de Ambari
@@ -29,6 +29,9 @@ Apache Ambari simplifica la administración y la supervisión de un clúster de 
 
 * [cURL](http://curl.haxx.se/): cURL es una utilidad multiplataforma que se puede usar para trabajar con las API de REST desde la línea de comandos. En este documento, se usa para comunicarse con la API de REST de Ambari.
 * [jq](https://stedolan.github.io/jq/): jq es una utilidad de línea de comandos multiplataforma para trabajar con documentos JSON. En este documento, se usa para redistribuir los documentos JSON devueltos desde la API de REST de Ambari.
+* [CLI de Azure](../xplat-cli-install.md): Una utilidad de línea de comandos multiplataforma para trabajar con servicios de Azure.
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##<a id="whatis"></a> ¿Qué es Ambari?
 
@@ -38,7 +41,7 @@ De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en
 
 ##API de REST
 
-El identificador URI base de la API de REST de Ambari en HDInsight es https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, donde __CLUSTERNAME__ es el nombre del clúster.
+El URI base de la API de REST de Ambari en HDInsight es https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, donde __CLUSTERNAME__ es el nombre del clúster.
 
 > [AZURE.IMPORTANT] Aunque el nombre del clúster en la parte del nombre de dominio completamente cualificado (FQDN) del identificador URI (CLUSTERNAME.azurehdinsight.net,) no distinga entre mayúsculas y minúsculas, otras apariciones en el identificador URI sí que lo hacen. Por ejemplo, si su clúster se denomina MyCluster, las siguientes opciones son identificadores URI válidos:
 >
@@ -111,7 +114,7 @@ Esto devolverá un valor similar al siguiente, donde __CONTAINER__ es el contene
 
     wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.md) para cargar y descargar datos del contenedor. Por ejemplo:
+Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.md) para cargar y descargar datos del contenedor.
 
 1. Obtenga el grupo de recursos para la cuenta de almacenamiento. Reemplace __ACCOUNTNAME__ por el nombre de la cuenta de almacenamiento que se recuperó de Ambari:
 
@@ -119,7 +122,7 @@ Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.m
     
     Esto devolverá el nombre del grupo de recursos de la cuenta.
     
-    > [AZURE.NOTE] Si este comando no devuelve nada, debe cambiar la CLI de Azure al modo Azure Resource Manager y ejecutar el comando de nuevo. Para cambiar al modo Azure Resource Manager, use el siguiente comando:
+    > [AZURE.NOTE] Si este comando no devuelve nada, debe cambiar la CLI de Azure al modo Administrador de recursos de Azure y ejecutar el comando de nuevo. Para cambiar al modo Administrador de recursos de Azure, use el siguiente comando:
     >
     > `azure config mode arm`
     
@@ -161,9 +164,9 @@ Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.m
             "version" : 1
         }
 
-    En esta lista, debe copiar el nombre del componente (por ejemplo, __spark\_thrift\_sparkconf__ y el valor __tag__.
+    En esta lista, debe copiar el nombre del componente (por ejemplo, __spark\_thrift\_sparkconf__ y el valor __tag__).
     
-2. Recupere la configuración del componente y la etiqueta mediante el comando siguiente. Reemplace __spark-thrift-sparkconf__ e __INITIAL__ con el componente y la etiqueta para los que desea recuperar la configuración.
+2. Recupere la configuración del componente y la etiqueta mediante el comando siguiente. Reemplace __spark-thrift-sparkconf__ e __INITIAL__ por el componente y la etiqueta para los que desea recuperar la configuración.
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     
@@ -173,7 +176,7 @@ Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.m
     * Crea un documento raíz para la nueva configuración deseada.
     * Obtiene el contenido de la matriz .items y lo agrega en el elemento __desired\_config__.
     * Elimina los elementos __href__, __version__ y __Config__, ya que estos no son necesarios para enviar una nueva configuración.
-    * Agrega un nuevo elemento __tag__ y establece su valor en __version ###__ donde la parte numérica se basa en la fecha actual. Cada configuración debe tener una etiqueta única.
+    * Agrega un nuevo elemento __tag__ y establece su valor en __versionnºnºnºnºnºnºnºnºnºnºnºnºnºnºnºnºnº__ donde la parte numérica se basa en la fecha actual. Cada configuración debe tener una etiqueta única.
     
     Por último, los datos se guardan en el documento __newconfig.json__. La estructura del documento será similar a la siguiente:
     
@@ -202,11 +205,11 @@ Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.m
 
         cat newconfig.json | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME"
         
-    Este comando canaliza el contenido del archivo __newconfig.json__ a la solicitud CUrl, que lo envía al clúster como la nueva configuración deseada. Esto devolverá un documento JSON. El elemento __versionTag__ de este documento debería coincidir con la versión que envió, y el objeto __configs__ contendrá los cambios de configuración que solicitó.
+    Este comando canaliza el contenido del archivo __newconfig.json__ a la solicitud Curl, que lo envía al clúster como la nueva configuración deseada. Esto devolverá un documento JSON. El elemento __versionTag__ de este documento debería coincidir con la versión que envió y el objeto __configs__ contendrá los cambios de configuración que solicitó.
 
 ###Ejemplo: Reiniciar un componente de servicio
 
-En este momento, si observa la IU web de Ambari, el servicio Spark le indicará que debe reiniciarse antes de que la nueva configuración surta efecto. Siga los siguientes pasos para reiniciar el servicio. Analizar más detenidamente indicará
+En este momento, si observa la IU web de Ambari, el servicio Spark le indicará que debe reiniciarse antes de que la nueva configuración surta efecto. Siga los siguientes pasos para reiniciar el servicio.
 
 1. Use lo siguiente para habilitar el modo de mantenimiento para el servicio Spark.
 
@@ -254,4 +257,4 @@ Para obtener una referencia completa de la API de REST, consulte [Referencia de 
 
 > [AZURE.NOTE] Cierta funcionalidad de Ambari está deshabilitada, puesto que está administrada por el servicio en la nube de HDInsight; por ejemplo, agregar o quitar hosts del clúster o agregar nuevos servicios.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

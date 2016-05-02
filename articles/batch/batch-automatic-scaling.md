@@ -13,20 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="01/08/2016"
+	ms.date="04/18/2016"
 	ms.author="marsma"/>
 
 # Escalación automática de los nodos de ejecución en un grupo de Lote de Azure
 
-Con el escalado automático en Lote de Azure, puede agregar o quitar dinámicamente nodos de ejecución en un grupo de Lote durante la ejecución del trabajo para ajustar automáticamente la capacidad de procesamiento que utiliza la aplicación. Este ajuste automático puede ahorrarle tiempo y dinero.
+Con la escala automática, el servicio Lote de Azure puede agregar o quitar dinámicamente nodos de proceso en un grupo en función de los parámetros definidos. Esto le permite ajustar automáticamente la cantidad de recursos de proceso utilizada por la aplicación, con lo que es posible que ahorre tiempo y dinero.
 
-Puede habilitar el escalado automático en un grupo de nodos de ejecución mediante la asociación de una *fórmula de escalado automático* al grupo, como con el método [PoolOperations.EnableAutoScale][net_enableautoscale] en la biblioteca de [.NET de Lote](batch-dotnet-get-started.md). A continuación, el servicio Lote usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. El número de nodos de ejecución del grupo, que responde a las muestras de datos de métricas de servicio que se recopilan periódicamente, se ajusta a un intervalo configurable según la fórmula asociada.
+Habilitar el escalado automático en un grupo de nodos de proceso mediante la asociación con una *fórmula de escalado automático* que defina, como con el método [PoolOperations.EnableAutoScale][net_enableautoscale] en la biblioteca de [.NET de Lote](batch-dotnet-get-started.md). A continuación, el servicio Lote usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. Lote responde a las muestras de datos de métricas de servicio que se recopilan periódicamente y ajusta el número de nodos de proceso del grupo a un intervalo configurable según la fórmula asociada.
 
 Puede habilitar el escalado automático al crear un grupo o bien en un grupo existente. También puede cambiar una fórmula existente en un grupo con el "escalado automático" habilitado. Lote proporciona la capacidad de evaluar las fórmulas antes de asignarlas a grupos y de supervisar el estado de las ejecuciones de escalado automático.
 
 ## Fórmulas de escalado automático
 
-Una fórmula de escalado automático es un valor de cadena que contiene una o varias instrucciones que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] (API de REST de Lote) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (API de .NET de Lote) de un grupo. Estas fórmulas las define el usuario. Cuando se asignan a un grupo, determinan el número de nodos de ejecución disponibles en un grupo para el siguiente intervalo de procesamiento (consulte más información sobre intervalos posteriormente). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
+Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] (REST de Lote) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET de Lote) de un grupo. Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
 
 Puede imaginarse que las fórmulas de escalado automático son un "idioma" de escalado automático de Lote. Las instrucciones de fórmula son expresiones formadas libremente que pueden incluir variables definidas por el sistema y por el usuario, así como constantes. Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
@@ -39,7 +39,7 @@ VAR₀ = Expression₀(system-defined variables);
 VAR₁ = Expression₁(system-defined variables, VAR₀);
 ```
 
-Mediante el uso de las instrucciones en la fórmula, el objetivo es llegar a un número de nodos de ejecución al que se debe escalar el grupo: el número de **destino** de **nodos dedicados**. Este número puede ser mayor, menor o igual que el número actual de nodos del grupo. Lote evalúa la fórmula de escalado automático del grupo según un intervalo específico (a continuación se describen los [intervalos de escalado automático](#interval)). Después, ajustará el número de destino de nodos del grupo al número que la fórmula de escalado automático especifica en el momento de la evaluación.
+Con estas instrucciones en la fórmula, el objetivo es llegar a un número de nodos de proceso al que debe escalar el grupo: el número de **destino** de **nodos dedicados**. Este número puede ser mayor, menor o igual que el número actual de nodos del grupo. Lote evalúa la fórmula de escalado automático del grupo según un intervalo específico (a continuación se describen los [intervalos de escalado automático](#automatic-scaling-interval)). Después, ajustará el número de destino de nodos del grupo al número que la fórmula de escalado automático especifica en el momento de la evaluación.
 
 A modo de ejemplo rápido, esta fórmula de escalado automático de dos líneas especifica que el número de nodos se debe ajustar según el número de tareas activas, hasta un máximo de 10 nodos de ejecución:
 
@@ -50,7 +50,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 Las siguientes secciones de este artículo tratan de las distintas entidades que conformarán las fórmulas de escalado automático, incluidos variables, operadores, operaciones y funciones. En Lote, encontrará información acerca de cómo obtener varias métricas de recursos y tareas de proceso. Puede usar estas métricas para ajustar de forma inteligente el número de nodos del grupo en función del estado de tareas y el uso de recursos. Después, aprenderá a construir una fórmula y a habilitar el escalado automático en un grupo mediante API de .NET y de REST de Lote. Por último, terminaremos con algunas fórmulas de ejemplo.
 
-> [AZURE.NOTE] Cada cuenta de Lote de Azure se limita a un número máximo de nodos de ejecución que puede utilizarse para su procesamiento. El servicio Lote creará nodos solo hasta ese límite. Por lo tanto, no podría alcanzar el número de destino que se especifica mediante una fórmula. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener información sobre la visualización y aumento de las cuotas de la cuenta.
+> [AZURE.IMPORTANT] Cada cuenta de Lote de Azure se limita a un número máximo de nodos de ejecución que puede utilizarse para su procesamiento. El servicio Lote creará nodos solo hasta ese límite. Por lo tanto, no podría alcanzar el número de destino que se especifica mediante una fórmula. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener información sobre la visualización y aumento de las cuotas de la cuenta.
 
 ## <a name="variables"></a>Variables
 
@@ -186,166 +186,37 @@ Estos son los **tipos** que se admiten en las fórmulas.
 
 Estas **operaciones** se permiten en los tipos enumerados arriba.
 
-<table>
-  <tr>
-    <th>Operación</th>
-    <th>Operadores permitidos</th>
-  </tr>
-  <tr>
-    <td>double &lt;operator> double => double</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>double &lt;operator> timeinterval => timeinterval</td>
-    <td>*</td>
-  </tr>
-  <tr>
-    <td>doubleVec &lt;operator> double => doubleVec</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>doubleVec &lt;operator> doubleVec => doubleVec</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator> double => timeinterval</td>
-    <td>*, /</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator> timeinterval => timeinterval</td>
-    <td>+, -</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator> timestamp => timestamp</td>
-    <td>+</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operator> timeinterval => timestamp</td>
-    <td>+</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operator> timestamp => timeinterval</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>&lt;operator>double => double</td>
-    <td>-, !</td>
-  </tr>
-  <tr>
-    <td>&lt;operator>timeinterval => timeinterval</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>double &lt;operator> double => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>string &lt;operator> string => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operator> timestamp => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator> timeinterval => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>double &lt;operator> double => double</td>
-    <td>&amp;&amp;, ||</td>
-  </tr>
-  <tr>
-    <td>test double only (nonzero is true, zero is false)</td>
-    <td>? :</td>
-  </tr>
-</table>
+| Operación | Operadores admitidos | Tipo de resultado |
+| ------------------------------------- | --------------------- | ------------- |
+| double *operador* double | +, -, *, / | double | | double *operador* timeinterval | * | timeinterval | | doubleVec *operador* double | +, -, *, / | doubleVec | | doubleVec *operador* doubleVec | +, -, *, / | doubleVec | | timeinterval *operador* double | *, / | timeinterval | | timeinterval *operador* timeinterval | +, - | timeinterval | | timeinterval *operador* timestamp | + | timestamp | | timestamp *operador* timeinterval | + | timestamp | | timestamp *operador* timestamp | - | timeinterval | | *operator*double | -, ! | double | | *operator*timeinterval | - | timeinterval | | double *operador* double | <, <=, ==, >=, >, != | double | | string *operador* string | <, <=, ==, >=, >, != | double | | timestamp *operador* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *operador* timeinterval | <, <=, ==, >=, >, != | double | | double *operador* double | &&, || | double |
+
+Cuando se prueba un valor double con un operador ternario (`double ? statement1 : statement2`), el valor distinto de cero es **true** y cero es **false**.
 
 ## Funciones
 
 Estas **funciones** predefinidas están disponibles para que las use al definir fórmulas de escalado automático.
 
-<table>
-  <tr>
-    <th>Función</th>
-    <th>Descripción</th>
-  </tr>
-  <tr>
-    <td>double <b>avg</b>(doubleVecList)</td>
-    <td>Devuelve el valor medio de todos los valores de doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>len</b>(doubleVecList)</td>
-    <td>Devuelve la longitud del vector creado a partir de doubleVecList.</td>
-  <tr>
-    <td>double <b>lg</b>(double)</td>
-    <td>Devuelve la base logarítmica 2 de double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>lg</b>(doubleVecList)</td>
-    <td>Devuelve la base logarítmica de componentes 2 de doubleVecList. Se debe pasar explícitamente un vec(double) para un único parámetro double. En caso contrario, se supone la versión double lg(double).</td>
-  </tr>
-  <tr>
-    <td>double <b>ln</b>(double)</td>
-    <td>Devuelve el registro natural de double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>ln</b>(doubleVecList)</td>
-    <td>Devuelve la base logarítmica de componentes 2 de doubleVecList. Se debe pasar explícitamente un vec(double) para un único parámetro double. En caso contrario, se supone la versión double lg(double).</td>
-  </tr>
-  <tr>
-    <td>double <b>log</b>(double)</td>
-    <td>Devuelve la base logarítmica 10 de double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>log</b>(doubleVecList)</td>
-    <td>Devuelve la base logarítmica de componentes 10 de doubleVecList. Se debe pasar explícitamente un vec(double) para un único parámetro double. En caso contrario, se supone la versión double log(double).</td>
-  </tr>
-  <tr>
-    <td>double <b>max</b>(doubleVecList)</td>
-    <td>Devuelve el valor máximo de doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>min</b>(doubleVecList)</td>
-    <td>Devuelve el valor mínimo de doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>norm</b>(doubleVecList)</td>
-    <td>Devuelve la norma de dos del vector creado a partir de doubleVecList.
-  </tr>
-  <tr>
-    <td>double <b>percentile</b>(doubleVec v, double p)</td>
-    <td>Devuelve el elemento percentil del vector v.</td>
-  </tr>
-  <tr>
-    <td>double <b>rand</b>()</td>
-    <td>Devuelve un valor aleatorio entre 0,0 y 1,0.</td>
-  </tr>
-  <tr>
-    <td>double <b>range</b>(doubleVecList)</td>
-    <td>Devuelve la diferencia entre los valores máximo y mínimo en doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>std</b>(doubleVecList)</td>
-    <td>Devuelve la desviación de muestra estándar de los valores en doubleVecList.</td>
-  </tr>
-  <tr>
-    <td><b>stop</b>()</td>
-    <td>Detiene la evaluación de la expresión de escalado automático.</td>
-  </tr>
-  <tr>
-    <td>double <b>sum</b>(doubleVecList)</td>
-    <td>Devuelve la suma de todos los componentes de doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>timestamp <b>time</b>(string dateTime="")</td>
-    <td>Devuelve la marca de tiempo de la hora actual si no se pasan los parámetros o la marca de hora de la cadena dateTime si se pasó. Los formatos de dateTime compatibles son W3C-DTF y RFC 1123.</td>
-  </tr>
-  <tr>
-    <td>double <b>val</b>(doubleVec v, double i)</td>
-    <td>Devuelve el valor del elemento que está en la ubicación i en el vector v con el índice inicial de cero.</td>
-  </tr>
-</table>
+| Función | Tipo de valor devuelto | Descripción
+| --------------------------------- | ------------- | --------- |
+| avg(doubleVecList) | double | Devuelve el valor medio de todos los valores de doubleVecList.
+| len(doubleVecList) | double | Devuelve la longitud del vector creado a partir de doubleVecList.
+| lg(double) | double | Devuelve la base logarítmica 2 de double.
+| lg(doubleVecList) | doubleVec | Devuelve la base logarítmica de componentes 2 de doubleVecList. Se debe pasar explícitamente un vec(double) para el parámetro. En caso contrario, se supone la versión double lg(double).
+| ln(double) | double | Devuelve el registro natural de double.
+| ln(doubleVecList) | doubleVec | Devuelve la base logarítmica de componentes 2 de doubleVecList. Se debe pasar explícitamente un vec(double) para el parámetro. En caso contrario, se supone la versión double lg(double).
+| log(double) | double | Devuelve la base logarítmica 10 de double.
+| log(doubleVecList) | doubleVec | Devuelve la base logarítmica de componentes 10 de doubleVecList. Se debe pasar explícitamente un vec(double) para un único parámetro double. En caso contrario, se supone la versión double log(double).
+| max(doubleVecList) | double | Devuelve el valor máximo de doubleVecList.
+| min(doubleVecList) | double | Devuelve el valor mínimo de doubleVecList.
+| norm(doubleVecList) | double | Devuelve la norma de dos del vector creado a partir de doubleVecList.
+| percentile(doubleVec v, double p) | double | Devuelve el elemento percentil del vector v.
+| rand() | double | Devuelve un valor aleatorio entre 0,0 y 1,0.
+| range(doubleVecList) | double | Devuelve la diferencia entre los valores máximo y mínimo en doubleVecList.
+| std(doubleVecList) | double | Devuelve la desviación de muestra estándar de los valores en doubleVecList.
+| stop() | | Detiene la evaluación de la expresión de escalado automático.
+| sum(doubleVecList) | double | Devuelve la suma de todos los componentes de doubleVecList.
+| time(string dateTime="") | timestamp | Devuelve la marca de tiempo de la hora actual si no se pasan los parámetros o la marca de hora de la cadena dateTime si se pasó. Los formatos de dateTime compatibles son W3C-DTF y RFC 1123.
+| val(doubleVec v, double i) | double | Devuelve el valor del elemento que está en la ubicación i en el vector v con el índice inicial de cero.
 
 Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista como argumento. La lista separada por comas es cualquier combinación de *double* y *doubleVec*. Por ejemplo:
 
@@ -398,7 +269,7 @@ Las fórmulas de escalado automático actúan en datos de métricas (muestras) p
   </tr>
 </table>
 
-### Ejemplos, porcentaje de muestras y el método *GetSample()*
+### Muestras, porcentaje de muestras y el método *GetSample()*
 
 La operación principal de una fórmula de escalado automático es la obtención de datos de métricas de tareas y recursos y el ajuste posterior del tamaño de grupo según esos datos. Por lo tanto, es importante tener una idea clara de cómo las fórmulas de escalado automático interactúan con datos de métricas, también denominados "muestras".
 
@@ -436,7 +307,7 @@ También es importante, debido al retraso mencionado anteriormente en la disponi
 
 ## Métricas
 
-Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórmula. El número de nodos dedicados de destino se ajusta en el grupo basándose en los datos de métricas que obtenga y evalúe. Consulte la sección [Variables](#variables) anterior para obtener más información sobre cada métrica.
+Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórmula. El número de nodos dedicados de destino se ajusta en el grupo basándose en los datos de métricas que obtenga y evalúe. Consulte la sección [Variables](#variables) anterior para más información sobre cada métrica.
 
 <table>
   <tr>
@@ -517,7 +388,7 @@ Para habilitar el escalado automático al crear un grupo, use una de las técnic
 
 > [AZURE.IMPORTANT] Si crea un grupo con el escalado automático habilitado mediante una de las técnicas anteriores, el parámetro *targetDedicated* para el grupo **no** debe especificarse. Tenga en cuenta también que si desea cambiar manualmente el tamaño de un grupo con el escalado automático habilitado (por ejemplo, con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primero tiene que **deshabilitar** el escalado automático en el grupo y después cambiar su tamaño.
 
-El fragmento de código siguiente muestra la creación de un grupo habilitado para escalado automático ([CloudPool][net_cloudpool]) mediante el uso de la biblioteca de [.NET de Lote][net_api]. La fórmula de escalado automático del grupo establece el número de nodos de destino en cinco los lunes y en uno todos los demás días de la semana. Además, el intervalo de escalado automático se establece en 30 minutos (consulte la sección [Intervalo de escalado automático](#interval) más adelante). En este y en otros fragmentos de código en C# de este artículo, "myBatchClient" es una instancia totalmente inicializada de [BatchClient][net_batchclient].
+El fragmento de código siguiente muestra la creación de un grupo habilitado para escalado automático ([CloudPool][net_cloudpool]) mediante el uso de la biblioteca de [.NET de Lote][net_api]. La fórmula de escalado automático del grupo establece el número de nodos de destino en cinco los lunes y en uno todos los demás días de la semana. Además, el intervalo de escalado automático se establece en 30 minutos (consulte la sección [Intervalo de escalado automático](#automatic-scaling-interval) más adelante). En este y en otros fragmentos de código en C# de este artículo, "myBatchClient" es una instancia totalmente inicializada de [BatchClient][net_batchclient].
 
 ```
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -527,7 +398,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-### <a name="interval"></a>Intervalo de escalado automático
+### Intervalo de escalado automático
 
 De forma predeterminada, el servicio Lote ajusta el tamaño de un grupo según su fórmula de escalado automático cada **15 minutos**. No obstante, este intervalo es configurable mediante las siguientes propiedades de grupo:
 
@@ -703,16 +574,9 @@ La fórmula en el fragmento de código anterior:
 
 ## Pasos siguientes
 
-1. Para evaluar exhaustivamente la eficiencia de una aplicación, es posible que tenga que acceder a un nodo de ejecución. Para aprovechar el acceso remoto, debe agregarse una cuenta de usuario al nodo al que desea obtener acceso y debe recuperarse un archivo de Protocolo de acceso remoto (RDP) de dicho nodo.
-    - Agregue la cuenta de usuario de una de estas maneras:
-        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx): este cmdlet de PowerShell toma el nombre del grupo, el nombre del nodo de ejecución, el nombre de la cuenta y la contraseña como parámetros.
-        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx): este método .NET crea una instancia de la clase [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx) en la que se pueden establecer el nombre de la cuenta y la contraseña del nodo de ejecución. A continuación, se llama a [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx) en la instancia para crear el usuario en dicho nodo.
-        * [Incorporación de una cuenta de usuario a un nodo](https://msdn.microsoft.com/library/dn820137.aspx): el nombre del grupo y el nodo de ejecución se especifican en el URI. El nombre de cuenta y la contraseña se envían al nodo en el cuerpo de esta solicitud de API de REST.
-    - Obtención del archivo RDP:
-        * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx): este método .NET requiere el identificador del grupo, el identificador del nodo y el nombre del archivo RDP que se va a crear.
-        * [Obtención de un archivo de protocolo de escritorio remoto de un nodo](https://msdn.microsoft.com/library/dn820120.aspx): esta solicitud de API de REST requiere el nombre del grupo y el nombre del nodo de ejecución. La respuesta incorpora el contenido del archivo RDP.
-        * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): este cmdlet de PowerShell obtiene el archivo RDP del nodo de ejecución especificado y lo guarda en la ubicación del archivo especificada o en una transmisión.
-2.	Algunas aplicaciones generan grandes cantidades de datos que pueden ser difíciles de procesar. Una manera de resolver esto es a través de una [consulta de lista eficiente](batch-efficient-list-queries.md).
+* [Maximizar el uso de recursos de proceso de Lote de Azure con tareas simultáneas de nodo](batch-parallel-node-tasks.md) contiene detalles acerca de cómo se pueden ejecutar varias tareas simultáneamente en los nodos de proceso en el grupo. Además del escalado automático, esta característica puede ayudar a reducir la duración del trabajo para algunas cargas de trabajo, lo que permite ahorrar dinero.
+
+* Para otro ajuste de la eficacia, asegúrese de que la aplicación Lote consulta el servicio Lote de la manera más óptima. En [Consulta eficaz del servicio Lote de Azure](batch-efficient-list-queries.md), aprenderá a limitar la cantidad de datos que atraviesan la conexión al consultar el estado de posiblemente miles de nodos de proceso o tareas.
 
 [net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_batchclient]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -728,4 +592,4 @@ La fórmula en el fragmento de código anterior:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/es-ES/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

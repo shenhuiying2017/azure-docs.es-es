@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso de la red CDN | Microsoft Azure"
+	pageTitle="Uso de CDN de Azure"
 	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
 	services="cdn"
 	documentationCenter=".net"
@@ -12,12 +12,12 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.topic="article"
+	ms.date="04/15/2016"
 	ms.author="casoper"/>
 
 
-# Uso de la red CDN en Azure
+# Uso de CDN de Azure
 
 La Red de entrega de contenido (CDN) de Azure es el bloque de creación fundamental para escalar cualquier aplicación HTTP o HTTPS en Azure. Ofrece a los clientes de Azure una solución global de almacenamiento en caché y entrega de contenido a los usuarios finales. Como consecuencia, en lugar de llegar siempre al origen, las solicitudes de usuario se enrutan de forma inteligente hacia el nodo del borde de CDN (POP o punto de presencia) que proporciona los mejores tiempos de respuesta. Esto aumenta considerablemente el rendimiento y experiencia del usuario. Para obtener una lista actualizada de las ubicaciones de nodos de la red CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
 
@@ -128,7 +128,6 @@ El acceso al contenido de la red CDN usando HTTPS tiene la siguiente restriccion
 - Debe utilizar el certificado proporcionado por la red CDN. No se admiten certificados de terceros.
 - Debe usar el dominio de red CDN para obtener acceso el contenido. La compatibilidad con HTTPS no está disponible para nombres de dominio personalizados (CNAME) dado que la red CDN no admite certificados personalizados en este momento.
 
-Para obtener más información acerca de la habilitación de HTTPS para contenido de red CDN, consulte [Habilitar la Red de entrega de contenido (CDN) para Azure](cdn-create-new-endpoint.md).
 
 
 ## Obtención de acceso a contenido almacenado en caché de con dominios personalizados
@@ -149,4 +148,4 @@ La red CDN de Microsoft Azure puede administrarse mediante programación con la 
 - [Depuración de un punto de conexión de red de entrega de contenido de Azure](cdn-purge-endpoint.md)
 - [La API de REST del proveedor de recursos de red CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

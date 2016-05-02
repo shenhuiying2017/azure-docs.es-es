@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="ravbhatnagar"
 	manager="ryjones"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/26/2016"
+	ms.date="04/18/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Uso de directivas para administrar los recursos y controlar el acceso
@@ -23,8 +23,6 @@ El Administrador de recursos de Azure permite controlar el acceso mediante direc
 Se crean definiciones de directivas que describen las acciones o los recursos que se han denegado específicamente. Esas definiciones de directivas se asignan en el ámbito deseado, como la suscripción, el grupo de recursos o un recurso individual.
 
 En este artículo se explica la estructura básica del lenguaje de definición de directivas que se puede usar para crear directivas. A continuación, describiremos cómo es posible aplicar estas directivas en distintos ámbitos y, finalmente, mostraremos algunos ejemplos de aplicación mediante la API de REST.
-
-La directiva está actualmente disponible como vista previa.
 
 ## ¿En qué se diferencia de RBAC?
 
@@ -56,10 +54,10 @@ Básicamente, una directiva contiene lo siguiente:
 
     {
       "if" : {
-        <condition> | <logical operator>
+          <condition> | <logical operator>
       },
       "then" : {
-        "effect" : "deny | audit"
+          "effect" : "deny | audit | append"
       }
     }
     
@@ -67,7 +65,7 @@ Básicamente, una directiva contiene lo siguiente:
 
 La directiva se evaluará cuando se realice la creación del recurso o la implementación de la plantilla mediante HTTP PUT. En el caso de la implementación de la plantilla, la directiva se evaluará durante la creación de cada uno de los recursos en la plantilla.
 
-Nota: la directiva no evalúa los tipos de recursos que no admitan los campos tags, kind, location, como Microsoft.Resources/deployments. La compatibilidad se agregará más adelante. Para evitar problemas de compatibilidad con versiones anteriores, el procedimiento recomendado es especificar explícitamente el tipo al crear directivas. Por ejemplo, se aplicará a todos los tipos una directiva de etiqueta sin especificar los tipos, por lo que la implementación de la plantilla puede producir un error si hay un recurso anidado que no admita la etiqueta cuando el tipo de recurso se agregue a la evaluación en el futuro.
+> [AZURE.NOTE] Actualmente, la directiva no evalúa los tipos de recursos que no se admiten etiquetas, variante y ubicación, como el tipo de recurso Microsoft.Resources/deployments. Esta compatibilidad se agregará en el futuro. Para evitar problemas de compatibilidad con versiones anteriores, debe especificar explícitamente el tipo al crear directivas. Por ejemplo, una directiva de etiqueta que no especifique tipos se aplicará a todos los tipos. En ese caso, una implementación de plantilla puede dar error en el futuro si hay un recurso anidado que no admite etiquetas y el tipo de recurso de implementación se ha agregado a la evaluación de directivas.
 
 ## Operadores lógicos
 
@@ -93,7 +91,7 @@ Una condición evalúa si un **campo** o un **origen** cumple determinados crite
 | En el | "in" : [ "&lt;valor1&gt;","&lt;valor2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;nombre de clave&gt;" |
 
-## Campos y orígenes
+### Campos y orígenes
 
 Las condiciones se crean mediante el uso de campos y orígenes. Un campo representa las propiedades de la carga de solicitud de recursos que se usa para describir el estado del recurso. Un origen representa las características de la propia solicitud.
 
@@ -103,37 +101,70 @@ Campos: **name**, **kind**, **type**, **location**, **tags**, **tags.*** y **pro
 
 Orígenes: **action**.
 
-El alias de propiedad es un nombre que se puede usar en la definición de directiva para acceder a las propiedades específicas del tipo de recursos, como la configuración y la SKU. Funciona en todas las versiones de API en las que existe la propiedad. Los alias se pueden recuperar mediante la API de REST que se indica a continuación (en el futuro se agregará compatibilidad con Powershell):
+### Alias de la propiedad 
+El alias de propiedad es un nombre que se puede usar en una definición de directiva para acceder a las propiedades específicas del tipo de recursos, como la configuración y las SKU. Funciona en todas las versiones de API donde existe la propiedad. Los alias se pueden recuperar mediante la API de REST que se indica a continuación (en el futuro se agregará compatibilidad con Powershell):
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 	
-La definición de un alias se parece a lo siguiente. Como puede ver, un alias define rutas de acceso en distintas versiones de API, aunque se cambie el nombre de la propiedad.
+A continuación se muestra la definición de un alias. Como puede ver, un alias define rutas de acceso en distintas versiones de API, aunque se cambie el nombre de la propiedad.
 
-    "aliases": [
-      {
-        "name": "Microsoft.Storage/storageAccounts/sku.name",
-        "paths": [
-          {
-            "path": "Properties.AccountType",
-            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
-          }
-        ]
-      }
-    ]
+	"aliases": [
+	    {
+	      "name": "Microsoft.Storage/storageAccounts/sku.name",
+	      "paths": [
+	        {
+	          "path": "properties.accountType",
+	          "apiVersions": [
+	            "2015-06-15",
+	            "2015-05-01-preview"
+	          ]
+	        },
+	        {
+	          "path": "sku.name",
+	          "apiVersions": [
+	            "2016-01-01"
+	          ]
+	        }
+	      ]
+	    }
+	]
 
 Actualmente, los alias admitidos son:
 
 | Nombre de alias | Descripción |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | El tipo de recurso admitido es Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | El tipo de recurso admitido es Microsoft.Cache/Redis |
+| Microsoft.Compute/virtualMachines/imagePublisher | |
+| Microsoft.Compute/virtualMachines/imageOffer | |
+| Microsoft.Compute/virtualMachines/imageSku | |
+| Microsoft.Compute/virtualMachines/imageVersion | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
 
 
 Para obtener más información acerca de las acciones, vea [RBAC - Roles integrados](active-directory/role-based-access-built-in-roles.md). Actualmente, la directiva solo funciona en las solicitudes PUT.
 
+## Efecto
+La directiva admite tres tipos de efecto: **deny**, **audit** y **append**.
+
+- Deny genera un evento en el registro de auditoría y se produce un error en la solicitud
+- Audit genera un evento en el registro de auditoría pero no producirá un error en la solicitud
+- Append agrega el conjunto de campos definido a la solicitud 
+
+Para **append**, debe proporcionar los detalles tal y como se muestra a continuación:
+
+    ....
+    "effect": "append",
+    "details": [
+      {
+        "field": "field name",
+        "value": "value of the field"
+      }
+    ]
+
+El valor puede ser una cadena o un objeto con formato JSON.
 
 ## Ejemplos de definición de directivas
 
@@ -154,6 +185,51 @@ La directiva siguiente rechaza todas las solicitudes que no tengan una etiqueta 
         "effect" : "deny"
       }
     }
+
+La siguiente directiva anexa la etiqueta costCenter con un valor predefinido si no hay ninguna etiqueta.
+
+	{
+	  "if": {
+	    "field": "tags",
+	    "exists": "false"
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags",
+	        "value": {"costCenter":"myDepartment" }
+	      }
+	    ]
+	  }
+	}
+	
+La siguiente directiva anexa la etiqueta costCenter con un valor predefinido si hay otras etiquetas.
+
+	{
+	  "if": {
+	    "allOf": [
+	      {
+	        "field": "tags",
+	        "exists": "true"
+	      },
+	      {
+	        "field": "tags.costCenter",
+	        "exists": "false"
+	      }
+	    ]
+	
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags.costCenter",
+	        "value": "myDepartment"
+	      }
+	    ]
+	  }
+	}
 
 
 ### Cumplimiento geográfico: garantiza las ubicaciones de los recursos
@@ -311,24 +387,25 @@ Con un cuerpo de solicitud similar al siguiente:
     }
 
 
-La definición de la directiva puede definirse como uno de los ejemplos anteriores. Para la versión de la API, use *2015-10-01-preview*. Para obtener más ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La definición de la directiva puede definirse como uno de los ejemplos anteriores. Para api-version use *2016-04-01*. Para obtener más ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Crear una definición de directiva con PowerShell
 
 Puede crear una nueva definición de directiva mediante el cmdlet New-AzureRmPolicyDefinition tal como se muestra a continuación. En los ejemplos siguientes se crea una directiva para permitir los recursos solo en Europa del Norte y Europa occidental.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
-    	    			    "not" : {
-    	      			    	"field" : "location",
-    	      			    		"in" : ["northeurope" , "westeurope"]
-    	    			    	}
-    	    		          },
-    	      		    		"then" : {
-    	    			    		"effect" : "deny"
-    	      			    		}
-    	    		    	}'    		
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    		
 
-El resultado de la ejecución se almacena en el objeto $policy para que se pueda usar posteriormente durante la asignación de la directiva. Para el parámetro de directiva, también se puede proporcionar la ruta de acceso a un archivo .json que contenga la directiva en lugar de especificar la directiva en línea tal como se muestra a continuación.
+La salida de la ejecución se almacena en el objeto $policy y se puede usar posteriormente durante la asignación de la directiva. Para el parámetro de directiva, también se puede proporcionar la ruta de acceso a un archivo .json que contenga la directiva en lugar de especificar la directiva en línea tal como se muestra a continuación.
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
@@ -343,7 +420,7 @@ Para crear una nueva asignación de directiva, ejecute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} es el nombre de la asignación de directiva. Para obtener la versión de la API, use *2015-10-01-preview*.
+{policy-assignment} es el nombre de la asignación de directiva. Para api-version use *2016-04-01*.
 
 Con un cuerpo de solicitud similar al siguiente:
 
@@ -380,11 +457,11 @@ Después de aplicar la directiva, puede empezar a ver los eventos relacionados c
 
 Para ver todos los eventos relacionados con el efecto de denegación, puede usar el siguiente comando.
 
-    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 Para ver todos los eventos relacionados con el efecto de auditoría, puede usar el siguiente comando.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

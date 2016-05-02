@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuración del firewall | Microsoft Azure"
+	pageTitle="Configuración de un firewall de Base de datos SQL | Microsoft Azure"
 	description="Aprenda a configurar el firewall para direcciones IP que obtengan acceso a bases de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="04/12/2016"
+	ms.date="04/14/2016"
 	ms.author="rickbyh;carlrab"/>
 
 
-# Configuración del firewall en la Base de datos SQL mediante el Portal de Azure
+# Configuración del firewall en la Base de datos SQL de Azure mediante el Portal de Azure
 
 
 > [AZURE.SELECTOR]
@@ -57,4 +57,4 @@ Para obtener un tutorial sobre la creación de una base de datos, consulte [Crea
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

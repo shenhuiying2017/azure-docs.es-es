@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción al servidor de R en HDInsight | Azure"
-   description="Obtenga información sobre cómo crear un Apache Spark en un clúster de HDInsight (Hadoop) que incluya un servidor de R y después enviar un script de R al clúster."
+   pageTitle="Introducción a R Server en HDInsight (versión preliminar)| Azure"
+   description="Obtenga información sobre cómo crear un Apache Spark en un clúster de HDInsight (versión preliminar) que incluya R Server y después enviar un script de R al clúster."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -17,9 +17,9 @@
    ms.date="03/25/2016"
    ms.author="jeffstok"/>
 
-# Introducción al uso del servidor de R en HDInsight
+#Introducción al uso de R Server en HDInsight (versión preliminar)
 
-El nivel Premium ofrecido para HDInsight incluye un servidor de R como parte de su clúster de HDInsight. Esto permite que los scripts de R usen MapReduce y Spark para ejecutar cálculos distribuidos. En este documento, obtendrá información sobre cómo crear un nuevo servidor de R en HDInsight y después ejecutar un script de R que demuestre el uso de Spark para cálculos de R distribuidos.
+La oferta de nivel Premium para HDInsight incluye R Server en HDInsight (versión preliminar). Esto permite que los scripts de R usen MapReduce y Spark para ejecutar cálculos distribuidos. En este documento, obtendrá información sobre cómo crear un nuevo servidor de R en HDInsight y después ejecutar un script de R que demuestre el uso de Spark para cálculos de R distribuidos.
 
 ![Diagrama del flujo de trabajo de este documento](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -322,4 +322,4 @@ Ambas plantillas crean un nuevo clúster de HDInsight y una cuenta de almacenami
 
 Para obtener información general acerca del uso de las plantillas de ARM, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

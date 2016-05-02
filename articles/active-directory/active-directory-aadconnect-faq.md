@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="04/20/2016"
 	ms.author="billmath"/>
 
 # Preguntas más frecuentes sobre Azure AD Connect
@@ -46,10 +46,12 @@
 - [Los nombres de usuario de Office 365, Azure o Intune no coinciden con el UPN local o el identificador de inicio de sesión alternativo](https://support.microsoft.com/es-ES/kb/2523192)
 - [Los cambios no son sincronizados por la herramienta de sincronización de Azure Active Directory después de cambiar el UPN de una cuenta de usuario para usar un dominio federado diferente](https://support.microsoft.com/es-ES/kb/2669550)
 
+También puede configurar Azure AD para permitir que el motor de sincronización actualice userPrincipalName como se describe en [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md) (Características del servicio de sincronización de Azure AD Connect).
+
 ## Configuración personalizada
 **P: ¿Dónde se documentan los cmdlets de PowerShell para Azure AD Connect?** A excepción de los cmdlets documentados en este sitio, el resto de cmdlets de PowerShell que se encuentran en Azure AD Connect no se admiten para uso del cliente.
 
-**P: ¿Puedo usar la función "Exportación/importación de servidor" que se encuentra en *Synchronization Service Manager* para mover la configuración entre servidores?** No. Esta opción no recuperará todas las opciones de configuración y no debe usarse. En su lugar, debe usar al Asistente para crear la configuración base en el segundo servidor y utilizar el editor de reglas de sincronización para generar scripts de PowerShell para mover cualquier regla personalizada entre servidores. Consulte [Move custom configuration from active to staging server](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server) (Traslado de la configuración personalizada del servidor activo al servidor provisional).
+**P: ¿Puedo usar la función "Exportación/importación de servidor" que se encuentra en *Synchronization Service Manager* para mover la configuración entre servidores?** No. Esta opción no recuperará todas las opciones de configuración y no debe usarse. En su lugar, debe usar al Asistente para crear la configuración base en el segundo servidor y utilizar el editor de reglas de sincronización para generar scripts de PowerShell para mover cualquier regla personalizada entre servidores. Consulte [Traslado de la configuración personalizada del servidor activo al servidor provisional](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server).
 
 ## Solución de problemas
 **P: ¿Cómo puedo obtener ayuda con Azure AD Connect?**
@@ -66,4 +68,4 @@
 
 - Use este vínculo para obtener soporte técnico mediante el Portal de Azure.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

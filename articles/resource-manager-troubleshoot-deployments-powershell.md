@@ -39,19 +39,21 @@ Para ver los errores de una implementación, siga estos pasos:
 
 1. Para recuperar las entradas de registro, ejecute el comando **Get-AzureRmLog**. Puede usar los parámetros **ResourceGroup** y **Status** para devolver solo los eventos que produjeron errores en un único grupo de recursos. Si no especifica una hora de inicio y de finalización, se devuelven las entradas de la última hora. Por ejemplo, para recuperar las operaciones con errores de la última hora, ejecute lo siguiente:
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
     Puede especificar un intervalo de tiempo determinado. En el ejemplo siguiente, buscaremos las acciones con errores de los últimos 14 días.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Status Failed
       
     También puede establecer una hora de inicio y de finalización para las acciones con errores:
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
 
 2. Si este comando devuelve demasiadas entradas y propiedades, puede centrarse en sus esfuerzos de auditoría recuperando la propiedad **Properties**. También incluiremos el parámetro **DetailedOutput** para ver los mensajes de error.
 
-        PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+        
+    Que devuelve las propiedades de las entradas de registro en el siguiente formato:
         
         Content
         -------
@@ -61,7 +63,9 @@ Para ver los errores de una implementación, siga estos pasos:
 
 3. Además, puede restringir los resultados examinando el mensaje de estado de una entrada en concreto.
 
-        PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+        
+    Que devuelve el mensaje de estado en el formato siguiente:
         
         Code       : Conflict
         Message    : Website with given name mysite already exists.
@@ -74,7 +78,9 @@ Para ver los errores de una implementación, siga estos pasos:
 
 1. Para obtener el estado general de una implementación, use el comando **Get-AzureRmResourceGroupDeployment**. Puede filtrar los resultados para obtener únicamente las implementaciones en las que se han producido errores.
 
-        PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+        
+    Que devuelve las implementaciones erróneas en el formato siguiente:
         
         DeploymentName    : ExampleDeployment
         ResourceGroupName : ExampleGroup
@@ -95,7 +101,9 @@ Para ver los errores de una implementación, siga estos pasos:
 
 2. Cada implementación normalmente se compone de varias operaciones y cada operación representa un paso en el proceso de implementación. Para detectar qué salió mal con una implementación, normalmente es necesario ver los detalles de las operaciones de implementación. Puede ver el estado de las operaciones con **Get-AzureRmResourceGroupDeploymentOperation**.
 
-        PS C:\> Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        
+    Que devuelve las operaciones en el formato siguiente:
         
         Id          : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/ExampleDeployment/operations/8518B32868A437C8
         OperationId : 8518B32868A437C8
@@ -105,7 +113,9 @@ Para ver los errores de una implementación, siga estos pasos:
 
 3. Para obtener más información sobre la operación, recupere el objeto **Properties**.
 
-        PS C:\> (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
+        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties
+        
+    Que devuelve la propiedades de operación en el formato siguiente:
         
         ProvisioningOperation : Create
         ProvisioningState     : Failed
@@ -120,7 +130,9 @@ Para ver los errores de una implementación, siga estos pasos:
 
 4. Para centrarse en el mensaje de estado de las operaciones con errores, use el siguiente comando:
 
-        PS C:\> ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
+        ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage
+        
+    Que devuelve el mensaje de estado en el formato siguiente:
         
         Code       : Conflict
         Message    : Website with given name mysite already exists.
@@ -133,4 +145,4 @@ Para ver los errores de una implementación, siga estos pasos:
 - Para obtener más información sobre el uso de los registros de auditoría para supervisar otros tipos de acciones, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
 - Para validar la implementación antes de ejecutarla, consulte [Implementación de un grupo de recursos con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->
