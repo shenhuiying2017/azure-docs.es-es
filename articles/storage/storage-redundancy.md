@@ -1,20 +1,20 @@
 
-<properties 
-  pageTitle="Replicación de almacenamiento de Azure | Microsoft Azure" 
-  description="Los datos de su cuenta de almacenamiento de Microsoft Azure se replican para garantizar la durabilidad y la alta disponibilidad. Entre las opciones de replicación se incluyen el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)." 
-  services="storage" 
-  documentationCenter="" 
-  authors="tamram" 
-  manager="carmonm" 
+<properties
+  pageTitle="Replicación de almacenamiento de Azure | Microsoft Azure"
+  description="Los datos de su cuenta de almacenamiento de Microsoft Azure se replican para garantizar la durabilidad y la alta disponibilidad. Entre las opciones de replicación se incluyen el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)."
+  services="storage"
+  documentationCenter=""
+  authors="tamram"
+  manager="carmonm"
   editor="tysonn"/>
 
-<tags 
-  ms.service="storage" 
-  ms.workload="storage" 
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="02/17/2016" 
+<tags
+  ms.service="storage"
+  ms.workload="storage"
+  ms.tgt_pltfrm="na"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="02/17/2016"
   ms.author="tamram"/>
 
 # Replicación de almacenamiento de Azure
@@ -74,10 +74,10 @@ Cuando crea una cuenta de almacenamiento, selecciona la región principal de la 
 |---------------------|---------------------|
 | Centro-Norte de EE. UU | Centro-Sur de EE. UU |
 | Centro-Sur de EE. UU | Centro-Norte de EE. UU |
-| Este de EE. UU. | Oeste de EE. UU. |
-| Oeste de EE. UU. | Este de EE. UU. |
-| Este de EE. UU. - 2 | Central EE. UU.: |
-| Central EE. UU.: | Este de EE. UU. - 2 |
+| Este de EE. UU. | Oeste de EE. UU. |
+| Oeste de EE. UU. | Este de EE. UU. |
+| Este de EE. UU. - 2 | Central EE. UU.: |
+| Central EE. UU.: | Este de EE. UU. - 2 |
 | Europa del Norte | Europa occidental |
 | Europa occidental | Europa del Norte |
 | Sudeste de Asia | Asia oriental |
@@ -108,4 +108,4 @@ Cuando habilita el acceso de solo lectura a los datos en la región secundaria, 
 - [Emulador de almacenamiento de Microsoft Azure 3.1 con RA-GRS ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Documento de SOSP: Almacenamiento de Azure: un servicio de almacenamiento en la nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

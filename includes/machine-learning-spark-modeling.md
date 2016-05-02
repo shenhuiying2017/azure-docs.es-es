@@ -1,4 +1,6 @@
 > [AZURE.SELECTOR]
-- [Overview of data science with Spark](../articles/machine-learning-data-science-spark-overview.md)
-- [Data exploration and modeling with Spark](../articles/machine-learning/machine-learning-data-science-spark-data-exploration-modeling.md)
-- [Score and evaluate Spark-built machine learning models](../articles/machine-learning/machine-learning-data-science-spark-model-consumption.md)
+- [Información general de ciencia de datos con Spark](../articles/machine-learning-data-science-spark-overview.md)
+- [Exploración y modelado de datos con Spark](../articles/machine-learning/machine-learning-data-science-spark-data-exploration-modeling.md)
+- [Puntuación y evaluación de modelos de aprendizaje automático creados con Spark](../articles/machine-learning/machine-learning-data-science-spark-model-consumption.md)
+
+<!---HONumber=AcomDC_0420_2016-->

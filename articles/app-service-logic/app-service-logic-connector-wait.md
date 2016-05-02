@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/19/2016"
    ms.author="rajram"/>
 
 # Introducción al conector de Wait y su incorporación a su aplicación lógica
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
+>[AZURE.NOTE] Estamos finalizando el soporte para este conector porque su funcionalidad se incluye ahora de forma predeterminada como **acción de retraso** al crear nuevas aplicaciones lógicas. Se recomienda actualizar todas las aplicaciones lógicas que usen este conector. Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
 El conector de espera permite que una aplicación retrase su ejecución durante un período de tiempo especificado o hasta la aparición de un tiempo especificado. Puede agregar el conector de Wait a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica. Cuando se emplea en una aplicación lógica, se puede usar para retrasar la ejecución.
 
@@ -28,16 +29,13 @@ Para usar el conector espera, deberá crear primero una instancia de la aplicaci
 El conector de espera se puede usar como una acción. No tiene ningún desencadenador.
 
 ### Acción
-- Haga clic en el conector de espera en el panel derecho:
-![Lista de acciones][1]
+- Haga clic en el conector de espera en el panel derecho: ![Lista de acciones][1]
 - El conector de espera admite dos acciones: 
 	- Retraso
 	- Retrasar hasta
 	 
-- Seleccione *Retraso*:
-![Entrada de retraso][2]
-- Proporcione las entradas para la acción y configúrela:
-![Acción configurada][3]
+- Seleccione *Retraso*: ![Entrada de retraso][2]
+- Proporcione las entradas para la acción y configúrela: ![Acción configurada][3]
 
 Parámetro|Tipo|Descripción del parámetro
 ---|---|---
@@ -58,4 +56,4 @@ Consulte la referencia de API de REST de Swagger en [Referencia de conectores y 
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

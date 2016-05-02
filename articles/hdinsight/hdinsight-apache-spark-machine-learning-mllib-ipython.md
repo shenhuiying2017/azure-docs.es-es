@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Aprendizaje automático: Análisis predictivo de datos de inspección de alimentos mediante MLlib con Spark en HDInsight (Linux)
+# Aprendizaje automático: Análisis predictivo de datos de inspección de alimentos mediante MLlib con Spark en HDInsight Linux (versión preliminar)
 
-> [AZURE.TIP] Este tutorial también está disponible como un cuaderno de Jupyter Notebook en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio cuaderno. Para realizar el tutorial desde dentro de un cuaderno, cree un clúster Spark, inicie un cuaderno de Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y luego ejecute el cuaderno **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** en la carpeta **Python**.
+> [AZURE.TIP] Este tutorial también está disponible como un cuaderno de Jupyter en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio cuaderno. Para realizar el tutorial desde dentro de un cuaderno, cree un clúster Spark, inicie un cuaderno de Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y luego ejecute el cuaderno **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** en la carpeta **Python**.
 
 
 Este artículo muestra cómo usar **MLLib**, las bibliotecas integradas de aprendizaje automático de Spark, para llevar a cabo un análisis predictivo sencillo en un conjunto de datos abierto. MLLib es una biblioteca básica de Spark que proporciona varias utilidades que ayudan en las tareas de aprendizaje automático, incluye utilidades que son adecuadas para:
@@ -412,4 +412,4 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

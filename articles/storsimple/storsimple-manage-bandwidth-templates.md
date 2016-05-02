@@ -12,22 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="04/14/2015"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para administrar plantillas de ancho de banda de StorSimple
 
 ## Información general
 
-Las plantillas de ancho de banda permiten configurar varias programaciones de hora del día para interconectar los datos del dispositivo StorSimple en la nube. También puede crear, modificar, eliminar y guardar estas programaciones como plantillas. A continuación, estas plantillas de ancho de banda pueden aplicarse a contenedores de volúmenes para controlar el ancho de banda utilizado por el dispositivo StorSimple al realizar operaciones que implican a la nube. Según el patrón de uso de ancho de banda, también puede elegir de una lista de plantillas predeterminadas.
+Las plantillas de ancho de banda permiten configurar el uso del ancho de banda de red en varias programaciones de hora del día para interconectar los datos del dispositivo StorSimple en la nube.
 
 Mediante programaciones de limitación de ancho de banda puede:
 
-- Especificar programaciones que personalicen el uso del ancho de banda según las cargas de trabajo.
+- Especifique programaciones de ancho de banda personalizadas según los usos de la red de cargas de trabajo.
 
 - Centralizar la administración y reutilizar las programaciones en varios dispositivos de forma fácil y transparente.
 
-Esta característica está disponible solo para dispositivos físicos StorSimple y no para los dispositivos virtuales. Todas las plantillas de ancho de banda del servicio se muestran en formato tabular y contienen la siguiente información:
+> [AZURE.NOTE] Esta característica está disponible solo para dispositivos físicos StorSimple y no para los dispositivos virtuales.
+   
+Todas las plantillas de ancho de banda del servicio se muestran en formato tabular y contienen la siguiente información:
 
 - **Nombre**: nombre único asignado a la plantilla de ancho de banda cuando se creó.
 
@@ -35,13 +37,7 @@ Esta característica está disponible solo para dispositivos físicos StorSimple
 
 - **Usado por**: número de volúmenes que usan las plantillas de ancho de banda.
 
-La página **Configurar** del servicio StorSimple Manager del Portal de Azure clásico se usa para administrar plantillas de ancho de banda. Las tareas más comunes relacionadas con las plantillas de ancho de banda que se pueden realizar en esta página son:
-
-- Agregar una plantilla de ancho de banda
-- Editar una plantilla de ancho de banda
-- Eliminar una plantilla de ancho de banda
-- Usar una plantilla de ancho de banda predeterminada
-- Crear una plantilla de ancho de banda para todo el día que comience a una hora especificada
+La página **Configurar** del servicio StorSimple Manager del Portal de Azure clásico se usa para administrar plantillas de ancho de banda.
 
 También puede encontrar información adicional para ayudarle a configurar plantillas de ancho de banda en:
 
@@ -68,7 +64,7 @@ Realice los siguientes pasos para crear una nueva plantilla de ancho de banda.
    3. En la lista desplegable, seleccione una **hora de inicio**. Esta es la hora a la que se iniciará la programación.
    4. En la lista desplegable, seleccione una **hora de finalización**. Esta es la hora a la que finalizará la programación.
    
-         > [AZURE.NOTE] No se permiten las programaciones superpuestas. Si las horas de inicio y finalización provocan una programación superpuesta, verá un mensaje de error que lo indica.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
    5. Especifique la **velocidad de ancho de banda**. Esto es el ancho de banda en Megabits por segundo (Mbps) utilizado por el dispositivo StorSimple en operaciones que afectan a la nube. Proporcione un número entre 1 y 1.000 para este campo.
    
@@ -94,7 +90,7 @@ Realice los siguientes pasos para editar una plantilla de ancho de banda.
 
 3. Para guardar los cambios, haga clic en **Guardar** en la parte inferior de la página. Cuando se le pida confirmación, haga clic en **Sí**.
 
-> [AZURE.NOTE]No podrá guardar los cambios si la programación editada se superpone a una programación existente en la plantilla de ancho de banda que se va a modificar.
+> [AZURE.NOTE] No podrá guardar los cambios si la programación editada se superpone a una programación existente en la plantilla de ancho de banda que se va a modificar.
 
 ## Eliminar una plantilla de ancho de banda
 
@@ -176,4 +172,4 @@ Siga estas prácticas recomendadas para el dispositivo StorSimple:
 
 Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

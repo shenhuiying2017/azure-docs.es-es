@@ -3,7 +3,7 @@
    description="Sugerencias para migrar los datos a Almacenamiento de datos SQL de Azure a fin de desarrollar soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/03/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migración de los datos
 El objetivo principal al migrar datos es rellenar la base de datos SQLDW. Este proceso se puede lograr de varias maneras. Puede usarse Copia de ADF, SSIS y bcp para lograr este objetivo. Sin embargo, a medida que la cantidad de datos aumente debería pensar en descomponer en pasos el proceso de migración de datos. Esto le ofrece la posibilidad de optimizar cada paso en cuanto a rendimiento y resistencia para garantizar una migración de datos sin problemas.
@@ -37,7 +37,7 @@ Integration Services (SSIS) es una herramienta eficaz y flexible de extracción,
 
 > [AZURE.NOTE] SSIS puede exportar a UTF-8 sin la marca BOM en el archivo. Para configurar este comportamiento, debe usar primero el componente de columna derivada para convertir los datos de caracteres del flujo de datos para usar la página de códigos 65001 UTF-8. Una vez convertidas las columnas, escriba los datos en el adaptador de destino de archivo plano asegurándose de que 65001 también se ha seleccionado como la página de códigos para el archivo.
 
-SSIS se conecta a Almacenamiento de datos SQL del mismo modo que se conectaría a una implementación de SQL Server. Sin embargo, las conexiones tendrán que usar un administrador de conexiones de ADO.NET. También debe ocuparse de configurar el ajuste "Usar la inserción masiva cuando esté disponible" para maximizar el rendimiento. Consulte el artículo [Adaptador de destino de ADO.NET][] para obtener más información sobre esta propiedad.
+SSIS se conecta a Almacenamiento de datos SQL del mismo modo que se conectaría a una implementación de SQL Server. Sin embargo, las conexiones tendrán que usar un administrador de conexiones de ADO.NET. También debe ocuparse de configurar el ajuste "Usar la inserción masiva cuando esté disponible" para maximizar el rendimiento. Consulte el artículo [Adaptador de destino de ADO.NET][] para obtener más información sobre esta propiedad.
 
 > [AZURE.NOTE] No se admite la conexión a Almacenamiento de datos SQL de Azure mediante OLEDB.
 
@@ -194,4 +194,4 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 [Adaptador de destino de ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentación de SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

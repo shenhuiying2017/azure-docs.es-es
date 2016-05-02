@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="02/25/2016"
+	ms.date="03/13/2016"
 	ms.author="awills"/>
 
 # Paneles y navegación en el portal de Application Insights
@@ -21,15 +21,16 @@ Una vez [configurado Application Insights en su proyecto](app-insights-overview.
 
 ## El panel
 
-Al iniciar sesión en el [Portal de Azure](https://portal.azure.com), obtendrá acceso en primer lugar al panel. Puede personalizarlo o ponerlo en modo de pantalla completa. Este ejemplo se ha personalizado para mostrar los principales gráficos que les interesan a los propietarios.
+Al iniciar sesión en el [Portal de Azure](https://portal.azure.com), obtendrá acceso en primer lugar al panel. Puede personalizarlo o ponerlo en modo de pantalla completa.
 
+El panel es especialmente útil para la supervisión de una solución compuesta de varias aplicaciones, independientemente de donde se hospeden. Y, si tiene componentes de Azure, como Análisis de transmisiones, como parte de su sistema, también puede agregar sus gráficos de supervisión al panel.
 
 ![Panel personalizado.](./media/app-insights-dashboards/30.png)
 
 1. Haga clic en la esquina superior en cualquier momento para volver al panel.
-2. **+ Nuevo** crea un recurso nuevo. Un [Recurso de Application Insights](app-insights-create-new-resource.md) es un lugar para almacenar y analizar datos de telemetría de la aplicación.
+2. **+ Nuevo** crea un recurso nuevo. Un [recurso de Application Insights](app-insights-create-new-resource.md) es un lugar para almacenar y analizar la telemetría de la aplicación.
 3. La barra de navegación abre los recursos existentes.
-4. Edite y cree paneles con la barra de herramientas del panel.
+4. Edite y cree paneles con la barra de herramientas del panel. También puede [crear paneles diferentes](#dashboards) para diferentes aplicaciones.
 
 ## Encontrar la telemetría
 
@@ -41,38 +42,6 @@ La página de información general proporciona la telemetría básica, además d
 
 
 
-## Intervalo de tiempo
-
-En todas las hojas puede cambiar el intervalo de tiempo cubierto por los gráficos o cuadrículas.
-
-![Abrir la hoja de información general de la aplicación en el portal de Azure](./media/app-insights-dashboards/03-range.png)
-
-
-Si espera algunos datos que no ha aparecido todavía, haga clic en Actualizar. Los gráficos se actualizan a intervalos, pero los intervalos son más largos para intervalos de tiempo mayores. En modo de lanzamiento, puede tardar un tiempo que lleguen a través de la canalización de análisis en un gráfico de datos.
-
-Para acercar parte de un gráfico, arrastre el puntero sobre él y, después, haga clic en el símbolo de lupa:
-
-![Arrastre por parte de un gráfico.](./media/app-insights-dashboards/12-drag.png)
-
-
-
-## Valores de granularidad y punto
-
-Mantenga el cursor sobre el gráfico para mostrar los valores de las métricas en ese momento.
-
-![Mantener el mouse sobre un gráfico](./media/app-insights-dashboards/02-focus.png)
-
-Se agrega el valor de la métrica en un momento determinado en el intervalo de muestreo anterior.
-
-El intervalo de muestreo o "granularidad" se muestra en la parte superior de la hoja.
-
-![El encabezado de una hoja.](./media/app-insights-dashboards/11-grain.png)
-
-Puede ajustar la granularidad en la hoja Intervalo de tiempo:
-
-![El encabezado de una hoja.](./media/app-insights-dashboards/grain.png)
-
-La granularidad disponible depende del intervalo de tiempo que seleccione. Las granularidades explícitas son alternativas a la granularidad "automática" para el intervalo de tiempo.
 
 ## Hoja de información general de la aplicación
 
@@ -98,6 +67,10 @@ Elija lo que desea ver en la información general. En Personalizar, puede insert
 ## Paneles
 
 El panel del Portal de Azure es la página principal que aparece al iniciar sesión en [el portal](https://portal.azure.com) por primera vez. En él, puede juntar gráficos e iconos (grupos de gráficos) de diversos recursos.
+
+Si tiene un sistema formado por varios componentes, por ejemplo, una aplicación web, un servidor back-end y quizás algunos servicios de Azure, puede mostrar los indicadores clave de rendimiento de todos los componentes en una sola pantalla.
+
+Si tiene más de una aplicación, puede crear y cambiar entre varios paneles.
 
 ![Haga clic en Editar. Arrastre los iconos y gráficos. Agregue iconos de la galería. Luego haga clic en Hecho.](./media/app-insights-dashboards/30.png)
 
@@ -181,6 +154,40 @@ Si edita una hoja, pero le gustaría volver al conjunto original guardado, haga 
 
 ![En los botones situados en la parte superior del Explorador de métricas](./media/app-insights-dashboards/17-reset.png)
 
+
+## Intervalo de tiempo
+
+En todas las hojas puede cambiar el intervalo de tiempo cubierto por los gráficos o cuadrículas.
+
+![Abrir la hoja de información general de la aplicación en el portal de Azure](./media/app-insights-dashboards/03-range.png)
+
+
+Si espera algunos datos que no ha aparecido todavía, haga clic en Actualizar. Los gráficos se actualizan a intervalos, pero los intervalos son más largos para intervalos de tiempo mayores. En modo de lanzamiento, puede tardar un tiempo que lleguen a través de la canalización de análisis en un gráfico de datos.
+
+Para acercar parte de un gráfico, arrastre el puntero sobre él y, después, haga clic en el símbolo de lupa:
+
+![Arrastre por parte de un gráfico.](./media/app-insights-dashboards/12-drag.png)
+
+
+
+## Valores de granularidad y punto
+
+Mantenga el cursor sobre el gráfico para mostrar los valores de las métricas en ese momento.
+
+![Mantener el mouse sobre un gráfico](./media/app-insights-dashboards/02-focus.png)
+
+Se agrega el valor de la métrica en un momento determinado en el intervalo de muestreo anterior.
+
+El intervalo de muestreo o "granularidad" se muestra en la parte superior de la hoja.
+
+![El encabezado de una hoja.](./media/app-insights-dashboards/11-grain.png)
+
+Puede ajustar la granularidad en la hoja Intervalo de tiempo:
+
+![El encabezado de una hoja.](./media/app-insights-dashboards/grain.png)
+
+La granularidad disponible depende del intervalo de tiempo que seleccione. Las granularidades explícitas son alternativas a la granularidad "automática" para el intervalo de tiempo.
+
 ## Search
 
 En Búsqueda se muestran eventos individuales, como vistas de páginas, solicitudes, excepciones, seguimientos de registro y eventos personalizados. No se muestran métricas agregadas o instancias de la llamada TrackMetric().
@@ -231,4 +238,12 @@ Para ver de nuevo la búsqueda, **vaya a la hoja de información general** y abr
 
 Si ha guardado con el intervalo de tiempo relativo, la hoja abierta de nuevo tiene los datos más recientes. Si ha guardado con el intervalo de tiempo absoluto, verá los mismos datos cada vez.
 
-<!---HONumber=AcomDC_0309_2016-->
+## Análisis
+
+[Análisis](app-insights-analytics.md) es la característica de búsqueda avanzada con la que puede diagnosticar su aplicación y comprender los aspectos de su rendimiento.
+
+![Ejemplo de análisis](./media/app-insights-dashboards/025.png)
+
+Haga clic en el icono Análisis para verla.
+
+<!---HONumber=AcomDC_0420_2016-->

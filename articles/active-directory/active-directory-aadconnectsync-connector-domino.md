@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Referencia técnica del conector de Lotus Domino
@@ -112,7 +112,7 @@ En la página de características, instale solo las características necesarias 
 
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
-**Nota:** Se debe iniciar Lotus Notes una vez con un usuario que se encuentre en el mismo servidor que la cuenta que usará como cuenta de servicio del conector.
+**Nota:** Se debe iniciar Lotus Notes una vez con un usuario que se encuentre en el mismo servidor que la cuenta que usará como cuenta de servicio del conector. Además, asegúrese de cerrar el cliente Lotus Notes en el servidor. No se puede ejecutar al mismo tiempo que el conector intenta conectarse al servidor Domino.
 
 ### Creación del conector
 
@@ -314,7 +314,7 @@ El objeto de persona representa a los usuarios de la organización y las unidade
     2. Usuario móvil (un usuario normal que incluye todos los archivos de base de datos móvil)
     3. Contactos (usuarios sin archivo de identificación)
 
-Las personas (a excepción de los contactos) se pueden agrupar además en usuarios de EE. UU. y usuarios de fuera de EE. UU. de acuerdo con el valor de la propiedad \_MMS\_IDRegType. Se trata de las personas que usan al cliente de Notes para acceder a los servidores de Lotus Domino y a la base de datos, y que tienen una identificación de Notes y un documento de persona. Si usan el correo de Notes, también tendrán un archivo de correo. El usuario debe estar registrado para activarse. Para obtener más información, consulte:
+Las personas (a excepción de los contactos) se pueden agrupar además en usuarios de EE. UU. y usuarios de fuera de EE. UU. de acuerdo con el valor de la propiedad \_MMS\_IDRegType. Se trata de las personas que usan al cliente de Notes para acceder a los servidores de Lotus Domino y a la base de datos, y que tienen una identificación de Notes y un documento de persona. Si usan el correo de Notes, también tendrán un archivo de correo. El usuario debe estar registrado para activarse. Para obtener más información, consulte:
 
 - [Setting up Notes users](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_SETTING_UP_NOTES_USERS.html)
 - [User Registration](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_REGISTERING_USERS.html)
@@ -539,4 +539,4 @@ En Domino, existen varias maneras de extender el esquema para que aparezca como 
 
 -	Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

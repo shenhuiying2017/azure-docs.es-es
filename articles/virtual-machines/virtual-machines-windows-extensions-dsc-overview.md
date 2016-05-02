@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/18/2016"
    ms.author="zachal"/>
 
 # Introducción al controlador de extensiones de configuración de estado deseado de Azure #
@@ -144,4 +144,4 @@ Para buscar otras funcionalidades que se puedan administrar con la DSC de PowerS
 
 Para más información sobre cómo pasar parámetros confidenciales en configuraciones, consulte [Passing credentials to the Azure DSC extension handler](virtual-machines-windows-extensions-dsc-credentials.md) (Paso de credenciales al controlador de extensiones DSC de Azure).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="04/14/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migración del servicio móvil de Azure existente al Servicio de aplicaciones de Azure
@@ -38,44 +38,20 @@ Microsoft recomienda migrar el servicio móvil de Azure para aprovechar las cara
 
 Para más información sobre las ventajas del Servicio de aplicaciones de Azure, consulte el tema [Servicios móviles frente al Servicio de aplicaciones].
 
-## <a name="why-not-migrate"></a>Por qué no debería migrar el sitio
-
-Existen varias razones por las que no debería migrar ahora sus servicios móviles de Azure:
-
-  *  Se encuentra actualmente en un período de mucha actividad y no puede permitirse un reinicio del sitio en este momento.
-  *  No desea que su sitio de producción se vea afectado antes de probar el proceso de migración.
-  *  Tiene varios sitios en los niveles de precios Gratis y Básico y no desea migrar todos los sitios al mismo tiempo.
-
-Si se encuentra en un período de mucha actividad, planee la migración durante una ventana de mantenimiento programado. El proceso de migración reinicia el sitio como parte del proceso y los usuarios pueden percibir esta interrupción momentánea en la disponibilidad.
-
-Existen soluciones alternativas para la mayoría de los elementos de esta lista. Consulte la sección [Antes de empezar](#before-you-begin) para más información.
-
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Antes de migrar el sitio, debe seguir los pasos siguientes:
+Antes de empezar cualquier trabajo importante en su sitio, debe [Hacer una copia de seguridad de los scripts y la base de datos SQL de su servicio móvil].
 
-  *  [Hacer una copia de seguridad de los scripts y la base de datos SQL de su servicio móvil]
-  *  (Opcional) Elevar el nivel del servicio móvil a Estándar
+Si quiere probar el proceso de migración antes de migrar su sitio de producción, duplique el servicio móvil de Azure de producción dentro de una nueva [Región de Azure] (junto con una copia del origen de datos) y pruebe la migración con la nueva dirección URL. También necesitará una implementación del cliente de prueba que apunte al sitio de prueba para probar correctamente el sitio migrado.
 
-Si quiere probar el proceso de migración antes de migrar su sitio de producción, duplique el servicio móvil de Azure de producción (junto con una copia del origen de datos) y pruebe la migración con la nueva dirección URL. También necesitará una implementación del cliente de prueba que apunte al sitio de prueba para probar correctamente el sitio migrado.
+## <a name="migrating-site"></a>Migración de los sitios
 
-### <a name="opt-raise-service-tier"></a>(Opcional) Elevar el nivel del servicio móvil a Estándar
-
-Todos los sitios de Servicios móviles que comparten un plan de hospedaje se migran a la vez. Los Servicios móviles de los planes de tarifa Gratis o Básico comparten un plan de hospedaje con otros servicios del mismo plan de tarifa y [región de Azure]. Si su servicio móvil está funcionando en el plan de tarifa Estándar, se encuentra en su propio plan de hospedaje. Si desea migrar individualmente sitios de los planes de tarifa Gratis o Básico, actualice temporalmente el plan de tarifa del servicio móvil a Estándar. Puede hacerlo en el menú ESCALA del servicio móvil.
-
-  1.  Inicie sesión en el [Portal de Azure clásico].
-  2.  Seleccione su servicio móvil.
-  3.  Seleccione la pestaña **ESCALAR VERTICALMENTE**.
-  4.  En **Capa de servicio móvil**, haga clic en el nivel **ESTÁNDAR**. Haga clic en el icono **GUARDAR** situado en la parte inferior de la página.
-
-Recuerde establecer el plan de tarifa en un valor adecuado después de la migración.
-
-## <a name="migrating-site"></a>Migración del sitio
+El proceso de migración migrará todos los sitios comprendidos en una sola región de Azure.
 
 Para migrar el sitio:
 
   1.  Inicie sesión en el [Portal de Azure clásico].
-  2.  Seleccione su servicio móvil.
+  2.  Seleccione un servicio móvil en la región que desea migrar.
   3.  Haga clic en el botón **Migrar al Servicio de aplicaciones**.
 
     ![El botón migrar][0]
@@ -83,8 +59,6 @@ Para migrar el sitio:
   4.  Lea el cuadro de diálogo Migrar al Servicio de aplicaciones.
   5.  Escriba el nombre del servicio móvil en el cuadro correspondiente. Por ejemplo, si el nombre de dominio es contoso.azure-mobile.net, escriba entonces _contoso_ en el cuadro proporcionado.
   6.  Haga clic en el botón de marca.
-
-Si va a migrar un servicio móvil de los planes de tarifa Gratis o Básico, todos los servicios móviles de ese plan de tarifa se migrarán a la vez. Para evitar este problema, [eleve el servicio móvil que va a migrar](#opt-raise-service-tier) a Estándar durante la migración.
 
 Puede supervisar el estado de la migración en el monitor de actividad y el sitio se mostrará como *migrando* en el Portal de Azure clásico.
 
@@ -159,7 +133,7 @@ El archivo PublishSettings se descargará en su PC. Normalmente se llamará _nom
   2.  Haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y seleccione **Publicar...**.
   3.  Haga clic en **Importar**.
   4.  Haga clic en **Examinar** y seleccione el archivo de configuración de publicación descargado. Haga clic en **Aceptar**.
-  5.  Haga clic en **Validar conexión** para asegurar el trabajo de configuración de publicación.
+  5.  Haga clic en **Validar conexión** para asegurarse que la configuración de publicación funciona.
   6.  Haga clic en **Publicar** para publicar el sitio.
 
 
@@ -241,7 +215,7 @@ La pestaña _API_ de Servicios móviles se ha reemplazado por _API fáciles_ den
 
 Las API migradas ya aparecen en la hoja. También puede agregar una nueva API desde esta hoja. Para administrar una API específica, haga clic en la API. Desde la nueva hoja, puede ajustar los permisos y editar los scripts de la API.
 
-### <a name="on-demand-jobs"></a>Trabajos de Programador
+### <a name="on-demand-jobs"></a>Trabajos del Programador
 
 Todos los trabajos de Programador están disponibles a través de la sección de colecciones de trabajo de Programador. Para acceder a los trabajos de Programador:
 
@@ -249,16 +223,16 @@ Todos los trabajos de Programador están disponibles a través de la sección de
   2. Seleccione **Examinar >**, escriba **Programación** en el cuadro _Filtro_ y luego seleccione **Colecciones de Programador**.
   3. Seleccione la colección de trabajos para su sitio. Se denominará _nombre\_del\_sitio_-Jobs.
   4. Haga clic en **Configuración**.
-  5. Haga clic en **Trabajos de Programador** en ADMINISTRAR.
+  5. Haga clic en **Trabajos del Programador** en ADMINISTRAR.
 
 Los trabajos programados se mostrarán con la frecuencia que especifique antes de la migración. Los trabajos a petición se deshabilitarán. Para ejecutar un trabajo a petición:
 
   1. Seleccione el trabajo que desee ejecutar.
   2. Si es necesario, haga clic en **Habilitar** para habilitar el trabajo.
   3. Haga clic en **Configuración** y después en **Programar**.
-  4. Seleccione **Una vez** para la periodicidad y después haga clic en **Guardar**.
+  4. Seleccione **Una vez** como periodicidad y haga clic en **Guardar**.
 
-Los trabajos a petición se encuentran en `App_Data/config/scripts/scheduler post-migration`. Se recomienda convertir todos los trabajos a petición a [WebJobs]. Debe escribir los nuevos trabajos de Programador como [WebJobs].
+Los trabajos a petición se encuentran en `App_Data/config/scripts/scheduler post-migration`. Se recomienda convertir todos los trabajos a petición a [WebJobs]. Debe escribir los nuevos trabajos del Programador como [WebJobs].
 
 ### <a name="notification-hubs"></a>Centros de notificaciones
 
@@ -282,6 +256,12 @@ El centro de notificaciones se administrará mediante el [Portal de Azure]. Anot
 Para más información, revise la documentación de [Centros de notificaciones].
 
 > [AZURE.TIP] Las características de administración de Centros de notificaciones en el [Portal de Azure] se encuentran aún en versión preliminar. El [Portal de Azure clásico] sigue estando disponible para administrar todos los centros de notificaciones.
+
+### <a name="legacy-push"></a>Configuración de inserción heredada
+
+Si configuró la inserción en el servicio móvil antes de la introducción en los Centros de notificaciones, está usando _inserción heredada_. Si utiliza la inserción y no ve un Centro de notificaciones en la configuración, es probable que esté utilizando _inserción heredada_. Esta característica se migrará con las demás características y sigue estando disponible. Pero se recomienda que actualice a los Centros de notificaciones poco después de completar la migración.
+
+Mientras tanto, toda la configuración de inserción heredada (con la excepción notable de los certificados de APN) está disponible en Configuración de aplicación. El certificado de APN puede sustituirse por reemplazar el archivo adecuado en el sitio. Esto puede hacerse a través de cualquiera de las opciones de implementación disponibles para el Servicio de aplicaciones de Azure.
 
 ### <a name="app-settings"></a>Otra configuración de aplicación
 
@@ -374,17 +354,17 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Precios de Servicio de aplicaciones]: https://azure.microsoft.com/pricing/details/app-service/
+[Precios de Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Escalado automático]: ../app-service-web/web-sites-scale.md
 [Servicio de aplicaciones de Azure]: ../app-service/app-service-value-prop-what-is.md
 [documentación de implementación del Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-deploy.md
 [Portal de Azure clásico]: https://manage.windowsazure.com
 [Portal de Azure]: https://portal.azure.com
-[región de Azure]: https://azure.microsoft.com/regions/
+[Región de Azure]: https://azure.microsoft.com/es-ES/regions/
 [planes del Programador de Azure]: ../scheduler/scheduler-plans-billing.md
 [implementar su sitio de forma continuada]: ../app-service-web/web-sites-publish-source-control.md
-[convertir los espacios de nombres mixtos]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[convertir los espacios de nombres mixtos]: https://azure.microsoft.com/es-ES/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nombres de dominio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -401,4 +381,4 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [red virtual]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

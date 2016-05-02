@@ -18,9 +18,9 @@
 	ms.author="nitinme"/>
 
 
-# Transmisión Spark: procese eventos de Centros de eventos de Azure con Apache Spark en HDInsight (Windows)
+# Transmisión Spark: Procese eventos de Centros de eventos de Azure con Apache Spark en HDInsight Windows (versión preliminar)
 
-> [AZURE.NOTE] HDInsight ofrece ahora clústeres de Spark en Linux. Para información sobre cómo ejecutar una aplicación de streaming en clústeres Spark para HDInsight basados en Linux, vea [Transmisión Spark: procese eventos de Centros de eventos de Azure con Apache Spark en HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
+> [AZURE.NOTE] HDInsight ofrece ahora clústeres Spark en Linux. Para información sobre cómo ejecutar una aplicación de streaming en clústeres Spark para HDInsight basados en Linux, vea [Transmisión Spark: procese eventos de Centros de eventos de Azure con Apache Spark en HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
 
 La transmisión de Spark amplía la API de Spark de núcleo para crear aplicaciones escalables de procesamiento de transmisión de alto rendimiento y tolerantes a errores. Los datos pueden ser introducidos desde varios orígenes. En este artículo usamos los Centros de eventos para introducir datos. Los Centros de eventos son un sistema de introducción altamente escalable que introduce millones de eventos por segundo.
 
@@ -196,4 +196,4 @@ Puede descargar instrucciones sobre cómo realizar estos pasos y un ejemplo de a
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

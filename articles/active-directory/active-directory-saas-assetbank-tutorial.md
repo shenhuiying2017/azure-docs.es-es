@@ -85,6 +85,7 @@ Para configurar la integración de Asset Bank en Azure AD, será preciso que agr
 
 7. En el panel de resultados, seleccione **Asset Bank** y luego haga clic en **Completar** para agregar la aplicación.
 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_02.png)
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Asset Bank con un usuario de prueba llamado "Britta Simon".
@@ -109,12 +110,12 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 **Para configurar el inicio de sesión único de Azure AD con Asset Bank, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Asset Bank**, haga clic en **Configurar inicio de sesión único** para abrir el diálogo **Configurar inicio de sesión único**.
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Asset Bank**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
 ![Configurar inicio de sesión único][6]
 
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Asset Bank?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Asset Bank?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y después haga clic en **Siguiente**.
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_03.png)
 
@@ -124,7 +125,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 	![Configurar inicio de sesión único](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_04.png)
 
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que los usuarios utilizan para iniciar sesión en su aplicación Asset Bank con el siguiente patrón: **"https://<nombreDeCompañía>.assetbank-server.com"**.
+    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que los usuarios utilizan para iniciar sesión en su aplicación Asset Bank con el siguiente patrón: **"https://<nombre de la compañía>.assetbank-server.com"**.
 
     b. Haga clic en **Siguiente**.
 
@@ -170,11 +171,11 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_03.png)
 
-4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_04.png)
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_05.png)
 
@@ -184,7 +185,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
+6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_06.png)
 
@@ -198,11 +199,10 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
     e. Haga clic en **Siguiente**.
 
-7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
-![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
+7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
 
 
-8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_08.png)
 
@@ -281,4 +281,4 @@ Al hacer clic en el icono de Asset Bank en el panel de acceso, debería iniciar 
 [204]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

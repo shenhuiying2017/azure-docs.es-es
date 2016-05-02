@@ -13,12 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="03/23/2016"
+   ms.date="04/18/2016"
    ms.author="yuemlu"/>
 
 # SO invitado de Azure 
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+
+## SO invitado de abril 
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-037 | [3148531] | Actualización de seguridad acumulativa para Internet Explorer | 4\.31, 3.38, 2.50 | 12 de abril de 2016 |  
+| MS16-039 | [3148522] | Actualización de seguridad para el componente de gráficos de Microsoft | 4\.31, 3.38, 2.50 | 12 de abril de 2016 | 
+| MS16-040 | [3148541] | Actualización de seguridad para Microsoft XML Core Services | 4\.31, 3.38, 2.50 | 12 de abril de 2016 | 
+| MS16-044 | [3146706] | Actualización de seguridad para Windows OLE | 4\.31, 3.38, 2.50 | 12 de abril de 2016 | 
+| MS16-045 | [3143118] | Actualización de seguridad para Windows Hyper-V | 4\.31, 3.38 | 12 de abril de 2016 | 
+| MS16-047 | [3148527] | Actualización de seguridad para protocolo remoto del Administrador de cuentas de seguridad | 4\.31, 3.38, 2.50 | 12 de abril de 2016 | 
+| MS16-048 | [3148528] | Actualización de seguridad para CSRSS | 4\.31, 3.38 | 12 de abril de 2016 | 
 
 ## SO invitado de marzo 
 
@@ -221,7 +234,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-014 | [3004361][3004361] | Una vulnerabilidad de SMB podría permitir la omisión de la característica de seguridad | 4,17; 3,24; 2,36 | N/D |
 | MS15-015 | [3031432][3031432] | Una vulnerabilidad de Microsoft Windows podría permitir la elevación de privilegios | 4,17; 3,24; 2,36 | N/D |
 | MS15-016 | [3029944][3029944] | Una vulnerabilidad del componente de gráficos de Microsoft podría permitir la divulgación de información | 4,17; 3,24; 2,36 | N/D |
-| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
+| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>** Nota **: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
  
 
 ## SO invitado de enero
@@ -255,6 +268,14 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [3007054][3007054] | Siempre se muestra la opción de impresión protegida con PIN al imprimir un documento en una aplicación de la Tienda Windows en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
+
+[3148531]: http://support.microsoft.com/kb/3148531
+[3148522]: http://support.microsoft.com/kb/3148522
+[3148541]: http://support.microsoft.com/kb/3148541
+[3146706]: http://support.microsoft.com/kb/3146706
+[3143118]: http://support.microsoft.com/kb/3143118
+[3148527]: http://support.microsoft.com/kb/3148527
+[3148528]: http://support.microsoft.com/kb/3148528
 
 
 [3142015]: http://support.microsoft.com/kb/3142015
@@ -432,4 +453,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

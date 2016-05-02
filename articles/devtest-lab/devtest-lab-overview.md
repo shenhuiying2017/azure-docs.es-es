@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 #¿Qué es el Laboratorio de desarrollo y pruebas?
@@ -66,4 +66,4 @@ Las**directivas** ayudan a controlar los costos en su laboratorio. Por ejemplo, 
 
 Para obtener una introducción al Laboratorio de desarrollo y pruebas, siga el tutorial paso a paso [Creación de un laboratorio de desarrollo y pruebas de Azure](devtest-lab-create-lab.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

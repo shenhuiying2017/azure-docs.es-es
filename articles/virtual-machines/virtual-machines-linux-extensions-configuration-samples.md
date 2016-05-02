@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Ejemplos de configuración de la extensión de máquina virtual Linux
@@ -51,11 +51,34 @@ El fragmento de plantilla para extensiones de implementación tiene el aspecto s
       "publisher": "Publisher Namespace",
       "type": "extension Name",
       "typeHandlerVersion": "extension version",
+      "autoUpgradeMinorVersion":true,
       "settings": {
       // Extension specific configuration goes in here.
       }
       }
       }
+
+## Fragmento de plantilla de ejemplo para extensiones de VM con conjuntos de escalado de VM.
+
+          {
+           "type":"Microsoft.Compute/virtualMachineScaleSets",
+          ....
+                 "extensionProfile":{
+                 "extensions":[
+                   {
+                     "name":"extension Name",
+                     "properties":{
+                       "publisher":"Publisher Namespace",
+                       "type":"extension Name",
+                       "typeHandlerVersion":"extension version",
+                       "autoUpgradeMinorVersion":true,
+                       "settings":{
+                       // Extension specific configuration goes in here.
+                       }
+                     }
+                    }
+                  }
+                }
 
 Antes de implementar la extensión, compruebe la versión más reciente de la extensión y reemplace la "typeHandlerVersion" por la versión más reciente actual.
 
@@ -197,4 +220,4 @@ Esta es una plantilla de máquina virtual completa para la creación de una VM d
 
 [Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

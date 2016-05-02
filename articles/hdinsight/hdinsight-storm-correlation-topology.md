@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="02/01/2016"
+ ms.date="04/19/2016"
  ms.author="larryfr"/>
 
 # Poner en correlación eventos con el tiempo con Storm y HBase en HDInsight
@@ -204,4 +204,4 @@ Cuando esté listo para detener la topología, vuelva al proyecto **CorrelationT
 Para obtener más ejemplos de Storm, vea [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

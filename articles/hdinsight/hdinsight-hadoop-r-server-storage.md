@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Opciones de Almacenamiento de Azure del servidor de R en HDInsight Premium | Azure"
-   description="Obtenga información sobre las distintas opciones de almacenamiento disponibles para los usuarios con el servidor de R en HDInsight Premium"
+   pageTitle="Opciones de Almacenamiento de Azure para R Server en HDInsight (versión preliminar) | Azure"
+   description="Obtenga información sobre las distintas opciones de almacenamiento disponibles para los usuarios con R Server en HDInsight (versión preliminar)"
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -18,9 +18,9 @@
    ms.author="jeffstok"
 />
 
-# Opciones de almacenamiento de Azure del servidor de R en HDInsight Premium
+# Opciones de almacenamiento de Azure del servidor de R en HDInsight (versión preliminar)
 
-El servidor de R en un clúster de HDI tiene acceso a los blobs de Azure y al almacenamiento de Azure Data Lake como forma de conservar los datos, el código, los objetos de resultado del análisis, etc.
+R Server en HDInsight (versión preliminar) tiene acceso a los blobs de Azure y al almacenamiento de Azure Data Lake como forma de conservar los datos, el código, los objetos de resultado del análisis, etc.
 
 Cuando crea un clúster de Hadoop en HDInsight, especifica una cuenta de Almacenamiento de Azure. Se designa un contenedor de almacenamiento de blobs desde esa cuenta para conservar el sistema de archivos para el clúster creado, es decir, el Sistema de archivos distribuido de Hadoop (HDFS). Con vistas al rendimiento, el clúster de HDInsight se crea en el mismo centro de datos que la cuenta de almacenamiento principal que especifica. Para obtener más información, consulte [Uso de almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md "Uso del almacenamiento de blobs de Azure con HDInsight").
 
@@ -110,4 +110,4 @@ Ahora que sabe cómo crear un nuevo clúster de HDInsight que incluya un servido
 - [Agregar un servidor de RStudio a HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opciones de contexto de proceso del servidor de R en HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

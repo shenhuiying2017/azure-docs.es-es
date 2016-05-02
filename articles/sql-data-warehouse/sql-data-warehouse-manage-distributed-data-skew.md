@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="04/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Administrar la asimetría de datos de tablas distribuidas en el almacenamiento de datos SQL de Azure
@@ -27,6 +27,18 @@ En este tutorial, aprenderá lo siguiente:
 - Obtener sugerencias para saber cuándo resolver asimetrías de datos
 - Volver a crear la tabla para resolver asimetrías de datos
 
+## DBCC PDW\_SHOWSPACEUSED
+
+Un método de identificación del sesgo de datos consiste en usar [DBCC PDW\_SHOWSPACEUSED()][]
+
+```sql
+-- Find data skew for a distributed table
+DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
+```
+
+Esta es una forma rápida y sencilla de ver el número de filas de tabla que se almacena en cada una de las 60 distribuciones de la base de datos. Recuerde que para obtener el máximo rendimiento equilibrado, las filas de la tabla distribuida se deben repartir uniformemente entre todas las distribuciones.
+
+Sin embargo, si consulta las vistas de administración dinámica de Almacenamiento de datos SQL de Azure, puede realizar un análisis más detallado. El resto de este artículo le muestra cómo hacerlo.
 
 ## Paso 1: Crear una vista que detecte la asimetría de datos
 
@@ -218,7 +230,8 @@ Para obtener más detalles sobre la distribución de tablas, consulte los siguie
 [distribución hash]: sql-data-warehouse-develop-hash-distribution-key.md
 
 <!--MSDN references-->
+[DBCC PDW\_SHOWSPACEUSED()]: https://msdn.microsoft.com/es-ES/library/mt204028.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

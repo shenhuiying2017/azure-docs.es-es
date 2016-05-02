@@ -2,7 +2,7 @@
 	pageTitle="Información general de plantillas de licencias de PlayReady de Servicios multimedia" 
 	description="Este tema proporciona información general sobre la plantilla de licencia de PlayReady que se usó para configurar las licencias de PlayReady." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 #Información general de plantillas de licencias de PlayReady de Servicios multimedia
@@ -311,4 +311,4 @@ Para ver un ejemplo de los niveles de protección que admite Silverlight, consul
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

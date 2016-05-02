@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/18/2016"
+	ms.date="04/15/2016"
 	ms.author="jeffstok"/>
 
 #  Análisis de transmisiones y Power BI: panel de análisis en tiempo real de flujo de datos
@@ -25,7 +25,7 @@ Utilice [Microsoft Power BI](https://powerbi.com/) para crear rápidamente un pa
 
 En este artículo, aprenderá a crear sus propias herramientas de inteligencia empresarial personalizadas mediante Power BI como salida para los trabajos de Análisis de transmisiones de Azure y a utilizar un panel en tiempo real.
 
-> [AZURE.NOTE] La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure. En este momento, la creación y configuración de salidas de Power BI no se admiten en el Portal de Azure, solo en el Portal de Azure clásico.
+> [AZURE.NOTE] En este momento, la creación y configuración de salidas de Power BI no se admiten en el Portal de Azure, solo en el Portal de Azure clásico.
 
 ## Requisitos previos
 
@@ -98,12 +98,13 @@ Proporcione valores como sigue:
 * **Alias de salida**: puede colocar cualquier alias de salida a la que es fácil que haga referencia. Este alias de salida es especialmente útil si decide tener varias salidas para su trabajo. En ese caso, debe hacer referencia a esta salida de la consulta. Por ejemplo, vamos a usar el valor de alias de salida = "OutPbi".
 * **Nombre del conjunto de datos**: proporcione un nombre del conjunto de datos que desea que tenga la salida de Power BI. Por ejemplo, vamos a usar "pbidemo".
 *	**Nombre de tabla**: proporcione un nombre de tabla en el conjunto de datos de la salida de Power BI. Supongamos que lo llamamos "pbidemo". Actualmente, la salida de Power BI de trabajos de Análisis de transmisiones solo puede tener una tabla en un conjunto de datos.
+*	**Área de trabajo** : seleccione un área de trabajo en el inquilino de Power BI en donde se creará el conjunto de datos.
 
->	[AZURE.NOTE] No debe crear explícitamente este conjunto de datos y esta tabla en su cuenta de Power BI. Se crearán automáticamente cuando empiece su trabajo de Análisis de transmisiones y el trabajo comience a producir salidas en Power BI. Si el trabajo no devuelve resultados, no se creará el conjunto de datos ni la tabla.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Haga clic en **Aceptar**, **Probar conexión**; ahora la configuración de la salida ha finalizado.
 
->	[AZURE.WARNING] Tenga en cuenta asimismo que si Power BI ya cuenta con un conjunto de datos y una tabla con el mismo nombre que el proporcionado en este trabajo de Análisis de transmisiones, se sobrescribirán los datos existentes.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Escritura de una consulta
@@ -161,7 +162,7 @@ Ahora cuando vea el panel con este informe anclado, verá la actualización de i
 
 Tenga en cuenta que este tutorial muestra cómo crear un tipo de gráfico para un conjunto de datos. Power BI puede ayudarle a crear otras herramientas de inteligencia empresarial de cliente para su organización. Para obtener otro ejemplo de un panel de Power BI, vea el vídeo [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
 
-Para obtener más información acerca de cómo configurar una salida de Power BI y para utilizar grupos de Power BI, revise la [sección Power BI](stream-analytics-define-outputs.md#power-bi) de [Descripción de salidas de Análisis de transmisiones](stream-analytics-define-outputs.md "Descripción de salidas de Análisis de transmisiones"). Otro recurso útil para obtener más información acerca de la creación de paneles con Power BI es [Vista previa de los paneles de Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+Para obtener más información acerca de cómo configurar una salida de Power BI y para utilizar grupos de Power BI, revise la [sección Power BI](stream-analytics-define-outputs.md#power-bi) de [Descripción de salidas de Análisis de transmisiones](stream-analytics-define-outputs.md "Descripción de salidas de Análisis de transmisiones"). Otro recurso útil para obtener más información acerca de la creación de paneles con Power BI es [Paneles de Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 ## Limitaciones y prácticas recomendadas
 
@@ -198,7 +199,7 @@ Para lograr esto, en Power BI use las preguntas y respuestas y formule una pregu
 
 ### Renovar la autorización
 
-Hay una limitación temporal en la que el token de autenticación debe actualizarse manualmente cada 90 días para todos los trabajos con salida de Power BI. También necesitará volver a autenticar la cuenta de Power BI si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo. Un síntoma de este problema es la ausencia de salida de trabajos y un "error de autenticación de usuario" en los registros de operaciones:
+Tendrá que volver a autenticar la cuenta de Power BI si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo. Si Multi-Factor Authentication (MFA) se configura en el inquilino de Azure Active Directory (AAD), también debe renovar la autorización de Power BI cada 2 semanas. Un síntoma de este problema es la ausencia de salidas de trabajos y un "error de autenticación de usuario" en los registros de operaciones:
 
 ![graphic12][graphic12]
 
@@ -232,4 +233,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -17,7 +17,7 @@
     ms.date="12/08/2015"
     ms.author="nitinme"/>
 
-# Creación de clústeres Apache Spark en HDInsight mediante opciones personalizadas (Windows)
+# Creación de clústeres Apache Spark en HDInsight Windows mediante opciones personalizadas (versión preliminar)
 
 > [AZURE.NOTE] HDInsight ofrece ahora clústeres Spark en Linux. Para obtener información sobre cómo crear un clúster Spark en HDInsight Linux de manera personalizada, vea [Crear clústeres basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -242,4 +242,4 @@ Especifique el tipo de clúster Spark:
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

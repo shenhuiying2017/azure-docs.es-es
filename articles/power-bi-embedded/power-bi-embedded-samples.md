@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with the sample (Introducción a la muestra)"
-   description="Get started with the sample (Introducción a la muestra)"
+   pageTitle="Ejemplos de Power BI Embedded"
+   description="Ejemplos de Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -32,6 +32,6 @@ Para ayudarle a empezar, hemos creado una aplicación web de ejemplo. Puede desc
 ## Consulte también
 
 - [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md) (Qué es Microsoft Power BI Embedded)
-- [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md) (Introducción a la versión preliminar de Microsoft Power BI Embedded)
+- [Get started with Microsoft Power BI Embedded Preview (Introducción a la versión preliminar de Microsoft Power BI Embedded)](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

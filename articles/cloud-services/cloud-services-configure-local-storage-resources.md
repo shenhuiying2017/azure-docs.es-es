@@ -1,6 +1,6 @@
 <properties
-pageTitle="Configuración de recursos de almacenamiento local en Servicios en la nube de Azure"
-description=""
+pageTitle="Configuración de recursos de almacenamiento local en Servicios en la nube de Azure | Microsoft Azure"
+description="Más información sobre cómo configurar recursos de almacenamiento local en Servicios en la nube de Azure"
 services="cloud-services"
 documentationCenter=""
 authors="cristy"
@@ -56,7 +56,7 @@ El siguiente archivo de definición de servicio muestra dos recursos de almacena
 
 Para obtener más información sobre el archivo de definición de servicio, vea [Esquema de definición del servicio de Azure (archivo .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
 
-> [AZURE.NOTE]Si utiliza Azure Tools para Microsoft Visual Studio, puede definir un recurso de almacenamiento local en las páginas **Propiedades** del rol. Para obtener más información, consulte [Configuración de la aplicación de Azure con Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
+> [AZURE.NOTE] Si utiliza Azure Tools para Microsoft Visual Studio, puede definir un recurso de almacenamiento local en las páginas **Propiedades** del rol. Para obtener más información, consulte [Configuración de la aplicación de Azure con Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
 
 ## Acceso mediante programación a un recurso de almacenamiento local
 
@@ -104,4 +104,4 @@ El código que se ejecuta en una instancia de rol puede acceder a un recurso de 
 
 - [Configurar un servicio en la nube para Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

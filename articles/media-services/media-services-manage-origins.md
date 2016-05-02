@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	writer="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -150,4 +150,4 @@ Para obtener más información, consulte [Anuncio de la integración de Servicio
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

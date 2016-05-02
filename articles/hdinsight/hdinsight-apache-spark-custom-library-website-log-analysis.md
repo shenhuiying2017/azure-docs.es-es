@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
-# Análisis de registros de HDInsight Spark mediante una biblioteca personalizada (Linux)
+# Análisis de registros de sitio web mediante una biblioteca personalizada con HDInsight Spark en Linux (versión preliminar)
 
 En este cuaderno se muestra cómo analizar los datos de registro mediante una biblioteca personalizada con Spark en HDInsight. La biblioteca personalizada que usamos es una biblioteca de Python llamada **iislogparser.py**.
 
@@ -244,4 +244,4 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

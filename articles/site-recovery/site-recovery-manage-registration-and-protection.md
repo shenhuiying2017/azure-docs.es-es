@@ -31,7 +31,7 @@ Publique cualquier comentario o pregunta que tenga en la parte inferior de este 
 El registro de un servidor VMM se anula desde un almacén mediante la eliminación del servidor en la pestaña **Servidores** del Portal de Azure Site Recovery. Observe lo siguiente:
 
 -  **Servidor VMM conectado**: se recomienda que anular el registro del servidor VMM cuando está conectado a Azure. Esto garantiza que la configuración en el servidor VMM local y los servidores VMM asociados a él (servidores VMM que contienen las nubes que se asignan a las nubes en el servidor que desea eliminar) se limpien adecuadamente. Se recomienda quitar un servidor no conectado solo si hay un problema permanente con la conectividad.
-- **Servidor VMM no conectado**: si el servidor VMM no está conectado cuando se elimina, necesitará ejecutar un script manualmente para realizar la limpieza. El script está disponible en la [galería de Microsoft](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439). Anote el identificador de VMM del servidor para completar el proceso de limpieza manual.
+- **Servidor VMM no conectado**: si el servidor VMM no está conectado cuando se elimina, necesitará ejecutar un script manualmente para realizar la limpieza. El script está disponible en la [galería de Microsoft](http://aka.ms/asr-cleanup-script-vmm). Anote el identificador de VMM del servidor para completar el proceso de limpieza manual.
 - **Servidor VMM en clúster**: si necesita anular el registro de un servidor VMM que está implementando en un clúster, haga lo siguiente:
 
 	- Si el servidor está conectado, elimine el servidor VMM conectado en la pestaña **Servidores**. Para desinstalar el proveedor en el servidor, inicie sesión en cada nodo del clúster y desinstálelo desde el Panel de Control. Ejecute el script de limpieza indicado en la sección anterior en todos los nodos pasivos del clúster para eliminar las entradas de registro.
@@ -220,4 +220,4 @@ Si desea detener la protección de una máquina virtual de VMware o de un servid
 	
 		![Eliminación de opciones](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

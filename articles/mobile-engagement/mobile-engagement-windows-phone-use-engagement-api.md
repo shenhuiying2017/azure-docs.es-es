@@ -378,5 +378,12 @@ En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 
 
 			{"subscription":"2013-12-07","premium":"true"}
  
+##Registro
+###Habilitación del registro
 
-<!---HONumber=AcomDC_0302_2016-->
+El SDK puede configurarse para generar registros de prueba en la consola del IDE. Estos registros no están activados de forma predeterminada. Para personalizar esto, actualice la propiedad `EngagementAgent.Instance.TestLogEnabled` a uno de los valores disponibles en la enumeración `EngagementTestLogLevel`, por ejemplo:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
+
+<!---HONumber=AcomDC_0420_2016-->

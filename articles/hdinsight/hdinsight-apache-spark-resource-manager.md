@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Administración de recursos para el clúster Apache Spark en HDInsight de Azure (Linux)
+# Administración de recursos para el clúster Apache Spark en HDInsight Linux (versión preliminar)
 
 Spark en HDInsight de Azure (Linux) proporciona la interfaz de usuario web de Ambari para administrar los recursos del clúster y supervisar el estado del clúster. También puede utilizar el servidor de historial de Spark para realizar el seguimiento de las aplicaciones que han terminado de ejecutarse en el clúster. Puede utilizar la interfaz de usuario de YARN para supervisar lo que se encuentra en ejecución en el clúster. En este artículo se ofrecen instrucciones sobre cómo acceder a estas interfaces de usuario y cómo realizar algunas tareas básicas de administración de recursos con estas interfaces.
 
@@ -138,4 +138,4 @@ Presentamos algunos escenarios comunes que pueden aparecer con el clúster Spark
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

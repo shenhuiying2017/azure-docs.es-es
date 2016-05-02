@@ -3,7 +3,7 @@
 	description="Restablezca la contraseña de administrador o los servicios de escritorio remoto en una máquina virtual Windows creada con el modelo de implementación del Administrador de recursos."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
-	ms.author="dkshir"/>
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Restablecimiento del servicio Escritorio remoto o la contraseña de inicio de sesión en una VM con Windows
 
@@ -27,14 +27,14 @@ Si no se puede conectar a una máquina virtual con Windows debido a que se le ol
 Según el modelo de implementación de la máquina virtual, puede usar el Portal de Azure o la extensión VMAccess en Azure PowerShell. Si usa Azure PowerShell, procure tener instalado el módulo de PowerShell más reciente en el equipo de trabajo y haber iniciado sesión en su suscripción de Azure. Para obtener los pasos detallados, lea [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
 
-> [AZURE.TIP] Puede saber qué versión de PowerShell tiene instalada con el comando `Get-Module azure | format-table version`.
+> [AZURE.TIP] Puede comprobar qué versión de PowerShell tiene instalada con `Import-Module Azure; Get-Module Azure | Format-Table Version`.
 
 
 ## Máquinas virtuales de Windows en el modelo de implementación clásica
 
 ### Portal de Azure
 
-En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, puede usar el [Portal de Azure](https://portal.azure.com) para restablecer el servicio Escritorio remoto. Haga clic en **Examinar** > **Máquinas virtuales (clásico)** > *su máquina virtual con Windows* > **Restablecer acceso remoto...** Aparece la siguiente página.
+En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, puede usar el [Portal de Azure](https://portal.azure.com) para restablecer el servicio Escritorio remoto. Haga clic en **Examinar** > **Máquinas virtuales (clásico)** > *su máquina virtual con Windows * > **Restablecer acceso remoto...** Aparece la siguiente página.
 
 
 ![Página Restablecer configuración de RDP](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
@@ -140,4 +140,4 @@ Si sigue sin poder conectarse remotamente a la máquina virtual, consulte más p
 
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 # Entrega continua a Azure con Visual Studio Team Services y Git
@@ -27,7 +27,7 @@ Necesitará Visual Studio 2013 y tener instalado el SDK de Azure. Si aún no tie
 
 Para configurar un servicio en la nube que se compile e implemente automáticamente en Azure con Visual Studio Team Services, siga los pasos que aparecen a continuación:
 
-## Paso 1: crear un repositorio Git
+## 1: Creación de un repositorio Git
 
 1. Si no tiene una cuenta de Visual Studio Team Services, puede obtenerla [aquí](http://go.microsoft.com/fwlink/?LinkId=397665). Cuando cree un proyecto de equipo, elija Git como el sistema de control de código fuente. Siga las instrucciones para conectar Visual Studio al proyecto de equipo.
 
@@ -37,7 +37,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 3. Especifique la ubicación de la copia local y elija el botón **Clonar**.
 
-## Paso 2: crear un proyecto y confirmarlo en el repositorio
+## 2: Creación de un proyecto y su confirmación en el repositorio
 
 1. En **Team Explorer**, en la sección **Soluciones**, elija el vínculo **Nuevo** para crear un nuevo proyecto en el repositorio local.
 
@@ -57,7 +57,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 6. Ahora ha confirmado los cambios en la copia local del repositorio. A continuación, sincronice dichos cambios con el servidor, para lo que debe elegir el vínculo **Sincronizar**.
 
-## Paso 3: Conexión del proyecto a Azure
+## 3: Conexión del proyecto a Azure
 
 1. Ahora que tiene un repositorio Git en Visual Studio Team Services con código fuente, está en disposición de conectarlo a Azure. En el [Portal de Azure clásico](http://manage.windowsazure.com), seleccione el servicio en la nube o la aplicación web, o bien cree unos nuevos haciendo clic en el icono + situado en la parte inferior izquierda y seleccionando **Servicio en la nube** o **Aplicación web** y, a continuación, **Creación rápida**.
 
@@ -81,7 +81,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 	La próxima vez que inserte una confirmación en el repositorio, Visual Studio Team Services creará e implementará su proyecto en Azure.
 
-## Paso 4: Desencadenamiento de una recompilación y nueva implementación del proyecto
+## 4: Desencadenamiento de una recompilación y nueva implementación del proyecto
 
 1. En Visual Studio, abra un archivo y cámbielo. Por ejemplo, cambie el archivo `_Layout.cshtml` de la carpeta Views\\Shared de un rol web de MVC.
 
@@ -170,19 +170,19 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 	![][33]
 
-## Paso 5: volver a implementar una compilación anterior
+## 5: Nueva implementación de una compilación anterior
 
 Este paso es opcional. En el Portal de Azure clásico, elija una implementación anterior y pulse **Volver a implementar** para devolver el sitio a una protección anterior. Tenga en cuenta que esto desencadenará una nueva compilación en TFS y creará una nueva entrada en el historial de implementaciones.
 
 ![][34]
 
-## Paso 6: cambiar la implementación de producción
+## 6: Cambio de la implementación de producción
 
 Cuando esté listo, puede promover el entorno de ensayo al de producción, para lo que debe elegir **Intercambiar** en el Portal de Azure clásico. El entorno de ensayo recién implementado se promueve a Producción y el anterior entorno de Producción, si lo hubiera, pasa a entorno de ensayo. La implementación activa puede ser diferente para los entornos de producción y ensayo, pero el historial de implementación de las compilaciones recientes es el mismo independientemente del entorno.
 
 ![][35]
 
-## Step 6: Deploy from a working branch.
+## 6: Implementación desde una bifurcación de trabajo.
 
 Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y la integra en la bifurcación principal cuando el trabajo de desarrollo alcanza una fecha de finalización. Durante la fase de desarrollo de un proyecto, querrá compilar e implementar la bifurcación de trabajo en Azure.
 
@@ -272,4 +272,4 @@ Para ver más sugerencias sobre el uso de Git con Visual Studio Team Services, c
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

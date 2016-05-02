@@ -27,6 +27,9 @@ Muchos de los pasos de este documento utilizan las siguientes utilidades, que pu
 
 * [cURL](https://curl.haxx.se/): se usa para comunicarse con servicios basados en web
 * [jq](https://stedolan.github.io/jq/): se usa para analizar documentos JSON
+* [CLI de Azure](../xplat-cli-install.md): se usa para administrar servicios de Azure remotamente
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## Nombres de dominio
 
@@ -249,9 +252,9 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 
 ## Pasos siguientes
 
-* [Migrate from Windows-based HDInsight to Linux-based](hdinsight-migrate-from-windows-to-linux.md) (Migración desde HDInsight basado en Windows a HDInsight basado en Linux)
+* [Migrate from Windows-based HDInsight to Linux-based (Migración desde HDInsight basado en Windows a HDInsight basado en Linux)](hdinsight-migrate-from-windows-to-linux.md)
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

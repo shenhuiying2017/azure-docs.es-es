@@ -3,7 +3,7 @@
    description="Busque los principales cmdlets de PowerShell para Almacenamiento de datos SQL de Azure, incluidos aquellos para pausar y reanudar una base de datos."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="04/02/2016"
-   ms.author="barbkess;mausher;sonyama"/>
+   ms.author="sonyama;barbkess;mausher"/>
 
 # Cmdlets de PowerShell y API de REST para Almacenamiento de datos SQL
 
@@ -120,4 +120,4 @@ Para obtener más información de referencia, vea [Información general de refer
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -34,6 +34,8 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **Estación de trabajo**: un equipo con un cliente SSH.
 - **Azure CLI**: para obtener más información, consulte [Instalación y configuración de Azure CLI](../xplat-cli-install.md)
 
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 ##Exportación de Sqoop
 
 2. Utilice el siguiente comando para crear un vínculo a JDBC Driver para SQL Server desde el directorio de la biblioteca de Sqoop. Esto permite a Sqoop utilizar este controlador para comunicarse con la base de datos SQL:
@@ -50,7 +52,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Esto indica a Sqoop que debe conectarse a la base de datos SQL, la base de datos **sqooptest**, y exportar los datos de **wasb:///hive/warehouse/hivesampletable** (archivos físicos para *hivesampletable*) en la tabla **mobiledata**.
+    Esto indica a Sqoop que debe conectarse a la base de datos SQL, la base de datos **sqooptest**, y exportar los datos de ****wasb:///hive/warehouse/hivesampletable** (archivos físicos para *hivesampletable*) en la tabla **mobiledata**.
 
 5. Una vez completado el comando, utilice lo siguiente para conectarse a la base de datos mediante TSQL:
 
@@ -65,7 +67,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 ##Importación de Sqoop
 
-1. Use lo siguiente para importar datos desde la tabla **mobiledata** de la base de datos SQL al directorio **wasb:///tutorials/usesqoop/importeddata** en HDInsight:
+1. Use lo siguiente para importar datos desde la tabla **mobiledata** de la base de datos SQL al directorio ****wasb:///tutorials/usesqoop/importeddata** en HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -142,4 +144,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

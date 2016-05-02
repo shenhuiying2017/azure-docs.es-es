@@ -3,8 +3,8 @@
 	description="En este tema se muestra cómo configurar el codificador en directo Wirecast para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
-	ms.author="juliako"/>
+	ms.date="04/18/2016" 
+	ms.author="juliako;cenkdin;anilmur"/>
 
 #Uso del codificador Wirecast para enviar una transmisión por secuencias en directo de velocidad de bits única
 
@@ -180,4 +180,4 @@ Consulte el tema [Solución de problemas](media-services-troubleshooting-live-st
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

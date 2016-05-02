@@ -41,10 +41,6 @@ El script de ejemplo que se usa en este tema crea un clúster de Solr con una co
 
 ## Instalación de Solr mediante el portal
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-v1.md)
-
 1. Comience a crear un clúster mediante la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md#portal).
 2. En la página **Acciones de script** del asistente, haga clic en **Agregar acción de script** para proporcionar detalles acerca de la acción de script, tal como se muestra a continuación:
 
@@ -200,4 +196,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

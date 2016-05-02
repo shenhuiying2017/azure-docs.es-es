@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="03/11/2016"
+   ms.date="04/17/2016"
    ms.author="yuemlu"/>
 
 # Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
@@ -28,6 +28,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No sabe en qué consiste exactamente el SO invitado o cómo funcionan las versiones de este? Lea [esta](#how-it-works) sección.
 
 ## Actualizaciones de noticias
+
+###### **18 de abril de 2016**
+La implementación del SO invitado de abril comienza el 18 de abril de 2016 y está previsto que se publique el 12 de mayo de 2016.
 
 ###### **14 de marzo de 2016**
 La implementación del SO invitado de marzo comienza el 14 de marzo de 2016 y está previsto que se publique el 8 de abril de 2016.
@@ -52,19 +55,20 @@ Admite .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.30\_201603-01 | * 8 de abril de 2016 | Tras 4.32 | Por determinar |
-| WA-GUEST-OS-4.29\_201602-01 | 12 de marzo de 2016 | Tras 4.31 | Por determinar |
-| WA-GUEST-OS-4.28\_201601-01 | 12 de febrero de 2016 | Tras 4.30 | Por determinar |
-| WA-GUEST-OS-4.27\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | Por determinar |
-| ~~WA-GUEST-OS-4.26\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | Por determinar |
-| ~~WA-GUEST-OS-4.26\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | Por determinar |
-| ~~WA-GUEST-OS-4.25\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | Por determinar |
-| ~~WA-GUEST-OS-4.24\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | Por determinar |
-| ~~WA-GUEST-OS-4.23\_201508-02~~ | 9 de septiembre de 2015 | 6 de diciembre de 2015 | Por determinar |
-| ~~WA-GUEST-OS-4.22\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | Por determinar |
-| ~~WA-GUEST-OS-4.21\_201506-01~~ | 9 de julio de 2015 | Oct 9 2015 | Por determinar |
-| ~~WA-GUEST-OS-4.20\_201505-02~~ | 12 de junio de 2015 | Sep 7 2015 | Por determinar |
-| ~~WA-GUEST-OS-4.19\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | Por determinar |
+| WA-GUEST-OS-4.31\_201604-01 | 12 de mayo de 2016 | Post 4.33 | TBD |
+| WA-GUEST-OS-4.30\_201603-01 | 7 de abril de 2016 | Post 4.32 | TBD |
+| WA-GUEST-OS-4.29\_201602-02 | 12 de marzo de 2016 | Post 4.31 | TBD |
+| WA-GUEST-OS-4.28\_201601-01 | 12 de febrero de 2016 | 7 de mayo de 2016 | TBD | 
+| WA-GUEST-OS-4.27\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | TBD |
+| ~~WA-GUEST-OS-4.26\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | TBD |
+| ~~WA-GUEST-OS-4.26\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | TBD |
+| ~~WA-GUEST-OS-4.25\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | TBD |
+| ~~WA-GUEST-OS-4.24\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | TBD |
+| ~~WA-GUEST-OS-4.23\_201508-02~~ | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
+| ~~WA-GUEST-OS-4.22\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | TBD |
+| ~~WA-GUEST-OS-4.21\_201506-01~~ | 9 de julio de 2015 | 9 de octubre de 2015 | TBD |
+| ~~WA-GUEST-OS-4.20\_201505-02~~ | 12 de junio de 2015 | 7 de septiembre de 2015 | TBD |
+| ~~WA-GUEST-OS-4.19\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | TBD |
 
 ## Lanzamientos de la familia 3
 
@@ -76,19 +80,20 @@ Admite .NET 4.0, 4.5
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.37\_201603-01 | * 8 de abril de 2016 | Tras 3.39 | Por determinar |
-| WA-GUEST-OS-3.36\_201602-01 | 12 de marzo de 2016 | Tras 3.38 | Por determinar |
-| WA-GUEST-OS-3.35\_201601-01 | 12 de febrero de 2016 | Tras 3.37 | Por determinar |
-| WA-GUEST-OS-3.34\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | Por determinar |
-| ~~WA-GUEST-OS-3.33\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | Por determinar |
-| ~~WA-GUEST-OS-3.33\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | Por determinar |
-| ~~WA-GUEST-OS-3.32\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | Por determinar |
-| ~~WA-GUEST-OS-3.31\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | Por determinar |
-| ~~WA-GUEST-OS-3.30\_201508-02~~ | Sep 9 2015 | Dec 6 2015 | Por determinar |
-| ~~WA-GUEST-OS-3.29\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | Por determinar |
-| ~~WA-GUEST-OS-3.28\_201506-01~~ | 9 de julio de 2015 | 9 de octubre de 2015 | Por determinar |
-| ~~WA-GUEST-OS-3.27\_201505-02~~ | 12 de junio de 2015 | 7 de septiembre de 2015 | Por determinar |
-| ~~WA-GUEST-OS-3.26\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | Por determinar |
+| WA-GUEST-OS-3.38\_201604-01 | 12 de mayo de 2016 | Post 3.40 | TBD |
+| WA-GUEST-OS-3.37\_201603-01 | 7 de abril de 2016 | Post 3.39 | TBD |
+| WA-GUEST-OS-3.36\_201602-02 | 12 de marzo de 2016 | Post 3.38 | TBD |
+| WA-GUEST-OS-3.35\_201601-01 | 12 de febrero de 2016 | 7 de mayo de 2016 | TBD |
+| WA-GUEST-OS-3.34\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | TBD |
+| ~~WA-GUEST-OS-3.33\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | TBD |
+| ~~WA-GUEST-OS-3.33\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | TBD |
+| ~~WA-GUEST-OS-3.32\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | TBD |
+| ~~WA-GUEST-OS-3.31\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | TBD |
+| ~~WA-GUEST-OS-3.30\_201508-02~~ | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
+| ~~WA-GUEST-OS-3.29\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | TBD |
+| ~~WA-GUEST-OS-3.28\_201506-01~~ | 9 de julio de 2015 | 9 de octubre de 2015 | TBD |
+| ~~WA-GUEST-OS-3.27\_201505-02~~ | 12 de junio de 2015 | 7 de septiembre de 2015 | TBD |
+| ~~WA-GUEST-OS-3.26\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | TBD |
 
 
 ## Lanzamientos de la familia 2
@@ -101,26 +106,27 @@ Admite .NET 3.5, 4.0
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.49\_201603-01 | * 8 de abril de 2016 | Tras 2.51 | Por determinar |
-| WA-GUEST-OS-2.48\_201602-01 | 12 de marzo de 2016 | Tras 2.50 | Por determinar |
-| WA-GUEST-OS-2.47\_201601-01 | 12 de febrero de 2016 | Tras 2.49 | Por determinar |
-| WA-GUEST-OS-2.46\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | Por determinar |
-| ~~WA-GUEST-OS-2.45\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | Por determinar |
-| ~~WA-GUEST-OS-2.45\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | Por determinar |
-| ~~WA-GUEST-OS-2.44\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | Por determinar |
-| ~~WA-GUEST-OS-2.43\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | Por determinar |
-| ~~WA-GUEST-OS-2.42\_201508-02~~ | 9 de septiembre de 2015 | 6 de diciembre de 2015 | Por determinar |
-| ~~WA-GUEST-OS-2.41\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | Por determinar |
-| ~~WA-GUEST-OS-2.40\_201506-01~~ | 9 de julio de 2015 | 9 de octubre de 2015 | Por determinar |
-| ~~WA-GUEST-OS-2.39\_201505-02~~ | 12 de junio de 2015 | 7 de septiembre de 2015 | Por determinar |
-| ~~WA-GUEST-OS-2.38\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | Por determinar |
+| WA-GUEST-OS-2.50\_201604-01 | 12 de mayo de 2016 | Post 2.52 | TBD |
+| WA-GUEST-OS-2.49\_201603-01 | 7 de abril de 2016 | Post 2.51 | TBD |
+| WA-GUEST-OS-2.48\_201602-02 | 12 de marzo de 2016 | Post 2.50 | TBD |
+| WA-GUEST-OS-2.47\_201601-01 | 12 de febrero de 2016 | 7 de mayo de 2016 | TBD |
+| WA-GUEST-OS-2.46\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | TBD |
+| ~~WA-GUEST-OS-2.45\_201511-02~~ | 4 de enero de 2016 | 12 de marzo de 2016 | TBD |
+| ~~WA-GUEST-OS-2.45\_201511-01~~ | 10 de diciembre de 2015 | 12 de marzo de 2016 | TBD |
+| ~~WA-GUEST-OS-2.44\_201510-01~~ | 6 de noviembre de 2015 | 12 de febrero de 2016 | TBD |
+| ~~WA-GUEST-OS-2.43\_201509-01~~ | 1 de octubre de 2015 | 10 de enero de 2016 | TBD |
+| ~~WA-GUEST-OS-2.42\_201508-02~~ | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
+| ~~WA-GUEST-OS-2.41\_201507-02~~ | 7 de agosto de 2015 | 1 de noviembre de 2015 | TBD |
+| ~~WA-GUEST-OS-2.40\_201506-01~~ | 9 de julio de 2015 | 9 de octubre de 2015 | TBD |
+| ~~WA-GUEST-OS-2.39\_201505-02~~ | 12 de junio de 2015 | 7 de septiembre de 2015 | TBD |
+| ~~WA-GUEST-OS-2.38\_201504-01~~ | 17 de abril de 2015 | 9 de agosto de 2015 | TBD |
 
 ## Actualizaciones de revisiones de MSRC
 La lista de revisiones que se incluyen con cada lanzamiento del SO invitado mensual está disponible [aquí][patches].
 
 ## Compatibilidad con SDK
 
-Aunque la [directiva de retirada para el SDK de Azure][retire policy sdk] indica que solo se admiten las versiones posteriores a la 2.2, ciertas familias de SO invitado le permiten usar versiones anteriores. Siempre debe usar el SDK compatible más reciente.
+Aunque la [directiva de retirada para el SDK de Azure][retire policy sdk] indica que solo se admiten las versiones posteriores a la 2.2, determinadas familias de SO invitado le permiten usar versiones anteriores. Siempre debe usar el SDK compatible más reciente.
 
 | Familia del SO invitado | Versiones del SDK compatibles |
 | --------------- | ----------------------- |
@@ -132,20 +138,20 @@ Aunque la [directiva de retirada para el SDK de Azure][retire policy sdk] indica
 ## Información de los lanzamientos del SO invitado
 Hay tres fechas importantes para los lanzamientos de SO invitado: la de **lanzamiento**, la de **deshabilitación** y la de **expiración**. Se considera que un SO invitado se encuentra disponible cuando figura en el Portal y se puede seleccionar como el SO invitado de destino. Cuando un SO invitado llega a su fecha de **deshabilitación**, se quita de Azure. Sin embargo, cualquier servicio en la nube que utilice dicho SO invitado seguirá funcionando con normalidad.
 
-El período entre las fechas de **deshabilitación** y de **expiración** le permite realizar la transición de un SO invitado a uno más reciente con tranquilidad. Si está utilizando la opción *automática* para el SO invitado, siempre tendrá la versión más reciente, por lo que no tendrá que preocuparse por que expire.
+El período entre las fechas de **deshabilitación** y de **expiración** le permite realizar la transición de un SO invitado a uno más reciente con tranquilidad. Si utiliza la opción *automática* para el SO invitado, siempre tendrá la versión más reciente, por lo que no tendrá que preocuparse de que expire.
 
 Una vez que transcurra la fecha de **expiración**, cualquier servicio en la nube que siga usando ese SO invitado se detendrá, eliminará o actualizará de forma obligada. Puede obtener más información sobre la directiva de retirada [aquí][retirepolicy].
 
 ## Diferencias entre la versión y la familia de los SO invitados
 Las familias del SO invitado se basan en versiones lanzadas de Microsoft Windows Server. El SO invitado es el sistema operativo subyacente en el que se ejecutan Servicios en la nube de Azure. Cada SO invitado tiene un número de familia, versión y lanzamiento.
 
-- **Familia del SO invitado** Una versión del sistema operativo de Windows Server en la que se basa un SO invitado. Por ejemplo, la *familia 3* se basa en Windows Server 2012.
+- **Familia del SO invitado** Versión del sistema operativo Windows Server en la que se basa un SO invitado. Por ejemplo, la *familia 3* se basa en Windows Server 2012.
 
 - **Versión del SO invitado** Corresponde a la imagen de familia del SO invitado, más las revisiones relevantes del [Centro de respuestas de seguridad de Microsoft (MSRC)][msrc] disponibles en la fecha en que se genera la nueva versión del SO invitado. Es posible que no se incluyan todas las revisiones.
 
     Los números empiezan por 0 y se incrementan en 1 cada vez que se agrega un nuevo conjunto de actualizaciones. Solo se muestran los ceros finales si es importante. Es decir, la versión 2.10 es una versión mucho más posterior y diferente que la versión 2.1.
 
-- **Lanzamiento del SO invitado** Un relanzamiento de una versión de un SO invitado. Un relanzamiento se produce si Microsoft encuentra, durante las pruebas, problemas que requieran cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. El portal de Azure clásico solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
+- **Lanzamiento del SO invitado** Relanzamiento de una versión de SO invitado. Un relanzamiento se produce si Microsoft encuentra, durante las pruebas, problemas que requieran cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. El portal de Azure clásico solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
 
 En el ejemplo siguiente, 2 es la familia, 12 es la versión y "rel2" es el lanzamiento.
 
@@ -191,4 +197,4 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
-
 
 # Información general de análisis de Servicios multimedia de Azure
 
@@ -49,7 +48,9 @@ A continuación se muestran un par de escenarios en los que Análisis multimedia
 
 - **Vigilancia**: con el desarrollo de las cámaras IP, hay un aumento vertiginoso de vídeos de vigilancia. La revisión manual de vídeos de vigilancia exige mucho tiempo y es propensa a errores humanos. Análisis multimedia de Azure proporciona varios componentes, como la detección de movimiento, la detección de caras e Hyperlapse, para facilitar el proceso de revisión, administración y creación de derivados.
 
+##Demostraciones
 
+[Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -67,4 +68,4 @@ A continuación se muestran un par de escenarios en los que Análisis multimedia
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

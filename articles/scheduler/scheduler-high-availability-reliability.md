@@ -1,6 +1,6 @@
 <properties
  pageTitle="Alta disponibilidad y confiabilidad de Programador"
- description=""
+ description="Alta disponibilidad y confiabilidad de Programador"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -18,7 +18,7 @@
 
 # Alta disponibilidad y confiabilidad de Programador
 
-## Alta disponibilidad de Programador de Azure
+## Alta disponibilidad de Programador de Azure
 
 Como servicio principal de la plataforma Azure, Programador de Azure tiene una alta disponibilidad y presenta implementación de servicio con redundancia geográfica y replicación geográfica regional de trabajos.
 
@@ -30,7 +30,7 @@ Programador de Azure está disponible a través de la interfaz de usuario en pr�
 
 No solo el front-end de Programador de Azure está disponible para solicitudes de administración, sino que su propio trabajo también se replica geográficamente. Cuando hay una interrupción en una región, Programador de Azure conmuta por error y garantiza que el trabajo se ejecuta en otro centro de datos en la región geográfica emparejada.
 
-Por ejemplo, si creó un trabajo en la zona Centro-Sur de EE. UU., Programador de Azure replica automáticamente ese trabajo en la zona Centro-Norte de EE. UU. Cuando hay un error en la zona Centro-Sur de EE. UU., Programador de Azure garantiza que el trabajo se ejecuta en la zona Centro-Norte de EE. UU. [Para obtener una explicación detallada de las funciones de replicación geográfica de Azure, consulte este tema.](../sql-database/sql-database-business-continuity-design.md)
+Por ejemplo, si creó un trabajo en la zona Centro-Sur de EE. UU., Programador de Azure replica automáticamente ese trabajo en la zona Centro-Norte de EE. UU. Cuando hay un error en la zona Centro-Sur de EE. UU., Programador de Azure garantiza que el trabajo se ejecuta en la zona Centro-Norte de EE. UU.
 
 ![][1]
 
@@ -42,9 +42,9 @@ Programador de Azure garantiza su propia alta disponibilidad y adopta un enfoque
 
 ### Directiva de reintentos configurable a través de "retryPolicy"
 
-Programador de Azure le permite configurar una directiva de reintentos. De manera predeterminada, si se produce un error en un trabajo, Programador intenta ejecutar el trabajo otras cuatro veces, a intervalos de 30 segundos. Puede volver a configurar esta directiva de reintentos para que sea más agresiva (por ejemplo, diez veces, a intervalos de 30 segundos) o más flexible (por ejemplo, dos veces, a intervalos diarios).
+Programador de Azure le permite configurar una directiva de reintentos. De manera predeterminada, si se produce un error en un trabajo, Programador intenta ejecutar el trabajo otras cuatro veces, a intervalos de 30 segundos. Puede volver a configurar esta directiva de reintentos para que sea más agresiva (por ejemplo, diez veces, a intervalos de 30 segundos) o más flexible (por ejemplo, dos veces, a intervalos diarios).
 
-Como ejemplo de cuándo esto puede resultar de ayuda, puede crear un trabajo que se ejecute una vez por semana e invoca un extremo HTTP. Si el extremo HTTP está inactivo durante algunas horas cuando se ejecute el trabajo, es posible que no quiera esperar una semana más para que el trabajo se vuelva a ejecutar, puesto que incluso la directiva predeterminada de reintentos producirá un error. En estos casos, puede volver a configurar la directiva de reintentos estándar para que vuelva a intentar ejecutarlo cada tres horas (por ejemplo), en lugar de cada 30 segundos.
+Como ejemplo de cuándo esto puede resultar de ayuda, puede crear un trabajo que se ejecute una vez por semana e invoca un extremo HTTP. Si el extremo HTTP está inactivo durante algunas horas cuando se ejecute el trabajo, es posible que no quiera esperar una semana más para que el trabajo se vuelva a ejecutar, puesto que incluso la directiva predeterminada de reintentos producirá un error. En estos casos, puede volver a configurar la directiva de reintentos estándar para que vuelva a intentar ejecutarlo cada tres horas (por ejemplo), en lugar de cada 30 segundos.
 
 Para obtener información sobre cómo configurar una directiva de reintentos, vea [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
@@ -85,4 +85,4 @@ Para obtener información sobre cómo configurar un extremo alternativo, consult
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

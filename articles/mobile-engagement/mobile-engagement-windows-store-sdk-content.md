@@ -28,9 +28,9 @@ En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. A
 
 ### Carpeta /html
 
-- `EngagementNotification.html` : el diseño html de vista web `Notification`.
+- `EngagementNotification.html` : El diseño html de vista web `Notification` para banners en aplicación.
 
-- `EngagementAnnouncement.html` : el diseño html de vista web `Announcement`.
+- `EngagementAnnouncement.html` : El diseño html de vista web `Announcement` para vistas intersticiales en aplicación.
 
 ### Carpeta /images
 
@@ -44,17 +44,7 @@ En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. A
 
 ### Carpeta /overlay
 
-- `EngagementBaseOverlay.cs`: código base usado por las superposiciones `Announcement` y `Notification`.
-
-- `EngagementOverlayAnnouncement.xaml` : el diseño xaml `Announcement`.
-
-- `EngagementOverlayAnnouncement.xaml.cs`: el código vinculado `EngagementOverlayAnnouncement.xaml`.
- 
-- `EngagementOverlayNotification.xaml` : el diseño xaml `Notification`.
- 
-- `EngagementOverlayNotification.xaml.cs`: el código vinculado `EngagementOverlayNotification.xaml`.
- 
-- `EngagementPageOverlay.cs`: el código de visualización de anuncios y notificaciones de `Overlay`.
+- `EngagementPageOverlay.cs` : La página de superposición responsable de agregar la IU en aplicación de Engagement Reach a su hijo.
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

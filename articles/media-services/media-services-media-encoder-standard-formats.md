@@ -3,8 +3,8 @@
 	description="En este tema se ofrece información general sobre los códecs y formatos de Estándar de codificador multimedia." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
-	ms.author="juliako"/>
+	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 #Códecs y formatos de Media Encoder Standard
 
@@ -121,4 +121,4 @@ MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-L
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

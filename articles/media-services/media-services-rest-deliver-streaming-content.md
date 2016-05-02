@@ -2,7 +2,7 @@
 	pageTitle="Cómo entregar contenido de streaming de Servicios multimedia" 
 	description="Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. El código usa API de REST." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 
@@ -191,4 +191,4 @@ ejemplo:
 
 [Configuración de directivas de entrega de activos](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

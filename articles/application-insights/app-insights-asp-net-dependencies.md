@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,7 @@ Necesita una suscripción a [Microsoft Azure](http://azure.com)
 
 ### Si la aplicación se ejecuta en su servidor IIS
 
-Si la aplicación web se ejecuta en .NET 4.6 o posterior, obtendrá el seguimiento de la dependencia de forma automática si [instala el SDK de Application Insights](app-insights-asp-net.md) en su aplicación. No necesita hacer nada más.
+Si la aplicación web se ejecuta en .NET 4.6 o posterior, puede [instalar el SDK de Application Insights](app-insights-asp-net.md) en su aplicación o el Monitor de estado de Application Insights. No necesita ambos.
 
 De lo contrario, instale el Monitor de estado de Application Insights en el servidor:
 
@@ -170,11 +170,17 @@ Por ejemplo, si compila el código con un ensamblado que no escribió usted mism
 
 Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la referencia a DependencyTrackingTelemetryModule en [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
+## Solución de problemas
+
+*La marca de éxito de dependencia siempre muestra true o false.*
+
+* Actualice a la versión más reciente del SDK Si la versión de .NET es inferior a la 4.6, instale el [Monitor de estado](app-insights-monitor-performance-live-website-now.md).
+
 ## Pasos siguientes
 
-- [Excepciones](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
-- [Datos de página y usuario](../article/application-insights/app-insights-asp-net-client.md#selector1)
-- [Disponibilidad](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [Excepciones](app-insights-asp-net-exception-mvc.md#selector1)
+- [Datos de página y usuario](app-insights-asp-net-client.md#selector1)
+- [Disponibilidad](app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -196,4 +202,4 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

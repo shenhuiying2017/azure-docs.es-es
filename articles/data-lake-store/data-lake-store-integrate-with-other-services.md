@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Integración del Almacén de Data Lake con otros servicios de Azure
@@ -47,6 +47,10 @@ Para obtener instrucciones sobre cómo usar Factoría de datos de Azure con el A
 
 El Almacén de Azure Data Lake proporciona una herramienta de línea de comandos, AdlCopy, que le permite copiar datos desde el Almacenamiento de blobs de Azure en una cuenta de Almacén de Data Lake. Para obtener más información, consulte [Copia de datos de los blobs de Almacenamiento de Azure en el Almacén de Data Lake](data-lake-store-copy-data-azure-storage-blob.md).
 
+## Copia de datos entre Base de datos SQL de Azure y Almacén de Data Lake
+
+Puede usar Apache Sqoop para importar y exportar datos entre Base de datos SQL y Almacén de Data Lake. Para obtener más información, consulte [Copia de datos entre Almacén de Data Lake y Base de datos SQL de Azure mediante Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
+
 
 ## Consulte también
 
@@ -54,4 +58,4 @@ El Almacén de Azure Data Lake proporciona una herramienta de línea de comandos
 - [Introducción al Almacén de Data Lake mediante el Portal](data-lake-store-get-started-portal.md)
 - [Introducción al Almacén de Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

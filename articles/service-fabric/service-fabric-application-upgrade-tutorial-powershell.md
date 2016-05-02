@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="04/14/2016"
    ms.author="subramar"/>
 
 
@@ -51,17 +51,17 @@ También necesitamos actualizar el archivo *ServiceManifest.xml* (debajo de Pack
 Una vez realizados los cambios, el manifiesto debe ser similar al siguiente (las partes resaltadas muestran los cambios):
 
 ```xml
-<ServiceManifestName="VisualObjects.ActorService"Version="2.0"xmlns="http://schemas.microsoft.com/2011/01/fabric"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<CodePackageName="Code"Version="2.0">
+<CodePackageName="Code" Version="2.0">
 ```
 
 Ahora, necesitamos actualizar el archivo *ApplicationManifest.xml* (que se encuentra en el proyecto **VisualObjects** debajo de la solución **VisualObjects**) para usar la versión 2.0 del proyecto **VisualObjects.ActorService** y actualizar también la versión de la aplicación de 1.0.0.0 a 2.0.0.0. Ahora, las líneas correspondientes del archivo *ApplicationManifest.xml* deben tener el siguiente aspecto:
 
 ```xml
-<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"ApplicationTypeName="VisualObjects"ApplicationTypeVersion="2.0.0.0"xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
- <ServiceManifestRefServiceManifestName="VisualObjects.ActorService"ServiceManifestVersion="2.0" />
+ <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
 
@@ -136,4 +136,4 @@ Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para e
 
 Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

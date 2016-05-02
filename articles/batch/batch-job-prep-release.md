@@ -6,7 +6,7 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
@@ -15,7 +15,7 @@
 	ms.workload="big-compute"
 	ms.date="01/22/2016"
 	ms.author="marsma" />
-	
+
 # Ejecución de tareas de preparación y finalización de trabajos en nodos de ejecución de Lote de Azure
 
 A menudo los trabajos de Lote de Azure precisan algún tipo de configuración antes de su ejecución y, de forma similar, algún tipo de mantenimiento posterior una vez finalizadas sus tareas. Lote proporciona los mecanismos para estas labores de preparación y mantenimiento en forma de tareas opcionales de *preparación del trabajo* y *liberación del trabajo*.
@@ -78,7 +78,7 @@ En este fragmento de código, `myBatchClient` es una instancia totalmente inicia
 
 		await myJob.CommitAsync();
 
-Como se mencionó anteriormente, la tarea de liberación se ejecuta cuando se finaliza o se elimina un trabajo. La finalización de un trabajo con la API de .NET de Lote se realiza mediante una llamada a [PoolOperations.TerminateJobAsync][net_job_terminate]. La eliminación del trabajo se realiza con [PoolOperations.DeleteJobAsync][net_job_delete]. Ambas acciones suelen realizarse cuando se han completado las tareas de un trabajo o cuando se ha alcanzado el tiempo de espera que haya definido.
+Como se mencionó anteriormente, la tarea de liberación se ejecuta cuando se finaliza o se elimina un trabajo. La finalización de un trabajo con la API de .NET de Lote se realiza mediante una llamada a [JobOperations.TerminateJobAsync][net_job_terminate]. La eliminación del trabajo se realiza con [JobOperations.DeleteJobAsync][net_job_delete]. Ambas acciones suelen realizarse cuando se han completado las tareas de un trabajo o cuando se ha alcanzado el tiempo de espera que haya definido.
 
 		// Terminate the job to mark it as Completed; this will initiate the Job Release Task on any node
 		// that executed job tasks. Note that the Job Release Task is also executed when a job is deleted,
@@ -187,4 +187,4 @@ En la captura de pantalla siguiente, se resaltan las propiedades de las tareas d
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

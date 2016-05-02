@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Ejemplos de configuración de la extensión de máquina virtual de Windows de Azure.
@@ -39,7 +39,7 @@ Para más información sobre la creación de plantillas de extensión, vea [Crea
 
 En este artículo se indican los valores de configuración esperados para algunas de las extensiones de Windows.
 
-## Fragmento de plantilla de ejemplo para extensiones de VM.
+## Fragmento de plantilla de ejemplo para extensiones de VM con máquinas virtuales IaaS.
 El fragmento de plantilla para extensiones de implementación tiene el aspecto siguiente:
 
       {
@@ -53,11 +53,34 @@ El fragmento de plantilla para extensiones de implementación tiene el aspecto s
       "publisher": "Publisher Namespace",
       "type": "extension Name",
       "typeHandlerVersion": "extension version",
+      "autoUpgradeMinorVersion":true,
       "settings": {
       // Extension specific configuration goes in here.
       }
       }
       }
+
+## Fragmento de plantilla de ejemplo para extensiones de VM con conjuntos de escalado de VM.
+
+    {
+     "type":"Microsoft.Compute/virtualMachineScaleSets",
+    ....
+           "extensionProfile":{
+           "extensions":[
+             {
+               "name":"extension Name",
+               "properties":{
+                 "publisher":"Publisher Namespace",
+                 "type":"extension Name",
+                 "typeHandlerVersion":"extension version",
+                 "autoUpgradeMinorVersion":true,
+                 "settings":{
+                 // Extension specific configuration goes in here.
+                 }
+               }
+              }
+            }
+          }
 
 Antes de implementar la extensión, compruebe la versión más reciente de la extensión y reemplace la "typeHandlerVersion" por la versión más reciente actual.
 
@@ -65,18 +88,50 @@ El resto del artículo proporciona ejemplos de configuraciones para las extensio
 
 Antes de implementar la extensión, compruebe la versión más reciente de la extensión y reemplace la "typeHandlerVersion" por la versión más reciente actual.
 
-### Extensión CustomScript.
-    {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.4",
-        "settings": {
-            "fileUris": [
-                "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
-            ],
-            "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted-Filestart.ps1"
+### Extensión CustomScript 1.4.
+      {
+          "publisher": "Microsoft.Compute",
+          "type": "CustomScriptExtension",
+          "typeHandlerVersion": "1.4",
+          "settings": {
+              "fileUris": [
+                  "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
+              ],
+              "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1"
+          },
+          "protectedSettings": {
+            "storageAccountName": "yourStorageAccountName",
+            "storageAccountKey": "yourStorageAccountKey"
+          }
+      }
+
+#### Descripción del parámetro:
+
+- fileUris: lista separada por comas de direcciones URL de los archivos que se descargarán en la máquina virtual por la Extensión. No se descargan los archivos si no se especifica nada. Si los archivos están en Almacenamiento de Azure, fileURLs puede marcarse como privado y los correspondientes storageAccountName y storageAccountKey se pueden pasar como parámetros privados para tener acceso a estos archivos.
+- commandToExecute: [parámetro obligatorio]: este es el comando que se ejecutará por la Extensión.
+- storageAccountName: [parámetro opcional]: nombre de la cuenta de almacenamiento para tener acceso a fileURLs si están marcados como privados.
+- storageAccountKey: [parámetro opcional]: clave de cuenta de almacenamiento para tener acceso a fileURLs, si están marcados como privados.
+
+### Extensión CustomScript 1.7.
+
+Consulte la versión 1.4 de CustomScript para ver la descripción del parámetro. La versión 1.7 admite el envío de parámetros de script (commandToExecute) como protectedSettings, en cuyo caso se cifrará antes del envío. Puede especificarse el parámetro 'commandToExecute' en la configuración o protectedSettings, pero no en ambos.
+
+        {
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.7",
+            "settings": {
+                "fileUris": [
+                    "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
+                ],
+                "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1"
+            },
+            "protectedSettings": {
+              "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1",
+              "storageAccountName": "yourStorageAccountName",
+              "storageAccountKey": "yourStorageAccountKey"
+            }
         }
-    }
 
 ### Extensión VMAccess.
 
@@ -316,4 +371,4 @@ Este es un ejemplo de una plantilla de máquina virtual completa con la extensi�
 
 [Extensión de script personalizada en una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/12/2016"
+   ms.date="04/14/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Supervisión de la carga de trabajo mediante DMV
@@ -142,20 +142,6 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 ```
 
-
-## Investigación de la asimetría de datos
-
-Use [DBCC PDW\_SHOWSPACEUSED][] para buscar el espacio que usa una tabla.
-
-```sql
--- Find data skew for a distributed table
-DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
-```
-
-El resultado de esta consulta mostrará el número de filas de tabla que se almacenan en cada una de las 60 distribuciones de la base de datos. Para obtener un rendimiento óptimo, las filas de la tabla distribuida se deben repartir uniformemente entre todas las distribuciones.
-
-Para obtener más información, consulte [Manage data skew for distributed tables](Administración de asimetría de datos para tablas distribuidas) o [Diseño de tablas en el Almacenamiento de datos SQL][].
-
 ## Pasos siguientes
 Para obtener más información sobre las vistas de administración dinámica (DMV) y de Transact-SQL, consulte la [información general de referencia][]. Para obtener más sugerencias sobre la administración del almacenamiento de datos SQL, consulte [Herramientas de administración para Almacenamiento de datos SQL][].
 
@@ -163,7 +149,7 @@ Para obtener más información sobre las vistas de administración dinámica (DM
 
 <!--Article references-->
 [Herramientas de administración para Almacenamiento de datos SQL]: sql-data-warehouse-overview-manage.md
-[Diseño de tablas en el Almacenamiento de datos SQL]: sql-data-warehouse-develop-table-design.md
+[table design]: sql-data-warehouse-develop-table-design.md
 [información general de referencia]: sql-data-warehouse-overview-reference.md
 [manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
 
@@ -174,6 +160,6 @@ Para obtener más información sobre las vistas de administración dinámica (DM
 [sys.dm\_pdw\_request\_steps]: http://msdn.microsoft.com/library/mt203913.aspx
 [sys.dm\_pdw\_sql\_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW\_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
+[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

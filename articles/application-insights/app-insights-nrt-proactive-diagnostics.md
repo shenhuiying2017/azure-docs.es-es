@@ -81,6 +81,8 @@ Haga clic en cualquier alerta para ver sus detalles completos.
 
 ## Configurar alertas 
 
+Puede deshabilitar los diagnósticos proactivos, cambiar los destinatarios de correo electrónico, crear un proyecto de Webhook u optar por recibir mensajes de alerta más detallados.
+
 Abra la página Alertas. Se incluye el diagnóstico proactivo en cualquier alerta configurada manualmente, y puede ver si se encuentra actualmente en el estado de alerta.
 
 ![En la página de información general, haga clic en el icono Alertas. O bien, en cualquier página de métricas, haga clic en el botón Alertas.](./media/app-insights-nrt-proactive-diagnostics/021.png)
@@ -91,6 +93,16 @@ Haga clic en la alerta para configurarla.
 
 Observe que puede deshabilitar el diagnóstico proactivo, pero no puede eliminarlo (ni crear otro).
 
+
+#### Alertas detalladas
+
+Si selecciona "Recibir análisis detallado", el correo electrónico contendrá más información de diagnóstico. A veces podrá diagnosticar el problema simplemente con los datos del correo electrónico.
+
+Existe un pequeño riesgo de que la alerta más detallada contenga información confidencial, ya que incluye mensajes de excepciones y seguimientos. Sin embargo, esto solo podría ocurrir si el código permitiera información confidencial en esos mensajes.
+
+Este es un ejemplo de una alerta detallada:
+
+![Configuración](./media/app-insights-nrt-proactive-diagnostics/060.png)
 
 ## ¿Cuál es la diferencia ...
 
@@ -138,4 +150,4 @@ El diagnóstico proactivo NRT complementa a otras características diferentes pe
 
 *Estamos muy interesados en saber lo que piensa sobre esto. Envíe sus comentarios a* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

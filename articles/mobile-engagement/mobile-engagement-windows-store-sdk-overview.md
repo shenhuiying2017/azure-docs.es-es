@@ -32,10 +32,11 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-windows-store-sdk-co
 
 ##Notas de la versión
 
-###3\.3.1 (18/02/2016)
+###3\.4.0 (04/19/2016)
 
--   Corrija los conflictos entre el contenido HTML del anuncio web y la página HTML del SDK.
--   Mejoras de estabilidad.
+-   Mejoras de superposición de Reach.
+-   API "TestLogLevel" agregada para habilitar, deshabilitar y filtrar registros de consola emitidos por el SDK.
+-   Notificaciones en actividad corregidas dirigidas a la primera actividad que no aparecen en el inicio de la aplicación.
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-windows-store-release-notes.md)
 
@@ -45,13 +46,28 @@ Si ya integró una versión anterior de Engagement en la aplicación, debería t
 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK, consulte la sección completa [Procedimientos de actualización](mobile-engagement-windows-store-upgrade-procedure.md). Por ejemplo, si migra desde 0.10.1 a 0.11.0, primero debe seguir el procedimiento "de 0.9.0 a 0.10.1" y luego el procedimiento "de 0.10.1 a 0.11.0".
 
-###De 3.2.0 a 3.3.0
+###De 3.3.0 a 3.4.0
 
-#### Recursos
-Este paso se refiere solo a los recursos personalizados. Si ha personalizado los recursos proporcionados por el SDK (html, imágenes, superposición), tendrá que hacer una copia de seguridad de estos antes de actualizar y volver a aplicar la personalización en los recursos actualizados.
+####Registros de prueba
+
+Los registros de consola generados por el SDK ahora se pueden habilitar, deshabilitar o filtrar. Para personalizar esto, actualice la propiedad `EngagementAgent.Instance.TestLogEnabled` a uno de los valores disponibles en la enumeración `EngagementTestLogLevel`, por ejemplo:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
+
+####Recursos
+
+Se ha mejorado la superposición de Reach. Forma parte de los recursos del paquete NuGet del SDK.
+
+Al actualizar a la nueva versión del SDK puede elegir si desea conservar o no los archivos existentes de la carpeta de superposición de los recursos:
+
+* Si la superposición anterior funciona o va a integrar los elementos `WebView` manualmente, entonces puede decidir mantener los archivos de salida, lo cual seguirá funcionando. 
+* Si desea actualizar a la nueva superposición, simplemente reemplace toda la carpeta `overlay` de sus recursos por la nueva desde el paquete del SDK (aplicaciones UWP: tras la actualización, puede obtener la nueva carpeta de superposición desde %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources).
+
+> [AZURE.WARNING] El uso de la nueva superposición sobrescribirá todas las personalizaciones realizadas en la versión anterior.
 
 ### Actualizar de versiones anteriores
 
 Consulte [Procedimientos de actualización](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

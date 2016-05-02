@@ -25,7 +25,7 @@ Intente obtener acceso a la aplicación con el programa cliente adecuado desde l
 
 ![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
-Por ejemplo, si la aplicación es un servidor web, ejecute un explorador en la VM e intente obtener acceso a una página web hospedada en ella.
+Por ejemplo, si la aplicación es un servidor web, abra un explorador en la VM e intente obtener acceso a una página web hospedada en ella.
 
 Si puede tener acceso a la aplicación, vaya al [paso 2](#step2).
 
@@ -102,4 +102,4 @@ Para obtener más información, consulte [Solución de problemas con la conectiv
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,7 +3,7 @@
    description="Introducción al cifrado de datos transparente (TDE) del Almacenamiento de datos SQL TSQL"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="twounder"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="03/23/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # Introducción al cifrado de datos transparente (TDE)
 > [AZURE.SELECTOR]
@@ -73,4 +73,4 @@ Un resultado de ```1``` indica una base de datos cifrada, ```0``` indica una bas
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

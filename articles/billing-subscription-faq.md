@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="04/14/2016"
 	ms.author="genli"/>
 
 #  Preguntas más frecuentes sobre suscripciones y facturación de Azure
@@ -43,6 +43,8 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 
 - [¿Cómo funcionarán los contratos de nivel de servicio de Azure con los contratos de licencia locales de Microsoft vigentes en la actualidad?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
+- [No veo una factura por el último período de facturación. ¿Por qué?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+
 **Suscripciones**
 
 - [No puedo iniciar sesión en el Portal de Azure](#i-am-unable-to-log-in-to-the-azure-portal)
@@ -53,7 +55,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 
 - [¿Cómo cambio a un plan de soporte técnico de Azure de nivel superior?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
 
--	[¿Cuándo se me cobrará el soporte técnico de Azure?](#when-will-i-be-billed-for-azure-support)
+- [¿Cuándo se me cobrará el soporte técnico de Azure?](#when-will-i-be-billed-for-azure-support)
 
 - [¿Qué ocurre al final del período de la suscripción?](#what-happens-at-the-end-of-the-term)
 
@@ -109,7 +111,7 @@ Siga los pasos que se indican en [Facturación de Azure](https://azure.microsoft
 
 ### ¿Cómo puedo comprobar el estado de un pago realizado con tarjeta de crédito?
 
-Debe enviar una incidencia de soporte técnico para solicitar asistencia. Para crear una incidencia de soporte técnico para comprobar el estado de pago realizado mediante tarjeta de crédito, consulte [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
+Debe enviar una incidencia de soporte técnico para solicitar asistencia. Para crear una incidencia de soporte técnico con el fin de comprobar el estado de pago realizado mediante tarjeta de crédito, consulte [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
 
 ### ¿Cómo puedo obtener una copia de la factura?
 
@@ -117,7 +119,7 @@ Como Administrador de la cuenta de Azure, puede ver la factura actual en el cent
 
 ### ¿Cómo puedo quitar una tarjeta de crédito que ya no utilizo como método de pago de Azure?
 
-Debe enviar una incidencia de soporte técnico para solicitar asistencia. Para crear una incidencia de soporte técnico con el fin de quitar una tarjeta de crédito, consulte el artículo [Creación de una incidencia de soporte técnico sobre problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
+Debe enviar una incidencia de soporte técnico para solicitar asistencia. Para crear una incidencia de soporte técnico con el fin de quitar una tarjeta de crédito, consulte el artículo [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
 
 ### ¿Cómo puedo actualizar o cambiar la información de la tarjeta de crédito?
 
@@ -129,9 +131,9 @@ Nuestro contrato de nivel de servicio de disponibilidad se aplica a las aplicaci
 
 **Mantenimiento planeado (Portal clásico)**: en configuraciones de una o varias instancias, Azure envía comunicaciones por correo electrónico por adelantado para avisarle del próximo mantenimiento planeado (con una semana de antelación en el caso de una instancia y con 48 horas de antelación en el caso de instancias múltiples). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador de cuenta, del administrador de servicios y del coadministrador facilitadas en la suscripción.
 
-**Nota:** Si quiere obtener más información específica de las máquinas virtuales, consulte el artículo [Planeación del mantenimiento de máquinas virtuales de Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
+**NOTA:** Si quiere obtener más información específica de las máquinas virtuales, consulte el artículo [Planeación del mantenimiento de máquinas virtuales de Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
-**Mantenimiento no planeado:** en caso de que se produzca una interrupción del servicio no planeada en la Plataforma de Azure, se realizarán actualizaciones de estado en nuestro [panel de servicios](http://status.azure.com/) y los clientes recibirán también un aviso en el [Portal de Azure clásico](https://manage.windowsazure.com/).
+**Mantenimiento no planeado**: en caso de que se produzca una interrupción del servicio no planeada en la Plataforma de Azure, se realizarán actualizaciones de estado en nuestro [panel de servicios](http://status.azure.com/) y los clientes recibirán también un aviso en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 ### ¿Qué es el contrato de nivel de servicio de Azure de tiempo de actividad y conectividad?
 
@@ -145,6 +147,13 @@ Los créditos del contrato de nivel de servicio de Azure se calculan por cada su
 
 Los contratos de nivel de servicio de Azure son independientes de nuestros contratos de licencia locales de Microsoft. Nuestros contratos de nivel de servicio para Azure le ofrecen un tiempo de actividad mensual garantizado para los servicios que se consuman en la nube, con créditos de contrato de nivel de servicio que se aplicarán sobre lo facturado en caso de que no se cumpla esa garantía.
 
+### No veo una factura por el último período de facturación. ¿Por qué?
+
+Podría haber varias razones para esto:
+- Han transcurrido menos de 30 días desde el día que se suscribió a Azure.
+- El tipo de suscripción es de evaluación gratuita o una de las ofertas de miembro (MSDN/Open/BizSpark/DreamSpark) no tiene asociada una tarjeta de crédito ni otro instrumento de pago.
+- La fecha de generación de facturas aún no ha llegado.
+
 ## Suscripciones
 
 ### No puedo iniciar sesión en el Portal de Azure
@@ -156,7 +165,7 @@ En el siguiente artículo se le ayudará a solucionar algunas de las causas comu
 **Nota** Asegúrese de que ha iniciado sesión con el administrador correcto: un administrador de cuenta solo puede tener acceso al [Centro de cuentas](https://account.windowsazure.com/), mientras que los administradores de servicios (SA) y los coadministradores (CA) solo tienen acceso al [Portal de Azure](https://portal.azure.com/) o al [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 ### ¿Cómo compro soporte técnico de Azure?
-Los planes de soporte técnico de Azure se pueden comprar en línea o a través de un contrato Enterprise. Los planes Developer, Standard o Professional Direct están disponibles en línea a través de la página de [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/). Para comprar un plan de soporte técnico, debe ser el propietario de la cuenta de Microsoft Azure.
+Los planes de soporte técnico de Azure se pueden comprar en línea o a través de un contrato Enterprise. Los planes Developer, Standard o Professional Direct están disponibles en línea a través de la página [Planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/). Para comprar un plan de soporte técnico, debe ser el propietario de la cuenta de Microsoft Azure.
 
 Si compra Microsoft Azure a través de un contrato Enterprise (EA), puede agregar un plan de soporte técnico Standard o Professional Direct al contrato Enterprise poniéndose en contacto con su revendedor de grandes cuentas (LAR). El soporte técnico Developer no está disponible a través de un contrato Enterprise.
 
@@ -190,7 +199,7 @@ Tenga en cuenta que un plan de soporte técnico de Azure tiene una duración de 
 
 ### ¿Cómo puedo migrar datos y servicios de la suscripción de Azure a una nueva suscripción?
 
-Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para obtener más información. Para crear una incidencia de soporte técnico para migrar datos y servicios de una suscripción de Azure a una nueva suscripción, consulte el artículo [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
+Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para obtener más información. Para crear una incidencia de soporte técnico con el fin de migrar datos y servicios de una suscripción de Azure a una nueva suscripción, consulte el artículo [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
 
 ### ¿Cómo administro las cuentas de administrador en el nuevo Portal de Azure?
 
@@ -210,14 +219,14 @@ Para obtener información sobre las ventajas de los servicios de Azure, consulte
 
 ### ¿Cómo puedo cambiar mi plan de precios?
 
-Puede cambiar su suscripción de pago por uso por la [oferta de pago por adelantado de 12 meses](https://azure.microsoft.com/offers/ms-azr-0026p/). Con esta oferta, pague por adelantado los servicios de Azure durante un período de 12 meses y reciba un 5 % de descuento. En el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions), vaya a su suscripción y haga clic en Cambiar oferta. Esta es actualmente la única oferta que se puede cambiar mediante el Centro de cuentas. Como alternativa, puede ponerse en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para cambiar a una oferta diferente.
+Puede cambiar su suscripción de pago por uso por la [oferta de pago por adelantado de 12 meses](https://azure.microsoft.com/offers/ms-azr-0026p/). Con esta oferta, pague por adelantado los servicios de Azure durante un período de 12 meses y reciba un 5 % de descuento. En el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions), vaya a su suscripción y haga clic en Cambiar oferta. Esta es actualmente la única oferta que se puede cambiar mediante el Centro de cuentas. También puede ponerse en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para cambiar a una oferta diferente.
 
 ### ¿Se pueden enviar notificaciones a una dirección de correo electrónico diferente de la dirección de correo electrónico del propietario de la cuenta asociada a mi cuenta?
 
 Sí. Si desea especificar una dirección de correo electrónico diferente para recibir notificaciones, siga estas instrucciones:
 
-1.	Vaya a la [pestaña Perfil](https://account.windowsazure.com/Profile) del Portal de cuentas de Azure.
-2.	Haga clic en **Editar detalles** para actualizar su dirección de correo electrónico para recibir notificaciones.
+1.	Vaya a la pestaña [Perfil](https://account.windowsazure.com/Profile) del Portal de cuentas de Azure.
+2.	Haga clic en **Editar detalles** para actualizar su dirección de correo electrónico a fin de recibir notificaciones.
 
 ### ¿Cómo puedo editar la información de pago de mis suscripciones de Azure?
 
@@ -234,11 +243,11 @@ Para ver y editar la información de la cuenta de Azure, debe iniciar sesión en
 
 Para obtener más información, consulte el artículo [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md).
 
-**NOTA**: Actualmente, la herramienta Cambiar método de pago no permite quitar una tarjeta de crédito existente como método de pago. Para obtener información sobre cómo quitar una tarjeta de crédito, consulte en las preguntas más frecuentes "¿Cómo puedo quitar una tarjeta de crédito que ya no utilizo como método de pago de Azure?" en este artículo.
+**NOTA**: Actualmente, la herramienta Cambiar el método de pago no permite quitar una tarjeta de crédito existente como método de pago. Para obtener información sobre cómo quitar una tarjeta de crédito, consulte en las preguntas más frecuentes "¿Cómo puedo quitar una tarjeta de crédito que ya no utilizo como método de pago de Azure?" en este artículo.
 
 ### ¿Por qué no puedo editar o agregar detalles a mi suscripción?
 
-Para ver y editar la información de la cuenta de Azure, debe iniciar sesión en el Centro de cuentas de Azure como administrador de cuenta. Si es el administrador de Azure y aún así no puede modificar la suscripción, envíe una incidencia de soporte técnico para solicitar asistencia. Para crear una incidencia de soporte técnico, consulte el artículo [Creación de una incidencia de soporte técnico sobre problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
+Para ver y editar la información de la cuenta de Azure, debe iniciar sesión en el Centro de cuentas de Azure como administrador de cuenta. Si es el administrador de Azure y aún así no puede modificar la suscripción, envíe una incidencia de soporte técnico para solicitar asistencia. Para crear una incidencia de soporte técnico, consulte el artículo [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
 
 ### ¿Quién puede adquirir servicios de Azure?
 
@@ -268,4 +277,4 @@ Sí.
 
 Actualmente, no está previsto ofrecer Azure o Base de datos SQL a través de SPLA.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

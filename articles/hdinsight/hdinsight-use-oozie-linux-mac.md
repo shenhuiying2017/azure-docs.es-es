@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/07/2016"
 	ms.author="larryfr"/>
 
 
@@ -35,6 +35,8 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **Suscripción de Azure**: Consulte [ Obtener una versión de evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 - **CLI de Azure**: vea [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](../xplat-cli-install.md).
+	
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 - **Un clúster de HDInsight**: consulte [Introducción a HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -720,4 +722,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

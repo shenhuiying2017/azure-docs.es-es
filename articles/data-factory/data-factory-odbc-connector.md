@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/13/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos desde almacenes de datos ODBC mediante Factoría de datos de Azure
@@ -327,4 +327,34 @@ Al mover datos desde almacenes de datos ODBC, los tipos de datos ODBC se asignan
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+## Almacén GE Historian
+Usted crea un servicio vinculado ODBC para vincular un almacén de datos [GE Proficy Historian (ahora GE Historian)](http://www.geautomation.com/products/proficy-historian) a Data Factory de Azure como se muestra en el ejemplo siguiente:
+
+	{
+	    "name": "HistorianLinkedService",
+	    "properties":
+	    {
+	        "type": "OnPremisesOdbc",
+	        "typeProperties":
+	        {
+			    "connectionString": "DSN=<name of the GE Historian store>",
+			    "gatewayName": "<gateway name>",
+			    "authenticationType": "Basic",
+			    "userName": "<user name>",
+			    "password": "<password>"
+	        }
+	    }
+	}
+
+Debe instalar Data Management Gateway en un equipo local y registrar la puerta de enlace con el portal. La puerta de enlace instalada en su equipo local utiliza el controlador ODBC para que GE Historian se conecte al almacén de datos GE Historian, de modo que instale el controlador si aún no está instalado en el equipo de la puerta de enlace. Consulte la sección [Habilitación de la conectividad](#enabling-connectivity) para obtener información detallada.
+
+Antes de usar el almacén GE Historian en una solución de Data Factory, compruebe si la puerta de enlace puede conectarse al almacén de datos mediante instrucciones en la sección siguiente.
+
+Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen en una operación de copia.
+
+[AZURE.INCLUDE [data-factory-troubleshoot-connectivity](../../includes/data-factory-troubleshoot-connectivity.md)]
+
+## Rendimiento y optimización  
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+
+<!---HONumber=AcomDC_0420_2016-->

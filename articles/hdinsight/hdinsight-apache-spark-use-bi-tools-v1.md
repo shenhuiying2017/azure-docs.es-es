@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Uso de herramientas de BI con Apache Spark en HDInsight de Azure (Windows)
+# Uso de herramientas de BI con Apache Spark en HDInsight Windows (versión preliminar)
 
 > [AZURE.NOTE] HDInsight ofrece ahora clústeres Spark en Linux. Para obtener información sobre cómo usar las herramientas de BI con clústeres Spark en HDInsight Linux, vea [Uso de herramientas de BI con Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-use-bi-tools.md).
 
@@ -214,4 +214,4 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

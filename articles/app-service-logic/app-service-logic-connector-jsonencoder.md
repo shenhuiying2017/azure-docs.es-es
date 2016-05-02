@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Introducción al codificador JSON de BizTalk y su incorporación a su aplicación lógica 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 El conector de codificación y descodificación JSON de BizTalk ayuda a la interoperabilidad de las aplicaciones entre datos JSON y XML. Puede convertir una instancia JSON dada a XML y viceversa.
 
@@ -70,4 +72,4 @@ Consulte la referencia de API de REST de Swagger en [Referencia de conectores y 
 <!--Links -->
 [Creación de una aplicación lógica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

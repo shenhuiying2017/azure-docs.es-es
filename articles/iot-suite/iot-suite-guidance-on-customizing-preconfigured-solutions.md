@@ -58,15 +58,13 @@ Además de cambiar los trabajos de Análisis de transmisiones de Azure preconfig
 
 Una de las actividades de extensión más comunes es trabajar con dispositivos específicos de su escenario. Existen varios métodos para trabajar con dispositivos. Entre estos se incluye la modificación de un dispositivo simulado para adaptarlo a su situación, o bien el uso del [SDK de dispositivo de IoT][] para conectar el dispositivo físico a la solución.
 
-Para obtener una guía paso a paso sobre cómo agregar dispositivos a la solución preconfigurada de supervisión remota, consulte [Dispositivos de conexión del conjunto de aplicaciones de IoT](iot-suite-connecting-devices.md).
+Para obtener una guía paso a paso para agregar dispositivos a la solución preconfigurada de supervisión remota, consulte los [dispositivos de conexión de Conjunto de aplicaciones de IoT de Azure](iot-suite-connecting-devices.md) y el [ejemplo del SDK de C de supervisión remota](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) que está diseñado para trabajar con la solución preconfigurada de supervisión remota.
 
 ### Creación de dispositivo simulado propio
 
 El código fuente de la solución de supervisión remota (mencionado anteriormente) incluye un simulador. NET. Este simulador es el que se aprovisiona como parte de la solución y se puede modificar para enviar distintos metadatos, telemetría o responder a distintos comandos.
 
 El simulador preconfigurado en la solución preconfigurada de supervisión remota es un dispositivo de refrigeración que emite la telemetría de temperatura y humedad. Puede modificar el simulador en el proyecto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) después de bifurcar el repositorio de GitHub.
-
-Además, IoT de Azure proporciona un [SDK de C de ejemplo](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) que está diseñado para funcionar con la solución preconfigurada de supervisión remota.
 
 ### Creación y uso de dispositivos propios (físicos)
 
@@ -127,13 +125,13 @@ Los miembros del rol **ReadOnly** pueden ver el panel y la lista de dispositivos
 
 10.  En el Portal de administración de Azure, en la parte inferior de la página, seleccione **Administrar manifiesto** y después **Cargar manifiesto** para cargar el archivo .json que guardó en el paso anterior.
 
-11. Ahora, los roles **Admin** y **ReadOnly** ya están agregados en la aplicación.
+11. Ahora, los roles **Admin** y **ReadOnly** ya están agregados a la aplicación.
 
 12. Para asignar uno de estos roles a un usuario del directorio, consulte [Permisos en el sitio azureiotsuite.com][lnk-permissions].
 
 ## Comentarios
 
-¿Tiene una personalización que le gustaría que se tratara en este documento? Agregue las sugerencias de características en [User Voice](https://feedback.azure.com/forums/321918-azure-iot) o comente este artículo a continuación.
+¿Tiene una personalización que le gustaría que se tratara en este documento? Agregue las sugerencias de características a [User Voice](https://feedback.azure.com/forums/321918-azure-iot) o comente este artículo a continuación.
 
 ## Pasos siguientes
 
@@ -143,4 +141,4 @@ Para obtener más información sobre los dispositivos de IoT, consulte el [sitio
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

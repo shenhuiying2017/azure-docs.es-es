@@ -1,5 +1,12 @@
-<properties pageTitle="Asociados de la aplicación HDInsight | Microsoft Azure" description="Los clientes pueden detectar e implementar fácilmente una aplicación de macrodatos junto con sus clústeres de HDInsight desde el portal de aprovisionamiento." services="hdinsight" documentationCenter="na" authors="pablissima" manager="paulettm="" tags=""/>
-<tags 
+<properties
+	pageTitle="Asociados de la aplicación HDInsight | Microsoft Azure" 
+	description="Los clientes ahora pueden detectar e implementar fácilmente aplicaciones de macrodatos junto con los clústeres de HDInsight directamente desde dentro del portal de aprovisionamiento."
+	services="hdinsight" 
+	documentationCenter="na" 
+	authors="pablissima" 
+	manager="paulettm" 
+	tags=""/>
+<tags
 	ms.service="hdinsight"
 	ms.devlang="na"
 	ms.topic="article"
@@ -31,7 +38,13 @@ http://bluetalon.com/
 
 Con RedPoint, los mismos analista de datos y administradores de bases de datos que trabajan con bases de datos tradicionales pueden trabajan fácilmente con los datos almacenados en Hadoop. No se requieren nuevos conocimientos. No se precisan MapReduce, Hive ni Pig, gracias a la interfaz gráfica de usuario y a la arquitectura pura de YARN (certificada en Hadoop 2.0 por Hortonworks).
 
-Con RedPoint: -Todas las funciones de integración de datos y calidad de datos se pueden realizar en el clúster de Hadoop – ELT, limpieza, coincidencia, desduplicación, combinación y purga, householding, análisis, creación de particiones, anexión, estandarización de direcciones, creación y mantenimiento de claves, automatización, supervisión, notificación - MapReduce no es necesario y, por consiguiente, no se necesitan conocimientos de MapReduce - Los procesos de calidad e integración de datos se ejecutan con la misma eficacia (y en muchos casos más eficazmente) con soluciones basadas en RedPoint que con soluciones basadas en MapReduce - No es preciso sacar los datos de Hadoop para su procesamiento , análisis, informes u otra acción - No es preciso instalar software en el propio clúster y RedPoint respeta la priorización de tareas del YARN, en lugar de competir por los recursos de computación del clúster - Los usuarios pueden administrar los datos tanto en repositorios tradicionales como de Hadoop con un solo producto, incluso reunir datos de entornos independientes o migrar datos de uno a otro
+Con RedPoint:
+-  Todas las funciones de calidad e integración de datos se pueden realizar en el clúster de Hadoop: extracción, carga y transformación (ELT), limpieza, coincidencia, desduplicación, combinación y purga, administración doméstica, análisis, creación de particiones, anexión, normalización de direcciones, creación y mantenimiento de claves, automatización, supervisión y notificación.  
+-  MapReduce no se ve implicado y se necesitan conocimientos de MapReduce.  
+-  Los procesos de calidad e integración de datos se ejecutan tan eficientemente (y en muchos casos más eficientemente) con RedPoint como con las soluciones basadas en MapReduce.  
+-  No es necesario sacar los datos de Hadoop para su procesamiento, análisis, informe u otra acción.  
+-  No es necesario instalar ningún software en el propio clúster y RedPoint respeta la priorización de tareas de YARN en lugar de competir por recursos informáticos del clúster.  
+-  Los usuarios pueden administrar datos tanto en repositorios tradicionales como de Hadoop con un solo producto, incluso reunir datos de entornos independientes o migrar datos de uno a otro.
 
 Para obtener más información, consulte los recursos del lado derecho de la página.
 
@@ -41,4 +54,4 @@ RedPoint obtuvo el primer puesto en las encuestas realizadas a los usuarios por 
 
 ![](media/hdinsight-application-partners/kyvos8.png) Kyvos se marcó el compromiso de sacar el máximo partido de la potencia del análisis de macrodatos con su tecnología exclusiva "OLAP en Hadoop". Esto permite generar cubos en Hadoop con una escalabilidad lineal, lo que elimina las limitaciones de las soluciones tradicionales de OLAP y permite realizar un análisis multidimensional interactivo de los macrodatos. Los usuarios pueden visualizar, explorar y analizar sus datos de forma interactiva en Hadoop sin necesidad de programación.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

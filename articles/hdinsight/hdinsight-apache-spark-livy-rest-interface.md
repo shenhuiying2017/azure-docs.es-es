@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Envío de trabajos de Spark de manera remota mediante Livy con clústeres de Spark en HDInsight (Linux)
+# Envío de trabajos de Spark remotamente a un clúster de HDInsight Spark en Linux mediante Livy (versión preliminar)
 
 Un clúster Apache Spark en HDInsight de Azure incluye Livy, una interfaz REST para enviar trabajos de forma remota a un clúster Spark desde cualquier ubicación. Para obtener documentación detallada, vea [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
@@ -189,4 +189,4 @@ Lleve a cabo los siguiente pasos.
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

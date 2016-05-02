@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="02/19/2016"
+	ms.date="04/08/2016"
 	ms.author="awills"/>
 
 # Análisis de uso con Application Insights
@@ -248,11 +248,11 @@ La telemetría individual puede invalidar los valores predeterminados.
 Puede configurar un inicializador universal para que todos los TelemetryClients nuevos usen automáticamente el contexto.
 
     // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (TelemetryContext context)
+        public void Initialize (ITelemetry telemetry)
         {
-            context.Properties["AppVersion"] = "v2.1";
+            telemetry.Properties["AppVersion"] = "v2.1";
         }
     }
 
@@ -261,7 +261,7 @@ En el inicializador de la aplicación como Global.asax.cs:
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.ContextInitializers
+        TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
 
@@ -288,4 +288,4 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="mihaelablendea" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="04/18/2016"
    ms.author="mihaelab"/>
 
 #Obtención de detalles de la recuperación ante desastres
@@ -63,4 +63,4 @@ Para simular una interrupción puede deshabilitar la aplicación web o la máqui
 
 - Complete la obtención de detalles mediante la comprobación de la integridad de la aplicación posterior a la recuperación (es decir, las cadenas de conexión, los inicios de sesión, la comprobación de funciones básicas u otras validaciones que formen parte de los procedimientos estándar de validación de aplicaciones).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0420_2016-->

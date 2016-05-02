@@ -133,7 +133,7 @@ Ahora, necesitará la clave de acceso principal de la cuenta de almacenamiento, 
 ![](./media/app-insights-export-power-bi/140.png)
 
 
-Asegúrese de establecer el formato de fecha como AAAA-MM-DD (con guiones).
+**Asegúrese de establecer el formato de fecha como AAAA-MM-DD (con guiones).**
 
 El patrón del prefijo de la ruta de acceso especifica dónde busca el Análisis de transmisiones los archivos de entrada en el almacenamiento. Deberá establecerlo para que coincida con el modo en que la Exportación continua almacena los datos. Configúrelo como este caso que se muestra a continuación:
 
@@ -260,6 +260,12 @@ Ahora puede usar este conjunto de datos en informes y paneles de [Power BI](http
 
 ![En Power BI, seleccione el conjunto de datos y los campos.](./media/app-insights-export-power-bi/210.png)
 
+
+### ¿No hay datos?
+
+* Compruebe que [establece el formato de fecha](#set-path-prefix-pattern) correctamente en AAAA-MM-DD (con guiones).
+
+
 ### Vídeo
 
 Noam Ben Zeev muestra cómo exportar a Power BI.
@@ -274,4 +280,4 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

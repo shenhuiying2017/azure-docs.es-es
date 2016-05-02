@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="04/19/2016"
    ms.author="prkumar"/>
 
 
 # Introducción al agente de escucha HTTP y a la acción HTTP, y su incorporación a una aplicación lógica
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
+> [AZURE.NOTE] Estamos finalizando el soporte para este conector porque su funcionalidad se incluye ahora de forma predeterminada como **desencadenador manual** al crear nuevas aplicaciones lógicas. Se recomienda actualizar todas las aplicaciones lógicas que usen este conector. Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
 Conéctese directamente a los recursos de HTTP para escuchar solicitudes HTTP y configurar solicitudes web HTTP. Hay algunos escenarios en los que puede que necesite trabajar con conexiones HTTP directas, entre los que se incluyen los siguientes:
 
@@ -74,7 +75,7 @@ Consulte la referencia de API de REST de Swagger en [Referencia de conectores y 
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
-> [AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> [AZURE.NOTE] Si desea empezar a utilizar Aplicaciones lógicas de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a [Probar aplicación lógica](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
@@ -88,4 +89,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

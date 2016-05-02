@@ -11,7 +11,7 @@
 
 <tags
 	ms.service="virtual-machines-linux"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -20,7 +20,7 @@
 
 # Adición de un disco a una máquina virtual de Linux
 
-En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se pueden conservar los datos: incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño. Para agregar un disco necesitará la [CLI de Azure](../xplat-cli-install.md) en modo de administrador de recursos (`azure config mode arm`).
+En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se pueden conservar los datos: incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño. Para agregar un disco, necesitará configurar la [CLI de Azure](../xplat-cli-install.md) en modo Resource Manager (`azure config mode arm`).
 
 ## Comandos rápidos
 
@@ -32,7 +32,7 @@ rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size
 
 ## Conexión de un disco
 
-La asociación de un nuevo disco es algo que se hace rápidamente. Escriba simplemente `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` para crear y vincular un nuevo disco GB para la máquina virtual. Debe tener un aspecto similar al siguiente:
+La asociación de un nuevo disco es algo que se hace rápidamente. Escriba simplemente `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` para crear y vincular un nuevo disco GB para la máquina virtual. Si no identifica explícitamente una cuenta de almacenamiento, cualquier disco que cree se coloca en la misma cuenta de almacenamiento donde reside el disco del sistema operativo. Debe tener un aspecto similar al siguiente:
 
 	azure vm disk attach-new myuniquegroupname myuniquevmname 5
 	info:    Executing command vm disk attach-new
@@ -177,4 +177,4 @@ El disco de datos está ahora listo para usarse como `/datadrive`.
 - Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](virtual-machines-linux-optimization.md) para asegurarse de que la máquina virtual Linux está configurada correctamente.
 - Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](virtual-machines-linux-configure-raid.md) para obtener un mayor rendimiento.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

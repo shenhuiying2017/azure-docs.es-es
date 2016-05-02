@@ -13,58 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
 # Asistente para seguridad de Privileged Identity Management de Azure AD
 
-La primera vez que ejecute Privileged Identity Management (PIM) de Azure, aparecerá un asistente. El asistente le ayuda a comprender los riesgos de seguridad de identidades con privilegios y cómo usar Privileged Identity Management para reducirlos.
+Si es la primera persona que ejecuta Privileged Identity Management (PIM) de Azure en su organización, se le presentará un asistente. El asistente le ayuda a comprender los riesgos de seguridad de las identidades con privilegios y a usar PIM para reducirlos. No tiene que realizar cambios en las asignaciones de roles existentes en el asistente; si lo prefiere, puede hacerlo más adelante.
 
-Hay tres secciones que revisar, **LOS ADMINISTRADORES PODRÍAN PONERLO EN RIESGO, ADMINISTRE LA SUPERFICIE EXPUESTA A ATAQUES DE LOS ADMINISTRADORES** y **DEFINA LA CONFIGURACIÓN TEMPORAL DE LOS ADMINISTRADORES**. Cada sección ofrece una visión general de los conceptos y una explicación de algunas acciones que deben realizarse.
+## Qué esperar
 
-Al principio, todos los administradores globales serán permanentes. Al hacer clic en **LOS ADMINISTRADORES PODRÍAN PONERLO EN RIESGO**, se mostrará una lista de roles de administrador global y cuántos de ellos tiene actualmente.
+Antes de que su organización comienza a usar PIM, todas las asignaciones de roles son permanentes: los usuarios siempre tienen estos roles aunque en el momento actual no necesiten sus privilegios. El primer paso del asistente muestra una lista de roles con privilegios elevados y cuántos usuarios tienen actualmente esos roles. Puede explorar en profundidad un rol determinado para conocer mejor a los usuarios en caso de que alguno de ellos no le resulte familiar.
 
-Al hacer clic en **ADMINISTRE LA SUPERFICIE EXPUESTA A ATAQUES DE LOS ADMINISTRADORES**, se presentará una oportunidad para cambiar los administradores a temporales, dejarlos permanentes o quitarlos por completo del rol.
+El segundo paso del asistente le ofrece la oportunidad de cambiar las asignaciones de roles del administrador.
 
-**DEFINA LA CONFIGURACIÓN TEMPORAL DE LOS ADMINISTRADORES** le permite requerir la autenticación multifactor, habilitar notificaciones y determinar durante cuánto tiempo un administrador temporal tendrá privilegios.
+> [AZURE.WARNING] Es importante que tenga al menos un administrador global, y más de un administrador de seguridad con una cuenta de organización (no una cuenta de Microsoft). Si solo hay un administrador de seguridad, la organización no podrá administrar PIM si esa cuenta se elimina. Además, no cambie las asignaciones de roles a temporales si un usuario tiene una cuenta de Microsoft. Si tiene pensado exigir MFA para la activación de ese rol, a ese usuario se le bloqueará el acceso al rol.
 
-## Cambio de roles de administrador global a temporal o permanente
 
-Tiene tres opciones para cambiar la ventana de tiempo de un administrador global.
+Una vez realizados los cambios, ya no se mostrará el asistente. La próxima vez que usted u otro administrador de seguridad use PIM, verá el panel de PIM.
 
-1.  Haga clic en el botón **Convertir todos en temporales** para convertir todos los administradores globales en temporales. Elija esta opción solo si todos los administradores tienen cuentas organizativas y se han registrado para Azure MFA.
+- Si desea agregar usuarios a roles o quitar usuarios de roles, o cambiar las asignaciones de permanentes a temporales, puede obtener más información en [Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario](active-directory-privileged-identity-management-how-to-add-role-to-user).
+- Si desea conceder acceso a más usuarios para administrar PIM, aprenda cómo en [How to give access to manage Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-give-access-to-pim) (Cómo proporcionar acceso para administrar Privileged Identity Management de Azure AD).
 
-2.  Haga clic en el botón **Convertir todos en permanentes** para convertir todos los administradores globales en permanentes.
 
-3.  Seleccione **Mantener permanente**, **Convertir en temporal** o **Quitar del rol:** para cada administrador global.
-
-## Cambio del período de activación para un rol de administrador global.
-
-Hay dos formas de establecer el período de activación para un administrador global:
-
-1.  Mueva el control deslizante **período de activación** hacia la izquierda o la derecha para aumentar o disminuir el período de activación. El período de activación puede ser de hasta 72 horas.
-
-2.  Escriba el número de horas en el campo **horas** campo situado a la derecha del control deslizante.
-
-## Habilitación de notificaciones
-
-A fin de que los administradores puedan recibir correo electrónico cuando los roles se activen, habilite las notificaciones haciendo clic en el botón **Habilitar**. También puede deshabilitar esta característica más tarde.
-
-## Exigencia de Multi-Factor Authentication
-
-Si quiere que se exija a los administradores que usen MFA para iniciar sesión en sus cuentas y solicitar una extensión de su rol, habilite MFA haciendo clic en el botón **Habilitar**.
-
-<!--For more information about MFA and PIM, click here. PLACEHOLDER: NEED LINK TO MFA DOC.-->
-
-Seleccione los roles a los que se aplicará esta configuración. Haga clic en **Aceptar**.
-
-> [AZURE.WARNING] En este momento es importante que tenga más de un administrador de seguridad con una cuenta de organización (no una cuenta Microsoft). Si hay solo un administrador de seguridad que no está establecido como permanente y no tiene MFA configurado, el usuario no podrá administrar PIM en absoluto si la cuenta se elimina.
-
-Haga clic en el botón **Aceptar** cuando haya terminado.
-
-Una vez realizados los cambios, ya no se mostrará el asistente. Pero se puede acceder a él nuevamente haciendo clic en el botón **Asistente** en **Administrar identidades**.
 
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Utilizar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas
@@ -322,7 +322,7 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 |Find-AzureVM|Obtiene la máquina virtual de Azure especificada.|
 |Format-DevTestMessageWithTime|Antepone la fecha y la hora a un mensaje. Esta función está diseñada para mensajes escritos en las secuencias de Error y Detallado.|
 |Get-AzureSQLDatabaseConnectionString|Ensambla una cadena de conexión para conectarse a una base de datos SQL de Azure.|
-|Get-AzureVMStorage|Devuelve el nombre de la primera cuenta de almacenamiento con el patrón de nombre "devtest" *(no distingue mayúsculas de minúsculas) en la ubicación especificada o el grupo de afinidad. Si la cuenta de almacenamiento "devtest"* no coincide con la ubicación o el grupo de afinidad, la función la omite. Debe especificar una ubicación o un grupo de afinidad.|
+|Get-AzureVMStorage|Devuelve el nombre de la primera cuenta de almacenamiento con el patrón de nombre "devtest *" (no distingue mayúsculas de minúsculas) en la ubicación especificada o el grupo de afinidad. Si la cuenta de almacenamiento "devtest *" no coincide con la ubicación o el grupo de afinidad, la función la omite. Debe especificar una ubicación o un grupo de afinidad.|
 |Get-MSDeployCmd|Devuelve un comando para ejecutar la herramienta MsDeploy.exe.|
 |New-AzureVMEnvironment|Busca o crea una máquina virtual en la suscripción que coincida con los valores en del archivo de configuración de JSON.|
 |Publish-WebPackage|Usa MsDeploy.exe y un archivo .zip de paquete de publicación web para implementar recursos en un sitio web. Esta función no genera ninguna salida. Si se produce un error en la llamada a MSDeploy.exe, la función genera una excepción. Para obtener una salida más detallada, use la opción **-Verbose**.|
@@ -351,4 +351,4 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 Obtenga más información sobre el scripting de PowerShell leyendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) y vea otros scripts de Azure PowerShell en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

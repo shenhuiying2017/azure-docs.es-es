@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="04/14/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -113,7 +113,7 @@ El asistente para instalación crea una cuenta de servicio local (a menos que es
 
 La cuenta se crea con una contraseña larga compleja que no expira.
 
-Esta se utiliza para almacenar de forma segura las contraseñas de las otras cuentas, que se almacenan cifradas en la base de datos. Las claves privadas de las claves de cifrado se protegen con el cifrado de clave secreta de los servicios criptográficos mediante la API de protección de datos (DPAPI) de Windows. No debe restablecer la contraseña de la cuenta de servicio, ya que Windows destruiría las claves de cifrado por motivos de seguridad.
+Esta se utiliza para almacenar de forma segura las contraseñas de las otras cuentas, que se almacenan cifradas en la base de datos. Las claves privadas de las claves de cifrado se protegen con el cifrado de clave secreta de los servicios criptográficos mediante la API de protección de datos de Windows (DPAPI). No debe restablecer la contraseña de la cuenta de servicio, ya que Windows destruiría las claves de cifrado por motivos de seguridad.
 
 Si usa SQL Server completo, la cuenta de servicio será el DBO de la base de datos creada para el motor de sincronización. El servicio no funcionará como se pretende con ningún otro permiso. También se creará un inicio de sesión SQL.
 
@@ -134,4 +134,4 @@ La cuenta de servicio se crea con una contraseña larga compleja que no expira. 
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

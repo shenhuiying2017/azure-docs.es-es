@@ -14,17 +14,15 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/15/2016"
 	ms.author="cynthn"/>
 
 # Crear y cargar un VHD de Windows Server a Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
-
-
 En este artículo se muestra cómo puede cargar un disco duro virtual (VHD) con un sistema operativo que podrá utilizar como imagen para crear máquinas virtuales basadas en dicha imagen. Para obtener más detalles sobre discos y VHD en Microsoft Azure, consulte [Acerca de los discos y los discos duros virtuales para máquinas virtuales](virtual-machines-linux-about-disks-vhds.md).
 
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos. También puede [capturar](virtual-machines-windows-capture-image.md) y [cargar](virtual-machines-windows-upload-image.md) una máquina virtual mediante el modelo Resource Manager.
 
 ## Requisitos previos
 
@@ -192,7 +190,7 @@ Para obtener más información acerca del cmdlet Add-AzureVhd, consulte [Add-Azu
 
 	![imagen personalizada](./media/virtual-machines-windows-classic-createupload-vhd/vm_custom_image.png)
 
-	Esta nueva imagen ahora está disponible en **Mis imágenes** al crear una máquina virtual. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada](virtual-machines-windows-classic-createportal.md).
+	Esta nueva imagen ahora está disponible en **Mis imágenes** al crear una máquina virtual. Para obtener más instrucciones, consulte [Creación de una máquina virtual personalizada](virtual-machines-windows-classic-createportal.md).
 
 	![Creación de una máquina virtual a partir de una imagen personalizada](./media/virtual-machines-windows-classic-createupload-vhd/create_vm_custom_image.png)
 
@@ -205,4 +203,4 @@ Para obtener más información acerca del cmdlet Add-AzureVhd, consulte [Add-Azu
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

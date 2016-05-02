@@ -1,6 +1,6 @@
 <properties
  pageTitle="Referencia de cmdlets de PowerShell de Programador"
- description=""
+ description="Referencia de cmdlets de PowerShell de Programador"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -54,4 +54,4 @@ En la tabla siguiente aparece una descripción y vínculos a la página de refer
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

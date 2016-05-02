@@ -1,6 +1,6 @@
 <properties
-	pageTitle="¿Qué es R en HDInsight? Introducción al servidor de R en HDInsight | Microsoft Azure"
-	description="Qué es R en HDInsight y cómo usar R para crear aplicaciones para el análisis de macrodatos."
+	pageTitle="¿Qué es R en HDInsight? Introducción al servidor de R en HDInsight (versión preliminar) | Microsoft Azure"
+	description="Qué es servidor de R en HDInsight (versión preliminar) y cómo usar R para crear aplicaciones para el análisis de macrodatos."
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,9 +17,9 @@
    ms.author="jeffstok"/>
 
 
-# Información general: Servidor de R en HDInsight
+#Información general: Servidor de R en HDInsight (versión preliminar)
 
-Con HDInsight Premium, el servidor de R ahora está disponible como una opción al crear clústeres de HDInsight de Azure. Esta nueva característica provee a los científicos de datos, estadísticos y programadores de R de acceso a petición a métodos escalables y distribuidos para realizar análisis en HDInsight. Los clústeres se pueden ajustar a los proyectos y a las tareas en cuestión, y desechar cuando ya no son necesarios. Al ser parte de HDInsight de Azure, estos clústeres incluyen soporte ininterrumpido de nivel empresarial, SLA con un tiempo de actividad del 99,9 % y la flexibilidad suficiente como para integrarse con otros componentes del ecosistema de Azure.
+Con HDInsight Premium, el servidor de R ahora está disponible como una opción al crear clústeres de HDInsight de Azure. Esta nueva característica provee a los científicos de datos, estadísticos y programadores de R de acceso a petición a métodos escalables y distribuidos para realizar análisis en HDInsight. Los clústeres se pueden ajustar a los proyectos y a las tareas en cuestión, y desechar cuando ya no son necesarios. Al ser parte de HDInsight de Azure, estos clústeres incluyen soporte ininterrumpido de nivel empresarial, SLA con un tiempo de actividad del 99,9 % y la flexibilidad suficiente como para integrarse con otros componentes del ecosistema de Azure.
 
 >[AZURE.NOTE] El servidor de R solo está disponible con HDInsight Premium. Actualmente, HDInsight Premium solo está disponible para los clústeres de Hadoop y Spark. Por tanto, en este momento el servidor de R solo se puede usar con clústeres de Hadoop y Spark en HDInsight. Para más información, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight](hdinsight-component-versioning.md).
 
@@ -81,7 +81,7 @@ Un clúster existente se puede escalar horizontal o verticalmente a través del 
 
 ### Mantenimiento del sistema 
 
-El mantenimiento se realiza en las máquinas virtuales de Linux subyacentes en un clúster de HDInsight durante horas de poca actividad para aplicar revisiones de sistema operativo, etc. Normalmente, esto tiene lugar a las 3:30 a. m. (según la hora local de la máquina virtual) los lunes y jueves de cada semana. Las actualizaciones se realizan de manera que no afectan a más de ¼ del clúster a la vez. Dado que los nodos principales son redundantes y no todos los nodos de datos se ven afectados, puede que los trabajos en ejecución durante ese tiempo se ralenticen, pero deben ejecutarse hasta completarse. Cualquier software personalizado que haya instalado o dato local se conserva a través de estos eventos de mantenimiento a menos que se produzca un error irrecuperable que requiera recompilar el clúster.
+El mantenimiento se realiza en las máquinas virtuales de Linux subyacentes en un clúster de HDInsight durante horas de poca actividad para aplicar revisiones de sistema operativo, etc. Normalmente, esto tiene lugar a las 3:30 a. m. (según la hora local de la máquina virtual) los lunes y jueves de cada semana. Las actualizaciones se realizan de manera que no afectan a más de ¼ del clúster a la vez. Dado que los nodos principales son redundantes y no todos los nodos de datos se ven afectados, puede que los trabajos en ejecución durante ese tiempo se ralenticen, pero deben ejecutarse hasta completarse. Cualquier software personalizado que haya instalado o dato local se conserva a través de estos eventos de mantenimiento a menos que se produzca un error irrecuperable que requiera recompilar el clúster.
 
 ## Opciones del IDE del servidor de R en el clúster de HDInsight
 
@@ -109,4 +109,4 @@ Use los siguientes vínculos para obtener más información sobre cómo usar el 
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

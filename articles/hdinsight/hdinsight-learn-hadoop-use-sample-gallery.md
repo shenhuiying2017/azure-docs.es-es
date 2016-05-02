@@ -30,10 +30,6 @@ La Galería de introducción de HDInsight proporciona una manera fácil y rápid
 	- Análisis del registro del sitio web
 	- Recomendación de película de Mahout
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Información sobre Hadoop con la Galería de introducción de HDInsight](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
-
 ![Soluciones de la Galería de introducción de HBase, Storm y Hadoop en HDInsight.][hdinsight.sample.gallery]
 
 El vídeo siguiente muestra cómo ejecutar la muestra de análisis de tendencias de Twitter:
@@ -68,4 +64,4 @@ Otras formas de aprender HDInsight son:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

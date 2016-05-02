@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Compilación de línea de comandos de Azure
@@ -62,4 +62,4 @@ Si desea utilizar un directorio alternativo para el paquete y los archivos de co
 
 Una vez compilado el paquete, puede implementarlo en Azure. Para obtener un tutorial que muestra ese proceso, consulte el sitio web de Azure. Para obtener información sobre cómo automatizar el proceso, consulte [Entrega continua para Servicios en la nube de Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->
