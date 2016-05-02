@@ -195,7 +195,7 @@ las características centrales de Jupyter también está disponibles en Visual S
 
 Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repositorio]: https://github.com/ipython/ipython
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 

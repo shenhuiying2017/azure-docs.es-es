@@ -34,7 +34,7 @@ Según el modelo de implementación de la máquina virtual, puede usar el Portal
 
 ### Portal de Azure
 
-En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, puede usar el [Portal de Azure](https://portal.azure.com) para restablecer el servicio Escritorio remoto. Haga clic en **Examinar** > **Máquinas virtuales (clásico)** > *su máquina virtual con Windows * > **Restablecer acceso remoto...** Aparece la siguiente página.
+En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, puede usar el [Portal de Azure](https://portal.azure.com) para restablecer el servicio Escritorio remoto. Haga clic en **Examinar** > **Máquinas virtuales (clásico)** > *su máquina virtual con Windows* > **Restablecer acceso remoto...** Aparece la siguiente página.
 
 
 ![Página Restablecer configuración de RDP](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)

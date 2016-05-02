@@ -67,7 +67,7 @@ Empiece por registrar la aplicación web en Azure Active Directory (AD). El regi
 El tema [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](resource-group-create-service-principal-portal.md) muestra todos los pasos necesarios para configurar una aplicación. Consulte dicho tema cuando cree una aplicación con las siguientes propiedades:
 
 - Aplicación web denominada **CloudSense**
-- Dirección URL de inicio de sesión e identificador URI de la aplicación con el formato ****http://{domain_name_of_your_directory}/{name_of_the_app}**.
+- Dirección URL de inicio de sesión e identificador URI de la aplicación con el formato **http://{domain_name_of_your_directory}/{name_of_the_app}**.
 - Clave de autenticación para iniciar sesión en la aplicación
 - Permiso delegado **Acceder a administración de servicios de Azure** para **API de administración de servicios de Azure**. Deje el valor predeterminado **Habilitar inicio de sesión único y leer el perfil del usuario** en **Azure Active Directory**.
 - Aplicación multiinquilino
@@ -301,7 +301,7 @@ Los datos de la solicitud de token de concesión de credenciales de cliente:
 |----|----
 | grant\_type | **client\_credentials**
 | client\_id | Id. de cliente de la aplicación
-| resource | Identificador del recurso para el que se solicita el token de acceso de código URL. En este caso, el identificador de la API de Azure AD Graph: **https://graph.windows.net/ ** | client\_secret o client\_assertion\_type + client\_assertion | Si la aplicación utiliza la credencial de contraseña, utilice client\_secret. Si la aplicación usa credencial de certificado, utilice client\_assertion.
+| resource | Identificador del recurso para el que se solicita el token de acceso de código URL. En este caso, el identificador de la API de Azure AD Graph: **https://graph.windows.net/** | client\_secret o client\_assertion\_type + client\_assertion | Si la aplicación utiliza la credencial de contraseña, utilice client\_secret. Si la aplicación usa credencial de certificado, utilice client\_assertion.
 
 Una solicitud de ejemplo de token de concesión de credenciales de cliente:
 

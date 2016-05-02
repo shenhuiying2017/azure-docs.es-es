@@ -43,7 +43,8 @@ Las notas de la versión de los Servicios de BizTalk de Microsoft Azure contiene
 
 ### Problemas de conectividad después de la actualización del Portal de Servicios de BizTalk
 
-  Si tiene abierto el Portal de Servicios de BizTalk mientras se actualizan los Servicios de BizTalk para implementar los cambios en el servicio, podría experimentar problemas de conectividad con dicho portal. Como solución alternativa, puede reiniciar el explorador, eliminar la memoria caché del explorador o iniciar el portal en modo privado.
+  Si tiene abierto el Portal de Servicios de BizTalk mientras se actualizan los Servicios de BizTalk para implementar los cambios en el servicio, podría experimentar problemas de conectividad con dicho portal. 
+  Como solución alternativa, puede reiniciar el explorador, eliminar la memoria caché del explorador o iniciar el portal en modo privado.
 
 ### El IDE de Visual Studio no puede encontrar el artefacto si hace clic en un error o una advertencia en un proyecto de Servicios de BizTalk
 Instale Visual Studio 2012 Update 3 RC 1 para corregir el problema.
@@ -53,7 +54,8 @@ Tenga en cuenta las siguientes situaciones con un proyecto de Servicios de BizTa
 * En la misma solución de Visual Studio, hay un proyecto de Servicios de BizTalk y un proyecto de enlace personalizado. El proyecto de Servicios de BizTalk tiene una referencia a este archivo de proyecto de enlace personalizado.
 * El proyecto de Servicios de BizTalk tiene una referencia a una DLL de comportamiento o enlace personalizado.
 
-Compila la solución en Visual Studio correctamente. A continuación, recompila o limpia la solución. Después de eso, al recompilar o limpiar de nuevo, se produce el siguiente error: No se puede copiar el archivo <Path to DLL> en "bin\\Debug\\FileName.dll". El proceso no puede obtener acceso al archivo "bin\\Debug\\FileName.dll" porque está siendo usado en otro proceso.
+Compila la solución en Visual Studio correctamente. A continuación, recompila o limpia la solución. Después de eso, al recompilar o limpiar de nuevo, se produce el siguiente error: 
+No se puede copiar el archivo <Path to DLL> en "bin\\Debug\\FileName.dll". El proceso no puede obtener acceso al archivo "bin\\Debug\\FileName.dll" porque está siendo usado en otro proceso.
 
 #### Solución alternativa
 * Si [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) está instalado, tiene las dos opciones siguientes:
@@ -69,15 +71,17 @@ Compila la solución en Visual Studio correctamente. A continuación, recompila 
 Si usa caracteres no imprimibles como parte de las propiedades promocionadas en los mensajes, dichos mensajes no se podrán enrutar a destinos de retransmisión que utilicen el enlace BasicHttpRelay. Además, las propiedades promocionadas que están disponibles como parte del seguimiento están codificadas en URL para blobs y no codificadas para destinos.
 
 ### MDN se envía de forma asincrónica incluso si no está activada la opción Enviar MDN asincrónico  
-Considere este escenario: si activa la casilla **Enviar MDN asincrónico** y especifica una dirección URL a la que enviar el MDN asincrónico y luego desactiva de nuevo ** esta casilla**, el MDN se seguirá enviando a la dirección URL especificada aunque no esté activada la opción para enviar MDN asincrónico. Como solución alternativa, debe borrar la dirección URL especificada antes de desactivar la casilla **Enviar MDN asincrónico** y, luego, implementar el contrato AS2.
+Considere este escenario: si activa la casilla **Enviar MDN asincrónico** y especifica una dirección URL a la que enviar el MDN asincrónico y luego desactiva de nuevo **esta casilla**, el MDN se seguirá enviando a la dirección URL especificada aunque no esté activada la opción para enviar MDN asincrónico. Como solución alternativa, debe borrar la dirección URL especificada antes de desactivar la casilla **Enviar MDN asincrónico** y, luego, implementar el contrato AS2.
 
 ### Los caracteres de espacio en blanco después de un intercambio válido hacen que se envíe un mensaje vacío al punto de conexión de suspensión.  
 Si hay espacios en blanco después de un segmento de IEA, el desensamblador lo trata como extremo del intercambio actual y examina el siguiente conjunto de espacios en blanco como un mensaje nuevo. Puesto que no es un intercambio válido, puede observar que se envía un mensaje correcto al destino de ruta y un mensaje vacío al punto de conexión de suspensión.
 ### Seguimiento en el Portal de Servicios de BizTalk  
-Los eventos de seguimiento se capturan hasta el procesamiento de mensaje EDI y las posibles correlaciones. Si se produce un error en un mensaje fuera de la fase de protocolo, el seguimiento se muestra como correcto. En esta situación, consulte la sección de registro de la columna **Detalles** de **Seguimiento** para información detallada del error. En la configuración de envío y recepción de X 12 ([Crear un acuerdo X12 en los servicios de BizTalk de Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) se proporciona información sobre la fase de protocolo.
+Los eventos de seguimiento se capturan hasta el procesamiento de mensaje EDI y las posibles correlaciones. Si se produce un error en un mensaje fuera de la fase de protocolo, el seguimiento se muestra como correcto. En esta situación, consulte la sección de registro de la columna **Detalles** de **Seguimiento** para información detallada del error. 
+En la configuración de envío y recepción de X 12 ([Crear un acuerdo X12 en los servicios de BizTalk de Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) se proporciona información sobre la fase de protocolo.
 
 ### Actualización del contrato  
-El Portal de Servicios de BizTalk le permite modificar el calificador de una identidad cuando se configura un contrato. Esto puede dar lugar a propiedades de incoherencia. Por ejemplo, hay un contrato que usa ZZ: 1234567 y ZZ: 7654321 como calificador. En la configuración de perfil del Portal de Servicios de BizTalk, cambia ZZ:1234567 por 01:ChangedValue. Abre el contrato y se muestra 01:ChangedValue en lugar de ZZ:1234567. Para modificar el calificador de una identidad, elimine el contrato, actualice las **identidades** en el perfil de socio y luego vuelva a crear el contrato.
+El Portal de Servicios de BizTalk le permite modificar el calificador de una identidad cuando se configura un contrato. Esto puede dar lugar a propiedades de incoherencia. Por ejemplo, hay un contrato que usa ZZ: 1234567 y ZZ: 7654321 como calificador. En la configuración de perfil del Portal de Servicios de BizTalk, cambia ZZ:1234567 por 01:ChangedValue. Abre el contrato y se muestra 01:ChangedValue en lugar de ZZ:1234567. 
+Para modificar el calificador de una identidad, elimine el contrato, actualice las **identidades** en el perfil de socio y luego vuelva a crear el contrato.
 > AZURE.WARNING Este comportamiento afecta a X12 y AS2.
 
 ### Datos adjuntos de AS2  
@@ -92,7 +96,10 @@ Considere un escenario en el orden siguiente:
 
 * Cierra el archivo .bcs (cerrando la pestaña en Visual Studio) sin guardar los cambios.
 
-* Abre de nuevo el archivo .bcs desde el Explorador de soluciones. Observará que mientras que el archivo .bridgeconfig asociado tiene el nuevo nombre especificado, el nombre de entidad en la superficie de diseño sigue siendo el antiguo. Si intenta abrir la configuración del puente haciendo doble clic en el componente de puente, obtendrá el siguiente error: '<old name>'El archivo asociado de la entidad'<old name>.bridgeconfig' no existe. Para evitar esta situación, asegúrese de guardar los cambios después de cambiar el nombre de las entidades en un proyecto de Servicios de BizTalk.
+* Abre de nuevo el archivo .bcs desde el Explorador de soluciones. 
+Observará que mientras que el archivo .bridgeconfig asociado tiene el nuevo nombre especificado, el nombre de entidad en la superficie de diseño sigue siendo el antiguo. Si intenta abrir la configuración del puente haciendo doble clic en el componente de puente, obtendrá el siguiente error: 
+  '<old name>'El archivo asociado de la entidad'<old name>.bridgeconfig' no existe. 
+Para evitar esta situación, asegúrese de guardar los cambios después de cambiar el nombre de las entidades en un proyecto de Servicios de BizTalk.
 ### El proyecto de Servicios de BizTalk se compila correctamente incluso si un artefacto se ha excluido de un proyecto de Visual Studio
 Considere un escenario donde se agrega un artefacto (por ejemplo, un archivo XSD) a un proyecto de Servicios de BizTalk. Incluye ese artefacto en la configuración del puente (por ejemplo, especificándolo como un tipo de mensaje de solicitud) y luego lo excluye del proyecto de Visual Studio. En tal caso, la compilación del proyecto no dará ningún error siempre y cuando el artefacto eliminado esté disponible en el disco en la misma ubicación desde la que se incluyó en el proyecto de Visual Studio.
 ### El proyecto de Servicios de BizTalk no comprueba la disponibilidad del esquema mientras se configuran los puentes
@@ -141,7 +148,8 @@ Considere el siguiente escenario:
 ### Los puentes no usan certificados actualizados incluso después de que se ha actualizado un certificado en el almacén de artefactos.
 Considere los siguientes escenarios:
 
-**Escenario 1: Uso de certificados basados en huella digital para garantizar la transferencia de mensajes de un puente a un punto de conexión de servicio** Considere un escenario donde usa certificados basados en huella digital en el proyecto de servicio de BizTalk. Actualiza el certificado en el Portal de Servicios de BizTalk con el mismo nombre pero con una huella digital diferente, pero no actualiza el proyecto de servicio de BizTalk de acuerdo con esa modificación. En este escenario, el puente puede seguir procesando los mensajes porque es posible que los datos de certificado más antiguos estén aún en la memoria caché del canal. Después de eso, el procesamiento de mensajes da error.
+**Escenario 1: Uso de certificados basados en huella digital para garantizar la transferencia de mensajes de un puente a un punto de conexión de servicio** 
+Considere un escenario donde usa certificados basados en huella digital en el proyecto de servicio de BizTalk. Actualiza el certificado en el Portal de Servicios de BizTalk con el mismo nombre pero con una huella digital diferente, pero no actualiza el proyecto de servicio de BizTalk de acuerdo con esa modificación. En este escenario, el puente puede seguir procesando los mensajes porque es posible que los datos de certificado más antiguos estén aún en la memoria caché del canal. Después de eso, el procesamiento de mensajes da error.
 
 **Solución alternativa**: actualice el certificado en el proyecto de servicio de BizTalk y vuelva a implementar el proyecto.
 
@@ -152,7 +160,8 @@ Considere un escenario donde usa comportamientos basados en el nombre para ident
 **Solución alternativa**: actualice el certificado en el proyecto de servicio de BizTalk y vuelva a implementar el proyecto.
 
 ### Los puentes siguen procesando los mensajes aunque la Base de datos SQL esté sin conexión
-Los puentes de Servicios de BizTalk continúan procesando los mensajes durante un tiempo, aunque la Base de datos SQL de Microsoft Azure (que almacena la información de ejecución como artefactos y canalizaciones implementados) esté sin conexión. El motivo es que los Servicios de BizTalk usan la configuración de puentes y artefactos almacenada en caché. Si no desea que los puentes procesen mensajes cuando la Base de datos SQL está sin conexión, puede usar los cmdlets de PowerShell de Servicios de BizTalk para detener o suspender el servicio de BizTalk. Consulte el ejemplo de código [Azure BizTalk Service Management](http://go.microsoft.com/fwlink/p/?LinkID=329019) para conocer los cmdlets de Windows PowerShell para administrar operaciones.
+Los puentes de Servicios de BizTalk continúan procesando los mensajes durante un tiempo, aunque la Base de datos SQL de Microsoft Azure (que almacena la información de ejecución como artefactos y canalizaciones implementados) esté sin conexión. El motivo es que los Servicios de BizTalk usan la configuración de puentes y artefactos almacenada en caché. 
+Si no desea que los puentes procesen mensajes cuando la Base de datos SQL está sin conexión, puede usar los cmdlets de PowerShell de Servicios de BizTalk para detener o suspender el servicio de BizTalk. Consulte el ejemplo de código [Azure BizTalk Service Management](http://go.microsoft.com/fwlink/p/?LinkID=329019) para conocer los cmdlets de Windows PowerShell para administrar operaciones.
 ### La lectura del mensaje XML en el componente de código personalizado de un puente incluye un carácter de marca de orden de byte (BOM) adicional
 Considere un escenario donde quiere leer un mensaje XML dentro del código personalizado de un puente. Si usa la API de .NET System.Text.Encoding.UTF8.GetString(bytes), se incluye un carácter BOM adicional en la salida al comienzo del mensaje. Por lo tanto, si no quiere que la salida incluya dicho carácter, debe usar ```System.IO.StreamReader().ReadToEnd()```.
 ### El envío de mensajes a un puente con WCF no se escala

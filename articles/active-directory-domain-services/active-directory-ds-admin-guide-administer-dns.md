@@ -40,7 +40,7 @@ Realice los pasos siguientes para instalar las herramientas de administración d
 
     ![Inicio del Administrador del servidor en la máquina virtual](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
 
-5. En la página **Antes de comenzar** del ** Asistente para agregar roles y características**, haga clic en **Siguiente**.
+5. En la página **Antes de comenzar** del **Asistente para agregar roles y características**, haga clic en **Siguiente**.
 
     ![Página Antes de comenzar](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
 

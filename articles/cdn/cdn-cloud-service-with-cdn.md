@@ -177,7 +177,7 @@ De igual forma, puede acceder a cualquier URL de acceso público en **http://*&l
 -	Cualquier controlador/acción
 -	Si la cadena de consulta está habilitada en el extremo de red CDN, cualquier URL con cadenas de consulta
 
-De hecho, con la configuración anterior, puede hospedar el servicio en la nube entero desde **http://*&lt;cdnName>*.azureedge.net/**. Si vamos a ****http://camservice.azureedge.net/**, obtenemos el resultado de la acción de Home/Index.
+De hecho, con la configuración anterior, puede hospedar el servicio en la nube entero desde **http://*&lt;cdnName>*.azureedge.net/**. Si vamos a **http://camservice.azureedge.net/**, obtenemos el resultado de la acción de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 

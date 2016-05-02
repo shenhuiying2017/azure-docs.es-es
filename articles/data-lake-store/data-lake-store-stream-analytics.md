@@ -95,7 +95,7 @@ Primero debe crear un trabajo de Análisis de transmisiones que incluya un orige
 
 	* **Escriba un alias de salida**. Se trata de un nombre único indicado para la salida del trabajo.
 	* **Especifique una cuenta de Almacén de Data Lake**. Debe de haberla creado, tal como se mencionó en el requisito previo.
-	* **Especifique un patrón del prefijo de la ruta de acceso**. Esto es necesario para identificar los archivos de salida que se escriben en el Almacén de Data Lake por el trabajo de Análisis de transmisiones. Como los títulos de las salidas escritos por el trabajo están en un formato GUID, la inclusión de un prefijo ayudará a identificar la salida escrita. Si desea incluir una marca de fecha y hora como parte del prefijo, asegúrese de incluir `{date}/{time}` en el patrón del prefijo. Si incluye esta opción, los campos **Formato de fecha ** y **Formato de hora** se habilitan y podrá seleccionar el formato preferido.
+	* **Especifique un patrón del prefijo de la ruta de acceso**. Esto es necesario para identificar los archivos de salida que se escriben en el Almacén de Data Lake por el trabajo de Análisis de transmisiones. Como los títulos de las salidas escritos por el trabajo están en un formato GUID, la inclusión de un prefijo ayudará a identificar la salida escrita. Si desea incluir una marca de fecha y hora como parte del prefijo, asegúrese de incluir `{date}/{time}` en el patrón del prefijo. Si incluye esta opción, los campos **Formato de fecha** y **Formato de hora** se habilitan y podrá seleccionar el formato preferido.
 
 	Haga clic en la flecha hacia adelante.
 
