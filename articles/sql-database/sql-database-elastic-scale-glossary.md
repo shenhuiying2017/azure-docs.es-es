@@ -3,7 +3,7 @@
     description="Explicación de los términos usados en las herramientas de bases de datos elásticas" 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove" 
     editor=""/>
 
@@ -34,6 +34,14 @@ Estos términos se usan en [Incorporación de una partición con herramientas de
 **Mapa de particiones local**: almacenado en una partición, el mapa de particiones local contiene asignaciones para los shardlets que residen en la partición.
 
 **Consulta a través de particiones múltiples**: la capacidad de emitir una consulta a través de varias particiones; los conjuntos de resultados se devuelven usando la semántica UNION ALL (conocida también como "consulta de distribución ramificada"). Comparar con **enrutamiento dependiente de datos**.
+
+**Multiinquilino** e **Inquilino único**: muestra una base de datos de inquilino único y multiinquilino.
+
+![Bases de datos de inquilino único y multiinquilino](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+
+Aquí se muestra una representación de bases de datos de inquilino único y multiinquino **particionadas**.
+
+![Bases de datos de inquilino único y multiinquilino](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
 **Mapa de particiones de intervalo**: un mapa de particiones en el que la estrategia de distribución de particiones se basa en varios intervalos de valores contiguos.
 
@@ -82,4 +90,4 @@ Estos términos se usan en [Incorporación de una partición con herramientas de
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

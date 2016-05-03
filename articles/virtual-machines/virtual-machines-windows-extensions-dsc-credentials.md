@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/18/2016"
    ms.author="zachal"/>
 
 # Cómo pasar las credenciales al controlador de extensiones de la DSC de Azure #
@@ -89,4 +89,4 @@ Para obtener más información sobre la DSC de PowerShell, [visite el centro de 
 
 Para buscar más funcionalidades que se puedan administrar con la DSC de PowerShell, [examine la Galería de PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) para obtener más recursos de DSC.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

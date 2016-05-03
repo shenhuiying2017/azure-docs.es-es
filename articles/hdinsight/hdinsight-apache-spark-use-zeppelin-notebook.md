@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight (Linux)
+# Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight Linux (versión preliminar)
 
 Obtenga información sobre cómo instalar los cuadernos de Zeppelin en clústeres Spark y cómo usar los cuadernos de Zeppelin.
 
@@ -332,4 +332,4 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="04/18/2016"
 	ms.author="jeedes"/>
 
 
@@ -84,7 +84,7 @@ Para configurar la integración de Keylight en Azure AD, es preciso agregar Keyl
 
 7. En el panel de resultados, seleccione **Keylight** y luego haga clic en **Completar** para agregar la aplicación.
 
-
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_02.png)
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Keylight con un usuario de prueba llamado "Britta Simon".
@@ -93,7 +93,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Keylight, e
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de Keylight](#creating-a-Keylight-test-user)**: para tener un homólogo de Britta Simon en Keylight que esté vinculado a la representación de ella en Azure AD.
+4. **[Creación de un usuario de prueba de Keylight](#creating-a-keylight-test-user)**: para tener un homólogo de Britta Simon en Keylight que esté vinculado a la representación de ella en Azure AD.
 5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
@@ -109,7 +109,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 	![Configurar inicio de sesión único][6]
 
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Keylight?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**.
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Keylight?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y después haga clic en **Siguiente**.
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_03.png)
 
@@ -147,27 +147,27 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/404.png)
   
 
-5. En la página de diálogo **Edit SAML Settings** (Editar la configuración de SAML), realice los pasos siguientes:
+5. En la página del cuadro de diálogo **Edit SAML Settings** (Editar la configuración de SAML), realice los pasos siguientes:
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/405.png)
 
     a. Establezca **SAML authentication** (Autenticación SAML) como **Active** (Activada).
 
 
-    b. En el Portal de Azure AD clásico, copie el valor de **SAML SSO URL** (Dirección URL de inicio de sesión único de SAML) y péguelo en el cuadro de texto **Identity Provider Login URL** (Dirección URL de inicio de sesión de proveedor de identidades).
+    b. En el Portal de Azure AD clásico, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión del proveedor de identidades**.
 
-    c. En el Portal de Azure AD clásico, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Identity Provider Logout URL** (Dirección URL de cierre de sesión de proveedor de identidades).
+    c. En el Portal de Azure AD clásico, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión del proveedor de identidades**.
 
-    d. Haga clic en **Choose file** (Elegir archivo) para seleccionar el certificado de Keylight descargado y después haga clic en **Abrir** para cargarlo.
+    d. Haga clic en **Elegir archivo** para seleccionar el certificado de Keylight descargado y después haga clic en **Abrir** para cargarlo.
 
 
-    e. Establezca la **SAML User Id location** (Ubicación de Id. de usuario de SAML) como **NameIdentifier element of the subject statement** (Elemento NameIdentifier de la instrucción Subject).
+    e. Establezca **SAML User Id location** (Ubicación de id. de usuario de SAML) en **NameIdentifier element of the subject statement** (Elemento NameIdentifier de la instrucción Subject).
    
-    f. Proporcione la información del campo Keylight Service Provider (Proveedor de servicios de Keylight) mediante el siguiente patrón: **https://&lt;Company nombre de la compañía&gt;.keylightgrc.com**.
+    f. Proporcione la información del campo Proveedor de servicios de Keylight mediante el siguiente patrón: **https://&lt;Company nombre de la compañía&gt;.keylightgrc.com**.
 
-    g. Establezca **Auto-provision users** (Usuarios de aprovisionamiento automático) como **Active** (Activado).
+    g. Establezca **Auto-provision users** (Usuarios de aprovisionamiento automático) en **Active** (Activado).
 
-    h. Establezca **Auto-provision account type** (Tipo de cuenta de aprovisionamiento automático) como **Full User** (Usuario completo).
+    h. Establezca **Auto-provision account type** (Tipo de cuenta de aprovisionamiento automático) en **Full User** (Usuario completo).
 
     i. En el campo **Auto-provision security role** (Rol de seguridad de aprovisionamiento automático), seleccione **Standard User with SAML** (Usuario estándar con SAML).
    
@@ -222,7 +222,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_04.png)
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_05.png)
 
@@ -232,7 +232,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
+6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_06.png)
 
@@ -246,11 +246,11 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
     e. Haga clic en **Siguiente**.
 
-7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
+7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_07.png)
 
-8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_08.png)
 
@@ -264,7 +264,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
 En esta sección, creará un usuario llamado Britta Simon en Keylight. Keylight admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
 
-No hay ningún elemento de acción para usted en esta sección. Se crea un nuevo usuario al acceder a Keylight en caso de que el usuario todavía no exista. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on).
+No hay ningún elemento de acción para usted en esta sección. Se crea un nuevo usuario al acceder a Keylight en caso de que el usuario todavía no exista.
 
 > [AZURE.NOTE] Si necesita crear manualmente un usuario, debe ponerse en contacto con el equipo de soporte técnico de Keylight.
 
@@ -329,4 +329,4 @@ Al hacer clic en el icono de Keylight en el Panel de acceso, debería iniciar se
 [204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

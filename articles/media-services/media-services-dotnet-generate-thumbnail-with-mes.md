@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+ 	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -382,4 +382,4 @@ Se aplican las siguientes consideraciones:
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

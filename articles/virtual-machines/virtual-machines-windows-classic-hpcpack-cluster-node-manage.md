@@ -13,21 +13,21 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/08/2016"
+ ms.date="04/18/2016"
  ms.author="danlep"/>
 
 # Administrar el número y la disponibilidad de los nodos de ejecución en un clúster de HPC Pack en Azure
 
+Si ha creado un clúster de HPC Pack en las máquinas virtuales de Azure, puede que desee maneras de agregar, quitar iniciar (aprovisionar) o detener (desaprovisionar) con facilidad un número de máquinas virtuales de nodo de ejecución en el clúster. Para realizar estas tareas, ejecute los scripts de Azure PowerShell que están instalados en el nodo principal de la máquina virtual. Estos scripts le ayudan a controlar el número y la disponibilidad de los recursos de clúster de HPC Pack para que pueda controlar los costos.
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
-Si ha creado un clúster de HPC Pack en las máquinas virtuales de Azure, puede que desee maneras de agregar, quitar iniciar (aprovisionar) o detener (desaprovisionar) con facilidad un número de máquinas virtuales de nodo de ejecución en el clúster. Para realizar estas tareas, ejecute los scripts de Azure PowerShell que están instalados en el nodo principal de la máquina virtual (comenzando por HPC Pack 2012 R2 Update 1). Estos scripts le ayudan a controlar el número y la disponibilidad de los recursos de clúster de HPC Pack para que pueda controlar los costos.
-
->[AZURE.NOTE] Los scripts se encuentra en la carpeta %CCP\_HOME%bin en el nodo principal. Debe ejecutar cada uno de los scripts como administrador.
-
 ## Requisitos previos
 
-* **Clúster de HPC Pack en máquinas virtuales de Azure**: cree un clúster de HPC Pack en el modelo de implementación clásico (Administración de servicios) con al menos HPC Pack 2012 R2 Update 1. Por ejemplo, puede automatizar la implementación mediante la imagen de la máquina virtual de HPC Pack en Azure Marketplace y un script de Azure PowerShell. Para obtener información y ver los requisitos previos, vea [Crear un clúster de HPC con el script de implementación de HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+* **Clúster de HPC Pack en máquinas virtuales de Azure**: cree un clúster de HPC Pack en el modelo de implementación clásico con al menos HPC Pack 2012 R2 Update 1. Por ejemplo, puede automatizar la implementación mediante la imagen de la máquina virtual de HPC Pack actual en Azure Marketplace y un script de Azure PowerShell. Para obtener información y ver los requisitos previos, vea [Crear un clúster de HPC con el script de implementación de HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+
+    Después de la implementación, busque los scripts de administración de nodo en la carpeta % CCP\_HOME %bin en el nodo principal. Debe ejecutar cada uno de los scripts como administrador.
 
 * **Archivo de configuración de publicación o certificado de administración de Azure**: debe llevar a cabo una de las siguientes acciones en el nodo principal:
 
@@ -76,11 +76,11 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **DomainUserPassword**: contraseña del usuario de dominio.
 
-* **NodeNameSeries** (opcional): modelo de nomenclatura para los nodos de ejecución. El formato debe ser & lt;*Nombre\_raíz*& gt; & lt;*Número\_inicio*& gt; %. Por ejemplo, MyCN%10% se refiere a una serie de nombres de nodos de ejecución a partir de MyCN11. Si no se especifica, el script usa la serie de nomenclatura de nodos configurados clúster de HPC.
+* **NodeNameSeries** (opcional): modelo de nomenclatura para los nodos de proceso. El formato debe ser & lt;*Nombre\_raíz*& gt; & lt;*Número\_inicio*& gt; %. Por ejemplo, MyCN%10% se refiere a una serie de nombres de nodos de ejecución a partir de MyCN11. Si no se especifica, el script usa la serie de nomenclatura de nodos configurados clúster de HPC.
 
 ### Ejemplo
 
-En el ejemplo siguiente se agregan 20 máquinas virtuales grandes de nodos de ejecución de gran tamaño en el servicio en la nube *hpcservice1*, según la imagen de máquina virtual *hpccnimage1*.
+En el ejemplo siguiente se agregan 20 máquinas virtuales grandes de nodos de proceso de gran tamaño en el servicio en la nube *hpcservice1*, según la imagen de máquina virtual *hpccnimage1*.
 
 ```
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
@@ -150,7 +150,7 @@ Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 
 ## Detener máquinas virtuales de nodo de ejecución
 
-Detenga nodos de ejecución con el script **Stop-HpcIaaSNode.ps1**.
+Detenga los nodos de proceso con el script **Stop-HpcIaaSNode.ps1**.
 
 ### Sintaxis
 
@@ -177,6 +177,6 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 ## Pasos siguientes
 
-* Si busca una manera de aumentar o reducir automáticamente los nodos de clúster según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Escalar automáticamente los recursos de proceso de Azure hacia arriba y abajo en un clúster de HPC Pack según la carga de trabajo del clúster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+* Si busca una manera de aumentar o reducir automáticamente los nodos de clúster según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumento y reducción automáticos de los recursos de clúster de HPC Pack en Azure según la carga de trabajo de clúster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

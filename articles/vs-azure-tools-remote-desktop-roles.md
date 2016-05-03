@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Uso de Escritorio de remoto con los roles de Azure
 
 Mediante el SDK de Azure y los servicios de escritorio remoto, puede acceder a los roles de Azure y las máquinas virtuales que se hospedan en Azure. En Visual Studio, puede configurar el servicio de Escritorio remoto desde un proyecto de Azure. Para habilitar los servicios de Escritorio remoto, tiene que crear un proyecto que contenga uno o más roles y, a continuación, publicarlo en Azure.
 
->[AZURE.IMPORTANT]Debe tener acceso a un rol de Azure para solucionar problemas o desarrollo solamente. El propósito de cada máquina virtual es ejecutar una función específica en su aplicación de Azure, no es ejecutar otras aplicaciones cliente. Si desea usar Azure para hospedar una máquina virtual que se puede usar para cualquier propósito, consulte Tener acceso a Máquinas virtuales de Azure desde el Explorador de servidores.
+>[AZURE.IMPORTANT] Debe tener acceso a un rol de Azure para solucionar problemas o desarrollo solamente. El propósito de cada máquina virtual es ejecutar una función específica en su aplicación de Azure, no es ejecutar otras aplicaciones cliente. Si desea usar Azure para hospedar una máquina virtual que se puede usar para cualquier propósito, consulte Tener acceso a Máquinas virtuales de Azure desde el Explorador de servidores.
 
 ## Para habilitar y usar el Escritorio remoto para un rol de Azure
 
@@ -41,7 +41,7 @@ Mediante el SDK de Azure y los servicios de escritorio remoto, puede acceder a l
 
     Si elige un certificado existente, omita los pasos siguientes.
 
-    >[AZURE.NOTE]Los certificados que necesita para una conexión de escritorio remoto son distintos de los certificados que se usan para otras operaciones de Azure. El certificado de acceso remoto tiene que tener una clave privada.
+    >[AZURE.NOTE] Los certificados que necesita para una conexión de escritorio remoto son distintos de los certificados que se usan para otras operaciones de Azure. El certificado de acceso remoto tiene que tener una clave privada.
 
     Aparece el cuadro de diálogo **Crear certificado**.
 
@@ -51,7 +51,7 @@ Mediante el SDK de Azure y los servicios de escritorio remoto, puede acceder a l
     
         No se puede usar una cuenta existente. No especifique Administrador como el nombre de usuario de la nueva cuenta.
 
-        >[AZURE.NOTE]Si la contraseña no cumple los requisitos de complejidad, aparecerá un icono rojo junto al cuadro de texto de contraseña. La contraseña debe incluir letras mayúsculas, letras minúsculas y números o símbolos.
+        >[AZURE.NOTE] Si la contraseña no cumple los requisitos de complejidad, aparecerá un icono rojo junto al cuadro de texto de contraseña. La contraseña debe incluir letras mayúsculas, letras minúsculas y números o símbolos.
 
     1. Elija una fecha en la que caducará la cuenta y pasada la cual se bloquearán las conexiones a Escritorio remoto.
 
@@ -75,4 +75,4 @@ Después de publicar el servicio en la nube en Azure, puede usar el Explorador d
 
 1. Escriba el nombre de usuario y la contraseña que ha creado anteriormente. Ahora está registrado en la sesión remota.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

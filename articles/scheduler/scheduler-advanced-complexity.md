@@ -1,6 +1,6 @@
 <properties
  pageTitle="Creación de programaciones complejas y periodicidad avanzada con Programador de Azure"
- description=""
+ description="Creación de programaciones complejas y periodicidad avanzada con Programador de Azure"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -197,4 +197,4 @@ Todas las programaciones siguientes asumen que el _intervalo_ está establecido 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

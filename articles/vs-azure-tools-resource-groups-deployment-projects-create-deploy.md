@@ -17,7 +17,7 @@
 
 # Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 
-Con Visual Studio y [Azure SDK](https://azure.microsoft.com/downloads/), puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede definir el host de web, el sitio web y la base de datos para una aplicación, e implementar esa infraestructura junto con el código. O puede definir una máquina virtual, una red virtual y una cuenta de almacenamiento e implementar esa infraestructura junto con un script que se ejecuta en la máquina virtual. El proyecto de implementación del **grupo de recursos de Azure** permite implementar todos los recursos necesarios en una sola operación que se puede repetir. Para más información sobre la implementación y administración de grupos de recursos, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
+Con Visual Studio y [Azure SDK](https://azure.microsoft.com/downloads/), puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede definir el host de web, el sitio web y la base de datos para una aplicación, e implementar esa infraestructura junto con el código. O bien, puede definir una máquina virtual, una red virtual y una cuenta de almacenamiento e implementar esa infraestructura junto con un script que se ejecuta en la máquina virtual. El proyecto de implementación del **grupo de recursos de Azure** permite implementar todos los recursos necesarios en una sola operación que se puede repetir. Para más información sobre la implementación y administración de grupos de recursos, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 
 Los proyectos del grupo de recursos de Azure contienen plantillas JSON del Administrador de recursos de Azure que definen los recursos que se implementan en Azure. Para más información sobre los elementos de la plantilla del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md). Visual Studio permite modificar estas plantillas y proporciona herramientas que simplifican el trabajo con plantillas.
 
@@ -181,7 +181,7 @@ A estas alturas ha implementado la infraestructura de la aplicación, pero no ha
 
     ![agregar implementación web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Vuelva a implementar el proyecto del grupo de recursos en el grupo de recursos. Esta vez, hay algunos parámetros nuevos. No es necesario proporcionar valores para **\_artifactsLocation** o **\_artifactsLocationSasToken** ya que se generan automáticamente. Establezca la carpeta y el nombre de archivo en la ruta de acceso que contiene el paquete de implementación.
+1. Vuelva a implementar el proyecto del grupo de recursos en el grupo de recursos. Esta vez, hay algunos parámetros nuevos. No es necesario proporcionar valores para ** \_artifactsLocation ** o ** \_artifactsLocationSasToken ** ya que se generan automáticamente. Establezca la carpeta y el nombre de archivo en la ruta de acceso que contiene el paquete de implementación.
 
     ![agregar implementación web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
@@ -196,4 +196,4 @@ Una vez finalizada la implementación, puede ir al sitio y podrá observar que s
 - Para más información sobre cómo administrar sus recursos a través del portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

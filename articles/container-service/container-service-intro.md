@@ -24,32 +24,32 @@ El servicio Contenedor de Azure simplifica la creación, configuración y admini
 
 <br /> ![El servicio Contenedor de Azure proporciona un medio para administrar aplicaciones en contenedor en varios hosts de Azure.](./media/acs-intro/acs-cluster.png) <br /><br />
 
-El servicio Contenedor de Azure usa el formato de contenedor Docker para garantizar que los contenedores de su aplicación sean completamente portátiles. También es compatible con su elección de Marathon y Apache Mesos o Docker Swarm para que pueda escalar estas aplicaciones a miles e incluso a decenas de miles de contenedores.
+El servicio Contenedor de Azure usa el formato de contenedor Docker para garantizar que los contenedores de su aplicación sean completamente portátiles. También es compatible con su elección de Marathon y DC/OS o Docker Swarm para que pueda escalar estas aplicaciones a miles e incluso a decenas de miles de contenedores.
 
 Con el servicio Contenedor de Azure puede aprovechar las características empresariales de Azure sin dejar de mantener la portabilidad de aplicaciones, incluida la portabilidad en las capas de orquestación.
 
 Uso del servicio Contenedor de Azure
 -----------------------------
 
-Nuestro objetivo con el servicio Contenedor de Azure es proporcionar un entorno de hospedaje de contenedores mediante el uso de tecnologías y herramientas de código abierto, conocidas por nuestros clientes. Con este fin, publicamos los puntos de conexión de API estándar para el orquestador elegido. Al usar estos puntos de conexión, puede aprovechar cualquier software que se comunique con estos. Por ejemplo, en el caso del punto de conexión de Docker Swarm, puede usar la interfaz de la línea de comandos (CLI) de Docker. Para Apache Mesos, puede usar la CLI de DCOS.
+Nuestro objetivo con el servicio Contenedor de Azure es proporcionar un entorno de hospedaje de contenedores mediante el uso de tecnologías y herramientas de código abierto, conocidas por nuestros clientes. Con este fin, publicamos los puntos de conexión de API estándar para el orquestador elegido. Al usar estos puntos de conexión, puede aprovechar cualquier software que se comunique con estos. Por ejemplo, en el caso del punto de conexión de Docker Swarm, puede usar la interfaz de la línea de comandos (CLI) de Docker. Para DC/OS, puede usar la CLI de DCOS.
 
 Creación de un clúster de Docker con el servicio Contenedor de Azure
 -------------------------------------------------------
 
-Para comenzar a usar el servicio Contenedor de Azure, implemente un clúster del servicio Contenedor de Azure mediante una plantilla de Azure Resource Manager. Puede configurar esta implementación con diferentes opciones de tamaño y disponibilidad, y mediante Apache Mesos o Docker Swarm. Puede implementar las plantillas de Azure Resource Manager a través del Portal de Azure mediante la CLI de Azure o con PowerShell. Las plantillas también se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación de un clúster del servicio Contenedor de Azure, consulte [Implementación de un clúster del servicio Contenedor de Azure](./container-service-deployment.md).
+Para comenzar a usar el servicio Contenedor de Azure, implemente un clúster del servicio Contenedor de Azure mediante una plantilla de Azure Resource Manager. Puede configurar esta implementación con diferentes opciones de tamaño y disponibilidad, mediante DC/OS o Docker Swarm. Puede implementar las plantillas de Azure Resource Manager a través del Portal de Azure mediante la CLI de Azure o con PowerShell. Las plantillas también se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación de un clúster del servicio Contenedor de Azure, consulte [Implementación de un clúster del servicio Contenedor de Azure](./container-service-deployment.md).
 
 Implementación de una aplicación
 ------------------------
 
-Durante la vista previa, se ofrece la posibilidad de elegir entre Docker Swarm o Apache Mesos (con los marcos de DCOS Marathon y DCOS Chronos) para la orquestación.
+Azure Container Service permite elegir Docker Swarm o DC/OS como orquestación.
 
-### Uso de Apache Mesos
+### Uso de DC/OS
 
-Apache Mesos es un proyecto de código abierto que se hospeda en Apache Software Foundation. Incluye algunos de los [principales nombres de TI](http://mesos.apache.org/documentation/latest/powered-by-mesos/) como usuarios y colaboradores.
+DC/OS es un proyecto de código abierto que se hospeda en Apache Software Foundation. Incluye algunos de los [principales nombres de TI](http://mesos.apache.org/documentation/latest/powered-by-mesos/) como usuarios y colaboradores.
 
-![Servicio Contenedor de Azure está configurado para Swarm, que muestra agentes y patrones.](media/acs-intro/acs-mesos.png)
+![Servicio Contenedor de Azure está configurado para Swarm, que muestra agentes y patrones.](media/acs-intro/dcos.png)
 
-Mesos incluye un impresionante conjunto de características:
+DC/OS incluye un impresionante conjunto de características:
 
 -   Escalabilidad de hasta 10 000 nodos
 
@@ -65,11 +65,11 @@ Mesos incluye un impresionante conjunto de características:
 
 -   Una IU web para ver el estado del clúster
 
-Mesos admite un gran número de [marcos](http://mesos.apache.org/documentation/latest/frameworks/) que puede usar para programar cargas de trabajo en el servicio Contenedor de Azure. De forma predeterminada, el servicio Contenedor de Azure incluye los marcos de Marathon y Chronos.
+DC/OS admite un gran número de [marcos](http://mesos.apache.org/documentation/latest/frameworks/) que puede usar para programar cargas de trabajo en Azure Container Service. De forma predeterminada, el servicio Contenedor de Azure incluye los marcos de Marathon y Chronos.
 
 #### Uso de Marathon y Chronos
 
-Marathon es un sistema de inicialización y control de todo el clúster para servicios en cgroups o, en el caso del servicio Contenedor de Azure, contenedores en formato Docker. Es un asociado ideal para Chronos, que es un programador de trabajos tolerante a errores para Mesos que controla dependencias y programaciones basadas en el tiempo.
+Marathon es un sistema de inicialización y control de todo el clúster para servicios en cgroups o, en el caso del servicio Contenedor de Azure, contenedores en formato Docker. Es un asociado ideal para Chronos, que es un programador de trabajos tolerante a errores para DC/OS que controla dependencias y programaciones basadas en el tiempo.
 
 Marathon y Chronos proporcionan una IU web desde la que puede implementar sus aplicaciones. Puede acceder a esta desde una dirección URL semejante a `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, donde DNS\_PREFIX y REGION se definen en el momento de la implementación. Por supuesto, también puede proporcionar su propio nombre DNS. Para obtener más información sobre cómo ejecutar un contenedor mediante la interfaz de usuario web de Marathon, consulte [Container management through the web UI](./container-service-mesos-marathon-ui.md) (Administración de contenedores mediante la interfaz de usuario web).
 
@@ -79,7 +79,7 @@ Además, puede usar las API de REST para comunicarse con Marathon y Chronos. Exi
 
 Docker Swarm proporciona agrupación en clústeres nativa para Docker. Como Docker Swarm proporciona servicio a la API de Docker estándar, cualquier herramienta que ya se comunique con Docker daemon podrá usar Swarm para escalar de forma transparente a varios hosts en el servicio Contenedor de Azure.
 
-![Servicio Contenedor de Azure está configurado para usar Apache Mesos, que muestra JumpBox, agentes y patrones.](media/acs-intro/acs-swarm.png)
+![Azure Container Service está configurado para usar DC/O, que muestra JumpBox, agentes y patrones.](media/acs-intro/acs-swarm2.png)
 
 Entre las herramientas compatibles para administrar contenedores en un clúster Swarm se incluyen las siguientes:
 
@@ -101,4 +101,4 @@ Introducción al servicio Contenedor de Azure:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,11 +13,37 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/30/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Factoría de datos de Azure: registro de cambios de la API de .NET 
 En este artículo se proporciona información sobre los cambios realizados en el SDK de Factoría de datos de Azure en una versión específica. El paquete NuGet más reciente para la Factoría de datos de Azure se encuentra [aquí](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories).
+
+## Versión 4.6.0
+Fecha de lanzamiento: 14/04/2016
+
+### Incorporación de características
+
+- Se agregaron las siguientes propiedades a [PipelineProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx):
+	- [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
+	- [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
+	- [Conjuntos de datos](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
+- Se agregaron las siguientes propiedades a [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx):
+	- [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
+- Se agregaron nuevos tipos [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) y [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) para definir conjuntos de datos cuyos datos están en formato JSON. 
+
+## Versión 4.5.0
+Fecha de lanzamiento: 24/02/2016
+
+### Incorporación de características
+* Se agregaron [operaciones de lista para la ventana de actividad](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx).
+    * Se agregaron métodos para recuperar ventanas de la actividad con filtros basados en los tipos de entidad (es decir, fábricas de datos, conjuntos de datos, canalizaciones y actividades).
+* Se han agregado los siguientes tipos de servicios vinculados: 
+    * [ODataLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odatalinkedservice.aspx), [WebLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.weblinkedservice.aspx)
+* Se han agregado los siguientes tipos de conjuntos de datos: 
+    * [ODataResourceDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odataresourcedataset.aspx), [WebTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.webtabledataset.aspx)
+* Se han agregado los siguientes tipos de origen de copia: 	
+    * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
 
 ## Versión 4.4.0
 Fecha de lanzamiento: 28.01.2016
@@ -33,8 +59,8 @@ Fecha de lanzamiento: 25.11.2015
 ### Incorporación de características
 
 - Los siguientes tipos de servicio vinculado se ha agregado como orígenes de datos para actividades de copia:
-	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Movimiento de datos desde HDFS local mediante Factoría de datos de Azure](data-factory-hdfs-connector.md). 
-	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Movimiento de datos desde almacenes de datos ODBC mediante Factoría de datos de Azure](data-factory-odbc-connector.md). 
+	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Move data from HDFS using Data Factory](data-factory-hdfs-connector.md) (Movimiento de datos desde HDFS local mediante Data Factory de Azure). 
+	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Move data From ODBC data stores using Azure Data Factory](data-factory-odbc-connector.md) (Movimiento de datos desde almacenes de datos ODBC mediante Data Factory de Azure). 
 
 ## Versión 4.2.0
 Fecha de lanzamiento: 10-11-2015
@@ -123,4 +149,4 @@ Fecha de lanzamiento: 02/10/2015
 
 - Actualmente, se admite la ejecución de procedimientos almacenados en orígenes de Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure como parte de la actividad de copia. Para ello, las clases [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) y [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) tienen las siguientes propiedades: **SqlReaderStoredProcedureName** y **StoredProcedureParameters**. Consulte los artículos [Base de datos SQL de Azure](data-factory-azure-sql-connector.md#sqlsource) y [Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) en Azure.com para obtener detalles sobre estas propiedades.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

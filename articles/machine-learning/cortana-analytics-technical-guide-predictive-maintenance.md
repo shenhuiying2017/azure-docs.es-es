@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="04/10/2016"
 	ms.author="fboylu" />
 
 # Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos
@@ -221,10 +221,8 @@ Los siguientes pasos le guiarán a la hora de conectar el archivo pbix con Base 
 
     -   Para crear un nuevo panel: haga clic en el signo **+** junto a la sección **Paneles** del panel izquierdo. Escriba el nombre "Demo de mantenimiento predictivo" para este nuevo panel.
 
-    -   Una vez que abra el informe, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png) para anclar todas las visualizaciones al panel. Para obtener instrucciones detalladas, consulte [Anclaje de un icono a un panel de Power BI desde un informe](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Vaya a la página del panel y ajuste el tamaño y la ubicación de las visualizaciones y edite los títulos. Para obtener instrucciones detalladas sobre cómo editar los iconos, consulte [Edición de un icono: cambiar el tamaño, mover, cambiar el nombre, anclar, eliminar, agregar un hipervínculo](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Este es un panel de ejemplo con algunas visualizaciones de la ruta de acceso inactiva ancladas. Dependiendo de cuánto tiempo tarde en ejecutarse el generador de datos, los números en las visualizaciones pueden ser diferentes. <br/>
-	![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png) <br/>
-    -   Para programar la actualización de los datos, mantenga el puntero sobre el conjunto de datos **PredictiveMaintenanceAerospace**, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) y después elija **Programar actualización**. <br/> **Nota:** Si ve un mensaje de advertencia, haga clic en **Editar credenciales** y asegúrese de que las credenciales de la base de datos son las mismas que las descritas en el paso 1. <br/>
-	![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png) <br/>
+    -   Una vez que abra el informe, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png) para anclar todas las visualizaciones al panel. Para obtener instrucciones detalladas, consulte [Anclaje de un icono a un panel de Power BI desde un informe](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Vaya a la página del panel y ajuste el tamaño y la ubicación de las visualizaciones y edite los títulos. Para obtener instrucciones detalladas sobre cómo editar los iconos, consulte [Edición de un icono: cambiar el tamaño, mover, cambiar el nombre, anclar, eliminar, agregar un hipervínculo](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Este es un panel de ejemplo con algunas visualizaciones de la ruta de acceso inactiva ancladas. Dependiendo de cuánto tiempo tarde en ejecutarse el generador de datos, los números en las visualizaciones pueden ser diferentes. <br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png) <br/>
+    -   Para programar la actualización de los datos, mantenga el puntero sobre el conjunto de datos **PredictiveMaintenanceAerospace**, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) y después elija **Programar actualización**. <br/> **Nota:** Si ve un mensaje de advertencia, haga clic en **Editar credenciales** y asegúrese de que las credenciales de la base de datos son las mismas que las descritas en el paso 1. <br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png) <br/>
     -   Expanda la sección **Programar actualización**. Active "Mantener los datos actualizados". <br/>
     -   Programe la actualización según sus necesidades. Para obtener más información, consulte [Actualizar datos en Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
@@ -274,4 +272,4 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0406_2016--->
+<!---HONumber=AcomDC_0420_2016-->

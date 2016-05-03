@@ -11,7 +11,7 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
@@ -37,9 +37,6 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Más información sobre las implementaciones de Azure Resource Manager](../resource-group-overview.md)
 
 [Máquinas virtuales y contenedores de Azure](virtual-machines-windows-containers.md)
-
-[Información general de conjuntos de escala de máquinas virtuales](virtual-machines-windows-scale-sets-overview.md)
-
 
 
 ### Configuración del entorno
@@ -115,8 +112,6 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Copia de seguridad automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Aplicación de revisión automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-sql-automated-patching.md)
-
-[Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](virtual-machines-windows-ps-vmss-create.md)
 
 
 
@@ -329,8 +324,6 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Creación de una máquina virtual para una aplicación web con Visual Studio](virtual-machines-windows-classic-web-app-visual-studio.md)
 
-[Ejecución de una tarea de proceso intensivo en .NET en una máquina virtual de Azure](virtual-machines-windows-classic-run-compute-intensive-task.md)
-
 [Ejecución de una tarea de Java de proceso intensivo en una máquina virtual](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Aplicación web Django Hello World en una máquina virtual de Windows Server](virtual-machines-windows-classic-python-django-web-app.md)
@@ -375,4 +368,4 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de una VM en Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

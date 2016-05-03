@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Notas de la versión de los Servicios de BizTalk de Azure | Servicios de BizTalk de Microsoft Azure" 
-	description="" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="msftman" 
-	manager="erikre" 
+<properties
+	pageTitle="Notas de la versión de los Servicios de BizTalk de Azure | Servicios de BizTalk de Microsoft Azure"
+	description="Enumera los problemas conocidos de Servicios de BizTalk de Azure" 
+	services="biztalk-services"
+	documentationCenter=""
+	authors="msftman"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/29/2016"
 	ms.author="deonhe"/>
 
 # Notas de la versión de Servicios de BizTalk de Azure
@@ -38,12 +38,12 @@ Las notas de la versión de los Servicios de BizTalk de Microsoft Azure contiene
 * La opción para crear plantillas de contratos ya no está disponible.  
 * Para el contrato de envío, ahora puede especificar distintos conjuntos de delimitadores para cada esquema. Esta configuración se especifica en la configuración del protocolo del contrato de envío. Para más información, consulte [Crear un acuerdo X12 en los servicios de BizTalk de Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx) y [Crear un acuerdo EDIFACT en Servicios de BizTalk de Azure](https://msdn.microsoft.com/library/azure/dn606267.aspx). También se agregan dos nuevas entidades a la API de OM de TPM con la misma finalidad. Consulte [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) y [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Ahora se admiten construcciones XSD estándar, incluidos los tipos derivados. Consulte [Uso de construcciones XSD estándar en las asignaciones](https://msdn.microsoft.com/library/azure/dn793987.aspx) y [Uso de tipos derivados en escenarios y ejemplos de asignaciones](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 admite nuevos algoritmos MIC para la firma del mensaje y nuevos algoritmos de cifrado. Consulte [Crear un contrato AS2 en Servicios de BizTalk de Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
+* AS2 admite nuevos algoritmos MIC para la firma del mensaje y nuevos algoritmos de cifrado. Consulte [Crear un contrato AS2 en Servicios de BizTalk de Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).
 ## Problemas conocidos
 
 ### Problemas de conectividad después de la actualización del Portal de Servicios de BizTalk
 
-  Si tiene abierto el Portal de Servicios de BizTalk mientras se actualizan los Servicios de BizTalk para implementar los cambios en el servicio, podría experimentar problemas de conectividad con dicho portal.  
+  Si tiene abierto el Portal de Servicios de BizTalk mientras se actualizan los Servicios de BizTalk para implementar los cambios en el servicio, podría experimentar problemas de conectividad con dicho portal. 
   Como solución alternativa, puede reiniciar el explorador, eliminar la memoria caché del explorador o iniciar el portal en modo privado.
 
 ### El IDE de Visual Studio no puede encontrar el artefacto si hace clic en un error o una advertencia en un proyecto de Servicios de BizTalk
@@ -51,11 +51,11 @@ Instale Visual Studio 2012 Update 3 RC 1 para corregir el problema.
 
 ### Referencia al proyecto de enlace personalizado
 Tenga en cuenta las siguientes situaciones con un proyecto de Servicios de BizTalk en una solución de Visual Studio:
-* En la misma solución de Visual Studio, hay un proyecto de Servicios de BizTalk y un proyecto de enlace personalizado. El proyecto de Servicios de BizTalk tiene una referencia a este archivo de proyecto de enlace personalizado. 
+* En la misma solución de Visual Studio, hay un proyecto de Servicios de BizTalk y un proyecto de enlace personalizado. El proyecto de Servicios de BizTalk tiene una referencia a este archivo de proyecto de enlace personalizado.
 * El proyecto de Servicios de BizTalk tiene una referencia a una DLL de comportamiento o enlace personalizado.
 
-Compila la solución en Visual Studio correctamente. A continuación, recompila o limpia la solución. Después de eso, al recompilar o limpiar de nuevo, se produce el siguiente error:  
-  No se puede copiar el archivo <Path to DLL> en "bin\\Debug\\FileName.dll". El proceso no puede obtener acceso al archivo "bin\\Debug\\FileName.dll" porque está siendo usado en otro proceso.
+Compila la solución en Visual Studio correctamente. A continuación, recompila o limpia la solución. Después de eso, al recompilar o limpiar de nuevo, se produce el siguiente error: 
+No se puede copiar el archivo <Path to DLL> en "bin\\Debug\\FileName.dll". El proceso no puede obtener acceso al archivo "bin\\Debug\\FileName.dll" porque está siendo usado en otro proceso.
 
 #### Solución alternativa
 * Si [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) está instalado, tiene las dos opciones siguientes:
@@ -71,7 +71,7 @@ Compila la solución en Visual Studio correctamente. A continuación, recompila 
 Si usa caracteres no imprimibles como parte de las propiedades promocionadas en los mensajes, dichos mensajes no se podrán enrutar a destinos de retransmisión que utilicen el enlace BasicHttpRelay. Además, las propiedades promocionadas que están disponibles como parte del seguimiento están codificadas en URL para blobs y no codificadas para destinos.
 
 ### MDN se envía de forma asincrónica incluso si no está activada la opción Enviar MDN asincrónico  
-Considere este escenario: si activa la casilla **Enviar MDN asincrónico** y especifica una dirección URL a la que enviar el MDN asincrónico y luego desactiva de nuevo ** esta casilla**, el MDN se seguirá enviando a la dirección URL especificada aunque no esté activada la opción para enviar MDN asincrónico. Como solución alternativa, debe borrar la dirección URL especificada antes de desactivar la casilla **Enviar MDN asincrónico** y, luego, implementar el contrato AS2.
+Considere este escenario: si activa la casilla **Enviar MDN asincrónico** y especifica una dirección URL a la que enviar el MDN asincrónico y luego desactiva de nuevo **esta casilla**, el MDN se seguirá enviando a la dirección URL especificada aunque no esté activada la opción para enviar MDN asincrónico. Como solución alternativa, debe borrar la dirección URL especificada antes de desactivar la casilla **Enviar MDN asincrónico** y, luego, implementar el contrato AS2.
 
 ### Los caracteres de espacio en blanco después de un intercambio válido hacen que se envíe un mensaje vacío al punto de conexión de suspensión.  
 Si hay espacios en blanco después de un segmento de IEA, el desensamblador lo trata como extremo del intercambio actual y examina el siguiente conjunto de espacios en blanco como un mensaje nuevo. Puesto que no es un intercambio válido, puede observar que se envía un mensaje correcto al destino de ruta y un mensaje vacío al punto de conexión de suspensión.
@@ -80,7 +80,7 @@ Los eventos de seguimiento se capturan hasta el procesamiento de mensaje EDI y l
 En la configuración de envío y recepción de X 12 ([Crear un acuerdo X12 en los servicios de BizTalk de Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) se proporciona información sobre la fase de protocolo.
 
 ### Actualización del contrato  
-El Portal de Servicios de BizTalk le permite modificar el calificador de una identidad cuando se configura un contrato. Esto puede dar lugar a propiedades de incoherencia. Por ejemplo, hay un contrato que usa ZZ: 1234567 y ZZ: 7654321 como calificador. En la configuración de perfil del Portal de Servicios de BizTalk, cambia ZZ:1234567 por 01:ChangedValue. Abre el contrato y se muestra 01:ChangedValue en lugar de ZZ:1234567.
+El Portal de Servicios de BizTalk le permite modificar el calificador de una identidad cuando se configura un contrato. Esto puede dar lugar a propiedades de incoherencia. Por ejemplo, hay un contrato que usa ZZ: 1234567 y ZZ: 7654321 como calificador. En la configuración de perfil del Portal de Servicios de BizTalk, cambia ZZ:1234567 por 01:ChangedValue. Abre el contrato y se muestra 01:ChangedValue en lugar de ZZ:1234567. 
 Para modificar el calificador de una identidad, elimine el contrato, actualice las **identidades** en el perfil de socio y luego vuelva a crear el contrato.
 > AZURE.WARNING Este comportamiento afecta a X12 y AS2.
 
@@ -89,16 +89,16 @@ Los datos adjuntos de AS2 no se admiten en el envío o la recepción. En concret
 ### Recursos: recuerdo de la ruta de acceso  
 Al agregar **recursos**, es posible que la ventana de diálogo no recuerde la ruta de acceso usada previamente para agregar un recurso. Para recordar la ruta de acceso usada anteriormente, pruebe a agregar el sitio web del Portal de Servicios de BizTalk a **Sitios de confianza** en Internet Explorer.
 ### Si cambia el nombre de la entidad de un puente y cierra el proyecto sin guardar los cambios, al volver a abrir la entidad se produce un error
-Considere un escenario en el orden siguiente:  
+Considere un escenario en el orden siguiente:
 * Agregue un puente (por ejemplo, un puente unidireccional XML) a un proyecto de Servicios de BizTalk.  
 
 * Cambia el nombre del puente mediante la especificación de un valor para la propiedad Nombre de entidad. De esta manera se cambia el nombre del archivo .bridgeconfig asociado con el nombre especificado.
 
 * Cierra el archivo .bcs (cerrando la pestaña en Visual Studio) sin guardar los cambios.
 
-* Abre de nuevo el archivo .bcs desde el Explorador de soluciones.
-Observará que mientras que el archivo .bridgeconfig asociado tiene el nuevo nombre especificado, el nombre de entidad en la superficie de diseño sigue siendo el antiguo. Si intenta abrir la configuración del puente haciendo doble clic en el componente de puente, obtendrá el siguiente error:  
-  '<old name>'El archivo asociado de la entidad'<old name>.bridgeconfig' no existe.  
+* Abre de nuevo el archivo .bcs desde el Explorador de soluciones. 
+Observará que mientras que el archivo .bridgeconfig asociado tiene el nuevo nombre especificado, el nombre de entidad en la superficie de diseño sigue siendo el antiguo. Si intenta abrir la configuración del puente haciendo doble clic en el componente de puente, obtendrá el siguiente error: 
+  '<old name>'El archivo asociado de la entidad'<old name>.bridgeconfig' no existe. 
 Para evitar esta situación, asegúrese de guardar los cambios después de cambiar el nombre de las entidades en un proyecto de Servicios de BizTalk.
 ### El proyecto de Servicios de BizTalk se compila correctamente incluso si un artefacto se ha excluido de un proyecto de Visual Studio
 Considere un escenario donde se agrega un artefacto (por ejemplo, un archivo XSD) a un proyecto de Servicios de BizTalk. Incluye ese artefacto en la configuración del puente (por ejemplo, especificándolo como un tipo de mensaje de solicitud) y luego lo excluye del proyecto de Visual Studio. En tal caso, la compilación del proyecto no dará ningún error siempre y cuando el artefacto eliminado esté disponible en el disco en la misma ubicación desde la que se incluyó en el proyecto de Visual Studio.
@@ -130,7 +130,7 @@ Si una transformación contiene una operación de asignación de **propiedad de 
 ### No se muestra la propiedad Comprobar asignación
 Las propiedades **Comprobar asignación** no se muestran en Visual Studio. Esto puede ocurrir si la ventana **Propiedades** y la ventana **Explorador de soluciones** no se acoplan simultáneamente. Para resolver este problema, acople las ventanas **Propiedades** y **Explorador de soluciones**.
 ### La lista desplegable para volver a aplicar formato de fecha y hora está atenuada
-Cuando se agrega una operación de asignación para volver a aplicar formato de fecha y hora a la superficie de diseño y se configura, la lista desplegable de formato puede aparecer atenuada. Esto puede ocurrir si la pantalla del equipo está establecida en **Mediano: 125%** o **Más grande: 150%**. Para resolver este problema, realice los pasos siguientes para configurar la pantalla como **Más pequeño: 100% (predeterminado)**:  
+Cuando se agrega una operación de asignación para volver a aplicar formato de fecha y hora a la superficie de diseño y se configura, la lista desplegable de formato puede aparecer atenuada. Esto puede ocurrir si la pantalla del equipo está establecida en **Mediano: 125%** o **Más grande: 150%**. Para resolver este problema, realice los pasos siguientes para configurar la pantalla como **Más pequeño: 100% (predeterminado)**:
 1. Abra el **Panel de Control** y haga clic en **Apariencia y personalización**.
 2. Haga clic en **Pantalla**.
 3. Haga clic en **Más pequeño: 100% (predeterminado)** y haga clic en **Aplicar**.
@@ -148,12 +148,12 @@ Considere el siguiente escenario:
 ### Los puentes no usan certificados actualizados incluso después de que se ha actualizado un certificado en el almacén de artefactos.
 Considere los siguientes escenarios:
 
-**Escenario 1: Uso de certificados basados en huella digital para garantizar la transferencia de mensajes de un puente a un punto de conexión de servicio**  
+**Escenario 1: Uso de certificados basados en huella digital para garantizar la transferencia de mensajes de un puente a un punto de conexión de servicio** 
 Considere un escenario donde usa certificados basados en huella digital en el proyecto de servicio de BizTalk. Actualiza el certificado en el Portal de Servicios de BizTalk con el mismo nombre pero con una huella digital diferente, pero no actualiza el proyecto de servicio de BizTalk de acuerdo con esa modificación. En este escenario, el puente puede seguir procesando los mensajes porque es posible que los datos de certificado más antiguos estén aún en la memoria caché del canal. Después de eso, el procesamiento de mensajes da error.
 
 **Solución alternativa**: actualice el certificado en el proyecto de servicio de BizTalk y vuelva a implementar el proyecto.
 
-**Escenario 2: Uso de comportamientos basados en el nombre para identificar certificados a fin de proteger la transferencia de mensajes desde un puente hasta un punto de conexión de servicio** 
+**Escenario 2: Uso de comportamientos basados en el nombre para identificar certificados a fin de proteger la transferencia de mensajes desde un puente hasta un punto de conexión de servicio**
 
 Considere un escenario donde usa comportamientos basados en el nombre para identificar certificados en el proyecto de servicio de BizTalk. Actualiza el certificado en el Portal de Servicios de BizTalk, pero no actualiza el proyecto de servicio de BizTalk de acuerdo con esta modificación. En este escenario, el puente puede seguir procesando los mensajes porque es posible que los datos de certificado más antiguos estén aún en la memoria caché del canal. Después de eso, el procesamiento de mensajes da error.
 
@@ -195,6 +195,4 @@ En este documento los términos "canalizaciones" y "puentes" se usan indistintam
 
 [Servicios de BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

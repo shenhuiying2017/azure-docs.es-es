@@ -23,9 +23,9 @@ Service Fabric de Azure permite crear clústeres de Service Fabric en las máqui
 
 Este artículo le guiará por los pasos para crear un clúster mediante el paquete independiente de Service Fabric local, aunque puede adaptarse fácilmente a cualquier otro entorno, por ejemplo, otras nubes.
 
-## Paquete independiente de Service Fabric
+## Descarga del paquete independiente de Service Fabric
 
-El paquete independiente para las implementaciones de Service Fabric para Windows Server 2012 R2 se denomina *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip* y se puede descargar [aquí](http://go.microsoft.com/fwlink/?LinkId=730690).
+[Descargue el paquete independiente para Service Fabric para Windows Server 2012 R2](http://go.microsoft.com/fwlink/?LinkId=730690), que se denomina *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
 
 En el paquete de descarga, encontrará los siguientes archivos:
 
@@ -114,4 +114,4 @@ Lea la información siguiente para empezar a trabajar en el desarrollo o la impl
 Obtenga más información sobre los clústeres independientes y los de Azure:
 - [Información general de la función de creación de clúster independiente y una comparación con los clústeres administrados de Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

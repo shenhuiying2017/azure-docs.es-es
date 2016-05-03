@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
+    ms.date="04/20/2016"
     ms.author="magoedte"/>
 
 # Autenticación de Runbooks con una cuenta de ejecución de Azure
@@ -70,7 +70,7 @@ Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
 
 El script de PowerShell configurará los siguientes elementos:
 
-* Una aplicación de Azure AD que pueda autenticarse con el certificado autofirmado, una cuenta de la entidad principal para esta aplicación en Azure AD y la asignación del rol Colaborador (se puede cambiar a propietario o a cualquier otro rol) a esta cuenta de su suscripción actual. Para más información, consulte el artículo [Control de acceso basado en rol en Automatización de Azure](../automation/automation-role-based-access-control.md).  
+* Una aplicación de Azure AD que podrá autenticarse con el certificado autofirmado, crear una cuenta de la entidad principal para esta aplicación en Azure AD y la asignación del rol Colaborador (se puede cambiar a propietario o a cualquier otro rol) a esta cuenta de su suscripción actual. Para más información, consulte el artículo [Control de acceso basado en rol en Automatización de Azure](../automation/automation-role-based-access-control.md).  
 * Un recurso de certificado de Automatización de la cuenta especificada denominado **AzureRunAsCertificate**, que contiene el certificado utilizado en la entidad de servicio.
 * Un recurso de conexión de Automatización de la cuenta especificada denominado **AzureRunAsConnection**, que contiene los valores applicationId, tenantId, subscriptionId y la huella digital del certificado.  
 
@@ -123,7 +123,7 @@ El script de PowerShell configurará los siguientes elementos:
     $KeyCredential.Value = $KeyValue
 
     # Use Key credentials
-    $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ServicePrincipalDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
+    $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
 
     New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId | Write-Verbose
     Get-AzureRmADServicePrincipal | Where {$_.ApplicationId -eq $Application.ApplicationId} | Write-Verbose
@@ -200,4 +200,4 @@ El código anterior, que se ha usado para comprobar si la nueva cuenta está con
 - Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
 - Para más información acerca del control de acceso basado en rol en Automatización de Azure, consulte [Control de acceso basado en rol en Automatización de Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

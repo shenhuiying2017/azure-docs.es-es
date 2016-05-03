@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="adsolank;juliako;"/>
 
 
 # Indización de archivos multimedia con Azure Media Indexer 2 Preview
-
 
 ##Información general
 
@@ -91,7 +90,7 @@ Azure Media Indexer 2 Preview admite características de texto a voz en los sigu
 
 ## Código de ejemplo
 
-El programa siguiente muestra cómo realizar las siguientes tareas:
+El programa siguiente muestra cómo:
 
 1. Crear un recurso y cargar un archivo multimedia en el recurso.
 1. Crear un trabajo con una tarea de indexación basada en un archivo de configuración que contiene el siguiente valor predeterminado de JSON
@@ -286,6 +285,8 @@ El programa siguiente muestra cómo realizar las siguientes tareas:
 
 ## Vínculos relacionados
 
-[Información general de análisis de Servicios multimedia de Azure](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

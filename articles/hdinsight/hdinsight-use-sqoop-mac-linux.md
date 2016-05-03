@@ -34,6 +34,8 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **Estación de trabajo**: un equipo con un cliente SSH.
 - **Azure CLI**: para obtener más información, consulte [Instalación y configuración de Azure CLI](../xplat-cli-install.md)
 
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 ##Exportación de Sqoop
 
 2. Utilice el siguiente comando para crear un vínculo a JDBC Driver para SQL Server desde el directorio de la biblioteca de Sqoop. Esto permite a Sqoop utilizar este controlador para comunicarse con la base de datos SQL:
@@ -142,4 +144,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

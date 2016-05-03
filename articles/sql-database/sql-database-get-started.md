@@ -59,4 +59,4 @@ Ahora que completó este tutorial de Base de datos SQL y que creó una base de d
 
 [Información general de Base de datos SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

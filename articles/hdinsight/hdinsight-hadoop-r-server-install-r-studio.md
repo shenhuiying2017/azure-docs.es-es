@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Instalación de RStudio en clúster de HDInsight con el servidor de R | Microsoft Azure"
-	description="Instalación de RStudio en un servidor de R de clúster de HDInsight."
+	pageTitle="Instalación de RStudio con R Server en HDInsight (versión preliminar) | Microsoft Azure"
+	description="Instalación de RStudio con R Server en HDInsight (versión preliminar)."
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,15 +17,17 @@
    ms.author="jeffstok"/>
 
 
-# Instalación de RStudio en clúster de HDInsight con el servidor de R
+# Instalación de RStudio con R Server en HDInsight (versión preliminar)
 
 Actualmente existen varios entornos de desarrollo integrado (IDE) disponibles para R, entre los que se incluyen el recién anunciado [R Tools para Visual Studio](https://www.visualstudio.com/es-ES/features/rtvs-vs.aspx) (RTVS) de Microsoft, una familia de herramientas de escritorio y servidor de [RStudio](https://www.rstudio.com/products/rstudio-server/), o el IDE [StatET](http://www.walware.de/goto/statet) basado en Eclipse de Walware. Entre los más usados en Linux se incluye [RStudio Server](https://www.rstudio.com/products/rstudio-server/), que ofrece un IDE basado en explorador que pueden usar los clientes remotos. Si RStudio Server se instala en el nodo perimetral de un clúster de HDInsight Premium, ofrece una experiencia de IDE completa para el desarrollo y la ejecución de scripts de R con el servidor de R en el clúster. Además, puede ser notablemente más productivo que el uso predeterminado de la consola de R.
 
 En este artículo aprenderá a instalar la versión de la comunidad (gratuita) de RStudio Server en el nodo perimetral de un clúster mediante un script personalizado. Si prefiere la versión Pro con licencia comercial de RStudio Server, debe seguir las instrucciones de instalación de [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/).
 
+> [AZURE.NOTE] Los pasos de este documento requieren R Server en clúster de HDInsight y no funcionarán correctamente si está usando un clúster de HDInsight donde R se instaló mediante la [acción de script de instalación de R](hdinsight-hadoop-r-scripts-linux.md).
+
 ## Requisitos previos
 
-* Un clúster de HDInsight de Azure con servidor de R instalado. Para obtener instrucciones, consulte [Introducción al servidor de R en clústeres de HDInsight](hdinsight-hadoop-r-server-get-started.mdulet).
+* Un clúster de HDInsight de Azure con servidor de R instalado. Para obtener instrucciones, consulte [Get started with R Server on HDInsight clusters (Introducción a R Server en clústeres de HDInsight)](hdinsight-hadoop-r-server-get-started.mdulet).
 * Un cliente SSH. Para las distribuciones de Linux y Unix o Macintosh OS X, el comando `ssh` se proporciona con el sistema operativo. Para Windows, se recomienda [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 
@@ -54,7 +56,7 @@ En este artículo aprenderá a instalar la versión de la comunidad (gratuita) d
 		chmod 755 InstallRStudio.sh
 		./InstallRStudio.sh
 
-5. Si utiliza una contraseña SSH al crear un clúster de HDInsight con el servidor de R, puede omitir este paso y continuar en el siguiente. Si en su lugar utiliza una clave SSH para crear el clúster, debe establecer una contraseña para el usuario SSH. Necesitará esta contraseña para conectarse a RStudio. Ejecute los comandos siguientes: Cuando se le pida la **contraseña Kerberos actual**, simplemente presione **ENTRAR**.
+5. Si utiliza una contraseña SSH al crear un clúster de HDInsight con el servidor de R, puede omitir este paso y continuar en el siguiente. Si en su lugar utiliza una clave SSH para crear el clúster, debe establecer una contraseña para el usuario SSH. Necesitará esta contraseña para conectarse a RStudio. Ejecute los comandos siguientes: Cuando se le pida la **contraseña Kerberos actual**, simplemente presione **INTRO**.
 
 		passwd remoteuser
 		Current Kerberos password:
@@ -69,9 +71,9 @@ En este artículo aprenderá a instalar la versión de la comunidad (gratuita) d
 
 	Salga de la sesión SSH.
 
-6. Cree un túnel SSH al clúster asignando `localhost:8787` en el clúster de HDInsight en el equipo cliente. Debe crear un túnel SSH antes de abrir una nueva sesión del explorador.
+6. Cree un túnel SSH al clúster asignando `localhost:8787` en el clúster de HDInsight al equipo cliente. Debe crear un túnel SSH antes de abrir una nueva sesión del explorador.
 
-	* En un cliente de Linux o un cliente de Windows (mediante [Cygwin](http://www.redhat.com/services/custom/cygwin/)), abra una sesión de terminal y use el comando siguiente.
+	* En un cliente de Linux o de Windows (mediante [Cygwin](http://www.redhat.com/services/custom/cygwin/)), abra una sesión de terminal y use el comando siguiente.
 
 			ssh -L localhost:8787:localhost:8787 USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
 			
@@ -84,7 +86,7 @@ En este artículo aprenderá a instalar la versión de la comunidad (gratuita) d
 		3.  Proporcione la siguiente información en el formulario **Options controlling SSH port forwarding** (Opciones que controlan el desvío de puertos SSH):
 
 			* **Source port**: el puerto en el cliente que desea desviar. Por ejemplo, **8787**.
-			* **Destination**: destino que debe asignarse a la máquina cliente local. Por ejemplo, **localhost:8787**.
+			* **Destination** (Destino): Destino que debe asignarse a la máquina cliente local. Por ejemplo, **localhost:8787**.
 
 			![Creación de un túnel SSH](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Creación de un túnel SSH")
 
@@ -117,9 +119,9 @@ En este artículo aprenderá a instalar la versión de la comunidad (gratuita) d
 
 - [Opciones de contexto de proceso del servidor de R en HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md)
 
-- [Opciones de Almacenamiento de Azure del servidor de R en HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
+- [Azure Storage options for R Server on HDInsight Premium (Opciones de almacenamiento de Azure del servidor de R en HDInsight Premium)](hdinsight-hadoop-r-server-storage.md)
 
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

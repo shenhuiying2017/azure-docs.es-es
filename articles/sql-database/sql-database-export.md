@@ -25,14 +25,14 @@
 
 En este artículo encontrará instrucciones para archivar la base de datos de Azure SQL en un archivo BACPAC guardado en el almacenamiento de blobs de Azure, usando para ello [Portal de Azure](https://portal.azure.com).
 
-Cuando necesite crear un archivo de una base de datos de SQL Azure, puede exportar los datos y el esquema de base de datos a un archivo BACPAC. Un archivo BACPAC es, sencillamente, un archivo ZIP con la extensión BACPAC. Este archivo BACPAC se puede guardar en el almacenamiento de blobs de Azure o en cualquier almacenamiento en una ubicación local y, luego, importarlo a la base de datos de SQL Azure o a una instalación local de SQL Server.
+Cuando necesite crear un archivo de una base de datos de SQL Azure, puede exportar los datos y el esquema de base de datos a un archivo BACPAC. Un archivo BACPAC es, sencillamente, un archivo ZIP con la extensión BACPAC. Este archivo BACPAC se puede guardar en el almacenamiento de blobs de Azure o en cualquier almacenamiento en una ubicación local y, luego, importarlo a Base de datos SQL de Azure o a una instalación local de SQL Server.
 
 ***Consideraciones***
 
 - Para que un archivo sea transaccionalmente coherente, hay que procurar que no haya ninguna actividad de escritura durante la exportación, o bien exportar desde una [copia transaccionalmente coherente](sql-database-copy.md) de la base de datos de SQL Azure.
 - El tamaño máximo de un archivo BACPAC guardado en el almacenamiento de blobs de Azure es de 200 GB. Use la utilidad de símbolo del sistema [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) para guardar archivos BACPAC de mayor tamaño en un almacenamiento local. Esta utilidad se incluye con Visual Studio y SQL Server. También puede [descargar](https://msdn.microsoft.com/library/mt204009.aspx) la versión más reciente de SQL Server Data Tools para obtener esta utilidad.
-- No se puede archivar en el almacenamiento premium de Azure usando un archivo BACPAC.
-- Si la operación de exportación tarda más de 20 horas, es posible que se cancele. Para aumentar el rendimiento durante la exportación, puede:
+- No se puede archivar en Almacenamiento premium de Azure usando un archivo BACPAC.
+- Si la operación de exportación tarda más de 20 horas, es posible que se cancele. Para aumentar el rendimiento durante la exportación, puede hacer lo siguiente:
  - Aumentar el nivel de servicio temporalmente 
  - Detener toda actividad de lectura y escritura durante la exportación
  - Usar un índice agrupado en todas las tablas de gran tamaño. Sin índices agrupados, la exportación podría no producirse si tarda más de 6-12 horas. Esto se debe a que el servicio de exportación necesita completar el recorrido de tabla para exportar toda la tabla.
@@ -87,9 +87,8 @@ Abra la hoja de Base de datos SQL correspondiente a la base de datos que desea e
 
 ## Pasos siguientes
 
-- [Importar una base de datos SQL de Azure][5]
-
-
+- [Importación de un BACPCAC en una Base de datos SQL de Azure](sql-database-import.md)
+- [Importación de un BACPCAC en una Base de datos de SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
 
 ## Recursos adicionales
 
@@ -105,4 +104,4 @@ Abra la hoja de Base de datos SQL correspondiente a la base de datos que desea e
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

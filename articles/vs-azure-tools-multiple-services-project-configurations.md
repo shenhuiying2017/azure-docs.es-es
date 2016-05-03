@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Configuración de su proyecto Azure mediante varias configuraciones de servicio
@@ -110,4 +110,4 @@ Para configurar los valores que se aplican a todo un proyecto de servicio en la 
 |Desarrollo|Desde esta página, puede especificar las instrucciones de la configuración de compilación y las condiciones bajos las cuales se ejecutan los eventos posteriores a la compilación.|
 |Web|Desde esta página, puede configurar los valores relacionados con el servidor web.|
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

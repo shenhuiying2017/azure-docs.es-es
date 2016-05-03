@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="willzhan"  
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016"  
+	ms.date="04/18/2016"     
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC con varios DRM y control de acceso: diseño e implementación de referencia en Azure y Servicios multimedia de Azure
@@ -242,7 +242,7 @@ La implementación incluye los pasos siguientes:
 **Widevine**|Chrome en Windows 10|Correcto|Fail (no superado)
 **FairPlay** |TBD||
 
-George Trifonov, del equipo de Servicios multimedia de Azure, ha escrito un blog donde se proporcionan los pasos detallados para configurar Azure Active Directory para una aplicación de reproductor ASP.NET MVC: [Integración de la aplicación OWIN basada en MVC de Servicios multimedia de Azure con Azure Active Directory y restricción de la entrega de claves de contenido basada en notificaciones de JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
+George Trifonov, del equipo de Servicios multimedia de Azure, ha escrito un blog donde se proporcionan los pasos detallados para configurar Azure Active Directory para una aplicación de reproductor ASP.NET MVC: [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integración de una aplicación basada en OWIN MVC de Servicios multimedia de Azure con Azure Active Directory y restricción de la entrega de claves de contenido en función de las notificaciones JWT).
 
 George también ha escrito un blog sobre la [autenticación de tokens de JWT en Servicios multimedia de Azure y Cifrado dinámico](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). Y este es su [ejemplo sobre la integración de Azure AD con la entrega de claves de Servicios multimedia de Azure](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
 
@@ -522,4 +522,4 @@ En este documento, hemos examinado el CENC con varios DRM nativos y el control d
 
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -18,9 +18,9 @@
 	ms.author="nitinme"/>
 
 
-# Administración de recursos para el clúster Apache Spark en HDInsight de Azure (Windows)
+# Administración de recursos para el clúster Apache Spark en HDInsight Windows (versión preliminar)
 
-> [AZURE.NOTE] HDInsight ofrece ahora clústeres de Spark en Linux. Para información sobre cómo administrar los recursos para un clúster Spark en HDInsight Linux, vea [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md).
+> [AZURE.NOTE] HDInsight ofrece ahora clústeres Spark en Linux. Para información sobre cómo administrar los recursos para un clúster Spark en HDInsight Linux, vea [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md).
 
 El Administrador de recursos es un componente del panel de clúster Spark que le permite administrar los recursos como núcleos y RAM usados por cada aplicación que se ejecuta en el clúster.
 
@@ -47,7 +47,7 @@ El clúster Apache Spark en HDInsight está diseñado para una arquitectura mult
 
 	![Asignación de recursos](./media/hdinsight-apache-spark-resource-manager-v1/hdispark.ui.resource.png "Encontrar los recursos asignados a un clúster Spark")
 
-	Según la captura de pantalla anterior, el número máximo de núcleos que puede asignar es 7 (un total de 8 núcleos, de los cuales 1 está en uso) y la cantidad máxima de RAM que se puede asignar es 9 GB (un total de 12 GB de RAM, de los cuales 2 GB se deben reservar para uso del sistema y 1 GB para el uso de las demás aplicaciones).
+	Según la captura de pantalla anterior, el número máximo de núcleos que puede asignar es 7 (un total de 8 núcleos, de los cuales 1 está en uso) y la cantidad máxima de RAM que se puede asignar es 9 GB (un total de 12 GB de RAM, de los cuales 2 GB se deben reservar para uso del sistema y 1 GB para el uso de las demás aplicaciones).
 
 	También se deben tener en cuenta todas las aplicaciones que se estén ejecutando. Puede consultarlas en la pestaña **IU de Spark**.
 
@@ -84,4 +84,4 @@ Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecució
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

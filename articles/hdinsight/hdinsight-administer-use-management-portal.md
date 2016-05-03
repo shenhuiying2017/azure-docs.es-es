@@ -27,10 +27,6 @@ La información de este artículo solo se aplica a los clústeres de HDInsight p
 
 Haga clic en el selector de pestañas para obtener información sobre cómo crear clústeres de Hadoop en HDInsight con otras herramientas.
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure](hdinsight-administer-use-management-portal-v1.md)
-
 **Requisitos previos**
 
 Antes de empezar este artículo, debe tener lo siguiente:
@@ -81,10 +77,9 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 
 	![Portal de Azure clúster de hdinsight operaciones básicas](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 	
-	- Para personalizar el menú, haga clic con el botón secundario en el menú y, después, haga clic en **Personalizar**.
+	- Para personalizar el menú, haga clic con el botón derecho en el menú y, después, haga clic en **Personalizar**.
 	- **Configuración** y **Toda la configuración**: Muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
-	- **Panel**, **Panel de clúster** y **URL: se trata, en los tres casos, de formas de acceder al panel de clúster, que es Ambari Web para clústeres basados en Linux. 
-	- **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante una conexión de Secure Shell (SSH).
+	- **Panel**, **Panel de clúster** y **URL: Se trata, en los tres casos, de formas de acceder al panel de clúster, que es Ambari Web para clústeres basados en Linux. -**Secure Shell**: Muestra las instrucciones para conectarse al clúster mediante una conexión de Secure Shell (SSH).
 	- **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
 	- **Eliminar**: elimina el clúster.
 	- **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
@@ -92,7 +87,7 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 	
 		> [AZURE.IMPORTANT] Esto _solo_ afecta al acceso y a los permisos para este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
 	- **Etiquetas** (![icono de etiqueta](./media/hdinsight-administer-use-portal-linux/tags.png)): las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
-	- **Vistas de Ambari**: se trata de vínculos a Web de Ambari.
+	- **Vistas de Ambari**: Se trata de vínculos a Web de Ambari.
 	
 	> [AZURE.IMPORTANT] Para administrar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para obtener más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -127,7 +122,7 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 	- **Sistema operativo**: **Windows** o **Linux**.
 	- **Tipo**: Hadoop, HBase, Storm, Spark. 
 	- **Versión**. Consulte [Versiones de HDInsight](hdinsight-component-versioning.md).
-	- **Suscripción**: el nombre de la suscripción.
+	- **Suscripción**: Nombre de la suscripción.
 	- **Id. de suscripción**.
 	- **Origen de datos principal**. Cuenta de almacenamiento de blobs de Azure usada como sistema de archivos predeterminado de Hadoop.
 	- **Plan de tarifa de los nodos de trabajo**.
@@ -281,7 +276,7 @@ La consola de consulta de HDInsight incluye las siguientes características:
 
 	![portal de hdinsight historial de trabajos](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-	Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y **salida del trabajo. También puede descargar la consulta y la salida a la estación de trabajo.
+	Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y **salida del trabajo**. También puede descargar la consulta y la salida a la estación de trabajo.
 
 - **Explorador de archivos**: explore la cuenta de almacenamiento predeterminada y las cuentas de almacenamiento vinculadas.
 
@@ -389,4 +384,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,7 +3,7 @@
 	description="Cómo usar ShardMapManager, la biblioteca de cliente de bases de datos elásticas" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor=""/>
 
@@ -19,6 +19,8 @@
 # Administración de mapas de particiones.
 
 En un entorno de base de datos particionada, un [**mapa de particiones**](sql-database-elastic-scale-glossary.md) mantiene información que permite que una aplicación se conecte a la base de datos correcta en función del valor de la **clave de particionamiento**. Comprender cómo se construyen estos mapas es fundamental para la administración de los mapas de particiones. Para Base de datos SQL de Azure, use la [clase ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), que se encuentra en la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md) para administrar los mapas de particiones.
+
+Para convertir un conjunto existente de bases de datos, consulte [Conversión de bases de datos existentes para usar herramientas para bases de datos elásticas](sql-database-elastic-convert-to-use-elastic-tools.md).
  
 
 ## Mapas de particiones y asignaciones de particiones
@@ -79,7 +81,7 @@ En biblioteca de cliente, el Administrador de mapas de particiones es una colecc
 
 Un objeto **ShardMapManager** se construye mediante un patrón de [fábrica](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). El método **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** toma las credenciales (lo que incluye el nombre del servidor y el nombre de la base de datos que contienen el GSM) en forma de una instancia de **ConnectionString** y devuelve una instancia de **ShardMapManager**.
 
-**Nota**: Solo se debe crear una instancia de **ShardMapManager** una vez por dominio de aplicación, dentro del código de inicialización de una aplicación. La creación de instancias adicionales de ShardMapManager en el mismo dominio de aplicación dará lugar a un aumento en el uso de memoria y CPU de la aplicación. Un objeto **ShardMapManager** puede contener cualquier número de mapas de particiones. Aunque un solo mapa de particiones puede ser suficiente para muchas aplicaciones, hay veces en que se usan diferentes conjuntos de bases de datos para un esquema diferente o con fines únicos y, en esos casos, puede que sea preferible usar varios mapas de particiones.
+**Nota**: solo se debe crear una instancia de **ShardMapManager** una vez por dominio de aplicación, dentro del código de inicialización de una aplicación. La creación de instancias adicionales de ShardMapManager en el mismo dominio de aplicación dará lugar a un aumento en el uso de memoria y CPU de la aplicación. Un objeto **ShardMapManager** puede contener cualquier número de mapas de particiones. Aunque un solo mapa de particiones puede ser suficiente para muchas aplicaciones, hay veces en que se usan diferentes conjuntos de bases de datos para un esquema diferente o con fines únicos y, en esos casos, puede que sea preferible usar varios mapas de particiones.
 
 En este código, una aplicación intenta abrir una instancia de **ShardMapManager** existente con el [método TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx). Si aún no existen objetos que representan una instancia de **ShardMapManager** (GSM) global dentro de la base de datos, la biblioteca de cliente los crea mediante el método [CreateSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx).
 
@@ -112,11 +114,40 @@ En este código, una aplicación intenta abrir una instancia de **ShardMapManage
  
 Como alternativa, puede usar Powershell para crear un nuevo Administrador de mapas de particiones. Hay un ejemplo disponible [aquí](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
+## Obtención de las clases RangeShardMap o ListShardMap
+
+Después de crear un administrador de asignación de partición, puede obtener una clase [RangeShardMap](https://msdn.microsoft.com/library/azure/dn807318.aspx) o [ListShardMap](https://msdn.microsoft.com/library/azure/dn807370.aspx) utilizando el método [TryGetRangeShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [TryGetListShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) o [GetShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx).
+
+	/// <summary>
+    /// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
+    /// </summary>
+    public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
+    {
+        // Try to get a reference to the Shard Map.
+        RangeShardMap<T> shardMap;
+        bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
+
+        if (shardMapExists)
+        {
+            ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
+        }
+        else
+        {
+            // The Shard Map does not exist, so create it
+            shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
+            ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
+        }
+
+        return shardMap;
+    } 
+
 ### Credenciales de administración de mapas de particiones
 
-Normalmente, las aplicaciones que administran y manipulan mapas de particiones son diferentes de las que usan los mapas de particiones para enrutar conexiones.
+Las aplicaciones que administran y manipulan mapas de particiones son diferentes de las que usan los mapas de particiones para enrutar conexiones.
 
-En el caso de aplicaciones que administran mapas de particiones (agregar o cambiar particiones, mapas de particiones, asignaciones de particiones, etc.), se deben crear instancias de **ShardMapManager** mediante **credenciales que tengan privilegios de lectura y escritura en la base de datos GSM y en cada base de datos que funcione como partición**. Las credenciales deben permitir escrituras en las tablas del GSM y el LSM cuando se especifica o se cambia información de mapa de particiones, así como al crear tablas del LSM en nuevas particiones.
+Para administrar asignaciones de partición (agregar o cambiar particiones, asignaciones de particiones, etc.), se deben crear instancias de **ShardMapManager** mediante **credenciales que tengan privilegios de lectura y escritura en la base de datos GSM y en cada base de datos que funcione como partición**. Las credenciales deben permitir escrituras en las tablas del GSM y el LSM cuando se especifica o se cambia información de mapa de particiones, así como al crear tablas del LSM en nuevas particiones.
+
+Consulte [Credenciales usadas para acceder a la biblioteca de cliente de bases de datos elásticas](sql-database-elastic-scale-manage-credentials.md).
 
 ### Solo los metadatos afectados 
 
@@ -282,4 +313,4 @@ Sin embargo, para escenarios que requieren movimiento de datos, se necesita la h
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

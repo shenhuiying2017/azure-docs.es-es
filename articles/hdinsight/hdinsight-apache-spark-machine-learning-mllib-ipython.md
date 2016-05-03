@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Aprendizaje automático: Análisis predictivo de datos de inspección de alimentos mediante MLlib con Spark en HDInsight (Linux)
+# Aprendizaje automático: Análisis predictivo de datos de inspección de alimentos mediante MLlib con Spark en HDInsight Linux (versión preliminar)
 
-> [AZURE.TIP] Este tutorial también está disponible como un cuaderno de Jupyter Notebook en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio cuaderno. Para realizar el tutorial desde dentro de un cuaderno, cree un clúster Spark, inicie un cuaderno de Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y luego ejecute el cuaderno **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** en la carpeta **Python**.
+> [AZURE.TIP] Este tutorial también está disponible como un cuaderno de Jupyter en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio cuaderno. Para realizar el tutorial desde dentro de un cuaderno, cree un clúster Spark, inicie un cuaderno de Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) y luego ejecute el cuaderno **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** en la carpeta **Python**.
 
 
 Este artículo muestra cómo usar **MLLib**, las bibliotecas integradas de aprendizaje automático de Spark, para llevar a cabo un análisis predictivo sencillo en un conjunto de datos abierto. MLLib es una biblioteca básica de Spark que proporciona varias utilidades que ayudan en las tareas de aprendizaje automático, incluye utilidades que son adecuadas para:
@@ -390,7 +390,7 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
 * [Análisis del registro del sitio web con Spark en HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -398,7 +398,7 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
+* [Envío de trabajos de Spark de manera remota mediante Livy con clústeres de Spark en HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Herramientas y extensiones
 
@@ -412,4 +412,4 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

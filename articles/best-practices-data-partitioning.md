@@ -436,7 +436,7 @@ Las aplicaciones cliente simplemente envían solicitudes a cualquiera de los ser
 
 Este modelo se implementa mediante el uso de clústeres de Redis y se describe con más detalle en la página [Tutorial de clúster Redis] en el sitio web de Redis. La agrupación en clústeres de Redis es transparente para las aplicaciones cliente. Es posible agregar servidores Redis adicionales al clúster (y es posible volver a crear particiones en los datos) sin necesidad de volver a configurar los clientes.
 
-> [AZURE.IMPORTANT] Actualmente Caché en Redis de Azure no admite la agrupación en clústeres Redis. Si desea implementar este enfoque con Azure, deberá implementar entonces sus propios servidores Redis instalando Redis en un conjunto de máquinas virtuales de Azure y configurándolas manualmente. La página [Running Redis on a CentOS Linux VM in Azure] (Ejecución de Redis en una máquina virtual Linux de CentOS en Azure) del sitio web de Microsoft muestra un ejemplo de cómo crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
+> [AZURE.IMPORTANT] Actualmente Caché en Redis de Azure no admite la agrupación en clústeres Redis. Si desea implementar este enfoque con Azure, deberá implementar entonces sus propios servidores Redis instalando Redis en un conjunto de máquinas virtuales de Azure y configurándolas manualmente. La página [Running Redis on a CentOS Linux VM in Microsoft Azure] (Ejecución de Redis en una máquina virtual Linux de CentOS en Azure) del sitio web de Microsoft muestra un ejemplo de cómo crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
 
 La página [Partitioning: how to split data among multiple Redis instances] (Creación de particiones: cómo dividir los datos entre varias instancias de Redis) del sitio web de Redis ofrece más información sobre cómo implementar la creación de particiones con Redis. En el resto de esta sección se supone que se está implementando las particiones del lado cliente o asistidas por el proxy.
 
@@ -512,7 +512,7 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 - En [Sharding Pattern] (Patrón de particionamiento), descrito en el sitio web de Microsoft, se resumen algunas estrategias comunes para el particionamiento de los datos.
 - En [Index Table Pattern] (Patrón de la tabla de índice), descrito en el sitio web de Microsoft, se ilustra cómo crear índices secundarios sobre los datos. Con este enfoque, una aplicación puede recuperar rápidamente los datos mediante el uso de consultas que no hacen referencia a la clave principal de una colección.
 - En [Materialized View Pattern] (Patrón de vista materializada), descrito en el sitio web de Microsoft, se describe cómo generar vistas rellenadas previamente que resuman los datos para admitir operaciones de consulta rápida. Este enfoque puede ser útil en un almacén de datos con particiones si las particiones que contienen los datos que se resumen se distribuyen entre varios sitios.
-- En el artículo [Uso de la red CDN en Azure] del sitio web de Microsoft, se ofrecen instrucciones adicionales sobre cómo configurar y usar la red de entrega de contenido con Azure.
+- En el artículo [Uso de la red CDN en Azure] del sitio web de Microsoft se ofrecen instrucciones adicionales sobre cómo configurar y usar la red de entrega de contenido con Azure.
 
 ## Más información
 
@@ -529,7 +529,7 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 - La página [Tipos de datos admitidos (Búsqueda de Azure)] del sitio web de Microsoft resume los tipos de datos que puede usar en los documentos y los índices en los que se pueden hacer búsquedas.
 - La página [Caché en Redis de Azure] del sitio web de Microsoft proporciona una introducción a Caché en Redis de Azure.
 - La página [Partitioning: how to split data among multiple Redis instances] (Creación de particiones: cómo dividir los datos entre varias instancias de Redis) del sitio web de Redis proporciona información sobre cómo implementar las particiones con Redis.
-- La página [Running Redis on a CentOS Linux VM in Azure] (Ejecución de Redis en una máquina virtual Linux de CentOS en Azure) del sitio web de Microsoft muestra un ejemplo de cómo crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
+- La página [Running Redis on a CentOS Linux VM in Microsoft Azure] (Ejecución de Redis en una máquina virtual Linux de CentOS en Azure) del sitio web de Microsoft muestra un ejemplo de cómo crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
 - La página [Data types] (Tipos de datos) del sitio web de Redis describe los tipos de datos que están disponibles con Redis y Caché en Redis de Azure.
 
 [Caché en Redis de Azure]: http://azure.microsoft.com/services/cache/
@@ -553,10 +553,10 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 [Niveles de rendimiento en DocumentDB]: documentdb/documentdb-performance-levels.md
 [Realizar transacciones con grupos de entidades]: https://msdn.microsoft.com/library/azure/dd894038.aspx
 [Tutorial de clúster Redis]: http://redis.io/topics/cluster-tutorial
-[Running Redis on a CentOS Linux VM in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
+[Running Redis on a CentOS Linux VM in Microsoft Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [Escalado con la herramienta de división y combinación de Base de datos elástica]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
 [Escalado con la herramienta de división y combinación de bases de datos elásticas]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Uso de la red CDN en Azure]: cdn/cdn-how-to-use-cdn.md
+[Uso de la red CDN en Azure]: cdn/cdn-create-new-endpoint.md
 [Cuotas de Bus de servicio]: service-bus/service-bus-quotas.md
 [Límites de servicio en Búsqueda de Azure]: search/search-limits-quotas-capacity.md
 [Límites de servicio en la Búsqueda de Azure]: search/search-limits-quotas-capacity.md
@@ -567,4 +567,4 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 [¿Qué es Búsqueda de Azure?]: search/search-what-is-azure-search.md
 [¿Qué es Base de datos SQL?]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

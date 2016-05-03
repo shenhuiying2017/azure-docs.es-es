@@ -1,6 +1,6 @@
 <properties
  pageTitle="Agregar nodos de ráfaga a un clúster de HPC Pack | Microsoft Azure"
- description="Obtenga información acerca de cómo agregar instancias de rol de trabajo que se ejecutan en un servicio en la nube a petición como recursos de proceso, a un nodo principal de HPC Pack de Azure."
+ description="Conozca cómo expandir la capacidad del clúster de HPC Pack bajo demanda agregando instancias de rol de trabajo que se ejecutan en un servicio en la nube"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -13,15 +13,16 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/08/2016"
+ ms.date="04/13/2016"
  ms.author="danlep"/>
 
 # Agregar nodos de "ráfaga" a petición (instancias de rol de trabajo) como recursos de proceso a un clúster de HPC Pack en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
 En este artículo se muestra cómo agregar nodos de "ráfaga" Azure (instancias de rol de trabajo que se ejecutan un servicio en la nube) a petición como recursos de proceso a un nodo principal de HPC Pack existente en Azure. De este modo, podrá escalar verticalmente la capacidad de proceso del clúster de HPC en Azure a petición, sin mantener un conjunto de máquinas virtuales de nodos de ejecución preconfiguradas.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 ![Nodos de ráfaga][burst]
 
@@ -33,7 +34,7 @@ Si quiere usar el tamaño de instancia de proceso intensivo A8 o A9, consulte [S
 
 ## Requisitos previos
 
-* **Nodo principal de HPC Pack implementado en una máquina virtual de Azure**: consulte [Implementar un nodo principal de HPC Pack en una máquina virtual de Azure](virtual-machines-windows-hpcpack-cluster-headnode.md) para conocer los pasos para crear un nodo principal del clúster en el modelo de implementación (Service Management) clásico.
+* **Nodo principal de HPC Pack implementado en una máquina virtual de Azure**: consulte [Implementar un nodo principal de HPC Pack en una máquina virtual de Azure](virtual-machines-windows-hpcpack-cluster-headnode.md) para conocer los pasos para crear un nodo principal del clúster en el modelo de implementación clásico.
 
 * **Suscripción de Azure** : para agregar nodos de Azure, puede elegir la misma suscripción usada para implementar la máquina virtual del nodo principal o una suscripción (o suscripciones) diferente.
 
@@ -46,13 +47,13 @@ Use el Portal de Azure clásico o las herramientas equivalentes para configurar 
 * Un nuevo servicio en la nube de Azure
 * Una nueva cuenta de almacenamiento de Azure
 
->[AZURE.NOTE] No vuelva a usar un servicio en la nube existente en su suscripción. Tampoco implemente un paquete de servicios en la nube personalizado e independiente en este servicio en la nube. HPC Pack implementa automáticamente un paquete de servicios en la nube al iniciar (aprovisionar) los nodos de Azure.
+>[AZURE.NOTE] No vuelva a usar un servicio en la nube existente en su suscripción.
 
 **Consideraciones**
 
 * Configure un servicio en la nube independiente para cada plantilla de nodo de Azure que planea crear. Sin embargo, puede usar la misma cuenta de almacenamiento para varias plantillas de nodos.
 
-* Por lo general debería buscar el servicio en la nube y la cuenta de almacenamiento para la implementación en la misma región.
+* Por lo general debería buscar el servicio en la nube y la cuenta de almacenamiento para la implementación en la misma región de Azure.
 
 
 
@@ -79,13 +80,13 @@ Los pasos para agregar e iniciar nodos de Azure en este escenario suelen ser los
 
 Después de agregar e iniciar los nodos, estarán listos para que los use para ejecutar trabajos de clúster.
 
-Si tiene problemas al implementar nodos de Azure, consulte [Solución de problemas de implementaciones de nodos de Azure con Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
+Si tiene problemas al implementar nodos de Azure, consulte [Solución de problemas de implementaciones de nodos de Azure con Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## Pasos siguientes
 
-* Si busca una manera de aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Escalar automáticamente los recursos de proceso de Azure hacia arriba y abajo en un clúster de HPC Pack según la carga de trabajo del clúster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+* Si quiere aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Escalar automáticamente los recursos de proceso de Azure hacia arriba y abajo en un clúster de HPC Pack según la carga de trabajo del clúster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

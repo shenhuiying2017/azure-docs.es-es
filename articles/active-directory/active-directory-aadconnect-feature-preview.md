@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="04/14/2016"
    ms.author="andkjell;billmath"/>
 
 # Más detalles sobre las características de vista previa
@@ -51,4 +51,4 @@ Continúe su [Instalación personalizada de Azure AD Connect](active-directory-a
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

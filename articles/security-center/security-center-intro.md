@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="04/22/2016"
    ms.author="terrylan"/>
 
 # Introducción al Centro de seguridad de Azure
@@ -145,8 +145,9 @@ En este documento, se ha presentado el Centro de seguridad, sus funcionalidades 
 - [Administración de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): aprenda cómo las recomendaciones lo ayudan a proteger sus recursos de Azure.
 - [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): aprenda cómo supervisar el estado de los recursos de Azure.
 - [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): aprenda cómo administrar alertas de seguridad y responder a estas.
-- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información de seguridad de Azure.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Supervisión de soluciones de asociados con Azure Security Center): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información de seguridad en Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-intro/security-tile.PNG
@@ -159,4 +160,4 @@ En este documento, se ha presentado el Centro de seguridad, sus funcionalidades 
 [8]: ./media/security-center-intro/security-alert-detail.png
 [9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

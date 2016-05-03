@@ -22,12 +22,6 @@
 
 De manera predeterminada, los clústeres de Hadoop no están optimizados para el rendimiento. En este artículo se tratan algunos de los métodos de optimización de rendimiento de Hive más comunes que se pueden aplicar a nuestras consultas.
 
-
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-
-* [Optimizar consultas de Hive para Hadoop en HDInsight](hdinsight-hadoop-optimize-hive-query-v1.md).
-
 ##Escalar horizontalmente nodos de trabajo
 
 El aumento del número de nodos de trabajo de un clúster puede aprovechar más asignadores y reductores para ejecutarse en paralelo. Hay dos maneras de aumentar la escala horizontal en HDInsight:
@@ -226,4 +220,4 @@ En este artículo, ha aprendido varios métodos comunes de optimización de cons
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

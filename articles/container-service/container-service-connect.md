@@ -36,12 +36,9 @@ Ahora, abra un shell y ejecute el siguiente comando, donde:
 
 **PORT** es el puerto del punto de conexión que desea exponer. En el caso de Swarm, es el 2375. En el de DC/OS, utilice el puerto 80. **USERNAME** es el nombre de usuario que se especificó cuando se implementó el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó al implementar el clúster. **REGION** es la región en la que está ubicado el grupo de recursos.
 
-> El puerto de conexión SSH es el 2200 y no el 22 estándar.
-
 ```bash
 # ssh sample
-
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
+ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
 ### Túnel de DC/OS
@@ -118,6 +115,6 @@ Cuando haya configurado el túnel para Docker y enjambre, podrá acceder al clú
 
 Implemente y administre contenedores con DC/OS o Swarm.
 
-[Trabajo con el servicio Contenedor de Azure y DC/OS](./container-service-mesos-marathon-rest.md) [Trabajo con el servicio de contenedor de Azure y Docker Swarm](./container-service-docker-swarm.md)
+[Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md) [Administración de contenedores con Docker Swarm](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

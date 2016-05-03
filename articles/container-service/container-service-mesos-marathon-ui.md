@@ -57,11 +57,23 @@ Protocolo | TCP
 
 ![](media/dcos/dcos6.png)
 
+Si desea asignar estáticamente el puerto del contenedor a un puerto en el agente, debe realizarse mediante el "modo de JSON". Para ello, cambie al Asistente para nuevas aplicaciones al modo de JSON mediante el botón de alternancia y, después, escriba lo siguiente en la sección 'portMappings' de la definición de la aplicación. En este ejemplo enlace el puerto 80 del contenedor al puerto 80 del agente DC/OS. Este asistente puede cambiar del modo de JSON una vez que se haya realizado este cambio.
+
+```none
+“hostPort”: 80,
+```
+
+![](media/dcos/dcos13.png)
+
+El clúster de DC/OS se implementa con un conjunto de agentes públicos y privados. Para acceder a la aplicación desde Internet, debe implementarse en un agente público. Para ello, seleccione la pestaña "Optional" (Opcional) del Asistente para nuevas aplicaciones y escriba "slave\_public" en "Accepted Resource Roles" (Roles de recursos aceptados).
+
+![](media/dcos/dcos14.png)
+
 De nuevo en la página principal de Marathon, puede ver el estado de implementación para el contenedor.
 
 ![](media/dcos/dcos7.png)
 
-Si regresa a la aplicación DC/OS (http://localhost/), verá que se está ejecutando una tarea, en este caso un contenedor con formato Docker, en el clúster de DC/OS.
+Si vuelve a la aplicación DC/OS (http://localhost/)), verá que se está ejecutando una tarea, en este caso un contenedor con formato Docker, en el clúster de DC/OS.
 
 ![](media/dcos/dcos8.png)
 
@@ -85,4 +97,4 @@ Una vez que se completa la operación de escalado, verá varias instancias de la
 
 [Trabajo con la API de DC/OS y Marathon](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

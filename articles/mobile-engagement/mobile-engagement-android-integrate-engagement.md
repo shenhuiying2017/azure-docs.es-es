@@ -310,27 +310,31 @@ La API de Engagement permite usar todas las capacidades avanzadas de Engagement,
 
 ##Configuración avanzada (en AndroidManifest.xml)
 
+### Reactivar bloqueos
+
 Si desea asegurarse de que las estadísticas se envían en tiempo real cuando se utilice Wifi o cuando la pantalla esté apagada, agregue el siguiente permiso opcional:
 
 			<uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+### Informe de bloqueos
 
 Si desea deshabilitar los informes de bloqueo, agregue esto (entre las etiquetas `<application>` y `</application>`):
 
 			<meta-data android:name="engagement:reportCrash" android:value="false"/>
 
+### Umbral de ráfaga
+
 De forma predeterminada, el servicio de Engagement informa los registros en tiempo real. Si su aplicación notifica registros con mucha frecuencia, es mejor almacenar en búfer los registros y notificarlos todos a la vez de manera periódica (esto se conoce como "modo de ráfaga"). Para ello, agregue esto (entre las etiquetas `<application>` y `</application>`):
 
-			<meta-data android:name="engagement:burstThreshold" android:value="<interval between too bursts (in milliseconds)>"/>
+			<meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
 El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta al monitor de Engagement: la duración de todas las sesiones y trabajos se redondeará al umbral de ráfaga (por lo tanto, es posible que las sesiones y los trabajos más cortos que el umbral de ráfaga no sean visibles). Se recomienda usar un umbral de ráfaga inferior a 30.000 (30 segundos).
 
-De forma predeterminada, el servicio Engagement establece la conexión con nuestros servidores en cuanto la red está disponible. Si desea aplazar la conexión, agregue esto (entre las etiquetas `<application>` y `</application>`):
-
-			<meta-data android:name="engagement:connection:delay" android:value="<delay (in milliseconds)>"/>
+### Tiempo de espera de sesión
 
 De forma predeterminada, una sesión finaliza a los 10 seg. del final de su última actividad (que normalmente se produce al presionar Inicio o la tecla de retroceso, poniendo el teléfono inactivo o yendo a otra aplicación). Esto se hace para evitar que una sesión se divida cada vez que el usuario sale de la aplicación y vuelve a ella muy rápidamente (lo que puede suceder cuando se selecciona una imagen, se comprueba una notificación, etc.). Puede que desee modificar este parámetro. Para ello, agregue esto (entre las etiquetas `<application>` y `</application>`):
 
-			<meta-data android:name="engagement:sessionTimeout" android:value="<session timeout (in milliseconds)>"/>
+			<meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
 ##Deshabilitación de los informes de registro
 
@@ -380,4 +384,4 @@ Luego, puede agregar un `CheckBoxPreference` a su diseño de preferencias como e
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

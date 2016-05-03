@@ -22,6 +22,26 @@ Si ya integró una versión anterior de Engagement en la aplicación, debería t
 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK. Por ejemplo, si migra desde 0.10.1 a 0.11.0, primero debe seguir el procedimiento "de 0.9.0 a 0.10.1" y luego el procedimiento "de 0.10.1 a 0.11.0".
 
+##De 3.3.0 a 3.4.0
+
+### Registros de prueba
+
+Los registros de consola generados por el SDK ahora se pueden habilitar, deshabilitar o filtrar. Para personalizar esto, actualice la propiedad `EngagementAgent.Instance.TestLogEnabled` a uno de los valores disponibles en la enumeración `EngagementTestLogLevel`, por ejemplo:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
+
+### Recursos
+
+Se ha mejorado la superposición de Reach. Forma parte de los recursos del paquete NuGet del SDK.
+
+Al actualizar a la nueva versión del SDK puede elegir si desea conservar o no los archivos existentes de la carpeta de superposición de los recursos:
+
+* Si la superposición anterior funciona o va a integrar los elementos `WebView` manualmente, entonces puede decidir mantener los archivos de salida, lo cual seguirá funcionando. 
+* Si desea actualizar a la nueva superposición, simplemente reemplace toda la carpeta `overlay` de sus recursos por la nueva desde el paquete del SDK (aplicaciones UWP: tras la actualización, puede obtener la nueva carpeta de superposición desde %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources).
+
+> [AZURE.WARNING] El uso de la nueva superposición sobrescribirá todas las personalizaciones realizadas en la versión anterior.
+
 ##De 3.2.0 a 3.3.0
 
 ### Recursos
@@ -294,4 +314,4 @@ Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidad
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

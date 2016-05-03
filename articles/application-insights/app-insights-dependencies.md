@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
  
 # Diagnóstico de problemas con dependencias en Application Insights
@@ -50,11 +50,11 @@ Instale al agente adecuado para el servidor host.
 
 Plataforma | Instalación
 ---|---
-Servidor IIS | [Instalación del Monitor de estado en el servidor](app-insights-monitor-performance-live-website-now.md) o [Actualización de la aplicación a .NET Framework 4.6 o posterior](http://go.microsoft.com/fwlink/?LinkId=528259) 
+Servidor IIS | [Instale el Monitor de estado en el servidor](app-insights-monitor-performance-live-website-now.md) o [actualice la aplicación a .NET Framework 4.6 o superior](http://go.microsoft.com/fwlink/?LinkId=528259) e instale el [SDK de Application Insights](app-insights-asp-net.md) en la aplicación.
 Aplicación web de Azure | [Extensión de Application Insights](../azure-portal/insights-perf-analytics.md)
 Servidor web de Java | [Aplicaciones web de Java](app-insights-java-agent.md)
-Páginas web | [Monitor de JavaScript](app-insights-javascript.md) (ninguna configuración adicional más allá de la supervisión de páginas web)
-Servicio en la nube | [Uso de tarea de inicio](app-insights-cloudservices.md#dependencies) o [Instalación de .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
+Páginas web | [Monitor de JavaScript](app-insights-javascript.md) (ninguna configuración adicional aparte de la supervisión de páginas web)
+Servicio en la nube de Azure | [Uso de tarea de inicio](app-insights-cloudservices.md#dependencies) o [Instalación de .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 El Monitor de estado para los servidores de IIS no precisa que vuelva a generar el proyecto de origen con el SDK de Application Insights.
 
@@ -135,9 +135,9 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
 ## AJAX
 
-Ver [páginas web](app-insights-javascript.md).
+Consulte [Application Insights para páginas web](app-insights-javascript.md).
 
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

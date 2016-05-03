@@ -44,7 +44,7 @@ Reemplace __CLUSTERNAME__ por el nombre del clúster de HDInsight.
 
 ##Azure CLI
 
-> [AZURE.NOTE] Si no ha instalado ni configurado la CLI de Azure, siga los pasos que se describen en el documento [Instalación de la CLI de Azure](../xplat-cli-install.md).
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 Desde un símbolo del sistema, utilice el siguiente comando para eliminar el clúster:
 
@@ -52,4 +52,4 @@ Desde un símbolo del sistema, utilice el siguiente comando para eliminar el cl�
     
 Reemplace __CLUSTERNAME__ por el nombre del clúster de HDInsight.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

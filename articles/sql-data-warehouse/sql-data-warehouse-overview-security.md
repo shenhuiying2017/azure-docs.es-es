@@ -29,7 +29,7 @@ Las reglas de firewall las usan tanto el servidor como la base de datos para rec
 
 ## Autenticación
 
-La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Actualmente, Almacenamiento de datos SQL admite la autenticación de SQL con un nombre de usuario y una contraseña.
+La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Actualmente, Almacenamiento de datos SQL admite la autenticación de SQL Server con un nombre de usuario y una contraseña.
 
 Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo".
 
@@ -67,15 +67,15 @@ La cuenta de administrador de servidor con la que se está conectando forma part
 
 Existen varias formas de limitar aún más lo que los usuarios pueden hacer con Base de datos SQL de Azure:
 
-- Los [roles de base de datos][] que no sean db\_datareader y db\_datawriter se pueden utilizar para crear cuentas de usuario de aplicación más eficaces o cuentas de administración menos eficaces.
-- Los [permisos][] granulares permiten control qué operaciones se pueden realizar en columnas individuales, tablas, vistas, procedimientos y otros objetos de la base de datos.
+- Los [permisos][] granulares permiten control qué operaciones se pueden realizar en columnas individuales, tablas, vistas, procedimientos y otros objetos de la base de datos. Use los permisos granulares para tener el máximo control y conceder los permisos mínimos necesarios. El sistema de permisos granulares es complicado y requerirá un estudio para usarlo de forma eficaz.
+- Los [roles de base de datos][] que no sean db\_datareader y db\_datawriter se pueden utilizar para crear cuentas de usuario de aplicación más eficaces o cuentas de administración menos eficaces. Los roles d base de datos fijos integrados proporcionan una manera fácil de conceder permisos, pero pueden dar lugar a la concesión de más permisos que son necesarios.
 - Los [procedimientos almacenados][] puede utilizarse para limitar las acciones que se pueden realizar en la base de datos.
 
 La administración de bases de datos y servidores lógicos desde el Portal de Azure clásico o mediante la API del Administrador de recursos de Azure la controlan las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este tema, consulte [Control de acceso basado en rol en el Portal de Azure][].
 
 ## Cifrado
 
-Almacenamiento de datos SQL de Azure puede ayudar a proteger los datos mediante el cifrado de los mismos cuando estén "en reposo" o almacenados en archivos de base de datos y copias de seguridad, con el [cifrado de datos transparente][]. Para cifrar la base de datos, conéctese a la base de datos maestra en el servidor y ejecute:
+Almacenamiento de datos SQL de Azure puede ayudar a proteger los datos mediante el cifrado de los mismos cuando estén "en reposo" o almacenados en archivos de base de datos y copias de seguridad, con el [cifrado de datos transparente][]. Debe ser administrador o miembro del rol dbmanager en la base de datos maestra para habilitar TDE. Para cifrar la base de datos, conéctese a la base de datos maestra en el servidor y ejecute:
 
 
 ```sql
@@ -84,7 +84,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal de Azure clásico][].
+También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal de Azure clásico][]. Para obtener más información, consulte [Introducción al cifrado de datos transparente (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Auditoría
 
@@ -92,6 +92,7 @@ La auditoría y el seguimiento de eventos de la base de datos pueden ayudarle a 
 
 ## Pasos siguientes
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
+
 
 <!--Image references-->
 
@@ -112,4 +113,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

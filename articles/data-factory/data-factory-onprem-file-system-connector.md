@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia el sistema de archivos local y desde él con Factoría de datos de Azure
@@ -439,7 +439,7 @@ type | La propiedad type se debe establecer en **OnPremisesFileServer**. | Sí
 host | Nombre de host del servidor. Use ' \\ ' como carácter de escape como en el ejemplo siguiente: si el recurso compartido es: \\servername, especifique \\\servername.<br/><br/>Si el sistema de archivos es local en el equipo de puerta de enlace, use Local o localhost. Si el sistema de archivos está en un servidor que no es el equipo de puerta de enlace, use \\\servername. | Sí
 userid | Especifique el identificador del usuario que tiene acceso al servidor. | No (si elige encryptedCredential)
 contraseña | Especifique la contraseña del usuario (identificador de usuario). | No (si elige encryptedCredential) 
-encryptedCredential | Especifique las credenciales cifradas que puede obtener con la ejecución del cmdlet New-AzureRmDataFactoryEncryptValue<br/><br/>** Nota: ** tiene que usar Azure PowerShell, versión 0.8.14 o posterior para usar cmdlets como New-AzureRmDataFactoryEncryptValue con el parámetro type establecido en OnPremisesFileSystemLinkedService | No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato)
+encryptedCredential | Especifique las credenciales cifradas que puede obtener con la ejecución del cmdlet New-AzureRmDataFactoryEncryptValue<br/><br/>**Nota:** tiene que usar Azure PowerShell, versión 0.8.14 o posterior para usar cmdlets como New-AzureRmDataFactoryEncryptValue con el parámetro type establecido en OnPremisesFileSystemLinkedService | No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato)
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servidor de archivos local. | Sí
 
 Vea [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para más información acerca de cómo configurar las credenciales para un origen de datos de Sybase local.
@@ -599,7 +599,8 @@ false | mergeFiles | Para una carpeta de origen Folder1 con la siguiente estruct
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-
+## Rendimiento y optimización  
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
 
 
@@ -608,4 +609,4 @@ false | mergeFiles | Para una carpeta de origen Folder1 con la siguiente estruct
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

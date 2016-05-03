@@ -5,7 +5,7 @@
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
 	documentationCenter="" 
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/16/2016"
+	ms.date="04/15/2016"
 	ms.author="jeffstok"/>
 
 # Salidas de transformación de datos de Análisis de transmisiones de destino para herramientas de análisis y opciones de almacenamiento de datos
@@ -169,8 +169,6 @@ Hay unos cuantos parámetros que son necesarios para configurar los flujos de da
 
 Puede usarse [Power BI](https://powerbi.microsoft.com/) como salida para un trabajo de Análisis de transmisiones a fin de ofrecer una amplia experiencia de visualización de los resultados del análisis. Esta capacidad puede usarse con paneles operativos, generación de informes e informes basados en métricas.
 
-> [AZURE.NOTE] En este momento, la creación y la configuración de salidas de Power BI solo se admiten en el Portal de Azure clásico.
-
 ### Autorización de una cuenta de Power BI
 
 1.	Cuando se selecciona Power BI como salida en el Portal de administración de Azure, se le pedirá que autorice a un usuario de Power BI existente o que cree una nueva cuenta de Power BI.  
@@ -200,7 +198,7 @@ Para visualizar un tutorial sobre la configuración de una salida de Power BI y 
 
 ### Renovación de la autorización de Power BI
 
-Hay una limitación temporal en la que el token de autenticación debe actualizarse manualmente cada 90 días para todos los trabajos con salida de Power BI. También necesitará volver a autenticar la cuenta de Power BI si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo. Un síntoma de este problema es la ausencia de salidas de trabajos y un "error de autenticación de usuario" en los registros de operaciones:
+Tendrá que volver a autenticar la cuenta de Power BI si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo. Si Multi-Factor Authentication (MFA) se configura en el inquilino de Azure Active Directory (AAD), también debe renovar la autorización de Power BI cada 2 semanas. Un síntoma de este problema es la ausencia de salidas de trabajos y un "error de autenticación de usuario" en los registros de operaciones:
 
   ![Error de token de actualización de Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
 
@@ -318,4 +316,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

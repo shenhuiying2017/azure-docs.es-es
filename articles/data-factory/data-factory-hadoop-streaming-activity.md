@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Actividad de streaming de Hadoop
@@ -192,4 +192,11 @@ El clúster de HDInsight se rellena automáticamente con los programas de ejempl
 	    }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+## Otras referencias
+- [Actividad de Hive](data-factory-hive-activity.md)
+- [Actividad de Pig](data-factory-pig-activity.md)
+- [Actividad MapReduce](data-factory-map-reduce.md)
+- [Invocar programas Spark](data-factory-spark.md)
+- [Invocar scripts de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+
+<!---HONumber=AcomDC_0420_2016-->

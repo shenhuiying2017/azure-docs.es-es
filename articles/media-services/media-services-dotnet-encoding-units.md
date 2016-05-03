@@ -3,8 +3,8 @@
 	description="Información sobre cómo agregar unidades de codificación con .NET"  
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,milangada,gtrifonov" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;milangada;gtrifonov"/>
 
 
 #Escalado de codificación con el SDK de .NET
@@ -81,4 +81,4 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -4,7 +4,7 @@
    services=""
    documentationCenter="Azure"
    authors="erihur"
-   manager="kareni"
+   manager="stevenpo"
    editor=""
    tags="billing"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="04/13/2016"
    ms.author="erihur"/>
 
 
@@ -33,32 +33,17 @@ Para obtener más información acerca del consumo y los planes de tarifas, consu
 
 <!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
-<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
-
-## Content:
-
-This topic helps you with the following tasks when reading your bill.
-
--  View or Download a Bill for Azure
--  Customer Information
--  Understand the Invoice Summary
--  Understand the Current Charges
--  Footer Information
--  Understand the Additional Information
--  Understand Detailed Usage Charges
--  Analyze Daily Usage Data -->
-
 ### Ver o descargar una factura de Microsoft Azure:
 
-En el [portal Uso y facturación](https://account.windowsazure.com/subscriptions), puede ver la factura actual y descargar facturas anteriores.
+En el [Portal de cuentas de Azure](https://account.windowsazure.com/subscriptions) puede ver la factura actual y descargar facturas antiguas.
 
 Para ver o descargar una factura:
 
-1. Inicie sesión en el [portal Uso y facturación](https://account.windowsazure.com/subscriptions) con su identificador de cuenta de Microsoft o su identificador de cuenta profesional o educativa.
+1. Inicie sesión en el [Portal de cuentas](https://account.windowsazure.com/subscriptions) con su identificador de cuenta de Microsoft o su identificador de cuenta profesional o educativa.
 
 2. Haga clic en la suscripción para la que desea consultar los detalles y el uso.
 
-3. Haga clic en Historial de **facturación**
+3. Haga clic en **Historial de facturación**.
 
     ![Resumen: historial de facturación: 1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
@@ -78,7 +63,7 @@ Para ver o descargar una factura:
     ![Resumen: historial de facturación: 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
-***Importante:*** *Los cargos que se enumeran en las instrucciones de facturación de los clientes internacionales tienen únicamente carácter estimativo dados los diferentes tipos de conversión de los bancos.*
+***Importante:*** *Los cargos que se enumeran en los extractos de facturación de los clientes internacionales tienen únicamente carácter estimativo dados los diferentes tipos de conversión de los bancos.*
 
 
 A continuación están disponibles en Microsoft Azure algunas instrucciones de ejemplo para dos ofertas diferentes.
@@ -90,9 +75,9 @@ Oferta de compromiso | Gasto deducido de su compromiso de prepago | [Archivo de 
 
 
 
-## Encabezado - Información del cliente
+## Información de cuenta
 
-La sección de información del cliente identifica la información pertinente respecto del uso y del perfil. ![encabezado](./media/billing-understand-your-bill/Header.png)
+La sección de información de cuenta identifica la información pertinente con respecto al uso y al perfil. ![encabezado](./media/billing-understand-your-bill/Header.png)
 
 ### Número de factura
 Identificador único de factura con fines de seguimiento.
@@ -110,7 +95,7 @@ Tipo de pago que se utiliza en la cuenta (es decir, factura o tarjeta de crédit
 Dirección de pagos de Microsoft Azure.
 
 ### Oferta de suscripción
-Tipo de oferta de suscripción adquirida (es decir, pago por uso, MSDN-Visual Studio Ultimate, etc.)
+Tipo de oferta de suscripción que se adquirió (es decir, pago por uso, BizSpark Plus, Pase para Azure, etc.).
 
 ### Correo electrónico del propietario de cuenta
 La dirección de correo electrónico de la cuenta con que está registrada la cuenta de Microsoft Azure.
@@ -118,11 +103,11 @@ La dirección de correo electrónico de la cuenta con que está registrada la cu
 
 
 ## Comprender el resumen de factura
-La sección Resumen de factura de la factura resume las transacciones desde la última factura y los cargos de uso actuales.
+La sección **Resumen de factura** de la factura resume las transacciones desde la última factura y los cargos de uso actuales.
 
 ![resumen de factura](./media/billing-understand-your-bill/InvoiceSummary.png)
 
-La sección Saldos, pagos y otros créditos de la factura resume las transacciones desde la última factura.
+Las secciones Saldo anterior, Pagos y Saldo pendiente de la factura resumen las transacciones desde la última factura.
 
 ### Saldo anterior
 El saldo anterior es el importe total debido en la última factura.
@@ -155,7 +140,7 @@ La página de información adicional le brinda referencias a otros recursos para
 ![información adicional](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### Uso detallado
-Un vínculo en la descripción bajo Uso detallado le dirige al portal Uso y facturación de Azure, donde puede consultar el uso detallado correspondiente a esta suscripción. Ahora hay dos versiones disponibles para descargar: **versión 1 de .csv** contiene la antigua convención de nomenclatura y campos de uso y **versión 2 de .csv** contiene los nombres descriptivos de cliente para cada una de las categorías además de campos adicionales que le ayudarán a entender qué servicios está utilizando en Microsoft Azure.
+Un vínculo en la descripción en **Uso detallado** le dirige al Portal de cuentas, donde puede consultar el uso detallado correspondiente a esta suscripción. Ahora hay dos versiones disponibles para descargar: **versión 1 de .csv** contiene la antigua convención de nomenclatura y campos de uso y **versión 2 de .csv** contiene los nombres descriptivos de cliente para cada una de las categorías además de campos adicionales que le ayudarán a entender qué servicios está utilizando en Microsoft Azure. Tenga en cuenta que en la versión 1 de .csv no existen detalles de Azure Resource Manager. Puede encontrar información de Azure Resource Manager en la versión 2 de .csv.
 
 ### Información adicional y recursos útiles
 Esta sección cuenta con vínculos a preguntas sencillas relacionadas con los tamaños de las instancias de proceso, los cargos de Base de datos SQL y vínculos útiles para permitirle responder cualquier otra pregunta.
@@ -267,4 +252,4 @@ Vaya a la sección **Administrar cuentas, suscripciones y roles administrativos*
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

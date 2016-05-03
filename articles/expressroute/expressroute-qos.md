@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Requisitos de QoS ExpressRoute
@@ -21,7 +21,7 @@ Skype Empresarial tiene varias cargas de trabajo que requieren tratamiento difer
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
-**Nota:** los requisitos de QoS solo se aplican al emparejamiento de Microsoft.
+>[AZURE.NOTE] Los requisitos de QoS solo se aplican al emparejamiento de Microsoft.
 
 En la tabla siguiente se proporciona una lista de marcados de DSCP usados por Skype Empresarial. Consulte [Administración de QoS para Skype Empresarial](https://technet.microsoft.com/library/gg405409.aspx) para obtener más información.
 
@@ -50,4 +50,4 @@ En la tabla siguiente se proporciona una lista de marcados de DSCP usados por Sk
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
-
+ 
 #Detección de caras y emociones con Análisis multimedia de Azure
 
 ##Información general
@@ -30,7 +30,7 @@ El procesador de multimedia (MP) **Azure Media Face Detector** le permite contar
 
 - **Detección de emociones**
 	
-	Detección de emociones es un componente opcional del procesador de multimedia de detección de caras que devuelve análisis sobre varios atributos emocionales a partir de las caras detectadas, como felicidad, tristeza, temor, enojo, etc. Estos datos se pueden devolver por cara o como valor de grupo y se pueden agregar a una ventana e intervalo personalizables.
+	Detección de emociones es un componente opcional del procesador de multimedia de detección de caras que devuelve análisis sobre varios atributos emocionales a partir de las caras detectadas, como felicidad, tristeza, temor, enojo, etc.
 
 El procesador de multimedia **Azure Media Face Detector** está actualmente en versión preliminar.
 
@@ -164,18 +164,22 @@ Al crear una tarea con **Azure Media Face Detector**, debe especificar un valor 
 	}
 
 
+####Descripciones de atributos
+
 Nombre del atributo|Descripción
 ---|---
 Mode|Faces: Solo detección de caras <br/>AggregateEmotion: Devolver valores de emociones medios para todas las caras del fotograma.
 AggregateEmotionWindowMs|Utilizar si se selecciona el modo AggregateEmotion. Especifica la longitud del vídeo que se utiliza para generar cada resultado agregado, en milisegundos.
 AggregateEmotionIntervalMs|Utilizar si se selecciona el modo AggregateEmotion. Especifica con qué frecuencia se van a producir resultados agregados.
 
-Valores predeterminados A continuación figuran valores recomendados para la configuración de ventana e intervalo agregados. La ventana debe ser mayor que el intervalo.
+####Agregar valores predeterminados
+
+A continuación figuran valores recomendados para la configuración de ventana e intervalo agregada. AggregateEmotionWindowMs debe ser mayor que AggregateEmotionIntervalMs.
 
  |Valores predeterminados|Máximos|Mínimos
 ---|---|---|---
-Longitud de la ventana|2|3|1
-Intervalo|0,5|1|0,25
+AggregateEmotionWindowMs|0,5|2|0,25
+AggregateEmotionIntervalMs|0,5|1|0,25
 
 ###Salida de JSON
 
@@ -531,4 +535,6 @@ El programa siguiente muestra cómo:
 
 [Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

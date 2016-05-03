@@ -3,8 +3,8 @@
 	description="En esta página se describen algunos límites de recursos comunes para Base de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="03/02/2016"
-	ms.author="jroth" />
+	ms.date="04/19/2016"
+	ms.author="carlrab" />
 
 
 # Límites de recursos de Base de datos SQL
@@ -60,6 +60,10 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 | Ámbito | Límite | Descripción |
 |---|---|---|
 | Bases de datos que usan exportación automatizada por suscripción | 10 | La exportación automatizada le permite crear una programación personalizada para realizar copias de seguridad de las bases de datos SQL. Para obtener más información, consulte [Bases de datos SQL: compatibilidad con exportaciones automatizadas de Base de datos SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
+| Base de datos por servidor | Hasta 5000 | Se permiten hasta 5000 bases de datos por servidor en servidores V12. Pueden aplicarse límites inferiores en la práctica, dependiendo de la actividad de inicio de sesión en todas las bases de datos en el servidor y el uso de las consultas en las vistas del sistema en la base de datos maestra. Se recomienda que los clientes supervisen las conexiones de base de datos para solucionar los problemas cuando aumente significativamente el número de bases de datos en un servidor. |  
+| DTU por servidor | 45000 | Hay disponibles 45000 DTU por servidor en servidores V12 para el aprovisionamiento de las bases de datos, los grupos elásticos y los almacenes de datos. |
+
+
 
 ## Recursos
 
@@ -69,4 +73,4 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 
 [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Configuración de credenciales de autenticación con nombre
@@ -27,7 +27,7 @@ Para efectuar la autenticación en Azure se requieren los siguientes elementos:
 
 - Un certificado X.509 v3 válido
 
->[AZURE.NOTE]La longitud de la clave del certificado X.509 v3 debe tener al menos 2048 bits. Azure rechazará cualquier certificado que no cumpla este requisito o que no sea válido.
+>[AZURE.NOTE] La longitud de la clave del certificado X.509 v3 debe tener al menos 2048 bits. Azure rechazará cualquier certificado que no cumpla este requisito o que no sea válido.
 
 Visual Studio usa el Id. de suscripción junto con los datos del certificado como credenciales. Se hace referencia a las credenciales adecuadas en el archivo de suscripción (archivo .publishsettings), que contiene una clave pública para el certificado. El archivo de suscripción puede contener credenciales para más de una suscripción.
 
@@ -35,7 +35,7 @@ Puede editar la información de suscripción en el cuadro de diálogo **Nueva su
 
 Si desea crear un certificado por sí mismo, puede consultar las instrucciones de [Crear y cargar un certificado de administración para Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) y después cargar manualmente el certificado en el Portal de administración.
 
->[AZURE.NOTE]Estas credenciales que Visual Studio necesita para administrar sus servicios en la nube no coinciden con las necesarias para autenticar una solicitud en los servicios de almacenamiento de Azure.
+>[AZURE.NOTE] Estas credenciales que Visual Studio necesita para administrar sus servicios en la nube no coinciden con las necesarias para autenticar una solicitud en los servicios de almacenamiento de Azure.
 
 ## Modificación o exportación de las credenciales de autenticación en Visual Studio
 
@@ -53,7 +53,7 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
 
 1. Elija el botón **Copiar la ruta de acceso completa**. La ruta de acceso para el certificado (archivo .cer) se copia en el Portapapeles.
 
-    >[AZURE.IMPORTANT]Para publicar la aplicación de Azure desde Visual Studio, debe cargar este certificado en el Portal de administración.
+    >[AZURE.IMPORTANT] Para publicar la aplicación de Azure desde Visual Studio, debe cargar este certificado en el Portal de administración.
 
 1. Para cargar el certificado en el Portal de administración de Azure:
 
@@ -71,4 +71,4 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
 
     1. Pegue la ruta de acceso completa del archivo .cer que acaba de crear y después escriba la contraseña que especificó.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

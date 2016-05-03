@@ -44,4 +44,4 @@ Utilice los pasos siguientes en el Portal de Azure para crear un servidor lógic
 
        ![nuevo servidor lógico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

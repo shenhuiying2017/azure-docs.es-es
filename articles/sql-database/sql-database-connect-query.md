@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="02/05/2016"
-	ms.author="genemi"/>
+	ms.date="04/25/2016"
+	ms.author="annemill"/>
 
 
 # Escritura de un programa en C&#x23; para consultar y conectarse a una Base de datos SQL
@@ -358,4 +358,4 @@ Para obtener más información, consulte<br/> [Configuración del firewall en Ba
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

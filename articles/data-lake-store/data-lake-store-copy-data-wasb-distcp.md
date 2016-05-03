@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Utilice Distcp para copiar datos entre los blobs de Almacenamiento de Azure y el Almacén de Data Lake
@@ -67,4 +67,4 @@ Un clúster de HDInsight incluye la utilidad Distcp, que puede utilizarse para c
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

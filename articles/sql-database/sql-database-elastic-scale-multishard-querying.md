@@ -3,7 +3,7 @@
 	description="Ejecute consultas a través de particiones con la biblioteca de cliente de bases de datos elásticas." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="torsteng" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
-	ms.author="torsteng;sidneyh"/>
+	ms.date="04/12/2016" 
+	ms.author="torsteng"/>
 
 # Consultas a través de particiones múltiples
 
@@ -24,16 +24,12 @@ Con las [herramientas de Base de datos elástica](sql-database-elastic-scale-int
 
 ## Información general
 
-Puede administrar las particiones con la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md). La biblioteca incluye nuevo espacio de nombres llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Query**, el que proporciona la capacidad de consultar varias particiones usando una sola solicitud y resultado. Brinda una abstracción de consulta sobre una recopilación de particiones. También proporciona directivas de ejecución alternativas, en especial resultados parciales, para abordar errores cuando se consulte sobre muchas particiones.
-
-El punto de entrada principal a las consultas a través de particiones múltiples es la clase **MultiShardConnection**. Al igual que ocurre con el enrutamiento dependiente de los datos, la API sigue la experiencia conocida de las **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)** clases y los métodos. Con la biblioteca **SqlClient**, el primer paso es crear una **SqlConnection**, luego un **SqlCommand** para la conexión y seguidamente ejecutar el comando a través de uno de los métodos **Execute**. Finalmente, **SqlDataReader** se itera a través de los conjuntos de resultados que devuelve la ejecución del comando. La experiencia con las API de consultas a través de particiones múltiples sigue estos pasos:
-
-1. Creación de una **MultiShardConnection**.
-2. Creación de un **MultiShardCommand** para una **MultiShardConnection**.
-3. Ejecución del comando.
-4. Consumo de los resultados a través del **MultiShardDataReader**. 
-
-Una diferencia clave es la construcción de conexiones entre particiones múltiples. Donde **SqlConnection** opera en una sola base de datos, **MultiShardConnection** toma una ***colección de particiones*** como entrada. Es posible rellenar la recopilación de particiones a partir de un mapa de particiones. Luego la consulta se ejecuta en la recopilación de particiones usando la semántica **UNION ALL** para ensamblar un solo resultado global. De manera opcional, el nombre de la partición donde se origina la fila se puede agregar a la salida usando la propiedad **ExecutionOptions** en el comando.
+1. Obtenga una clase [**RangeShardMap**](https://msdn.microsoft.com/library/azure/dn807318.aspx) o [**ListShardMap**](https://msdn.microsoft.com/library/azure/dn807370.aspx) utilizando el método [**TryGetRangeShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [**TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) o [**GetShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx). Consulte [**Construcción de un objeto ShardMapManager**](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) y [**Obtención de una clase RangeShardMap o ListShardMap**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
+2. Cree un objeto **[MultiShardConnection](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)**.
+2. Cree un objeto **[MultiShardCommand](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)**. 
+3. Establezca la **[propiedad CommandText](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)** en un comando T-SQL.
+3. Ejecute el comando mediante la invocación del **[método ExecuteReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)**.
+4. Vea los resultados con la **[clase MultiShardDataReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)**. 
 
 ## Ejemplo
 
@@ -62,7 +58,9 @@ El código siguiente ilustra el uso de consultas a través de particiones múlti
              	} 
            } 
     } 
+
  
+Una diferencia clave es la construcción de conexiones entre particiones múltiples. Donde **SqlConnection** opera en una sola base de datos, **MultiShardConnection** toma una ***colección de particiones*** como entrada. Complete la recopilación de particiones a partir de un mapa de particiones. Luego la consulta se ejecuta en la recopilación de particiones usando la semántica **UNION ALL** para ensamblar un solo resultado global. De manera opcional, el nombre de la partición donde se origina la fila se puede agregar a la salida usando la propiedad **ExecutionOptions** en el comando.
 
 Observe la llamada a **myShardMap.GetShards()**. Este método recupera todas las particiones desde el mapa de particiones y brinda una manera fácil de ejecutar una consulta a través de todas las bases de datos importantes. La colección de particiones para una consulta a través de particiones múltiples se puede restringir aún más si se realiza una consulta LINQ sobre la colección devuelta desde la llamada a **myShardMap.GetShards()**. En combinación con la directiva de resultados parciales, la actual capacidad en las consultas a través de particiones múltiples se diseñó para funcionar bien con decenas, y hasta centenas, de particiones.
 
@@ -73,6 +71,13 @@ Una limitación con las consultas a través de particiones múltiples actualment
 Las consultas a través de particiones múltiples no comprueban si los shardlets en la base de datos consultada forman parte de las operaciones de división y combinación en curso. (Consulte [Escalado con la herramienta de división y combinación de Base de datos elástica](sql-database-elastic-scale-overview-split-and-merge.md)). Esto puede llevar a incoherencias donde las filas del mismo shardlet se muestran para bases de datos múltiples en la misma consulta a través de particiones múltiples. Tenga en cuenta estas limitaciones y considere la posibilidad de agotar las operaciones de división y combinación y los cambios en el mapa de particiones mientras se realizan consultas a través de particiones múltiples.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+
+## Consulte también
+Clases y métodos **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)**.
+
+
+Administre las particiones con la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md). Incluye nuevo espacio de nombres llamado [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx), el que proporciona la capacidad de consultar varias particiones usando una sola solicitud y resultado. Brinda una abstracción de consulta sobre una recopilación de particiones. También proporciona directivas de ejecución alternativas, en especial resultados parciales, para abordar errores cuando se consulte sobre muchas particiones.
+
  
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

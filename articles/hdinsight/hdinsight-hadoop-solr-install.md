@@ -41,10 +41,6 @@ El script de ejemplo que se usa en este tema crea un clúster de Solr con una co
 
 ## Instalación de Solr mediante el portal
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-v1.md)
-
 1. Comience a crear un clúster mediante la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md#portal).
 2. En la página **Acciones de script** del asistente, haga clic en **Agregar acción de script** para proporcionar detalles acerca de la acción de script, tal como se muestra a continuación:
 
@@ -85,7 +81,7 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
 
 	La utilidad post.jar indexa Solr con dos documentos de muestra, **solr.xml** y **monitor.xml**. La utilidad post.jar y los documentos de muestra están disponibles con la instalación de Solr.
 
-3. **Utilice el panel de Solr para buscan dentro de los documentos indexados**. En la sesión RDP con el clúster de HDInsight, abra Internet Explorer e inicie el panel de Solr en ****http://headnodehost:8983/solr/#/**. En el panel izquierdo, en la lista desplegable **Selector principal**, seleccione **collection1** y, dentro de ella, haga clic en **Consulta**. Por ejemplo, para seleccionar y devolver a todos los documentos de Solr, indique los valores siguientes:
+3. **Utilice el panel de Solr para buscan dentro de los documentos indexados**. En la sesión RDP con el clúster de HDInsight, abra Internet Explorer e inicie el panel de Solr en **http://headnodehost:8983/solr/#/**. En el panel izquierdo, en la lista desplegable **Selector principal**, seleccione **collection1** y, dentro de ella, haga clic en **Consulta**. Por ejemplo, para seleccionar y devolver a todos los documentos de Solr, indique los valores siguientes:
 
 	* En el cuadro de texto **q**, escriba ***:***. Se devolverán todos los documentos indizados en Solr. Si desea buscar una cadena específica dentro de los documentos, puede especificar esa cadena aquí.
 	
@@ -200,4 +196,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

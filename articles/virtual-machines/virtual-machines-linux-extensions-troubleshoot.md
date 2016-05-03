@@ -11,10 +11,10 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Solución de problemas de la extensión de máquina virtual de Linux Azure.
@@ -72,4 +72,4 @@ Donde "publisher-name" se corresponde con el tipo de extensión de la salida de 
 
 Cuando se ha quitado la extensión, la plantilla puede volver a ejecutarse para ejecutar los scripts en la máquina virtual.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

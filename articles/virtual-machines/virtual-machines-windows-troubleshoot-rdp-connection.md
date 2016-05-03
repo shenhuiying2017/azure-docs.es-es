@@ -4,7 +4,7 @@
 	keywords="Error de escritorio remoto, error de conexión del escritorio remoto, no se puede conectar a la máquina virtual, solución de problemas con el escritorio remoto"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,9 +14,9 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/25/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows
 
@@ -48,7 +48,7 @@ Estos pasos pueden resolver la mayoría los errores de conexión de Escritorio r
 
 - Compruebe el estado de los recursos de la VM para ver si hay algún problema en la plataforma.<br> Haga clic en **Examinar** > **Máquinas virtuales (clásico)** > su máquina virtual Windows > **Configuración** > **Comprobar estado**.
 
-## Máquinas virtuales creadas mediante el modelo de implementación del Administrador de recursos
+### Máquinas virtuales creadas mediante el modelo de implementación del Administrador de recursos
 
 Estos pasos pueden resolver la mayoría los errores de conexión de Escritorio remoto en las máquinas virtuales de Azure creadas mediante el modelo de implementación del Administrador de recursos. Después de cada paso, pruebe a conectarse a la máquina virtual.
 
@@ -171,4 +171,4 @@ Si ninguno de estos errores se produjo y todavía no se pudo conectar a la VM a 
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

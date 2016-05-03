@@ -24,7 +24,13 @@ Si almacena los datos históricos en una tabla independiente, puede configurar S
 
 Si no especifica un predicado de filtro, se migra toda la tabla.
 
-En CTP 3.1 a través de RC2, la opción de especificar un predicado no está disponible en el asistente para habilitar una base de datos para Stretch. Tendrá que usar la instrucción ALTER TABLE para configurar Stretch Database con esta opción. Para obtener información, consulte [Enable Stretch Database for a table (Habilitación de Stretch Database para una tabla)](sql-server-stretch-database-enable-table.md) y [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+En RC3, cuando ejecute el Asistente para la habilitación de Stretch Database, puede migrar una tabla entera o puede especificar un simple predicado de filtro basado en la fecha en el asistente. Si desea usar un predicado de filtro diferente para seleccionar filas que migrar, realice una de las siguientes acciones.
+
+-   Salga del asistente y ejecute la instrucción ALTER TABLE para habilitar Stretch para la tabla y especificar un predicado.
+
+-   Ejecute la instrucción ALTER TABLE para especificar un predicado después de salir del asistente.
+
+La sintaxis de ALTER TABLE para la adición de un predicado se describe más adelante en este tema.
 
 ## Requisitos básicos para la función con valores de tabla insertada
 La función con valores de tabla insertada necesaria para un predicado de filtro de Stretch Database es similar al ejemplo siguiente.
@@ -212,7 +218,7 @@ SET (
 
 Si quiere actualizar la ventana deslizante, haga lo siguiente.
 
-1.  Cree una nueva función que especifique la nueva ventana deslizante. En el ejemplo siguiente se seleccionan las fechas anteriores al 2 de enero de 2106, en lugar del 1 de enero de 2016.
+1.  Cree una nueva función que especifique la nueva ventana deslizante. En el ejemplo siguiente se seleccionan las fechas anteriores al 2 de enero de 2016, en lugar del 1 de enero de 2016.
 
 2.  Reemplace el predicado de filtro anterior por el nuevo mediante una llamada a ALTER TABLE, tal como se muestra en el ejemplo siguiente.
 
@@ -502,4 +508,4 @@ Para comprobar el predicado de filtro aplicado a una tabla, abra la vista de cat
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

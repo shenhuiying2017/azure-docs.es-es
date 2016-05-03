@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight (Linux)
+# Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight(versión preliminar)
 
-El clúster Apache Spark en HDInsight (Linux) incluye cuadernos de Jupyter que puede usar para probar las aplicaciones. De forma predeterminada el cuaderno de Jupyter incorpora un kernel **Python2**. Un kernel es un programa que ejecuta e interpreta el código. Los clústeres de HDInsight Spark proporcionan dos kernels adicionales que puede utilizar con el cuaderno de Jupyter. Dichos componentes son:
+El clúster Apache Spark en HDInsight (Linux) incluye cuadernos de Jupyter que puede usar para probar las aplicaciones. Un kernel es un programa que ejecuta e interpreta el código. Los clústeres Spark en HDInsight proporcionan dos kernels que puede utilizar con el cuaderno de Jupyter. Dichos componentes son:
 
 1. **PySpark** (para aplicaciones escritas con Python)
 2. **Spark** (para aplicaciones escritas con Scala)
@@ -50,11 +50,11 @@ Debe tener lo siguiente:
 
 3. Esto debería abrir un nuevo cuaderno con el kernel seleccionado.
 
-## ¿Por qué debo usar los kernels nuevos?
+## ¿Por qué debo usar los kernels de PySpark o Spark?
 
 Utilizar los nuevos kernels aporta un par de beneficios.
 
-1. **Contextos preestablecidos**. Con el kernel predeterminado **Python2**, que está disponible con los bloc de notas de Jupyter, tiene que establecer de forma explícita los contextos de Spark o Hive para poder empezar a trabajar con la aplicación que está desarrollando. Si usa los nuevos kernels (**PySpark** o **Spark**), estos contextos están disponibles de forma predeterminada. Estos contextos son:
+1. **Contextos preestablecidos**. Con los kernels de **PySpark** or **Spark** que se proporcionan con los cuadernos de notas de Jupyter, no necesita establecer de forma explícita los contextos de Spark o Hive para poder empezar a trabajar con la aplicación que está desarrollando, ya que están disponibles de forma predeterminada. Estos contextos son:
 
 	* **sc**: para el contexto Spark
 	* **sqlContext**: para el contexto Hive
@@ -96,7 +96,7 @@ La instrucción mágica %%sql es compatible con distintos parámetros que se pue
 | -o | `-o <VARIABLE NAME>` | Use este parámetro para conservar el resultado de la consulta en el contexto %%local de Python como trama de datos [Pandas](http://pandas.pydata.org/). El nombre de la variable de la trama de datos es el nombre de variable que especifique. |
 | -q | `-q` | Úselo para desactivar visualizaciones de la celda. Si no quiere visualizar de forma automática el contenido de una celda y simplemente quiere capturarlo como una trama de datos, use `-q -o <VARIABLE>`. Si quiere desactivar visualizaciones sin capturar los resultados (por ejemplo, para ejecutar una consulta de SQL con efectos secundarios, como una instrucción `CREATE TABLE`), simplemente use `-q` sin especificar un argumento `-o`. |
 | -m | `-m <METHOD>` | Donde **METHOD** es **take** o **sample** (el valor predeterminado es **take**). Si el método es **take**, el kernel toma elementos de la parte superior del conjunto de datos de resultados especificado por MAXROWS (se describe más adelante en esta tabla). Si el método es **sample**, el kernel tomará como muestra de forma aleatoria elementos del conjunto de datos según el parámetro `-r`, que se describe a continuación en esta tabla. |
-| -r | `-r <FRACTION>` | Aquí **FRACTION** es un número de punto flotante entre 0.0 y 1.0. Si el método de ejemplo de la consulta de SQL es `sample`, el kernel toma como muestra de forma aleatoria la fracción especificada de los elementos del conjunto de resultados; por ejemplo, si ejecuta una consulta de SQL con los argumentos `-m sample -r 0.01`, se tomará como muestra de forma aleatoria el 1 % de las filas de resultados. |
+| -r | `-r <FRACTION>` | Aquí **FRACTION** es un número de punto flotante entre 0,0 y 1,0. Si el método de ejemplo de la consulta de SQL es `sample`, el kernel toma como muestra de forma aleatoria la fracción especificada de los elementos del conjunto de resultados; por ejemplo, si ejecuta una consulta de SQL con los argumentos `-m sample -r 0.01`, se tomará como muestra de forma aleatoria el 1 % de las filas de resultados. |
 | -n | `-n <MAXROWS>` | **MAXROWS** es un valor entero. El kernel limitará el número de filas de resultados a **MAXROWS**. Si **MAXROWS** es un número negativo como **-1**, no se limitará el número de filas del conjunto de resultados. |
 
 **Ejemplo:**
@@ -114,9 +114,7 @@ La instrucción anterior hace lo siguiente:
 
 ## Consideraciones al utilizar los kernels nuevos
 
-Sea cual sea el kernel usado (Python2, PySpark o Spark), dejar los cuadernos en ejecución consumirá los recursos del clúster. Con el cuaderno de Python2, como crea los contextos de manera explícita, también puede terminar los contextos al salir de la aplicación.
-
-Sin embargo, con los kernels PySpark y Spark, como los contextos están preestablecidos, tampoco puede cerrar el contexto de manera explícita. Por tanto,si solo sale del cuaderno, es posible que el contexto continúe en ejecución, de manera que utilizará los recursos del clúster. Una buena práctica con los kernels PySpark y Spark sería utilizar la opción **Cerrar y detener** del menú **Archivo** del cuaderno. Esto termina el contexto y luego sale del cuaderno.
+Sea cual sea el kernel usado (PySpark o Spark), dejar los cuadernos en ejecución consumirá los recursos del clúster. Con estos kernels, dado que los contextos están preestablecidos, salir simplemente de los cuadernos no elimina el contexto y, por tanto, los recursos de clúster seguirán estando en uso. Una buena práctica con los kernels PySpark y Spark sería utilizar la opción **Cerrar y detener** del menú **Archivo** del cuaderno. Esto termina el contexto y luego sale del cuaderno.
 
 
 ## Estos son algunos ejemplos:
@@ -182,4 +180,4 @@ El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo.
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

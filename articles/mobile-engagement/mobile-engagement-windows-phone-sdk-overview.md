@@ -32,11 +32,10 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-windows-phone-sdk-co
 
 ##Notas de la versión
 
-###3\.2.0 (01/22/2016)
-Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.3.0**
+###3\.3.0 (04/19/2016)
+Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.4.0**
 
--   Esquemas personalizados, ms appx y ms-appdata disponibles en direcciones URL de acción.
--   Mejoras de estabilidad.
+-   API "TestLogLevel" agregada para habilitar, deshabilitar y filtrar registros de consola emitidos por el SDK.
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-windows-phone-release-notes.md)
 
@@ -46,13 +45,18 @@ Si ya integró una versión anterior de nuestro SDK en la aplicación, debería 
 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK. Consulte los [procedimientos de actualización](mobile-engagement-windows-phone-upgrade-procedure/) completos. Por ejemplo, si migra desde 0.10.1 a 0.11.0, primero debe seguir el procedimiento "de 0.9.0 a 0.10.1" y luego el procedimiento "de 0.10.1 a 0.11.0".
 
-###De 2.0.0 a 3.0.0
+###De 2.0.0 a 3.3.0
 
-Ninguno.
+####Registros de prueba
+
+Los registros de consola generados por el SDK ahora se pueden habilitar, deshabilitar o filtrar. Para personalizar esto, actualice la propiedad `EngagementAgent.Instance.TestLogEnabled` a uno de los valores disponibles en la enumeración `EngagementTestLogLevel`, por ejemplo:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
 
 ### Actualizar de versiones anteriores
 
 Consulte [Procedimientos de actualización](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

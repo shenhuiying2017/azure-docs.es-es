@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
+<properties
+	pageTitle="Integración del SDK de Android para Azure Mobile Engagement"
 	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/18/2016"
 	ms.author="piyushjo" />
 
 #Integración de cobertura para Engagement en Android
@@ -145,7 +145,7 @@ Luego puede invalidar las devoluciones de llamada `onDataPushStringReceived` y `
 			    Log.d("tmp", "String data push message received: " + body);
 			    return true;
 			  }
-			
+
 			  @Override
 			  protected Boolean onDataPushBase64Received(Context context, String category, byte[] decodedBody, String encodedBody)
 			  {
@@ -218,15 +218,15 @@ Puede decidir incluir nuestro diseño de notificación en su diseño existente g
 			  android:orientation="vertical"
 			  android:layout_width="fill_parent"
 			  android:layout_height="fill_parent">
-			
+
 			  <ListView
 			    android:id="@android:id/list"
 			    android:layout_width="fill_parent"
 			    android:layout_height="fill_parent"
 			    android:layout_weight="1" />
-			
+
 			  <include layout="@layout/engagement_notification_area" />
-			
+
 			</LinearLayout>
 
 En este ejemplo agregamos un contenedor principal, debido a que el diseño original usó una vista de lista como el elemento de nivel superior. También agregamos `android:layout_weight="1"` para poder agregar una vista debajo de una vista de lista configurada con `android:layout_height="fill_parent"`.
@@ -292,27 +292,27 @@ Puede cambiar la mayor parte del proceso de creación de notificaciones si redef
 ##### Notificación en aplicación
 
 Si solo desea usar diseños alternativos para una categoría específica, puede implementar esto como en el siguiente ejemplo:
-			
+
 			public class MyNotifier extends EngagementDefaultNotifier
 			{
 			  public MyNotifier(Context context)
 			  {
 			    super(context);
 			  }
-			
+
 			  @Override
 			  protected int getOverlayLayoutId(String category)
 			  {
 			    return R.layout.my_notification_overlay;
 			  }
-			
-			
+
+
 			  @Override
 			  public Integer getOverlayViewId(String category)
 			  {
 			    return R.id.my_notification_overlay;
 			  }
-			
+
 			  @Override
 			  public Integer getInAppAreaId(String category)
 			  {
@@ -320,7 +320,7 @@ Si solo desea usar diseños alternativos para una categoría específica, puede 
 			  }
 			}
 
-**Ejemplo de `my_notification_overlay.xml`:**
+**Ejemplo de `my_notification_overlay.xml`: **
 
 			<?xml version="1.0" encoding="utf-8"?>
 			<RelativeLayout
@@ -328,39 +328,39 @@ Si solo desea usar diseños alternativos para una categoría específica, puede 
 			  android:id="@+id/my_notification_overlay"
 			  android:layout_width="fill_parent"
 			  android:layout_height="fill_parent">
-			
+
 			  <include layout="@layout/my_notification_area" />
-			
+
 			</RelativeLayout>
 
 Como puede ver, el identificador de vista de superposición es distinto al estándar. Es importante que cada diseño utilice un identificador único para las superposiciones.
 
-**Ejemplo de `my_notification_area.xml`:**
+**Ejemplo de `my_notification_area.xml`: **
 
 			<?xml version="1.0" encoding="utf-8"?>
 			<merge
 			  xmlns:android="http://schemas.android.com/apk/res/android"
 			  android:layout_width="fill_parent"
 			  android:layout_height="fill_parent">
-			
+
 			  <RelativeLayout
 			    android:id="@+id/my_notification_area"
 			    android:layout_width="fill_parent"
 			    android:layout_height="64dp"
 			    android:layout_alignParentTop="true"
 			    android:background="#B000">
-			
+
 			    <LinearLayout
 			      android:orientation="horizontal"
 			      android:layout_width="fill_parent"
 			      android:layout_height="fill_parent"
 			      android:gravity="center_vertical">
-			
+
 			      <ImageView
 			        android:id="@+id/engagement_notification_icon"
 			        android:layout_width="48dp"
 			        android:layout_height="48dp" />
-			
+
 			      <LinearLayout
 			        android:id="@+id/engagement_notification_text"
 			        android:orientation="vertical"
@@ -368,7 +368,7 @@ Como puede ver, el identificador de vista de superposición es distinto al está
 			        android:layout_height="fill_parent"
 			        android:layout_weight="1"
 			        android:gravity="center_vertical">
-			
+
 			        <TextView
 			          android:id="@+id/engagement_notification_title"
 			          android:layout_width="fill_parent"
@@ -376,7 +376,7 @@ Como puede ver, el identificador de vista de superposición es distinto al está
 			          android:singleLine="true"
 			          android:ellipsize="end"
 			          android:textAppearance="@android:style/TextAppearance.Medium" />
-			
+
 			        <TextView
 			          android:id="@+id/engagement_notification_message"
 			          android:layout_width="fill_parent"
@@ -384,15 +384,15 @@ Como puede ver, el identificador de vista de superposición es distinto al está
 			          android:maxLines="2"
 			          android:ellipsize="end"
 			          android:textAppearance="@android:style/TextAppearance.Small" />
-			
+
 			      </LinearLayout>
-			
+
 			      <ImageView
 			        android:id="@+id/engagement_notification_image"
 			        android:layout_width="wrap_content"
 			        android:layout_height="fill_parent"
 			        android:adjustViewBounds="true" />
-			
+
 			      <ImageButton
 			        android:id="@+id/engagement_notification_close_area"
 			        android:visibility="invisible"
@@ -400,9 +400,9 @@ Como puede ver, el identificador de vista de superposición es distinto al está
 			        android:layout_height="fill_parent"
 			        android:src="@android:drawable/btn_dialog"
 			        android:background="#0F00" />
-			
+
 			    </LinearLayout>
-			
+
 			    <ImageButton
 			      android:id="@+id/engagement_notification_close"
 			      android:layout_width="wrap_content"
@@ -410,9 +410,9 @@ Como puede ver, el identificador de vista de superposición es distinto al está
 			      android:layout_alignParentRight="true"
 			      android:src="@android:drawable/btn_dialog"
 			      android:background="#0F00" />
-			
+
 			  </RelativeLayout>
-			
+
 			</merge>
 
 Como puede ver, el identificador de vista del área de notificación es distinto del estándar. Es importante que cada diseño utilice un identificador único para las áreas de notificación.
@@ -450,19 +450,19 @@ El siguiente es un ejemplo de una implementación de ese tipo correcta:
 			    .setSmallIcon(notification.icon)              // icon is mandatory
 			    .setContentIntent(notification.contentIntent) // keep content intent
 			    .setDeleteIntent(notification.deleteIntent);  // keep delete intent
-			
+
 			  /* Your customization */
 			  // builder.set...
-			
+
 			  /* Dismiss option can be managed only after build */
 			  Notification myNotification = builder.build();
 			  if (!content.isNotificationCloseable())
 			    myNotification.flags |= Notification.FLAG_NO_CLEAR;
-			
+
 			  /* Notify here instead of super class */
 			  NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 			  manager.notify(getNotificationId(content), myNotification); // notice the call to get the right identifier
-			
+
 			  /* Return false, we notify ourselves */
 			  return false;
 			}
@@ -472,7 +472,7 @@ El siguiente es un ejemplo de una implementación de ese tipo correcta:
 La administración del clic en un anuncio de solo notificación se puede personalizar al anular `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` para modificar el `Intent` preparado. Usar este método le permite ajusta fácilmente las marcas.
 
 Por ejemplo, para agregar la marca `SINGLE_TOP`:
-			
+
 			@Override
 			protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
 			  Intent intent)
@@ -521,7 +521,7 @@ Por ejemplo, para crear una categoría para un anuncio de texto, puede extender 
 
 			<activity android:name="com.your_company.MyCustomTextAnnouncementActivity">
 			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
 			    <category android:name="my_category" />
 			    <data android:mimeType="text/plain" />
 			  </intent-filter>
@@ -550,7 +550,7 @@ En el caso de los anuncios web, puede extender `EngagementWebAnnouncementActivit
 
 			<activity android:name="com.your_company.MyCustomWebAnnouncementActivity">
 			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
 			    <category android:name="my_category" />
 			    <data android:mimeType="text/html" />    <!-- only difference with text announcements in the intent is the data mime type -->
 			  </intent-filter>
@@ -560,11 +560,11 @@ En el caso de los sondeos, puede extender `EngagementPollActivity` y declarar su
 
 			<activity android:name="com.your_company.MyCustomPollActivity">
 			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.POLL"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
 			    <category android:name="my_category" />
 			  </intent-filter>
 			</activity>
-			
+
 ##### Implementación desde cero
 
 Puede implementar categorías para sus actividades de anuncio (y sondeo) sin extender una de las clases `Engagement*Activity` proporcionadas por el SDK de cobertura. Esto resulta útil, por ejemplo, si desea definir un diseño que no utiliza las mismas vistas que los diseños estándar.
@@ -578,12 +578,12 @@ Para recuperar el objeto de contenido que contiene los campos que especificó al
 			public class MyCustomTextAnnouncement extends EngagementActivity
 			{
 			  private EngagementAnnouncement mContent;
-			
+
 			  @Override
 			  protected void onCreate(Bundle savedInstanceState)
 			  {
 			    super.onCreate(savedInstanceState);
-			
+
 			    /* Get content */
 			    mContent = EngagementReachAgent.getInstance(this).getContent(getIntent());
 			    if (mContent == null)
@@ -592,16 +592,16 @@ Para recuperar el objeto de contenido que contiene los campos que especificó al
 			      finish();
 			      return;
 			    }
-			
+
 			    setContentView(R.layout.my_text_announcement);
-			
+
 			    /* Configure views by querying fields on mContent */
 			    // ...
 			  }
 			}
 
 En el caso de las estadísticas, debe informar que el contenido se muestra en el evento `onResume`:
-			
+
 			@Override
 			protected void onResume()
 			{
@@ -623,7 +623,7 @@ Esta es la parte interesante de la implementación:
 			{
 			  finish();
 			}
-			
+
 			@Override
 			protected void onPause()
 			{
@@ -643,6 +643,5 @@ Como puede ver, si llamó a `actionContent(this)` y luego finalizó la actividad
 [aquí]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Servicio de mensajería en la nube de Google]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
- 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

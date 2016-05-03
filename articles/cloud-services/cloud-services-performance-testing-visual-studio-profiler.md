@@ -186,4 +186,4 @@ La instrumentación de binarios de Azure en el emulador no es compatible en el g
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

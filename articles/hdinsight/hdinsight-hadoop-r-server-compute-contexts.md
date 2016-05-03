@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Opciones de contexto de proceso del servidor de R en HDI Premium | Azure"
-   description="Obtenga información sobre las distintas opciones de contexto de proceso disponibles para los usuarios con el servidor de R en HDInsight Premium"
+   pageTitle="Opciones de contexto de proceso para R Server en HDInsight (versión preliminar) | Azure"
+   description="Obtenga información sobre las distintas opciones de contexto de proceso disponibles para los usuarios con R Server en HDInsight (versión preliminar)"
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -18,9 +18,9 @@
    ms.author="jeffstok"
 />
 
-# Opciones de contexto de proceso del servidor de R en HDInsight Premium
+#Opciones de contexto de proceso para R Server en HDInsight (versión preliminar)
 
-El servidor de R en HDI Spark ofrece las funcionalidades más recientes para el análisis basado en R mediante el uso de los datos almacenados en HDFS en un contenedor en la cuenta de almacenamiento de [blobs de Azure](../storage/storage-introduction.md "Almacenamiento de blobs de Azure") o en el sistema de archivos de Linux local. Puesto que el servidor de R se basa en R de código abierto, las aplicaciones basadas en R que cree podrán usar cualquiera de los más de 8000 paquetes de R de código abierto, así como las rutinas de [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), el paquete de análisis de macrodatos de Microsoft incluido en el servidor de R. El nodo perimetral de los clústeres Premium proporciona una zona de aterrizaje muy útil para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, podrá ejecutar funciones distribuidas en paralelo de ScaleR en los núcleos del servidor del nodo perimetral o en los nodos del clúster mediante el uso de los contextos de proceso de Spark o MapReduce de Hadoop de ScaleR.
+R Server en HDInsight (versión preliminar) ofrece las funcionalidades más recientes para el análisis basado en R mediante el uso de los datos almacenados en HDFS en un contenedor en la cuenta de almacenamiento de [Blobs de Azure](../storage/storage-introduction.md "Almacenamiento de blobs de Azure") o en el sistema de archivos de Linux local. Puesto que el servidor de R se basa en R de código abierto, las aplicaciones basadas en R que cree podrán usar cualquiera de los más de 8000 paquetes de R de código abierto, así como las rutinas de [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), el paquete de análisis de macrodatos de Microsoft incluido en el servidor de R. El nodo perimetral de los clústeres Premium proporciona una zona de aterrizaje muy útil para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, podrá ejecutar funciones distribuidas en paralelo de ScaleR en los núcleos del servidor del nodo perimetral o en los nodos del clúster mediante el uso de los contextos de proceso de Spark o MapReduce de Hadoop de ScaleR.
 
 ## Contextos de proceso de un nodo perimetral
 
@@ -77,6 +77,6 @@ Ahora que sabe cómo crear un nuevo clúster de HDInsight que incluya un servido
 - [Información general sobre el servidor de R en Hadoop](hdinsight-hadoop-r-server-overview.md)
 - [Introducción al servidor de R en Hadoop](hdinsight-hadoop-r-server-get-started.md)
 - [Agregar un servidor de RStudio a HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
-- [Opciones de almacenamiento de Azure del servidor de R en HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
+- [Azure Storage options for R Server on HDInsight Premium (Opciones de almacenamiento de Azure del servidor de R en HDInsight Premium)](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

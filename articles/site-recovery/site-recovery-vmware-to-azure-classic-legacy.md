@@ -1,4 +1,11 @@
-<properties pageTitle="Replicación de máquinas virtuales de VMware y servidores físicos en Azure Site Recovery (heredada) | Microsoft Azure" description="Describe una implementación heredada de configuración de Azure Site Recovery para orquestar la replicación, conmutación por error y recuperación de máquinas virtuales de VMware locales y servidores físicos de Windows/Linux en Azure." " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
+<properties
+	pageTitle="Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery (heredado) | Microsoft Azure" 
+	description="Describe una implementación heredada para la configuración de Azure Site Recovery con el fin de organizar la replicación, la conmutación por error y la recuperación de máquinas virtuales de VMware locales y servidores físicos de Windows o Linux en Azure." 
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -16,14 +23,14 @@
 - [Heredado](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
-El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Las máquinas se pueden replicar a Azure o a un centro de datos secundario local. Para ver una introducción rápida, lea [¿Qué es Azure Site Recovery?](site-recovery-overview.md)
+El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Las máquinas se pueden replicar a Azure o a un centro de datos secundario local. Para obtener una introducción rápida, lea [¿Qué es Azure Site Recovery?](site-recovery-overview.md)
 
 ## Información general
 
 En este artículo se describe cómo:
 
-- **Replicar máquinas virtuales de VMware en Azure**: implemente Site Recovery para coordinar la replicación, la conmutación por error y la recuperación de máquinas virtuales locales de VMware en Almacenamiento de Azure.
-- **Replicar servidores físicos en Azure**: implemente Azure Site Recovery para coordinar la replicación, la conmutación por error y la recuperación de servidores físicos locales de Windows y Linux en Azure.
+- **Replicar máquinas virtuales de VMware en Azure**: implemente Site Recovery para coordinar la replicación, la conmutación por error y la recuperación de máquinas virtuales locales de VMware en el almacenamiento de Azure.
+- **Replicar servidores físicos en Azure**: implemente Azure Site Recovery para coordinar la replicación, la conmutación por error y la recuperación de los servidores físicos locales de Windows y Linux en Azure.
 
 >[AZURE.NOTE] El escenario descrito en este artículo incluye **instrucciones heredadas**. No siga este artículo para nuevas implementaciones. En su lugar, utilice las instrucciones de [implementación mejorada](site-recovery-vmware-to-azure-classic.md) para el Portal clásico. Si ya ha realizado la implementación mediante el método descrito en este artículo, le recomendamos que migre a la nueva versión tal y como se describe a continuación.
 
@@ -219,11 +226,11 @@ El gráfico resume los pasos de implementación.
 
 Tiene dos opciones para configurar la conectividad de red entre el sitio local y la red virtual de Azure en la que se implementan los componentes de infraestructura (servidor de configuración, servidores de destino maestros). Deberá decidir qué opción de conectividad de red usar para poder implementar su servidor de configuración. Debe elegir esta opción en el momento de la implementación. No puede cambiarse más adelante.
 
-**Internet pública:** La comunicación y la replicación de datos entre los servidores locales (servidor de procesos, máquinas protegidas) y los servidores de componentes de infraestructura de Azure (servidor de configuración, servidor de destino maestro) se realiza mediante una conexión SSL/TLS segura entre el entorno local y los puntos de conexión públicos de los servidores de configuración y de destino maestros. (La única excepción es la conexión entre el servidor de procesos y el servidor de destino maestro en el puerto TCP 9080 que es sin cifrar. Solo se intercambia en esta conexión la información de control relacionada con el protocolo de replicación usado para configurar la replicación.)
+**Internet público:** la comunicación y la replicación de datos entre los servidores locales (servidor de procesos, máquinas protegidas) y los servidores de componentes de infraestructura de Azure (servidor de configuración, servidor de destino maestro) se realiza mediante una conexión SSL/TLS segura entre el entorno local y los puntos de conexión públicos de los servidores de configuración y de destino maestros. (La única excepción es la conexión entre el servidor de procesos y el servidor de destino maestro en el puerto TCP 9080 que es sin cifrar. Solo se intercambia en esta conexión la información de control relacionada con el protocolo de replicación usado para configurar la replicación.)
 
 ![Diagrama de implementación Internet](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
-**VPN:** La comunicación y la replicación de datos entre los servidores locales (servidor de procesos, máquinas protegidas) y los servidores de componentes de infraestructura de Azure (servidor de configuración, servidor de destino maestro) se realiza mediante una conexión VPN entre su red local y la red virtual de Azure en la que están implementados el servidor de configuración y los servidores de destino maestros. Asegúrese de que su red local esté conectada a la red virtual de Azure mediante una conexión de ExpressRoute o una conexión VPN de sitio a sitio.
+**VPN:** la comunicación y la replicación de datos entre los servidores locales (servidor de procesos, máquinas protegidas) y los servidores de componentes de infraestructura de Azure (servidor de configuración, servidor de destino maestro) se realiza mediante una conexión VPN entre su red local y la red virtual de Azure en la que están implementados el servidor de configuración y los servidores de destino maestros. Asegúrese de que su red local esté conectada a la red virtual de Azure mediante una conexión de ExpressRoute o una conexión VPN de sitio a sitio.
 
 ![Diagrama de implementación VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
@@ -309,11 +316,11 @@ El servidor de configuración se implementa en un servicio en la nube de Azure c
 	- Si hace clic en **Siguiente**, se ejecutará una prueba para comprobar la conexión del proxy.
 	- Si utiliza a un proxy personalizado o el proxy predeterminado requiere autenticación, tendrá que especificar los detalles del proxy, incluida la dirección, el puerto y las credenciales.
 	- Las siguientes direcciones URL deben ser accesibles a través del proxy:
-		- **.hypervrecoverymanager.windowsazure.com
-		- **.accesscontrol.windows.net
-		- **.backup.windowsazure.com
-		- **.blob.core.windows.net
-		- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 	- Si dispone de reglas de firewall basadas en direcciones IP, asegúrese de que están configuradas para permitir la comunicación desde el servidor de configuración hasta las direcciones IP descritas en [Intervalos de direcciones IP de los centros de datos de Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 
 	![Registro de proxy](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
@@ -418,7 +425,7 @@ Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están re
 	1. Asegúrese de que ha instalado los Linux Integration Services (LIS) más recientes antes de instalar el software de servidor de destino maestro. Encontrará la versión más reciente de LIS junto con instrucciones sobre cómo instalar [aquí](https://www.microsoft.com/download/details.aspx?id=46842). Reinicie el equipo después de instalar LIS.
 	2. En **Preparar los recursos de destino (Azure)**, haga clic en **Descargar e instalar software adicional (solo para el servidor de destino principal de Linux)** para descargar el paquete de servidor de destino principal de Linux. Copie el archivo tar descargado en la máquina virtual mediante un cliente sftp. También puede iniciar sesión en el servidor de destino principal de Linux implementado y usar wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* para descargar el archivo.
 	2. Inicie sesión en el servidor mediante un cliente de Secure Shell. Tenga en cuenta que si está conectado a la red de Azure a través de VPN, utilice la dirección IP interna. En caso contrario, utilice la dirección IP externa y el extremo público SSH.
-	3. Extraiga los archivos del instalador comprimidos con gzip ejecutando: **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***  
+	3. Extraiga los archivos del instalador comprimidos con gzip ejecutando: **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** 
 	![Servidor de destino principal de Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
 	4. Asegúrese de que se encuentra en el directorio en el que extrajo el contenido del archivo tar.
 	5. Copie la frase de contraseña del servidor de configuración en un archivo local con el comando **echo *`<passphrase>`* >passphrase.txt**
@@ -500,7 +507,7 @@ Antes de continuar, asegúrese de que tiene instaladas las actualizaciones más 
 3. Servidor de destino principal
 4. Herramienta de conmutación por recuperación (vContinuum)
 
-Puede obtener las actualizaciones en el **Panel ** de Site Recovery. Para la instalación de Linux, extraiga los archivos del instalador comprimidos con gzip y ejecute el comando “sudo ./install” para instalar la actualización
+Puede obtener las actualizaciones en el **Panel** de Site Recovery. Para la instalación de Linux, extraiga los archivos del instalador comprimidos con gzip y ejecute el comando “sudo ./install” para instalar la actualización
 
 Descargue la actualización más reciente para la **herramienta de conmutación por recuperación (vContinuum)** desde [aquí](http://go.microsoft.com/fwlink/?LinkID=533813).
 
@@ -807,4 +814,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

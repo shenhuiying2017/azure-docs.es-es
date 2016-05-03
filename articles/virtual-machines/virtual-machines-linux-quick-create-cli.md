@@ -13,31 +13,31 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/08/2016"
+   ms.date="04/27/2016"
    ms.author="v-livech"/>
 
 
 # Creación de una máquina virtual con Linux en Azure mediante la CLI
 
-En este se artículo muestra cómo crear rápidamente una máquina virtual de Linux en Azure mediante el comando `azure vm quick-create` de la CLI de Azure. El comando `quick-create` crea una máquina virtual con una infraestructura básica que puede usar para crear un prototipo o hacer una prueba de un concepto rápidamente. Considere que este es el camino más fácil a un shell de bash de Linux. Para los pasos de este artículo se requiere una cuenta de Azure ([obtenga una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y [la CLI de Azure](../xplat-cli-install.md) en modo de Resource Manager (`azure config mode arm`).
+En este artículo se muestra cómo implementar rápidamente una máquina virtual de Linux en Azure mediante el comando `azure vm quick-create` de la CLI de Azure. El comando `quick-create` implementa una máquina virtual con una infraestructura básica que la rodea y que puede usar para crear un prototipo o hacer una prueba de un concepto rápidamente. Considere que este es el camino más fácil a un shell de bash de Linux. Para los pasos de este artículo se requiere una cuenta de Azure ([obtenga una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y [la CLI de Azure](../xplat-cli-install.md), la sesión iniciada en (`azure login`) y en modo de Resource Manager (`azure config mode arm`). Puede implementar rápidamente una máquina virtual de Linux mediante el [Portal de Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Resumen rápido de comandos
 
 ```
-# One command to quickly the VM that prompts for arguments
+# One command to deploy the VM and attach your SSH key
 ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
-## Tutorial detallado
+## Implementación de la máquina virtual con Linux
 
-## Crear la máquina virtual con Linux
+Con el mismo comando anterior, mostraremos cada aviso junto con la salida que debería ver.
 
-En el siguiente comando, puede usar cualquier imagen que desee, pero en este ejemplo se usa `canonical:ubuntuserver:14.04.2-LTS:latest` para crear una máquina virtual de forma rápida. (Para encontrar una imagen en Marketplace, [busque una imagen](virtual-machines-linux-cli-ps-findimage.md) o [cargue su propia imagen personalizada](virtual-machines-linux-create-upload-generic.md)). Tendrá un aspecto similar al siguiente.
+Para ImageURN, usaremos `canonical:ubuntuserver:14.04.2-LTS:latest` para implementar una máquina virtual de Ubuntu 14.04. (Para encontrar una imagen en Marketplace, [busque una imagen](virtual-machines-linux-cli-ps-findimage.md) o [cargue su propia imagen personalizada](virtual-machines-linux-create-upload-generic.md)).
 
-En el siguiente tutorial de comandos, reemplace los mensajes por valores de su propio entorno. En este artículo usaremos valores de "ejemplo".
+En el siguiente tutorial de comandos, reemplace los avisos por valores de su propio entorno. Estamos usando valores de "ejemplo". La salida debe tener un aspecto similar al siguiente bloque de salida:
 
 ```bash
-# Create the Linux VM using prompts
+# Follow the prompts and enter your own names
 ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 info:    Executing command vm quick-create
 Resource group name: exampleRGname
@@ -48,6 +48,10 @@ ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to 
 User name: ahmet
 Password: ************************************************
 Confirm password: ************************************************
+```
+
+```bash
+########### expected output ###########
 + Looking up the VM "exampleVMname"
 info:    Verifying the public key SSH file: /home/ahmet/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
@@ -123,30 +127,22 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Ahora puede usar SSH en la máquina virtual en el puerto SSH 22 predeterminado y la dirección IP pública que aparece en el resultado anterior.
+Ahora puede usar SSH en la máquina virtual en el puerto SSH 22 predeterminado y la dirección IP pública (o el nombre de dominio completo) que aparece en la salida anterior.
 
 ```
 ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 ```
 
-El comando `azure vm quick-create` es la forma más rápida de crear una máquina virtual para que pueda iniciar sesión en un shell de bash y empezar a trabajar. El uso de `vm quick-create` no le proporciona los beneficios adicionales de un entorno complejo; sin embargo, si quiere personalizar su entorno, puede [usar una plantilla de Azure Resource Manager para crear una implementación específica rápidamente](virtual-machines-linux-cli-deploy-templates.md), o puede [crear su propio entorno personalizado para una máquina virtual de Linux usando directamente comandos de la CLI de Azure](virtual-machines-linux-cli-deploy-templates.md).
-
-En el ejemplo anterior, se crea:
-
-- un grupo de recursos de Azure en el que implementar la máquina virtual
-- una cuenta de almacenamiento de Azure para incluir el archivo .vhd que es la imagen de la máquina virtual
-- una red virtual de Azure y una subred para proporcionar conectividad a la máquina virtual
-- una tarjeta de interfaz de red (NIC) virtual para asociar la máquina virtual a la red
-- una dirección IP pública y un prefijo de subdominio para proporcionar una dirección de Internet para uso externo y, luego, la máquina virtual de Linux dentro de ese entorno.
-
 ## Pasos siguientes
 
-Ahora ha creado una máquina virtual con Linux rápidamente para usarla con fines de prueba o demostración. Para crear una máquina virtual de Linux personalizada para su infraestructura, puede seguir cualquiera de los artículos que se indican a continuación.
+El comando `azure vm quick-create` es la forma más rápida de implementar una máquina virtual para que pueda iniciar sesión en un shell de bash y empezar a trabajar. Si usa `vm quick-create`, no le proporcionará las ventajas adicionales de un entorno complejo. Para implementar una máquina virtual de Linux personalizada para su infraestructura, puede seguir cualquiera de los artículos que se indican a continuación.
 
+- [Uso de una plantilla de Azure Resource Manager para crear una implementación específica](virtual-machines-linux-cli-deploy-templates.md)
+- [Creación de un entorno personalizado para una máquina virtual con Linux mediante el uso de comandos de la CLI de Azure directamente](virtual-machines-linux-cli-deploy-templates.md).
 - [Implementación y administración de máquinas virtuales con plantillas de Azure Resource Manager y la CLI de Azure](virtual-machines-linux-cli-deploy-templates.md)
 - [Creación de una VM de Linux protegida mediante una plantilla de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Creación de una máquina virtual con Linux desde cero con la CLI de Azure](virtual-machines-linux-create-cli-complete.md)
 
 Estos artículos le introducirán en la creación de una infraestructura de Azure, así como de un número cualquiera de herramientas de orquestación, configuración e implementación de infraestructura de código abierto de su propiedad.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

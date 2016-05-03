@@ -67,7 +67,7 @@ Para que MQTT conecte y desconecte paquetes, el Centro de IoT emite un evento en
 
 ### Envío de mensajes al Centro de IoT
 
-Una vez conectado correctamente, un dispositivo puede enviar mensajes al Centro de IoT mediante `devices/{did}/messages/events/` o `devices/{did}/messages/events/{property_bag}` como un **Nombre de tema**. El elemento `{property_bag}` permite al dispositivo enviar mensajes con propiedades adicionales en un formato con codificación url. Por ejemplo:
+Una vez conectado correctamente, un dispositivo puede enviar mensajes al Centro de IoT mediante `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` como un **Nombre de tema**. El elemento `{property_bag}` permite al dispositivo enviar mensajes con propiedades adicionales en un formato con codificación url. Por ejemplo:
 
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -75,11 +75,11 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 > [AZURE.NOTE] Se trata de la misma codificación que se utiliza para las cadenas de consulta en el protocolo HTTP.
 
-La aplicación de cliente de dispositivo también puede utilizar `devices/{did}/messages/events/{property_bag}` como el **nombre del tema Will** para definir los *Mensajes Will* que se reenviarán como un mensaje de telemetría.
+La aplicación de cliente de dispositivo también puede utilizar `devices/{device_id}/messages/events/{property_bag}` como el **nombre del tema Will** para definir los *mensajes Will* que se reenviarán como un mensaje de telemetría.
 
 ### Recepción de mensajes
 
-Para recibir mensajes de un Centro de IoT, un dispositivo debe suscribirse mediante `devices/{did}/messages/devicebound/#”` como un **Filtro de tema**. El Centro de IoT entrega los mensajes con el **Nombre de tema** `devices/{did}/messages/devicebound/`, o `devices/{did}/messages/devicebound/{property_bag}` si hay propiedades de mensaje. `{property_bag}` contiene pares clave-valor con codificación URL de propiedades del mensaje. Las propiedades de la aplicación y del sistema configuradas por el usuario (como **messageId** o **correlationId**) son las únicas que se incluyen en el paquete de propiedades. Los nombres de propiedad del sistema tienen el prefijo **$**, las propiedades de la aplicación utilizan el nombre de propiedad original sin prefijo.
+Para recibir mensajes de un Centro de IoT, un dispositivo debe suscribirse mediante `devices/{device_id}/messages/devicebound/#”` como un **filtro de tema**. El Centro de IoT entrega los mensajes con el **nombre de tema** `devices/{device_id}/messages/devicebound/`, o `devices/{device_id}/messages/devicebound/{property_bag}` si hay propiedades de mensaje. `{property_bag}` contiene pares clave-valor con codificación URL de propiedades del mensaje. Las propiedades de la aplicación y del sistema configuradas por el usuario (como **messageId** o **correlationId**) son las únicas que se incluyen en el paquete de propiedades. Los nombres de propiedad del sistema tienen el prefijo **$**, las propiedades de la aplicación utilizan el nombre de propiedad original sin prefijo.
 
 ## Pasos siguientes
 
@@ -102,4 +102,4 @@ Para obtener más información sobre el protocolo MQTT, consulte la [documentaci
 [lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

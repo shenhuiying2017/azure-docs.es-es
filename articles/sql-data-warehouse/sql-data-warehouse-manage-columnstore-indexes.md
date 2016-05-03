@@ -123,7 +123,7 @@ Una vez ejecutada la consulta, puede empezar a examinar los datos y analizar los
 | [OPEN\_rowgroup\_rows\_MIN] | Los grupos abiertos indican que los datos se cargan poco a poco en la tabla o que la carga anterior distribuyó las filas restantes en este grupo de filas. Utilice las columnas MIN, MAX, AVG para ver cuántos datos se encuentran en grupos de filas OPEN. En tablas pequeñas, podría ser el 100% de los datos. En este caso use ALTER INDEX REBUILD para forzar los datos a pasar al almacén de columnas. |
 | [OPEN\_rowgroup\_rows\_MAX] | Mismo caso anterior. |
 | [OPEN\_rowgroup\_rows\_AVG] | Mismo caso anterior. |
-| [CLOSED\_rowgroup\_rows] | Examine las filas de grupos de filas cerrados para comprobar su integridad. Si hay |
+| [CLOSED\_rowgroup\_rows] | Examine las filas de grupos de filas cerrados para comprobar su integridad. |
 | [CLOSED\_rowgroup\_count] | El número de grupos de filas cerrados debe ser bajo, si es que hay alguno. Los grupos de filas cerrados pueden convertirse en grupos de filas comprimidos mediante el comando ALTER INDEX... REORGANISE. Pero esto no suele ser necesario. Los grupos cerrados se convierten automáticamente en grupos de filas del almacén de columnas por el proceso en segundo plano "motor de tupla". |
 | [CLOSED\_rowgroup\_rows\_MIN] | Los grupos de filas cerrados deben tener una tasa de relleno muy alto. Si la tasa de relleno de un grupo de filas cerrado es baja, se requiere un análisis más profundo del almacén de columnas. |
 | [CLOSED\_rowgroup\_rows\_MAX] | Mismo caso anterior. |
@@ -259,4 +259,4 @@ Para obtener más sugerencias de administración, consulte la información gener
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

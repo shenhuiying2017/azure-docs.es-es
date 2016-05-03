@@ -3,8 +3,8 @@
 	description="En este tema se muestra cómo usar .NET para codificar sus recursos con Codificador multimedia estándar." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 
 #Codificación de un recurso mediante Codificador multimedia estándar
@@ -147,4 +147,4 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 [Cómo generar la miniatura mediante Media Encoder Estándar con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Información general de la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

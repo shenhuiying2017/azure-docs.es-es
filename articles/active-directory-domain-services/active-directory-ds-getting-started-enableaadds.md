@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Vista previa de los Servicios de dominio de Azure Active Directory: introducción | Microsoft Azure"
-	description="Introducción a los Servicios de dominio de Azure Active Directory"
+	pageTitle="Servicios de dominio de Azure AD: habilitación de los Servicios de dominio de Azure AD | Microsoft Azure"
+	description="Introducción a los Servicios de dominio de Azure Active Directory (versión preliminar)"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/06/2016"
+	ms.date="04/25/2016"
 	ms.author="maheshu"/>
 
-# Servicios de dominio de Azure AD *(vista previa)*: introducción
+# Servicios de dominio de Azure AD *(versión preliminar)*: habilitación de los Servicios de dominio de Azure AD
 
-## Paso 3: Habilitación de los Servicios de dominio de Azure AD
-En este paso puede habilitar los Servicios de dominio de Azure AD para su directorio. Realice los siguientes pasos de configuración para habilitar los Servicios de dominio de Azure AD para su directorio.
+## Tarea 3: Habilitación de los Servicios de dominio de Azure AD
+En esta tarea puede habilitar los Servicios de dominio de Azure AD para su directorio. Realice los siguientes pasos de configuración para habilitar los Servicios de dominio de Azure AD para su directorio.
 
-1. Navegue al **Portal de administración de Azure** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
+1. Desplácese al **Portal de Azure clásico** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
+
 2. En el panel izquierdo, seleccione **Active Directory**.
+
 3. Seleccione al inquilino (directorio) de Azure AD para el que quiere habilitar los Servicios de dominio de Azure AD.
 
     ![Selección de un directorio de Azure AD](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
@@ -42,21 +44,31 @@ En este paso puede habilitar los Servicios de dominio de Azure AD para su direct
     > [AZURE.NOTE] Al habilitar los Servicios de dominio de Azure AD para el inquilino, Azure AD genera y almacena los valores de hash de credenciales de Kerberos y NTLM que son necesarios para autenticar a los usuarios.
 
 7. Especifique el **Nombre de dominio DNS de Servicios de dominio**.
+
    - El nombre de dominio predeterminado del directorio (es decir, que termina con el sufijo de dominio **. onmicrosoft.com**) se seleccionará de forma predeterminada.
+
    - La lista contiene todos los dominios que se han configurado para el directorio de Azure AD, incluidos también los dominios comprobados y sin comprobar que configura en la pestaña 'Dominios'.
+
    - Además, puede agregar también un nombre de dominio personalizado a esta lista con solo escribirlo. En este ejemplo, hemos escrito un nombre de dominio personalizado 'contoso100.com'.
 
      > [AZURE.WARNING] Asegúrese de que el prefijo de dominio del nombre de dominio que especifique (por ejemplo, "contoso100" en el nombre de dominio 'contoso100.com') tenga menos de 15 caracteres. No se puede crear un dominio de Servicios de dominio de Azure AD con un prefijo de dominio de más de 15 caracteres.
 
 8. El siguiente paso consiste en seleccionar una red virtual en la que quiere que los Servicios de dominio de Azure AD estén disponibles. Seleccione la red virtual que acaba de crear en la lista desplegable **Conectar Servicios de dominio a esta red virtual**.
+
    - Asegúrese de que la red virtual que ha especificado pertenece a una región de Azure compatible con los Servicios de dominio de Azure AD.
+
    - Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para conocer las regiones de Azure en las que están disponibles los Servicios de dominio de Azure AD.
+
    - Tenga en cuenta que las redes virtuales que pertenecen a una región donde no se admiten Servicios de dominio de Azure AD no aparecerán en la lista desplegable.
+
    - De igual forma, las redes virtuales que se crearon mediante Azure Resource Manager (redes virtuales basadas en ARM) no aparecerán en la lista desplegable. Esto es porque las redes virtuales basadas en ARM no son compatibles de momento con Servicios de dominio de Azure AD.
 
 9. Asegúrese de que el nombre de dominio DNS que ha elegido para el dominio administrado no existe ya en la red virtual. Esto podría suceder en cualquiera de los escenarios siguientes:
+
    - Si ya tiene un dominio con el mismo nombre de dominio DNS en la red virtual.
+
    - Si la red virtual que ha seleccionado tiene una conexión VPN con la red local y tiene un dominio con el mismo nombre de dominio DNS en la red local.
+
    - Si ya dispone de un servicio en la nube con ese nombre en la red virtual.
 
 10. Cuando haya terminado de seleccionar las opciones anteriores, haga clic en **Guardar** en el panel de tareas de la parte inferior de la página para habilitar los Servicios de dominio de Azure AD.
@@ -77,8 +89,9 @@ En este paso puede habilitar los Servicios de dominio de Azure AD para su direct
 
 > [AZURE.NOTE] En función del tamaño del directorio de Azure AD (número de usuarios, grupos etc.), el contenido del directorio tardará un rato en estar disponible en los Servicios de dominio de Azure AD. Este proceso de sincronización se produce en segundo plano. En el caso de directorios grandes con decenas de miles de objetos, todos los usuarios, pertenencias a grupos y credenciales tardan en sincronizarse y en estar disponibles en los Servicios de dominio de Azure AD uno o dos días.
 
+<br>
 
----
-[**Siguiente paso: Actualización de la configuración DNS para la red virtual de Azure.**](active-directory-ds-getting-started-dns.md)
+## Tarea 4: Actualización de la configuración DNS para la red virtual de Azure
+La siguiente tarea de configuración consiste en [actualizar la configuración de DNS para la red virtual de Azure](active-directory-ds-getting-started-dns.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

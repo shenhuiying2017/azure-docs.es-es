@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="adsolank"/>
 
 
@@ -211,6 +211,8 @@ El método siguiente carga un archivo multimedia como un recurso y crea un traba
 
 ##Vínculos relacionados
 
-[Información general de análisis de Servicios multimedia de Azure](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

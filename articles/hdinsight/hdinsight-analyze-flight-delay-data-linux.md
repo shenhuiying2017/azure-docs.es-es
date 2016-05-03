@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/19/2016" 
 	ms.author="larryfr"/>
 
 #Análisis de datos de retraso de vuelos con Hive en HDInsight
@@ -34,6 +34,8 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - __Base de datos de SQL Azure__. Usará una Base de datos SQL de Azure como almacén de datos de destino. Si no dispone todavía de una Base de datos SQL, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos](../sql-database/sql-database-get-started.md).
 
 - __Azure CLI__. Si no ha instalado la CLI de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](../xplat-cli-install.md) para conocer más pasos.
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 
 ##Descarga de los datos de vuelo
@@ -304,4 +306,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

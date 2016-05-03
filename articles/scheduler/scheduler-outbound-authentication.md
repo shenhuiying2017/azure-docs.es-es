@@ -1,6 +1,6 @@
 <properties
  pageTitle="Autenticación saliente de Programador"
- description=""
+ description="Autenticación saliente de Programador"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -82,7 +82,7 @@ Al agregar autenticación mediante el modelo `ActiveDirectoryOAuth`, especifique
 |_type_ |Obligatorio. Tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor debe ser `ActiveDirectoryOAuth`.|
 |_tenant_ |Obligatorio. Identificador del inquilino de Azure AD.|
 |_audience_ |Obligatorio. Se establece en https://management.core.windows.net/.|
-|_clientId_ |Obligatorio. Proporcione el identificador de cliente para la aplicación de Azure AD.|
+|_clientId_ |Obligatorio. Proporcione el identificador de cliente para la aplicación de Azure AD.|
 |_secret_ |Obligatorio. Secreto del cliente que solicita el token.|
 
 ### Determinación del identificador del inquilino
@@ -99,7 +99,7 @@ Cuando se envía una solicitud con información de autenticación, la respuesta 
 |_type_ |Tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`.|
 |_tenant_ |Identificador del inquilino de Azure AD. |
 |_audience_ |Se establece en https://management.core.windows.net/.|.
-|_clientId_ |Identificador de cliente para la aplicación de Azure AD.|
+|_clientId_ |Identificador de cliente para la aplicación de Azure AD.|
 
 ## Otras referencias
 
@@ -120,4 +120,4 @@ Cuando se envía una solicitud con información de autenticación, la respuesta 
 
  [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

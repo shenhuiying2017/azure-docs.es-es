@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Introducción al conector AS2 y su incorporación a una aplicación lógica
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 El conector AS2 se usa para recibir y enviar mensajes a través del protocolo de transporte AS2 (Applicability Statement 2) en comunicaciones de negocio a negocio. Los datos se transportan de forma segura y confiable a través de Internet. La seguridad se consigue mediante el uso de cifrado y certificados digitales.
 
@@ -99,11 +100,11 @@ Habilitar archivado | boolean | Determina si se debe archivar el mensaje salient
 La acción devuelve un código de respuesta HTTP 200 de finalización satisfactoria.
 
 ## Aplicaciones adicionales del conector
-También puede [archivar los mensajes AS2](app-service-logic-archive-as2-messages.md).
+Puede [archivar los mensajes AS2](app-service-logic-archive-as2-messages.md).
 
 Encontrará más información sobre las aplicaciones lógicas en [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Si desea empezar a usar Aplicaciones lógicas de Azure antes de suscribirse para obtener una cuenta de Azure, [pruebe Aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a usar Aplicaciones lógicas de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a [Probar aplicación lógica](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -121,4 +122,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

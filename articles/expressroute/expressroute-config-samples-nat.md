@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Ejemplos de configuración de enrutadores para configurar y administrar NAT
@@ -120,7 +120,7 @@ Comandos NAT:
  - Autorización de servicios en las interfaces
 
 
-	seguridad { zones { security-zone Trust { host-inbound-traffic { system-services { ping; } protocolos { bgp; } } interfaces { reth0.100; } } security-zone Untrust { host-inbound-traffic { system-services { ping; } protocolos { bgp; } } interfaces { reth1.100; } } } }
+    seguridad { zones { security-zone Trust { host-inbound-traffic { system-services { ping; } protocolos { bgp; } } interfaces { reth0.100; } } security-zone Untrust { host-inbound-traffic { system-services { ping; } protocolos { bgp; } } interfaces { reth1.100; } } } }
 
 
 ### 3\. Creación de directivas de seguridad entre zonas
@@ -319,4 +319,4 @@ Consulte ejemplos en la página [Ejemplos de configuración de enrutamiento ](ex
 
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

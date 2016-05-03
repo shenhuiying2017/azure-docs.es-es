@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="04/18/2016"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
@@ -66,6 +66,8 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 
 - De forma predeterminada, se le envían **alertas** cuando hay errores en tres ubicaciones durante cinco minutos. Es probable que un error en una ubicación sea un problema de red y no un problema con su sitio. No obstante, puede cambiar el umbral a más o menos sensible, y también puede cambiar las personas a quienes se deben enviar los correos electrónicos.
 
+    Puede configurar un [webhook](../azure-portal/insights-webhooks-alerts.md) que se llama cuando se genera una alerta.
+
 #### Prueba de más URL
 
 Agregue más pruebas. Por ejemplo, además de probar la página principal, puede asegurarse de que la base de datos se está ejecutando probando la URL con una búsqueda.
@@ -103,7 +105,7 @@ De este modo se muestran los resultados de la prueba.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
-La prueba se ejecuta desde varias ubicaciones, elija una donde los resultados sean inferiores al 100 %.
+La prueba se ejecuta desde varias ubicaciones, elija una donde los resultados sean inferiores al 100 %.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
 
@@ -235,7 +237,8 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
 ## Automatización
 
-También puede [usar scripts de PowerShell para configurar una prueba web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automáticamente.
+* [Use scripts de PowerShell para configurar una prueba web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automáticamente. 
+* Configure un [webhook](../azure-portal/insights-webhooks-alerts.md) que se llama cuando se genera una alerta.
 
 ## ¿Tiene preguntas? ¿Tiene problemas?
 
@@ -393,4 +396,4 @@ Abra los puertos 80 (http) y 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

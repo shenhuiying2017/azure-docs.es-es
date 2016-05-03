@@ -106,11 +106,11 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. Haga clic en **Siguiente**.
 
 
-5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de Ultipro en [ultiproinfo@ultimatesoftware.com](mailto:ultiproinfo@ultimatesoftware.com) y proporcione lo siguiente:
+5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el administrador de cuentas de UtiPro y proporcione lo siguiente:
 
     - El archivo de certificado descargado
 
-    - La **dirección URL del emisor**
+    - La **URL del emisor**
 
     - La **dirección URL de inicio de sesión único de SAML**
 
@@ -221,4 +221,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="04/14/2016"
 	ms.author="andkjell"/>
 
 # Solución de problemas de conectividad con Azure AD Connect
@@ -37,10 +37,10 @@ De ellas, la tabla siguiente es el mínimo necesario para poder conectarse a Azu
 | URL | Port | Descripción |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Se usa para descargar listas CRL. |
-| *.verisign.com | HTTP/80 | Se utiliza para descargar listas CRL. |
-| *.trust.com | HTTP/80 | Se utiliza para descargar listas CRL para MFA. |
-| *.windows.net | HTTPS/443 | Se utiliza para iniciar sesión en Azure AD. |
-| *.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA. |
+| *.verisign.com | HTTP/80 | Se utiliza para descargar listas CRL. | 
+| *.trust.com | HTTP/80 | Se utiliza para descargar listas CRL para MFA. | 
+| *.windows.net | HTTPS/443 | Se utiliza para iniciar sesión en Azure AD. | 
+| *.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA. | 
 | *.microsoftonline.com | HTTPS/443 | Se utiliza para configurar el directorio de Azure AD e importar y exportar datos. |
 
 ## Errores en el asistente
@@ -55,7 +55,7 @@ Este error aparecerá cuando el propio asistente no pueda ponerse en contacto co
 - Si es correcta, siga los pasos descritos en [Comprobar la conectividad de proxy](#verify-proxy-connectivity) para ver si el problema está presente también fuera del Ayudante.
 
 ### No se puede alcanzar el punto de conexión de MFA
-Aparecerá este error si no se puede poner en contacto con el punto de conexión ****https://secure.aadcdn.microsoftonline-p.com** y el administrador global tiene MFA habilitado. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
+Aparecerá este error si no se puede poner en contacto con el punto de conexión **https://secure.aadcdn.microsoftonline-p.com** y el administrador global tiene MFA habilitado. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - Si ve esto, compruebe que el punto de conexión secure.aadcdn.microsoftonline-p.com se ha agregado al servidor proxy.
 
@@ -140,4 +140,4 @@ Este error aparece cuando el Ayudante para el inicio de sesión no puede conecta
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

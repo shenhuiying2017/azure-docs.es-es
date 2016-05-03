@@ -6,7 +6,7 @@
 	authors="crwilcox"
 	manager="wpickett"
 	editor=""
-	tags=“azure-service-management,azure-resource-manager"/>
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -195,8 +195,8 @@ las características centrales de Jupyter también está disponibles en Visual S
 
 Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repositorio]: https://github.com/ipython/ipython
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

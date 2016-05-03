@@ -10,7 +10,7 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="02/01/2016"
@@ -60,4 +60,4 @@ Cada suscripción de Azure tiene límites de cuota predeterminados que pueden af
 
 Una cuenta de evaluación gratuita. **[Obtenga una.](https://azure.microsoft.com/pricing/free-trial/)** Si ya tiene una, **[instale la CLI de Azure.](../xplat-cli-install.md)** para probarla. Si ya lo ha hecho, [vaya a crear la máquina virtual de Linux ahora](virtual-machines-linux-quick-create-cli.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

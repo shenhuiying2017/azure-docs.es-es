@@ -12,10 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
-
-
 
 # Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado
 
@@ -23,9 +21,9 @@
 
 Con IntelliTrace, puede registrar información de depuración amplia para una instancia de rol cuando se ejecuta en Azure. Si necesita encontrar la causa de un problema, puede utilizar los registros de IntelliTrace para recorrer su código desde Visual Studio como si se estuviera ejecutando en Azure. De hecho, IntelliTrace graba datos de entorno y ejecución de código de clave cuando su aplicación de Azure se ejecuta como servicio en la nube en Azure y le permite reproducir los datos grabados desde Visual Studio. Como alternativa, puede utilizar la depuración remota para conectarse directamente a un servicio en la nube que se ejecuta en Azure. Consulte [Depuración de Servicios en la nube](http://go.microsoft.com/fwlink/p/?LinkId=623041).
 
->[AZURE.IMPORTANT]IntelliTrace está pensado solo para escenarios de depuración y no debe usarse para una implementación de producción.
+>[AZURE.IMPORTANT] IntelliTrace está pensado solo para escenarios de depuración y no debe usarse para una implementación de producción.
 
->[AZURE.NOTE]Puede utilizar IntelliTrace si tiene Visual Studio Enterprise instalado y su aplicación de Azure tiene como destino .NET Framework 4 o una versión posterior. IntelliTrace recopila información para sus roles de Azure. Las máquinas virtuales para estos roles siempre ejecutan sistemas operativos de 64 bits.
+>[AZURE.NOTE] Puede utilizar IntelliTrace si tiene Visual Studio Enterprise instalado y su aplicación de Azure tiene como destino .NET Framework 4 o una versión posterior. IntelliTrace recopila información para sus roles de Azure. Las máquinas virtuales para estos roles siempre ejecutan sistemas operativos de 64 bits.
 
 ## Para configurar una aplicación de Azure para IntelliTrace
 
@@ -39,7 +37,7 @@ Para habilitar IntelliTrace para una aplicación de Azure, debe crear y publicar
 
 1. Para recopilar registros de IntelliTrace para su aplicación al publicarse en la nube, seleccione la casilla **Habilitar IntelliTrace**.
 
-    >[AZURE.NOTE]Puede habilitar IntelliTrace o bien la generación de perfiles al publicar su aplicación de Azure. No puede habilitar ambas cosas.
+    >[AZURE.NOTE] Puede habilitar IntelliTrace o bien la generación de perfiles al publicar su aplicación de Azure. No puede habilitar ambas cosas.
 
 1. Para personalizar la configuración de IntelliTrace básica, elija el hipervínculo **Configuración**.
 
@@ -63,10 +61,10 @@ Cuando se descargan los registros, Visual Studio muestra el progreso de la opera
 
 Puede continuar trabajando en Visual Studio mientras se descargan los registros de IntelliTrace. Cuando el registro haya terminado la descarga, se abrirá automáticamente en Visual Studio.
 
->[AZURE.NOTE]Es posible que los registros de IntelliTrace contengan excepciones que el marco genera y maneja posteriormente. El código del marco interno genera estas excepciones como parte normal del inicio de un rol, por lo que puede omitirlas de forma segura.
+>[AZURE.NOTE] Es posible que los registros de IntelliTrace contengan excepciones que el marco genera y maneja posteriormente. El código del marco interno genera estas excepciones como parte normal del inicio de un rol, por lo que puede omitirlas de forma segura.
 
 ## Otras referencias
 
 [Depuración de Servicios en la nube](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

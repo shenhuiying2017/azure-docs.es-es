@@ -1,12 +1,14 @@
-## Troubleshoot connectivity issues
-Use the **Diagnostics** tab of **Data Management Gateway Configuration Manager** to troubleshoot connection issues. 
+## Solución de problemas de conectividad
+Use la pestaña **Diagnósticos** del **Administrador de configuración de Data Management Gateway** para solucionar problemas de conexión.
 
-1. Launch **Data Management Gateway Configuration Manager**. You can either run "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" directly (or) search for **Gateway** to find a link to **Microsoft Data Management Gateway** application as shown in the following image. 
+1. Inicie el **Administrador de configuración de Data Management Gateway**. Puede ejecutar "C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway**, tal como se muestra en la imagen siguiente. 
 
-	![Search gateway](./media/data-factory-troubleshoot-connectivity/search-gateway.png)
-2. Switch to the **Diagnostics** tab.
+	![Buscar puerta de enlace](./media/data-factory-troubleshoot-connectivity/search-gateway.png)
+2. Cambie a la pestaña **Diagnósticos**.
 
-	![Gateway diagnostics](./media/data-factory-troubleshoot-connectivity/data-factory-gateway-diagnostics.png) 
-3. Select the **type** of data store (linked service). 
-4. Specify **authentication** and enter **credentials** (or) enter **connection string** to connect to the data store. 
-5. Click **Test connection** to test the connection to the data store. 
+	![Diagnóstico de puerta de enlace](./media/data-factory-troubleshoot-connectivity/data-factory-gateway-diagnostics.png) 
+3. Seleccione el **tipo** de almacén de datos (el servicio vinculado). 
+4. Especifique la **autenticación** y escriba las **credenciales**, o bien escriba la **cadena de conexión** para conectarse al almacén de datos. 
+5. Haga clic en **Probar conexión** para probar la conexión con el almacén de datos. 
+
+<!---HONumber=AcomDC_0420_2016-->

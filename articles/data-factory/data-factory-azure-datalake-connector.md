@@ -152,7 +152,7 @@ El ejemplo copia los datos en un almacén de Azure Data Lake. Los nuevos datos s
 		"name": "AzureDataLakeStoreOutput",
 	  	"properties": {
 			"type": "AzureDataLakeStore",
-		    "linkedServiceName": " AzureDataLakeStoreLinkedService",
+		    "linkedServiceName": "AzureDataLakeStoreLinkedService",
 		    "typeProperties": {
 				"folderPath": "datalake/output/"
 		    },
@@ -608,4 +608,7 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+## Rendimiento y optimización  
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Realización de una revisión de seguridad | Microsoft Azure"
-   description="Obtenga información sobre cómo agregar roles a identidades con privilegios con la extensión de Privileged Identity Management de Azure."
+   description="Aprenda a realizar una revisión con la aplicación Privileged Identity Management de Azure."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,51 +13,40 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management de Azure AD: Realización de una revisión de seguridad
+# Realización de una revisión de seguridad en Privileged Identity Management de Azure AD
+
+Privileged Identity Management de Azure Active Directory (AD) simplifica el modo en que las empresas administran las identidades con privilegios y el acceso a los recursos en Azure AD y en otros servicios en línea de Microsoft como Office 365 o Microsoft Intune.
+
+Si se le ha asignado a un rol administrativo, el administrador de seguridad de su organización le puede pedir que revise y confirme regularmente que aún necesita ese rol para su trabajo. Puede que reciba un correo electrónico con un vínculo o que vaya directamente al [Portal de Azure](https://portal.azure.com). Siga los pasos de este artículo para realizar una autorrevisión de los roles asignados.
+
+Si es un administrador de seguridad interesado en las revisiones de seguridad, puede obtener más información en [Privileged Identity Management de Azure AD: Inicio de una revisión de seguridad](active-directory-privileged-identity-management-how-to-start-security-review.md).
+
+## Incorporación de la aplicación Privileged Identity Management
+
+Puede usar la aplicación Privileged Identity Management (PIM) de Azure AD en el [Portal de Azure](https://portal.azure.com/) para realizar la revisión. Si no tiene la aplicación en el portal, siga estos pasos para comenzar:
+
+1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+2. Si su organización tiene más de un directorio, haga clic en su nombre de usuario en la esquina superior derecha del Portal de Azure y seleccione el directorio donde va a trabajar.
+3. Haga clic en el icono **Nuevo** en el panel de navegación de la izquierda.
+4. Seleccione **Seguridad e identidad** en el menú.
+5. Seleccione **Azure AD Privileged Identity Management**.
+6. Deje activada la casilla **Anclar al panel** y luego haga clic en el botón **Crear**. Se abrirá la aplicación Privileged Identity Management.
 
 
-Resulta muy fácil revisar el acceso con privilegios una vez [iniciada una revisión de seguridad](active-directory-privileged-identity-management-how-to-start-security-review.md).
+## Aprobación o denegación de acceso
 
-## Para revisores: Aprobación o denegación del acceso
+El acceso no cambiarán hasta que [la revisión esté completa](active-directory-privileged-identity-management-how-to-complete-review.md). Este proceso consiste simplemente en crear una lista de comprobación de aquellos cuyo acceso del rol se cambiaría. Después de seleccionar al menos un usuario, se habilitarán los botones **Aprobar acceso** y **Denegar acceso**.
 
-### Revisión por mí mismo
-1. En el menú principal de PIM, haga clic en **Revisar acceso administrativo**. Aparecerá una lista de revisiones de seguridad.
-2. Seleccione en la lista los **usuarios** cuyo acceso quiere cambiar. Nota: El acceso se cambiará realmente. Este proceso consiste simplemente en crear una lista de comprobación de aquellos cuyo acceso del rol se cambiaría. Después de seleccionar al menos un usuario, se habilitarán los botones **Aprobar acceso** y **Denegar acceso**.
-3. Haga clic en **Aprobar acceso** o **Denegar el acceso** para los usuarios que seleccionó. Aparecerá una notificación en el menú principal del Portal de Azure y desaparecerá la lista de revisión. Cierre la hoja **Revisar roles de Azure AD**.
+1. En la aplicación PIM, haga clic en **Revisar acceso administrativo** en el menú principal. Aparecerá una lista de revisiones de seguridad.
+2. Seleccione en la lista los **usuarios** cuyo acceso quiere cambiar.
+3. Haga clic en **Aprobar acceso** o **Denegar el acceso** para los usuarios que seleccionó. Aparecerá una notificación en el menú principal del Portal de Azure y los nombres seleccionados en la lista de revisiones desaparecerán (puede recuperarlos si vuelve a cambiar la opción de filtro). Cierre la hoja **Revisar roles de Azure AD**.
 
-### Autorrevisión
-1. El usuario recibirá un correo electrónico que indica que debe revisar su acceso. El correo electrónico contendrá un vínculo para iniciar sesión en el Portal de Azure.
-2. Una vez allí, el usuario puede aprobar o denegar su propio acceso haciendo clic en los botones **Aprobar acceso** o **Denegar acceso**. Su nombre desaparecerá de la lista.
-
-## Para administradores de revisión: Administración de revisiones de seguridad
-
-## Finalización o detención de una revisión
-1. Vuelva al panel de PIM.
-2. En la lista **Revisiones de seguridad**, haga clic en la revisión de seguridad que quiere finalizar. Aparecerá la hoja de detalles de la revisión de seguridad.
-3. Haga clic en **Detener revisión** para finalizar o detener la revisión. La revisión se archivará y la hoja desaparecerá.
-
-## Exportación de una revisión
-Puede exportar una revisión para su uso con Excel u otros programas que puedan utilizar archivos CSV.
-
-1. Vuelva al panel de PIM.
-2. Haga clic en la sección **Revisiones de seguridad** del panel. Aparecerá la hoja **Revisiones de seguridad**.
-3. Haga clic en la revisión de seguridad que quiere exportar. Aparecerá la hoja de detalles de la revisión de seguridad.
-4. Haga clic en el botón **Exportar**. Empezará a descargarse un archivo CSV.
-
-## Eliminación de una revisión
-
-> [AZURE.WARNING] No recibirá ninguna advertencia antes de que se produzca la eliminación, así que asegúrese de que realmente *quiere* eliminar esa revisión.
-
-1. Vuelva al panel PIM.
-2. Haga clic en la sección **Revisiones de seguridad** del panel. Aparecerá la hoja **Revisiones de seguridad**.
-3. Haga clic en la revisión de seguridad que quiere eliminar. Aparecerá la hoja de detalles de la revisión de seguridad.
-4. Haga clic en el botón **Eliminar**.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="11/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Uso de la extensión de script personalizada para máquinas virtuales de Linux con plantillas de Azure Resource Manager
@@ -47,7 +47,7 @@ Definición del siguiente recurso de extensión en la sección Recurso de la pla
       }
     }
     }
-    
+
 En el ejemplo anterior, reemplace la dirección URL de archivo y el nombre de archivo con su propia configuración.
 
 Una vez creada la plantilla, puede implementarla con la CLI de Azure.
@@ -56,4 +56,4 @@ Consulte el ejemplo siguiente para obtener un ejemplo completo de configuración
 
 * [Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/).
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

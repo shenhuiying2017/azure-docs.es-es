@@ -1,6 +1,6 @@
 <properties
- pageTitle="Administración de la expiración del contenido del servicio en la nube en la Red de entrega de contenido de Azure (CDN)"
- description=""
+ pageTitle="Administración de la expiración del contenido del servicio en la nube en CDN de Azure | Microsoft Azure"
+ description="Describe cómo administrar la expiración del contenido del servicio en la nube en CDN de Azure"
  services="cdn"
  documentationCenter=".NET"
  authors="camsoper"
@@ -12,10 +12,10 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016" 
+ ms.date="02/25/2016"
  ms.author="casoper"/>
 
-#Administración de la expiración del contenido del servicio en la nube en la Red de entrega de contenido de Azure (CDN)
+# Administración de la expiración del contenido del servicio en la nube en la Red de entrega de contenido de Azure (CDN)
 
 Los objetos que obtienen el máximo beneficio del almacenamiento en caché de la red CDN de Azure son aquellos a los que se accede frecuentemente durante su período de tiempo de vida (TTL). Un objeto permanece en la memoria caché durante el período TTL y, a continuación, se actualiza desde el servicio en la nube una vez transcurrido ese tiempo. A continuación, el proceso se repite.
 
@@ -50,4 +50,4 @@ Por ejemplo, para almacenar en caché el contenido durante una hora, agregue lo 
 
 [Administración de la expiración del contenido del blob en la Red de entrega de contenido de Azure (CDN)](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

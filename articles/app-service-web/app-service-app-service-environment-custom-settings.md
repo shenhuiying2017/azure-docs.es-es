@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="Configuración personalizada para Entornos del Servicio de aplicaciones" 
-	description="Opciones de configuración personalizada para Entornos del Servicio de aplicaciones" 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="nirma" 
+<properties
+	pageTitle="Configuración personalizada de entornos del Servicio de aplicaciones"
+	description="Opciones de configuración personalizada para Entornos del Servicio de aplicaciones"
+	services="app-service"
+	documentationCenter=""
+	authors="stefsch"
+	manager="nirma"
 	editor=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/08/2016" 
+<tags
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/08/2016"
 	ms.author="stefsch"/>
 
 # Opciones de configuración personalizada para Entornos del Servicio de aplicaciones
 
 ## Información general ##
-Puesto que los Entornos del Servicio de aplicaciones están aislados en un solo cliente, hay ciertas opciones de configuración que se pueden aplicar exclusivamente a un Entorno del Servicio de aplicaciones. En este artículo se documentan las distintas personalizaciones específicas del Entorno del Servicio de aplicaciones que hay disponibles.
+Puesto que los entornos del Servicio de aplicaciones están aislados en un solo cliente, hay ciertas opciones de configuración que se pueden aplicar exclusivamente a ellos. En este artículo se documentan las distintas personalizaciones específicas disponibles para los entornos del Servicio de aplicaciones.
 
-Las personalizaciones del Entorno del Servicio de aplicaciones se almacenan usando una matriz en el nuevo atributo "clusterSettings" que se encuentra en el diccionario "Properties" de la entidad ARM *hostingEnvironments*.
+Puede almacenar las personalizaciones del entorno del Servicio de aplicaciones mediante el uso de una matriz en el nuevo atributo **clusterSettings**. Este atributo se encuentra en el diccionario de "Propiedades" de la entidad *hostingEnvironments* de Azure Resource Manager.
 
-El siguiente fragmento de código abreviado de la plantilla ARM muestra el atributo "clusterSettings":
+La siguiente plantilla abreviada de Resource Manager muestra el atributo **clusterSettings**:
 
 
     "resources": [
@@ -44,20 +44,29 @@ El siguiente fragmento de código abreviado de la plantilla ARM muestra el atrib
        }
     }
 
-El atributo "clusterSettings" puede incluirse en una plantilla ARM para actualizar el Entorno del Servicio de aplicaciones.
+El atributo **clusterSettings** se puede incluir en una plantilla de Resource Manager para actualizar el entorno del Servicio de aplicaciones.
 
-También se puede actualizar el valor del atributo con el [Explorador de recursos de Azure](https://resources.azure.com). En el Explorador de recursos de Azure, navegue hasta el nodo del Entorno del Servicio de aplicaciones (subscriptions --> resourceGroups --> providers --> Micrososft.Web --> hostingEnvironments) y haga clic en el entorno específico que quiere actualizar.
+## Uso del Explorador de recursos de Azure para actualizar un entorno del Servicio de aplicaciones
+Como alternativa, puede actualizar el entorno del Servicio de aplicaciones mediante el [Explorador de recursos de Azure](https://resources.azure.com).
 
-En la ventana derecha del explorador, haga clic en "Read/Write" en la barra de herramientas superior para permitir la edición interactiva en Azure Resource Explorer. Después, haga clic en el botón azul "Edit" para que pueda modificar la plantilla ARM. Desplácese hasta la parte inferior de la ventana derecha. El atributo "clusterSettings" se encuentra en la parte inferior, donde puede especificar o actualizar su valor.
+1. En el Explorador de recursos, vaya al nodo del entorno del Servicio de aplicaciones (**suscripciones** > **resourceGroups** > **proveedores** > **Micrososft.Web** > **hostingEnvironments**). A continuación, haga clic en el entorno del Servicio de aplicaciones específico que quiere actualizar.
 
-Escriba (o copie y pegue) la matriz de valores de configuración que quiera en el atributo "clusterSettings". Después, haga clic en el botón verde "PUT" situado en la parte superior de la ventana derecha para confirmar el cambio en el Entorno del Servicio de aplicaciones.
+2. En el panel derecho, haga clic en **Lectura/escritura** en la barra de herramientas superior para permitir la edición interactiva en el Explorador de recursos.
 
-Independientemente del enfoque elegido para actualizar el Entorno del Servicio de aplicaciones, una vez que se envía el cambio, este tendrá efecto en aproximadamente 30 minutos, multiplicados por el número de servidores front-end del Entorno del Servicio de aplicaciones. Por ejemplo si un Entorno del Servicio de aplicaciones tiene cuatro front-end, se tardará aproximadamente dos horas en completar la actualización de la configuración. Mientras se implementa el cambio de configuración, no será posible realizar otras operaciones de escalado o de cambio de configuración en el Entorno del Servicio de aplicaciones.
+3. Haga clic en el botón azul **Editar** para que la plantilla de Resource Manager se pueda editar.
+
+4. Desplácese hasta la parte inferior del panel derecho. El atributo **clusterSettings** se encuentra abajo del todo, donde puede especificar o actualizar su valor.
+
+5. Escriba (o copie y pegue) la matriz de valores de configuración que quiera en el atributo **clusterSettings**.
+
+6. Haga clic en el botón verde **PUT** situado en la parte superior del panel derecho para confirmar el cambio en el entorno del Servicio de aplicaciones.
+
+Una vez enviado el cambio, tarda en aplicarse aproximadamente 30 minutos multiplicado por el número de front-ends en el entorno del Servicio de aplicaciones. Por ejemplo, si un entorno del Servicio de aplicaciones tiene cuatro front-ends, tardará aproximadamente dos horas en finalizar la actualización de la configuración. Mientras se implementa el cambio de configuración, no será posible realizar otras operaciones de escalado o de cambio de configuración en el entorno del Servicio de aplicaciones.
 
 ## Deshabilitación de TLS 1.0 ##
-Una petición recurrente de los clientes, especialmente de aquellos con auditorías de cumplimiento de PCI, es la capacidad de deshabilitar explícitamente TLS 1.0 para sus aplicaciones.
+Una pregunta recurrente de los clientes, especialmente de aquellos con auditorías de cumplimiento de PCI, es cómo deshabilitar explícitamente TLS 1.0 en sus aplicaciones.
 
-TLS 1.0 se puede deshabilitar con la siguiente entrada de *clusterSettings*:
+TLS 1.0 se puede deshabilitar mediante la siguiente entrada de **clusterSettings**:
 
         "clusterSettings": [
             {
@@ -68,13 +77,12 @@ TLS 1.0 se puede deshabilitar con la siguiente entrada de *clusterSettings*:
 
 
 
-## Introducción
-El sitio de plantillas de inicio rápido de Azure ARM incluye una plantilla con la definición base para [crear un Entorno del Servicio de aplicaciones](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/)
+## Primeros pasos
+El sitio de plantillas de Azure Resource Manager incluye una plantilla con la definición base para [crear un entorno del Servicio de aplicaciones](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 
 <!-- LINKS -->
 
 <!-- IMAGES -->
- 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

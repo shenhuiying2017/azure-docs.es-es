@@ -20,6 +20,8 @@
 
 Aunque Aplicaciones lógicas tiene un conjunto completo de más de 40 conectores para una gran variedad de servicios, puede que desee recurrir a su propia API personalizada que puede ejecutar su propio código. Una de las maneras más fáciles y escalables de hospedar sus propias API web personalizadas es usar Servicio de aplicaciones. En este artículo se explica cómo llamar a cualquier API web hospedada en una aplicación de API del Servicio de aplicaciones, en una aplicación web o en una aplicación móvil.
 
+Para obtener información sobre la creación de API como desencadenador o acción en las aplicaciones lógicas, consulte [este artículo](app-service-logic-create-api-app.md).
+
 ## Implementación de la aplicación web
 
 En primer lugar, necesitará implementar la API como aplicación web en Servicio de aplicaciones. En estas instrucciones, se explica la implementación básica: [Creación de una aplicación web ASP.NET en Servicio de aplicaciones de Azure](../app-service-web/web-sites-dotnet-get-started.md). Aunque puede llamar a cualquier API desde una aplicación lógica, para obtener la mejor experiencia le recomendamos que agregue metadatos de Swagger para integrarse fácilmente con acciones de aplicaciones lógicas. Puede encontrar más información sobre [cómo agregar Swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).
@@ -149,7 +151,7 @@ En la sección *Autorización*, debe proporcionar: `{"type": "clientcertificate"
 
 Puede usar la autenticación básica (por ejemplo, nombre de usuario y contraseña) para validar las solicitudes entrantes. La autenticación básica es un patrón común que se puede usar en cualquier lenguaje en que compile la aplicación.
 
-En la sección *Autorización*, debe especificar los siguientes elementos: `{"type": "basic","username": "test","password": "test"}`.
+En la sección *Autorización*, debe proporcionar: `{"type": "basic","username": "test","password": "test"}`.
 
 | Elemento | Descripción |
 |---------|-------------|
@@ -167,4 +169,4 @@ Además, si desea implementarla totalmente en su propio código y no aprovechar 
 
 Necesita seguir los pasos anteriores para crear una identidad de aplicación para la aplicación lógica y usarla para llamar a la API.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 
@@ -80,7 +80,7 @@ Al publicar su servicio en la nube desde Visual Studio, puede generar perfiles d
 
 Para conocer más información acerca de la generación de perfiles de rendimiento en Visual Studio, consulte [Guía básica para la generación de perfiles de rendimiento](https://msdn.microsoft.com/library/azure/ms182372.aspx) y [Analizar el rendimiento de la aplicación mediante las herramientas de generación de perfiles](https://msdn.microsoft.com/library/azure/z9z62c29.aspx).
 
->[AZURE.NOTE]Puede habilitar IntelliTrace o bien la generación de perfiles al publicar su servicio en la nube. No puede habilitar ambas cosas.
+>[AZURE.NOTE] Puede habilitar IntelliTrace o bien la generación de perfiles al publicar su servicio en la nube. No puede habilitar ambas cosas.
 
 ###Métodos de recopilación del generador de perfiles
 
@@ -102,7 +102,7 @@ La ilustración siguiente muestra cómo configurar sus opciones de generación d
 
 ![Configurar opciones de generación de perfiles](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
->[AZURE.NOTE]Para activar la casilla **Habilitar generación de perfiles** debe tener instalado el generador de perfiles en el equipo local que está usando para publicar su servicio en la nube. De forma predeterminada, el generador de perfiles se instala al instalar Visual Studio.
+>[AZURE.NOTE] Para activar la casilla **Habilitar generación de perfiles** debe tener instalado el generador de perfiles en el equipo local que está usando para publicar su servicio en la nube. De forma predeterminada, el generador de perfiles se instala al instalar Visual Studio.
 
 ### Para configurar opciones de generación de perfiles
 
@@ -146,4 +146,4 @@ Se crea una sesión de generación de perfiles para cada instancia de un rol en 
 
 [Publicación en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

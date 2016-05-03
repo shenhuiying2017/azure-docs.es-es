@@ -21,6 +21,11 @@
 
 # Restauración de máquinas virtuales en Azure
 
+> [AZURE.SELECTOR]
+- [Restauración de máquinas virtuales en el Portal de Azure](backup-azure-arm-restore-vms.md)
+- [Restauración de máquinas virtuales en el portal clásico](backup-azure-restore-vms.md)
+
+
 Restaure una máquina virtual en una nueva máquina virtual desde las copias de seguridad almacenadas en el almacén de Copia de seguridad de Azure; para ello, siga estos pasos.
 
 ## Restauración del flujo de trabajo
@@ -135,7 +140,7 @@ Con el fin de volver a crear por completo los discos de máquina virtual posteri
 
 2. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell y úsela para crear la máquina virtual de la configuración que quiera.
 	- Creación de una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/es-ES/documentation/articles/load-balancer-internet-getstarted/)
+	- Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)
 	- Creación de una máquina virtual con [varias NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Creación de una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
@@ -144,4 +149,4 @@ Con el fin de volver a crear por completo los discos de máquina virtual posteri
 - [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

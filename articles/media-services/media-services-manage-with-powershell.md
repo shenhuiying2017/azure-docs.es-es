@@ -2,7 +2,7 @@
 	pageTitle="Administración de cuentas de Servicios multimedia de Azure con PowerShell" 
 	description="Aprenda a administrar las cuentas de Servicios multimedia de Azure con los cmdlets de PowerShell." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -122,4 +122,4 @@ Cuando esté listo para eliminar la cuenta de Servicios multimedia de Azure, use
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

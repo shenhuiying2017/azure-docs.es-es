@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Cómo registrar eventos en los centros de eventos de Azure en la administración de API de Azure" 
+	pageTitle="Registro de eventos en los Centros de eventos de Azure en Administración de API de Azure" 
 	description="Aprenda a registrar eventos en los centros de eventos de Azure en la administración de API de Azure." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/15/2016" 
 	ms.author="sdanie"/>
 
 # Cómo registrar eventos en los centros de eventos de Azure en la administración de API de Azure
@@ -71,12 +71,14 @@ Especifique el cuerpo de la solicitud utilizando la siguiente plantilla.
       "credentials" : {
         "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
-        }
+        },
+        "isBuffered": "true | false"
     }
 
 -	`type` se debe establecer en `AzureEventHub`.
 -	`description` ofrece una descripción opcional del registrador y puede ser una cadena de longitud cero si lo desea.
 -	`credentials` contiene el `name` y `connectionString` del centro de eventos de Azure.
+-	`isBuffered` determina si los registros en el registrador se almacenan en búfer antes de publicarse. Esta propiedad es opcional y el valor predeterminado es `true`. Cuando los registros se almacenan en búfer, se envían al Centro de eventos cada 15 segundos o cada vez que el búfer recibe 256 kb de mensajes.
 
 Al realizar la solicitud, si se crea el registrador, se devuelve un código de estado de `201 Created`.
 
@@ -133,4 +135,4 @@ Haga clic en **Guardar** para guardar la configuración de la directiva actualiz
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

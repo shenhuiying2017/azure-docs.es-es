@@ -19,7 +19,7 @@
 
 En este tema se describen las opciones y los tamaños disponibles para las instancias de rol de servicio en la nube (roles web y roles de trabajo). También ofrece consideraciones de implementación que hay que tener en cuenta a la hora de planear usar estos recursos.
 
-Las máquinas virtuales y servicios en la nube de Azure son dos de los distintos tipos de recursos de proceso que ofrece Azure. Para obtener más explicaciones, consulte [Cálculo de las opciones de hospedaje proporcionadas por Azure](fundamentals-application-models.md).
+Servicios en la nube es uno de los distintos tipos de recursos de proceso que ofrece Azure. Para obtener más información sobre Servicios en la nube, haga clic [aquí](cloud-services-choose-me.md).
 
 > [AZURE.NOTE]Para ver límites relacionados de Azure, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../azure-subscription-service-limits.md)
 
@@ -41,7 +41,7 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 * Los tamaños de máquina virtual A8/A10 y A9/A11 tienen las mismas capacidades. Las instancias de máquina virtual A8 y A9 incluyen otro adaptador de red que se conecta a una red de acceso de memoria directa remota (RDMA) para una rápida comunicación entre máquinas virtuales. Las instancias A8 y A9 están diseñadas para aplicaciones informáticas de alto rendimiento que requieren una comunicación constante y de baja latencia entre nodos durante la ejecución, por ejemplo, aplicaciones que utilizan la interfaz de paso de mensajes (MPI). Las instancias de máquina virtual A10 y A11 no incluyen el adaptador de red adicional. Las instancias A10 y A11 están diseñadas para aplicaciones informáticas de alto rendimiento que no requieren la comunicación constante y de baja latencia entre nodos, también conocidas como aplicaciones paramétricas o embarazosamente paralelas.
 
-    >[AZURE.NOTE] Si está considerando la posibilidad de usar tamaños de A8 a A11, lea [esta información](..\virtual-machines\virtual-machines-windows-a8-a9-a10-a11-specs.md).
+    >[AZURE.NOTE] Si está considerando la posibilidad de usar tamaños de A8 a A11, lea [esta información](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 >[AZURE.NOTE] Todos los tamaños de máquina proporcionan un **disco de aplicaciones** que almacena todos los archivos del paquete de servicio de la nube. Tiene aproximadamente 1,5 GB de tamaño.
 
@@ -156,4 +156,4 @@ El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea [Stand
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

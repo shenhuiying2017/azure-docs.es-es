@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/15/2016" 
 	ms.author="sethm"/>
 
 # Introducción de eventos de telemetría y aplicación a escala
  
-Las aplicaciones modernas crean una cantidad ingente de información mientras se ejecutan. Tanto si se trata de acciones de usuario en una aplicación móvil como de secuencias de clic en un sitio web, estos datos de telemetría son valiosos para el análisis a largo plazo y el seguimiento de estado en tiempo real o como ayuda para la toma de decisiones. Bus de servicio proporciona las herramientas necesarias para capturar y procesar esta información.
+Las aplicaciones modernas crean una cantidad ingente de información mientras se ejecutan. Tanto si se trata de acciones de usuario en una aplicación móvil como de secuencias de clic en un sitio web, estos datos de telemetría son valiosos para el análisis a largo plazo y el seguimiento de estado en tiempo real o como ayuda para la toma de decisiones. Centros de eventos de Microsoft Azure proporciona las herramientas necesarias para capturar y procesar esta información.
 
 
 ## Exploración
@@ -37,4 +37,4 @@ Las aplicaciones modernas crean una cantidad ingente de información mientras se
 - [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

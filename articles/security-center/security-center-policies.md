@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/01/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
 
 # Establecimiento de directivas de seguridad en el Centro de seguridad de Azure
@@ -96,7 +96,8 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 
 - [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 - [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): Obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Supervisión de soluciones de asociados con Azure Security Center): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

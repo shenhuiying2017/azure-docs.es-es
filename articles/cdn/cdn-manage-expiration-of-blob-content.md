@@ -1,6 +1,6 @@
 <properties
  pageTitle="Administración de la expiración del contenido del blob en la Red de entrega de contenido de Azure (CDN)"
- description=""
+ description="Obtenga información sobre las opciones para controlar el período de vida de los blobs de almacenamiento en caché de CDN de Azure."
  services="cdn"
  documentationCenter=".NET"
  authors="camsoper"
@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016" 
+ ms.date="02/25/2016"
  ms.author="casoper"/>
 
 
@@ -96,4 +96,4 @@ Si lo desea, puede utilizar una herramienta como **wget** o Fiddler para examina
 
 [Administración de la expiración del contenido del servicio en la nube en la Red de entrega de contenido de Azure (CDN)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

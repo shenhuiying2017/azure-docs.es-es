@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="andalmia"/>
 
 #Reglas de BizTalk
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Las reglas de negocios encapsulan las directivas y decisiones que controlan los procesos de negocio. Estas directivas se pueden definir formalmente en manuales de procedimientos, contratos o acuerdos, o pueden existir como conocimiento o experiencia incorporados en los empleados. Su naturaleza es dinámica y están sujetas a cambios con el paso del tiempo debido a cambios en los planes de negocio, las normativas u otros motivos.
 
@@ -48,7 +48,7 @@ _IF_ _condition_ _THEN_ _action_
 
 Considere el siguiente ejemplo:
 
-*IF el importe es menor o igual que los fondos disponibles*  
+*IF el importe es menor o igual que los fondos disponibles* 
 *THEN realizar transacción e imprimir recibo*
 
 Esta regla determina si una transacción se realizará aplicando la lógica de negocios, como una comparación de dos valores monetarios, en forma de un importe de transacción y los fondos disponibles. 
@@ -56,7 +56,7 @@ Puede usar la regla de negocios para crear, modificar e implementar reglas de ne
 
 ###Condiciones
 
-Una condición es una expresión verdadera o falsa (Booleana) que consta de uno o varios predicados.
+Una condición es una expresión verdadera o falsa (Booleana) que consta de uno o varios predicados. 
 En nuestro ejemplo, el predicado menos o igual que se aplica al importe y los fondos disponibles. 
 Esta condición siempre se evaluará como verdadera o falsa. Los predicados se pueden combinar con los operadores lógicos AND, OR y NOT para formar una expresión lógica que puede ser bastante larga, pero que siempre se evaluará como verdadera o falsa.
 
@@ -114,8 +114,8 @@ Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería
 
    ![Texto alternativo][4]
 
-2.Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario.  
-3.Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario.
+2. Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario. 
+3. Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario. 
 Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
 
 ##Definición literal
@@ -125,18 +125,18 @@ Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
   3.	Tipo de definición: se admiten dos tipos. En este ejemplo, elija Literal
   4.	Tipo de entrada: aquí los usuarios pueden seleccionar el tipo de datos de la definición. Actualmente se admiten cuatro tipos: 
     i. Cadena: estos valores deben escribirse entre comillas dobles ("cadena de ejemplo")  
-    ii. Booleano: puede tener el valor verdadero o falso  
-    iii. Número: puede ser cualquier número decimal  
-    iv. DateTime: esto significa que la definición es de tipo fecha. Los datos se deben escribir con el formato: mm/dd/aaaa hh:mm:ss AM\PM  
+    ii. Booleano: puede tener el valor verdadero o falso 
+    iii. Número: puede ser cualquier número decimal 
+    iv. DateTime: esto significa que la definición es de tipo fecha. Los datos se deben escribir con el formato: mm/dd/aaaa hh:mm:ss AM\\PM  
   5. Entrada: aquí se escribe el valor de su definición. Los valores aquí especificados deben ajustarse al tipo de dato elegido. Puede escribir un solo valor, un conjunto de valores separados por coma o un intervalo de valores mediante la palabra clave *to* (a). Por ejemplo, puede escribir un valor único 1; un conjunto 1, 2, 3; o un intervalo de 1 a 5. Tenga en cuenta que el intervalo solo se permite para números.
   6. Seleccione *Aceptar*.
 
 ![Texto alternativo][5]
 ##Definición de XML
-Si el tipo de vocabulario elegido es XML, será necesario especificar las siguientes entradas  
-  a.	Esquema: al hacer clic aquí se abrirá una nueva hoja que permite al usuario elegir en una lista de esquemas ya cargados o bien cargar uno nuevo.  
-  b.	XPATH: esta entrada solo se desbloquea después de elegir un esquema en el paso anterior. Al hacer clic aquí se mostrará el esquema que se ha seleccionado y permite al usuario seleccionar el nodo para el que es necesario crear una definición de vocabulario.  
-  c.	FACT: esta entrada identifica el objeto de datos que se pasaría al motor de reglas para su procesamiento. Se trata de una propiedad avanzada y, de forma predeterminada, se establece en el elemento primario de la XPATH seleccionada. FACT se vuelve especialmente importante en escenario de encadenamiento y recopilación. 
+Si el tipo de vocabulario elegido es XML, será necesario especificar las siguientes entradas 
+a. Esquema: al hacer clic aquí se abrirá una nueva hoja que permite al usuario elegir en una lista de esquemas ya cargados o bien cargar uno nuevo. 
+b. XPATH: esta entrada solo se desbloquea después de elegir un esquema en el paso anterior. Al hacer clic aquí se mostrará el esquema que se ha seleccionado y permite al usuario seleccionar el nodo para el que es necesario crear una definición de vocabulario. 
+c. FACT: esta entrada identifica el objeto de datos que se pasaría al motor de reglas para su procesamiento. Se trata de una propiedad avanzada y, de forma predeterminada, se establece en el elemento primario de la XPATH seleccionada. FACT se vuelve especialmente importante en escenario de encadenamiento y recopilación.
 
 ![Texto alternativo][6]
 
@@ -149,32 +149,32 @@ Los nombres de las múltiples definiciones creadas adoptarán de forma predeterm
 ![Texto alternativo][7]
 
 ##Creación de directivas
-Una vez que el desarrollador ha creado los vocabularios necesarios, lo normal es que el analista de negocios sea el que cree las directivas de negocios a través del portal de Azure.  
-	1.	En la aplicación de reglas creada, hay un modo Directiva en el que al hacer clic el usuario va a la página de creación de directivas.  
- 	2. Esta página mostrará la lista de directivas que tiene esta aplicación de reglas en particular. El analista puede agregar una nueva directiva con solo escribir un nombre y pulsar la tecla de tabulación dos veces. Pueden residir varias directivas en una sola aplicación de API de reglas.  
- 	3. Al seleccionar la directiva creada, el usuario va a la página de detalles de la directiva donde puede ver las reglas que contiene.  
-	![Texto alternativo][8]  
+Una vez que el desarrollador ha creado los vocabularios necesarios, lo normal es que el analista de negocios sea el que cree las directivas de negocios a través del portal de Azure. 
+	1. En la aplicación de reglas creada, hay un modo Directiva en el que al hacer clic el usuario va a la página de creación de directivas. 
+	2. Esta página mostrará la lista de directivas que tiene esta aplicación de reglas en particular. El analista puede agregar una nueva directiva con solo escribir un nombre y pulsar la tecla de tabulación dos veces. Pueden residir varias directivas en una sola aplicación de API de reglas. 
+	3. Al seleccionar la directiva creada, el usuario va a la página de detalles de la directiva donde puede ver las reglas que contiene. 
+	![Texto alternativo][8] 
 	4. Seleccione "Agregar" para agregar una nueva regla. Esta acción le llevará a una nueva hoja.
 
 ##Creación de reglas
-Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas:  
+Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas:
 1. 	And: operador condicional  
 2. 	Or: operador condicional  
-3. 	does_not_exist  
+3. 	does\_not\_exist  
 4. 	exists  
 5. 	false  
-6. 	is_equal_to  
-7. 	is_greater_than  
-8. 	is_greater_than_equal_to  
-9. 	is_in  
-10. is_less_than  
-11. is_less_than_equal_to  
-12. is_not_in  
-13. is_not_equal_to  
+6. 	is\_equal\_to  
+7. 	is\_greater\_than  
+8. 	is\_greater\_than\_equal\_to  
+9. 	is\_in  
+10. is\_less\_than  
+11. is\_less\_than\_equal\_to  
+12. is\_not\_in  
+13. is\_not\_equal\_to  
 14. mod  
-15. true 
+15. true  
 
-El cuadro Acción (Then) puede contener varias declaraciones, una por línea, para crear acciones que se van a ejecutar. Las palabras clave admitidas son las siguientes:  
+El cuadro Acción (Then) puede contener varias declaraciones, una por línea, para crear acciones que se van a ejecutar. A continuación se indican las palabras clave admitidas:
 1.	equals  
 2.	false  
 3.	true  
@@ -187,7 +187,7 @@ Los cuadros de condición y acción proporcionan Intellisense para ayudar al aut
 ![Texto alternativo][9]
 
 ##Encadenamiento progresivo explícito
-Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Las palabras clave admitidas son las siguientes:  
+Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Estas son las palabras clave admitidas:
    1.	update <vocabulary definition>: esta palabra clave vuelve a evaluar todas las reglas que usan la definición de vocabulario especificada en su condición.  
    2.	Halt: esta palabra clave detiene todas las ejecuciones de reglas
 
@@ -255,4 +255,4 @@ Una de las principales ventajas del uso de reglas de negocios es que los cambios
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

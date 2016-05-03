@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 # Muestreo, filtrado y preprocesamiento de la telemetría en el SDK de Application Insights
@@ -47,6 +47,8 @@ El [muestreo](app-insights-sampling.md) es la forma recomendada de reducir el tr
 ### Para habilitar el muestreo de ingesta
 
 En la barra de configuración, abra la hoja Cuotas y precios. Haga clic en Muestreo y seleccione una relación de muestreo.
+
+La ingesta no funciona si el SDK realiza muestreo adaptativo o fijo. Aunque la velocidad de muestreo en el SDK es inferior al 100 %, se omite el valor de muestreo de la ingesta.
 
 ### Para habilitar el muestreo adaptable
 
@@ -407,4 +409,4 @@ Puede agregar tantos inicializadores como desee.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

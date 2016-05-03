@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
 # Administración de la seguridad en Azure
@@ -28,7 +28,7 @@ En este tipo de entorno, el riesgo de ataques es mayor porque es difícil constr
 
 ### Amenazas de la administración remota
 
-Para obtener acceso con privilegios, los atacantes intentan comprometer las credenciales de cuenta (por ejemplo, forzando la contraseña o mediante suplantación de identidad [phishing] o recopilación de credenciales), o intentan engañar a los usuarios para que ejecuten código malintencionado (por ejemplo, desde sitios web malintencionados con descargas dirigidas o desde datos adjuntos de correo electrónico malintencionado). En un entorno de nube administrado de forma remota, las infracciones de cuenta permiten el acceso desde cualquier lugar y en cualquier momento, lo que provoca un riesgo mayor.
+Para obtener acceso con privilegios, los atacantes intentan comprometer las credenciales de cuenta (por ejemplo, forzando la contraseña, o mediante la suplantación de identidad [phishing] o la recopilación de credenciales), o intentan engañar a los usuarios para que ejecuten código perjudicial (por ejemplo, desde sitios web malintencionados con descargas dirigidas, o desde datos adjuntos de correo electrónico malintencionado). En un entorno de nube administrado de forma remota, las infracciones de cuenta permiten el acceso desde cualquier lugar y en cualquier momento, lo que provoca un riesgo mayor.
 
 Incluso con controles estrictos en las cuentas de los administradores principales, las cuentas de usuario de niveles inferiores se pueden usar para vulnerar los puntos débiles de la estrategia de seguridad de cada uno. La falta de un aprendizaje de seguridad adecuado también puede provocar infracciones debidas a la revelación o la exposición accidental de información de la cuenta.
 
@@ -38,21 +38,28 @@ En general, la mayoría de los ataques dirigidos que provocan infracciones de da
 
 ### Fundamentos de la seguridad operativa
 
-Para que la administración y las operaciones sean más seguras, puede minimizar la superficie de ataque de un cliente reduciendo el número de posibles puntos de entrada. Esto se puede hacer mediante los principios de seguridad de "separación de tareas" y de "segregación de entornos": aislar entre sí las funciones delicadas reduce la probabilidad de que un error en un nivel produzca una infracción en otro. Por lo tanto, las tareas administrativas no deben combinarse con las actividades que pueden suponer un riesgo (por ejemplo, un malware en el correo electrónico de un administrador que infecta un servidor de la infraestructura). De forma similar, la estación de trabajo que se usa para las operaciones de alta confidencialidad no deberían estar en el mismo sistema que se usa para fines de alto riesgo, tales como explorar Internet.
+Para que la administración y las operaciones sean más seguras, puede minimizar la superficie de ataque de un cliente reduciendo el número de posibles puntos de entrada. Esto puede hacerse a través de los principios de seguridad: "segregación de controles" y "segregación de entornos".
 
-Cada aplicación o servicio instalados en la estación de trabajo de un administrador aumentan los riesgos para la seguridad porque presentan vulnerabilidades que se pueden aprovechar. Por lo tanto, se quitará el software innecesario de una imagen de sistema de instalación estándar para reducir la superficie de ataque del sistema y mejorar así la estabilidad y la facilidad de uso del cliente, y reforzar el perfil de seguridad del software de cliente. Por ejemplo, una estación de trabajo de desarrollo, de soporte o administrativa estándar no debería requerir la instalación de un cliente de correo electrónico u otras aplicaciones de productividad si la finalidad principal del dispositivo es administrar servicios en la nube.
+Aislamiento de funciones confidenciales entre sí para reducir la probabilidad de que un error en un nivel dé lugar a una infracción de seguridad en otro. Ejemplos:
 
-La red debe tratar los sistemas de cliente que tengan acceso de administrador a los componentes de infraestructura como si fueran tan confidenciales como los propios componentes de infraestructura. Puesto que un riesgo planteado por un administrador o un sistema de administrador podría provocar una infracción de servicio, el cliente debe someterse a la directiva más estricta posible para reducir los riesgos de seguridad. Entre las directivas de seguridad que aumentan la inspección en dispositivos cliente que poseen privilegios de administrador pueden incluirse la configuración de directiva de grupo que deniega el acceso a Internet abierto desde el dispositivo y el uso de una configuración de firewall restrictiva.
+- Las tareas administrativas no deben combinarse con las actividades que pueden suponer un riesgo (por ejemplo, un malware en el correo electrónico de un administrador que luego infecte un servidor de la infraestructura).
+- Una estación de trabajo que se usa para operaciones de alta confidencialidad no debería estar en el mismo sistema que se usa para acciones de alto riesgo, como explorar Internet.
 
-Puede implementar otras medidas, entre ellas:
+Reducción de la superficie de ataque del sistema mediante la eliminación de software innecesario. Ejemplo:
 
-- Uso de redes VPN con protocolo de Internet de seguridad (IPsec) si se necesita acceso directo.
+- Por ejemplo, una estación de trabajo administrativa, de soporte técnico o de desarrollo estándar no debería requerir la instalación de un cliente de correo electrónico o de otras aplicaciones de productividad si la finalidad principal del dispositivo es administrar servicios en la nube.
+
+Sistemas cliente que tienen acceso de administrador a los componentes de la infraestructura deben estar sujetos a la directiva más estricta posible para reducir los riesgos de seguridad. Ejemplos:
+
+- Entre las directivas de seguridad pueden incluirse la configuración de directiva de grupo que deniega el acceso a Internet abierto desde el dispositivo y el uso de una configuración restrictiva de firewall.
+- Uso de redes VPN con protocolo de seguridad de Internet (IPsec) si se necesita acceso directo.
 - Configuración de dominios de Active Directory de desarrollo y administración independientes.
-- Aislamiento y filtrado del tráfico de red de los equipos de administración.
+- Aislamiento y filtrado del tráfico de red de las estaciones de trabajo de administración.
 - Uso de software antimalware.
-- Implementación de autenticación multifactor para reducir el riesgo de credenciales robadas.
+- Implementación de la autenticación multifactor para reducir el riesgo de credenciales robadas.
 
 La consolidación de los recursos de acceso y la eliminación de puntos de conexión no administrados también simplifica las tareas de administración.
+
 
 ### Seguridad para la administración remota de Azure
 
@@ -84,7 +91,7 @@ En una estación de trabajo protegida, el administrador ejecuta una cuenta de us
 - Restricción de la ejecución. Permita solo el conjunto de archivos ejecutables predefinidos que se necesitan para realizar la administración (lo que se conoce como "denegación predeterminada"). De forma predeterminada, se deberá denegar el permiso a los usuarios para ejecutar cualquier programa a menos que esté definido explícitamente en la lista de permitidos.
 - Privilegios mínimos. Los usuarios de las estaciones de trabajo de administración no deben tener privilegios administrativos en el propio equipo local. De este modo, no pueden cambiar la configuración del sistema ni los archivos del sistema, ya sea intencionadamente o por accidente.
 
-Para aplicar todo esto, puede usar [Objetos de directivas de grupo](https://www.microsoft.com/download/details.aspx?id=2612) (GPO) en Servicios de dominio de Active Directory (AD DS) y aplicarlos mediante su dominio de administración (local) a todas las cuentas de administración.
+Para aplicar todo esto, puede usar [Objetos de directiva de grupo](https://www.microsoft.com/download/details.aspx?id=2612) (GPO) en Servicios de dominio de Active Directory (AD DS) y aplicarlos mediante su dominio de administración (local) a todas las cuentas de administración.
 
 ### Administración de servicios, aplicaciones y datos
 
@@ -92,7 +99,7 @@ La configuración de servicios en la nube de Azure se realiza mediante el Portal
 
 Máquina virtual: las aplicaciones implementadas proporcionan sus propias herramientas e interfaces de cliente según sea necesario, como Microsoft Management Console (MMC), una consola de administración empresarial (Microsoft System Center o Windows Intune) u otra aplicación de administración (Microsoft SQL Server Management Studio, por ejemplo). Estas herramientas suelen residir en una red de cliente o en un entorno empresarial. Pueden depender de protocolos de red específicos, como el Protocolo de escritorio remoto (RDP), que requiere conexiones directas con estado. Algunos pueden tener interfaces habilitadas para web que no se deben publicar ni ser accesibles a través de Internet.
 
-Puede restringir el acceso a la administración de los servicios de infraestructura y plataforma en Azure mediante la [autenticación multifactor](multi-factor-authentication/multi-factor-authentication.md), [certificados de administración X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) y reglas de firewall. El Portal de Azure y SMAPI requieren Seguridad de capa de transporte (TLS). Sin embargo, los servicios y las aplicaciones que implemente en Azure requieren que tome medidas de protección adecuadas en función de la aplicación. Estos mecanismos se suelen habilitar más fácilmente mediante una configuración de estación de trabajo protegida estándar.
+Puede restringir el acceso a la administración de los servicios de infraestructura y plataforma en Azure mediante la [autenticación multifactor](multi-factor-authentication/multi-factor-authentication.md), los [certificados de administración X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) y las reglas de firewall. El Portal de Azure y SMAPI requieren Seguridad de capa de transporte (TLS). Sin embargo, los servicios y las aplicaciones que implemente en Azure requieren que tome medidas de protección adecuadas en función de la aplicación. Estos mecanismos se suelen habilitar más fácilmente mediante una configuración de estación de trabajo protegida estándar.
 
 ### Puerta de enlace de administración
 
@@ -102,7 +109,7 @@ Puerta de enlace de Escritorio remoto es un servicio de proxy RDP basado en dire
 
 - Aprovisione un [certificado de administración de Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx) en Puerta de enlace de Escritorio remoto para que sea el único host con permiso para acceder al Portal de administración de Azure.
 - Una el servidor de Puerta de enlace de Escritorio remoto al mismo [dominio de administración](http://technet.microsoft.com/library/bb727085.aspx) que las estaciones de trabajo de administrador. Esto es necesario cuando se usa una VPN IPsec de sitio a sitio o ExpressRoute dentro de un dominio que tenga una confianza unidireccional con Azure AD, o si federa las credenciales entre su instancia de AD DS local y Azure AD.
-- Configure una [directiva de autorización de conexión de cliente](http://technet.microsoft.com/library/cc753324.aspx) para que Puerta de enlace de Escritorio remoto pueda comprobar si el nombre del equipo cliente es válido (unido a un dominio) y tiene acceso al Portal de administración de Azure.
+- Configure una [directiva de autorización de conexión de cliente](http://technet.microsoft.com/library/cc753324.aspx) para que Puerta de enlace de Escritorio remoto pueda comprobar si el nombre del equipo cliente es válido (unido a un dominio) y tiene permiso para acceder al Portal de administración de Azure.
 - Use IPsec para que la [VPN de Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) pueda proteger aún más el tráfico de administración contra la interceptación y el robo de tokens, o considere la posibilidad de usar un vínculo a Internet aislado mediante [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 - Habilite la autenticación multifactor (mediante [Azure Multi-Factor Authentication](multi-factor-authentication/multi-factor-authentication.md)) o la autenticación de tarjeta inteligente para los administradores que inician sesión mediante Puerta de enlace de Escritorio remoto.
 - Configure las [restricciones de direcciones IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) de origen o los [grupos de seguridad de red](virtual-network/virtual-networks-nsg.md) en Azure para minimizar el número de puntos de conexión de administración permitidos.
@@ -115,11 +122,11 @@ En general, para ayudar a proteger las estaciones de trabajo de administrador pa
 
 Puede usar las restricciones de inicio de sesión de Azure para impedir que direcciones IP de origen tengan acceso a herramientas administrativas y solicitudes de acceso de auditoría. Para ayudar a Azure a identificar los clientes de administración (estaciones de trabajo o aplicaciones), puede configurar SMAPI (mediante herramientas desarrolladas por el cliente tales como cmdlets de Windows PowerShell) y el Portal de administración de Azure para que requieran la instalación de certificados de administración del lado cliente, además de los certificados SSL. Se recomienda también que el acceso de administrador requiera autenticación multifactor.
 
-Algunas aplicaciones o servicios que se implementan en Azure pueden tener sus propios mecanismos de autenticación para el acceso de usuario final y de administrador, mientras que otras aprovechan toda la funcionalidad de Azure AD. Dependiendo de si desea federar credenciales mediante Servicios de federación de Active Directory (AD FS), usar la sincronización de directorios o mantener cuentas de usuario únicamente en la nube, el uso de [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (parte de Azure AD Premium) le ayuda a administrar los ciclos de vida de las identidades entre los recursos.
+Algunas aplicaciones o servicios que se implementan en Azure pueden tener sus propios mecanismos de autenticación para el acceso de usuario final y de administrador, mientras que otras aprovechan toda la funcionalidad de Azure AD. Dependiendo de si desea federar credenciales mediante Servicios de federación de Active Directory (AD FS), usar la sincronización de directorios o mantener las cuentas de usuario únicamente en la nube, el uso de [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (parte de Azure AD Premium) le ayuda a administrar los ciclos de vida de las identidades entre los recursos.
 
 ### Conectividad
 
-Existen varios mecanismos para ayudar a proteger las conexiones de cliente de las redes virtuales de Azure. Dos de estos mecanismos, [VPN de sitio a sitio](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) y [VPN de punto a sitio](vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S), permiten usar el estándar del sector IPsec (S2S) o el [Protocolo de túnel de sockets seguros](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) para el cifrado y túnel. Cuando Azure se conecta a la administración de servicios de Azure accesibles desde Internet, como el Portal de administración de Azure, Azure requiere el protocolo HTTPS.
+Existen varios mecanismos para ayudar a proteger las conexiones de cliente de las redes virtuales de Azure. Dos de estos mecanismos, [VPN de sitio a sitio](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) y [VPN de punto a sitio](vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S), permiten usar el estándar del sector IPsec (S2S) o el [Protocolo de túnel de sockets seguros](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) para el cifrado y la tunelización. Cuando Azure se conecta a la administración de servicios de Azure accesibles desde Internet, como el Portal de administración de Azure, Azure requiere el protocolo HTTPS.
 
 Una estación de trabajo protegida independiente que no se conecta a Azure mediante Puerta de enlace de Escritorio remoto debe usar VPN de punto a sitio basada en SSTP para crear la conexión inicial a la Red virtual de Azure y, después, establecer la conexión RDP a las máquinas virtuales individuales desde el túnel VPN.
 
@@ -154,7 +161,7 @@ Para los entornos de TI que carecen de infraestructura local (por ejemplo, no ti
 
 ### Estación de trabajo protegida independiente para administración
 
-Con una estación de trabajo protegida independiente, los administradores tienen un equipo o un portátil que usan para las tareas administrativas, y otro equipo o portátil diferente para las tareas no administrativas. Una estación de trabajo dedicada para administrar los servicios de Azure no necesita tener otras aplicaciones instaladas. Además, para usar las estaciones de trabajo que admiten un [Módulo de plataforma segura](https://technet.microsoft.com/library/cc766159) (TPM) o una tecnología de cifrado de nivel de hardware similar, ayuda a autenticar dispositivos y prevenir ciertos ataques. TPM también admite la protección del volumen completo de la unidad del sistema mediante [Cifrado de unidad BitLocker](https://technet.microsoft.com/library/cc732774.aspx).
+Con una estación de trabajo protegida independiente, los administradores tienen un equipo o un portátil que usan para las tareas administrativas, y otro equipo o portátil diferente para las tareas no administrativas. Una estación de trabajo dedicada para administrar los servicios de Azure no necesita tener otras aplicaciones instaladas. Además, el uso de estaciones de trabajo que admiten un [Módulo de plataforma segura](https://technet.microsoft.com/library/cc766159) (TPM), o una tecnología de cifrado de nivel de hardware similar, ayuda a autenticar dispositivos y prevenir ciertos ataques. TPM también admite la protección del volumen completo de la unidad del sistema mediante [Cifrado de unidad BitLocker](https://technet.microsoft.com/library/cc732774.aspx).
 
 En el escenario de la estación de trabajo protegida independiente (se muestra a continuación), la instancia local de Firewall de Windows (o un firewall de cliente no sea de Microsoft) está configurada para bloquear las conexiones entrantes, como RDP. El administrador puede iniciar sesión en la estación de trabajo protegida e iniciar una sesión de RDP que se conecta a Azure después de establecer una conexión de VPN con una Red virtual de Azure, pero no puede iniciar sesión en un equipo corporativo ni usar RDP para conectarse a la propia estación de trabajo protegida.
 
@@ -172,7 +179,7 @@ La máquina virtual del equipo corporativo se ejecuta en un espacio protegido y 
 
 ### Windows To Go
 
-Otra alternativa al uso de una estación de trabajo protegida independiente es usar una unidad [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx), una característica que admite la opción de arranque USB del lado cliente. Windows To Go permite a los usuarios iniciar un equipo compatible con una imagen de sistema aislada ejecutando desde una unidad flash USB cifrada. Proporciona controles adicionales para los puntos de conexión de administración remota porque la imagen se puede administrar totalmente con un grupo de TI corporativo, con directivas de seguridad estrictas, una compilación de sistema operativo mínima y compatibilidad con TPM.
+Otra alternativa al uso de una estación de trabajo protegida independiente es usar una unidad [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx), una característica que admite la funcionalidad de arranque USB del lado cliente. Windows To Go permite a los usuarios iniciar un equipo compatible con una imagen de sistema aislada ejecutando desde una unidad flash USB cifrada. Proporciona controles adicionales para los puntos de conexión de administración remota porque la imagen se puede administrar totalmente con un grupo de TI corporativo, con directivas de seguridad estrictas, una compilación de sistema operativo mínima y compatibilidad con TPM.
 
 En la ilustración siguiente, la imagen portátil es un sistema unido a un dominio que está preconfigurado para conectarse únicamente a Azure, requiere autenticación multifactor y bloquea todo el tráfico no sea de administración. Si un usuario inicia el mismo equipo con la imagen corporativa estándar e intenta obtener acceso a las herramientas de administración de Azure mediante Puerta de enlace de Escritorio remoto, se bloqueará la sesión. Windows To Go se convierte en el sistema operativo del nivel raíz y no se necesitan capas adicionales (sistema operativo host, hipervisor, máquina virtual) que pueden ser más vulnerables a ataques del exterior.
 
@@ -197,7 +204,7 @@ No dé por sentado que si una estación de trabajo está bloqueada ya no es nece
 | No comparta cuentas ni contraseñas entre los administradores o reutilice contraseñas en diferentes cuentas de usuario o servicios, especialmente las de medios sociales o de otras actividades no administrativas. | Cree una cuenta de Microsoft dedicada para administrar su suscripción de Azure, una cuenta que no se use para el correo electrónico personal. |
 | No envíe archivos de configuración por correo electrónico. | Los perfiles y los archivos de configuración deben instalarse desde un origen de confianza (por ejemplo, una unidad flash USB cifrada), no desde un mecanismo que pueda verse comprometido fácilmente, como el correo electrónico. |
 | No use contraseñas de inicio de sesión simples o débiles. | Aplique directivas de contraseña segura, ciclos de expiración (cambiar en el primer uso), tiempos de espera de la consola y bloqueos de cuentas automáticos. Use un sistema de administración de contraseñas de cliente con autenticación multifactor para el acceso al almacén de contraseñas. |
-| No exponga los puertos de administración a Internet. | Bloquee los puertos y las direcciones IP de Azure para restringir el acceso de administración. Para obtener más información, consulte las notas del producto [Azure Network Security](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) (Seguridad de red de Azure). |
+| No exponga los puertos de administración a Internet. | Bloquee los puertos y las direcciones IP de Azure para restringir el acceso de administración. Para más información, consulte las notas del producto [Azure Network Security](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) (Seguridad de red de Azure). |
 | | Use NAP, VPN y firewalls para todas las conexiones de administración. |
 
 ## Operaciones de Azure
@@ -229,10 +236,10 @@ Usar una configuración de estación de trabajo protegida para administrar los s
 ## Pasos siguientes
 Los siguientes recursos proporcionan más información general acerca de los servicios de Azure y otros servicios de Microsoft relacionados, así como elementos específicos a los que se hace referencia en este documento:
 
-- [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx) (Protección del acceso con privilegios): obtenga información técnica para diseñar y crear una estación de trabajo administrativa segura para la administración de Azure
-- [Centro de confianza de Microsoft](https://www.microsoft.com/TrustCenter/Security/AzureSecurity): Conozca las funcionalidades de la plataforma Azure que protegen el tejido de Azure y las cargas de trabajo que se ejecutan en Azure
+- [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx) (Protección del acceso con privilegios): consulte la información técnica para diseñar y crear una estación de trabajo administrativa segura para la administración de Azure
+- [Centro de confianza de Microsoft](https://www.microsoft.com/TrustCenter/Security/AzureSecurity): conozca las funcionalidades de la plataforma Azure que protegen el tejido de Azure y las cargas de trabajo que se ejecutan en Azure
 - [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx): aquí podrá informar acerca de vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a [secure@microsoft.com](mailto:secure@microsoft.com)
-- [Blog sobre seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): manténgase al día sobre los últimos avances en seguridad de Azure
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): manténgase al día sobre los últimos avances en seguridad en Azure
 
 <!--Image references-->
 [1]: ./media/azure-security-management/typical-management-network-topology.png
@@ -240,4 +247,4 @@ Los siguientes recursos proporcionan más información general acerca de los ser
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

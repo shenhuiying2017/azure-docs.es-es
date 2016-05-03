@@ -147,6 +147,10 @@ La configuración de AD FS con Azure AD Connect es muy sencilla y solo se necesi
 - Un servidor Windows Server 2012 R2 para el servidor Proxy de aplicación web con la administración remota habilitada.
 - Un certificado SSL para el nombre del servicio de federación que desea usar (por ejemplo, sts.contoso.com)
 
+### Requisitos previos de la configuración de AD FS
+
+Para configurar correctamente la granja de servidores de AD FS mediante Azure AD Connect, asegúrese de que WinRM está habilitado en los servidores remotos. Además, revise los requisitos de puertos enumerados en la [Tabla 3: Azure AD Connect y servidores de federación/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap)
+
 ### Creación de una nueva granja de AD FS o utilización de una granja de AD FS existente
 Puede utilizar una granja de AD FS existente o crear una nueva granja de AD FS. Si decide crear una nueva, deberá proporcionar el certificado SSL. Si el certificado SSL está protegido mediante contraseña, se le pedirá que proporcione la contraseña.
 
@@ -178,7 +182,7 @@ Se le pedirá que escriba las credenciales para que el Servidor de aplicaciones 
 ### Especificación de la cuenta de servicio para el servicio AD FS
 El servicio de AD FS requiere una cuenta de servicio de dominio para autenticar usuarios y la información de usuario de búsqueda en Active Directory. Puede admitir dos tipos de cuentas de servicio:
 
-- **Cuenta de servicio administrada de grupo**: se trata de un tipo de cuenta de servicio que se introdujo en el Servicio de dominio de Active Directory con Windows Server 2012. Este tipo de cuenta proporciona servicios como AD FS para utilizar una única cuenta sin necesidad de actualizar la contraseña de la cuenta de forma periódica. Utilice esta opción si ya tiene controladores de dominio de Windows Server 2012 en el dominio al que pertenecerán los servidores de AD FS.
+- **Cuenta de servicio administrada de grupo**: se trata de un tipo de cuenta de servicio que se introdujo en los Servicios de dominio de Active Directory con Windows Server 2012. Este tipo de cuenta proporciona servicios como AD FS para utilizar una única cuenta sin necesidad de actualizar la contraseña de la cuenta de forma periódica. Utilice esta opción si ya tiene controladores de dominio de Windows Server 2012 en el dominio al que pertenecerán los servidores de AD FS.
 - **Cuenta de usuario de dominio**: en este tipo de cuenta deberá proporcionar una contraseña y actualizarla regularmente cuando cambia la contraseña. Utilice esta opción solo si no tiene controladores de dominio de Windows Server 2012 en el dominio al que pertenecen los servidores de AD FS.
 
 Si ha seleccionado la cuenta de servicio administrada de grupo y esta característica no se ha utilizado nunca en Active Directory, también se le pedirán las credenciales de administrador de organización. Estas se usarán para iniciar el almacén de claves y habilitar la característica en Active Directory.
@@ -240,4 +244,4 @@ Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asig
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

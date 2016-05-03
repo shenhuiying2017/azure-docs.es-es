@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Introducción a Administración de socios comerciales de BizTalk y su incorporación a su aplicación lógica
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 El servicio Administración de socios comerciales (TPM) de BizTalk le permite definir y mantener relaciones de negocio a negocio, como socios y contratos, junto con artefactos asociados como esquemas y certificados. Estas relaciones se pueden aplicar mediante servicios de API relacionados como X 12, EDIFACT y AS2.
 
@@ -41,4 +43,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

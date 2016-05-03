@@ -1,6 +1,6 @@
 <properties
    pageTitle="Qué es Microsoft Power BI Embedded"
-   description="Qué es Microsoft Power BI Embedded"
+   description="Power BI Embedded le permite integrar informes de Power BI en las aplicaciones web o móviles, por lo que no necesita crear soluciones personalizadas para visualizar los datos de los usuarios."
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -99,4 +99,4 @@ Para obtener un ejemplo de cómo usar [CreateProvisionToken](https://msdn.micros
 - [Power BI REST APIs (API de REST de Power BI)](http://docs.powerbi.apiary.io/reference)
 - [Regiones de Azure](https://azure.microsoft.com/regions/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -19,9 +19,32 @@
 
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
-*Utilice la búsqueda del explorador para buscar elementos de lenguaje en esta página, que combina el contenido de las páginas de las consultas, las agregaciones y valores escalares.*
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
+
+
+| | | | | 
+|---|---|---|---|---
+|[ago](#ago)|[dayofweek](#dayofweek)|[Cláusula let](#let-clause)|[range](#range)|[Operador summarize](#summarize-operator)
+|[cualquiera](#any)|[dcount](#dcount)|[Operador limit](#limit-operator)|[Operador range](#range-operator)|[Operador take](#take-operator)
+|[argmax](#argmax)|[Objetos dinámicos en cláusulas let](#dynamic-objects-in-let-clauses)|[makelist](#makelist)|[Operador reduce](#reduce-operator)|[todatetime](#todatetime)
+|[argmin](#argmin)|[Operador extend](#extend-operator)|[makeset](#makeset)|[Directiva render](#render-directive)|[todouble](#todouble)
+|[Operadores aritméticos](#arithmetic-operators)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
+|[Literales de matriz y objeto](#array-and-object-literals)|[extractjson](#extractjson)|[min](#min)|[Comparaciones escalares](#scalar-comparisons)|[toint](#toint)
+|[arraylength](#arraylength)|[floor](#floor)|[Operador mvexpand](#mvexpand-operator)|[Operador sort](#sort-operator)|[tolong](#tolong)
+|[avg](#avg)|[getmonth](#getmonth)|[notempty](#notempty)|[split](#split)|[tolower](#tolower)
+|[bin](#bin)|[gettype](#gettype)|[notnull](#notnull)|[sqrt](#sqrt)|[Operador top](#top-operator)
+|[Literales booleanos](#boolean-literals)|[getyear](#getyear)|[now](#now)|[startofmonth](#startofmonth)|[totimespan](#totimespan)
+|[Operadores booleanos](#boolean-operators)|[hash](#hash)|[Literales numéricos](#numeric-literals)|[startofyear](#startofyear)|[toupper](#toupper)
+|[buildschema](#buildschema)|[iff](#iff)|[Literales de cadena ofuscados](#obfuscated-string-literals)|[stdev](#stdev)|[treepath](#treepath)
+|[Conversiones de tipos](#casts)|[isempty](#isempty)|[Operador parse](#parse-operator)|[strcat](#strcat)|[Operador union](#union-operator)
+|[count](#count)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[Comparaciones de cadenas](#string-comparisons)|[variance](#variance)
+|[Operador count](#count-operator)|[isnotnull](#isnotnull)|[percentile](#percentile)|[Literales de cadena](#string-literals)|[Operador where](#where-operator)
+|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[strlen](#strlen)
+|[Expresiones de fecha y hora](#date-and-time-expressions)|[Operador join](#join-operator)|[Operador project](#project-operator)|[substring](#substring)
+|[Literales de fecha y hora](#date-and-time-literals)|[Expresiones de ruta de JSON](#json-path-expressions)|[rand](#rand)|[sum](#sum)
+
+
 
 
 
@@ -147,7 +170,7 @@ Una tabla con:
  
      Hay una fila en la salida por cada combinación de filas coincidentes de la izquierda y la derecha.
 
-* `kind=leftouter` ( `kind=rightouter` o `kind=fullouter`)
+* `kind=leftouter` (o `kind=rightouter` o `kind=fullouter`)
 
      Además de las coincidencias internas, hay una fila por cada fila de la izquierda (o derecha), incluso si no tiene ninguna coincidencia. En este caso, las celdas de salida sin coincidencias contienen valores NULL.
 
@@ -237,7 +260,7 @@ Autocombinación:
 
      T | limit 5
 
-Vuelve al número especificado de filas de la tabla de entrada. No hay ninguna garantía de cuáles son los registros que se devuelven. (Para devolver registros específicos, use [`top`](#top-operator).)
+Vuelve al número especificado de filas de la tabla de entrada. No hay ninguna garantía de cuáles son los registros que se devuelven. (Para devolver registros específicos, use [`top`](#top-operator)).
 
 **Alias** `take`
 
@@ -260,7 +283,7 @@ Hay un límite implícito en el número de filas devueltas al cliente, incluso s
 
 Expande una lista de una celda de tipo dinámico (JSON) para que cada entrada tenga una fila independiente. Todas las demás celdas de una fila expandida se duplican.
 
-(Vea también [`summarize makelist`](#summarize-operator) que realiza la función opuesta.)
+(Vea también [`summarize makelist`](#summarize-operator) que realiza la función opuesta).
 
 **Ejemplo**
 
@@ -302,12 +325,12 @@ El resultado es:
 
 Varias filas para cada uno de los valores de una matriz en la columna indicada o en la expresión de matriz.
 
-La columna expandida siempre tiene el tipo dinámico. Usar una conversión como `todatetime()` o `toint()` si desea calcular o agregar valores.
+La columna expandida siempre tiene el tipo dinámico. Use una conversión como `todatetime()` o `toint()` si desea calcular o agregar valores.
 
 Se admiten dos modos de expansiones de contenedor de propiedades:
 
 * `bagexpansion=bag`: los contenedores de propiedades se expanden en contenedores de propiedades de entrada única. Esta es la expansión predeterminada.
-* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`*key*`,`*value*`]`, que permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
+* `bagexpansion=array`: los contenedores de propiedades se expanden en estructuras de matriz de dos elementos `[`* key*`,`*value*`]`, lo cual permite el acceso uniforme a claves y valores (así como, por ejemplo, ejecutar una agregación de recuento distintiva sobre los nombres de propiedad). 
 
 **Ejemplos**
 
@@ -415,7 +438,7 @@ StormEvents
 
     T | project cost=price*quantity, price
 
-Seleccione las columnas que desea incluir, cambie el nombre o quite e inserte nuevas columnas calculadas. El orden de las columnas en el resultado se especifica con el orden de los argumentos. Solamente las columnas especificadas en los argumentos se incluyen en el resultado: cualquier otra de la entrada se quita. (Vea también `extend`)
+Seleccione las columnas que desea incluir, cambie el nombre o quite e inserte nuevas columnas calculadas. El orden de las columnas en el resultado se especifica con el orden de los argumentos. Solamente las columnas especificadas en los argumentos se incluyen en el resultado: cualquier otra de la entrada se quita. (Consulte también `extend`).
 
 
 **Sintaxis**
@@ -436,7 +459,7 @@ Una tabla que tiene las columnas con nombres de argumentos y tantas filas como l
 
 **Ejemplo**
 
-El ejemplo siguiente muestra varios tipos de manipulaciones que se pueden hacer utilizando el operador `project`. La tabla de entrada `T` tiene tres columnas de tipo `int`: `A`, `B` y `C`.
+El ejemplo siguiente muestra variantes de manipulaciones que se pueden hacer utilizando el operador `project`. La tabla de entrada `T` tiene tres columnas de tipo `int`: `A`, `B` y `C`.
 
 ```AIQL
 T
@@ -475,7 +498,7 @@ Genera una tabla de valores de una columna única. Tenga en cuenta que no tiene 
 * *Stop:* el valor más alto que se genera en la salida (o un límite en el valor más alto, si el valor *step* sobrepasa este valor).
 * *Step:* la diferencia entre dos valores consecutivos. 
 
-Los argumentos tienen que ser valores numéricos, de fecha o intervalo de tiempo. No pueden tener como referencia las columnas de una tabla. (Si desea calcular el intervalo en base a una tabla de entrada, utilice la función [range ](#range), posiblemente con el [operador mvexpand](#mvexpand-operator).)
+Los argumentos tienen que ser valores numéricos, de fecha o intervalo de tiempo. No pueden tener como referencia las columnas de una tabla. (Si desea calcular el intervalo en base a una tabla de entrada, utilice la función [range ](#range), posiblemente con el [operador mvexpand](#mvexpand-operator)).
 
 **Devoluciones**
 
@@ -603,7 +626,7 @@ Una tabla que muestra cuántos elementos tienen precios en cada intervalo [0,10.
 **Argumentos**
 
 * *Column:* nombre opcional para una columna de resultados. El valor predeterminado es un nombre derivado de la expresión. 
-* *Aggregation:* una llamada a una función de agregación como `count()` o `avg()`, con nombres de columna como argumentos. Vea [Agregaciones](#aggregations).
+* *Aggregation:* una llamada a una función de agregación como `count()` o `avg()`, con nombres de columna como argumentos. Consulte [Agregaciones](#aggregations).
 * *GroupExpression:* una expresión sobre las columnas que proporciona un conjunto de valores específicos. Normalmente se trata de un nombre de columna que ya proporciona un conjunto limitado de valores, o `bin()` con una columna numérica o temporal como argumento. 
 
 Si proporciona una expresión numérica o temporal sin utilizar `bin()`, Analytics la aplica automáticamente con un intervalo de `1h` para horas o `1.0` para números.
@@ -666,14 +689,14 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 
 **Argumentos**
 
-* *Table1*, *Table2* ...
+* *Tabla1*, *Tabla2*...
  *  El nombre de una tabla, como `events`; o
  *  Una expresión de consulta como `(events | where id==42)`
  *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `E*` podría formar la unión de todas las tablas en la base de datos cuyos nombres comienzan con `E`.
 * `kind`: 
  * `inner` - El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
  * `outer` - El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
-* `withsource=`*ColumnName:* si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
+* `withsource=`* ColumnName: * si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
 
 **Devoluciones**
 
@@ -735,7 +758,7 @@ Filas en *T* para las que *Predicate* es `true`.
 
 Para obtener el rendimiento más rápido:
 
-* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante sobre la tabla, por lo que `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una [instrucción `let`](#let-clause)).
+* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante sobre la tabla, por lo que `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una [`let`instrucción](#let-clause)).
 
     Por ejemplo, se prefiere `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -923,7 +946,7 @@ Devuelve una estimación del número de valores distintos de *Expr* en el grupo.
 *Accuracy*, si se especifica, controla el equilibrio entre velocidad y precisión.
 
  * `0` = el cálculo menos preciso y más rápido.
- * `1` = el valor predeterminado, que equilibra la precisión y tiempo de cálculo; error en torno al 0,8 %.
+ * `1` = el valor predeterminado, que equilibra la precisión y el tiempo de cálculo; error en torno al 0,8 %.
  * `2` = el cálculo más preciso y más lento; error en torno al 0,4 %.
 
 **Ejemplo**
@@ -958,7 +981,7 @@ Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintos que *Expr
 
 ![](./media/app-insights-analytics-aggregations/makeset.png)
 
-Vea también el [operador `mvexpand`](#mvexpand-operator) para la función opuesta.
+Consulte también el [operador `mvexpand`](#mvexpand-operator) para la función opuesta.
 
 
 ### max, min
@@ -1153,8 +1176,8 @@ La función `iff()` evalúa el primer argumento (el predicado) y devuelve el val
 **Argumentos**
 
 * *predicate:* una expresión que se corresponde con un valor `boolean`.
-* *ifTrue:* una expresión que se calcula y su valor se devuelve de la función si *predicate* equivale a `true`.
-* *ifFalse:* una expresión que se calcula y su valor se devuelve de la función si *predicate* equivale a `false`.
+* *ifTrue:* una expresión que se calcula y cuyo valor se devuelve desde la función si *predicate* equivale a `true`.
+* *ifFalse:* una expresión que se calcula y cuyo valor se devuelve desde la función si *predicate* equivale a `false`.
 
 **Devoluciones**
 
@@ -1240,16 +1263,16 @@ Tenga en cuenta que hay otras formas de conseguir este efecto:
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar |
-| * | Multiplicar |
-| / | Dividir |
-| % | Aplicar módulo |
-||
-|`<` |Menor que
-|`<=`|Menor que o Igual a
-|`>` |Mayor que
-|`>=`|Mayor que o Igual a
-|`<>`|No igual a
+| - | Restar | 
+| * | Multiplicar | 
+| / | Dividir | 
+| % | Aplicar módulo | 
+|| 
+|`<` |Menor que 
+|`<=`|Menor que o Igual a 
+|`>` |Mayor que 
+|`>=`|Mayor que o Igual a 
+|`<>`|No igual a 
 |`!=`|No igual a
 
 
@@ -1405,7 +1428,7 @@ Expresión |Resultado
 
 ### ago
 
-Resta un intervalo de tiempo especificado a la hora UTC actual. Al igual que `now()`, esta función puede utilizarse varias veces en una instrucción, y la hora UTC a la que se hace referencia será la misma para todas las instancias.
+Resta un intervalo de tiempo especificado a la hora UTC actual. Al igual que `now()`, esta función se puede utilizar varias veces en una instrucción, y la hora UTC a la que se hace referencia será la misma para todas las instancias.
 
 **Sintaxis**
 
@@ -1654,7 +1677,7 @@ Si no hay ninguna coincidencia, o se produce un error en la conversión de tipos
 
 **Ejemplos**
 
-En el ejemplo de cadena `Trace` se busca una definición para `Duration`. La coincidencia se convierte luego en `real` y se multiplica por una constante de tiempo (`1s`) para que `Duration` sea de tipo `timespan`. En este ejemplo, es igual a 123,45 segundos:
+En la cadena de ejemplo `Trace` se busca una definición para `Duration`. La coincidencia se convierte luego en `real` y se multiplica por una constante de tiempo (`1s`) para que `Duration` sea de tipo `timespan`. En este ejemplo, es igual a 123,45 segundos:
 
 ```AIQL
 ...
@@ -1723,7 +1746,7 @@ Reemplace todas las coincidencias de expresiones regulares por otra cadena.
 
 **Devoluciones**
 
-*text* después de reemplazar todas las coincidencias de *regex* con cálculos de *rewrite*. Las coincidencias no se superponen.
+*text* después de reemplazar todas las coincidencias de *regex* con evaluaciones de *rewrite*. Las coincidencias no se superponen.
 
 **Ejemplo**
 
@@ -1849,7 +1872,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 ![](./media/app-analytics-scalars/310.png)
 
-**Indexing:** matrices y objeto de índice, al igual que en JavaScript:
+**Indexing:** matrices y objetos de índice, al igual que en JavaScript:
 
     exceptions | take 1
     | extend 
@@ -1943,7 +1966,7 @@ T
 ```
 
 
-### Operadores y funciones en tipos dinámicos
+## Funciones del objeto dinámico
 
 |||
 |---|---|
@@ -2055,7 +2078,7 @@ La notación [entre corchetes] y la notación de puntos son equivalentes:
 
 ### parsejson
 
-Interpreta `string` como un [valor JSON](http://json.org/)) y devuelve el valor como `dynamic`. Es superior al uso de `extractjson()` cuando necesita extraer más de un elemento de un objeto compuesto de JSON.
+Interpreta `string` como un [valor JSON](http://json.org/) y devuelve el valor como `dynamic`. Es superior al uso de `extractjson()` cuando necesita extraer más de un elemento de un objeto compuesto de JSON.
 
 **Sintaxis**
 
@@ -2088,7 +2111,7 @@ T
 
 
 
-#### range
+### range
 
 La función `range()` (que no se debe confundir con el operador `range`) genera una matriz dinámica que contiene una serie de valores espaciados igualmente.
 
@@ -2148,6 +2171,4 @@ Observe que "[0]" indica la presencia de una matriz, pero no especifica el índi
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!----HONumber=AcomDC_0330_2016-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

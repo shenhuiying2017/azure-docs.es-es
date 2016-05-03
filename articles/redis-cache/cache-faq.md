@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="P+F de Caché en Redis de Azure" 
+	pageTitle="P+F de Caché en Redis de Azure | Microsoft Azure" 
 	description="Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para Caché en Redis de Azure" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2016" 
+	ms.date="04/18/2016" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -29,9 +29,9 @@ Las siguientes son consideraciones para elegir una oferta de caché.
 -	**Memoria**: los niveles Básico y Estándar ofrecen 250 MB – 53 GB. El nivel Premium ofrece hasta 530 GB con más disponible [tras su solicitud](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para obtener más información, consulte [Precios de Caché en Redis de Azure](https://azure.microsoft.com/pricing/details/cache/).
 -	**Rendimiento de la red**: si tiene una carga de trabajo que requiere un rendimiento alto, el nivel Premium ofrece más ancho de banda en comparación con Estándar o Básico. También dentro de cada nivel, las cachés de mayor tamaño tienen más ancho de banda debido a la máquina virtual subyacente que hospeda la memoria caché. Para más información, vea la [tabla siguiente](#cache-performance).
 -	**Rendimiento**: el nivel Premium ofrece el máximo rendimiento disponible. Si el servidor o el cliente de caché alcanza los límites del ancho de banda, recibirá los tiempos de espera del cliente. Para obtener más información, vea la tabla siguiente.
--	**Alta disponibilidad/SLA**: Caché en Redis de Azure garantiza que la memoria caché de los niveles Estándar y Premium estará disponible como mínimo un 99,9 % del tiempo. Para más información sobre nuestro SLA, vea [Precios de Caché en Redis de Azure](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). El SLA solo cubre la conectividad para los extremos de la memoria caché. El SLA no cubre la protección frente a la pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos.
+-	**Alta disponibilidad/SLA**: Caché en Redis de Azure garantiza que la memoria caché de los niveles Estándar y Premium estará disponible como mínimo un 99,9 % del tiempo. Para más información sobre nuestro SLA, vea [Precios de Caché en Redis de Azure](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). El SLA solo cubre la conectividad para los extremos de la memoria caché. El SLA no cubre la protección frente a la pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos.
 -	**Persistencia de datos de Redis**: el nivel Premium le permite conservar los datos de la memoria caché en una cuenta de Almacenamiento de Azure. En una caché Básico/Estándar todos los datos se almacenan solo en la memoria. En caso de problemas con la infraestructura subyacente, podría producirse una pérdida de los datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Caché en Redis de Azure ofrece opciones de RDB y AOF (próximamente) en la persistencia de Redis. Para más información, vea [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md).
--	**Clúster de Redis**: si quiere crear memorias caché de más de 53 GB o quiere realizar particiones de datos en varios nodos de Redis, puede usar la agrupación en clústeres de Redis que está disponible en el nivel Premium. Cada nodo consta de un par de caché principal/réplica para alta disponibilidad. Para más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
+-	**Clúster de Redis**: si quiere crear memorias caché de más de 53 GB o quiere realizar particiones de datos en varios nodos de Redis, puede usar la agrupación en clústeres de Redis que está disponible en el nivel Premium. Cada nodo consta de un par de caché principal/réplica para alta disponibilidad. Para más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
 -	**Aislamiento de red y seguridad mejorado**: la implementación de la Red virtual de Azure ofrece seguridad mejorada y aislamiento para su Caché en Redis de Azure, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. Para más información, vea [Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
 -	**Configurar Redis**: tanto en los niveles Estándar como Premium, puede configurar Redis para las notificaciones de Keyspace.
 -	**Número máximo de conexiones de cliente**: el nivel Premium la ofrece el número máximo de clientes que se pueden conectar a Redis, con un número mayor de conexiones para memorias caché de mayor tamaño. [Consulte la página de información de precios para detalles](https://azure.microsoft.com/pricing/details/cache/).
@@ -47,21 +47,21 @@ A partir de esta tabla, podemos extraer las conclusiones siguientes.
 -	Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 250.000 * 10 = 2,5 millones de solicitudes por segundo.
 -	El rendimiento para los tamaños de clave más grandes es más alto en el nivel Premium que en el nivel Estándar.
 
-| Nivel de precios | Tamaño | Ancho de banda disponible | Tamaño de clave de 1 KB |
+| Nivel de precios | Tamaño | Ancho de banda disponible | Tamaño de clave de 1 KB |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Tamaños de caché estándar** | &nbsp; |**Megabits por segundo (Mbps)** | **Solicitudes por segundo (RPS)** |
-| C0 | 250 MB | 5 | 600 |
-| C1 | 1 GB | 100 | 12200 |
-| C2 | 2,5 GB | 200 | 24000 |
-| C3 | 6 GB | 400 | 49000 |
-| C4 | 13 GB | 500 | 61000 |
-| C5 | 26 GB | 1000 | 115000 |
-| C6 | 53 GB | 2000 | 150000 |
+| **Tamaños de caché estándar** | &nbsp; |**Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** | **Solicitudes por segundo (RPS)** |
+| C0 | 250 MB | 5 / 0.625 | 600 |
+| C1 | 1 GB | 100 / 12.5 | 12200 |
+| C2 | 2,5 GB | 200 / 25 | 24000 |
+| C3 | 6 GB | 400 / 50 | 49000 |
+| C4 | 13 GB | 500 / 62.5 | 61000 |
+| C5 | 26 GB | 1000 / 125 | 115000 |
+| C6 | 53 GB | 2000 / 250 | 150000 |
 | **Tamaños de caché Premium** | &nbsp; | &nbsp; | **Solicitudes por segundo (RPS), por partición** |
-| P1 | 6 GB | 1000 | 140000 |
-| P2 | 13 GB | 2000 | 220000 |
-| P3 | 26 GB | 2000 | 220000 |
-| P4 | 53 GB | 4000 | 250000 |
+| P1 | 6 GB | 1000 / 125 | 140000 |
+| P2 | 13 GB | 2000 / 250 | 220000 |
+| P3 | 26 GB | 2000 / 250 | 220000 |
+| P4 | 53 GB | 4000 / 500 | 250000 |
 
 
 Para obtener instrucciones acerca de cómo descargar las herramientas de Redis como `redis-benchmark.exe`, consulte la sección [¿Cómo puedo ejecutar los comandos de Redis?](#cache-commands).
@@ -264,28 +264,10 @@ Dado que cada cliente es diferente, no hay no una referencia de clase centraliza
 
 ## ¿Qué oferta de caché de Azure es adecuada para mí?
 
->[AZURE.IMPORTANT] Microsoft recomienda que todos los trabajos de desarrollo nuevos usen Caché en Redis de Azure.
-
-Caché de Azure tiene tres ofertas actualmente:
-
--	Caché en Redis de Azure
--	Servicio de caché administrado de Azure
--	Caché en rol de Azure
-
->[AZURE.IMPORTANT]El 30 de noviembre de 2016 se retirará el Servicio de caché administrado de Azure y la Caché en rol de Azure. Se recomienda que migre a la Caché en Redis de Azure con vistas a prepararse para la mencionada retirada.
->
->Caché en Redis de Azure ha sido la solución recomendada de almacenamiento en caché de Azure, ya que el servicio ya está disponible con carácter general en todas las regiones de Azure, incluidas China y el gobierno de Estados Unidos. Debido a esta disponibilidad, anunciamos la próxima retirada para el Servicio de caché administrado y el Caché en rol.
->
->El Servicio de caché administrado y el servicio de Caché en rol seguirán estando disponibles para los clientes existentes durante un máximo de 12 meses a partir de la fecha de este anuncio el 30 de noviembre de 2015; la última fecha para el final del servicio será el 30 de noviembre de 2016. Tras esta fecha, se cerrará el Servicio de caché administrado y ya no se admitirá el servicio de Caché en rol.
->
->Eliminaremos la compatibilidad para la creación de nuevas cachés en rol en el primer SDK de Azure que tendrá lugar después del 1 de febrero de 2016. Los clientes podrán abrir proyectos existentes que tengan memorias caché en rol.
->
->Durante este período, animamos a todos los clientes actuales del Servicio de caché administrado y el servicio de Caché en rol para migrar a la Caché en Redis de Azure. Caché en Redis de Azure ofrece más características y un mejor valor general. Para más información sobre la migración, visite la página web de documentación [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](cache-migrate-to-redis.md).
->
->Si tiene preguntas, [póngase en contacto con nosotros](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933).
+>[AZURE.IMPORTANT]Según el [anuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) del último año, Servicio de caché administrado de Azure y el servicio Caché en rol de Azure se retirarán el 30 de noviembre de 2016. Nuestra recomendación es usar [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Para más información sobre la migración, consulte [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](cache-migrate-to-redis.md).
 
 ### Caché en Redis de Azure
-Caché en Redis de Azure está disponible con carácter general en tamaños de hasta 53 GB y tiene un contrato de nivel de servicio de disponibilidad del 99,9 %. El nuevo [nivel premium](cache-premium-tier-intro.md) ofrece tamaños de hasta 530 GB, además de compatibilidad con clústeres, redes virtuales y persistencia, con un contrato de nivel de servicio del 99,9 %.
+Caché en Redis de Azure está disponible con carácter general en tamaños de hasta 53 GB y tiene un contrato de nivel de servicio de disponibilidad del 99,9 %. El nuevo [nivel premium](cache-premium-tier-intro.md) ofrece tamaños de hasta 530 GB, además de compatibilidad con clústeres, redes virtuales y persistencia, con un contrato de nivel de servicio del 99,9 %.
 
 Caché en Redis de Azure ofrece a los clientes la posibilidad de usar una Caché en Redis segura y dedicada administrada por Microsoft. Con esta oferta, puede aprovechar el variado conjunto de características y ecosistema proporcionados por Redis, junto con el hospedaje y la supervisión confiables que Microsoft pone a su disposición.
 
@@ -296,11 +278,11 @@ Otro aspecto clave para el éxito de Redis es su ecosistema de código abierto v
 Para más información sobre cómo empezar a usar Caché en Redis de Azure, vea [Uso de memoria caché en Redis de Azure](cache-dotnet-how-to-use-azure-redis-cache.md) y la [Documentación de memoria caché en Redis de Azure](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 ### Servicio de caché administrado
-La retirada del servicio de caché administrado se establece para el 30 de noviembre de 2016.
+[La retirada del servicio de caché administrado se establece para el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 ### Caché en rol
-La retirada de la Caché en rol se establece para el 30 de noviembre de 2016.
+[La retirada de la Caché en rol se establece para el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 [valor de configuración "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

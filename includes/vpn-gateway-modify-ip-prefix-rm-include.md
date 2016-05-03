@@ -13,11 +13,13 @@
 
 ### Agregar o quitar prefijos si ya ha creado una conexión de puerta de enlace VPN
 
-Si ha creado la conexión VPN y quiere agregar o quitar los prefijos de dirección IP contenidos en la puerta de enlace de red local, tendrá que realizar los pasos siguientes en orden. Esto provocará un tiempo de inactividad en la conexión de VPN, ya que tendrás que eliminar y volver a crear la puerta de enlace. Sin embargo, como solicitaste una dirección IP para la conexión, no tendrás que volver a configurar el enrutador VPN local a menos que decidas cambiar los valores que usaste anteriormente.
+Si ha creado la conexión VPN y quiere agregar o quitar los prefijos de dirección IP contenidos en la puerta de enlace de red local, tendrá que realizar los pasos siguientes en orden. Esto dará como resultado un tiempo de inactividad para la conexión VPN.
+
+>[AZURE.IMPORTANT] No elimine la puerta de enlace de VPN. Si lo hace, tendrá que realizar otra vez los pasos para crearla de nuevo, así como volver a configurar el enrutador local con la nueva configuración.
  
-1. Quitar la conexión de puerta de enlace. 
+1. Quite la conexión de IPsec. 
 2. Modificar los prefijos de la puerta de enlace de red local. 
-3. Crear una nueva conexión de puerta de enlace. 
+3. Cree una nueva conexión de IPsec. 
 
 Puedes usar el ejemplo siguiente como guía.
 
@@ -31,4 +33,4 @@ Puedes usar el ejemplo siguiente como guía.
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

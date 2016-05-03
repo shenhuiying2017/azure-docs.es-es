@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -20,7 +20,7 @@
 
 # Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos  
 
-Obtenga información acerca de la administración de seguridad de la Base de datos SQL, específicamente el modo de administrar la seguridad del inicio de sesión y el acceso a la base de datos con la cuenta de entidad de seguridad a nivel de servidor. Comprenda algunas diferencias y similitudes entre las opciones de seguridad del inicio de sesión de la Base de datos SQL y las de un servidor local de SQL Server.
+Obtenga información acerca de la administración de seguridad de la Base de datos SQL, específicamente el modo de administrar la seguridad del inicio de sesión y el acceso a la base de datos con la cuenta de entidad de seguridad a nivel de servidor. Comprenda algunas diferencias y similitudes entre las opciones de seguridad del inicio de sesión de la Base de datos SQL y las de un servidor local de SQL Server. Consulte el [Tutorial de Base de datos SQL de Azure: Introducción a la seguridad de Base de datos de SQL de Azure](sql-database-get-started-security.md) para obtener un tutorial rápido.
 
 ## Aprovisionamiento de la base de datos e inicio de sesión de la entidad de seguridad a nivel de servidor
 
@@ -28,7 +28,7 @@ En la Base de datos SQL de Microsoft Azure, al registrarse para el servicio, el 
 
 La cuenta principal de nivel de servidor de Base de datos SQL de Azure siempre tiene permiso para administrar toda la seguridad de servidor y de base de datos. En este tema se describe cómo puede usar la entidad de seguridad de nivel de servidor y otras cuentas para administrar los inicios de sesión y bases de datos de la Base de datos SQL.
 
-Los usuarios de Azure que acceden a Base de datos SQL mediante Control de acceso basado en roles de Azure (RBAC) y la API de REST de Azure Resource Manager reciben los permisos de sus roles de Azure. Estos roles proporcionan acceso a las operaciones del plano de administración, pero no a las operaciones del plano de datos. Estas operaciones del plano de administración incluyen la posibilidad de leer varias propiedades y elementos del esquema de Base de datos SQL. Y permite crear, eliminar y configurar algunas características de nivel de servidor relacionadas con Base de datos SQL. Muchas de estas operaciones del plano de administración son los elementos que puede ver y configurar al usar el Portal de Azure. Al usar los roles de RBAC, las acciones de los miembros del rol de Azure dentro de la base de datos (por ejemplo, enumerar las tablas) las ejecuta automáticamente el motor de base de datos, por lo que no se ven afectados por el sistema de permisos estándar de SQL Server para las instrucciones GRANT, REVOKE o DENY. Los roles de RBAC no incluyen la posibilidad de leer o cambiar los datos, porque son operaciones del plano de datos. Para más información, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
+Los usuarios de Azure que acceden a Base de datos SQL mediante Control de acceso basado en roles de Azure (RBAC) y la API de REST de Azure Resource Manager reciben los permisos de sus roles de Azure. Estos roles proporcionan acceso a las operaciones del plano de administración, pero no a las operaciones del plano de datos. Estas operaciones del plano de administración incluyen la posibilidad de leer varias propiedades y elementos del esquema de Base de datos SQL. Y permite crear, eliminar y configurar algunas características de nivel de servidor relacionadas con Base de datos SQL. Muchas de estas operaciones del plano de administración son los elementos que puede ver y configurar al usar el Portal de Azure. Al usar los roles de RBAC, las acciones de los miembros del rol de Azure dentro de la base de datos (por ejemplo, enumerar las tablas) las ejecuta automáticamente el motor de base de datos, por lo que no se ven afectados por el sistema de permisos estándar de SQL Server para las instrucciones GRANT, REVOKE o DENY. Los roles de RBAC no incluyen la posibilidad de leer o cambiar los datos, porque son operaciones del plano de datos. Para obtener más información, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
 
 > [AZURE.IMPORTANT] Base de datos SQL V12 permite a los usuarios autenticarse en la base de datos mediante el uso de los usuarios de la base de datos independiente. Los usuarios de la base de datos independiente no requieren inicios de sesión. Esto provoca que las bases de datos resulten más portátiles, pero reduce la capacidad de la entidad de seguridad de nivel de servidor de controlar el acceso a la base de datos. Permitir a los usuarios de bases de datos independientes tiene repercusiones importantes en la seguridad. Para obtener más información, vea [Usuarios de base de datos independiente - Conversión de la base de datos en portátil](https://msdn.microsoft.com/library/ff929188.aspx), [Bases de datos independientes](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) y [Conexión a Base de datos SQL con autenticación de Azure Active Directory](sql-database-aad-authentication.md).
 
@@ -174,6 +174,6 @@ SELECT * FROM sys.databases;
 
 ## Consulte también
 
-[Instrucciones y limitaciones de seguridad de la Base de datos SQL de Azure](sql-database-security-guidelines.md) [Conexión a la Base de datos SQL mediante la autenticación de Azure Active Directory](sql-database-aad-authentication.md)
+[Tutorial de Base de datos SQL de Azure: Introducción a la seguridad de Base de datos SQL de Azure](sql-database-get-started-security.md) [Instrucciones y limitaciones de seguridad de la Base de datos SQL de Azure](sql-database-security-guidelines.md) [Conexión a la Base de datos SQL mediante la autenticación de Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

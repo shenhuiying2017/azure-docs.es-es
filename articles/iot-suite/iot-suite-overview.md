@@ -17,7 +17,7 @@
      ms.date="02/19/2016"
      ms.author="dobett"/>
 
-# Información general de Azure IoT Suite
+# ¿Qué es el Conjunto de aplicaciones de IoT de Azure?
 
 Los servicios de Internet de las cosas (IoT) de Azure ofrecen una amplia gama de funcionalidades. Estos servicios de nivel empresarial le permiten:
 
@@ -74,4 +74,4 @@ Ahora que tiene una visión general de lo que puede hacer el Conjunto de aplicac
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -3,8 +3,8 @@
 	description="En este artículo se proporcionan instrucciones sobre cómo actualizar Servicios multimedia tras rotar las claves de acceso de almacenamiento." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,milangada,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako"
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016" 
+	ms.author="milangada;cenkdin;juliako"/>
 
 #Actualización de Servicios multimedia después de rotar las claves de acceso de almacenamiento
 
@@ -159,4 +159,4 @@ Use el mismo procedimiento descrito en el [paso 3](media-services-roll-storage-a
 
 Nos gustaría mencionar a las siguientes personas que han contribuido a crear este documento: Cenk Dingiloglu, Gada Milán y Seva Titov.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

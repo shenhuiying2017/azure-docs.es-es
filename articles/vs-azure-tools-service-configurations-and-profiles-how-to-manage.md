@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Administración de configuraciones de servicio y perfiles
@@ -63,7 +63,7 @@ También puede abrir el cuadro de diálogo **Administrar configuraciones** en la
 
     Aparece el cuadro de diálogo **Administrar configuraciones de servicio**.
 
-1. Para dar un nombre diferente a la configuración de servicio, elija la nueva configuración de servicio en la lista **Nombre** y luego haga clic en **Cambiar nombre**. En el cuadro de texto **Nombre**, escriba el nombre que quiera usar para esta configuración de servicio y luego haga clic en **Aceptar**.
+1. Para dar un nombre diferente a la configuración de servicio, elija la nueva configuración de servicio en la lista **Nombre** y luego haga clic en **Cambiar nombre**. En el cuadro de texto **Nombre**, escriba el nombre que desea usar para esta configuración de servicio y, a continuación, haga clic en **Aceptar**.
 
     Se cambia el nombre del archivo de configuración de servicio del proyecto de Azure en el Explorador de soluciones.
 
@@ -129,6 +129,6 @@ Al ejecutar el asistente por primera vez, se crea un perfil predeterminado. Visu
 
 ## Pasos siguientes
 
-Para información sobre cómo configurar otras partes de su proyecto de Azure desde Visual Studio, vea [Configurar un proyecto de Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075).
+Para obtener información acerca de cómo configurar otras partes de su proyecto de Azure desde Visual Studio, consulte [Configurar un proyecto de Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

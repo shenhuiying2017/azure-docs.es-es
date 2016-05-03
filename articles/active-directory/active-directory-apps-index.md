@@ -197,7 +197,7 @@ El panel de acceso de Azure AD es el lugar en que los usuarios finales pueden in
 
 | Guía de artículos | |
 | :---: | --- |
-| Una comparación de las distintas opciones disponibles para la implementación de aplicaciones de inicio de sesión único en los usuarios | [Implementación de aplicaciones integradas en Azure AD en los usuarios](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) |
+| Una comparación de las distintas opciones disponibles para la implementación de aplicaciones de inicio de sesión único en los usuarios | [Implementación de aplicaciones integradas en Azure AD en los usuarios](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | Información general sobre el panel de acceso y su MyApps equivalente móvil | [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Acceso a aplicaciones de Azure AD desde el sitio web de Office 365 | [Le presentamos el iniciador de aplicaciones de Office 365](https://support.office.com/es-ES/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Acceso a aplicaciones de Azure AD desde la aplicación móvil Intune Managed Browser | [Intune Managed Browser](https://technet.microsoft.com/es-ES/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
@@ -228,4 +228,4 @@ Para ver qué informes incluyen las diferentes ediciones de Azure Active Directo
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

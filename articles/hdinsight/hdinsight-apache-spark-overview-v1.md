@@ -17,9 +17,9 @@
 	ms.date="12/22/2015" 
 	ms.author="nitinme"/>
 
-# Introducción a Apache Spark en HDInsight de Azure (Windows)
+# Introducción a Apache Spark en HDInsight Windows (versión preliminar)
  
-> [AZURE.NOTE] HDInsight ofrece ahora clústeres de Spark en Linux. Para información sobre las características que ofrece con HDInsight Spark en Linux, vea [Introducción a Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-overview.md).
+> [AZURE.NOTE] HDInsight ofrece ahora clústeres Spark en Linux. Para información sobre las características que ofrece con HDInsight Spark en Linux, vea [Introducción a Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-overview.md).
 
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data. El motor de procesamiento Spark se ha creado para ofrecer velocidad, facilidad de uso y análisis sofisticados. Las capacidades de cálculo en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático. Spark también es compatible con el almacenamiento de blobs de Azure (WASB), por lo que se pueden procesar los datos existentes almacenados en Azure fácilmente mediante Spark.
 
@@ -98,4 +98,4 @@ Spark en HDInsight también ofrece un [controlador ODBC](http://go.microsoft.com
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->
