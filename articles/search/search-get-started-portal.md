@@ -14,19 +14,16 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/10/2016" 
+	ms.date="04/22/2016" 
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure en el Portal
-> [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-howto-dotnet-sdk.md)
 
 Este artículo es una introducción sin código a Búsqueda de Azure de Microsoft, mediante el uso de las funcionalidades integradas en el Portal.
 
-Este tutorial se da por hecho que cuenta con una [base de datos de DocumentDB de Azure de ejemplo](#apdx-sampledata) que puede crear fácilmente con nuestras instrucciones y nuestros datos de ejemplo, pero también puede adaptar estos pasos a los datos existentes, bien en DocumentDB o en Base de datos SQL.
+En este tutorial se da por hecho que dispone de una [base de datos de Azure DocumentDB de ejemplo](#apdx-sampledata) que puede crear fácilmente con nuestras instrucciones y datos de ejemplo; sin embargo, también puede adaptar estos pasos a los datos existentes, bien en DocumentDB o en Base de datos SQL.
 
-> [AZURE.NOTE] Este tutorial de instrucción necesita una [suscripción de Azure](../../includes/free-trial-note.md) y un [servicio Búsqueda de Azure](search-create-service-portal.md). Si no está listo para registrarse para obtener una suscripción de prueba, puede omitir este tutorial y optar por [probar el Servicio de aplicaciones de Azure](search-tryappservice.md). Esta opción alternativa ofrece el servicio Búsqueda de Azure con una aplicación web de ASP.NET de forma gratuita (una hora por sesión); no es necesaria ninguna suscripción.
+> [AZURE.NOTE] Para este tutorial de inicio se necesita una [suscripción de Azure](../../includes/free-trial-note.md) y un [servicio Búsqueda de Azure](search-create-service-portal.md). Si no está listo para registrarse para obtener una suscripción de prueba, puede omitir este tutorial y optar por [probar el Servicio de aplicaciones de Azure](search-tryappservice.md). Esta opción alternativa ofrece el servicio Búsqueda de Azure con una aplicación web de ASP.NET de forma gratuita (una hora por sesión); no es necesaria ninguna suscripción.
  
 ## Búsqueda del servicio
 
@@ -46,7 +43,7 @@ Las consultas de búsqueda recorren en iteración un *índice* que contiene dato
 
 Hay varias maneras de crear un índice. Si sus datos están en un almacén que Búsqueda de Azure puede rastrear, como Base de datos SQL de Azure, SQL Server en una máquina virtual de Azure o DocumentDB, puede crear y rellenar un índice muy fácilmente mediante un *indexador*.
 
-Para mantener esta tarea basada en el portal, se da por hecho que contamos con datos de DocumentDB que se pueden rastrear usando un indexador mediante el asistente **Importar datos**.
+Para mantener esta tarea en el portal, se da por hecho que contamos con datos de DocumentDB que se pueden rastrear usando un indexador mediante el **Asistente para la importación de datos**.
 
 Antes de continuar, cree una [base de datos de DocumentDB de ejemplo](#apdx-sampledata) para usar con este tutorial y, después, vuelva a esta sección para completar los pasos siguientes.
 
@@ -73,7 +70,7 @@ En el asistente, haga clic en **Índice** y eche un vistazo a la superficie de d
 
   ![][3]
 
-Aunque los campos y tipos de datos están configurados, todavía hay que asignar atributos. Las casillas en la parte superior de la lista de campos son *atributos de índice* que controlan cómo se utiliza el campo.
+Aunque los campos y tipos de datos están configurados, todavía hay que asignar atributos. Las casillas de la parte superior de la lista de campos son *atributos de índice* que controlan cómo se utiliza el campo.
 
 - **Retrievable** significa que se muestra en la lista de resultados de búsqueda. Puede desactivar esta casilla para marcar los campos individuales como fuera de los resultados de búsqueda, por ejemplo, cuando los campos se usan solo en expresiones de filtro. 
 - **Filterable**, **Sortable** y **Facetable** determinan si un campo se puede usar en un filtro, una ordenación o una estructura de navegación de facetas. 
@@ -83,7 +80,7 @@ Antes de salir de esta página, marque los campos en el índice para utilizar la
 	
 Campo | Tipo | Opciones |
 ------|------|---------|
-key | Edm.String | |
+id | Edm.String | |
 albumTitle | Edm.String | Retrievable, Searchable |
 albumUrl | Edm.String | Retrievable, Searchable |
 genre | Edm.String | Retrievable, Searchable, Filterable, Sortable, Facetable |
@@ -105,7 +102,7 @@ Haga clic en **Aceptar** para completar este paso del asistente.
 
 #### Paso 3: Definición del indexador
 
-Todavía en el **Asistente para importar datos**, haga clic en **Indexador** > **Nombre**, escriba un nombre para el indexador y use los valores predeterminados para todos los demás valores. Este objeto define un proceso ejecutable. Una vez creado, puede colocarlo en una programación periódica pero, de momento, use la opción predeterminada para ejecutar el indexador una vez, inmediatamente, al hacer clic en **Aceptar**.
+Todavía en el **Asistente para la importación de datos**, haga clic en **Indexador** > **Nombre**, escriba un nombre para el indexador y use los valores predeterminados para todos los demás valores. Este objeto define un proceso ejecutable. Una vez creado, puede colocarlo en una programación periódica pero, de momento, use la opción predeterminada para ejecutar el indexador una vez, inmediatamente, al hacer clic en **Aceptar**.
 
 Las entradas de datos de importación deben rellenarse todas y estar listas para su uso.
 
@@ -133,7 +130,7 @@ Ahora tiene un índice de búsqueda listo para su consulta.
 
 ## Pasos siguientes
 
-Después de ejecutar el Asistente una vez, puede volver atrás y ver o modificar componentes individuales: índice, indexador u origen de datos. No se permiten algunas modificaciones en el índice, como cambiar el tipo de datos de campo, pero la mayoría de las propiedades y configuraciones son modificables. Para ver los componentes individuales, haga clic en los iconos **Índice**, **Indexador** o bien en **Orígenes de datos** en el panel para mostrar una lista de objetos existentes.
+Después de ejecutar el Asistente una vez, puede volver atrás y ver o modificar componentes individuales: índice, indexador u origen de datos. No se permiten algunas modificaciones en el índice, como cambiar el tipo de datos de campo, pero la mayoría de las propiedades y configuraciones son modificables. Para ver los componentes individuales, haga clic en los iconos **Índice**, **Indexador** u **Orígenes de datos** en el panel para mostrar una lista de objetos existentes.
 
 Para más información sobre otras características que se mencionan en este artículo, visite los vínculos siguientes:
 
@@ -144,7 +141,7 @@ Para más información sobre otras características que se mencionan en este art
 
 Puede probar este mismo flujo de trabajo mediante el Asistente para importar datos en otros orígenes de datos, como Base de datos SQL de Azure o SQL Server en máquinas virtuales de Azure.
 
-> [AZURE.NOTE] Recientemente anunciado es la compatibilidad del indexador para el seguimiento de Almacenamiento de blobs de Azure, pero esta característica está en versión preliminar y aún no es una opción del portal. Para probar ese indexador, debe escribir código. Consulte [Indexación de documentos en Almacenamiento de blobs de Azure con Búsqueda de Azure](search-howto-indexing-azure-blob-storage.md) para obtener más información. <a id="apdx-sampledata"></a>
+> [AZURE.NOTE] Recientemente anunciado es la compatibilidad del indexador para el seguimiento de Almacenamiento de blobs de Azure, pero esta característica está en versión preliminar y aún no es una opción del portal. Para probar ese indexador, debe escribir código. Consulte [Indexación de documentos en Almacenamiento de blobs de Azure con Búsqueda de Azure](search-howto-indexing-azure-blob-storage.md) para más información. <a id="apdx-sampledata"></a>
 
 
 ## Apéndice: Crear datos de ejemplo en DocumentDB
@@ -159,20 +156,22 @@ Las instrucciones siguientes proporcionan indicaciones generales, pero no son ex
 
 1. [Haga clic aquí](https://github.com/HeidiSteen/azure-search-get-started-sample-data) para descargar un archivo ZIP que contenga los archivos de datos JSON de la tienda de música. Ofrecemos 246 documentos JSON para este conjunto de datos.
 2. Agregue DocumentDB a su suscripción y después abra el panel de servicio.
-2. Haga clic en **Agregar base de datos** para crear una base de datos nueva con un identificador de `musicstoredb`. Se mostrará en una lista de bases de datos más abajo en la página después de haberse creado.
+2. Haga clic en **Agregar base de datos** para crear una nueva base de datos con un identificador de `musicstoredb`. Se mostrará en el icono de base de datos más abajo de la página después de que se ha creado.
 2. Haga clic en el nombre de la base de datos para abrir la hoja de base de datos.
 3. Haga clic en **Agregar colección** para crear una colección con un identificador de `musicstorecoll`.
 3. Haga clic en **Explorador de documentos**.
-4. Haga clic en **Agregar documentos**.
-5. En **Agregar documento**, cargue los archivos JSON en lotes de 100 o menos.
+4. Haga clic en **Cargar**.
+5. En **Cargar documento**, vaya a la carpeta local que contiene los archivos JSON que descargó anteriormente. Seleccione los archivos JSON en lotes de 100 o menos.
 	- 386\.json
 	- 387\.json
 	- . . .
-6. Haga clic en **Explorador de consultas** para comprobar que se cargan los datos para cumplir los requisitos de carga del Explorador de documentos.
+	- 486\.json
+6. Repita el proceso para obtener el siguiente lote de archivos hasta que haya cargado el último, 669.json.
+7. Haga clic en **Explorador de consultas** para comprobar que se cargan los datos para cumplir los requisitos de carga del Explorador de documentos.
 
-Una manera fácil de hacerlo consiste en modificar la consulta predeterminada para que seleccione los 300 primeros (hay menos de 300 elementos en este conjunto de datos), o bien escriba `select * from musicstorecoll` y, a continuación, haga clic en **Ejecutar consulta**.
+Una manera fácil de hacerlo consiste en usar la consulta predeterminada, pero también puede modificar la consulta predeterminada para que seleccione los 300 primeros (hay menos de 300 elementos en este conjunto de datos).
 
-Obtendrá un JSON de salida, que comienza por el número de documento 386 y termina en el documento 669. Una vez cargados los datos, puede [volver a los pasos de este tutorial](#defineDS) para generar un índice mediante el **Asistente para importación**.
+Obtendrá un JSON de salida, que comienza por el número de documento 386 y termina en el documento 669. Una vez cargados los datos, puede [volver a los pasos de este tutorial](#defineDS) para generar un índice mediante el **Asistente para la importación de datos**.
 
 
 <!--Image references-->
@@ -184,4 +183,4 @@ Obtendrá un JSON de salida, que comienza por el número de documento 386 y term
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

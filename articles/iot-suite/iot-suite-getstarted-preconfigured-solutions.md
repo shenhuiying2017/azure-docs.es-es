@@ -17,7 +17,7 @@
      ms.date="03/02/2016"
      ms.author="dobett"/>
 
-# Tutorial: Introducción a las soluciones de IoT preconfiguradas
+# Tutorial: Introducción a las soluciones preconfiguradas
 
 ## Introducción
 
@@ -33,7 +33,7 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
 1.  Inicie sesión en [azureiotsuite.com][lnk-azureiotsuite] con sus credenciales de la cuenta de Azure y haga clic en **+** para crear una nueva solución.
 
-    > [AZURE.NOTE] Si tiene problemas con los permisos necesarios para aprovisionar una solución, examine [Permisos en el sitio azureiotsuite.com][lnk-permissions], donde obtendrá las instrucciones necesarias.
+    > [AZURE.NOTE] Si tiene problemas con los permisos necesarios para aprovisionar una solución, eche un vistazo a [Permisos en el sitio azureiotsuite.com][lnk-permissions] para obtener instrucciones.
 
 2.  Haga clic en **Seleccionar** en el icono **Supervisión remota**.
 
@@ -248,10 +248,10 @@ Ahora que ha creado una solución preconfigurada que funciona, puede pasar a los
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-connecting-devices]: iot-suite-connecting-devices.md
-[lnk-permissions]: https://azure.microsoft.com/documentation/articles/iot-suite-permissions/
+[lnk-permissions]: iot-suite-permissions.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-faq]: https://azure.microsoft.com/documentation/articles/iot-suite-faq/
+[lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -50,7 +50,7 @@ Antes de poder habilitar y utilizar el restablecimiento de contraseña de autose
 - Asociar su inquilino de AAD con su suscripción de Azure. Para obtener más información, consulte [Cómo se asocian las suscripciones a Azure con Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
 - Actualice a Azure AD Premium, Basic o utilice una licencia de Office 365 de pago. Para obtener más información, consulte [Ediciones de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-  >[AZURE.NOTE] Para habilitar el restablecimiento de contraseña de autoservicio para usuarios en la nube, debe actualizar a Azure AD Premium o a Azure AD Basic o utilizar una licencia de Office 365 de pago. Para habilitar el restablecimiento de contraseña de autoservicio para usuarios locales, debe actualizar a Azure AD Premium. Para obtener más información, consulte Ediciones de Azure Active Directory. Esta información incluye instrucciones detalladas sobre cómo suscribirse a Azure AD Premium o Basic, cómo activar su plan de licencias y el acceso de Azure AD y cómo asignar acceso a las cuentas de administrador y de usuario.
+  >[AZURE.NOTE] Para habilitar el restablecimiento de contraseña de autoservicio para usuarios en la nube, debe actualizar a Azure AD Premium o a Azure AD Basic o utilizar una licencia de Office 365 de pago. Para habilitar el restablecimiento de contraseña de autoservicio para usuarios locales, debe actualizar a Azure AD Premium. Para obtener más información, consulte [Ediciones de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Esta información incluye instrucciones detalladas sobre cómo suscribirse a Azure AD Premium o Basic, cómo activar su plan de licencias y el acceso de Azure AD y cómo asignar acceso a las cuentas de administrador y de usuario.
 
 - Crear, al menos, una cuenta de administrador y una cuenta de usuario en el directorio de AAD.
 - Asigne un AAD Premium, Basic o licencia de Office 365 de pago a la cuenta de administrador y a la cuenta de usuario que creó.
@@ -77,7 +77,7 @@ Para configurar la directiva de restablecimiento de contraseña del usuario, com
 
     ![][004]
 
-6.	Para configurar la directiva de restablecimiento de contraseña del usuario, deslice el botón de alternancia **Usuarios habilitados para restablecer la contraseña** a la opción **Sí**. Con esto se revelan muchos controles más que le permitirán configurar cómo funciona esta característica en el directorio. Puede personalizar el restablecimiento de contraseña como desee. Si desea obtener más información sobre qué hace cada uno de los controles de la directiva de restablecimiento de contraseña, consulte [Personalización de la administración de contraseñas de Azure AD](active-directory-passwords-customize).
+6.	Para configurar la directiva de restablecimiento de contraseña del usuario, deslice el botón de alternancia **Usuarios habilitados para restablecer la contraseña** a la opción **Sí**. Con esto se revelan muchos controles más que le permitirán configurar cómo funciona esta característica en el directorio. Puede personalizar el restablecimiento de contraseña como desee. Si desea obtener más información sobre qué hace cada uno de los controles de la directiva de restablecimiento de contraseña, consulte [Personalización de la administración de contraseñas de Azure AD](active-directory-passwords-customize.md).
 
     ![][005]
 
@@ -354,4 +354,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/25/2016"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Información general
 
-Almacenamiento de blobs de Azure es un servicio que almacena datos de archivo en la nube. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
+Almacenamiento de blobs de Azure es un servicio que almacena datos no estructurados en la nube como objetos o blobs. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
 
 ### Acerca de este tutorial
 
@@ -51,7 +51,7 @@ Este tutorial muestra cómo escribir código .NET para algunos escenarios comune
 
 Agregue las siguientes instrucciones `using` en la parte superior del archivo `program.cs`:
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
@@ -349,21 +349,39 @@ El ejemplo siguiente crea un nuevo blob en anexos y le anexa algunos datos, para
 
 Consulte [Descripción Blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) para obtener más información acerca de las diferencias entre los tres tipos de blobs.
 
+## Administración de la seguridad para blobs
+
+De forma predeterminada, Almacenamiento de Azure protege sus datos al limitar el acceso al propietario de la cuenta, quien está en posesión de las claves de acceso a ella. Cuando necesite compartir datos Blob en su cuenta de almacenamiento, es importante hacerlo sin poner en peligro la seguridad de las claves de acceso de la cuenta. Además, puede cifrar los datos Blob para cerciorarse de que es seguro pasar por la red y el Almacenamiento de Azure.
+
+[AZURE.INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
+
+### Control del acceso a datos Blob
+
+De forma predeterminada, los datos Blob de su cuenta de almacenamiento solo son accesibles para el propietario de la cuenta de almacenamiento. Para autenticar las solicitudes en el Almacenamiento de blobs, se necesita la clave de acceso de la cuenta de forma predeterminada. Sin embargo, puede que quiera que determinados datos Blob estén disponibles para otros usuarios. Tiene dos opciones:
+
+- **Acceso anónimo:** puede hacer que un contenedor y sus blobs estén públicamente disponibles para el acceso anónimo. Vea [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md) para más información.
+- **Firmas de acceso compartido:** puede proporcionar a los clientes una firma de acceso compartido (SAS), que ofrece acceso delegado a un recurso de la cuenta de almacenamiento, con los permisos que especifique y durante un intervalo que determine. Para más información, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
+
+### Cifrado de datos Blob
+
+Almacenamiento de Azure admite el cifrado de datos Blob en el cliente y en el servidor:
+
+- **Cifrado en el cliente:** la Biblioteca del cliente de almacenamiento de Azure para .NET admite el cifrado de datos dentro de las aplicaciones cliente antes de cargarlos en Almacenamiento de Azure y el descifrado de los datos mientras se descargan en el cliente. La biblioteca también admite la integración con el Almacén de claves de Azure para la administración de las claves de la cuenta de almacenamiento. Consulte [Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure](storage-client-side-encryption.md) para más información. Consulte también [Tutorial: Cifrado y descifrado de blobs en Almacenamiento de Microsoft Azure con Almacén de claves de Azure](storage-encrypt-decrypt-blobs-key-vault.md).
+- **Cifrado en el servidor**: Almacenamiento de Azure ahora admite el cifrado en el servidor. Consulte [Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)](storage-service-encryption.md). 
+
 ## Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos del Almacenamiento de blobs, siga estos vínculos para obtener más información.
 
-### Documentación de referencia del Almacenamiento de blobs
+### Referencia de Almacenamiento de blobs
 
 - [Referencia de la biblioteca de clientes de almacenamiento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 - [Referencia de API de REST](http://msdn.microsoft.com/library/azure/dd179355)
 
-### Guías de características adicionales
+### Guías conceptuales
 
-- [Introducción al Almacenamiento de tablas para .NET](storage-dotnet-how-to-use-tables.md)
-- [Introducción al Almacenamiento en cola para .NET](storage-dotnet-how-to-use-queues.md)
-- [Introducción al Almacenamiento de archivos para .NET](storage-dotnet-how-to-use-files.md)
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
+- [Introducción al Almacenamiento de archivos para .NET](storage-dotnet-how-to-use-files.md)
 - [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
@@ -377,4 +395,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introducción al Centro de seguridad de Azure | Microsoft Azure"
+   pageTitle="Guía de inicio rápido de Azure Security Center | Microsoft Azure"
    description="Este documento le ayuda a empezar a trabajar rápidamente con el Centro de seguridad de Azure, guiándole a través de la supervisión de la seguridad y los componentes de administración de directivas y ofreciendo vínculos a los pasos siguientes."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
-# Introducción al Centro de seguridad de Azure
+# Guía de inicio rápido de Azure Security Center
 
 Este documento le ayuda a empezar a trabajar rápidamente con el Centro de seguridad de Azure, guiándole a través de la supervisión de la seguridad y los componentes de administración de directivas y ofreciendo vínculos a los pasos siguientes.
 
@@ -86,24 +86,16 @@ Ver el estado de su **Soluciones de asociados**:
 
 3. Seleccione una solución de asociado. En este ejemplo, seleccionaremos la solución **WAF2 F5**. Se abre una hoja que muestra que el estado de la solución de asociado y de sus recursos asociados. Seleccione **Consola de solución** para abrir la experiencia de administración de asociado de esta solución. ![Detalle de solución de asociado][10]
 
-El **Estado** de la solución de asociado puede ser:
-
-- Correcto (verde): no hay ningún problema de estado
-- Incorrecto (rojo): hay un problema de estado que requiere atención inmediata
-- Información detenida (naranja): la solución ha dejado de informar sobre su estado
-- Desconocido (naranja): el estado de la solución se desconoce en este momento debido a un error en el proceso de agregación de un nuevo recurso a la solución existente
-- Sin información (gris): la solución no ha notificado nada todavía, estado de una solución puede ser "Sin información" si acaba de conectarse y todavía se está implementando
-
-
 ## Pasos siguientes
 En este documento, se han presentado los componentes de supervisión de seguridad y de administración de directivas en el Centro de seguridad. Para obtener más información, consulte:
 
-- [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-- [Administración de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): aprenda cómo las recomendaciones lo ayudan a proteger sus recursos de Azure.
-- [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): aprenda cómo supervisar el estado de los recursos de Azure.
-- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): aprenda cómo administrar y responder a las alertas de seguridad.
-- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información de seguridad de Azure.
+- [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): aprenda cómo las recomendaciones le ayudan a proteger sus recursos de Azure.
+- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda cómo supervisar el estado de los recursos de Azure.
+- [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): aprenda cómo administrar y responder a alertas de seguridad.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Supervisión de soluciones de asociados con Azure Security Center): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información de seguridad en Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-get-started/security-tile.png
@@ -117,4 +109,4 @@ En este documento, se han presentado los componentes de supervisión de segurida
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

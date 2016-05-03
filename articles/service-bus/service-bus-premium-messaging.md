@@ -30,10 +30,11 @@ En la tabla siguiente, se resaltan algunas de las principales diferencias.
 | Rendimiento predecible | Latencia variable |
 | Precios previsibles | Precios según la variante de pago por uso |
 | Posibilidad de escalar y reducir verticalmente la carga de trabajo | N/D |
+| Tamaño de los mensajes > 256 KB | El tamaño de los mensajes es 256 KB |
 
 La **mensajería Premium del Bus de servicio de Azure** proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama *unidad de mensajería*. A cada espacio de nombres premium se le asigna al menos una unidad de mensajería. Puede comprar 1, 2 o 4 unidades de mensajería para cada espacio de nombres Premium del Bus de servicio. Una sola carga de trabajo o entidad puede abarcar varias unidades de mensajería y el número de unidades de mensajería puede cambiarse a voluntad, aunque la facturación se realiza con base en una tarificación diaria o de 24 horas. El resultado es un rendimiento predecible y repetible para su solución basada en el Bus de servicio.
 
-Este rendimiento no es solo más predecible y presenta mayor disponibilidad, sino que también es más rápido. La mensajería Premium del Bus de servicio se basa en el motor de almacenamiento presentado en [los Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs/). Con la mensajería Premium, obtener el máximo rendimiento es mucho más rápido que en el nivel Estándar.
+Este rendimiento no es solo más predecible y presenta mayor disponibilidad, sino que también es más rápido. La mensajería Premium del Bus de servicio se basa en el motor de almacenamiento presentado en los [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs/). Con la mensajería Premium, obtener el máximo rendimiento es mucho más rápido que en el nivel Estándar.
 
 ## Diferencias técnicas de la mensajería Premium
 
@@ -41,7 +42,7 @@ A continuación se presentan algunas diferencias existentes entre los niveles de
 
 ### Entidades con particiones
 
-Las entidades con particiones se admiten en la mensajería Premium, pero no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería del Bus de servicio. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Por consiguiente, no es necesario crear particiones. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener 2 particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. Para más información acerca de las particiones, vea [Entidades de mensajería con particiones](service-bus-partitioning.md).
+Las entidades con particiones se admiten en la mensajería Premium, pero no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería del Bus de servicio. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Por consiguiente, no es necesario crear particiones. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener 2 particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. Para más información acerca de las particiones, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
 
 ### Entidades exprés
 
@@ -57,4 +58,4 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Información general sobre la arquitectura de Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

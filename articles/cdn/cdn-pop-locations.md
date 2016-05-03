@@ -40,6 +40,7 @@ En este tema se enumeran las ubicaciones del punto de presencia (POP) de CDN de 
 ## Sudamérica
 
 - São Paulo
+- Rio de Janeiro
 - Quito
 - Medellín
 - Buenos Aires
@@ -84,4 +85,4 @@ En este tema se enumeran las ubicaciones del punto de presencia (POP) de CDN de 
 
 Puede que haya escuchado que Microsoft se [ha asociado con Akamai](https://azure.microsoft.com/blog/microsoft-and-akamai-bring-cdn-to-azure-customers/). En los próximos meses, vamos a usar esta asociación para aumentar en gran medida el alcance de la red CDN de Azure por todo el mundo.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

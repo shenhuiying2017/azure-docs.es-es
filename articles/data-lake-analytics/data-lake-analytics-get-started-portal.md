@@ -3,7 +3,7 @@
    description="Aprenda a usar el Portal de Azure para crear una cuenta de Análisis de Data Lake, crear un trabajo de Análisis de Data Lake mediante U-SQL y enviar el trabajo." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
-   ms.author="jgao"/>
+   ms.date="04/21/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: Introducción a Análisis de Azure Data Lake mediante el Portal de Azure
 
@@ -24,16 +24,9 @@ Aprenda a usar el Portal de Azure para crear cuentas de Análisis de Azure Data 
 
 En este tutorial, desarrollará un trabajo que lee un archivo de valores separados por tabulaciones (TSV) y lo convierte en un otro de valores separados por comas (CSV). Para realizar el mismo tutorial con otras herramientas compatibles, haga clic en las pestañas de la parte superior de esta sección. Una vez que el primer trabajo se lleve a cabo correctamente, puede empezar a escribir transformaciones de datos más complejas con U-SQL.
 
-**El proceso básico de Análisis de Data Lake:**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Diagrama de flujo de proceso de Análisis de Azure Data Lake](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Cree una cuenta de Análisis de Data Lake.
-2. Prepare los datos de origen. Los trabajos de Análisis de Data Lake pueden leer datos desde cuentas de Almacén de Azure Data Lake o desde cuentas de almacenamiento de blobs de Azure. En este ejemplo, se leerán desde el Almacén de Azure Data Lake.  
-3. Desarrolle un script U-SQL.
-4. Envíe un trabajo (script U-SQL) a la cuenta de Análisis de Data Lake. El trabajo lee desde el origen de datos, procesa los datos como se indica en el script U-SQL y después guarda la salida en una cuenta de Almacén de Data Lake o de almacenamiento de blobs.
-
-###Requisitos previos
+##Requisitos previos
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
@@ -162,4 +155,4 @@ Después de preparar el origen de datos, puede comenzar a desarrollar un script 
 - Para obtener información general acerca de Análisis de Data Lake, consulte la página de [información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 - Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0427_2016-->

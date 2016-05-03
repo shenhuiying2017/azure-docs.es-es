@@ -87,13 +87,13 @@ En esta sección comprobará que puede ejecutar el cliente localmente y que pued
 
 	c. Establezca **Acción** en **Iniciar** para cada proyecto.
 
-2. Presione F5 para iniciar los proyectos.
+2. Presione F5 o haga clic en **Depurar > Iniciar depuración** para iniciar los proyectos en modo de depuración.
 
 	Se abren tres ventanas del explorador. Dos ventanas del explorador muestran páginas de error HTTP 403 (no se permite el examen de directorios), que es normal para proyectos de Web API. La tercera ventana del explorador muestra la interfaz de usuario de AngularJS.
 
 	En algunos exploradores, verá cuadros de diálogo que indican que el proyecto está configurado para usar SSL. Si desea...
 
-3. En la ventana del explorador que muestra la interfaz de usuario de AngularJS, haga clic en la pestaña **To Do List**.
+3. En la ventana del explorador que muestra la UI de AngularJS, haga clic en la pestaña **To Do List**.
 
 	La interfaz de usuario muestra dos elementos de tareas pendientes predeterminados.
 
@@ -109,13 +109,13 @@ En esta sección comprobará que puede ejecutar el cliente localmente y que pued
 
 La compatibilidad con los metadatos de la API de [Swagger 2.0](http://swagger.io/) está integrada en el Servicio de aplicaciones de Azure. Cada aplicación de API especifica un punto de conexión de dirección URL que devuelve metadatos para la API en formato JSON de Swagger. Los metadatos que devuelve dicho punto de conexión pueden utilizarse para generar código de cliente.
 
-Un proyecto de ASP.NET Web API puede generar dinámicamente los metadatos de Swagger mediante el paquete NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle). El paquete NuGet Swashbuckle ya está instalado en los proyectos ToDoListDataAPI y ToDoListAPI que descargó.
+Un proyecto de ASP.NET Web API puede generar de forma dinámica los metadatos de Swagger mediante el paquete NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle). El paquete NuGet Swashbuckle ya está instalado en los proyectos ToDoListDataAPI y ToDoListAPI que descargó.
 
 En esta sección del tutorial verá los metadatos de Swagger 2.0 generados y, después, probará una interfaz de usuario que se basa en dichos metadatos.
 
-2. Establezca el proyecto ToDoListDataAPI como proyecto de inicio. 
+2. Establezca el proyecto ToDoListDataAPI (**no** ToDoListAP) como proyecto de inicio. 
  
-4. Presione F5 para ejecutar el proyecto en modo de depuración.
+4. Presione F5 o haga clic en **Depurar > Iniciar depuración** para iniciar el proyecto en modo de depuración.
 
 	El explorador se abre y muestra la página de error HTTP 403.
 
@@ -170,7 +170,7 @@ En esta sección del tutorial verá los metadatos de Swagger 2.0 generados y, de
 
 1. Cierre el explorador y detenga la depuración de Visual Studio.
 
-3. En el proyecto ToDoListDataAPI, en el **Explorador de soluciones**, abra el archivo *App\_Start\\SwaggerConfig.cs* y, después, desplácese hacia abajo hasta el siguiente código y quite los comentarios.
+3. En el proyecto ToDoListDataAPI en el **Explorador de soluciones**, abra el archivo *App\_Start\\SwaggerConfig.cs* y, después, desplácese hacia abajo hasta el siguiente código y quite los comentarios.
 
 		/*
 		    })
@@ -190,9 +190,9 @@ En esta sección del tutorial verá los metadatos de Swagger 2.0 generados y, de
 
 	![Métodos disponibles en la interfaz de usuario de Swagger](./media/app-service-api-dotnet-get-started/methods.png)
 
-5. Haga clic en **Get**.
+5. Haga clic en el primer botón **Get** en la lista.
 
-6. Escriba un asterisco como valor del parámetro `owner` y luego haga clic en **Pruébelo**.
+6. Escriba un asterisco como valor del parámetro `owner` y luego haga clic en **Try it out** (Probarlo).
 
 	Cuando agregue autenticación en tutoriales posteriores, el nivel intermedio proporcionará el id. de usuario real a la capa de datos. Por ahora, todas las tareas tendrán asterisco como identificador de propietario mientras la aplicación se ejecuta sin la autenticación habilitada.
 
@@ -208,7 +208,7 @@ En esta sección del tutorial verá los metadatos de Swagger 2.0 generados y, de
 
 	![Publicación tras hacer clic en el botón Try it out (Probar) de la interfaz de usuario de Swagger](./media/app-service-api-dotnet-get-started/post.png)
 
-7. Cambie el código JSON en el cuadro de entrada del parámetro `todo` para que se parezca al ejemplo siguiente, o sustitúyalo por su propio texto descriptivo:
+7. Cambie el código JSON en el cuadro de entrada del parámetro `todo` para que se parezca al ejemplo siguiente, o sustitúyalo por el texto descriptivo que desee:
 
 		{
 		  "ID": 2,
@@ -220,17 +220,17 @@ En esta sección del tutorial verá los metadatos de Swagger 2.0 generados y, de
 
 	La API de ToDoList devuelve un código de respuesta HTTP 204 que indica que todo es correcto.
 
-11. Haga clic en **Get > Try it out** (Obtener > Probar).
+11. Haga clic en el primer botón **Get** y, a continuación, en esa sección de la página, haga clic en el botón **Try it out** (Probar).
 
 	La respuesta del método Get ahora incluye el nuevo elemento de tareas pendientes.
 
-12. Pruebe también los métodos Put, Delete y Get by ID.
+12. Opcional: pruebe también los métodos Put, Delete y Get by ID.
 
 14. Cierre el explorador y detenga la depuración de Visual Studio.
 
 Swashbuckle funciona con cualquier proyecto de ASP.NET Web API. Si desea agregar generación de metadatos de Swagger a un proyecto existente, simplemente instale el paquete de Swashbuckle.
 
-**Nota:** los metadatos de Swagger incluyen un identificador único para cada operación de API. De manera predeterminada, Swashbuckle puede generar identificadores de operación de Swagger duplicados para los métodos del controlador de la API web. Esto sucede si el controlador tiene métodos HTTP sobrecargados tales como `Get()` y `Get(id)`. Para obtener información sobre cómo controlar las sobrecargas, consulte [Personalización de definiciones de API generadas por Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md). Si crea un proyecto de API web en Visual Studio con la plantilla Aplicación de API de Azure, el código que genera identificadores de operaciones únicos se agrega automáticamente al archivo *SwaggerConfig.cs*.
+**Nota:** Los metadatos de Swagger incluyen un identificador único para cada operación de API. De manera predeterminada, Swashbuckle puede generar identificadores de operación de Swagger duplicados para los métodos del controlador de la API web. Esto sucede si el controlador tiene métodos HTTP sobrecargados tales como `Get()` y `Get(id)`. Para obtener información sobre cómo controlar las sobrecargas, consulte [Personalización de definiciones de API generadas por Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md). Si crea un proyecto de API web en Visual Studio con la plantilla Aplicación de API de Azure, el código que genera identificadores de operaciones únicos se agrega automáticamente al archivo *SwaggerConfig.cs*.
 
 ## Creación de una aplicación de API en Azure e implementación del proyecto ToDoListAPI en ella
 
@@ -252,7 +252,7 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
 
 	Se muestra la pestaña **Hospedaje** del cuadro de diálogo **Crear servicio de aplicaciones**.
 
-	Dado que va a implementar un proyecto de Web API que tiene instalado Swashbuckle, Visual Studio asume que quiere crear una aplicación de API. Esto se indica mediante el título **Nombre de aplicación de API** y por el hecho de que la lista desplegable **Cambiar tipo** está establecida en **Aplicación de API**.
+	Dado que va a implementar un proyecto de Web API que tiene instalado Swashbuckle, Visual Studio asume que quiere crear una aplicación de API. Esto se indica mediante el título **API App Name** (Nombre de aplicación de API) y por el hecho de que la lista desplegable **Tipo de cambio** está establecida en **Aplicación de API**.
 
 	![Tipo de aplicación en el cuadro de diálogo Servicio de aplicaciones](./media/app-service-api-dotnet-get-started/apptype.png)
 
@@ -260,7 +260,7 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
 
 	Para estos tutoriales, el front-end de SPA se ejecuta en una aplicación web y cada back-end de Web API se ejecuta en una aplicación de API, pero todo funcionaría igual si las tres fueran aplicaciones web o las tres aplicaciones de API. Además, una sola aplicación de API o aplicación web puede hospedar tanto el front-end de SPA como el back-end de nivel intermedio.
 
-4. Escriba un **Nombre de aplicación de API** que sea único en el dominio *azurewebsites.net*, por ejemplo, ToDoListDataAPI junto con un número para hacerlo único.
+4. Escriba un **nombre de aplicación de API** que sea único en el dominio *azurewebsites.net*, por ejemplo, ToDoListDataAPI junto con un número para hacerlo único.
 
 	Visual Studio propone un nombre único en el que se anexa una cadena de fecha y hora al nombre del proyecto. Si lo prefiere, puede aceptar ese nombre.
 
@@ -290,7 +290,7 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
 
 5. En la lista desplegable **Tamaño**, haga clic en **Gratis**.
 
-	Para este tutorial, el plan de tarifa Gratis proporcionará un rendimiento suficiente.
+	Para este tutorial, el plan de tarifa gratis proporcionará un rendimiento suficiente.
 
 6. En el cuadro de diálogo **Configurar plan del servicio de aplicaciones**, haga clic en **Aceptar**.
 
@@ -302,29 +302,29 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
 
 	Visual Studio crea la aplicación de API y un perfil de publicación que tiene toda la configuración necesaria para la aplicación de API. Después, se abre el Asistente para **publicación web**, que se usará para implementar el proyecto.
 
-	**Nota:** hay otras maneras de crear aplicaciones de API en el Servicio de aplicaciones de Azure. Por ejemplo, cuando se crea un nuevo proyecto en Visual Studio, puede crear recursos de Azure para él de la misma manera que acabamos de ver para un proyecto existente. También se pueden crear aplicaciones de API mediante el [Portal de Azure](https://portal.azure.com/), [cmdlets de Azure para Windows PowerShell](../powershell-install-configure.md) o la [interfaz de línea de comandos multiplataforma](../xplat-cli.md).
+	**Nota:** hay otras maneras de crear aplicaciones de API en el Servicio de aplicaciones de Azure. Por ejemplo, cuando se crea un nuevo proyecto en Visual Studio, puede crear recursos de Azure para él de la misma manera que acabamos de ver para un proyecto existente. También se pueden crear aplicaciones de API con el [Portal de Azure](https://portal.azure.com/), los [cmdlets de Azure para Windows PowerShell](../powershell-install-configure.md) o la [interfaz de línea de comandos multiplataforma](../xplat-cli.md).
 
 	Se abre el Asistente para **publicación web** en la pestaña **Conexión**, (como se muestra a continuación).
 
-	En la pestaña **Conexión**, los valores de **Servidor** y **Nombre del sitio** apuntan a la aplicación de API. **Nombre de usuario** y **Contraseña** son credenciales de implementación que Azure crea automáticamente. Después de la implementación, Visual Studio abre un explorador en la **Dirección URL de destino** (que es el único propósito de la **Dirección URL de destino**).
+	En la pestaña **Conexión**, los valores de **Servidor** y **Nombre del sitio** apuntan a la aplicación de API. **Nombre de usuario** y **Contraseña** son credenciales de implementación que Azure crea automáticamente. Después de la implementación, Visual Studio abre un explorador en la **Dirección URL de destino** (esta es la única finalidad de la **Dirección URL de destino**).
 
 8. Haga clic en **Siguiente**.
 
 	![Haga clic en Siguiente en la pestaña Conexión de Publicación web](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	La pestaña siguiente es **Configuración** (como se muestra a continuación). Aquí puede cambiar la pestaña de configuración de compilación para implementar una compilación de depuración para la [depuración remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La pestaña también ofrece varias **opciones de publicación de archivos**:
+	La pestaña siguiente es la de **Configuración** (como se muestra a continuación). Aquí puede cambiar la pestaña de configuración de compilación para implementar una compilación de depuración para la [depuración remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La pestaña también ofrece varias **Opciones de publicación de archivos**:
 
 	* Quitar archivos adicionales en el destino.
 	* Precompilar durante la publicación.
 	* Excluir archivos de la carpeta App\_Data.
 
-	Para este tutorial no necesita ninguna de ellas. Para obtener explicaciones detalladas de lo que hacen, consulte [Implementación de un proyecto de aplicación web mediante Publicación con un solo clic en Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+	Para este tutorial no necesita ninguna de ellas. Para una información más detallada de lo que hacen, consulte [Implementación de un proyecto de aplicación web mediante Publicación con un solo clic en Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 
 14. Haga clic en **Siguiente**.
 
 	![Haga clic en Siguiente en la pestaña Configuración de Publicación web](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
-	A continuación, la pestaña **Vista previa** ofrece la posibilidad de ver qué archivos se van a copiar desde el proyecto a la aplicación de API. Al implementar un proyecto en una aplicación de API para la que ya implementó anteriormente, solo se copian los archivos modificados. Si desea ver una lista de lo que se va a copiar, haga clic en el botón **Iniciar vista previa**.
+	A continuación, la pestaña **Vista previa** (que se muestra aquí) ofrece la posibilidad de ver qué archivos se van a copiar desde el proyecto a la aplicación de API. Al implementar un proyecto en una aplicación de API para la que ya implementó anteriormente, solo se copian los archivos modificados. Si desea ver una lista de lo que se va a copiar, haga clic en el botón **Comenzar previsualización**.
 
 15. Haga clic en **Publicar**.
 
@@ -354,11 +354,11 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
 
 	Se abren dos hojas: una con información general sobre la aplicación de API y otra con una larga lista de valores que puede ver y cambiar.
 
-16. En la hoja **Configuración**, busque la sección **API** y haga clic en **Definición de API**.
+16. En la hoja **Configuración**, busque la sección **API** y haga clic en **Definición de la API**.
 
 	![Definición de la API en hoja Configuración](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
 
-	La hoja **Definición de API** le permite especificar la dirección URL que devuelve los metadatos de Swagger 2.0 en formato JSON. Cuando Visual Studio crea la aplicación de API, establece la dirección URL de la definición de API en el valor predeterminado de los metadatos generados por Swashbuckle que vio anteriormente, que es la URL base de la aplicación de API más `/swagger/docs/v1`.
+	La hoja **Definición de la API** le permite especificar la dirección URL que devuelve los metadatos de Swagger 2.0 en formato JSON. Cuando Visual Studio crea la aplicación de API, establece la dirección URL de la definición de API en el valor predeterminado de los metadatos generados por Swashbuckle que vio anteriormente, que es la URL base de la aplicación de API más `/swagger/docs/v1`.
 
 	![Dirección URL de definición de la API](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
@@ -434,7 +434,7 @@ El proyecto ToDoListAPI ya tiene el código de cliente generado, pero lo elimina
 
 	El parámetro de constructor obtiene la dirección URL del punto de conexión de la configuración de la aplicación `toDoListDataAPIURL`. En el archivo Web.config, dicho valor se establece en la dirección URL local de IIS Express del proyecto de la API para que pueda ejecutar la aplicación localmente. Si se omite el parámetro del constructor, el punto de conexión predeterminado es la dirección URL a partir de la cual se genera el código.
 
-6. La clase de cliente se generará con un nombre diferente según el nombre de la aplicación de API; cambie este código en *Controllers\\ToDoListController.cs* para que el nombre del tipo coincida con el que se generó en el proyecto. Por ejemplo, si asignó el nombre ToDoListDataAPI0121 a la aplicación de API, el código sería similar al del ejemplo siguiente:
+6. La clase de cliente se generará con un nombre diferente según el nombre de aplicación de API; cambie este código en *Controllers\\ToDoListController.cs* para que el nombre del tipo coincida con el que se generó en el proyecto. Por ejemplo, si asignó el nombre ToDoListDataAPI0121 a la aplicación de API, el código sería similar al del ejemplo siguiente:
 
 		private static ToDoListDataAPI0121 NewDataAPIClient()
 		{
@@ -458,7 +458,7 @@ El proyecto ToDoListAPI ya tiene el código de cliente generado, pero lo elimina
 
 7. Haga clic en **Crear**.
 
-	Visual Studio crea la aplicación de API, crea un perfil de publicación para ella y muestra el paso **Conexión** del asistente **Publicación web**.
+	Visual Studio crea la aplicación de API, crea un perfil de publicación para ella y muestra el paso **Conexión** del Asistente para **publicación web**.
 
 3.  En el paso **Conexión** del Asistente para **publicación web**, haga clic en **Publicar**.
 
@@ -497,15 +497,15 @@ Si llamara ahora a la aplicación de API de nivel intermedio, intentaría llamar
 
 	![Método Get de la interfaz de usuario de Swagger](./media/app-service-api-dotnet-get-started/midtierget.png)
 
-Para más información sobre el cliente generado, consulte el [repositorio GitHub de AutoRest](https://github.com/azure/autorest). Para obtener ayuda con los problemas de uso del cliente generado, abra un [problema en el repositorio de AutoRest](https://github.com/azure/autorest/issues).
+Para más información sobre el cliente generado, consulte el [repositorio GitHub de AutoRest](https://github.com/azure/autorest). Si necesita ayuda con los problemas de uso del cliente generado, abra un [incidente en el repositorio de AutoRest](https://github.com/azure/autorest/issues).
 
 ## <a id="creating"></a> Opcional: creación de un proyecto de aplicación de API desde cero
 
-En este tutorial descargará proyectos de ASP.NET Web API para implementar en el Servicio de aplicaciones, en lugar de crear nuevos proyectos desde cero. Para crear un proyecto que desee implementar en una aplicación de API, puede crear un proyecto de Web API típico e instalar el paquete Swashbuckle, o bien puede usar la plantilla **Aplicación de API de Azure** para nuevos proyectos. Para usar dicha plantilla, haga clic en **Archivo > Nuevo > Proyecto > Aplicación web ASP.NET > Aplicación de API de Azure**.
+En este tutorial descargará proyectos de ASP.NET Web API para implementar en el Servicio de aplicaciones, en lugar de crear nuevos proyectos desde cero. Para crear un proyecto que desee implementar en una aplicación de API, puede crear un proyecto de Web API típico e instalar el paquete Swashbuckle, o bien puede usar la plantilla **Azure API App** para nuevos proyectos. Para usar dicha plantilla, haga clic en **Archivo > Nuevo > Proyecto > Aplicación web ASP.NET > Azure API App**.
 
 ![Plantilla Aplicación de API en Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
-La elección de la plantilla de proyecto **Aplicación de API de Azure** equivale a elegir la plantilla **Vacía** de ASP.NET 4.5.2, hacer clic en la casilla para agregar compatibilidad con Web API e instalar el paquete Swashbuckle. Además, la plantilla agrega algún código de configuración de Swashbuckle diseñado para evitar la creación de identificadores de operación de Swagger duplicados.
+La elección de la plantilla de proyecto **Azure API App** equivale a elegir la plantilla **vacía** de ASP.NET 4.5.2, hacer clic en la casilla para agregar compatibilidad con Web API e instalar el paquete Swashbuckle. Además, la plantilla agrega algún código de configuración de Swashbuckle diseñado para evitar la creación de identificadores de operación de Swagger duplicados.
 
 ## Opcional: Dirección URL de definición de API en plantillas del Administrador de recursos de Azure
 
@@ -521,6 +521,8 @@ Para ver un ejemplo de una plantilla de Azure Resource Manager que define la pro
 
 Si experimenta problemas mientras avanza por este tutorial, asegúrese de que está usando la versión más reciente del SDK de Azure para. NET. La forma más fácil de hacerlo es [descargar el SDK de Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003); si tiene instalada la versión actual, el Instalador de plataforma web indicará que no es preciso realizar la instalación.
 
+Dos de los nombres de proyecto son similares (ToDoListAPI, ToDoListDataAPI). Si lo que ve no se parece a lo que se describe en las instrucciones cuando trabaje con un proyecto, asegúrese de que ha abierto el proyecto correcto.
+
 Si está en una red corporativa y está intentando realizar la implementación en el Servicio de aplicaciones de Azure mediante un firewall, asegúrese de que los puertos 443 y 8172 estén abiertos para Web Deploy. Si no puede abrir esos puertos, consulte la siguiente Pasos siguientes a continuación para ver otras opciones de implementación.
 
 Si accidentalmente implementa el proyecto incorrecto en una aplicación de API y después implementa el correcto, pueden aparecer errores "Los nombres de ruta deben ser únicos". Para corregir este problema, vuelva a implementar el proyecto a la aplicación de API y, en la pestaña **Configuración** del Asistente para **publicación web**, seleccione **Quitar archivos adicionales en destino**.
@@ -531,4 +533,4 @@ Una vez que la aplicación de API de ASP.NET se esté ejecutando en el Servicio 
 
 En este tutorial vimos cómo crear aplicaciones de API, implementar código en ellas, generar código de cliente para ellas y consumirlas desde clientes .NET. El siguiente tutorial de la serie de introducción a Aplicaciones de API muestra cómo [consumir aplicaciones de API desde clientes de JavaScript mediante CORS](app-service-api-cors-consume-javascript.md). Otros tutoriales de la serie muestran cómo implementar la autenticación y autorización.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

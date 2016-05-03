@@ -94,7 +94,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 	
 	Propiedad | Descripción
 	-------- | -----------
-	Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.2. 
+	Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.2. 
 	ClusterSize | Así se crea un clúster de HDInsight de un nodo. 
 	TimeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine.
 	linkedServiceName | Especifica la cuenta de almacenamiento que se usará para almacenar los registros que genere HDInsight.
@@ -288,8 +288,20 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 23. En la página **Publicar elementos**, asegúrese de que todas las entidades de Factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.     
 24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
 25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
+
+Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes y pruebe a publicarlo de nuevo:
+
+- En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory. 
+		
+		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+	Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
+	
+		Get-AzureRmResourceProvider
+- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y navegue a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Este procedimiento registra automáticamente el proveedor.
+
  
-## Supervisión de la canalización
+## Supervisión de canalizaciones
 
 6. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y realice lo siguiente:
 	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
@@ -436,7 +448,7 @@ Para publicar entidades en un proyecto de Factoría de datos de Azure mediante e
 
 1. Haga clic con el botón derecho en el proyecto de Data Factory y haga clic en **Publicar** para ver el cuadro de diálogo **Publicar elementos**. 
 2. Seleccione una instancia de Data Factory existente o especifique valores para crear una nueva en la página **Configurar Data Factory** y haga clic en **Siguiente**.   
-3. En la página **Publicar elementos**, verá una lista desplegable con las configuraciones disponibles para el campo **Sele+ccionar configuración de implementación**.
+3. En la página **Publicar elementos**, verá una lista desplegable con las configuraciones disponibles para el campo **Seleccionar configuración de implementación**.
 
 	![Selección de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
 
@@ -450,4 +462,4 @@ Cuando realiza la implementación, se usan los valores del archivo de configurac
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

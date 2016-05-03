@@ -13,26 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/19/2016"
+	ms.date="04/20/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Utilización de nombres de dominio personalizados para simplificar el inicio de sesión mediante Azure Active Directory
 
-Puede utilizar sus propios nombres de dominio personalizado para mejorar y simplificar el inicio de sesión y otras experiencias del usuario en Azure Active Directory (Azure AD). Por ejemplo, si la organización posee el nombre de dominio ‘contoso.com’, los usuarios pueden entonces iniciar sesión con nombres de usuario con los que están familiarizados, como ‘joe@contoso.com'. Debe tener acceso a una cuenta de usuario que sea un administrador global de su directorio de Azure AD.
-
-Cuando obtiene por primera vez el directorio del inquilino en Azure Active Directory, los usuarios inician sesión con nombres de usuario como ‘alice@contoso.onmicrosoft.com’. En este ejemplo, contoso.onmicrosoft.com es un nombre de dominio inicial integrado que puede usar hasta que compruebe su nombre de dominio personalizado. Uno de los pasos siguientes sería agregar un nombre de dominio personalizado que tenga su organización como, por ejemplo, ‘contoso.com’. Esto le permite asignar nombres que resultan familiares a los usuarios, como ‘alice@contoso.com’.
-
-Para más información sobre cómo se usan los nombres de dominio en Azure AD, consulte [Conceptual overview of custom domain names in Azure Active Directory](active-directory-add-domain-concepts.md) (Introducción conceptual de nombres de dominio personalizados en Azure Active Directory). La mayoría de los administradores realizan tareas de administración de nombres de dominio en Azure AD mediante el Portal de Azure clásico. Sin embargo, si lo prefiere, puede usar [PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) o la [versión preliminar de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations) para realizar las tareas de administración.
+Cuando obtiene por primera vez su directorio en Azure Active Directory (Azure AD), una de las primeras tareas importantes que tiene que realizar es verificar un nombre de dominio personalizado que su organización utiliza, como 'contoso.com'. Realizar esta tarea le permite asignar nombres de usuario que resultan familiares a los usuarios, como ‘alice@contoso.com’. Hasta que verifique su nombre de dominio personalizado, los usuarios tienen que iniciar sesión con nombres de usuario como 'alice@contoso.onmicrosoft.com' que usan el nombre de dominio inicial para el directorio.
 
 ## Incorporación de nombres de dominio personalizados al directorio
 
 Para incorporar un nombre de dominio personalizado a su directorio:
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) con una cuenta de usuario que sea un administrador global de su directorio de Azure AD.
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) con una cuenta de usuario que sea administrador global de su directorio de Azure AD.
 
-2. Seleccione **Active Directory** en la barra de navegación izquierda.
-
-3. Abra el directorio.
+2. Seleccione **Active Directory** en la barra de navegación de la izquierda y abra su directorio.
 
 4. Seleccione la pestaña **Dominios**.
 
@@ -44,35 +38,35 @@ Para incorporar un nombre de dominio personalizado a su directorio:
 
 8. Seleccione **Agregar**.
 
-Antes de poder asignar nombres de usuario que incluyen el nombre de dominio personalizado, Azure AD debe comprobar que su organización es propietario del nombre de dominio. Para realizar esta comprobación, debe actualizar las entradas DNS en el registrador de nombres de dominio para el dominio.
+Antes de poder asignar nombres de usuario que incluyen el nombre de dominio personalizado, Azure AD debe comprobar que su organización es propietario del nombre de dominio. Para realizar esta verificación, tiene que agregar una entrada DNS en el archivo de zona DNS para el nombre de dominio. Esta tarea se puede completar en el sitio web del registrador de nombres de dominio para el nombre de dominio.
 
-## Obtención de las entradas DNS que utilizará Azure AD para comprobar nombres de dominio
+## Obtención de las entradas DNS para el nombre de dominio
 
-Si ha seleccionado la opción para configurar el dominio para la federación cuando agregó el dominio, verá instrucciones para descargar la herramienta Azure AD Connect. Ejecute la herramienta Azure AD Connect para [obtener las entradas DNS que debe agregar en el registrador de nombres de dominio](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
+Si decidió configurar el dominio para la federación, se le dirigirá a descargar la herramienta Azure AD Connect. Ejecute la herramienta Azure AD Connect para [obtener las entradas DNS que tiene que agregar en el registrador de nombres de dominio](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
-Si no seleccionó la opción de inicio de sesión federado con Windows Server AD, verá las entradas DNS en la segunda página del asistente para **agregar dominio**.
+Si no seleccionó la opción de configurar el dominio para la federación, las entradas DNS están en la segunda página del asistente para **agregar dominio**.
 
-## Incorporación de las entradas DNS al archivo de zona DNS para el dominio
+## Incorporación de la entrada DNS en el archivo de zona DNS
 
-Para agregar las entradas DNS necesarias para Azure AD:
+Para agregar la entrada DNS necesaria para Azure AD:
 
-1.  Inicie sesión en el registrador de nombres de dominio para el dominio. Si no tiene permisos suficientes para actualizar el archivo de zona DNS para el dominio, comparta las entradas DNS con la persona o el equipo de su organización que cuente con este acceso y solicítele que las actualice.
+1.  Inicie sesión en el registrador de nombres de dominio para el dominio. Si no tiene permisos suficientes para actualizar la entrada DNS, pida a la persona o el equipo que tenga acceso que agregue la entrada DNS.
 
-2.  Actualice el archivo de zona DNS para el dominio. Para ello, agregue las entradas DNS proporcionadas por Azure AD. Estas entradas DNS permitirán a Azure AD comprobar la propiedad del dominio. No cambiarán los comportamientos, como el enrutamiento de correo o el hospedaje web.
+2.  Actualice el archivo de zona DNS para el dominio. Para ello, agregue la entrada DNS que le proporcione Azure AD. Esta entrada DNS permite a Azure AD comprobar la propiedad del dominio. No cambiará ningún comportamiento, como el enrutamiento de correo o el hospedaje web.
 
 [Instrucciones para agregar entradas DNS en los registradores DNS más habituales](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
 
-## Comprobación del dominio con Azure AD
+## Comprobación del nombre de dominio con Azure AD
 
-Una vez agregadas las entradas DNS, puede comprobar el dominio con Azure AD.
+Una vez agregada la entrada DNS, puede comprobar el nombre de dominio con Azure AD.
 
-Si ha seleccionado la opción para federar su nombre de dominio personalizado, la herramienta Azure AD Connect realizará automáticamente la comprobación. Ejecute la herramienta una vez completados los requisitos previos. De lo contrario, compruebe el dominio en el Portal de Azure clásico. Si sigue teniendo el asistente para **agregar dominio** abierto, puede hacer clic en el botón de comprobación en la tercera página del asistente. Los registros de DNS pueden tardar unos minutos en propagarse.
+Si optó por federar su nombre de dominio personalizado, la herramienta Azure AD Connect realiza la comprobación automáticamente. Ejecute la herramienta una vez completados los requisitos previos. De lo contrario, compruebe el dominio en el Portal de Azure clásico. Si sigue teniendo el asistente para **agregar dominio** abierto, puede hacer clic en el botón **Comprobar** en la tercera página del asistente. Puede tardar hasta una hora para que los registros DNS se propaguen.
 
 Si el asistente para **agregar dominio** no está aún abierto, puede comprobar el dominio en el [Portal de Azure clásico](https://manage.windowsazure.com/):
 
 1.  Inicie sesión con una cuenta de usuario que sea un administrador global de su directorio de Azure AD.
 
-2.  Seleccione **Active Directory** en la barra de navegación izquierda.
+2.  Seleccione **Active Directory** en la barra de navegación de la izquierda.
 
 3.  Abra el directorio.
 
@@ -84,20 +78,36 @@ Si el asistente para **agregar dominio** no está aún abierto, puede comprobar 
 
 7.  Seleccione **Comprobar** en el cuadro de diálogo.
 
-Ya puede asignar nombres de usuario que incluyan su nombre de dominio personalizado.
+Ya puede [asignar nombres de usuario a un dominio personalizado](active-directory-add-domain-add-users.md).
 
 ## Incorporación de más nombres de dominio personalizados
 
-Si su organización usa más de un nombre de dominio personalizado, como ‘contoso.com’ y ‘contosobank.com’, puede agregar cada uno de ellos a su directorio de Azure AD, hasta un máximo de 900 dominios. Utilice los pasos enumerados anteriormente para agregar los nombres de dominio siguientes.
+Si su organización usa varios nombres de dominio personalizados, como ‘contoso.com’ y ‘contosobank.com’, puede agregarlos a su directorio de Azure AD. El máximo es de 900 nombres de dominio. Para agregar los demás nombres de dominio utilice los mismos pasos.
 
-Pasos siguientes
+## Solución de problemas
+Si no puede verificar un nombre de dominio personalizado, hay algunas posibles causas. Comenzaremos con las más comunes hasta llegar a las menos frecuentes.
+
+- Intentó comprobar el nombre de dominio antes de que la entrada DNS se pudiera propagar. Espere un poco e inténtelo de nuevo.
+
+- No se ha especificado el registro de DNS. Verifique la entrada DNS, espere a que se propague y vuelva a intentarlo.
+
+- El nombre de dominio ya se comprobó en otro directorio. Busque el nombre de dominio y elimínelo del otro directorio y vuelva a intentarlo.
+
+- El registro de DNS contiene un error. Corrija el error e inténtelo de nuevo.
+
+- No tiene permisos suficientes para actualizar los registros DNS. Comparta las entradas DNS con la persona o equipo de la organización que tenga este acceso y pídale que agregue la entrada DNS.
+
+
+## Pasos siguientes
 
 -   [Asignación de usuarios a un dominio personalizado](active-directory-add-domain-add-users.md)
 
--   [Managing custom domain names in your Azure Active Directory](active-directory-add-manage-domain-names.md) (Administración de nombres de dominio personalizados en Azure Active Directory)
+-   [Managing custom domain names (Administración de nombres de dominio).](active-directory-add-manage-domain-names.md)
 
 -   [Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
--   [Conceptual overview of custom domain names in Azure Active Directory](active-directory-add-domain-concepts.md) (Introducción conceptual de nombres de dominio personalizados en Azure Active Directory).
+-   [Utilización de PowerShell para administrar los nombres de dominio en Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
-<!---HONumber=AcomDC_0420_2016-->
+-   [Información general conceptual de nombres de dominio personalizado en Azure Active Directory](active-directory-add-domain-concepts.md)
+
+<!---HONumber=AcomDC_0427_2016-->

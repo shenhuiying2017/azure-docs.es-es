@@ -9,13 +9,13 @@
 
 <tags
    ms.service="security-center"
-   ms.topic="hero-article" 
+   ms.topic="hero-article"
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
- 
+
 # Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure
 Este documento le ayuda a usar las capacidades del Centro de seguridad de Azure para administrar las alertas de seguridad y responder a ellas.
 
@@ -26,7 +26,7 @@ Este documento le ayuda a usar las capacidades del Centro de seguridad de Azure 
 
 ## ¿Qué son las alertas de seguridad?
 El Centro de seguridad recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y los firewalls y programas antimalware para detectar amenazas reales y reducir los falsos positivos. En el Centro de seguridad, se muestra una lista de alertas de seguridad prioritarias, incluidas las procedentes de soluciones integradas de asociados, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque.
- 
+
 Los investigadores en seguridad de Microsoft están analizando constantemente las amenazas que surgen en todo el mundo, incluidos los nuevos patrones y tendencias de ataque vistos en sus productos para consumidores y empresas, y servicios en línea. Como consecuencia, el Centro de seguridad puede actualizar sus algoritmos de detección a medida que se descubren nuevas vulnerabilidades para ayudar a los clientes a mantenerse al ritmo de las amenazas cambiantes. Algunos ejemplos de los tipos de amenazas que puede detectar el Centro de seguridad son:
 
 - **Detección por fuerza bruta en los datos de red**: usa los modelos de aprendizaje automático que comprenden los patrones típicos del tráfico de red para las aplicaciones y permite una detección más eficaz de los intentos de acceso llevados a cabo por actores malintencionados en lugar de por usuarios legítimos.
@@ -34,7 +34,7 @@ Los investigadores en seguridad de Microsoft están analizando constantemente la
 - **Máquinas virtuales comunicándose con direcciones IP malintencionadas**: compara el tráfico de red con la inteligencia sobre amenazas globales de Microsoft y detecta las máquinas que están en peligro y comunicándose con servidores de comando y control (C&C) y viceversa.
 - **Máquinas virtuales en peligro**: en función del análisis del comportamiento de registros de máquina y la correlación con otras señales, identifica los eventos anómalos que probablemente sean resultado de la existencia de máquinas vulnerables y en peligro.
 
-## Administración de alertas de seguridad 
+## Administración de alertas de seguridad
 
 Puede revisar las alertas actuales en el icono **Alertas de seguridad**. Siga los pasos siguientes para ver más detalles sobre cada alerta:
 
@@ -86,7 +86,8 @@ En el campo **Alerta** de esta hoja encontrará más detalles sobre este evento.
 En este documento ha aprendido a configurar directivas de seguridad en el Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 - [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
-- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Supervisión de soluciones de asociados con Azure Security Center): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

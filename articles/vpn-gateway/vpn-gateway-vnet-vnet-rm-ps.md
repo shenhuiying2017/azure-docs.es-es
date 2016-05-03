@@ -453,7 +453,7 @@ Este paso debe realizarse en el contexto de la nueva suscripción. Es posible qu
 
 		$vnet5     = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
 		$subnet5   = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
-		$gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig 
+		$gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
 
 8. Creación de la puerta de enlace de TestVNet5
 
@@ -530,4 +530,4 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

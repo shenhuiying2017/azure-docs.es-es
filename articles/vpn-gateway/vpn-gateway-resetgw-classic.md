@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="cherylmc"/>
 
 # Restablecer una Puerta de enlace de VPN de Azure con PowerShell
@@ -40,14 +40,14 @@ El cmdlet de PowerShell para restablecer la Puerta de enlace de VPN de Azure es 
 
 En el ejemplo siguiente se restablece la Puerta de enlace de VPN de Azure para la red virtual denominada «ContosoVNet».
  
-			D:\PS> Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+		Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
-	 		Error          :
-	 		HttpStatusCode : OK
-	 		Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
-	 		Status         : Successful
-			RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
-			StatusCode     : OK
+	 	Error          :
+	 	HttpStatusCode : OK
+	 	Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
+	 	Status         : Successful
+		RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
+		StatusCode     : OK
 
 
 Si la conexión no se restaura después del primer reinicio, vuelve a ejecutar el mismo comando para reiniciar la segunda instancia de VM (la nueva puerta de enlace activa). Si se solicitan los dos reinicios consecutivamente, habrá un período un poco más largo donde se estén reiniciando ambas instancias de VM (activa y en espera). En este caso, ocurrirá una interrupción mayor en la conectividad de VPN, de 2 a 4 minutos, para que las máquinas virtuales completen los reinicios.
@@ -58,4 +58,4 @@ Después de dos reinicios, si sigue teniendo problemas de conectividad entre loc
 	
 Para obtener más información sobre este cmdlet consulta la [Referencia de PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

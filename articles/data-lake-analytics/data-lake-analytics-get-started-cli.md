@@ -3,7 +3,7 @@
    description="Aprenda a usar la interfaz de línea de comandos de Azure para crear una cuenta de Almacén de Data Lake, crear un trabajo de Análisis de Data Lake mediante U-SQL y enviar el trabajo." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/10/2016"
-   ms.author="jgao"/>
+   ms.date="04/21/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: Introducción a Análisis de Azure Data Lake mediante Interfaz de línea de comandos (CLI) de Azure
 
@@ -25,16 +25,9 @@ Aprenda a usar la CLI de Azure para crear cuentas de Análisis de Azure Data Lak
 
 En este tutorial, desarrollará un trabajo que lee un archivo de valores separados por tabulaciones (TSV) y lo convierte en un otro de valores separados por comas (CSV). Para recorrer el mismo tutorial con otras herramientas compatibles, haga clic en las pestañas situadas en la parte superior de esta sección.
 
-**Proceso básico de Análisis de Data Lake:**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Diagrama de flujo de proceso de Análisis de Azure Data Lake](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Cree una cuenta de Análisis de Data Lake.
-2. Prepare los datos de origen. Los trabajos de Análisis de Data Lake pueden leer datos desde cuentas de Almacén de Azure Data Lake o desde cuentas de almacenamiento de blobs de Azure.   
-3. Desarrolle un script U-SQL.
-4. Envíe un trabajo (script U-SQL) a la cuenta de Análisis de Data Lake. El trabajo lee desde el origen de datos, procesa los datos como se indica en el script U-SQL y después guarda la salida en una cuenta de Almacén de Data Lake o de almacenamiento de blobs.
-
-**Requisitos previos**
+##Requisitos previos
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
@@ -169,4 +162,4 @@ Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar
 - Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general sobre Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->
