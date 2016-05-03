@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc" />
 
 # Asociados de ExpressRoute y ubicaciones de emparejamiento
 
 Las tablas de este artículo proporcionan información acerca de los proveedores de conectividad de ExpressRoute, la cobertura geográfica de ExpressRoute, los Servicios en la nube de Microsoft compatibles a través de ExpressRoute y los integradores de sistemas de ExpressRoute (SI).
 
-## Proveedores de conectividad ExpressRoute
+## <a name="partners"></a>Proveedores de conectividad ExpressRoute
 
 ExpressRoute es compatible con todas las ubicaciones y regiones de Azure. El siguiente mapa proporciona una lista de regiones de Azure y ubicaciones de ExpressRoute. Las ubicaciones de ExpressRoute hacen referencia a los emparejamientos de Microsoft con varios proveedores de servicio.
 
@@ -118,7 +118,7 @@ Para obtener más información, consulte [ExpressRoute en China](http://www.wind
 | **e-shelter** | Próximamente | No compatible | Berlín+|
 | **Interxion** | Compatible | No compatible | Fráncfort|
 
-## Conectividad a través de proveedores de servicios no enumerados
+## <a name="nonpartners"></a>Conectividad a través de proveedores de servicios no enumerados
 
 Si su proveedor de conectividad no aparece en la lista de las secciones anteriores, puede crear una conexión.
 
@@ -157,4 +157,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

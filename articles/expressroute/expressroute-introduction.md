@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc"/>
 
 # Información técnica de ExpressRoute
@@ -33,21 +33,31 @@ Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de
 
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
 
-## ¿Cómo puedo conectar mi red a Microsoft mediante ExpressRoute?
+## <a name="howtoconnect"></a>¿Cómo puedo conectar mi red a Microsoft mediante ExpressRoute?
 
 Puede crear una conexión entre su red local y Microsoft Cloud de tres maneras diferentes
 
-1. **Ubicación compartida en un intercambio en la nube.** Si está colocado en la misma instalación con un intercambio en la nube, puede solicitar conexiones cruzadas virtuales a Microsoft Cloud a través del intercambio de Ethernet del proveedor de la ubicación compartida. Los proveedores de ubicación compartida pueden ofrecer conexiones cruzadas de nivel 2, o conexiones cruzadas de nivel 3 administradas entre la infraestructura en la instalación de ubicación compartida y Microsoft Cloud.
-2.	**Conexiones Ethernet de punto a punto.** Puede conectar sus centros de datos locales u oficinas a Microsoft Cloud a través de vínculos de Ethernet de punto a punto. Los proveedores de Ethernet de punto a punto pueden ofrecer conexiones de nivel 2 o de nivel 3 administradas entre el sitio y Microsoft Cloud.
-3.	**Redes de conectividad universal (IPVPN).** Puede integrar la WAN con Microsoft Cloud. Los proveedores IPVPN (normalmente VPN MPLS) ofrecen conectividad universal entre los centros de datos y las sucursales. Microsoft Cloud puede estar conectada a la WAN de forma que parezca otra sucursal más. Los proveedores de WAN normalmente ofrecen una conectividad de nivel 3 administrada.
+### Ubicación compartida en un intercambio en la nube
+
+Si está colocado en la misma instalación con un intercambio en la nube, puede solicitar conexiones cruzadas virtuales a Microsoft Cloud a través del intercambio de Ethernet del proveedor de la ubicación compartida. Los proveedores de ubicación compartida pueden ofrecer conexiones cruzadas de nivel 2, o conexiones cruzadas de nivel 3 administradas entre la infraestructura en la instalación de ubicación compartida y Microsoft Cloud.
+
+### Conexiones Ethernet de punto a punto 
+
+Puede conectar sus centros de datos locales u oficinas a Microsoft Cloud a través de vínculos de Ethernet de punto a punto. Los proveedores de Ethernet de punto a punto pueden ofrecer conexiones de nivel 2 o de nivel 3 administradas entre el sitio y Microsoft Cloud.
+
+### Redes de conectividad universal (IPVPN)
+
+Puede integrar la WAN con Microsoft Cloud. Los proveedores IPVPN (normalmente VPN MPLS) ofrecen conectividad universal entre los centros de datos y las sucursales. Microsoft Cloud puede estar conectada a la WAN de forma que parezca otra sucursal más. Los proveedores de WAN normalmente ofrecen una conectividad de nivel 3 administrada. Las características y capacidades de ExpressRoute son todas idénticas en todos los modelos de conectividad anteriores.
+
+Los proveedores de conectividad pueden ofrecer uno o varios modelos de conectividad. Puede trabajar en conjunción con su proveedor de conectividad para elegir el modelo que mejor le convenga.
 
 ![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
 
-Las características y capacidades de ExpressRoute son todas idénticas en todos los modelos de conectividad anteriores. Los proveedores de conectividad pueden ofrecer uno o varios modelos de conectividad de la lista anterior. Puede trabajar en conjunción con su proveedor de conectividad para elegir el modelo que mejor le convenga.
+
 
 ## Características de ExpressRoute
 
-ExpressRoute admite las siguientes características y capacidades.
+ExpressRoute admite las siguientes características y funcionalidades.
 
 ### Conectividad de nivel 3
 
@@ -59,7 +69,7 @@ Cada circuito ExpressRoute consta de dos conexiones a dos enrutadores de períme
 
 ### Conectividad con los Servicios en la nube de Microsoft
 
-Las conexiones ExpressRoute habilitan el acceso a los servicios siguientes.
+Las conexiones ExpressRoute habilitan el acceso a los servicios siguientes:
 
 - Servicios de Microsoft Azure
 - Servicios de Microsoft Office 365
@@ -124,4 +134,4 @@ Puede elegir el modelo de facturación que mejor le convenga. Elija entre los mo
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

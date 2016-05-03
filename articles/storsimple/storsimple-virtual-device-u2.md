@@ -9,10 +9,10 @@
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="04/20/2016"
    ms.author="alkohli" />
 
 # Implementación y administración de un dispositivo virtual de StorSimple en Azure (actualización 2)
@@ -46,12 +46,12 @@ El dispositivo virtual StorSimple está disponible en dos modelos: estándar 801
 
 Las regiones de Almacenamiento premium que actualmente admiten 8020 aparecen a continuación. Esta lista se actualizará de manera periódica cada vez que Almacenamiento premium esté disponible en más regiones.
 
-| S. No. | Actualmente se admite en las regiones |
+| S. n°. | Actualmente se admite en las regiones |
 |---------------------------------------------------------|--------------------------------|
-| 1 | Central EE. UU.: |
-| 2 | Este de EE. UU. |
+| 1 | Central EE. UU.: |
+| 2 | Este de EE. UU. |
 | 3 | Este de EE. UU. 2 |
-| 4 | Oeste de EE. UU. |
+| 4 | Oeste de EE. UU. |
 | 5 | Europa del Norte |
 | 6 | Europa occidental |
 | 7 | Sudeste asiático |
@@ -60,9 +60,9 @@ Las regiones de Almacenamiento premium que actualmente admiten 8020 aparecen a c
 | 10 | Australia Oriental |
 | 11 | Sudeste de Australia* |
 | 12 | Asia Oriental* |
-| 13 | Centro-sur de EE. UU.* |
+| 13 | Centro-sur de EE. UU.* |
 
-** Almacenamiento premium se lanzó recientemente en estas geoáreas.
+** Almacenamiento premium se lanzó recientemente en estas geoáreas.
 
 Este artículo describe paso a paso el proceso de implementación de un dispositivo virtual de StorSimple en Azure. Después de leer este artículo, habrá aprendido lo siguiente:
 
@@ -146,8 +146,7 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
 
 Antes de comenzar este procedimiento, asegúrese de que tiene una copia de la clave de cifrado de datos del servicio. La clave de cifrado de datos del servicio se creó cuando se configuró el primer dispositivo de StorSimple y se le pidió que lo guardara en una ubicación segura. Si no tiene una copia de la clave de cifrado de datos del servicio, debe ponerse en contacto con Microsoft Support para obtener ayuda.
 
-Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.
-[AZURE.INCLUDE [Configuración y registro de un dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
+Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.[AZURE.INCLUDE [Configuración y registro de un dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Paso 3: (Opcional) Modificación de la configuración del dispositivo
 
@@ -282,4 +281,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
  
 - Sepa cómo [restaurar un volumen de StorSimple de un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

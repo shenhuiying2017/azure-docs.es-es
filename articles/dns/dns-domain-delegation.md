@@ -3,7 +3,7 @@
    description="Información sobre cómo cambiar la delegación de dominios y usar los servidores de nombres DNS de Azure para ofrecer hospedaje de dominios."
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 
 # Delegación de dominios en DNS de Azure
@@ -71,8 +71,8 @@ Para configurar la delegación, necesita saber los nombres del servidor de nombr
 
 Mediante Azure PowerShell, los registros NS autoritativos pueden recuperarse como se explica a continuación (el nombre de registro “@” se usa para hacer referencia a los registros que se encuentran en la cúspide de la zona).
 
-	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -159,4 +159,4 @@ Como al delegar mediante un registrador, es posible comprobar que todo esté con
 
 [Referencia de la API de REST a DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -44,7 +44,7 @@ Azure AD Connect Health para AD FS es compatible con AD FS 2.0 en Windows Server
 
 El vídeo siguiente proporcionará información general de Azure AD Connect Health para AD FS
 
-[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+>[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 Azure AD Connect Health para sincronización supervisa y proporciona información sobre las sincronizaciones que tienen lugar entre Active Directory local y Azure Active Directory. Azure AD Connect Health para sincronización ofrece el siguiente conjunto de funiciones clave:
@@ -62,11 +62,11 @@ El vídeo siguiente proporcionará información general de Azure AD Connect Heal
 ## Introducción a Azure AD Connect Health
 Es muy fácil empezar a trabajar con Azure AD Connect Health. Siga estos pasos:
 
-1. [Obtenga Azure AD Premium](active-directory-get-started-premium) o [inicie una prueba](https://azure.microsoft.com/trial/get-started-active-directory/)
+1. [Obtenga Azure AD Premium](active-directory-get-started-premium) o [inicie una prueba](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 2. [Descargue e instale los agentes de Azure AD Connect Health](#download-and-install-azure-ad-connect-health-agent) en los servidores de identidad.
 
-3. Consulte el panel de Azure AD Connect Health en [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)
+3. Consulte el panel de Azure AD Connect Health en [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth).
 
 >[AZURE.NOTE]Recuerde que para ver los datos de panel de Azure AD Connect Health, deberá instalar el agente de Azure AD Connect Health en los servidores de destino.
 
@@ -106,4 +106,4 @@ El portal de Azure AD Connect Health permite ver alertas, información de superv
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

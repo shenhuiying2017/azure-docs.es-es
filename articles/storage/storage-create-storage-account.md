@@ -23,25 +23,13 @@
 
 ## Información general
 
-Una cuenta de almacenamiento de Azure proporciona acceso a los servicios de Azure de Blob, Cola, Tabla y Archivo del Almacenamiento de Azure. La cuenta de almacenamiento ofrece el espacio de nombres exclusivo para los objetos de datos de Almacenamiento de Azure. De forma predeterminada, los datos de su cuenta están disponibles solo para usted, el propietario de la cuenta.
+Una cuenta de almacenamiento de Azure proporciona un espacio de nombres único para almacenar y tener acceso a los objetos de datos de Almacenamiento de Azure. Todos los objetos de una cuenta de almacenamiento se facturan juntos como un grupo. De forma predeterminada, los datos de su cuenta están disponibles solo para usted, el propietario de la cuenta.
 
-Existen dos tipos de cuentas de almacenamiento:
-
-- Una cuenta de almacenamiento estándar incluye el almacenamiento de blobs, tablas, colas y archivos.
-- Una cuenta de almacenamiento premium actualmente solo admite los discos de máquinas virtuales de Azure. Consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](storage-premium-storage.md) para una introducción detallada del Almacenamiento premium.
+[AZURE.INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
 ## Facturación de la cuenta de almacenamiento
 
-El uso de Almacenamiento de Azure se le factura según su cuenta de almacenamiento. Los costos de almacenamiento se basan en cuatro factores: capacidad de almacenamiento, esquema de replicación, transacciones de almacenamiento y salida de datos.
-
-- La capacidad de almacenamiento se refiere a cuánto de la asignación correspondiente a cuentas de almacenamiento utiliza para almacenar datos. El coste de simplemente almacenar los datos está determinado por la cantidad de datos que almacena y la manera en que se replican.
-- La replicación determina cuántas copias de los datos se conservan al mismo tiempo, y en qué ubicaciones.
-- Las transacciones se refieren a todas las operaciones de lectura y escritura en Almacenamiento de Azure.
-- La salida de los datos se refiere a los datos transferidos fuera de una región de Azure. Cuando una aplicación que no está en ejecución en la misma región tiene acceso a los datos en su cuenta de almacenamiento, se le cobra por la salida de los datos, independientemente de si la aplicación es un servicio en la nube u otro tipo de aplicación. (En el caso de los servicios de Azure, puede llevar a cabo pasos para agrupar sus datos y servicios en los mismos centros de datos para reducir o eliminar los cargos por concepto de salida de los datos).  
-
-La página [Detalles de precios de Azure](https://azure.microsoft.com/pricing/details/storage) proporciona información detallada sobre los precios de la capacidad, la replicación y las transacciones de almacenamiento. La página [Detalles de precios de transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/) proporciona información detallada sobre los precios para la salida de datos.
-
-Para obtener más información acerca de los objetivos de capacidad y rendimiento de la cuenta de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento de Almacenamiento de Azure](storage-scalability-targets.md).
+[AZURE.INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [AZURE.NOTE] Al crear una máquina virtual de Azure, se crea automáticamente una cuenta de almacenamiento en la ubicación de implementación si todavía no tiene una cuenta de almacenamiento en esa ubicación. Por tanto, no es necesario aplicar los pasos descritos a continuación para crear una cuenta de almacenamiento para los discos de máquinas virtuales. El nombre de la cuenta de almacenamiento se basará en el nombre de la máquina virtual. Consulte la [documentación de máquinas virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) para obtener más detalles.
 
@@ -59,9 +47,11 @@ Por ejemplo, si la cuenta de almacenamiento se llama *mystorageaccount*, los ext
 
 - Servicio de archivos: http://*mystorageaccount*.file.core.windows.net
 
+> [AZURE.NOTE] Una cuenta de Almacenamiento de blobs solo expone el punto de conexión del BLOB.
+
 La dirección URL para el acceso a un objeto en una cuenta de almacenamiento se crea anexando la ubicación del objeto en la cuenta de almacenamiento al extremo. Por ejemplo, una dirección de blob podría tener el siguiente formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
 
-También puede configurar un nombre de dominio personalizado para usarlo con la cuenta de almacenamiento. Para las cuentas de almacenamiento clásicas, consulte [Configurar un nombre de dominio personalizado para el punto de conexión de Almacenamiento de blobs](storage-custom-domain-name.md) para conocer más detalles. Para las cuentas de almacenamiento del ARM, esta funcionalidad no se ha agregado al [Portal de Azure](https://portal.azure.com) aún, pero se puede configurar con PowerShell. Para más información, consulte el cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
+También puede configurar un nombre de dominio personalizado para usarlo con la cuenta de almacenamiento. Para las cuentas de almacenamiento clásicas, consulte [Configurar un nombre de dominio personalizado para el punto de conexión de Almacenamiento de blobs](storage-custom-domain-name.md) para conocer más detalles. Para las cuentas de almacenamiento de ARM, esta funcionalidad no se ha agregado aún al [Portal de Azure](https://portal.azure.com), pero se puede configurar con PowerShell. Para más información, consulte el cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
 
 ## Crear una cuenta de almacenamiento
 
@@ -69,23 +59,27 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 2. En el menú del concentrador, seleccione **Nuevo** -> **Datos + almacenamiento** -> **Cuenta de almacenamiento**.
 
-3. Escriba un nombre para la cuenta de almacenamiento.
+3. Escriba un nombre para la cuenta de almacenamiento. Consulte [Puntos de conexión de cuenta de almacenamiento](#storage-account-endpoints) para más información sobre la forma en que se usará el nombre de la cuenta de almacenamiento para dirigir los objetos en Almacenamiento de Azure.
 
 	> [AZURE.NOTE] Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
 	>  
 	> El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El Portal de Azure le indicará si ya existe el nombre de la cuenta de almacenamiento que seleccione.
 
-	Consulte [Puntos de conexión de cuenta de almacenamiento](#storage-account-endpoints) más adelante para obtener información detallada sobre la forma en que se usará este nombre para dirigir los objetos en Almacenamiento de Azure.
+4. Especifique el modelo de implementación que se va a usar: **Resource Manager** o **Clásica**. **Administrador de recursos** es el modelo de implementación recomendado. Para obtener más información, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md).
 
-4. Especifique el modelo de implementación que se va a usar: **Resource Manager** o **Clásico**. **Administrador de recursos** es el modelo de implementación recomendado. Para obtener más información, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md).
+	> [AZURE.NOTE] Las cuentas de Almacenamiento de blobs solo pueden crearse mediante el modelo de implementación de Resource Manager.
 
-5. Especifique el nivel de rendimiento de la cuenta de almacenamiento: **Estándar** o **Premium**. El valor predeterminado es **Estándar**. Para más información sobre las cuentas de almacenamiento estándar y premium, consulte [Introducción a Almacenamiento de Microsoft Azure](storage-introduction.md) y [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md).
+5. Seleccione el tipo de cuenta de almacenamiento: **Uso general** o **Almacenamiento de blobs**. **Uso general** es el tipo predeterminado.
 
-6. Seleccione la opción de replicación para la cuenta de almacenamiento: **LRS**, **GRS**, **RA-GRS** o **ZRS**. El valor predeterminado es **RA-GRS**. Para obtener más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de Almacenamiento de Azure](storage-redundancy.md).
+	Si **Uso general** se ha seleccionado, especifique el nivel de rendimiento: **Estándar** o **Premium**. El valor predeterminado es **Estándar**. Para más información sobre las cuentas de almacenamiento estándar y premium, consulte [Introducción a Almacenamiento de Microsoft Azure](storage-introduction.md) y [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md).
+
+	Si se ha seleccionado **Almacenamiento de blobs**, especifique el nivel de acceso: **Frecuente** o **Esporádico**. El valor predeterminado es **Hot** (Frecuente). Consulte [Almacenamiento de blobs de Azure: niveles de acceso Esporádico y Frecuente](storage-blob-storage-tiers.md) para más información.
+
+6. Seleccione la opción de replicación de la cuenta de almacenamiento: **LRS**, **GRS**, **RA-GRS** o **ZRS**. El valor predeterminado es **RA-GRS**. Para obtener más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de Almacenamiento de Azure](storage-redundancy.md).
 
 7. Seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento.
 
-8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
+8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información sobre los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
 
 9. Seleccione la ubicación geográfica para la cuenta de almacenamiento.
 
@@ -95,9 +89,13 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 ### Cambio de la configuración de cuenta
 
-Después de crear la cuenta de almacenamiento, puede modificar su configuración, como cambiar la opción de replicación usada para la cuenta. En el Portal de Azure, diríjase a su cuenta de almacenamiento, haga clic en **Todas las configuraciones** y después en **Configuración** para ver o cambiar la configuración de la cuenta. Si se cambia la opción de replicación, cambiarán los precios.
+Después de crear la cuenta de almacenamiento, puede modificar su configuración, por ejemplo, cambiar la opción de replicación usada para la cuenta o cambiar el nivel de acceso de una cuenta de Almacenamiento de blobs. En el [Portal de Azure](https://portal.azure.com), diríjase a su cuenta de almacenamiento, haga clic en **Todas las configuraciones** y después en **Configuración** para ver o cambiar la configuración de la cuenta.
 
 > [AZURE.NOTE] Según el nivel de rendimiento que eligió al crear la cuenta de almacenamiento, es posible que algunas opciones de replicación no estén disponibles.
+
+Si se cambia la opción de replicación, cambiarán los precios. Consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/) para más información.
+
+Para las cuentas de Almacenamiento de blobs, cambiar el nivel de acceso puede generar cargos por el cambio, además de cambios en el precio. Consulte [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md#pricing-and-billing) (Almacenamiento de blobs de Azure: niveles de acceso Frecuente y Esporádico) para más detalles.
 
 ### Administración de las claves de acceso de almacenamiento
 
@@ -107,19 +105,19 @@ Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de alma
 
 #### Visualización y copia de las claves de acceso de almacenamiento
 
-En el [Portal de Azure](https://portal.azure.com), diríjase a su cuenta de almacenamiento, haga clic en **Todas las configuraciones** para ver, copiar y regenerar las **claves de acceso** de la cuenta. La hoja de **claves de acceso** también incluye cadenas de conexión configuradas previamente que usan claves principales y secundarias que puede copiar para usarlas en las aplicaciones.
+En el [Portal de Azure](https://portal.azure.com), diríjase a su cuenta de almacenamiento, haga clic en **Todas las configuraciones** y en **Claves de acceso** para ver, copiar y regenerar las claves de acceso de la cuenta. La hoja de **claves de acceso** también incluye cadenas de conexión configuradas previamente que usan claves principales y secundarias que puede copiar para usarlas en las aplicaciones.
 
 #### Nueva generación de las claves de acceso de almacenamiento
 
 Recomendamos que cambie las claves de acceso de su cuenta de almacenamiento periódicamente para ayudar a mantener seguras las conexiones de almacenamiento. Se asignan dos claves de acceso para que pueda mantener las conexiones con la cuenta de almacenamiento usando una clave de acceso mientras genera de nuevo la otra clave de acceso.
 
-> [AZURE.WARNING] La nueva generación de sus claves de acceso afecta a las máquinas virtuales, los servicios multimedia y cualquier aplicación que dependa de la cuenta de almacenamiento. Todos los clientes que usan la clave de acceso para acceder a la cuenta de almacenamiento deben estar actualizados para usar la nueva clave.
-
-**Máquinas virtuales**: si su cuenta de almacenamiento contiene una máquina virtual que se está ejecutando, tendrá que volver a implementar todas las máquinas virtuales después de generar de nuevo las claves de acceso. Para evitar una nueva implementación, apague las máquinas virtuales antes de generar de nuevo las claves de acceso.
+> [AZURE.WARNING] La regeneración de las claves de acceso puede afectar a servicios de Azure, así como a sus propias aplicaciones que dependen de la cuenta de almacenamiento. Todos los clientes que usan la clave de acceso para acceder a la cuenta de almacenamiento deben estar actualizados para usar la nueva clave.
 
 **Servicios multimedia**: si tiene servicios multimedia que dependen de su cuenta de almacenamiento, debe volver a sincronizar las claves de acceso con los servicios multimedia después de regenerar las claves.
 
 **Aplicaciones**: si tiene aplicaciones web o servicios en la nube que usan la cuenta de almacenamiento, perderá las conexiones si regenera las claves, a menos que las convierta.
+
+**Exploradores de almacenamiento**: si va a usar algunas de las [aplicaciones del Explorador de almacenamiento](storage-explorers.md), probablemente necesite actualizar la clave de almacenamiento utilizada por las aplicaciones.
 
 Este es el proceso de rotación de las claves de acceso de almacenamiento:
 
@@ -143,7 +141,7 @@ Para eliminar una cuenta de almacenamiento que está asociada a una máquina vir
 
 Si la cuenta de almacenamiento utiliza el modelo de implementación clásico, puede quitar el disco de máquina virtual siguiendo estos pasos en el [Portal de Azure](https://manage.windowsazure.com):
 
-1. Navegue hasta el [Portal clásico](https://manage.windowsazure.com).
+1. Vaya al [Portal clásico](https://manage.windowsazure.com).
 2. Vaya a la pestaña de máquinas virtuales.
 3. Haga clic en la pestaña Discos.
 4. Seleccione el disco de datos y luego haga clic en Eliminar disco.
@@ -153,9 +151,10 @@ Para más información, consulte la [documentación sobre máquinas virtuales de
 
 ## Pasos siguientes
 
+- [Almacenamiento de blobs de Azure: niveles de acceso Esporádico y Frecuente](storage-blob-storage-tiers.md)
 - [Replicación de almacenamiento de Azure](storage-redundancy.md)
 - [Configuración de las cadenas de conexión de Almacenamiento de Azure](storage-configure-connection-string.md)
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

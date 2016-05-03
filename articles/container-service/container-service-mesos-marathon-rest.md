@@ -47,7 +47,7 @@ curl localhost/marathon/v2/apps
 
 ## Implementación de un contenedor con formato Docker
 
-Los contenedores con formato Docker se implementan a través de Marathon mediante un archivo JSON que describe la implementación deseada. En el ejemplo siguiente, se implementará el contenedor Nginx y se enlazará el puerto 80 del agente de DC/OS al puerto 80 del contenedor.
+Los contenedores con formato Docker se implementan a través de Marathon mediante un archivo JSON que describe la implementación deseada. En el ejemplo siguiente, se implementará el contenedor Nginx y se enlazará el puerto 80 del agente de DC/OS al puerto 80 del contenedor. Tenga en cuenta que la propiedad 'acceptedResourceRoles' se establece en 'slave\_public'. El contenedor se implementará en un agente del conjunto de escala de agentes públicos.
 
 ```json
 {
@@ -55,6 +55,9 @@ Los contenedores con formato Docker se implementan a través de Marathon mediant
   "cpus": 0.1,
   "mem": 16.0,
   "instances": 1,
+    "acceptedResourceRoles": [
+    "slave_public"
+  ],
   "container": {
     "type": "DOCKER",
     "docker": {
@@ -171,4 +174,4 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 [Más información acerca de los punto de conexión HTTP de Meso](http://mesos.apache.org/documentation/latest/endpoints/). [Más información acerca de la API de REST de Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

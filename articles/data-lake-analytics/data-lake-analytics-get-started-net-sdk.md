@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/25/2016"
+   ms.date="04/21/2016"
    ms.author="edmaca"/>
 
 # Tutorial: Introducción a Análisis de Azure Data Lake mediante .NET SDK
@@ -25,14 +25,7 @@ Aprenda a usar Azure .NET SDK para crear cuentas de Análisis de Azure Data Lake
 
 En este tutorial desarrollará una aplicación de consola en C# que contiene un script U-SQL que lee un archivo de valores separados por tabulaciones (TSV) y lo convierte en un archivo de valores separados por comas (CSV). Para recorrer el mismo tutorial con otras herramientas compatibles, haga clic en las pestañas situadas en la parte superior de esta sección.
 
-**Proceso básico de Análisis de Data Lake:**
-
-![Diagrama de flujo de proceso de Análisis de Azure Data Lake](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Cree una cuenta de Análisis de Data Lake.
-2. Prepare los datos de origen. Los trabajos de Análisis de Data Lake pueden leer datos desde cuentas del Almacén de Azure Data Lake o desde cuentas de almacenamiento de blobs de Azure.   
-3. Desarrolle un script U-SQL.
-4. Envíe un trabajo (script U-SQL) a la cuenta de Análisis de Data Lake. El trabajo lee desde el origen de datos, procesa los datos como se indica en el script U-SQL y después guarda la salida en una cuenta de Almacén de Data Lake o de almacenamiento de blobs.
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Requisitos previos
 
@@ -41,9 +34,6 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C++ instalado**.
 - **SDK de Microsoft Azure para .NET versión 2.5 o posterior**. Instálelo usando el [instalador de plataforma web](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**. 
-- **Una cuenta de Análisis de Data Lake**. Consulte [Creación de una cuenta de Análisis de Azure Data Lake](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
-
-	Data Lake Tools for Visual Studio no admite la creación de cuentas de Análisis de Data Lake. Para crear una, use el Portal de Azure, Azure PowerShell, SDK para .NET o CLI de Azure.
 
 ##Creación de una aplicación de consola
 
@@ -224,16 +214,13 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
                     _adlaClient.SubscriptionId = subscriptionId;
 
                     _adlaJobClient = new DataLakeAnalyticsJobManagementClient(tokenCreds);
-                    _adlaJobClient.SubscriptionId = subscriptionId;
 
                     _adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(tokenCreds);
-                    _adlaCatalogClient.SubscriptionId = subscriptionId;
 
                     _adlsClient = new DataLakeStoreAccountManagementClient(tokenCreds);
                     _adlsClient.SubscriptionId = subscriptionId;
 
                     _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(tokenCreds);
-                    _adlsFileSystemClient.SubscriptionId = subscriptionId;
                 }
 
                 // Create accounts
@@ -296,7 +283,7 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties);
 
-                    var jobInfo = _adlaJobClient.Job.Create(jobId, parameters, _adlaAccountName);
+                    var jobInfo = _adlaJobClient.Job.Create(_adlaAccountName, jobId, parameters);
                     
                     return jobId;
                 }
@@ -310,17 +297,17 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1000, degreeOfParallelism: 1);
 
-                    var jobInfo = _adlaJobClient.Job.Create(jobId, parameters, _adlaAccountName);
+                    var jobInfo = _adlaJobClient.Job.Create(_adlaAccountName, jobId, parameters);
 
                     return jobId;
                 }
 
                 public static JobResult WaitForJob(Guid jobId)
                 {
-                    var jobInfo = _adlaJobClient.Job.Get(jobId, _adlaAccountName);
+                    var jobInfo = _adlaJobClient.Job.Get(_adlaAccountName, jobId);
                     while (jobInfo.State != JobState.Ended)
                     {
-                        jobInfo = _adlaJobClient.Job.Get(jobId, _adlaAccountName);
+                        jobInfo = _adlaJobClient.Job.Get(_adlaAccountName, jobId);
                     }
                     return jobInfo.Result.Value;
                 }
@@ -369,8 +356,8 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
 - Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
 - Para ver una consulta más compleja, consulte [Análisis de registros de sitios web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 - Para empezar a desarrollar aplicaciones con U-SQL, consulte [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Para aprender U-SQL, consulte [Tutorial: Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md) y la página de [referencia sobre el lenguaje U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+- Para aprender U-SQL, consulte [Tutorial: Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md) y la página de [referencia del lenguaje U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 - Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general sobre Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->
