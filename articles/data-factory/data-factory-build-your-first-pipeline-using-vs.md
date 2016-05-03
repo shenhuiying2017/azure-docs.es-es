@@ -304,7 +304,8 @@ Si recibe el error: "**La suscripción no está registrada para usar el espacio 
 ## Supervisión de canalizaciones
 
 6. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y realice lo siguiente:
-	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
+		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos. 
 7. En la página principal de la factoría de datos, haga clic en **Diagrama**.
   

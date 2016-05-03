@@ -197,8 +197,8 @@ Antes de poder habilitar y utilizar la escritura diferida, debe asegurarse de co
 ### Paso 1: descargar la versión más reciente de Azure AD Connect
 La escritura diferida de contraseñas está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0419.0911** o posterior. La escritura diferida de contraseñas con desbloqueo automático de cuenta está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0485.0222** o posterior. Si ejecuta una versión anterior, al menos actualice a esta versión antes de continuar. [Haga clic aquí para descargar la versión más reciente de Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
-#### Para comprobar la versión de Sincronización de Azure AD
-1.	Vaya a **%ProgramFiles%\\Azure Active Directory Sync**.
+####  Para comprobar la versión de Sincronización de Azure AD
+1.	Vaya a **%ProgramFiles%\Azure Active Directory Sync**. 
 2.	Busque el archivo ejecutable **ConfigWizard.exe**.
 3.	Haga clic con el botón derecho en el archivo ejecutable y seleccione la opción **Propiedades** del menú contextual.
 4.	Haga clic en la pestaña **Detalles**.
@@ -232,7 +232,8 @@ Ahora que descargó la herramienta Azure AD Connect, está listo para habilitar 
 4.	Para obtener el estado actual de la escritura diferida del conector actual, ejecute el siguiente cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
 5.	Habilite la escritura diferida de contraseñas mediante la ejecución del cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
-> [AZURE.NOTE] Si se le solicita una credencial, asegúrese de que la cuenta de administrador que especifica para AzureADCredential sea una**cuenta de administrador de la nube (creada en Azure AD)** y no una cuenta federada (creada en AD local y sincronizada en Azure AD).[AZURE.NOTE] Puede deshabilitar la escritura diferida de contraseñas mediante la repetición de las mismas instrucciones anteriores, pero pasando `$false` en el paso, o bien al establecer la opción **Escribir contraseñas en diferido en el directorio local** en **No** en la **sección Directiva de restablecimiento de contraseña del usuario** de la pestaña **Configurar** en el [Portal de administración de Azure](https://manage.windowsazure.com).
+> [AZURE.NOTE] Si se le solicita una credencial, asegúrese de que la cuenta de administrador que especifica para AzureADCredential sea una**cuenta de administrador de la nube (creada en Azure AD)** y no una cuenta federada (creada en AD local y sincronizada en Azure AD).
+> [AZURE.NOTE] Puede deshabilitar la escritura diferida de contraseñas mediante la repetición de las mismas instrucciones anteriores, pero pasando `$false` en el paso, o bien al establecer la opción **Escribir contraseñas en diferido en el directorio local** en **No** en la **sección Directiva de restablecimiento de contraseña del usuario** de la pestaña **Configurar** en el [Portal de administración de Azure](https://manage.windowsazure.com).
 
 #### Comprobar que la configuración se realizó correctamente
 Una vez que la configuración se realice correctamente, verá el mensaje La escritura diferida de restablecimiento de contraseña está habilitada en la ventana de Windows PowerShell o un mensaje de éxito en la interfaz de usuario de la configuración.
@@ -247,7 +248,7 @@ Una vez que haya habilitado la escritura diferida de contraseñas en la herramie
 1.	Una vez que finalice la instalación, si bloquea las conexiones salientes desconocidas en el entorno, también deberá agregar las reglas siguientes al firewall. Asegúrese de reiniciar su máquina con AAD Connect después de realizar estos cambios:
    - Permita conexiones salientes en el puerto TCP 443
    - Permita conexiones salientes a https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   - Cuando use un servidor proxy o tenga problemas generales de conectividad, permita conexiones salientes en el puerto 9350-9354 y el puerto TCP 5671.
+   - Cuando use un servidor proxy o tenga problemas generales de conectividad, permita conexiones salientes en el puerto TCP 9350-9354
 
 ### Paso 4: configurar los permisos adecuados de Active Directory
 Para cada bosque que contiene usuarios con contraseñas que se restablecerán, si X es la cuenta que se especificó para ese bosque en el asistente de configuración (durante la configuración inicial), X debe contar con los derechos extendidos **Restablecer contraseña**, **Cambiar contraseña**, **Escribir permisos** en `lockoutTime` y **Escribir permisos** en `pwdLastSet` sobre el objeto raíz de cada dominio del bosque en cuestión. El derecho debe estar marcado como heredado por todos los objetos de usuario.
@@ -280,7 +281,9 @@ Si no está seguro de cuál es la cuenta a la que se hace referencia en el párr
 8.	En la lista desplegable que aparece en la parte superior, seleccione **Objetos de usuario descendientes**.
 9.	En el cuadro de diálogo **Entrada de permiso** que aparece, active la casilla correspondiente a **Restablecer contraseña**, **Cambiar contraseña**, **Escribir permisos** en `lockoutTime` y **Escribir permisos** en `pwdLastSet`.
 
-    ![][026] ![][027] ![][028]
+    ![][026]
+    ![][027]
+    ![][028]
 
 10.	Luego haga clic en **Aplicar o Aceptar** en todos los cuadros de diálogo abiertos.
 

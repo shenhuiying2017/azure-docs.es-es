@@ -235,8 +235,10 @@ Si recibe el error: "**La suscripción no está registrada para usar el espacio 
 ## Uso del Explorador de servidores para ver las entidades de Data Factory
 
 1. En **Visual Studio** haga clic en **Vista** en el menú y haga clic en **Explorador de servidores**.
-2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**.![Explorador de servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos al nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente. ![Exportar factoría de datos a un proyecto de VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**.  
+	![Explorador de servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos al nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente.  
+	![Exportar factoría de datos a un proyecto de VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Actualización de herramientas de Factoría de datos para Visual Studio
 Para actualizar las herramientas de Factoría de datos de Azure para Visual Studio, haga lo siguiente:
