@@ -114,8 +114,8 @@ Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería
 
    ![Texto alternativo][4]
 
-2. Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario. 
-3. Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario. 
+2.Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario.
+3.Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario.
 Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
 
 ##Definición literal
