@@ -79,4 +79,4 @@ Ahora ha creado una máquina virtual con Linux rápidamente para usarla con fine
 
 Estos artículos le introducirán en la creación de una infraestructura de Azure, así como de un número cualquiera de herramientas de orquestación, configuración e implementación de infraestructura de código abierto de su propiedad.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->
