@@ -293,4 +293,4 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 	En Azure puede ejecutar aplicaciones web en Aplicaciones web del Servicio de aplicaciones, como se muestra en este tutorial, o bien en Servicios en la nube o en Máquinas virtuales. Para más información, consulte [Comparación del Servicio de aplicaciones de Azure, Servicios en la nube de Azure, máquinas virtuales de Azure y Azure Service Fabric](/manage/services/web-sites/choose-web-app-service/).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!----HONumber=AcomDC_0427_2016-->
