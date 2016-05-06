@@ -19,7 +19,7 @@
 # Azure AD Connect: actualización de una versión anterior a la versión más reciente
 En este tema se describen los distintos métodos que puede utilizar para actualizar la instalación de Azure AD Connect a la versión más reciente. Le recomendamos mantenerse al día con las versiones de Azure AD Connect.
 
-Si quiere actualizar desde DirSync, consulte en su lugar [Azure AD Connect: actualización de Microsoft Azure Active Directory Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Si quiere actualizar desde DirSync, consulte en su lugar [Azure AD Connect: actualización de Windows Azure Active Directory Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 Hay algunas estrategias distintas para actualizar Azure AD Connect.
 
@@ -51,7 +51,7 @@ Los dos servidores pueden usar versiones diferentes; por ejemplo, el servidor ac
 
 Nota: Se ha observado que algunos clientes prefieren tener tres o cuatro servidores para esto. Puesto que el servidor provisional se está actualizando, durante este tiempo no tendrá un servidor de copia de seguridad para el caso de una [recuperación ante desastres](active-directory-aadconnectsync-operations.md#disaster-recovery). Se puede preparar un nuevo conjunto de servidores primarios/en espera con la nueva versión (hasta cuatro servidores como máximo) y asegurarse de que siempre haya un servidor de ensayo preparado para tomar el control.
 
-Estos pasos también sirven para pasar de Azure AD Sync o de una solución con FIM + el Conector de Azure AD. Estos pasos no sirven para DirSync, pero el mismo método de migración oscilante (también llamada implementación paralela) con los pasos para DirSync se pueden encontrar en [Azure AD Connect: actualización de Microsoft Azure Active Directory Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Estos pasos también sirven para pasar de Azure AD Sync o de una solución con FIM + el Conector de Azure AD. Estos pasos no sirven para DirSync, pero el mismo método de migración oscilante (también llamada implementación paralela) con los pasos para DirSync se pueden encontrar en [Azure AD Connect: actualización de Windows Azure Active Directory Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 ### Pasos de la migración oscilante
 
@@ -59,7 +59,7 @@ Estos pasos también sirven para pasar de Azure AD Sync o de una solución con F
 2. Si ha realizado una configuración personalizada y su servidor provisional no la tiene, siga los pasos que se indican en [Traslado de la configuración personalizada del servidor activo al servidor provisional](#move-custom-configuration-from-active-to-staging-server).
 3. Si está actualizando desde una versión anterior de Azure AD Connect, actualice el servidor provisional a la versión más reciente. Si va a mover desde Sincronización de Azure AD, instale Azure AD Connect en el servidor provisional.
 4. Permita que el motor de sincronización ejecute la importación y la sincronización completas en el servidor provisional.
-5. Compruebe que la nueva configuración no ha provocado ningún cambio inesperado usando los pasos que se indican en **Verify** en [Comprobación de la configuración de un servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Si algo no está como se esperaba, corríjalo, ejecute la importación y la sincronización y compruebe hasta que los datos sean correctos. Estos pasos se pueden encontrar en el tema vinculado.
+5. Compruebe que la nueva configuración no ha provocado ningún cambio inesperado usando los pasos que se indican en **Verificar** en [Comprobación de la configuración de un servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Si algo no está como se esperaba, corríjalo, ejecute la importación y la sincronización y compruebe hasta que los datos sean correctos. Estos pasos se pueden encontrar en el tema vinculado.
 6. Cambie el servidor de ensayo para que sea el servidor activo. Este es el paso final: **Cambio de servidor activo** en [Comprobación de la configuración de un servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server).
 7. Si va a actualizar Azure AD Connect, actualice el servidor que está actualmente en modo provisional a la versión más reciente. Siga los mismos pasos que antes para actualizar los datos y la configuración. Si va a mover desde Sincronización de Azure AD, puede desactivar y retirar el servidor anterior.
 
