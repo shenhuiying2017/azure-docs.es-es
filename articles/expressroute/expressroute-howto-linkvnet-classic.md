@@ -156,4 +156,4 @@ El usuario del circuito puede ejecutar el siguiente cmdlet para canjear una auto
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

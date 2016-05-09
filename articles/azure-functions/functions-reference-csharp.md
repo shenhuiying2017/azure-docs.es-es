@@ -180,7 +180,7 @@ Las aplicaciones de la función se integran en el Servicio de aplicaciones, por 
 
 #### Carga del archivo project.json con el punto de conexión SCM (Kudu) de la aplicación de la función
 
-1. Vaya a: *https://<function_app_name>.scm.azurewebsites.net*.
+1. Vaya a: `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Haga clic en **Consola de depuración > CMD**.
 
@@ -192,11 +192,11 @@ Las aplicaciones de la función se integran en el Servicio de aplicaciones, por 
 
 1. Siga las instrucciones descritas [aquí](../app-service-web/web-sites-deploy.md#ftp) para configurar el FTP.
 
-2. Cuando esté conectado al sitio de la aplicación de la función, copie el archivo *project.json* en */site/wwwroot/<function_name>*.
+2. Cuando esté conectado al sitio del contenedor de funciones, copie el archivo *project.json* en */site/wwwroot/<function_name>*.
 
 #### Registro de instalación del paquete 
 
-Una vez cargado el archivo *project.json*, verá una salida similar al del ejemplo siguiente en el registro de streaming de la función:
+Una vez cargado el archivo *project.json*, verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -258,4 +258,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

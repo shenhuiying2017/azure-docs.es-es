@@ -3,7 +3,7 @@
     description="Aprenda cómo usar Google Apps con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/17/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #Tutorial: Integración de Google Apps con Azure Active Directory
 
@@ -313,4 +313,4 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->

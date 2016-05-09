@@ -19,13 +19,11 @@ Las tareas más comunes son:
 
 ##Búsqueda de extensiones disponibles
 
-Son extensiones de máquina virtual de Azure (para obtener una lista completa de extensiones por las características que admiten, vea [Características y extensiones de máquina virtual de Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md)). Puede buscar la extensión e información extendida con:
+Puede buscar la extensión e información extendida con:
 
 -   PowerShell
 -   Interfaz entre plataformas de Azure (CLI de Azure)
 -   API de REST de administración del servicio
-
-Use los cmdlet de [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) o las [API de REST de administración de servicios](https://msdn.microsoft.com/library/ee460799.aspx) para encontrar información sobre extensiones disponibles.
 
 ###Azure PowerShell
 
@@ -121,4 +119,4 @@ Puede usar las API de REST siguientes para saber si una extensión requiere una 
 
 >[AZURE.NOTE]Las extensiones también pueden usar configuraciones que se definen con JSON. Cuando se utilizan estos tipos de extensiones, solo se usa el elemento **SampleConfig**.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

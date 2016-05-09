@@ -19,8 +19,9 @@
 # Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales del Administrador de recursos de Azure (GUI).
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portal: clásico](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Portal: Resource Manager: Plantilla ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Portal: Resource Manager: manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Portal: clásico: manual](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [PowerShell: clásico](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
@@ -54,9 +55,9 @@ En este tutorial se da por hecho lo siguiente:
 
 - Ya tiene una cuenta de Azure. Si no tiene ninguna, [suscríbase para obtener una cuenta de prueba](http://azure.microsoft.com/pricing/free-trial/).
 
-- Ya sabe cómo aprovisionar una máquina virtual de SQL Server desde la galería de máquina virtual mediante la interfaz gráfica de usuario (GUI). Para más información, consulte [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md) (Aprovisionamiento de una máquina virtual de SQL Server en el Portal de Azure).
+- Ya sabe cómo aprovisionar una máquina virtual de SQL Server desde la galería de máquina virtual mediante la interfaz gráfica de usuario (GUI). Para más información, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-- Ya tiene un conocimiento sólido de los Grupos de disponibilidad AlwaysOn. Para obtener más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
+- Ya tiene un conocimiento sólido de los Grupos de disponibilidad AlwaysOn. Para más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
 >[AZURE.NOTE] Si tiene interés en usar los grupos de disponibilidad AlwaysOn con SharePoint, consulte también [Configuración de grupos de disponibilidad AlwaysOn de SQL Server 2012 para SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
 
@@ -75,16 +76,14 @@ En este tutorial se usará el Portal de Azure para:
 Azure ofrece una galería de imágenes para toda la solución. Para encontrar la plantilla:
 
 1. 	Inicie sesión en el Portal de Azure con su cuenta.
-1.	En el Portal de Azure, haga clic en **+Nuevo**. El portal abrirá la hoja Nuevo.
-1.	En la hoja Nuevo, busque **AlwaysOn**.
-![Buscar la plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-1.	En los resultados de búsqueda, localice **Clúster AlwaysOn de SQL Server**.
-![Plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
-1.	En **Seleccionar un modelo de implementación**, elija **Resource Manager**.
+1.	En el Portal de Azure, haga clic en **+Nuevo.** El portal abrirá la hoja Nuevo.
+1.	En la hoja Nuevo, busque **AlwaysOn**. ![Buscar la plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
+1.	En los resultados de búsqueda, localice **Clúster AlwaysOn de SQL Server**. ![Plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
+1.	En **Seleccionar un modelo de implementación,** elija **Resource Manager**.
 
 ### Aspectos básicos
 
-Haga clic en **Básico** y configure las siguientes opciones:
+Haga clic en **Aspectos básicos** y configure las opciones siguientes:
 
 - **Nombre de usuario del administrador**: es una cuenta de usuario con permisos de administrador de dominio y un miembro del rol de servidor fijo sysadmin de SQL Server en ambas instancias de SQL Server. Use **DomainAdmin** en este tutorial.
 
@@ -96,7 +95,7 @@ Haga clic en **Básico** y configure las siguientes opciones:
 
 - **Ubicación**: es la región de Azure en la que se crearán los recursos para este tutorial. Seleccione una región de Azure para hospedar la infraestructura.
 
-A continuación se muestra el aspecto de la hoja **Básico**:
+A continuación, se muestra cómo se ve la hoja **Aspectos básicos**:
 
 ![Aspectos básicos](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
@@ -146,7 +145,7 @@ Si es necesario, puede cambiar estos valores. En este tutorial use los valores p
 
 En **Tamaño de VM y configuración de almacenamiento**, elija un tamaño de máquina virtual de SQL Server y revise el resto de las configuraciones.
 
-- **Tamaño de máquina virtual de SQL Server**: es el tamaño de la máquina virtual de Azure para ambos servidores de SQL Server. Elija un tamaño de máquina virtual adecuado para la carga de trabajo. Si va a crear este entorno para el tutorial, use **DS2**. Para cargas de trabajo de producción elija un tamaño de máquina virtual que pueda admitir la carga de trabajo. Muchas cargas de trabajo de producción necesitarán **DS4** o superior. La plantilla creará dos máquinas virtuales de este tamaño e instalará SQL Server en cada uno de ellas. Para obtener más información, consulte [Sizes for virtual machines](virtual-machines-linux-sizes.md) (Tamaños de máquinas virtuales).
+- **Tamaño de máquina virtual de SQL Server**: es el tamaño de la máquina virtual de Azure para ambos servidores de SQL Server. Elija un tamaño de máquina virtual adecuado para la carga de trabajo. Si va a crear este entorno para el tutorial, use **DS2**. Para cargas de trabajo de producción elija un tamaño de máquina virtual que pueda admitir la carga de trabajo. Muchas cargas de trabajo de producción necesitarán **DS4** o superior. La plantilla creará dos máquinas virtuales de este tamaño e instalará SQL Server en cada uno de ellas. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-linux-sizes.md).
 
 >[AZURE.NOTE]Azure instalará Enterprise Edition de SQL Server. El costo depende de la edición y el tamaño de la máquina virtual. Para obtener información detallada sobre los costos actuales, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
@@ -245,8 +244,7 @@ Para la RDP al controlador de dominio principal, siga estos pasos:
 
 1.	En la hoja **Recursos**, haga clic en **ad-primary-dc**, que es el nombre del equipo de la máquina virtual del controlador de dominio principal.
 
-1.	En la hoja de **ad-primary-dc**, haga clic en **Conectar**. El explorador le preguntará si desea abrir o guardar el objeto de conexión remota. Haga clic en **Abrir**.
-![Conectarse al controlador de dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
+1.	En la hoja de **ad-primary-dc**, haga clic en **Conectar**. El explorador le preguntará si desea abrir o guardar el objeto de conexión remota. Haga clic en **Abrir**. ![Conectarse al controlador de dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
 1.	**Conexión a Escritorio remoto**: puede advertirle de que no se puede identificar el publicador de esta conexión remota. Haga clic en **Conectar**.
 
 1.	Seguridad de Windows le pide que escriba sus credenciales para conectarse a la dirección IP del controlador de dominio principal. Haga clic en **Usar otra cuenta**. En **Nombre de usuario**, escriba **contoso\\DomainAdmin**. Esta es la cuenta que eligió para el nombre de usuario del administrador. Utilice la contraseña compleja que eligió al configurar la plantilla.
@@ -263,4 +261,4 @@ Ahora está conectado al controlador de dominio principal. Para la RDP a SQL Ser
 
 Ahora está conectado con RDP a SQL Server. Puede abrir SQL Server Management Studio, conectarse a la instancia predeterminada de SQL Server y comprobar que el grupo de disponibilidad AlwaysOn está configurado.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -3,8 +3,8 @@
    description="Este artículo le guiará por la conexión de varios sitios locales a una red virtual con una puerta de enlace de VPN para el modelo de implementación clásica."
    services="vpn-gateway"
    documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
+   authors="yushwang"
+   manager="rossort"
    editor=""
    tags="azure-service-management"/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/17/2015"
-   ms.author="cherylmc" />
+   ms.author="yushwang" />
 
 # Conexión de varios sitios locales a una red virtual
 
@@ -177,4 +177,4 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 
 Para más información sobre las puertas de enlace de VPN, consulte [Acerca de las puertas de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

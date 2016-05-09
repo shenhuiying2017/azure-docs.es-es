@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/19/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: limitaciones y restricciones
@@ -92,4 +92,4 @@ No podrá eliminar un inquilino de Azure AD B2C en el Portal de Azure clásico.
 
 Actualmente no se puede comprobar un dominio correctamente en el [Portal de Azure clásico](https://manage.windowsazure.com/). Estamos trabajando en una solución.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 # Referencia para Analytics
@@ -25,27 +25,25 @@
 
 | | | | | 
 |---|---|---|---|---
-|[ago](#ago)|[dayofweek](#dayofweek)|[Cláusula let](#let-clause)|[range](#range)|[Operador summarize](#summarize-operator)
-|[cualquiera](#any)|[dcount](#dcount)|[Operador limit](#limit-operator)|[Operador range](#range-operator)|[Operador take](#take-operator)
-|[argmax](#argmax)|[Objetos dinámicos en cláusulas let](#dynamic-objects-in-let-clauses)|[makelist](#makelist)|[Operador reduce](#reduce-operator)|[todatetime](#todatetime)
-|[argmin](#argmin)|[Operador extend](#extend-operator)|[makeset](#makeset)|[Directiva render](#render-directive)|[todouble](#todouble)
-|[Operadores aritméticos](#arithmetic-operators)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
-|[Literales de matriz y objeto](#array-and-object-literals)|[extractjson](#extractjson)|[min](#min)|[Comparaciones escalares](#scalar-comparisons)|[toint](#toint)
-|[arraylength](#arraylength)|[floor](#floor)|[Operador mvexpand](#mvexpand-operator)|[Operador sort](#sort-operator)|[tolong](#tolong)
-|[avg](#avg)|[getmonth](#getmonth)|[notempty](#notempty)|[split](#split)|[tolower](#tolower)
-|[bin](#bin)|[gettype](#gettype)|[notnull](#notnull)|[sqrt](#sqrt)|[Operador top](#top-operator)
-|[Literales booleanos](#boolean-literals)|[getyear](#getyear)|[now](#now)|[startofmonth](#startofmonth)|[totimespan](#totimespan)
-|[Operadores booleanos](#boolean-operators)|[hash](#hash)|[Literales numéricos](#numeric-literals)|[startofyear](#startofyear)|[toupper](#toupper)
-|[buildschema](#buildschema)|[iff](#iff)|[Literales de cadena ofuscados](#obfuscated-string-literals)|[stdev](#stdev)|[treepath](#treepath)
-|[Conversiones de tipos](#casts)|[isempty](#isempty)|[Operador parse](#parse-operator)|[strcat](#strcat)|[Operador union](#union-operator)
-|[count](#count)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[Comparaciones de cadenas](#string-comparisons)|[variance](#variance)
-|[Operador count](#count-operator)|[isnotnull](#isnotnull)|[percentile](#percentile)|[Literales de cadena](#string-literals)|[Operador where](#where-operator)
-|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[strlen](#strlen)
-|[Expresiones de fecha y hora](#date-and-time-expressions)|[Operador join](#join-operator)|[Operador project](#project-operator)|[substring](#substring)
-|[Literales de fecha y hora](#date-and-time-literals)|[Expresiones de ruta de JSON](#json-path-expressions)|[rand](#rand)|[sum](#sum)
-
-
-
+|[ago](#ago)|[dayofweek](#dayofweek)|[Cláusula let](#let-clause)|[rand](#rand)|[sum](#sum)
+|[cualquiera](#any)|[dcount](#dcount)|[Operador limit](#limit-operator)|[range](#range)|[Operador summarize](#summarize-operator)
+|[argmax](#argmax)|[Objetos dinámicos en cláusulas let](#dynamic-objects-in-let-clauses)|[log](#log)|[Operador range](#range-operator)|[Operador take](#take-operator)
+|[argmin](#argmin)|[exp](#exp)|[makelist](#makelist)|[Operador reduce](#reduce-operator)|[todatetime](#todatetime)
+|[Operadores aritméticos](#arithmetic-operators)|[Operador extend](#extend-operator)|[makeset](#makeset)|[Directiva render](#render-directive)|[todouble](#todouble)
+|[Literales de matriz y objeto](#array-and-object-literals)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
+|[arraylength](#arraylength)|[extractjson](#extractjson)|[min](#min)|[Cláusula restrict](#restrict-clause)|[toint](#toint)
+|[avg](#avg)|[floor](#floor)|[Operador mvexpand](#mvexpand-operator)|[Comparaciones escalares](#scalar-comparisons)|[tolong](#tolong)
+|[bin](#bin)|[getmonth](#getmonth)|[notempty](#notempty)|[Operador sort](#sort-operator)|[tolower](#tolower)
+|[Literales booleanos](#boolean-literals)|[gettype](#gettype)|[notnull](#notnull)|[split](#split)|[Operador top](#top-operator)
+|[Operadores booleanos](#boolean-operators)|[getyear](#getyear)|[now](#now)|[sqrt](#sqrt)|[totimespan](#totimespan)
+|[buildschema](#buildschema)|[hash](#hash)|[Literales numéricos](#numeric-literals)|[startofmonth](#startofmonth)|[toupper](#toupper)
+|[Conversiones de tipos](#casts)|[iff](#iff)|[Literales de cadena ofuscados](#obfuscated-string-literals)|[startofyear](#startofyear)|[treepath](#treepath)
+|[count](#count)|[isempty](#isempty)|[Operador parse](#parse-operator)|[stdev](#stdev)|[Operador union](#union-operator)
+|[Operador count](#count-operator)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[strcat](#strcat)|[variance](#variance)
+|[countif](#countif)|[isnotnull](#isnotnull)|[percentile](#percentile)|[Comparaciones de cadenas](#string-comparisons)|[Operador where](#where-operator)
+|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[Literales de cadena](#string-literals)
+|[Expresiones de fecha y hora](#date-and-time-expressions)|[Operador join](#join-operator)|[Operador project](#project-operator)|[strlen](#strlen)
+|[Literales de fecha y hora](#date-and-time-literals)|[Expresiones de ruta de JSON](#json-path-expressions)|[Operador project-away](#project-away-operator)|[substring](#substring)
 
 
 ## Consultas y operadores
@@ -54,14 +52,17 @@ Una consulta sobre datos de telemetría se compone de una referencia a una secue
 
 
 ```AIQL
-requests
-| where client_City == "London" and timestamp > ago(3d)
-| count
+requests // The request table starts this pipeline.
+| where client_City == "London" // filter the records
+   and timestamp > ago(3d)
+| count 
 ```
     
 Cada filtro precedido por el carácter de barra vertical `|` es una instancia de un *operador*, con algunos parámetros. La entrada del operador es la tabla que resulta de la canalización anterior. En la mayoría de los casos, los parámetros son [expresiones escalares](##scalars) sobre las columnas de entrada. En algunos casos, los parámetros son los nombres de las columnas de entrada y, en otros casos, el parámetro es una segunda tabla. El resultado de una consulta siempre es una tabla, incluso si solo tiene una columna y una fila.
 
-Una consulta puede ir precedida de una o más [cláusulas let](#let-clause) que definen valores escalares, tablas o funciones que pueden utilizarse dentro de la consulta.
+Las consultas pueden contener saltos de línea únicos, pero terminan en una línea en blanco. Pueden contener comentarios entre `//` y el final de la línea.
+
+Una consulta puede ir precedida por una o más [cláusulas let](#let-clause) que definen valores escalares, tablas o funciones que pueden utilizarse dentro de la consulta.
 
 ```AIQL
 
@@ -114,8 +115,8 @@ Anexa una o más columnas calculadas a una tabla.
 **Argumentos**
 
 * *T:* la tabla de entrada.
-* *ColumnName:* el nombre de una columna a agregar. 
-* *Expression:* un cálculo sobre las columnas existentes.
+* *ColumnName:* el nombre de una columna que se va a agregar. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
+* *Expression:* un cálculo con las columnas existentes.
 
 **Devoluciones**
 
@@ -123,8 +124,8 @@ Una copia de la tabla de entrada con las columnas adicionales especificadas.
 
 **Sugerencias**
 
-* Utilice como alternativa [`project`](#project-operator), si también desea quitar o cambiar el nombre de algunas columnas.
-* No use `extend` simplemente para obtener un nombre más corto para usar en una expresión larga. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
+* Use como alternativa [`project`](#project-operator), si también desea quitar o cambiar el nombre de algunas columnas.
+* No use `extend` simplemente para obtener un nombre más corto que usar en una expresión larga. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
 
     Las columnas originales de la tabla se han indexado; el nuevo nombre define una columna adicional que no está indexada, por lo que posiblemente la consulta se ejecute con lentitud
 
@@ -164,13 +165,13 @@ Una tabla con:
 
 * `Kind` sin especificar
 
-    Solo una fila del lado izquierdo se hace corresponder para cada valor de la clave `on`. La salida contiene una fila por cada coincidencia de esta fila con filas de la derecha.
+    Solo se hace corresponder una fila del lado izquierdo para cada valor de la clave `on`. La salida contiene una fila por cada coincidencia de esta fila con filas de la derecha.
 
 * `Kind=inner`
  
      Hay una fila en la salida por cada combinación de filas coincidentes de la izquierda y la derecha.
 
-* `kind=leftouter` (o `kind=rightouter` o `kind=fullouter`)
+* `kind=leftouter` (`kind=rightouter` o `kind=fullouter`)
 
      Además de las coincidencias internas, hay una fila por cada fila de la izquierda (o derecha), incluso si no tiene ninguna coincidencia. En este caso, las celdas de salida sin coincidencias contienen valores NULL.
 
@@ -184,7 +185,7 @@ Si hay varias filas con los mismos valores para esos campos, obtendrá filas par
 
 Para obtener el mejor rendimiento:
 
-* Use `where` y `project` para reducir el número de filas y columnas en las tablas de entrada antes del `join`. 
+* Use `where` y `project` para reducir el número de filas y columnas en las tablas de entrada antes de `join`. 
 * Si una tabla siempre es menor que la otro, úsela como lado izquierdo (canalizado) de la combinación.
 * Las columnas para la coincidencia de la combinación tienen que tener el mismo nombre. Utilice el operador project si es necesario cambiar el nombre de una columna en una de las tablas.
 
@@ -223,7 +224,7 @@ Obtener más actividades de un registro en el que algunas entradas marcan el ini
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-Una cláusula let enlaza un nombre a un resultado tabular, un valor escalar o una función. La cláusula es un prefijo a una consulta y el ámbito del enlace es esa consulta. (La cláusula let no proporciona una forma para dar nombre a elementos que se utilizan más adelante en la sesión.)
+Una cláusula let enlaza un [nombre](#names) a un resultado tabular, un valor escalar o una función. La cláusula es un prefijo a una consulta y el ámbito del enlace es esa consulta. (La cláusula let no proporciona una forma para dar nombre a elementos que se utilizan más adelante en la sesión.)
 
 **Sintaxis**
 
@@ -237,9 +238,6 @@ Una cláusula let enlaza un nombre a un resultado tabular, un valor escalar o un
 * *plain\_query:* una consulta no precedida por una cláusula let.
 
 **Ejemplos**
-
-
-
 
     let rows(n:long) = range steps from 1 to n step 1;
     rows(10) | ...
@@ -271,7 +269,7 @@ Vuelve al número especificado de filas de la tabla de entrada. No hay ninguna g
 
 **Sugerencias**
 
-`Take` es una manera sencilla y eficaz para ver un ejemplo de los resultados cuando se está trabajando de forma interactiva. Tenga en cuenta que no hay garantía de que se generen ningunas filas específicas o de que lo hagan en un orden determinado.
+`Take` es una manera sencilla y eficaz de ver un ejemplo de los resultados cuando se está trabajando de forma interactiva. Tenga en cuenta que no hay garantía de que se generen ningunas filas específicas o de que lo hagan en un orden determinado.
 
 Hay un límite implícito en el número de filas devueltas al cliente, incluso si no utiliza `take`. Para eliminar este límite, use la opción de solicitud de cliente `notruncation`.
 
@@ -283,7 +281,7 @@ Hay un límite implícito en el número de filas devueltas al cliente, incluso s
 
 Expande una lista de una celda de tipo dinámico (JSON) para que cada entrada tenga una fila independiente. Todas las demás celdas de una fila expandida se duplican.
 
-(Vea también [`summarize makelist`](#summarize-operator) que realiza la función opuesta).
+(Consulte también [`summarize makelist`](#summarize-operator), que realiza la función opuesta).
 
 **Ejemplo**
 
@@ -317,7 +315,7 @@ El resultado es:
 
 * *ColumnName:* en el resultado, las matrices en la columna indicada se expanden a varias filas. 
 * *ArrayExpression:* expresión que produce una matriz. Si se usa esta forma, se agrega una nueva columna y se conserva la existente.
-* *Nombre:* un nombre para la nueva columna.
+* *Name:* un nombre para la nueva columna.
 * *Typename:* convierte la expresión expandida en un tipo determinado.
 * *RowLimit:* el número máximo de filas generadas a partir de cada fila original. El valor predeterminado es 128.
 
@@ -364,7 +362,7 @@ Los elementos de la cláusula `with` se hacen coincidir a su vez con la cadena d
 
 * *T:* la tabla de entrada.
 * *kind:* simple o regex. El valor predeterminado es simple.
-* *StringExpression:* una expresión que se evalúa como, o se puede convertir en, una cadena.
+* *StringExpression:* una expresión que se evalúa como cadena o se puede convertir en una.
 * *SimpleMatch:* una cadena que coincide con la siguiente parte del texto.
 * *Column:* especifica la nueva columna para asignarle una coincidencia.
 * *Type:* especifica cómo analizar la siguiente parte de la cadena de origen.
@@ -377,9 +375,9 @@ La tabla de entrada ampliada según la lista de columnas.
 
 **Ejemplos**
 
-El operador `parse` proporciona una manera simplificada para `extend` una tabla utilizando varias aplicaciones `extract` en la misma expresión `string`. Esto resulta especialmente útil cuando la tabla tiene una columna `string` que contiene varios valores que desea dividir en columnas individuales, como una columna que se ha generado con una instrucción ("`printf`"/"`Console.WriteLine`") de seguimiento de desarrollador.
+El operador `parse` proporciona una manera simplificada de extender (`extend`) una tabla utilizando varias aplicaciones `extract` en la misma expresión `string`. Esto resulta especialmente útil cuando la tabla tiene una columna `string` que contiene varios valores que desea dividir en columnas individuales, como una columna que se ha generado con una instrucción ("`printf`"/"`Console.WriteLine`") de seguimiento de desarrollador.
 
-En el ejemplo siguiente, supongamos que la columna `EventNarrative` de la tabla `StormEvents` contiene cadenas del tipo `{0} at {1} crested at {2} feet around {3} on {4} {5}`. La siguiente operación ampliará la tabla con dos columnas: `SwathSize` y `FellLocation`.
+En el ejemplo siguiente, supongamos que la columna `EventNarrative` de la tabla `StormEvents` contiene cadenas del tipo `{0} at {1} crested at {2} feet around {3} on {4} {5}`. La siguiente operación extenderá la tabla con dos columnas: `SwathSize` y `FellLocation`.
 
 
 |EventNarrative|
@@ -448,7 +446,7 @@ Seleccione las columnas que desea incluir, cambie el nombre o quite e inserte nu
 **Argumentos**
 
 * *T:* la tabla de entrada.
-* *ColumnName:* el nombre de una columna para que aparezca en la salida. Si no hay valor de *Expression*, una columna de ese nombre tiene que aparecer en la entrada. 
+* *ColumnName:* el nombre de una columna para que aparezca en la salida. Si no hay valor de *Expression*, tiene que aparecer una columna de ese nombre en la entrada. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
 * *Expression:* expresión escalar opcional que hace referencia a las columnas de entrada. 
 
     Es posible devolver una nueva columna calculada con el mismo nombre que una columna existente en la entrada.
@@ -459,18 +457,23 @@ Una tabla que tiene las columnas con nombres de argumentos y tantas filas como l
 
 **Ejemplo**
 
-El ejemplo siguiente muestra variantes de manipulaciones que se pueden hacer utilizando el operador `project`. La tabla de entrada `T` tiene tres columnas de tipo `int`: `A`, `B` y `C`.
+El ejemplo siguiente muestra variantes de manipulaciones que se pueden hacer con el operador `project`. La tabla de entrada `T` tiene tres columnas de tipo `int`: `A`, `B` y `C`.
 
 ```AIQL
 T
 | project
-    X=C,                       // Rename column C to X
-    A=2*B,                     // Calculate a new column A from the old B
+    X=C,               // Rename column C to X
+    A=2*B,             // Calculate a new column A from the old B
     C=strcat("-",tostring(C)), // Calculate a new column C from the old C
-    B=2*B                      // Calculate a new column B from the old B
+    B=2*B,              // Calculate a new column B from the old B
+    ['where'] = client_City // rename, using a keyword as a column name
 ```
 
+### Operador project-away
 
+    T | project-away column1, column2, ...
+
+Excluye las columnas especificadas. El resultado contiene todas las columnas de entrada excepto las que se mencionen.
 
 ### Operador range
 
@@ -498,11 +501,11 @@ Genera una tabla de valores de una columna única. Tenga en cuenta que no tiene 
 * *Stop:* el valor más alto que se genera en la salida (o un límite en el valor más alto, si el valor *step* sobrepasa este valor).
 * *Step:* la diferencia entre dos valores consecutivos. 
 
-Los argumentos tienen que ser valores numéricos, de fecha o intervalo de tiempo. No pueden tener como referencia las columnas de una tabla. (Si desea calcular el intervalo en base a una tabla de entrada, utilice la función [range ](#range), posiblemente con el [operador mvexpand](#mvexpand-operator)).
+Los argumentos tienen que ser valores numéricos, de fecha o intervalo de tiempo. No pueden tener como referencia las columnas de una tabla. (Si desea calcular el intervalo con base en una tabla de entrada, utilice la función [range*,*](#range) posiblemente con el [operador mvexpand](#mvexpand-operator)).
 
 **Devoluciones**
 
-Una tabla con una única columna denominada *ColumnName*, cuyos valores son *Start*, *Start* + *Step*, ... hasta *Stop* que también se incluye.
+Una tabla con una única columna denominada *ColumnName*, cuyos valores son *Start*, *Start* + *Step*,… hasta *Stop*, que también se incluye.
 
 **Ejemplo**
 
@@ -510,7 +513,7 @@ Una tabla con una única columna denominada *ColumnName*, cuyos valores son *Sta
 range Steps from 1 to 8 step 3
 ```
 
-Una tabla con una única columna denominada `Steps` cuyo tipo sea `long` y cuyos valores son `1`, `4`, y `7`.
+Una tabla con una única columna denominada `Steps` cuyo tipo sea `long` y cuyos valores sean `1`, `4` y `7`.
 
 **Ejemplo**
 
@@ -531,13 +534,13 @@ range timestamp from ago(4h) to now() step 1m
 | render timechart  
 ```
 
-Muestra cómo el operador `range` puede utilizarse para crear una pequeña tabla de dimensiones ad hoc que, a continuación, se usa para introducir ceros donde los datos de origen no tienen valores.
+Muestra cómo el operador `range` puede utilizarse para crear una pequeña tabla de dimensiones ad hoc que, a continuación, se usa para incluir ceros donde los datos de origen no tienen valores.
 
 ### Operador reduce
 
     exceptions | reduce by outerMessage
 
-Intenta agrupar registros similares. Para cada grupo, el operador envía el `Pattern` que cree que mejor describe a ese grupo y el `Count` de registros de ese grupo.
+Intenta agrupar registros similares. Para cada grupo, el operador envía el valor `Pattern` que cree que mejor describe a ese grupo y el valor `Count` de registros de ese grupo.
 
 
 ![](./media/app-insights-analytics-queries/reduce.png)
@@ -572,6 +575,15 @@ Por ejemplo, el resultado de `reduce by city` podría incluir:
 
 Render indica cómo mostrar la tabla de la capa de presentación. Debe ser el último elemento de la canalización. Es una alternativa cómoda a usar los controles de la pantalla, lo que le permite guardar una consulta con un método de presentación determinado.
 
+### Cláusula restrict 
+
+Especifica el conjunto de nombres de tabla disponibles para los operadores que siguen. Por ejemplo:
+
+    let e1 = requests | project name, client_City;
+    let e2 =  requests | project name, success;
+    // Exclude predefined tables from the union:
+    restrict access to (e1, e2);
+    union * |  take 10 
 
 ### Operador sort 
 
@@ -598,7 +610,7 @@ Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
 ```
-Todas las filas en la tabla Traces que tienen un determinado valor `ActivityId`, ordenados por su marca de tiempo.
+Todas las filas en la tabla Traces que tienen un determinado valor `ActivityId`, ordenadas por su marca de tiempo.
 
 ### Operador summarize
 
@@ -625,9 +637,9 @@ Una tabla que muestra cuántos elementos tienen precios en cada intervalo [0,10.
 
 **Argumentos**
 
-* *Column:* nombre opcional para una columna de resultados. El valor predeterminado es un nombre derivado de la expresión. 
+* *Column:* nombre opcional para una columna de resultados. El valor predeterminado es un nombre derivado de la expresión. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
 * *Aggregation:* una llamada a una función de agregación como `count()` o `avg()`, con nombres de columna como argumentos. Consulte [Agregaciones](#aggregations).
-* *GroupExpression:* una expresión sobre las columnas que proporciona un conjunto de valores específicos. Normalmente se trata de un nombre de columna que ya proporciona un conjunto limitado de valores, o `bin()` con una columna numérica o temporal como argumento. 
+* *GroupExpression:* una expresión sobre las columnas que proporciona un conjunto de valores específicos. Normalmente se trata de un nombre de columna que ya proporciona un conjunto limitado de valores o `bin()` con una columna numérica o temporal como argumento. 
 
 Si proporciona una expresión numérica o temporal sin utilizar `bin()`, Analytics la aplica automáticamente con un intervalo de `1h` para horas o `1.0` para números.
 
@@ -649,14 +661,14 @@ Aunque puede proporcionar expresiones arbitrarias tanto para las expresiones de 
 
 ### Operador take
 
-Alias de [límite](#limit-operator)
+Alias de [limit](#limit-operator)
 
 
 ### Operador top
 
     T | top 5 by Name desc
 
-Devuelve los primeros registros *N* ordenados por las columnas especificadas.
+Devuelve los primeros *N* registros ordenados por las columnas especificadas.
 
 
 **Sintaxis**
@@ -667,7 +679,7 @@ Devuelve los primeros registros *N* ordenados por las columnas especificadas.
 
 * *NumberOfRows:* el número de filas de *T* para devolver.
 * *Sort\_expression:* una expresión para ordenar las filas. Suele ser un nombre de columna. Puede especificar más de una sort\_expression.
-* `asc` o `desc` (valor predeterminado) puede aparecer para controlar si la selección se hace desde "abajo" o desde "arriba" del intervalo.
+* `asc` o `desc` (valor predeterminado) puede aparecer para controlar si la selección se hace desde "arriba" o desde "abajo" del intervalo.
 
 
 **Sugerencias**
@@ -689,18 +701,18 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 
 **Argumentos**
 
-* *Tabla1*, *Tabla2*...
- *  El nombre de una tabla, como `events`; o
- *  Una expresión de consulta como `(events | where id==42)`
- *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `E*` podría formar la unión de todas las tablas en la base de datos cuyos nombres comienzan con `E`.
+* *Table1*, *Table2*…
+ *  El nombre de una tabla, como `requests`, o una tabla definida en una [cláusula let](#let-clause); o
+ *  Una expresión de consulta como `(requests | where success=="True")`
+ *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `e*` formaría la unión de todas las tablas definidas en las cláusulas let anteriores cuyo nombre comience por "e", junto con la tabla "excepciones".
 * `kind`: 
- * `inner` - El resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
- * `outer` - El resultado tiene todas las columnas que se producen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
-* `withsource=`* ColumnName: * si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido a cada fila.
+ * `inner`: el resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
+ * `outer`: el resultado tiene todas las columnas que aparecen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
+* `withsource=`*ColumnName*: si se especifica, el resultado incluirá una columna denominada *ColumnName* cuyo valor indica qué tabla de origen ha contribuido cada fila.
 
 **Devoluciones**
 
-Una tabla con todas las filas que hay en las tablas de entrada.
+Una tabla con tantas filas como haya en todas las tablas de entrada y tantas columnas como nombres únicos de columna existan en las entradas.
 
 **Ejemplo**
 
@@ -758,7 +770,7 @@ Filas en *T* para las que *Predicate* es `true`.
 
 Para obtener el rendimiento más rápido:
 
-* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante sobre la tabla, por lo que `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una [`let`instrucción](#let-clause)).
+* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante sobre la tabla, por lo que `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una cláusula [`let`](#let-clause)).
 
     Por ejemplo, se prefiere `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -780,7 +792,11 @@ Observe que colocamos la comparación entre dos columnas al final, ya que no pue
 
 
 
-## Agregaciones y resumen
+## Agregaciones
+
+Las agregaciones son funciones utilizadas para combinar valores de los grupos creados en la [operación summarize](#summarize-operator). Por ejemplo, en esta consulta, dcount() es una función de agregación:
+
+    requests | summarize dcount(name) by success
 
 ### cualquiera 
 
@@ -806,7 +822,7 @@ traces
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
-Busca una fila en el grupo que minimiza o maximiza *ExprToMaximize*, y devuelve el valor de *ExprToReturn* (o `*` para devolver toda la fila).
+Busca una fila en el grupo que minimiza o maximiza *ExprToMaximize* y devuelve el valor de *ExprToReturn* (o `*` para devolver toda la fila).
 
 **Sugerencia**: El nombre de las columnas por las que se pasa se cambia automáticamente. Para asegurarse de que está utilizando los nombres adecuados, revise los resultados mediante `take 5` antes de canalizarlos a otro operador.
 
@@ -930,12 +946,21 @@ Son equivalentes a un subconjunto de las anotaciones de tipo TypeScript, codific
 
     count([ Predicate ])
 
-Devuelve un número de filas para el que *Predicate* equivale a `true`. Si no hay ningún valor *Predicate* especificado, se devuelve el número total de registros en el grupo.
+Devuelve un número de filas para las que *Predicate* equivale a `true`. Si no hay ningún valor *Predicate* especificado, se devuelve el número total de registros en el grupo.
 
 **Sugerencias de rendimiento**: Utilice `summarize count(filter)` en lugar de `where filter | summarize count()`
 
 > [AZURE.NOTE] Evite usar count() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos será menor que el número de eventos reales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
-   
+
+### countif
+
+    countif(Predicate)
+
+Devuelve un número de filas para las que *Predicate* equivale a `true`.
+
+**Sugerencias de rendimiento**: Utilice `summarize countif(filter)` en lugar de `where filter | summarize count()`
+
+> [AZURE.NOTE] Evite usar countif() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos será menor que el número de eventos reales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
 
 ### dcount
 
@@ -952,7 +977,7 @@ Devuelve una estimación del número de valores distintos de *Expr* en el grupo.
 **Ejemplo**
 
     pageViews 
-    | summarize countries=dcount(client_City) 
+    | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-aggregations/dcount.png)
@@ -976,7 +1001,7 @@ Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintos que *Expr
 **Ejemplo**
 
     pageViews 
-    | summarize countries=makeset(client_City) 
+    | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-aggregations/makeset.png)
@@ -1011,7 +1036,7 @@ Es como `percentile()`, pero calcula un número de valores de percentil (lo cual
 **Ejemplos**
 
 
-El valor de `duration` que es mayor que el 95% del conjunto de la muestra y menor que el 5% del conjunto de la muestra, calculado para cada nombre de la solicitud:
+El valor de `duration` que es mayor que el 95 % del conjunto de la muestra y menor que el 5 % del conjunto de la muestra, calculado para cada nombre de la solicitud:
 
     request 
     | summarize percentile(duration, 95)
@@ -1314,11 +1339,27 @@ La siguiente expresión calcula un histograma de duraciones, con un tamaño de d
 
     T | summarize Hits=count() by bin(Duration, 1s)
 ```
+### exp
+
+    exp(v)   // e raised to the power v
+    exp2(v)  // 2 raised to the power v
+    exp10(v) // 10 raised to the power v
+
+
 
 ### floor
 
 Un alias para [`bin()`](#bin).
 
+
+### log
+
+    log(v)    // Natural logarithm of v
+    log2(v)   // Logarithm base 2 of v
+    log10(v)  // Logarithm base 10 of v
+
+
+`v` debe ser un número real mayor que 0. De lo contrario, se devuelve null.
 
 ### rand
 
@@ -1340,7 +1381,7 @@ La función de raíz cuadrada.
 
 **Argumentos**
 
-* *x:* un número real > = 0.
+* *x:* un número real >= 0.
 
 **Devoluciones**
 
@@ -1465,11 +1506,11 @@ Número total de días transcurridos desde el domingo anterior, como `timespan`.
 
 **Argumentos**
 
-* `a_date`: A `datetime`.
+* `a_date`: un valor `datetime`.
 
 **Devoluciones**
 
-El `timespan` desde medianoche al principio del domingo anterior, redondeado a un número entero de días.
+El valor `timespan` desde medianoche al principio del domingo anterior, redondeado a un número entero de días.
 
 **Ejemplos**
 
@@ -1511,7 +1552,7 @@ La hora UTC actual, con una diferencia opcional determinada por un intervalo de 
 
 **Argumentos**
 
-* *offset:* un `timespan`, agregado a la hora UTC actual. Valor predeterminado: 0.
+* *offset:* un valor `timespan`, agregado a la hora UTC actual. Valor predeterminado: 0.
 
 **Devoluciones**
 
@@ -1631,8 +1672,8 @@ Cuenta las apariciones de una subcadena en una cadena. Las coincidencias de cade
 **Argumentos**
 
 * *text:* una cadena.
-* *search:* la cadena sin formato o la [expresión regular](app-analytics-reference.md#regular-expressions) que coincide en *text*.
-* *kind:* `"normal"|"regex"` Predeterminado `normal`. 
+* *search:* la cadena sin formato o la expresión regular que coincide en *text*.
+* *kind:* `"normal"|"regex"` el valor predeterminado es `normal`. 
 
 **Devoluciones**
 
@@ -1666,7 +1707,7 @@ Obtenga una coincidencia para una [expresión regular](#regular-expressions) des
 
 * *regex:* una [expresión regular](#regular-expressions).
 * *captureGroup:* una constante `int` positiva que indica el grupo de captura que se va a extraer. 0 significa toda la coincidencia; 1, el valor que coincide con el primer elemento "("paréntesis")" de la expresión regular; 2 o más, los posteriores paréntesis.
-* *text:* una `string` para buscar.
+* *text:* un valor `string` para buscar.
 * *typeLiteral:* un literal de tipo opcional (por ejemplo, `typeof(long)`). Si se proporciona, la subcadena extraída se convierte a este tipo. 
 
 **Devoluciones**
@@ -1870,7 +1911,7 @@ Convierte una cadena a mayúsculas.
 
 Este es el resultado de una consulta en una excepción de Application Insights. El valor de `details` es una matriz.
 
-![](./media/app-analytics-scalars/310.png)
+![](./media/app-insights-analytics-scalars/310.png)
 
 **Indexing:** matrices y objetos de índice, al igual que en JavaScript:
 
@@ -1902,7 +1943,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
     | mvexpand details[0].parsedStack[0]
 
 
-![](./media/app-analytics-scalars/410.png)
+![](./media/app-insights-analytics-scalars/410.png)
 
 
 **treepath:** para buscar todas las rutas en un objeto complejo:
@@ -1912,7 +1953,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
     | mvexpand path
 
 
-![](./media/app-analytics-scalars/420.png)
+![](./media/app-insights-analytics-scalars/420.png)
 
 **buildschema:** para buscar el esquema mínimo que admite todos los valores de la expresión en la tabla:
 
@@ -1976,15 +2017,15 @@ T
 |[`extractjson(`path,object`)`](#extractjson)|Usa una ruta para navegar al objeto.
 |[`parsejson(`source`)`](#parsejson)| Convierte una cadena JSON en un objeto dinámico.
 |[`range(`from,to,step`)`](#range)| Una matriz de valores
-|[`mvexpand` listColumn](app-analytics-queries.md#mvexpand-operator) | Replica una fila para cada valor de una lista en una celda especificada.
-|[`summarize buildschema(`column`)`](app-analytics-queries.md#summarize-operator) |Deduce el esquema de tipo del contenido de la columna
-|[`summarize makelist(`column`)` ](app-analytics-queries.md#summarize-operator)| Acopla grupos de filas y coloca los valores de la columna en una matriz.
-|[`summarize makeset(`column`)`](app-analytics-queries.md#summarize-operator) | Acopla grupos de filas y coloca los valores de la columna en una matriz, sin duplicación.
+|[`mvexpand` listColumn](#mvexpand-operator) | Replica una fila para cada valor de una lista en una celda especificada.
+|[`summarize buildschema(`column`)`](#buildschema) |Deduce el esquema de tipo del contenido de la columna
+|[`summarize makelist(`column`)` ](#makelist)| Acopla grupos de filas y coloca los valores de la columna en una matriz.
+|[`summarize makeset(`column`)`](#makeset) | Acopla grupos de filas y coloca los valores de la columna en una matriz, sin duplicación.
 
 ### Objetos dinámicos en cláusulas let
 
 
-[Las cláusulas let](app-analytics-queries.md#let-clause) almacenan valores dinámicos como cadenas, por lo que estas dos cláusulas son equivalentes, y ambas requieren `parsejson` (o `todynamic`) antes de que se utilicen:
+Las [cláusulas let](#let-clause) almacenan valores dinámicos como cadenas, por lo que estas dos cláusulas son equivalentes, y ambas requieren `parsejson` (o `todynamic`) antes de que se utilicen:
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2057,7 +2098,7 @@ La notación [entre corchetes] y la notación de puntos son equivalentes:
 
 **Consejos de rendimiento**
 
-* Aplique cláusulas where antes de usar `extractjson()`
+* Aplique cláusulas where antes de usar `extractjson()`.
 * Considere el uso de una coincidencia de expresión regular con [extract](#extract) en su lugar. Esto puede ejecutarse mucho más rápido, y es efectivo si JSON se genera a partir de una plantilla.
 * Use `parsejson()` si necesita extraer más de un valor de JSON.
 * Considere la posibilidad de analizar el JSON en ingesta declarando que el tipo de columna sea dinámico.
@@ -2094,7 +2135,7 @@ Un objeto de tipo `dynamic` especificado por *json*.
 
 **Ejemplo**
 
-En el ejemplo siguiente, cuando `context_custom_metrics` es un `string` con esta apariencia:
+En el ejemplo siguiente, cuando `context_custom_metrics` es un elemento `string` con esta apariencia:
 
 ```
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
@@ -2167,8 +2208,29 @@ Una matriz de expresiones de ruta.
 
 Observe que "[0]" indica la presencia de una matriz, pero no especifica el índice utilizado por una ruta específica.
 
+## Nombres
 
+Los nombres pueden contener hasta 1024 caracteres. Se distinguen mayúsculas de minúsculas y pueden contener letras, dígitos y caracteres de subrayado (`_`).
+
+Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o usar una palabra clave como nombre. Por ejemplo:
+
+```AIQL
+
+    requests | 
+    summarize  ["distinct urls"] = dcount(name) // non-alphanumerics
+    by  ['where'] = client_City, // using a keyword as a name
+        ['outcome!'] = success // non-alphanumerics
+```
+
+
+|||
+|---|---|
+|['ruta\\archivo\\n' x''] | Se utiliza \\ como carácter de escape.|
+|["d-e.=/f#\\n"] | |
+|[@'ruta\\archivo'] | No se utilizan caracteres de escape: \\ es literal.|
+|[@"\\de vez en cuando"] | |
+|[where] | Se utiliza una palabra clave del lenguaje como nombre.|
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

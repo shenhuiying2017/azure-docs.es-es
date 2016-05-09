@@ -544,7 +544,7 @@ El resultado de la consola aparece en el Panel solo si el programa se ejecuta en
 Deshabilite el registro del panel para escenarios de alto rendimiento. De forma predeterminada, el SDK escribe registros en el almacenamiento y esta actividad puede reducir el rendimiento cuando se procesan muchos mensajes. Para deshabilitar el registro, establezca la cadena de conexión del panel en un valor nulo como se muestra en el ejemplo siguiente.
 
 		JobHostConfiguration config = new JobHostConfiguration();       
-		config.DashboardConnectionString = “”;        
+		config.DashboardConnectionString = "";        
 		JobHost host = new JobHost(config);
 		host.RunAndBlock();
 
@@ -611,4 +611,4 @@ También puede deshabilitar y habilitar de manera dinámica las funciones para c
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

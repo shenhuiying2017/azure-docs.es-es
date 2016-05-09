@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Caso de uso - Generación de perfiles de clientes
 
-Factoría de datos de Azure es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Analytics de aceleradores de soluciones. Para obtener más información acerca de Cortana Analytics, visite[Conjunto de aplicaciones de Cortana Analytics](http://www.microsoft.com/cortanaanalytics). En este documento se describe un caso de uso sencillo para que pueda comprender cómo Factoría de datos de Azure puede resolver los problemas comunes de análisis.
+Data Factory de Azure es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones. Para más información sobre Cortana Intelligence, visite el [conjunto de aplicaciones de Cortana Intelligence](http://www.microsoft.com/cortanaanalytics). En este documento se describe un caso de uso sencillo para que pueda comprender cómo Factoría de datos de Azure puede resolver los problemas comunes de análisis.
 
 Todo lo que necesita para acceder y probar este caso de uso sencillo es una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/). Puede implementar un ejemplo que ponga en marcha este caso de uso siguiendo los pasos descritos en el artículo [Ejemplos](data-factory-samples.md).
 
@@ -36,7 +36,7 @@ Existen muchos desafíos a los que se enfrentan las empresas de juegos al intent
 
 Este caso de uso sencillo puede usarse como un ejemplo de cómo puede usar Factoría de datos de Azure para recopilar, preparar, transformar, analizar y publicar datos.
 
-![Flujo de trabajo de un extremo a otro](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) La ilustración anterior describe cómo las canalizaciones de datos aparecen en la interfaz de usuario del Portal de Azure clásico una vez implementadas.
+![Flujo de trabajo de un extremo a otro](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) La ilustración anterior describe cómo las canalizaciones de datos aparecen en la interfaz de usuario del Portal de Azure una vez implementadas.
 
 1.	**PartitionGameLogsPipeline** lee los eventos de juegos sin procesar de un almacenamiento de blobs y crea particiones basadas en el año, el mes y el día.
 2.	**EnrichGameLogsPipeline** combina eventos de juegos con particiones con datos de referencia de código geográfico y enriquece los datos mediante la asignación de direcciones IP a las ubicaciones geográficas correspondientes.
@@ -48,4 +48,4 @@ En este caso de uso de ejemplo, se usa Factoría de datos de Azure para coordina
 
 Al optimizar el análisis de su perfil de usuario y alinearlo con los objetivos empresariales, la empresa de juegos puede recopilar rápidamente los patrones de uso y analizar la eficacia de sus campañas de marketing para todos sus productos de juegos diferentes.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

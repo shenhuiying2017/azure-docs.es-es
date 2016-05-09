@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/25/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(vista previa)*: Guía de solución de problemas
@@ -41,14 +41,19 @@ Si encuentra una situación en la que uno o más usuarios de su inquilino de Azu
 
 - Asegúrese de que ha [habilitado la sincronización de contraseñas](active-directory-ds-getting-started-password-sync.md) según los pasos que se describen en la Guía de introducción.
 
-- Asegúrese de que la cuenta de usuario afectada no es una cuenta externa en el inquilino de Azure AD. Entre los ejemplos de las cuentas externas se incluyen las cuentas de Microsoft (por ejemplo, 'joe@live.com') o las cuentas de usuario de un directorio de Azure AD externo. Puesto que los Servicios de dominio de Azure AD no tienen las credenciales de dichas cuentas de usuario, estos usuarios no pueden iniciar sesión el dominio administrado.
+- **Cuentas externas** Asegúrese de que la cuenta de usuario afectada no es una cuenta externa en el inquilino de Azure AD. Entre los ejemplos de las cuentas externas se incluyen las cuentas de Microsoft (por ejemplo, 'joe@live.com') o las cuentas de usuario de un directorio de Azure AD externo. Puesto que los Servicios de dominio de Azure AD no tienen las credenciales de dichas cuentas de usuario, estos usuarios no pueden iniciar sesión el dominio administrado.
 
-- Asegúrese de que el prefijo del UPN de la cuenta de usuario afectada (es decir, la primera parte del UPN) del inquilino de Azure AD tiene menos de 20 caracteres de longitud. Por ejemplo, para el UPN 'joereallylongnameuser@contoso.com', el prefijo ('joereallylongnameuser') supera los 20 caracteres y esta cuenta no estará disponible en el dominio administrado de Servicios de dominio de Azure AD.
+- **Prefijo del UPN demasiado largo** Asegúrese de que el prefijo del UPN (es decir, la primera parte del UPN) de la cuenta de usuario afectada del inquilino de Azure AD tiene menos de 20 caracteres de longitud. Por ejemplo, para el UPN 'joereallylongnameuser@contoso.com', el prefijo ('joereallylongnameuser') supera los 20 caracteres y esta cuenta no estará disponible en el dominio administrado de Servicios de dominio de Azure AD.
 
-- **Cuentas sincronizadas:** si las cuentas de usuario afectadas se sincronizan desde un directorio local, compruebe lo siguiente:
+- **Prefijo del UPN duplicado** Asegúrese de que no hay otras cuentas de usuario en el inquilino de Azure AD que tengan el mismo prefijo del UPN (es decir, la primera parte del UPN) que la cuenta de usuario afectada. Por ejemplo, si tiene dos cuentas de usuario "joeuser@finance.contoso.com" y "joeuser@engineering.contoso.com", ambos usuarios experimentarán problemas de inicio de sesión en el dominio administrado. Esto también podría ocurrir si una de las cuentas de usuario es una cuenta externa (p. ej. "joeuser@live.com"). Estamos trabajando para solucionar el problema.
+
+- **Cuentas sincronizadas:** si las cuentas de usuario afectadas se sincronizan desde un directorio local, compruebe que ha hecho lo siguiente:
     - Ha implementado la [versión más reciente recomendada de Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect) o se ha actualización a dicha versión.
+
     - Ha configurado Azure AD Connect para [realizar una sincronización completa](active-directory-ds-getting-started-password-sync.md).
+
     - En función del tamaño de su directorio, se puede tardar algo en que las cuentas de usuario y los hash de credenciales estén disponibles en Servicios de dominio de Azure AD. Asegúrese de esperar el tiempo suficiente antes de volver a intentar la autenticación (depende del tamaño de su directorio, desde unas horas a un día o dos, para directorios grandes).
+
     - Si el problema persiste después de comprobar los pasos anteriores, pruebe a reiniciar el servicio de sincronización de Microsoft Azure AD. En el equipo de sincronización, inicie un símbolo del sistema y ejecute los comandos siguientes:
       1. net stop 'Microsoft Azure AD Sync'
       2. net start 'Microsoft Azure AD Sync'
@@ -57,9 +62,6 @@ Si encuentra una situación en la que uno o más usuarios de su inquilino de Azu
 
 
 ### Ponerse en contacto con nosotros
-Si tiene problemas con su dominio administrado, compruebe si los pasos descritos en esta guía de solución de problemas resuelven el problema. Si sigue teniendo problemas, no dude en ponerse en contacto con nosotros en:
+Póngase en contacto con el equipo de productos de Servicios de dominio de Azure Active Directory para [compartir comentarios u obtener asistencia](active-directory-ds-contact-us.md).
 
-- **Correo electrónico:** puede enviarnos un correo electrónico a la sección de [comentarios sobre los Servicios de dominio de Azure AD](mailto:aaddsfb@microsoft.com). Asegúrese de incluir el id. de inquilino de su directorio de Azure AD y el nombre de dominio que ha configurado para los Servicios de dominio de AAD, para que podemos investigar el problema.
-- **[Canal de voz del usuario de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/):** asegúrese de escribir delante de su pregunta **'AADDS'** para ponerse en contacto con nosotros.
-
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

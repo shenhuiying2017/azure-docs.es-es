@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Aprovisionamiento de Caché en Redis" 
+	pageTitle="Aprovisionamiento de Caché en Redis | Microsoft Azure" 
 	description="Use una plantilla del Administrador de recursos de Azure para implementar Caché en Redis de Azure." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	authors="steved0x" 
+	manager="Erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
-	ms.author="tomfitz"/>
+	ms.date="04/22/2016" 
+	ms.author="sdanie"/>
 
 # Creación de una Caché en Redis mediante una plantilla
 
@@ -58,11 +58,11 @@ La ubicación de Caché en Redis. Para un mejor rendimiento, utilice la misma ub
       "type": "string"
     }
 
-### diagnosticsStorageAccountName
+### existingDiagnosticsStorageAccountName
 
 Nombre de la cuenta de almacenamiento existente que desea usar para el diagnóstico.
 
-    "diagnosticsStorageAccountName": {
+    "existingDiagnosticsStorageAccountName": {
       "type": "string"
     }
 
@@ -100,30 +100,29 @@ Crea Caché en Redis de Azure.
       "location": "[parameters('redisCacheLocation')]",
       "properties": {
         "enableNonSslPort": "[parameters('enableNonSslPort')]",
-        "redisVersion": "[parameters('redisCacheVersion')]",
         "sku": {
           "capacity": "[parameters('redisCacheCapacity')]",
           "family": "[parameters('redisCacheFamily')]",
           "name": "[parameters('redisCacheSKU')]"
         }
       },
-        "resources": [
-          {
-            "apiVersion": "2014-04-01",
-            "type": "diagnosticSettings",
-            "name": "service", 
-            "location": "[parameters('redisCacheLocation')]",
-            "dependsOn": [
-              "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
-            ],
-            "properties": {
-              "status": "[parameters('diagnosticsStatus')]",
-              "storageAccountName": "[parameters('diagnosticsStorageAccountName')]",
-              "retention": "30"
-            }
+      "resources": [
+        {
+          "apiVersion": "2015-07-01",
+          "type": "Microsoft.Cache/redis/providers/diagnosticsettings",
+          "name": "[concat(parameters('redisCacheName'), '/Microsoft.Insights/service')]",
+          "location": "[parameters('redisCacheLocation')]",
+          "dependsOn": [
+            "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
+          ],
+          "properties": {
+            "status": "[parameters('diagnosticsStatus')]",
+            "storageAccountName": "[parameters('existingDiagnosticsStorageAccountName')]"
           }
-        ]
+        }
+      ]
     }
+
 
 ## Comandos para ejecutar la implementación
 
@@ -137,4 +136,4 @@ Crea Caché en Redis de Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

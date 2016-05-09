@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/05/2016"
     ms.author="spelluru"/>
 # Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure
 
@@ -552,7 +552,7 @@ En este paso, creará un servicio vinculado para su cuenta de **Lote de Azure** 
 
     2.  Reemplace **access key** por la clave de acceso de la cuenta de Lote de Azure.
 
-    3.  Escriba el identificador del grupo para la propiedad **poolName****. ** Para esta propiedad, puede especificar el nombre o el identificador de grupo.
+    3.  Escriba el identificador del grupo para la propiedad **poolName**. Para esta propiedad, puede especificar el nombre o el identificador de grupo.
 
     4.  Escriba el identificador URI de lote para la propiedad **batchUri** de JSON. La **dirección URL** de la **hoja de la cuenta de Lote de Azure** tiene el formato siguiente: <nombreDeCuenta>.<región>.batch.azure.com. Para la propiedad **batchUri** en el script JSON, necesitará **quitar "nombreDeCuenta."** de la dirección URL. Por ejemplo: "batchUri": "https://eastus.batch.azure.com".
 
@@ -761,11 +761,11 @@ En este paso, creará una canalización con la actividad personalizada que creó
 
 	-   **AssemblyName** se establece en el nombre del archivo DLL, **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** se establece en establecido en **MyDotNetActivityNS.MyDotNetActivity**. Es básicamente \<espacioDeNombres\>.\<nombreDeClase\> en el código.
+	-   **EntryPoint** se establece en establecido en **MyDotNetActivityNS.MyDotNetActivity**. Es básicamente <espacioDeNombres>.<nombreDeClase> en el código.
 
 	-   **PackageLinkedService** está establecido en **StorageLinkedService**, que apunta al almacenamiento de blobs que contiene el archivo ZIP de la actividad personalizada. Si usa diferentes cuentas de Almacenamiento de Azure para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tendrá que crear otro servicio vinculado de Almacenamiento de Azure. En este artículo, se da por supuesto que usa la misma cuenta de Almacenamiento de Azure.
 
-	-   **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato \<contenedorDelZIP\>/\<nombreDelZIP.zip\>.
+	-   **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato <contenedorDelZIP>/<nombreDelZIP.zip>.
 
 	-   La actividad personalizada toma **InputDataset** como entrada y **OutputDataset** como salida.
 
@@ -901,13 +901,13 @@ Puede extender este ejemplo para obtener más información acerca de las caracte
 
 Después de procesar datos, puede consumirlos con herramientas en línea como **Microsoft Power BI**. Estos vínculos lo ayudarán a comprender Power BI y aprender a usarlo en Azure:
 
--   [Exploración de un conjunto de datos en Power BI](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Exploración de un conjunto de datos en Power BI](https://powerbi.microsoft.com/es-ES/documentation/powerbi-service-get-data/)
 
--   [Introducción a Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Introducción a Power BI Desktop](https://powerbi.microsoft.com/es-ES/documentation/powerbi-desktop-getting-started/)
 
--   [Actualizar datos en Power BI](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Actualizar datos en Power BI](https://powerbi.microsoft.com/es-ES/documentation/powerbi-refresh-data/)
 
--   [Azure y Power BI](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Azure y Power BI](https://powerbi.microsoft.com/es-ES/documentation/powerbi-azure-and-power-bi/)
 
 ## Referencias
 
@@ -929,4 +929,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
     -   [Introducción a la biblioteca de Lote de Azure para .NET](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

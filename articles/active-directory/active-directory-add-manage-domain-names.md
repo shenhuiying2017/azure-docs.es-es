@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/20/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Administración de los nombres de dominio personalizados en Azure Active Directory
@@ -74,10 +74,10 @@ También se pueden completar la mayoría de las tareas de administración para l
 
 -   [Using Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations) (Uso de la API Graph para administrar nombres de dominio en Azure AD)
 
-**Pasos siguientes**
+## Pasos siguientes
 
 -   [Obtenga más información acerca de los nombres de dominio en Azure AD](active-directory-add-domain-concepts.md)
 
--   [Managing custom domain names](active-directory-add-manage-domain-names.md) (Administración de nombres de dominio).
+-   [Managing custom domain names (Administración de nombres de dominio).](active-directory-add-manage-domain-names.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

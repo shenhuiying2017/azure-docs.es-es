@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/15/2016"
+   ms.date="04/26/2016"
    ms.author="cherylmc" />
 
 # Trabajar con certificados raíz autofirmados para las configuraciones de punto a sitio
@@ -40,7 +40,7 @@ Makecert es una forma de crear un certificado raíz autofirmado. Los siguientes 
 
     	makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
-	>[AZURE.NOTE]Puesto que ha creado un certificado raíz desde el que se generarán los certificados de cliente, puede que desee exportar este certificado junto con su clave privada y guardarlo en una ubicación segura donde se pueda recuperar.
+	>[AZURE.NOTE] Puesto que ha creado un certificado raíz desde el que se generarán los certificados de cliente, puede que desee exportar este certificado junto con su clave privada y guardarlo en una ubicación segura donde se pueda recuperar.
 
 ## Generar, exportar e instalar certificados de cliente
 
@@ -95,4 +95,4 @@ Continúe con la configuración de punto a sitio.
 - Para ver los pasos del modelo de implementación del **Administrador de recursos**, consulte [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md). 
 - Para ver los pasos del modelo de implementación **clásica**, consulte [Configuración de una conexión VPN de punto a sitio a una red virtual](vpn-gateway-point-to-site-create.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->
