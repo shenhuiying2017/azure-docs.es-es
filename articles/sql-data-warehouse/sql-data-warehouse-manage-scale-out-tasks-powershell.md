@@ -100,7 +100,7 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 
 ## Pasos siguientes
 
-Para otras tareas de administración, consulte [Management overview][] (Información general de administración).
+Para otras tareas de administración, consulte [Management overview][] \(Información general de administración).
 
 <!--Image references-->
 

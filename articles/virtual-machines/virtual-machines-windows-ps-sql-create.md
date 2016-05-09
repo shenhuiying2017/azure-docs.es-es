@@ -26,7 +26,7 @@
 
 Este tutorial muestra cómo crear una máquina virtual de Azure mediante el modelo de implementación de **Azure Resource Manager** mediante los cmdlets de Azure PowerShell. En este tutorial, se creará una máquina virtual con una sola unidad de disco desde una imagen de la Galería de SQL. Se crearán nuevos proveedores para los recurso de almacenamiento, red y proceso que usará la máquina virtual. Si ya dispone de proveedores existentes para cualquiera de estos recursos, puede usarlos en su lugar.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. Si necesita la versión clásica de este tema, consulte [Creación de una máquina virtual de SQL Server en Azure PowerShell (implementación clásica)](virtual-machines-windows-classic-ps-sql-create.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica. Si necesita la versión clásica de este tema, consulte [Creación de una máquina virtual de SQL Server en Azure PowerShell (implementación clásica)](virtual-machines-windows-classic-ps-sql-create.md).
 
 ## Requisitos previos
 

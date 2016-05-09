@@ -633,7 +633,7 @@ Para comprobar que la funcionalidad del servidor de informes básica funciona, a
 
 		http://localhost/Reports
 
-- Desde el equipo local, vaya al Administrador de informes **remoto** en la máquina virtual. Actualice el nombre DNS en el ejemplo siguiente, según corresponda. Cuando se le pida una contraseña, use las credenciales de administrador que creó cuando se aprovisionó la máquina virtual. El nombre de usuario se encuentra en el formato [Dominio] [nombre de usuario], donde el dominio es el nombre de equipo de la máquina virtual, por ejemplo, ssrsnativecloud\\testuser. Si no está usando HTTP**S**, quite la **s** de la dirección URL. Vea la siguiente sección para obtener información sobre cómo crear usuarios adicionales en la máquina virtual.
+- Desde el equipo local, vaya al Administrador de informes **remoto** en la máquina virtual. Actualice el nombre DNS en el ejemplo siguiente, según corresponda. Cuando se le pida una contraseña, use las credenciales de administrador que creó cuando se aprovisionó la máquina virtual. El nombre de usuario se encuentra en el formato [Dominio]\[nombre de usuario], donde el dominio es el nombre de equipo de la máquina virtual, por ejemplo, ssrsnativecloud\\testuser. Si no está usando HTTP**S**, quite la **s** de la dirección URL. Vea la siguiente sección para obtener información sobre cómo crear usuarios adicionales en la máquina virtual.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 

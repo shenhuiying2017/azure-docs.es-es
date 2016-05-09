@@ -251,6 +251,6 @@ Ahora ha visto los comandos y el flujo de trabajo básico para la implementació
 
 [Información general del Administrador de recursos de Azure]: ../resource-group-overview.md
 [Implementación de recursos con plantillas de Azure Resource Manager]: ../resource-group-template-deploy.md
-[Galería de plantillas de inicio rápido de Azure]: https://azure.microsoft.com/es-ES/documentation/templates/?term=service+bus
+[Galería de plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
 <!---HONumber=AcomDC_0427_2016-->

@@ -78,7 +78,7 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
 		$dbPassword = "<password>"
 
 3. En **Azure PowerShell**, vaya a la carpeta **C:\\ADFWalkthrough\\OnPremises**.
-4.	Ejecute **prepareOnPremDatabase&Table.ps1 ** **(& entre dobles comillas o como se muestra a continuación)**.
+4.	Ejecute **prepareOnPremDatabase&Table.ps1** **(& entre dobles comillas o como se muestra a continuación)**.
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
 

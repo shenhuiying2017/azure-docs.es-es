@@ -112,7 +112,7 @@ Puede iniciar el Notebook de Jupyter desde el Portal de Azure: busque el clúste
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-También puede ir a ******https://CLUSTERNAME.azurehdinsight.net/jupyter*** para obtener acceso a los Jupyter Notebook. Necesitará la contraseña de su cuenta de administrador para acceder a los Notebooks.
+También puede ir a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para obtener acceso a los Jupyter Notebook. Necesitará la contraseña de su cuenta de administrador para acceder a los Notebooks.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 

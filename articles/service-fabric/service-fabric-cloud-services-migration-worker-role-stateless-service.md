@@ -38,7 +38,7 @@ Conceptualmente, un rol de trabajo representa una carga de trabajo sin estado, l
 
 Igual que el rol de trabajo, un rol web también representa una carga de trabajo sin estado y, por tanto, conceptualmente también se puede asignar a un servicio sin estado de Service Fabric. Sin embargo, a diferencia de los roles web, Service Fabric no admite IIS. Para migrar una aplicación web desde un rol web a un servicio sin estado debe moverla primero a un marco web autohospedado que no dependa de IIS o System.Web, como ASP.NET Core 1.
 
-****Aplicación ** | **Compatible** | **Ruta de migración**
+**Aplicación** | **Compatible** | **Ruta de migración**
 --- | --- | ---
 Formularios Web Forms ASP.NET | No | Conversión a ASP.NET Core 1 MVC
 ASP.NET MVC | Con migración | Actualización a ASP.NET Core 1
