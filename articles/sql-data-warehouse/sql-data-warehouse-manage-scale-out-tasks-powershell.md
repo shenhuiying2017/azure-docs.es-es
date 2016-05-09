@@ -90,7 +90,7 @@ $resultDatabase
 
 ## Tarea n.º3: Escalar DWU
 
-[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md) (Descripción de escalado de DWU de Almacenamiento de datos SQL)]
+[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
 Para cambiar DWU, use el cmdlet de PowerShell [Set-AzureRmSqlDatabase][]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW que se hospeda en el servidor MyServer.
 
