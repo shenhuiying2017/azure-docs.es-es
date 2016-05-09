@@ -52,7 +52,7 @@ Primeros pasos:
 
 ## Tarea n.º1: Pausar proceso
 
-[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md) (Descripción de pausa de Almacenamiento de datos SQL)]
+[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
 Para pausar una base de datos, use el cmdlet [Suspend-AzureRmSqlDatabase][]. El siguiente ejemplo pausa una base de datos denominada Database02 que está hospedada en un servidor llamado Server01. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
 
@@ -71,7 +71,7 @@ $resultDatabase
 
 ## Tarea n.º2: Reanudar proceso
 
-[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md) (Descripción de reanudación de Almacenamiento de datos SQL)]
+[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
 Para iniciar una base de datos, use el cmdlet [Resume-AzureRmSqlDatabase][]. El siguiente ejemplo inicia una base de datos denominada Database02 que está hospedada en un servidor llamado Server01. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
 
