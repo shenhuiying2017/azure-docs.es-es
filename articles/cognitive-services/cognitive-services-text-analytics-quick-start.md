@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
+	ms.service="cognitive-services"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -240,4 +240,4 @@ Siga estos pasos para detectar temas en el texto.
 
 ¡Enhorabuena! Completó el tutorial sobre cómo usar el análisis de textos en sus datos. Es posible que ahora quiera obtener información sobre una herramienta como [Power BI](//powerbi.microsoft.com) para visualizar los datos, así como automatizar la información para brindarle una vista de los datos de texto en tiempo real.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -34,6 +34,7 @@ Este artículo organiza las prácticas probadas en los siguientes grupos. Práct
 |¡Listo!|	Ámbito|	Categoría|	Pregunta
 |----|------|-----------|-----------
 ||Todos los servicios|	Objetivos de escalabilidad|[¿Está su aplicación diseñada para evitar aproximarse a los objetivos de escalabilidad?](#subheading1)
+||Todos los servicios|	Objetivos de escalabilidad|[Is your naming convention designed to enable better load-balancing?](#subheading47) (¿Está su convención de nomenclatura diseñada para habilitar un mejor equilibrio de carga?)
 ||Todos los servicios|	Redes|	[¿Tienen los dispositivos del cliente un ancho de banda grande y una latencia baja suficientes como para lograr el rendimiento necesario?](#subheading2)
 ||Todos los servicios|	Redes|	[¿Tienen los dispositivos del lado cliente un enlace con una calidad suficientemente alta?](#subheading3)
 ||Todos los servicios|	Redes|	[¿Está la aplicación cliente ubicada "cerca" de la cuenta de almacenamiento?](#subheading4)
@@ -104,9 +105,18 @@ Si su aplicación se aproxima a los objetivos de escalabilidad para una sola cue
 
 ####Recursos útiles
 Los siguientes vínculos proporcionan detalles adicionales sobre objetivos de escalabilidad:
--	Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md) para obtener más información acerca de los objetivos de escalabilidad.
--	Consulte [Replicación de almacenamiento de Azure](storage-redundancy.md) y la entrada de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) (Opciones de redundancia de Almacenamiento de Azure y almacenamiento con redundancia geográfica con acceso de lectura) para obtener información acerca de las opciones de redundancia de almacenamiento.
--	Para obtener información actual acerca de los precios de los servicios de Azure, consulte [Precios de Azure](https://azure.microsoft.com/pricing/overview/).  
+-	Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md) para obtener información sobre los objetivos de escalabilidad.
+-	Consulte [Replicación de almacenamiento de Azure](storage-redundancy.md) y la entrada de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) (Opciones de redundancia de Almacenamiento de Azure y almacenamiento con redundancia geográfica con acceso de lectura) para obtener información sobre las opciones de redundancia de almacenamiento.
+-	Para obtener información actual sobre los precios de los servicios de Azure, consulte [Precios de Azure](https://azure.microsoft.com/pricing/overview/).  
+
+###<a name="subheading47"></a>Convención de nomenclatura de particiones
+Almacenamiento de Azure usa un esquema de particiones basado en intervalo para escalar y equilibrar la carga del sistema. La clave de partición se usa para particionar datos en intervalos con una carga equilibrada en el sistema. Esto significa que convenciones de nomenclatura como la ordenación léxica (p. ej., msftpayroll, msftperformance, msftemployees, etc.) o el uso de marcas de tiempo (log20160101, log20160102, log20160102, etc.) se prestarán a las particiones potencialmente colocadas en el mismo servidor de particiones, hasta que una operación de equilibrio de carga las divida en intervalos más pequeños. Por ejemplo, un servidor único puede atender a todos los blobs de un contenedor hasta que la carga de estos requiera un reequilibrado adicional de los intervalos de partición. De forma similar, un servidor único puede atender a un grupo de cuentas ligeramente cargadas con sus nombres organizados en orden léxico hasta que la carga de una o de todas ellas requiera su división en varios servidores de particiones. Cada una de las operaciones de equilibrio de carga puede afectar a la latencia de las llamadas de almacenamiento realizadas durante la operación. La escalabilidad de un servidor de particiones único limita la capacidad del sistema para controlar una ráfaga súbita de tráfico a una partición hasta que la operación de equilibrio de carga se inicie y reequilibre el intervalo de claves de partición.
+
+Puede seguir algunas prácticas recomendadas para reducir la frecuencia de dichas operaciones.
+
+-	Examine estrechamente la convención de nomenclatura que usa para las cuentas, contenedores, blobs, tablas y colas. Considere la posibilidad de prefijar nombres de cuenta con un hash de 3 dígitos con la función hash que mejor se adapte a sus necesidades.  
+-	Si organiza sus datos mediante marcas de tiempo o identificadores numéricos, debe asegurarse de no usar patrones de tráfico Solo anexar (o Solo anteponer). Estos patrones no son adecuados para un sistema de creación de particiones basado en intervalo y podrían dar lugar a todo el tráfico que se dirige a una sola partición e impide un eficaz equilibrio de carga del sistema. Por ejemplo, si tiene operaciones diarias que usan un objeto blob con una marca de tiempo como aaaammdd, todo el tráfico de esa operación diaria se dirige a un solo objeto atendido por un solo servidor de particiones. Compruebe si los límites por blob y por partición cubren sus necesidades y considere la posibilidad de dividir esta operación en varios blobs según sea necesario. De forma similar, si almacena datos de series temporales en sus tablas, todo el tráfico podría dirigirse a la última parte del espacio de nombres clave. Si tiene que usar marcas de tiempo o identificadores numéricos, prefíjelos con un hash de 3 dígitos o, en el caso de las marcas de tiempo, prefije la parte referente a los segundos de la hora como, por ejemplo, ssaaaammdd. Si se realizan operaciones de enumeración y consulta de manera habitual, elija una función hash que limite su número de consultas. En otros casos, un prefijo aleatorio puede ser suficiente.  
+-	Para obtener información adicional sobre el esquema de particiones usado en Almacenamiento de Azure, lea el documento de SOSP [aquí](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ###Redes
 Si bien las llamadas de API son importantes, a menudo las restricciones de red físicas de la aplicación tienen un impacto significativo en el rendimiento. A continuación se describen algunas de las limitaciones que pueden encontrar los usuarios.
@@ -119,7 +129,7 @@ Para el ancho de banda, el problema suele residir en las capacidades del cliente
 Como con cualquier uso de red, sea consciente de que las condiciones de la red dan lugar a errores y la pérdida de paquetes reducirá el rendimiento efectivo. El uso de WireShark o NetMon puede ayudar a diagnosticar este problema.
 
 #####Recursos útiles
-Para obtener información sobre los tamaños de máquina virtual y el ancho de banda asignado, vea [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-linux-sizes.md).
+Para obtener información sobre los tamaños de máquina virtual y el ancho de banda asignado, consulte [Tamaños de las máquinas virtuales Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [Tamaños de las máquinas virtuales Linux](../virtual-machines/virtual-machines-linux-sizes.md).
 
 ####<a name="subheading4"></a>Ubicación
 En cualquier entorno distribuido, la ubicación del cliente cerca del servidor ofrece el mejor rendimiento. Para acceder a Almacenamiento de Azure con la mínima latencia, la mejor ubicación para el cliente es dentro de la misma región de Azure. Por ejemplo, si tiene un sitio web Azure que usa Almacenamiento de Azure, debe colocar ambos dentro de una sola región (por ejemplo Oeste de EE. UU. o Sudeste de Asia). Esto reduce la latencia y el costo (en el momento de escribir estas líneas, el uso de ancho de banda dentro de una sola región es gratuito).
@@ -256,7 +266,7 @@ Para cargar muchos blobs rápidamente, cárguelos en paralelo. Este método es m
 ###<a name="subheading23"></a>Elección del tipo correcto de blob
 Almacenamiento de Azure admite dos tipos de blobs: de *página* y de *bloque*. Para un escenario de uso dado, el tipo de blob que elija afectará al rendimiento y escalabilidad de la solución. Los blobs en bloques son apropiados si desea cargar eficazmente grandes cantidades de datos: por ejemplo, una aplicación cliente puede necesitar cargar fotos o vídeos al almacenamiento de blobs. Los blobs de página son apropiados si la aplicación necesita realizar operaciones de escritura aleatorias en los datos: por ejemplo, los discos duros virtuales de Azure se almacenan como blobs de página.
 
-Para obtener más información, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Para más información, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ##Tablas
 Además de las prácticas probadas para [Todos los servicios](#allservices) descritas anteriormente, las siguientes prácticas probadas se aplican específicamente al servicio Tabla.
@@ -378,7 +388,7 @@ Puede recuperar hasta 32 mensajes de una cola en una sola operación. Esto puede
 ###<a name=subheading43"></a>Intervalo de sondeo de la cola
 La mayoría de aplicaciones sondean los mensajes de una cola, que puede ser uno de los principales orígenes de las transacciones de la aplicación. Seleccione el intervalo de sondeo con cuidado: un sondeo demasiado frecuente puede provocar que la aplicación alcance los objetivos de escalabilidad para la cola. Sin embargo, a 200.000 transacciones por 0,01 USD (en el momento de redactar), un solo procesador que sondeara una vez cada pocos segundos durante un mes costaría menos de 15 centavos, así que el coste de sondeo no suele ser un factor que afecte a la elección del intervalo de sondeo.
 
-Para obtener información de coste actualizada, consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/).
+Para obtener información de costo actualizada, consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ###<a name=subheading44"></a>UpdateMessage
 Puede usar **UpdateMessage para** aumentar el tiempo de espera de invisibilidad o para actualizar la información de estado de un mensaje. Aunque esto es muy eficiente, recuerde que cada operación **UpdateMessage** cuenta para el objetivo de escalabilidad. Sin embargo, esto puede ser un enfoque mucho más eficiente que tener un flujo de trabajo que pasa un trabajo de una cola a la siguiente, cuando cada paso del trabajo se completa. El uso de la operación **UpdateMessage** permite que la aplicación guarde el estado del trabajo en el mensaje y, a continuación, continúe trabajando, en lugar de volver a poner en cola el mensaje para el próximo paso del trabajo cada vez que se completa un paso.
@@ -394,4 +404,4 @@ Debe usar colas para que la arquitectura de la aplicación sea escalable. A cont
 ##Conclusión
 En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa el Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas aplicaciones que usan el Almacenamiento de Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

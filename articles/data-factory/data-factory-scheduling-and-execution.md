@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Programación y ejecución con Factoría de datos
@@ -276,7 +276,7 @@ ActividadCopia1: entrada: ConjuntoDatos1; salida: ConjuntoDatos2
 
 ActividadCopia2: entrada: ConjuntoDatos3 y ConjuntoDatos2; salida: ConjuntoDatos4
 
-Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias. ActividadCopia2 solo empezaría a ejecutarse cuando se cumplan las siguientes condiciones:
+Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias. ActividadCopia2 solo empezaría a ejecutarse cuando se cumplieran las siguientes condiciones:
 
 - ActividadCopia2 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usará al copiar datos en ConjuntoDatos4. Solo actúa como una dependencia de programación de ActividadCopia2.   
 - ConjuntoDatos3 está disponible. Este conjunto de datos representa los datos que se copian en el destino.  
@@ -621,6 +621,51 @@ De forma similar a los conjuntos de datos que produce Factoría de datos, los se
 	} 
 
 
+## Canalización de una vez
+Puede crear y programar una canalización que se ejecute periódicamente (cada hora, diariamente, etc.) entre las horas de inicio y finalización que especifique en la definición de la canalización. Consulte [Programación de actividades](#scheduling-and-execution) para más información. También puede crear una canalización que se ejecute una sola vez. Para ello, establezca la propiedad **pipelineMode** en **onetime** en la definición de la canalización, tal y como se muestra en el siguiente ejemplo de JSON. El valor predeterminado de esta propiedad es **scheduled**.
+
+	{
+	    "name": "CopyPipeline",
+	    "properties": {
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource",
+	                        "recursive": false
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "InputDataset"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "OutputDataset"
+	                    }
+	                ]
+	                "name": "CopyActivity-0"
+	            }
+	        ]
+	        "pipelineMode": "OneTime"
+	    }
+	}
+
+Tenga en cuenta lo siguiente:
+ 
+- No tiene que especificar las horas de **inicio** y **finalización** de la canalización. 
+- En este momento, tiene que especificar la disponibilidad de los conjuntos de datos de entrada y salida (frecuencia e intervalo), aunque Data Factory no use los valores.  
+- La vista Diagrama no muestra las canalizaciones de una vez. Esto es así por diseño. 
+- Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra. 
+
+  
 
 
 
@@ -653,4 +698,4 @@ De forma similar a los conjuntos de datos que produce Factoría de datos, los se
 
   
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

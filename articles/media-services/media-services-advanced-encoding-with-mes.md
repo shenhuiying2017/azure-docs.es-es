@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2016"    
+	ms.date="04/24/2016"    
 	ms.author="juliako"/>
 
 
@@ -31,6 +31,7 @@ Se muestran los valores preestablecidos personalizados que realizan las siguient
 - [Inserción de una pista de audio silenciosa cuando la entrada no tiene audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [Deshabilitar el entrelazado automático](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [Valores preestablecidos de solo audio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
+- [Concatenación de dos o más archivos de vídeo](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 
 ##<a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Servicios multimedia
 
@@ -40,8 +41,8 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 - Obtener una referencia al codificador Codificador multimedia estándar.
 - Cargar el valor preestablecido personalizado JSON o XML. Puede guardar el XML o JSON (por ejemplo, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) o [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) en un archivo y usar el siguiente código para cargar el archivo.
 
-			// Load the XML (or JSON) from the local file.
-		    string configuration = File.ReadAllText(fileName);  
+		// Load the XML (or JSON) from the local file.
+	    string configuration = File.ReadAllText(fileName);  
 - Agregar una única tarea de codificación al trabajo. 
 - Especificar el recurso de entrada que se va a codificar.
 - Crear un recurso de salida que contendrá el recurso codificado.
@@ -246,7 +247,7 @@ Para obtener información sobre el esquema, consulte [este](https://msdn.microso
 
 Asegúrese de revisar la sección [Consideraciones](media-services-custom-mes-presets-with-dotnet.md#considerations).
 
-###<a id="json"></a>Valor preestablecido de JSON
+###<a id="json"></a>Valor preestablecido JSON
 
 
 	{
@@ -348,7 +349,7 @@ Asegúrese de revisar la sección [Consideraciones](media-services-custom-mes-pr
 	}
 
 
-###<a id="xml"></a>Valor preestablecido de XML
+###<a id="xml"></a>Valor preestablecido XML
 
 
 	<?xml version="1.0" encoding="utf-16"?>
@@ -443,11 +444,11 @@ Se aplican las siguientes consideraciones:
 
 ##<a id="trim_video"></a>Recorte de un vídeo
 
-En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también se puede usar para recortar un recurso que se captura o se archiva desde una transmisión en directo; los detalles para ello están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también se puede usar para recortar un recurso que se captura o se archiva desde una transmisión por secuencias en directo; los detalles para ello están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (como se muestra a continuación). El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene una marca de tiempo de 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. En el ejemplo siguiente, se supone que el vídeo de entrada tiene una marca de tiempo inicial de cero. Tenga en cuenta que el elemento **Sources** se debe colocar en la parte superior del esquema.
+Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (como se muestra a continuación). El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene una marca de tiempo de 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. En el ejemplo siguiente, se supone que el vídeo de entrada tiene una marca de tiempo inicial de cero. Tenga en cuenta que el elemento **Sources** se debe colocar al principio del valor preestablecido.
  
-###<a id="json"></a>Valor preestablecido de JSON
+###<a id="json"></a>Valor preestablecido JSON
 	
 	{
 	  "Version": 1.0,
@@ -698,7 +699,7 @@ El ejemplo anterior de .NET define dos funciones: **UploadMediaFilesFromFolder**
 >
 >No se admite el ajuste de opacidad de superposición.
 >
->El archivo de vídeo de origen y el archivo de superposición deben estar en el mismo recurso.
+>El archivo de vídeo de origen y el archivo de imagen de superposición tienen que estar en el mismo recurso y el archivo de vídeo debe establecerse como el archivo principal de este recurso.
 
 ###Valor preestablecido JSON
 	
@@ -747,7 +748,7 @@ El ejemplo anterior de .NET define dos funciones: **UploadMediaFilesFromFolder**
 	      "KeyFrameInterval": "00:00:02",
 	      "H264Layers": [
 	        {
-	          "Profile": "Baseline",
+	          "Profile": "Auto",
 	          "Level": "auto",
 	          "Bitrate": 1045,
 	          "MaxBitrate": 1045,
@@ -756,8 +757,8 @@ El ejemplo anterior de .NET define dos funciones: **UploadMediaFilesFromFolder**
 	          "EntropyMode": "Cavlc",
 	          "AdaptiveBFrame": true,
 	          "Type": "H264Layer",
-	          "Width": "400",
-	          "Height": "400",
+	          "Width": "640",
+	          "Height": "360",
 	          "FrameRate": "0/1"
 	        }
 	      ],
@@ -776,6 +777,7 @@ El ejemplo anterior de .NET define dos funciones: **UploadMediaFilesFromFolder**
 	    }
 	  ]
 	}
+
 
 ###Valor preestablecido XML
 	
@@ -816,10 +818,10 @@ El ejemplo anterior de .NET define dos funciones: **UploadMediaFilesFromFolder**
 	      <H264Layers>
 	        <H264Layer>
 	          <Bitrate>1045</Bitrate>
-	          <Width>400</Width>
-	          <Height>400</Height>
+	          <Width>640</Width>
+	          <Height>360</Height>
 	          <FrameRate>0/1</FrameRate>
-	          <Profile>Baseline</Profile>
+	          <Profile>Auto</Profile>
 	          <Level>auto</Level>
 	          <BFrames>0</BFrames>
 	          <ReferenceFrames>3</ReferenceFrames>
@@ -839,6 +841,7 @@ El ejemplo anterior de .NET define dos funciones: **UploadMediaFilesFromFolder**
 	    </Output>
 	  </Outputs>
 	</Preset>
+
 
 ##<a id="silent_audio"></a>Inserción de una pista de audio silenciosa cuando la entrada no tiene audio
 
@@ -866,7 +869,7 @@ Puede usar cualquiera de los valores preestablecidos de MES que se documentan [a
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Deshabilitación del desentrelazado automático
+##<a id="deinterlacing"></a>Deshabilitación del entrelazado automático
 
 Los clientes no tienen que hacer nada si prefieren que el enlazado del contenido entrelazado se anule automáticamente. Cuando la anulación de entrelazado automática está activada (valor predeterminado), el MES realiza la detección automática de fotogramas entrelazados y solo se anula el entrelazado de los fotogramas marcados como entrelazados.
 
@@ -947,6 +950,116 @@ Esta sección muestra dos valores preestablecidos de MES de solo audio: Audio AA
 	  ]
 	}
 
+##<a id="concatenate"></a>Concatenación de dos o más archivos de vídeo
+
+En el ejemplo siguiente se muestra cómo generar un valor preestablecido para concatenar dos o más archivos de vídeo. El escenario más frecuente es cuando desea agregar un encabezado o un finalizador al vídeo principal. El uso previsto es cuando los archivos de vídeo que se están editando juntos comparten las mismas propiedades (resolución de vídeo, velocidad de fotogramas, número de pistas de audio, etc.). Procure no para combinar vídeos de distintas velocidades de fotogramas o con un número diferente de pistas de audio.
+
+###Requisitos y consideraciones
+
+- Los vídeos de entrada solo deberían tener una pista de audio.
+- Los vídeos de entrada deben tener la misma velocidad de fotogramas.
+- Debe cargar los vídeos en recursos independientes y establecer los vídeos como archivo principal en cada recurso.
+- Debe conocer la duración de los vídeos.
+- En los siguientes ejemplos preestablecidos se supone que todos los vídeos de entrada empiezan con una marca de tiempo de cero. Debe modificar los valores StartTime si los vídeos tienen marca de tiempo de inicio diferente, como suele ser el caso de archivos dinámicos.
+- El valor preestablecido de JSON hace referencia explícita a los valores de AssetID de los recursos de entrada.
+- El código de ejemplo presupone que se ha guardado el valor preestablecido de JSON en un archivo local, como "C:\\supportFiles\\preset.json". También presupone que se han creado dos recursos mediante la carga de dos archivos de vídeo y de que conoce los valores de AssetID resultantes.
+- El fragmento de código y el valor preestablecido de JSON muestran un ejemplo de concatenación de dos archivos de vídeo. Puede ampliarlo a más de dos vídeos mediante las siguientes tareas:
+
+	1. Llamada de Calling task.InputAssets.Add() repetidamente para agregar más vídeos en orden.
+	2. Realización de las ediciones correspondientes al elemento "Sources" de JSON, agregando más entradas en el mismo orden. 
+
+
+###Código .NET
+
+	
+	IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
+	IAsset asset2 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
+	
+	// Declare a new job.
+	IJob job = _context.Jobs.Create("Media Encoder Standard Job for Concatenating Videos");
+	// Get a media processor reference, and pass to it the name of the 
+	// processor to use for the specific task.
+	IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+	
+	// Load the XML (or JSON) from the local file.
+	string configuration = File.ReadAllText(@"c:\supportFiles\preset.json");
+	
+	// Create a task
+	ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+	    processor,
+	    configuration,
+	    TaskOptions.None);
+	
+	// Specify the input videos to be concatenated (in order).
+	task.InputAssets.Add(asset1);
+	task.InputAssets.Add(asset2);
+	// Add an output asset to contain the results of the job. 
+	// This output is specified as AssetCreationOptions.None, which 
+	// means the output asset is not encrypted. 
+	task.OutputAssets.AddNew("Output asset",
+	    AssetCreationOptions.None);
+	
+	job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+	job.Submit();
+	job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+###Valor preestablecido JSON
+
+Actualice el valor preestablecido personalizado con los identificadores de los recursos que desee concatenar y con el segmento de tiempo adecuado para cada vídeo.
+
+	{
+	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "AssetID": "606db602-efd7-4436-97b4-c0b867ba195b",
+	      "StartTime": "00:00:01",
+	      "Duration": "00:00:15"
+	    },
+	    {
+	      "AssetID": "a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e",
+	      "StartTime": "00:00:02",
+	      "Duration": "00:00:05"
+	    }
+	  ],
+	  "Codecs": [
+	    {
+	      "KeyFrameInterval": "00:00:02",
+	      "SceneChangeDetection": true,
+	      "H264Layers": [
+	        {
+	          "Level": "auto",
+	          "Bitrate": 1800,
+	          "MaxBitrate": 1800,
+	          "BufferWindow": "00:00:05",
+	          "BFrames": 3,
+	          "ReferenceFrames": 3,
+	          "AdaptiveBFrame": true,
+	          "Type": "H264Layer",
+	          "Width": "640",
+	          "Height": "360",
+	          "FrameRate": "0/1"
+	        }
+	      ],
+	      "Type": "H264Video"
+	    },
+	    {
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+	
+
 ##Rutas de aprendizaje de Servicios multimedia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -959,4 +1072,4 @@ Esta sección muestra dos valores preestablecidos de MES de solo audio: Audio AA
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

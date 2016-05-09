@@ -39,11 +39,11 @@ Para conectarse al extremo de la administración de servicios, necesita el ident
 ### Certificados de administración en Windows/Mac/Linux (OpenSSL)
 Puede usar [OpenSSL](http://www.openssl.org/) para crear el certificado de administración. Necesitará crear dos certificados, uno para el servidor (un archivo `.cer`) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem`, ejecute este comando:
 
-	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
 Para crear el certificado `.cer`, ejecute este comando:
 
-	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+    openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 Para obtener más información sobre los certificados de Azure, consulte [Información general sobre los certificados de Servicios en la nube de Azure](./cloud-services-certs-create.md). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación en [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
@@ -102,11 +102,11 @@ Al crear un servicio en la nube o un servicio de almacenamiento, necesitará pro
 - Europa del Norte
 - Sudeste asiático
 - Asia oriental
-- Central EE. UU.:
+- Central EE. UU.:
 - Centro-Norte de EE. UU
 - Centro-Sur de EE. UU
-- Oeste de EE. UU.
-- Este de EE. UU.
+- Oeste de EE. UU.
+- Este de EE. UU.
 - Este de Japón
 - Oeste de Japón
 - Sur de Brasil
@@ -435,4 +435,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 
 [servicio en la nube]: https://azure.microsoft.com/es-ES/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -91,7 +91,7 @@ Una vez creada la máquina virtual, puede iniciar sesión en ella mediante el es
 
 Una vez creada y aprovisionada la máquina virtual, está listo para comenzar a usar las herramientas que se instalan y configuran en ella. Hay iconos del menú de inicio e iconos del escritorio para muchas de las herramientas.
 
-##Creación de una contraseña segura en el servidor Jupyter Notebook 
+## Creación de una contraseña segura en el servidor Jupyter Notebook 
 
 Ejecute el siguiente comando desde la línea de comandos en Data Science Virtual Machine a fin de crear su propia contraseña segura para el servidor Jupyter Notebook instalado en la máquina.
 
@@ -149,4 +149,4 @@ Estos son algunos pasos para proseguir con el aprendizaje y la exploración.
 * Aprenda a crear soluciones analíticas de un extremo a otro mediante el uso sistemático del [proceso de ciencia de datos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com) para ver muestras de aprendizaje automático y de análisis de datos mediante Cortana Intelligence Suite. También hemos proporcionado un icono en el menú Inicio y en el escritorio de la máquina virtual para facilitar el acceso 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

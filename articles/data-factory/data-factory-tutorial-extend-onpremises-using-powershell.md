@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 
@@ -38,7 +38,7 @@ En este tutorial, realizará los siguientes pasos:
 2. [Crear servicios vinculados de SQL Server](#create-sql-server-linked-service). En este paso, cree primero una base de datos y una tabla en el equipo de SQL Server local y, a continuación, cree el servicio vinculado: **OnPremSqlLinkedService**.
 3. [Crear conjuntos de datos y canalizaciones](#create-dataset-and-pipeline). En este paso, creará una tabla **MarketingCampaignEffectivenessOnPremSQLTable** y la canalización **EgressDataToOnPremPipeline**. 
 
-4. [Supervisar canalizaciones](#monitor-pipeline). En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure clásico.
+4. [Supervisar canalizaciones](#monitor-pipeline). En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure.
 
 
 ## Creación de la puerta de enlace Data Management Gateway
@@ -170,4 +170,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

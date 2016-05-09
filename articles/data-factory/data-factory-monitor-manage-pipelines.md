@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Supervisión y administración de canalizaciones de la Factoría de datos de Azure" 
-	description="Obtenga información sobre el uso del Portal de Azure clásico y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que cree." 
+	description="Obtenga información sobre el uso del Portal de Azure y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que haya creado." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/28/2016" 
 	ms.author="spelluru"/>
 
 
@@ -22,7 +22,7 @@
 - [Uso del Portal de Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 - [Uso de la Aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
 
-El servicio Factoría de datos proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. Le ayuda a evaluar el estado de la canalización de datos de un extremo a otro rápidamente, a identificar problemas y a tomar medidas correctivas si es necesario. Visualmente, puede realizar el seguimiento del linaje de datos y las relaciones entre los datos a través de cualquiera de los orígenes y consultar una contabilización histórica completa de ejecución del trabajo, estado del sistema y dependencias desde un solo panel de supervisión.
+El servicio Factoría de datos proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. Le ayuda a evaluar el estado de la canalización de datos de un extremo a otro rápidamente, a identificar problemas y a tomar medidas correctivas si es necesario. Visualmente, puede realizar el seguimiento del linaje de datos y las relaciones entre los datos a través de cualquiera de los orígenes y consultar una contabilización histórica completa de ejecución del trabajo, estado del sistema y dependencias desde un solo panel de supervisión.
 
 En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones. También se ofrece información sobre cómo crear alertas y recibir notificaciones cuando se produzcan errores.
 
@@ -187,14 +187,14 @@ Por ejemplo:
 
 
 ## Depuración de canalizaciones
-Factoría de datos de Azure ofrece amplias capacidades a través del Portal de Azure clásico y Azure PowerShell para depurar y solucionar problemas de las canalizaciones.
+Data Factory de Azure ofrece completas funcionalidades a través del Portal de Azure y Azure PowerShell para depurar y solucionar problemas de las canalizaciones.
 
 ### Búsqueda de errores en una canalización
 Si falla la ejecución de actividad en una canalización, el conjunto de datos generado por la canalización tiene un estado de error debido al error. Puede depurar y solucionar los errores en la Factoría de datos de Azure con los mecanismos siguientes.
 
-#### Uso del Portal de Azure clásico para depurar un error:
+#### Uso del Portal de Azure para depurar un error:
 
-1.	Haga clic en **Con errores** en el icono **Conjuntos de datos** en la página principal de la factoría de datos.
+1.	Haga clic en **Con errores** en el icono **Conjuntos de datos** en la página principal Factoría de datos.
 	
 	![Icono Conjuntos de datos con errores](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
 2.	En la hoja **Conjuntos de datos con errores**, haga clic en la tabla en la que está interesado.
@@ -265,7 +265,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 
 ## Repetición de la ejecución de errores en una canalización
 
-### Uso del portal de Azure clásico
+### Uso del Portal de Azure
 
 Tras solucionar los problemas y depurar los errores de una canalización, para volver a ejecutar los errores vaya al segmento de error y haga clic en el botón **Ejecutar** de la barra de comandos.
 
@@ -585,4 +585,4 @@ Junto con la factoría de datos, también puede mover todos los recursos relacio
 
 ![Cuadro de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

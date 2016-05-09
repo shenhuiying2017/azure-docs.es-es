@@ -15,37 +15,45 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="03/25/2016"
+    ms.date="04/22/2016"
     ms.author="liamca"
 />
 
 # Ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Búsqueda de Azure
 
-Una alternativa para la [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx) predeterminada consiste en utilizar el [Analizador de consultas de Lucene en Búsqueda de Azure](https://msdn.microsoft.com/library/azure/mt589323.aspx). El Analizador de consultas de Lucene admite las construcciones de consultas más complejas, como las consultas de ámbito de campo, la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos y las expresiones regulares.
+Al construir consultas para Búsqueda de Azure, puede usar el valor predeterminado [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx) o la alternativa[Analizador de consultas Lucene de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/mt589323.aspx). El Analizador de consultas de Lucene admite las construcciones de consultas más complejas, como las consultas de ámbito de campo, la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos y las expresiones regulares.
 
-En este artículo, puede avanzar por los ejemplos que muestran la sintaxis de consulta y los resultados en paralelo. Ejemplos que se ejecutan en un índice de búsqueda cargado previamente en [JSFiddle](https://jsfiddle.net/), un editor de código en línea para probar el script y HTML.
+En este artículo, puede avanzar por los ejemplos que muestran la sintaxis de consulta de Lucene y los resultados en paralelo. Ejemplos que se ejecutan en un índice de búsqueda cargado previamente en [JSFiddle](https://jsfiddle.net/), un editor de código en línea para probar el script y HTML.
 
 Haga doble clic en las direcciones URL de ejemplo de consulta para abrir JSFiddle en otra ventana del explorador.
 
 > [AZURE.NOTE] Los ejemplos siguientes aprovechan un índice de búsqueda que consta de trabajos disponibles según un conjunto de datos proporcionado por la iniciativa [City of New York OpenData](https://nycopendata.socrata.com/). Estos datos no deben considerarse actuales o completos. El índice está en un servicio de espacio aislado proporcionado por Microsoft. No es necesaria una suscripción de Azure o Búsqueda de Azure probar estas consultas.
 
-## Establecimiento del Analizador de consultas de Lucene en la solicitud de búsqueda
+## Visualización de los ejemplos de este artículo
 
-Para usar el Analizador de consultas de Lucene, establezca el parámetro de búsqueda **queryType** para especificar qué analizador usar. Especifique **queryType** en cada solicitud. Los valores válidos son **simple**|**completa**, con **simple** como valor predeterminado. Consulte [Búsqueda de documentos (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para especificar los parámetros de consulta.
+Todos los ejemplos de este artículo especifican el Analizador de consultas de Lucene a través del parámetro de búsqueda ** queryType **. Cuando se utiliza el Analizador de consultas de Lucene desde el código, deberá especificar el valor **queryType** en cada solicitud. Los valores válidos son **simple**|**full**, con **simple** como valor predeterminado y **full** para el Analizador de consultas de Lucene. Consulte [Búsqueda de documentos (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para especificar los parámetros de consulta.
 
-**Ejemplo 1**: haga clic en el siguiente fragmento de consulta para abrirlo en una nueva página del explorador que carga JSFiddle y ejecuta la consulta. Esta consulta devuelve los documentos de nuestro índice de trabajos (cargado en un servicio de espacio aislado):
+**Ejemplo 1**: haga clic en el siguiente fragmento de consulta para abrirlo en una nueva página del explorador que carga JSFiddle y ejecuta la consulta:
 - [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
-## Operación de consulta clasificada por campos
+Esta consulta devuelve los documentos de nuestro índice de trabajos (cargado en un servicio de espacio aislado)
 
-En los ejemplos siguientes, especificará una construcción **fieldname:searchterm** para definir una operación de consulta clasificada por campos, donde el campo es una sola palabra, y el término de búsqueda también es una sola palabra o frase, opcionalmente con operadores booleanos. Estos son algunos ejemplos:
+En la nueva ventana del explorador, verá el origen de JavaScript y la salida de HTML en paralelo. El script hace referencia a una consulta, que se proporciona mediante las direcciones URL de ejemplo en este artículo. Por ejemplo, en **Ejemplo 1**, la consulta subyacente es la siguiente:
+
+    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
+
+Tenga en cuenta que la consulta utiliza un índice de Búsqueda de Azure preconfigurado denominado nycjobs. El parámetro **searchFields** restringe la búsqueda a solo el campo de puesto. El parámetro **queryType** está establecido en **full**, lo que indica a Búsqueda de Azure usar el Analizador de consultas de Lucene para esta consulta.
+
+### Operación de consulta clasificada por campos
+
+Puede modificar los ejemplos de este artículo especificando una construcción **fieldname:searchterm** para definir una operación de consulta clasificada por campos, donde el campo es una sola palabra, y el término de búsqueda también es una sola palabra o frase, opcionalmente con operadores booleanos. Estos son algunos ejemplos:
 
 - business\_title:senior NOT junior
 - state:"New York" AND "New Jersey"
 
 Asegúrese de colocar varias cadenas entre comillas si desea que las dos cadenas se evalúen como una sola entidad, como en este caso buscando dos ciudades distintas en el campo de ubicación. Además, asegúrese del operador está en mayúsculas como puede ver en NOT y AND.
 
-El campo especificado en **fieldname:searchterm** debe ser un campo de búsqueda. Consulte [Crear índice (API de REST del Servicio de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) para obtener más información sobre cómo se usan los atributos de índice en las definiciones de campo.
+El campo especificado en **fieldname:searchterm** debe ser un campo de búsqueda. Consulte [Creación de un índice (API de REST del Servicio de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) para obtener más información sobre cómo se usan los atributos de índice en las definiciones de campo.
 
 ## Búsqueda aproximada
 
@@ -121,4 +129,4 @@ Intente especificar el Analizador de consultas de Lucene en el código. Los vín
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

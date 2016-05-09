@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="04/25/2016" 
 	ms.author="josephd"/>
 
 # Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure
@@ -85,7 +85,7 @@ Se trata de una arquitectura preceptiva predefinida. Tenga en cuenta lo siguient
 - Si ya cuenta con una implementación en la nube híbrida de Azure, puede adaptar u omitir las instrucciones de las fases 1 y 2 con el fin de hospedar las máquinas virtuales para la nueva aplicación en la subred adecuada.
 - Todos los servidores se encuentran en una sola subred en la red virtual de Azure. Si desea proporcionar seguridad adicional equivalente al aislamiento de subred, puede usar los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 
-Para compilar un entorno de desarrollo o pruebas, o una prueba de concepto de esta configuración, vea [Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
+Para compilar un entorno de desarrollo o pruebas, o una prueba de concepto de esta configuración, vea [Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md).
 
 Para obtener más información sobre el diseño de cargas de trabajo de TI en Azure, en [Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-linux-infrastructure-service-guidelines.md).
 
@@ -93,4 +93,4 @@ Para obtener más información sobre el diseño de cargas de trabajo de TI en Az
 
 - Inicie la configuración de esta carga de trabajo con la [Fase 1](virtual-machines-windows-ps-lob-ph1.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

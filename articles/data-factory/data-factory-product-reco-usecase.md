@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Caso de uso: recomendaciones de productos 
 
-Factoría de datos de Azure es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Analytics de aceleradores de soluciones. Consulte [Conjunto de aplicaciones de Cortana Analytics](http://www.microsoft.com/cortanaanalytics) para obtener más detalles acerca de este conjunto. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Factoría de datos de Azure y otros servicios del componente Cortana Analytics.
+Data Factory de Azure es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones. Consulte la página [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Data Factory de Azure y otros servicios del componente Cortana Intelligence.
 
 ## Escenario
 
@@ -36,7 +36,7 @@ En tercer lugar, las recomendaciones deben poder entregarse inmediatamente al us
 
 ## Información general de la solución
 
-Este caso de uso de ejemplo fue resuelto e implementado por usuarios reales de Azure con Factoría de datos de Azure y otros servicios del componente Cortana Analytics, incluidos [HDInsight](https://azure.microsoft.com/services/hdinsight/) y [Power BI](https://powerbi.microsoft.com/) para introducir, preparar, transformar, analizar y publicar los datos finales.
+Este caso de uso de ejemplo fue resuelto e implementado por usuarios reales de Azure con Data Factory y otros servicios del componente Cortana Intelligence, como [HDInsight](https://azure.microsoft.com/services/hdinsight/) y [Power BI](https://powerbi.microsoft.com/) para introducir, preparar, transformar, analizar y publicar los datos finales.
 
 El distribuidor en línea usa un almacén de blobs de Azure, un servidor de SQL Sefver local, la Base de datos SQL de Azure y un data mart relacional como opciones de almacenamiento de datos a lo largo del flujo de trabajo. El almacén de blobs contiene información del cliente, los datos de comportamiento de cliente y los datos de información de los productos. Los datos de información de los productos incluyen información de la marca de producto y un catálogo de los producto almacenado localmente en un almacenamiento de datos SQL.
 
@@ -52,7 +52,7 @@ Por último, el conjunto de resultados de las recomendaciones de productos perso
 
 ## Ventajas
 
-Al optimizar su estrategia de recomendación de productos y alinearla con los objetivos empresariales, la solución cumplió los objetivos de marketing y comercialización de los distribuidores en línea. Además, pudieron hacer que fuera operativo y administrar el flujo de recomendaciones de productos de una manera rentable, confiable y eficaz, lo que facilita la actualización del modelo y el ajuste de su eficacia en función de las medidas de la conversión de clic a ventas. Mediante Factoría de datos de Azure, fueron capaces de abandonar su administración de recursos manual en la nube, cara y que consumía mucho tiempo, y moverse a la administración de recursos en la nube a petición, lo que permite ahorrar tiempo y dinero, así como reducir el tiempo para implementar la solución. Las vistas de linaje de datos y el estado de funcionamiento del servicio ahora se pueden visualizar y los problemas pueden solucionarse fácilmente con la supervisión de factoría de datos intuitiva y la administración de interfaz de usuario disponible en el Portal de Azure clásico. Su solución ahora se puede programar y administrar para que los datos terminados se generen y proporcionen a sus usuarios de forma confiable, y los datos y las dependencias de procesamiento se administran automáticamente sin intervención humana.
+Al optimizar su estrategia de recomendación de productos y alinearla con los objetivos empresariales, la solución cumplió los objetivos de marketing y comercialización de los distribuidores en línea. Además, pudieron hacer que fuera operativo y administrar el flujo de recomendaciones de productos de una manera rentable, confiable y eficaz, lo que facilita la actualización del modelo y el ajuste de su eficacia en función de las medidas de la conversión de clic a ventas. Mediante Factoría de datos de Azure, fueron capaces de abandonar su administración de recursos manual en la nube, cara y que consumía mucho tiempo, y moverse a la administración de recursos en la nube a petición, lo que permite ahorrar tiempo y dinero, así como reducir el tiempo para implementar la solución. Las vistas de linaje de datos y el estado de funcionamiento del servicio ahora se pueden visualizar y solucionar sus problemas fácilmente con la interfaz de usuario intuitiva de supervisión y administración de Data Factory disponible en el Portal de Azure. Su solución ahora se puede programar y administrar para que los datos terminados se generen y proporcionen a sus usuarios de forma confiable, y los datos y las dependencias de procesamiento se administran automáticamente sin intervención humana.
 
 Gracias a esta experiencia de compra personalizada, el distribuidor en línea creó una experiencia del cliente más competitiva y atractiva y, por tanto, aumentar la satisfacción general del cliente y las ventas.
 
@@ -60,4 +60,4 @@ Gracias a esta experiencia de compra personalizada, el distribuidor en línea cr
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/08/2016"
+   ms.date="04/25/2016"
    ms.author="hascipio"/>
 
 # Finalización de la creación de ofertas con contenido de marketing
@@ -29,30 +29,59 @@ En este paso del proceso de publicación, deberá proporcionar determinados cont
   > [AZURE.IMPORTANT] Todos los campos deben tener entradas, incluidas las imágenes, para poder pasar a la etapa de ensayo.
 
 ### Detalles
-1. Escriba un resumen de la oferta, un resumen amplio y la descripción de la oferta.
-2.	Cargue imágenes de las especificaciones necesarias (mencionadas en el portal de publicación) en formato PNG, una por tamaño.
+1. Escriba el título de la oferta (50 caracteres como máximo), el resumen de la oferta (100 caracteres como máximo), el resumen largo de la oferta (256 caracteres como máximo), la descripción de la oferta (1300 caracteres como máximo) y los logotipos en la pestaña **Detalles**
+2. Escriba el título de la SKU (50 caracteres como máximo), el resumen de la SKU (100 caracteres como máximo) y la descripción de la SKU (2000 caracteres como máximo) en la pestaña **Planes**
+3. No escriba texto duplicado en la descripción de la SKU y la oferta.
+4. No escriba texto duplicado en el resumen largo de la oferta y el título de la SKU.
+5. No escriba texto duplicado en el resumen de la oferta y el título de la SKU.
+6. Cargue imágenes de las especificaciones necesarias (mencionadas en el Portal de Publicación) en formato PNG, una por tamaño.
+7. Asegúrese de que los logotipos sigan las instrucciones del logotipo de Azure Marketplace que se mencionan a continuación.
 
-  ![dibujo](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+  ![dibujo](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
-  *Título de la oferta, descripción y logotipos*
+**Instrucciones del logotipo de Azure Marketplace**
+
+Todos los logotipos que se cargan en el Portal de publicación deberían seguir las siguientes directrices:
+
+- El diseño de Azure tiene una paleta de colores simple. Tenga el número de colores primarios y secundarios en la parte baja del logotipo.
+- No se deben colocar los logotipos en un fondo blanco. Se recomienda colores primarios simples o fondos transparentes.
+- No utilice un fondo degradado en el logotipo.
+- Evite colocar texto, incluso la empresa o el nombre de marca, en el logotipo.
+- El aspecto del logotipo debe ser "plano" y debe evitar degradados.
+- El logotipo no se debe extender.
+- El logotipo pequeño debe tener un tamaño de 40 x 40 píxeles
+- El logotipo mediano debe tener un tamaño de 90 x 90 píxeles
+- El logotipo grande debe tener un tamaño de 115 X 115 píxeles
+- El logotipo ancho debe tener un tamaño de 255 X 115 píxeles
+- El logotipo de imagen prominente debe tener un tamaño de 815 X 290 píxeles
+
+  ![dibujo](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
+
+**Instrucciones adicionales para la pancarta de logotipo de imagen prominente:**
+
+- El logotipo de imagen prominente es opcional. Puede elegir no cargar un logotipo de imagen prominente.
+- El nombre para mostrar del publicador, el título de la SKU, el resumen largo de la oferta y el botón Crear se encuentran incrustados automáticamente dentro del logotipo de imagen prominente una vez que se publica la oferta. Por lo tanto, no es necesario especificarlos cuando diseñe el logotipo de imagen prominente.
+- Puesto que el nombre para mostrar del publicador, el título de la SKU y el resumen largo de la oferta se muestran con un color de fuente blanco, debe evitar que el fondo del icono de imagen prominente sea blanco o de un color claro.
+- Debe dejar espacio para el texto anterior en la parte superior del icono de imagen prominente. El espacio para el texto es 415 x 100 y con un desplazamiento de 370 píxeles a la izquierda.
+
+  ![dibujo](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
 ### Vínculos
 En la pestaña **Vínculos** de la barra izquierda, incluya vínculos con información que puedan resultar útiles para los clientes. Escriba un nombre y una dirección URL para cada vínculo.
 
-![dibujo](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![dibujo](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### Imágenes de ejemplo (opcional)
 > [AZURE.NOTE] La inclusión de una imagen de ejemplo es un paso opcional. Puede completar el resto del contenido de marketing para cumplir los requisitos para la inserción en ensayo.
 
 En la pestaña **Imágenes de ejemplo** del menú izquierdo, cargue una nueva imagen haciendo clic en **Cargar una nueva imagen**. Si tiene una imagen existente y desea reemplazarla, haga clic en **Reemplazar imagen**.
 
-![dibujo](media/marketplace-publishing-push-to-staging/pubportal-03.png)
-
-### Planes
-![dibujo](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![dibujo](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-sampleimg-01.png)
 
 ### Información legal
-En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos de uso. Escriba o pegue los términos en el cuadro grande **Términos de uso**.
+En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos de uso. Escriba o pegue los términos en el cuadro grande **Términos de uso**. El límite de caracteres para las condiciones de uso legales es de 1.000.000 de caracteres.
+
+![dibujo](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
 > [AZURE.NOTE] Para Máquinas virtuales, no se puede cambiar lo siguiente una vez que un SKU se ha orquestado o activado: **identificador de oferta**, **identificador de publicador** e **identificador de SKU**.
 
@@ -107,7 +136,7 @@ Los planes pueden ser cualquier combinación de base y consumo, donde base es pr
 |Gold|1\.000 $/mes|Cuota de 10.000 de la característica X, 1.000 de la característica Y e ilimitada de la característica Z.|Puede migrar a todos los planes excepto el Gratis.|
 
 ## Paso 3: Especificación de información de soporte técnico
-Parte de esta información se habrá cumplimentado durante el paso de certificación. Puede agregar o editar información mediante los pasos siguientes. Los detalles de contacto solo se usan para comunicaciones internas entre asociados y Microsoft. La dirección URL de soporte técnico estará disponible para los usuarios finales.
+Los detalles de contacto solo se usan para comunicaciones internas entre asociados y Microsoft. La dirección URL de soporte técnico estará disponible para los usuarios finales.
 
 1.	Vaya al encabezado **Soporte técnico** de la izquierda del portal de publicación.
 2.	Escriba la información de **Contacto de ingeniería**.
@@ -118,7 +147,7 @@ Parte de esta información se habrá cumplimentado durante el paso de certificac
 La pestaña **Categorías** proporciona una matriz de selecciones. Su oferta puede estar dentro de estas y es posible seleccionar hasta cinco categorías.
 
 ## Apariencia del marketing
-A continuación se muestra una vista detallada de cómo se utiliza la información de marketing de la oferta en el [sitio web de Azure Marketplace](https://azure.microsoft.com/marketplace/) y en el [Portal de vista previa de Azure](https://ms.portal.azure.com).
+A continuación se muestra una vista detallada de cómo se utiliza la información de marketing de la oferta en el [sitio web de Azure Marketplace](https://azure.microsoft.com/marketplace/) y en el [Portal de Azure](https://portal.azure.com).
 
 ### Sitio web de Azure Marketplace
 ![dibujo](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -135,14 +164,14 @@ A continuación se muestra una vista detallada de cómo se utiliza la informaci�
 
 *Detalles de precios de la descripción de la oferta en el sitio web de Azure Marketplace*
 
-### Portal de vista previa de Azure
+### Portal de Azure
 ![dibujo](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
 
-*Lista de ofertas en el Portal de vista previa de Azure*
+*Lista de ofertas en el Portal de Azure*
 
 ![dibujo](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
 
-*Detalles de descripción de la oferta en el Portal de vista previa de Azure*
+*Detalles de descripción de la oferta en el Portal de Azure*
 
 ## Pasos siguientes
 Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la oferta en ensayo. Sin embargo, debe seleccionar el tipo de la oferta adecuado en la lista siguiente, ya que los pasos varían según el tipo de oferta.
@@ -163,4 +192,4 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

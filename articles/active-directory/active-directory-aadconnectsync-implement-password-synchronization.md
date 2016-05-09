@@ -11,8 +11,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="04/15/2016"
+	ms.topic="article"
+	ms.date="04/26/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -56,19 +56,19 @@ La primera vez que se habilita la característica de sincronización de contrase
 
 Al cambiar una contraseña local, la contraseña actualizada se sincroniza más a menudo en cuestión de minutos. La característica de sincronización de contraseñas reintenta automáticamente las sincronizaciones de contraseñas de usuario erróneas. Si se produce un error al intentar sincronizar una contraseña, se registra un error en el visor de eventos.
 
-La sincronización de una contraseña no influye en el usuario con la sesión iniciada actualmente. Si se sincroniza un cambio de contraseña mientras está conectado a un servicio en la nube, este cambio no afectará de inmediato a la sesión del servicio en la nube. Sin embargo, tan pronto como el servicio en la nube requiera de nuevo su autenticación, deberá proporcionar la nueva contraseña.
+La sincronización de una contraseña no influye en el usuario con la sesión iniciada actualmente. Si se sincroniza un cambio de contraseña mientras está conectado a un servicio en la nube, este cambio no afectará de inmediato a la sesión del servicio en la nube actual. Sin embargo, cuando el servicio en la nube requiera de nuevo su autenticación, deberá proporcionar la nueva contraseña.
 
 > [AZURE.NOTE] Solo se admite la sincronización de la contraseña para el usuario del tipo de objeto de Active Directory. No se admite para el tipo de objeto iNetOrgPerson.
 
 ### Funcionamiento de la sincronización de contraseñas con Servicios de dominio de Azure AD
 
-Si habilita este servicio en Azure AD, se requiere la opción de sincronización de contraseñas para obtener una experiencia de inicio de sesión único. Con este servicio habilitado, cambia el comportamiento de sincronización de contraseñas y los valores de hash de contraseña también se sincronizan tal cual desde la instancia de Active Directory local a Servicios de dominio de Azure Active Directory. La funcionalidad es similar a Herramienta de migración Active Directory (ADMT) y permite a Servicios de dominio de Azure Active Directory poder autenticar al usuario con todos los métodos disponibles en la instancia de AD local.
+Si habilita este servicio en Azure AD, se requiere la opción de sincronización de contraseñas para obtener una experiencia de inicio de sesión único. Con este servicio habilitado, cambia el comportamiento de sincronización de contraseñas. Los valores de hash de contraseña también se sincronizan tal cual desde la instancia de Active Directory local a los Servicios de dominio de Azure AD. La funcionalidad es similar a la Herramienta de migración de Active Directory (ADMT). Permite a los Servicios de dominio de Azure AD poder autenticar al usuario con todos los métodos disponibles en la instancia de AD local.
 
 ### Consideraciones sobre la seguridad
 
 Al sincronizar contraseñas, la versión de texto sin formato de su contraseña no se expone a la característica de sincronización de contraseñas ni a Azure AD ni a ninguno de los servicios asociados.
 
-Además, no hay ningún requisito en Active Directory local para almacenar la contraseña en un formato cifrado reversible. Se usa un resumen del hash de contraseña de Active Directory para la transmisión entre Azure Active Directory y AD local. El resumen del hash de contraseña no se puede usar para obtener acceso a recursos en su entorno local.
+Además, la instancia de Active Directory local no requiere que se almacene la contraseña en un formato cifrado reversible. Se usa un resumen del hash de contraseña de Active Directory para la transmisión entre Azure Active Directory y AD local. El resumen del hash de contraseña no se puede usar para obtener acceso a recursos en su entorno local.
 
 ### Consideraciones de la directiva de contraseña
 
@@ -79,13 +79,21 @@ Existen dos tipos de directivas de contraseña que se ven afectados por la habil
 
 **Directiva de complejidad de contraseñas**
 
-Cuando se habilita la sincronización de contraseñas, las directivas de complejidad de contraseñas configuradas en Active Directory local reemplazan a las directivas de complejidad que pueden definirse en la nube para los usuarios sincronizados. Esto significa que cualquier contraseña válida en el entorno del Active Directory local del usuario puede usarse para obtener acceso a servicios de Azure AD.
+Al habilitar la sincronización de contraseñas:
+
+- Las directivas de complejidad de contraseñas en su instancia de Active Directory local anulan directivas de complejidad en la nube para usuarios sincronizados. 
+
+- Puede utilizar todas las contraseñas válidas de su instancia de Active Directory local para tener acceso a servicios de Azure AD.
 
 > [AZURE.NOTE] Las contraseñas para los usuarios que se crean directamente en la nube siguen estando sujetas a las directivas de contraseñas tal como se definen en la nube.
 
 **Directiva de expiración de contraseñas**
 
-Si un usuario está en el ámbito de sincronización de contraseñas, la contraseña de cuenta en la nube se establece en "*No expira nunca*". Esto significa que puede seguir iniciando sesión en servicios en la nube con una contraseña sincronizada que ha expirado en su entorno local.
+Si un usuario está en el ámbito de sincronización de contraseñas:
+
+- La contraseña de la cuenta en la nube se establece en "*No caduca nunca*". 
+
+- Puede seguir iniciando sesión en servicios en la nube con una contraseña sincronizada que haya caducado en su entorno local.
 
 La contraseña en la nube se actualizará la próxima vez que cambie la contraseña en el entorno local.
 
@@ -106,13 +114,15 @@ Para habilitar la sincronización de contraseña, tiene dos opciones:
 
 - Si utiliza una configuración personalizada al instalar Azure AD Connect, podrá habilitar la sincronización de contraseña en la página de inicio de sesión del usuario.
 
-<br> ![Habilitación de la sincronización de contraseñas](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png) <br>
 
-Si elige usar **Federación con AD FS**, podrá habilitar opcionalmente la sincronización de contraseñas como una copia de seguridad en caso de error en la infraestructura de AD FS. También puede habilitarla si piensa usa Servicios de dominio de Azure Active Directory.
+![Habilitación de la sincronización de contraseñas](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
+
+
+Si elige usar **Federación con AD FS**, podrá habilitar opcionalmente la sincronización de contraseñas como una copia de seguridad en caso de error en la infraestructura de AD FS. También puede habilitarla si piensa usa Servicios de dominio de Azure AD.
 
 ### Sincronización de contraseñas y FIPS
 
-Si el servidor se bloquea de acuerdo con FIPS (Estándar federal de procesamiento de información), el MD5 se deshabilita. Para habilitar esta opción para la sincronización de contraseñas, agregue la clave enforceFIPSPolicy en miiserver.exe.config en C:\\Archivos de programa\\Azure AD Sync\\Bin.
+Si el servidor se bloquea de acuerdo con FIPS (Estándar federal de procesamiento de información), el MD5 se deshabilita. Para habilitar MD5 para la sincronización de contraseñas, agregue la clave enforceFIPSPolicy en miiserver.exe.config en C:\\Archivos de programa\\Azure AD Sync\\Bin.
 
 ```
 <configuration>
@@ -137,7 +147,7 @@ Para obtener información sobre la seguridad y FIPS, consulte [AAD Password Sync
 
 3. Seleccione el Conector Active Directory en el que está ubicado el usuario
 
-4. Seleccione **Buscar espacio de conector**.
+4. Seleccione **Search Connector Space** (Buscar espacio de conector).
 
 5. Localice el usuario que está buscando.
 
@@ -149,7 +159,7 @@ Para obtener información sobre la seguridad y FIPS, consulte [AAD Password Sync
 
     ![Propiedades del espacio de conector de un usuario](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
 
-8. Para ver los detalles de sincronización de contraseñas del objeto, haga clic en el botón **Registro...**<br> Esto hará que se cree una página con una vista con el historial de estados de sincronización de contraseña del usuario durante la semana pasada.
+8. Para ver los detalles de la sincronización de contraseñas del objeto de la semana pasada, haga clic en **Registro...**.
 
     ![Detalles del registro de objetos](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
@@ -167,7 +177,7 @@ La columna de estado puede presentar los siguientes valores:
 
 ## Desencadenamiento de una sincronización completa de todas las contraseñas
 
-Normalmente, no hay ninguna necesidad de forzar una sincronización completa de todas las contraseñas.<br> Sin embargo, si es necesario, puede desencadenar una sincronización completa de todas las contraseñas mediante el siguiente script:
+Normalmente, no hay ninguna necesidad de forzar una sincronización completa de todas las contraseñas. Sin embargo, si es necesario, puede desencadenar una sincronización completa de todas las contraseñas mediante el siguiente script:
 
     $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
     $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
@@ -189,4 +199,4 @@ Normalmente, no hay ninguna necesidad de forzar una sincronización completa de 
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="04/15/2016" 
 	ms.author="adegeo"/>
 
 # ¿Debo elegir los servicios en la nube o alguna otra opción?
@@ -57,4 +57,4 @@ La naturaleza de PaaS de Servicios en la nube tiene también otras implicaciones
 ## Pasos siguientes
 [Creación de una aplicación de servicio en la nube en .NET](cloud-services-dotnet-get-started.md) [Creación de una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md) [Creación de una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md) [Creación de una aplicación de servicio en la nube en Python](../cloud-services-python-ptvs.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->
