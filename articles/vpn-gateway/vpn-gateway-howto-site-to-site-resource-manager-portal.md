@@ -14,28 +14,30 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/25/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
-# Creación de una red virtual del administrador de recursos con una conexión VPN de sitio a sitio mediante el Portal de Azure
+# Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure y Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portal de Azure: clásico](vpn-gateway-site-to-site-create.md)
+- [Portal de Azure clásico](vpn-gateway-site-to-site-create.md)
 - [PowerShell: administrador de recursos](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
 Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio en una red local mediante el modelo de implementación de Azure Resource Manager y el Portal de Azure.
 
-**Herramientas y modelos de implementación**
+
+**Información acerca de los modelos de implementación de Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**Modelos de implementación y herramientas para las conexiones de sitio a sitio**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 Si desea conectar las redes virtuales entre sí pero no está creando una conexión a una ubicación local, consulte [Configurar una conexión de red virtual a red virtual en el Portal de Azure clásico](vpn-gateway-vnet-vnet-rm-ps.md).
 
-**Información acerca de los modelos de implementación de Azure**
-
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Antes de empezar
 
@@ -142,6 +144,8 @@ Antes de comenzar esta sección, compruebe que la puerta de enlace de red virtua
 
 ## Pasos siguientes
 
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) de las máquinas virtuales para más información.
+- Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) de las máquinas virtuales para más información.
 
-<!---HONumber=AcomDC_0406_2016-->
+- Para más información sobre BGP, consulte la [información general acerca de BGP](vpn-gateway-bgp-overview.md) y el artículo [How to configure BGP on Azure VPN Gateways using Azure Resource Manager and PowerShell](vpn-gateway-bgp-resource-manager-ps.md) (Configuración de BGP en Puertas de enlace de VPN de Azure mediante Azure Resource Manager y PowerShell). ///
+
+<!---HONumber=AcomDC_0504_2016-->

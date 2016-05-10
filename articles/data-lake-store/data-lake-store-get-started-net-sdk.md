@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante SDK de .NET
@@ -34,11 +34,17 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 * Visual Studio 2013 o 2015 Las instrucciones siguientes usan Visual Studio 2015.
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
-* **Creación de una aplicación de Azure Active Directory**. Consulte [Creación de una aplicación de Active Directory y una entidad de servicio con el portal](../resource-group-create-service-principal-portal.md). Para la aplicación de consola .NET que se crea en este artículo, es preciso crear una **aplicación cliente nativa** (no una aplicación web, como se muestra en el vínculo). Cuando haya creado la aplicación, recupere los siguientes valores relacionados con esta.
-	- Obtenga el **identificador de cliente** y el **identificador URI de redireccionamiento** de la aplicación.
-	- Establecimiento de permisos delegados
+* **Creación de una aplicación de Azure Active Directory**. Existen dos formas de autenticación con Azure Active Directory: **interactiva** y **no interactiva**, cada una con diferentes requisitos previos.
+	* **Para la autenticación interactiva** (la que se usa en este artículo): en Azure Active Directory, debe crear una **aplicación cliente nativa**. Cuando haya creado la aplicación, recupere los siguientes valores relacionados con esta.
+		- Obtenga el **identificador de cliente** y el **identificador URI de redireccionamiento** de la aplicación.
+		- Establecimiento de permisos delegados
 
-	En el vínculo que se ha proporcionado anteriormente puede encontrar instrucciones sobre cómo recuperar estos valores y establecer los permisos.
+	* **Para la autenticación no interactiva**: en Azure Active Directory, debe crear una **aplicación web**. Cuando haya creado la aplicación, recupere los siguientes valores relacionados con esta.
+		- Obtenga el **identificador de cliente**, el **secreto de cliente** y el **URI de redirección** de la aplicación.
+		- Establecimiento de permisos delegados
+		- Asigne la aplicación de Azure Active Directory a un rol. El rol puede encontrarse al nivel del ámbito en el que quiere conceder el permiso a la aplicación de Azure Active Directory. Por ejemplo, puede asignar la aplicación en el nivel de suscripción o en el nivel de un grupo de recursos. 
+
+	Consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md) para obtener instrucciones para recuperar estos valores, establecer los permisos y asignar roles.
 
 ## Creación de una aplicación .NET
 
@@ -59,7 +65,7 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 5. Agregue los paquetes de Nuget al proyecto.
 
 	1. Haga clic con el botón derecho en el Explorador de soluciones y haga clic en **Administrar paquetes de NuGet**.
-	2. En la pestaña **Administrador de paquetes NuGet**, asegúrese de que la opción **Origen del paquete** está establecida en **nuget.org** y que está activada la casilla **Incluir versión previa**.
+	2. En la pestaña **Administrador de paquetes NuGet**, asegúrese de que la opción **Origen del paquete** esté establecida en **nuget.org** y que esté activada la casilla **Incluir versión previa**.
 	3. Busque e instale los siguientes paquetes del Almacén de Data Lake:
 
 		* `Microsoft.Azure.Management.DataLake.Store`
@@ -116,7 +122,7 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 			}
 		}
 
-En las restantes secciones de este artículo, se puede ver cómo se utilizan los métodos .NET disponibles para realizar operaciones como autenticar usuarios, crear una cuenta del Almacén de Data Lake, cargar archivos, etc. Si busca un ejemplo completo de cómo trabajar con el Almacén de Data Lake, consulte el [Apéndice](#appendix-sample-code) en la parte inferior de este artículo.
+En las restantes secciones de este artículo, se puede ver cómo se utilizan los métodos .NET disponibles para realizar operaciones como autenticar usuarios, crear una cuenta del Almacén de Data Lake, cargar archivos, etc. Si busca un ejemplo completo de cómo trabajar con el Almacén de Data Lake, consulte el [Apéndice](#appendix-sample-code) al final de este artículo.
 
 ## Autenticación del usuario
 
@@ -227,7 +233,7 @@ El siguiente fragmento muestra un método `GetItemInfo` que puede utilizar para 
 
 ## Enumeración de archivos o directorios
 
-El siguiente fragmento muestra un método `ListItem` que puede utilizar para enumerar el archivo o directorios de una cuenta del Almacén de Data Lake.
+El siguiente fragmento muestra un método `ListItem` que puede utilizar para enumerar el archivo y los directorios de una cuenta del Almacén de Data Lake.
 	
 	// List files and directories
     public static List<FileStatusProperties> ListItems(string directoryPath)
@@ -247,7 +253,7 @@ El siguiente fragmento muestra un método `ConcatenateFiles` que se utiliza para
 
 ## Anexión a un archivo
 
-El siguiente fragmento muestra un método `AppendToFile` que se utilizar para anexar datos a un archivo que ya está almacenado en una cuenta del Almacén de Data Lake.
+El siguiente fragmento muestra un método `AppendToFile` que se utiliza para anexar datos a un archivo que ya está almacenado en una cuenta del Almacén de Data Lake.
 
 	// Append to file
     public static void AppendToFile(string path, string content)
@@ -259,7 +265,7 @@ El siguiente fragmento muestra un método `AppendToFile` que se utilizar para an
 
 ## Descarga de un archivo
 
-El siguiente fragmento muestra un método `DownloadFile` que se utilizar para descargar un archivo de una cuenta del Almacén de Data Lake.
+El siguiente fragmento muestra un método `DownloadFile` que se utiliza para descargar un archivo de una cuenta del Almacén de Data Lake.
 
 	// Download file
     public static void DownloadFile(string srcPath, string destPath)
@@ -288,7 +294,7 @@ El fragmento siguiente es un ejemplo de código completo que se puede copiar y p
 
 Aunque el fragmento de código siguiente proporciona métodos para ambos enfoques, interactivo y no interactivo, el bloque de código no interactivo tiene comentarios. El método interactivo requiere que proporcione el identificador de cliente de la aplicación de AAD y el identificador URI de redireccionamiento. El vínculo en el requisito previo proporciona instrucciones sobre cómo obtenerlos.
 
->[AZURE.NOTE] Si desea modificar el fragmento de código y usar el método no interactivo (`AuthenticateApplication`), debe proporcionar también la clave de autenticación del cliente, además del identificador de cliente y del identificador URI de respuesta del cliente como entradas para el método. El artículo [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md) también proporciona información sobre cómo generar y recuperar la clave de autenticación de cliente.
+>[AZURE.NOTE] Si desea modificar el fragmento de código y usar el método no interactivo (`AuthenticateApplication`), debe proporcionar también la clave de autenticación del cliente, además del identificador de cliente y del identificador URI de respuesta del cliente, como entradas para el método. El artículo [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md) también proporciona información sobre cómo generar y recuperar la clave de autenticación de cliente.
 	
 Por último, asegúrese de que la ruta de acceso local y el nombre de archivo que proporcione existen en el equipo. Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
@@ -520,4 +526,4 @@ Por último, asegúrese de que la ruta de acceso local y el nombre de archivo qu
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

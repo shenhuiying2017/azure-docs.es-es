@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/04/2016"
+	ms.date="04/27/2016"
 	ms.author="v-livech"/>
 
 # Creación de una VM de Linux protegida mediante una plantilla de Azure
@@ -66,4 +66,4 @@ Para crear un nuevo grupo de recursos e implementar una máquina virtual, puede 
 
 Después de crear máquinas virtuales de Linux con plantillas, querrá ver qué otros entornos de aplicación hay disponibles para usar con plantillas. Busque en la [galería de plantillas](https://azure.microsoft.com/documentation/templates/) para ver qué entornos de aplicación implementará después.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

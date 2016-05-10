@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de qué ventajas aporta Servicios de aplicaciones a las aplicaciones móviles de la empresa."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="kirillg"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
-	ms.author="kirillg"/>
+	ms.date="05/03/2016"
+	ms.author="adrianha"/>
 
 # <a name="getting-started"> </a>¿Qué son las aplicaciones móviles?
 
@@ -102,4 +102,4 @@ Para más información sobre Aplicaciones móviles de Azure, revise nuestro [map
 [entornos del Servicio de aplicaciones]: ../app-service-web/app-service-app-service-environment-intro.md
 [mapa de aprendizaje]: https://azure.microsoft.com/es-ES/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

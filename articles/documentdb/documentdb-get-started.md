@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/15/2016"
+	ms.date="04/25/2016"
 	ms.author="anhoh"/>
 
 # Tutorial de NoSQL: Crear una aplicación de consola de C# DocumentDB
@@ -64,9 +64,8 @@ Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede i
 3. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Plantillas**/**Visual C#**/ **Aplicación de consola**, asigne un nombre al proyecto y haga clic en **Aceptar**. ![Captura de pantalla de la ventana Nuevo proyecto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. En el **Explorador de soluciones**, haga clic con el botón secundario en la nueva aplicación de la consola, que se encuentra en la solución de Visual Studio.
 5. Luego, sin dejar el menú, haga clic en **Administrar paquetes NuGet...** ![Captura de pantalla del menú contextual del proyecto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. En el panel de la izquierda de la ventana **Administrar paquetes de NuGet**, haga clic en **En línea** / **nuget.org**.
-7. En el cuadro de entrada **Buscar en línea**, busque **DocumentDB**.
-8. En los resultados, busque la **biblioteca de cliente de Microsoft Azure DocumentDB** y haga clic en **Instalar**. El identificador del paquete de DocumentDB Client Library es [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) ![Captura de pantalla del menú NuGet para encontrar el SDK de cliente de DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+6. En la pestaña **Nuget** haga clic en **Examinar** y escriba **azure documentdb** en el cuadro de búsqueda.
+7. En los resultados, busque **Microsoft.Azure.DocumentDB** y haga clic en **Instalar**. El identificador del paquete de DocumentDB Client Library es [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) ![Captura de pantalla del menú NuGet para encontrar el SDK de cliente de DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir algo de código. Puede buscar un proyecto con código completo de este tutorial en [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
@@ -74,10 +73,11 @@ Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir al
 
 En primer lugar, agregue estas referencias al principio de la aplicación de C#, en el archivo Program.cs:
 
-		// ADD THIS PART TO YOUR CODE
-		using System;
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
+
+    // ADD THIS PART TO YOUR CODE
     using System.Net;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -98,7 +98,7 @@ Seguidamente, diríjase al [Portal de Azure](https://portal.azure.com) para recu
 
 En el Portal de Azure, navegue a la cuenta de DocumentDB que se creó en el paso 1.
 
-Haga clic en el icono de las **llaves** de la barra de **Essentials**. Copie el identificador URI y reemplace *<your endpoint URI>* por el identificador URI copiado en el programa. Copie la clave principal reemplace *<your key>* por la clave copiada en el programa.
+Haga clic en el icono de las **llaves** de la barra de **Essentials**. Copie el identificador URI y reemplace *<your endpoint URI>* por el identificador URI copiado en el programa. Copie la clave principal y reemplace *<your key>* por la clave copiada en el programa.
 
 ![Captura de pantalla del Portal de Azure usada por el tutorial de NoSQL para crear una aplicación de consola de C#. Muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón CLAVES resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves.][keys]
 
@@ -141,7 +141,6 @@ Agregue el siguiente código para ejecutar la tarea asincrónica desde el métod
 					Console.WriteLine("End of demo, press any key to exit.");
 					Console.ReadKey();
 			}
-	}
 
 Presione **F5** para ejecutar la aplicación.
 
@@ -162,7 +161,7 @@ Copie y pegue el método **WriteToConsoleAndPromptToContinue** debajo del métod
 
 Puede crearse una [base de datos](documentdb-resources.md#databases) de DocumentDB mediante el método [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) de la clase **DocumentClient**. Una base de datos es un contenedor lógico de almacenamiento de documentos JSON particionado en recopilaciones.
 
-Copie y pegue el método **CreateDatabaseIfNotExists** debajo del método **GetStartedDemo**.
+Copie y pegue el método **CreateDatabaseIfNotExists** debajo del método **WriteToConsoleAndPromptToContinue**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateDatabaseIfNotExists(string databaseName)
@@ -203,7 +202,7 @@ Presione **F5** para ejecutar la aplicación.
 
 ##<a id="CreateColl"></a>Paso 5: Creación de una colección  
 
-> [AZURE.WARNING]  **CreateDocumentCollectionAsync** creará una nueva colección con un rendimiento reservado, lo que tiene implicaciones en los precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** creará una nueva colección con un rendimiento reservado, lo que tiene implicaciones en los precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/documentdb/).
 
 Una [colección](documentdb-resources.md#collections) puede crearse mediante el método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) de la clase **DocumentClient**. Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript.
 
@@ -611,4 +610,4 @@ Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, 
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

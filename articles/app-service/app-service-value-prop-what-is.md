@@ -41,11 +41,11 @@ Los siguientes conceptos de alto nivel describen qué puede hacer con Servicios 
 ### Tipos de aplicaciones
 Servicios de aplicaciones le permite crear los siguientes tipos de aplicaciones a partir de una experiencia de desarrollo única:
 
-- [**Aplicaciones web**](../app-service-web-overview): cree e implemente rápidamente aplicaciones web críticas que se escalan con su empresa.
-- [**Aplicaciones móviles**](../app-service-mobile-value-prop-preview): póngase en contacto con empleados, socios y clientes en cualquier dispositivo en cualquier momento.
-- [**Aplicaciones de API**](../app-service-api-apps-why-best-platform): cree y consuma API en la nube con facilidad.
-- [**Aplicaciones de Funciones**](../functions-overview): cree funciones ligeras que respondan a eventos en Azure y en entornos locales.
-- [**Lógica de aplicaciones**](../app-service-logic-what-are-logic-apps): automatice el acceso y el uso de datos a través de nubes sin escribir código.
+- [**Aplicaciones web**](../app-service-web/app-service-web-overview.md): cree e implemente rápidamente aplicaciones web críticas que se escalan con su empresa.
+- [**Aplicaciones móviles**](../app-service-mobile/app-service-mobile-value-prop.md): póngase en contacto con empleados, socios y clientes en cualquier dispositivo en cualquier momento.
+- [**Aplicaciones de API**](../app-service-api/app-service-api-apps-why-best-platform.md): cree y consuma API en la nube con facilidad.
+- [**Contenedor de funciones**](../azure-functions/functions-overview.md): cree funciones ligeras que respondan a eventos en Azure, en entornos locales y en los proveedores de SaaS.
+- [**Lógica de aplicaciones**](../app-service-logic/app-service-logic-what-are-logic-apps.md): automatice el acceso y el uso de datos a través de nubes sin escribir código.
 
 En cuanto servicio integrado único, el Servicio de aplicaciones facilita la creación de los tipos de aplicaciones anteriores en una única solución, lo que le permite crear fácilmente aplicaciones destinadas a web y clientes móviles usando el mismo back-end y realizando la integración con sistemas locales, así como con servicios conocidos, como Office 365 y salesforce.com.
 
@@ -60,4 +60,4 @@ Con Servicios de aplicaciones Azure, es tan fácil como seleccionar un idioma.
 [Cree una nueva aplicación](http://go.microsoft.com/fwlink/?LinkId=523751) inmediatamente de forma gratuita. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso. Sin complicaciones.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

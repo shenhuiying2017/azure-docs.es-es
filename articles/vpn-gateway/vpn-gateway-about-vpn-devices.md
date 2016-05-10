@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/25/2016"
+   ms.date="04/29/2016"
    ms.author="cherylmc" />
 
 # Acerca de los dispositivos VPN para las conexiones de puerta de enlace de VPN de sitio a sitio
@@ -60,7 +60,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Microsoft | Servicio de acceso remoto y enrutamiento | Windows Server 2012 | No compatible | [Ejemplos de Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Open Systems AG | Mission Control Security Gateway | N/D | [Guía de instalación](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) | [Guía de instalación](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan | Openswan | 2\.6.32 | (Próximamente) | No compatible |
-| Palo Alto Networks | Todos los dispositivos que ejecutan PAN-OS 5.0 o superior | PAN-OS 5x o superior | [Palo Alto Networks](https://support.paloaltonetworks.com/) | No compatible |
+| Palo Alto Networks | Todos los dispositivos que ejecutan PAN-OS | PAN-OS 6.1.5 o posterior (basado en directivas), PAN-OS 7.0.5 o posterior (basado en enrutamiento) | [Instrucciones de configuración](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) | [Instrucciones de configuración](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
 | WatchGuard | Todo | Fireware XTM v11.x | [Instrucciones de configuración](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | No compatible |
 
 
@@ -116,11 +116,8 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | Versión de IKE | IKEv1 | IKEv2 |
 | Algoritmo hash | SHA1(SHA128) | SHA1(SHA128) |
-| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 | 3.600 segundos | - |
-| Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 | 102.400.000 KB | - |
-| Cifrado y ofertas de autenticación de SA de IPsec (por orden de preferencia) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. No disponible | Vea *ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) |
-| Confidencialidad directa total (PFS) | No | Sí (DH Grupo1) |
-| Detección de nodos fallidos | No se admite | Se admite |
+| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 | 3\.600 segundos | 3\.600 segundos |
+| Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 | 102.400.000 KB | - | | Cifrado y ofertas de autenticación de SA de IPsec (por orden de preferencia) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. No disponible | Consulte *Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) | | Confidencialidad directa total (PFS) | No | Sí (DH Grupo1, 2, 5, 14, 24) | | Detección de pares no alcanzados (DPD) | No se admite | Se admite |
 
 ### Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento
 
@@ -144,12 +141,11 @@ En la tabla encontrará una lista de las ofertas de autenticación y cifrado de 
 | 14 | AH MD5 con ESP DES HMAC nulo, sin vida útil propuesta | AH MD5 con ESP DES MD5, sin vida útil |
 | 15 | AH SHA1 con ESP DES SHA1, sin vida útil | ESP SHA, sin vida útil |
 | 16 | AH MD5 con ESP DES MD5, sin vida útil | ESP MD5, sin vida útil |
-| 17 | - | AH SHA, sin vida útil |
-| 18 | - | AH MD5, sin vida útil |
+| 17 | - | AH SHA, sin vida útil | | 18 | - | AH MD5, sin vida útil |
 
 
 - Puede especificar el cifrado IPsec ESP NULL con puertas de enlace de VPN de alto rendimiento y basadas en enrutamiento. El cifrado basado en null no proporciona protección de datos en tránsito, solo se debe usar al máximo rendimiento y es necesaria la mínima latencia. Los clientes pueden optar por usar estos escenarios de comunicación de red virtual a red virtual, o el momento de aplicación del cifrado en otra parte de la solución.
 
 - Para conectividad entre locales a través de Internet, use la configuración de la puerta de enlace de VPN de Azure predeterminada con los algoritmos de cifrado y hash de las tablas anteriores para garantizar la seguridad de su comunicación crítica.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

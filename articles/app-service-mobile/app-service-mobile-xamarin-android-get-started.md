@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga" />
 
 #Creación de una aplicación Xamarin.Android
@@ -70,7 +70,9 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 
 ##Pasos siguientes
 
-* [Incorporación de autenticación a la aplicación ](app-service-mobile-xamarin-android-get-started-users.md) <br/>Obtenga información acerca de cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Adición de la autenticación a la aplicación Xamarin.Android](app-service-mobile-xamarin-android-get-started-users.md) Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Agregar notificaciones push a la aplicación de Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md) Aprenda a registrarse para agregar notificaciones push a la aplicación.
+* [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md) Aprenda a trabajar con el SDK de cliente administrado en la aplicación Xamarin. 
 
 
 <!-- Images. -->
@@ -84,4 +86,4 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

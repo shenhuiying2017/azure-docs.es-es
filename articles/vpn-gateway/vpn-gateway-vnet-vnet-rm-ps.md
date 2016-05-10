@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 # Configuración de una conexión entre dos redes virtuales mediante Azure Resource Manager y PowerShell
@@ -95,7 +95,7 @@ En lo que respecta a los pasos de configuración, la diferencia clave entre ambo
 - [Redes virtuales que residen en suscripciones diferentes](#difsub)
 
 
-## <a name ="samesub"/>Conexión de redes virtuales que están en la misma suscripción
+## <a name="samesub"></a>Conexión de redes virtuales que están en la misma suscripción
 
 Esta configuración se aplica a las redes virtuales que están en la misma suscripción, como se muestra en el diagrama siguiente:
 
@@ -107,7 +107,7 @@ Esta configuración se aplica a las redes virtuales que están en la misma suscr
 	
 - Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
 
-### <a name ="Step1"/>Paso 1: Planeamiento de los intervalos de direcciones IP
+### <a name="Step1"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
 
 
 Es importante decidir los intervalos que usará para establecer la configuración de red. Tenga en cuenta que hay que asegurarse de que ninguno de los intervalos de VNet o intervalos de red local se solapen.
@@ -152,7 +152,7 @@ En este ejercicio, utilice los siguientes valores para las redes virtuales:
 
 
 
-### <a name ="Step2"/>Paso 2: Creación y configuración de TestVNet1
+### <a name="Step2"></a>Paso 2: Creación y configuración de TestVNet1
 
 1. Declaración de las variables
 
@@ -312,7 +312,7 @@ Después de configurar TestVNet1, debe repetir los pasos para crear TestVNet4. S
 
 	Después de unos minutos, la conexión debería haberse establecido.
 
-## <a name ="Verify"/>Comprobación de la conexión de red virtual a red virtual
+## <a name="Verify"></a>Verificación de la conexión de red virtual a red virtual
 
 En los ejemplos siguientes se muestra cómo comprobar la conexión. Asegúrese de cambiar los valores para que coincidan con los de su entorno.
 
@@ -355,7 +355,7 @@ Cuando el cmdlet haya finalizado, desplázate para ver los valores. En el ejempl
 	Name                       : VNet1toVNet4
 	Id                         : /subscriptions/<SubscriptionID>/resourceGroups/TestRG1/providers/Micr osoft.Network/connections/VNet1toVNet4
 
-## <a name ="difsub"/>Conexión de redes virtuales que están en suscripciones diferentes
+## <a name="difsub"></a>Conexión de redes virtuales que están en suscripciones diferentes
 
 En los pasos de configuración siguientes se agrega una conexión adicional entre dos redes virtuales para conectar TestVNet1 a TestVNet5, que se encuentra en una suscripción diferente. La diferencia es que parte de los pasos de configuración se deben realizar en una sesión de PowerShell distinta en el contexto de la segunda suscripción, sobre todo cuando las dos suscripciones pertenecen a distintas organizaciones. Tras completar los pasos siguientes, la configuración resultante se muestra en este diagrama:
 
@@ -530,4 +530,4 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

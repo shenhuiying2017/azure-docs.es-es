@@ -21,10 +21,10 @@
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portal de Azure: clásico](vpn-gateway-site-to-site-create.md)
+- [Portal de Azure clásico](vpn-gateway-site-to-site-create.md)
 - [PowerShell: administrador de recursos](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio en una red local mediante el modelo de implementación de **Azure Resource Manager**. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales.
+Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio en una red local mediante el modelo de implementación de Azure Resource Manager. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales.
 
 **Información sobre los modelos de implementación de Azure**
 
@@ -67,7 +67,9 @@ Especifique la suscripción que desea usar.
 
 ## 2\. Creación de una red virtual y una puerta de enlace
 
-Los ejemplos siguientes muestran una subred de puerta de enlace de /28. Aunque es posible crear una subred de puerta de enlace tan pequeña como /29, no es recomendable. Se recomienda crear una subred de puerta de enlace /27 o mayor (/ 26, /25, etc.) con el fin de adaptarse a los requisitos de características adicionales. Si ya tiene una red virtual con una subred de puerta de enlace /29 o mayor, puede ir directamente al [Paso 3: Incorporación de la puerta de enlace de red local](#localnet).
+Los ejemplos siguientes muestran una subred de puerta de enlace de /28. Aunque es posible crear una subred de puerta de enlace tan pequeña como /29, no es recomendable. Se recomienda crear una subred de puerta de enlace /27 o mayor (/ 26, /25, etc.) con el fin de adaptarse a los requisitos de características adicionales.
+
+Si ya tiene una red virtual con una subred de puerta de enlace /29 o mayor, puede ir directamente a [Incorporación de la puerta de enlace de red local](#localnet).
 
 ### Para crear una red virtual y una subred de puerta de enlace
 
@@ -146,10 +148,10 @@ En este paso, creará la puerta de enlace de red virtual. Tenga en cuenta que la
 
 Use los valores siguientes:
 
-- El valor **-GatewayType** para una configuración de sitio a sitio es **Vpn**. El tipo de puerta de enlace siempre es específico de la configuración que se va a implementar. Por ejemplo, otras configuraciones de puerta de enlace pueden requerir GatewayType ExpressRoute. 
+- El valor *-GatewayType* para una configuración de sitio a sitio es *Vpn*. El tipo de puerta de enlace siempre es específico de la configuración que se va a implementar. Por ejemplo, otras configuraciones de puerta de enlace pueden requerir GatewayType ExpressRoute. 
 
-- El valor de **-VpnType** puede ser **RouteBased** (la llamada puerta de enlace dinámica en algunos documentos) o **PolicyBased** (la llamada puerta de enlace estática en algunos documentos). Para obtener más información sobre los tipos de Puertas de enlace de VPN, consulte [Información acerca las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md#vpntype).
-- **- GatewaySku** puede ser **Basic**, **Standard** o **HighPerformance**. 	
+- El valor de *-VpnType* puede ser *RouteBased* (la llamada puerta de enlace dinámica en algunos documentos) o *PolicyBased* (la llamada puerta de enlace estática en algunos documentos). Para obtener más información sobre los tipos de Puertas de enlace de VPN, consulte [Información acerca las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md#vpntype).
+- *- GatewaySku* puede ser *Basic*, *Standard* o *HighPerformance*. 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
@@ -163,7 +165,7 @@ Para buscar la dirección IP pública de la puerta de enlace de red virtual, use
 
 ## 8\. Creación de la conexión VPN
 
-A continuación, creará la conexión VPN de sitio a sitio entre la puerta de enlace de red virtual y el dispositivo VPN. Asegúrese de reemplazar los valores por los suyos. La clave compartida debe coincidir con el valor usado para la configuración del dispositivo VPN. Tenga en cuenta que el `-ConnectionType` de sitio a sitio es **IPsec**.
+A continuación, creará la conexión VPN de sitio a sitio entre la puerta de enlace de red virtual y el dispositivo VPN. Asegúrese de reemplazar los valores por los suyos. La clave compartida debe coincidir con el valor usado para la configuración del dispositivo VPN. Tenga en cuenta que el `-ConnectionType` de sitio a sitio es *IPsec*.
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
@@ -187,6 +189,8 @@ Si tiene que cambiar los prefijos de puerta de enlace de red local, siga las ins
 
 ## Pasos siguientes
 
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
+- Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0427_2016-->
+- Para más información sobre BGP, consulte la [información general acerca de BGP](vpn-gateway-bgp-overview.md) y el artículo [How to configure BGP on Azure VPN Gateways using Azure Resource Manager and PowerShell](vpn-gateway-bgp-resource-manager-ps.md) (Configuración de BGP en Puertas de enlace de VPN de Azure mediante Azure Resource Manager y PowerShell). ///
+
+<!---HONumber=AcomDC_0504_2016-->
