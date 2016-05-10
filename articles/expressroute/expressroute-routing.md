@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="05/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -48,8 +48,8 @@ a.b.c.d/29 se divide en a.b.c.d/30 y a.b.c.d+4/30 y se pasa a Microsoft a travé
 
 Considere el caso en que selecciona 192.168.100.128/29 para configurar el emparejamiento privado. 192.168.100.128/29 incluye direcciones desde 192.168.100.128 hasta 192.168.100.135, entre los que:
 
-- 192\.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
-- 192\.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
+- 192.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
+- 192.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
 
 ### Direcciones IP para configuración de pares públicos de Azure y de Microsoft
 
@@ -78,7 +78,7 @@ El cambio de enrutamiento se realizará sobre el protocolo eBGP. Se establecen s
 
 ## Números de sistema autónomo
 
-Microsoft usará AS 12076 para la configuración entre pares públicos de Azure, privados de Azure y de Microsoft. AS 65515 se ha reservado para el uso interno. Se admiten números AS de 16 y 32 bits.
+Microsoft usará AS 12076 para la configuración entre pares públicos de Azure, privados de Azure y de Microsoft. Se han reservado los ASN desde el 65515 al 65520 para uso interno. Se admiten números AS de 16 y 32 bits.
 
 No hay requisitos con respecto a la simetría de la transferencia de datos. Las rutas de reenvío y de retorno pueden atravesar pares de enrutadores diferentes. Las rutas idénticas deben anunciarse desde cualquiera de los lados en los distintos pares de circuito que le pertenezcan. No se requiere que las métricas de las rutas sean idénticas.
 
@@ -121,12 +121,12 @@ Microsoft etiquetará los prefijos anunciados a través de la configuración de 
 | **Región geopolítica** | **Región de Microsoft Azure** | **Valor de comunidad de BGP** |
 |---|---|---|
 | **Norteamérica** | | |
-| | Este de EE. UU. | 12076:51004 |
+| | Este de EE. UU. | 12076:51004 |
 | | Este de EE. UU. 2 | 12076:51005 |
-| | Oeste de EE. UU. | 12076:51006 |
+| | Oeste de EE. UU. | 12076:51006 |
 | | Centro-Norte de EE. UU | 12076:51007 |
 | | Centro-Sur de EE. UU | 12076:51008 |
-| | Central EE. UU.: | 12076:51009 |
+| | Central EE. UU.: | 12076:51009 |
 | | Centro de Canadá | 12076:51020 |
 | | Este de Canadá | 12076:51021 |
 | **Sudamérica** | | |
@@ -134,8 +134,6 @@ Microsoft etiquetará los prefijos anunciados a través de la configuración de 
 | **Europa** | | |
 | | Europa del Norte | 12076:51003 |
 | | Europa occidental | 12076:51002 |
-| | Norte del Reino Unido | 12076:51022 |
-| | Sur del Reino Unido 2 | 12076:51023 |
 | **Asia Pacífico** | | |
 | | Asia oriental | 12076:51010 |
 | | Sudeste asiático | 12076:51011 |
@@ -174,8 +172,8 @@ Microsoft no admite los valores de las comunidades de BGP que defina. Se requier
 
 - Configure su conexión ExpressRoute.
 
-	- [Creación y modificación de un circuito ExpressRoute mediante PowerShell](expressroute-howto-circuit-classic.md) o [Creación y modificación de un circuito ExpressRoute mediante Azure Resource Manager y PowerShell](expressroute-howto-circuit-arm.md)
-	- [Creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell](expressroute-howto-routing-classic.md) o [Creación y modificación del enrutamiento para un circuito ExpressRoute mediante el Administrador de recursos de Azure y PowerShell](expressroute-howto-routing-arm.md)
-	- [Vinculación de la red virtual a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md)
+	- [Creación y modificación de un circuito ExpressRoute según el modelo de clásico de implementación](expressroute-howto-circuit-classic.md) o [Creación y modificación de un circuito ExpressRoute según el modelo de implementación de Resource Manager](expressroute-howto-circuit-arm.md)
+	- [Configuración del enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configuración del enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md)
+	- [Vinculación de una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vinculación de una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

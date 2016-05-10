@@ -82,7 +82,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-### Paso 4
+### Paso 4
 Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
     New-AzureRmResourceGroup -Name appgw-RG -location "West US"
@@ -152,7 +152,7 @@ Configuración de la opción de la puerta de enlace de aplicaciones "poolsetting
 
 	$poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting02" -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 240
 
-### Paso 4
+### Paso 4
 Configuración de la dirección IP de front-end con el punto de conexión de IP pública
 
 	$fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
@@ -161,7 +161,7 @@ Configuración de la dirección IP de front-end con el punto de conexión de IP 
 Configuración del puerto front-end de una puerta de enlace de aplicaciones
 
 	$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
-### Paso 6
+### Paso 6
 Configuración del agente de escucha En este paso se configura el agente de escucha para la dirección IP pública y el puerto que se utiliza para recibir el tráfico de red entrante.
  
 	$listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01
@@ -173,7 +173,7 @@ En el ejemplo siguiente se crean dos reglas: una para la ruta de acceso "/image/
     
 	$imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
 
-	$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting01
+	$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
 
 La configuración de asignación de ruta de acceso de regla también configura un grupo de direcciones de back-end predeterminado si la ruta de acceso no coincide con ninguna de las reglas de ruta de acceso predefinidas.
 
@@ -196,4 +196,4 @@ Cree una puerta de enlace de aplicaciones con todos los objetos de configuració
 ## Obtención de la puerta de enlace de aplicaciones
 	$getgw =  Get-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0427_2016-->

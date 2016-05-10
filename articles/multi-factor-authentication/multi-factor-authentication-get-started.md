@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/07/2016" 
+	ms.date="05/02/2016" 
 	ms.author="billmath"/>
 
 #Selección de la solución de seguridad multifactor más adecuada
@@ -73,7 +73,7 @@ Omisión por única vez | | ●
 Saludos personalizados para las llamadas de teléfono | ● | ● 
 Identificador de llamada personalizable para llamadas telefónicas | ● | ● 
 IP de confianza | ● | ● 
-Recordar MFA para dispositivos de confianza (versión preliminar pública) | ● |  
+Recordar MFA para dispositivos de confianza | ● |  
 Acceso condicional | ● | ● 
 Memoria caché | | ● 
 
@@ -81,4 +81,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

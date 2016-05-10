@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/12/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # P+F de ExpressRoute
@@ -86,7 +86,7 @@ Sí. Cada circuito ExpressRoute tiene un par redundante de conexiones cruzadas c
 ### ¿Se pierde conectividad si se produce un error en uno de mis vínculos de ExpressRoute?
 No perderá conectividad si se produce un error en una de las conexiones cruzadas. Una conexión redundante está disponible para admitir la carga de la red. Asimismo, puede crear varios circuitos en una ubicación de emparejamiento diferente para lograr resistencia frente a errores.
 
-### Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft? 
+### <a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft? 
 No, solo necesita una conexión física si su proveedor de servicios puede establecer dos circuitos virtuales de Ethernet sobre la conexión física. La conexión física (por ejemplo, una fibra óptica) se termina en un dispositivo de capa 1 (L1) (consulte la imagen que aparece a continuación). Los dos circuitos virtuales de Ethernet se etiquetan con id. de VLAN distintos, uno para el circuito principal y otro para el secundario. Esos id. de VLAN están en el encabezado Ethernet 802.1Q externo. El encabezado Ethernet 802.1Q interno (que no se muestra) está asignado a un [dominio de enrutamiento ExpressRoute](expressroute-circuit-peerings.md) específico.
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
@@ -149,9 +149,7 @@ Debe establecer un circuito ExpressRoute y configurar rutas para el intercambio 
 Sí. Aceptamos hasta 4000 prefijos de enrutamientos para el intercambio privado y 200 de cada para el intercambio público y de Microsoft. Puede aumentarlo a 10.000 enrutamientos para el intercambio privado si habilita la característica Premium en ExpressRoute.
 
 ### ¿Existen restricciones en los intervalos IP que puedo anunciar durante la sesión BGP?
-Los prefijos anunciados a través de BGP deben ser/29 o mayor (/ 28 a /8).
-
-Se filtrarán los prefijos privados (RFC1918) en la sesión BGP de interconexión pública.
+No se aceptan prefijos privados (RFC1918) en la sesión BGP entre pares públicos.
 
 ### ¿Qué ocurre si supero los límites de BGP?
 Se quitarán las sesiones BGP. Se restablecerán una vez que el recuento del prefijo esté por debajo del límite.
@@ -247,4 +245,4 @@ Consulte [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) pa
 ### ¿Es posible obtener acceso a Office 365 por Internet incluso si ExpressRoute se ha configurado ExpressRoute para mi organización?
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

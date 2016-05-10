@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Notas de la versión de la factoría de datos Azure
@@ -270,7 +270,10 @@ Ahora puede ver las listas **Segmentos actualizados recientemente** y **Segmento
 
 Haga clic en el título de las listas o **... (puntos suspensivos)** para ver la lista más amplia de segmentos. Haga clic en **Filtro** en la barra de herramientas para filtrar los segmentos.
  
-Todavía puede ver los segmentos ordenados por las horas del segmento clic en el icono **Segmentos de datos (por hora del segmento)**. Los segmentos de estas colecciones se ordenan por hora de segmento. Por ejemplo, si se trata de una programación horaria, los segmentos serían: - 4/4/2015 5 p.m. En curso - 4/4/2015 4 p.m. Correcto - 4/4/2015 3 p.m. Error
+Todavía puede ver los segmentos ordenados por las horas del segmento clic en el icono **Segmentos de datos (por hora del segmento)**. Los segmentos de estas colecciones se ordenan por hora de segmento. Por ejemplo, si se trata de una programación horaria, los segmentos serían:
+- 4/4/2015 5 p.m. En curso 
+- 4/4/2015 4 p.m. Correcto
+- 4/4/2015 3 p.m. Con error
 
 Pero, si un segmento anterior se vuelve a ejecutar, no aparecería en la parte superior de esta lista, aunque probablemente sea el que más interese al usuario.
 
@@ -353,4 +356,4 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -12,7 +12,7 @@ Las plantillas del Administrador de recursos de Azure le permiten especificar me
 ### Requisitos previos
 
 1. Descargue las herramientas de la línea de comandos de Azure para su sistema operativo [aquí](https://azure.microsoft.com/downloads/).
-2. Si los scrips se ejecutan en una máquina virtual existente, asegúrese de que el agente de máquina virtual esté habilitado en dicha VM; en caso contrario, siga las instrucciones para Linux (../articles/virtual-machines/virtual-machines-linux-classic-manage extensions.md) o Windows (../articles/virtual-machines/virtual-machines-windows-classic-manage extensions.md) para instalar una.
+2. Si los scrips se ejecutan en una máquina virtual existente, asegúrese de que el agente de máquina virtual esté habilitado en dicha VM; en caso contrario, siga las instrucciones para [Linux](../articles/virtual-machines/virtual-machines-linux-classic-manage extensions.md) o [Windows](../articles/virtual-machines/virtual-machines-windows-classic-manage extensions.md) para instalar una.
 3. Cargue las secuencias de comandos que desea ejecutar en la máquina virtual para el almacenamiento de Azure. Las secuencias de comandos pueden proceder de un único contenedor de almacenamiento o de varios.
 4. También pueden cargarse los scripts en una cuenta de GitHub.
 5. La secuencia de comandos debe crearse de forma tal que la secuencia de comandos de entrada que inicia la extensión inicie, a su vez, otras secuencias de comandos.

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/22/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -111,4 +111,4 @@ Las recomendaciones de lista de control de acceso se aplican actualmente a las m
 ### ¿Las máquinas virtuales de Linux son compatibles?
 El Centro de seguridad de Azure ofrece supervisión de línea base para máquinas virtuales de Linux (solo Ubuntu versiones 12.04, 14.04, 14.10 y 15.04). En el futuro, habrá disponible una supervisión del estado de seguridad y colección de datos/análisis adicionales, además de compatibilidad para otras distribuciones de Linux.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

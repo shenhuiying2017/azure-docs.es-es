@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="05/03/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
@@ -108,7 +108,7 @@ En general, queremos que las DWU sean sencillas. Cuando necesite resultados más
 
 - Para entender el valor ideal de su DWU, intente escalar verticalmente hacia arriba y hacia abajo, y ejecute algunas consultas después de cargar los datos. Puesto que el escalado se realiza rápidamente, puede probar distintos niveles de rendimiento sin dedicarle más de una hora.
 
-> [AZURE.NOTE] Tenga en cuenta que debido a la arquitectura o al Almacenamiento de datos SQL, puede que no vea el escalado del rendimiento esperado en volúmenes de datos más reducidos. Se recomienda comenzar con volúmenes de datos a partir de 1 TB o más a fin de obtener unos resultados de pruebas de rendimiento exactos.
+> [AZURE.NOTE] Tenga en cuenta que debido a la arquitectura o al Almacenamiento de datos SQL, puede que no vea el escalado del rendimiento esperado en volúmenes de datos más reducidos. Se recomienda comenzar con volúmenes de datos a partir de 1 TB o más a fin de obtener unos resultados de pruebas de rendimiento exactos.
 
 ## Integrado
 
@@ -154,11 +154,11 @@ Ahora que ya conoce un poco el Almacenamiento de datos SQL, obtenga información
 
 <!--Article references-->
 [carga de trabajo de almacenamiento de datos]: ./sql-data-warehouse-overview-workload.md
-[datos de ejemplo]: ./sql-data-warehouse-get-started-load-samples.md
+[datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [aprovisionamiento]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

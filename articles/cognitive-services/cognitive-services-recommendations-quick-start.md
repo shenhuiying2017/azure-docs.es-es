@@ -60,7 +60,7 @@ En esta tarea, deberá registrarse en el servicio de la API de recomendaciones y
 
 1. En **API type** (Tipo de API), seleccione **Recomendaciones**.
 
-1. En **Nivel de precios**, puede seleccionar un plan. Puede seleccionar el nivel **Gratis** de 10 000 transacciones/mes**. Se trata de un plan gratuito, así que es una buena forma de empezar a probar el sistema. Al pasar al entorno de producción, se recomienda que tenga en cuenta el volumen de solicitudes y que cambie el tipo de plan en consecuencia.
+1. En **Nivel de precios**, puede seleccionar un plan. Puede seleccionar el nivel **Gratis** de 10 000 transacciones/mes**. Se trata de un plan gratuito, así que es una buena forma de empezar a probar el sistema. Al pasar al entorno de producción, se recomienda que tenga en cuenta el volumen de solicitudes y que cambie el tipo de plan en consecuencia.
 
 1. Seleccione un **grupo de recursos**, o bien cree uno nuevo si aún no dispone de ninguno.
 
@@ -79,7 +79,7 @@ La API de recomendaciones aprenderá del catálogo y las transacciones con el fi
 
  Puede descargar los datos [aquí](http://aka.ms/RecoSampleData). Copie y desempaquete el archivo MsStoreData.Zip en una carpeta de la máquina local.
 
- > ** Nota:** El código de ejemplo que descargará y ejecutará en la tarea 3 tiene datos de ejemplo ya incrustados, por lo que esta tarea es opcional. Es decir, aquí podrá descargar conjuntos de datos más realistas y entender mejor las entradas en la API de recomendaciones.
+ > **Nota:** El código de ejemplo que descargará y ejecutará en la tarea 3 tiene datos de ejemplo ya incrustados, por lo que esta tarea es opcional. Es decir, aquí podrá descargar conjuntos de datos más realistas y entender mejor las entradas en la API de recomendaciones.
 
 1.	Ahora, analicemos el archivo de catálogo. Desplácese hasta la ubicación en la que copió los datos. Abra el archivo de catálogo en el **Bloc de notas**.
 
@@ -89,11 +89,11 @@ La API de recomendaciones aprenderá del catálogo y las transacciones con el fi
 
  Debemos señalar que un archivo de catálogo puede ser mucho más completo, por ejemplo, puede agregar metadatos de los productos (a esto lo denominamos *"características de artículos"*). Debe consultar la sección [catalog format](http://go.microsoft.com/fwlink/?LinkID=760716) (formato de catálogo) de la referencia de la API para obtener más información sobre el formato de catálogo.
 
-1. Realizaremos el mismo procedimiento con los datos de uso. Observará que la fecha de uso tiene el formato `<User Id>,<Item Id>`.
+1. Realizaremos el mismo procedimiento con los datos de uso. Observará que la fecha de uso tiene el formato `<User Id>,<Item Id>,<Time Stamp>,<Event>`.
 
-  > 00030000A11B024B,GZA-00202<br> 0003BFFD93B934B7,P2W-00004<br> 000300009C01C881,W6F-00121<br> 00060000AF0D2B04,QR2-00011<br>
+  > 00037FFEA61FCA16,288186200,2015/08/04T11:02:52,Purchase 0003BFFDD4C2148C,297833400,2015/08/04T11:02:50,Purchase 0003BFFDD4C2118D,297833300,2015/08/04T11:02:40,Purchase 00030000D16C4237,297833300,2015/08/04T11:02:37,Purchase 0003BFFDD4C20B63,297833400,2015/08/04T11:02:12,Purchase 00037FFEC8567FB8,297833400,2015/08/04T11:02:04,Purchase
 
- Se trata de los datos mínimos que tiene que tener un archivo de uso válido. Un archivo de uso más complejo podría contener información adicional para cada transacción, como una marca de tiempo para la transacción y el tipo de evento que se produjo (un clic, una compra, etc.). Puede consultar el [formato de uso](http://go.microsoft.com/fwlink/?LinkID=760712) para obtener más información sobre este tema.
+Observe que los tres primeros elementos son obligatorios. El tipo de evento es opcional. Puede consultar el [formato de uso](http://go.microsoft.com/fwlink/?LinkID=760712) para más información sobre este tema.
 
  > **¿Cuántos datos necesita?**
  <p>
@@ -121,7 +121,7 @@ En esta tarea, utilizaremos la aplicación de ejemplo para crear el primer model
  + Obtención de una recomendación basada en un par de artículos
 <p></p>
 
-1. Reemplace los valores de los campos **accountEmail** y **accountKey** por el correo electrónico y la clave de la tarea 1.
+1. Reemplace el valor del campo **AccountKey** por la clave de la tarea 1.
 
 1. Vaya a la solución y verá cómo se crea un modelo.
 
@@ -164,6 +164,6 @@ Consulte la [documentación de obtención de recomendaciones de artículos](http
 
 <a name="Ex1Task6"></a>
 ### Pasos siguientes
-Enhorabuena por haber llegado hasta este paso. Para obtener más información, puede visitar la sección completa [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) (Referencia de la API de recomendaciones) si tiene alguna pregunta; no dude en ponerse en contacto con nosotros en mlapi@microsoft.com.
+Enhorabuena por haber llegado hasta este paso. Para más información, puede visitar la sección completa [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) (Referencia de la API de recomendaciones); si tiene alguna pregunta, no dude en ponerse en contacto con nosotros en mlapi@microsoft.com.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

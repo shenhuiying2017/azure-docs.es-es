@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Creación de una máquina virtual que ejecuta Windows en el Portal de Azure clásico
@@ -56,4 +56,4 @@ En esta sección se muestra cómo utilizar la opción **De la galería** del por
 
 - Acople un disco para almacenar los datos. Puede acoplar tanto discos vacíos como discos que contienen datos. Para obtener instrucciones, consulte [Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica](virtual-machines-windows-classic-attach-disk.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

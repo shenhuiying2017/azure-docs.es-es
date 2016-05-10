@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/22/2016"
 	ms.author="spelluru"/>
 
 
@@ -24,13 +24,21 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 
 
 
+## Nuevo
+
+
+| Título | Descripción |
+| :-- | :-- |
+| [Invocar programas Spark desde Data Factory](data-factory-spark.md) | Obtenga información sobre cómo invocar programas Spark desde Data Factory de Azure mediante la actividad MapReduce. |
+
+
 ## Conceptos principales
 
 
 | Título | Descripción |
 | :-- | :-- |
-| [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md) | Obtenga información acerca de cómo puede usar el servicio de la factoría de datos de Azure para componer el procesamiento de datos, el almacenamiento de datos y los servicios de movimiento de datos para crear canalizaciones que generen información de confianza. |
 | [Conjuntos de datos en Data Factory de Azure](data-factory-create-datasets.md) | Descripción de los conjuntos de datos de Factoría de datos de Azure y aprenda a crearlos. |
+| [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md) | Obtenga información acerca de cómo puede usar el servicio de la factoría de datos de Azure para componer el procesamiento de datos, el almacenamiento de datos y los servicios de movimiento de datos para crear canalizaciones que generen información de confianza. |
 | [Canalizaciones y actividades en Data Factory de Azure](data-factory-create-pipelines.md) | Descripción de las canalizaciones de Factoría de datos de Azure y procedimientos para crearlas con el fin mover y transformar datos para generar información que puede usarse para obtener una idea clara |
 | [Programación y ejecución con Factoría de datos](data-factory-scheduling-and-execution.md) | Obtenga información sobre los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
 
@@ -40,18 +48,19 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 
 | Título | Descripción |
 | :-- | :-- |
-| [Tutorial: Creación de su primera factoría de datos (Introducción)](data-factory-build-your-first-pipeline.md) | En este tutorial se muestra cómo crear una factoría de datos con una canalización de datos que transforma los datos con HDInsight de Azure. |
 | [Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) | En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo mediante Visual Studio. |
 | [Compilación de la primera Data Factory de Azure con el Portal de Azure/Editor de Data Factory](data-factory-build-your-first-pipeline-using-editor.md) | En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo con el Editor de la factoría de datos en el Portal de Azure. |
 | [Compilación de la primera Data Factory de Azure mediante Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) | En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo con Azure PowerShell. |
 | [Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) | En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo con la plantilla del Administrador de recursos de Azure. |
+| [Tutorial: Creación de su primera factoría de datos (Introducción)](data-factory-build-your-first-pipeline.md) | En este tutorial se muestra cómo crear una factoría de datos con una canalización de datos que transforma los datos con HDInsight de Azure. |
 | [Tutorial: Copia de datos de Almacenamiento de blobs de Azure a Base de datos SQL de Azure](data-factory-get-started.md) | En este tutorial se muestra cómo usar la actividad de copia en una canalización de la factoría de datos de Azure para copiar datos desde un Azure blob en una base de datos SQL de Azure. |
 | [Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell](data-factory-monitor-manage-using-powershell.md) | En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante Azure PowerShell. |
-| [Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos](data-factory-get-started-using-editor.md) | En este tutorial, creará una canalización de la Factoría de datos de Azure con una actividad de copia mediante el Editor de la Factoría de datos en el Portal de Azure clásico. |
+| [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) | En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante el Asistente para copia compatible con Data Factory. |
+| [Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos](data-factory-get-started-using-editor.md) | En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante el Editor de la factoría de datos en el Portal de Azure. |
 | [Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio](data-factory-get-started-using-vs.md) | En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante Visual Studio. |
-| [Tutorial: Medición de la eficacia de una campaña de marketing](data-factory-tutorial.md) | En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos en el Portal de Azure clásico. |
-| [Tutorial: mover y procesar archivos de registro con Factoría de datos [PowerShell]](data-factory-tutorial-using-powershell.md) | En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Azure PowerShell. |
-| [Tutorial: Copia de datos de salida en una base de datos de SQL Server local (Portal de Azure clásico)](data-factory-tutorial-extend-onpremises.md) | En este tutorial se amplía el uso del editor de la Factoría de datos en el Portal de Azure clásico, en el sentido de que la canalización copia datos de salida en una base de datos de SQL Server. |
+| [Tutorial: desplazamiento y procesamiento de archivos de registro mediante Factoría de datos de Azure (Portal de Azure)](data-factory-tutorial.md) | En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos en el Portal de Azure. |
+| [Tutorial: Traslado y procesamiento de archivos de registro con Data Factory [PowerShell]](data-factory-tutorial-using-powershell.md) | En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Azure PowerShell. |
+| [Tutorial: Copia de datos de salida en una base de datos de SQL Server local (Portal de Azure clásico)](data-factory-tutorial-extend-onpremises.md) | En este tutorial se amplía el del uso del editor de la factoría de datos en el Portal de Azure en el sentido de que la canalización copia datos de salida en una base de datos de SQL Server. |
 | [Tutorial: Copia de datos de salida en una base de datos de SQL Server local (Azure PowerShell)](data-factory-tutorial-extend-onpremises-using-powershell.md) | En este tutorial amplía el del uso de Azure PowerShell en el sentido de que la canalización copia los datos de salida a una base de datos de SQL Server. |
 
 
@@ -94,13 +103,13 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 | [Creación de canalizaciones predictivas con las actividades de Aprendizaje automático de Azure](data-factory-azure-ml-batch-execution-activity.md) | Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Aprendizaje automático de Azure |
 | [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md) | Aprenda cómo puede usar la actividad de streaming de Hadoop en una factoría de datos de Azure para ejecutar programas de streaming de Hadoop en un clúster de HDInsight suyo propio o a petición. |
 | [Actividad de Hive](data-factory-hive-activity.md) | Aprenda cómo puede usar la actividad de Hive en Factoría de datos de Azure para ejecutar consultas de Hive en un clúster de HDInsight suyo propio o a petición. |
+| [Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure](data-factory-data-processing-using-batch.md) | Describe cómo procesar grandes cantidades de datos en una canalización de Factoría de datos de Azure mediante la funcionalidad de procesamiento paralelo de Lote de Azure. |
 | [Invocar programas MapReduce desde la factoría de datos de Azure](data-factory-map-reduce.md) | Obtenga información sobre cómo procesar datos mediante la ejecución de programas MapReduce en un clúster de HDInsight de Azure desde una factoría de datos de Azure. |
 | [Actividad de Pig](data-factory-pig-activity.md) | Aprenda cómo puede usar la actividad de Pig en Factoría de datos de Azure para ejecutar scripts de Pig en un clúster de HDInsight suyo propio o a petición. |
 | [Ejecución del script de U-SQL en Análisis de Azure Data Lake desde Factoría de datos de Azure](data-factory-usql-activity.md) | Aprenda a procesar datos ejecutando scripts U-SQL en el servicio de proceso de Análisis de Azure Data Lake. |
 | [Actividad de procedimiento almacenado de SQL Server](data-factory-stored-proc-activity.md) | Sepa cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una Base de datos SQL de Azure o en un Almacenamiento de datos SQL de Azure desde una canalización de Factoría de datos. |
 | [Transformar y analizar mediante la Factoría de datos de Azure](data-factory-data-transformation-activities.md) | Obtenga información sobre cómo puede usar el servicio de la Factoría de datos de Azure para transformar y analizar los datos. |
 | [Uso de actividades personalizadas en una canalización de Factoría de datos de Azure](data-factory-use-custom-activities.md) | Obtenga información acerca de cómo crear actividades personalizadas y usarlas en una canalización de la factoría de datos de Azure. |
-| [Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure](data-factory-data-processing-using-batch.md) | Describe cómo procesar grandes cantidades de datos en una canalización de Factoría de datos de Azure mediante la funcionalidad de procesamiento paralelo de Lote de Azure. |
 
 
 ## Muestras
@@ -126,7 +135,7 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 
 | Título | Descripción |
 | :-- | :-- |
-| [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) | Obtenga información sobre el uso del Portal de Azure clásico y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que cree. |
+| [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) | Obtenga información sobre el uso del Portal de Azure y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que haya creado. |
 
 
 ## SDK
@@ -153,12 +162,12 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 
 #### Extras
 
-- Gráfico de la ruta de aprendizaje: [Data Factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-
 - [Buscar en la documentación de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 
-- [Ver las actualizaciones más recientes para el servicio Data Factory](http://azure.microsoft.com/updates/?service=data-factory)
+- [Ver las actualizaciones más recientes para el servicio de factoría de datos](http://azure.microsoft.com/updates/?service=data-factory)
 
 - [Gráficos de la ruta de aprendizaje para los servicios de Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
 
-<!---HONumber=AcomDC_0309_2016-->
+- Gráfico de la ruta de aprendizaje: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
+
+<!---HONumber=AcomDC_0427_2016-->

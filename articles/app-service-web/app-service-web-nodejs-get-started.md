@@ -18,24 +18,18 @@
 
 # Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [pestañas](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Este tutorial muestra cómo crear una aplicación de [Node.js](http://nodejs.org) sencilla e implementarla en una [aplicación web](app-service-web-overview.md) del [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) desde una líneas de comandos como cmd.exe o bash. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Node.js.
+Este tutorial muestra cómo crear una aplicación de [Node.js](http://nodejs.org) sencilla e implementarla en una [aplicación web](app-service-web-overview.md) del [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) a partir de una líneas de comandos como cmd.exe o bash. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Node.js.
 
 <a name="prereq"/>
 ## Requisitos previos
 
 - Node.js. Encontrará [aquí](https://nodejs.org/) los archivos binarios de instalación.
-- Yoeman. Encontrará [aquí](http://yeoman.io/) las instrucciones de instalación.
+- Yoeman. Las instrucciones de instalación se pueden encontrar [aquí](http://yeoman.io/).
 - Git. Encontrará [aquí](http://www.git-scm.com/downloads) los archivos binarios de instalación.
-- CLI de Azure. Encontrará [aquí](../xplat-cli-install.md) las instrucciones de instalación.
-- Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para obtener una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o bien [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- CLI de Azure. Las instrucciones de instalación se pueden encontrar [aquí](../xplat-cli-install.md).
+- Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o bien [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## Creación e implementación de una aplicación web de Node.js simple
 
@@ -63,7 +57,7 @@ Este tutorial muestra cómo crear una aplicación de [Node.js](http://nodejs.org
 
     Siga las indicaciones para continuar el inicio de sesión en un explorador con una cuenta de Microsoft que tenga su suscripción de Azure.
 
-2. Asegúrese de que todavía se encuentra en el directorio raíz de su aplicación. Cree el recurso de aplicación del Servicio de aplicaciones en Azure con un nombre de aplicación único con el comando siguiente. La dirección URL de la aplicación web será http://&lt;appname>.azurewebsites.net.
+2. Asegúrese de que todavía se encuentra en el directorio raíz de su aplicación. Cree el recurso de aplicación del Servicio de aplicaciones en Azure con un nombre de aplicación único con el comando siguiente. La dirección URL de la aplicación web es http://&lt;appname>.azurewebsites.net.
 
         azure site create --git <appname>
 
@@ -109,7 +103,7 @@ El Servicio de aplicaciones de Azure usa [iisnode](https://github.com/tjanczuk/i
 - En `git push azure master`, Kudu automatiza las tareas de implementación siguientes:
 
     - Si package.json está en la raíz del repositorio, ejecute `npm install --production`.
-    - Genere un archivo web.config para iisnode que le apunte en el script de inicio en package.json (por ejemplo, server.js o app.js).
+    - Genere un archivo web.config para iisnode que apunte al script de inicio en package.json (por ejemplo, server.js o app.js).
     - Personalice el archivo web.config para preparar la aplicación para la depuración con Node-Inspector.
     
 ## Uso de una plataforma de Node.js
@@ -209,4 +203,4 @@ Para habilitar Node-Inspector, siga estos pasos:
 - [Centro para desarrolladores de Node.js](/develop/nodejs/)
 - [Introducción a las aplicaciones web en el Servicio de aplicaciones de Azure](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

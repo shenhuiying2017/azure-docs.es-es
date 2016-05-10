@@ -3,8 +3,8 @@
    description="Información general sobre los servicios de hospedaje DNS de Azure en Microsoft Azure y sobre cómo empezar a hospedar dominios en Microsoft Azure" 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
+   authors="cherylmc" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="02/09/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Introducción a DNS de Azure
 
@@ -44,4 +44,4 @@ DNS de Azure actualmente no admite la adquisición de nombres de dominio. Para a
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

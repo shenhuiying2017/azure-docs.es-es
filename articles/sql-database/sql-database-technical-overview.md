@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="shontnew"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -56,7 +56,7 @@ Ahora que leyó una introducción a la Base de datos SQL y contestó a la pregun
 - Obtener información acerca de [grupos elásticos](sql-database-elastic-pool.md).
 - Comience por [crear su primera base de datos](sql-database-get-started.md).
 - [Conectarse y realizar consultas con SSMS](sql-database-connect-query-ssms.md)
-- Crear su primera aplicación en [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) o [Ruby](sql-database-develop-ruby-simple-linux).
-- Consulte un índice de los títulos y las descripciones en [All topics for Azure sql-database service](sql-database-index-all-articles.md) (Todos los temas del servicio de Base de datos SQL de Azure).
+- Cree su primera aplicación de C#, Java, Node.js, PHP, Python o Ruby: [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
+- Consulte un índice de los títulos y las descripciones en [Todos los temas del servicio Base de datos SQL de Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

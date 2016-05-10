@@ -77,11 +77,11 @@ Esta característica solo es compatible con las cuentas de Almacenamiento de Azu
 
 -   Si desea registrarse para obtener la característica, puede usar el cmdlet Register-AzureRmProviderFeature de PowerShell.
 
-    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
-        
+    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
+
 -   Si desea consultar el estado del registro y ver si se aprobó la suscripción, puede usar el cmdlet Get-AzureRmProviderFeature de PowerShell.
 
-    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
+    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
 
 Cuando el estado del registro es "Registrado", significa que se aprobó la suscripción. Visite también nuestro grupo de Versión preliminar de Cifrado del servicio Almacenamiento de Azure en Yammer.
 
@@ -225,4 +225,4 @@ R: Envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssedisc
 
 Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, visite la [Guía de seguridad para almacenamiento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

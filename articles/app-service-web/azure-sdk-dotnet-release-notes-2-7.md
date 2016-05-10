@@ -5,7 +5,7 @@
    services="app-service\web" 
    documentationCenter=".net" 
    authors="Juliako" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -14,9 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="04/25/2016"
    ms.author="juliako"/>
-
 
 # Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
 
@@ -159,4 +158,4 @@ Los proyectos de LightSwitch no son compatibles con esta versión. Este problema
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

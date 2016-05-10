@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Extracción de datos públicos para Centros de eventos de Azure | Microsoft Azure"
-   description="Información general de la importación de Centros de eventos desde un ejemplo web"
-   services="event-hubs"
-   documentationCenter="na"
-   authors="spyrossak"
-   manager="timlt"
-   editor=""/>
+    pageTitle="Extracción de datos públicos para Centros de eventos de Azure | Microsoft Azure"
+    description="Información general de la importación de Centros de eventos desde un ejemplo web"
+    services="event-hubs"
+    documentationCenter="na"
+    authors="spyrossak"
+    manager="timlt"
+    editor=""/>
 
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/05/2016"
-   ms.author="spyros;sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/26/2016"
+    ms.author="spyros;sethm" />
 
 # Extracción de datos públicos para Centros de eventos de Azure
 
@@ -47,4 +47,4 @@ Para implementar la solución, clone o descargue la aplicación [GenericWebToEH]
 
 Vea más ejemplos de Centros de eventos en la [galería de ejemplos de Azure](https://azure.microsoft.com/documentation/samples/?service=event-hubs) y en [MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="04/25/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila 
@@ -312,4 +312,4 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

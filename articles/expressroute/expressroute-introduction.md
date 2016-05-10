@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/19/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 # Información técnica de ExpressRoute
@@ -134,4 +134,4 @@ Puede elegir el modelo de facturación que mejor le convenga. Elija entre los mo
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

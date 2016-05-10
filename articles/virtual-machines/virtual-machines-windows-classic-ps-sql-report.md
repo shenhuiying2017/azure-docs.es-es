@@ -3,7 +3,7 @@
 	description="En este tema se describe y se le guiará por la implementación y la configuración de un servidor de informes de modo nativo de SQL Server Reporting Services en una máquina virtual de Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar" 
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
 
@@ -77,8 +77,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 	
 	- **Nueva contraseña** y **Confirmar**. Esta contraseña se usa para la nueva cuenta de administrador y se recomienda usar una contraseña segura.
 	
-	- Haga clic en **Siguiente**.
-![siguiente](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+	- Haga clic en **Siguiente**. ![siguiente](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. En la página siguiente, edite los siguientes campos:
 
@@ -102,8 +101,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 
 1. En la última página del asistente, mantenga el valor predeterminado de **Instalar el agente de VM** seleccionado. Los pasos descritos en este tema no usan al agente de máquina virtual, pero si piensa mantener esta máquina virtual, el agente de máquina virtual y las extensiones le permitirán mejorar la máquina virtual. Para más información sobre el agente de máquina virtual, consulte [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Una de las extensiones predeterminadas instaladas y en ejecución es la extensión "BGINFO" que se muestra en el escritorio de la máquina virtual, información del sistema como la dirección IP interna y el espacio libre en disco.
 
-1. Haga clic en Completo.
-![aceptar](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+1. Haga clic en Completo. ![aceptar](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 
 1. El **estado** de la máquina virtual se muestra como **Iniciando (aprovisionamiento)** durante el proceso de aprovisionamiento y luego se muestra como **En ejecución** cuando la máquina virtual está aprovisionada y lista para usarse.
 
@@ -635,7 +633,7 @@ Para comprobar que la funcionalidad del servidor de informes básica funciona, a
 
 		http://localhost/Reports
 
-- Desde el equipo local, vaya al Administrador de informes **remoto** en la máquina virtual. Actualice el nombre DNS en el ejemplo siguiente, según corresponda. Cuando se le pida una contraseña, use las credenciales de administrador que creó cuando se aprovisionó la máquina virtual. El nombre de usuario se encuentra en el formato [Dominio] \[nombre de usuario], donde el dominio es el nombre de equipo de la máquina virtual, por ejemplo, ssrsnativecloud\\testuser. Si no está usando HTTP**S**, quite la **s** de la dirección URL. Vea la siguiente sección para obtener información sobre cómo crear usuarios adicionales en la máquina virtual.
+- Desde el equipo local, vaya al Administrador de informes **remoto** en la máquina virtual. Actualice el nombre DNS en el ejemplo siguiente, según corresponda. Cuando se le pida una contraseña, use las credenciales de administrador que creó cuando se aprovisionó la máquina virtual. El nombre de usuario se encuentra en el formato [Dominio]\[nombre de usuario], donde el dominio es el nombre de equipo de la máquina virtual, por ejemplo, ssrsnativecloud\\testuser. Si no está usando HTTP**S**, quite la **s** de la dirección URL. Vea la siguiente sección para obtener información sobre cómo crear usuarios adicionales en la máquina virtual.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -707,4 +705,4 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 
 [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

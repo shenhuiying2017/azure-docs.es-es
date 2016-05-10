@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de .NET de la factoría de datos
@@ -263,7 +263,7 @@ La actividad de copia realiza el movimiento de datos en Data Factory de Azure y 
 
 	
 
-12. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo emergente que le permite proporcionar un **nombre de usuario** y una **contraseña** que le servirán para iniciar sesión en el Portal de Azure clásico. 
+12. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo emergente que le permite proporcionar un **nombre de usuario** y una **contraseña** que se usa para iniciar sesión en el Portal de Azure. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -394,4 +394,4 @@ La actividad de copia realiza el movimiento de datos en Data Factory de Azure y 
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

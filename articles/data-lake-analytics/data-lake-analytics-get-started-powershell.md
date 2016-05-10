@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="04/26/2016"
    ms.author="edmaca"/>
 
 # Tutorial: Introducción a Análisis de Azure Data Lake mediante Azure PowerShell
@@ -186,7 +186,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 		
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	En el script, el archivo de script U-SQL se almacena en c:\\tutorials\\data-lake-analytics\\copyFile.usql. Actualice la ruta de acceso de archivo en consecuencia.
+	En el script, el archivo de script U-SQL se almacena en c:\tutorials\data-lake-analytics\copyFile.usql. Actualice la ruta de acceso de archivo en consecuencia.
  
 Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar el archivo y descargarlo:
 	
@@ -209,4 +209,4 @@ Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar
 - Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general sobre Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

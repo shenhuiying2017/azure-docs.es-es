@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Información general sobre Testability | Microsoft Azure"
-   description="Este artículo describe el subsistema de Testability en Service Fabric para inducir errores y ejecutar escenarios de prueba en los servicios."
+   pageTitle="Información general del servicio de análisis de errores | Microsoft Azure"
+   description="Este artículo describe el servicio de análisis de errores en Service Fabric para inducir errores y ejecutar escenarios de prueba en los servicios."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="04/06/2016"
    ms.author="rsinha"/>
 
-# Información general sobre Testability
+# Introducción al servicio de análisis de errores
 
-El subsistema Testability está diseñado para probar los servicios basados en Microsoft Azure Service Fabric. Con Testability, podrá provocar errores significativos y escenarios de ejecución. Estos errores y escenarios ejercen y validan los numerosos estados y transiciones que experimentará un servicio durante su vigencia, y todo ello de forma segura, controlada y uniforme.
+El servicio de análisis de errores se ha diseñado para probar los servicios incorporados en Microsoft Azure Service Fabric. Con el servicio de análisis de errores puede provocar errores significativos y ejecutar escenarios de prueba completos en sus aplicaciones. Estos errores y escenarios ejercen y validan los numerosos estados y transiciones que experimentará un servicio durante su vigencia, y todo ello de forma segura, controlada y uniforme.
 
-Testability proporciona acciones y escenarios que posibilitan esas capacidades. Las acciones son los errores individuales que se dirigen a un servicio para probarlo. Un programador del servicio puede utilizar como bloques de creación para escribir escenarios complicados. Por ejemplo:
+Las acciones son los errores individuales que se dirigen a un servicio para probarlo. Un programador del servicio puede utilizar como bloques de creación para escribir escenarios complicados. Por ejemplo:
 
   * Reiniciar un nodo para simular cualquier número de situaciones en que un equipo o máquina virtual se reinicia.
 
@@ -30,16 +30,22 @@ Testability proporciona acciones y escenarios que posibilitan esas capacidades. 
 
   * Invocar la pérdida de datos en un servicio con estado para crear una situación en la que se borra completamente todo el estado en memoria.
 
-Los escenarios son operaciones complejas compuestas por una o varias acciones. Como estas acciones son comandos de PowerShell y llamadas a la API de C#, pueden tomar cualquier forma: servicios de ejecución prolongada, comandos de PowerShell, aplicaciones de línea de comandos, etc. En Testability se incluyen dos escenarios de serie:
+Los escenarios son operaciones complejas compuestas por una o varias acciones. El servicio de análisis de errores proporciona dos escenarios completos integrados:
 
   * Escenario de caos
   * Escenario de conmutación por error
 
-Testability expone API tanto de PowerShell como de C#. Esto proporciona al desarrollador de servicios mayor agilidad con el scripting de PowerShell y un mayor control con las API de C# según sea necesario.
+## Prueba como servicio
 
-## Importancia de Testability
+El servicio de análisis de errores es un servicio de sistema de Service Fabric que se inicia automáticamente con un clúster de Service Fabric. Este servicio actúa como el host para la inyección de errores, la ejecución del escenario de prueba y el análisis de estado.
 
-Service Fabric facilita considerablemente el trabajo de escribir y administrar aplicaciones escalables distribuidas. El subsistema de Testability en Service Fabric facilita la realización de pruebas de una aplicación distribuida. Durante las pruebas deben resolverse tres problemas principales:
+![Servicio de análisis de errores][0]
+
+Cuando se inicia un escenario de prueba o una acción de error, se envía un comando al servicio de análisis de errores para ejecutar el escenario de prueba o la acción de error. El servicio de análisis de errores tiene estado, por lo que puede ejecutar de forma confiable errores y escenarios, y validar los resultados. Por ejemplo, un escenario de prueba de ejecución prolongada se puede ejecutar de forma confiable mediante el servicio de análisis de errores. Puesto que las pruebas se ejecutan dentro del clúster, el servicio puede examinar el estado del clúster y los servicios para proporcionar información más detallada acerca de los errores.
+
+## Prueba de los sistemas distribuidos
+
+Service Fabric facilita considerablemente el trabajo de escribir y administrar aplicaciones escalables distribuidas. El servicio de análisis de errores realiza una prueba de una aplicación distribuida de una facilidad similar. Durante las pruebas deben resolverse tres problemas principales:
 
 1. Simular o generar errores que pueden producirse en los escenarios del mundo real: uno de los aspectos importantes de Service Fabric es que permite a las aplicaciones distribuidas recuperarse de varios errores. Sin embargo, para probar que la aplicación puede recuperarse de estos errores se necesita un mecanismo que simule o genere estos errores reales en un entorno de prueba controlado.
 
@@ -47,7 +53,9 @@ Service Fabric facilita considerablemente el trabajo de escribir y administrar a
 
 3. Experiencia unificada a través de varios niveles de desarrollo e implementación: existen muchos sistemas de inserción de errores que pueden realizar varios tipos de errores. Sin embargo, la experiencia en todos ellos es deficiente al pasar de los escenarios de desarrollo one box a ejecutar las mismas pruebas en entornos de prueba grandes y a utilizarlas para pruebas en producción.
 
-Aunque existen varios mecanismos para resolver estos problemas, falta un sistema que haga lo mismo con las garantías requeridas, desde un entorno del desarrollador one box hasta la prueba en clústeres de producción. El subsistema de Testability ayuda a los desarrolladores de aplicaciones a concentrarse en probar su lógica de negocios. Testability proporciona todas las capacidades necesarias para probar la interacción del servicio con el sistema distribuido subyacente.
+Aunque existen varios mecanismos para resolver estos problemas, falta un sistema que haga lo mismo con las garantías requeridas, desde un entorno del desarrollador one box hasta la prueba en clústeres de producción. El servicio de análisis de errores ayuda a los desarrolladores de aplicaciones a concentrarse en probar su lógica de negocios. Este servicio proporciona todas las capacidades necesarias para probar la interacción del servicio con el sistema distribuido subyacente.
+
+
 
 ### Simulación/generación de escenarios de error reales
 
@@ -61,7 +69,7 @@ Para probar la solidez de un sistema distribuido frente a errores, se necesita u
 
     b. Si se encuentra el nodo, debería devolverse solo si el nodo está apagado.
 
-Para comprobar el error desde la perspectiva de la prueba, esta necesita saber que cuando se provoca el error, este efectivamente sucede. La garantía que proporciona Service Fabric es que el nodo se quedará fuera de servicio o ya estará fuera de servicio cuando el comando alcance el nodo. En cualquier caso, la prueba debe ser capaz de deducir correctamente el estado y realizar, o no, su validación correctamente. Un sistema implementado fuera de Service Fabric para realizar el mismo conjunto de errores podría detectar un gran número de problemas de red, hardware y software, lo que impediría que proporcionase las garantías indicadas anteriormente. Si surgen los problemas indicados anteriormente, Service Fabric reconfigurará el estado del clúster para solucionar los problemas y, por tanto, el subsistema de Testability aún podría ofrecer el conjunto correcto de garantías.
+Para comprobar el error desde la perspectiva de la prueba, esta necesita saber que cuando se provoca el error, este efectivamente sucede. La garantía que proporciona Service Fabric es que el nodo se quedará fuera de servicio o ya estará fuera de servicio cuando el comando alcance el nodo. En cualquier caso, la prueba debe ser capaz de deducir correctamente el estado y realizar, o no, su validación correctamente. Un sistema implementado fuera de Service Fabric para realizar el mismo conjunto de errores podría detectar un gran número de problemas de red, hardware y software, lo que impediría que proporcionase las garantías indicadas anteriormente. Si surgen los problemas indicados anteriormente, Service Fabric reconfigurará el estado del clúster para solucionar los problemas y, por tanto, el servicio de análisis de errores aún podría ofrecer el conjunto correcto de garantías.
 
 ### Generación de los eventos y los escenarios requeridos
 
@@ -85,34 +93,31 @@ Tradicionalmente se han creado tres conjuntos diferentes de experiencias: una pa
 
 3. Mantener el entorno de producción intacto para impedir errores no naturales y asegurarse de que se produce una respuesta humana extremadamente rápida ante cualquier error.
 
-En Service Fabric, a través del subsistema de Testability, proponemos cambiarlo para que se use la misma metodología desde el entorno de desarrollo hasta la producción. Hay dos formas de lograrlo:
+En Service Fabric, a través del servicio de análisis de errores, proponemos cambiarlo para que se use la misma metodología desde el entorno de desarrollo hasta la producción. Hay dos formas de lograrlo:
 
-1. Para provocar errores controlados, use las API de Testability desde un entorno one box hasta los clústeres de producción.
+1. Para provocar errores controlados, use las API del servicio de análisis de errores desde un entorno one box hasta los clústeres de producción.
 
-2. Para poner al clúster en una situación que provoque la inducción automática de errores, use el subsistema de Testability para generar errores automáticos. El control de la tasa de errores a través de la configuración permite que el mismo servicio se pruebe de manera diferente en distintos entornos.
+2. Para poner al clúster en una situación que provoque la inducción automática de errores, use el servicio de análisis de errores para generar errores automáticos. El control de la tasa de errores a través de la configuración permite que el mismo servicio se pruebe de manera diferente en distintos entornos.
 
 Con Service Fabric, aunque la escala de errores sería diferente en los distintos entornos, el mecanismo real sería idéntico. Esto hace posible el uso de un código mucho más rápido para el proceso de la implementación y la capacidad de probar los servicios con carga real.
 
-## Uso de Testability
+## Uso del servicio de análisis de errores
 
-### Uso de Testability en C##
+**C#**
 
-En System.Fabric.dll están presentes las características de Testability. Este archivo dll se encuentra en el paquete de NuGet Microsoft.ServiceFabric.nupack. Para utilizar las características de Testability, incluya el paquete de NuGet como referencia en el proyecto.
+Las características del servicio de análisis de errores están en el espacio de nombres System.Fabric en el paquete de NuGet de Microsoft.ServiceFabric. Para utilizar las características del servicio de análisis de errores, incluya el paquete de NuGet como referencia en el proyecto.
 
-### Uso de Testability en PowerShell
+**PowerShell**
 
-Para usar PowerShell de Testability, debe instalar el MSI en tiempo de ejecución. Una vez instalado el MSI, el módulo ServiceFabric PowerShell se carga automáticamente para que los desarrolladores lo usen.
-
-## Conclusión
-
-Para crear verdaderos servicios de escala en la nube, es fundamental asegurarse, tanto antes como después de la implementación, de que los servicios pueden resistir errores reales. En el actual mundo de servicios, también es muy importante la capacidad de innovar y mover código a producción rápidamente. Testability de Service Fabric ayuda a los desarrolladores a hacer exactamente eso.
+Para usar PowerShell, debe instalar el SDK de Service Fabric. Una vez instalado el SDK, el módulo ServiceFabric PowerShell se carga automáticamente para que lo use.
 
 ## Pasos siguientes
 
-- [Acciones de Testability](service-fabric-testability-actions.md)
-- [Escenarios de Testability](service-fabric-testability-actions.md)
-- Procedimientos para probar un servicio
-  - [Simulación de errores durante las cargas de trabajo del servicio](service-fabric-testability-workload-tests.md)
-  - [Errores de comunicación entre servicios](service-fabric-testability-scenarios-service-communication.md)
+Para crear verdaderos servicios de escala en la nube, es fundamental asegurarse, tanto antes como después de la implementación, de que los servicios pueden resistir errores reales. En el actual mundo de servicios, también es muy importante la capacidad de innovar y mover código a producción rápidamente. El servicio de análisis de errores ayuda a los desarrolladores a hacer exactamente eso.
 
-<!---HONumber=AcomDC_0309_2016-->
+Comience a probar sus aplicaciones y servicios mediante los [escenarios de prueba](service-fabric-testability-scenarios.md) integrados, o cree sus propios escenarios de prueba con las [acciones de error](service-fabric-testability-actions.md) proporcionadas por el servicio de análisis de errores.
+
+<!--Image references-->
+[0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
+
+<!---HONumber=AcomDC_0427_2016-->

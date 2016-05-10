@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/11/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"
 />
 
@@ -119,4 +119,4 @@ Aquí usamos una **LEFT OUTER JOIN** (COMBINACIÓN EXTERNA IZQUIERDA) en el mism
 
 Este tutorial es, básicamente, una introducción sobre cómo escribir distintas consultas SAQL y ver los resultados en el explorador sobre distintos patrones en los datos. Sin embargo, se trata solo de una introducción. Es mucho más lo que puede hacer con Análisis de transmisiones. A continuación, aprenderá a conectar el trabajo de Análisis de transmisiones a las entradas y salidas e implementarlo en Azure. Puede comenzar a explorar más información sobre Análisis de transmisiones con nuestra guía [Mapa de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Además, si desea obtener más información sobre cómo escribir consultas, lea el artículo [Patrones de consultas comunes](./stream-analytics-stream-analytics-query-patterns.md#query-example-detect-the-absence-of-events).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

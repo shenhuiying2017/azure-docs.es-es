@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016"
+	ms.date="04/26/2016"
 	ms.author="adegeo"/>
 
 
@@ -23,8 +23,8 @@
 # Administración de servicios en la nube
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-manage.md)
-- [Azure portal](cloud-services-how-to-manage-portal.md)
+- [Portal de Azure](cloud-services-how-to-manage-portal.md)
+- [Portal de Azure clásico](cloud-services-how-to-manage.md)
 
 En el área **Servicios en la nube** del Portal de Azure clásico, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
 
@@ -165,4 +165,4 @@ Si se configura una supervisión detallada para su servicio en la nube, Azure no
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

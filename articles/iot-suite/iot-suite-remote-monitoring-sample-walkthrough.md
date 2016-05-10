@@ -225,4 +225,12 @@ Puede deshabilitar un dispositivo y, después, quitarlo:
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+
+## Pasos siguientes
+
+Las siguientes entradas de blog de TechNet proporcionan detalles adicionales acerca de la solución preconfigurada de supervisión remota:
+
+- [IoT Suite - Under The Hood - Remote Monitoring:](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx) (Conjunto de aplicaciones de IoT: Supervisión remota interna)
+- [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx) (Conjunto de aplicaciones de IoT, Supervisión remota: Incorporación de dispositivos activos y simulados)
+
+<!---HONumber=AcomDC_0504_2016-->

@@ -3,7 +3,7 @@
 
 En este tema se describe cómo:
 
-- Inyectar datos en una máquina virtual de Azure cuando se está aprovisionando.
+- Inyectar datos en una máquina virtual (VM) de Azure cuando se está aprovisionando.
 
 - Recuperarlos tanto para Windows como para Linux.
 
@@ -13,33 +13,32 @@ En este tema se describe cómo:
 
 ## Inyección de datos personalizados en su máquina virtual de Azure
 
-Esta característica solamente se admite actualmente en la [interfaz de la línea de comandos de Azure](https://github.com/Azure/azure-xplat-cli). Aunque puede usar cualquiera de las opciones para el comando `azure vm create`, a continuación se muestra una perspectiva muy básica.
+Esta característica solamente se admite actualmente en la [interfaz de la línea de comandos de Azure](https://github.com/Azure/azure-xplat-cli). Aquí creamos un archivo `custom-data.txt` que contiene nuestros datos y después los inyectamos en la VM durante el aprovisionamiento. Aunque puede usar cualquiera de las opciones para el comando `azure vm create`, a continuación se muestra un enfoque muy básico:
 
 ```
-    PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
-    VMNAME=mycustomdataubuntu
-    USERNAME=username
-    VMIMAGE= An image chosen from among those listed by azure vm image list
-    azure vm create $VMNAME $VMIMAGE $USERNAME $PASSWORD --location "West US" --json -d ./custom-data.txt -e 22
+    azure vm create <vmname> <vmimage> <username> <password> \  
+    --location "West US" --ssh 22 \  
+    --custom-data ./custom-data.txt  
 ```
 
 
 ## Uso de datos personalizados en la máquina virtual
 
-+ Si la máquina virtual de Azure es una máquina virtual Windows, el archivo de datos personalizado se guarda en `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Aunque se codificara con base64 para transferirla del equipo local a la nueva máquina virtual, se descodifica automáticamente y se puede abrir o usar de inmediato.
++ Si la VM de Azure es una VM Windows, el archivo de datos personalizado se guarda en `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Aunque se codificara con base64 para transferirla del equipo local a la nueva VM, se descodifica automáticamente y se puede abrir o usar de inmediato.
 
    > [AZURE.NOTE] Si el archivo existe se sobrescribe. La seguridad en el directorio se establece en **Sistema: Control total** y **Administradores: Control total**.
 
-+ Si la máquina virtual de Azure es una máquina virtual Linux, el archivo de datos personalizados se ubicará en los dos lugares siguientes. Los datos estarán codificados con base64, por lo que deberá descifrarlos en primer lugar.
++ Si la VM de Azure es una VM Linux, el archivo de datos personalizados se ubicará en uno de los dos lugares siguientes dependiendo de la distribución. Los datos pueden estar codificados con base64, por lo que tiene que descifrarlos en primer lugar:
 
-    + En `/var/lib/waagent/ovf-env.xml`
-    + En `/var/lib/waagent/CustomData`
+    - `/var/lib/waagent/ovf-env.xml`
+    - `/var/lib/waagent/CustomData`
+    - `/var/lib/cloud/instance/user-data.txt` 
 
 
 
 ## Cloud-init en Azure
 
-Si la máquina virtual de Azure procede de una imagen de Ubuntu o CoreOS, puede usar CustomData para enviar una cloud-config a cloud-init. O bien, si el archivo de datos personalizados es un script, cloud-init puede simplemente ejecutarlo.
+Si la VM de Azure procede de una imagen de Ubuntu o CoreOS, puede usar CustomData para enviar una cloud-config a cloud-init. O bien, si el archivo de datos personalizados es un script, cloud-init puede simplemente ejecutarlo.
 
 ### Ubuntu Cloud Images
 
@@ -59,4 +58,4 @@ Para obtener más información, consulte la [documentación de cloud-init para U
 
 [Interfaz de línea de comandos de Azure](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->
