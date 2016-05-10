@@ -1,8 +1,8 @@
 
 
-## Concesión de permisos de db\_owner de usuario de base de datos nueva
+## Concesión de permisos de db_owner de usuario de base de datos nueva
 
-Siga estos pasos para conceder a usuario de una base de datos existente permisos de db\_owner
+Siga estos pasos para conceder a usuario de una base de datos existente permisos de db_owner
 
 Estos pasos se basan en el supuesto de que está conectado a Base de datos SQL en el Explorador de objetos en SSMS y que está conectado al servidor lógico de Base de datos SQL como un administrador de entidad de seguridad de nivel de servidor o con una cuenta de usuario con permisos para conceder permisos de usuario.
 
@@ -16,7 +16,7 @@ Estos pasos se basan en el supuesto de que está conectado a Base de datos SQL e
 
 3. En la ventana de consulta, edite y utilice la siguiente instrucción Transact-SQL para conceder permisos de dbo a un usuario específico.
 
-    '''ALTER ROLE db\_owner ADD MEMBER user1;
+    '''ALTER ROLE db_owner ADD MEMBER user1;
 
      ![SQL Server Management Studio: conexión a un servidor de Base de datos SQL](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 

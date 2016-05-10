@@ -61,11 +61,15 @@ Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede i
 
 1. Abra **Visual Studio 2015** en el equipo.
 2. En el menú **Archivo**, seleccione **Nuevo** y elija **Proyecto**.
-3. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Plantillas**/**Visual C#**/ **Aplicación de consola**, asigne un nombre al proyecto y haga clic en **Aceptar**. ![Captura de pantalla de la ventana Nuevo proyecto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+3. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Plantillas**/**Visual C#**/ **Aplicación de consola**, asigne un nombre al proyecto y haga clic en **Aceptar**. 
+![Captura de pantalla de la ventana Nuevo proyecto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. En el **Explorador de soluciones**, haga clic con el botón secundario en la nueva aplicación de la consola, que se encuentra en la solución de Visual Studio.
-5. Luego, sin dejar el menú, haga clic en **Administrar paquetes NuGet...** ![Captura de pantalla del menú contextual del proyecto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+5. Luego, sin dejar el menú, haga clic en **Administrar paquetes NuGet...**
+![Captura de pantalla del menú contextual del proyecto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. En la pestaña **Nuget** haga clic en **Examinar** y escriba **azure documentdb** en el cuadro de búsqueda.
-7. En los resultados, busque **Microsoft.Azure.DocumentDB** y haga clic en **Instalar**. El identificador del paquete de DocumentDB Client Library es [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) ![Captura de pantalla del menú NuGet para encontrar el SDK de cliente de DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+7. En los resultados, busque **Microsoft.Azure.DocumentDB** y haga clic en **Instalar**. 
+El identificador del paquete de DocumentDB Client Library es [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) 
+![Captura de pantalla del menú NuGet para encontrar el SDK de cliente de DocumentDB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir algo de código. Puede buscar un proyecto con código completo de este tutorial en [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 

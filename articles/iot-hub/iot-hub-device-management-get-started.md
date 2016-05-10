@@ -91,7 +91,7 @@ Para compilar los ejemplos y aprovisionar dispositivos en el Centro de IoT, siga
 
 El script hace lo siguiente:
 
-1.  Ejecuta **cmake** para crear una solución de Visual Studio 2015 para el dispositivo simulado. Este archivo de proyecto es **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Los archivos de código fuente se encuentran en la carpeta ****azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Ejecuta **cmake** para crear una solución de Visual Studio 2015 para el dispositivo simulado. Este archivo de proyecto es **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Los archivos de código fuente se encuentran en la carpeta **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Compila el proyecto **iotdm\_simple\_sample.vcxproj** para el dispositivo simulado.
 
@@ -127,11 +127,11 @@ Asegúrese de dejar todos los dispositivos simulados en ejecución mientras comp
 
 Para más información acerca de las características de administración de dispositivos del Centro de IoT de Azure puede realizar los tutoriales:
 
-- [How to use the device twin][lnk-tutorial-twin] (Uso del conjunto de dispositivos)
+- [How to use the device twin][lnk-tutorial-twin] \(Uso del conjunto de dispositivos)
 
-- [How to find device twins using queries][lnk-tutorial-queries] (Cómo encontrar conjuntos de dispositivos con las consultas)
+- [How to find device twins using queries][lnk-tutorial-queries] \(Cómo encontrar conjuntos de dispositivos con las consultas)
 
-- [How to use device jobs to update device firmware][lnk-tutorial-jobs] (Uso de trabajos de dispositivos para actualizar el firmware de dispositivo)
+- [How to use device jobs to update device firmware][lnk-tutorial-jobs] \(Uso de trabajos de dispositivos para actualizar el firmware de dispositivo)
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started/image1.png

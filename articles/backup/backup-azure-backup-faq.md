@@ -47,7 +47,7 @@ En este artículo encontrará una lista de las preguntas más frecuentes (y sus 
 
 **P3. ¿Qué versión de servidor SCDPM es compatible?** <br/> R3. Se recomienda que instale el agente de Copia de seguridad de Azure [más reciente](http://aka.ms/azurebackup_agent) en el paquete acumulativo de actualizaciones de SCDPM más reciente (UR6 desde julio de 2015).
 
-****P4. Al configurar al agente de Copia de seguridad de Azure, se me solicita que especifique las **credenciales de almacén**. ¿Expiran las credenciales de almacén? R4. Sí, las credenciales de almacén expiran a las 48 horas. Si el archivo caduca, inicie sesión en el Portal de Azure y descargue los archivos de credenciales de almacén desde el almacén de copia de seguridad.
+**P4. Al configurar al agente de Copia de seguridad de Azure, se me solicita que especifique las **credenciales de almacén**. ¿Expiran las credenciales de almacén? R4. Sí, las credenciales de almacén expiran a las 48 horas. Si el archivo caduca, inicie sesión en el Portal de Azure y descargue los archivos de credenciales de almacén desde el almacén de copia de seguridad.
 
 **P5. ¿Hay algún límite del número de almacenes de copia de seguridad que se pueden crear en cada suscripción de Azure?** <br/> R5. Sí. A partir de julio de 2015, puede crear 25 almacenes por suscripción. Si necesita más almacenes, cree una nueva suscripción.
 

@@ -229,9 +229,9 @@ En esta sección del tutorial, creará la aplicación básica que lee y muestra 
 
 ### Configurar las vistas
 
-1. En el **Explorador de soluciones**, expanda la carpeta **Vistas** y luego la carpeta **Compartido** y haga doble clic en **\_Layout.cshtml**.
+1. En el **Explorador de soluciones**, expanda la carpeta **Vistas** y luego la carpeta **Compartido** y haga doble clic en **_Layout.cshtml**.
 
-    ![\_Layout.cshtml][cache-layout-cshtml]
+    ![_Layout.cshtml][cache-layout-cshtml]
 
 2. Cambie el contenido del elemento `title` y sustituya `My ASP.NET Application` por `Contoso Team Stats`, como se muestra en el ejemplo siguiente.
 

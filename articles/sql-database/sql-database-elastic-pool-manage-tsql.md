@@ -31,7 +31,7 @@ Utilice los comandos [Create Database (Base de datos SQL de Azure)](https://msdn
 
 
 ## Creación de una nueva base de datos en un grupo elástico
-Use el comando CREATE DATABASE con la opción SERVICE\_OBJECTIVE.
+Use el comando CREATE DATABASE con la opción SERVICE_OBJECTIVE.
 
 	CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
 	-- Create a database named db1 in a pool named S3M100.
@@ -46,13 +46,13 @@ Utilice el comando ALTER DATABASE con las opciones MODIFY y SERVICE\_OBJECTIVE c
 	-- Move the database named db1 to a pool named P1M125  
 
 ## Movimiento de una base de datos a un grupo elástico 
-Utilice el comando ALTER DATABASE con las opciones MODIFY y SERVICE\_OBJECTIVE como ELASTIC\_POOL. Establezca como nombre el nombre del grupo de destino.
+Utilice el comando ALTER DATABASE con las opciones MODIFY y SERVICE\_OBJECTIVE como ELASTIC_POOL. Establezca como nombre el nombre del grupo de destino.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
 
 ## Movimiento de una base de datos fuera de un grupo elástico
-Utilice el comando ALTER DATABASE y establezca SERVICE\_OBJECTIVE en uno de los niveles de rendimiento (S0, S1, etc).
+Utilice el comando ALTER DATABASE y establezca SERVICE_OBJECTIVE en uno de los niveles de rendimiento (S0, S1, etc).
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
 	-- Changes the database into a stand-alone database with the service objective S1.

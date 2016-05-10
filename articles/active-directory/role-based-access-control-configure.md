@@ -23,9 +23,11 @@ El control de acceso basado en roles (RBAC) de Azure permite realizar una admini
 ## Vista de acceso
 Puede ver quién tiene acceso a un recurso, a un grupo de recursos o a una suscripción desde la hoja principal del [Portal de Azure](https://portal.azure.com). Por ejemplo, queremos ver quién tiene acceso a uno de nuestros grupos de recursos:
 
-1. Seleccione **Grupos de recursos** en la barra de navegación de la izquierda. ![Grupos de recursos - icono](./media/role-based-access-control-configure/resourcegroups_icon.png)
+1. Seleccione **Grupos de recursos** en la barra de navegación de la izquierda.
+	![Grupos de recursos - icono](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. Seleccione el nombre del grupo de recursos en la hoja **Grupos de recursos**.
-3. Seleccione **Usuarios** en la parte superior derecha de la hoja del grupo de recursos. ![Usuarios - icono](./media/role-based-access-control-configure/users_icon.png)
+3. Seleccione **Usuarios** en la parte superior derecha de la hoja del grupo de recursos.
+	![Usuarios - icono](./media/role-based-access-control-configure/users_icon.png)
 4. La hoja **Usuarios** muestra todos los usuarios, los grupos y las aplicaciones a los que se ha concedido acceso al grupo de recursos.  
 
 	![Hoja de usuarios: acceso heredado frente a asignado (captura de pantalla)](./media/role-based-access-control-configure/view-access.png)
@@ -38,21 +40,25 @@ Tenga en cuenta que algunos usuarios tienen un acceso **Asignado** mientras que 
 ## Agregación de acceso
 Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción que constituya el ámbito de la asignación de rol.
 
-1. Seleccione **Agregar** en la hoja **Usuarios**. ![Agregar - icono](./media/role-based-access-control-configure/add_icon.png)  
+1. Seleccione **Agregar** en la hoja **Usuarios**. 
+	![Agregar - icono](./media/role-based-access-control-configure/add_icon.png)  
 2. Seleccione el rol que desea asignar en la hoja **Seleccionar un rol**.
 3. Seleccione el usuario, el grupo o la aplicación en el directorio al que desea conceder acceso. Puede buscar en el directorio con los nombres para mostrar, direcciones de correo electrónico e identificadores de objeto.  
 
 	![Hoja Agregar usuarios: búsqueda (captura de pantalla)](./media/role-based-access-control-configure/grant-access2.png)
 
-4. Seleccione **Aceptar** para crear la asignación. En el mensaje emergente **Agregando usuario**, se muestra el progreso. ![Barra de progreso Agregando usuario - captura de pantalla](./media/role-based-access-control-configure/addinguser_popup.png)
+4. Seleccione **Aceptar** para crear la asignación. En el mensaje emergente **Agregando usuario**, se muestra el progreso. 
+	![Barra de progreso Agregando usuario - captura de pantalla](./media/role-based-access-control-configure/addinguser_popup.png)
 
 Después de agregar correctamente una asignación de roles, aparecerá en la hoja **Usuarios**.
 
 ## Eliminación de acceso
 
 1. Seleccione la asignación de roles en la hoja **Usuarios**.
-2. Seleccione **Quitar** en la hoja de detalles de asignación. ![Quitar - icono](./media/role-based-access-control-configure/remove_icon.png)
-3. Seleccione **Sí** para confirmar la eliminación. ![Hoja de usuarios: quitar del rol (captura de pantalla)](./media/role-based-access-control-configure/remove-access1.png)
+2. Seleccione **Quitar** en la hoja de detalles de asignación. 
+![Quitar - icono](./media/role-based-access-control-configure/remove_icon.png)
+3. Seleccione **Sí** para confirmar la eliminación. 
+![Hoja de usuarios: quitar del rol (captura de pantalla)](./media/role-based-access-control-configure/remove-access1.png)
 
 Las asignaciones heredadas no se pueden quitar. Observe en la imagen siguiente que el botón Quitar está atenuado. En su lugar, mire el detalle de **Asignado en**. Vaya a los recursos indicados ahí para quitar la asignación de roles.
 

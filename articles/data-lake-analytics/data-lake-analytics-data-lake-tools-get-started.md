@@ -130,9 +130,10 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 
 		IntelliSense para las entidades de catálogo (bases de datos, esquemas, tablas, UDO, etc.) está relacionado con la cuenta de proceso. Puede comprobar la cuenta de proceso activa actual, la base de datos y el esquema en la barra de herramientas superior y cambiarlos en las listas desplegables.
 
-    - **Expandir columnas ***
+    - **Expandir * columnas**
 
-        Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mantenga el cursor del ratón sobre el subrayado azul y después haga clic en la flecha hacia abajo. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+	Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mantenga el cursor del ratón sobre el subrayado azul y después haga clic en la flecha hacia abajo. 
+        ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Haga clic en **Expandir columnas** y la herramienta reemplazará * por los nombres de columna.
 
@@ -215,7 +216,7 @@ Con la experiencia de ejecución local de U-SQL en Visual Studio, puede:
 - Depurar ensamblados de C# localmente.
 - Cree, elimine y vea bases de datos locales, ensamblados, esquemas y tablas en el Explorador de servidores de la misma manera que puede hacerlo para el servicio de Análisis con Azure Data Lake.
 
-Verá una cuenta *Local* en Visual Studio y el instalador creará una carpeta *DataRoot* que se encuentra en *C:\\LocalRunRoot*. Se usará la carpeta DataRoot:
+Verá una cuenta *Local* en Visual Studio y el instalador creará una carpeta *DataRoot* que se encuentra en *C:\LocalRunRoot*. Se usará la carpeta DataRoot:
 
 - Almacene metadatos incluidos tablas, bases de datos, funciones TVF, etc.
 - Para un script determinado: si se hace referencia a una ruta de acceso relativa en rutas de acceso de entrada y salida, buscaremos la DataRoot (así como la ruta de acceso del script si es su entrada).

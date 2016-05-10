@@ -186,7 +186,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 		
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	En el script, el archivo de script U-SQL se almacena en c:\\tutorials\\data-lake-analytics\\copyFile.usql. Actualice la ruta de acceso de archivo en consecuencia.
+	En el script, el archivo de script U-SQL se almacena en c:\tutorials\data-lake-analytics\copyFile.usql. Actualice la ruta de acceso de archivo en consecuencia.
  
 Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar el archivo y descargarlo:
 	

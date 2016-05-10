@@ -199,7 +199,8 @@ En esta sección se implementa el proyecto web en la aplicación web.
 
 	![Aplicación Web que se ejecuta en Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-	> [AZURE.TIP] Para agilizar la implementación, puede habilitar la barra de herramientas **Publicación en Web con un solo clic**. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Esta barra de herramientas se puede usar para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el Asistente para **publicación web**. ![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+	> [AZURE.TIP] Para agilizar la implementación, puede habilitar la barra de herramientas **Publicación en Web con un solo clic**. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Esta barra de herramientas se puede usar para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el Asistente para **publicación web**. 
+	![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## Solución de problemas
 

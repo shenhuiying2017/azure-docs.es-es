@@ -41,7 +41,7 @@ Puede seguir un sencillo inicio rápido en el Portal de Azure clásico para crea
 
 1. En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
-2. En la pestaña Inicio rápido, haga clic en **iOS** en **Elija una plataforma ** y expanda **Crear una nueva aplicación iOS**. Con esto se muestran los pasos requeridos para crear una aplicación iOS conectada a su servicio móvil.
+2. En la pestaña Inicio rápido, haga clic en **iOS** en **Elija una plataforma** y expanda **Crear una nueva aplicación iOS**. Con esto se muestran los pasos requeridos para crear una aplicación iOS conectada a su servicio móvil.
 
 3. Haga clic en **Crear tabla TodoItem** para crear una tabla para almacenar los datos de la aplicación.
 

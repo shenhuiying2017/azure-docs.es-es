@@ -129,7 +129,7 @@ Agregue nuevas capacidades a su archivo `WMAppManifest.xml`:
 
 ###Inicializar el SDK de REACH
 
-1. En `App.xaml.cs`, llame a `EngagementReach.Instance.Init();` en la función **Application\_Launching** justo después de la inicialización del agente:
+1. En `App.xaml.cs`, llame a `EngagementReach.Instance.Init();` en la función **Application_Launching** justo después de la inicialización del agente:
 
 		private void Application_Launching(object sender, LaunchingEventArgs e)
 		{
@@ -137,7 +137,7 @@ Agregue nuevas capacidades a su archivo `WMAppManifest.xml`:
 		   EngagementReach.Instance.Init();
 		}
 
-2. En `App.xaml.cs`, llame a `EngagementReach.Instance.OnActivated(e);` en la función **Application\_Activated** justo después de la inicialización del agente:
+2. En `App.xaml.cs`, llame a `EngagementReach.Instance.OnActivated(e);` en la función **Application_Activated** justo después de la inicialización del agente:
 
 		private void Application_Activated(object sender, ActivatedEventArgs e)
 		{

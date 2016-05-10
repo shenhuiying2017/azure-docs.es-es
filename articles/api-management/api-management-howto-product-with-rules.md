@@ -80,7 +80,7 @@ Haga clic en **Agregar API al producto**.
 
 ![Add API to product][api-management-add-api]
 
-Seleccione **API Eco ** y luego haga clic en **Guardar**.
+Seleccione **API Eco** y luego haga clic en **Guardar**.
 
 ![Add Echo API][api-management-add-echo-api]
 

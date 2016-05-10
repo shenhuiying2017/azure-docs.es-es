@@ -133,7 +133,7 @@ En esta sección, vamos a configurar nuestra aplicación web para usar la base d
 
 1.  En el Explorador de soluciones, en **Entornos de Python**, haga clic con el botón derecho en el entorno virtual y seleccione **Instalar paquete de Python**.
 
-1. Instale el paquete `mysql-python` con **easy\_install**.
+1. Instale el paquete `mysql-python` con **easy_install**.
 
   	![Cuadro de diálogo Instalar paquete](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
