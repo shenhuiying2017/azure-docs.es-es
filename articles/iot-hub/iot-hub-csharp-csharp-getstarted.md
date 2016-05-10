@@ -80,7 +80,7 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 
 - [Envío de mensajes de nube a dispositivo con el Centro de IoT][lnk-c2d-tutorial] muestra cómo enviar mensajes a dispositivos y procesar los comentarios de entrega generados por el Centro de IoT.
 - [Procesamiento de mensajes de dispositivo a la nube][lnk-process-d2c-tutorial] muestra cómo procesar de forma confiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
-- [Cómo cargar archivos desde dispositivos a la nube ][lnk-upload-tutorial] describe un patrón que usa mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
+- [Cómo cargar archivos desde dispositivos a la nube ](iot-hub-csharp-csharp-file-upload.md) describe un patrón que usa mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png

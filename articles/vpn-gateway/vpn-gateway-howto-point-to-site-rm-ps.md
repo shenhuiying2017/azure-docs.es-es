@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
+   ms.date="03/30/2016"
    ms.author="cherylmc" />
 
 # Configuración de una conexión punto a sitio a una red virtual mediante PowerShell
@@ -22,11 +22,22 @@
 - [PowerShell: administrador de recursos](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Clásico](vpn-gateway-point-to-site-create.md)
 
-Una configuración punto a sitio permite crear una conexión segura a la red virtual desde un equipo cliente, de forma individual. Se establece una conexión VPN al iniciar la conexión desde el equipo cliente. La conexión punto a sitio es una solución excelente cuando desea conectarse a la red virtual desde una ubicación remota, como desde una casa o una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual. Las conexiones punto a sitio no requieren un dispositivo VPN o una dirección IP pública para que funcionen. Para obtener más información sobre las conexiones punto a sitio, consulte [Preguntas frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) y [Acerca de las conexiones entre locales](vpn-gateway-cross-premises-options.md).
+Una configuración punto a sitio permite crear una conexión segura a la red virtual desde un equipo cliente, de forma individual. Se establece una conexión VPN al iniciar la conexión desde el equipo cliente. La conexión punto a sitio es una solución excelente cuando desea conectarse a la red virtual desde una ubicación remota, como desde una casa o una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual.
 
-Este artículo se aplica a las redes virtuales y a las puertas de enlace de VPN creadas con el modelo de implementación del **Administrador de recursos de Azure**. Si desea configurar una conexión punto a sitio para una red virtual que se creó con Administración de servicios (también conocido como el modelo de implementación clásica), consulte [Configuración de una conexión VPN de punto a sitio a una red virtual](vpn-gateway-point-to-site-create.md).
+Las conexiones punto a sitio no requieren un dispositivo VPN o una dirección IP pública para que funcionen. Para obtener más información sobre las conexiones de punto a sitio, consulte las [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) y [Acerca de las conexiones entre locales](vpn-gateway-cross-premises-options.md).
 
-[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+En este artículo se hace referencia a las conexiones de puerta de enlace de VPN de punto a sitio con una red virtual creada con el **modelo de implementación de Resource Manager** (Service Management).
+
+**Información acerca de los modelos de implementación de Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**Modelos de implementación y herramientas para las conexiones de punto a sitio**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
+
+![Diagrama de punto a sitio](./media/vpn-gateway-point-to-site-create/point2site.png "De punto a sitio")
+
 
 ## Acerca de esta configuración
 
@@ -41,7 +52,7 @@ Utilizaremos los siguientes valores para esta configuración:
 - Grupo de direcciones de clientes de VPN: **172.16.201.0/24**. Los clientes de VPN que se conectan a la red virtual con esta conexión punto a sitio recibirán una dirección IP de este grupo.
 - Suscripción: si tiene más de una suscripción, compruebe que tiene la correcta.
 - Grupo de recursos: **TestRG**
-- Ubicación: **East US**
+- Ubicación: **Este de EE. UU.**
 - Servidor DNS: **Dirección IP** del servidor DNS que desea usar para la resolución de nombres.
 - Nombre de GW: **GW**
 - Nombre de dirección IP pública: **GWIP**
@@ -50,9 +61,9 @@ Utilizaremos los siguientes valores para esta configuración:
 
 ## Antes de comenzar
 
-- Compruebe que tiene una suscripción a Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [beneficios como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure (1.0.2 o posterior). Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell.
+- Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure (1.0.2 o posterior). Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell.
 
 ## Configurar una conexión punto a sitio para Azure
 
@@ -112,7 +123,7 @@ Utilizaremos los siguientes valores para esta configuración:
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Cargue un archivo .cer de certificado raíz a Azure. Puede utilizar un certificado raíz desde el entorno de certificados empresarial o puede usar un certificado raíz autofirmado. Puede cargar hasta 20 certificados raíz. Para obtener instrucciones sobre cómo crear un certificado raíz autofirmado mediante *makecert*, consulte [Uso de certificados raíz autofirmados para las configuraciones de punto a sitio](vpn-gateway-certificates-point-to-site.md) Tenga en cuenta que el archivo .cer no puede contener la clave privada del certificado raíz.
+10. Cargue un archivo .cer de certificado raíz a Azure. Puede utilizar un certificado raíz desde el entorno de certificados empresarial o puede usar un certificado raíz autofirmado. Puede cargar hasta 20 certificados raíz. Para obtener instrucciones sobre cómo crear un certificado raíz autofirmado mediante *makecert*, consulte [Uso de certificados raíz autofirmados para las configuraciones de punto a sitio](vpn-gateway-certificates-point-to-site.md). Tenga en cuenta que el archivo .cer no puede contener la clave privada del certificado raíz.
 	
 	A continuación, podemos ver un ejemplo de cómo se ve. La parte difícil de cargar los datos del certificado público es que debe copiar y pegar toda la cadena, sin espacios. De lo contrario, la carga no funcionará. En este paso, deberá utilizar su propio archivo .cer de certificado. No intente copiar y pegar el ejemplo que aparece a continuación.
 
@@ -125,7 +136,7 @@ Utilizaremos los siguientes valores para esta configuración:
 
 ## Configuración de cliente
 
-Cada cliente que se conecta a Azure con la conexión punto a sitio debe cumplir con lo siguiente: El cliente de VPN debe estar configurado para conectarse y el cliente debe tener instalado un certificado de cliente. Los paquetes de configuración de cliente de VPN están disponibles para los clientes de Windows. Consulte las [preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) para obtener más información.
+Cada cliente que se conecta a Azure con la conexión punto a sitio debe cumplir con lo siguiente: El cliente de VPN debe estar configurado para conectarse y el cliente debe tener instalado un certificado de cliente. Los paquetes de configuración de cliente de VPN están disponibles para los clientes de Windows. Consulte las [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) para obtener más información.
 
 1. Descargue el paquete de configuración de cliente de VPN. En este paso, utilice el siguiente ejemplo para descargar el paquete de configuración de cliente.
 
@@ -229,4 +240,4 @@ Puede restablecer un certificado de cliente quitando la huella digital de la lis
 
 Puede agregar una máquina virtual a la red virtual. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

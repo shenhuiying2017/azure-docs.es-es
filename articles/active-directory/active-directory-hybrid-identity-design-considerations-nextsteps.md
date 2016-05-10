@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="04/25/2016"
 	ms.author="yurid"/>
 
 #Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: siguientes pasos
@@ -45,4 +45,4 @@ La consulta de los siguientes recursos con frecuencia proporciona las noticias y
 ## Consulte también
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

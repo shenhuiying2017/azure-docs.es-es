@@ -1,6 +1,10 @@
+
+
 ## Creación de un nuevo usuario de base de datos con SSMS
 
-Los pasos siguientes se basan en el supuesto de que va a usar SSMS, está conectado a Base de datos SQL en el Explorador de objetos y está conectado al servidor lógico de Base de datos SQL como un administrador de entidad de seguridad de nivel de servidor o con una cuenta de usuario con permisos para crear un nuevo usuario. Además, se supone que existe una base de datos de usuario en la que quiere crear una cuenta de usuario.
+Utilice los pasos siguientes para crear un nuevo usuario en una base de datos existente con SSMS.
+
+Estos pasos se basan en el supuesto de que está conectado a Base de datos SQL en el Explorador de objetos mediante SSMS y que está conectado al servidor lógico de Base de datos SQL como un administrador de entidad de seguridad de nivel de servidor o con una cuenta de usuario con permisos para crear un nuevo usuario.
 
 1. En el Explorador de objetos, expanda el nodo Bases de datos y seleccione la base de datos en el que quiere crear una nueva cuenta de usuario.
 
@@ -16,4 +20,4 @@ Los pasos siguientes se basan en el supuesto de que va a usar SSMS, está conect
 
      ![SQL Server Management Studio: conexión a un servidor de Base de datos SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

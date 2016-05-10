@@ -3,7 +3,7 @@
 	description="Uso de la biblioteca de cliente de Base de datos elástica y Entity Framework para la codificación de bases de datos" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="torsteng" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="04/26/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # Biblioteca de cliente de base de datos elástica con Entity Framework 
@@ -281,4 +281,4 @@ Con los pasos descritos en este documento, las aplicaciones de EF pueden utiliza
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -1,3 +1,5 @@
+
+
 ## Conexión a Base de datos SQL de Azure mediante un inicio de sesión de entidad de seguridad de nivel de servidor
 
 Siga estos pasos para conectarse a Base de datos SQL de Azure con SSMS utilizando un inicio de sesión de entidad de seguridad de nivel de servidor.
@@ -37,4 +39,4 @@ Siga estos pasos para conectarse a Base de datos SQL de Azure con SSMS utilizand
 
 La razón más común de los errores de conexión son errores en el nombre del servidor (recuerde, <*servername>* es el nombre del servidor lógico, no el de la base de datos), el nombre de usuario o la contraseña, así como el servidor que no permite conexiones por motivos de seguridad.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

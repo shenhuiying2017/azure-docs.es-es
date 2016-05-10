@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Tutorial de Base de datos SQL: creación de una base de datos SQL | Microsoft Azure"
 	description="Obtenga información sobre cómo configurar un servidor lógico de Base de datos SQL, una regla de firewall del servidor, una Base de datos SQL y datos de ejemplo, así cómo conectarse con herramientas de cliente, configurar usuarios y una regla de firewall de base de datos."
-	keywords="tutorial de base de datos SQL,creación de una base de datos SQL"
+	keywords="tutorial de base de datos SQL, creación de una base de datos SQL"
 	services="sql-database"
 	documentationCenter=""
 	authors="carlrabeler"
@@ -50,7 +50,7 @@ Ahora que completó este tutorial de Base de datos SQL y que creó una base de d
 
 - Si conoce Excel, consulte [Conexión a Base de datos SQL con Excel](sql-database-connect-excel.md).
 
-- Si está listo para comenzar a codificar, consulte [Conexión y realización de consultas de la Base de datos SQL con C#](sql-database-connect-query.md) y [Uso de Bases de datos SQL de .NET (C#)](sql-database-develop-dotnet-simple.md). Consulte los [ejemplos de código de inicio rápido para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md) para Node.js, Python, Ruby, Java, PHP y C++ y los procedimientos al margen de C#.
+- Si está listo para comenzar a codificar, elija el lenguaje de programación en [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 
 - Si desea mover las bases de datos de SQL Server locales a Azure, consulte [Migrar una base de datos a Base de datos SQL de Azure](sql-database-cloud-migrate.md) para obtener más información.
 
@@ -59,4 +59,4 @@ Ahora que completó este tutorial de Base de datos SQL y que creó una base de d
 
 [Información general de Base de datos SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

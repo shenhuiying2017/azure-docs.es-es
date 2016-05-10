@@ -18,7 +18,7 @@
 
 # Uso de la administración de servicios con Python
 
-En esta guía se describe cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python](../python-how-to-install.md) admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [Portal de Azure clásico][management-portal] (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos, máquinas virtuales y grupos de afinidad**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
+En esta guía se describe cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python](../python-how-to-install.md) admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [Portal de Azure clásico][management-portal] \(como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos, máquinas virtuales y grupos de afinidad**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
 
 > [AZURE.NOTE] API de administración de servicios se ha sustituido por la nueva API de administración de recursos, actualmente disponible en una versión preliminar. Consulte la [documentación de administración de recursos de Azure](http://azure-sdk-for-python.readthedocs.org/) para obtener más información acerca del uso de la nueva API de administración de recursos de Python.
 
@@ -39,11 +39,11 @@ Para conectarse al extremo de la administración de servicios, necesita el ident
 ### Certificados de administración en Windows/Mac/Linux (OpenSSL)
 Puede usar [OpenSSL](http://www.openssl.org/) para crear el certificado de administración. Necesitará crear dos certificados, uno para el servidor (un archivo `.cer`) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem`, ejecute este comando:
 
-	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
 Para crear el certificado `.cer`, ejecute este comando:
 
-	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+    openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 Para obtener más información sobre los certificados de Azure, consulte [Información general sobre los certificados de Servicios en la nube de Azure](./cloud-services-certs-create.md). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación en [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
@@ -102,11 +102,11 @@ Al crear un servicio en la nube o un servicio de almacenamiento, necesitará pro
 - Europa del Norte
 - Sudeste asiático
 - Asia oriental
-- Central EE. UU.:
+- Central EE. UU.:
 - Centro-Norte de EE. UU
 - Centro-Sur de EE. UU
-- Oeste de EE. UU.
-- Este de EE. UU.
+- Oeste de EE. UU.
+- Este de EE. UU.
 - Este de Japón
 - Oeste de Japón
 - Sur de Brasil
@@ -433,6 +433,6 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[servicio en la nube]: https://azure.microsoft.com/es-ES/documentation/services/cloud-services/
+[servicio en la nube]: https://azure.microsoft.com/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

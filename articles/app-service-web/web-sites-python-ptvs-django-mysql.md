@@ -18,13 +18,7 @@
 
 # Django y MySQL en Azure con Python Tools 2.2 para Visual Studio 
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [pestañas](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 En este tutorial, usaremos las [Herramientas de Python para Visual Studio] a fin de crear una aplicación web de sondeos sencilla mediante una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible como [vídeo](https://www.youtube.com/watch?v=oKCApIrS0Lo).
 
@@ -139,7 +133,7 @@ En esta sección, vamos a configurar nuestra aplicación web para usar la base d
 
 1.  En el Explorador de soluciones, en **Entornos de Python**, haga clic con el botón derecho en el entorno virtual y seleccione **Instalar paquete de Python**.
 
-1. Instale el paquete `mysql-python` con **easy\_install**.
+1. Instale el paquete `mysql-python` con **easy_install**.
 
   	![Cuadro de diálogo Instalar paquete](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
@@ -217,4 +211,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=AcomDC_0406_2016--->
+<!---HONumber=AcomDC_0504_2016-->

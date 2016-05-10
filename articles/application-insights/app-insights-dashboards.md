@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Paneles en el portal de Application Insights"
-	description="Después de haber configurado la aplicación para enviar telemetría a Application Insights, esta guía le muestra cómo orientarse en el portal."
+	description="Muestre datos de telemetría desde varios componentes de la aplicación en un panel."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -12,25 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="03/13/2016"
+	ms.date="04/25/2016"
 	ms.author="awills"/>
 
-# Paneles y navegación en el portal de Application Insights
+# Navegación y paneles en el portal de Application Insights
 
 Una vez [configurado Application Insights en su proyecto](app-insights-overview.md), aparecerán los datos de telemetría acerca del rendimiento y el uso de la aplicación en el recurso del proyecto Application Insights en el [portal de Azure](https://portal.azure.com).
-
-## El panel
-
-Al iniciar sesión en el [Portal de Azure](https://portal.azure.com), obtendrá acceso en primer lugar al panel. Puede personalizarlo o ponerlo en modo de pantalla completa.
-
-El panel es especialmente útil para la supervisión de una solución compuesta de varias aplicaciones, independientemente de donde se hospeden. Y, si tiene componentes de Azure, como Análisis de transmisiones, como parte de su sistema, también puede agregar sus gráficos de supervisión al panel.
-
-![Panel personalizado.](./media/app-insights-dashboards/30.png)
-
-1. Haga clic en la esquina superior en cualquier momento para volver al panel.
-2. **+ Nuevo** crea un recurso nuevo. Un [recurso de Application Insights](app-insights-create-new-resource.md) es un lugar para almacenar y analizar la telemetría de la aplicación.
-3. La barra de navegación abre los recursos existentes.
-4. Edite y cree paneles con la barra de herramientas del panel. También puede [crear paneles diferentes](#dashboards) para diferentes aplicaciones.
 
 ## Encontrar la telemetría
 
@@ -41,8 +28,6 @@ En el [portal de Azure](https://portal.azure.com), busque el recurso de Applicat
 La página de información general proporciona la telemetría básica, además de vínculos a más elementos. El contenido depende del tipo de aplicación y se puede personalizar.
 
 
-
-
 ## Hoja de información general de la aplicación
 
 La hoja de información general (página) de la aplicación muestra un resumen de las métricas de diagnóstico clave de la aplicación y sirve de puerta de enlace a las demás características del portal.
@@ -51,8 +36,9 @@ Haga clic en:
 
 * **Cualquier gráfico o icono** para ver más detalles.
 * **Configuración** para acceder a las páginas predefinidas de otras métricas.
-* **Explorador de métricas** para crear páginas de las métricas de su elección.
-* **Búsqueda** para investigar casos específicos de eventos como solicitudes, excepciones o seguimientos de registro.
+* [**Explorador de métricas**](app-insights-metrics-explorer.md) para crear páginas de las métricas de su elección.
+* [**Búsqueda**](app-insights-diagnostic-search.md) para investigar casos específicos de eventos como solicitudes, excepciones o seguimientos de registro.
+* [**Análisis**](app-insights-analytics.md) para consultas eficaces sobre los datos de telemetría.
 
 
 ![Rutas principales para ver los datos de telemetría](./media/app-insights-dashboards/010-oview.png)
@@ -66,17 +52,41 @@ Elija lo que desea ver en la información general. En Personalizar, puede insert
 
 ## Paneles
 
-El panel del Portal de Azure es la página principal que aparece al iniciar sesión en [el portal](https://portal.azure.com) por primera vez. En él, puede juntar gráficos e iconos (grupos de gráficos) de diversos recursos.
+Lo primero que verá después de iniciar sesión en el [Portal de Microsoft Azure](https://portal.azure.com) es un panel. Aquí puede agrupar los gráficos que le resultan más importantes de todos los recursos de Azure, incluidos los datos de telemetría desde [Visual Studio Application Insights](app-insights-overview.md).
+ 
 
-Si tiene un sistema formado por varios componentes, por ejemplo, una aplicación web, un servidor back-end y quizás algunos servicios de Azure, puede mostrar los indicadores clave de rendimiento de todos los componentes en una sola pantalla.
+![Panel personalizado.](./media/app-insights-dashboards/30.png)
 
-Si tiene más de una aplicación, puede crear y cambiar entre varios paneles.
+1. Haga clic en la esquina superior en cualquier momento para volver al panel.
+2. Haga clic en un gráfico o en un icono del panel para ver más detalles acerca de sus datos.
+3. Utilice la barra de navegación para obtener una visión completa de todos los recursos.
+4. Edite, cree y comparta paneles con la barra de herramientas del panel.
 
-![Haga clic en Editar. Arrastre los iconos y gráficos. Agregue iconos de la galería. Luego haga clic en Hecho.](./media/app-insights-dashboards/30.png)
+## Adición a un panel
 
-Cuando está consultando una hoja o un gráfico especialmente interesante, puede anclarlo al panel. Lo verá la próxima vez que regrese.
+Cuando esté consultando una hoja o un conjunto de gráficos especialmente interesante, puede anclar una copia al panel. Lo verá la próxima vez que regrese.
 
 ![Para anclar un gráfico, mantenga el puntero encima y haga clic en "..." en el encabezado.](./media/app-insights-dashboards/33.png)
+
+Observe que los gráficos se agrupan en iconos: un icono puede contener más de un gráfico. El icono se ancla entero al panel.
+
+## Ajuste de un icono en el panel
+
+Una vez que un icono se encuentra en el panel, es posible ajustarlo.
+
+![Mantenga el mouse sobre un gráfico para modificarlo.](./media/app-insights-dashboards/36.png)
+
+1. Agregue un gráfico al icono. 
+2. Configure la métrica, la dimensión de agrupación y el estilo (tabla, gráfico) de un gráfico.
+3. Configure las propiedades de intervalo de tiempo y filtrado de los gráficos en el icono.
+4. Establezca el título del icono.
+
+Los iconos anclados desde hojas del explorador de métricas tienen más opciones de edición que los iconos anclados desde una hoja de información general.
+
+El icono original que ancló no se ve afectado por las modificaciones.
+
+
+## Cambio entre paneles
 
 Puede guardar más de un panel y cambiar de uno a otro. Cuando se ancla un gráfico o una hoja, se agrega al panel actual.
 
@@ -87,163 +97,16 @@ Por ejemplo, podría tener un panel para mostrarlo en pantalla completa en la sa
 
 En el panel, una hoja aparece como un icono. Haga clic en él para ir a la hoja. Un gráfico replica el gráfico en su ubicación original.
 
+![Haga clic en un icono para abrir la hoja que representa.](./media/app-insights-dashboards/35.png)
 
-![](./media/app-insights-dashboards/35.png)
 
+## Uso compartido de paneles con su equipo
 
-## Hojas de métricas
+Cuando haya creado un panel, puede compartirlo con otros usuarios.
 
-Al recorrer la hoja de información general para obtener más detalles, llega al Explorador de métricas (incluso si tiene un título más específico).
 
-También puede usar el botón Explorador de métricas para crear una nueva hoja, que puede editar y guardar.
+![En el encabezado del panel, haga clic en Compartir.](./media/app-insights-dashboards/41.png)
 
+Obtenga información acerca de [Recursos, roles y control de acceso en Application Insights](app-insights-resources-roles-access-control.md).
 
-![En la hoja de información general, haga clic en Métricas](./media/app-insights-dashboards/16-metrics.png)
-
-### Edición de gráficos y cuadrículas
-
-Para agregar un nuevo gráfico a la hoja:
-
-![En el Explorador de métricas, elija Agregar gráfico](./media/app-insights-dashboards/04-add.png)
-
-Seleccione un gráfico nuevo o uno existente para editar lo siguiente:
-
-![Seleccionar una o más métricas](./media/app-insights-dashboards/08-select.png)
-
-Puede mostrar más de una métrica en un gráfico, aunque hay restricciones sobre las combinaciones que se pueden mostrar juntas. Cuando elija una métrica, algunas otras se deshabilitan.
-
-Si ha codificado las [métricas personalizadas](app-insights-api-custom-events-metrics.md#track-metric) en la aplicación (llamadas a TrackMetric y TrackEvent), aparecerán aquí.
-
-### Segmentación de los datos
-
-Seleccione un diagrama o cuadrícula, cambie a agrupación y elija una propiedad para agruparla por:
-
-![Seleccionar Agrupación en, seleccione una propiedad en Agrupar por](./media/app-insights-dashboards/15-segment.png)
-
-Si ha codificado las métricas personalizadas en la aplicación e incluyen [valores de propiedad](app-insights-api-custom-events-metrics.md#properties), podrá seleccionar la propiedad en la lista.
-
-¿Es demasiado pequeño el gráfico para los datos segmentados? Ajuste el alto:
-
-![Ajuste de la barra deslizante](./media/app-insights-dashboards/18-height.png)
-
-### Filtrado de los datos
-
-Para ver solo las métricas para un conjunto de valores de propiedad seleccionado:
-
-![Hacer clic en Filtro, expanda una propiedad y comprobar algunos valores](./media/app-insights-dashboards/19-filter.png)
-
-Si no selecciona ningún valor para una propiedad determinada, es lo mismo que seleccionar todas ellas: no hay ningún filtro en esa propiedad.
-
-Observe los recuentos de eventos junto a cada valor de propiedad. Al seleccionar valores de una propiedad, se ajustan los recuentos junto con otros valores de propiedades.
-
-### Almacenamiento de la hoja de métricas
-
-Cuando haya creado algunos gráficos, guárdelos como favorito. Si trabaja en una cuenta de organización, puede elegir si compartirlo con otros miembros del equipo.
-
-![Elegir un favorito](./media/app-insights-dashboards/21-favorite-save.png)
-
-Para ver de nuevo la hoja, **vaya a la hoja de información general** y abra Favoritos:
-
-![En la hoja de información general, elegir Favoritos](./media/app-insights-dashboards/22-favorite-get.png)
-
-Si eligió el intervalo de tiempo relativo al guardar, la hoja se actualizará con la métrica más reciente. Si eligió el intervalo de tiempo absoluto, mostrará los mismos datos cada vez.
-
-### Restablecimiento de la hoja
-
-Si edita una hoja, pero le gustaría volver al conjunto original guardado, haga clic en Restablecer.
-
-![En los botones situados en la parte superior del Explorador de métricas](./media/app-insights-dashboards/17-reset.png)
-
-
-## Intervalo de tiempo
-
-En todas las hojas puede cambiar el intervalo de tiempo cubierto por los gráficos o cuadrículas.
-
-![Abrir la hoja de información general de la aplicación en el portal de Azure](./media/app-insights-dashboards/03-range.png)
-
-
-Si espera algunos datos que no ha aparecido todavía, haga clic en Actualizar. Los gráficos se actualizan a intervalos, pero los intervalos son más largos para intervalos de tiempo mayores. En modo de lanzamiento, puede tardar un tiempo que lleguen a través de la canalización de análisis en un gráfico de datos.
-
-Para acercar parte de un gráfico, arrastre el puntero sobre él y, después, haga clic en el símbolo de lupa:
-
-![Arrastre por parte de un gráfico.](./media/app-insights-dashboards/12-drag.png)
-
-
-
-## Valores de granularidad y punto
-
-Mantenga el cursor sobre el gráfico para mostrar los valores de las métricas en ese momento.
-
-![Mantener el mouse sobre un gráfico](./media/app-insights-dashboards/02-focus.png)
-
-Se agrega el valor de la métrica en un momento determinado en el intervalo de muestreo anterior.
-
-El intervalo de muestreo o "granularidad" se muestra en la parte superior de la hoja.
-
-![El encabezado de una hoja.](./media/app-insights-dashboards/11-grain.png)
-
-Puede ajustar la granularidad en la hoja Intervalo de tiempo:
-
-![El encabezado de una hoja.](./media/app-insights-dashboards/grain.png)
-
-La granularidad disponible depende del intervalo de tiempo que seleccione. Las granularidades explícitas son alternativas a la granularidad "automática" para el intervalo de tiempo.
-
-## Search
-
-En Búsqueda se muestran eventos individuales, como vistas de páginas, solicitudes, excepciones, seguimientos de registro y eventos personalizados. No se muestran métricas agregadas o instancias de la llamada TrackMetric().
-
-> [AZURE.NOTE] Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
-
-Abra la búsqueda de diagnóstico:
-
-![Open diagnostic search](./media/app-insights-dashboards/01-open-Diagnostic.png)
-
-Abra la hoja Filtro y elija los tipos de evento que desea ver. (Si, posteriormente, desea restaurar los filtros con los que abrió la hoja, haga clic en Restablecer).
-
-![Elija Filtrar y seleccione los tipos de telemetría](./media/app-insights-dashboards/02-filter-req.png)
-
-### Filtro de los valores de propiedad
-
-Puede filtrar eventos por los valores de sus propiedades. Las propiedades disponibles dependen de los tipos de evento que haya seleccionado.
-
-Por ejemplo, seleccione solicitudes con un código de respuesta específico.
-
-![Expanda una propiedad y elija un valor](./media/app-insights-dashboards/03-response500.png)
-
-El hecho de no elegir ningún valor de una propiedad determinada tiene el mismo efecto que elegir todos los valores; se desactiva el filtrado en esa propiedad.
-
-> [AZURE.NOTE] Si la aplicación genera muchos datos de telemetría, el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Los eventos que forman parte de la misma operación se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre los eventos relacionados. [Más información sobre el muestreo.](app-insights-sampling.md)
-
-
-### Acotación de la búsqueda
-
-Observe que los recuentos a la derecha de los valores de filtro muestran cuántas repeticiones hay en el conjunto filtrado actual.
-
-En este ejemplo, es obvio que la solicitud `Reports/Employees` genera la mayor parte de los 500 errores:
-
-![Expanda una propiedad y elija un valor](./media/app-insights-dashboards/04-failingReq.png)
-
-Además ,si desea ver también qué otros eventos se estaban produciendo durante este tiempo, puede activar **Incluir eventos con propiedades no definidas**.
-
-### Guardado de la búsqueda
-
-Cuando haya establecido todos los filtros que desea, puede guardar la búsqueda como favorito. Si trabaja en una cuenta de organización, puede elegir si compartirla con otros miembros del equipo.
-
-![Haga clic en Favoritos, establezca el nombre y haga clic en Guardar](./media/app-insights-dashboards/08-favorite-save.png)
-
-
-Para ver de nuevo la búsqueda, **vaya a la hoja de información general** y abra Favoritos:
-
-![Favoritos](./media/app-insights-dashboards/22-favorite-get.png)
-
-Si ha guardado con el intervalo de tiempo relativo, la hoja abierta de nuevo tiene los datos más recientes. Si ha guardado con el intervalo de tiempo absoluto, verá los mismos datos cada vez.
-
-## Análisis
-
-[Análisis](app-insights-analytics.md) es la característica de búsqueda avanzada con la que puede diagnosticar su aplicación y comprender los aspectos de su rendimiento.
-
-![Ejemplo de análisis](./media/app-insights-dashboards/025.png)
-
-Haga clic en el icono Análisis para verla.
-
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

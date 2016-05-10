@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="02/16/2016"
+ms.date="04/20/2016"
 ms.author="larryfr"/>
 
 #Incorporación de bibliotecas de Hive durante la creación de clústeres de HDInsight
@@ -88,4 +88,4 @@ Una vez finalizada la creación del clúster, podrá utilizar los archivos JAR a
 
 En este documento ha aprendido a agregar bibliotecas de Hive contenidas en archivos JAR a un clúster de HDInsight durante la creación del clúster. Para obtener más información acerca del trabajo con Hive, consulte [Use Hive with HDInsight](hdinsight-use-hive.md) (Uso de Hive con HDInsight).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->

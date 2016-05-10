@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Referencia para desarrolladores de Factoría de datos de Azure
 
-Puede crear, supervisar y administrar las factorías mediante el Portal de Azure clásico, Azure PowerShell, la biblioteca de clases .NET o la API de REST.
+Puede crear, supervisar y administrar las factorías mediante el uso de Portal de Azure, Azure PowerShell, la biblioteca de clases .NET o la API de REST.
 
 Método | Ubicación del recurso | Referencias para desarrolladores
 ---------------------------------------------------- | ------------------------------ | -----------
@@ -30,4 +30,4 @@ API de REST | Puede utilizar la API de REST de Factoría de datos para crear, su
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
-	ms.author="genemi"/>
+	ms.date="04/25/2016" 
+	ms.author="annemill"/>
 
 
 # Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12
@@ -120,4 +120,4 @@ En este tema se resaltan las diferencias de conexión de cliente entre la Base d
 
 - [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

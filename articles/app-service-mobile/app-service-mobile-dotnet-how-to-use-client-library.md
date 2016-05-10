@@ -440,7 +440,7 @@ Se admiten dos flujos de autenticación: un _server flow_ y un _client flow_. El
 En ambos casos, debe registrar la aplicación con el proveedor de identidades. El proveedor de identidades le proporcionará un identificador de cliente y un secreto de cliente. A continuación, debe configurar la autenticación y la autorización del Servicio de aplicaciones de Azure con el identificador de cliente y el secreto de cliente proporcionados por el proveedor de identidades. Para más información, siga las instrucciones detalladas del tutorial [Incorporación de autenticación a la aplicación].
 
 ###<a name="serverflow"></a>Flujo de servidor
-Una vez registrado el proveedor de identidades, llame al método MobileServiceClient.[LoginAsync] con el valor [MobileServiceAuthenticationProvider] del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
+Una vez registrado el proveedor de identidades, llame al método MobileServiceClient.\[LoginAsync] con el valor [MobileServiceAuthenticationProvider] del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()

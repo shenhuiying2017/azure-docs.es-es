@@ -13,8 +13,8 @@ Gracias por su interés en la documentación de Azure.
 * [Organización del repositorio](#repository-organization)
 * [Uso de GitHub, Git y este repositorio](#use-github-git-and-this-repository)
 * [Uso de Markdown para dar formato al tema](#how-to-use-markdown-to-format-your-topic)
-* [Más recursos](#more-resources)
-* [Azure technical content contributors' guide index](./contributor-guide/contributor-guide-index.md) (abre una nueva página)
+* [Más recursos](#Más recursos)
+* [Azure technical content contributors' guide index](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) (abre una nueva página)
 
 ## Formas de colaborar
 
@@ -57,7 +57,7 @@ Los artículos con su propia carpeta de servicio se publican en Azure.Microsoft.
 
 ### \includes
 
-Puede crear secciones de contenido reutilizable que se incluirán en uno o varios artículos. Consulte [Custom extensions used in our technical content](./contributor-guide/custom-markdown-extensions.md).
+Puede crear secciones de contenido reutilizable que se incluirán en uno o varios artículos. Consulte [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/custom-markdown-extensions.md).
 
 ### \markdown templates
 
@@ -69,9 +69,9 @@ Esta carpeta contiene artículos que forman parte de nuestra guía del colaborad
 
 ## Uso de GitHub, Git y este repositorio
 
-Para obtener información acerca de cómo colaborar, cómo usar la IU de GitHub para colaborar con pequeños cambios, y cómo bifurcar y clonar el repositorio para colaboraciones más importantes, consulte [Install and set up tools for authoring in GitHub](./contributor-guide/tools-and-setup.md).
+Para obtener información acerca de cómo colaborar, cómo usar la IU de GitHub para colaborar con pequeños cambios, y cómo bifurcar y clonar el repositorio para colaboraciones más importantes, consulte [Install and set up tools for authoring in GitHub](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md).
 
-Si instala GitBash y elige trabajar localmente, los pasos para crear una nueva bifurcación de trabajo local, realizar cambios y devolver los cambios a la bifurcación principal se indican en [Git commands for creating a new article or updating an existing article](./contributor-guide/git-commands-for-master.md).
+Si instala GitBash y elige trabajar localmente, los pasos para crear una nueva bifurcación de trabajo local, realizar cambios y devolver los cambios a la bifurcación principal se indican en [Git commands for creating a new article or updating an existing article](https://github.com/Azure/azure-content/blob/master/contributor-guide/git-commands-for-master.md).
 
 ### Bifurcaciones
 
@@ -87,16 +87,16 @@ Todos los artículos de este repositorio utilizan Markdown adaptado a GitHub. A 
 
 - [Markdown basics](https://help.github.com/articles/markdown-basics/)
 
-- [Markdown cheat sheet para impresión](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+- [Markdown cheat sheet para impresión](https://github.com/Azure/azure-content/blob/master/contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-- Para ver nuestra lista de editores de Markdown, consulte el tema [Install and set up tools for authoring in GitHub](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
+- Para ver nuestra lista de editores de Markdown, consulte el tema [Install and set up tools for authoring in GitHub](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md#install-a-markdown-editor).
 
 ## Metadatos de los artículos
 
-Los metadatos del artículo habilitan ciertas funcionalidades en el sitio web azure.microsoft.com, como atribución del autor, atribución del colaborador, rutas de navegación, descripciones del artículo y optimizaciones SEO, así como informes que Microsoft utiliza para evaluar el rendimiento del contenido. Por lo tanto ¡los metadatos son importantes! [Consulte esta guía para asegurarse de que sus metadatos son correctos](./contributor-guide/article-metadata.md).
+Los metadatos del artículo habilitan ciertas funcionalidades en el sitio web azure.microsoft.com, como atribución del autor, atribución del colaborador, rutas de navegación, descripciones del artículo y optimizaciones SEO, así como informes que Microsoft utiliza para evaluar el rendimiento del contenido. Por lo tanto ¡los metadatos son importantes! [Consulte esta guía para asegurarse de que sus metadatos son correctos](https://github.com/Azure/azure-content/blob/master//contributor-guide/article-metadata.md).
 
 ## Más recursos
 
-Consulte [Azure technical content contributors' guide index](./contributor-guide/contributor-guide-index.md) para ver todos nuestros temas de guía.
+Consulte [Azure technical content contributors' guide index](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) para ver todos nuestros temas de guía.
 
 <!---HONumber=AcomDC_0307_2016-->

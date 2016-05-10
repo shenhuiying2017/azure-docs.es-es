@@ -188,7 +188,22 @@ Estas **operaciones** se permiten en los tipos enumerados arriba.
 
 | Operación | Operadores admitidos | Tipo de resultado |
 | ------------------------------------- | --------------------- | ------------- |
-| double *operador* double | +, -, *, / | double | | double *operador* timeinterval | * | timeinterval | | doubleVec *operador* double | +, -, *, / | doubleVec | | doubleVec *operador* doubleVec | +, -, *, / | doubleVec | | timeinterval *operador* double | *, / | timeinterval | | timeinterval *operador* timeinterval | +, - | timeinterval | | timeinterval *operador* timestamp | + | timestamp | | timestamp *operador* timeinterval | + | timestamp | | timestamp *operador* timestamp | - | timeinterval | | *operator*double | -, ! | double | | *operator*timeinterval | - | timeinterval | | double *operador* double | <, <=, ==, >=, >, != | double | | string *operador* string | <, <=, ==, >=, >, != | double | | timestamp *operador* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *operador* timeinterval | <, <=, ==, >=, >, != | double | | double *operador* double | &&, || | double |
+| double *operator* double 				| +, -, *, /            | double		    |
+| double *operator* timeinterval 		| *                     | timeinterval	    |
+| doubleVec *operator* double 			| +, -, *, /            | doubleVec		    |
+| doubleVec *operator* doubleVec 		| +, -, *, /            | doubleVec		    |
+| timeinterval *operator* double 		| *, /                  | timeinterval	    |
+| timeinterval *operator* timeinterval 	| +, -                  | timeinterval	    |
+| timeinterval *operator* timestamp 	| +                     | timestamp		    |
+| timestamp *operator* timeinterval 	| +                     | timestamp		    |
+| timestamp *operator* timestamp 		| -                     | timeinterval	    |
+| *operator*double 						| -, !                  | double		    |
+| *operator*timeinterval 				| -                     | timeinterval	    |
+| double *operator* double 				| <, <=, ==, >=, >, !=  | double		    |
+| string *operator* string 				| <, <=, ==, >=, >, !=  | double		    |
+| timestamp *operator* timestamp 		| <, <=, ==, >=, >, !=  | double		    |
+| timeinterval *operator* timeinterval 	| <, <=, ==, >=, >, !=  | double		    |
+| double *operator* double 				| &&, &#124;&#124;      | double		    |
 
 Cuando se prueba un valor double con un operador ternario (`double ? statement1 : statement2`), el valor distinto de cero es **true** y cero es **false**.
 

@@ -114,8 +114,8 @@ Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería
 
    ![Texto alternativo][4]
 
-2. Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario. 
-3. Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario. 
+2.Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario.
+3.Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario.
 Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
 
 ##Definición literal
@@ -187,7 +187,7 @@ Los cuadros de condición y acción proporcionan Intellisense para ayudar al aut
 ![Texto alternativo][9]
 
 ##Encadenamiento progresivo explícito
-Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Estas son las palabras clave admitidas:
+Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Estas son las palabras clave admitidas:  
    1.	update <vocabulary definition>: esta palabra clave vuelve a evaluar todas las reglas que usan la definición de vocabulario especificada en su condición.  
    2.	Halt: esta palabra clave detiene todas las ejecuciones de reglas
 

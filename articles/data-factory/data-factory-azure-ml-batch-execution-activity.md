@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Creación de canalizaciones predictivas con las actividades de Aprendizaje automático de Azure   
@@ -39,7 +39,7 @@ Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación
   
 Después de terminar el entrenamiento, tiene que actualizar el servicio web de puntuación (experimento predictivo expuesto como un servicio web) con el modelo recién entrenado. Para ello, siga estos pasos:
 
-1. Agregar un punto de conexión no predeterminado al servicio web de puntuación. No se puede actualizar el punto de conexión predeterminado del servicio web, por lo que tendrá que crear un nuevo punto de conexión no predeterminado mediante el Portal de Azure clásico. Consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para obtener información sobre los conceptos y procedimientos relacionados con el tema.
+1. Agregar un punto de conexión no predeterminado al servicio web de puntuación. No se puede actualizar el punto de conexión predeterminado del servicio web, por lo que tendrá que crear un nuevo punto de conexión no predeterminado mediante el Portal de Azure. Consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para obtener información sobre los conceptos y procedimientos relacionados con el tema.
 2. Actualizar los servicios vinculados ya existentes de Aprendizaje automático de Azure para puntuar para que usen el punto de conexión no predeterminado. Debe empezar a emplear el nuevo punto de conexión para usar el servicio web que está actualizado.
 3. Use la **Actividad de recursos de actualización de Aprendizaje automático de Azure** para actualizar el servicio web con el modelo recién entrenado.  
 
@@ -456,7 +456,7 @@ En la tabla siguiente se describen los servicios web empleados en este ejemplo. 
 | Tipo de servicio web | description 
 | :------------------ | :---------- 
 | **Servicio web de entrenamiento** | Recibe datos de entrenamiento y genera modelos entrenados. El resultado del entrenamiento es un archivo .ilearner en un almacenamiento de blobs de Azure. El **punto de conexión predeterminado** se crea automáticamente para cuando publique el experimento de entrenamiento como un servicio web. Puede crear más puntos de conexión, pero el ejemplo usa solo el punto de conexión predeterminado |
-| **Servicio web de puntuación** | Recibe ejemplos de datos sin etiqueta y realiza predicciones. El resultado de la predicción puede presentarse en diversas formas, como un archivo .csv o como las filas de una Base de datos de SQL de Azure, dependiendo de la configuración del experimento. El punto de conexión predeterminado se crea automáticamente cuando se publica el experimento predictivo como un servicio web. Tendrá que crear el segundo **punto de conexión no predeterminado y actualizable** a través del [Portal de Azure clásico](https://manage.windowsazure.com). Puede crear más puntos de conexión, pero el ejemplo usa solo el punto de conexión no predeterminado actualizable. Consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para conocer los pasos necesarios para ello.       
+| **Servicio web de puntuación** | Recibe ejemplos de datos sin etiqueta y realiza predicciones. El resultado de la predicción puede presentarse en diversas formas, como un archivo .csv o como las filas de una Base de datos de SQL de Azure, dependiendo de la configuración del experimento. El punto de conexión predeterminado se crea automáticamente cuando se publica el experimento predictivo como un servicio web. Tendrá que crear el segundo **punto de conexión no predeterminado y actualizable** a través del [Portal de Azure](https://manage.windowsazure.com). Puede crear más puntos de conexión, pero el ejemplo usa solo el punto de conexión no predeterminado actualizable. Consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para conocer los pasos necesarios para ello.       
  
 La siguiente imagen muestra la relación entre los puntos de conexión de entrenamiento y de puntuación de Aprendizaje automático de Azure.
 
@@ -773,4 +773,4 @@ También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com
 
  
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

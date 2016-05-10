@@ -136,6 +136,6 @@ Si el reenvío de consultas a Azure no satisface sus necesidades, debe proporcio
 -  Estar accesible (TCP y UDP en el puerto 53) desde los clientes a los que sirve y poder acceder a Internet.
 -  Tener protección contra el acceso desde Internet para mitigar las amenazas que suponen los agentes externos.
 
-> [AZURE.NOTE] Para obtener un mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, se debe deshabilitar IPv6 y debe asignarse una [IP pública de nivel de instancia](virtual-networks-instance-level-public-ip.mp) a cada máquina virtual del servidor DNS.
+> [AZURE.NOTE] Para obtener un mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, se debe deshabilitar IPv6 y debe asignarse una [IP pública de nivel de instancia](../virtual-network/virtual-networks-instance-level-public-ip.md) a cada máquina virtual del servidor DNS.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

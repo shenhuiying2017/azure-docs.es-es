@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 
@@ -93,4 +93,4 @@ Los sondeos TCP y HTTP se consideran en buen estado y marcan la instancia de rol
 
 Puede usar el [análisis de registros para el Equilibrador de carga](load-balancer-monitor-log.md) para comprobar el estado de mantenimiento de un sondeo y el número de sondeos. El registro se puede utilizar con Power BI o con Visión operativa de Azure para proporcionar estadísticas del estado de mantenimiento del Equilibrador de carga.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

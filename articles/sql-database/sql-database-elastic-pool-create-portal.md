@@ -1,37 +1,41 @@
 <properties
-	pageTitle="Creación de grupos de bases de datos elásticas escalables | Microsoft Azure"
+	pageTitle="Creación de un nuevo grupo de bases de datos elásticas con el Portal de Azure | Microsoft Azure"
 	description="Cómo agregar un grupo de bases de datos elásticas escalables a la configuración de la Base de datos SQL para una administración y un uso compartido de los recursos más sencillos entre varias bases de datos."
 	keywords="base de datos escalable,configuración de base de datos"
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="ninarn"
 	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/24/2016"
-	ms.author="sidneyh"
+	ms.date="04/28/2016"
+	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creación de un grupo de bases de datos elásticas con el Portal de Azure
+# Creación de un nuevo grupo de bases de datos elásticas con el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
-En este artículo se muestra cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) escalable con el [Portal de Azure](https://portal.azure.com/). Hay dos maneras de crear un grupo. Puede partir de cero si conoce la configuración deseada del grupo, o comenzar con una recomendación del servicio. Base de datos SQL es una base de datos inteligente que recomienda la configuración de grupo más rentable, en función de los datos de telemetría de uso pasados de las bases de datos.
+Hay dos maneras de crear un [grupo](sql-database-elastic-pool.md)
 
-Puede agregar varios grupos a un servidor, pero no puede agregar bases de datos de servidores diferentes al mismo grupo. Para crear un grupo, necesita al menos una base de datos en un servidor V12. Si no la tiene, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md). Puede crear un grupo con una única base de datos pero los grupos solo son rentables con varias bases de datos. Consulte [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
+1. Crearlo sin ayuda, especialmente si conoce la configuración de grupo que desea.
+2. Comience con una recomendación del servicio de Base de datos SQL. El servicio utiliza la telemetría para examinar su uso en el pasado. A continuación, recomienda una configuración rentable para las bases de datos.
 
-> [AZURE.NOTE] Los grupos solo están disponibles con servidores V12 de Base de datos SQL. Si tiene bases de datos en un servidor V11, puede [usar un script de PowerShell para identificarlas como candidatas a un grupo](sql-database-elastic-pool-database-assessment-powershell.md) en un servidor V12 y luego [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server-powershell.md) en un solo paso.
+Puede agregar varios grupos a un servidor, pero no puede agregar bases de datos de servidores diferentes al mismo grupo. Para crear un grupo, necesita al menos una base de datos en un servidor V12. Si no tiene un servidor v12, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md). Puede crear un grupo con una única base de datos pero los grupos solo son rentables con varias bases de datos. Consulte [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
 
-##Creación de un nuevo grupo
+Los grupos solo están disponibles con servidores V12 de Base de datos SQL. Si tiene bases de datos en un servidor V11, puede [usar un script de PowerShell para identificarlas como candidatas a un grupo](sql-database-elastic-pool-database-assessment-powershell.md) en un servidor V12 y luego [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server-powershell.md) en un solo paso.
+
+## Creación de un nuevo grupo
+
 1. En el [Portal de Azure](http://portal.azure.com/), haga clic en **Servidores SQL Server** y, luego, en el servidor que contiene las bases de datos que desea agregar a un grupo.
 2. Haga clic en **Grupo nuevo**.
 
@@ -56,25 +60,15 @@ Puede agregar varios grupos a un servidor, pero no puede agregar bases de datos 
 
     ![Adición de bases de datos](./media/sql-database-elastic-pool-create-portal/add-databases.png)
 
-    Si está trabajando con bases de datos que tienen suficiente telemetría de uso histórica, el gráfico **Uso estimado de eDTU y GB** y el gráfico de barras **Uso real de eDTU** se actualizan para ayudarle a tomar decisiones de configuración. Además, el servicio puede proporcionar un mensaje de recomendación que le ayuda a ajustar el tamaño correcto del grupo. Consulte [Descripción de las recomendaciones de grupos](#understand-pool-recommendations).
+    Si está trabajando con bases de datos que tienen suficiente telemetría de uso histórica, el gráfico **Uso estimado de eDTU y GB** y el gráfico de barras **Uso real de eDTU** se actualizan para ayudarle a tomar decisiones de configuración.
 
     ![recomendaciones dinámicas](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
-6. Use los controles de la página **Configurar grupo** para explorar la configuración y establecer el grupo según las siguientes directrices:
-
-    ![Configuración de grupos elásticos](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
-
-    | Configuración de rendimiento | Descripción |
-    | :--- | :--- |
-    | **eDTU del grupo** y **GB del grupo** (según la configuración del grupo)| Las eDTU máximas disponibles y compartidas por todas las bases de datos del grupo. Las eDTU máximas disponibles en un grupo dependen del plan de tarifa (nivel de servicio). La **eDTU del grupo** está relacionada con el almacenamiento disponible para el grupo. Para cada eDTU que asigne al grupo, obtendrá una cantidad fija de almacenamiento de base de datos y viceversa. |
-    | **eDTU mín.** (según la configuración de la base de datos)| El número mínimo de eDTU del grupo que se garantiza en todas las bases de datos del grupo en todo momento. Normalmente, la **eDTU mín.** se establece en cualquier valor entre 0 y el promedio de uso histórico de eDTU por base de datos. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. |
-    | **eDTU máx.** (según la configuración de la base de datos) | El número máximo de eDTU que puede usar una base de datos única del grupo. Puede establecer este límite máximo hasta la **eDTU del grupo**. Establezca la **eDTU máx.** por base de datos lo suficientemente alta como para controlar las ráfagas o picos máximos durante la actividad máxima de la base de datos. Se admite cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de demanda no tienen lugar en todas las bases de datos a la vez. **Ejemplo:** suponga que la utilización máxima por base de datos es de 50 DTU y solo el 20 % de las 100 bases de datos del grupo registran simultáneamente un pico de rendimiento. Si el límite máximo de eDTU por base de datos se establece en 50, puede asignar al grupo una cantidad cinco veces mayor y establecer la **eDTU del grupo** en 1000. La **eDTU máx.** no es un número garantizado de recursos para una base de datos, sino que es un valor máximo de eDTU que se puede llegar a alcanzar si está disponible. Se trata de una configuración global que se aplica a todas las bases de datos del grupo. |
-
-    Consulte [Referencia de grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) para ver más detalles sobre los límites de cada nivel de servicio y [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md) para ver instrucciones detalladas sobre el ajuste de tamaño correcto de un grupo.
-
+6. Use los controles de la página **Configurar grupo** para explorar la configuración y establecer el grupo. Consulte [Límites de grupos de bases de datos elásticas](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) para ver más detalles sobre los límites de cada nivel de servicio y [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md) para ver instrucciones detalladas sobre el ajuste de tamaño correcto de un grupo.
 7. Haga clic en **Seleccionar** al finalizar y luego en **Aceptar** para crear el grupo.
 
-##Descripción de las recomendaciones de grupos
+## Descripción de las recomendaciones de grupos
+
 El servicio Base de datos SQL evalúa el historial de uso y recomienda uno o varios grupos cuando sea más económico que usar bases de datos únicas. Cada recomendación se configura con un subconjunto único de las bases de datos del servidor que mejor se ajustan al grupo. La recomendación de grupo consta de:
 
 - Un plan de tarifa del grupo (Basic, Standard o Premium).
@@ -91,5 +85,6 @@ El servicio evalúa las necesidades de recursos y la rentabilidad de mover las b
 - [Manage a SQL Database elastic pool with the portal (Administración de un grupo elástico de Base de datos SQL con el portal)](sql-database-elastic-pool-manage-portal.md)
 - [Manage a SQL Database elastic pool with PowerShell (Administración de un grupo elástico de Base de datos SQL con PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 - [Creación y administración de bases de datos SQL con C#](sql-database-elastic-pool-manage-csharp.md)
+- [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md) 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

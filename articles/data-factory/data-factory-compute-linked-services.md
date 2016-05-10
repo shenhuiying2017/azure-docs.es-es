@@ -32,7 +32,7 @@ El servicio Factoría de datos de Azure crea automáticamente un clúster de HDI
 Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vinculado de HDInsight a petición:
 
 - No verá el clúster de HDInsight a petición creado en su suscripción de Azure; el servicio Factoría de datos de Azure administra el clúster de HDInsight a petición en su nombre.
-- Los registros de trabajos que se ejecutan en un clúster de HDInsight a petición se copian en la cuenta de almacenamiento asociada al clúster de HDInsight. Puede tener acceso a estos registros desde el Portal de Azure clásico en la hoja **Detalles de ejecución de la actividad**. Consulte el artículo [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener más información.
+- Los registros de trabajos que se ejecutan en un clúster de HDInsight a petición se copian en la cuenta de almacenamiento asociada al clúster de HDInsight. Puede tener acceso a estos registros desde el Portal de Azure en la hoja **Detalles de ejecución de la actividad**. Consulte el artículo [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener más información.
 - Se le cobrará solo por el tiempo en el que el clúster de HDInsight esté en ejecución y realizando trabajos.
 
 > [AZURE.IMPORTANT] Normalmente se tarda más de **15 minutos** en aprovisionar un clúster de HDInsight a petición de Azure.
@@ -200,7 +200,7 @@ Consulte los temas siguientes si no está familiarizado con el servicio Lote de 
 
 
 - [Aspectos básicos de Lote de Azure](../batch/batch-technical-overview.md) para información general del servicio Lote de Azure.
-- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) para crear una cuenta de Lote de Azure (o) [Portal de Azure clásico](../batch/batch-account-create-portal.md) para crear la cuenta de Lote de Azure con el Portal de Azure clásico. Vea el tema [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para instrucciones detalladas sobre cómo usar este cmdlet.
+- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) para crear una cuenta de Lote de Azure (o) [Portal de Azure](../batch/batch-account-create-portal.md) para crear la cuenta de Lote de Azure con el Portal de Azure. Vea el tema [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para instrucciones detalladas sobre cómo usar este cmdlet.
 - Cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) para crear un grupo de Lote de Azure.
 
 ### Ejemplo
@@ -339,4 +339,4 @@ Para obtener más información sobre las clases de Factoría de datos que se usa
 
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Vea el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para más información sobre este servicio vinculado.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/08/2016" 
 	ms.author="spelluru"/>
 
 # Notas de la versión de Data Management Gateway
@@ -22,11 +22,21 @@ Uno de los desafíos de la integración de datos moderna es mover datos sin prob
 
 Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
-## Versión actual (1.10.5892.1)
+## Versión actual (1.11.5918.1)
 
-• Mejoras del rendimiento • Corrección de errores
+- El tamaño máximo del registro de eventos de puerta de enlace ha aumentado de 1 MB a 40 MB.
+- En caso de que se requiera un reinicio durante la actualización automática de la puerta de enlace, se muestra un cuadro de diálogo de advertencia. Puede elegir reiniciar en ese mismo momento o más adelante. 
+- En caso de error en la actualización automática, el instalador de puerta de enlace volverá a intentar esta operación 3 veces al máximo.
+- Mejoras en el rendimiento
+	- Rendimiento mejorado para la carga de tablas de gran tamaño desde el servidor local en un escenario de copia sin código.
+- Corrección de errores
 
 ## Versiones anteriores
+
+## 1\.10.5892.1
+
+- Mejoras en el rendimiento
+- Corrección de errores
 
 ## 1\.9.5865.2
 
@@ -34,7 +44,8 @@ Para más información, consulte [Movimiento de datos entre orígenes locales y 
 - Icono de bandeja de nuevo con indicadores de estado de la puerta de enlace
 - Capacidad para "Actualizar ahora" desde el cliente
 - Capacidad para establecer la hora de programación de las actualizaciones
-- Script de PowerShell para activar y desactivar la actualización automática 
+- Script de PowerShell para activar y desactivar la actualización automática
+- Compatibilidad con formato JSON  
 - Mejoras en el rendimiento
 - Corrección de errores
 
@@ -134,4 +145,4 @@ Para más información, consulte [Movimiento de datos entre orígenes locales y 
 ### ¿Por qué intenta conectarse el Administrador de origen de datos a una puerta de enlace?
 Se trata de un diseño de seguridad en el que solo se pueden configurar los orígenes de datos locales para el acceso a la nube dentro de la red corporativa y sus credenciales no fluirán fuera del firewall corporativo. Asegúrese de que su equipo puede acceder el equipo en que está instalado la puerta de enlace.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

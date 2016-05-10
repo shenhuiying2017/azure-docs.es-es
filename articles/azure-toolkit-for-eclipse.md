@@ -22,7 +22,7 @@
 
 El kit de herramientas de Azure para Eclipse ofrece plantillas y funciones que permiten crear, desarrollar, probar e implementar aplicaciones de Azure fácilmente con el entorno de desarrollo de Eclipse. Es un proyecto de código abierto, cuyo código fuente está disponible con la licencia de Apache 2.0 desde el sitio del proyecto en:
 
-* <https://github.com/microsoft/azure-tools-for-java.>
+* <https://github.com/microsoft/azure-tools-for-java>
 
 ## Introducción al Kit de herramientas de Azure para Eclipse ##
 
@@ -95,4 +95,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Uso la biblioteca de tiempo de ejecución del servicio de Azure en JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Novedades del kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -3,7 +3,7 @@
     description="Aprenda cómo usar Salesforce con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #Tutorial: Integración de Salesforce con Azure Active Directory
 
@@ -256,4 +256,4 @@ Puede seguir este tutorial con los vídeos a continuación.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

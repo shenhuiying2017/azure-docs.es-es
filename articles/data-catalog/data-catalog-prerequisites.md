@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="04/15/2016"
+   ms.date="04/25/2016"
    ms.author="maroche"/>
 
 # Requisitos previos de Catálogo de datos de Azure
@@ -26,7 +26,7 @@ Hay algunas cosas de las que debe encargarse para poder configurar **Catálogo d
 ## Suscripción de Azure
 Para configurar el Catálogo de datos de Azure, debe ser propietario o copropietario de una suscripción de Azure.
 
-Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Catálogo de datos de Azure. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar el Catálogo de datos de Azure. Para obtener más información, vea [Administrar cuentas, suscripciones y roles administrativos](https://msdn.microsoft.com/library/azure/hh531793.aspx).
+Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Catálogo de datos de Azure. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar el Catálogo de datos de Azure. Para obtener más información, vea [Administrar cuentas, suscripciones y roles administrativos](../active-directory/active-directory-assign-admin-roles.md).
 
 ## Azure Active Directory
 Para configurar el Catálogo de datos de Azure, debe haber iniciado sesión con una cuenta de usuario de Azure Active Directory.
@@ -45,4 +45,4 @@ La directiva de autenticación global permite habilitar los métodos de autentic
 
 Para obtener más información, vea [Configuración de directivas de autenticación](https://technet.microsoft.com/library/dn486781.aspx).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

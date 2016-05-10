@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # Notas de la versión 0.3 de la actualización de la serie StorSimple 8000 - febrero de 2015
@@ -27,7 +27,7 @@ Se recomienda buscar y aplicar las actualizaciones disponibles inmediatamente de
 
 Revise la información contenida en las notas de la versión antes de implementar la actualización de la solución de StorSimple.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT]   
 >
 > - Para instalar la actualización de febrero, use el servicio de Administrador de StorSimple y no Windows PowerShell para StorSimple.   
 > - Tarda aproximadamente una hora en instalar esta actualización. Sin embargo, si va a instalar actualizaciones acumulativas, el proceso puede tardar unas 3 horas en completarse.  
@@ -86,4 +86,4 @@ Esta versión no contiene las actualizaciones para el controlador SCSI conectado
 Esta versión no contiene actualizaciones para el dispositivo virtual. La aplicación de esta actualización no cambiará la versión de software de un dispositivo virtual.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0427_2016-->

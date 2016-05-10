@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/02/2016"
+    ms.date="04/28/2016"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -55,7 +55,7 @@ Para crear modelos predictivos en [Estudio de aprendizaje automático](machine-l
 * Utilice una gran biblioteca de [algoritmos y módulos de Aprendizaje automático](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) en Estudio de aprendizaje automático para impulsar sus modelos de predictivos. Elija en la biblioteca de experimentos de ejemplo, paquetes R y Python y los mejores algoritmos de su clase en servicios de Microsoft como Xbox y Bing. Amplíe los módulos de Studio con sus propios scripts de [R](machine-learning-r-quickstart.md) y [Python](machine-learning-execute-python-scripts.md) personalizados.
 * En la [Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md) puede probar las soluciones de análisis creadas por terceros o contribuir con la suya propia con los servicios de Azure, como Aprendizaje automático, HDInsight (Hadoop), Análisis de transmisiones y Análisis de Data Lake, así como los servicios de administración de almacenes y datos de macrodatos de Azure. Publique preguntas o comentarios sobre experimentos en la comunidad o comparta vínculos a experimentos a través de redes sociales, como LinkedIn y Twitter.  
 
-	![Pruebe experimentos predictivos o contribuya con los suyos propios en la Galería de Cortana Intelligence de Azure.](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
+	![Pruebe experimentos predictivos o contribuya con los suyos propios en la Galería de Cortana Intelligence de Azure.](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 
 ### Operacionalización de soluciones de análisis predictivos: adquiera servicios web de compra o publique las suyas
 
@@ -118,4 +118,4 @@ Puede aprender los conceptos básicos de análisis predictivos y de aprendizaje 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

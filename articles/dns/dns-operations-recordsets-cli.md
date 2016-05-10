@@ -3,7 +3,7 @@
    description="Administración de conjuntos de registros y registros DNS en DNS de Azure al hospedar dominios en DNS de Azure. Todos los comandos de CLI para operaciones en conjuntos de registros y registros." 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
+   authors="cherylmc" 
    manager="carmonm" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="03/04/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Cómo administrar registros DNS con CLI
 
@@ -50,7 +50,7 @@ DNS de Azure es compatible con todos los tipos de registro siguientes: A, AAAA, 
 
 ### Registros de carácter comodín
 
-DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín). Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "\*" o un nombre cuya primera etiqueta sea "\*", por ejemplo, "\*.foo".
+DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín). Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "*" o un nombre cuya primera etiqueta sea "*", por ejemplo, "*.foo".
 
 Los conjuntos de registros de carácter comodín son compatibles con todos los tipos de registro, excepto NS y SOA.
 
@@ -245,4 +245,4 @@ Después de crear la zona DNS y los registros, puede [delegar el dominio en DNS 
 
  
 
-<!------HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="04/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Creación e implementación de un servicio en la nube
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Portal de Azure](cloud-services-how-to-create-deploy-portal.md)
+- [Portal de Azure clásico](cloud-services-how-to-create-deploy.md)
 
 El Portal de Azure clásico le ofrece dos formas de crear e implementar un servicio en la nube: **Creación rápida** y **Creación personalizada**.
 
@@ -150,4 +150,4 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

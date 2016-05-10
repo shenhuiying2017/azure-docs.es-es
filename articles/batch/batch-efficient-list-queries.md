@@ -6,19 +6,19 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="01/22/2016"
+	ms.date="04/21/2016"
 	ms.author="marsma" />
-	
+
 # Consulta eficaz del servicio Lote de Azure
 
-En este artículo, obtendrá información sobre cómo mejorar el rendimiento de la aplicación de Lote de Azure reduciendo la cantidad de datos que se devuelven al consultar el servicio de Lote mediante la biblioteca de [.NET de Lote][api_net].
+Aprenda aquí cómo mejorar el rendimiento de la aplicación de Lote de Azure reduciendo la cantidad de datos que se devuelven al consultar el servicio Lote mediante la biblioteca de [.NET de Lote][api_net].
 
 Lote de Azure proporciona funcionalidades de Big Compute (y en un entorno de producción, entidades como los trabajos, las tareas y los nodos de ejecución pueden contarse por millares). Por lo tanto, la obtención de información sobre estos elementos puede generar una gran cantidad de datos que se deben transferir del servicio a la aplicación en cada consulta. Mediante la limitación del número de elementos y del tipo de información que se devuelve de cada uno de ellos se puede aumentar la velocidad de las consultas y, por consiguiente, el rendimiento de la aplicación.
 
@@ -26,14 +26,14 @@ Casi todas las aplicaciones que usan Lote de Azure realizarán algún tipo de su
 
 Este fragmento de código de la API de [.NET de Lote][api_net] recupera todas las tareas asociadas a un trabajo, junto con *todas* las propiedades de las tareas:
 
-```
+```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
 IPagedEnumerable<CloudTask> allTasks = batchClient.JobOperations.ListTasks("job-001");
 ```
 
 Sin embargo, se puede ejecutar una consulta de lista mucho más eficaz. Para ello, puede suministrar un objeto [ODATADetailLevel][odata] al método [JobOperations.ListTasks][net_list_tasks]. Este fragmento de código devuelve solo las propiedades de identificador, línea de comandos e información de nodo de proceso para las tareas completadas:
 
-```
+```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and their properties to return
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 detailLevel.FilterClause = "state eq 'completed'";
@@ -43,21 +43,21 @@ detailLevel.SelectClause = "id,commandLine,nodeInfo";
 IPagedEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-Si en el escenario de ejemplo anterior hay miles de tareas en el trabajo, los resultados de la segunda consulta normalmente se devolverán mucho más rápidamente que los de la primera. A continuación encontrará más información acerca del uso de ODATADetailLevel al enumerar elementos con la API de Lote de .NET.
+Si en el escenario de ejemplo anterior hay miles de tareas en el trabajo, los resultados de la segunda consulta normalmente se devolverán mucho más rápidamente que los de la primera. [A continuación](#efficient-querying-in-batch-net) encontrará más información sobre el uso de ODATADetailLevel al enumerar elementos con la API de Lote de .NET.
 
 > [AZURE.IMPORTANT]
 Se recomienda encarecidamente suministrar *siempre* un objeto ODATADetailLevel a las llamadas de la lista de la API de .NET para garantizar la máxima eficacia y rendimiento de su aplicación. La especificación de un nivel de detalle puede ayudarle a reducir los tiempos de respuesta del servicio Lote, a mejorar la utilización de la red y a minimizar el uso de la memoria por parte de las aplicaciones cliente.
 
 ## Herramientas de consulta eficaz
 
-Las API de [.NET de Lote ][api_net] y [REST de Lote][api_rest] proporcionan la capacidad de reducir tanto el número de elementos que se devuelven en una lista como la cantidad de información que se devuelve para cada uno de ellos. Para ello, especifique las cadenas **filter**, **select** y **expand** al realizar consultas en la lista.
+Las API de [.NET de Lote ][api_net] y de [REST de Lote][api_rest] ofrecen la posibilidad de reducir tanto el número de elementos que se devuelven en una lista como la cantidad de información que se devuelve para cada uno de ellos. Para ello, especifique las cadenas **filter**, **select** y **expand** al realizar consultas en la lista.
 
 ### Filtrar
 La cadena filter es una expresión que reduce el número de elementos que se devuelven. Por ejemplo, muestre solo las tareas en ejecución de un trabajo o solo los nodos de proceso que estén listos para ejecutar tareas.
 
 - La cadena filter se compone de una o varias expresiones, una de la cuales consta de un nombre de propiedad, un operador y un valor. Las propiedades que se pueden indicar son específicas de cada tipo de entidad que consulta, al igual que los operadores compatibles con cada propiedad.
 - Con los operadores lógicos `and` y `or` se pueden combinar varias expresiones.
-- Esta cadena filter de ejemplo solo muestra las tareas de “representación” en ejecución: `(state eq 'running') and startswith(id, 'renderTask')`.
+- Esta cadena filter de ejemplo solo muestra las tareas de "representación" en ejecución: `(state eq 'running') and startswith(id, 'renderTask')`.
 
 ### Seleccionar
 La cadena select limita los valores de propiedad que se devuelven para cada elemento. Especifique una lista de nombres de propiedad, y se devolverán únicamente los valores de propiedad devueltos para los elementos de los resultados de la consulta.
@@ -80,8 +80,8 @@ La cadena expand reduce el número de llamadas API necesarias para obtener deter
 - Las propiedades especificadas en las cadenas filter, select y expand equivalen a los nombres de propiedades que aparecen en la API de [REST de Lote][api_rest], aunque se use la biblioteca de [.NET de Lote][api_net].
 - Todos los nombres de propiedad distinguen mayúsculas de minúsculas, pero los valores de propiedad no.
 - Las cadenas de fecha y hora pueden tener uno de los dos formatos y deben ir precedidas por `DateTime`.
-  - Ejemplo de formato W3C-DTF: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  - Ejemplo de formato RFC 1123: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+  - Ejemplo de formato W3C-DTF: `creationTime gt DateTime'2011-05-08T08:49:37Z'`.
+  - Ejemplo de formato RFC 1123: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`.
 - Las cadenas booleanas son `true` o `false`.
 - Si se especifica una propiedad o un operador no válidos, aparecerá el error `400 (Bad Request)`.
 
@@ -89,13 +89,13 @@ La cadena expand reduce el número de llamadas API necesarias para obtener deter
 
 En la API de [.NET de Lote][api_net], se usa la clase [ODATADetailLevel][odata] para suministrar cadenas filter, select y expand a las operaciones de lista. La clase ODataDetailLevel tiene tres propiedades de cadena públicas que se pueden especificar en el constructor, o bien establecerse directamente en el objeto. Luego el objeto ODataDetailLevel pasa como parámetro a las distintas operaciones de lista como [ListPools][net_list_pools], [ListJobs][net_list_jobs] y [ListTasks][net_list_tasks].
 
-- [ODATADetailLevel.FilterClause][odata_filter]\: limita el número de elementos que se devuelven.
-- [ODATADetailLevel.SelectClause][odata_select] \: especifica los valores de propiedad devueltos con cada elemento.
-- [ODATADetailLevel.ExpandClause][odata_expand]\: recupera datos para todos los elementos en una sola API en lugar de llamadas independientes para cada elemento.
+- [ODATADetailLevel][odata].[FilterClause][odata_filter]\: limita el número de elementos que se devuelven.
+- [ODATADetailLevel.SelectClause][odata].[SelectClause][odata_select]\: especifica los valores de propiedad devueltos con cada elemento.
+- [ODATADetailLevel][odata].[ExpandClause][odata_expand]\: recupera datos para todos los elementos en una sola API en lugar de llamadas independientes para cada elemento.
 
 El siguiente fragmento de código usa la API de .NET de Lote para consultar de forma eficaz las estadísticas de un conjunto específico de grupos en el servicio Lote. En este escenario, el usuario de Lote tiene grupos de prueba y de producción. Los identificadores del grupo de prueba tienen el prefijo "test", mientras que los del grupo de producción tienen el prefijo "prod". En el fragmento, *myBatchClient* es una instancia de la clase [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) inicializada correctamente.
 
-```
+```csharp
 // First we need an ODATADetailLevel instance on which to set the expand, filter, and select
 // clause strings
 ODATADetailLevel detailLevel = new ODATADetailLevel();
@@ -158,7 +158,7 @@ Los nombres de propiedades en las cadenas filter, select y expand *deben* reflej
 
 ### Ejemplo: construcción de una cadena filter
 
-Al construir una cadena filter para [ODATADetailLevel.FilterClause][odata_filter], vea la tabla de "Asignaciones de las cadenas filter" para buscar la página de documentación de la API de REST correspondiente a la operación de lista que desea realizar. Encontrará las propiedades filtrables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar todas las tareas cuyo código de salida era distinto de cero, en [Lista de las tareas asociadas a un trabajo][rest_list_tasks] esta fila especifica la cadena de propiedad aplicable y los operadores permitidos:
+Al construir una cadena filter para [ODATADetailLevel.FilterClause][odata_filter], consulte la tabla de "Asignaciones de las cadenas filter" para buscar la página de documentación de la API de REST correspondiente a la operación de lista que desea realizar. Encontrará las propiedades filtrables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar todas las tareas cuyo código de salida era distinto de cero, en [Lista de las tareas asociadas a un trabajo][rest_list_tasks] esta fila especifica la cadena de propiedad aplicable y los operadores permitidos:
 
 | Propiedad | Operaciones permitidas | Tipo |
 | :--- | :--- | :--- |
@@ -170,7 +170,7 @@ Por lo tanto, la cadena filter para enumerar todas las tareas con un código de 
 
 ### Ejemplo: construcción de una cadena select
 
-Para construir [ODATADetailLevel.SelectClause][odata_select], vea la tabla de "Asignaciones de las cadenas select" y navegue a la página de la API de REST correspondiente al tipo de entidad que vaya a enumerar. Encontrará las propiedades seleccionables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar solo el identificador y la línea de comandos para cada tarea de una lista, encontrará estas filas en la tabla correspondiente en la página sobre cómo [obtener información acerca de una tarea][rest_get_task]\:
+Para construir [ODATADetailLevel.SelectClause][odata_select], consulte la tabla de "Asignaciones de las cadenas select" y navegue a la página de la API de REST correspondiente al tipo de entidad que vaya a enumerar. Encontrará las propiedades seleccionables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar solo el identificador y la línea de comandos para cada tarea de una lista, encontrará estas filas en la tabla correspondiente en la página sobre cómo [obtener información acerca de una tarea][rest_get_task]\:
 
 | Propiedad | Tipo | Notas |
 | :--- | :--- | :--- |
@@ -182,6 +182,8 @@ La cadena select para incluir solo el identificador y la línea de comandos con 
 `id, commandLine`
 
 ## Pasos siguientes
+
+### Código de ejemplo de consultas de lista eficaces
 
 Consulte el proyecto de ejemplo [EfficientListQueries][efficient_query_sample] en GitHub para ver cómo una consulta de lista eficaz puede afectar al rendimiento de una aplicación. Esta aplicación de consola de C# crea y agrega un gran número de tareas a un trabajo. Luego realiza varias llamadas al método [JobOperations.ListTasks][net_list_tasks] y pasa objetos [ODATADetailLevel][odata] que se configuran con distintos valores de propiedad para variar la cantidad de datos que se van a devolver. Genera una salida similar a la siguiente:
 
@@ -199,10 +201,16 @@ Consulte el proyecto de ejemplo [EfficientListQueries][efficient_query_sample] e
 
 Como se muestra en la información del tiempo transcurrido, se puede reducir considerablemente los tiempos de respuesta, para lo que es preciso limitar las propiedades y el número de elementos que se devuelven. Puede encontrar este y otros proyectos de ejemplo en el repositorio [azure-batch-samples][github_samples] de GitHub.
 
+### Foro de Batch
+
+El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y formular preguntas acerca del servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Lote.
+
+
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
+[forum]: https://social.msdn.microsoft.com/forums/azure/es-ES/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [odata_ctor]: https://msdn.microsoft.com/library/azure/dn866178.aspx
@@ -246,4 +254,4 @@ Como se muestra en la información del tiempo transcurrido, se puede reducir con
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

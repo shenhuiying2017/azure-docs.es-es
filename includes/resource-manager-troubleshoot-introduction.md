@@ -1,5 +1,7 @@
-You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This topic shows both methods.
+Puede solucionar los problemas de la implementación examinando los registros de auditoría o las operaciones de implementación. En este tema se muestran ambos métodos.
 
-You can avoid some errors by validating your template and infrastructure prior to deployment. For more information, see [Deploy a resource group with Azure Resource Manager template](../articles/resource-group-template-deploy.md).
+Puede evitar algunos errores si valida la plantilla y la infraestructura antes de la implementación. Para más información, consulte [Implementación de un grupo de recursos con la plantilla de Azure Resource Manager](../articles/resource-group-template-deploy.md).
 
-For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](../articles/resource-manager-common-deployment-errors.md).
+Para obtener ayuda con la resolución de errores de implementación determinados, consulte [Resolución de errores comunes al implementar recursos en Azure con Azure Resource Manager](../articles/resource-manager-common-deployment-errors.md).
+
+<!---HONumber=AcomDC_0427_2016-->
