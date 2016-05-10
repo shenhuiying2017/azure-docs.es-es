@@ -13,27 +13,40 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/01/2016"
+    ms.date="04/28/2016"
     ms.author="chhavib;olgali"/>
 
 # Usar experimentos de ejemplo para crear nuevos experimentos
-Cuando desee crear un experimento, busque ejemplos de experimentos del equipo de Aprendizaje automático y experimentos compartidos por la Comunidad de aprendizaje automático. También puede hacer preguntas o publicar comentarios sobre experimentos en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/).
+Cuando desee crear un experimento, busque ejemplos en [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) (Galería de inteligencia para Cortana). Puede encontrar experimentos de ejemplo entre los que aportó el equipo de Aprendizaje automático y los compartidos por la amplia comunidad de Aprendizaje automático. También puede plantear preguntas o publicar comentarios acerca de experimentos.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Búsqueda en la Galería de Cortana Intelligence
-1. Vaya a la [Galería](http://gallery.cortanaintelligence.com/).
-2. Examine el contenido que desee en **Tendencias de experimentos** o en **Ejemplos de Microsoft**.
-3. Utilice la búsqueda y los filtros para restringir los resultados: 
-![](./media/machine-learning-sample-experiments/image1.png) 
-4. Haga clic en un experimento para obtener más información. Para ejecutar o modificar el experimento, haga clic en **Abrir en el Estudio**. 
-![](./media/machine-learning-sample-experiments/image2.png) 
-5.  Inicie sesión con las credenciales de su cuenta de Microsoft. Si aún no tiene un área de trabajo de Aprendizaje automático, se creará un área de trabajo de prueba gratuita. [Información sobre qué incluye la prueba gratuita de Aprendizaje automático de Azure](https://azure.microsoft.com/pricing/details/machine-learning/) 
-![](./media/machine-learning-sample-experiments/image3.png) 
+Para ver qué experimentos hay disponibles en la galería, vaya a la [galería](http://gallery.cortanaintelligence.com/) y haga clic en **Experiments** (Experimentos) en la parte superior de la página. En esta página puede ver experimentos **agregados recientemente** (Recently added), averiguar **qué es popular** (What's popular) o consultar los **experimentos populares de Microsoft** (Popular Microsoft experiments) más recientes.
 
-## Usar como plantilla en el Estudio
-1. Inicie sesión con las credenciales de su cuenta de Microsoft en el [Estudio](https://studio.azureml.net) y, a continuación, haga clic en **Nuevo*** para crear un nuevo experimento.
-2. Examine el contenido de ejemplo y seleccione uno para utilizarlo como una plantilla.
+Para examinar todos los experimentos:
+
+1. Haga clic en **Browse all** (Examinar todo) en la parte superior de la página.
+2. En **Refine by** (Refinar por), seleccione **Experiment** (Experimento) para ver todos los experimentos de la galería.
+3. Para restringir más la lista, seleccione filtros de la izquierda. Por ejemplo, para examinar los experimentos que utilizan un algoritmo de detección de anomalías basado en PCA, seleccione **Experiment** (Experiment) en **Categories** (Categorías), y **PCA-Based Anomaly Detection** (Detección de anomalías basada en PCA) en **Algorithms Used** (Algoritmos usados). Si no ve ese algoritmo, haga clic en **Show All** (Mostrar todo) en la parte inferior de la lista.<br></br>
+![](./media/machine-learning-sample-experiments/refine-the-view.png) 
+4. Puede usar el cuadro de búsqueda para restringir aún más la selección. Por ejemplo, para buscar experimentos aportados por Microsoft relacionados con el reconocimiento de dígitos que usen un algoritmo de máquina de vectores de soporte de dos clases, escriba "digit recognition" (reconocimiento de dígitos) en el cuadro de búsqueda y seleccione **Experiment** (Experimento), **Microsoft content only** (Solo contenido de Microsoft) y **Two-Class Support Vector Machine** (Máquina de vectores de soporte de dos clases):
+![](./media/machine-learning-sample-experiments/search-for-experiments.png) 
+5. Haga clic en un experimento para obtener más información. Para ejecutar o modificar el experimento, haga clic en **Open in Studio** (Abrir en Estudio) en la página del experimento.
+
+> [AZURE.NOTE] Para abrir un experimento en Estudio de aprendizaje automático, debe iniciar sesión con las credenciales de su cuenta Microsoft. Si aún no tiene un área de trabajo de Aprendizaje automático, se creará un área de trabajo de prueba gratuita. [Información sobre qué incluye la evaluación gratuita de Aprendizaje automático](https://azure.microsoft.com/pricing/details/machine-learning/)
+
+![](./media/machine-learning-sample-experiments/example-experiment.png)
+
+
+## Uso de una plantilla en Estudio de aprendizaje automático
+
+También puede crear un nuevo experimento en Estudio de aprendizaje automático si usa un ejemplo de la galería como plantilla.
+
+1. Inicie sesión con las credenciales de su cuenta Microsoft en [Estudio](https://studio.azureml.net) y después haga clic en **Nuevo*** para crear un nuevo experimento.
+2. Examine el contenido de ejemplo y haga clic en uno.
+
+Se crea un nuevo experimento en el área de trabajo con el experimento de ejemplo como plantilla.
 
 ## Pasos siguientes
 - [Preparación de sus datos](machine-learning-data-science-import-data.md)
@@ -42,4 +55,4 @@ Cuando desee crear un experimento, busque ejemplos de experimentos del equipo de
 - [Crear una API de servicio web](machine-learning-publish-a-machine-learning-web-service.md)
 - [Examinar aplicaciones listas para utilizar](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

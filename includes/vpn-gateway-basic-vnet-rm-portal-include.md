@@ -19,7 +19,7 @@ Para más información sobre redes virtuales, consulte [Información general sob
 
 5. Compruebe que la **Suscripción** es la correcta. Puede cambiar las suscripciones mediante la lista desplegable.
 
-6. Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente, o bien cree uno nuevo escribiendo un nombre para el nuevo grupo. Si va a crear un nuevo grupo, dé un nombre al grupo de recursos según los valores de configuración planeados. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md/#resource-groups).
+6. Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente, o bien cree uno nuevo escribiendo un nombre para el nuevo grupo. Si va a crear un nuevo grupo, dé un nombre al grupo de recursos según los valores de configuración planeados. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md#resource-groups).
 
 7. A continuación, seleccione la configuración de **Ubicación** de la red virtual. Tenga en cuenta que la ubicación determinará dónde van a residir los recursos que se implementen en esta red virtual. No se puede cambiar esto más adelante sin tener que volver a implementar los recursos.
 
@@ -32,4 +32,4 @@ Para más información sobre redes virtuales, consulte [Información general sob
 
 	![Icono de Crear red virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

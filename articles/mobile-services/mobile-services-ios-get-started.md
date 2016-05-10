@@ -23,7 +23,7 @@
 &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> Para ver la versión equivalente de este tema en Aplicaciones móviles, consulte [Creación de una aplicación iOS](../app-service-mobile/app-service-mobile-android-get-started.md).
+> Para más información sobre la versión equivalente de Aplicaciones móviles de este tema, consulte [Creación de una aplicación iOS en Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-ios-get-started.md).
 
 En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación de iOS con los Servicios móviles de Azure.
 
@@ -41,7 +41,7 @@ Puede seguir un sencillo inicio rápido en el Portal de Azure clásico para crea
 
 1. En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
-2. En la pestaña Inicio rápido, haga clic en **iOS** en **Elija una plataforma ** y expanda **Crear una nueva aplicación iOS**. Con esto se muestran los pasos requeridos para crear una aplicación iOS conectada a su servicio móvil.
+2. En la pestaña Inicio rápido, haga clic en **iOS** en **Elija una plataforma** y expanda **Crear una nueva aplicación iOS**. Con esto se muestran los pasos requeridos para crear una aplicación iOS conectada a su servicio móvil.
 
 3. Haga clic en **Crear tabla TodoItem** para crear una tabla para almacenar los datos de la aplicación.
 
@@ -92,4 +92,4 @@ Aprenda a realizar tareas adicionales importantes en Servicios móviles:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versión back-end de .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->
