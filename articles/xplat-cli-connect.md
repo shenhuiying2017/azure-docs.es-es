@@ -31,7 +31,7 @@ Hay dos maneras de conectarse a su suscripción desde la CLI de Azure:
 
 Para más información general sobre las diferentes identidades de cuenta y suscripciones de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-## Usar el inicio de sesión de Azure para autenticarse interactivamente a través de un portal web
+## Uso del inicio de sesión de Azure para realizar la autenticación interactivamente
 
 Utilice el comando `azure login` --sin argumentos-- para autenticarse interactivamente con cualquiera de estas opciones:
 
@@ -54,7 +54,7 @@ Copie el código que se muestra más arriba y abra http://aka.ms/devicelogin en 
 	+
 	info:    login command OK
 
-## Usar el inicio de sesión de Azure con el nombre de usuario y la contraseña de una cuenta organizativa
+## Uso del inicio de sesión de Azure con un nombre de usuario y contraseña
 
 
 Use el comando `azure login` con un parámetro de nombre de usuario o con un nombre de usuario y una contraseña para autenticarse cuando quiera usar una cuenta profesional o educativa que no requiere la autenticación multifactor. En el siguiente ejemplo se pasa el nombre de usuario de una cuenta organizativa:
@@ -76,7 +76,7 @@ Si se trata de la primera vez que inicia sesión con estas credenciales, se le p
 
 Si ha creado una entidad de servicio para una aplicación de Active Directory y esa entidad de servicio tiene permisos en su suscripción, puede usar el comando `azure login` para autenticar dicha entidad de servicio. Según el escenario, podría proporcionar las credenciales de la entidad de servicio como parámetros explícitos del comando `azure login`, o bien a través de un código de aplicación o script de CLI. También puede usar un certificado para autenticar la entidad de servicio de forma no interactiva en escenarios de automatización. Para ver detalles y ejemplos, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 
-## Uso del método del archivo de configuración de publicación
+## Uso de un archivo de configuración de publicación
 
 Si solo necesita usar los comandos de la CLI del modo de administración de servicios de Azure, puede conectarse mediante un archivo de configuración de publicación.
 
@@ -122,13 +122,13 @@ Una vez que esté conectado a su suscripción de Azure, puede empezar a usar los
 
 La CLI de Azure proporciona dos modos de comando para trabajar con recursos de Azure, con conjuntos de comandos distintos:
 
-* **Modo de Azure Resource Manager**: para trabajar con recursos de Azure en el modelo de implementación de Resource Manager. Para establecer este modo, ejecute `azure config mode arm`.
+* **Modo de Resource Manager**: para trabajar con recursos de Azure en el modelo de implementación de Resource Manager. Para establecer este modo, ejecute `azure config mode arm`.
 
-* **Modo de administración de servicios de Azure**: para trabajar con recursos de Azure en el modelo de implementación clásico. Para establecer este modo, ejecute `azure config mode asm`.
+* **Modo de administración de servicios**: para trabajar con recursos de Azure en el modelo de implementación clásico. Para establecer este modo, ejecute `azure config mode asm`.
 
 Al instalarla por primera vez, la CLI estará en modo de administración de servicios.
 
->[AZURE.NOTE]Los modos Administrador de recursos de Azure y Administración de servicios de Azure se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
+>[AZURE.NOTE]Los modos Resource Manager y Administración de servicios se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
 
 ## Almacenamiento de la configuración de la CLI
 
@@ -147,10 +147,10 @@ Para cerrar sesión, utilice el comando siguiente:
 Si las suscripciones asociadas a la cuenta solo se autenticaron con Active Directory, al cerrar sesión se elimina la información de la suscripción del perfil local. Sin embargo, si también se ha importado un archivo de configuración de publicación para las suscripciones, al cerrar sesión se elimina solo la información relacionada con Active Directory del perfil local.
 ## Pasos siguientes
 
-* Para usar los comandos de la CLI de Azure, consulte [Comandos de la CLI de Azure en el modo de Azure Resource Manager (ARM)](./virtual-machines/azure-cli-arm-commands.md) y [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](virtual-machines-command-line-tools.md).
+* Para usar los comandos de la CLI de Azure, consulte [Comandos de la CLI de Azure en el modo Resource Manager](./virtual-machines/azure-cli-arm-commands.md) y [Comandos de la CLI de Azure en el modo Administración de servicios](virtual-machines-command-line-tools.md).
 
 * Si desea obtener más información acerca de la CLI de Azure, descargar el código fuente, informar sobre problemas o colaborar con el proyecto, visite el [Repositorio de GitHub para la CLI de Azure](https://github.com/azure/azure-xplat-cli).
 
 * Si tiene problemas al usar la CLI de Azure o Azure, visite los [Foros de Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,127 +1,147 @@
 <properties
-	pageTitle="Configuración del tamaño, administración y supervisión de grupos de bases de datos elásticas"
+	pageTitle="Supervisión y administración de un grupo de bases de datos elásticas con el Portal de Azure | Microsoft Azure"
 	description="Obtenga más información sobre cómo usar la inteligencia integrada de la Base de datos SQL y el Portal de Azure con el objetivo de administrar y supervisar un grupo de bases de datos elásticas escalables, así como identificar su tamaño más adecuado, con el objetivo de optimizar el rendimiento de las bases de datos y administrar los costos."
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="ninarn"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/01/2016"
-	ms.author="sidneyh"
+	ms.date="05/02/2016"
+	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Configuración del tamaño, administración y supervisión de grupos de bases de datos elásticas con el Portal de Azure
+# Supervisión y administración de un grupo de bases de datos elásticas con el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](sql-database-elastic-pool-manage-portal.md)
-- [C#](sql-database-elastic-pool-manage-csharp.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [C#](sql-database-elastic-pool-manage-csharp.md)
 - [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
-En este artículo se describe cómo usar el Portal de Azure para supervisar y administrar un grupo de bases de datos elásticas y las bases de datos del grupo, así como identificar su tamaño correcto. Base de datos SQL es una base de datos inteligente que analiza la telemetría del historial de uso y recomienda de forma anticipada un grupo para las bases de datos cuando resulte más rentable. También puede agregar y quitar bases de datos antes de confirmar los cambios y ver el impacto de estos en el almacenamiento y el rendimiento del grupo.
+Puede utilizar el portal de Azure para supervisar, administrar y configurar un grupo de bases de datos elásticas y las bases de datos del grupo. Base de datos SQL tiene inteligencia integrada que analiza el uso histórico de todas las bases de datos de un servidor (con independencia de que estén en grupos o no) y recomienda un grupo de bases de datos cuando sea más rentable.
 
-Para seguir los pasos de este artículo, necesitará bases de datos y un grupo. Si ya tiene bases de datos, consulte el artículo sobre la [creación de un grupo](sql-database-elastic-pool-create-portal.md), y el [tutorial sobre bases de datos SQL](sql-database-get-started) en caso contrario.
+El portal permite cambiar la configuración de grupos y bases de datos, obtener una vista previa de los cambios y, después, confirmar todos los cambios al mismo tiempo. Puede obtener una vista previa de los cambios, como agregar y quitar bases de datos. También se mostrará el posible impacto en el rendimiento y en los precios.
 
-**Para elegir un grupo con el que trabajar, siga estos pasos:**
+Para seguir los pasos de este artículo, necesitará algunas bases de datos y un grupo. Si ya tiene bases de datos, consulte [Creación de un grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-create-portal.md); si no dispone de una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md).
 
-- En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar**, en **Grupos elásticos de SQL** y después haga clic en el grupo de la lista con el que quiere trabajar.
+## Seleccione un grupo con el que desea trabajar.
 
-##Supervisión del uso de recursos de un grupo
-Tras seleccionar el grupo con el que se va a trabajar, en **Supervisión de grupo elástico**, un gráfico e iconos dinámicos le mostrarán información de uso importante del grupo.
+1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar**.
+2. Haga clic en **Grupos elásticos de SQL**.
+3. En la lista, haga clic en el grupo con el que desea trabajar.
+
+## Movimiento de una base de datos a un grupo elástico
+
+Puede agregar o quitar las bases de datos de un grupo existente. Las bases de datos pueden encontrarse en otros grupos. Sin embargo, solo puede agregar bases de datos que estén en el mismo servidor lógico.
+
+1. En la hoja del grupo, en la opción **Bases de datos elásticas**, haga clic en **Configurar grupo**.
+
+    ![Haga clic en Configurar grupo.][1]
+
+2. En la hoja **Configurar grupo**, haga clic en **Add to pool** (Agregar al grupo).
+
+	![Haga clic en Agregar al grupo.](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
+
+	
+3. En la hoja **Agregar bases de datos**, seleccione las bases de datos que agregará al grupo. Después, haga clic en **Seleccionar**.
+
+	![Seleccione las bases de datos que desea agregar.](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
+
+    La hoja **Configurar grupo** muestra ahora, con el estado **Pendiente**, la base de datos que acaba de agregar.
+
+    ![Adiciones de grupo pendientes.](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
+
+3. En la hoja "Configurar grupo", haga clic en **Guardar**.
+
+    ![Haga clic en Guardar](./media/sql-database-elastic-pool-manage-portal/click-save.png)
+
+## Movimiento de una base de datos fuera de un grupo elástico
+
+1. En la hoja **Configurar grupo**, seleccione las base de datos que quitará.
+
+    ![lista de bases de datos](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
+
+2. Haga clic en **Quitar del grupo**.
+
+    ![lista de bases de datos](./media/sql-database-elastic-pool-manage-portal/remove-from-pool.png)
+
+	Las bases de datos seleccionadas aparecerán en la interfaz de usuario como "databases selected to be removed" (bases de datos seleccionadas para quitarse).
+
+
+## Supervisión del uso de recursos de un grupo
+
+
+1. Seleccione un grupo con el que desea trabajar.
+2. En **Supervisión de grupo elástico**, un gráfico e iconos dinámicos mostrarán información de uso importante del grupo.
 
 ![Supervisión de grupos elásticos](./media/sql-database-elastic-pool-manage-portal/monitor-elastic-pool.png)
 
-**Para cambiar el intervalo de fechas, el tipo de gráfico (de barras o de líneas) o los recursos mostrados, siga estos pasos:**
+**Para cambiar el gráfico y la visualización, siga estos pasos:**
 
-- Haga clic en **Editar**, elija la configuración que quiera y después haga clic en **Guardar** para actualizar el gráfico.
+- Haga clic en **Editar**.
 
-**Para cambiar los iconos dinámicos, siga estos pasos:**
+	![Haga clic en Editar.](./media/sql-database-elastic-pool-manage-portal/edit-resource-utlization.png)
 
-- Haga clic en **Agregar iconos** y después seleccione los iconos que quiera en la galería de iconos que aparece a la izquierda.
+- En la hoja **Editar gráfico**, seleccione un nuevo intervalo de tiempo (última hora, hoy o última semana) o haga clic en **personalizado** para establecer un intervalo de tiempo diferente. Seleccione el tipo de gráfico (de barras o líneas) y, después, seleccione los recursos que se supervisarán.
 
-##Adición de una alerta a un grupo de recursos
+	![Haga clic en Editar.](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+
+- A continuación, haga clic en **Aceptar**.
+
+
+## Adición de una alerta a un grupo de recursos
+
 Puede agregar reglas a los recursos que envían correos electrónicos a personas o cadenas de alerta a puntos de conexión de URL cuando el recurso alcanza un umbral de uso que establezca.
 
 **Para agregar una alerta para cualquier recurso, siga estos pasos:**
 
-1. Haga clic en el gráfico **Uso de recursos** para abrir la hoja **Métrica**, haga clic en **Agregar alerta** y después rellene la información de la hoja **Agregar una regla de alerta** (el campo **Recurso** se establece automáticamente en el grupo con el que está trabajando).
-2. Escriba un **Nombre** y una **Descripción** para la alerta que resulten significativos para usted y los destinatarios.
-3. Elija una **Métrica** de la que quiera que se generen alertas en la lista.
+1. Haga clic en el gráfico **Uso de recursos** para abrir la hoja **Métrica**, haga clic en **Agregar alerta** y, después, rellene la información de la hoja **Agregar una regla de alerta** (el campo **Recurso** se establece automáticamente en el grupo con el que está trabajando).
+2. Escriba un **nombre** y una **descripción** para la alerta que resulten significativos para usted y los destinatarios.
+3. Elija una **métrica** de la que quiera que se generen alertas en la lista.
 
     El gráfico muestra dinámicamente el uso de recursos relativos a esa métrica a fin de ayudarle a elegir un umbral.
 
-4. Elija una **Condición** (mayor que, menor que, etc.) y un **Umbral**.
+4. Elija una **condición** (mayor que, menor que, etc.) y un **umbral**.
 5. Haga clic en **Aceptar**.
 
-##Cambio de eDTU por grupo y eDTU de bases de datos
-Cuando vea el uso de recursos de un grupo, es posible que descubra que este necesita una configuración de eDTU distinta, o bien que hay bases de datos del grupo que precisan ajustes de eDTU diferentes. Puede cambiar la configuración del grupo en cualquier momento para obtener el mejor equilibrio entre rendimiento y costo. Consulte [Consideraciones de precio y rendimiento](sql-database-elastic-pool-guidance.md) para obtener más información.
+## Cambio de la configuración de rendimiento de un grupo
 
-**Para cambiar la eDTU del grupo y la eDTU por base de datos, siga estos pasos:**
+Cuando supervise el uso de recursos de un grupo, es posible que descubra que el grupo necesita una eDTU más. También puede percatarse de que las bases de datos individuales del grupo necesitan una configuración de eDTU diferente. Puede cambiar la configuración del grupo en cualquier momento para obtener el mejor equilibrio entre rendimiento y costo. Consulte [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md) para obtener más información.
 
-1. Haga clic en **Configurar grupo** para abrir la hoja **Configurar rendimiento**.
+**Para cambiar las eDTU por grupo y por base de datos, siga estos pasos:**
 
-    En **Configuración del grupo de bases de datos elásticas**, un gráfico le muestra la tendencia reciente de eDTU y uso de almacenamiento en porcentaje de capacidad para el grupo.
+1. Abra la hoja **Configurar grupo**.
+
+    En **Configuración del grupo de bases de datos elásticas**, utilice los controles deslizantes para cambiar la configuración del grupo.
 
     ![Uso de recursos de grupos elásticos](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-2. Haga clic en otra **eDTU del grupo** y verá el costo mensual estimado del cambio que quiera realizar. Además, el gráfico se actualiza para mostrar los valores de uso previsto con la nueva eDTU máxima seleccionada.
+2. Cuando se cambia la configuración, la pantalla muestra el coste estimado mensual del cambio.
 
     ![Actualización de un grupo y nuevo costo mensual](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
-3. En **Configuración de base de datos elástica**, un gráfico de barras muestra el uso de eDTU de cada base de datos del grupo.
+## Vista previa de las acciones en las bases de datos
 
-4. Haga clic en **eDTU máx.** para configurar el valor máximo y en **eDTU mín.** para establecer el número mínimo de eDTU de las bases de datos del grupo.
+Puede obtener una vista previa de la adición o eliminación de bases de datos antes de confirmar la acción en la hoja **Configurar grupo**:
 
-    ![Actualización del eDTU máx. y mín. de una base de datos elástica](./media/sql-database-elastic-pool-manage-portal/change-db-edtuminmax.png)
+![Adición de base de datos de vista previa y eliminación](./media/sql-database-elastic-pool-manage-portal/pools-tab.png).
 
-##Adición y eliminación de bases de datos
 
-Después de crear un grupo, puede agregar bases de datos a él o quitarlas. Solo puede agregar bases de datos en el mismo servidor de SQL Server.
-
-**Para agregar bases de datos, siga estos pasos:**
-
-1. En la hoja del grupo, en **Bases de datos elásticas**, haga clic en el vínculo que muestra el número de bases de datos del grupo.
-
-    ![lista de bases de datos](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
-
-2. En la hoja **Bases de datos elásticas**, haga clic en **Agregar base de datos**, en las bases de datos que quiera agregar y después en el botón **Seleccionar**.
-
-    Ahora, en la hoja **Bases de datos elásticas** se muestra la base de datos que acaba de agregar, con **DTU media** y el uso del almacenamiento como **Tamaño (GB)**, junto con el estado **Pendiente**. Los valores de uso del grupo muestran ahora cuáles serán los **nuevos** valores si guarda los cambios.
-
-    ![grupo recomendado](./media/sql-database-elastic-pool-manage-portal/add-remove-databases.png)
-
-3. Haga clic en **Guardar** y después en **Aceptar** cuando el portal le indique que la solicitud se ha enviado. En la hoja del grupo se muestra el número de bases de datos contenidas en él cuando finaliza la operación.
-
-**Para quitar las bases de datos, siga estos pasos:**
-
-1. En la hoja del grupo, en **Bases de datos elásticas**, haga clic en el vínculo que muestra el número de bases de datos del grupo.
-
-    ![lista de bases de datos](./media/sql-database-elastic-pool-manage-portal/db-listing.png)
-
-2. En la hoja **Bases de datos elásticas**, en la lista de bases de datos del grupo, haga clic en las bases de datos que quiere quitar y después haga clic en **Eliminar bases de datos**.
-
-    Los valores de uso del grupo muestran ahora cuáles serán los **nuevos** valores si guarda los cambios.
-
-3. Haga clic en **Guardar** y después en **Aceptar** cuando el portal le indique que la solicitud se ha enviado. En la hoja del grupo se muestra el número de bases de datos contenidas en él cuando finaliza la operación.
-
-## Creación de una nueva base de datos en un grupo
-
-En la hoja de la base de datos, haga clic en **Crear base de datos**. La base de datos SQL ya está configurada para el servidor y el grupo correctos, así que haga clic para ajustar otras opciones y después seleccione **Aceptar** para crear una nueva base de datos en el grupo.
-
-   ![creación de bases de datos elásticas](./media/sql-database-elastic-pool-portal/create-database.png)
-
-##Creación y administración de trabajos elásticos
+## Creación y administración de trabajos elásticos
 
 Los trabajos elásticos le permiten ejecutar scripts de Transact-SQL con cualquier número de bases de datos en el grupo. Antes de usar los trabajos, instale los componentes de trabajos elásticos y especifique sus credenciales. Para obtener más información, vea [Información general sobre los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md).
+
+Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
+
 
 ## Recursos adicionales
 
@@ -131,4 +151,8 @@ Los trabajos elásticos le permiten ejecutar scripts de Transact-SQL con cualqui
 - [Creación de un grupo de bases de datos elásticas con C#](sql-database-elastic-pool-create-csharp.md)
 - [Consideraciones de precio y rendimiento para grupos de bases de datos elásticas](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--Image references-->
+[1]: ./media/sql-database-elastic-pool-manage-portal/configure-pool.png
+
+<!---HONumber=AcomDC_0504_2016-->

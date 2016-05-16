@@ -3,7 +3,7 @@
    description="Aprenda a administrar trabajos, orígenes de datos y usuarios de Análisis de Data Lake." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/26/2016"
-   ms.author="jgao"/>
+   ms.author="edmaca"/>
 
 # Administración de Análisis de Azure Data Lake mediante Azure PowerShell
 
@@ -35,7 +35,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 ##Instalar Azure PowerShell 1.0 o versiones posteriores
 
-Vea la sección de requisitos previos de [Uso de Azure PowerShell con Administrador de recursos de Azure](powershell-azure-resource-manager.md#prerequisites).
+Vea la sección de requisitos previos de [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md#prerequisites).
 	
 ## Administrar cuentas
 
@@ -392,4 +392,4 @@ La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Anál
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

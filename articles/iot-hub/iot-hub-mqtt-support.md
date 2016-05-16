@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Compatibilidad con MQTT del Centro de IoT
@@ -48,11 +48,11 @@ Si un dispositivo no puede usar los SDK de cliente de dispositivo, tendrá la po
 
     Por ejemplo, si el nombre de su Centro de IoT es **contoso.azure devices.net** y si el nombre del dispositivo es **MyDevice01**, el campo **Nombre de usuario** completo debe contener `contoso.azure-devices.net/MyDevice01`.
 
-- Para el campo **Contraseña**, use un token SAS. El [formato del token SAS][lnk-iothub-security] es el mismo que se describe para los protocolos HTTP y AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+- Para el campo **Contraseña**, use un token SAS. El formato del token de SAS es el mismo que para los protocolos HTTP y AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
-    Para obtener más información sobre cómo generar tokens SAS, vea [Uso de tokens de seguridad de Centro de IoT][lnk-sas-tokens].
+    Para más información sobre cómo generar tokens de SAS, consulte [Uso de tokens de seguridad del Centro de IoT][lnk-sas-tokens].
     
-    Cuando se realiza la prueba, también puede utilizar la herramienta [Explorador de dispositivos][lnk-device-explorer] para generar rápidamente un token SAS que puede copiar y pegar en su propio código:
+    Al realizar la prueba, también puede utilizar la herramienta [Explorador de dispositivos][lnk-device-explorer] para generar rápidamente un token SAS que puede copiar y pegar en su propio código:
     
     1. Vaya a la pestaña **Administración** en el Explorador de dispositivos.
     2. Haga clic en **Token de SAS** (parte superior derecha).
@@ -67,7 +67,7 @@ Para que MQTT conecte y desconecte paquetes, el Centro de IoT emite un evento en
 
 ### Envío de mensajes al Centro de IoT
 
-Una vez conectado correctamente, un dispositivo puede enviar mensajes al Centro de IoT mediante `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` como un **Nombre de tema**. El elemento `{property_bag}` permite al dispositivo enviar mensajes con propiedades adicionales en un formato con codificación url. Por ejemplo:
+Una vez conectado correctamente, un dispositivo puede enviar mensajes al Centro de IoT mediante `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` como un **nombre de tema**. El elemento `{property_bag}` permite al dispositivo enviar mensajes con propiedades adicionales en un formato con codificación url. Por ejemplo:
 
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -75,7 +75,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 > [AZURE.NOTE] Se trata de la misma codificación que se utiliza para las cadenas de consulta en el protocolo HTTP.
 
-La aplicación de cliente de dispositivo también puede utilizar `devices/{device_id}/messages/events/{property_bag}` como el **nombre del tema Will** para definir los *mensajes Will* que se reenviarán como un mensaje de telemetría.
+La aplicación cliente del dispositivo también puede utilizar `devices/{device_id}/messages/events/{property_bag}` como el **nombre del tema Will** para definir los *mensajes Will* que se reenviarán como un mensaje de telemetría.
 
 ### Recepción de mensajes
 
@@ -83,23 +83,22 @@ Para recibir mensajes de un Centro de IoT, un dispositivo debe suscribirse media
 
 ## Pasos siguientes
 
-Para obtener más información sobre la compatibilidad con MQTT con los SDK de dispositivo IoT, consulte la sección [Notas sobre la compatibilidad con MQTT][lnk-mqtt-devguide] en la Guía del desarrollador del Centro de IoT de Azure.
+Para más información sobre la compatibilidad con MQTT con los SDK de dispositivo IoT, consulte la sección [Notas sobre la compatibilidad con MQTT][lnk-mqtt-devguide] en la Guía del desarrollador del Centro de IoT de Azure.
 
-Para obtener más información sobre el uso de los SDK de cliente de dispositivo para comunicarse con el Centro de IoT, consulte [Introducción al Centro de IoT de Azure para .NET][lnk-iot-get-stated].
+Para más información sobre el uso de los SDK de cliente de dispositivo para comunicarse con el Centro de IoT, consulte [Introducción al Centro de IoT de Azure para .NET][lnk-iot-get-stated].
 
-Para obtener más información sobre el protocolo MQTT, consulte la [documentación de MQTT][lnk-mqtt-docs].
+Para más información sobre el protocolo MQTT, consulte la [documentación de MQTT][lnk-mqtt-docs].
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-iot-get-stated]: iot-hub-csharp-csharp-getstarted.md
 [lnk-mqtt-docs]: http://mqtt.org/documentation
-[lnk-iothub-security]: iot-hub-devguide.md#security
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
-[lnk-sas-tokens]: iot-hub-sas-tokens.md
+[lnk-sas-tokens]: iot-hub-sas-tokens.md#using-sas-tokens-as-a-device
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/08/2016"
+   ms.date="05/01/2016"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar contenedores de volúmenes de StorSimple
@@ -66,4 +66,4 @@ Los contenedores de volúmenes contienen volúmenes. Solo se puede eliminar si p
 - Obtenga más información sobre la [administración de volúmenes de StorSimple](storsimple-manage-volumes.md). 
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0504_2016-->

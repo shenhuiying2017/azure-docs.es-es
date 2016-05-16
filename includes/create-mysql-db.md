@@ -1,6 +1,6 @@
 Esta guía le mostrará cómo usar [ClearDB] para la creación de una base de datos MySQL desde la [Tienda de Azure] y cómo crear una base de datos MySQL como un recurso vinculado cuando cree un [Sitio web Azure][waws]. [ClearDB] es un proveedor de base de datos como servicio tolerante a errores que le permite ejecutar y administrar bases de datos MySQL en centros de datos de Azure y conectarse a ellos desde cualquier aplicación.
 
-> [AZURE.NOTE]Cuando cree una base de datos MySQL como parte del proceso de creación del sitio web, solo se le permitirá crear una base de datos gratuita. Si crea una base de datos MySQL desde la Tienda de Azure, podrá crear una base de datos gratuita o seleccionar opciones de pago.
+> [AZURE.NOTE] Cuando cree una base de datos MySQL como parte del proceso de creación del sitio web, solo se le permitirá crear una base de datos gratuita. Si crea una base de datos MySQL desde la Tienda de Azure, podrá crear una base de datos gratuita o seleccionar opciones de pago.
 
 ## Creación de una base de datos MySQL desde la Tienda de Azure
 
@@ -65,12 +65,11 @@ Para crear una base de datos MySQL como un recurso vinculado cuando crea un [Sit
 
 	![Mostrar cadena de conexión](./media/create-mysql-db/shown-conn-string.png)
 
-> [AZURE.NOTE]La aplicación del sitio web puede obtener acceso a las cadenas de conexión mediante el nombre de cadena de conexión. En las aplicaciones .NET, las cadenas de conexión están disponibles en el objeto **connectionStrings**. En otros lenguajes de programación, se puede obtener acceso a las cadenas de conexión como variables de entorno. Para obtener más información, consulte [Configuración de sitios web][configure].
+> [AZURE.NOTE] La aplicación del sitio web puede obtener acceso a las cadenas de conexión mediante el nombre de cadena de conexión. En las aplicaciones .NET, las cadenas de conexión están disponibles en el objeto **connectionStrings**. En otros lenguajes de programación, se puede obtener acceso a las cadenas de conexión como variables de entorno. Para obtener más información, consulte [Configuración de sitios web][configure].
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /documentation/services/web-sites/
 [Tienda de Azure]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
-[configure]: ../article/app-service-web/web-sites-configure.md
+[configure]: ../articles/app-service-web/web-sites-configure.md
 
-<!---HONumber=Oct15_HO3-->

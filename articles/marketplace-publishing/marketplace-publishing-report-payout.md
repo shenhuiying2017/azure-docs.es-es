@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="05/03/2016"
    ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Descripción de los informes de pago de Azure Marketplace
@@ -22,9 +22,13 @@
 
 Mientras realizamos la transición al Centro de desarrollo, puede que algunos de sus informes de pago estén disponibles en el Centro de desarrollo en https://dev.windows.com/es-ES, mientras que otros siguen estando en el Portal de publicación en https://publish.windowsazure.com.
 
-Para las ofertas de Marketplace asociadas con pagos modernos, los informes de pago estarán ahora disponibles en el **Centro de desarrollo**; actualmente aquí se incluyen máquinas virtuales, ofertas B+C, datos y servicios de datos ofrecidos bajo EA
+Para las ofertas de Marketplace asociadas con pagos modernos, los informes de pago estarán ahora disponibles en el **Centro de desarrollo**; actualmente aquí se incluyen:
+- Máquinas virtuales
+- Ofertas B+C
+- Datos y servicios de desarrollo que se ofrecen bajo EA
 
-En el caso de datos y servicios de datos ofrecidos bajo Web Direct (que aún emplea el sistema de pago anterior), los informes de pago estarán todavía disponibles en el **Portal de publicación**.
+Los informes de pagos seguirán estando en el **Portal de publicación** para:
+- Datos y servicios de desarrollo ofrecidos bajo Web Direct (que aún emplea el sistema de pago anterior).
 
 Los informes están disponibles 45 días después del cierre del trimestre y se calculan después los reembolsos.
 
@@ -45,13 +49,13 @@ Los informes están disponibles 45 días después del cierre del trimestre y se 
 El informe de pago para cada trimestre registra todas las transacciones que se producen dentro de ese trimestre.
 
 - El importe reservado indica los pagos que se acumularán fuera del ciclo de pago próximo (por ejemplo, este importe se moverá al próximo pago el mes siguiente). Este importe suele ser normalmente 0 $ (a menos que un cliente pague con mucha antelación).
-- Haga clic en los vínculos **Ver detalles** de Pago próximo o Pago más reciente para ver una nota sobre esos pagos.
+- Haga clic en los vínculos **Ver detalles** de Próximo pago o Pago más reciente para ver una nota sobre esos pagos.
 - Haga clic en **Extractos de pagos** para ver los detalles en Ganancias por aplicación o producto.
 - Haga clic en el vínculo **Ver** para ver extractos individuales.
 
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 
-- Utilice el filtro **Desglose de ganancias** de la parte inferior del extracto individual para ver varias aplicaciones o productos, si existen.
+- Utilice el filtro **Desglose de ganancias** en la parte inferior del extracto individual para ver varias aplicaciones o productos, si existen.
 
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
@@ -112,4 +116,4 @@ Para otras consultas de soporte técnico, registre un problema en <https://porta
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

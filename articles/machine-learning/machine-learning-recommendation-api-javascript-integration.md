@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="05/03/2016" 
 	ms.author="luisca"/>
 
 # Recomendaciones de Aprendizaje automático de Azure: Integración con JavaScript
@@ -88,11 +88,11 @@ Hay cinco tipos de eventos que admite la biblioteca: hacer clic, clic de recomen
 Este evento se debe utilizar cada vez que un usuario hace clic en un elemento. Normalmente, cuando el usuario hace clic en un elemento, se abre una nueva página con los detalles de dicho elemento; en esta página, debería activarse este evento.
 
 Parámetros:
-- event (cadena, obligatorio) – “click”
-- item (cadena, obligatorio) – IdentifiUnique identifier of the item
-- itemName (string, optional) – the name of the item
-- itemDescription (string, optional) – the description of the item
-- itemCategory (string, optional) – the category of the item
+- event (cadena, obligatorio) - "click"
+- item (cadena, obligatorio) - Identificador único del elemento
+- itemName (cadena, opcional) - El nombre del elemento
+- itemDescription (cadena, opcional) - Descripción del elemento
+- itemCategory (cadena, opcional) - La categoría del elemento
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -111,13 +111,13 @@ O con datos opcionales:
 Este evento se debe utilizar cada vez que un usuario hace clic en un elemento que se recibió de las recomendaciones de Aprendizaje automático de Azure como un elemento recomendado. Normalmente, cuando el usuario hace clic en un elemento, se abre una nueva página con los detalles de dicho elemento; en esta página, debería activarse este evento.
 
 Parámetros:
-- evento (cadena, obligatorio) – “recommendationclick”
-- elemento (cadena, obligatorio) – Identificador único del elemento
-- itemName (cadena, opcional) – nombre del elemento
-- itemDescription (cadena, opcional) – descripción del elemento
-- itemCategory (cadena, opcional) – categoría del elemento
-- seeds (matriz de cadena, opcional) – valores de inicialización que han generado la consulta de recomendación.
-- recoList (matriz de cadena, opcional) – resultado de la solicitud de recomendación que ha generado el elemento en el que se ha hecho clic.
+- evento (cadena, obligatorio) - “recommendationclick”
+- item (cadena, obligatorio) - Identificador único del elemento
+- itemName (cadena, opcional) - El nombre del elemento
+- itemDescription (cadena, opcional) - Descripción del elemento
+- itemCategory (cadena, opcional) - La categoría del elemento
+- seeds (matriz de cadena, opcional) - Los valores de inicialización que generaron la consulta de recomendación.
+- recoList (matriz de cadena, opcional) - El resultado de la solicitud de recomendación que generó el elemento en el que se hizo clic.
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -133,13 +133,12 @@ O con datos opcionales:
 
 
 ####3\.2.3. Agregar eventos de carro de la compra
-Este evento se debe usar cuando el usuario agrega un elemento al carro de la compra.
-Parámetros:
-* evento (cadena, obligatorio) – “addshopcart”
-* elemento (cadena, obligatorio) – Identificador único del elemento
-* itemName (cadena, opcional) – nombre del elemento
-* itemDescription (cadena, opcional) – descripción del elemento
-* itemCategory (cadena, opcional) – categoría del elemento
+Este evento se debe usar cuando el usuario agrega un elemento al carro de la compra. Parámetros:
+* event (cadena, obligatorio) - "addshopcart"
+* item (cadena, obligatorio) - Identificador único del elemento
+* itemName (cadena, opcional) - El nombre del elemento
+* itemDescription (cadena, opcional) - Descripción del elemento
+* itemCategory (cadena, opcional) - La categoría del elemento
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -150,11 +149,11 @@ Parámetros:
 Este evento se debe usar cuando el usuario quita un elemento del carro de la compra.
 
 Parámetros:
-* evento (cadena, obligatorio) – “removeshopcart”
-* elemento (cadena, obligatorio) – Identificador único del elemento
-* itemName (cadena, opcional) – nombre del elemento
-* itemDescription (cadena, opcional) – descripción del elemento
-* itemCategory (cadena, opcional) – categoría del elemento
+* event (cadena, obligatorio) - "removeshopcart"
+* item (cadena, obligatorio) - Identificador único del elemento
+* itemName (cadena, opcional) - El nombre del elemento
+* itemDescription (cadena, opcional) - Descripción del elemento
+* itemCategory (cadena, opcional) - La categoría del elemento
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -165,12 +164,11 @@ Parámetros:
 Este evento se debe usar cuando el usuario ha comprado su carro de la compra.
 
 Parámetros:
-* event (cadena) – “purchase”
-* elementos (comprados) – matriz con una entrada por cada elemento comprado.<br><br>
-Formato de compra:
-	* item (cadena) - Identificador único del elemento.
-	* recuento (int. o cadena) – número de elementos comprados.
-	* precio (flotante o cadena) – campo opcional – precio del elemento.
+* event (cadena) - "purchase"
+* items (comprados) - Matriz con una entrada por cada elemento comprado.<br><br> Formato de elemento comprado:
+	* item (cadena) - Identificador único del elemento
+	* count (entero o cadena) - Número de elementos que se compraron.
+	* price (flotante o cadena) - Campo opcional; precio del elemento.
 
 El ejemplo siguiente muestra la compra de 3 elementos (33, 34, 35), dos con todos los campos (elemento, cantidad, precio) y uno (elemento 34) sin precio.
 
@@ -185,12 +183,8 @@ La biblioteca de eventos de recomendaciones de Aprendizaje automático de Azure 
 Este evento se debe utilizar después del inicio de sesión de usuario en su sitio.
 
 Parámetros:
-* event (cadena) – “userlogin”
-* user (cadena) – identificación única del usuario.
-		<script>
-			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
-			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
-		</script>
+* event (cadena) - "userlogin"
+* user (cadena) - Identificación único del usuario. <script>if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
 
 ##4\. Consumir recomendaciones a través de JavaScript
 El código que consume la recomendación se activa por algunos eventos de JavaScript en la página web del cliente. La respuesta de recomendación incluye los identificadores de elementos recomendados, sus nombres y sus clasificaciones. Es preferible utilizar esta opción solo para una visualización de la lista de los elementos recomendados: debe realizarse un control más complejo (por ejemplo, para agregar los metadatos del elemento) en la integración del lado servidor.
@@ -201,14 +195,14 @@ Para consumir recomendaciones, deberá incluir las bibliotecas JavaScript requer
 Para consumir recomendaciones para uno o varios elementos, debe llamar a un método denominado: AzureMLRecommendationsGetI2IRecommendation.
 
 Parámetros:
-* elementos (matriz de cadenas) – uno o varios elementos para los que obtener recomendaciones. Si utiliza una compilación Fbt, puede establecer solo un elemento.
-* numberOfResults (int): número de resultados requeridos.
-* includeMetadata (booleano, opcional) – si está establecido en 'true', indica que se debe rellenar el campo de metadatos en el resultado.
-* Función de procesamiento: una función que controlará las recomendaciones de procesamiento devueltas. Los datos se devuelven como una matriz de:
-	* elemento – Id. único del elemento
-	* nombre – nombre de elemento (si existe en el catálogo)
-	* clasificación – clasificación de recomendación
-	* metadatos – una cadena que representa los metadatos del elemento
+* items (matriz de cadenas) - Uno o varios elementos para los que obtener recomendaciones. Si consume una compilación Fbt, aquí solo puede establecer un elemento.
+* numberOfResults (entero) - Número de resultados requeridos.
+* includeMetadata (booleano, opcional) - Si se establece en ‘true’ indica que el campo de metadatos se debe rellenar en el resultado.
+* Función de procesamiento - Una función que controlará las recomendaciones devueltas. Los datos se devuelven como una matriz de:
+	* item - Identificador único del elemento
+	* name - Nombre del elemento (si existe en el catálogo)
+	* rating - Clasificación de recomendación
+	* metadata - Una cadena que representa los metadatos del elemento
 
 Ejemplo: El siguiente código solicita 8 recomendaciones para el elemento "64f6eb0d-947a-4c18-a16c-888da9e228ba" (y al no especificar includeMetadata, se indica implícitamente que no se requieren metadatos), y luego concatena los resultados en un búfer.
 
@@ -228,4 +222,4 @@ Ejemplo: El siguiente código solicita 8 recomendaciones para el elemento "64f6e
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

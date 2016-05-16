@@ -181,7 +181,7 @@ Azure debe instalar los recursos en un orden estricto. Para tener la seguridad d
 
 ## Definición de alertas de métrica
 
-Existe un [método de PowerShell de configuración de alertas](app-insights-alerts.md/#set-alerts-by-using-powershell).
+Existe un [método de PowerShell de configuración de alertas](app-insights-alerts.md#set-alerts-by-using-powershell).
 
 
 ## los cmdlets
@@ -321,4 +321,4 @@ Otros artículos de automatización:
 * [Envío de Azure Diagnostics a Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Creación de anotaciones de versión](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

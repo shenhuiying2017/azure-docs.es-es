@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016"  
 	ms.author="juliako"/>
 
 #Comprobación del progreso del trabajo
@@ -44,10 +44,10 @@
 
 ##Paso siguiente
 
-Publique el contenido. Para obtener más información, consulte [Codificación de un recurso](../media-services-manage-content#publish).
+Publique el contenido. Para obtener más información, consulte [Codificación de un recurso](media-services-manage-content.md#publish).
 
 
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

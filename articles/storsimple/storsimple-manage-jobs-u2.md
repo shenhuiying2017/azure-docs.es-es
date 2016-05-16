@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para ver y administrar trabajos de StorSimple (Update 2)
@@ -21,9 +21,9 @@
 
 ## Información general
 
-En la página **Trabajos** se ofrece un único portal central para ver y administrar trabajos iniciados en dispositivos conectados a su servicio StorSimple Manager. Puede ver los trabajos programados, en ejecución, completados y con error de varios dispositivos. Los resultados se presentan en un formato tabular.
+En la página **Trabajos** se ofrece un único portal central para ver y administrar trabajos iniciados en dispositivos conectados a su servicio StorSimple Manager. Puede ver los trabajos programados, en ejecución, completados, cancelados y con error de varios dispositivos. Los resultados se presentan en un formato tabular.
 
-![Página de trabajos](./media/storsimple-manage-jobs-u2/HCS_JobsPage.png)
+![Página de trabajos](./media/storsimple-manage-jobs-u2/jobs.png)
 
 Puede buscar rápidamente los trabajos que le interesan filtrando por campos como:
 
@@ -73,7 +73,7 @@ Realice los pasos siguientes para ver los detalles de cualquier trabajo.
 
 Realice los pasos siguientes para cancelar un trabajo en ejecución.
 
->[AZURE.NOTE]No se pueden cancelar algunos trabajos, como la modificación de un volumen para cambiar el tipo de volumen o expandir un volumen.
+>[AZURE.NOTE] No se pueden cancelar algunos trabajos, como la modificación de un volumen para cambiar el tipo de volumen o expandir un volumen.
 
 ### Para cancelar un trabajo
 
@@ -93,4 +93,4 @@ Ahora se cancelará este trabajo.
 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0504_2016-->

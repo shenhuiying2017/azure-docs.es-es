@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="04/28/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython para realizar análisis avanzados
@@ -81,7 +81,8 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   Ejecución (aprovisionamiento)
     -   Ejecución
 
-##<a name="RemoteDesktop"></a>Apertura la máquina virtual con Escritorio remoto y finalización de la configuración
+
+##<a name="RemoteDesktop">Apertura la máquina virtual con Escritorio remoto y finalización de la configuración</a>
 
 1.  Cuando se completa el aprovisionamiento, haga clic en el nombre de la máquina virtual para ir a la página PANEL. En la parte inferior de la página, haga clic en **Conectar**.
 
@@ -93,11 +94,12 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
 
 Una vez se haya conectado a la máquina virtual con el Escritorio remoto de Windows, la máquina virtual funcionará como cualquier otro equipo. Conéctese a la instancia predeterminada de SQL Server con SQL Server Management Studio (en ejecución en la máquina virtual) de manera normal.
 
+
 ##<a name="InstallIPython"></a>Instalación de Bloc de notas de IPython y otras herramientas de compatibilidad
 
 Para configurar la nueva máquina virtual de SQL Server para que actúe como un servidor de Bloc de notas de IPython e instalar las herramientas de compatibilidad adicionales como AzCopy, Explorador de almacenamiento de Azure, paquetes de Python de ciencia de datos útiles y otros, le ofrecemos un script de personalización especial. Para instalarlo:
 
-- Haga clic con el botón derecho en el icono Inicio de Windows y haga clic en **Símbolo del sistema (administrador)**
+- Haga clic con el botón derecho en el icono **Inicio de Windows** y haga clic en **Símbolo del sistema (administrador)**
 - Copie los comandos siguientes y péguelos en el símbolo del sistema.
 
     	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
@@ -111,8 +113,7 @@ Para configurar la nueva máquina virtual de SQL Server para que actúe como un 
 	+ Para la conectividad remota del servidor de Bloc de notas de IPython
 	+ La obtención de Blocs de notas de IPython y scripts de SQL de ejemplo
 	+ La descarga e instalación de paquetes de Python de ciencia de datos útiles
-	+ La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure  
-<br>
+	+ La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure <br>
 - Es posible tener acceso y ejecutar Bloc de notas de IPython desde cualquier explorador local o remoto mediante una dirección URL de la forma `https://<virtual_machine_DNS_name>:<port>`, donde port es el puerto público de IPython que seleccionó al aprovisionar la máquina virtual.
 - El servidor de Bloc de notas de IPython se ejecuta como un servicio en segundo plano y se reiniciará automáticamente cuando se reinicie la máquina virtual.
 
@@ -155,7 +156,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 
 	Para cambiar el modo de autenticación mediante SQL Server Management Studio:
 
-3.  En el Explorador de objetos de SQL Server Management Studio, haga clic con el botón derecho en el nombre de la instancia de SQL Server (el nombre de la máquina virtual) y, a continuación, haga clic en **Propiedades**.
+3.  En el **Explorador de objetos de SQL Server Management Studio**, haga clic con el botón derecho en el nombre de la instancia de SQL Server (el nombre de la máquina virtual) y luego en **Propiedades**.
 
     ![Propiedades del servidor][7]
 
@@ -163,19 +164,20 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 
     ![Seleccionar el modo de autenticación][8]
 
-5.  En el cuadro de diálogo de SQL Server Management Studio, haga clic en **Aceptar** para aceptar el requisito de reiniciar SQL Server.
+5.  En el cuadro de diálogo de **SQL Server Management Studio**, haga clic en **Aceptar** para aceptar el requisito de reiniciar SQL Server.
 
-6.  En el Explorador de objetos, haga clic con el botón derecho en el servidor y, a continuación, haga clic en **Reiniciar**. (También se debe reiniciar Agente SQL Server si está en ejecución).
+6.  En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y luego en **Reiniciar**. (También se debe reiniciar Agente SQL Server si está en ejecución).
 
     ![Reinicio][9]
 
-7.  En el cuadro de diálogo de SQL Server Management Studio, haga clic en **Sí** para indicar que desea reiniciar SQL Server.
+7.  En el cuadro de diálogo de **SQL Server Management Studio**, haga clic en **Sí** para indicar que desea reiniciar SQL Server.
 
 ##<a name="Logins"></a>Creación de inicios de sesión para la autenticación de SQL Server
 
 Para conectarse al motor de base de datos desde otro equipo, debe crear al menos un inicio de sesión para la autenticación de SQL Server.
 
-> [AZURE.TIP] Puede crear nuevos inicios de sesión de SQL Server mediante programación o con SQL Server Management Studio. Para crear un nuevo usuario sysadmin con autenticación SQL mediante programación, inicie una **Nueva consulta** y ejecute el script siguiente. Sustituya <new user name> y <new password> por el nombre de usuario y la contraseña que prefiera. Ajuste la directiva de contraseñas según sea necesario (el código de ejemplo desactiva la expiración de la contraseña y la comprobación de la directiva). Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](http://msdn.microsoft.com/library/aa337562.aspx).
+Puede crear nuevos inicios de sesión de SQL Server mediante programación o con SQL Server Management Studio. Para crear un nuevo usuario sysadmin con autenticación SQL mediante programación, inicie una **Nueva consulta** y ejecute el script siguiente. Sustituya <new user name> y <new password> por el *nombre de usuario* y la *contraseña* que prefiera.
+
 
     USE master
     go
@@ -186,9 +188,12 @@ Para conectarse al motor de base de datos desde otro equipo, debe crear al menos
 
     EXEC sp_addsrvrolemember @loginame = N'<new user name>', @rolename = N'sysadmin';
 
+
+Ajuste la directiva de contraseñas según sea necesario (el código de ejemplo desactiva la expiración de la contraseña y la comprobación de la directiva). Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](http://msdn.microsoft.com/library/aa337562.aspx).
+
 Para crear nuevos inicios de sesión de SQL Server con SQL Server Management Studio:
 
-1.  En el Explorador de objetos de SQL Server Management Studio, expanda la carpeta de la instancia de servidor en la que desea crear el nuevo inicio de sesión.
+1.  En el **Explorador de objetos de SQL Server Management Studio**, expanda la carpeta de la instancia de servidor en la que desea crear el nuevo inicio de sesión.
 
 2.  Haga clic con el botón derecho en la carpeta **Seguridad**, apunte a **Nuevo** y seleccione **Inicio de sesión...**.
 
@@ -222,17 +227,19 @@ Para crear nuevos inicios de sesión de SQL Server con SQL Server Management Stu
 
 ##<a name="DNS"></a>Determinación del nombre DNS de la máquina virtual
 
-Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe conocer el nombre del Sistema de nombres de dominio (DNS) de la máquina virtual. (Este es el nombre que Internet utiliza para identificar la máquina virtual. Puede utilizar la dirección IP, pero esta podría cambiar cuando Azure mueva recursos por redundancia o mantenimiento. El nombre DNS será estable, porque se puede redirigir a una dirección IP nueva).
+Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe conocer el nombre del Sistema de nombres de dominio (DNS) de la máquina virtual.
+
+(Este es el nombre que Internet utiliza para identificar la máquina virtual. Puede utilizar la dirección IP, pero esta podría cambiar cuando Azure mueva recursos por redundancia o mantenimiento. El nombre DNS será estable, porque se puede redirigir a una dirección IP nueva).
 
 1.  En el Portal de Azure clásico (o desde el paso anterior), seleccione **MÁQUINAS VIRTUALES**.
 
-2.  En la página **INSTANCIAS DE MÁQUINA VIRTUAL**, en la columna **NOMBRE DNS**, encuentre y copie el nombre DNS de la máquina virtual que aparece precedido por **http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
+2.  En la página **INSTANCIAS DE MÁQUINA VIRTUAL**, en la columna **NOMBRE DNS**, encuentre y copie el nombre DNS de la máquina virtual que aparece precedido por ****http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
 
 ##<a name="cde"></a>Conexión al motor de base de datos desde otro equipo
 
 1.  En un equipo conectado a Internet, abra SQL Server Management Studio.
 
-2.  En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato **NombreDNS,nombrepuerto**, como por ejemplo *tutorialtestVM.cloudapp.net,57500*.
+2.  En el cuadro de diálogo **Conectar al servidor ** o **Conectarse al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato **NombreDNS,nombrepuerto**, como por ejemplo *tutorialtestVM.cloudapp.net,57500*.
 
 3.  En el cuadro **Autenticación**, seleccione **Autenticación de SQL Server**.
 
@@ -244,7 +251,7 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 ##<a name="amlconnect"></a>Conexión al motor de base de datos desde Aprendizaje automático de Azure
 
-En las fases posteriores Tecnología y procesos de análisis avanzado, se usará [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para compilar e implementar modelos de aprendizaje automático. Para la ingesta de los datos de las bases de datos de una máquina virtual de SQL Server directamente en Aprendizaje automático de Azure para su entrenamiento o puntuación, use el módulo del Lector en un nuevo experimento de [Estudio de aprendizaje automático de Azure](https://studio.azureml.net). Este tema se trata con mayor profundidad en los vínculos de ayuda de Tecnología y procesos de análisis avanzado. Para obtener una introducción, consulte [¿Qué es Estudio de aprendizaje automático de Azure?](machine-learning-what-is-ml-studio.md)
+En las fases posteriores del proceso de Cortana Analytics, se usará [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para compilar e implementar modelos de aprendizaje automático. Para la ingesta de los datos de las bases de datos de una VM de SQL Server directamente en Aprendizaje automático de Azure para su entrenamiento o puntuación, use el módulo del [Lector](https://studio.azureml.net) en un nuevo experimento de **Estudio de aprendizaje automático de Azure**. Este tema se trata con mayor profundidad en los vínculos de ayuda del proceso de Cortana Analytics. Para obtener una introducción, consulte [¿Qué es Estudio de aprendizaje automático de Azure?](machine-learning-what-is-ml-studio.md)
 
 2.	En el panel **Propiedades** del [módulo Lector](https://msdn.microsoft.com/library/azure/dn905997.aspx), seleccione **Base de datos SQL de Azure** en la lista desplegable **Origen de datos**.
 
@@ -299,4 +306,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

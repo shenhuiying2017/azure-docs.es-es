@@ -125,7 +125,7 @@ Ahora que ha comprobado la conexión de base de datos, deberá agregar una confi
 
 ##Otras referencias##
 
-+ [Sitio web de conexiones híbridas](../../services/biztalk-services/)
++ [Sitio web de conexiones híbridas](https://azure.microsoft.com/services/biztalk-services/)
 + [Introducción a las conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md)
 + [Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 + [Modificación del modelo de datos de un servicio móvil back-end de .NET](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
@@ -137,4 +137,4 @@ Ahora que ha comprobado la conexión de base de datos, deberá agregar una confi
 [Portal de Azure clásico]: http://manage.windowsazure.com
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

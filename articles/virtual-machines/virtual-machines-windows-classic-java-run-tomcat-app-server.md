@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Ejecución de un servidor de aplicaciones Java en una máquina virtual creada con el modelo de implementación clásico
@@ -53,7 +53,7 @@ En este tutorial, se va a instalar un servidor de aplicaciones Apache Tomcat en 
 6. En el cuadro de diálogo siguiente **Configuración de la máquina virtual**:
     1. En **Servicio en la nube**, use el valor predeterminado: **Crear un nuevo servicio en la nube**.
     2. El valor de **Nombre DNS de servicio** en la nube debe ser exclusivo en cloudapp.net. Si es necesario, modifique este valor para que Azure indique que es exclusivo.
-    2. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU**.
+    2. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU**.
     2. En **Cuenta de almacenamiento**, seleccione **Usar una cuenta de almacenamiento generada automáticamente**.
     3. En **Conjunto de disponibilidad**, seleccione **(Ninguno)**.
     4. Haga clic en **Siguiente**.
@@ -146,4 +146,4 @@ Para obtener más información sobre otros servicios (como Almacenamiento de Azu
 [NewRuleName]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

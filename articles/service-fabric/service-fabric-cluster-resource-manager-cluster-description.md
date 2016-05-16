@@ -214,10 +214,10 @@ Otra cosa que hicimos que ayudó a administrar la capacidad general del clúster
 ClusterManifest.xml
 
 ```xml
-        <Section Name=" NodeBufferPercentage">
-            <Parameter Name="DiskSpace" Value="10" />
-            <Parameter Name="Memory" Value="15" />
-            <Parameter Name="SomeOtherMetric" Value="20" />
+        <Section Name="NodeBufferPercentage">
+            <Parameter Name="DiskSpace" Value="0.10" />
+            <Parameter Name="Memory" Value="0.15" />
+            <Parameter Name="SomeOtherMetric" Value="0.20" />
         </Section>
 ```
 Las llamadas que crean nuevos servicios generan un error cuando el clúster carece de capacidad de búfer, lo que garantiza que el clúster mantenga una reserva suficiente para que los errores y las actualizaciones no hagan que los nodos superen su capacidad. Resource Manager expone gran parte de esta información a través de PowerShell y las API de consulta, lo que le permite ver la configuración de capacidad de búfer, la capacidad total y el consumo actual de cada métrica. Aquí podemos ver un ejemplo del resultado:
@@ -262,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

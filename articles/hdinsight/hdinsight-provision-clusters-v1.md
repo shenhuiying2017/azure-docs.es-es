@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/28/2016"
+   ms.date="04/28/2016"
    ms.author="jgao"/>
 
 #Aprovisionamiento de clústeres de Hadoop en HDInsight
 
 Aprenda a planear el aprovisionamiento de los clústeres de HDInsight.
 
-> [AZURE.WARNING] Los pasos de este documento utilizan el Portal de Azure clásico, junto con las versiones anteriores de Azure PowerShell y la CLI de Azure. Microsoft no recomienda el uso de estos pasos. En su lugar, debe usar el Portal de Azure y versiones más recientes de Azure PowerShell y la CLI de Azure. Para obtener una versión de este documento que usa el Portal de Azure y versiones más recientes de Azure PowerShell y la CLI de Azure, consulte [Provision Hadoop clusters in HDInsight (Aprovisionamiento de clústeres de Hadoop en HDInsight)](hdinsight-provision-clusters.md).
+> [AZURE.IMPORTANT] En los pasos de este documento se usa el Portal de Azure clásico. Microsoft no recomienda usar el portal clásico al crear nuevos servicios. Para obtener una explicación de las ventajas del Portal de Azure, consulte [Portal de Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 >
-> Para obtener una explicación de las ventajas del Portal de Azure, consulte [Portal de Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+> Este documento también incluye información sobre el uso de Azure PowerShell y la CLI de Azure. Los fragmentos de código proporcionados se basan en comandos que usan Azure Service Management (ASM) para trabajar con HDInsight y están __en desuso__. Estos comandos se eliminarán el 1 de enero de 2017.
+>
+>Para ver una versión de este documento donde se usa el Portal de Azure, junto con fragmentos de código de PowerShell y la CLI de Azure que usan Azure Resource Manager (ARM), consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-provision-clusters.md).
 
 **Requisitos previos:**
 
@@ -231,7 +233,7 @@ Puede instalar componentes adicionales o personalizar la configuración del clú
 
 	![Diagrama de la configuración de punto a sitio](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-Para obtener información sobre el uso de HDInsight con una red virtual, incluyendo los requisitos de configuración específicos de la red virtual, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md).
+Para más información sobre el uso de HDInsight con una red virtual, como por ejemplo, los requisitos de configuración específicos de la red virtual, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Herramientas de aprovisionamiento
 
@@ -444,7 +446,7 @@ Durante el aprovisionamiento de un clúster, puede usar las demás opciones de c
 
 Otra opción para aprovisionar un clúster de HDInsight es la CLI de Azure. La CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux.
 
-Para obtener una guía general de cómo usar la CLI de Azure, vea [CLI de Azure](../xplat-cli-install.md).
+Para obtener una guía general de cómo usar la CLI de Azure, consulte [CLI de Azure](../xplat-cli-install.md).
 
 Las instrucciones que aparecen a continuación le guían en la instalación de la CLI de Azure en Linux y Windows y, a continuación, en el uso de la línea de comandos para aprovisionar un clúster.
 
@@ -532,7 +534,7 @@ La CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft re
 
 **Para instalar la CLI de Azure con Windows Installer**
 
-1.	Vaya a **http://azure.microsoft.com/downloads/**.
+1.	Vaya a ****http://azure.microsoft.com/downloads/**.
 2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
 
 **Para descargar e importar la configuración de publicación**
@@ -709,7 +711,6 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -723,7 +724,7 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
 		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
 		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
 		        private const OSType NewClusterOSType = OSType.Windows;
 		        private const string NewClusterVersion = "3.2";
 
@@ -814,4 +815,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

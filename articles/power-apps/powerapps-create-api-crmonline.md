@@ -14,98 +14,102 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/29/2016"
+   ms.date="05/02/2016"
    ms.author="sameerch"/>
 
 # Creación de una API de Dynamics CRM Online en PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [Aplicaciones lógicas](../articles/connectors/connectors-create-api-crmonline.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
+> [AZURE.IMPORTANT] Este tema está archivado y se quitará próximamente. Descubra lo que estamos preparando en la nueva versión de [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Para obtener más información sobre PowerApps y empezar a trabajar, vaya a [PowerApps](https://powerapps.microsoft.com).  
+> - Para obtener más información sobre las conexiones disponibles en PowerApps, vaya a [Available Connections](https://powerapps.microsoft.com/tutorials/connections-list/) (Conexiones disponibles). 
 
-Agregue la API de Dynamics CRM Online al entorno del Servicio de aplicaciones de su organización (inquilino).
+<!--Archived
+Add the Dynamics CRM Online API to your organization's (tenant) app service environment. 
 
-## Crear la API en el portal de Azure
+## Create the API in the Azure portal
 
-1. En el [portal de Azure](https://portal.azure.com), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@*SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
+1. In the [Azure portal](https://portal.azure.com), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
 
-2. Seleccione **Examinar** en la barra de tareas:
+2. Select **Browse** in the task bar:  
 ![][1]
 
-3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*:
-![][2]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][2]  
 
-4. En **PowerApps**, seleccione **Administrar API**:
-![Examine las APIs registradas][3]
+4. In **PowerApps**, select **Manage APIs**:  
+![Browse to registered apis][3]
 
-5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:
+5. In **Manage APIs**, select **Add** to add the new API:  
 ![Add API][4]
 
-6. Escriba un **nombre** descriptivo para la API.
+6. Enter a descriptive **name** for your API.  
 
-7. En **Origen**, seleccione **APIs disponibles** para seleccionar las API preconfiguradas y seleccione **Dynamics CRM Online**:  
-![Seleccionar la API de Dynamics CRM Online][5]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Dynamics CRM Online**:  
+![Select Dynamics CRM Online API][5]
 
-8. Seleccione **Configuración: Configure los ajustes necesarios**:
-![Configurar la API de Dynamics CRM Online][6]
+8. Select **Settings - Configure required settings**:  
+![Configure Dynamics CRM Online API settings][6]
 
-9. Escriba el **Id. de cliente** y la **Clave de aplicación** de la aplicación Azure Active Directory (AAD) de Dynamics CRM Online. Si no dispone de estos, consulte la sección "Registrar una aplicación de AAD para su uso con PowerApps" en este tema para crear el identificador y los valores secretos que necesita.
+9. Enter **Client Id** and **App Key** of your Dynamics CRM Online Azure Active Directory (AAD) application.  If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
 
-	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Seleccione **Aceptar** para completar los pasos.
+10. Select **OK** to complete the steps.
 
-Cuando termine, se agregará una nueva API de Dynamics CRM Online en el entorno de Servicio de aplicaciones.
+When finished, a new Dynamics CRM Online API is added to your app service environment.
 
-## Registrar una aplicación de AAD para su uso con la API de PowerApps Dynamics CRM Online
+## Register an AAD app for use with PowerApps Dynamics CRM Online API
 
-1. Abra el [Portal de Azure](https://portal.azure.com).
+1. Open the [Azure Portal](https://portal.azure.com).
 
-2. Seleccione **Examinar** y, a continuación, seleccione **Active Directory**:
+2. Select **Browse** and then select **Active Directory**:  
 
-	> [AZURE.NOTE] De este modo se abre Active Directory en el Portal de Azure clásico.
+	> [AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
 
-3. Seleccione el nombre del inquilino de su organización:
-![Iniciar Azure Active Directory][7]
+3. Select your organization's tenant name:  
+![Launch Azure Active Directory][7]
 
-4. Seleccione la pestaña **Aplicaciones** y seleccione **Agregar**:
-![Aplicaciones del inquilino de AAD][8].
+4. Select the **Applications** tab, and select **Add**:  
+![AAD tenant applications][8]
 
-5. En **Agregar aplicación**:
+5. In **Add application**:  
 
-	1. Escriba el **nombre** de la aplicación.  
-	2. Deje el tipo de aplicación como **Web**.  
-	3. Seleccione **Siguiente**.
+	1. Enter a **Name** for your application.  
+	2. Leave the application type as **Web**.  
+	3. Select **Next**.
 
-	![Agregar aplicación de AAD: información de la aplicación][9]
+	![Add AAD application - app info][9]
 
-6. En **Propiedades de la aplicación**:
+6. In **App Properties**:  
 
-	1. Especifique la **URL de inicio de sesión** de la aplicación. Dado que va a realizar la autenticación con AAD para PowerApps, establezca la URL de inicio de sesión en _https://login.windows.net_.
-	2. Escriba un valor válido de **URI de id. de aplicación** para la aplicación.  
-	3. Seleccione **Aceptar**.  
+	1. Enter the **SIGN-ON URL** of your application.  Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+	2. Enter a valid **APP ID URI** for your app.  
+	3. Select **OK**.  
 
-	![Agregar aplicación de AAD: propiedades de la aplicación][10]
+	![Add AAD application - app properties][10]
 
-7. Cuando se finalice correctamente, se le redirigirá a la nueva aplicación de AAD. Seleccione **Configurar**:
-![Aplicación AAD de Contoso][11]
+7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
+![Contoso AAD app][11]
 
-8. Establezca la **Dirección URL de respuesta** de la sección _OAuth 2_ en la dirección URL de redireccionamiento que recibió cuando se agregó la nueva API de Dynamics CRM Online en el Portal de Azure (en este tema):  
-![Configurar aplicación AAD de Contoso][12]
+8. Set the **Reply URL** under _OAuth 2_ section to the redirect URL you received when you added the new Dynamics CRM Online API in the Azure Portal (in this topic):  
+![Configure Contoso AAD app][12]
 
-9. Seleccione **Guardar**.
+9. Select **Save**.
 
-Se creará una nueva aplicación de Azure Active Directory. Puede usar esta aplicación en la configuración de la API de Dynamics CRM Online en el portal de Azure.
+A new Azure Active Directory app is created. You can use this app in your Dynamics CRM Online API configuration in the Azure portal.
 
-## Visualización de las API de REST
+## See the REST APIs
 
-Referencia de [API de REST de Dynamics CRM Online](../connectors/connectors-create-api-crmonline.md).
+[Dynamics CRM Online REST API](../connectors/connectors-create-api-crmonline.md) reference.
 
 
-## Resumen y pasos siguientes
-En este tema, ha agregado la API de Dynamics CRM Online para su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
+## Summary and next steps
+In this topic, you added the Dynamics CRM Online API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps:
 
-[Agregar una conexión y conceder acceso a los usuarios](powerapps-manage-api-connection-user-access.md)
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!-- References -->
 
@@ -122,4 +126,4 @@ En este tema, ha agregado la API de Dynamics CRM Online para su empresa PowersAp
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

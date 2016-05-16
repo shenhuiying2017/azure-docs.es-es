@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="05/02/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Administración de índices de almacén de columnas en Almacenamiento de datos SQL de Azure.
@@ -240,8 +240,6 @@ Para más información sobre cómo volver a crear particiones mediante `CTAS`, c
 
 ## Pasos siguientes
 
-Para recomendaciones más detalladas sobre la administración de índices, consulte el artículo [administración de índices][].
-
 Para obtener más sugerencias de administración, consulte la información general de [administración][].
 
 <!--Image references-->
@@ -251,7 +249,6 @@ Para obtener más sugerencias de administración, consulte la información gener
 [particiones de tabla]: sql-data-warehouse-develop-table-partitions.md
 [simultaneidad]: sql-data-warehouse-develop-concurrency.md
 [administración]: sql-data-warehouse-manage-monitor.md
-[administración de índices]: sql-data-warehouse-manage-indexes.md
 
 <!--MSDN references-->
 [ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
@@ -259,4 +256,4 @@ Para obtener más sugerencias de administración, consulte la información gener
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

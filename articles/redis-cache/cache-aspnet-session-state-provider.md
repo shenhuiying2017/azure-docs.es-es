@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Proveedor de estado de sesión de ASP.NET para Caché"
-   description="Aprenda a almacenar el estado de sesión de ASP.NET con Caché en Redis de Azure"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="erikre"
-   editor="tysonn" />
+	pageTitle="Proveedor de estado de sesión ASP.NET para Caché | Microsoft Azure"
+	description="Aprenda a almacenar el estado de sesión de ASP.NET con Caché en Redis de Azure"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="douge"
+	editor="tysonn" />
 <tags
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="03/04/2016"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="04/27/2016"
+	ms.author="sdanie" />
 
 # Proveedor de estado de sesión de ASP.NET para Caché en Redis de Azure
 
@@ -25,19 +25,19 @@ No suele ser práctico evitar almacenar algún tipo de estado para una sesión d
 
 Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet de estado de sesión de caché en Redis, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**.
 
-![Paquetes NuGet de administración de Caché en Redis de Azure](./media/cache-asp.net-session-state-provider/IC729541.png)
+![Paquetes NuGet de administración de Caché en Redis de Azure](./media/cache-aspnet-session-state-provider/redis-cache-manage-nuget-menu.png)
 
-Escriba **RedisSessionStateProvider** en el cuadro de texto Buscar en línea, selecciónelo en los resultados y haga clic en Instalar.
+Escriba **RedisSessionStateProvider** en el cuadro de texto de búsqueda, selecciónelo en los resultados y haga clic en **Instalar**.
 
 >[AZURE.IMPORTANT] Si usa la característica de clústeres del nivel premium, debe usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o superior; de lo contrario, se produce una excepción. Este es un cambio importante. Para obtener más información, consulte [Detalles sobre cambios importantes de la versión 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
-![Proveedor de estado de sesión de Caché en Redis de Azure](./media/cache-asp.net-session-state-provider/IC751730.png)
+![Proveedor de estado de sesión de Caché en Redis de Azure](./media/cache-aspnet-session-state-provider/redis-cache-session-state-provider.png)
 
 El paquete NuGet de proveedor de estado de sesión de Redis tiene una dependencia en el paquete StackExchange.Redis.StrongName. Si el paquete StackExchange.Redis.StrongName no existe en el proyecto, se instalará. Tenga en cuenta que, además del paquete StackExchange.Redis.StrongName con nombre seguro, también está la versión con nombre no seguro de StackExchange.Redis. Si el proyecto usa la versión con nombre no seguro StackExchange.Redis, debe desinstalarla antes o después de instalar el paquete NuGet del proveedor de estado de sesión de Redis; de lo contrario, se producirán conflictos de nomenclatura en el proyecto. Para obtener más información sobre estos paquetes, consulte [Configuración de los clientes de la caché de .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 El paquete de NuGet se descarga, agrega las referencias de ensamblado requeridas y agrega la siguiente sección en el archivo web.config que contiene la configuración requerida para que su aplicación ASP.NET use el proveedor del estado de sesión de caché Redis.
 
-    <sessionStatemode="Custom" customProvider="MySessionStateStore">
+    <sessionState mode="Custom" customProvider="MySessionStateStore">
         <providers>
         <!--
 		<add name="MySessionStateStore"
@@ -106,4 +106,4 @@ Para obtener más información sobre el estado de sesión y otros procedimientos
 
 Consulte [Proveedor de caché de resultados de ASP.NET para Caché en Redis de Azure](cache-aspnet-output-cache-provider.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

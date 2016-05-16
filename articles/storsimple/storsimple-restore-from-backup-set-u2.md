@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/31/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Restaurar un volumen de StorSimple de un conjunto de copia de seguridad (Update 2)
@@ -23,7 +23,7 @@
 
 La página **Catálogo de copias de seguridad** muestra todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
 
- ![Página del catálogo de copias de seguridad](./media/storsimple-restore-from-backup-set-u2/HCS_BackupCatalog.png)
+ ![Página del catálogo de copias de seguridad](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 Este tutorial explica cómo usar la página **Catálogo de copias de seguridad** para restaurar el dispositivo desde un conjunto de copia de seguridad.
 
@@ -73,7 +73,7 @@ Puede usar la página **Catálogo de copias de seguridad** para restaurar el vol
 
 1. En la página del servicio de Administrador de StorSimple, haga clic en la pestaña **Catálogo de copias de seguridad**.
 
-    ![Catálogo de copias de seguridad](./media/storsimple-restore-from-backup-set-u2/HCS_Restore.png)
+    ![Catálogo de copias de seguridad](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 2. Seleccione una copia de seguridad de la siguiente manera:
   1. Seleccione el dispositivo adecuado.
@@ -115,4 +115,4 @@ Para completar correctamente la operación de restauración, desconecte el volum
 
 - Obtenga información sobre cómo [usar el servicio del administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

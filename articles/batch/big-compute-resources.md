@@ -10,10 +10,10 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="01/26/2016"
+   ms.date="04/29/2016"
    ms.author="danlep"/>
 
 # Big Compute en Azure: Recursos técnicos para informática de alto rendimiento (HPC) y computación por lotes
@@ -30,11 +30,13 @@ Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoq
 
 ## Azure Batch
 
-[Batch](https://azure.microsoft.com/services/batch/) es un servicio de plataforma que facilita el proceso de habilitar para la nube sus aplicaciones y de ejecutar trabajos sin configurar y administrar un clúster y un programador de trabajos. Use el SDK para integrar aplicaciones cliente con Azure Batch a través de una variedad de lenguajes, almacenar datos en Azure y crear canalizaciones de ejecución de trabajos.
+[Lote](https://azure.microsoft.com/services/batch/) es un servicio de plataforma que facilita el proceso de habilitar para la nube sus aplicaciones y de ejecutar trabajos sin configurar y administrar un clúster y un programador de trabajos. Use el SDK para integrar aplicaciones cliente con Azure Batch a través de una variedad de lenguajes, almacenar datos en Azure y crear canalizaciones de ejecución de trabajos.
 
 * [Documentación](https://azure.microsoft.com/documentation/services/batch/)
 
-* Lote de [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) y Referencia de API de [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
+* Referencia de [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) y de API de [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
+
+* Referencia de la [biblioteca .NET de administración de Lote](https://msdn.microsoft.com/library/mt463120.aspx)
 
 * [Tutorial: Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md)
 
@@ -55,7 +57,7 @@ HPC Pack es la solución HPC gratuita de Microsoft que se basa en las tecnologí
 * [Documentación](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [Opciones de clúster de HPC con Microsoft HPC Pack en Azure](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
+* Opciones de clúster de HPC Pack de [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md) y [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md) en Azure
 
 * [Irrumpir en instancias de trabajo de Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -76,7 +78,7 @@ Use estas plantillas de Azure para implementar clústeres de HPC de Linux.
 
 ## Microsoft MPI
 
-[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) es una implementación de Microsoft del estándar de la interfaz de especificación de mensajes para desarrollar y ejecutar aplicaciones en paralelo en la plataforma de Windows.
+[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) es una implementación de Microsoft del estándar de la interfaz de especificación de mensajes para desarrollar y ejecutar aplicaciones en paralelo en la plataforma de Windows. La versión más reciente es MS-MPI v7.
 
 
 * [Descargar MS-MPI](http://go.microsoft.com/FWLink/p/?LinkID=389556)
@@ -94,13 +96,13 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-win
 
 * [Configurar un clúster de Windows RDMA con Microsoft HPC Pack para ejecutar aplicaciones MPI](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-## Proyectos de arquitectura
 
-* [Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure](http://go.microsoft.com/fwlink/?linkid=717686) (archivoPDF) y [artículo](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Ejemplos y demos
 
-* [Ejemplos de código de Azure Batch](https://github.com/Azure/azure-batch-samples)
+* [Ejemplos de código de Lote de Azure para C# y Python](https://github.com/Azure/azure-batch-samples)
+
+* [Versión de prueba de SUSE Linux Enterprise Server para HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
 ## Servicios de Azure relacionados
 
@@ -112,12 +114,23 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-win
 
 * [Máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
+* [Conjuntos de escalado de máquina virtual](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)
+
 * [Servicios en la nube](https://azure.microsoft.com/documentation/services/cloud-services/)
 
 * [Servicios multimedia](https://azure.microsoft.com/documentation/services/media-services/)
 
-## Testimonios de clientes
+## Proyectos de arquitectura
 
+* [Orquestación de HPC y datos mediante Lote de Azure y Data Factory de Azure ](http://go.microsoft.com/fwlink/?linkid=717686) (archivo PDF) y el [artículo](../data-factory/data-factory-data-processing-using-batch.md)
+
+## Soluciones del sector
+
+* [Mercados de capital y banca](https://finance.azure.com/)
+
+* [Simulaciones de ingeniería](https://simulation.azure.com/)
+
+## Testimonios de clientes
 
 * [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
 
@@ -135,9 +148,7 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-win
 
 * [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
 
-
-
-
+* [UberCloud](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
 
@@ -146,4 +157,4 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-win
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](https://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

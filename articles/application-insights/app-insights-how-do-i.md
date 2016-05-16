@@ -79,12 +79,12 @@ Algunos puntos que se deben tener en cuenta:
 
 ### Configuración de alertas automáticamente
 
-[Uso de PowerShell para crear nuevas alertas](app-insights-alerts/#set-alerts-by-using-powershell)
+[Uso de PowerShell para crear nuevas alertas](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Uso de PowerShell para administrar Application Insights
 
 * [Creación de nuevos recursos](app-insights-powershell-script-create-resource.md)
-* [Creación de nuevas alertas](app-insights-alerts/#set-alerts-by-using-powershell)
+* [Creación de nuevas alertas](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Marcas de tiempo y versiones de aplicación
 
@@ -241,4 +241,4 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 * En primer lugar, [agregue un nuevo gráfico](app-insights-metrics-explorer.md) y compruebe si el contador está en el conjunto básico que se ofrece.
 * Si no es así, [agregue el contador al conjunto recopilado por el módulo del contador de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

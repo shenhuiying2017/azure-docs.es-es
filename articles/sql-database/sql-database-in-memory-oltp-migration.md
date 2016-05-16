@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/02/2016"
 	ms.author="jodebrui"/>
 
 
@@ -68,7 +68,9 @@ Importe el archivo bacpac en una nueva Base de datos Premium.
 
 SSMS incluye un informe de **información general del análisis de rendimiento de transacciones** que se pueden ejecutar en una base de datos con una carga de trabajo activo. El informe identifica las tablas y los procedimientos almacenados que son candidatos para la migración a In-Memory OLTP.
 
-En SSMS, para generar el informe: - En el **Explorador de objetos**, haga clic con el botón derecho en el nodo de la base de datos. - Haga clic en **Informes** > **Informes estándar** > **Información general de análisis de rendimiento de transacciones**.
+En SSMS, para generar el informe:
+- En el **Explorador de objetos**, haga clic con el botón derecho en el nodo de la base de datos.
+- Haga clic en **Informes** > **Informes estándar** > **Transaction Performance Analysis Overview** (Información general de análisis de rendimiento de transacciones).
 
 Para obtener más información, consulte [Determinar si una tabla o un procedimiento almacenado se debe pasar a In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
 
@@ -83,7 +85,8 @@ Para facilitar las pruebas, ajuste la base de datos de prueba de la forma siguie
 
 1. Conéctese a la base de datos de prueba con SSMS.
 
-2. Para evitar la necesidad de la opción WITH (SNAPSHOT) en las consultas, establezca la opción de base de datos tal como se muestra en la siguiente instrucción T-SQL: ```
+2. Para evitar la necesidad de usar la opción WITH (SNAPSHOT) en las consultas, establezca la opción de base de datos tal como se muestra en la siguiente instrucción T-SQL:
+```
 ALTER DATABASE CURRENT
 	SET
 		MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
@@ -234,4 +237,4 @@ Considere la posibilidad de supervisar los efectos de rendimiento de las impleme
 
 - [Asesor de optimización en memoria](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

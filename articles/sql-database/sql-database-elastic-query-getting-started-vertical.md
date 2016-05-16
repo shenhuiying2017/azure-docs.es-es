@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Introducción a consultas entre bases de datos (particionamiento vertical) | Microsoft Azure"	
+	pageTitle="Introducción a las consultas entre bases de datos (particiones verticales) | Microsoft Azure"	
 	description="cómo usar la consulta de base de datos elástica con bases de datos con particiones verticales"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/26/2016"
 	ms.author="torsteng" />
 
-# Introducción a consultas entre bases de datos (particiones verticales) 
+# Introducción a las consultas entre bases de datos (particiones verticales) (versión preliminar)
 
 La consulta de base de datos elástica (vista previa) para Base de datos SQL de Azure le permite ejecutar consultas T-SQL que distribuyen varias bases de datos con un único punto de conexión. Este tema se aplica a [bases de datos con particiones verticales](sql-database-elastic-query-vertical-partitioning.md).
 
@@ -39,7 +39,7 @@ Ejecute las siguientes consultas en la base de datos **Pedidos** para crear la t
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-Ahora, ejecute la siguiente consulta en la base de datos Clientes para crear la tabla CustomerInformation e introducir los datos de ejemplo.
+Ahora, ejecute la siguiente consulta en la base de datos **Clientes** para crear la tabla **CustomerInformation** e introducir los datos de ejemplo.
 
 	CREATE TABLE [dbo].[CustomerInformation]( 
 		[CustomerID] [int] NOT NULL, 
@@ -53,9 +53,6 @@ Ahora, ejecute la siguiente consulta en la base de datos Clientes para crear la 
 
 ## Creación de objetos de base de datos
 ### Clave maestra y credenciales de ámbito de base de datos
-
-
-Se usan para conectarse al administrador de mapas de particiones y particiones:
 
 1. Abra SQL Server Management Studio o SQL Server Data Tools en Visual Studio.
 2. Conéctese a la base de datos Pedidos y ejecute los siguientes comandos de T-SQL:
@@ -109,4 +106,4 @@ Para obtener información de precios, vea [Precio de Base de datos SQL](/pricing
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

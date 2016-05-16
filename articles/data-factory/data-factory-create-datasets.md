@@ -251,6 +251,8 @@ A menos que se esté produciendo un conjunto de datos mediante Data Factory de A
 ## Conjuntos de datos limitados
 Puede crear conjuntos de datos que se limitan a una canalización mediante el uso de la propiedad **datasets**. Estos conjuntos de datos solo los pueden usar las actividades dentro de esta canalización, pero no las actividades de otras canalizaciones. En el ejemplo siguiente se define una canalización con dos conjuntos de datos: InputDataset-rdc y OutputDataset-rdc, que se usarán dentro de la canalización.
 
+> [AZURE.IMPORTANT] Los conjuntos de datos con ámbito solo se admiten con las canalizaciones de un solo uso (**pipelineMode** establecido en **OneTime**). Consulte la sección sobre [una canalización](data-factory-scheduling-and-execution.md#onetime-pipeline) para más información.
+
 	{
 	    "name": "CopyPipeline-rdc",
 	    "properties": {
@@ -340,4 +342,4 @@ Puede crear conjuntos de datos que se limitan a una canalización mediante el us
 	    }
 	}
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

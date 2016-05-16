@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Administración de identidades de dispositivos de Centro de IoT de forma masiva
@@ -77,7 +77,7 @@ El método **ExportDevicesAsync** requiere dos parámetros:
 
 *  Un valor *booleano* que indica si desea excluir las claves de autenticación de los datos de exportación. Si es **false**, las claves de autenticación se incluyen en la exportación; si no, las claves se exportan como **null**.
 
-El siguiente fragmento de código de C# muestra cómo iniciar un trabajo de exportación y, a continuación, sondear la finalización:
+El siguiente fragmento de código de C# muestra cómo iniciar un trabajo de exportación que incluye las claves de autenticación de dispositivo en los datos de exportación y luego sondea la finalización:
 
 ```
 // Call an export job on the IoT Hub to retrieve all devices
@@ -131,21 +131,21 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 ## Importación de dispositivos
 
-El método **ImportDevicesAsync** de la clase **RegistryManager** le permite realizar operaciones de sincronización e importación masiva en un registro de dispositivos de Centro de IoT. Al igual que el método **ExportDevicesAsync**, el método **ImportDevicesAsync** usa el marco Trabajo.
+El método **ImportDevicesAsync** de la clase **RegistryManager** le permite realizar operaciones de sincronización e importación masiva en un registro de dispositivos de Centro de IoT. Al igual que el método **ExportDevicesAsync**, el método **ImportDevicesAsync** usa el marco **Trabajo**.
 
 Debe tener cuidado con el método **ImportDevicesAsync** porque además del aprovisionamiento de nuevos dispositivos en el registro de identidad del dispositivo, también puede actualizar y eliminar dispositivos existentes.
 
-> [AZURE.WARNING]  Una operación de importación no se puede deshacer. Siempre debe realizar una copia de seguridad los datos existentes utilizando el método **ExportDevicesAsync** en otro contenedor de blobs antes de realizar cambios de manera masiva en el registro de identidad del dispositivo.
+> [AZURE.WARNING]  Una operación de importación no se puede deshacer. Siempre debe realizar una copia de seguridad de los datos existentes mediante el método **ExportDevicesAsync** en otro contenedor de blobs antes de realizar cambios masivos en el registro de identidad del dispositivo.
 
 El método **ImportDevicesAsync** requiere dos parámetros:
 
-*  Una *cadena* que contiene un identificador URI de un contenedor de blobs de [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/) como *entrada* para el trabajo. Este identificador URI debe contener un token SAS que conceda acceso de lectura al contenedor. Este contenedor debe incluir un blob con el nombre **devices.txt** que contenga los datos del dispositivo serializados para importar en el registro de identidad del dispositivo. Los datos de importación deben contener la información del dispositivo en el mismo formato de JSON que crea el trabajo **ExportImportDevice**. El token de SAS debe incluir estos permisos:
+*  Una *cadena* que contiene un identificador URI de un contenedor de blobs de [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/) como *entrada* para el trabajo. Este identificador URI debe contener un token SAS que conceda acceso de lectura al contenedor. Este contenedor debe incluir un blob con el nombre **devices.txt** que contenga los datos del dispositivo serializados para importar en el registro de identidad del dispositivo. Los datos de importación deben contener la información del dispositivo en el mismo formato JSON que usa el trabajo **ExportImportDevice** cuando crea un blob **devices.txt**. El token de SAS debe incluir estos permisos:
 
     ```
     SharedAccessBlobPermissions.Read
     ```
 
-*  Un *cadena* que contenga un identificador URI de un contenedor de blobs de [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/) como *salida* del trabajo. El trabajo crea un blob en bloques en este contenedor para almacenar cualquier información de error del **Trabajo** de importación finalizado. El token de SAS debe incluir estos permisos:
+*  Una *cadena* que contenga un identificador URI de un contenedor de blobs de [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/) como *salida* del trabajo. El trabajo crea un blob en bloques en este contenedor para almacenar cualquier información de error del **Trabajo** de importación finalizado. El token de SAS debe incluir estos permisos:
     
     ```
     SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
@@ -175,13 +175,13 @@ Puede controlar el proceso de importación por dispositivo utilizando la propied
 
 | importMode | Descripción |
 | -------- | ----------- |
-| **createOrUpdate** | Si no existe un dispositivo con el **id** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag**. |
-| **create** | Si no existe un dispositivo con el **id** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. |
-| **update** | Si ya existe un dispositivo con el **id** especificado, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
-| **updateIfMatchETag** | Si ya existe un dispositivo con el **id** especificado, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con **ETag**, se escribe un error en el archivo de registro. |
-| **createOrUpdateIfMatchETag** | Si no existe un dispositivo con el **id** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag**. <br/>Si no existe la coincidencia con **ETag**, se escribe un error en el archivo de registro. |
-| **delete** | Si ya existe un dispositivo con el **id** especificado, este se elimina con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
-| **deleteIfMatchETag** | Si ya existe un dispositivo con el **id** especificado, este se elimina solo si hay una coincidencia con **ETag**. Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con ETag, se escribe un error en el archivo de registro. |
+| **createOrUpdate** | Si no existe un dispositivo con el **id.** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag**. |
+| **create** | Si no existe un dispositivo con el **id.** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. |
+| **update** | Si ya existe un dispositivo con el **id.** especificado, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
+| **updateIfMatchETag** | Si ya existe un dispositivo con el **id.** especificado, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con **ETag**, se escribe un error en el archivo de registro. |
+| **createOrUpdateIfMatchETag** | Si no existe un dispositivo con el **id.** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag**. <br/>Si no existe la coincidencia con **ETag**, se escribe un error en el archivo de registro. |
+| **delete** | Si ya existe un dispositivo con el **id.** especificado, este se elimina con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
+| **deleteIfMatchETag** | Si ya existe un dispositivo con el **id.** especificado, este se elimina solo si hay una coincidencia con **ETag**. Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe una coincidencia con ETag, se escribe un error en el archivo de registro. |
 
 > [AZURE.NOTE] Si los datos de serialización no definen explícitamente una marca **importMode** para un dispositivo, se establece de manera predeterminada en **createOrUpdate** durante la operación de importación.
 
@@ -338,4 +338,4 @@ En este artículo, aprendió a realizar operaciones de forma masiva en el regist
 - [IoT Hub usage metrics (Métricas de uso del Centro de IoT)](iot-hub-metrics.md)
 - [IoT Hub operations monitoring (Supervisión de operaciones de Centro de IoT)](iot-hub-operations-monitoring.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

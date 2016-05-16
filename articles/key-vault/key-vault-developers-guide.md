@@ -12,20 +12,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="04/29/2016"
    ms.author="bruceper" />
 
 # Guía del desarrollador del Almacén de claves de Azure
-
-> [AZURE.VIDEO azure-key-vault-developer-quick-start]
-
 Con el Almacén de claves, podrá obtener acceso seguro a información confidencial sobre el acceso desde sus aplicaciones, por ejemplo:
 
 - Las claves y los secretos estarán protegidos sin tener que escribir el código manualmente, y podrá usarlos fácilmente en sus aplicaciones.
 - Sus clientes podrán poseer y administrar sus propias claves para que pueda centrarse en proporcionar las características de software fundamentales. De este modo, las aplicaciones no serán responsables de las claves y secretos del inquilino de sus clientes.
 - Su aplicación puede usar claves para firma y cifrado y la administración de las claves sigue siendo externa a la aplicación para que la solución sea adecuada para una aplicación distribuida geográficamente.
 
-Para más información sobre el Almacén de claves de Azure, vea [¿Qué es el Almacén de claves de Azure?](key-vault-whatis.md)
+Para obtener más información sobre Almacén de claves de Azure, consulte [¿Qué es Almacén de claves?](key-vault-whatis.md).
+
+## Vídeos
+Este vídeo muestra cómo crear su propio almacén de claves y cómo usarlo desde la aplicación de ejemplo 'Hello Key Vault'.
+
+Vínculos a los recursos mencionados en el vídeo:
+- [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+- [Código de ejemplo de Almacén de claves de Azure](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+
+Para obtener más información, puede seguir el [blog de Almacén de claves](http://aka.ms/kvblog) y participar en el [foro sobre Almacén de claves](http://aka.ms/kvforum).
+
+
+
+> [AZURE.VIDEO azure-key-vault-developer-quick-start]
+
+
 
 ## Creación y administración de almacenes de claves
 
@@ -65,11 +77,13 @@ Para obtener ejemplos completos de cómo usar Almacén de claves con las aplicac
 
 ## Procedimientos
 
-Los artículos y escenarios siguientes proporcionan orientación específica sobre las tareas:
+Los artículos y escenarios siguientes proporcionan instrucciones específicas de tarea sobre cómo trabajar con Almacén de claves de Azure:
 
-- [Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure](key-vault-hsm-protected-keys.md)
-- [Paso de valores seguros durante la implementación](../resource-manager-keyvault-parameter.md).
-- Para obtener instrucciones específicas sobre las tareas de integración y el uso de Almacén de claves de Azure, vea las [plantillas de ARM de ejemplo de Ryan Jones para Almacén de claves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)
+- [Generación y transferencia de claves protegidas con HSM para Almacén de claves de Azure](key-vault-hsm-protected-keys.md). Esto le ayudará a planear, generar y transferir sus propias claves protegidas con HSM para usarlas con Almacén de claves de Azure.
+- [Paso de valores seguros (como contraseñas) durante la implementación](../resource-manager-keyvault-parameter.md). Si necesita pasar un valor seguro (como una contraseña) como un parámetro durante la implementación, puede almacenar ese valor como un secreto en un Almacén de claves de Azure y hacer referencia al valor en otras plantillas de Resource Manager.
+- [Uso de Almacén de claves para la administración extensible de claves con SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). El Conector de SQL Server para Almacén de claves de Azure permite que SQL Server y SQL en una VM use el servicio de Almacén de claves de Azure como un proveedor de administración extensible de claves (EKM) con el fin de proteger sus claves de inscripción para el vínculo de aplicaciones; Cifrado de datos transparente, Cifrado de copia de seguridad y Cifrado de nivel de columna.
+
+Para obtener más instrucciones específicas sobre las tareas de integración y el uso de Almacén de claves de Azure, consulte las [plantillas de ARM de ejemplo de Ryan Jones para Almacén de claves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)
 
 ## Bibliotecas compatibles
 
@@ -77,4 +91,8 @@ Los artículos y escenarios siguientes proporcionan orientación específica sob
 
 - [Las extensiones del Almacén de claves de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) proporcionan capacidades ampliadas para el Almacén de claves de Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+## Otros recursos de Almacén de claves
+- [Blog de Almacén de claves](http://aka.ms/kvblog)
+- [Foro sobre Almacén de claves](http://aka.ms/kvforum)
+
+<!---HONumber=AcomDC_0504_2016-->

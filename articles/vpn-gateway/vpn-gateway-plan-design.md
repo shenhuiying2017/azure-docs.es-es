@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/28/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # Planeamiento y diseño de puerta de enlace de VPN
 
-El planeamiento y el diseño de las conexiones entre locales y de red virtual a red virtual puede ser muy simple o bastante complejo, según las necesidades de la red.
+El planeamiento y el diseño de las configuraciones entre locales y de red virtual a red virtual pueden ser muy simples o bastante complejos, según las necesidades de la red. Este artículo le guiará a través de las consideraciones de diseño y planificación básicas.
 
 ## Planificación
 
@@ -164,4 +164,4 @@ Esta tabla muestra el modelo de implementación para el que está disponible la 
 
 Consulte las [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) y [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md) para obtener más información que pueda ayudarle con el diseño. Para obtener más información sobre las topologías de conexión, consulte [Topologías de conexión](vpn-gateway-topology.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

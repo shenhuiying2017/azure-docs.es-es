@@ -40,7 +40,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 Cada suscripción de Azure se identifica por un valor GUID, conocido como el identificador de suscripción. Utilice los pasos siguientes para encontrar este valor.
 
-1. Visite el [portal de Azure] [portal de vista previa].
+1. Visite el [Portal de Azure][preview-portal].
 
 2. En la barra de la izquierda del portal, seleccione __EXAMINAR TODO__ y después seleccione __Suscripciones__ en la hoja __Examinar__.
 
@@ -51,8 +51,6 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 ## Creación de la aplicación
 
 El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight de .NET.
-
-En el ejemplo siguiente se utiliza la autenticación interactiva de usuarios. Para usar la autenticación no interactiva, consulte [Creación de aplicaciones .NET para HDInsight de autenticación no interactiva](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 
 1. Apertura de Visual Studio 2012 o 2013
@@ -206,7 +204,7 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
-* [Uso de MapReduce con Hadoop en HDInsight ](hdinsight-use-mapreduce.md) 
-[portal de vista previa]: https://portal.azure.com/
+* [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
+[preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

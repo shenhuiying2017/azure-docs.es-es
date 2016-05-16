@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="02/23/2016"
+    ms.date="05/03/2016"
     ms.author="sstein"/>
 
 # C&#x23; desarrollo de bases de datos: crear y configurar un grupo de bases de datos elásticas para una base de datos SQL
@@ -317,7 +317,7 @@ En el ejemplo siguiente se mueve una Base de datos SQL de Azure existente a un g
 
 ## Creación de una nueva base de datos en un grupo de bases de datos elásticas
 
-*Después de crear un grupo, también puede usar Transact-SQL para crear nuevas bases de datos elásticas en el grupo. Para obtener información detallada, consulte [Material de referencia del grupo de bases de datos elásticas: Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Después de crear un grupo, también puede usar Transact-SQL para crear nuevas bases de datos elásticas en el grupo. Para más información, consulte [Supervisión y administración de un grupo de bases de datos elásticas con Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 En el ejemplo siguiente se crea una nueva base de datos directamente en un grupo:
 
@@ -562,9 +562,6 @@ En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
 
 [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[Referencias acerca del grupo de bases de datos elásticas](sql-database-elastic-pool-reference.md).
-
-
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool-csharp/aad.png
 [2]: ./media/sql-database-elastic-pool-csharp/permissions.png
@@ -576,4 +573,4 @@ En el ejemplo siguiente se enumeran todas las bases de datos de un grupo:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

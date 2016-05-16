@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/08/2016"
+   ms.date="04/29/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante las API de REST
@@ -35,24 +35,66 @@ En este artículo, obtendrá información sobre cómo usar las API de REST de We
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
-- **Creación de una aplicación de Azure Active Directory**. Consulte [Creación de una aplicación de Active Directory y una entidad de servicio con el portal](../resource-group-create-service-principal-portal.md). Cuando haya creado la aplicación, recupere los siguientes valores relacionados con esta.
-	- Obtenga el identificador de cliente e inquilino para la aplicación.
-	- Creación de una clave de autenticación
-	- Establecimiento de permisos delegados
+- **Creación de una aplicación de Azure Active Directory**. Existen dos formas de autenticación con Azure Active Directory: **interactiva** y **no interactiva**, cada una con diferentes requisitos previos.
+	* **Para la autenticación interactiva** (la que se usa en este artículo): en Azure Active Directory, debe crear una **aplicación cliente nativa**. Cuando haya creado la aplicación, recupere los siguientes valores relacionados con esta.
+		- Obtenga el **id. de cliente** y el **URI de redireccionamiento** de la aplicación.
+		- Establecimiento de permisos delegados
 
-	En el vínculo que se proporcionó en la sección anterior, puede encontrar instrucciones sobre cómo recuperar estos valores.
-- **Asigne la aplicación de Azure Active Directory a un rol**. El rol puede encontrarse al nivel del ámbito en el que quiere conceder el permiso a la aplicación de Azure Active Directory. Por ejemplo, puede asignar la aplicación en el nivel de suscripción o en el nivel de un grupo de recursos. Para obtener instrucciones, consulte [Asignar una aplicación a un rol](../resource-group-create-service-principal-portal.md#assign-application-to-role).
+	* **Para la autenticación no interactiva**: en Azure Active Directory, debe crear una **aplicación web**. Cuando haya creado la aplicación, recupere los siguientes valores relacionados con esta.
+		- Obtenga el **id. de cliente**, el **secreto de cliente** y el **URI de redirección** de la aplicación.
+		- Establecimiento de permisos delegados
+		- Asigne la aplicación de Azure Active Directory a un rol. El rol puede encontrarse al nivel del ámbito en el que quiere conceder el permiso a la aplicación de Azure Active Directory. Por ejemplo, puede asignar la aplicación en el nivel de suscripción o en el nivel de un grupo de recursos. Para obtener instrucciones, consulte la sección sobre cómo [asignar una aplicación a un rol](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
+
+	Consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md) para obtener instrucciones sobre cómo recuperar estos valores, establecer los permisos y asignar roles.
+
 - [cURL](http://curl.haxx.se/). En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Almacén de Data Lake.
 
 ## ¿Cómo se puede autenticar mediante Azure Active Directory?
 
 Puede usar dos enfoques para autenticar con Azure Active Directory.
 
-* **Interactivo**, donde la aplicación solicita al usuario que inicie sesión. Para obtener más información, consulte [Flujo de concesión de códigos de autorización](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+### Interactivo (autenticación de usuarios)
 
-* **No interactivo**, en el que la aplicación proporciona sus propias credenciales. Para obtener más información, consulte [Llamadas servicio a servicio mediante credenciales](https://msdn.microsoft.com/library/azure/dn645543.aspx).
+En este escenario, la aplicación pide al usuario que inicie sesión y todas las operaciones se realizan en el contexto del usuario. Realice los pasos siguientes para realizar la autenticación interactiva.
 
-En este artículo se usa el enfoque **no interactivo**. Para ello, debe emitir una solicitud POST como la que se muestra a continuación.
+1. A través de la aplicación, redirija al usuario a la siguiente dirección URL:
+
+		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+
+	>[AZURE.NOTE] <REDIRECT-URI> debe codificarse para utilizarse en una dirección URL. Por lo tanto, para https://localhost, utilice `https%3A%2F%2Flocalhost`).
+
+	Para este tutorial, puede sustituir los valores de marcador de posición de la dirección URL anterior y pegarlos en la barra de direcciones del explorador web. Se le redirigirá a una página autenticarse con sus datos de inicio de sesión de Azure. Una vez que haya iniciado sesión correctamente, la respuesta se muestra en la barra de direcciones del explorador. La respuesta estará en el formato siguiente:
+		
+		http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
+
+2. Obtenga el código de autorización de la respuesta. Para este tutorial, puede copiar el código de autorización de la barra de direcciones del explorador web y pasarlo en la solicitud POST al punto de conexión de token, tal y como se muestra a continuación:
+
+		curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
+        -F redirect_uri=<REDIRECT-URI> \
+        -F grant_type=authorization_code \
+        -F resource=https://management.core.windows.net/ \
+        -F client_id=<CLIENT-ID> \
+        -F code=<AUTHORIZATION-CODE>
+
+	>[AZURE.NOTE] En este caso, no se necesita codificar <REDIRECT-URI>.
+
+3. La respuesta es un objeto JSON que contiene un token de acceso (por ejemplo, `"access_token": "<ACCESS_TOKEN>"`) y uno de actualización (por ejemplo, `"refresh_token": "<REFRESH_TOKEN>"`). La aplicación usa el token de acceso al acceder al Almacén de Azure Data Lake y el token de actualización para obtener otro token de acceso cuando expira un token de acceso.
+
+		{"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":	"1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+
+4.  Cuando expira el token de acceso, puede solicitar uno nuevo con el token de actualización, tal y como se muestra a continuación:
+
+		 curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+      		-F grant_type=refresh_token \
+      		-F resource=https://management.core.windows.net/ \
+      		-F client_id=<CLIENT-ID> \
+      		-F refresh_token=<REFRESH-TOKEN>
+ 
+Para obtener más información sobre la autenticación interactiva de usuarios, consulte [Flujo de concesión de códigos de autorización](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+
+### No interactivo
+
+En este escenario, la aplicación proporciona sus propias credenciales para realizar las operaciones. Para ello, debe emitir una solicitud POST como la que se muestra a continuación.
 
 	curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
@@ -60,9 +102,11 @@ En este artículo se usa el enfoque **no interactivo**. Para ello, debe emitir u
       -F client_id=<CLIENT-ID> \
       -F client_secret=<AUTH-KEY>
 
-El resultado de esta solicitud incluirá un token de autorización (indicado por `access-token` en el siguiente resultado) que pasará posteriormente con las llamadas de la API de REST. Guarde este token de autenticación en un archivo de texto; lo necesitará más adelante en este artículo.
+El resultado de esta solicitud incluirá un token de autorización (que se indica mediante `access-token` en el siguiente resultado) que pasará posteriormente con las llamadas de la API de REST. Guarde este token de autenticación en un archivo de texto; lo necesitará más adelante en este artículo.
 
 	{"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+
+En este artículo se usa el enfoque **no interactivo**. Para obtener más información sobre el enfoque no interactivo (llamadas de servicio a servicio), consulte [Llamadas de servicio a servicio utilizando las credenciales del cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
 ## Crear una cuenta de Almacén de Data Lake
 
@@ -70,9 +114,9 @@ Esta operación se basa en la llamada de la API de REST que se define [aquí](ht
 
 Use el siguiente comando cURL. Reemplace **<yourstorename>** por el nombre del Almacén de Data Lake.
 
-	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@C:\temp\input.json
+	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
 
-En el comando anterior, reemplace <`REDACTED`> por el token de autorización que recuperó anteriormente. La carga útil de la solicitud de este comando se encuentra en el archivo **input.json** que se proporciona para el parámetro `-d` anterior. El contenido del archivo input.json es similar al siguiente:
+En el comando anterior, reemplace <`REDACTED`> por el token de autorización que recuperó anteriormente. La carga de la solicitud de este comando se encuentra en el archivo **input.json** que se proporciona para el parámetro `-d` anterior. El contenido del archivo input.json es similar al siguiente:
 
 	{
 	"location": "eastus2",
@@ -90,7 +134,7 @@ Use el siguiente comando cURL. Reemplace **<yourstorename>** por el nombre del A
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS
 
-En el comando anterior, reemplace <`REDACTED`> por el token de autorización que recuperó anteriormente. Este comando crea un directorio denominado **mytempdir** bajo la carpeta raíz de su cuenta del Almacén de Data Lake.
+En el comando anterior, reemplace <`REDACTED`> por el token de autorización que recuperó anteriormente. Este comando crea un directorio denominado "**mytempdir**" bajo la carpeta raíz de su cuenta del Almacén de Data Lake.
 
 Si la operación se completa correctamente, verá una respuesta similar a la siguiente:
 
@@ -146,7 +190,7 @@ Cargar datos con la API de REST de WebHDFS es un proceso de dos pasos, como se e
 		...
 		...
 
-2. Ahora debe enviar otra solicitud PUT de HTTP en la dirección URL que se muestra para la propiedad **Location** en la respuesta. Reemplace **<yourstorename>** por el nombre del Almacén de Data Lake.
+2. Ahora debe enviar otra solicitud PUT de HTTP en la dirección URL que se muestra para la propiedad **Location** de la respuesta. Reemplace **<yourstorename>** por el nombre del Almacén de Data Lake.
 
 		curl -i -X PUT -T myinputfile.txt -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=CREATE&write=true
 
@@ -232,4 +276,4 @@ Debe ver algo parecido a lo siguiente:
 - [Abrir aplicaciones Big Data de origen que funcionan con el Almacén de Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

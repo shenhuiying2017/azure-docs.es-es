@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/16/2016"
+   ms.date="04/27/2016"
    ms.author="larryfr"/>
 
 #Uso de Hive con Hadoop en HDInsight con Beeline
@@ -68,14 +68,16 @@ Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con H
 2. En el símbolo del sistema de `beeline>`, use el siguiente código para conectarse al servicio HiveServer2. Reemplace __HOSTNAME__ por el nombre de host devuelto para el nodo principal anteriormente:
 
         !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
+        
+    Esto indica a Beeline que se conecte al puerto __10001__ en el valor de __HOSTNAME__ especificado y que __HTTP__ es el método de transporte. La cuenta __admin__ se utiliza para autenticar la conexión.
 
     Cuando se le pida, escriba la contraseña del administrador (admin) para el clúster de HDInsight. Una vez establecida la conexión, el símbolo del sistema cambiará a:
     
         jdbc:hive2://HOSTNAME:10001/>
 
-3. Los comandos de Beeline suelen empiezan con un carácter `!`, por ejemplo `!help` muestra la ayuda. Sin embargo, con frecuencia se puede omitir `!`. Por ejemplo, `help` también funcionará.
+3. Los comandos de Beeline suelen empiezan con un carácter `!`, por ejemplo `!help` muestra la ayuda. Sin embargo, con frecuencia se puede omitir el elemento `!`. Por ejemplo, `help` también funcionará.
 
-    Si ve la ayuda, observará `!sql`, que se usa para ejecutar instrucciones de HiveQL. Sin embargo, HiveQL es de uso tan frecuente que puede omitir el `!sql` que le precede. Las dos instrucciones siguientes tienen exactamente los mismos resultados: la visualización de las tablas disponibles actualmente a través de Hive:
+    Si ve la ayuda, observará `!sql`, que se usa para ejecutar instrucciones de HiveQL. Sin embargo, HiveQL es de uso tan frecuente que puede omitir el elemento `!sql` que le precede. Las dos instrucciones siguientes tienen exactamente los mismos resultados: la visualización de las tablas disponibles actualmente a través de Hive:
     
         !sql show tables;
         show tables;
@@ -213,9 +215,9 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 Si usa Tez con Hive, consulte los siguientes documentos para la información de depuración:
 
-* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md) (Uso de la IU de Tez en HDInsight basado en Windows)
+* [Use the Tez UI on Windows-based HDInsight (Uso de la IU de Tez en HDInsight basado en Windows)](hdinsight-debug-tez-ui.md)
 
-* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md) (Uso de la vista Tez de Ambari en HDInsight basado en Linux)
+* [Use the Ambari Tez view on Linux-based HDInsight (Uso de la vista Tez de Ambari en HDInsight basado en Linux)](hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -243,4 +245,4 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

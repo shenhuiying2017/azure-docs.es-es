@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
-	manager="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="adrianha"/>
+	ms.date="05/02/2016"
+	ms.author="glenga"/>
 
 # Agregar autenticación a su aplicación de Apache Cordova
 
@@ -32,9 +32,7 @@ En este tutorial podrá agregar la autenticación al proyecto de inicio rápido 
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ En Visual Studio, abra el proyecto que creó cuando completó el tutorial [Get started with Mobile Apps] Introducción a las aplicaciones móviles, ejecute la aplicación en el **Emulador de Android de Google** y compruebe que se muestra un error de conexión inesperado después de que se inicie la aplicación.
-
-    Esto sucede porque la aplicación intenta obtener acceso al back-end como usuario sin autenticar. El back-end redirige al usuario a una página de autenticación mediante OAuth. Sin embargo, la aplicación no confía en el punto de conexión de OAuth.
+Ahora, puede comprobar que se deshabilitó el acceso anónimo a su back-end. En Visual Studio, abra el proyecto que creó cuando completó el tutorial [Get started with Mobile Apps] Introducción a las aplicaciones móviles, ejecute la aplicación en el **Emulador de Android de Google** y compruebe que se muestra un error de conexión inesperado después de que se inicie la aplicación.
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del back-end de aplicación móvil.
 
@@ -112,4 +110,4 @@ Obtenga información sobre cómo usar los SDK.
 [SDK de servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK de servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

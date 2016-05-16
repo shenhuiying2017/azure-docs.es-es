@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Agregar notificaciones push a la aplicación de Xamarin.Android con el Servicio de aplicaciones de Azure"
+	pageTitle="Agregar notificaciones push a la aplicación de Xamarin.Android | Servicio de aplicaciones de Azure"
 	description="Más información sobre cómo usar Servicios de aplicaciones de Azure y Centros de notificaciones de Azure para enviar notificaciones push a la aplicación de Xamarin Android"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga"/>
 
 # Agregar notificaciones push a la aplicación de Xamarin.Android
@@ -79,4 +79,4 @@ Puede probar la aplicación con un dispositivo virtual en el emulador. Hay pasos
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

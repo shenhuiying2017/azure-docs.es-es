@@ -18,7 +18,7 @@
 
 # Restauración de una aplicación en el Servicio de aplicaciones de Azure
 
-En este artículo se muestra cómo restaurar una aplicación del Servicio de aplicaciones de la que haya hecho previamente una copia de seguridad usando la característica de copias de seguridad del [Servicio de aplicaciones](app-service-value-prop-what-is). Para obtener más información, consulte la sección sobre [copias de seguridad del Servicio de aplicaciones](web-sites-backup.md).
+En este artículo se muestra cómo restaurar una aplicación del Servicio de aplicaciones de la que haya hecho previamente una copia de seguridad usando la característica de copias de seguridad del [Servicio de aplicaciones](../app-service/app-service-value-prop-what-is.md). Para obtener más información, consulte la sección sobre [copias de seguridad del Servicio de aplicaciones](web-sites-backup.md).
 
 La característica de restauración del Servicio de aplicaciones le permite restaurar la aplicación con sus bases de datos vinculadas (base de datos SQL o MySQL) a petición a un estado anterior o crear una nueva aplicación basada en una copia de seguridad de la aplicación original. La creación de una nueva aplicación que se ejecuta en paralelo con la versión más reciente puede resultar útil para la prueba A/B.
 
@@ -106,4 +106,4 @@ También puede crear una copia de seguridad y restaurar las aplicaciones del Ser
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

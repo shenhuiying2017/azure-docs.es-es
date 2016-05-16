@@ -37,7 +37,7 @@ Como no tiene que preocuparse por el marco de la aplicación o del servidor web,
 
 Las herramientas de desarrollo web más populares admiten uno o varios de estos procesos de implementación. Aunque la herramienta que elija determina los procesos de implementación que puede aprovechar, la funcionalidad de DevOps real a su disposición depende de la combinación del proceso de implementación y las herramientas específicas que elija. Por ejemplo, si ejecuta Web Deploy desde [Visual Studio con Azure SDK](#vspros), aunque no obtenga la automatización de Kudu, tendrá la restauración de paquetes y la automatización de MSBuild en Visual Studio.
 
->[AZURE.NOTE] Estos procesos de implementación no [aprovisionan realmente los recursos de Azure](resource-group-portal) que puede necesitar la aplicación. Sin embargo, la mayoría de los artículos de procedimientos vinculados muestra cómo aprovisionar la aplicación e implementar el código en ella de un extremo a otro. También puede encontrar opciones adicionales para el aprovisionamiento de recursos de Azure en la sección [Automatización de la implementación mediante herramientas de línea de comandos](#automate).
+>[AZURE.NOTE] Estos procesos de implementación no [aprovisionan realmente los recursos de Azure](../azure-portal/resource-group-portal.md) que puede necesitar la aplicación. Sin embargo, la mayoría de los artículos de procedimientos vinculados muestra cómo aprovisionar la aplicación e implementar el código en ella de un extremo a otro. También puede encontrar opciones adicionales para el aprovisionamiento de recursos de Azure en la sección [Automatización de la implementación mediante herramientas de línea de comandos](#automate).
      
 ## <a name="ftp"></a>Implementación a través de FTP mediante la copia manual de archivos en Azure
 Si está familiarizado con la copia manual de contenido web en un servidor web, puede usar una utilidad [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos, como el Explorador de Windows o [FileZilla](https://filezilla-project.org/).
@@ -93,7 +93,7 @@ Las ventajas de la implementación desde un servicio de control de código fuent
 
 - Control de versiones para habilitar la reversión.
 - Capacidad para configurar la implementación continua de repositorios Git (y Mercurial, cuando corresponda). 
-- Implementación específica de ramas, se pueden implementar ramas diferentes en [ranuras](web-sites-staged-publishing) distintas.
+- Implementación específica de ramas, se pueden implementar ramas diferentes en [ranuras](web-sites-staged-publishing.md) distintas.
 - Toda la funcionalidad del motor de implementación de Kudu está disponible (por ejemplo, control de versiones de implementación, reversión, restauración de paquetes, automatización).
 
 La desventaja de la implementación desde un servicio de control de código fuente basado en la nube es la siguiente:
@@ -111,7 +111,7 @@ Si el equipo de desarrollo usa un servicio de administración de código fuente 
 Las ventajas de implementar desde un repositorio local Git son las siguientes:
 
 - Control de versiones para habilitar la reversión.
-- Implementación específica de ramas, se pueden implementar ramas diferentes en [ranuras](web-sites-staged-publishing) distintas.
+- Implementación específica de ramas, se pueden implementar ramas diferentes en [ranuras](web-sites-staged-publishing.md) distintas.
 - Toda la funcionalidad del motor de implementación de Kudu está disponible (por ejemplo, control de versiones de implementación, reversión, restauración de paquetes, automatización).
 
 La desventaja de implementar desde un repositorio local de Git es la siguiente:
@@ -226,4 +226,4 @@ Para obtener información sobre cómo usar el Control de acceso basado en roles 
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->
