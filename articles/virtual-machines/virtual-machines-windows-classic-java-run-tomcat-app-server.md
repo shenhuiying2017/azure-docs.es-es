@@ -114,7 +114,7 @@ Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extrem
 9. En la pantalla **Perfil**, asegúrese de que **Dominio**, **Privado** y **Público** estén activados y después haga clic en **Siguiente**. ![Perfil de nueva regla de entrada][NewRuleProfile]
 10. En la pantalla **Nombre**, especifique un nombre para la regla, por ejemplo **HttpIn** (sin embargo, no es necesario que el nombre de la regla coincida con el nombre del extremo) y haga clic en **Finalizar**. ![Nombre de la nueva regla de entrada][NewRuleName]
 
-En este momento, el sitio web de Tomcat se debería ver desde un explorador externo, usando una URL con el formato ****http://*your\_DNS\_name*.cloudapp.net**, donde ***su\_nombre\_DNS*** es el nombre DNS que especificó cuando creó la máquina virtual.
+En este momento, el sitio web de Tomcat se debería ver desde un explorador externo, usando una URL con el formato **http://*your\_DNS\_name*.cloudapp.net**, donde ***su\_nombre\_DNS*** es el nombre DNS que especificó cuando creó la máquina virtual.
 
 ## Consideraciones acerca del ciclo de vida de las aplicaciones
 * Puede crear su propio archivo de aplicación web (WAR) y agregarlo a la carpeta **webapps**. Por ejemplo, cree un proyecto web dinámico JSP (Java Service Page) básico y expórtelo como un archivo WAR; copie el archivo WAR en la carpeta **webapps** de Apache Tomcat en la máquina virtual y, a continuación, ejecútelo en un explorador.

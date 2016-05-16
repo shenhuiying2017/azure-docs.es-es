@@ -40,11 +40,11 @@ A continuación se enumera la lista completa de propiedades del dispositivo que 
 
 ## Ejecución del ejemplo de dispositivo gemelo
 
-En el ejemplo siguiente se amplía la funcionalidad del tutorial [Get started with Azure IoT Hub device management using C# ][lnk-get-started] (Introducción a la administración de dispositivos desde Centro de IoT de Azure mediante C#). Comenzando por tener los distintos dispositivos en ejecución, usa al dispositivo gemelo para leer y cambiar las propiedades de un dispositivo simulado.
+En el ejemplo siguiente se amplía la funcionalidad del tutorial [Get started with Azure IoT Hub device management using C# ][lnk-get-started] \(Introducción a la administración de dispositivos desde Centro de IoT de Azure mediante C#). Comenzando por tener los distintos dispositivos en ejecución, usa al dispositivo gemelo para leer y cambiar las propiedades de un dispositivo simulado.
 
 ### Requisitos previos 
 
-Antes de ejecutar este ejemplo, debe haber completado los pasos de [Get started with Azure IoT Hub device management using C#][lnk-get-started] (Introducción a la administración de dispositivos desde Centro de IoT de Azure mediante C#). Esto significa que los dispositivos simulados deben estar en ejecución. Si ya realizó el proceso anteriormente, reinicie ahora los dispositivos simulados.
+Antes de ejecutar este ejemplo, debe haber completado los pasos de [Get started with Azure IoT Hub device management using C#][lnk-get-started] \(Introducción a la administración de dispositivos desde Centro de IoT de Azure mediante C#). Esto significa que los dispositivos simulados deben estar en ejecución. Si ya realizó el proceso anteriormente, reinicie ahora los dispositivos simulados.
 
 ### Inicio del ejemplo
 
@@ -82,7 +82,7 @@ Las propiedades del servicio, que solo se almacenan en el dispositivo gemelo, se
 
 ### Lectura profunda
 
-Una lectura profunda inicia un trabajo del dispositivo para leer el valor de la propiedad solicitada desde el dispositivo físico. Los trabajos del dispositivo se introdujeron en el [Overview of Azure IoT device management][lnk-dm-overview] (Introducción a la administración de dispositivos desde Centro de IoT de Azure) y se describen detalladamente en [Tutorial: How to use device jobs to update device firmware][lnk-dm-jobs] (Tutorial: uso de trabajos del dispositivo para actualizar el firmware del dispositivo). La lectura profunda le proporcionará un valor más actualizado de la propiedad del dispositivo, porque la actualización no está limitada por el intervalo de notificación. El trabajo envía un mensaje al dispositivo físico y actualiza el dispositivo gemelo con el valor más reciente solo para la propiedad especificada. No actualiza todo el dispositivo gemelo.
+Una lectura profunda inicia un trabajo del dispositivo para leer el valor de la propiedad solicitada desde el dispositivo físico. Los trabajos del dispositivo se introdujeron en el [Overview of Azure IoT device management][lnk-dm-overview] \(Introducción a la administración de dispositivos desde Centro de IoT de Azure) y se describen detalladamente en [Tutorial: How to use device jobs to update device firmware][lnk-dm-jobs] \(Tutorial: uso de trabajos del dispositivo para actualizar el firmware del dispositivo). La lectura profunda le proporcionará un valor más actualizado de la propiedad del dispositivo, porque la actualización no está limitada por el intervalo de notificación. El trabajo envía un mensaje al dispositivo físico y actualiza el dispositivo gemelo con el valor más reciente solo para la propiedad especificada. No actualiza todo el dispositivo gemelo.
 
 ```
 JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyReadAsync(Guid.NewGuid().ToString(), deviceId, propertyToRead);
@@ -92,7 +92,7 @@ No puede hacer una lectura profunda de las propiedades del servicio o etiquetas,
 
 ### Escritura profunda
 
-Si desea cambiar una propiedad del dispositivo grabable, puede hacerlo con una escritura profunda que inicie un trabajo de dispositivo para escribir el valor en el dispositivo físico. No todas las propiedades de dispositivo se pueden grabar. Para obtener una lista completa, consulte el apéndice A de [Introducing the Azure IoT Hub device management client library][lnk-dm-library] (Presentación de la biblioteca de cliente de la administración de dispositivos de Centro de IoT de Azure).
+Si desea cambiar una propiedad del dispositivo grabable, puede hacerlo con una escritura profunda que inicie un trabajo de dispositivo para escribir el valor en el dispositivo físico. No todas las propiedades de dispositivo se pueden grabar. Para obtener una lista completa, consulte el apéndice A de [Introducing the Azure IoT Hub device management client library][lnk-dm-library] \(Presentación de la biblioteca de cliente de la administración de dispositivos de Centro de IoT de Azure).
 
 El trabajo envía un mensaje al dispositivo físico para actualizar la propiedad especificada. El dispositivo gemelo no se actualiza inmediatamente al finalizar el trabajo. Debe esperar a l siguiente intervalo de notificación. Una vez que se produzca la sincronización, podrá ver el cambio en el dispositivo gemelo con una lectura superficial.
 
@@ -117,9 +117,9 @@ En lugar de utilizar el método set, puede implementar una devolución de llamad
 
 Para más información acerca de las características de administración de dispositivos de Centro de IoT de Azure puede realizar los tutoriales:
 
-- [How to find device twins using queries][lnk-tutorial-queries] (Búsqueda de dispositivos gemelos mediante consultas)
+- [How to find device twins using queries][lnk-tutorial-queries] \(Búsqueda de dispositivos gemelos mediante consultas)
 
-- [How to use device jobs to update device firmware][lnk-dm-jobs] (Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)
+- [How to use device jobs to update device firmware][lnk-dm-jobs] \(Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)
 
 - Las bibliotecas de cliente de administración de dispositivos proporciona un ejemplo de extremo a extremo mediante un [dispositivo Intel Edison][lnk-edison].
 

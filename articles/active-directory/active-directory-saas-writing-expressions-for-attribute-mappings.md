@@ -103,7 +103,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obligatorio | Cadena | Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
-| ****source1 … sourceN ** | Obligatorio, número variable de veces | Cadena | Valores de cadena que se van a agrupar. |
+| **source1 … sourceN** | Obligatorio, número variable de veces | Cadena | Valores de cadena que se van a agrupar. |
 
 
 

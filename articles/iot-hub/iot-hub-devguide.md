@@ -494,7 +494,7 @@ Es importante aclarar que lo que rige la limitación de las *conexiones de dispo
 
 Por ejemplo, si compra una sola unidad S1, tendrá una limitación de 100 conexiones por segundo. Esto significa que, para conectar 100 000 dispositivos, se tarda al menos 1000 segundos (aproximadamente 16 minutos). Sin embargo, puede tener el mismo número de dispositivos conectados al mismo tiempo que de dispositivos registrados en el registro de identidad de dispositivos.
 
-La entrada de blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitación del Centro de IoT) proporciona una explicación detallada del comportamiento de limitación del Centro de IoT.
+La entrada de blog [IoT Hub throttling and you][lnk-throttle-blog] \(Limitación del Centro de IoT) proporciona una explicación detallada del comportamiento de limitación del Centro de IoT.
 
 **Nota**. En cualquier momento, es posible aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en un Centro de IoT.
 

@@ -115,7 +115,7 @@ Después de guardar los cambios en **server.js**, use los siguientes pasos para 
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  Abra un explorador y navegue a ****http://127.0.0.1**.
+2.  Abra un explorador y navegue a **http://127.0.0.1**.
 
 3.  Cuando se abra la ventana del explorador, escriba un alias y luego presione Entrar. De esta manera podrá publicar mensajes con un alias específico. Para probar la funcionalidad multiusuario, abra ventanas del explorador adicionales con la misma dirección URL y escriba diferentes alias.
 

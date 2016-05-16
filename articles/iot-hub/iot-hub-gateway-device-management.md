@@ -61,7 +61,7 @@ Para más información sobre cómo usar el SDK de puerta de enlace, consulte los
 - [SDK de puerta de enlace de IoT: introducción mediante Linux][lnk-gateway-get-started]
 - [SDK de puerta de enlace: envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway-simulated].
 
-Puede encontrar más información sobre la administración de dispositivos con el Centro de IoT en [Overview of Azure IoT Hub device management][lnk-device-management] (Información general sobre la administración de dispositivos del Centro de IoT de Azure).
+Puede encontrar más información sobre la administración de dispositivos con el Centro de IoT en [Overview of Azure IoT Hub device management][lnk-device-management] \(Información general sobre la administración de dispositivos del Centro de IoT de Azure).
 
 <!-- Images and links -->
 [1]: media/iot-hub-gateway-device-management/overview.png

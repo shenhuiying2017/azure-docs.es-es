@@ -472,7 +472,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
     Para este tutorial, éstos son los valores importantes:
 
     - **metricName**: este es el mismo que el contador de rendimiento que definimos en la variable wadperfcounter. Con esta variable, la extensión de diagnósticos recopila los datos del contador **Processor(\_Total)\\% Processor Time**.
-- **metricResourceUri**: este es el identificador de recursos del conjunto de escala de máquinas virtuales.
+	- **metricResourceUri**: este es el identificador de recursos del conjunto de escala de máquinas virtuales.
     - **timeGrain**: ésta es la granularidad de las métricas que se recopilan. En esta plantilla, se establece en 1 minuto.
     - **statistic**: determina cómo se combinan las métricas para dar cabida a la acción de escalado automático. Los valores posibles son: Average, Min y Max. En esta plantilla estamos buscando el uso total de CPU promedio entre las máquinas virtuales del conjunto de escala.
     - **timeWindow**: este es el intervalo de tiempo en que se recopilan los datos de instancia. Debe estar comprendido entre 5 minutos y 12 horas.

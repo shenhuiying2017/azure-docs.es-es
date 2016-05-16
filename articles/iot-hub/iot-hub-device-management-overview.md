@@ -38,7 +38,7 @@ El dispositivo gemelo tiene los siguientes componentes:
 
 1.  **Campos del dispositivo:** los campos del dispositivo son propiedades predefinidas que se usan tanto para la administración de dispositivos como la mensajería de Centro de IoT. Dichos campos ayudan al Centro de IoT a identificar los dispositivos físicos y a y conectar con ellos. Los campos del dispositivo no se sincronizan con el dispositivo y se almacenan exclusivamente en el dispositivo gemelo. Los campos del dispositivo incluyen el identificador del dispositivo y la información de autenticación.
 
-2.  **Propiedades del dispositivo:** Las propiedades del dispositivo son un diccionario predefinido de propiedades que describen el dispositivo físico. El dispositivo físico es el maestro de cada propiedad del dispositivo y es el almacén de autoridad de cada valor correspondiente. Una representación coherente en última instancia de estas propiedades se almacena en el dispositivo gemelo que está en la nube. La coherencia y actualización están sujetos a la configuración de la sincronización, que se describe en [Tutorial: how to use the device twin][lnk-tutorial-twin] (Tutorial: Uso del dispositivo gemelo). Algunos ejemplos de propiedades del dispositivo incluyen la versión del firmware, el nivel de la batería y el nombre del fabricante.
+2.  **Propiedades del dispositivo:** Las propiedades del dispositivo son un diccionario predefinido de propiedades que describen el dispositivo físico. El dispositivo físico es el maestro de cada propiedad del dispositivo y es el almacén de autoridad de cada valor correspondiente. Una representación coherente en última instancia de estas propiedades se almacena en el dispositivo gemelo que está en la nube. La coherencia y actualización están sujetos a la configuración de la sincronización, que se describe en [Tutorial: how to use the device twin][lnk-tutorial-twin] \(Tutorial: Uso del dispositivo gemelo). Algunos ejemplos de propiedades del dispositivo incluyen la versión del firmware, el nivel de la batería y el nombre del fabricante.
 
 3.  **Propiedades del servicio:** las propiedades del servicio son pares **& lt; clave, valor &gt;** que el programador agrega al diccionario de propiedades del servicio. Estas propiedades extienden el modelo de datos del dispositivo gemelo, lo que permite caracterizar mejor el dispositivo. Las propiedades del servicio no se sincronizan con el dispositivo y se almacenan exclusivamente en el dispositivo gemelo en la nube. Un ejemplo de propiedad de servicio es **& lt; NextServiceDate, 12/11/2017 &gt;**, que se puede utilizar para buscar dispositivos por su siguiente fecha de servicio.
 
@@ -113,13 +113,13 @@ Puede obtener más información acerca de la implementación en el dispositivo f
 
 Para más información acerca de las características de administración de dispositivos de Centro de IoT de Azure puede realizar los tutoriales:
 
-- [Get started with Azure IoT Hub device management using C#][lnk-get-started] (Introducción a la administración de dispositivos desde Centro de IoT de Azure mediante C#).
+- [Get started with Azure IoT Hub device management using C#][lnk-get-started] \(Introducción a la administración de dispositivos desde Centro de IoT de Azure mediante C#).
 
-- [How to use the device twin][lnk-tutorial-twin] (Uso del dispositivo gemelo)
+- [How to use the device twin][lnk-tutorial-twin] \(Uso del dispositivo gemelo)
 
-- [How to find device twins using queries][lnk-tutorial-queries] (Búsqueda de dispositivos gemelos mediante consultas)
+- [How to find device twins using queries][lnk-tutorial-queries] \(Búsqueda de dispositivos gemelos mediante consultas)
 
-- [How to use device jobs to update device firmware][lnk-tutorial-jobs] (Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)
+- [How to use device jobs to update device firmware][lnk-tutorial-jobs] \(Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png

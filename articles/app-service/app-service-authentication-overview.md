@@ -26,7 +26,7 @@ El Servicio de aplicaciones usa la identidad federada, en la cual un proveedor d
 
 Si desea comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
-- [Incorporación de la autenticación a la aplicación iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], o [Cordova])
+- [Incorporación de la autenticación a la aplicación iOS][iOS] \(o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], o [Cordova])
 - [Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure][apia-user]
 
 ## Funcionamiento de la autenticación en el Servicio de aplicaciones

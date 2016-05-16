@@ -51,7 +51,7 @@ En la actualidad, muchas personas prefieren Hive y Pig a MapReduce. Para más in
 
 ## <a name="hdinsight-sample-wordcount"></a>Recuento de palabras: Java 
 
-Para enviar un proyecto de MapReduce, primero hay que crear una definición de trabajo de MapReduce. En la definición del trabajo, se especifica el archivo jar de programa de MapReduce y la ubicación del archivo jar, que es ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, el nombre de clase y los argumentos. El programa de MapReduce de recuento de palabras toma dos argumentos: el archivo de origen que se usará para contar las palabras y la ubicación del resultado.
+Para enviar un proyecto de MapReduce, primero hay que crear una definición de trabajo de MapReduce. En la definición del trabajo, se especifica el archivo jar de programa de MapReduce y la ubicación del archivo jar, que es **wasb:///example/jars/hadoop-mapreduce-examples.jar**, el nombre de clase y los argumentos. El programa de MapReduce de recuento de palabras toma dos argumentos: el archivo de origen que se usará para contar las palabras y la ubicación del resultado.
 
 El código fuente puede encontrarse en el [Anexo A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -121,7 +121,7 @@ Hadoop ofrece una API de streaming para MapReduce que le permite escribir mapas 
 
 > [AZURE.NOTE] Los pasos de este tutorial solo se aplican a los clústeres de HDInsight basados en Windows. Para obtener un ejemplo de streaming para clústeres de HDInsight basados en Linux, consulte [Desarrollo de programas de streaming en Python para HDInsight](hdinsight-hadoop-streaming-python.md).
 
-En el ejemplo, el asignador y el reductor son ejecutables que leen la entrada desde [stdin][stdin-stdout-stderr] (línea a línea) y emiten la salida en [stdout][stdin-stdout-stderr]. El programa cuenta todas las palabras del texto.
+En el ejemplo, el asignador y el reductor son ejecutables que leen la entrada desde [stdin][stdin-stdout-stderr] \(línea a línea) y emiten la salida en [stdout][stdin-stdout-stderr]. El programa cuenta todas las palabras del texto.
 
 Cuando se especifica un archivo ejecutable para los **asignadores**, cada tarea del asignador inicia el ejecutable como un proceso aparte al inicializar el asignador. A medida que se ejecuta la tarea del asignador, convierte sus entradas en líneas y proporciona las líneas al elemento [stdin][stdin-stdout-stderr] del proceso.
 

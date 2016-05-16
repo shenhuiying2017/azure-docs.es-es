@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con TimeOffManager
   
-El objetivo de este tutorial es mostrar la integración de Azure y TimeOffManager. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y TimeOffManager.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para inicio de sesión único en TimeOffManager
@@ -66,7 +67,9 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de usuarios en TimeOffManager con su cuenta de Azure AD mediante la federación basada en el protocolo SAML. Como parte de este procedimiento, es necesario cargar un certificado codificado en base 64 en su inquilino de TimeOffManager. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo se habilita la autenticación de usuarios en TimeOffManager con su cuenta de Azure AD mediante la federación basada en el protocolo SAML.  
+Como parte de este procedimiento, es necesario cargar un certificado codificado en base 64 en su inquilino de TimeOffManager.  
+Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -149,7 +152,9 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ##Configuración del aprovisionamiento de usuario
   
-Para permitir que los usuarios de Azure AD inicien sesión en TimeOffManager, deben aprovisionarse en TimeOffManager. TimeOffManager admite aprovisionamiento de usuarios justo a tiempo. No hay ningún elemento de acción para usted. Los usuarios se agregan automáticamente durante el primer inicio de sesión mediante el inicio de sesión único.
+Para permitir que los usuarios de Azure AD inicien sesión en TimeOffManager, deben aprovisionarse en TimeOffManager.  
+TimeOffManager admite aprovisionamiento de usuarios justo a tiempo. No hay ningún elemento de acción para usted.  
+Los usuarios se agregan automáticamente durante el primer inicio de sesión mediante el inicio de sesión único.
 
 >[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de TimeOffManager ofrecida por TimeOffManager para aprovisionar cuentas de usuario de AAD.
 

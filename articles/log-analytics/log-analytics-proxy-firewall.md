@@ -131,7 +131,7 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 
 2. Expanda **Visión operativa** y, a continuación, seleccione **Conexión a Vista operativa**.![Conexión a OMS de Operations Manager](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. En la vista Conexión a OMS, haga clic en **Configurar servidor proxy**.![Configurar servidor proxy de Conexión a OMS de Operations Manager](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. En el asistente de configuración de Visión operativa: servidor proxy, seleccione **Uso de un servidor proxy para tener acceso al servicio web de Visión operativa** y, a continuación, escriba la dirección URL con el número de puerto, por ejemplo, ****http://myproxy:80**. ![Dirección proxy de OMS de Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
+4. En el asistente de configuración de Visión operativa: servidor proxy, seleccione **Uso de un servidor proxy para tener acceso al servicio web de Visión operativa** y, a continuación, escriba la dirección URL con el número de puerto, por ejemplo, **http://myproxy:80**. ![Dirección proxy de OMS de Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
 ### Para especificar las credenciales si el servidor proxy requiere autenticación

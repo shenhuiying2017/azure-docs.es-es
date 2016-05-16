@@ -48,7 +48,7 @@ Como punto de partida de este tema, vamos a usar la aplicación del tutorial [Us
     1. Como **Java project to debug** (Proyecto Java para depurar), seleccione el proyecto **MyHelloWorld**.
     1. En **Configure debugging for** (Configurar depuración para), active **Azure cloud (staging)** (Nube de Azure (ensayo)).
     1. Asegúrese de que **Azure compute emulator** (Emulador de proceso de Azure) está desactivada.
-    1. Para **Host**, escriba el nombre DNS de su implementación de ensayo, pero sin la parte ****http://** del principio. Por ejemplo (use su GUID en lugar del GUID que se muestra aquí): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
+    1. Para **Host**, escriba el nombre DNS de su implementación de ensayo, pero sin la parte **http://** del principio. Por ejemplo (use su GUID en lugar del GUID que se muestra aquí): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
 1. Haga clic en **OK** (Aceptar) para cerrar el cuadro de diálogo **Azure Debug Configuration**.
 1. Haga clic en **OK** para cerrar el cuadro de diálogo **Properties for WorkerRole1 Debugging**.
 1. Si no tiene un punto de interrupción ya establecido en index.jsp, establézcalo:
@@ -100,7 +100,7 @@ Cuando sepa qué número de puerto público se ha asignado a esa instancia, pued
 1. Inicie la aplicación en el emulador de proceso haciendo clic en el botón **Run in Azure Emulator** (Ejecutar en el emulador de Azure) en la barra de herramientas de Azure.
 1. En el menú de Eclipse, haga clic en **Run** (Ejecutar) y luego en **Debug Configurations** (Depurar configuraciones).
 1. En el cuadro de diálogo **Debug Configurations** (Depurar configuraciones), expanda **Remote Java Application** (Aplicación de Java remota) en el panel de la izquierda, seleccione **Azure Emulator (WorkerRole1)** (Emulador de Azure (WorkerRole1)) y haga clic en **Debug** (Depurar).
-1. Cuando el emulador de proceso indique que la aplicación se ejecuta en el explorador, ejecute ****http://localhost:8080/MyHelloWorld**. Si un cuadro de diálogo **Confirm Perspective Switch** (Confirmar cambio de perspectiva) se lo pide, haga clic en **Yes** (Sí). La sesión de depuración debe ejecutarse ahora en la línea de código donde se estableció el punto de interrupción.
+1. Cuando el emulador de proceso indique que la aplicación se ejecuta en el explorador, ejecute **http://localhost:8080/MyHelloWorld**. Si un cuadro de diálogo **Confirm Perspective Switch** (Confirmar cambio de perspectiva) se lo pide, haga clic en **Yes** (Sí). La sesión de depuración debe ejecutarse ahora en la línea de código donde se estableció el punto de interrupción.
 
 Con esto se ha mostrado cómo depurar en el emulador de proceso; la sección siguiente muestra cómo depurar una aplicación implementada en Azure.  
 

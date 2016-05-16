@@ -120,7 +120,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
     a. En el cuadro de texto **Identificador**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de CA PPM con el siguiente patrón: **https://ca.ondemand.saml.20.post.\<nombre de la compañía>**.
 	
-	b. En el cuadro de texto **URL de respuesta**, escriba ****https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**.
+	b. En el cuadro de texto **URL de respuesta**, escriba **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**.
 
 	c. Haga clic en **Siguiente**.
  

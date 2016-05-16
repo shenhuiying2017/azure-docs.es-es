@@ -561,7 +561,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
 		net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
 		icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 
-1. Cree una base de datos en **ContosoSQL1** denominado **MyDB1**, realice tanto una copia de seguridad completa como una copia de seguridad de registros y restáurelas en **ContosoSQL2** con la opción ** WITH NORECOVERY **.
+1. Cree una base de datos en **ContosoSQL1** denominado **MyDB1**, realice tanto una copia de seguridad completa como una copia de seguridad de registros y restáurelas en **ContosoSQL2** con la opción **WITH NORECOVERY **.
 
 		Invoke-SqlCmd -Query "CREATE database $db"
 		Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1

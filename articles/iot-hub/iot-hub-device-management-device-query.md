@@ -24,15 +24,15 @@ La administración de dispositivos IoT de Azure permite buscar dispositivos geme
 
 -   Para consultar dispositivos gemelos mediante propiedades de servicio o de dispositivo, se usa una expresión de consulta JSON.
 
-Para más información sobre dispositivos gemelos y consultas, consulte [Overview of Azure IoT Hub device management][lnk-dm-overview] (Información general sobre la administración de dispositivos del Centro de IoT).
+Para más información sobre dispositivos gemelos y consultas, consulte [Overview of Azure IoT Hub device management][lnk-dm-overview] \(Información general sobre la administración de dispositivos del Centro de IoT).
 
 ## Ejecución del ejemplo de consulta de dispositivo
 
-En el ejemplo siguiente se amplía la funcionalidad del tutorial [Get started with Azure IoT Hub device management][lnk-get-started] (Introducción a la administración de dispositivos del Centro de IoT de Azure). Partiendo de que los distintos dispositivos simulados están en ejecución, se utilizará una consulta para encontrar dispositivos específicos.
+En el ejemplo siguiente se amplía la funcionalidad del tutorial [Get started with Azure IoT Hub device management][lnk-get-started] \(Introducción a la administración de dispositivos del Centro de IoT de Azure). Partiendo de que los distintos dispositivos simulados están en ejecución, se utilizará una consulta para encontrar dispositivos específicos.
 
 ### Requisitos previos 
 
-Antes de ejecutar este ejemplo, debe haber completado los pasos de [Get started with Azure IoT Hub device management][lnk-get-started] (Introducción a la administración de dispositivos del Centro de IoT de Azure). Esto significa que los dispositivos simulados deben estar en ejecución. Si ya realizó el proceso anteriormente, reinicie ahora los dispositivos simulados.
+Antes de ejecutar este ejemplo, debe haber completado los pasos de [Get started with Azure IoT Hub device management][lnk-get-started] \(Introducción a la administración de dispositivos del Centro de IoT de Azure). Esto significa que los dispositivos simulados deben estar en ejecución. Si ya realizó el proceso anteriormente, reinicie ahora los dispositivos simulados.
 
 ### Inicio del ejemplo
 
@@ -202,8 +202,8 @@ La consulta se habilita mediante la biblioteca de cliente de administración de 
 
 Para más información sobre las características de administración de dispositivos del Centro de IoT de Azure, puede consultar los tutoriales:
 
-- [How to use the device twin][lnk-twin-tutorial] (Uso de dispositivos gemelos)
-- [How to use device jobs to update device firmware][lnk-jobs-tutorial] (Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)
+- [How to use the device twin][lnk-twin-tutorial] \(Uso de dispositivos gemelos)
+- [How to use device jobs to update device firmware][lnk-jobs-tutorial] \(Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)
 
 
 

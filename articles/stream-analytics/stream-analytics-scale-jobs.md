@@ -88,7 +88,7 @@ Entrada: Centro de eventos con 8 particiones Salida: Centro de eventos con 8 par
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Esta consulta tiene una clave de agrupación y, por tanto, es necesario que la misma instancia de consulta procese la misma clave. Podemos usar la misma estrategia que en la consulta anterior. La consulta tiene varios pasos. ¿Cada paso tiene **Partition By** de ** PartitionId**? Sí, así que lo estamos haciendo bien. Para la salida, es necesario establecer **PartitionKey** en **PartitionId** como se mencionó anteriormente y también podemos ver que tiene el mismo número de particiones que la entrada. Esta topología es embarazosamente paralela.
+Esta consulta tiene una clave de agrupación y, por tanto, es necesario que la misma instancia de consulta procese la misma clave. Podemos usar la misma estrategia que en la consulta anterior. La consulta tiene varios pasos. ¿Cada paso tiene **Partition By** de **PartitionId**? Sí, así que lo estamos haciendo bien. Para la salida, es necesario establecer **PartitionKey** en **PartitionId** como se mencionó anteriormente y también podemos ver que tiene el mismo número de particiones que la entrada. Esta topología es embarazosamente paralela.
 
 
 ## Estos son algunos escenarios de ejemplo que NO son embarazosamente paralelos.

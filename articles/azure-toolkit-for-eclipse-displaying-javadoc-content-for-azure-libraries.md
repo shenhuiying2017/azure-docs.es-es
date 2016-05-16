@@ -30,7 +30,7 @@ Este procedimiento supone que ya ha agregado la biblioteca de Azure para Java a 
 * Haga clic en **Propiedades**.
 * En el cuadro de diálogo **Propiedades**, en el panel izquierdo, haga clic en **Ubicación de Javadoc**. Aparecerá el cuadro de diálogo **Ubicación de Javadoc**.
 * Puede especificar una **URL de Javadoc** o un **Javadoc en archivo**.
-    * Si elige especificar una **URL de Javadoc**, use las direcciones URL como ****http://dl.windowsazure.com/javadoc** o ****http://dl.windowsazure.com/storage/javadoc**.
+    * Si elige especificar una **URL de Javadoc**, use las direcciones URL como **http://dl.windowsazure.com/javadoc** o **http://dl.windowsazure.com/storage/javadoc**.
 * Si decide usar **Javadoc en archivo**, puede especificar un archivo externo o un archivo de área de trabajo. Realice su elección y examine o valide según sea necesario. En el ejemplo siguiente se asocian las bibliotecas de Azure para Java con el JAR de Javadoc correspondiente que se ha descargado localmente en una carpeta denominada **c:\\MyAzureJARs**. ![][ic553487]
 * *Opcional*: haga clic en **Validar**. Aquí podrían mostrarse posibles problemas con el JAR de Javadoc.
 * Haga clic en **Aceptar**.

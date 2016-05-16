@@ -123,13 +123,13 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## Biblioteca .NET de Administración de Lote, Azure AD y Administrador de recursos
 
-Si se trabaja con la biblioteca .NET de Administración de Lote, lo habitual es sacar provecho de las funcionalidades tanto de [Azure Active Directory][aad_about] (Azure AD) como de [Azure Resource Manager][resman_overview]. El proyecto de ejemplo que encontrará a continuación emplea Azure Active Directory y el Administrador de recursos para mostrar la API de .NET de Administración de Lote.
+Si se trabaja con la biblioteca .NET de Administración de Lote, lo habitual es sacar provecho de las funcionalidades tanto de [Azure Active Directory][aad_about] \(Azure AD) como de [Azure Resource Manager][resman_overview]. El proyecto de ejemplo que encontrará a continuación emplea Azure Active Directory y el Administrador de recursos para mostrar la API de .NET de Administración de Lote.
 
 ### Azure Active Directory
 
 El propio Azure usa Azure Active Directory (AAD) para la autenticación de sus clientes, administradores de servicios y usuarios de la organización. En el contexto de .NET de Administración de Lote, se utilizará para autenticar un administrador o coadminstrator de suscripciones. Esto permitirá que, después, la biblioteca de administración consulte el servicio Lote y realice las operaciones que se describen en este artículo.
 
-En el proyecto de ejemplo que encontrará a continuación, la [Biblioteca de autenticación de Active Directory ][aad_adal] (ADAL) de Azure se usa para pedir al usuario sus credenciales de Microsoft. Cuando se suministran las credenciales de administrador o coadministrador de servicios, la aplicación puede consultar en Azure una lista de suscripciones (y crear y eliminar tanto los grupos de recursos como las cuentas de Lote).
+En el proyecto de ejemplo que encontrará a continuación, la [Biblioteca de autenticación de Active Directory ][aad_adal] \(ADAL) de Azure se usa para pedir al usuario sus credenciales de Microsoft. Cuando se suministran las credenciales de administrador o coadministrador de servicios, la aplicación puede consultar en Azure una lista de suscripciones (y crear y eliminar tanto los grupos de recursos como las cuentas de Lote).
 
 ### Resource Manager
 
@@ -137,7 +137,7 @@ Al crear cuentas de Lote con la biblioteca .NET de Administración de Lote, lo h
 
 ## Proyecto de ejemplo en GitHub
 
-Consulte el proyecto de ejemplo [AccountManagment][acct_mgmt_sample] en GitHub para ver la biblioteca .NET de Administración de Lote en acción. Esta aplicación de consola muestra la creación y uso de [BatchManagementClient][net_mgmt_client] y [ResourceManagementClient][resman_client]. También muestra el uso de la [Biblioteca de autenticación de Active Directory][aad_adal] (ADAL) de Azure, que requiere ambos clientes.
+Consulte el proyecto de ejemplo [AccountManagment][acct_mgmt_sample] en GitHub para ver la biblioteca .NET de Administración de Lote en acción. Esta aplicación de consola muestra la creación y uso de [BatchManagementClient][net_mgmt_client] y [ResourceManagementClient][resman_client]. También muestra el uso de la [Biblioteca de autenticación de Active Directory][aad_adal] \(ADAL) de Azure, que requiere ambos clientes.
 
 Para ejecutar correctamente la aplicación de ejemplo, primero debe registrarla en Azure AD desde el Portal de Azure. Siga los pasos que aparecen en la sección [Incorporación de una aplicación](../active-directory/active-directory-integrating-applications.md#adding-an-application) en [Integración de aplicaciones con Azure Active Directory][aad_integrate] para registrar la aplicación de ejemplo dentro de su propia cuenta predeterminada. Seleccione **Aplicación de cliente nativo** para el tipo de aplicación, y puede especificar cualquier URI válido (como `http://myaccountmanagementsample`) para el **URI de redireccionamiento** (no es necesario que sea un punto de conexión real).
 

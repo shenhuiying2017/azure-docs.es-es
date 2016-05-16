@@ -68,9 +68,11 @@ Verá un mensaje que indica que el cambio de configuración está en curso, lo c
 * En el cuadro de diálogo **New Certificate** (Nuevo certificado), especifique y confirme la contraseña que utilizará para el archivo PFX.
 * Acepte el valor proporcionado para **Name (CN)** (Nombre (CN)) o use un nombre personalizado.
 * Especifique la ruta de acceso y el nombre de archivo donde se guardará el nuevo certificado en formato .cer. Para este paso y el siguiente, puede usar la carpeta **cert** de su proyecto de Azure, pero tiene la posibilidad de elegir otra ubicación. Para los fines de este tutorial, usaremos **c:\\mycert\\mycert.cer**. (Cree la carpeta **c:\\mycert** antes de continuar, o utilice una carpeta existente si lo desea).
-* Especifique la ruta de acceso y el nombre de archivo donde se guardará el nuevo certificado y su clave privada en formato .pfx. Para los fines de este tutorial, usaremos **c:\\mycert\\mycert.pfx**. El cuadro de diálogo **New Certificate** (Nuevo certificado) debe ser similar al siguiente (actualice las rutas de acceso de la carpeta si no utilizó **c:\\mycert**): ![][ic712275]
+* Especifique la ruta de acceso y el nombre de archivo donde se guardará el nuevo certificado y su clave privada en formato .pfx. Para los fines de este tutorial, usaremos **c:\\mycert\\mycert.pfx**. El cuadro de diálogo **New Certificate** (Nuevo certificado) debe ser similar al siguiente (actualice las rutas de acceso de la carpeta si no utilizó **c:\\mycert**):
+    ![][ic712275]
 * Haga clic en **OK** (Aceptar) para cerrar el cuadro de diálogo **New Certificate**.
-* El cuadro de diálogo **Remote Access** debería ser similar al siguiente:</p> ![][ic719495]
+* El cuadro de diálogo **Remote Access** debería ser similar al siguiente:</p>
+    ![][ic719495]
 * Haga clic en **OK** para cerrar el cuadro de diálogo **Remote Access**.
 	
 Recompile la aplicación, con la compilación establecida para su implementación en la nube.
@@ -81,7 +83,8 @@ Cuando la instancia de rol esté lista, podrá iniciar sesión de manera remota 
 
 * Si usa Eclipse en Windows y ha seleccionado la opción **Start remote desktop on deploy** (Iniciar escritorio remoto al implementar) durante la implementación en Azure, se abrirá una pantalla de inicio de sesión de conexión a Escritorio remoto cuando se inicie la implementación. Cuando se le pida el nombre de usuario y la contraseña, escriba los valores que especificó para el usuario remoto y podrá iniciar sesión.
 * Otra manera de iniciar sesión de manera remota es a través del <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Portal de administración de Azure</a>:
-    * Dentro de la vista **Servicios en la nube** del Portal de administración de Azure, haga clic en el servicio en la nube, en **Instancias**, en una instancia específica y luego en el botón**Conectar**. El botón **Conectar** aparece del modo siguiente en la barra de comandos: ![][ic659273]
+    * Dentro de la vista **Servicios en la nube** del Portal de administración de Azure, haga clic en el servicio en la nube, en **Instancias**, en una instancia específica y luego en el botón**Conectar**. El botón **Conectar** aparece del modo siguiente en la barra de comandos: 
+    ![][ic659273]  
     >[AZURE.NOTE] Si se encuentra en un sistema operativo distinto de Windows, deberá usar un cliente de Escritorio remoto que sea compatible con el sistema operativo y seguir los pasos para configurar ese cliente con los valores del archivo RDP que descargó.
     * Tras hacer clic en el botón **Conectar**, se le pedirá que abra un archivo RDP. Abra el archivo y siga las indicaciones. (También puede guardar este archivo en el equipo local y luego ejecutarlo haciendo doble clic en él para iniciar sesión de manera remota en la máquina virtual sin necesidad de ir primero al Portal de administración).
     * Cuando se le pida el nombre de usuario y la contraseña, escriba los valores que especificó para el usuario remoto y podrá iniciar sesión.

@@ -20,7 +20,7 @@
 
 ## Información general
 
-La biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure permite administrar dispositivos IoT con Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas. Como se describe en el artículo [Azure IoT Hub device management overview][lnk-dm-overview] (Información general sobre la administración de dispositivos de Centro de IoT de Azure), hay tres conceptos clave en la administración de dispositivos de Centro de IoT:
+La biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure permite administrar dispositivos IoT con Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas. Como se describe en el artículo [Azure IoT Hub device management overview][lnk-dm-overview] \(Información general sobre la administración de dispositivos de Centro de IoT de Azure), hay tres conceptos clave en la administración de dispositivos de Centro de IoT:
 
 - Dispositivos gemelos
 - Trabajos del dispositivo
