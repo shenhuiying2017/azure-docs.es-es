@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="04/07/2016"
+ms.date="05/03/2016"
 ms.author="larryfr"/>
 
 #Migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux
@@ -218,7 +218,7 @@ Los clústeres de Spark estaban disponibles en los clústeres de Windows durante
 
 Las actividades de .NET personalizadas de Data Factory de Azure no son compatibles actualmente con clústeres de HDInsight basado en Linux. En su lugar, se debe usar uno de los métodos siguientes para implementar actividades personalizadas como parte de la canalización de ADF.
 
--   Ejecute actividades de .NET en grupo de Lote de Azure. Consulte la sección Servicio vinculado de Lote de Azure de [Uso de actividades personalizadas en una canalización de Data Factory de Azure](../data-factory/data-factory-use-custom-activities.md/#AzureBatch).
+-   Ejecute actividades de .NET en grupo de Lote de Azure. Consulte la sección Servicio vinculado de Lote de Azure de [Uso de actividades personalizadas en una canalización de Azure Data Factory](../data-factory/data-factory-use-custom-activities.md#AzureBatch).
 
 -   Implemente la actividad como una actividad MapReduce. Consulte [Invocación de programas MapReduce desde Data Factory](../data-factory/data-factory-map-reduce.md) para obtener más información.
 
@@ -254,4 +254,4 @@ Si sabe que los scripts no contienen cadenas de caracteres CR incrustados, puede
 
 -   [Administración de un clúster basado en Linux mediante Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/27/2016"
    ms.author="tomfitz"/>
 
 # La implementación de Azure Resource Manager frente a la implementación clásica: los modelos de implementación y el estado de los recursos
@@ -131,29 +131,23 @@ Para obtener más información sobre el uso de las etiquetas en el Administrador
 
 ## Operaciones admitidas para los modelos de implementación
 
-Los recursos creados en el modelo de implementación clásica no son compatibles con las operaciones del Administrador de recursos. En algunos casos, un comando del Administrador de recursos puede recuperar información sobre un recurso creado a través de la implementación clásica, o puede realizar tareas administrativas como mover un recurso clásico a otro grupo de recursos, pero estos casos no deben dar la impresión de que el tipo es compatible con las operaciones del Administrador de recursos. Por ejemplo, suponga que tiene un grupo de recursos que contiene las máquinas virtuales que se crearon con el Administrador de recursos y el modelo clásico. Si ejecuta el siguiente comando de PowerShell:
+Los recursos creados en el modelo de implementación clásica no son compatibles con las operaciones del Administrador de recursos. En algunos casos, un comando del Administrador de recursos puede recuperar información sobre un recurso creado a través de la implementación clásica, o puede realizar tareas administrativas como mover un recurso clásico a otro grupo de recursos, pero estos casos no deben dar la impresión de que el tipo es compatible con las operaciones del Administrador de recursos. Por ejemplo, suponga que tiene un grupo de recursos que contiene una máquina Virtual que se creó con la implementación clásica. Si ejecuta el siguiente comando de PowerShell:
 
-    Get-AzureRmResourceGroup -Name ExampleGroup
+    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 
-Se devolverán todas las máquinas virtuales:
+Se devolverá la máquina virtual:
+    
+    Name              : ExampleClassicVM
+    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+    ResourceName      : ExampleClassicVM
+    ResourceType      : Microsoft.ClassicCompute/virtualMachines
+    ResourceGroupName : ExampleGroup
+    Location          : westus
+    SubscriptionId    : {guid}
 
-    Resources :
-     Name                 Type                                          Location
-     ================     ============================================  ========
-     ExampleClassicVM     Microsoft.ClassicCompute/domainNames          eastus
-     ExampleClassicVM     Microsoft.ClassicCompute/virtualMachines      eastus
-     ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
-    ...
-
-Sin embargo, si ejecuta el comando **Get-AzureRmVM**:
+Sin embargo, el cmdlet **Get-AzureRmVM** solo devuelve las máquinas virtuales implementadas a través de Resource Manager. El siguiente comando no devuelve la máquina virtual creada mediante la implementación clásica.
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
-
-Solo aparecerán las máquinas virtuales que se hayan creado con Resource Manager.
-
-    Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
-    Name     : ExampleResourceVM
-    ...
 
 En general, no debe esperar que los recursos creados a través de la implementación clásica funcionen con los comandos del Administrador de recursos.
 
@@ -179,4 +173,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para conocer la estructura de las plantillas de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

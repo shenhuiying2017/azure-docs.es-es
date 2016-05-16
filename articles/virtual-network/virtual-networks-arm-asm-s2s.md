@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Cómo conectar redes virtuales clásicas a redes virtuales de ARM en Azure - Guía de la solución"
    description="Obtenga información sobre cómo crear una conexión VPN entre redes virtuales clásica y nuevas"
-   services="virtual-network"
+   services="vpn-gateway"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="cherylmc"
    manager="carmonm"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="cherylmc" />
 
 # Conexión de redes virtuales clásicas a redes virtuales nuevas
 
@@ -174,7 +174,7 @@ Para crear la red virtual de ARM, con dos subredes y una red local para la red v
 4. Abra el archivo azuredeploy-parameters.json en Visual Studio. Este archivo contiene valores que se usarán para los parámetros del archivo de plantilla. Edite los valores siguientes, si es necesario.
 
 	- **subscriptionId**: edite y pegue el identificador de suscripción. Si no conoce el identificador de suscripción, ejecute el cmdlet de PowerShell **Get-AzureSubscription** para recuperar el id.
-	- **ubicación**: especificar la ubicación de Azure en la que se creará la red virtual. En este escenario, será **Centro de EE. UU.**.
+	- **ubicación**: especificar la ubicación de Azure en la que se creará la red virtual. En este escenario, será **Centro de EE. UU.**.
 	- **virtualNetworkName**: este es el nombre de la red virtual de ARM que se va a crear. En este escenario, **vnet02**.
 	- **localGatewayName**: esta es la red local a la que desea conectarse desde la nueva red virtual de ARM. En este escenario, **vnet01**.
 	- **localGatewayIpAddress**: se trata de la dirección IP pública para la puerta de enlace creada para la red a la que desea conectarse. En este escenario, se trata de la dirección IP que anotó en el paso 9 anterior, al crear la puerta de enlace de VPN para **vnet01**.
@@ -350,4 +350,4 @@ Ahora que dispone de las dos redes de virtuales conectadas, es momento de probar
 - Obtenga más información sobre [el proveedor de recursos de red (NRP) para ARM](resource-groups-networking.md).
 - Consulte las instrucciones generales sobre cómo [crear una conexión VPN de S2S entre una red virtual clásica y una red virtual de ARM](virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

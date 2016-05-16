@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Conexión a Almacenamiento de datos SQL
-Para conectarse a Almacenamiento de datos SQL, deberá pasar las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, también encontrará que determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.
+Para conectarse a Almacenamiento de datos SQL, deberá pasar las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, también encontrará que determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta. También puede revisar el artículo [Protección de una base de datos en Almacenamiento de datos SQL][] para obtener más información sobre la seguridad y cómo habilitar las conexiones a su Almacén de datos de SQL.
 
 En este artículo se describen los aspectos siguientes en relación con la conexión a Almacenamiento de datos SQL:
 
@@ -52,7 +52,9 @@ Puede conectarse a Almacenamiento de datos SQL mediante cualquiera de los siguie
 - ADO.NET
 - ODBC
 - PHP
-- JDBC
+- JDBC 
+
+A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo. También puede usar el Portal de Azure para ayudarle a configurar la cadena de conexión. Simplemente vaya a la base de datos en el Portal de Azure. En *Essentials*, haga clic en *Mostrar cadenas de conexión de base de datos*.
 
 ### Cadena de conexión ADO.NET de ejemplo
 
@@ -95,7 +97,7 @@ Una vez que se ha realizado una conexión y se ha establecido una sesión, está
 
 Cada consulta se representa mediante uno o varios identificadores de solicitud. Todas las consultas enviadas en esa conexión forman parte de una sola sesión y, por lo tanto, estarán representadas por un identificador de sesión único.
 
-Sin embargo, como Almacenamiento de datos SQL es un sistema MPP distribuido, tanto los identificadores de sesión como los de solicitud se exponen de manera algo diferente en comparación con SQL Server.
+Sin embargo, como Almacenamiento de datos SQL es un sistema MPP (procesamiento paralelo masivo) distribuido, tanto los identificadores de sesión como los de solicitud se exponen de manera algo diferente en comparación con SQL Server.
 
 Las sesiones y las solicitudes se representan con sus identificadores respectivos.
 
@@ -153,9 +155,10 @@ Una vez conectado, puede empezar a diseñar las tablas. Consulte el artículo so
 <!--Azure.com references-->
 [conexiones y consultas]: ./sql-data-warehouse-get-started-connect.md
 [diseño de tablas]: ./sql-data-warehouse-develop-table-design.md
+[Protección de una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-security.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

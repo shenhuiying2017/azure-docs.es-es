@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/16/2016"
+      ms.date="05/03/2016"
       ms.author="markvi"/>
 
 # Administración de aplicaciones con Azure Active Directory
@@ -24,7 +24,7 @@ Además del flujo de trabajo o contenido real, para las empresas las aplicacione
 
 2. Para permitir la seguridad y la regulación, las organizaciones deben controlar y supervisar quién puede tener acceso y quién accede realmente a cada aplicación.
 
-En palabras de las aplicaciones en la nube, esto se consigue mejor usando la identidad para controlar "*A QUIÉN se le permite hacer QUÉ*".
+En el mundo de las aplicaciones en la nube, esto se consigue mejor usando la identidad para controlar "*A QUIÉN se le permite hacer QUÉ*".
 
 En la terminología informática:
 
@@ -135,4 +135,4 @@ Para comenzar a integrar las aplicaciones con Azure AD, eche un vistazo a la [Gu
 
 [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/03/2016"
+   ms.date="04/28/2016"
    ms.author="sstein"/>
 
 # Query Performance Insight de Base de datos SQL de Azure
@@ -46,10 +46,10 @@ Query Performance Insight es fácil de usar:
 
 - Revisar la lista de consultas que más recursos consumen. 
 - Seleccione una consulta individual para ver sus detalles.
-- Haga clic en **Configuración** para personalizar la forma en que se muestran los datos o para mostrar otro período.
-- Abra [Asesor de índices](sql-database-index-advisor.md) y compruebe si las recomendaciones están disponibles.
-
-
+- Abra [Asesor de rendimiento](sql-database-index-advisor.md) y compruebe si las recomendaciones están disponibles.
+- Amplíe para obtener información más detallada.
+- 
+    ![panel de rendimiento](./media/sql-database-query-performance/performance.png)
 
 > [AZURE.NOTE] Para proporcionar información sobre el rendimiento de las consultas, es preciso que Almacén de consultas para Base de datos SQL capture un par de horas de datos. Si la base de datos no tiene actividad o Almacén de consultas no estuvo activo durante un período determinado, los gráficos estará vacíos al mostrar dicho período. Puede habilitar el almacén de consulta en cualquier momento si no se está ejecutando.
 
@@ -59,7 +59,7 @@ Query Performance Insight es fácil de usar:
 
 En el [portal](http://portal.azure.com), realice estas acciones:
 
-1. Navegue a una base de datos SQL y haga clic en **Query Performance Insight**. 
+1. Navegue a una base de datos SQL y haga clic en **Toda la configuración** > **Rendimiento** > **Consultas**. 
 
     ![Query Performance Insight][1]
 
@@ -158,11 +158,9 @@ Query Performance Insight le ayuda a comprender el impacto de la carga de trabaj
 
 ## Pasos siguientes
 
-Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. Supervise las consultas y ajústelas para mejorar el rendimiento.
+Para obtener recomendaciones adicionales para mejorar el rendimiento de la base de datos SQL, haga clic en [Asesor de rendimiento](sql-database-index-advisor.md) en la hoja **Información de rendimiento de consultas**.
 
-Para obtener recomendaciones adicionales para mejorar el rendimiento de la base de datos SQL, haga clic en [Asesor de índices](sql-database-index-advisor.md) en la hoja **Información de rendimiento de consultas**.
-
-![Index Advisor](./media/sql-database-query-performance/ia.png)
+![Asesor de rendimiento](./media/sql-database-query-performance/ia.png)
 
 
 <!--Image references-->
@@ -170,4 +168,4 @@ Para obtener recomendaciones adicionales para mejorar el rendimiento de la base 
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

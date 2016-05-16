@@ -34,7 +34,7 @@ Si bien puede crear una máquina virtual en el [Portal de administración de Azu
 
     Para ver información sobre la imagen en el lado derecho de la página, puede hacer clic en el nombre de una imagen de máquina virtual.
 
-        >[AZURE.NOTE] You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
+    >[AZURE.NOTE] No puede agregar imágenes de máquinas virtuales a las listas **Imágenes públicas** o **Imágenes de MSDN** porque son de solo lectura. Todas las máquinas virtuales que cree se agregan a la lista **Imágenes privadas**.
 
     Si es suscriptor de MSDN con una suscripción de nivel de Visual Studio, puede crear una máquina virtual de Azure pregenerada que contenga Visual Studio, así como otras imágenes. Para obtener más información, consulte [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) (Crear una máquina virtual en Visual Studio mediante el uso de imágenes de la galería de imágenes de Visual Studio 2013 para suscriptores de MSDN) y [Suscripciones a MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
 
@@ -42,7 +42,7 @@ Si bien puede crear una máquina virtual en el [Portal de administración de Azu
 
     El nombre y la contraseña nuevos se usarán para iniciar sesión en el equipo mediante el escritorio remoto, por lo que se recomienda anotarlos por si se olvidan. Después de crear una máquina virtual de Azure en Visual Studio, puede cambiar su tamaño y otros valores de configuración en el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
+    >[AZURE.NOTE] Si elige tamaños mayores para la máquina virtual, es posible que se apliquen cargos adicionales. Para obtener más información, consulte [Detalles de precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 1. Las máquinas virtuales creadas en Visual Studio requieren un servicio en la nube. En la página **Configuración de servicios en la nube**, seleccione un servicio en la nube para la máquina virtual, o bien haga clic en **<Crear nuevo...>** en la lista desplegable si aún no tiene un servicio en la nube o si desea usar uno nuevo. También se requiere una cuenta de almacenamiento, así que elija una cuenta de almacenamiento (o cree una nueva) en el cuadro de lista desplegable **Cuenta de almacenamiento**. Para obtener más información, consulte [Introducción a Almacenamiento de Microsoft Azure](./storage/storage-introduction/).
 
@@ -158,4 +158,3 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 
 Para obtener más información sobre la creación de máquinas virtuales, consulte [Creación de una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) y [Creación de una máquina virtual con Windows en el Portal de vista previa de Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0413_2016-->

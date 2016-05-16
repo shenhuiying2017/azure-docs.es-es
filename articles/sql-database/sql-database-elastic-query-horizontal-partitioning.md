@@ -23,7 +23,7 @@ Filas de distribución de bases de datos particionadas en un nivel de datos esca
 
 Para un inicio rápido, consulte [Informes de bases de datos escaladas horizontalmente en la nube](sql-database-elastic-query-getting-started.md).
 
-Para bases de datos no particionadas, consulte [Consultas en bases de datos particionadas en la nube (particionadas verticalmente)](sql-database-elastic-query-vertical-partitioning.md).
+Para bases de datos no particionadas, consulte [Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)](sql-database-elastic-query-vertical-partitioning.md).
 
  
 ## Requisitos previos
@@ -173,7 +173,7 @@ La consulta siguiente realiza una combinación en tres direcciones entre almacen
  
 ## Procedimiento almacenado para la ejecución remota de T-SQL: sp\_execute\_remote
 
-La consulta elástica también incluye un procedimiento almacenado que proporciona acceso directo a las particiones. El procedimiento almacenado se denomina **sp\_execute\_remote** y puede utilizarse para ejecutar procedimientos almacenados remotos o código T-SQL en las bases de datos remotas. Toma los parámetros siguientes:
+La consulta elástica también incluye un procedimiento almacenado que proporciona acceso directo a las particiones. El procedimiento almacenado se denomina [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) y sirve para ejecutar procedimientos almacenados remotos o código T-SQL en bases de datos remotas. Toma los parámetros siguientes:
 
 * Nombre de origen de datos (nvarchar): nombre del origen de datos externo de tipo RDBMS. 
 * Consulta (nvarchar): la consulta T-SQL que se va a ejecutar en cada partición. 
@@ -208,4 +208,4 @@ Use cadenas de conexión de SQL Server normales para conectar su aplicación, su
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

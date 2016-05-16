@@ -104,12 +104,12 @@ En el firewall corporativo, debe configurar los siguientes dominios y puertos de
 
 | Nombres de dominio | Puertos | Descripción |
 | ------ | --------- | ------------ |
-| *.servicebus.windows.net | 443, 80 | Escuchas en Retransmisión de bus de servicio a través de TCP (requiere 443 para adquirir el token de Control de acceso) | 
-| *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional a través de TCP | 
-| *.core.windows.net | 443 | HTTPS | 
-| *.clouddatahub.net | 443 | HTTPS | 
-| graph.windows.net | 443 | HTTPS | 
-| login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 443, 80 | Escuchas en Retransmisión de bus de servicio a través de TCP (requiere 443 para adquirir el token de Control de acceso) |
+| *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional a través de TCP |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
+| graph.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS |
 
 En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de salida. De lo contrario, puede configurar los puertos y dominios según corresponda en el equipo de la puerta de enlace.
 
@@ -268,12 +268,12 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
 			1. Establezca **Seguridad integrada** en **true**.
 			2. Especifique el **nombre de servidor** de la base de datos y el **nombre de la base de datos**. 
 			2. Quite **Id. de usuario** y **Contraseña**. 
-		3. Especifique el nombre de usuario y la contraseña en las propiedades **userName** y **password**.
+		3. Especifique el nombre de usuario y la contraseña en las propiedades **userName** y **password**.  
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
             		"gatewayName": "adftutorialgateway",
-            		"userName": "<Specify user name if you are using Windows Authentication>",
+            		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\<user>",
             		"password": "<Specify password for the user account>"
         		}
 
@@ -691,4 +691,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 5.	La puerta de enlace descifra las credenciales con el mismo certificado y, a continuación, se conecta al almacén de datos local con el tipo de autenticación adecuado.
 6.	La puerta de enlace copia datos desde el almacén local a un almacenamiento en la nube o desde un almacenamiento en la nube a un almacén de datos local según cómo esté configurada la actividad de copia en la canalización de datos. Nota: Para este paso, la puerta de enlace se comunica directamente con el servicio de almacenamiento basado en la nube (Blob de Azure, SQL de Azure, etc.) a través del canal seguro (HTTPS).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

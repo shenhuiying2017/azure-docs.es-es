@@ -1,6 +1,6 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
+<properties writer="cynthn" editor="tysonn" manager="timlt" />
 
-1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com). Consulte la oferta [gratuita](https://azure.microsoft.com/pricing/free-trial/) si no tiene todavía una suscripción.
+1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).  
 
 2. En la barra de comandos que se encuentra en la parte inferior de la ventana, haga clic en **Nuevo**.
 
@@ -65,4 +65,3 @@ Usará SSH o PuTTY para conectarse a la máquina virtual, en función del sistem
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=AcomDC_0323_2016-->

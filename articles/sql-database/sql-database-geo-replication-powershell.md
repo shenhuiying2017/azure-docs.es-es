@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell | Microsoft Azure" 
+    pageTitle="Configuración de la replicación geográfica activa para Base de datos SQL de Azure con PowerShell | Microsoft Azure " 
     description="replicación geográfica para Base de datos SQL con PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="02/23/2016"
+    ms.date="04/27/2016"
     ms.author="sstein"/>
 
 # Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell
@@ -21,26 +21,24 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-replication-portal.md)
+- [Portal de Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
 En este artículo se muestra cómo configurar la replicación geográfica para Base de datos SQL de Azure con PowerShell.
 
-La replicación geográfica permite crear hasta cuatro bases de datos de réplica (secundarias) en distintas ubicaciones de centros de datos (regiones). Las bases de datos secundarias están disponibles en caso de una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal.
+Para iniciar la conmutación por error, vea [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure](sql-database-geo-replication-failover-powershell.md).
 
-La replicación geográfica solo está disponible para las bases de datos Estándar y Premium.
+>[AZURE.NOTE] La replicación geográfica activa (bases de datos secundarias legibles) está ahora disponible para todas las bases de datos en todos los niveles de servicio. En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles.
 
-Las bases de datos Estándar pueden tener una base de datos secundaria no legible y deben usar la región recomendada. Las bases de datos Premium pueden tener hasta cuatro bases de datos secundarias legibles en cualquiera de las regiones disponibles.
+Puede configurar hasta cuatro bases de datos secundarias legibles en las mismas ubicaciones de centros de datos o en otras (regiones). Las bases de datos secundarias están disponibles en caso de una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal.
 
 Para configurar la replicación geográfica, necesita lo siguiente:
 
-- Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **CUENTA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
+- Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **CUENTA GRATUITA** de la parte superior de la página y, después, vuelva para finalizar este artículo.
 - Una base de datos SQL de Azure: la base de datos principal que quiere replicar en una región geográfica diferente.
 - Azure PowerShell 1.0 o posterior. Para descargar e instalar los módulos de Azure PowerShell, siga las instrucciones de [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
-
-
 
 
 ## Configuración de las credenciales y selección de la suscripción
@@ -60,7 +58,6 @@ Para seleccionar la suscripción, necesita su id. de suscripción. Puede copiar 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 Después de ejecutar correctamente **Select-AzureRMSubscription** volverá al símbolo del sistema de PowerShell.
-
 
 
 ## Agregar una base de datos secundaria
@@ -136,56 +133,6 @@ El código siguiente quita el vínculo de replicación de la base de datos "mydb
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
 
-
-
-## Inicio de una conmutación por error planeada
-
-Use el cmdlet **Set-AzureRmSqlDatabaseSecondary** con el parámetro **-Failover** para promover una base de datos secundaria a nueva base de datos principal, y degradar la base de datos principal existente a secundaria. Esta funcionalidad está diseñada para la conmutación por error planeada, por ejemplo, durante las exploraciones de recuperación ante desastres, y requiere que la base de datos principal esté disponible.
-
-El comando ejecuta el siguiente flujo de trabajo:
-
-1. Cambiar temporalmente la replicación a modo sincrónico. Esto hará que todas las transacciones pendientes se vacíen en la base de datos secundaria.
-
-2. Cambia los roles de las dos bases de datos en la asociación de replicación geográfica.
-
-Esta secuencia garantiza que no se producirá ninguna pérdida de datos. Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse. Para más información, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
-
-
-> [AZURE.NOTE] Si la base de datos principal no está disponible cuando se emite el comando, se producirá un error con un mensaje que indica que el servidor principal no está disponible. En contadas ocasiones, es posible que la operación no pueda completarse y que aparezca detenida. En este caso, el usuario puede ejecutar el comando de conmutación por error forzada (conmutación por error no planeada) y aceptar la pérdida de datos.
-
-
-
-Este cmdlet devolverá resultados cuando se complete el proceso de cambiar la base de datos secundaria a principal.
-
-El siguiente comando cambia los roles de la base de datos "mydb" en el servidor "srv2" en el grupo de recursos "rg2" a principal. La base de datos principal original a la que estaba conectada "db2" cambiará a secundaria después de que las dos bases de datos estén totalmente sincronizadas.
-
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
-    $database | Set-AzureRmSqlDatabaseSecondary -Failover
-
-
-
-## Inicio de una conmutación por error no planeada desde la base de datos principal a la base de datos secundaria
-
-
-Puede usar el cmdlet **Set-AzureRmSqlDatabaseSecondary** con los parámetros **–Failover** y **-AllowDataLoss** para promover una base de datos secundaria a nueva base de datos principal de forma no planeada, y forzar la degradación de la base de datos principal existente a secundaria en un momento cuando la base de datos principal ya no está disponible.
-
-Esta funcionalidad está diseñada para situaciones de recuperación ante desastres en los que resulta fundamental restaurar la disponibilidad de la base de datos y la pérdida de algunos datos resulta aceptable. Cuando se invoca la conmutación por error forzada, la base de datos secundaria especificada se convierte inmediatamente en la base de datos principal y comienza a aceptar transacciones de escritura. Tan pronto como la base de datos principal original puede volver a conectar con esta nueva base de datos principal después de la operación de conmutación por error forzada, se realiza una copia de seguridad incremental de la base de datos principal original y la base de datos principal anterior se convierte en base de datos secundaria para la nueva base de datos principal; por consiguiente, es simplemente una réplica de la nueva principal.
-
-Como no se admite la restauración a un momento dado en bases de datos secundarias, si desea recuperar los datos confirmados en la base de datos principal anterior que no se replicaron en la nueva base de datos principal, deberá indicar a CSS que restaure la copia de seguridad de registro conocida de la base de datos.
-
-> [AZURE.NOTE] Si el comando se emite cuando las bases de datos principal y secundaria están en línea, la base de datos principal anterior se convertirá en la nueva secundaria pero no se intentará la sincronización de los datos porque se puede producir pérdida de datos.
-
-
-Si la base de datos principal tiene varias bases de datos secundarias, el comando se ejecutará correctamente de forma parcial. La base de datos secundaria en la que se ejecutó el comando se convertirá en la principal. Sin embargo, la base de datos principal anterior seguirá siendo principal, es decir, las dos bases de datos principales terminarán en un estado incoherente y conectadas por un vínculo de replicación suspendido. El usuario tendrá que reparar manualmente esta configuración mediante una API "quitar secundaria" en cualquiera de estas bases de datos principales.
-
-
-El siguiente comando cambia los roles de la base de datos "mydb" a principal cuando la base de datos principal no está disponible. La base de datos principal original a la que estaba conectada "mydb" cambiará a secundaria después de volver en línea de nuevo. En ese momento, la sincronización puede producir la pérdida de datos.
-
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
-    $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
-
-
-
 ## Supervisión y mantenimiento de la configuración de la replicación geográfica
 
 Las tareas de supervisión incluyen la supervisión de la configuración de replicación geográfica y la supervisión del mantenimiento de la replicación de los datos.
@@ -198,11 +145,11 @@ El comando siguiente recupera el estado del vínculo de replicación entre la ba
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
-
-   
+  
 
 ## Pasos siguientes
 
+- [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure](sql-database-geo-replication-failover-powershell.md)
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 
 
@@ -210,9 +157,12 @@ El comando siguiente recupera el estado del vínculo de replicación entre la ba
 
 ## Recursos adicionales
 
+- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
 - [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Diseño de aplicaciones de nube para la continuidad del negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
+- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

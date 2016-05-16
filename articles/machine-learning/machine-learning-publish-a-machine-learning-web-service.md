@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/02/2016"
 	ms.author="garye"/>
 
 # Implementar un servicio web de Aprendizaje automático de Azure
@@ -76,7 +76,7 @@ Para probar el servicio web, haga clic en el vínculo **Probar** del panel del s
 
 ![Prueba del servicio web](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-En la pestaña **CONFIGURACIÓN** puede cambiar el nombre para mostrar del servicio y darle una descripción. El nombre y la descripción se muestran en el Portal de Azure clásico, donde se administran los servicios web. Puede proporcionar una descripción para la entrada de datos, los datos de salida y los parámetros de servicio web al escribir una cadena para cada columna en **INPUT SCHEMA**, **OUTPUT SCHEMA** y **WEB SERVICE PARAMETER**. Estas descripciones se utilizan en la documentación de código de ejemplo proporcionada para el servicio web. También puede habilitar el registro para diagnosticar los errores que ve al acceder a su servicio web.
+En la pestaña **CONFIGURACIÓN** puede cambiar el nombre para mostrar del servicio y darle una descripción. El nombre y la descripción se muestran en el [Portal de Azure clásico](http://manage.windowsazure.com/), donde se administran los servicios web. Puede proporcionar una descripción para la entrada de datos, los datos de salida y los parámetros de servicio web al escribir una cadena para cada columna en **INPUT SCHEMA**, **OUTPUT SCHEMA** y **WEB SERVICE PARAMETER**. Estas descripciones se utilizan en la documentación de código de ejemplo proporcionada para el servicio web. También puede habilitar el registro para diagnosticar los errores que ve al acceder a su servicio web.
 
 Para más información, vea [Habilitar el registro para los servicios web de Aprendizaje automático](machine-learning-web-services-logging.md).
 
@@ -94,9 +94,9 @@ Para obtener más información sobre el acceso a un servicio web de Aprendizaje 
 
 ## Administrar el servicio web en el Portal de Azure clásico
 
-En el Portal de Azure clásico, puede administrar los servicios web haciendo clic en el servicio **Aprendizaje automático**, abriendo el área de trabajo de Aprendizaje automático y, a continuación, abriendo el servicio web desde la pestaña **SERVICIOS WEB**. Desde esta página, puede supervisar el servicio web, actualizarlo y eliminarlo. También puede agregar un segundo extremo para el servicio web además del extremo predeterminado que se crea cuando se implementa.
+En el **Portal de Azure clásico**, puede administrar los servicios web haciendo clic en el servicio [Aprendizaje automático](http://manage.windowsazure.com/), abriendo el área de trabajo de Aprendizaje automático y luego abriendo el servicio web desde la pestaña **SERVICIOS WEB**. Desde esta página, puede supervisar el servicio web, actualizarlo y eliminarlo. También puede agregar un segundo extremo para el servicio web además del extremo predeterminado que se crea cuando se implementa.
 
-Para más información, vea [Administrar un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md). 
+Para más información, consulte [Administrar un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md).
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
@@ -112,4 +112,4 @@ Para actualizar el servicio web, abra el experimento predictivo original que us�
 
 Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para obtener más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

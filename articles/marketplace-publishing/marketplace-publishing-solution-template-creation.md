@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="02/06/2016"
+      ms.date="04/29/2016"
       ms.author="hascipio; v-divte" />
 
 # Guía para crear una plantilla de solución en Azure Marketplace
@@ -58,13 +58,13 @@ Es posible que también le interesen los siguientes artículos relacionados:
 
 - Extensiones de VM: [Información general del agente de máquina virtual y las extensiones de VM](https://msdn.microsoft.com/library/azure/dn832621.aspx) y [Características y extensiones de máquina virtual de Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-- Administrador de recursos de Azure: [Creación de plantillas de Azure ARM](../resource-group-authoring-templates/) y [Ejemplos sencillos de plantillas de ARM](https://github.com/rjmax/ArmExamples)
+- Administrador de recursos de Azure: [Creación de plantillas de Azure ARM](../resource-group-authoring-templates.md) y [Ejemplos sencillos de plantillas de ARM](https://github.com/rjmax/ArmExamples)
 
 - Limitaciones de cuentas de almacenamiento: [Supervisión de limitaciones de cuentas de almacenamiento](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) y [Almacenamiento Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets-whes-ESing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
-[link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
+[link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

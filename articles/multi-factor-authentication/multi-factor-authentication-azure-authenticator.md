@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/02/2016" 
 	ms.author="billmath"/>
 
 
@@ -57,9 +57,7 @@ Siga este paso para todas las cuentas que desee migrar a la nueva aplicación.
 
 Cuando haya agregado todas las cuentas a la nueva aplicación, desinstale la aplicación antigua en el teléfono.
 
-¿Quiere saber cómo quitar cuentas individuales de la aplicación antigua? Puntee en la cuenta. Obtendrá una opción para "Borrar".
 
-![Quitar cuenta](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
 ## Cómo agregar una cuenta mediante el escáner de códigos de barras
 
@@ -164,4 +162,10 @@ A partir de ese momento, cuando se requiera que compruebe el inicio de sesión, 
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+## Eliminación de una cuenta
+
+Para quitar cuentas individuales de la aplicación Azure Authenticator basta con pulsar en la cuenta. Obtendrá una opción para "Borrar".
+
+![Quitar cuenta](./media/multi-factor-authentication-azure-authenticator/remove.png)
+
+<!---HONumber=AcomDC_0504_2016-->

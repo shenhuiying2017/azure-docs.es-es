@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/04/2016"
    ms.author="larryfr"/>
 
 #Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight
@@ -24,9 +24,11 @@ Este documento proporciona un ejemplo de uso del SDK de .NET para Hadoop para en
 
 El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight en .NET. Pig le permite crear operaciones de MapReduce al modelar una serie de transformaciones de datos. Aprenderá a utilizar una aplicación básica de C# para enviar un trabajo de Pig para un clúster de HDInsight.
 
-[AZURE.INCLUDE [azure-preview-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+> [AZURE.IMPORTANT] En los pasos de este documento se usa el Portal de Azure clásico. Microsoft no recomienda usar el portal clásico al crear nuevos servicios. Para obtener una explicación de las ventajas del Portal de Azure, consulte [Portal de Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> Este documento también incluye información sobre el uso del SDK de .NET para HDInsight. Los fragmentos de código proporcionados se basan en comandos que usan Azure Service Management (ASM) para trabajar con HDInsight y están __en desuso__. Estos comandos se eliminarán el 1 de enero de 2017.
+>
+>Para ver una versión de este documento donde se usa el Portal de Azure, junto con los fragmentos de código del SDK de .NET para HDInsight que utilizan Azure Resource Manager (ARM), consulte [Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md).
 
 ##<a id="prereq"></a>Requisitos previos
 
@@ -160,4 +162,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

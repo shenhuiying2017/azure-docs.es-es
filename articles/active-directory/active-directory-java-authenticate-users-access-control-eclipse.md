@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/04/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm" />
 
 # Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse
@@ -115,8 +115,8 @@ En esta tarea, configurará ACS para reconocer la aplicación web de Java como u
 3.  En la página **Adición de aplicación de usuarios de confianza**, haga lo siguiente:
     1.  En **Nombre**, escriba el nombre del RP. Para los fines de este tutorial, escriba **Azure Web App**.
     2.  En **Modo**, seleccione **Especificar la configuración manualmente**.
-    3.  En **Territorio**, escriba el URI al que se aplica el token de seguridad que emitió ACS. Para esta tarea, escriba ****http://localhost:8080/**. ![El dominio de usuario de confianza para utilizar en el emulador de proceso][relying_party_realm_emulator]
-4.  En **Dirección URL de retorno**, escriba la dirección URL a la cual ACS devuelve el token de seguridad. Para esta tarea, escriba ****http://localhost:8080/MyACSHelloWorld/index.jsp** ![La dirección URL de retorno de usuario de confianza para utilizar en el emulador de proceso][relying_party_return_url_emulator]
+    3.  En **Territorio**, escriba el URI al que se aplica el token de seguridad que emitió ACS. Para esta tarea, escriba **http://localhost:8080/**. ![El dominio de usuario de confianza para utilizar en el emulador de proceso][relying_party_realm_emulator]
+4.  En **Dirección URL de retorno**, escriba la dirección URL a la cual ACS devuelve el token de seguridad. Para esta tarea, escriba **http://localhost:8080/MyACSHelloWorld/index.jsp** ![La dirección URL de retorno de usuario de confianza para utilizar en el emulador de proceso][relying_party_return_url_emulator]
 5.  Acepte los valores predeterminados en el resto de los campos.
 
 4.  Haga clic en **Guardar**.
@@ -310,4 +310,4 @@ En este punto, su certificado se incluiría en la implementación. Observe que, 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

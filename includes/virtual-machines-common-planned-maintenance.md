@@ -57,7 +57,7 @@ Las máquinas virtuales con una configuración de una sola instancia se actualiz
 
 Este evento de mantenimiento planeado afectará a la disponibilidad de la aplicación para este tipo de configuración de máquina virtual. Azure ofrece una notificación de mantenimiento planeado para máquinas virtuales con 1 semana de antelación en la configuración de una instancia.
 
-### Notificación por correo electrónico
+## Notificación por correo electrónico
 
 Solo en el caso de las configuraciones de máquinas virtuales de una instancia o de instancias múltiples, Azure envía con antelación una comunicación por correo electrónico para avisarle del próximo mantenimiento planeado (una semana de antelación). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador y coadministrador de cuenta proporcionadas en la suscripción. A continuación se muestra un ejemplo de este tipo de correo electrónico:
 
@@ -66,15 +66,15 @@ Solo en el caso de las configuraciones de máquinas virtuales de una instancia o
 
 ## Pares de región
 
-Al ejecutar el mantenimiento, Azure solo actualizará las instancias de máquina virtual en una sola región de su pareja. Por ejemplo, al actualizar las máquinas virtuales de la zona centro-norte de EE. UU., Azure no actualizará las máquinas virtuales de centro-sur de EE. UU. al mismo tiempo. Se programarán a una hora independiente, lo que permitirá la conmutación por error o el equilibrio de carga entre regiones. Sin embargo, otras regiones como Europa del Norte pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU.
+Al ejecutar el mantenimiento, Azure solo actualizará las instancias de máquina virtual en una sola región de su pareja. Por ejemplo, al actualizar las máquinas virtuales de la zona centro-norte de EE. UU., Azure no actualizará las máquinas virtuales de centro-sur de EE. UU. al mismo tiempo. Se programarán a una hora independiente, lo que permitirá la conmutación por error o el equilibrio de carga entre regiones. Sin embargo, otras regiones como Europa del Norte pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU.
 
 Consulte la tabla siguiente para obtener información sobre los pares de región actuales:
 
 Región 1 | Región 2
 :----- | ------:
 Centro-Norte de EE. UU | Centro-Sur de EE. UU
-Este de EE. UU. | Oeste de EE. UU.
-Este de EE. UU. - 2 | Central EE. UU.:
+Este de EE. UU. | Oeste de EE. UU.
+Este de EE. UU. - 2 | Central EE. UU.:
 Europa del Norte | Europa occidental
 Sudeste de Asia | Asia oriental
 Este de China | Norte de China
@@ -95,4 +95,3 @@ Gobierno de EE. UU. - Iowa | Gobierno de EE. UU. - Virginia
 
 [Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0330_2016-->

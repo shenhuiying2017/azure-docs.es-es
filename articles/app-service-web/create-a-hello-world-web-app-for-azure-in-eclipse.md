@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Creación de una aplicación web Hello World para Azure en Eclipse
@@ -37,8 +37,7 @@ Cuando haya completado este tutorial, la aplicación se parecerá a la que se mu
 En primer lugar, empezaremos con la creación de un proyecto Java.
 
 1. Inicie Eclipse y, en el menú, haga clic en **Archivo**, **Nuevo** y **Dynamic Web Project**. (Si ve que **Dynamic Web Project** no aparece como proyecto disponible después de hacer clic en **File** (Archivo) y **New** (Nuevo), entonces lleve a cabo los siguientes pasos: haga clic en **File** (Archivo), **New** (Nuevo), **Project...** (Proyecto...), expanda **Web**, haga clic en **Dynamic Web Project** y luego haga clic en **Next** (Siguiente)).
-1. Para los fines de este tutorial, asigne el nombre **MyHelloWorld** al proyecto. La pantalla se parecerá a la siguiente:
-   ![][02]
+1. Para los fines de este tutorial, asigne el nombre **MyHelloWorld** al proyecto. La pantalla se parecerá a la siguiente: ![][02]
 1. Haga clic en **Finalizar**
 1. En la vista del explorador de proyectos de Eclipse, expanda **MyHelloWorld**. Haga clic con el botón secundario en **WebContent**, luego haga clic en **Nuevo** y, a continuación, en **JSP File**.
 1. En el cuadro de diálogo **Nuevo archivo JSP**, asigne al archivo el nombre **index.jsp**. Mantenga la carpeta principal como **MyHelloWorld/WebContent**.
@@ -54,14 +53,26 @@ Existen varias maneras de implementar una aplicación web de Java en Azure. En e
 1. En el Explorador de proyectos de Eclipse, haga clic con el botón derecho en **MyHelloWorld**.
 
 1. En el menú contextual, seleccione **Azure** y luego haga clic en **Publish as Azure Web App...** (Publicar como una aplicación web de Azure...).
+
    ![][03]
+   
+   O bien, mientras está seleccionado el proyecto de aplicación web en el Explorador de proyectos, puede hacer clic en el botón desplegable **Publicar** de la barra de herramientas y seleccionar el botón **Publish as Azure Web App** (Publicar como aplicación Web de Azure) desde allí:
+   
+   ![][publishDropdownButton]
+   
 1. Si aún no ha iniciado sesión en Azure desde Eclipse, se le pedirá que inicie sesión en su cuenta de Azure:
+
    ![][04]
-   Nota: Si tiene varias cuentas de Azure, es posible que algunos de los mensajes que aparecen durante el proceso de inicio de sesión se muestren más de una vez, aunque parezca que son el mismo. Cuando esto ocurra, siga la instrucciones de inicio de sesión.
+   
+   Nota: Si tiene varias cuentas de Azure, puede que algunos de los avisos que aparecen durante el proceso de inicio de sesión se muestren más de una vez, incluso si parecen ser iguales. Cuando esto ocurra, siga la instrucciones de inicio de sesión.
 1. Cuando haya iniciado sesión correctamente en su cuenta de Azure, el cuadro de diálogo **Administrar suscripciones** mostrará una lista de suscripciones que están asociados con sus credenciales. Si aparecen varias suscripciones y quiere trabajar solo con un subconjunto específico de ellas, opcionalmente puede desactivar las que no utilice. Cuando haya seleccionado las suscripciones, haga clic en **Cerrar**.
+
    ![][05]
-1. Cuando aparezca el cuadro de diálogo **Implementar en el contenedor de aplicaciones web de Azure**, se mostrarán los contenedores de aplicaciones web creados anteriormente; si no ha creado ningún contenedor, la lista estará vacía.   
+   
+1. Cuando aparezca el cuadro de diálogo **Implementar en el contenedor de aplicaciones web de Azure**, se mostrarán los contenedores de aplicaciones web creados anteriormente; si no ha creado ningún contenedor, la lista estará vacía.
+
    ![][06]
+   
 1. Si no ha creado un contenedor de aplicaciones web de Azure antes, o si quiere publicar la aplicación en un nuevo contenedor, siga estos pasos. De lo contrario, seleccione un contenedor de aplicaciones web existente y vaya al paso 7 a continuación.
 
   1. Haga clic en **Nuevo...**
@@ -78,7 +89,7 @@ Existen varias maneras de implementar una aplicación web de Java en Azure. En e
 
   1. En el menú desplegable **Suscripción**, seleccione la suscripción que quiere usar para esta implementación.
 
-  1. En el menú desplegable **Grupo de recursos**, seleccione el grupo de recursos con la que desea asociar la aplicación web.
+  1. En el menú desplegable **Grupo de recursos**, seleccione el grupo de recursos con el que desea asociar la aplicación web.
 
         Nota: Los grupos de recursos de Azure permiten agrupar recursos relacionados para que, por ejemplo, se puedan eliminar juntos.
 
@@ -96,7 +107,7 @@ Existen varias maneras de implementar una aplicación web de Java en Azure. En e
 
       * Haga clic en **Aceptar**.
 
-  1. En la lista desplegable **Plan del servicio de aplicaciones** se muestran los planes del servicio de aplicaciones que están asociados con el grupo de recursos seleccionado.
+  1. En el menú desplegable **Plan del servicio de aplicaciones** se muestran los planes del servicio de aplicaciones que están asociados con el grupo de recursos seleccionado.
 
         Nota: un plan de servicio de aplicaciones especifica información como la ubicación de la aplicación web, el plan de tarifas y el tamaño de la instancia de proceso. Un único plan de servicio de aplicaciones se puede usar para varias aplicaciones web, motivo por el cual se mantiene independiente de una implementación específica de aplicaciones web.
 
@@ -130,9 +141,9 @@ Existen varias maneras de implementar una aplicación web de Java en Azure. En e
 
     Haga clic en **Aceptar** para implementar su aplicación Java en el contenedor de aplicaciones web seleccionado.
 
-    Nota: De forma predeterminada, la aplicación se implementará como un subdirectorio del servidor de aplicaciones. Si desea que se implemente como la aplicación raíz, active la casilla **Implementar en raíz** antes de hacer clic **Aceptar**.
+    Nota: De forma predeterminada, la aplicación se implementará como un subdirectorio del servidor de aplicaciones. Si desea que se implemente como la aplicación raíz, active la casilla **Implementar en raíz** antes de hacer clic en **Aceptar**.
 
-1. A continuación, debería mostrarse la vista **Registro de actividad de Azure**, que indicará el estado de implementación de la aplicación web.
+1. A continuación, debería mostrarse la vista **Azure Activity Log** (Registro de actividad de Azure), que indicará el estado de implementación de la aplicación web.
 
     ![][12]
 
@@ -201,7 +212,6 @@ Para obtener más información, consulte los vínculos siguientes:
 [11]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/11-Completed-Deploy-Dialog.png
 [12]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/12-Activity-Log-View.png
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
+[publishDropdownButton]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0309_2016-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

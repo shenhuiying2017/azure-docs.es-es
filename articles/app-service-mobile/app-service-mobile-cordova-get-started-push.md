@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="adrianha"/>
+	ms.date="05/02/2016"
+	ms.author="glenga"/>
 
-# Agregar notificaciones push a la aplicación de Apache Cordova
+# Agregar notificaciones push a su aplicación de Apache Cordova
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
@@ -61,57 +61,53 @@ Como nos estamos centrando en la plataforma de Google Android, debe habilitar el
 
 Antes de implementar su aplicación en su dispositivo Android, debe habilitar la depuración USB. Realice los pasos siguientes en su teléfono Android:
 
-1. Vaya a **Configuración** > **Acerca del teléfono**
-2. Pulse en **Número de compilación** hasta que se habilite el modo de desarrollador
-3. Vuelva a **Configuración**
-4. Seleccione **Opciones de desarrollador**
-5. Active **Depuración USB**
-6. Conecte el teléfono Android al equipo de desarrollo con un cable USB.
+1. Vaya a **Configuración** > **Acerca del teléfono**, luego pulse **Número de compilación** hasta que se habilite el modo de desarrollador (unas 7 veces).
+ 
+2. Nuevamente en **Configuración** > **Opciones de desarrollador**, habilite **Depuración USB** y, luego, conecte el teléfono Android al equipo de desarrollo con un cable USB.
 
-En las pruebas de este tutorial, usamos un Google Nexus 5X que ejecuta la versión Android 6.0 (Marshmallow). Sin embargo, las técnicas son comunes a cualquier versión moderna de Android.
+Cuando lo probamos, usamos un dispositivo Google Nexus 5X con Android 6.0 (Marshmallow). Sin embargo, las técnicas son comunes a cualquier versión moderna de Android.
 
 ##<a name="add-push-to-app"></a>Incorporación de notificaciones de inserción a la aplicación
 
-Debe asegurarse de que su proyecto de aplicación de Apache Cordova está listo para controlar las notificaciones push.
+Debe asegurarse de que su proyecto de aplicación de Apache Cordova está listo para controlar las notificaciones push. Debe instalar el complemento de inserción Cordova, además de cualquier servicio de inserción específico para la plataforma.
 
-### Instalar el complemento de inserción de Apache Cordova
+### Instalación del complemento de inserción
 
-Las aplicaciones de Apache Cordova no controlan el dispositivo ni las funcionalidades de red de forma nativa. Estas funcionalidades se proporcionan mediante los complementos que se publican en [npm](https://www.npmjs.com/) o en GitHub. El complemento de `phonegap-plugin-push` se usa para controlar las notificaciones push de la red.
+Las aplicaciones de Apache Cordova no controlan el dispositivo ni las funcionalidades de red de forma nativa. Estas funcionalidades se proporcionan mediante los complementos que se publican en [npm](https://www.npmjs.com/) o en GitHub. El complemento `phonegap-plugin-push` se usa para controlar las notificaciones push de la red.
 
 Puede instalar el complemento de inserción push de una de estas formas:
 
 **Desde el símbolo del sistema:**
 
+Ejecute el comando siguiente:
+
     cordova plugin add phonegap-plugin-push
 
-**Desde Visual Studio**:
+**Desde Visual Studio:**
 
-1.  Abra el archivo `config.xml` desde el Explorador de soluciones.
-2.  Haga clic en **Complementos** > **Personalizado**, seleccione **Git** como origen de la instalación y, a continuación, escriba `https://github.com/phonegap/phonegap-plugin-push` como el origen.
+1.  En el Explorador de soluciones, abra el archivo `config.xml`, haga clic en **Complementos** > **Personalizado**, seleccione **Git** como el origen de instalación y, luego, escriba `https://github.com/phonegap/phonegap-plugin-push` como el origen.
 
 	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
 
-4.  Haga clic en la flecha situada junto al origen de la instalación y, a continuación, haga clic en **Agregar**.
+2.  Haga clic en la flecha situada junto al origen de la instalación y haga clic en **Agregar**
 
 Ahora ya está instalado el complemento de inserción.
 
-### Instalar Google Play Services de Android
+### Instalación de Google Play Services
 
-El complemento de inserción de PhoneGap se basa en Google Play Services para las notificaciones push. Para instalarlo:
+El complemento de inserción se basa en Google Play Services de Android para las notificaciones push.
 
-1.  Abra **Visual Studio**.
-2.  Haga clic en **Herramientas** > **Android** > **Android SDK Manager**.
-3.  En la carpeta Extras, active la casilla situada junto a cada SDK requerido que no esté instalado. Se requieren los siguientes paquetes:
+1.  En **Visual Studio**, haga clic en **Herramientas** > **Android** > **Administrador de SDK de Android**, expanda la carpeta **Extras** y marque la casilla para asegurarse de que se instale cada uno de los siguientes SDK.    
     * Android Support Library versión 23 o posteriores
     * Android Support Repository versión 20 o posteriores
     * Google Play Services versión 27 o posteriores
     * Google Repository versión 22 o posteriores
-4.  Haga clic en **Instalar paquetes**.
-5.  Espere hasta que la instalación se complete.
+     
+2.  Haga clic en **Instalar paquetes** y espere que se complete la instalación.
 
 Las bibliotecas necesarias actuales se muestran en la [documentación de instalación de phonegap-plugin-push].
 
-### Registrar el dispositivo para inserción en el inicio
+### Registro del dispositivo para inserción en el inicio
 
 1. Agregue una llamada a **registerForPushNotifications** durante la devolución de llamada para el proceso de inicio de sesión, o bien en la parte inferior del método **onDeviceReady**:
 
@@ -134,7 +130,7 @@ Las bibliotecas necesarias actuales se muestran en la [documentación de instala
 
 		    }, handleError);
 
-	En este ejemplo se muestra la llamada **registerForPushNotifications** una vez realizada la autenticación; este procedimiento se recomienda al utilizar en la aplicación tanto las notificaciones de inserción como la autenticación.
+	En este ejemplo se muestra la llamada **registerForPushNotifications** una vez realizada la autenticación; este procedimiento se recomienda al utilizar en la aplicación tanto las notificaciones push como la autenticación.
 
 2. Agregue el nuevo método `registerForPushNotifications()` de la siguiente forma:
 
@@ -169,13 +165,13 @@ Las bibliotecas necesarias actuales se muestran en la [documentación de instala
 
 3. En el código anterior, reemplace `Your_Project_ID` por el identificador de proyecto numérico de la aplicación en [Google Developer Console].
 
-## Prueba de la aplicación con el servicio móvil publicado
+## Prueba de las notificaciones push en la aplicación 
 
-Puede probar la aplicación conectando directamente un teléfono Android con un cable USB. En lugar de **Google Android Emulator**, seleccione **Dispositivo**. Visual Studio descargará la aplicación en el dispositivo y ejecutará la aplicación. Después interactuará con la aplicación en el dispositivo.
+Ahora puede probar las notificaciones push mediante la ejecución de la aplicación y la inserción de elementos en la tabla TodoItem. Puede hacerlo desde el mismo dispositivo o desde otro dispositivo, siempre que use el mismo back-end. Pruebe la aplicación Cordova en la plataforma Android de una de las siguientes maneras:
 
-Mejore su experiencia de desarrollo. Las aplicaciones de uso compartido de la pantalla, como [Mobizen], pueden ayudarle a desarrollar una aplicación de Android mediante la proyección de su pantalla Android en un explorador web de su PC.
+- **En un dispositivo físico:** conecte el dispositivo Android al equipo de desarrollo con un cable USB. En lugar de **Google Android Emulator**, seleccione **Dispositivo**. Visual Studio implementará la aplicación en el dispositivo y la ejecutará. Luego podrá interactuar con la aplicación en el dispositivo. Mejore su experiencia de desarrollo. Las aplicaciones de uso compartido de la pantalla, como [Mobizen], pueden ayudarle a desarrollar una aplicación de Android mediante la proyección de su pantalla Android en un explorador web de su PC.
 
-También puede probar la aplicación Android en el emulador de Android. No olvide agregar una cuenta de Google en el emulador.
+- **En un emulador de Android:** antes de que pueda recibir notificaciones push, debe agregar una cuenta de Google en el emulador.
 
 ##<a name="next-steps"></a>Pasos siguientes
 
@@ -204,4 +200,4 @@ Obtenga información sobre cómo usar los SDK.
 [SDK de servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK de servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

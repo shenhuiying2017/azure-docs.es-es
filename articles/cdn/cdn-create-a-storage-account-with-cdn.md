@@ -49,9 +49,9 @@ Para crear una cuenta de almacenamiento, debe ser administrador del servicio o c
 
 	Este valor también se utiliza como nombre de esta cuenta de almacenamiento en el portal o en el acceso a esta cuenta mediante programación.
 
-5.  Seleccione un **Plan de tarifa** o use el valor predeterminado. Para más información sobre niveles de precios, vea [Precios de Almacenamiento de Azure](../../pricing/details/storage).
+5.  Seleccione un **Plan de tarifa** o use el valor predeterminado. Para más información sobre niveles de precios, vea [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-6.  Seleccione o cree un **Grupo de recursos**. Para más información sobre los grupos de recursos, vea [Información general del Administrador de recursos de Azure](resource-group-overview/#resource-groups).
+6.  Seleccione o cree un **Grupo de recursos**. Para más información sobre los grupos de recursos, vea [Información general del Administrador de recursos de Azure](resource-group-overview.md#resource-groups).
 
 7. Seleccione la **Suscripción** con la que se usará la cuenta de almacenamiento.
 
@@ -104,7 +104,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
     ![Hoja Agregar punto de conexión][cdn-add-endpoint]
 
-3. Escriba un **Nombre** para este punto de conexión de red de entrega de contenido. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<EndpointName>.azureedge.net`.
+3. Escriba un **Nombre** para este punto de conexión de red de entrega de contenido. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<endpointname>.azureedge.net`.
 
 4. En la lista desplegable **Tipo de origen**, seleccione *Almacenamiento*.
 
@@ -135,7 +135,7 @@ http://<*NombrePuntoConexión*>.azureedge.net/<*miContenedorPúblico*>/<*NombreD
 
 Si no desea seguir almacenando un objeto en la memoria caché de la Red de entrega de contenido de Azure (CDN), puede realizar uno de los siguientes pasos:
 
--   Puede crear un contenedor privado en vez de público. Vea [Administración del acceso de lectura anónimo a contenedores y blobs](../storage-manage-access-to-resources/) para más información.
+-   Puede crear un contenedor privado en vez de público. Vea [Administración del acceso de lectura anónimo a contenedores y blobs](../storage/storage-manage-access-to-resources.md) para más información.
 -   Puede deshabilitar o eliminar el punto de conexión de la red CDN con el Portal de administración.
 -   Puede modificar su servicio hospedado para no seguir respondiendo las solicitudes del objeto.
 
@@ -154,4 +154,4 @@ Un objeto que ya está almacenado en la memoria caché de la red CDN permanecer�
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

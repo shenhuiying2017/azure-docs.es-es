@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="05/02/2016" 
 ms.author="adegeo"/>
 
 # Personalizar el ciclo de vida de un rol web o de trabajo en .NET
@@ -35,7 +35,7 @@ Al extender **RoleEntryPoint**, debe tener en cuenta los siguientes comportamien
 
 Si el rol no se inicia, o se recicla entre los estados de inicialización, ocupado y detención, el código puede generar una excepción no controlada en uno de los eventos de ciclo de vida cada vez que se reinicie el rol. En este caso, use el evento [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) para determinar la causa de la excepción y controlarla de manera adecuada. Puede que su rol también se pueda devolver desde el método [Ejecutar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), que hace que se reinicie el rol. Para obtener más información acerca de los estados de implementación, vea [Problemas comunes que hacen que se reciclen los roles](https://msdn.microsoft.com/library/azure/gg465402.aspx).
 
-> [AZURE.NOTE]Si está usando la [Azure Tools para Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) para desarrollar su aplicación, las plantillas de proyecto de rol extienden automáticamente la clase **RoleEntryPoint**, en los archivos WebRole.cs y WorkerRole.cs.
+> [AZURE.NOTE] Si está usando la [Azure Tools para Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) para desarrollar su aplicación, las plantillas de proyecto de rol extienden automáticamente la clase **RoleEntryPoint**, en los archivos WebRole.cs y WorkerRole.cs.
 
 ## Método OnStart
 
@@ -63,7 +63,7 @@ public override bool OnStart()
 
 Al método **OnStop** se llama después de que Azure haya desconectado una instancia de rol Azure y antes de que salga el proceso. Puede invalidar este método para llamar al código necesario para que la instancia de rol se desconecte sin errores.
 
-> [AZURE.IMPORTANT]El código que se ejecuta en el método **OnStop** tiene un tiempo limitado para finalizar cuando se llama por motivos distintos del apagado iniciado por un usuario. Después de que transcurra este tiempo, el proceso finaliza, por lo que debe asegurarse de que el código del método**OnStop** puede ejecutarse rápidamente o de que no tolera que no haya ninguna ejecución para finalizar. Al método **OnStop** se le llama después de que se genere el evento **Deteniendo**.
+> [AZURE.IMPORTANT] El código que se ejecuta en el método **OnStop** tiene un tiempo limitado para finalizar cuando se llama por motivos distintos del apagado iniciado por un usuario. Después de que transcurra este tiempo, el proceso finaliza, por lo que debe asegurarse de que el código del método**OnStop** puede ejecutarse rápidamente o de que no tolera que no haya ninguna ejecución para finalizar. Al método **OnStop** se le llama después de que se genere el evento **Deteniendo**.
 
 
 ## Método Run
@@ -80,4 +80,4 @@ Puede usar los métodos del ciclo de vida de ASP.NET, además de los proporciona
 ## Pasos siguientes
 Aprenda cómo [crear un paquete de servicio en la nube](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0504_2016-->

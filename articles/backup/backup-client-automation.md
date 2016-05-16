@@ -592,7 +592,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Pasos siguientes
 Para obtener más información sobre Copia de seguridad de Azure para Windows Server o cliente de Windows, consulte
 
-- [Introducción a la Copia de seguridad de Azure](backup-configure-vault.md)
-- [Copia de seguridad de servidores Windows](backup-azure-backup-windows-server.md)
+- [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
+- [Copia de seguridad de servidores Windows](backup-configure-vault.md)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

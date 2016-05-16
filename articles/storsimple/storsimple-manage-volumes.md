@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar volúmenes
@@ -42,6 +42,8 @@ Un volumen se compone de una serie de atributos:
 - **Estado**: puede estar conectado o desconectado. Si un volumen está desconectado, no es visible para los iniciadores (servidores) que tienen acceso para usar el volumen.
 
 - **Capacidad**: especifica el tamaño del volumen, tal como lo percibe el iniciador (servidor). La capacidad especifica la cantidad total de datos que puede almacenar el iniciador (servidor). Los volúmenes tienen aprovisionamiento fino y los datos están desduplicados. Esto implica que el dispositivo ya no asigna previamente la capacidad de almacenamiento físico de forma interna o en la nube en función de la capacidad configurada del volumen. La capacidad del volumen se asigna y se consume a petición.
+
+- **Tipo** : el tipo de volumen pueden establecerse en niveles o archivarse (un subtipo establecido en niveles)
 
 - **Acceso**: especifica los iniciadores (servidores) que pueden tener acceso a este volumen. Los iniciadores que no son miembros del registro de control de acceso (ACR) asociado al volumen no podrán ver el volumen.
 
@@ -73,7 +75,7 @@ Ya [creó un volumen](storsimple-deployment-walkthrough-u1.md#step-6-create-a-vo
 
   1. Proporcione un **Nombre** para el volumen.
   2. Especifique la **Capacidad aprovisionada** para el volumen en GB o TB. La capacidad debe estar entre 1 y 64 TB para un dispositivo físico. La capacidad máxima que se puede aprovisionar para un volumen en un dispositivo virtual de StorSimple es de 30 TB.
-  3. En la lista desplegable, seleccione el **Tipo de uso** para el volumen. Si está usando este volumen para datos de archivo, active la casilla **Usar este volumen para los datos de archivo a los que accede con menos frecuencia**. Para los demás casos de uso, seleccione simplemente **Volumen por niveles**. (Los volúmenes en niveles se denominaban anteriormente volúmenes primarios).
+  3. Seleccione el **Tipo de uso** para el volumen. Si usa el volumen en capas para los datos de archivo, seleccione la casilla de verificación **Usar este volumen para los datos de archivo a los que accede con menos frecuencia** cambia el tamaño del fragmento de desduplicación del volumen a 512 KB. Si no selecciona esta opción, el volumen correspondiente en capas usará un tamaño del fragmento de 64 KB. Un mayor tamaño de fragmento de desduplicación permite que el dispositivo acelere la transferencia de datos de archivado de gran tamaño a la nube. (Los volúmenes en niveles se denominaban anteriormente volúmenes primarios).
   5. Haga clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes/HCS_ArrowIcon.png) para ir a la página **Configuración adicional**.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
@@ -105,7 +107,7 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
 
 4. En el Asistente para modificar volúmenes, en **Configuración básica**, puede hacer lo siguiente:
 
-  - Editar el **Nombre** y el **Tipo de aplicación**.
+  - Edite el **nombre** y el **tipo** si desea modificar un volumen establecido en niveles en un volumen de archivo seleccionando la casilla **Usar este volumen para los datos de archivo a los que accede con menos frecuencia** para cambiar el tamaño del fragmento de desduplicación para el volumen en 512 KB.
   - Aumentar la **Capacidad aprovisionada**. La **Capacidad aprovisionada** solo puede aumentarse. No se puede reducir un volumen después de crearlo.
 
     > [AZURE.NOTE] No se puede cambiar el contenedor de volúmenes después de asignarlo a un volumen.
@@ -198,4 +200,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

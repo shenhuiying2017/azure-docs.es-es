@@ -17,7 +17,7 @@
 
 # Configuración del registro de diagnóstico de Azure en Application Insights
 
-Cuando se configura un proyecto de Servicios en la nube o una máquina Virtual en Microsoft Azure, [Azure puede generar un registro de diagnóstico](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md/). Puede hacer que dicho registro se envíe a Application Insights para poder analizarlo junto con los datos de telemetría de diagnóstico y uso que el SDK de Application Insights envía desde la aplicación. El registro de Azure incluye eventos de la administración de la aplicación, como inicio, detención, bloqueos, así como contadores de rendimiento. El registro también incluye llamadas de la aplicación a System.Diagnostics.Trace.
+Cuando se configura un proyecto de Servicios en la nube o una máquina Virtual en Microsoft Azure, [Azure puede generar un registro de diagnóstico](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). Puede hacer que dicho registro se envíe a Application Insights para poder analizarlo junto con los datos de telemetría de diagnóstico y uso que el SDK de Application Insights envía desde la aplicación. El registro de Azure incluye eventos de la administración de la aplicación, como inicio, detención, bloqueos, así como contadores de rendimiento. El registro también incluye llamadas de la aplicación a System.Diagnostics.Trace.
 
 En este artículo se describe la configuración de la captura de diagnóstico en detalle.
 
@@ -146,4 +146,4 @@ Existen algunas limitaciones que se deben tener en cuenta con esta funcionalidad
 * [Uso de PowerShell para enviar diagnósticos de Azure a Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Archivo de configuración de Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

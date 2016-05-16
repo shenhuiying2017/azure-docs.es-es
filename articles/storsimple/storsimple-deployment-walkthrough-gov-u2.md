@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Implemente el dispositivo StorSimple local en el Portal de Government (Update 2)
@@ -234,13 +234,13 @@ E/S de múltiples rutas (MPIO) es una característica opcional y no está instal
 
 Para instrucciones de instalación de MPIO para un dispositivo StorSimple conectado a un host Linux, vaya a [Configurar MPIO para el host Linux](storsimple-configure-mpio-on-linux.md).
 
-> [AZURE.NOTE] No se admite MPIO en un dispositivo virtual de StorSimple.
+> [AZURE.NOTE] No se admite MPIO en un dispositivo virtual de StorSimple en Azure.
 
 ## Pasos siguientes
 
-- Configure un [dispositivo virtual](storsimple-virtual-device.md).
+- Configure un [dispositivo virtual](storsimple-virtual-device-u2.md).
 
 - Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

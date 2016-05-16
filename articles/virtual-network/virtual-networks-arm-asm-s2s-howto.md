@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Cómo conectar redes virtuales clásicas a redes virtuales ARM en Azure"
    description="Obtenga información acerca de cómo crear una conexión VPN entre redes virtuales clásicas y nuevas"
-   services="virtual-network"
+   services="vpn-gateway"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="cherylmc"
    manager="carmonm"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/22/2016"
-   ms.author="telmos" />
+   ms.author="cherylmc" />
 
 # Conexión de redes virtuales clásicas a redes virtuales nuevas
 
@@ -44,7 +44,7 @@ Para crear la puerta de enlace de VPN para la red virtual clásica, siga las ins
 4. En el menú desplegable **CIDR (RECUENTO DE DIRECCIONES)**, seleccione el número de bits usados para la parte de la red del bloque CIDR usado por la red virtual ARM a la que desea conectarse.
 5. En **DIRECCIÓN IP DEL DISPOSITIVO VPN (OPCIONAL)**, escriba cualquier dirección IP pública válida. Cambiaremos esta dirección IP más adelante. A continuación, haga clic en el botón de marca de verificación de la parte inferior derecha de la pantalla. En la siguiente ilustración se muestra la configuración de ejemplo de esta página.
 
-	![Configuración de la red local](..\virtual-network\media\virtual-networks-arm-asm-s2s-howto\figurex1.png)
+	![Configuración de la red local](.\media\virtual-networks-arm-asm-s2s-howto\figurex1.png)
 
 5. En la página **Redes**, haga clic en **REDES VIRTUALES**, en la red virtual clásica y, a continuación, en **CONFIGURAR**.
 6. En **conectividad de sitio a sitio**, marque la casilla de verificación **conectarse a la red local**.
@@ -71,7 +71,7 @@ Para crear una puerta de enlace de VPN para la red virtual ARM, siga las instruc
 4. Ejecute el comando siguiente para recuperar la subred usada para la puerta de enlace.
 
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
-			-VirtualNetwork (Get-AzureVirtualNetwork -Name VNetARM -ResourceGroupName RG1) 
+			-VirtualNetwork (Get-AzureRMVirtualNetwork -Name VNetARM -ResourceGroupName RG1) 
 
 	>[AZURE.IMPORTANT] La subred de la puerta de enlace ya debe existir previamente y debe tener el nombre GatewaySubnet.
 
@@ -118,4 +118,4 @@ Para crear una puerta de enlace de VPN para la red virtual ARM, siga las instruc
 - Obtener más información sobre [el proveedor de recursos de red (NRP) para ARM](resource-groups-networking.md).
 - Cree una [solución integral mediante la conexión de una red virtual clásica a una ARM mediante una VPN S2S](virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

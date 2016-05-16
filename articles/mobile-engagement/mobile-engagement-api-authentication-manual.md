@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/11/2016"
+	ms.date="05/03/2016"
 	ms.author="piyushjo"/>
 
 # Autenticación con las API de REST de Mobile Engagement: configuración manual
 
 Se trata de una documentación de apéndice de [Autenticación con las API de REST de Mobile Engagement](mobile-engagement-api-authentication.md). Asegúrese de leerla primero para obtener el contexto. Describe una forma alternativa de realizar una única configuración para establecer la autenticación para las API de REST de Mobile Engagement mediante el Portal de Azure.
 
->[AZURE.NOTE] Las instrucciones siguientes se basan en esta [Guía de Active Directory](../resource-group-create-service-principal-portal/) y se personalizan según lo necesario para la autenticación para las API de Mobile Engagement. Así que consúltela si desea conocer los pasos siguientes en detalle.
+>[AZURE.NOTE] Las instrucciones siguientes se basan en esta [guía de Active Directory](../resource-group-create-service-principal-portal.md) y se personalizan según lo necesario para la autenticación para las API de Mobile Engagement. Así que consúltela si desea conocer los pasos siguientes en detalle.
 
 1. Inicie sesión en su cuenta de Azure a través del [portal clásico](https://manage.windowsazure.com/).
 
@@ -144,4 +144,4 @@ Ahora ha completado la configuración de AAD necesaria y ya está listo para lla
 [20]: ./media/mobile-engagement-api-authentication-manual/add-user-select.png
 [21]: ./media/mobile-engagement-api-authentication-manual/add-access-final.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

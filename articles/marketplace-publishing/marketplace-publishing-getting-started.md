@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="04/29/2016"
    ms.author="hascipio" />
 
 # Publicación de una oferta en Azure Marketplace
@@ -57,7 +57,7 @@ Algunos pasos se comparten entre los distintos tipos de soluciones. En este art�
 
 - [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Creación de una imagen de máquina virtual local](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](../virtual-machines-windows-hero-tutorial/)
+- [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 **Servicios de datos**
 
@@ -82,4 +82,4 @@ Algunos pasos se comparten entre los distintos tipos de soluciones. En este art�
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

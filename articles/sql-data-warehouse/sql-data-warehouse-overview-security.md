@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Proteger una base de datos en Almacenamiento de datos SQL
@@ -24,7 +24,9 @@ En este artículo se describen los fundamentos de la protección de una base de 
 
 Seguridad de conexión hace referencia a cómo restringir y proteger las conexiones a la base de datos mediante reglas de firewall y cifrado de las conexiones.
 
-Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista blanca. Para permitir que la aplicación o la dirección IP pública del equipo cliente intente conectarse a una nueva base de datos, primero debe crear una regla de firewall de nivel de servidor mediante el Portal de Azure clásico, API de REST o PowerShell. Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible. Para obtener más información, vea [Firewall de Base de datos SQL de Azure][].
+Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista blanca. Para permitir conexiones desde la dirección IP pública del equipo cliente o de aplicación, primero debe crear una regla de firewall de nivel de servidor mediante el Portal de Azure clásico, API de REST o PowerShell. Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible. Para obtener acceso a Almacenamiento de datos SQL de Azure desde el equipo local, asegúrese de que el firewall de su red y el equipo local permiten la comunicación saliente en el puerto TCP 1433. Para obtener más información, vea [Firewall de Base de datos SQL de Azure][].
+
+Las conexiones a Almacenamiento de datos SQL pueden cifrarse configurando el modo de cifrado en la cadena de conexión. La sintaxis para activar el cifrado de la conexión varía según el protocolo. Para ayudarle a configurar la cadena de conexión, desplácese a la base de datos en el Portal de Azure. En *Essentials*, haga clic en *Mostrar cadenas de conexión de base de datos*.
 
 
 ## Autenticación
@@ -43,7 +45,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
 ```
 
-Luego, conéctese a la base de datos del Almacenamiento de datos de SQL con el inicio de sesión de administrador de servidor y cree un usuario de base de datos basado en el inicio de sesión de servidor que acaba de crear.
+A continuación, conéctese a la base de datos de Almacenamiento de datos de SQL con el inicio de sesión de administrador de servidor y cree un usuario de base de datos basado en el inicio de sesión de servidor que acaba de crear.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -91,14 +93,13 @@ También puede habilitar el cifrado de datos transparente de la configuración d
 La auditoría y el seguimiento de eventos de la base de datos pueden ayudarle a mantener el cumplimiento de las reglamentaciones y a identificar cualquier actividad sospechosa. La auditoría de Almacenamiento de datos SQL permite grabar los eventos de la base de datos en un registro de auditoría de una cuenta de Almacenamiento de Azure. La auditoría de Almacenamiento de datos SQL también se integra con Microsoft Power BI, con el fin de facilitar la generación de análisis e informes detallados. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL][].
 
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
-
+Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos SQL con diferentes protocolos, consulte [Conexión a Almacenamiento de datos SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
-
+[Conexión a Almacenamiento de datos SQL]: sql-data-warehouse-develop-connections.md
+[Introducción a la auditoría de Base de datos SQL]: sql-database-auditing-get-started.md
 
 <!--MSDN references-->
 [Firewall de Base de datos SQL de Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -107,10 +108,9 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [permisos]: https://msdn.microsoft.com/library/ms191291.aspx
 [procedimientos almacenados]: https://msdn.microsoft.com/library/ms190782.aspx
 [cifrado de datos transparente]: http://go.microsoft.com/fwlink/?LinkId=526242
-[Introducción a la auditoría de Base de datos SQL]: sql-database-auditing-get-started.md
 [Portal de Azure clásico]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/28/2016" 
 	ms.author="bradsev" />
 
 
@@ -99,7 +99,7 @@ XUF99EW9OIQOMV7Q7 | Berlina familiar
 
 
 ### Para generar datos simulados
-1.	Haga clic en la flecha situada en la esquina superior derecha del nodo del simulador telemático de vehículo para descargar el paquete de datos del simulador. Guarde y extraiga los archivos localmente en su equipo. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Ilustración 3: Plano técnico de la solución de análisis de telemetría de vehículo*
+1.	Haga clic en la flecha situada en la esquina superior derecha del nodo Simulador telemático del vehículo para descargar el paquete del simulador de datos. Guarde y extraiga los archivos localmente en su máquina. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Ilustración 3: Plano técnico de la solución de análisis de telemetría de vehículo*
 
 2.	En el equipo local, vaya a la carpeta en la que extrajo el paquete del simulador telemático de vehículo. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *Ilustración 4: Carpeta del simulador telemático de vehículo*
 
@@ -135,7 +135,7 @@ El trabajo de Análisis de transmisiones recopila datos a partir del Centro de e
 *Ilustración 7: Consulta de trabajo de Análisis de transmisiones para la ingesta de datos*
 
 ### Análisis por lotes
-También se genera un volumen adicional de las señales y el conjunto de datos de diagnóstico del vehículo simulado para un análisis por lotes más completo. Esto es necesario para garantizar un volumen de datos representativo para el procesamiento por lotes. Con este propósito, usamos una canalización llamada "PrepareSampleDataPipeline" en el flujo de trabajo de Factoría de datos, para generar un conjunto de datos de diagnóstico y de señales de vehículo simulado para un año completo. Haga clic en la [actividad personalizada de la Factoría de datos](http://go.microsoft.com/fwlink/?LinkId=717077) para descargar la solución de Visual Studio de actividad DotNet personalizada de Factoría de datos para realizar personalizaciones que se ajusten a sus necesidades.
+También se genera un volumen adicional de las señales y el conjunto de datos de diagnóstico del vehículo simulado para un análisis por lotes más completo. Esto es necesario para garantizar un volumen de datos representativo para el procesamiento por lotes. Con este propósito, usamos una canalización llamada "PrepareSampleDataPipeline" en el flujo de trabajo de Data Factory de para generar un conjunto de datos de diagnóstico y de señales de vehículo simulado para un año completo. Haga clic en la [actividad personalizada de la Factoría de datos](http://go.microsoft.com/fwlink/?LinkId=717077) para descargar la solución de Visual Studio de actividad DotNet personalizada de Factoría de datos para realizar personalizaciones que se ajusten a sus necesidades.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png)
 
@@ -147,7 +147,7 @@ La canalización consta de una actividad .net personalizada ADF .Net que se mues
 
 *Ilustración 9: PrepareSampleDataPipeline*
 
-Una vez que la canalización se ejecuta correctamente y se marca el conjunto de datos "RawCarEventsTable" como "Ready" se creará un año entero de datos de señales y diagnóstico de vehículo simulado. Verá la siguiente carpeta y archivo creado en la cuenta de almacenamiento en el contenedor "connectedcar"
+Una vez que la canalización se ejecute correctamente y se marque el conjunto de datos "RawCarEventsTable" como "Ready", se creará un año entero de datos de señales y diagnóstico de vehículo simulado. Verá la siguiente carpeta y archivo creado en la cuenta de almacenamiento en el contenedor "connectedcar":
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-prepare-sample-data-pipeline-output.png)
 
@@ -165,7 +165,7 @@ Una vez que la canalización se ejecuta correctamente y se marca el conjunto de 
 ## Preparación
 >[AZURE.ALERT] Este paso de la solución solo es aplicable al procesamiento por lotes.
 
-El conjunto de datos semiestructurado sin procesar de señales y diagnóstico de vehículo se particiona en el paso de preparación de datos en un formato de año y mes para una consulta eficiente y un almacenamiento escalable a largo plazo (es decir, permite una conmutación por error de una cuenta de blob a la siguiente a medida que se llena la primera). Los datos de salida (etiquetados *PartitionedCarEventsTable*) se guardarán durante un largo período como formulario de datos fundacionales (sin procesamiento alguno) en el "Data Lake" del cliente. Normalmente se podrían descartar los datos de entrada para esta canalización, ya que los datos de salida mantienen la máxima fidelidad a la entrada, simplemente se almacenan (se particionan) para su uso posterior.
+El conjunto de datos semiestructurado sin procesar de señales y diagnóstico de vehículo se particiona en el paso de preparación de datos en un formato de año y mes para una consulta eficiente y un almacenamiento escalable a largo plazo (*es decir*, permite una conmutación por error de una cuenta de blob a la siguiente a medida que se llena la primera). Los datos de salida (etiquetados *PartitionedCarEventsTable*) se guardarán durante un largo período como formulario de datos fundacionales (sin procesamiento alguno) en el "Data Lake" del cliente. Normalmente se podrían descartar los datos de entrada para esta canalización, ya que los datos de salida mantienen la máxima fidelidad a la entrada, simplemente se almacenan (se particionan) para su uso posterior.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-workflow.png)
 
@@ -370,7 +370,7 @@ Ilustración 15: Consulta de análisis de transmisiones para el procesamiento en
 
 Todos los promedios se calculan sobre una TumblingWindow de 3 segundos. En este caso estamos usando TubmlingWindow puesto que necesitamos que los intervalos de tiempo no se superpongan y sean contiguos.
 
-Para más información sobre todas las capacidades basadas en ventanas de Análisis de transmisiones de Azure, haga clic en [Capacidades basadas en ventanas (Análisis de transmisiones de Azure)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+Para más información sobre todas las capacidades basadas en ventanas de Análisis de transmisiones de Azure, haga clic en [Ventana (análisis de streaming de Azure)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 **Predicción en tiempo real**
 
@@ -387,9 +387,9 @@ Este patrón también es aplicable a escenarios donde desea integrar una aplicac
 
 Haga clic en la [descarga de RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) para descargar la solución de Visual Studio de RealtimeDashboardApp para las personalizaciones.
 
-**Para ejecutar la aplicación de panel en tiempo real**
+**** Para ejecutar la aplicación de panel en tiempo real **
 
-1.	CNAMEs are displayed directly below this graphHaga clic en el nodo PowerBI en la vista de diagrama y luego en el vínculo Descargar aplicación del panel en tiempo real, en el panel de propiedades. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Ilustración 17: Instrucciones de configuración del panel de Power BI*
+1.	Haga clic en el nodo de Power BI en la vista de diagrama y luego en el vínculo Descargar aplicación del panel en tiempo real, en el panel de propiedades. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Ilustración 17: Instrucciones de configuración del panel de Power BI*
 2.	Extraer y guardar localmente ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Ilustración 18: Carpeta RealtimeDashboardApp*
 3.	Ejecute la aplicación RealtimeDashboardApp.exe.
 4.	Proporcione credenciales válidas de Power BI, inicie sesión y haga clic en Aceptar ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png). 
@@ -413,7 +413,7 @@ En esta solución, nuestro destino son las siguientes métricas:
 2.	**Conducción para un consumo eficiente de combustible**: identifica la tendencia de los modelos, ubicaciones, condiciones de circulación y época del año para obtener información sobre un patrón de conducción que consuma combustible de forma más eficiente, y que permita a Contoso Motors usarlo para campañas de marketing, dando lugar a nuevas prestaciones e información proactiva a los conductores sobre hábitos de conducción más económicos y ecológicos. 
 3.	**Modelos de retirada**: identifica modelos que precisan ser retirados, poniendo en funcionamiento los experimentos de aprendizaje automático de detección de anomalías
 
-Veamos cada una de estas métricas en detalle
+Veamos cada una de estas métricas en detalle.
 
 
 **Patrón de comportamiento agresivo al volante**
@@ -706,4 +706,4 @@ Haga clic aquí para obtener instrucciones detalladas sobre cómo configurar los
 
 Este documento contiene un desglose detallado de la solución de análisis de telemetría de vehículos. Se presenta un patrón de arquitectura lambda para análisis en tiempo real y de procesamiento por lotes con predicciones y acciones. Este patrón se aplica a una amplia gama de casos de uso que requieren análisis con ruta de acceso activa (en tiempo real) y la ruta de acceso frío (lote).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

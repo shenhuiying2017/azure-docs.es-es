@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Asesor de índices de Base de datos SQL de Azure" 
-   description="El Asesor de índices de Base de datos SQL recomienda índices nuevos para las Bases de datos SQL existentes que pueden mejorar el rendimiento de la consulta actual." 
+   pageTitle="Asesor de Base de datos SQL de Azure" 
+   description="El Asesor de Base de datos SQL de Azure ofrece recomendaciones para las bases de datos SQL existentes que pueden mejorar el rendimiento actual de las consultas." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,104 +13,105 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/23/2016"
+   ms.date="04/28/2016"
    ms.author="sstein"/>
 
-# Asesor de índices de Base de datos SQL
+# Asesor de Base de datos SQL
 
-El Asesor de índices de Base de datos SQL de Azure recomienda índices para las Bases de datos SQL existentes que pueden mejorar el rendimiento de la consulta actual. El servicio de la Base de datos SQL evalúa el rendimiento del índice mediante el análisis del historial de uso de la base de datos SQL. Se recomienda usar los índices que sean más adecuados para ejecutar la carga de trabajo habitual de su base de datos.
+Se ha actualizado el Asesor de índices de Base de datos SQL de Azure a fin de ofrecer no solo recomendaciones para crear y quitar índices, sino que ahora incluye recomendaciones para parametrizar consultas y para solucionar problemas del esquema. Con estas recomendaciones adicionales el Asesor de índices es ahora el **Asesor de Base de datos SQL**.
 
-El Asesor de índices le ayuda a optimizar el rendimiento de la base de datos de la siguiente manera:
+El Asesor de Base de datos SQL evalúa el rendimiento mediante el análisis del historial de uso de la base de datos SQL. Se recomienda usar los índices que sean más adecuados para ejecutar la carga de trabajo habitual de su base de datos.
 
-- Le recomienda cuáles son los índices que debería crear (las recomendaciones están disponibles solo para los índices que no son de clúster).
-- Le recomienda cuáles son los índices que debería quitar (las recomendaciones para quitar índices se encuentran en vista previa y actualmente solo se pueden aplicar a los índices duplicados).
-- Le permite optar por aplicar recomendaciones de índices automáticamente, sin intervención del usuario. (Las recomendaciones automatizadas requieren que el [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx) esté habilitado y se esté ejecutando.)
-- Revierte de manera automática las recomendaciones que tienen un impacto negativo en el rendimiento. 
+Las recomendaciones siguientes están disponibles para los servidores V12 (no hay recomendaciones disponibles para servidores V11). Actualmente, puede establecer la aplicación automática de las recomendaciones para crear y quitar índices, vea la sección sobre [administración automática del índice](#enable-automatic-index-management) a continuación para obtener más información.
 
+## Recomendaciones para crear índice 
 
-En este artículo se describe el Asesor de índices para servidores V12. Las recomendaciones de índices están disponibles para los servidores V11, pero debe ejecutar el script Transact-SQL (T-SQL) proporcionado para poder implementar la recomendación. El asesor no revertirá operaciones de índice en servidores V11 por lo que debe supervisar y revertir el impacto en el rendimiento según sea necesario.
+Las recomendaciones para **crear índice** aparecen cuando el servicio Base de datos SQL detecta que falta un índice que, si se crea, puede beneficiar la carga de trabajo de bases de datos (solo índices no clúster).
 
 
-### Permisos
+## Recomendaciones para quitar índice
 
-Para ver y crear recomendaciones de índice, necesita los permisos de [control de acceso basado en rol](../active-directory/role-based-access-control-configure.md) correctos en Azure.
+Las recomendaciones para **quitar índice** aparecen cuando el servicio Base de datos SQL detecta índices duplicados (actualmente en versión preliminar y solo se aplica a índices duplicados).
 
-- Para ver las recomendaciones, se requieren los permisos de **Lector** y **Colaborador de Base de datos SQL**.
-- Para ejecutar cualquier acción, crear o eliminar índices y cancelar la creación de índices, se requieren los permisos de **Propietario** y **Colaborador de Base de datos SQL**.
+## Recomendaciones para parametrizar consultas
+
+Las recomendaciones para **parametrizar consultas** aparecen cuando el servicio Base de datos SQL detecta que tiene una o más consultas que se vuelven a compilar continuamente pero terminan con el mismo plan de ejecución de consulta. Esto abre la posibilidad de aplicar la parametrización forzada, que permite que los planes de consulta se almacenen en caché y se reutilicen en el futuro para mejorar el rendimiento y reducir el uso de recursos.
+
+## Recomendaciones para solucionar problemas del esquema
+
+Las recomendaciones para **solucionar problemas del esquema** aparecen cuando el servicio Base de datos SQL advierte alguna anomalía en el número de errores SQL relacionados con el esquema que se producen en la Base de datos SQL de Azure. Esta recomendación suele aparecer cuando la base de datos encuentra varios errores relacionados con el esquema (nombre de columna no válido, nombre de objeto no válido, etc.) en el curso de una hora.
 
 
-## Ver recomendaciones de índices
+## Visualización de recomendaciones
 
-La página "Recomendaciones de índices" es donde puede ver los principales índices sugeridos según su impacto potencial para la mejora del rendimiento. También puede ver el estado de las últimas operaciones de índices. Seleccione una recomendación o estado para ver sus detalles.
+En la página de recomendaciones puede ver las principales recomendaciones por su impacto potencial para la mejora del rendimiento. También puede ver el estado de las operaciones históricas. Seleccione una recomendación o estado para ver sus detalles.
 
-Para ver recomendaciones de índices:
+Para ver y aplicar recomendaciones, necesita los permisos correctos de [control de acceso basado en rol](../active-directory/role-based-access-control-configure.md) en Azure. Se requieren permisos de **Lector**, **Colaborador de base de datos SQL** para ver recomendaciones, y permisos de **Propietario**, **Colaborador de base de datos SQL** para ejecutar acciones; por ejemplo, crear o quitar índices y cancelar la creación de índices.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **EXAMINAR** > **Bases de datos SQL** y seleccione la base de datos.
-5. Haga clic en **Toda la configuración** > **Asesor de índices** para ver las **recomendaciones de índices** disponibles para la base de datos seleccionada.
+5. Haga clic en **Todas las configuraciones** > **Recomendaciones** para ver las **recomendaciones** disponibles para la base de datos seleccionada.
 
-> [AZURE.NOTE] Para obtener recomendaciones de índices, una base de datos debe tener alrededor de una semana de uso y, dentro de esa semana, debe haber alguna actividad. También debe haber actividad coherente. El Asesor de índice puede optimizar los patrones de consultas coherentes con más facilidad que en el caso de ráfagas irregulares de actividad. Si no hay recomendaciones disponibles, la página **Recomendaciones de índices** debe proporcionar un mensaje explicando el motivo.
+> [AZURE.NOTE] Para obtener recomendaciones, es preciso que una base de datos tenga aproximadamente una semana de uso y, dentro de esa semana, debe haber alguna actividad. También debe haber actividad coherente. El Asesor de Base de datos SQL puede optimizar los patrones de consultas coherentes con más facilidad que en el caso de ráfagas irregulares de actividad. Si no hay recomendaciones disponibles, la página **Recomendaciones** debe ofrecer un mensaje que explique el motivo.
 
-![Índices recomendados](./media/sql-database-index-advisor/recommendations.png)
+![Recomendaciones](./media/sql-database-index-advisor/recommendations.png)
 
 Las recomendaciones se ordenan en las 4 siguientes categorías, según su impacto potencial en el rendimiento:
 
 | Impacto | Descripción |
 | :--- | :--- |
 | Alto | Las recomendaciones de alto impacto debe tener el impacto más importante en el rendimiento. |
-| Significativo | Las recomendaciones de impacto significativo deben mejorar considerablemente el rendimiento. |
-| Moderado | Las recomendaciones de impacto moderado deben mejorar el rendimiento, pero no de manera significativa. |
-| Bajo | Las recomendaciones de bajo impacto deben proporcionar un mejor rendimiento que el que ocurriría sin el índice, pero es posible que las mejoras no sean significativas. 
-Utilice la etiqueta de impacto para determinar los mejores candidatos para la creación de índices nuevos.
+| Mediano | Las recomendaciones de impacto moderado deben mejorar el rendimiento, pero no de manera significativa. |
+| Bajo | Las recomendaciones de bajo impacto deben proporcionar un mejor rendimiento que el que se produciría sin ellas, pero es posible que las mejoras no sean significativas. 
 
 
-### Quitar recomendaciones de índices de la lista
+### Eliminación de recomendaciones de la lista
 
-Si la lista de índices recomendados contiene índices que quiere quitar de la lista, puede descartar la recomendación:
+Si la lista de recomendaciones contiene elementos que quiere quitar de la lista, puede descartar la recomendación:
 
-1. Seleccione la recomendación en la lista de **Índices recomendados**.
-2. Haga clic en **Descartar índice** en la hoja **Detalles del índice**.
+1. Seleccione una recomendación en la lista de **Recomendaciones**.
+2. Haga clic en **Descartar** en la hoja **Detalles**.
 
 
-Si quiere, puede volver a agregar índices descartados en la lista **Índices recomendados**:
+Si quiere, puede volver a agregar elementos descartados a la lista **Recomendaciones**:
 
-1. En la hoja **Recomendaciones de índices**, haga clic en **Ver recomendaciones de índices descartadas**.
-1. Seleccione un índice descartado en la lista para ver los detalles.
-1. Opcionalmente, haga clic en **Deshacer descartar** para agregar el índice nuevamente a la lista principal de las **Recomendaciones de índices**.
+1. En la hoja **Recomendaciones**, haga clic en **View discarded** (Ver elementos descartados).
+1. Seleccione un elemento descartado de la lista para ver los detalles.
+1. También puede hacer clic en **Deshacer Descartar** para volver a agregar el índice a la lista principal de **Recomendaciones**.
 
 
 
-## Aplicar recomendaciones de índices
+## Aplicación de las recomendaciones
 
-Gracias al Asesor de índices, tiene el control completo sobre el modo en que se habilitan las recomendaciones de índices mediante cualquiera de las 3 opciones siguientes.
+El Asesor de Base de datos SQL tiene el control completo sobre el modo en que se habilitan las recomendaciones mediante una de las tres opciones siguientes.
 
 - Aplicar recomendaciones individuales una a una.
-- Habilitar el Asesor de índices para que aplique automáticamente las recomendaciones de índices.
+- Habilite el Asesor para que aplique recomendaciones automáticamente (actualmente solo se aplica a las recomendaciones de índices).
 - Ejecutar manualmente el script T-SQL recomendado en la base de datos para implementar una recomendación.
 
-Seleccione cualquier recomendación para ver sus detalles y, a continuación, haga clic en **Ver script** para revisar los detalles exactos del modo en que se creará la recomendación.
+Seleccione cualquier recomendación para ver sus detalles y, luego, haga clic en **Ver script** para revisar los detalles exactos del modo en que se creará la recomendación.
 
-La base de datos permanece en línea mientras el asistente aplica la recomendación. Si usa el Asesor de índices, nunca se desconecta una base de datos.
+La base de datos permanece en línea mientras el asesor aplica la recomendación. Con el Asesor de Base de datos SQL nunca se desconecta una base de datos.
 
 ### Aplicar una recomendación individual
 
 Puede revisar y aceptar recomendaciones una a una.
 
-1. En la hoja **Recomendaciones de índices**, haga clic en una recomendación.
-2. En la hoja **Detalles de índice**, haga clic en **Aplicar**.
+1. En la hoja **Recomendaciones**, haga clic en una recomendación.
+2. En la hoja **Detalles**, haga clic en **Aplicar**.
 
     ![Aplicar recomendaciones](./media/sql-database-index-advisor/apply.png)
 
 
 ### Habilitar la administración de índices automática
 
-Puede establecer que el Asesor de índices implemente las recomendaciones de forma automática. A medida que las recomendaciones estén disponibles, estas se aplicarán de manera automática. Al igual que con todas las operaciones de índice que administra el servicio, si el impacto en el rendimiento es negativo, se revertirá la recomendación.
+Puede establecer que el Asesor de Base de datos SQL implemente las recomendaciones de forma automática. A medida que las recomendaciones estén disponibles, estas se aplicarán de manera automática. Al igual que con todas las operaciones de índice que administra el servicio, si el impacto en el rendimiento es negativo, se revertirá la recomendación.
 
-1. En la hoja **Recomendaciones de índices**, haga clic en **Configuración del asesor**.
+1. En la hoja **Recomendaciones**, haga clic en **Automatizar**:
 
     ![Configuración del asesor](./media/sql-database-index-advisor/settings.png)
 
-2. Establezca si quiere permitir al asesor **Crear** o **Quitar** índices automáticamente:
+2. Establezca el asesor para **Crear** o **Quitar** índices automáticamente:
 
     ![Índices recomendados](./media/sql-database-index-advisor/automation.png)
 
@@ -119,31 +120,32 @@ Puede establecer que el Asesor de índices implemente las recomendaciones de for
 
 ### Ejecutar manualmente el script T-SQL recomendado
 
-Seleccione una recomendación y haga clic en **Ver script**. Ejecute este script en la base de datos para aplicar la recomendación manualmente.
+Seleccione cualquier recomendación y haga clic en **Ver script**. Ejecute este script en la base de datos para aplicar la recomendación manualmente.
 
-*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento*, por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen ganancias en el rendimiento y ajustarlos o eliminarlos, en caso de que sea necesario. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
-
-
-### Cancelación de la creación de índices
-
-Es posible cancelar los índices en estado **Pendiente**. No es posible cancelar los índices que se están creando (estado **En ejecución**).
-
-1. Seleccione cualquier índice **Pendiente** en el área **Operaciones de índice** para abrir la hoja **Detalles del índice**.
-2. Haga clic en **Cancelar** para anular el proceso de creación de índices.
+*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento*, por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen ganancias en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
 
+### Cancelación de recomendaciones
 
-## Supervisión de operaciones de índice
+Las recomendaciones que se encuentran en estado **Pending**, **Verifying** o **Success** puede cancelarse. Las recomendaciones con estado **Executing** no se pueden cancelar.
 
-Puede que una recomendación no se aplique de manera inmediata. El portal proporciona detalles sobre el estado de las operaciones de índice. Cuando se administran los índices, un índice puede tener los siguientes estados:
+1. Seleccione una recomendación en el área **Tuning History** (Historial de optimización) para abrir la hoja de **detalles de recomendaciones**.
+2. Haga clic en **Cancelar** para anular el proceso de aplicación de la recomendación.
+
+
+
+## Supervisión de operaciones
+
+Puede que una recomendación no se aplique de manera inmediata. El portal brinda detalles sobre el estado de las operaciones de recomendación. A continuación se indican los posibles estados en los que un índice puede encontrarse:
 
 | Estado | Descripción |
 | :--- | :--- |
-| Pending | Se recibió el comando para la creación de índice y el índice está programado para su creación. |
-| Executing | El comando para la creación de índice está en ejecución y el índice se está creando. |
-| Correcto | El índice se creó correctamente. |
-| Con error | El índice no se creó. Puede tratarse de un problema transitorio, o posiblemente se produjo un cambio de esquema en la tabla y el script ya no es válido. |
-| En reversión | El proceso de creación de índice se canceló o se consideró sin rendimiento, por lo que se revierte de manera automática. |
+| Pending | El comando de aplicación de recomendaciones se ha recibido y su ejecución está programada. |
+| Executing | La recomendación está aplicándose. |
+| Correcto | La recomendación se aplicó correctamente. |
+| Error | Se produjo un error durante el proceso de aplicación de recomendaciones. Puede tratarse de un problema transitorio, o posiblemente se produjo un cambio de esquema en la tabla y el script ya no es válido. |
+| En reversión | La recomendación se aplicó, pero se ha considerado que no tuvo rendimiento y se está revirtiendo automáticamente. |
+| Reverted | La recomendación se revirtió. |
 
 Haga clic en una recomendación en proceso de la lista para ver sus detalles:
 
@@ -151,32 +153,33 @@ Haga clic en una recomendación en proceso de la lista para ver sus detalles:
 
 
 
-### Revertir un índice
+### Reversión de una recomendación
 
-Si usa el asesor para crear un índice (es decir, no ejecuta manualmente el script T-SQL), este revertirá dicho índice automáticamente en caso de que detecte que afecta de manera negativa en el rendimiento. Si simplemente quiere revertir una operación del Asesor de índices, por el motivo que sea, realice los siguientes pasos.
+Si usa el asesor para aplicar la recomendación (es decir, no ejecuta manualmente el script T-SQL), revertirá automáticamente la acción si detecta que afecta de manera negativa al rendimiento. Si tan solo quiere revertir una recomendación, por el motivo que sea, realice los siguientes pasos:
 
 
-1. Seleccione un índice creado correctamente en la lista de **Operaciones de índice**.
-2. Haga clic en **Revertir** en la hoja **Detalles del índice**, o bien haga clic en **Ver script** en un script DROP INDEX que pueda ejecutar.
+1. En el área **Tuning History** (Historial de optimización), seleccione una recomendación que se haya aplicado correctamente.
+2. Haga clic en **Revertir** en la hoja de **detalles de recomendaciones**.
 
 ![Índices recomendados](./media/sql-database-index-advisor/details.png)
 
 
 ## Supervisión del impacto en el rendimiento de las recomendaciones de índices
 
-Una vez que se hayan implementado correctamente las recomendaciones, haga clic en **Información de consulta** en la hoja Detalles de índice para abrir [Query Performance Insight](sql-database-query-performance.md) y ver el impacto sobre el rendimiento de las consultas principales.
+Una vez implementadas correctamente las recomendaciones (actualmente, solo recomendaciones para indizar operaciones y parametrizar consultas), puede hacer clic en **Detalles de la consulta** en la hoja de detalles de recomendaciones para abrir [Información de rendimiento de consultas](sql-database-query-performance.md) y ver el impacto en el rendimiento de las consultas principales.
 
 ![Supervisar el impacto en el rendimiento](./media/sql-database-index-advisor/query-insights.png)
 
 
+
 ## Resumen
 
-El Asesor de índices proporciona recomendaciones de índices y una experiencia automatizada para administrar índices en la Base de datos SQL. Al proporcionar scripts T-SQL, así como las opciones de administración de los índices de manera individual o completamente automática, el Asesor de índices resulta útil para optimizar los índices de las bases de datos y, en última instancia, para mejorar el rendimiento de las consultas.
+Asesor de Base de datos SQL ofrece recomendaciones para mejorar el rendimiento de la base de datos SQL. Al proporcionar scripts T-SQL, así como opciones de ejecución individual y completamente automática (actualmente, solo índice), el asesor resulta útil para optimizar la base de datos y, en última instancia, para mejorar el rendimiento de las consultas.
 
 
 
 ## Pasos siguientes
 
-Supervise las recomendaciones de índices y continúe aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. El Asesor de índices seguirá supervisando y recomendando índices que podrían mejorar el rendimiento de la base de datos.
+Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. El Asesor de Base de datos SQL seguirá supervisando y ofreciendo recomendaciones que podrían mejorar el rendimiento de la base de datos.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -274,9 +274,9 @@ Para instrucciones de instalación de MPIO para un dispositivo StorSimple conect
 
 ## Pasos siguientes
 
-- Configure un [dispositivo virtual](storsimple-virtual-device.md).
+- Configure un [dispositivo virtual](storsimple-virtual-device-u2.md).
 
 - Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

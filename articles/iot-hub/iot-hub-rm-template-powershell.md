@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/07/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Creación de un Centro de IoT con Powershell
@@ -112,10 +112,10 @@ Use una plantilla de JSON para crear un nuevo centro de IoT en el grupo de recur
 
 2. Guarde el archivo de plantilla en el equipo local. En este ejemplo se da por supuesto que lo guarda en una carpeta denominada **c:\\templates**.
 
-3. Ejecute el comando siguiente para implementar el nuevo Centro de IoT, pasando el nombre de su Centro de IoT como un parámetro. En este ejemplo, el nombre del Centro de IoT es **myiothub** (tenga en cuenta que este nombre debe ser único global).
+3. Ejecute el comando siguiente para implementar el nuevo Centro de IoT, pasando el nombre de su Centro de IoT como un parámetro. En este ejemplo, el nombre del Centro de IoT es **abcmyiothub** (tenga en cuenta que debe ser un nombre único global, por lo que debe incluir su nombre o sus iniciales):
 
     ```
-    New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName myiothub
+    New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 
 4. El resultado muestra las claves para el Centro de IoT que ha creado.
@@ -139,4 +139,4 @@ Ahora que ha implementado un Centro de IoT mediante una plantilla del Administra
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

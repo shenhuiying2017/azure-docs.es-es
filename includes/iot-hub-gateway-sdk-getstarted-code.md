@@ -1,6 +1,6 @@
-## Typical output
+## Salida típica
 
-Below is an example of the output written to the log file by the Hello World sample. Newline and Tab characters have been added for legibility:
+A continuación se muestra un ejemplo de la salida escrita en el archivo de registro mediante el ejemplo Hello World. Se han agregado los caracteres Newline y Tab para facilitar su lectura:
 
 ```
 [{
@@ -30,15 +30,15 @@ Below is an example of the output written to the log file by the Hello World sam
 }]
 ```
 
-## Code snippets
+## Fragmentos de código
 
-This section discusses some key parts of the code in the Hello World sample.
+En esta sección se describen algunas partes principales del código del ejemplo Hello World.
 
-### Gateway creation
+### Creación de puerta de enlace
 
-The developer must write the *gateway process*. This program creates the internal infrastructure (the message bus), loads the modules, and sets everything up to function correctly. The SDK provides the **Gateway_Create_From_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway_Create_From_JSON** function you must pass it the path to a JSON file that specifies the modules to load. 
+El desarrollador debe escribir el *proceso de puerta de enlace*. Este programa crea la infraestructura interna (bus de mensajes), carga los módulos y prepara todo para que funcione correctamente. El SDK proporciona la función **Gateway\_Create\_From\_JSON** que le permite arrancar una puerta de enlace desde un archivo JSON. Para usar la función **Gateway\_Create\_From\_JSON**, debe pasar la ruta de acceso a un archivo JSON que especifique los módulos que se van a cargar.
 
-You can find the code for the gateway process in the Hello World sample in the [main.c][lnk-main-c] file. For legibility, the snippet below shows an abbreviated version of the gateway process code. This program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway. 
+Puede encontrar el código para el proceso de puerta de enlace en el ejemplo Hello World del archivo[main.c][lnk-main-c]. Para facilitar la lectura, el siguiente fragmento muestra una versión abreviada del código de proceso de puerta de enlace. Este programa crea una puerta de enlace y luego espera a que el usuario presione la tecla **ENTRAR** antes de anularla.
 
 ```
 int main(int argc, char** argv)
@@ -59,13 +59,13 @@ int main(int argc, char** argv)
 }
 ```
 
-The JSON settings file contains a list of modules to load. Each module must specify a:
+El archivo de configuración JSON contiene una lista de los módulos que se van a cargar. Cada módulo debe especificar:
 
-- **module_name**: a unique name for the module.
-- **module_path**: the path to the library containing the module. For Linux this is a .so file, on Windows this is a .dll file.
-- **args**: any configuration information the module needs.
+- **nombre\_del\_módulo**: un nombre único para el módulo.
+- **ruta\_de\_acceso\_del\_módulo**: la ruta de acceso a la biblioteca que contiene el módulo. En Linux es un archivo .so y en Windows un archivo .dll.
+- **args**: cualquier información de configuración que necesita el módulo.
 
-The following sample shows the JSON settings file used to configure the Hello World sample on Linux. Whether a module requires an argument depends on the design of the module. In this example, the logger module takes an argument which is the path to the output file and the Hello World module does not take any arguments:
+El ejemplo siguiente muestra el archivo de configuración JSON que se usa para configurar el ejemplo Hello World en Linux. Que un módulo necesite un argumento depende del diseño del módulo. En este ejemplo, el módulo logger toma un argumento que es la ruta de acceso al archivo de salida y el módulo Hello World no toma ningún argumento:
 
 ```
 {
@@ -85,9 +85,9 @@ The following sample shows the JSON settings file used to configure the Hello Wo
 }
 ```
 
-### Hello World module message publishing
+### Publicación de mensajes del módulo Hello World
 
-You can find the code used by the "hello world" module to publish messages in the ['hello_world.c'][lnk-helloworld-c] file. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
+Puede encontrar el código utilizado por el módulo "hello world" para publicar mensajes en el archivo ['hello\_world.c'][lnk-helloworld-c]. El siguiente fragmento muestra una versión modificada con comentarios adicionales y algún código de control de errores quitado para facilitar la lectura:
 
 ```
 int helloWorldThread(void *param)
@@ -135,9 +135,9 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Hello World module message processing
+### Procesamiento de mensajes del módulo Hello World
 
-The Hello World module never needs to process any messages that other modules publish to the message bus. This makes implementation of the message callback in the Hello World module a no-op function.
+El módulo Hello World nunca debe procesar los mensajes que otros módulos publiquen en el bus de mensajes. Esto hace que la implementación de la devolución de llamada de mensajes en el módulo Hello World sea una función no operativa.
 
 ```
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -146,11 +146,11 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-### Logger module message publishing and processing
+### Publicación y procesamiento de mensajes del módulo logger
 
-The Logger module receives messages from the message bus and writes them to a file. It never publishes messages to the message bus. Therefore, the code of the logger module never calls the **MessageBus_Publish** function.
+El módulo logger recibe mensajes del bus de mensajes y los escribe en un archivo. Nunca publica mensajes en el bus de mensajes. Por lo tanto, el código del módulo logger no llama nunca a la función **MessageBus\_Publish**.
 
-The **Logger_Recieve** function in the [logger.c][lnk-logger-c] file is the callback the message bus invokes to deliver messages to the logger module. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
+La función **Logger\_Recieve** del archivo [logger.c][lnk-logger-c] es la devolución de llamada que invoca el bus de mensajes para entregar mensajes al módulo logger. El siguiente fragmento muestra una versión modificada con comentarios adicionales y algún código de control de errores quitado para facilitar la lectura:
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -173,17 +173,17 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
     // Start the construction of the final string to be logged by adding
     // the timestamp
-    STRING_HANDLE jsonToBeAppended = STRING_construct(",{\"time\":\"");
+    STRING_HANDLE jsonToBeAppended = STRING_construct(",{"time":"");
     STRING_concat(jsonToBeAppended, timetemp);
 
     // Add the message properties
-    STRING_concat(jsonToBeAppended, "\",\"properties\":"); 
+    STRING_concat(jsonToBeAppended, "","properties":"); 
     STRING_concat_with_STRING(jsonToBeAppended, jsonProperties);
 
     // Add the content
-    STRING_concat(jsonToBeAppended, ",\"content\":\"");
+    STRING_concat(jsonToBeAppended, ","content":"");
     STRING_concat_with_STRING(jsonToBeAppended, contentAsJSON);
-    STRING_concat(jsonToBeAppended, "\"}]");
+    STRING_concat(jsonToBeAppended, ""}]");
 
     // Write the formatted string
     LOGGER_HANDLE_DATA *handleData = (LOGGER_HANDLE_DATA *)moduleHandle;
@@ -191,14 +191,14 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## Next steps
+## Pasos siguientes
 
-To learn about how to use the Gateway SDK, see the following:
+Para más información sobre cómo usar el SDK de puerta de enlace, consulte lo siguiente:
 
-- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
-- [Azure IoT Gateway SDK][lnk-gateway-sdk] on GitHub.
+- [SDK de puerta de enlace: envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway-simulated].
+- [Azure IoT Gateway SDK][lnk-gateway-sdk] (SDK de puerta de enlace de IoT de Azure) en GitHub.
 
-You can find out more about device management with IoT Hub by reading [Overview of Azure IoT Hub device management][lnk-device-management].
+Puede encontrar más información sobre la administración de dispositivos con el Centro de IoT en [Overview of Azure IoT Hub device management][lnk-device-management] (Información general sobre la administración de dispositivos del Centro de IoT de Azure).
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
@@ -207,3 +207,4 @@ You can find out more about device management with IoT Hub by reading [Overview 
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-device-management]: ../articles/iot-hub/iot-hub-device-management-overview.md
+

@@ -20,30 +20,33 @@ El nombre del plan del Servicio de aplicaciones que se va a crear para hospedar 
       "type":"string"
     }
 
-### siteLocation
-
-La ubicación que se usará para crear la aplicación web y hospedar el plan. Debe ser una de las ubicaciones de Azure que admitan aplicaciones web.
-
-    "siteLocation":{
-      "type":"string"
-    }
-
 ### sku
 
 El nivel de precios del plan de hospedaje.
 
-    "sku":{
-      "type":"string",
-      "allowedValues":[
-        "Free",
-        "Shared",
-        "Basic",
-        "Standard"
+    "sku": {
+      "type": "string",
+      "allowedValues": [
+        "F1",
+        "D1",
+        "B1",
+        "B2",
+        "B3",
+        "S1",
+        "S2",
+        "S3",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
       ],
-      "defaultValue":"Free"
+      "defaultValue": "S1",
+      "metadata": {
+        "description": "The pricing tier for the hosting plan."
+      }
     }
 
-La plantilla define los valores permitidos para este parámetro (Gratis, Compartido, Básico o Estándar) y asigna un valor predeterminado (Gratis) si no se especifica ningún valor.
+La plantilla define los valores que se permiten para este parámetro y asigna un valor predeterminado (S1) si no se especifica ningún valor.
 
 ### workerSize
 
@@ -61,4 +64,3 @@ El tamaño de la instancia del plan de hospedaje (pequeño, mediano o grande).
     
 La plantilla define los valores que se permiten para este parámetro (0, 1 o 2) y asigna un valor predeterminado (0) si no se especifica ningún valor. Los valores corresponden a pequeño, mediano y grande.
 
-<!---HONumber=Oct15_HO3-->

@@ -108,7 +108,7 @@ Estas variables se usan para conectar con el espacio de nombres y crear un nuevo
 
 ``` powershell
 
-$Namespace = "<Enter your namespace>
+$Namespace = "<Enter your namespace>"
 $Path  = "<Enter a name for your notification hub>"
 $WnsPackageSid = "<your package sid>"
 $WnsSecretkey = "<enter your secret key>"
@@ -165,11 +165,11 @@ Además, puede descargar algunos scripts listos para usar:
 [Opciones de compra]: http://azure.microsoft.com/pricing/purchase-options/
 [Ofertas para miembros]: http://azure.microsoft.com/pricing/member-offers/
 [Prueba gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[Instalación y configuración de Azure PowerShell]: ../install-configure-powershell.md
+[Instalación y configuración de Azure PowerShell]: ../powershell-install-configure.md
 [API de .NET para Centros de notificaciones]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/01/2016"   
+ 	ms.date="05/03/2016"    
 	ms.author="juliako"/>
 
 
@@ -689,7 +689,7 @@ En el ejemplo se define el método de UpdatePlayReadyConfigurationXMLFile que pu
 
 ## Uso del cifrado estático para proteger HLSv3 con AES-128
 
-Si desea cifrar el HLS con AES-128, tendrá la opción de usar el cifrado dinámico (la opción recomendada) o el cifrado estático (como se muestra en esta sección). Si decide usar cifrado dinámico, consulte [Uso del cifrado dinámico de AES-128 y el servicio de entrega de claves](media-services-protect-with-aes128).
+Si desea cifrar el HLS con AES-128, tendrá la opción de usar el cifrado dinámico (la opción recomendada) o el cifrado estático (como se muestra en esta sección). Si decide usar cifrado dinámico, consulte [Uso del cifrado dinámico de AES-128 y el servicio de entrega de claves](media-services-protect-with-aes128.md).
 
 >[AZURE.NOTE]Para convertir el contenido en HLS, primero debe convertir o codificar su contenido en Smooth Streaming. Asimismo, para que HLS se cifre con AES, asegúrese de establecer las propiedades siguientes en el archivo MediaPackager\_SmoothToHLS.xml: establezca la propiedad encrypt en true, establezca el valor de clave y el valor de keyuri para que apunte al servidor de autenticación o autorización. Servicios multimedia creará un archivo de clave y lo coloca en el contenedor de recursos. Debe copiar el archivo /asset-containerguid/*.key en el servidor (o crear su propio archivo de clave) y, a continuación, eliminar el archivo *.key del contenedor de recursos.
 
@@ -1447,4 +1447,4 @@ Asegúrese de actualizar el código siguiente para que señale a la carpeta dond
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

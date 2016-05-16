@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 
@@ -81,7 +81,7 @@ Muéstrame las primeras n filas, ordenadas por una columna en particular:
 
 El resultado sería el mismo, pero se ejecutaría un poco más lento. (También podría escribir `order`, que es un alias de `sort`).
 
-Los encabezados de columna en la vista de tabla también pueden usarse para ordenar los resultados en la pantalla. Pero por supuesto, si ha usado `take` o `top` para recuperar solo parte de una tabla, solamente reordenará los registros que ha recuperado.
+Los encabezados de columna en la vista de tabla también pueden utilizarse para ordenar los resultados en la pantalla. Pero por supuesto, si ha usado `take` o `top` para recuperar solo parte de una tabla, solamente reordenará los registros que ha recuperado.
 
 
 ## [Project](app-insights-analytics-aggregations.md#project): seleccionar, cambiar el nombre y calcular columnas
@@ -160,14 +160,14 @@ Podemos usar la misma técnica para reducir los intervalos de cadenas:
 
 Tenga en cuenta que puede usar `name=` para establecer el nombre de una columna de resultados, en las expresiones de agregación o mediante cláusula.
 
-### Recuento de puntos de datos
+## Recuento de datos muestreados
 
 `sum(itemCount)` es la agregación recomendada para contar eventos. En muchos casos, itemCount == 1, por lo que la función simplemente cuenta el número de filas del grupo. Pero cuando [muestreo](app-insights-sampling.md) está en funcionamiento, solo se retendrá una fracción de los eventos originales como punto de datos en Application Insights, por lo que para cada punto de datos que vea, existen `itemCount` eventos. Por lo tanto, resumir itemCount proporciona una buena estimación del número original de eventos.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-También existe una agregación de `count()`, para los casos en los que realmente desea contar el número de filas de un grupo.
+También existe una agregación de `count()` (y una operación de recuento) para los casos en los que realmente desea contar el número de filas de un grupo.
 
 
 Existe una variedad de [funciones de agregación](app-insights-analytics-aggregations.md).
@@ -343,7 +343,7 @@ La cláusula `where` excluye las sesiones únicas (sessionDuration==0) y estable
 
 ¿Qué intervalos de duraciones cubren diferentes porcentajes de sesiones?
 
-Use la consulta anterior, pero reemplace la última línea:
+Utilice la consulta anterior, pero reemplace la última línea:
 
 ```AIQL
 
@@ -423,4 +423,4 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) para separar las pa
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

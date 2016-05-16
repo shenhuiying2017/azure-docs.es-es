@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/14/2016"
+   ms.date="05/03/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Supervisión de la carga de trabajo mediante DMV
@@ -39,7 +39,7 @@ En caso de que quiera investigar la ejecución de una consulta determinada, esto
 -- Monitor running queries
 SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 
--- Find the 10 longest running queries
+-- Find 10 queries which ran the longest
 SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
@@ -143,15 +143,15 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## Pasos siguientes
-Para obtener más información sobre las vistas de administración dinámica (DMV) y de Transact-SQL, consulte la [información general de referencia][]. Para obtener más sugerencias sobre la administración del almacenamiento de datos SQL, consulte [Herramientas de administración para Almacenamiento de datos SQL][].
+Para obtener más información sobre las vistas de administración dinámica (DMV), consulte [Vistas de sistema][]. Para obtener sugerencias sobre cómo administrar el Almacenamiento de datos SQL, consulte [Herramientas de administración para Almacenamiento de datos SQL][]. Paras obtener procedimientos recomendados, consulte [SQL Data Warehouse Best Practices][] (Procedimientos recomendados de Almacenamiento de datos SQL).
 
 <!--Image references-->
 
 <!--Article references-->
-[Herramientas de administración para Almacenamiento de datos SQL]: sql-data-warehouse-overview-manage.md
-[table design]: sql-data-warehouse-develop-table-design.md
-[información general de referencia]: sql-data-warehouse-overview-reference.md
 [manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
+[Herramientas de administración para Almacenamiento de datos SQL]: sql-data-warehouse-overview-manage.md
+[SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
+[Vistas de sistema]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -162,4 +162,4 @@ Para obtener más información sobre las vistas de administración dinámica (DM
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

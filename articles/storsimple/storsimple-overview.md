@@ -1,10 +1,10 @@
 <properties 
    pageTitle="¿Qué es StorSimple? | Microsoft Azure" 
-   description="Describe el almacenamiento en capas de StorSimple, el dispositivo, el dispositivo virtual, los servicios y la administración de almacenamiento, y define términos clave usados en Azure Storsimple." 
+   description="Describe el almacenamiento en capas de StorSimple, el dispositivo, el dispositivo virtual, los servicios y la administración de almacenamiento, y define términos clave usados en StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/15/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
@@ -26,7 +26,7 @@ StorSimple usa [niveles de almacenamiento](#automatic-storage-tiering) para admi
 
 Con StorSimple Update 2, puede identificar volúmenes apropiados como *anclados localmente* para garantizar que los datos principales continúan siendo locales en el dispositivo y no se almacenan en capas en la nube. Esto le permite ejecutar cargas de trabajo que son sensibles a la latencia de la nube, como cargas de trabajo SQL y de máquina virtual, en los volúmenes anclados localmente, sin dejar de usar la nube para copia de seguridad. Para obtener más información sobre los volúmenes localmente anclados, consulte [Usar el servicio de Administrador de StorSimple para administrar volúmenes](storsimple-manage-volumes-u2.md).
 
-Update 2 también permite crear dispositivos virtuales StorSimple que se benefician de las bajas latencias y el alto rendimiento que proporciona el almacenamiento premium de Azure. Para obtener más información sobre los dispositivos virtuales premium StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-virtual-device-u1.md). Para obtener más información sobre los discos de almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
+Update 2 también permite crear dispositivos virtuales StorSimple que se benefician de las bajas latencias y el alto rendimiento que proporciona el almacenamiento premium de Azure. Para obtener más información sobre los dispositivos virtuales premium StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-virtual-device-u2.md). Para obtener más información sobre los discos de almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
 
 Además de la administración de almacenamiento, las características de protección de datos de StorSimple le permiten crear copias de seguridad a petición y programadas, así como almacenarlas localmente o en la nube. Las copias de seguridad se realizan en forma de instantáneas incrementales, lo que significa que se pueden crear y restaurar rápidamente. Las instantáneas en la nube pueden resultar esenciales en escenarios de recuperación ante desastres, ya que reemplazan a los sistemas de almacenamiento secundario (por ejemplo, la copia de seguridad en cinta) y le permiten restaurar los datos a su centro de datos o a sitios alternativos si es necesario.
 
@@ -99,9 +99,9 @@ El dispositivo virtual tiene las siguientes características:
 - Puede crear un número ilimitado de dispositivos virtuales en la nube y activarlas y desactivarlas según sea necesario. 
 - Puede ayudar a simular entornos locales en escenarios de recuperación ante desastres, desarrollo y pruebas, además de facilitar la recuperación de nivel de elemento a partir de copias de seguridad. 
 
-Con Update 2 y versiones posteriores, el dispositivo virtual de StorSimple está disponible en dos modelos: el dispositivo 8010 (anteriormente conocido como el modelo 1100) y el 8020. El dispositivo 8010 tiene una capacidad máxima de 30 TB. El dispositivo 8020, que aprovecha las ventajas de almacenamiento premium de Azure, tiene una capacidad máxima de 64 TB. (El almacenamiento premium de Azure almacena datos en SSD, mientras que el estándar los almacena en HDD). Tenga en cuenta que debe tener una cuenta de almacenamiento premium de Azure para usar el almacenamiento premium. Para obtener más información sobre el almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
+Con Update 2 y versiones posteriores, el dispositivo virtual de StorSimple está disponible en dos modelos: el dispositivo 8010 (anteriormente conocido como el modelo 1100) y el 8020. El dispositivo 8010 tiene una capacidad máxima de 30 TB. El dispositivo 8020, que aprovecha las ventajas de almacenamiento premium de Azure, tiene una capacidad máxima de 64 TB. (En niveles locales, el almacenamiento premium de Azure almacena datos en SSD, mientras que el estándar los almacena en HDD). Tenga en cuenta que debe tener una cuenta de almacenamiento premium de Azure para usar el almacenamiento premium. Para obtener más información sobre el almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
 
-Para obtener más información sobre el dispositivo virtual StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-virtual-device-u1.md).
+Para obtener más información sobre el dispositivo virtual StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-virtual-device-u2.md).
 
 ## Servicio StorSimple Manager
 
@@ -278,4 +278,4 @@ Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-secu
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

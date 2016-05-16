@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
@@ -24,6 +24,14 @@
 
 Este artículo contiene información sobre las diversas versiones y actualizaciones más recientes para el kit de herramientas de Azure para Eclipse.
 
+### 12 de abril de 2016
+
+El kit de herramientas de Azure para Eclipse, versión de abril de 2016, incluye las siguientes mejoras:
+
+* **Compatibilidad con la versión 2.9.0 del SDK de Azure**. La versión más reciente del SDK de Azure ahora es el requisito previo mínimo para el kit de herramientas de Azure para Eclipse.
+* **Mejoras variadas en la facilidad de uso, la capacidad de respuesta y el rendimiento relacionadas con la compatibilidad de Aplicación web de Azure**. Diversas optimizaciones de rendimiento con respecto a la manera en que el kit de herramientas se comunica con Azure generan una IU con mayor capacidad de respuesta.
+* **Capacidad de eliminar un contenedor de aplicaciones web en Azure desde Eclipse**. El kit de herramientas de Azure para Eclipse ahora le permite eliminar un contenedor web de Azure existente sin salir de Eclipse.
+
 ### 7 de marzo de 2016
 
 El kit de herramientas de Azure para Eclipse, versión de marzo de 2016, incluye las siguientes mejoras:
@@ -32,7 +40,7 @@ El kit de herramientas de Azure para Eclipse, versión de marzo de 2016, incluye
 * **Compatibilidad para la administración de la aplicaciones web mediante la vista del explorador de Azure**. La vista del explorador de Azure del kit de herramientas ahora admite la enumeración, inicio y detención de aplicaciones web de Azure.
 * **Distribuciones actualizadas de OpenJDK de Zulu, Jetty y Tomcat**. El kit de herramientas de Azure para Eclipse proporciona compatibilidad con versiones actualizadas de OpenJDK de Zulu, Jetty y Tomcat para las implementaciones de Java en servicios en la nube de Azure.
 
-### 4 de enero de 2015
+### 4 de enero de 2016
 
 El kit de herramientas de Azure para Eclipse, versión de enero de 2016, incluye las siguientes mejoras:
 
@@ -333,4 +341,4 @@ Para más información sobre el uso de Azure con Java, vea el [Centro de desarro
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

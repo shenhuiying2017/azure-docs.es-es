@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/03/2016"
+     ms.date="04/29/2016"
      ms.author="dobett"/>
 
 # Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT
@@ -26,24 +26,24 @@ Este tutorial se basa en el código que se muestra en el tutorial [Introducción
 
 - Almacenamiento confiable de mensajes de dispositivo a nube de [Almacenamiento de blobs de Azure]. Se trata de un escenario muy frecuente al implementar *análisis en frío*, donde los datos se almacenan en blobs para su uso como entrada en los procesos de análisis impulsados por herramientas como [Data Factory de Azure] o la pila de [HDInsight (Hadoop)].
 
-- Procesamiento confiable de mensajes de dispositivo a nube *interactivos*. Los mensajes de dispositivo a nube son interactivos cuando son desencadenantes inmediatos de un conjunto de acciones en el back-end de la aplicación, a diferencia de los mensajes de *punto de datos*, que se envían a un motor de análisis. Por ejemplo, una alarma procedente de un dispositivo que tiene que desencadenar la inserción de un vale en un sistema CRM es un mensaje de dispositivo a nube interactivo, a diferencia de, por ejemplo, un mensaje de telemetría que contiene muestras de temperatura, que es un mensaje de punto de datos.
+- Procesamiento confiable de mensajes de dispositivo a nube *interactivos*. Los mensajes de dispositivo a nube son interactivos cuando son desencadenantes inmediatos de un conjunto de acciones en el back-end de la aplicación, a diferencia de los mensajes de *punto de datos*, que se envían a un motor de análisis. Por ejemplo, una alarma procedente de un dispositivo que debe desencadenar la inserción de un vale en un sistema CRM es un mensaje interactivo, mientras que los datos de telemetría de temperatura de un dispositivo que se va a almacenar para su análisis posterior es un mensaje de punto de datos.
 
 Puesto que el Centro de IoT expone un punto de conexión compatible con [Centros de eventos] para recibir mensajes de dispositivo a nube, este tutorial usa una instancia de [EventProcessorHost][lnk-event-hubs], que:
 
-* Almacena de manera confiable mensajes de *punto de datos* en Blobs de Azure.
+* Almacena de manera confiable mensajes de *punto de datos* en Almacenamiento de blobs de Azure.
 * Reenvía mensajes de dispositivo a nube *interactivos* a una [cola del Bus de servicio] para su procesamiento inmediato.
 
 El Bus de servicio es una excelente forma de asegurar un procesamiento confiable de mensajes interactivos, ya que ofrece puntos de comprobación de cada mensaje y desduplicación basada en periodos de tiempo.
 
 > [AZURE.NOTE] Una instancia de **EventProcessorHost** es solo una manera de procesar mensajes interactivos; otras opciones incluyen [Azure Service Fabric][lnk-service-fabric] y [Análisis de transmisiones de Azure][lnk-stream-analytics].
 
-Al final de este tutorial ejecutará tres aplicaciones de consola de Windows:
+Al final de este tutorial, ejecutará tres aplicaciones de consola de Windows:
 
-* **SimulatedDevice**, una versión modificada de la aplicación creada en el tutorial [Introducción al Centro de IoT], que envía mensajes de dispositivo a nube de punto de datos cada segundo y mensajes de dispositivo a nube interactivos cada 10 segundos. Esta aplicación usa el protocolo AMQPS para comunicarse con el Centro de IoT.
-* **ProcessDeviceToCloudMessages**, que usa la clase [EventProcessorHost] para recuperar mensajes desde el punto de conexión compatible con el Centro de eventos y luego almacenar mensajes de punto de datos de forma confiable en un blob de Azure y reenviar mensajes interactivos a una cola del Bus de servicio.
-* **ProcessD2CInteractiveMessages**, que quita los mensajes interactivos de la cola del Bus de servicio.
+* **SimulatedDevice**, una versión modificada de la aplicación creada en el tutorial [Introducción al Centro de IoT de Azure para .NET], que envía mensajes de dispositivo a nube de punto de datos cada segundo y mensajes de dispositivo a nube interactivos cada 10 segundos. Esta aplicación usa el protocolo AMQPS para comunicarse con el Centro de IoT.
+* **ProcessDeviceToCloudMessages**, que usa la clase [EventProcessorHost] para recuperar mensajes desde el punto de conexión compatible con el Centro de eventos y luego almacena mensajes de punto de datos de forma confiable en Almacenamiento de blobs de Azure y reenvía mensajes interactivos a una cola del Bus de servicio.
+* **ProcessD2CInteractiveMessages** quita los mensajes interactivos de la cola del Bus de servicio.
 
-> [AZURE.NOTE] El Centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java y JavaScript. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo reemplazar el dispositivo simulado de este tutorial por un dispositivo físico y, en general, sobre cómo conectar dispositivos al Centro de IoT de Azure.
+> [AZURE.NOTE] El Centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java y JavaScript. Visite el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo reemplazar el dispositivo simulado de este tutorial por un dispositivo físico y, en general, sobre cómo conectar dispositivos al Centro de IoT de Azure.
 
 Este tutorial se puede aplicar directamente a otras formas de consumir mensajes compatibles con Centros de eventos como, por ejemplo, proyectos de [HDInsight (Hadoop)]. Consulte la [Guía del desarrollador del Centro de IoT de Azure - Dispositivo a nube] para obtener más información.
 
@@ -51,7 +51,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio 2015.
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Una cuenta de Azure activa. <br/>Si carece de una suscripción de Azure, puede crear una [cuenta gratis](https://azure.microsoft.com/free/) en tan solo unos minutos.
 
 También se dan por sentados ciertos conocimientos sobre [Almacenamiento de Azure] y [Bus de servicio de Azure].
 
@@ -77,7 +77,7 @@ Ya está preparado para ejecutar las aplicaciones.
 
 En este tutorial, ha aprendido a procesar de manera confiable mensajes de dispositivo a nube interactivos y de punto de datos mediante la clase [EventProcessorHost].
 
-El tutorial de [carga de archivos desde dispositivos] se basa en este tutorial con una lógica de procesamiento de mensajes análoga y describe un patrón que hace uso de mensajes de nube a dispositivo para facilitar la carga de archivos desde dispositivos
+El tutorial sobre [cómo cargar archivos desde dispositivos] se basa en este tutorial, pero se utiliza una lógica de procesamiento de mensajes análoga y se describe un patrón que hace uso de mensajes de nube a dispositivo para facilitar la carga de archivos desde dispositivos
 
 Información adicional sobre el centro de IoT:
 
@@ -110,12 +110,13 @@ Información adicional sobre el centro de IoT:
 
 
 [Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
-[carga de archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
+[cómo cargar archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
 [Directrices sobre el centro de IoT]: iot-hub-guidance.md
 [Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
 [Introducción al Centro de IoT]: iot-hub-csharp-csharp-getstarted.md
+[Introducción al Centro de IoT de Azure para .NET]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: iot-hub-tested-configurations.md
 [Centro para desarrolladores de Azure]: https://azure.microsoft.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: https://azure.microsoft.com/develop/iot
@@ -123,4 +124,4 @@ Información adicional sobre el centro de IoT:
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

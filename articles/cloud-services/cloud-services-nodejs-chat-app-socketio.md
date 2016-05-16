@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure
@@ -115,7 +115,7 @@ Después de guardar los cambios en **server.js**, use los siguientes pasos para 
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  Abra un explorador y navegue a ****http://127.0.0.1**.
+2.  Abra un explorador y navegue a **http://127.0.0.1**.
 
 3.  Cuando se abra la ventana del explorador, escriba un alias y luego presione Entrar. De esta manera podrá publicar mensajes con un alias específico. Para probar la funcionalidad multiusuario, abra ventanas del explorador adicionales con la misma dirección URL y escriba diferentes alias.
 
@@ -170,4 +170,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
   
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->
