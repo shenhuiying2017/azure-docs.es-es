@@ -77,7 +77,7 @@ Si está interesado en más información sobre cómo administrar Almacenamiento 
 [cargar datos de ejemplo]: sql-data-warehouse-get-started-manually-load-samples.md
 [las API de REST y cmdlets de Powershell]: sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: sql-database-configure-firewall-settings.md
-[Cómo instalar y configurar Azure PowerShell]: powershell-install-configure.md
+[Cómo instalar y configurar Azure PowerShell]: ../powershell/powershell-install-configure.md
 [Creación de Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references--> 
@@ -90,4 +90,4 @@ Si está interesado en más información sobre cómo administrar Almacenamiento 
 [Precios Almacenamiento de datos SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

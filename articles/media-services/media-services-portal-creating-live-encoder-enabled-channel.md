@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Creación de canales que realizan codificación en directo de transmisiones de una sola velocidad de bits a transmisiones de varias velocidades de bits mediante el Portal de Azure clásico" 
+	pageTitle="Cómo realizar el streaming en vivo con Servicios multimedia de Azure para crear transmisiones de velocidad de bits múltiple con el Portal de Azure clásico" 
 	description="Este tutorial le guía por los pasos para crear un canal que reciba una transmisión en directo de una sola velocidad de bits y la codifique como una transmisión de varias velocidades de bits mediante el Portal de Azure clásico." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="05/03/2016" 
+ 	ms.date="05/05/2016" 
 	ms.author="juliako"/>
 
 
-#Creación de canales que realizan codificación en directo de transmisiones de una sola velocidad de bits a transmisiones de varias velocidades de bits mediante el Portal de Azure clásico
+#Cómo realizar el streaming en vivo con Servicios multimedia de Azure para crear transmisiones de velocidad de bits múltiple con el Portal de Azure clásico
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -26,7 +26,7 @@
 
 Este tutorial le guía por los pasos para crear un **canal** que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits.
 
->[AZURE.NOTE]Para obtener información más detallada sobre los canales habilitados para la codificación en directo, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md).
+>[AZURE.NOTE]Para más información sobre los canales habilitados para la codificación en directo, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ##Escenario común de streaming en vivo
 
@@ -109,7 +109,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 2.	Seleccione la página CANALES.
 3.	Seleccione +Agregar para agregar un nuevo canal.
 
-Elija los tipos de codificación **Estándar**. Este tipo especifica que desea crear un canal que está habilitado para la codificación en directo. Lo que significa que la secuencia entrante de velocidad de bits única se envía al canal y se codifica en una secuencia de velocidad de bits múltiple mediante la configuración del codificador directo especificado. Para obtener más información, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md)
+Elija los tipos de codificación **Estándar**. Este tipo especifica que desea crear un canal que está habilitado para la codificación en directo. Lo que significa que la secuencia entrante de velocidad de bits única se envía al canal y se codifica en una secuencia de velocidad de bits múltiple mediante la configuración del codificador directo especificado. Para mas información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard0][standard0]
 
@@ -119,7 +119,7 @@ Para el tipo de codificación **Estándar**, las opciones del protocolo de intro
 - RTMP de velocidad de bits única
 - RTP (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.
 
-Para obtener una explicación detallada sobre cada protocolo, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md)
+Para mas información sobre cada protocolo, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard1][standard1]
 
@@ -127,7 +127,7 @@ No se puede cambiar el protocolo de entrada mientras el canal o sus programas as
 
 En la página **Configuración de publicidad** puede especificar el origen de las señales de marcadores de anuncios. Al usar el Portal, solo puede seleccionar API, que indica el codificador en directo del canal debe escuchar una API de marcadores de anuncio asincrónica. Al usar el Portal, solo puede seleccionar API.
 
-Para obtener más información, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md).
+Para mas información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard2][standard2]
 
@@ -148,7 +148,7 @@ Una vez creado el canal, puede seleccionar la pestaña **CODIFICADOR** donde pue
 
 ![standard5][standard5]
 
-Para obtener más información, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md).
+Para mas información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Obtención de direcciones URL de introducción
@@ -224,7 +224,7 @@ Si cambia a la página **CONTENIDO**, verá los recursos que se crearon para los
 
 Para proporcionar al usuario una dirección URL que pueda utilizar para transmitir por streaming el contenido, primero tendrá que "publicar" el recurso (tal como se describió en la sección anterior) mediante la creación de un localizador (cuando se publica un recurso mediante el Portal, los localizadores se crean automáticamente). Los localizadores proporcionan acceso a los archivos contenidos en el recurso.
 
-Dependiendo del protocolo de streaming que desee utilizar para reproducir el contenido, tendrá que modificar la dirección URL que obtiene del vínculo **URL DE PUBLICACIÓN** del canal\programa.
+Dependiendo del protocolo de streaming que desee utilizar para reproducir el contenido, tendrá que modificar la dirección URL que obtiene del vínculo **URL DE PUBLICACIÓN** del canal\\programa.
 
 El empaquetado dinámico se encargará de empaquetar la secuencia en vivo en el protocolo especificado.
 
@@ -276,4 +276,4 @@ Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados 
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

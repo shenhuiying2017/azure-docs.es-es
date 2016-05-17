@@ -5,15 +5,15 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="nombre de la entidad de servicio, setspn, autenticación de azure"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/20/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte"/>
 
 # Autenticación de Runbooks con una cuenta de ejecución de Azure
@@ -25,7 +25,7 @@ Con una entidad de servicio se puede:
 * Automatizar el uso de Runbooks globales configurados en Azure Alerts
 
 
->[AZURE.NOTE] La [característica de integración de alertas](../azure-portal/insights-receive-alert-notifications.md) de Azure con los Runbooks globales de Automatización requiere una cuenta de Automatización que esté configurada con una entidad de servicio. Puede seleccionar una cuenta de Automatización que ya tenga un usuario de entidad de servicio definido, o bien crear una nueva.
+>[AZURE.NOTE] La [característica de integración de alertas](../azure-portal/insights-receive-alert-notifications.md) de Azure con los runbooks globales de Automatización requiere una cuenta de Automatización configurada con una entidad de servicio. Puede seleccionar una cuenta de Automatización que ya tenga un usuario de entidad de servicio definido, o bien crear una nueva.
 
 
 
@@ -40,16 +40,16 @@ En esta sección, realizará los siguientes pasos para crear una cuenta de Autom
 2. Seleccione **Cuentas de Automatización**.
 3. En la hoja Cuentas de Automatización, haga clic en **Agregar**.<br>![Agregar cuenta de Automatización](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 4. En la hoja **Agregar cuenta de Automatización**, en el cuadro **Nombre**, escriba el nombre de la nueva cuenta de Automatización.
-5. Si tiene más de una suscripción, especifique la de la nueva cuenta, así como un **grupo de recursos** nuevo o existente, y la **ubicación** de un centro de datos de Azure.
+5. Si tiene más de una suscripción, especifique la de la cuenta nueva, así como un **grupo de recursos** nuevo o existente, y la **ubicación** de un centro de datos de Azure.
 6. Compruebe que el valor **Sí** está seleccionado en la opción **Crear cuenta de ejecución de Azure** y haga clic en el botón **Crear**.  
 
     ![Advertencia para agregar cuenta de Automatización](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
 
-    >[AZURE.NOTE] Si decide no crear la cuenta de ejecución seleccionando la opción **No**, aparecerá un mensaje de advertencia en la hoja **Agregar Cuenta de Automatización**. Aunque la cuenta se crea y se asigna al rol de **Colaborador** en la suscripción, ésta no tendrá la identidad de autenticación correspondiente dentro del servicio de directorio de suscripciones y, por lo tanto, no tendrá acceso a los recursos de su suscripción. Esto impedirá que los runbooks que hacen referencia a esta cuenta puedan autenticarse y realizar tareas en los recursos del ARM.
+    >[AZURE.NOTE] Si decide no crear la cuenta de ejecución seleccionando la opción **No**, aparecerá un mensaje de advertencia en la hoja **Agregar cuenta de Automatización**. Aunque la cuenta se crea y se asigna al rol de **Colaborador** en la suscripción, esta no tendrá la identidad de autenticación correspondiente dentro del servicio de directorio de suscripciones y, por lo tanto, no tendrá acceso a los recursos de su suscripción. Esto impedirá que los runbooks que hacen referencia a esta cuenta puedan autenticarse y realizar tareas en los recursos del ARM.
 
     ![Advertencia para agregar cuenta de Automatización](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
-    >[AZURE.NOTE] Si recibe un mensaje de error de denegación de permiso tras hacer clic en el botón **Crear**, se debe a que la cuenta no es miembro del rol de administradores de la suscripción.
+    >[AZURE.NOTE] Si recibe un mensaje de error de denegación de permiso tras hacer clic en el botón **Crear**, se debe a que la cuenta no es miembro del rol Administradores de suscripciones.
 
 7. Mientras Azure crea la cuenta de Automatización, puede seguir el progreso en **Notificaciones** en el menú.
 
@@ -71,7 +71,7 @@ Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
 El script de PowerShell configurará los siguientes elementos:
 
 * Una aplicación de Azure AD que podrá autenticarse con el certificado autofirmado, crear una cuenta de la entidad principal para esta aplicación en Azure AD y la asignación del rol Colaborador (se puede cambiar a propietario o a cualquier otro rol) a esta cuenta de su suscripción actual. Para más información, consulte el artículo [Control de acceso basado en rol en Automatización de Azure](../automation/automation-role-based-access-control.md).  
-* Un recurso de certificado de Automatización de la cuenta especificada denominado **AzureRunAsCertificate**, que contiene el certificado utilizado en la entidad de servicio.
+* Un recurso de certificado de Automatización de la cuenta especificada denominado **AzureRunAsCertificate**, que contiene el certificado que se usa en la entidad de servicio.
 * Un recurso de conexión de Automatización de la cuenta especificada denominado **AzureRunAsConnection**, que contiene los valores applicationId, tenantId, subscriptionId y la huella digital del certificado.  
 
 
@@ -156,7 +156,7 @@ El script de PowerShell configurará los siguientes elementos:
     ```
 <br>
 2. En el equipo, inicie **Windows PowerShell** desde la pantalla **Inicio** con derechos de usuario elevados.
-3. Desde el shell de línea de comandos de PowerShell elevado, navegue hasta la carpeta que contiene el script que se creó en el paso 1 y ejecute el script, pero cambie los valores de los parámetros *– ResourceGroup*, *- AutomationAccountName*, *- ApplicationDisplayName* y *- CertPlainPassword*.<br>
+3. Desde el shell de línea de comandos de PowerShell elevado, navegue hasta la carpeta que contiene el script que se creó en el paso 1 y ejecútelo después de cambiar los valores de los parámetros *– ResourceGroup*, *- AutomationAccountName*, *- ApplicationDisplayName* y *- CertPlainPassword*.<br>
 
     ```
     .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
@@ -174,8 +174,8 @@ A continuación, realizaremos una pequeña prueba para confirmar que puede auten
 
 1. En el Portal de Azure, abra la cuenta de Automatización que creó anteriormente.  
 2. Haga clic en el icono **Runbooks** para abrir la lista de runbooks.
-3. Cree un Runbook nuevo, para lo que debe hacer clic en el botón **Agregar un Runbook** y luego, en la hoja **Agregar Runbook**, seleccione **Crear un nuevo Runbook**.
-4. Asigne al Runbook el nombre *Test-SecPrin-Runbook* y seleccione PowerShell en **Tipo de Runbook**. Haga clic en **Crear** para crear el Runbook.
+3. Haga clic en el botón **Agregar un Runbook** para crear un runbook nuevo y, en la hoja **Agregar Runbook**, seleccione **Crear un runbook nuevo**.
+4. Asigne al runbook el nombre *Test-SecPrin-Runbook* y seleccione PowerShell en **Tipo de Runbook**. Haga clic en **Crear** para crear el runbook.
 5. En la hoja **Editar Runbook de PowerShell**, pegue el siguiente código en el lienzo:<br>
 
     ```
@@ -184,11 +184,11 @@ A continuación, realizaremos una pequeña prueba para confirmar que puede auten
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```  
 <br>
-6. Guarde el Runbook, para lo que debe hacer clic en **Guardar**.
-7. Haga clic en **Probar panel** para abrir la hoja **Probar**.
+6. Haga clic en **Guardar** para guardar el runbook.
+7. Haga clic en **Panel de prueba** para abrir la hoja **Probar**.
 8. Haga clic en **Iniciar** para iniciar la prueba.
 9. Se crea un [trabajo de runbook](automation-runbook-execution.md) y su estado se muestra en el panel.  
-10. El estado del trabajo se iniciará como *En cola*, lo que indica que espera que haya algún trabajo de Runbook en la nube disponible. A continuación, pasará a *Iniciando* cuando un trabajador de runbook solicite el trabajo y, a continuación, a *En ejecución* cuando el runbook empiece a ejecutarse realmente.  
+10. El estado del trabajo se iniciará como *En cola*, lo que indica que espera que haya algún trabajo de runbook en la nube disponible. A continuación, pasará a *Iniciando* cuando un trabajador de runbook solicite el trabajo y, a continuación, a *En ejecución* cuando el runbook empiece a ejecutarse realmente.  
 11. Cuando se complete el trabajo del runbook, se mostrará su resultado. En nuestro caso, deberíamos ver el estado **Completado**.<br> ![Prueba de Runbook de entidad de seguridad](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
 12. Cierre la hoja **Probar** para volver al lienzo.
 13. Cierre la hoja **Editar Runbook de PowerShell**.
@@ -200,4 +200,4 @@ El código anterior, que se ha usado para comprobar si la nueva cuenta está con
 - Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
 - Para más información acerca del control de acceso basado en rol en Automatización de Azure, consulte [Control de acceso basado en rol en Automatización de Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

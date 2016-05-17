@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/19/2016"
+   ms.date="05/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -62,7 +62,7 @@ Almacenamiento de datos SQL almacena los datos en uno o más nodos informáticos
 
 ### Actualizaciones y tiempo de inactividad
 
-Durante la versión preliminar, Almacenamiento de datos SQL se actualizará periódicamente con el fin de agregar nuevas características y de instaslar correcciones críticas. Estas actualizaciones pueden interrumpir y en este momento las actualizaciones no se realizan con una programación previsible. Si piensa que este proceso provoca demasiadas interrupciones, le animamos a crear una incidencia de soporte técnico para que podemos ayudarlo a solucionar este proceso.
+Durante la versión preliminar, Almacenamiento de datos SQL se actualizará periódicamente con el fin de agregar nuevas características y de instaslar correcciones críticas. Estas actualizaciones pueden interrumpir y en este momento las actualizaciones no se realizan con una programación previsible. Si piensa que este proceso provoca demasiadas interrupciones, es aconsejable que [cree una incidencia de soporte técnico][] para que podemos ayudarle a solucionar este proceso.
 
 
 ## Pasos siguientes
@@ -72,10 +72,11 @@ Durante la versión preliminar, Almacenamiento de datos SQL se actualizará peri
 <!--Image references-->
 
 <!--Article references-->
+[cree una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Introducción]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/26/2016"
+    ms.date="05/06/2016"
     ms.author="sethm"/>
 
 # Uso de temas/suscripciones del Bus de servicio
@@ -28,13 +28,11 @@ En este artículo se describe cómo usar los temas y las suscripciones del Bus d
 
 ## Configuración de la aplicación para usar el bus de servicio
 
-Cuando cree una aplicación que use el bus de servicio, deberá agregar una referencia al conjunto del bus de servicio e incluir los espacios de nombres correspondientes.
+Cuando cree una aplicación que use el bus de servicio, deberá agregar una referencia al conjunto del bus de servicio e incluir los espacios de nombres correspondientes. La manera más fácil de hacerlo es descargar el paquete NuGet correspondiente.
 
 ## Obtenga el paquete NuGet del bus de servicio
 
-El [paquete NuGet del bus de servicio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express.
-
-Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
+El [paquete NuGet del bus de servicio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias necesarias del bus de servicio. Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
 
 1.  En el Explorador de soluciones, haga clic con el botón secundario en **References** y, a continuación, en **Manage NuGet Packages**.
 2.  Busque "Bus de servicio" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
@@ -47,14 +45,14 @@ De este modo ya estará listo para escribir código para el bus de servicio.
 
 El bus de servicio usa una cadena de conexión para almacenar extremos y credenciales. Puede poner la cadena de conexión en un archivo de configuración en vez de codificarla de forma rígida:
 
-- Si usa Servicios en la nube de Azure, es aconsejable que almacene la cadena de conexión con el sistema de configuración de servicios de Azure (archivos *.csdef y *.cscfg).
+- Si usa servicios de Azure, es aconsejable que almacene la cadena de conexión con el sistema de configuración de servicios de Azure (archivos *.csdef y *.cscfg).
 - Al usar Sitios web Azure o Máquinas virtuales de Azure, es recomendable que almacene su cadena de conexión con el sistema de configuración .NET (por ejemplo, el archivo Web.config).
 
 En ambos casos, puede recuperar la cadena de conexión utilizando el método `CloudConfigurationManager.GetSetting`, como se muestra más adelante en este artículo.
 
-### Configuración de la cadena de conexión si usa Servicios en la nube
+### Configuración de una cadena de conexión
 
-El mecanismo de configuración de servicios es exclusivo para los proyectos de los servicios en la nube de Azure y le permite cambiar dinámicamente la configuración desde el [Portal de Azure clásico][] sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (****.csdef**), como se indica en el siguiente ejemplo:
+El mecanismo de configuración de servicios le permite cambiar dinámicamente la configuración desde el [Portal de Azure clásico][] sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (****.csdef**), como se indica en el siguiente ejemplo:
 
 ```
 <ServiceDefinition name="Azure1">
@@ -98,7 +96,7 @@ Al usar Sitios web o Máquinas virtuales, se recomienda usar el sistema de confi
 </configuration>
 ```
 
-Use el nombre y los valores de clave de SAS que recuperó del [Portal de Azure clásico][], como se ha descrito en la sección anterior.
+Use el nombre y los valores de clave de SAS recuperados del [Portal de Azure clásico][], como se indica en la sección anterior.
 
 ## de un tema
 
@@ -107,7 +105,7 @@ Puede realizar operaciones de administración en los temas y las suscripciones d
 En el ejemplo siguiente, se construye un objeto `NamespaceManager` mediante la clase `CloudConfigurationManager` de Azure con una cadena de conexión que consta de la dirección base de un espacio de nombres del bus de servicio y las credenciales de SAS pertinentes con permisos para administrarlo. Esta cadena de conexión tiene la forma siguiente.
 
 ```
-Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
+Endpoint=sb://<yourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
 ```
 
 Use el siguiente ejemplo con las opciones de configuración de la sección anterior.
@@ -126,7 +124,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-Hay sobrecargas del método [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) que le permiten ajustar las propiedades del tema, por ejemplo, para configurar el valor predeterminado del período de vida (TTL) a fin de que se aplique a los mensajes enviados al tema. Estas opciones de configuración se aplican usando la clase [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). En el ejemplo siguiente se muestra cómo crear un tema denominado **TestTopic** con un tamaño máximo de 5 GB y un período de vida predeterminado de mensaje de un minuto.
+Hay sobrecargas del método [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) que le permiten establecer las propiedades del tema, por ejemplo, para configurar el valor predeterminado del período de vida (TTL) de forma que se aplique a los mensajes enviados al tema. Estas opciones de configuración se aplican usando la clase [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). En el ejemplo siguiente se muestra cómo crear un tema denominado **TestTopic** con un tamaño máximo de 5 GB y un período de vida predeterminado de mensaje de un minuto.
 
 ```
 // Configure Topic Settings.
@@ -151,7 +149,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 ## una suscripción
 
-También se pueden crear suscripciones a temas con la clase [`NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). A las suscripciones se les puede asignar un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que pasan a la cola virtual de la suscripción.
+También puede crear suscripciones de temas con la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). A las suscripciones se les puede asignar un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que pasan a la cola virtual de la suscripción.
 
 ### Creación de una suscripción con el filtro predeterminado (MatchAll)
 
@@ -312,7 +310,8 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
 Ahora que conoce los fundamentos de los temas y las suscripciones del bus de servicio, siga estos vínculos para obtener más información.
 
--   [Colas, temas y suscripciones][]
+-   [Colas, temas y suscripciones del Bus de servicio][]
+-   [Ejemplo de filtros de tema][]
 -   Referencia de API para [Clase SqlFilter][].
 -   Compile una aplicación que envíe mensajes a una cola del bus de servicio y los reciba de ella: [Tutorial de .NET de mensajería asincrónica del Bus de servicio][].
 -   Ejemplos de bus de servicio: descárguelos de [Ejemplos de Azure][] o consulte la [información general](service-bus-samples.md).
@@ -321,11 +320,12 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
+  [Colas, temas y suscripciones del Bus de servicio]: service-bus-queues-topics-subscriptions.md
+  [Ejemplo de filtros de tema]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Clase SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Tutorial de .NET de mensajería asincrónica del Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

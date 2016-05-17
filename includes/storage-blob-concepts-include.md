@@ -4,11 +4,11 @@ El Almacenamiento de blobs de Azure es un servicio para almacenar grandes cantid
 
 El almacenamiento de blobs suele usarse para realizar las siguientes tareas:
 
--   Servicio de imágenes o documentos directamente a un explorador
--   Almacenamiento de archivos para acceso distribuido
--   Streaming de audio y vídeo
--   Copia de seguridad y restauración del almacenamiento, recuperación ante desastres y datos de archivo
--   Almacenamiento de datos para el análisis en local o en un servicio hospedado de Azure
+- Servicio de imágenes o documentos directamente a un explorador
+- Almacenamiento de archivos para acceso distribuido
+- Streaming de audio y vídeo
+- Almacenamiento de datos para copia de seguridad y restauración, recuperación ante desastres y archivado
+- Almacenamiento de datos para el análisis en local o en un servicio hospedado de Azure
 
 ## Conceptos del servicio BLOB
 
@@ -16,19 +16,17 @@ El servicio BLOB contiene los componentes siguientes:
 
 ![Blob1][Blob1]
 
--   **Cuenta de almacenamiento:** todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Esta cuenta de almacenamiento puede ser una **cuenta de almacenamiento de uso general** o una **cuenta de Almacenamiento de blobs** que sirve para almacenar objetos o blobs. Para más información sobre las cuentas de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](../articles/storage/storage-create-storage-account.md).
+- **Cuenta de almacenamiento:** todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Esta cuenta de almacenamiento puede ser una **cuenta de almacenamiento de uso general** o una **cuenta de Almacenamiento de blobs**, que sirve para almacenar objetos o blobs. Para más información sobre las cuentas de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](../articles/storage/storage-create-storage-account.md).
 
--   **Contenedor:** un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs. Tenga en cuenta que el nombre del contenedor debe estar en minúsculas.
+- **Contenedor:** un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs. Tenga en cuenta que el nombre del contenedor debe estar en minúsculas.
 
--   **Blob:** archivo de cualquier tipo y tamaño. Almacenamiento de Azure ofrece tres tipos de blobs: blobs en bloques, blobs en páginas y blobs en anexos.
+- **Blob:** archivo de cualquier tipo y tamaño. Almacenamiento de Azure ofrece tres tipos de blobs: blobs en bloques, blobs en páginas y blobs en anexos.
 
-	Los *blobs en bloques* son ideales para almacenar archivos binarios o de texto, como documentos y archivos multimedia. Los *blobs en anexos* se parecen a los blobs en bloques porque se componen de bloques, pero están optimizados para las operaciones de anexión, por lo que son útiles para escenarios de registro. Un único blob en bloques o blob en anexos puede contener un máximo de 50.000 bloques de hasta 4 MB cada uno, hasta un tamaño total de algo más de 195 GB (4 MB × 50.000).
+    Los *blobs en bloques* son ideales para almacenar archivos binarios o de texto, como documentos y archivos multimedia. Los *blobs en anexos* se parecen a los blobs en bloques porque se componen de bloques, pero están optimizados para las operaciones de anexión, por lo que son útiles para escenarios de registro. Un único blob en bloques o blob en anexos puede contener un máximo de 50.000 bloques de hasta 4 MB cada uno, hasta un tamaño total de algo más de 195 GB (4 MB × 50.000).
 
-	Los *blobs en páginas* pueden tener un tamaño de hasta 1 TB y son más eficaces para operaciones frecuentes de lectura y escritura. Máquinas virtuales de Azure usa blobs en páginas como discos de sistema operativo y de datos.
+    Los *blobs en páginas* pueden tener un tamaño de hasta 1 TB y son más eficaces para operaciones frecuentes de lectura y escritura. Máquinas virtuales de Azure usa blobs en páginas como discos de sistema operativo y de datos.
 
-	Para más información sobre la nomenclatura de contenedores y blobs, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](https://msdn.microsoft.com/library/azure/dd135715.aspx).
+    Para más información sobre la nomenclatura de contenedores y blobs, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
-
-<!---HONumber=AcomDC_0427_2016-->

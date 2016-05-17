@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/29/2016"
+   ms.date="05/04/2016"
    ms.author="navale;tomfitz"/>
    
-# Tutorial de la plantilla de Azure Resource Manager
+# Tutorial de la plantilla de Resource Manager
 
-Este tema le guiará por los pasos para crear una plantilla de Resource Manager. Creará una plantilla basada en la [plantilla de dos máquinas virtuales con equilibrador de carga y reglas de equilibrio de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) en la [galería de inicio rápido](https://github.com/Azure/azure-quickstart-templates). Las técnicas que aprenda pueden aplicarse a cualquier plantilla que necesite crear.
+Una de las primeras preguntas que se plantean al crear una plantilla es "¿Cómo empezar?". Se puede empezar con una plantilla en blanco, siguiendo la estructura básica descrita en el [artículo sobre creación de plantillas](resource-group-authoring-templates.md#template-format), y agregar los recursos, además de los parámetros y las variables adecuados. Una buena alternativa sería empezar explorando la [galería de inicio rápido](https://github.com/Azure/azure-quickstart-templates) y buscar escenarios similares al que está intentando crear. Puede combinar varias plantillas o modificar una existente para adaptarla a su propio escenario específico.
 
-Echemos un vistazo a una arquitectura común:
+Echemos un vistazo a una infraestructura común:
 
 * Dos máquinas virtuales que usan la misma cuenta de almacenamiento, se encuentran en el mismo conjunto de disponibilidad y en la misma subred de una red virtual.
 * Una sola NIC y dirección IP de máquina virtual para cada máquina virtual.
@@ -28,9 +28,11 @@ Echemos un vistazo a una arquitectura común:
 
 ![arquitectura](./media/resource-group-overview/arm_arch.png)
 
-Ha decidido que desea implementar esta arquitectura en Azure y desea usar plantillas de Resource Manager para volver a implementar fácilmente la arquitectura en otro momento; sin embargo, no está seguro de cómo crear esa plantilla. Este tema le ayudará a comprender qué incluir en la plantilla.
+Este tema lo guiará por los pasos para crear una plantilla de Resource Manager para esa infraestructura. La plantilla final que cree se basa en una plantilla de inicio rápido llamada [2 VMs in a Load Balancer and load balancing rules](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/) (Dos máquinas virtuales en un equilibrador de carga y reglas de equilibrio de carga).
 
-Puede usar cualquier tipo de editor para crear la plantilla. Visual Studio proporciona herramientas que simplifican el desarrollo de la plantilla, pero no es necesario Visual Studio para completar este tutorial. Para obtener un tutorial sobre cómo usar Visual Studio para crear una implementación de aplicación web y Base de datos SQL, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Pero hacer todo eso a la vez es mucho, así que empecemos creando una cuenta de almacenamiento e implementándola. Cuando domine la creación de la cuenta de almacenamiento, agregará los otros recursos y volverá a implementar la plantilla para completar la infraestructura.
+
+>[AZURE.NOTE] Puede usar cualquier tipo de editor para crear la plantilla. Visual Studio proporciona herramientas que simplifican el desarrollo de la plantilla, pero no es necesario Visual Studio para completar este tutorial. Para ver un tutorial sobre cómo usar Visual Studio para crear una implementación de aplicación web y Base de datos SQL, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## Creación de la plantilla de Resource Manager
 
@@ -38,6 +40,7 @@ La plantilla es un archivo JSON que define todos los recursos que se van a imple
 
 Comencemos con la plantilla más sencilla:
 
+```json
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
@@ -46,13 +49,12 @@ Comencemos con la plantilla más sencilla:
       "resources": [  ],
       "outputs": {  }
     }
+ ```
 
-Guarde este archivo como **azuredeploy.json**.
+Guarde este archivo como **azuredeploy.json** (tenga en cuenta que la plantilla se puede llamar como desee, aunque debe ser un archivo json).
 
-En primer lugar, nos centraremos en la sección **resources**, y veremos la información sobre **parameters** y **variables** más adelante en este tema.
-
-## Cuenta de almacenamiento
-Deberá definir la cuenta de almacenamiento que usarán las máquinas virtuales. En la sección **resources**, agregue un objeto que defina la cuenta de almacenamiento, tal y como se muestra a continuación.
+## Crear una cuenta de almacenamiento
+En la sección **resources**, agregue un objeto que defina la cuenta de almacenamiento, como se muestra a continuación.
 
 ```json
 "resources": [
@@ -68,12 +70,77 @@ Deberá definir la cuenta de almacenamiento que usarán las máquinas virtuales.
 ]
 ```
 
-Quizás se pregunte de dónde proceden estas propiedades y estos valores. Las propiedades **type**, **name**, **apiVersion** y **location** son elementos estándar que están disponibles para todos los tipos de recursos. Encontrará información sobre los elementos comunes en [Recursos](../resource-group-authoring-templates/#resources). Establezca **name** en un valor de parámetro que se pasa durante la implementación. Establezca **location** en la ubicación usada por el grupo de recursos. Veremos cómo se determinan **type** y **apiVersion** en las secciones siguientes.
+Quizás se pregunte de dónde proceden estas propiedades y estos valores. Las propiedades **type**, **name**, **apiVersion** y **location** son elementos estándar que están disponibles para todos los tipos de recursos. Puede aprender sobre los elementos comunes en [Recursos](resource-group-authoring-templates.md#resources). **name** se establece en un valor de parámetro que se pasa durante la implementación y **location** como la ubicación que el grupo de recursos usa. Veremos cómo se determinan **type** y **apiVersion** en las secciones siguientes.
 
-La sección **properties** contiene todas las propiedades que son exclusivas de un tipo de recurso en particular. Los valores que especifique en esta sección coinciden exactamente con la operación PUT en la API de REST para crear ese tipo de recurso. Al crear una cuenta de almacenamiento, debe proporcionar un valor de **accountType**. En la [API de REST para crear una cuenta de almacenamiento](https://msdn.microsoft.com/library/azure/mt163564.aspx), observe que la sección properties de la operación de REST también contiene una propiedad **accountType** y los valores permitidos están documentados. En este ejemplo, el tipo de cuenta se establece en **Standard\_LRS**, pero se puede especificar otro valor o permitir que los usuarios pasen el tipo de cuenta como un parámetro.
+La sección **properties** contiene todas las propiedades que son exclusivas de un tipo de recurso en particular. Los valores que especifique en esta sección coinciden exactamente con la operación PUT en la API de REST para crear ese tipo de recurso. Al crear una cuenta de almacenamiento, debe proporcionar un valor para **accountType**. En la [API de REST para crear una cuenta de almacenamiento](https://msdn.microsoft.com/library/azure/mt163564.aspx), observe que la sección properties de la operación de REST también contiene una propiedad **accountType** y los valores permitidos están documentados. En este ejemplo, el tipo de cuenta se establece en **Standard\_LRS**, pero se puede especificar otro valor o permitir que los usuarios pasen el tipo de cuenta como parámetro.
+
+Ahora volvamos a la sección **parameters** y veamos cómo se define el nombre de la cuenta de almacenamiento. Puede aprender más sobre el uso de parámetros en [Parámetros](resource-group-authoring-templates.md#parameters).
+
+```json
+"parameters" : {
+	"storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage Account Name"
+      }
+    }
+}
+```
+Aquí se ha definido un parámetro de tipo string que va a contener el nombre de la cuenta de almacenamiento. Se proporcionará el valor para este parámetro durante la implementación de la plantilla.
+
+## Implementación de la plantilla
+Tenemos una plantilla completa para crear una cuenta de almacenamiento. Como recordará, la plantilla se guardó en un archivo **azuredeploy.json**:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters" : {
+	"storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage Account Name"
+      }
+    }
+  },  
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[parameters('storageAccountName')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "accountType": "Standard_LRS"
+      }
+    }
+  ]
+}
+```
+
+Hay bastantes maneras de implementar una plantilla, como puede ver en el [artículo Implementación de recursos con plantillas de Azure Resource Manager](resource-group-template-deploy.md). Para implementar la plantilla mediante Azure PowerShell, use:
+
+```powershell
+# create a new resource group
+New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
+
+# deploy the template to the resource group
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
+```
+
+O bien, para implementarla mediante la CLI de Azure, use:
+
+```
+azure group create -n ExampleResourceGroup -l "West Europe"
+
+azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
+```
+
+Ahora ya dispone de una cuenta de almacenamiento.
+
+Los pasos siguientes consistirán en agregar todos los recursos necesarios para implementar la arquitectura descrita al comienzo del tutorial. Estos recursos se agregarán a la plantilla en la que ha estado trabajando.
 
 ## Conjunto de disponibilidad
-Después de la definición de la cuenta de almacenamiento, agregue un conjunto de disponibilidad establecido para las máquinas virtuales. En este caso, no se necesitan propiedades adicionales, por lo que su definición es bastante simple. Consulte la [API de REST para crear un conjunto de disponibilidad](https://msdn.microsoft.com/library/azure/mt163607.aspx) para toda la sección properties si quiere definir el número de dominios de actualización y de dominios de error.
+Después de la definición de la cuenta de almacenamiento, agregue un conjunto de disponibilidad establecido para las máquinas virtuales. En este caso, no se necesitan propiedades adicionales, por lo que su definición es bastante simple. Consulte la sección properties completa en la [API de REST para crear un conjunto de disponibilidad](https://msdn.microsoft.com/library/azure/mt163607.aspx) si quiere definir el número de dominios de actualización y de dominios de error.
 
 ```json
 {
@@ -89,12 +156,14 @@ Observe que **name** se establece en el valor de una variable. Esta plantilla, e
 
 El valor especificado para **type** contiene el proveedor de recursos y el tipo de recurso. En el caso de los conjuntos de disponibilidad, el proveedor de recursos es **Microsoft.Compute** y el tipo de recurso es **availabilitySets**. Para obtener la lista de proveedores de recursos disponible, ejecute el siguiente comando de PowerShell:
 
+```powershell
     Get-AzureRmResourceProvider -ListAvailable
+```
 
 O bien, si usa la CLI de Azure, puede ejecutar el comando siguiente:
-
+```
     azure provider list
-
+```
 Dado que en este tema se está creando con cuentas de almacenamiento, máquinas virtuales y redes virtuales, deberá trabajar con:
 
 - Microsoft.Storage
@@ -103,16 +172,20 @@ Dado que en este tema se está creando con cuentas de almacenamiento, máquinas 
 
 Para ver los tipos de recursos de un proveedor determinado, ejecute el siguiente comando de PowerShell:
 
+```powershell
     (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
 
 O bien, para la CLI de Azure, el siguiente comando devolverá los tipos disponibles en formato JSON y los guardará en un archivo.
 
+```
     azure provider show Microsoft.Compute --json > c:\temp.json
+```
 
 Debería ver **availabilitySets** como uno de los tipos en **Microsoft.Compute**. El nombre completo del tipo es **Microsoft.Compute/availabilitySets**. Puede determinar el nombre del tipo de recurso para cualquiera de los recursos de plantilla.
 
 ## Dirección IP pública
-Defina una dirección IP pública. Vuelva a consultar [API de REST para direcciones IP públicas](https://msdn.microsoft.com/library/azure/mt163590.aspx) para ver las propiedades que se deben establecer.
+Defina una dirección IP pública. Vuelva a consultar la [API de REST para direcciones IP públicas](https://msdn.microsoft.com/library/azure/mt163590.aspx) para ver las propiedades que se deben establecer.
 
 ```json
 {
@@ -133,20 +206,21 @@ El método de asignación se establece en **Dynamic** pero puede establecerlo en
 
 Ahora, echemos un vistazo para ver cómo determinar el valor de **apiVersion**. El valor que especifique coincide con la versión de la API de REST que se usará al crear el recurso. Por lo tanto, puede consultar la documentación de la API de REST de ese tipo de recurso. O bien, puede ejecutar el siguiente comando de PowerShell para un tipo determinado.
 
+```powershell
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
-
+```
 Que devuelve los siguientes valores:
 
     2015-06-15
     2015-05-01-preview
     2014-12-01-preview
 
-Para ver las versiones de la API con la CLI de Azure, ejecute el mismo comando **azure provider show** mostrado anteriormente.
+Para ver las versiones de la API con la CLI de Azure, ejecute el mismo comando **azure provider show** mostrado antes.
 
 Al crear una nueva plantilla, seleccione la versión más reciente de la API.
 
 ## Red virtual y subred
-Cree una red virtual con una subred. Consulte [API de REST para redes virtuales](https://msdn.microsoft.com/library/azure/mt163661.aspx) para ver todas las propiedades que se deben establecer.
+Cree una red virtual con una subred. Consulte la [API de REST para redes virtuales](https://msdn.microsoft.com/library/azure/mt163661.aspx) para ver todas las propiedades que se deben establecer.
 
 ```json
 {
@@ -173,9 +247,9 @@ Cree una red virtual con una subred. Consulte [API de REST para redes virtuales]
 ```
 
 ## Equilibrador de carga
-Ahora va a crear un equilibrador de carga accesible desde el exterior. Dado que este equilibrador de carga usa la dirección IP pública, debe declarar una dependencia en la dirección IP pública en la sección **dependsOn**. Esto significa que el equilibrador de carga no se implementará hasta que finalice la implementación de la dirección IP pública. Sin definir esta dependencia, recibirá un error porque Resource Manager intentará implementar los recursos en paralelo y se intentará establecer el equilibrador de carga en la dirección IP pública que todavía no existe.
+Ahora va a crear un equilibrador de carga accesible desde el exterior. Dado que este equilibrador de carga usa la dirección IP pública, debe declarar una dependencia de la dirección IP pública en la sección **dependsOn**. Esto significa que el equilibrador de carga no se implementará hasta que finalice la implementación de la dirección IP pública. Sin definir esta dependencia, recibirá un error porque Resource Manager intentará implementar los recursos en paralelo y se intentará establecer el equilibrador de carga en la dirección IP pública que todavía no existe.
 
-En esta definición de recursos, también creará un grupo de direcciones de back-end, un par de reglas NAT entrantes a RDP en las máquinas virtuales y una regla de equilibrio de carga con un sondeo tcp en el puerto 80. Consulte [API de REST de equilibrador de carga](https://msdn.microsoft.com/library/azure/mt163574.aspx) para ver todas las propiedades.
+En esta definición de recursos, también creará un grupo de direcciones de back-end, un par de reglas NAT entrantes a RDP en las máquinas virtuales y una regla de equilibrio de carga con un sondeo tcp en el puerto 80. Consulte la [API de REST de equilibrador de carga](https://msdn.microsoft.com/library/azure/mt163574.aspx) para ver todas las propiedades.
 
 ```json
 {
@@ -265,7 +339,7 @@ En esta definición de recursos, también creará un grupo de direcciones de bac
 ```
 
 ## Interfaz de red
-Creará dos interfaces de red, una para cada máquina virtual. En lugar de tener que incluir entradas duplicadas para las interfaces de red, puede usar la [función copyIndex()](resource-group-create-multiple.md) para iterar por el bucle de copia (denominado nicLoop) y crear el número de interfaces de red definido en las variables `numberOfInstances`. La interfaz de red depende de la creación de la red virtual y el equilibrador de carga. Usa la subred definida en la creación de la red virtual y el identificador de equilibrador de carga para configurar el grupo de direcciones del equilibrador de carga y las reglas NAT entrantes. Consulte [API de REST para interfaces de red](https://msdn.microsoft.com/library/azure/mt163668.aspx) para ver todas las propiedades.
+Creará dos interfaces de red, una para cada máquina virtual. En lugar de tener que incluir entradas duplicadas para las interfaces de red, puede usar la [función copyIndex()](resource-group-create-multiple.md) para iterar por el bucle de copia (denominado nicLoop) y crear el número de interfaces de red definido en las variables `numberOfInstances`. La interfaz de red depende de la creación de la red virtual y el equilibrador de carga. Usa la subred definida en la creación de la red virtual y el identificador de equilibrador de carga para configurar el grupo de direcciones del equilibrador de carga y las reglas NAT entrantes. Consulte la [API de REST para interfaces de red](https://msdn.microsoft.com/library/azure/mt163668.aspx) para ver todas las propiedades.
 
 ```json
 {
@@ -308,10 +382,9 @@ Creará dos interfaces de red, una para cada máquina virtual. En lugar de tener
 ```
 
 ## Máquina virtual
-Aprenderá a crear dos máquinas virtuales con la función copyIndex(), como hizo al crear las [interfaces de red](#network-interface). La creación de la máquina virtual depende de la cuenta de almacenamiento, la interfaz de red y el conjunto de disponibilidad. Esta máquina virtual se creará a partir de una imagen de Marketplace, tal y como se define en la propiedad `storageProfile`. `imageReference` se usa para definir el editor de la imagen, la oferta, la sku y la versión. Por último, se configura un perfil de diagnóstico para habilitar los diagnósticos para la máquina virtual.
+Aprenderá a crear dos máquinas virtuales con la función copyIndex(), como hizo al crear las [interfaces de red](#network-interface). La creación de la máquina virtual depende de la cuenta de almacenamiento, la interfaz de red y el conjunto de disponibilidad. Esta máquina virtual se creará a partir de una imagen de Marketplace, tal y como se define en la propiedad `storageProfile`. `imageReference` se usa para definir el editor de la imagen, la oferta, la SKU y la versión. Por último, se configura un perfil de diagnóstico para habilitar los diagnósticos para la máquina virtual.
 
-Para buscar las propiedades pertinentes para una imagen de Marketplace, consulte los artículos [Select Linux virtual machine images](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) (Seleccionar imágenes de máquina virtual de Linux) o [Select Windows virtual machine images](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) (Seleccionar imágenes de máquina virtual de Windows). Para las imágenes publicadas por otros proveedores, deberá especificar otra propiedad llamada `plan`. Encontrará un ejemplo en [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) en la galería de inicio rápido.
-
+Para buscar las propiedades pertinentes para una imagen de Marketplace, consulte los artículos [Navegación y selección de las imágenes de máquina virtual Linux en Azure con CLI o PowerShell](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) o [Navegación y selección de las imágenes de máquina virtual Windows en Azure con PowerShell o CLI](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
 
 ```json
 {
@@ -372,13 +445,15 @@ Para buscar las propiedades pertinentes para una imagen de Marketplace, consulte
 }
 ```
 
+>[AZURE.NOTE] Para las imágenes publicadas por **otros proveedores**, deberá especificar otra propiedad llamada `plan`. Encontrará un ejemplo en [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) en la galería de inicio rápido.
+
 Ha terminado de definir los recursos de la plantilla.
 
 ## Parámetros
 
 En la sección parameters, defina los valores que pueden especificarse al implementar la plantilla. Defina solo los parámetros para los valores que cree deben variar durante la implementación. Puede proporcionar un valor predeterminado para un parámetro que se usa si no se proporciona durante la implementación. También puede definir los valores permitidos tal y como se muestra para el parámetro **imageSKU**.
 
-```
+```json
 "parameters": {
     "storageAccountName": {
       "type": "string",
@@ -479,7 +554,7 @@ En la sección parameters, defina los valores que pueden especificarse al implem
 
 En la sección variables, puede definir los valores que se usan en más de un lugar en la plantilla, o los valores que se construyen a partir de otras expresiones o variables. Las variables se usan con frecuencia para simplificar la sintaxis de la plantilla.
 
-```
+```json
 "variables": {
     "availabilitySetName": "myAvSet",
     "subnetName": "Subnet-1",
@@ -494,13 +569,14 @@ En la sección variables, puede definir los valores que se usan en más de un lu
   }
 ```
 
+Ha completado la plantilla. Puede comparar su plantilla con la completa en la [galería de inicio rápido](https://github.com/Azure/azure-quickstart-templates) en la [plantilla para dos máquinas virtuales con equilibrador de carga y reglas de equilibrador de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules). Su plantilla puede variar ligeramente porque se usen números de versión diferentes.
 
+Para volver a implementar la plantilla, use los mismos comandos que utilizó al implementar la cuenta de almacenamiento. No es necesario eliminar la cuenta de almacenamiento antes de volver a implementar porque Resource Manager no volverá a crear los recursos que ya existan y que no hayan cambiado.
 
 ## Pasos siguientes
 
-Ha terminado de crear la plantilla y está listo para la implementación.
+- [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) (Visualizador de plantillas de Azure Resource Manager) es una excelente herramienta para visualizar las plantillas de ARM cuando crezcan tanto que sea complicado comprenderlas solamente con la lectura del archivo json.
+- Para aprender más sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
+- Para aprender a implementar una plantilla, consulte [Implementación de recursos con plantillas de Azure Resource Manager](resource-group-template-deploy.md).
 
-- Para más información sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
-- Para más información sobre cómo implementar una plantilla, consulte [Implementación de un grupo de recursos con la plantilla de Azure Resource Manager](resource-group-template-deploy.md)
-
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

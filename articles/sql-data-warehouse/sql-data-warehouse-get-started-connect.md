@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/10/2016"
    ms.author="sonyama;barbkess"/>
 
 # Conexión a Almacenamiento de datos SQL con Visual Studio
@@ -53,7 +53,7 @@ Para obtener la mejor experiencia, use Visual Studio 2015 con la [actualización
 
     ![Agregar SQL Server][3]
 
-1. Rellene los campos en la ventana Conectar al servidor.
+4. Rellene los campos en la ventana Conectar al servidor.
 
     ![Conectar al servidor][4]
 
@@ -63,10 +63,11 @@ Para obtener la mejor experiencia, use Visual Studio 2015 con la [actualización
     - **Nombre de la base de datos**. Escriba el nombre de la base de datos para la base de datos DW de SQL.
     - Haga clic en **Conectar**.
 
-1. Para explorar, expanda su Azure SQL Server. Puede ver las bases de datos asociadas al servidor. Expanda AdventureWorksDW para ver las tablas de la base de datos de ejemplo.
+5. Para explorar, expanda su Azure SQL Server. Puede ver las bases de datos asociadas al servidor. Expanda AdventureWorksDW para ver las tablas de la base de datos de ejemplo.
 
     ![Explorar AdventureWorksDW][5]
 
+> [AZURE.NOTE] Es importante especificar la base de datos de Almacenamiento de datos SQL en el campo **Nombre de la base de datos** en el momento de la conexión (paso 4) para que el árbol de objetos funcione correctamente. Si deja esta opción en blanco y se conecta a la base de datos predeterminada, **master**, es posible que no funcione si algunas de las bases de datos en el servidor lógico están en pausa. Esta limitación terminará por resolverse pero mientras tanto debería conectarse a la base de datos de Almacenamiento de datos SQL para garantizar la función correcta del árbol de explorador de objetos como se ha mostrado.
 
 ## Paso 3: Ejecución de una consulta de ejemplo
 
@@ -88,7 +89,7 @@ Ahora que se ha establecido una conexión a la base de datos, continuemos y escr
 
     ![Ejecutar consulta][7]
 
-1. Consulte los resultados de la consulta. En este ejemplo, la tabla FactInternetSales tiene 60398 filas.
+5. Consulte los resultados de la consulta. En este ejemplo, la tabla FactInternetSales tiene 60398 filas.
 
     ![Resultados de la consulta][8]
 
@@ -110,4 +111,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [visualizar los datos 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->
