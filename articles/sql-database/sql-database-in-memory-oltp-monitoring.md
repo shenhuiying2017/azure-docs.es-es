@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/02/2016"
 	ms.author="jodebrui"/>
 
 
 # Supervisión del almacenamiento OLTP en memoria
 
-Al usar [In-Memory OLTP](sql-database-in-memory.md), los datos de tablas con optimización para memoria y las variables de tabla residen en el almacenamiento OLTP en memoria. Cada nivel de servicio Premium tiene un tamaño máximo de almacenamiento en memoria, que se documenta en el artículo [Niveles de servicio de Base de datos SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Una vez que se supera ese límite, las operaciones de inserción y actualización pueden empezar a producir errores (con el error 41823). En ese momento se necesita eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
+Cuando se usa [OLTP en memoria](sql-database-in-memory.md), los datos de tablas con optimización de memoria y las variables de tabla residen en el almacenamiento OLTP en memoria. Cada nivel de servicio Premium tiene un tamaño máximo de almacenamiento OLTP en memoria, que se documenta en el artículo [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md#service-tiers-for-single-databases). Una vez que se supera ese límite, las operaciones de inserción y actualización pueden empezar a producir errores (con el error 41823). En ese momento se necesita eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
 
 ## Determinación de si los datos se ajustan dentro del límite de almacenamiento en memoria
 
@@ -35,12 +35,12 @@ Tenga en cuenta que la tabla y las filas de variables de tabla, así como los í
 Puede supervisar el uso del almacenamiento en memoria como un porcentaje del [extremo de almacenamiento para su nivel de rendimiento](sql-database-service-tiers.md#service-tiers-for-single-databases) en el [Portal](https://portal.azure.com/) de Azure:
 
 - En la hoja Base de datos, busque el cuadro de uso de recursos y haga clic en Editar.
-- A continuación, seleccione el porcentaje de métricas de almacenamiento de OLTP en memoria.
+- A continuación, seleccione la métrica `In-Memory OLTP Storage percentage`.
 - Para agregar una alerta, haga clic en el cuadro Uso de recursos para abrir la hoja de métricas y después haga clic en Agregar alerta.
 
 O bien, use la siguiente consulta para mostrar el uso del almacenamiento en memoria:
 
-    select xtp_storage_percent from sys.dm_db_resource_stats
+    SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
 
 ## Corrección de situaciones de falta de memoria (error 41823)
@@ -58,4 +58,4 @@ Para resolver este error, haga uno de los siguientes:
 ## Pasos siguientes
 Obtenga más información acerca de [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

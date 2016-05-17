@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/14/2016"
+    ms.date="05/02/2016"
     ms.author="micurd"/>
 
 # Uso de la CLI de Azure con Almacenamiento de Azure
@@ -191,7 +191,7 @@ El siguiente ejemplo carga un archivo de **~/temp/samplefile.txt** en el directo
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
-Tenga en cuenta que los archivos del recurso compartido pueden tener un tamaño máximo de 1 TB.
+Tenga en cuenta que los archivos del recurso compartido pueden tener un tamaño máximo de 1 TB.
 
 ### Enumeración de los archivos de la raíz o directorio compartidos
 
@@ -221,4 +221,4 @@ A continuación encontrará algunos artículos relacionados y recursos para obte
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

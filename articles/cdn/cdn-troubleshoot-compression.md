@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016" 
+	ms.date="04/28/2016" 
 	ms.author="casoper"/>
     
 # Solución de problemas de compresión de archivos de red CDN
@@ -35,6 +35,8 @@ Hay varias causas posibles, por nombrar algunas:
 - La solicitud HTTP no incluía un encabezado que solicitara un tipo de compresión válido.
 
 ## Pasos para solucionar problemas
+
+> [AZURE.TIP] Al igual que lo que ocurre cuando se implementan puntos de conexión nuevos, los cambios en la configuración de la red CDN demoran un tiempo en propagarse por la red. En la mayoría de los casos, verá que los cambios se aplican dentro de 90 minutos. Si esta es la primera vez que configura la compresión para su punto de conexión de la red CDN, debe considerar una espera de 1 o 2 horas para asegurarse de que la configuración de la compresión se propagó a los POP.
 
 ### Comprobar la solicitud
 
@@ -63,11 +65,10 @@ Desplácese hasta el punto de conexión en el [Portal de Azure](https://portal.a
 Desplácese hasta el punto de conexión en el [Portal de Azure](https://portal.azure.com) y haga clic en el botón **Administrar**. Se abrirá el portal complementario. Desplace el mouse sobre la pestaña **HTTP grande** y luego mantenga el mouse sobre el control flotante **Configuración de caché**. Haga clic en **Compresión**.
 
 - Compruebe que la compresión está habilitada.
-- Compruebe que la lista de **Tipos de archivo** contiene una lista de tipos MIME separados por coma.
+- Compruebe que la lista de **Tipos de archivo** contiene una lista de tipos MIME separados por coma (sin espacios).
 - Compruebe que el tipo MIME del contenido que se va a comprimir se incluya en la lista de formatos comprimidos.
 
 ![Configuración de compresión de red CDN Premium](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
-
 
 ### Comprobar que el contenido se almacena en caché
 
@@ -85,4 +86,4 @@ Para que un archivo sea apto para la compresión, debe cumplir los siguientes re
 - Mayor que 128 bytes.
 - Menor que 1 MB.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

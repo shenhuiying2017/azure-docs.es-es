@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="04/15/2016"
    ms.author="mcoskun"/>
 
 # Copia de seguridad y restauración de Reliable Services y Reliable Actors
@@ -34,6 +34,19 @@ Por ejemplo, un servicio podría realizar copias de seguridad en los escenarios 
 
 La característica de copia de seguridad y restauración permite que los servicios basados en la API de Reliable Services creen y restauren copias de seguridad. Las API de copia de seguridad proporcionadas por la plataforma permiten hacer copias de seguridad del estado de una partición de servicio sin bloquear las operaciones de lectura o de escritura. Las API de restauración permiten restaurar el estado de una partición de servicio a partir de una copia de seguridad elegida.
 
+## Tipos de copia de seguridad
+
+Hay dos opciones de copia de seguridad: completa e incremental. Una copia de seguridad completa es aquella que contiene todos los datos necesarios para volver a crear el estado de la réplica: puntos de control y todos los registros. Puesto que tiene los puntos de control y el registro, las copias de seguridad completas pueden restaurarse solas.
+
+El problema con las copias de seguridad completas se produce cuando los puntos de control tienen un gran tamaño. Por ejemplo, una réplica que tiene 16 GB de estado tendrá puntos de control que agreguen hasta aproximadamente 16 GB. Si tenemos un objetivo de punto de recuperación de 5 minutos, debe realizarse una copia de seguridad de la réplica cada 5 minutos. Cada vez que se hace copia de seguridad, habrá que copiar 16 GB de puntos de control, además de 50 MB (que se puede configurar usando el valor **CheckpointThresholdInMB**) de registros.
+
+![Ejemplo de copia de seguridad completa.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
+
+La solución a este problema son las copias de seguridad incrementales, donde solo se realiza una copia de seguridad de los registros nuevos a partir de la última copia de seguridad.
+
+![Ejemplo de copia de seguridad incremental.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
+
+Puesto que las copias de seguridad incrementales solo incluyen los cambios realizados desde la última copia de seguridad (no se incluyen los puntos de control), suelen ser más rápidas, pero no se pueden restaurar automáticamente. Para restaurar una copia de seguridad incremental, se necesita toda la cadena de copia de seguridad. Una cadena de copia de seguridad empieza por una copia de seguridad completa a la que sigue un número contiguo de copias de seguridad incrementales.
 
 ## Copias de seguridad de Reliable Services
 
@@ -41,7 +54,7 @@ El autor del servicio tiene control total sobre cuándo se realizan las copias d
 
 Para iniciar una copia de seguridad, el servicio debe invocar la función de miembro heredada **BackupAsync**. Las copias de seguridad solo se pueden realizar desde réplicas principales y necesitan que se conceda el estado de escritura.
 
-Como se muestra a continuación, **BackupAsync** asimila un objeto **BackupDescription**, donde puede especificarse una copia de seguridad completa o incremental, así como una función de devolución de llamada, **Func << BackupInfo  bool >>** que se invoca cuando la carpeta de copia de seguridad se ha creado localmente y está lista para moverse fuera a algún almacenamiento externo.
+Como se muestra a continuación, **BackupAsync** asimila un objeto **BackupDescription**, donde puede especificarse una copia de seguridad completa o incremental, así como una función de devolución de llamada, **Func<< BackupInfo, CancellationToken, Task<bool>>>**, que se invoca cuando la carpeta de copia de seguridad se ha creado localmente y está lista para moverse fuera a algún almacenamiento externo.
 
 ```C#
 
@@ -51,22 +64,24 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-**BackupInfo** proporciona información sobre la copia de seguridad, incluida la ubicación de la carpeta donde runtime la guardó (**BackupInfo.Directory**). La función de devolución de llamada puede mover **BackupInfo.Directory** a un almacén externo u otra ubicación. Además, esta función devuelve un valor booleano que indica si se pudo mover correctamente la carpeta de copia de seguridad a su ubicación de destino.
+Se puede producir un error para realizar una copia de seguridad incremental on **FabricFullBackupMissingException**, que indica que la réplica no ha realizado nunca una copia de seguridad completa o que se han truncado algunos de los registros desde esa última copia. Los usuarios pueden modificar la velocidad de truncamiento modificando el valor **CheckpointThresholdInMB**.
+
+**BackupInfo** proporciona información sobre la copia de seguridad, incluida la ubicación de la carpeta donde el runtime la guardó (**BackupInfo.Directory**). La función de devolución de llamada puede mover **BackupInfo.Directory** a un almacén externo u otra ubicación. Además, esta función devuelve un valor booleano que indica si se pudo mover correctamente la carpeta de copia de seguridad a su ubicación de destino.
 
 El código siguiente muestra cómo se puede usar el método **BackupCallbackAsync** para cargar la copia de seguridad a Almacenamiento de Azure:
 
 ```C#
-private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
+private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
 {
     var backupId = Guid.NewGuid();
 
-    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
+    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, cancellationToken);
 
     return true;
 }
 ```
 
-En el ejemplo anterior, **ExternalBackupStore** es la clase de ejemplo que se usa para interactuar con el almacenamiento de blobs de Azure y **UploadBackupFolderAsync** es el método que comprime la carpeta y la coloca en el almacén de blobs de Azure.
+En el ejemplo anterior, **ExternalBackupStore** es la clase de muestra que se usa para interactuar con el almacenamiento de blobs de Azure y **UploadBackupFolderAsync** es el método que comprime la carpeta y la coloca en el almacén de blobs de Azure.
 
 Observe lo siguiente:
 
@@ -118,14 +133,17 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
+El método **RestoreDescription** pasado a la llamada **RestoreContext.RestoreAsync** contiene un miembro denominado "**BackupFolderPath**". Al restaurar una copia de seguridad completa única, este miembro **BackupFolderPath** debe establecerse en la ruta de acceso local de la carpeta que contiene la copia de seguridad completa. Al restaurar una copia de seguridad completa y un número de copias de seguridad incrementales, **BackupFolderPath** debe establecerse en la ruta de acceso local de la carpeta que no solo contiene no la copia de seguridad completa, sino también todas las incrementales. La llamada **RestoreAsync** puede iniciar **FabricFullBackupMissingException** si el miembro **BackupFolderPath** proporcionado no contiene una copia de seguridad completa. También puede iniciar **ArgumentException** si **BackupFolderPath** tiene una cadena de copias de seguridad incrementales rota. Por ejemplo, si contiene la copia de seguridad completa, la primera y la tercera copia de seguridad incremental, pero no la segunda.
+
 >[AZURE.NOTE] RestorePolicy se establece en Seguro de forma predeterminada. Esto significa que la API **RestoreAsync** generará una excepción ArgumentException si detecta que la carpeta de copia de seguridad contiene un estado igual o más antiguo que el estado contenido en esta réplica. Se puede usar **RestorePolicy.Force** para omitir esta comprobación de seguridad. Esto se especifica como parte de **RestoreDescription**.
 
 ## Eliminación o pérdida del servicio
 
-Si se quita un servicio, en primer lugar debe volver a crearlo para poder restaurar los datos. Es importante crear el servicio con la misma configuración, por ejemplo, con el mismo esquema de partición, para que los datos se restauren sin ningún problema. Una vez que el servicio está activo, se debe invocar la API para restaurar datos (**OnDataLossAsync** más arriba) en todas las particiones de este servicio. Una manera de conseguir esto es utilizando **FabricClient.ServiceManager.InvokeDataLossAsync** en cada partición.
+Si se quita un servicio, en primer lugar debe volver a crearlo para poder restaurar los datos. Es importante crear el servicio con la misma configuración, por ejemplo, con el mismo esquema de partición, para que los datos se restauren sin ningún problema. Una vez que el servicio está activo, se debe invocar la API para restaurar datos (**OnDataLossAsync** más arriba) en todas las particiones de este servicio. Una manera de conseguirlo es mediante el uso de **[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)** en cada partición.
 
 Desde este punto, la implementación es igual que en el escenario anterior. Cada partición debe restaurar la última copia de seguridad pertinente desde el almacén externo. Una advertencia es que es posible que el identificador de partición sea diferente, ya que el tiempo de ejecución crea los identificadores de partición de forma dinámica. Por lo tanto, el servicio necesita almacenar el nombre de servicio y la información de partición adecuada para identificar la copia de seguridad correcta más reciente desde la que restaurar para cada partición.
 
+>[AZURE.NOTE] No se recomienda usar **FabricClient.ServiceManager.InvokeDataLossAsync** en cada partición para restaurar todo el servicio, ya que puede dañar el estado del clúster.
 
 ## Replicación de datos de aplicación dañados
 
@@ -141,15 +159,18 @@ Observe lo siguiente:
 
 - Con cada restauración, es posible que la copia de seguridad que se restaura sea anterior al estado de la partición antes de la pérdida de datos. Por este motivo, la restauración se debe utilizar solo como último recurso para recuperar tantos datos como sea posible.
 
-- La cadena que representa la ruta de acceso de la carpeta de copia de seguridad, así como las rutas de acceso de los archivos dentro de la misma, puede tener más de 255 caracteres, según la ruta de acceso de FabricDataRoot y la longitud del nombre del tipo de aplicación. Esto puede hacer que algunos métodos .NET, como **Directory.Move**, inicien la excepción **PathTooLongException**. Una solución alternativa es llamar directamente a las API de kernel32, como **CopyFile**.
+- La cadena que representa la ruta de acceso de la carpeta de copia de seguridad, así como las rutas de acceso de los archivos dentro de la misma, puede tener más de 255 caracteres, según la ruta de acceso de FabricDataRoot y la longitud del nombre del tipo de aplicación. Esto puede provocar que algunos métodos .NET, como **Directory.Move**, inicien la excepción **PathTooLongException**. Una solución alternativa es llamar directamente a las API de kernel32, como **CopyFile**.
 
 ## Copia de seguridad y restauración de Reliable Actors
 
-La copia de seguridad y restauración para Reliable Actors se basa en la funcionalidad de copia de seguridad y restauración que proporcionan los servicios de confianza. El propietario del servicio debe crear un servicio Actor personalizado que se deriva de **ActorService** (que es un servicio de confianza de Service Fabric que hospeda a actores) y después hacer la copia de seguridad y restauración de forma similar a Reliable Services tal como se describió en las secciones anteriores. Puesto que las copias de seguridad se realizan por partición, se llevará a cabo una copia de seguridad de los estados para todos los actores de esa partición concreta. La restauración es similar y se realizará por partición.
+La copia de seguridad y restauración para Reliable Actors se basa en la funcionalidad de copia de seguridad y restauración que proporcionan los servicios de confianza. El propietario del servicio debe crear un servicio Actor personalizado que se deriva de **ActorService** (que es un servicio de confianza de Service Fabric que hospeda actores) y después hacer la copia de seguridad y restauración de forma similar a Reliable Services, tal y como se describió en las secciones anteriores. Puesto que las copias de seguridad se realizan por partición, se llevará a cabo una copia de seguridad de los estados para todos los actores de esa partición concreta. La restauración es similar y se realizará por partición.
 
-Observe lo siguiente:
 
-(1) Al crear un servicio de actor personalizado, debe registrar también dicho servicio al registrar el actor. Consulte **ActorRuntime.RegistorActorAsync**. (2) **KvsActorStateProvider** actualmente solo admite la copia de seguridad completa. En versiones futuras se proporcionará compatibilidad con la copia de seguridad incremental. **KvsActorStateProvider** también pasa por alto la opción **RestorePolicy.Safe**.
+- Al crear un servicio de actor personalizado, debe registrar también dicho servicio al registrar el actor. Consulte **ActorRuntime.RegistorActorAsync**.
+- **KvsActorStateProvider** actualmente solo admite la copia de seguridad completa. **KvsActorStateProvider** también pasa por alto la opción **RestorePolicy.Safe**.
+
+>[AZURE.NOTE] El valor predeterminado ActorStateProvider (es decir, **KvsActorStateProvider**) **no** limpia las carpetas de copia de seguridad por sí mismo (en la carpeta de trabajo de la aplicación obtenida a través de ICodePackageActivationContext.WorkDirectory). Esto puede provocar que se llene la carpeta de trabajo. Debe limpiar expresamente la carpeta de copia de seguridad en la llamada de devolución de copia de seguridad después de haber movido la copia de seguridad a un almacenamiento externo.
+
 
 ## Prueba de la copia de seguridad y la restauración
 
@@ -168,9 +189,8 @@ Cualquier transacción que se confirme después de la llamada a **BackupAsync** 
 
 ### Restauración
 
-El Administrador de estado confiable ofrece la posibilidad de restaurar desde una copia de seguridad mediante la API **RestoreAsync**. Solo se puede llamar al método **RestoreAsync** en **RestoreContext** dentro del método **OnDataLossAsync**. El valor booleano devuelto por **OnDataLossAsync** indica si el servicio restauró su estado a partir de un origen externo. Si el método **OnDataLossAsync** devuelve true, Service Fabric volverá a generar todas las demás réplicas a partir de esta principal. Service Fabric garantiza que las réplicas que van a recibir la llamada **OnDataLossAsync** realicen en primer lugar la transición al rol principal, pero no se les concede el estado de lectura o escritura. Esto supone que, para los implementadores de StatefulService, no se llamará a **RunAsync** hasta que **OnDataLossAsync** se complete correctamente. Después se invocará a **OnDataLossAsync** en la nueva réplica principal. Hasta que un servicio complete esta API correctamente (y devuelva true o false) y finalice la reconfiguración pertinente, se seguirá llamando a la API de uno en uno.
-
+El Administrador de estado confiable ofrece la posibilidad de restaurar desde una copia de seguridad mediante la API **RestoreAsync**. Solo se puede llamar al método **RestoreAsync** en **RestoreContext** dentro del método **OnDataLossAsync**. El valor booleano devuelto por **OnDataLossAsync** indica si el servicio restauró su estado a partir de un origen externo. Si el método **OnDataLossAsync** devuelve True, Service Fabric volverá a generar todas las demás réplicas a partir de esta principal. Service Fabric garantiza que las réplicas que van a recibir la llamada **OnDataLossAsync** realicen en primer lugar la transición al rol principal, pero no se les concede el estado de lectura o escritura. Esto supone que, para los implementadores de StatefulService, no se llamará a **RunAsync** hasta que **OnDataLossAsync** se complete correctamente. Después se invocará a **OnDataLossAsync** en la nueva réplica principal. Hasta que un servicio complete esta API correctamente (y devuelva true o false) y finalice la reconfiguración pertinente, se seguirá llamando a la API de uno en uno.
 
 En primer lugar, **RestoreAsync** quita todo estado existente en la réplica principal en la que se llamó. Después, el Administrador de estado confiable crea todos los objetos confiables que existen en la carpeta de copia de seguridad. A continuación, se indica a los objetos confiables que restauren a partir de sus puntos de control en la carpeta de copia de seguridad. Por último, el Administrador de estado confiable recupera su propio estado de las entradas del registro en la carpeta de copia de seguridad y realiza la recuperación. Como parte del proceso de recuperación, se reproducen en los objetos confiables las operaciones a partir del "punto de partida" que tengan entradas de registro de confirmación en la carpeta de copia de seguridad. Este paso garantiza que el estado recuperado sea coherente.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

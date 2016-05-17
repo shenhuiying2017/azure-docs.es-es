@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="04/28/2016" 
 	ms.author="tdykstra"/>
 
 # Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio
 
 ## Información general
 
-En este tutorial se muestra cómo utilizar herramientas de Visual Studio para ayudar a depurar una aplicación web mientras se ejecuta en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) de manera remota o consultando los registros del servidor web o de aplicación.
+En este tutorial se muestra cómo utilizar herramientas de Visual Studio para ayudar a depurar una aplicación web en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) de manera remota o consultando los registros del servidor web o de aplicación.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -41,17 +41,17 @@ Este tutorial funciona con el entorno de desarrollo, proyecto web y aplicación 
 
 Los ejemplos de código que aparecen en este tutorial son para una aplicación web C# MVC, pero los procedimientos de solución de problemas son los mismos para las aplicaciones de Web Forms y Visual Basic.
 
-La depuración remota requiere Visual Studio 2013 o Visual Studio 2012 con Update 4. Las características de depuración remota y del **Explorador de servidores** para WebJobs requieren [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510314) o posterior. Las demás características mostradas en el tutorial también funcionan en Visual Studio 2013 Express para Web, y Visual Studio 2012 Express para Web.
+El tutorial supone que está utilizando Visual Studio 2015 o 2013. Si utiliza Visual Studio 2013, las características de WebJobs requieren la [actualización 4](http://go.microsoft.com/fwlink/?LinkID=510314) o posterior.
 
 La característica de registros de streaming solo funciona para aplicaciones dirigidas a .NET Framework 4 o superior.
 
 ## <a name="sitemanagement"></a>Administración y configuración de la aplicación web
 
-Visual Studio proporciona acceso a un subconjunto de las funciones de administración de aplicaciones web y los ajustes de configuración disponibles en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). En esta sección podrá ver las opciones y funciones disponibles.
+Visual Studio proporciona acceso a un subconjunto de las funciones de administración de aplicaciones web y los ajustes de configuración disponibles en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). En esta sección podrá ver las opciones y funciones disponibles mediante el **Explorador de servidores**. Para ver las últimas características de integración de Azure, pruebe también **Cloud Explorer**. Puede abrir dos ventanas del menú **Ver**.
 
 1. Si todavía no ha iniciado sesión en Azure en Visual Studio, haga clic en el botón **Conectar a Azure** en el **Explorador de servidores**.
 
-	Una alternativa es instalar un certificado de administración que permita el acceso a su cuenta. Si elige instalar un certificado, haga clic con el botón secundario en el nodo **Azure** del **Explorador de servidores** y, a continuación, haga clic en **Administrar suscripciones** en el menú contextual. En el cuadro de diálogo **Administrar suscripciones de Azure**, haga clic en la pestaña **Certificados** y, a continuación, en **Importar**. Siga las instrucciones para descargar e importar un archivo de suscripción (también conocido como archivo *.publishsettings*) para su cuenta de Azure.
+	Una alternativa es instalar un certificado de administración que permita el acceso a su cuenta. Si elige instalar un certificado, haga clic con el botón secundario en el nodo **Azure** del **Explorador de servidores** y, a continuación, haga clic en **Administrar y filtrar suscripciones** en el menú contextual. En el cuadro de diálogo **Administrar suscripciones de Azure**, haga clic en la pestaña **Certificados** y, a continuación, en **Importar**. Siga las instrucciones para descargar e importar un archivo de suscripción (también conocido como archivo *.publishsettings*) para su cuenta de Azure.
 
 	> [AZURE.NOTE]
 	Si descarga un archivo de suscripción, guárdelo en una carpeta ajena a los directorios de código fuente (por ejemplo, en la carpeta Descargas) y elimínelo una vez que finalice la importación. Si un usuario malintencionado obtuviera acceso al archivo de suscripción, podría editar, crear y eliminar servicios de Azure.
@@ -72,7 +72,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
    
 	Para obtener información acerca de los cuadros Configuración de aplicaciones y Cadenas de conexión de esta ventana, consulte [Aplicaciones web de Azure: Funcionamiento de las cadenas de aplicación y de las cadenas de conexión](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-	Si quiere realizar una tarea de administración de aplicaciones web que no se puede hacer en esta ventana, haga clic en **Abrir en Portal de administración** para abrir una ventana del explorador en el Portal de Azure clásico. Para obtener más información, consulte [Configuración de aplicaciones web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	Si desea realizar una tarea de administración de aplicaciones web que no se puede hacer en esta ventana, haga clic en **Abrir en Portal de administración** para abrir una ventana del explorador con el Portal de Azure.
 
 ## <a name="remoteview"></a>Acceso a archivos de aplicaciones web en el Explorador de servidores
 
@@ -149,31 +149,13 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 4. Una vez que ha finalizado la implementación y que el explorador abre la dirección URL de Azure de su aplicación web, cierre el explorador.
 
-5. Para Visual Studio 2013: en el **Explorador de servidores**, haga clic con el botón secundario en la aplicación web y, a continuación, haga clic en **Asociar depurador**.
+5. En el **Explorador de servidores**, haga clic con el botón secundario en la aplicación web y, a continuación, haga clic en **Asociar depurador**.
 
 	![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
 	El explorador se abre automáticamente en su página inicial en ejecución en Azure. Es posible que deba esperar unos 20 segundos mientras Azure configura el servidor para la depuración. Esta demora solo se produce la primera vez que ejecuta el modo de depuración en una aplicación web. Las veces posteriores dentro de las próximas 48 horas no habrá demora cuando vuelva a iniciar la depuración.
 
-6. Para Visual Studio 2012 con Update 4 o superior: <a id="vs2012"></a>
-
-	* En el Portal de Azure clásico, vaya a **Configurar > Configuración de la aplicación** para su aplicación web y desplácese hacia abajo hasta la sección **Depuración**.
-
-	* Establezca **Depuración remota** en **Activado** y establezca **Versión remota de Visual Studio** en **2012**.
-
-	* En el menú **Depurar** de Visual Studio, haga clic en **Asociar al proceso**.
-
-	* En el cuadro **Calificador**, escriba la dirección URL de la aplicación web, sin el prefijo `http://`.
-
-	* Seleccione **Mostrar los procesos de todos los usuarios**.
-
-	* Cuando se le soliciten credenciales, escriba el nombre de usuario y la contraseña con permisos para implementar el contenido en la aplicación web. Para obtener estas credenciales, vaya a la pestaña Panel de la aplicación web en el portal clásico y haga clic en **Descargar el perfil de publicación**. Abra el archivo en un editor de texto y verá el nombre de usuario y la contraseña después de las primeras apariciones de **userName=** y **userPWD=**.
-
-	* Cuando los procesos aparezcan en la tabla **Procesos disponibles**, seleccione **w3wp.exe** y haga clic en **Adjuntar**.
-
-	* Abra un explorador en la dirección URL de la aplicación web.
-
-	Es posible que deba esperar unos 20 segundos mientras Azure configura el servidor para la depuración. Esta demora solo se produce la primera vez que ejecuta el modo de depuración en una aplicación web. Las veces posteriores dentro de las próximas 48 horas no habrá demora cuando vuelva a iniciar la depuración.
+	**Nota:** si tiene algún problema para iniciar el depurador, intente hacerlo con **Cloud Explorer** en lugar de con el **Explorador de servidores**.
 
 6. Haga clic en **Acerca de** en el menú.
 
@@ -195,7 +177,11 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 ## <a name="remotedebugwj"></a> WebJobs de depuración remota
 
-En esta sección se muestra cómo depurar de forma remota mediante el proyecto y la aplicación web que creó en [Introducción al SDK de WebJobs de Azure](websites-dotnet-webjobs-sdk.md). Las características mostradas en esta sección solo están disponibles en Visual Studio 2013 con Update 4 o superior. La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo demanda y programados no admiten la depuración.
+En esta sección se muestra cómo depurar de forma remota mediante el proyecto y la aplicación web que creó en [Introducción al SDK de WebJobs de Azure](websites-dotnet-webjobs-sdk.md).
+
+Las características mostradas en esta sección solo están disponibles en Visual Studio 2013 con Update 4 o superior.
+
+La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo demanda y programados no admiten la depuración.
 
 1. Abra el proyecto web que creó en [Introducción al SDK de WebJobs de Azure][GetStartedWJ].
 
@@ -301,49 +287,36 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
 ### Adición de instrucciones de seguimiento a la aplicación
 
-1. Abra *Controllers\HomeController.cs* y reemplace el contenido del archivo por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
+1. Abra *Controllers\\HomeController.cs* y reemplace los métodos `Index`, `About` y `Contact` por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
 
-		using System;
-		using System.Collections.Generic;
-		using System.Configuration;
-		using System.Diagnostics;
-		using System.Linq;
-		using System.Web;
-		using System.Web.Configuration;
-		using System.Web.Mvc;
-		namespace MyExample.Controllers
+		public ActionResult Index()
 		{
-		    public class HomeController : Controller
-		    {
-		        public ActionResult Index()
-		        {
-		            Trace.WriteLine("Entering Index method");
-		            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-		            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-		            Trace.WriteLine("Leaving Index method");
-		            return View();
-		        }
-		
-		        public ActionResult About()
-		        {
-		            Trace.WriteLine("Entering About method");
-		            ViewBag.Message = "Your app description page.";
-		            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-		            Trace.WriteLine("Leaving About method");
-		            return View();
-		        }
-		
-		        public ActionResult Contact()
-		        {
-		            Trace.WriteLine("Entering Contact method");
-		            ViewBag.Message = "Your contact page.";
-		            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-		            Trace.WriteLine("Leaving Contact method");
-		            return View();
-		        }
-		    }
+		    Trace.WriteLine("Entering Index method");
+		    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+		    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+		    Trace.WriteLine("Leaving Index method");
+		    return View();
 		}
 		
+		public ActionResult About()
+		{
+		    Trace.WriteLine("Entering About method");
+		    ViewBag.Message = "Your app description page.";
+		    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+		    Trace.WriteLine("Leaving About method");
+		    return View();
+		}
+		
+		public ActionResult Contact()
+		{
+		    Trace.WriteLine("Entering Contact method");
+		    ViewBag.Message = "Your contact page.";
+		    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+		    Trace.WriteLine("Leaving Contact method");
+		    return View();
+		}		
+
+2. Agregue una instrucción `using System.Diagnostics;` a la parte superior del archivo.
 				
 ### Visualización del resultado de seguimiento localmente
 
@@ -478,9 +451,9 @@ Los registros de servidor web registran toda la actividad HTTP para la aplicaci�
 	![Registros de servidor web en la ventana Output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-De manera predeterminada, cuando habilita por primera vez los registros de servidor web mediante el uso de Visual Studio, Azure escribe los registros en el sistema de archivos. De manera alternativa, puede utilizar el portal clásico para especificar que los registros de servidor web se deben escribir en un contenedor de blob en una cuenta de almacenamiento. Para obtener más información, consulte la sección sobre **diagnóstico del sitio** en [Configuración de Sitios web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+De manera predeterminada, cuando habilita por primera vez los registros de servidor web mediante el uso de Visual Studio, Azure escribe los registros en el sistema de archivos. De manera alternativa, puede utilizar el Portal de Azure para especificar que los registros de servidor web se deben escribir en un contenedor de blobs en una cuenta de almacenamiento.
 
-Si utiliza el portal clásico para habilitar el registro de servidor web para una cuenta de almacenamiento de Azure y luego deshabilitar el registro en Visual Studio, cuando vuelva a habilitar el registro en Visual Studio, se restaurará la configuración de su cuenta de almacenamiento.
+Si utiliza el portal para habilitar el registro de servidor web para una cuenta de almacenamiento de Azure y luego deshabilitar el registro en Visual Studio, cuando vuelva a habilitar el registro en Visual Studio, se restaurará la configuración de su cuenta de almacenamiento.
 
 ## <a name="detailederrorlogs"></a>Visualización de registros de mensajes de error detallados
 
@@ -641,11 +614,11 @@ Puede ver los registros de seguimiento de solicitudes en un explorador directame
 
 2. En Visual Studio, en la pestaña **Configuración** de la ventana **Aplicación web de Azure**, haga clic en **Abrir en el Portal de administración**.
 
-3. En la hoja del Portal de Azure (https://portal.azure.com) para la aplicación web, haga clic en **Configuración > Credenciales de implementación** y luego especifique un nuevo nombre de usuario y contraseña.
+3. En la hoja [Portal de Azure](https://portal.azure.com) **Configuración** para la aplicación web, haga clic en k **Credenciales de implementación** y luego especifique un nuevo nombre de usuario y contraseña.
 
 	![Nuevo nombre de usuario y contraseña de FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	**Cuando inicie sesión, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
+	Cuando **inicie sesión**, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
 
 5. En una ventana nueva del explorador, vaya a la dirección URL que aparece en **Nombre de host de FTP** o **Nombre de host de FTPS** en la hoja **Aplicación web** de la aplicación web.
 
@@ -756,15 +729,8 @@ Una introducción a la herramienta de analizador del registro que puede utilizar
 
 El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimiento de solicitudes erróneas](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) que puede ser muy práctica para comprender cómo utilizar estos registros. Sin embargo, esta documentación se centra principalmente en la configuración del seguimiento de solicitudes con error en IIS, algo que no puede hacer en Aplicaciones web Azure.
 
-### Depuración de Servicios en la nube
-
-Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web, consulte [Depuración de servicio en la nube](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
-
-## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

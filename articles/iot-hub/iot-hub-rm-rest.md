@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Tutorial: Crear un Centro de IoT con un programa de C# y la API de REST
@@ -61,7 +61,7 @@ Para completar este tutorial, necesitará lo siguiente:
     using Newtonsoft.Json;
     ```
     
-7. En Program.cs, agregue las siguientes variables estáticas reemplazando los valores de marcador de posición. Realizó una nota de **ApplicationId**, **SubscriptionId**, **TenantId** y **Password** anteriormente en este tutorial. El **Nombre de grupo de recursos** es el nombre del grupo de recursos que usará al crear el centro de IoT, puede ser un grupo de recursos existente u otro nuevo. El **nombre del Centro de IoT** es el nombre del Centro de IoT que creará, como **MyIoTHub** (tenga en cuenta que este nombre debe ser único global). El **Nombre de la implementación** es un nombre para la implementación, como **Deployment\_01**.
+7. En Program.cs, agregue las siguientes variables estáticas reemplazando los valores de marcador de posición. Realizó una nota de **ApplicationId**, **SubscriptionId**, **TenantId** y **Password** anteriormente en este tutorial. El **Nombre de grupo de recursos** es el nombre del grupo de recursos que usará al crear el centro de IoT, puede ser un grupo de recursos existente u otro nuevo. El **nombre del Centro de IoT** es el nombre del Centro de IoT que creará, como **MyIoTHub** (tenga en cuenta que este nombre debe ser globalmente único, por lo que debe incluir su nombre o sus iniciales). El **Nombre de la implementación** es un nombre para la implementación, como **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -70,7 +70,7 @@ Para completar este tutorial, necesitará lo siguiente:
     static string password = "{Your application Password}";
     
     static string rgName = "{Resource group name}";
-    static string iotHubName = "{IoT Hub name}";
+    static string iotHubName = "{IoT Hub name including your initials}";
     ```
 
 [AZURE.INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
@@ -183,4 +183,4 @@ Ahora que ha implementado un Centro de IoT mediante la API de REST, quizá desee
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

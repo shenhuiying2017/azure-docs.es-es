@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/02/2016"
+   ms.date="04/18/2016"
    ms.author="alkohli" />
 
-# Usar el servicio de Administrador de StorSimple para administrar su cuenta de almacenamiento
+# Uso del servicio StorSimple Manager para administrar cuentas de almacenamiento para la matriz virtual de StorSimple
 
 ## Información general
 
@@ -56,7 +56,9 @@ Puede agregar una cuenta de almacenamiento a la configuración del servicio Stor
 
 Puede crear varias cuentas para un proveedor de servicios en la nube determinado. Mientras se guarda la cuenta de almacenamiento, el servicio intenta comunicarse con el proveedor de servicios en la nube. Las credenciales y el material de acceso que proporcionó se autenticarán en este momento. Solo si la autenticación se realiza correctamente se crea una cuenta de almacenamiento. Si se produce un error en la autenticación, se mostrará un mensaje de error adecuado.
 
-A continuación se detalla el procedimiento para agregar una cuenta de almacenamiento.
+Las cuentas de almacenamiento de Resource Manager creadas en el Portal de Azure también son compatibles con StorSimple. Las cuentas de almacenamiento de Resource Manager se mostrarán en la lista desplegable para selección, solo se mostrarán las cuentas de almacenamiento creadas en el Portal de Azure clásico. Las cuentas de almacenamiento de Resource Manager tendrán que agregarse con el procedimiento para agregar una cuenta de almacenamiento como se describe a continuación.
+
+A continuación se detalla el procedimiento para agregar una cuenta clásica de almacenamiento de Azure.
 
 [AZURE.INCLUDE [add-a-storage-account](../../includes/storsimple-ova-configure-new-storage-account.md)]
 
@@ -74,7 +76,7 @@ Puede editar una cuenta de almacenamiento utilizada por su dispositivo. Si edita
 
   1. En la lista desplegable de **Cuentas de almacenamiento**, elija una cuenta existente que desea modificar.
   2. Si es necesario, puede modificar la selección **Habilitar modo SSL**.
-  3. Puede optar por regenerar las claves de acceso de la cuenta de almacenamiento. Para más información, vea [Regeneración de las claves de la cuenta de almacenamiento](storage-create-storage-account.md#manage-your-storage-access-keys). Proporcione la nueva clave de la cuenta de almacenamiento. Para una cuenta de almacenamiento de Azure, esta es la clave de acceso principal. 
+  3. Puede optar por regenerar las claves de acceso de la cuenta de almacenamiento. Para obtener más información, consulte [Regeneración de las claves de la cuenta de almacenamiento](storage-create-storage-account.md#manage-your-storage-access-keys). Proporcione la nueva clave de la cuenta de almacenamiento. Para una cuenta de almacenamiento de Azure, esta es la clave de acceso principal. 
   4. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-manage-storage-accounts/checkicon.png) para guardar la configuración. La configuración se actualiza en la página **Configurar**. 
   5. En la parte inferior de la página, haga clic en **Guardar** para guardar la configuración recién actualizada. 
 
@@ -101,4 +103,4 @@ Puede editar una cuenta de almacenamiento utilizada por su dispositivo. Si edita
 
 - Obtenga más información para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

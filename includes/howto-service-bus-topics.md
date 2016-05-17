@@ -6,15 +6,15 @@ Las suscripciones y los temas del Bus de servicio son compatibles con el modelo 
 
 A diferencia de las colas del Bus de servicio, en las que un solo destinatario procesa cada mensaje, los temas y las suscripciones proporcionan una forma de comunicación de uno a varios mediante un patrón de publicación/suscripción. Es posible registrar varias suscripciones en un tema. Cuando un mensaje se envía a un tema, pasa a estar disponible para cada suscripción para la administración o el procesamiento de manera independiente.
 
-Una suscripción a un tema se asemeja a una cola virtual que recibe copias de los mensajes que se enviaron al tema. Opcionalmente, puede registrar reglas de filtros para un tema por suscripción, lo que le permite filtrar/restringir qué mensajes para un tema reciben las suscripciones a un tema.
+Una suscripción a un tema se asemeja a una cola virtual que recibe copias de los mensajes que se enviaron al tema. Opcionalmente, puede registrar reglas de filtros para un tema por suscripción, lo que le permite filtrar o restringir qué mensajes para un tema reciben las suscripciones a un tema.
 
-Las suscripciones y temas del Bus de servicio le permiten escalar y procesar un número bastante elevado de mensajes en una serie muy amplia de usuarios y aplicaciones.
+Las suscripciones y temas del Bus de servicio le permiten escalar y procesar un número muy elevado de mensajes por muchos usuarios y aplicaciones.
 
-## Creación de un espacio de nombres de servicio
+## Creación de un espacio de nombres
 
-Para comenzar a usar suscripciones y temas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
+Para comenzar a usar suscripciones y temas del Bus de servicio en Azure, primero debe crear un *espacio de nombres de servicio*. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
 
-Para crear un nombre de espacio de servicio:
+Para crear un espacio de nombres:
 
 1.  Inicie sesión en el [Portal de Azure clásico][].
 
@@ -28,13 +28,13 @@ Para crear un nombre de espacio de servicio:
 
 	> [AZURE.IMPORTANT] seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
 
-6. 	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
+6. 	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación Aceptar. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 	![][6]
 
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
-Para realizar operaciones de administración (como la creación de un tema o una suscripción) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales en el Portal de Azure.
+Para realizar operaciones de administración (como la creación de un tema o una suscripción) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales en el portal.
 
 ### Obtención de credenciales de administración en el Portal
 
@@ -55,4 +55,3 @@ Para realizar operaciones de administración (como la creación de un tema o una
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
 
-<!---HONumber=AcomDC_0128_2016-->

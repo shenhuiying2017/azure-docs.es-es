@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Ejecutar tareas en segundo plano con trabajos web
@@ -25,6 +25,8 @@ Puede ejecutar programas o scripts en trabajos web en su aplicación web del [Se
 En este artículo se muestra cómo implementar Webjobs con el [Portal de Azure](https://portal.azure.com). Para obtener información sobre cómo implementar con Visual Studio o con un proceso de entrega continua, consulte [Implementación de Webjobs de Azure en aplicaciones web](websites-dotnet-deploy-webjobs.md).
 
 El SDK de trabajos web de Azure simplifica muchas de las tareas de programación de trabajos web. Para obtener más información, consulte [¿Qué es el SDK de Webjobs?](websites-dotnet-webjobs-sdk.md)
+
+ Funciones de Azure (actualmente en versión preliminar) es otra forma de ejecutar programas y scripts en Servicio de aplicaciones de Azure. Para obtener más información, consulte [Información general sobre Funciones de Azure](../azure-functions/functions-overview.md).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -201,14 +203,9 @@ Los trabajos programados se pueden configurar adicionalmente en las páginas del
 - Los modos básico y estándar ofrecen la característica Siempre disponible que, cuando está habilitada, impide que las aplicaciones web se vuelvan inactivas.
 - Solo se pueden depurar WebJobs que se ejecutan continuamente. No se admite la depuración de WebJobs programada o a petición.
 
->[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
-
 ## <a name="NextSteps"></a>Pasos siguientes
  
 Para obtener más información, consulte [Recursos recomendados de WebJobs de Azure][WebJobsRecommendedResources].
-
-## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]: http://go.microsoft.com/fwlink/?LinkId=390226
@@ -238,4 +235,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/29/2016"
 	ms.author="bruceper"/>
 
 # Administración del Almacén de claves mediante CLI #
@@ -31,7 +31,6 @@ Use este tutorial para empezar a trabajar con el Almacén de claves de Azure par
 Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](key-vault-whatis.md)
 
 ## Requisitos previos
-
 Para realizar este tutorial, necesitará lo siguiente:
 
 - Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para obtener una versión de [evaluación gratuita](../../../pricing/free-trial).
@@ -106,6 +105,12 @@ Cuando se utiliza el Administrador de recursos de Azure, todos los recursos rela
 
 El primer parámetro es el nombre del grupo de recursos y el segundo parámetro es la ubicación. Para la ubicación, use el comando `azure location list` para identificar cómo se debe especificar una ubicación alternativa a la usada en este ejemplo. Si necesita más información, escriba: `azure help location`
 
+## Registro del proveedor de recursos de Almacén de claves
+Asegúrese de que el proveedor de recursos de Almacén de claves está registrado en la suscripción:
+
+`azure provider register Microsoft.KeyVault`
+
+Esto solo se debe hacer una vez por suscripción.
 
 
 ## Creación de un Almacén de claves
@@ -187,6 +192,8 @@ Por ejemplo, si el nombre del almacén es ContosoKeyVault y la aplicación que d
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
 
+>[AZURE.NOTE] Si se ejecuta en un símbolo del sistema de Windows, debe reemplazar las comillas simples por comillas dobles y, además, insertar un carácter de escape en las comillas dobles internas. Por ejemplo: "["decrypt","sign"]".
+
 Si desea autorizar a esa misma aplicación para leer los secretos en el almacén, ejecute lo siguiente:
 
 	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
@@ -256,4 +263,4 @@ Ejemplo de cómo quitar un secreto específico:
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

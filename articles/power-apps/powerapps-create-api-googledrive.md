@@ -14,88 +14,103 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/29/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Creación de una nueva API de Google Drive en PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [Aplicaciones lógicas](../articles/connectors/connectors-create-api-googledrive.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
+> [AZURE.IMPORTANT] Este tema está archivado y se quitará próximamente. Descubra lo que estamos preparando en la nueva versión de [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Para obtener más información sobre PowerApps y empezar a trabajar, vaya a [PowerApps](https://powerapps.microsoft.com).  
+> - Para obtener más información sobre las conexiones disponibles en PowerApps, vaya a [Available Connections](https://powerapps.microsoft.com/tutorials/connections-list/) (Conexiones disponibles). 
 
-Agregue la API de Google Drive al entorno del Servicio de aplicaciones de su organización (inquilino).
+<!--Archived
+Add the Google Drive API to your organization's (tenant) app service environment. 
 
-## Crear la API en el portal de Azure
+## Create the API in the Azure portal
 
-1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@*SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. Seleccione **Examinar** en la barra de tareas: ![][15]
+2. Select **Browse** in the task bar:  
+![][15]
 
-3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: ![][16]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][16]  
 
-4. En **PowerApps**, seleccione **Administrar API**: ![Examine las APIs registradas][1]
+4. In **PowerApps**, select **Manage APIs**:  
+![Browse to registered apis][1]
 
-5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API: ![Add API][2]
+5. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][2]
 
-6. Escriba un **nombre** descriptivo para la API.
+6. Enter a descriptive **name** for your API.  
 	
-7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Google Drive**: ![seleccionar la api de google drive][3]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Google Drive**:  
+![select google drive api][3]
 
-8. Seleccione **Configuración: Configure los ajustes necesarios**: ![establecer la configuración de la API de google drive][4]
+8. Select **Settings - Configure required settings**:  
+![configure google drive API settings][4]
 
-9. Escriba la *clave de la aplicación* y el *secreto de la aplicación* de la aplicación Google Drive. Si no dispone de estos, consulte la sección "Registrar una aplicación Google Drive para su uso con PowerApps" de este tema para crear los valores de clave y secreto que necesita.
+9. Enter *App Key* and *App Secret* of your Google Drive application. If you don't have one, see the "Register a Google Drive app for use with PowerApps" section in this topic to create the key and secret values you need.  
 
-	> [AZURE.IMPORTANT] Guarde la **URL de redireccionamiento**. Es posible que necesite este valor más adelante en este tema.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Seleccione **Aceptar** para completar los pasos.
+10. Select **OK** to complete the steps.
 
-Cuando termine, se agregará una nueva API de Google Drive al entorno del Servicio de aplicaciones.
+When finished, a new Google Drive API is added to your app service environment.
 
 
-## Opcional: registrar una aplicación Google Drive para su uso con PowerApps
+## Optional: Register a Google Drive app for use with PowerApps
 
-Si no tiene una aplicación Google Drive existente con los valores de clave y secreto, use los pasos siguientes para crear la aplicación y obtenga los valores que necesita.
+If you don't have an existing Google Drive app with the key and secret values, then use the following steps to create the application, and get the values you need. 
 
-1. Inicie sesión en la [Consola de desarrolladores de Google][5]\: ![Consola de desarrolladores de Google][6]
+1. Sign in to [Google Developers Console][5]:  
+![Google developers console][6]
 
-2. Seleccione **Crear un proyecto vacío**.
+2. Select **Create an empty project**. 
 
-3. Escriba un nombre para la aplicación, acepte los términos y condiciones y seleccione **Crear**: ![crear nuevo proyecto de google drive][7]
+3. Enter a name for your application, agree to the terms and conditions, and select **Create**:  
+![create new google drive project][7]
 
-4. Tras haber creado el nuevo proyecto correctamente, seleccione **Usar API de Google**: ![Usar api de google][8]
+4. On successful creation of the new project, select **Use Google APIs**:  
+![Use google apis][8]
 
-5. En la página de información general, seleccione **API de Drive**: ![Información general de la API de Google Drive][9]
+5. In the overview page, select **Drive API**:  
+![Google Drive API overview][9]
 
-6. Seleccione **Habilitar API**: ![Habilitar la API de Google Drive][10]
+6. Select **Enable API**:  
+![Enable Google Drive API][10]
 
-7. Al habilitar la API de Drive, seleccione **Credenciales** y, a continuación, **Id. de cliente de OAuth 2.0**: ![Agregar credenciales][12]
+7. On enabling the Drive API, select **Credentials**, and select **OAuth 2.0 Client ID**:  
+![Add credentials][12]
 
-8. Seleccione **Configurar pantalla de consentimiento**.
+8. Select **Configure consent screen**.
 
-9. En el **pantalla de consentimiento de OAuth**, introduzca un **nombre de producto** y seleccione **Guardar**: ![Configurar pantalla de consentimiento][13]
+9. In the **OAuth consent screen** tab, enter a **Product Name**, and select **Save**:  
+![Configure consent screen][13]
 
-10. En la página de creación del Id. de cliente:
+10. In the create client id page:  
 
-	1. En **Application type** (Tipo de aplicación), seleccione **Web application** (Aplicación web).  
-	2.  Escriba un nombre para el cliente.  
-	3. Utilice como URL de redireccionamiento la que ha recibido cuando agregó la nueva API de Google Drive en el Portal de Azure (en este tema).  
-	4. Seleccione **Crear**.  
+	1. In **Application type**, select **Web application**.  
+	2.  Enter a name for the client.  
+	3. Set the redirect URL to the redirect URL you received when you added the new Google Drive API in the Azure Portal (in this topic).  
+	4. Select **Create**.  
 
-	![Crear Id. de cliente][14]
+	![Create client id][14] 
 
-11. Se mostrará el identificador y el secreto de cliente de la aplicación registrada.
+11. You are shown the client id and client secret of the registered application.
 
-Se creará una nueva aplicación Google Drive. Puede usar esta aplicación en la configuración de la API de Google Drive en el Portal de Azure.
+A new Google Drive app is created. You can use this app in your Google Drive API configuration in the Azure portal. 
 
-## Visualización de las API de REST
+## See the REST APIs
 
-Referencia de [API de REST de Google Drive](../connectors/connectors-create-api-googledrive.md).
+[Google Drive REST API](../connectors/connectors-create-api-googledrive.md) reference.
 
-## Resumen y pasos siguientes
-En este tema, ha agregado la API de Google Drive a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
+## Summary and next steps
+In this topic, you added the Google Drive API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
-[Agregar una conexión y conceder acceso a los usuarios](powerapps-manage-api-connection-user-access.md)
-
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
 
 <!--References-->
 [1]: ./media/powerapps-create-api-googledrive/browse-to-registered-apis.PNG
@@ -115,4 +130,4 @@ En este tema, ha agregado la API de Google Drive a su empresa PowersApps. A cont
 [15]: ./media/powerapps-create-api-googledrive/browseall.png
 [16]: ./media/powerapps-create-api-googledrive/allresources.png
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

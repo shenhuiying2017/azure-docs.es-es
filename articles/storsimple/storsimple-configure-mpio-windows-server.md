@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/05/2016"
+   ms.date="04/27/2016"
    ms.author="alkohli" />
 
 # Configurar E/S de múltiples rutas para el dispositivo StorSimple
@@ -23,7 +23,7 @@ Para conseguir una alta disponibilidad de la solución StorSimple, es necesario 
 
 MPIO es una característica opcional en Windows Server y no se instala de forma predeterminada. Se debe instalar como una característica a través del Administrador del servidor. En este tema se describen los pasos que hay que realizar para instalar y usar la característica MPIO en un host que ejecuta Windows Server 2012 R2 y que está conectado a un dispositivo físico StorSimple.
 
->[AZURE.NOTE] **Los dispositivos virtuales StorSimple no admiten MPIO.**
+>[AZURE.NOTE] **Este procedimiento se aplica solo a la serie StorSimple 8000. Actualmente, no se admite MPIO en un dispositivo virtual de StorSimple.**
 
 Realice estos pasos para configurar MPIO en su dispositivo StorSimple:
 
@@ -173,4 +173,4 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 Obtenga más información sobre el [uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

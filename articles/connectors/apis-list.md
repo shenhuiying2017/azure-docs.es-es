@@ -55,10 +55,10 @@ Existen dos tipos de desencadenadores:
 Los conectores también pueden utilizarse como acciones dentro de las aplicaciones. Las acciones resultan útiles para buscar datos que luego se pueden utilizar en la ejecución de la aplicación. Por ejemplo, puede que necesite buscar datos de clientes de una base de datos SQL al procesar un pedido. O bien, puede que necesite escribir, actualizar o eliminar datos en una tabla de destino. Para ello, puede usar las acciones proporcionadas por los conectores. Las acciones se asignan a las operaciones que se definen en los metadatos de Swagger.
 
 
-[Novedades](../app-service-logic/app-service-logic-schema-2015-08-01.md) 
-[Compilación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) 
-[Introducción a PowerApps](../power-apps/powerapps-get-started-azure-portal.md) 
-[Migración de las aplicaciones lógicas existentes a la última versión de esquema](connectors-schema-migration.md)
+[Novedades](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
+[Compilación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Introducción a PowerApps](../power-apps/powerapps-get-started-azure-portal.md)  
+[Migración de las aplicaciones lógicas existentes a la última versión de esquema](connectors-schema-migration.md) 
 
 <!--API Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Conéctese a un blob de Azure para administrar archivos en el contenedor de blobs."

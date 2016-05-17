@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="elfisher"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="monicar"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/09/2016"
+   ms.date="04/27/2016"
    ms.author="elfish"/>
 
 # Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL
@@ -64,8 +64,7 @@ La tabla siguiente muestra las diferencias de las características de continuida
 | --- |--- | --- | ---
 | Restauración a un momento dado | Cualquier punto de restauración en 7 días | Cualquier punto de restauración en 14 días | Cualquier punto de restauración en 35 días
 | Restauración geográfica | ERT < 12h, RPO < 1 h | ERT < 12h, RPO < 1 h | ERT < 12h, RPO < 1 h
-| Replicación geográfica estándar | No incluida | ERT < 30 s, RPO < 5 s | ERT < 30 s, RPO < 5 s
-| Replicación geográfica activa | No incluida | No incluida | ERT < 30 s, RPO < 5 s
+| Replicación geográfica activa | ERT < 30 s, RPO < 5 s | ERT < 30 s, RPO < 5 s | ERT < 30 s, RPO < 5 s
 
 Estas características se proporcionan para abordar los escenarios mencionados anteriormente. Vea la sección [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md) sección para obtener instrucciones sobre cómo seleccionar características específicas.
 
@@ -80,12 +79,8 @@ la restauración a un momento dado está diseñada para restablecer la base de d
 
 La restauración geográfica también está disponible en las bases de datos Basic, Standard y Premium. Esta restauración proporciona la opción de recuperación predeterminada cuando la base de datos tampoco está disponible debido a una incidencia en la región en la que se hospeda la base de datos. Al igual que la restauración a un momento dado, la restauración geográfica se basa en copias de seguridad de la base de datos en el almacenamiento de Azure con redundancia geográfica. Esta opción permite restaurar la base de datos desde la copia de seguridad de replicación geográfica. Por lo tanto es resistente a las interrupciones de almacenamiento que tienen lugar en la región principal. Vea la sección [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para obtener más información sobre cómo usar la restauración geográfica.
 
-###Replicación geográfica estándar
-
-La replicación geográfica estándar está disponible para las bases de datos Standard y Premium. Esta función está diseñada para aplicaciones que pueden usar la capacidad de nivel de servicio estándar pero tienen unos requisitos de recuperación más exigentes que los que puede ofrecer la restauración geográfica. Cuando se produce un error en la base de datos principal, se puede iniciar la conmutación por error a una base de datos secundaria no legible almacenada en la región de recuperación ante desastres emparejada. Vea la sección [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md) para obtener más información sobre cómo configurar la replicación geográfica y la sección [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para obtener más información sobre cómo realizar la conmutación por error a la base de datos secundaria.
-
 ###Replicación geográfica activa
 
-La replicación geográfica activa está disponible para bases de datos Premium. Esta función está diseñada para aplicaciones de escritura intensiva con los requisitos de recuperación más exigentes. Con la replicación geográfica activa, puede crear hasta cuatro bases de datos secundarias legibles en servidores situados en regiones diferentes. Puede iniciar la conmutación por error a cualquiera de las bases de datos secundarias del mismo modo que con la replicación geográfica estándar. Además, la replicación geográfica activa puede utilizarse para los escenarios de actualización o reubicación de la aplicación, así como para el equilibrio de cargas de trabajo de solo lectura. Vea la sección [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md) para obtener más información sobre cómo configurar la replicación geográfica y la sección [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para obtener más información sobre cómo realizar la conmutación por error a la base de datos secundaria. Vea la sección [Actualización de la aplicación sin tiempo de inactividad](sql-database-business-continuity-application-upgrade.md) para obtener más información sobre cómo implementar la actualización de la aplicación sin tiempo de inactividad.
+La replicación geográfica activa está disponible para todos los niveles de base de datos. Esta función está diseñada para aplicaciones que tienen unos requisitos de recuperación más exigentes que los que puede ofrecer la restauración geográfica. Con la replicación geográfica activa, puede crear hasta cuatro bases de datos secundarias legibles en servidores situados en regiones diferentes. Puede iniciar la conmutación por error a cualquiera de las bases de datos secundarias. Además, la replicación geográfica activa puede utilizarse para los escenarios de actualización o reubicación de la aplicación, así como para el equilibrio de cargas de trabajo de solo lectura. Consulte [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md) para obtener información detallada sobre cómo [configurar la replicación geográfica](sql-database-geo-replication-portal.md) y [realizar la conmutación por error a la base de datos secundaria](sql-database-geo-replication-failover-portal.md). Vea la sección [Actualización de la aplicación sin tiempo de inactividad](sql-database-business-continuity-application-upgrade.md) para obtener más información sobre cómo implementar la actualización de la aplicación sin tiempo de inactividad.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

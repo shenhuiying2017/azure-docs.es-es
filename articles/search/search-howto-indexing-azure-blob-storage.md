@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="03/08/2016"
+ms.date="05/03/2016"
 ms.author="eugenesh" />
 
 # Indexación de documentos en Almacenamiento de blobs de Azure con Búsqueda de Azure
@@ -29,14 +29,15 @@ Un origen de datos especifica los datos que se deben indexar, las credenciales n
 
 Un indexador es un recurso que conecta los orígenes de datos con los índices de búsqueda de destino.
 
-Para configurar un indexador de blob, haga lo siguiente:
+Para configurar la indexación de blobs, haga lo siguiente:
 
 1. Cree un origen de datos de tipo `azureblob` que hace referencia a un contenedor (y de forma opcional, a una carpeta en ese contenedor) en una cuenta de almacenamiento de Azure
 	- Transfiera la cadena de conexión de la cuenta de almacenamiento como parámetro `credentials.connectionString`
 	- Especifique un nombre de contenedor. Opcionalmente, también puede incluir una carpeta mediante el parámetro `query`
-2. Cree el indexador mediante la conexión de origen de datos con un índice de destino existente (cree el índice si aún no tiene uno)
+2. Cree un índice de búsqueda con un campo `content` que permite búsquedas 
+3. Cree el indexador mediante la conexión del origen de datos con el índice de destino
 
-En el ejemplo siguiente se ilustra este método.
+### Creación de un origen de datos
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -49,7 +50,27 @@ En el ejemplo siguiente se ilustra este método.
 	    "container" : { "name" : "my-container", "query" : "my-folder" }
 	}   
 
-A continuación, cree un indexador que haga referencia al origen de datos y un índice de destino. Por ejemplo:
+Para obtener más información sobre la API de creación de origen de datos, consulte [Crear origen de datos](search-api-indexers-2015-02-28-preview.md#create-data-source).
+
+### Creación de índice 
+
+	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+  		"name" : "my-target-index",
+  		"fields": [
+    		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+    		{ "name": "content", "type": "Edm.String", "searchable": true }
+  		]
+	}
+
+Para obtener más información sobre la API de creación de índice, consulte [Create Index](https://msdn.microsoft.com/library/dn798941.aspx) (Crear índice).
+
+### Creación de un indexador 
+
+Por último, cree un indexador que haga referencia al origen de datos y un índice de destino. Por ejemplo:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -61,6 +82,8 @@ A continuación, cree un indexador que haga referencia al origen de datos y un �
 	  "targetIndexName" : "my-target-index",
 	  "schedule" : { "interval" : "PT2H" }
 	}
+
+Para obtener más detalles sobre la API de creación de indexador, consulte [Crear indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
 
 ## Formatos de documento admitidos
@@ -74,7 +97,7 @@ El indexador de blob puede extraer texto de los siguientes formatos de documento
 - ZIP
 - EML
 - Texto sin formato  
-- JSON (consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) para obtener más información)
+- JSON (consulte [Indexación de blobs JSON ](search-howto-index-json-blobs.md) para obtener más información)
 
 ## Proceso de extracción de documentos
 
@@ -144,7 +167,7 @@ Para conectar todo esto, aquí está la forma de agregar asignaciones de campo y
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
-> [AZURE.NOTE] Para más información sobre las asignaciones de campos, vea [este artículo](search-indexers-customization.md).
+> [AZURE.NOTE] Para más información sobre las asignaciones de campos, vea [este artículo](search-indexer-field-mappings.md).
 
 ## Indexación incremental y detección de eliminación
 
@@ -192,7 +215,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extraer texto, incluidos los datos adjuntos
 ZIP (application/zip) | `metadata_content_type` | Extraer el texto de todos los documentos en el archivo
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Seccionar el marcado XML y extraer texto
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraer texto<br/>NOTA: si necesita extraer varios campos de documentos de un blob JSON, consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) para obtener más información.
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraer texto<br/>NOTA: Si necesita extraer varios campos de documentos de un blob JSON, consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) para obtener más información.
 EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extraer texto, incluidos los datos adjuntos
 Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
@@ -209,9 +232,54 @@ AzureSearch\_SkipContent | "true" | Indica al indexador de blobs que solo indexe
 <a name="IndexerParametersConfigurationControl"></a>
 ## Uso de parámetros de indexador para controlar la extracción de documentos
 
-Si precisa extraer metadatos, pero omitir la extracción de contenidos para todos los blobs, puede solicitar este comportamiento mediante la configuración de indexador, en lugar de tener que agregar metadatos de `AzureSearch_SkipContent` a cada blob de forma individual. Para ello, establezca la propiedad de configuración `skipContent` en `true` en el objeto `parameters`:
+Hay disponibles varios parámetros de configuración de indexador para controlar qué los blobs y qué partes del contenido y los metadatos de un blob se indexarán.
 
- 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+### Indexación solo de los blobs con determinadas extensiones de archivo
+
+Puede indexar solo los blobs con las extensiones de nombre de archivo que especifique mediante el parámetro de configuración de indexador `indexedFileNameExtensions` . El valor es una cadena que contiene una lista separada por comas de extensiones de archivo (con un punto inicial). Por ejemplo, para indexar solamente los blobs .PDF y .DOCX, realice el siguiente procedimiento:
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
+	}
+
+### Exclusión de blobs con extensiones de archivo específicas de la indexación
+
+Puede excluir blobs con extensiones de nombre de archivo específicas de la indexación mediante el parámetro de configuración `excludedFileNameExtensions`. El valor es una cadena que contiene una lista separada por comas de extensiones de archivo (con un punto inicial). Por ejemplo, para indexar todos los blobs excepto aquellos con las extensiones .PNG y .JPEG, realice el siguiente procedimiento:
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
+	}
+
+Si los dos parámetros `indexedFileNameExtensions` y `excludedFileNameExtensions` están presentes, Búsqueda de Azure mira primero en `indexedFileNameExtensions` y luego en `excludedFileNameExtensions`. Esto significa que si la misma extensión de archivo está presente en las dos listas, se excluirá de la indexación.
+
+### Indexación solo de metadatos de almacenamiento
+
+Puede indexar solamente los metadatos de almacenamiento y omitir completamente el proceso de extracción de documentos mediante la propiedad de configuración `indexStorageMetadataOnly`. Esto es útil cuando no necesita el contenido del documento, ni necesita ninguna de las propiedades de metadatos específicas del tipo de contenido. Para ello, establezca la propiedad `indexStorageMetadataOnly` en `true`:
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "indexStorageMetadataOnly" : true } }
+	}
+
+### Indexación de metadatos de tipo de almacenamiento y contenido, pero omitiendo la extracción de contenido
+
+Si precisa extraer todos los metadatos, pero omitir la extracción de contenido para todos los blobs, puede solicitar este comportamiento mediante la configuración de indexador, en lugar de tener que agregar metadatos de `AzureSearch_SkipContent` a cada blob de forma individual. Para ello, establezca la propiedad de configuración del indexador `skipContent` en `true`:
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
 	api-key: [admin key]
 
@@ -224,4 +292,4 @@ Si precisa extraer metadatos, pero omitir la extracción de contenidos para todo
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

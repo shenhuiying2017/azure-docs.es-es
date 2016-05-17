@@ -64,7 +64,7 @@ Pueden enviarse solicitudes de características y otros comentarios al [Foro del
 
 ## P. ¿Cómo puedo comenzar con el Catálogo de datos de Azure?
 
-El mejor lugar para comenzar es seguir las instrucciones de [Introducción al Catálogo de datos](../data-catalog-get-started/). Este artículo es una visión general completa de las funcionalidades del servicio.
+El mejor lugar para comenzar es seguir las instrucciones de [Introducción al Catálogo de datos](data-catalog-get-started.md). Este artículo es una visión general completa de las funcionalidades del servicio.
 
 ## P: ¿Cómo se registran mis datos?
 
@@ -140,4 +140,4 @@ R: Para actualizar los metadatos de los recursos de datos que ya están registra
 
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

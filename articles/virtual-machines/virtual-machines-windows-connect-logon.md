@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Conexión a una máquina virtual de Windows Server | Microsoft Azure"
-	description="Aprenda a conectarse a una máquina virtual de Windows Server y a iniciar sesión en ella mediante el Portal de Azure y el modelo de implementación de Resource Manager."
+	description="Aprenda a conectarse a una máquina virtual de Windows y a iniciar sesión en ella mediante el Portal de Azure y el modelo de implementación de Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/28/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
-# Conexión a una máquina virtual de Azure donde se ejecuta Windows Server e inicio de sesión en ella 
+# Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella 
 
 
 Usará el botón **Conectar** en el Portal de Azure para iniciar una sesión de Escritorio remoto (RDP). En primer lugar, conéctese a la máquina virtual y luego inicie sesión.
@@ -43,4 +43,4 @@ Usará el botón **Conectar** en el Portal de Azure para iniciar una sesión de 
 
 Si surgen problemas al intentar conectarse, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

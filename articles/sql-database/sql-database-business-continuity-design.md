@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="elfish"/>
 
 #Diseño para la continuidad del negocio
@@ -45,11 +45,6 @@ Deberá usar la replicación geográfica si su aplicación cumple los criterios 
 2. La tasa de cambio de los datos es alta (por ejemplo de transacciones por cada minuto o segundo). El RPO de 1 hora asociado a la protección predeterminada probablemente tendrá como resultado una pérdida de datos inaceptable.
 3. El coste asociado al uso de la replicación geográfica es significativamente menor que el de la responsabilidad financiera potencial y la pérdida de negocio.
 
-> [AZURE.NOTE] La replicación geográfica no es compatible si su aplicación usa bases de datos de nivel básico.
-
-##Cuándo elegir la replicación geográfica estándar vs la replicación geográfica activa
-
-Las bases de datos de nivel Standard no admiten la opción de usar la replicación geográfica activa, por lo que si su aplicación usa bases de datos Standard y cumple los criterios anteriores, deberá usar la replicación geográfica estándar. Por el contrario, con las bases de datos Premium, se pueden elegir cualquiera de las opciones. La replicación geográfica estándar se ha diseñado como una solución de recuperación ante desastres más sencilla y menos costosa. Resulta especialmente adecuada para aplicaciones que usan la replicación solo para la protección frente a eventos imprevistos como, por ejemplo, las interrupciones. Para realizar la recuperación con la replicación geográfica estándar, solo podrá usar la región emparejada de recuperación ante desastres y tan solo podrá crear una base de datos secundaria por cada base de datos principal que tenga. Es posible que una base de datos secundaria adicional sea necesaria para el escenario de actualización de la aplicación. Por ello, si este escenario es fundamental para su aplicación, deberá habilitar la replicación geográfica activa. Vea la sección [Actualización de la aplicación sin tiempo de inactividad](sql-database-business-continuity-application-upgrade.md) para obtener más detalles.
 
 > [AZURE.NOTE] La replicación geográfica activa también admite el acceso de solo lectura a la base de datos secundaria, lo que proporciona capacidad adicional para las cargas de trabajo de solo lectura.
 
@@ -69,19 +64,19 @@ Puede habilitar la replicación geográfica mediante el Portal de Azure clásico
 6. Seleccione el tipo de base de datos secundaria (*legible* o *no legible*).
 7. Haga clic en **Crear** para completar la configuración.
 
-> [AZURE.NOTE] La región emparejada de recuperación ante desastres de la hoja de replicación geográfica se marcará como *Recomendada*. Si usa una base de datos de nivel Premium, podrá elegir una región diferente. Si está usando una base de datos Standard, no podrá cambiar esta opción. La base de datos Premium ofrece la opción de especificar el tipo de base de datos secundaria (*legible* o *no legible*). La base de datos Standard solo permite seleccionar una base de datos secundaria *no legible*.
+> [AZURE.NOTE] La región emparejada de recuperación ante desastres de la hoja de replicación geográfica se marcará como *Recomendada*, pero puede elegir otra región.
 
 
 ###PowerShell
 
 Use el cmdlet de PowerShell [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) para crear una configuración de la replicación geográfica. Este comando es sincrónico y se devuelve cuando las bases de datos principales y secundarias están sincronizadas.
 
-Configurar la replicación geográfica con una base de datos secundaria no legible, para una base de datos Premium o Standard:
+Para configurar la replicación geográfica con una base de datos secundaria no legible:
 		
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
 
-Para crear la replicación geográfica con una base de datos secundaria legible para una base de datos Premium:
+Para crear la replicación geográfica con una base de datos secundaria legible:
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
@@ -98,4 +93,4 @@ Esta API es asincrónica. Cuando vuelva, use la API [Obtener vínculo de replica
 
 Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta varias opciones de configuración. La elección dependerá de la topología de la implementación de la aplicación y de las partes de las aplicaciones que sean más vulnerables a las interrupciones. Consulte [Diseño de soluciones de nube para la recuperación ante desastres mediante la replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md), para obtener más instrucciones.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

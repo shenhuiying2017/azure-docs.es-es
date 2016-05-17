@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/15/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Información general de la red de entrega de contenido (CDN) de Azure
 
-La Red de entrega de contenido (CDN) de Azure almacena en caché blobs de Azure y contenido estático usado por sitios web en ubicaciones colocadas estratégicamente para proporcionar el máximo rendimiento a la hora de proporcionar contenido a los usuarios. CDN ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda almacenando en caché el contenido en nodos físicos en todo el mundo. Para obtener una lista actualizada de las ubicaciones de nodos de la red CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
+La Red de entrega de contenido (CDN) de Azure almacena en caché contenido de web estático en ubicaciones colocadas estratégicamente para proporcionar el máximo rendimiento a la hora de proporcionar contenido a los usuarios. CDN ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda almacenando en caché el contenido en nodos físicos en todo el mundo. Para una lista de las ubicaciones de nodos de la red CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
 
-Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los datos de Azure se incluyen:
+Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los recursos de sitios web se incluyen:
 
 - Mejor rendimiento y experiencia del usuario para los usuarios finales sobre todo a la hora de utilizar aplicaciones donde son necesarios varios recorridos de ida y vuelta para cargar el contenido
 - Gran escalado para mejorar la administración de cargas instantáneas pesadas, por ejemplo, al comienzo de un evento de lanzamiento de un producto.
@@ -44,30 +44,27 @@ Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los d
 6. Si no ha expirado el TTL para el archivo, el servidor perimetral devolverá el archivo desde la memoria caché. Esto genera una experiencia de usuario más rápida y una mayor capacidad de respuesta.
 
 
-## Características estándar
+## Características de la red CDN de Azure
 
-El nivel de red CDN estándar incluye las siguientes funciones:
+Hay tres productos de la red CDN de Azure: **Red CDN estándar Azure de Akamai**, **Red CDN estándar de Azure de Verizon** y **Red CDN premium de Azure de Verizon**. En la tabla siguiente se enumeran las características disponibles con cada producto.
 
-- Fácil integración con servicios de Azure como [Almacenamiento](cdn-create-a-storage-account-with-cdn.md), [Servicios en la nube](cdn-cloud-service-with-cdn.md), [Aplicaciones web](../app-service-web/cdn-websites-with-cdn.md) y [Servicios multimedia](../media-services/media-services-manage-origins.md#enable_cdn)
-- Compatibilidad con HTTPS
-- Equilibrio de carga
-- Protección DDOS
-- [Almacenamiento en caché de cadena de consulta](cdn-query-string.md)
-- [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md)
-- [Filtrado por país](cdn-restrict-access-by-country.md)
-- [Análisis esencial](cdn-analyze-usage-patterns.md)
-- [Purga rápida](cdn-purge-endpoint.md)
-- [Carga previa de activos](cdn-preload-endpoint.md)
-- [Administración mediante API de REST](https://msdn.microsoft.com/library/mt634456.aspx)
+| | Estándar de Akamai | Estándar de Verizon | Premium de Verizone |
+|-------|-----------------|------------------|-----------------|
+| Fácil integración con servicios de Azure como [Almacenamiento](cdn-create-a-storage-account-with-cdn.md), [Servicios en la nube](cdn-cloud-service-with-cdn.md), [Aplicaciones web](../app-service-web/cdn-websites-with-cdn.md) y [Servicios multimedia](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Compatibilidad con HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Equilibrio de carga | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Protección DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Almacenamiento en caché de cadena de consulta](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Filtrado por país](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
+| [Purga rápida](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Carga previa de activos](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
+| [Análisis esencial](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
+| [Administración mediante API de REST](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md) | | | **&#x2713;** |
+| [Informes de HTTP avanzados](cdn-advanced-http-reports.md) | | | **&#x2713;** |
+| [Estadísticas en tiempo real](cdn-real-time-stats.md) | | | **&#x2713;** |
 
-
-## Características de la edición Premium
-
-El nivel premium de la red de entrega de contenido incluye todas las características del nivel estándar, más estas características adicionales:
-
-- [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md)
-- [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
-- [Estadísticas en tiempo real](cdn-real-time-stats.md)
 
 ## Pasos siguientes
 
@@ -77,4 +74,6 @@ Si es un cliente de red de entrega de contenido existente, ahora puede administr
 
 Para ver la red CDN en acción, consulte el [vídeo sobre nuestra sesión de Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-<!---HONumber=AcomDC_0504_2016-->
+Para más información sobre los precios, consulte [Precios de Red de entrega de contenido (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
+
+<!---HONumber=AcomDC_0511_2016-->

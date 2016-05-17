@@ -14,7 +14,7 @@
   ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="04/22/2016"
+  ms.date="05/09/2016"
   ms.author="araguila"/>
    
 # Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT
@@ -51,6 +51,8 @@ Dos. Solo se pueden crear dos API de Mapas de Bing gratis en una suscripción. L
    
   `<setting name="MapApiQueryKey" value="" />`
 
+### ¿Puedo crear una solución preconfigurada si tengo Microsoft Azure para DreamSpark?
+En este momento, no se puede crear una solución preconfigurada con una cuenta de [Microsoft Azure para DreamSpark][lnk-dreamspark]. Sin embargo, puede crear una [cuenta de evaluación gratuita de Azure][lnk-30daytrial] en un par de minutos, que le permitirá crear una solución preconfigurada.
 
 ### ¿Cómo se eliminan inquilinos de AAD?
 
@@ -61,6 +63,8 @@ Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99
+[lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

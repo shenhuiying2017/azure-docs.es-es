@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/29/2016"
+	ms.date="04/29/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -33,7 +33,7 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 
 
 - Para degradar una base de datos, esta no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino. 
-- Al actualizar una base de datos con la opción [Replicación geográfica](sql-database-geo-replication-portal) habilitada, primero es preciso actualizar sus bases de datos secundarias al nivel de rendimiento deseado antes de actualizar la base de datos principal.
+- Al actualizar una base de datos con la opción [Replicación geográfica](sql-database-geo-replication-portal.md) habilitada, primero es preciso actualizar sus bases de datos secundarias en el nivel de rendimiento deseado antes de actualizar la principal.
 - Al realizar una degradación desde un nivel de servicio Premium, primero es preciso finalizar todas las relaciones de Replicación geográfica. Puede seguir los pasos que se describen en el tema [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md) para detener el proceso de replicación entre la base de datos principal y las bases de datos secundarias activas.
 - Las ofertas del servicio de restauración son diferentes para los distintos niveles de servicio. Si cambia a un nivel inferior, puede perder la capacidad de restaurar a un momento dado o tener un período de retención de copias de seguridad más breve. Para obtener más información, consulte [Copia de seguridad y restauración de Base de datos SQL de Azure](sql-database-business-continuity.md).
 - Las nuevas propiedades de la base de datos no se aplican hasta que se completan los cambios.
@@ -128,4 +128,4 @@ Ejecute el cmdlet **Set-AzureRMSqlDatabase** y establezca el elemento **-Request
 - [Documentación de Base de datos SQL](http://azure.microsoft.com/documentation/services/sql-database/)
 - [Cmdlets de la Base de datos SQL de Azure](http://msdn.microsoft.com/library/mt574084.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

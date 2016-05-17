@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/11/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure
@@ -29,7 +29,9 @@ Aprenda a usar el Portal de Azure para crear un clúster de HDInsight (Hadoop, H
 
 * **En clústeres de Storm (Windows y Linux)**, el Almacén de Data Lake se puede usar para escribir datos de una topología de Storm. Almacén de Data Lake también puede utilizarse para almacenar datos de referencia que luego puede leer una topología de Storm. Para obtener más información, consulte [Usar el Almacén de Data Lake en una topología de Storm](#use-data-lake-store-in-a-storm-topology).
 
-* **En clústeres HBase (Windows y Linux)**, el almacén de Data Lake puede usarse como almacenamiento predeterminado o almacenamiento adicional. La opción de crear clústeres de HBase con acceso al Almacén de Data Lake solo está disponible si usa las versiones 3.1 o 3.2 de HDI (para Windows) o la versión 3.2 de HDI (para Linux). Para obtener más información, consulte [Usar el Almacén de Data Lake con clústeres de HBase](#use-data-lake-store-with-hbase-clusters).
+* **En clústeres HBase (Windows y Linux)**, el almacén de Data Lake puede usarse como almacenamiento predeterminado o almacenamiento adicional. Para obtener más información, consulte [Usar el Almacén de Data Lake con clústeres de HBase](#use-data-lake-store-with-hbase-clusters).
+
+> [AZURE.NOTE] La opción para crear clústeres de HDInsight con acceso al Almacén de Data Lake solo está disponible para HDInsight versión 3.2 (para Windows y Linux).
 
 
 ## Requisitos previos
@@ -38,10 +40,10 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Habilite su suscripción de Azure** para la versión de vista previa pública del almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
-- **Cuenta de Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md). Una vez que haya creado la cuenta, realice las siguientes tareas para cargar datos de ejemplo. Necesitará estos datos más adelante en el tutorial para ejecutar trabajos desde un clúster de HDInsight que accedan a datos en el Almacén de Data Lake.
+- **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md). Una vez que haya creado la cuenta, realice las siguientes tareas para cargar datos de ejemplo. Necesitará estos datos más adelante en el tutorial para ejecutar trabajos desde un clúster de HDInsight que accedan a datos en el Almacén de Data Lake.
 
 	* [Cree una carpeta en el Almacén de Data Lake](data-lake-store-get-started-portal.md#createfolder).
-	* [Cargue un archivo a su Almacén de Data Lake](data-lake-store-get-started-portal.md#uploaddata). Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+	* [Cargue un archivo en su Almacén de Data Lake](data-lake-store-get-started-portal.md#uploaddata). Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 
 ## Creación de un clúster de HDInsight con acceso al Almacén de Azure Data Lake
@@ -79,9 +81,9 @@ En esta sección, se crea un clúster de Hadoop en HDInsight que usa el Almacén
 
 			![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Agregar entidad de servicio al clúster de HDInsight")
 
-		* En la hoja **Identidad de AAD de clúster**, cargue el certificado (.pfx) asociado a la entidad de servicio que seleccionó y, después, proporcione la contraseña del certificado.
+		* En la hoja **Identidad de AAD de clúster**, cargue el certificado (.pfx) asociado a la entidad de servicio que seleccionó y luego proporcione la contraseña del certificado.
 
-		* Haga clic en **Administrar acceso a ADLS**. En el panel, aparecen las cuentas de Almacén de Data Lake asociadas a la suscripción. Sin embargo, puede establecer los permisos solo para la cuenta que creó. Seleccione los permisos de lectura, escritura y ejecución para la cuenta que desea asociar con el clúster de HDInsight y, después, haga clic en **Guardar permisos**.
+		* Haga clic en **Administrar acceso a ADLS**. En el panel, aparecen las cuentas de Almacén de Data Lake asociadas a la suscripción. Sin embargo, puede establecer los permisos solo para la cuenta que creó. Seleccione los permisos de lectura, escritura y ejecución para la cuenta que desea asociar con el clúster de HDInsight y luego haga clic en **Guardar permisos**.
 
 			![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.existing.save.png "Agregar entidad de servicio al clúster de HDInsight")
 
@@ -105,7 +107,7 @@ Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prue
 
 	También puede ir directamente a Ambari dirigiéndose a https://CLUSTERNAME.azurehdinsight.net en un explorador web (donde **CLUSTERNAME** es el nombre del clúster de HDInsight).
 
-2. Abra la vista de Hive. Seleccione el grupo de cuadrados en el menú de la página (junto al vínculo **Administrador** y al botón de la derecha de la página) para mostrar las vistas disponibles. Seleccione la vista de **Hive**.
+2. Abra la vista de Hive. Seleccione el grupo de cuadrados en el menú de la página (junto al vínculo **Administrador** y el botón de la derecha de la página) para mostrar las vistas disponibles. Seleccione la vista **Hive**.
 
 	![Selección de vistas de Ambari](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
 
@@ -117,9 +119,9 @@ Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prue
 
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
 
-5. Haga clic en el botón **Ejecutar** de la parte inferior del **Editor de consultas** para iniciar la consulta. Debe aparecer la sección **Resultados del proceso de consulta** bajo el **Editor de consultas** y mostrar información sobre el trabajo.
+5. Haga clic en el botón **Ejecutar** de la parte inferior del **Editor de consultas** para iniciar la consulta. Debe aparecer la sección **Query Process Results** (Resultados del proceso de consulta) bajo el **Editor de consultas** y mostrar información sobre el trabajo.
 
-6. Cuando finalice la consulta, la sección **Resultados del proceso de consulta** mostrará los resultados de la operación. La pestaña **Resultados** debe contener la información siguiente:
+6. Cuando haya finalizado la consulta, la sección **Query Process Results** (Resultados del proceso de consulta) mostrará los resultados de la operación. La pestaña **Resultados** debe contener la información siguiente:
 
 7. Ejecute la siguiente consulta para comprobar que se creó la tabla.
 
@@ -162,7 +164,7 @@ Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prue
 
 		SHOW TABLES;
 
-	Haga clic en la opción **Ver detalles** de esta consulta y la salida debe mostrar lo siguiente:
+	Haga clic en la opción **Ver detalles** de esta consulta, la salida debe mostrar lo siguiente:
 
 		hivesampletable
 		vehicles
@@ -182,7 +184,7 @@ Una vez que configure el clúster de HDInsight para que use el Almacén de Data 
 
 En esta sección, se usará SSH en el clúster y se ejecutarán los comandos de HDFS. Windows no proporciona ningún cliente SSH integrado. Se recomienda usar **PuTTY**, que se puede descargar en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Para más información sobre el uso de PuTTY, consulte [Uso de SSH con Hadoop en HDInsight basado en Linux desde Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Para más información sobre el uso de PuTTY, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Una vez conectado, utilice el siguiente comando del sistema de archivos HDFS para enumerar los archivos del Almacén de Data Lake.
 
@@ -232,7 +234,7 @@ Con los clústeres de HBase, puede usar el Almacén de Data Lake como almacenami
 
 1.  En la hoja **Origen de datos**, para **Ubicación de datos de HBase**, seleccione **Almacén de Data Lake**.
 2.  Seleccione el nombre del Almacén de Data Lake que desea usar o cree uno nuevo.
-3.  Por último, especifique la **Carpeta raíz de HBase** dentro del Almacén de Data Lake. Si la cuenta del Almacén de Data Lake no tiene una carpeta raíz, cree una nueva.
+3.  Por último, especifique el valor de **Carpeta raíz de HBase** dentro del Almacén de Data Lake. Si la cuenta del Almacén de Data Lake no tiene una carpeta raíz, cree una nueva.
 
 	![HBase con Almacén de Data Lake](./media/data-lake-store-hdinsight-hadoop-use-portal/hbase-data-lake-store.png "Creación de un grupo de recursos de Azure")
 
@@ -250,4 +252,4 @@ Con los clústeres de HBase, puede usar el Almacén de Data Lake como almacenami
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

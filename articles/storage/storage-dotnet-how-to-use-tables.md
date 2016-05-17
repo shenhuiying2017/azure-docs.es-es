@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introducción al Almacenamiento de tablas de Azure mediante .NET | Microsoft Azure"
-	description="Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, el almacén de datos NoSQL de Microsoft. Introducción a las operaciones de Almacenamiento de tablas simples, incluidas la creación y eliminación de tablas y la inserción, actualización, eliminación y consulta de datos."
+	description="Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/29/2016"
 	ms.author="tamram"/>
 
 
@@ -463,4 +463,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de Ta
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

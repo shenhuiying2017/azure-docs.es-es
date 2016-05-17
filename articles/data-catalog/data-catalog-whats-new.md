@@ -184,7 +184,7 @@ Desde la semana del 18 de septiembre de 2015, se agregaron las siguientes funcio
 A partir de la semana del 11 de septiembre de 2015, se han agregado las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
 - Compatibilidad con el registro y la detección de objetos de SQL Server Analysis Services mediante HTTP o HTTPS. Ahora los usuarios pueden conectarse a servidores SSAS mediante una dirección URL (como, por ejemplo, https://servername/olap/msmdpump.dll) en lugar de un nombre de servidor y pueden usar la autenticación básica y las conexiones anónimas además de la autenticación de Windows. Para obtener más información sobre las conexiones HTTP/HTTPS a SSAS, consulte [Configurar el acceso HTTP a Analysis Services en Internet Information Services (IIS) 8.0](https://msdn.microsoft.com/library/gg492140.aspx).
-- Compatibilidad con orígenes de datos de Hive en HDInsight. Los usuarios ahora pueden registrarse y detectar tablas de Hive de Apache Hive de Hadoop en orígenes de datos de HDInsight. Para obtener más información sobre Hive en HDInsight, consulte el [centro de documentación de HDInsight](../hdinsight-use-hive/).
+- Compatibilidad con orígenes de datos de Hive en HDInsight. Los usuarios ahora pueden registrarse y detectar tablas de Hive de Apache Hive de Hadoop en orígenes de datos de HDInsight. Para obtener más información sobre Hive en HDInsight, consulte el [centro de documentación de HDInsight](../hdinsight/hdinsight-use-hive.md).
 - Compatibilidad para el registro y la detección de bases de datos de SQL Server y clústeres de HDFS como contenedores. Al registrar tablas y vistas de Oracle o HDFS, el **Catálogo de datos de Azure** creará una entrada para la base de datos, así como para las tablas y las vistas. La base de datos se puede detectar y anotar mediante el portal del **Catálogo de datos de Azure**. Los usuarios también pueden buscar y filtrar el contenido de una base de datos o clúster además de buscar y filtrar el contenido del catálogo.
 
 
@@ -216,4 +216,4 @@ A partir de la semana del 21 de agosto de 2015, se agregaron las siguientes func
 - Solo en la edición estándar: al agregar propietarios a los activos de datos, el **Catálogo de datos de Azure** ahora admite tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 - Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

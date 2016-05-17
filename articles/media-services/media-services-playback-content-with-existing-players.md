@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -50,7 +50,7 @@ Use el [Reproductor multimedia de Azure](http://amsplayer.azurewebsites.net/azur
 
 ####Cifrado de AES con token 
 
-[http://aestoken.azurewebsites.net]("http://aestoken.azurewebsites.net)
+[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ###Reproductores de Silverlight
 
@@ -93,4 +93,4 @@ Para obtener información sobre cómo desarrollar sus propios reproductores, con
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

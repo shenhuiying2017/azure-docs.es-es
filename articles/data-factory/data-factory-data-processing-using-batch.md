@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="04/26/2016"
     ms.author="spelluru"/>
 # Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure
 
-Informática de alto rendimiento (HPC) ha sido el dominio de los centros de datos locales: un superequipo que trabaja en los datos, pero que está limitado por el número de máquinas físicas disponibles. El servicio Lote de Azure revoluciona este concepto, ya que proporciona HPC como servicio. Puede configurar tantas máquinas como sea necesario. Lote también controla la programación y coordinación del trabajo, lo que le permite concentrarse en los algoritmos que se van a ejecutar. Factoría de datos de Azure es un complemento perfecto para Lote, ya que simplifica la orquestación del movimiento de datos. Con Factoría de datos, puede especificar movimientos regulares de datos para ETL, procesar los datos y luego mover los resultados a un almacenamiento permanente. Por ejemplo, los datos que se recopilan de los sensores se mueven (mediante la Factoría de datos) a una ubicación temporal en la que Lote (bajo el control de la Factoría de datos) procesa los datos y genera un nuevo conjunto de resultados. Después, Factoría de datos mueve los resultados a un repositorio final. Con estos dos servicios funcionando en conjunto, puede usar HPC eficazmente para procesar grandes cantidades de datos según una programación regular.
+Se trata de una solución de ejemplo que mueve y procesa conjuntos de datos a gran escala automáticamente. Es una solución completa que incluye el código y la arquitectura. Se basa en dos servicios de Azure. Lote de Azure proporciona HPC como un servicio para configurar tantos equipos como sea necesario y para programar y coordinar el trabajo. Data Factory de Azure complementa el lote mediante la simplificación de la orquestación del movimiento de datos. Puede especificar movimientos regulares de datos para ETL, procesar los datos y luego mover los resultados a un almacenamiento permanente.
 
-Aquí ofrecemos un ejemplo de solución de un extremo a otro que mueve y procesa conjuntos de datos a gran escala automáticamente. La arquitectura es relevante para muchos escenarios, como el modelado de riesgo por parte de servicios financieros, el procesamiento y representación de imágenes, y el análisis genómico. Los arquitectos y los responsables de la toma de decisiones sobre TI obtendrán una visión general con el diagrama y los pasos básicos. Los desarrolladores pueden usar el código como punto de partida para su propia implementación. Este artículo contiene toda la solución.
+La arquitectura es relevante para muchos escenarios, como el modelado de riesgo por parte de servicios financieros, el procesamiento y representación de imágenes, y el análisis genómico.
 
 Consulte la documentación de [Lote de Azure](../batch/batch-api-basics.md) y [Factoría de datos](data-factory-introduction.md) si no está familiarizado con dichos servicios antes de seguir con la solución de ejemplo.
 
@@ -51,7 +51,7 @@ La solución cuenta el número de apariciones de un término de búsqueda ("Micr
 
 **Tiempo**: si está familiarizado con Azure, Factoría de datos y Lote, y satisface los requisitos previos, se calcula que esta solución tardará entre 1 y 2 horas en completarse.
 
-### Requisitos previos
+## Requisitos previos
 
 1.  **Suscripción de Azure**. Si carece de suscripción de Azure, puede crear una cuenta de prueba gratuita en tan solo unos minutos. Consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -101,7 +101,7 @@ La solución cuenta el número de apariciones de un término de búsqueda ("Micr
 
 6.  **Microsoft Visual Studio 2012 o posterior** (para crear la actividad personalizada de Lote que se usará en la solución de Factoría de datos).
 
-### Pasos de alto nivel para crear la solución
+## Pasos de alto nivel para crear la solución
 
 1.  Cree una actividad personalizada para usarla en la solución de Factoría de datos. La actividad personalizada contiene la lógica de procesamiento de datos.
 
@@ -552,7 +552,7 @@ En este paso, creará un servicio vinculado para su cuenta de **Lote de Azure** 
 
     2.  Reemplace **access key** por la clave de acceso de la cuenta de Lote de Azure.
 
-    3.  Escriba el identificador del grupo para la propiedad **poolName**. Para esta propiedad, puede especificar el nombre o el identificador de grupo.
+    3.  Escriba el identificador del grupo para la propiedad **poolName****. ** Para esta propiedad, puede especificar el nombre o el identificador de grupo.
 
     4.  Escriba el identificador URI de lote para la propiedad **batchUri** de JSON. La **dirección URL** de la **hoja de la cuenta de Lote de Azure** tiene el formato siguiente: <nombreDeCuenta>.<región>.batch.azure.com. Para la propiedad **batchUri** en el script JSON, necesitará **quitar "nombreDeCuenta."** de la dirección URL. Por ejemplo: "batchUri": "https://eastus.batch.azure.com".
 
@@ -893,9 +893,18 @@ Puede extender este ejemplo para obtener más información acerca de las caracte
 
 3.  Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado de Lote de Azure en la solución de Factoría de datos para que use el nuevo grupo que creó. (Consulte Paso 4: Creación y ejecución de la canalización con una actividad personalizada para más información sobre la configuración **Máximo de tareas por máquina virtual**).
 
-4.  Cree un grupo de Lote de Azure con la característica **Autoescala**. El escalado automático de los nodos de ejecución de un grupo de Lote de Azure es el ajuste dinámico de la potencia de procesamiento que usa su aplicación. Consulte [Escalado automático de los nodos de proceso en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
+4.  Cree un grupo de Lote de Azure con la característica **Autoescala**. El escalado automático de los nodos de ejecución de un grupo de Lote de Azure es el ajuste dinámico de la potencia de procesamiento que usa su aplicación. Por ejemplo, podría crear un grupo de Lote de Azure con 0 máquinas virtuales dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes:
+ 
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-    En la solución de ejemplo, el método **Execute** invoca al método **Calculate** que procesa un segmento de datos de entrada para generar un segmento de datos de salida. Puede escribir su propio método para procesar los datos de entrada y reemplazar la llamada al método Calculate en el método Execute por una llamada a su método.
+	Para más detalles, consulte [Escalado automático de los nodos de ejecución en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
+
+	El servicio Lote de Azure puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar en ella la actividad personalizada.
+	 
+5. En la solución de ejemplo, el método **Execute** invoca al método **Calculate** que procesa un segmento de datos de entrada para generar un segmento de datos de salida. Puede escribir su propio método para procesar los datos de entrada y reemplazar la llamada al método Calculate en el método Execute por una llamada a su método.
+
+ 
+
 
 ## Pasos siguientes: Consumo de los datos
 
@@ -929,4 +938,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
     -   [Introducción a la biblioteca de Lote de Azure para .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 # Integración del SDK de Windows Universal Apps Engagement
@@ -238,7 +238,7 @@ Recomendamos que llame a `StartActivity` dentro del método `OnNavigatedTo` de s
 
 Opcionalmente, es aconsejable informar eventos, errores y trabajos de aplicación específicos. Para ello, use los otros métodos que se encuentran en la clase `EngagementAgent`. La API de Engagement permite usar todas las capacidades avanzadas de Engagement.
 
-Para obtener más información, consulte [Cómo usar la API de etiquetado avanzado de Mobile Engagement en la aplicación Windows Universal](../mobile-engagement-windows-store-use-engagement-api/).
+Para obtener más información, consulte [Cómo usar la API de etiquetado avanzado de Mobile Engagement en la aplicación Windows Universal](mobile-engagement-windows-store-use-engagement-api.md).
 
 ##Configuración avanzada
 
@@ -283,4 +283,4 @@ El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

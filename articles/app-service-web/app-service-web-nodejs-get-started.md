@@ -26,7 +26,7 @@ Este tutorial muestra cómo crear una aplicación de [Node.js](http://nodejs.org
 ## Requisitos previos
 
 - Node.js. Encontrará [aquí](https://nodejs.org/) los archivos binarios de instalación.
-- Yoeman. Las instrucciones de instalación se pueden encontrar [aquí](http://yeoman.io/).
+- Yeoman. Las instrucciones de instalación se pueden encontrar [aquí](http://yeoman.io/).
 - Git. Encontrará [aquí](http://www.git-scm.com/downloads) los archivos binarios de instalación.
 - CLI de Azure. Las instrucciones de instalación se pueden encontrar [aquí](../xplat-cli-install.md).
 - Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o bien [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -203,4 +203,4 @@ Para habilitar Node-Inspector, siga estos pasos:
 - [Centro para desarrolladores de Node.js](/develop/nodejs/)
 - [Introducción a las aplicaciones web en el Servicio de aplicaciones de Azure](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

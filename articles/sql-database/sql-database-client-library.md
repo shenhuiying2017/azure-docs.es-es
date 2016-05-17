@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="03/23/2016"
+   ms.date="05/03/2016"
    ms.author="sstein"/>
 
 # Creación y administración de bases de datos SQL con C&#x23;
@@ -335,7 +335,7 @@ Para crear un nuevo grupo en un servidor:
 
 ## Movimiento de una base de datos existente a un grupo de bases de datos elásticas
 
-*Después de crear un grupo, también puede usar Transact-SQL para mover bases de datos ya existentes dentro y fuera de un grupo. Para obtener información detallada, consulte [Referencia de grupo de bases de datos elásticas - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Después de crear un grupo, también puede usar Transact-SQL para mover bases de datos ya existentes dentro y fuera de un grupo. Para más información, consulte [Supervisión y administración de un grupo de bases de datos elásticas con Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 Para mover una base de datos existente a un grupo:
 
@@ -367,7 +367,7 @@ Para mover una base de datos existente a un grupo:
 
 ## Creación de una nueva base de datos en un grupo de bases de datos elásticas
 
-*Después de crear un grupo, también puede usar Transact-SQL para crear nuevas bases de datos elásticas en el grupo. Para obtener información detallada, consulte [Referencia de grupo de bases de datos elásticas - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Después de crear un grupo, también puede usar Transact-SQL para crear nuevas bases de datos elásticas en el grupo. Para más información, consulte [Supervisión y administración de un grupo de bases de datos elásticas con Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 Para crear una nueva base de datos directamente en un grupo:
 
@@ -784,9 +784,6 @@ Para eliminar un grupo de recursos:
 
 [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[Referencias acerca del grupo de bases de datos elásticas](sql-database-elastic-pool-reference.md).
-
-
 <!--Image references-->
 [1]: ./media/sql-database-client-library/aad.png
 [2]: ./media/sql-database-client-library/permissions.png
@@ -798,4 +795,4 @@ Para eliminar un grupo de recursos:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

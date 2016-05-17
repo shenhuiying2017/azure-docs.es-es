@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/26/2016"
 	ms.author="davidmu"/>
 
 # Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales
@@ -39,17 +39,17 @@ Para más información sobre los recursos del Administrador de recursos, consult
 
 La plantilla que cree en este tutorial será similar a cualquier plantilla que pueda encontrarse en la galería de plantillas. Para más información, consulte [Implementación de un conjunto simple de escala de máquinas virtuales con máquinas virtuales de Windows y un Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/).
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+## Paso 1: Instalación de Azure PowerShell
 
-## Paso 1: Creación de un grupo de recursos y una cuenta de almacenamiento
+Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta de Azure.
 
-1. **Inicie sesión en Microsoft Azure**. Abra la ventana de Microsoft Azure PowerShell y ejecute **Login-AzureRmAccount**.
+## Paso 2: Creación de un grupo de recursos y una cuenta de almacenamiento
 
-2. **Cree un grupo de recursos**: todos los recursos deben implementarse en un grupo de recursos. Para este tutorial, asigne el nombre **vmss-vmsstestrg1** al grupo de recursos. Consulte [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Cree un grupo de recursos**: todos los recursos deben implementarse en un grupo de recursos. Para este tutorial, asigne el nombre **vmss-vmsstestrg1** al grupo de recursos. Consulte [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-3. **Implemente una cuenta de almacenamiento en el nuevo grupo de recursos**: este tutorial usa varias cuentas de almacenamiento para facilitar el conjunto de escala de máquinas virtuales. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear una cuenta de almacenamiento denominada **vmsstestsa**. Mantenga la ventana de Azure PowerShell abierta para llevar a cabo pasos explicados más adelante en este tutorial.
+2. **Implemente una cuenta de almacenamiento en el nuevo grupo de recursos**: este tutorial usa varias cuentas de almacenamiento para facilitar el conjunto de escala de máquinas virtuales. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear una cuenta de almacenamiento denominada **vmsstestsa**. Mantenga la ventana de Azure PowerShell abierta para llevar a cabo pasos explicados más adelante en este tutorial.
 
-## Paso 2: Creación de la plantilla
+## Paso 3: Creación de la plantilla
 Las plantillas del Administrador de recursos de Azure le permiten implementar y administrar los distintos recursos de Azure en conjunto mediante una descripción de JSON de los recursos y los parámetros de implementación asociados.
 
 1. En el editor que prefiera, cree el archivo C:\\VMSSTemplate.json y agregue la estructura inicial de JSON para admitir la plantilla.
@@ -472,7 +472,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
     Para este tutorial, éstos son los valores importantes:
 
     - **metricName**: este es el mismo que el contador de rendimiento que definimos en la variable wadperfcounter. Con esta variable, la extensión de diagnósticos recopila los datos del contador **Processor(\_Total)\\% Processor Time**.
-- **metricResourceUri**: este es el identificador de recursos del conjunto de escala de máquinas virtuales.
+	- **metricResourceUri**: este es el identificador de recursos del conjunto de escala de máquinas virtuales.
     - **timeGrain**: ésta es la granularidad de las métricas que se recopilan. En esta plantilla, se establece en 1 minuto.
     - **statistic**: determina cómo se combinan las métricas para dar cabida a la acción de escalado automático. Los valores posibles son: Average, Min y Max. En esta plantilla estamos buscando el uso total de CPU promedio entre las máquinas virtuales del conjunto de escala.
     - **timeWindow**: este es el intervalo de tiempo en que se recopilan los datos de instancia. Debe estar comprendido entre 5 minutos y 12 horas.
@@ -486,7 +486,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 
 12.	Guarde el archivo de plantilla.
 
-## Paso 3: Carga de la plantilla en el almacenamiento
+## Paso 4: Carga de la plantilla en el almacenamiento
 
 La plantilla se puede cargar desde la ventana de Microsoft Azure PowerShell siempre que sepa el nombre de cuenta y la clave principal de la cuenta de almacenamiento que creó en el paso 1.
 
@@ -515,15 +515,15 @@ La plantilla se puede cargar desde la ventana de Microsoft Azure PowerShell siem
             $fileName = "C:" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
 
-## Paso 4: Implementación de la plantilla
+## Paso 5: Implementación de la plantilla
 
 Ahora que ha creado la plantilla, puede empezar a implementar los recursos. Use este comando para iniciar el proceso:
 
-        New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
+    New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 
 Cuando presione Entrar, se le pedirá que proporcione valores para las variables que asignó. Proporcione estos valores:
 
-	vmName: vmsstestvm1
+    vmName: vmsstestvm1
 	vmSSName: vmsstest1
 	instanceCount: 5
 	adminUserName: vmadmin1
@@ -532,26 +532,30 @@ Cuando presione Entrar, se le pedirá que proporcione valores para las variables
 
 Para que todos los recursos se implementen correctamente se tardará unos 15 minutos.
 
->[AZURE.NOTE]También puede hacer uso de la capacidad del portal para implementar los recursos. Para ello, use este vínculo: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+>[AZURE.NOTE] También puede hacer uso de la capacidad del portal para implementar los recursos. Para ello, utilice este vínculo: "https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>"
 
-## Paso 5: Supervisión de recursos
+## Paso 6: Supervisión de recursos
 
 Puede obtener información acerca de los conjuntos de escala de máquinas virtuales mediante estos métodos:
 
  - El portal de Azure: actualmente puede obtener una cantidad limitada de información mediante el portal.
  - El [explorador de recursos de Azure](https://resources.azure.com/): esta es la mejor herramienta para explorar el estado actual del conjunto de escala. Siga esta ruta de acceso y debería ver la vista de instancia del conjunto de escala que creó:
 
-		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+        subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
  - Azure PowerShell: use este comando para más información:
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or
+        
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
 
  - Conéctese a la máquina virtual de jumpbox igual que lo haría con cualquier otra máquina y, a continuación, podrá obtener acceso remoto a las máquinas virtuales del conjunto de escala para supervisar los procesos individuales.
 
->[AZURE.NOTE]Una API de REST completa para más información acerca de los conjuntos de escala se puede encontrar en [Conjuntos de escala de máquinas virtuales](https://msdn.microsoft.com/library/mt589023.aspx)
+>[AZURE.NOTE] Una API de REST completa para más información acerca de los conjuntos de escala se puede encontrar en [Conjuntos de escala de máquinas virtuales](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## Paso 6: Eliminación de recursos
+## Paso 7: Eliminación de recursos
 
 Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveniente eliminar los recursos que ya no sean necesarios. No es necesario eliminar por separado cada recurso de un grupo de recursos. Puede eliminar el grupo de recursos y se eliminarán automáticamente todos sus recursos.
 
@@ -559,6 +563,11 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 Si desea mantener el grupo de recursos, puede eliminar solo el conjunto de escala.
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    
+## Pasos siguientes
 
-<!---HONumber=AcomDC_0427_2016-->
+- Administre el conjunto de escalado que acaba de crear con la información de [Administración de máquinas de un conjunto de escalado de máquinas virtuales](virtual-machine-scale-sets-windows-manage.md).
+- Puede obtener más información sobre el escalado revisando [Autoescala vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+
+<!---HONumber=AcomDC_0504_2016-->

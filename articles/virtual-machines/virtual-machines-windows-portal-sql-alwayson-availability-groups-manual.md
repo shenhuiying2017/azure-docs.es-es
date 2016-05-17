@@ -13,16 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2015"
+	ms.date="04/22/2016"
 	ms.author="MikeRayMSFT" />
 
 # Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (GUI)
 
 > [AZURE.SELECTOR]
-- [Portal: Resource Manager: plantilla ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portal: Resource Manager: manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-- [Portal: clásico: manual](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell: clásico](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Plantilla](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 
 <br/>
 
@@ -30,7 +28,7 @@
 
 Este tutorial integral muestra cómo implementar grupos de disponibilidad con SQL Server AlwaysOn ejecutándose en máquinas virtuales de Azure Resource Manager.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modelo del Administrador de recursos.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modelo del Administrador de recursos.
 
 Al final del tutorial, la solución SQL Server AlwaysOn en Azure constará de los siguientes elementos:
 
@@ -64,7 +62,7 @@ En este tutorial se da por hecho lo siguiente:
 
 >[AZURE.NOTE] Si tiene interés en el uso de los Grupos de disponibilidad AlwaysOn con SharePoint, consulte también [Configuración de Grupos de disponibilidad AlwaysOn de SQL Server 2012 para SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
-## Creación de un grupo de recursos, redes y controladores de dominio
+## Creación de conjuntos de disponibilidad, red y grupo de recursos
 
 ### Conexión a su suscripción de Azure y creación de un grupo de recursos
 
@@ -243,7 +241,7 @@ Azure creará las máquinas virtuales.
 
 Después de crear las máquinas virtuales, configure el controlador de dominio.
 
-## Configuración del controlador de dominio
+### Configuración del controlador de dominio
 
 En los pasos siguientes configurará la máquina **ad-primary-dc** como controlador de dominio para corp.contoso.com.
 
@@ -333,7 +331,7 @@ Una vez reiniciado el controlador de dominio principal, puede configurar el segu
 
 |Page|Configuración|
 |---|---|
-|**Configuración de la implementación**|**Agregar un controlador de dominio a un dominio existente** = Seleccionado<br/>**Raíz** = corp.contoso.com|
+|**Configuración de la implementación**|**Adición de un controlador de dominio a un dominio existente** = Seleccionado<br/>**Raíz** = corp.contoso.com|
 |**Opciones del controlador de dominio**|**Contraseña de DSRM** = Contoso!000<br/>**Confirmar contraseña** = Contoso!000|
 
 
@@ -650,11 +648,11 @@ Siga estos pasos para ambos servidores SQL Server.
 
 Ahora está en disposición de configurar un grupo de disponibilidad. A continuación se resume lo que debe hacer:
 
-- Crear una nueva base de datos (**MyDB1**) en **sqlserver-0**
+- Creación de una nueva base de datos (**MyDB1**) en **sqlserver-0**
 
 - Realizar una copia de seguridad completa y una copia de seguridad del registro de transacciones de la base de datos
 
-- Restaurar las copias de seguridad completas y de registro en **sqlserver-1** con la opción **NORECOVERY**
+- Restauración de las copias de seguridad completas y de registro en **sqlserver-1** con la opción **NORECOVERY**
 
 - Crear el grupo de disponibilidad (**AG1**) con confirmación sincrónica, conmutación automática por error y réplicas secundarias legibles
 
@@ -738,7 +736,7 @@ Ahora está en disposición de configurar un grupo de disponibilidad. A continua
 
 	![Asistente para nuevo grupo de disponibilidad, seleccionar sincronización de datos iniciales](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665529.png)
 
-1. En la página **Validación**, haga clic en **Siguiente**. Esta página debe ser similar a la siguiente. Hay una advertencia para la configuración del agente de escucha porque no ha configurado un agente de escucha de grupo de disponibilidad. Puede omitir esta advertencia, ya que este tutorial no configura un agente de escucha. Este tutorial le enseñará a crear el agente de escucha más adelante. Si quiere más datos sobre cómo configurar un agente de escucha, consulte [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md) (Configuración de un equilibrador de carga interno para un grupo de disponibilidad AlwaysOn de Azure).
+1. En la página **Validación**, haga clic en **Siguiente**. Esta página debe ser similar a la siguiente. Hay una advertencia para la configuración del agente de escucha porque no ha configurado un agente de escucha de grupo de disponibilidad. Puede omitir esta advertencia, ya que este tutorial no configura un agente de escucha. Este tutorial le enseñará a crear el agente de escucha más adelante. Si quiere más datos sobre cómo configurar un agente de escucha, consulte [Configuración de un equilibrador de carga interno para un grupo de disponibilidad AlwaysOn de Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 	![Asistente para nuevo grupo de disponibilidad, validación](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665530.gif)
 
@@ -792,24 +790,24 @@ Configure el equilibrador de carga como sigue:
 | Configuración | Campo |
 | --- | ---|
 | Nombre de **Grupo de back-end** | sqlLBBE 
-| **SQLLBBE Availability set** (Conjunto de disponibilidad SQLLBBE) | sqlAvailabilitySet
+| **SQLLBBE Availability set (Conjunto de disponibilidad SQLLBBE)** | sqlAvailabilitySet
 | **SQLLBBE máquinas virtuales** | sqlserver-0, sqlserver-1
-| **SQLLBBE Used by** (SQLLBBE usado por) | SQLAlwaysOnEndPointListener
+| **SQLLBBE Used by (SQLLBBE usado por)** | SQLAlwaysOnEndPointListener
 | Nombre de **Sondeo** | SQLAlwaysOnEndPointProbe
 | **Protocolo de sondeo** | TCP
 | **Puerto de sondeo** | 59999\. Puede usar cualquier puerto que no esté en uso.
 | **Intervalo de sondeo** | 5
-| **Probe Unhealthy threshold** (Umbral de sondeo incorrecto) | 2
-| **Probe Used by** (Sondeo usado por) | SQLAlwaysOnEndPointListener
+| **Probe Unhealthy threshold (Umbral de sondeo incorrecto)** | 2
+| **Probe Used by (Sondeo usado por)** | SQLAlwaysOnEndPointListener
 | Nombre de **Reglas de equilibrio de carga** | SQLAlwaysOnEndPointListener
-| **Load balancing rules Protocol** (Protocolo de reglas de equilibrio de carga) | TCP
-| **Load balancing rules Port** (Puerto de reglas de equilibrio de carga) | 1433\. Esto es así porque este es el puerto predeterminado de SQL Server.
-| **Load balancing rules Port** (Puerto de reglas de equilibrio de carga) | 1433\. Esto es así porque este es el puerto predeterminado de SQL Server.
-| **Load balancing rules Backend Port** (Puerto de back-end de reglas de equilibrio de carga) | 1433
-| **Load balancing rules Probe** (Sondeo de reglas de equilibrio de carga) | SQLAlwaysOnEndPointProbe
-| **Load balancing rules Session Persistence** (Persistencia de la sesión de reglas de equilibrio de carga) | None
-| **Load balancing rules Idle Timeout** (Tiempo de espera de inactividad de reglas de equilibrio de carga) | 4
-| **Load balancing rules Floating IP (direct server return)** (IP flotante de reglas de equilibrio de carga [Direct Server Return]) | Enabled
+| **Load balancing rules Protocol (Protocolo de reglas de equilibrio de carga)** | TCP
+| **Load balancing rules Port (Puerto de reglas de equilibrio de carga)** | 1433\. Esto es así porque este es el puerto predeterminado de SQL Server.
+| **Load balancing rules Port (Puerto de reglas de equilibrio de carga)** | 1433\. Esto es así porque este es el puerto predeterminado de SQL Server.
+| **Load balancing rules Backend Port (Puerto de back-end de reglas de equilibrio de carga)** | 1433
+| **Load balancing rules Probe (Sondeo de reglas de equilibrio de carga)** | SQLAlwaysOnEndPointProbe
+| **Load balancing rules Session Persistence (Persistencia de la sesión de reglas de equilibrio de carga)** | None
+| **Load balancing rules Idle Timeout (Tiempo de espera de inactividad de reglas de equilibrio de carga)** | 4
+| **Load balancing rules Floating IP (direct server return) (IP flotante de reglas de equilibrio de carga [Direct Server Return])** | Enabled
 
 >[AZURE.NOTE] Debe habilitar Direct Server Return en las reglas de equilibrio de carga al crearlas.
 
@@ -821,7 +819,7 @@ El siguiente paso es configurar un agente de escucha del grupo de disponibilidad
 
 1. De RDP a SQL Server de ad-principal-dc a sqlserver-0.
 
-1. En el Administrador de clústeres de conmutación por error, anote el nombre de la red de clústeres. Para determinar el nombre de red del clúster en **Administrador de clústeres de conmutación por error**, en el panel izquierdo, haga clic en **Redes**. Este es el nombre que va a usar en la variable `$ClusterNetworkName` del script de PowerShell.
+1. En el Administrador de clústeres de conmutación por error, anote el nombre de la red de clústeres. Para determinar el nombre de red del clúster en **Administrador de clústeres de conmutación por error**, en el panel izquierdo, haga clic en **Redes**. Este es el nombre que va a utilizar en la variable `$ClusterNetworkName` del script de PowerShell.
 
 1. En el Administrador de clústeres de conmutación por error, expanda el nombre del clúster y haga clic en **Roles**.
 
@@ -867,4 +865,4 @@ Para probar la conexión:
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Cómo usar la API de Engagement en Windows Universal
 
-Este documento es un complemento al documento [Cómo integrar Engagement en Windows Universal](../mobile-engagement-windows-store-integrate-engagement/): en él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
+Este documento es un complemento al documento [Cómo integrar Engagement en Windows Universal](mobile-engagement-windows-store-integrate-engagement.md): en él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
 
 Tenga en cuenta que si solo desea que Engagement informe sobre las sesiones, las actividades, los bloqueos y la información técnica de la aplicación, la manera más sencilla consiste en hacer que las subclases `Page` hereden de la clase `EngagementPage`.
 
@@ -30,7 +30,7 @@ Incluso si no se ha inicializado el módulo de agente, las llamadas a la API se 
 
 ##Conceptos de Engagement
 
-En las siguientes secciones se detallan los [conceptos de Mobile Engagement](../mobile-engagement-concepts/) para la plataforma Windows Universal.
+En las siguientes secciones se detallan los [conceptos de Mobile Engagement](mobile-engagement-concepts.md) para la plataforma Windows Universal.
 
 ### `Session` y `Activity`
 
@@ -368,4 +368,4 @@ El SDK puede configurarse para generar registros de prueba en la consola del IDE
 			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

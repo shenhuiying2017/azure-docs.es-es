@@ -67,7 +67,7 @@ También se recomienda configurar de antemano los servidores DNS personalizados 
 ## Creación de un grupo de seguridad de red ##
 Para obtener los detalles completos de cómo funcionan los grupos de seguridad de red, consulte la siguiente [información][NetworkSecurityGroups]. Los detalles siguientes hacen referencia a los puntos destacados de los grupos de seguridad de red, centrándose en la configuración y aplicación de un grupo de seguridad de red a una subred que contiene un entorno del Servicio de aplicaciones.
 
-**Nota:** Solo se pueden configurar grupos de seguridad de red con los cmdlets de Powershell descritos a continuación. Los grupos de seguridad de red no se pueden configurar gráficamente mediante el [Portal de Azure](portal.azure.com) porque este solo permite la configuración gráfica de grupos de seguridad de red asociados a las redes virtuales "v2". Sin embargo, los entornos de servicio de aplicaciones solo funcionan actualmente con las redes virtuales clásicas "v1". Como resultado, solo se pueden utilizar los cmdlets de Powershell para configurar los grupos de seguridad de red asociados a las redes virtuales "v1".
+**Nota:** Solo se pueden configurar grupos de seguridad de red con los cmdlets de Powershell descritos a continuación. Los grupos de seguridad de red no se pueden configurar gráficamente mediante el [Portal de Azure](https://portal.azure.com) porque este solo permite la configuración gráfica de grupos de seguridad de red asociados a las redes virtuales "v2". Sin embargo, los entornos de servicio de aplicaciones solo funcionan actualmente con las redes virtuales clásicas "v1". Como resultado, solo se pueden utilizar los cmdlets de Powershell para configurar los grupos de seguridad de red asociados a las redes virtuales "v1".
 
 Los grupos de seguridad de red se crean por primera vez como una entidad independiente asociada a una suscripción. Puesto que los grupos de seguridad de red se crean en una región de Azure, asegúrese de que el grupo de seguridad de red se crea en la misma región que el entorno del Servicio de aplicaciones.
 
@@ -149,4 +149,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

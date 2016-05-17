@@ -3,7 +3,7 @@
 	description="Preguntas más frecuentes sobre el Escalado elástico de Base de datos SQL de Azure." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="sidneyh" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="05/03/2016" 
 	ms.author="sidneyh"/>
 
 # Preguntas frecuentes de herramientas de Base de datos elástica 
@@ -56,4 +56,4 @@ No. En el caso de las operaciones de **división**, la base de datos de destino 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

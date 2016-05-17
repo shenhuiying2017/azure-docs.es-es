@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/11/2016"  
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 #Administración de entidades de Servicios multimedia con la API de REST
@@ -35,7 +35,7 @@ Servicios multimedia de Microsoft Azure es un servicio REST basado en OData v3. 
 >
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect_programmatically.md).
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md).
 
 
 ##Incorporación de entidades
@@ -117,9 +117,9 @@ El ejemplo siguiente devuelve todos los JobTemplates con el nombre "SampleTempla
 
 ##Enumeración de grandes colecciones de entidades
 
-Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Utilice **Skip** y **Top** para enumerar la gran colección de entidades.
+Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Utilice **skip** y **top** para enumerar la gran colección de entidades.
 
-En el ejemplo siguiente se muestra cómo usar **Skip** y **Top** para omitir los 2000 primero trabajos y obtener los siguientes 1000.
+En el ejemplo siguiente se muestra cómo usar **skip** y **top** para omitir los 2000 primeros trabajos y obtener los 1000 siguientes.
 
 	GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
 	Content-Type: application/json;odata=verbose
@@ -175,4 +175,4 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

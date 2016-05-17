@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/18/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Escalado de trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento de procesamiento de flujo de datos
@@ -27,7 +27,7 @@ Una definición de trabajo de Análisis de transmisiones incluye entradas, una c
 Un trabajo requiere al menos un origen de entrada de streaming de datos. El origen de entrada de streaming de datos puede almacenarse en un Centro de eventos de Bus de servicio de Azure o en un almacenamiento de blobs de Azure. Para obtener más información, consulte [Introducción a Análisis de transmisiones de Azure](stream-analytics-introduction.md) e [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md).
 
 ## Configuración de unidades de streaming
-Las Unidades de streaming (SU) representan los recursos y la capacidad de ejecutar un trabajo de Análisis de transmisiones de Azure. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento.
+Las Unidades de streaming (SU) representan los recursos y la capacidad de ejecutar un trabajo de Análisis de transmisiones de Azure. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento.
 
 Elegir cuántas SU son necesarias para un trabajo en concreto depende de la configuración de la partición de las entradas y de la consulta definida para el trabajo. Puede seleccionar tantas unidades de streaming para un trabajo como su cuota se lo permita, mediante el Portal de Azure clásico. De forma predeterminada, cada suscripción de Azure tiene una cuota máxima de 50 unidades de streaming en todos los trabajos de análisis de una región específica. Para aumentar las unidades de streaming de su suscripción póngase en contacto con el [Servicio de soporte técnico de Microsoft](http://support.microsoft.com).
 
@@ -88,7 +88,7 @@ Entrada: Centro de eventos con 8 particiones Salida: Centro de eventos con 8 par
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Esta consulta tiene una clave de agrupación y, por tanto, es necesario que la misma instancia de consulta procese la misma clave. Podemos usar la misma estrategia que en la consulta anterior. La consulta tiene varios pasos. ¿Cada paso tiene **Partition By** de ** PartitionId**? Sí, así que lo estamos haciendo bien. Para la salida, es necesario establecer **PartitionKey** en **PartitionId** como se mencionó anteriormente y también podemos ver que tiene el mismo número de particiones que la entrada. Esta topología es embarazosamente paralela.
+Esta consulta tiene una clave de agrupación y, por tanto, es necesario que la misma instancia de consulta procese la misma clave. Podemos usar la misma estrategia que en la consulta anterior. La consulta tiene varios pasos. ¿Cada paso tiene **Partition By** de **PartitionId**? Sí, así que lo estamos haciendo bien. Para la salida, es necesario establecer **PartitionKey** en **PartitionId** como se mencionó anteriormente y también podemos ver que tiene el mismo número de particiones que la entrada. Esta topología es embarazosamente paralela.
 
 
 ## Estos son algunos escenarios de ejemplo que NO son embarazosamente paralelos.
@@ -211,7 +211,7 @@ Para usar más unidades de streaming en la consulta, la entrada del streaming de
 	FROM Input1 Partition By PartitionId
 	GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Cuando una consulta está particionada, se procesan los eventos de entrada y se agregan en grupos de particiones independientes. También se generan eventos de salida para cada uno de los grupos. La creación de particiones puede ocasionar algunos resultados inesperados cuando el campo **Group-by** no es la clave de partición en la entrada de streaming de datos. Por ejemplo, el campo **TollBoothId** de la consulta de ejemplo anterior no es la clave de partición de Input1. Los datos de la cabina 1 se pueden distribuir en varias particiones.
+Cuando una consulta está particionada, se procesan los eventos de entrada y se agregan en grupos de particiones independientes. También se generan eventos de salida para cada uno de los grupos. La creación de particiones puede ocasionar algunos resultados inesperados cuando el campo **Group-by** no es la clave de partición en la entrada de streaming de datos. Por ejemplo, el campo **TollBoothId** de la consulta de ejemplo anterior no es la clave de partición de Input1. Los datos de la cabina 1 se pueden distribuir en varias particiones.
 
 Cada una de las particiones de Imput1 se procesará por separado en Análisis de transmisiones y se crearán varios registros del recuento de vehículos que pasan por la misma cabina de peaje en la misma ventana de saltos de tamaño constante. Si la clave de partición de entrada no se puede cambiar, este problema se puede solucionar agregando un paso adicional sin particiones, por ejemplo:
 
@@ -271,7 +271,7 @@ Consulta: "enviar una alerta cuando se apague la luz"
 	 WHERE
 		lght< 0.05 GROUP BY TumblingWindow(second, 1)
 
-Medición de rendimiento: el rendimiento en este contexto es la cantidad de datos de entrada procesados por el Análisis de transmisiones en una cantidad fija de tiempo (10 minutos). Para conseguir la mejor capacidad de procesamiento de los datos de entrada, tanto la entrada de streaming de datos como la consulta deben tener particiones. **COUNT()** también se incluye en la consulta para medir el número de eventos de entrada procesados. Para asegurarse de que el trabajo no está esperando simplemente a que lleguen los eventos de entrada, cada partición del centro de eventos de entrada se cargó previamente con suficientes datos de entrada (aproximadamente 300 MB).
+Medición de rendimiento: el rendimiento en este contexto es la cantidad de datos de entrada procesados por el Análisis de transmisiones en una cantidad fija de tiempo (10 minutos). Para conseguir la mejor capacidad de procesamiento de los datos de entrada, tanto la entrada de streaming de datos como la consulta deben tener particiones. **COUNT()** también se incluye en la consulta para medir el número de eventos de entrada procesados. Para asegurarse de que el trabajo no está esperando simplemente a que lleguen los eventos de entrada, cada partición del centro de eventos de entrada se cargó previamente con suficientes datos de entrada (aproximadamente 300 MB).
 
 A continuación se muestran los resultados por número creciente de unidades de streaming y los correspondientes recuentos por partición en los Centros de eventos.
 
@@ -351,4 +351,4 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="02/04/2016"
+  ms.date="04/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Desarrollo de una imagen de máquina virtual de forma local para Azure Marketplace
@@ -115,7 +115,7 @@ A continuación, puede crear un contenedor dentro de esa cuenta de almacenamient
 
 > [AZURE.NOTE] Esos comandos asumen que ya se ha establecido el contexto de la cuenta de almacenamiento actual en PowerShell. Consulte [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md) para obtener más detalles sobre la configuración de PowerShell.
 ### Creación de una cuenta de almacenamiento con la herramienta de línea de comandos para Mac y Linux
-En la [Herramienta de línea de comandos de Linux](../virtual-machines/command-line-tools/), cree una cuenta de almacenamiento de la manera siguiente.
+En la [Herramienta de línea de comandos de Linux](../virtual-machines/virtual-machines-linux-cli-manage.md), cree una cuenta de almacenamiento de la manera siguiente.
 
         azure storage account create mystorageaccount --location "West US"
 
@@ -138,4 +138,4 @@ Con la [Herramienta de línea de comandos de Linux](../virtual-machines/command-
 - [Creación de una imagen de máquina virtual para Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

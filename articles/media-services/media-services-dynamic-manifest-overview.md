@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Filtros y manifiestos dinámicos
@@ -87,7 +87,7 @@ URL de Smooth Streaming con filtro
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 
 
-Para obtener más información sobre cómo entregar el contenido y crear URL de streaming, vea [Información general de entregar contenido](media-services-deliver-content-overview/).
+Para obtener más información sobre cómo entregar el contenido y crear URL de streaming, vea [Información general de entregar contenido](media-services-deliver-content-overview.md).
 
 
 >[AZURE.NOTE]Tenga en cuenta que los manifiestos dinámicos no cambian el activo y el manifiesto predeterminado para ese activo. Su cliente puede elegir solicitar una secuencia con o sin filtros.
@@ -236,4 +236,4 @@ Para obtener más información, consulte [este blog](https://azure.microsoft.com
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

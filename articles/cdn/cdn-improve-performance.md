@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="04/26/2016" 
 	ms.author="casoper"/>
 
 # Mejora del rendimiento mediante la compresión de archivos
@@ -65,28 +65,69 @@ Hay dos maneras de que la red CDN pueda admitir la compresión:
 
 	![Compresión de archivos](./media/cdn-file-compression/cdn-compress-files.png)
 
-3. Después de modificar la lista de tipos de archivo, haga clic en el botón **Actualizar**.
+3. Habilite la compresión con un clic en el botón de selección **Compresión habilitada**. Escriba los tipos de MIME que desea comprimir como una lista separada por comas (sin espacios) en el cuadro de texto **Tipos de archivo**.
+
+4. Después de realizar los cambios, haga clic en el botón **Actualizar**.
 
 
-## Reglas y proceso de compresión
+## Proceso de compresión
+
+### Información general
 
 1. El solicitante envía una solicitud de contenido.
+
 2. Un servidor perimetral comprueba si hay un encabezado **Accept-Encoding**.
 	1. Si se incluye, este encabezado identifica el método de compresión solicitado.
-	1. Si falta, este tipo de solicitud se servirá en un formato sin comprimir.
+		> [AZURE.NOTE] Los métodos de compresión admitidos son **gzip**, **deflate** y **bzip2**.
+	2. Si falta, este tipo de solicitud se servirá en un formato sin comprimir.
+	
 3.	El POP perimetral más cercano comprueba el estado de la memoria caché, el método de compresión y si aún tiene un período de vida válido.
-	1.	Error de caché: si la versión solicitada no está en la caché, la solicitud se reenvía al origen.
-	2.	Acierto de caché con el mismo método de compresión: el servidor perimetral entregará inmediatamente el contenido comprimido al cliente.
-	3.	Acierto de caché con un método de compresión diferente: el servidor perimetral transcodificará el recurso para el método de compresión solicitado.
-	4.	Acierto de caché y sin comprimir: si la solicitud inicial provocó que el activo se almacenara en un formato sin comprimir, se realizará una comprobación para ver si es válida la solicitud para la compresión de servidor perimetral (según los criterios de la sección anterior sobre definición y requisitos).
-		1.	Si es válida, el servidor perimetral comprimirá el archivo y lo servirá al cliente.
-		2.	Si no es válida: el servidor perimetral entregará inmediatamente el contenido sin comprimir al cliente.
+	1.	**Error** de caché: si la versión solicitada no está en la caché, la solicitud se reenvía al origen.
+	2.	**Acierto** de caché: si la versión solicitada está en la caché con el método de compresión solicitado, el servidor perimetral entregará de inmediato el contenido comprimido al cliente.
+	3.	**Acierto** de caché: si el archivo está en la caché con otro método de compresión, el servidor perimetral transcodificará el recurso al método de compresión solicitado.
+	4.	**Acierto** de caché: si el archivo está en la caché con un formato no comprimido, se realizará una comprobación para determinar si la solicitud es elegible para la compresión del servidor perimetral (consulte la nota que aparece a continuación). Si es válida, el servidor perimetral comprimirá el archivo y lo servirá al cliente. De lo contrario, devolverá el contenido no comprimido.
+		
+> [AZURE.IMPORTANT] Para ser elegible para la compresión, un archivo debe cumplir con los siguientes requisitos:
+>
+> - Debe tener más de 128 bytes.
+> - Debe tener menos de 1 MB.
+> - Debe tener un tipo MIME [configurado para compresión](#enabling-compression).
+
+### Tablas
+
+Las tablas que aparecen a continuación describen el comportamiento de la compresión CDN para cada escenario.
+
+#### La compresión está deshabilitada o el archivo no es elegible para la compresión
+
+|Formato solicitado|Archivo almacenado en caché|Respuesta de la red CDN|Notas|
+|----------------|-----------|------------|-----|
+|Comprimidos|Comprimidos|Comprimidos|La red CDN transcodifica entre los formatos admitidos|
+|Comprimidos|Sin comprimir|Sin comprimir| |	
+|Comprimidos|No almacenado en caché|Comprimidos o sin comprimir|Depende de la respuesta de origen|
+|Sin comprimir|Comprimidos|Sin comprimir|La red CDN volverá al origen para obtener la versión sin comprimir|
+|Sin comprimir|Sin comprimir|Sin comprimir| |	
+|Sin comprimir|No almacenado en caché|Sin comprimir| |
+
+#### La compresión está habilitada y el archivo es elegible para la compresión
+
+|Formato solicitado|Archivo almacenado en caché|Respuesta de la red CDN|Notas|
+|----------------|-----------|------------|-----|
+|Comprimidos|Comprimidos|Comprimidos|La red CDN transcodifica entre los formatos admitidos|
+|Comprimidos|Sin comprimir|Comprimidos|La red CDN realiza la compresión|
+|Comprimidos|No almacenado en caché|Comprimidos|La red CDN realiza la compresión si el origen devuelve sin comprimir|
+|Sin comprimir|Comprimidos|Sin comprimir|La red CDN realiza la descompresión|
+|Sin comprimir|Sin comprimir|Sin comprimir| |	
+|Sin comprimir|No almacenado en caché|Sin comprimir| |	
 
 
+## Notas
 
-## Consideraciones
+1. Al igual que lo que ocurre cuando se implementan puntos de conexión nuevos, los cambios en la configuración de la red CDN demoran un tiempo en propagarse por la red. En la mayoría de los casos, verá que los cambios se aplican dentro de 90 minutos. Si esta es la primera vez que configura la compresión para su punto de conexión de la red CDN, debe considerar una espera de 1 o 2 horas para asegurarse de que la configuración de la compresión se propagó a los POP antes de realizar la solución de problemas.
+2. Una sola versión del archivo (comprimido o sin comprimir) se almacenará en caché en el servidor perimetral. Una solicitud de una versión diferente provocará que el servidor perimetral transcodifique el contenido.
+3. Para los puntos de conexión de streaming habilitados para la red CDN de Servicios multimedia, la compresión está habilitada de forma predeterminada para los siguientes tipos de contenido: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. No se puede habilitar o deshabilitar la compresión de los tipos mencionados mediante el Portal de Azure.  
+4. Si bien es posible, no se recomienda aplicar compresión a formatos comprimidos, como ZIP, MP3, MP4, JPG, etc.
 
-1. Para los puntos de conexión de streaming habilitados para la red CDN de Servicios multimedia, la compresión está habilitada de forma predeterminada para los siguientes tipos de contenido: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. No se puede habilitar o deshabilitar la compresión de los tipos mencionados mediante el Portal de Azure.  
-2. Una sola versión del archivo (comprimido o sin comprimir) se almacenará en caché en el servidor perimetral. Una solicitud de una versión diferente provocará que el servidor perimetral transcodifique el contenido.  
+## Consulte también
+- [Solución de problemas de compresión de archivos de red CDN](cdn-troubleshoot-compression.md)    
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

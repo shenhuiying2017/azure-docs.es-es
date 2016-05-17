@@ -3,8 +3,8 @@
 	description="Obtenga información acerca de cómo usar las Aplicaciones móviles del Servicio de aplicaciones de Azure para autenticar a los usuarios de su aplicación de Windows en una variedad de proveedores de identidades, incluidos Google, Facebook, Twitter y Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson"
-	manager="dwrede"
+	authors="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/02/2016"
 	ms.author="glenga"/>
 
 # Incorporación de la autenticación a la aplicación de Windows
@@ -32,7 +32,7 @@ Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero deb
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Con uno de los proyectos de aplicación de Windows configurado como proyecto de inicio, presione la tecla F5 para ejecutar la aplicación y compruebe que, cuando esta se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado). Esto se produce porque la aplicación intenta obtener acceso a su Código de aplicación móvil como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
+Ahora, puede comprobar que se deshabilitó el acceso anónimo a su back-end. Con uno de los proyectos de aplicación de Windows configurado como proyecto de inicio, presione la tecla F5 para ejecutar la aplicación y compruebe que, cuando esta se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado). Esto se produce porque la aplicación intenta obtener acceso a su Código de aplicación móvil como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del Servicio de aplicaciones.
 
@@ -61,4 +61,4 @@ Ahora que ha completado este tutorial de autenticación básica, considere la po
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

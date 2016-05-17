@@ -13,19 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/04/2015"
+	ms.date="04/22/2016"
 	ms.author="mikeray" />
 
 # Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Portal: Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portal: clásico](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell: clásico](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
 Las máquinas virtuales (VM) de Azure pueden ayudar a los administradores de bases de datos a reducir el costo de un sistema de alta disponibilidad de SQL Server Este tutorial muestra cómo implementar un grupo de disponibilidad mediante SQL Server AlwaysOn de extremo a extremo dentro de un entorno de Azure. Al final del tutorial, la solución SQL Server AlwaysOn en Azure constará de los siguientes elementos:
@@ -562,7 +561,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
 		net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
 		icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 
-1. Cree una base de datos en **ContosoSQL1** denominado **MyDB1**, realice tanto una copia de seguridad completa como una copia de seguridad de registros y restáurelas en **ContosoSQL2** con la opción **WITH NORECOVERY**.
+1. Cree una base de datos en **ContosoSQL1** denominado **MyDB1**, realice tanto una copia de seguridad completa como una copia de seguridad de registros y restáurelas en **ContosoSQL2** con la opción **WITH NORECOVERY **.
 
 		Invoke-SqlCmd -Query "CREATE database $db"
 		Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
@@ -630,4 +629,4 @@ Ha implementado correctamente SQL Server AlwaysOn creando un grupo de disponibil
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

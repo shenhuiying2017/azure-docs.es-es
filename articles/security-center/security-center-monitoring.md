@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="05/10/2016"
    ms.author="yurid"/>
 
 #Supervisión del estado de seguridad en el Centro de seguridad de Azure
@@ -98,54 +98,50 @@ En el ejemplo anterior, una VM tiene una recomendación crítica acerca de los p
 Esta hoja tiene los detalles de seguridad de la máquina virtual. En la parte inferior de la hoja puede ver la acción recomendada y la gravedad de cada problema.
 
 ###Supervisión de redes virtuales
-La sección de estado de prevención de las redes enumera las redes virtuales que supervisa el Centro de seguridad. Al hacer clic en **Redes** en el icono **Estado de seguridad de los recursos**, se abrirá la hoja **Redes**, donde encontrará con más detalles, tal como se muestra a continuación:
+Al hacer clic en **Redes** en el icono **Estado de seguridad de los recursos**, se abrirá la hoja **Redes**, donde encontrará con más detalles, tal como se muestra a continuación:
 
 ![Redes](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
-
-Cuando se abra esta hoja, verá dos secciones:
-- Recomendaciones de redes
-- Redes
-
-En cada sección puede seleccionar una opción individual para información acerca de la recomendación. Las siguientes secciones tratarán estas áreas de forma más detallada.
 
 ####Recomendaciones de redes
 
 De manera similar a la información del estado de los recursos de las máquinas virtuales, esta hoja proporciona una lista resumida de los problemas en la parte superior de la hoja y una lista de las redes supervisadas en la parte inferior.
 
-![Extremo](./media/security-center-monitoring/security-center-monitoring-fig10-new.png)
+![Hoja Redes](./media/security-center-monitoring/security-center-monitoring-fig9-new2.png)
 
 La sección de desglose del estado de las redes enumera los potenciales problemas de seguridad y ofrece recomendaciones. Entre los posibles problemas se pueden incluir:
 
-- [ACL en puntos de conexión](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) no habilitadas
-- [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) no habilitados
-- Se enumeran las subredes en buen estado y el acceso en NSG no restringido.
+- Grupos de seguridad de red (NSG) en subredes no habilitados
+- NSG en máquinas virtuales no habilitados
+- Restringir el acceso externo por medio de puntos de conexión externos públicos
+- Subredes con estado correcto
 
 Al hacer clic en una de las recomendaciones, se abrirá una nueva hoja con más detalles acerca de ella, como se muestra en el ejemplo siguiente.
 
-![Restricción del punto de conexión](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
+![Restricción del punto de conexión](./media/security-center-monitoring/security-center-monitoring-fig11-new2.png)
 
-En este ejemplo, la hoja **Restringir acceso a través de un punto de conexión externo público** tiene una lista de grupos de seguridad de red (NSG) que forman parte de esta alerta, la subred y la red con las que este grupo de seguridad de red está asociado, el estado actual de la recomendación y la gravedad del problema. Si hace clic en el grupo de seguridad de red, se abrirá otra hoja, como se muestra a continuación.
+En este ejemplo, la hoja **Configure Missing Network Security Groups for Subnets** (Configurar grupos de seguridad de red que faltan para subredes) tiene una lista de subredes y máquinas virtuales que carecen de protección con NSG. Si hace clic en la subred a la que desea aplicar el NSG, se abre otra hoja.
 
-Esta hoja contiene la información y ubicación del grupo de seguridad de red. También contiene la lista de reglas de entrada activadas actualmente. La parte inferior de esta hoja tiene la máquina virtual que está asociada a este grupo de seguridad de red. Si desea habilitar las reglas de entrada para bloquear un puerto no deseado que esté actualmente abierto o cambiar el origen de la regla de entrada actual, haga clic en el botón **Editar regla de entrada** de la parte superior de la hoja.
+En la hoja **Elegir grupo de seguridad de red**, seleccione el grupo de seguridad de red más adecuado para la subred o cree uno.
 
 ####Sección Redes
 
-En la sección **Redes** hay una vista jerárquica del grupo de recursos, la subred y la interfaz de red asociada a la máquina virtual, como se muestra a continuación.
+En la sección **Redes**, se ofrece una vista jerárquica de los recursos, como se muestra a continuación:
 
-![Árbol de red](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
+![Árbol de red](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
 
-Esta sección diferencia [las máquinas virtuales basadas en Resource Manager de las máquinas virtuales clásicas](../resource-manager-deployment-model.md). Esto le ayudará a identificar rápidamente si las funcionalidades de red de Administración de servicios de Azure o Administración de recursos de Azure están disponibles para la máquina virtual. Si decide obtener acceso a las propiedades de una tarjeta de la interfaz de red desde esta ubicación, tendrá que expandir la subred y hacer clic en el nombre de la máquina virtual. Si realiza esta acción para una máquina virtual basada en el Administrador de recursos, aparecerá una nueva hoja similar a la siguiente.
+Esta tabla está ordenada (máquinas virtuales y subredes) por gravedad, como se describe a continuación:
+- Rojo (arriba): alta prioridad; se debe solucionar de inmediato. 
+- Naranja: prioridad media; se debe solucionar lo antes posible.
+- Verde (al final): estado de mantenimiento.
 
-![Árbol de red](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
+En esta jerarquía, el primer nivel tiene [redes virtuales](../virtual-network/virtual-networks-overview.md), [puertas de enlace de red virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md) y [red virtual (clásica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). El segundo nivel tiene subredes y el tercero, las máquinas virtuales que pertenecen a esas subredes. La columna derecha contiene el estado actual del grupo de seguridad de red (NSG) para esos recursos. En el ejemplo siguiente se ve el resultado de seleccionar la máquina virtual VM-CL-W1:
 
-Esta hoja tiene un resumen de la tarjeta de la interfaz de red y las recomendaciones actuales para ella. Si la VM que seleccionó es una VM clásica, aparecerá una nueva hoja con diferentes opciones, como se muestra a continuación.
+![Árbol de red](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
-![ACL](./media/security-center-monitoring/security-center-monitoring-fig14-new.png)
-
-En esta hoja, puede realizar cambios en los puertos públicos y privados, así como crear una ACL para la VM.
+En la parte inferior de esta hoja, aparecen las recomendaciones para la máquina virtual, parecidas a lo que se ha descrito antes. Puede hacer clic en una recomendación para ver más información o aplicar la configuración o el control de seguridad necesario.
 
 ###Supervisión de recursos de SQL
-Al hacer clic en **SQL** en el icono **Estado de seguridad de los recursos**, se abrirá la hoja SQL con las recomendaciones para problemas tales como auditoría o cifrado de datos transparente no habilitado. También tiene las recomendaciones sobre el estado general de la base de datos.
+Al hacer clic en **SQL** en el icono **Estado de seguridad de los recursos**, se abrirá la hoja SQL con las recomendaciones para problemas como que la auditoría o el cifrado de datos transparente no están habilitados. También tiene las recomendaciones sobre el estado general de la base de datos.
 
 ![Estado de los recursos SQL](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
@@ -153,7 +149,7 @@ Puede hacer clic en cualquiera de estas recomendaciones para obtener más detall
 
 ![Estado de los recursos SQL](./media/security-center-monitoring/security-center-monitoring-fig16-new.png)
 
-La hoja **Habilitar auditoría en bases de datos SQL** tiene la siguiente información:
+La hoja **Habilitar auditoría en bases de datos SQL** contiene la siguiente información:
 
 - Una lista de bases de datos SQL.
 - El servidor en el que se encuentran.
@@ -161,14 +157,14 @@ La hoja **Habilitar auditoría en bases de datos SQL** tiene la siguiente inform
 - El estado actual.
 - La gravedad del problema.
 
-Al hacer clic en la base de datos para abordar esta recomendación, se abrirá la hoja **Auditoría y detección de amenazas**, como se muestra a continuación:
+Al hacer clic en la base de datos para abordar esta recomendación, se abrirá la hoja **Auditoría y detección de amenazas**, como se muestra a continuación.
 
 ![Estado de los recursos SQL](./media/security-center-monitoring/security-center-monitoring-fig17-new.png)
 
 Para habilitar la auditoría, seleccione **Activar** en la opción **Auditoría** y haga clic en **Guardar**.
 
 ###Supervisión de aplicaciones
-Si la carga de trabajo de Azure tiene aplicaciones en las [máquinas virtuales de Resource Manager](../resource-manager-deployment-model.md) con puertos web expuestos (puertos TCP 80 y 443), el Centro de seguridad puede supervisarlos para identificar posibles problemas de seguridad y recomendar pasos para su corrección. Al hacer clic en el icono **Aplicaciones**, se abrirá la hoja **Aplicaciones** con una serie de recomendaciones en la sección de pasos de prevención. También mostrará el desglose de la aplicación por host o IP virtual, tal como aparece a continuación.
+Si la carga de trabajo de Azure tiene aplicaciones en las [máquinas virtuales de Resource Manager](../resource-manager-deployment-model.md) con puertos web expuestos (puertos TCP 80 y 443), Security Center puede supervisarlos para identificar posibles problemas de seguridad y recomendar pasos para su corrección. Al hacer clic en el icono **Aplicaciones**, se abrirá la hoja **Aplicaciones** con una serie de recomendaciones en la sección de pasos de prevención. También mostrará el desglose de la aplicación por host o IP virtual, tal como aparece a continuación.
 
 ![Estado de la seguridad de las aplicaciones](./media/security-center-monitoring/security-center-monitoring-fig18-new.png)
 
@@ -185,8 +181,8 @@ En este documento, aprendió a usar las funcionalidades de supervisión en el Ce
 
 - [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): obtenga información sobre cómo configurar los ajustes de seguridad en el Centro de seguridad de Azure.
 - [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Supervisión de soluciones de asociados con Azure Security Center): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

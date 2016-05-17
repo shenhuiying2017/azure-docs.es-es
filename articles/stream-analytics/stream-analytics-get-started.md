@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok" />
 
 
@@ -28,7 +28,9 @@ Análisis de transmisiones es un servicio totalmente administrado que proporcion
 
 ## Escenario: telecomunicaciones y detección de fraudes de SIM en tiempo real
 
-Una empresa de telecomunicaciones tiene un gran volumen de datos en llamadas entrantes. Desean obtener lo siguiente a partir de sus datos: * Reducir estos datos hasta un volumen manejable y obtener información detallada sobre el uso del cliente por tiempo y regiones geográficas. * Detectar el fraude de SIM (varias procedentes de la misma identidad aproximadamente al mismo tiempo, pero en ubicaciones geográficamente diferentes) en tiempo real para que puedan responder fácilmente notificando a los clientes o cerrando el servicio.
+Una empresa de telecomunicaciones tiene un gran volumen de datos en llamadas entrantes. La compañía necesita lo siguiente para sus datos:
+* Reducir estos datos hasta un volumen manejable y obtener información detallada sobre el uso del cliente por tiempo y regiones geográficas.
+* Detectar el fraude de SIM (varias llamadas procedentes de la misma identidad aproximadamente al mismo tiempo, pero en ubicaciones geográficamente diferentes) en tiempo real para que puedan responder fácilmente notificando a los clientes o cerrando el servicio.
 
 En escenarios convencionales de Internet de las cosas (IoT) se genera gran cantidad de datos de telemetría o de sensor, y los clientes quieren que se agreguen o se avise de las anomalías en tiempo real.
 
@@ -63,7 +65,7 @@ Proporcionamos una aplicación cliente que generará los metadatos de llamada en
 
    telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
 
-En el ejemplo siguiente, se generarán 1000 eventos con una probabilidad de fraude del 20 % en el transcurso de 2 horas.
+En el ejemplo siguiente, se generarán 1000 eventos con una probabilidad de fraude del 20 % en el transcurso de 2 horas.
 
     telcodatagen.exe 1000 .2 2
 
@@ -257,4 +259,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

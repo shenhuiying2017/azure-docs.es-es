@@ -41,7 +41,9 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	- Windows 8
 	- Windows Server 2012
 
-- **Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Azure PowerShell**
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a name="install"></a>Instalación del emulador de HDInsight
@@ -198,7 +200,7 @@ Los datos de muestra se organizan en torno al procesamiento de datos de registro
 
 ###<a name="scenarios"></a>Los escenarios de datos del registro de IIS W3C
 
-El escenario de W3C genera e importa datos de registro de IIS W3C en tres tamaños a HDFS o al almacenamiento de blobs de Azure: 1 MB (pequeño), 500 MB (mediano) y 2 GB (grande). Proporciona tres tipos de trabajos y los implementa en C#, Java, Pig y Hive.
+El escenario de W3C genera e importa datos de registro de IIS W3C en tres tamaños a HDFS o al almacenamiento de blobs de Azure: 1 MB (pequeño), 500 MB (mediano) y 2 GB (grande). Proporciona tres tipos de trabajos y los implementa en C#, Java, Pig y Hive.
 
 - **totalhits**: calcula la cantidad total de solicitudes de una página determinada.
 - **avgtime**: calcula el tiempo promedio utilizado (en segundos) para una solicitud por página.
@@ -492,7 +494,7 @@ La siguiente es un ejemplo para enviar un trabajo de Hadoop:
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Recibirá una indicación cuando llame a Get-Credential. Debe usar **hadoop** como nombre de usuario. La contraseña puede ser cualquier cadena. El nombre del clúster siempre es ****http://localhost:50111**.
+Recibirá una indicación cuando llame a Get-Credential. Debe usar **hadoop** como nombre de usuario. La contraseña puede ser cualquier cadena. El nombre del clúster siempre es **http://localhost:50111**.
 
 Para obtener más información sobre el envío de trabajos de Hadoop, consulte [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md). Para obtener más información sobre los cmdlets de Azure PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight][hdinsight-powershell-reference].
 
@@ -506,7 +508,6 @@ En este tutorial de MapReduce, ha instalado un Emulador de HDInsight (un espacio
 
 - [Introducción al uso de HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Desarrollo de programas de MapReduce de Java para HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Desarrollo de programas de MapReduce de streaming de Hadoop C# para HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Foro de MSDN para el análisis de HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
 
@@ -524,7 +525,6 @@ En este tutorial de MapReduce, ha instalado un Emulador de HDInsight (un espacio
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
 [Powershell-install-configure]: powershell-install-configure.md
@@ -534,4 +534,4 @@ En este tutorial de MapReduce, ha instalado un Emulador de HDInsight (un espacio
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

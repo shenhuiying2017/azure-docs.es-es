@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 
@@ -46,9 +46,9 @@ El Panel de acceso permite a los usuarios editar parte de la configuración de s
 ## Acceso al Panel de acceso
 
 
-Los usuarios pueden acceder al Panel de acceso visitando la siguiente dirección URL en un explorador web: <br> ****http://myapps.microsoft.com**
+Los usuarios pueden acceder al Panel de acceso visitando la siguiente dirección URL en un explorador web: <br> **http://myapps.microsoft.com**
 
-Si tiene la configuración de marca personalizada en su página de inicio de sesión, puede cargar esta personalización de marca de forma predeterminada anexando el dominio de su organización al final de la dirección URL: <br> ****http://myapps.microsoft.com/contosobuild.com**
+Si tiene la configuración de marca personalizada en su página de inicio de sesión, puede cargar esta personalización de marca de forma predeterminada anexando el dominio de su organización al final de la dirección URL: <br> **http://myapps.microsoft.com/contosobuild.com**
 
 En este caso, se puede utilizar cualquier nombre de dominio activo o comprobado que se haya configurado en la pestaña Dominios de su directorio en el portal de administración de Azure, tal y como se muestra en la siguiente captura de pantalla.
 
@@ -130,7 +130,7 @@ Si es un administrador de Azure y ha iniciado sesión en el Portal de administra
 
 1. Haga clic en el menú de usuario en la esquina superior derecha del portal de Azure o del Panel de acceso y seleccione “**Cerrar sesión**”. Se cerrará su sesión de Azure AD.
 
-2. Vaya al Panel de acceso en ****http://myapps.microsoft.com**.
+2. Vaya al Panel de acceso en **http://myapps.microsoft.com**.
 
 3. En la página de inicio de sesión, escriba el nombre de usuario y la contraseña para la cuenta de su directorio que desea probar.
  
@@ -185,4 +185,4 @@ Al configurar un inicio de sesión único para una aplicación, el portal de adm
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

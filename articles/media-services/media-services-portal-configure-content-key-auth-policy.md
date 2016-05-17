@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/07/2016"  
+ 	ms.date="05/03/2016"   
 	ms.author="juliako"/>
 
 
@@ -97,7 +97,7 @@ Puede hacer clic en el botón **Importar directiva xml** y proporcionar un archi
 
 
 ##Pasos siguientes
-Ahora que ha configurado la directiva de autorización de claves de contenido, consulte el tema [Uso del Portal de Azure clásico para habilitar el cifrado](../media-services-manage-content#encrypt/).
+Ahora que ha configurado la directiva de autorización de claves de contenido, consulte el tema [Uso del Portal de Azure clásico para habilitar el cifrado](media-services-manage-content.md#encrypt).
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -105,4 +105,4 @@ Ahora que ha configurado la directiva de autorización de claves de contenido, c
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

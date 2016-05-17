@@ -1,10 +1,10 @@
 <properties
    pageTitle="Aplicaciones lógicas como puntos de conexión invocables"
-   description="Creación y configuración del agente de escucha HTTP y su uso en una aplicación lógica en el Servicio de aplicaciones de Azure"
+   description="Cómo crear y configurar puntos de conexión desencadenadores y usarlos en una aplicación lógica del Servicio de aplicaciones de Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,40 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="04/05/2016"
+   ms.date="04/25/2016"
    ms.author="jehollan"/>
 
 
 # Aplicaciones lógicas como puntos de conexión invocables
 
-La versión de esquema anterior de Aplicaciones lógicas (*2014-12-01-preview*) requiere una aplicación de API llamada **Agente de escucha HTTP** para exponer un punto de conexión HTTP que se puede llamar de forma sincrónica. Con el esquema más reciente (*2015-08-01-preview*), las Aplicaciones lógicas pueden exponer de forma nativa un punto de conexión HTTP sincrónico.
+La versión de esquema anterior de Aplicaciones lógicas (*2014-12-01-preview*) requiere una aplicación de API llamada **Agente de escucha HTTP** para exponer un punto de conexión HTTP que se puede llamar de forma sincrónica. Con el esquema más reciente (*2015-08-01-preview*), las Aplicaciones lógicas pueden exponer de forma nativa un punto de conexión HTTP sincrónico. También puede usar el patrón de puntos de conexión disponibles para invocar Aplicaciones lógicas como un flujo de trabajo anidado a través de la acción "flujo de trabajo" de una aplicación lógica.
 
-## Incorporación de un desencadenador a la definición
-El primer paso consiste en agregar un desencadenador a la definición de aplicación lógica que puede recibir solicitudes entrantes. Hay tres tipos de desencadenadores que pueden recibir solicitudes:
+Hay tres tipos de desencadenadores que pueden recibir solicitudes:
+
 * manual
 * apiConnectionWebhook
 * httpWebhook
 
-En el resto del artículo, usaremos como ejemplo **manual**, pero todas las entidades de seguridad se aplican de forma idéntica a los otros dos tipos de desencadenadores. Al agregar este desencadenador a la definición de flujo de trabajo, el resultado será parecido a este:
+En el resto del artículo, usaremos como ejemplo **manual**, pero todas las entidades de seguridad se aplican de forma idéntica a los otros dos tipos de desencadenadores.
 
-```
-{
-    "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-    "triggers" : {
-        "myendpointtrigger" : {
-            "type" : "manual"
-        }
-    }
-}
-```
+## Incorporación de un desencadenador a la definición
+El primer paso consiste en agregar un desencadenador a la definición de aplicación lógica que puede recibir solicitudes entrantes. Puede buscar en el diseñador "solicitud HTTP" para agregar la tarjeta desencadenadora. Puede definir un esquema JSON de cuerpo de solicitud y el diseñador generará tokens para ayudarlo a analizar y pasar datos del desencadenador manual a través del flujo de trabajo. Recomiendo usar una herramienta como [jsonschema.net](http://jsonschema.net) para generar un esquema JSON a partir de la carga de un cuerpo de muestra.
 
-Esto creará un punto de conexión que puede invocar en una dirección URL, de manera parecida a como aquí se muestra:
+![][2]
+
+Después de guardar la definición de aplicación lógica, se generará una dirección URL de devolución de llamadas similar a asta:
  
 ```
-https://prod-03.brazilsouth.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
+https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
 ```
 
-Puede obtener este punto de conexión en la interfaz de usuario aquí:
+También puede obtener este punto de conexión en el Portal de Azure:
 
 ![][1]
 
@@ -57,33 +51,27 @@ POST https://management.azure.com/{resourceID of your logic app}/triggers/myendp
 ```
 
 ## Llamada al punto de conexión del desencadenador de la aplicación lógica
-Una vez que tiene el punto de conexión del desencadenador, puede guardarlo en el sistema back-end e invocarlo mediante una instrucción `POST` a la dirección URL completa. Puede incluir parámetros de consulta, encabezados y cualquier contenido adicional en el cuerpo.
+Una vez que haya creado el punto de conexión del desencadenador, puede guardarlo en el sistema back-end e invocarlo mediante una instrucción `POST` a la dirección URL completa. Puede incluir más parámetros de consulta, encabezados y contenido en el cuerpo.
 
-Si el tipo de contenido es `application/json`, podrá hacer referencia a las propiedades desde dentro de la solicitud. Si no, se tratará como una única unidad binaria que se puede pasar a otras API pero a la que no se puede hacer referencia dentro.
+Si el tipo de contenido es `application/json`, podrá hacer referencia a las propiedades desde dentro de la solicitud. Si no, se tratará como una única unidad binaria que se puede pasar a otras API, pero a la que no se puede hacer referencia dentro del flujo de trabajo sin convertir el contenido. Por ejemplo, si pasa contenido de `application/xml`, podría utilizar `@xpath()` para realizar una extracción de xpath, o bien `@json()` para convertir de XML a JSON ([aquí encontrará la documentación completa](http://aka.ms/logicappsdocs)).
 
-Además, puede especificar un esquema de JSON en la definición para que el diseñador genere tokens que se pueden pasar en pasos. Por ejemplo en el caso siguiente se pone un token `title` y `name` a disposición en el diseñador:
+Además, puede especificar un esquema JSON en la definición. De este modo, el diseñador puede generar tokens que se pueden pasar en pasos. Por ejemplo, en el caso siguiente se pone un token `title` y `name` a disposición en el diseñador:
 
 ```
 {
-    "manual": {
-        "inputs":{
-            "schema": {
-                "properties":{
-                    "title": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "title",
-                    "name"
-                ],
-                "type": "object"
-            }
+    "properties":{
+        "title": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
         }
-    }
+    },
+    "required": [
+        "title",
+        "name"
+    ],
+    "type": "object"
 }
 ```
 
@@ -106,24 +94,25 @@ Puede usar el acceso directo `@triggerBody()` para acceder específicamente a la
 Se trata de una pequeña diferencia con la versión *2014-12-01-preview*, donde se tendría acceso al cuerpo de un agente de escucha HTTP mediante una función como: `@triggerOutputs().body.Content`.
 
 ## Respuesta a la solicitud
-En el caso de algunas solicitudes que inician una aplicación lógica, es posible que quiera responder con algún contenido al autor de la llamada. Hay un nuevo tipo de acción llamado **respuesta** que se puede utilizar para construir el código de estado, el cuerpo y los encabezados de la respuesta. Tenga en cuenta que si no hay ninguna forma de **respuesta**, el punto de conexión de la aplicación lógica responderá *inmediatamente* con **202 - Aceptado** (que es el equivalente a *Enviar respuesta automáticamente* en el Agente de escucha HTTP).
+En el caso de algunas solicitudes que inician una aplicación lógica, es posible que quiera responder con algún contenido al autor de la llamada. Hay un nuevo tipo de acción llamado "**respuesta**" que se puede utilizar para construir el código de estado, el cuerpo y los encabezados de la respuesta. Tenga en cuenta que si no hay ninguna forma de **respuesta**, el punto de conexión de la aplicación lógica responderá *inmediatamente* con **202 - Aceptado** (que es el equivalente a *Enviar respuesta automáticamente* en el Agente de escucha HTTP).
+
+![][3]
 
 ```
-"myresponse" : {
-    "type" : "response",
-    "inputs" : {
-        "statusCode" : 200,
-        "body" : {
-            "contentFieldOne" : "value100",
-            "anotherField" : 10.001
-        },
-        "headers" : {
-            "x-ms-date" : "@utcnow()",
-            "Content-type" : "application/json"
+"Response": {
+            "conditions": [],
+            "inputs": {
+                "body": {
+                    "name": "@{triggerBody()['name']}",
+                    "title": "@{triggerBody()['title']}"
+                },
+                "headers": {
+                    "content-type": "application/json"
+                },
+                "statusCode": 200
+            },
+            "type": "Response"
         }
-    },
-    "conditions" : []
-}
 ```
 
 Las respuestas tienen los siguientes elementos:
@@ -134,30 +123,32 @@ Las respuestas tienen los siguientes elementos:
 | body | Un objeto de cuerpo que puede ser una cadena, un objeto JSON o incluso contenido binario al que se hace referencia desde un paso anterior. | 
 | encabezados | Puede definir cualquier número de encabezados que se incluirán en la respuesta | 
 
-Todos los pasos de la aplicación lógica que se necesitan para la respuesta deben completarse en *60 segundos* para que la solicitud original reciba la solicitud. Si no se alcanza ninguna acción de respuesta en 60 segundos, la solicitud entrante agotará el tiempo de espera y recibirá una respuesta HTTP **408 - Tiempo de espera de cliente agotado**.
+Todos los pasos de la aplicación lógica que se requieren para la respuesta deben completarse dentro de *60 segundos* para que la solicitud original reciba la respuesta, **a menos que se llame al flujo de trabajo como una aplicación lógica anidada**. Si no se obtiene ninguna acción de respuesta en 60 segundos, la solicitud entrante agotará el tiempo de espera y recibirá una respuesta HTTP **408 - Tiempo de espera de cliente agotado**. En cuanto a las aplicaciones lógicas anidadas, la aplicación lógica principal seguirá esperando una respuesta hasta que finalice, independientemente del tiempo que tarde.
 
 ## Configuración avanzada del punto de conexión
-Las Aplicaciones lógicas tienen compatibilidad integrada con el punto de conexión de acceso directo y siempre utilizan el método `POST` para iniciar la ejecución. La aplicación de API **Agente de escucha HTTP** anteriormente también admitía el cambio de los segmentos de dirección URL y el método HTTP. Incluso podía configurar seguridad adicional o un dominio personalizado agregándolo al host de aplicación de API (la aplicación web que hospeda la aplicación de API).
+Las aplicaciones lógicas tienen compatibilidad integrada con el punto de conexión de acceso directo y siempre utilizan el método `POST` para iniciar la ejecución de la aplicación lógica. La aplicación de API **Agente de escucha HTTP** anteriormente también admitía el cambio de los segmentos de dirección URL y el método HTTP. Incluso podía configurar seguridad adicional o un dominio personalizado agregándolo al host de aplicación de API (la aplicación web que hospeda la aplicación de API).
 
 Esta funcionalidad está disponible a través de **Administración de API**:
 * [Cambio del método de la solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod)
 * [Cambio de los segmentos de dirección URL de la solicitud](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL)
-* Configuración de los dominios de Administración de API en la pestaña **Configurar** en el portal de Azure clásico
+* Configuración de los dominios de administración de API en la pestaña **Configurar** del Portal de Azure clásico
 * Configuración de la directiva para comprobar la autenticación básica (**vínculo necesario**)
 
 ## Resumen de la migración desde 2014-12-01-preview
 
 | 2014-12-01-preview | 2015-08-01-preview |
 |---------------------|--------------------|
-| Haga clic en la aplicación de API **Agente de escucha HTTP** | Haga clic en **Desencadenador manual** (no se necesita ninguna aplicación de API) |
-| Configuración del agente de escucha HTTP "*Enviar respuesta automáticamente*" | Tanto si incluye una acción de **respuesta** en la definición del flujo de trabajo como si no |
+| Haga clic en la aplicación de API **Agente de escucha HTTP**. | Haga clic en **Desencadenador manual** (no se necesita ninguna aplicación de API). |
+| Configuración del Agente de escucha HTTP "*Enviar respuesta automáticamente*". | Tanto si incluye una acción de **respuesta** en la definición del flujo de trabajo como si no. |
 | Configuración de la autenticación básica o OAuth | mediante Administración de API |
 | Configuración del método HTTP | mediante Administración de API |
 | Configuración de la ruta de acceso relativa | mediante Administración de API |
 | Referencia al cuerpo entrante mediante `@triggerOutputs().body.Content` | Referencia mediante `@triggerOutputs().body` |
-| Acción **Enviar respuesta HTTP** en el Agente de escucha HTTP | Haga clic en **Responder a la solicitud HTTP** (no se necesita ninguna aplicación de API)
+| Acción **Enviar respuesta HTTP** del Agente de escucha HTTP | Haga clic en **Responder a la solicitud HTTP** (no se necesita ninguna aplicación de API)
 
 
-[1]: ./media/app-service-logic-http-endpoint/manualtrigger.png
+[1]: ./media/app-service-logic-http-endpoint/manualtriggerurl.png
+[2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
+[3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

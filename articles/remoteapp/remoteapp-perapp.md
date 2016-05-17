@@ -36,7 +36,7 @@ Ahora, esto es posible en Azure RemoteApp: actualmente solo como una caracterís
   - Si se establece en modo de aplicación, la asignación de usuario en la colección no se puede administrar a través del Portal de Azure. La asignación de usuario se debe administrar mediante cmdlets de PowerShell.
 
 3. Los usuarios solo verán aquellas aplicaciones publicadas directamente para ellos. No obstante, un usuario podría iniciar las demás aplicaciones disponibles en la imagen accediendo a ellas directamente en el sistema operativo.
-  - Esta característica no proporciona un bloqueo de aplicaciones seguro, solo limita la visibilidad de la fuente de aplicaciones.
+  - Esta característica no proporciona un bloqueo de aplicaciones seguro; solo limita la visibilidad de la fuente de aplicaciones.
   - Si necesita impedir que los usuarios accedan a todas las aplicaciones, deberá utilizar colecciones independientes.
 
 ## Obtención de los cmdlets de PowerShell de Azure RemoteApp
@@ -88,7 +88,7 @@ Ejecute el siguiente cmdlet:
 
 		Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-El usuario podrá ver la aplicación en el cliente de Azure RemoteApp y podrá conectarse a ella.
+El usuario verá ahora la aplicación en el cliente de RemoteApp de Azure y podrá conectarse a ella.
 
 ## Cómo quitar una aplicación de un usuario
 
@@ -102,4 +102,4 @@ Agradecemos sus comentarios y sugerencias sobre esta característica de la versi
 ## ¿No ha tenido la oportunidad de probar la característica en la versión preliminar?
 Si no ha participado aún en la versión preliminar, use esta [encuesta](http://www.instant.ly/s/AY83p) para solicitar acceso.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

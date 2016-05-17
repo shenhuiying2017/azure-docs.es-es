@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="04/28/2016"
 	ms.author="mikeray" />
 
 # Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure
@@ -22,7 +22,7 @@
 - [Agente de escucha interno](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [Agente de escucha externo](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
-En este tema se muestra cómo configurar un agente de escucha para un grupo de disponibilidad AlwaysOn al que se tiene acceso externo en Internet. Esto se hace posible asociando la dirección **IP Virtual pública (VIP)** del servicio en la nube al agente de escucha.
+En este tema se muestra cómo configurar un agente de escucha para un grupo de disponibilidad AlwaysOn al que se tiene acceso externo en Internet. Esto se realiza asociando la dirección **IP Virtual pública (VIP)** del servicio en la nube al agente de escucha.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
@@ -130,4 +130,4 @@ Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán q
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

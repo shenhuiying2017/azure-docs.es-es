@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="05/02/2016" 
 	ms.author="garye" />
 
 
@@ -24,10 +24,9 @@ La experiencia del desarrollador de Aprendizaje automático de Azure es una API 
 
 Para obtener información sobre cómo crear e implementar un servicio web de Aprendizaje automático con Estudio de aprendizaje automático:
 
-- [Implementación de un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md)
-- [Introducción a Estudio de aprendizaje automático](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
-- [Vista previa de Aprendizaje automático de Azure](https://studio.azureml.net/)
-- [Centro de documentación de Aprendizaje automático](https://azure.microsoft.com/documentation/services/machine-learning/)
+- Para obtener un tutorial sobre cómo crear un experimento en Estudio de aprendizaje automático, consulte [Creación del primer experimento](machine-learning-create-experiment.md).
+- Para obtener detalles sobre cómo implementar un servicio web, consulte [Implementar un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
+- Para obtener más información sobre Aprendizaje automático, visite el [Centro de documentación de aprendizaje automático](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 ## Servicio web de Aprendizaje automático de Azure ##
 
@@ -38,7 +37,7 @@ Aprendizaje automático de Azure tiene dos tipos de servicios:
 - Servicio de solicitud y respuesta (RRS): servicio de latencia baja altamente escalable que proporciona una interfaz con los modelos sin estado creados e implementados desde el Estudio de aprendizaje automático.
 - Servicio de ejecución por lotes (BES): servicio asincrónico que puntúa un lote de registros de datos.
 
-Para obtener más información sobre los servicios web de Aprendizaje automático de Azure, vea [Implementar un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
+Para obtener más información sobre los servicios web de Aprendizaje automático, vea [Implementar un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Obtener una clave de autorización de Aprendizaje automático de Azure ##
 Obtiene una clave de API del servicio web a partir de un servicio web de Aprendizaje automático. Puede obtenerla de Estudio de aprendizaje automático o el Portal de Azure.
@@ -62,7 +61,7 @@ Puede conectarse a un servicio web de Aprendizaje automático mediante cualquier
 Se crea una página de ayuda de API de Aprendizaje automático al implementar un servicio web. Vea [Tutorial de Aprendizaje automático de Azure: Implementación de un servicio web](machine-learning-walkthrough-5-publish-web-service.md).
 
 
-**Para ver una página de ayuda de API de Aprendizaje automático** en el Estudio de aprendizaje automático:
+**Para ver una página de ayuda de API de Aprendizaje automático** en Estudio de aprendizaje automático:
 
 1. Elija **SERVICIOS WEB**.
 2. Elija un servicio web.
@@ -77,7 +76,7 @@ Se crea una página de ayuda de API de Aprendizaje automático al implementar un
 
 Para conectarse a un servicio web de Aprendizaje automático, use un **HttpClient** que pase ScoreData. ScoreData contiene un FeatureVector, un vector de n dimensiones de características numéricos que representa el ScoreData. Se autentica en el servicio de Aprendizaje automático con una clave API.
 
-Para conectarse a un servicio web de Aprendizaje automático, se debe instalar el paquete de NuGet **Microsoft.AspNet.WebApi.Client**.
+Para conectarse a un servicio web de Aprendizaje automático, se debe instalar el paquete NuGet **Microsoft.AspNet.WebApi.Client**.
 
 **Instalar Microsoft.AspNet.WebApi.Client Nuget en Visual Studio**
 
@@ -88,7 +87,7 @@ Para conectarse a un servicio web de Aprendizaje automático, se debe instalar e
 **Para ejecutar el ejemplo de código**
 
 1. Publique el experimento "Ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2", que forma parte de la colección de ejemplos de Aprendizaje automático.
-2. Asigne una clave de API con la clave de un servicio web. Vea el apartado anterior **Obtener una clave de autorización de Aprendizaje automático de Azure**.
+2. Asigne una clave de API con la clave de un servicio web. Consulte el apartado anterior **Obtener una clave de autorización de Aprendizaje automático de Azure**.
 3. Asigne la URI de servicio a la URI de solicitud.
 
 
@@ -100,7 +99,7 @@ Para conectarse a un servicio web de Aprendizaje automático, use la biblioteca 
 **Para ejecutar el ejemplo de código**
 
 1. Publique el experimento "Ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2", que forma parte de la colección de ejemplos de Aprendizaje automático.
-2. Asigne una clave de API con la clave de un servicio web. Vea el apartado anterior **Obtener una clave de autorización de Aprendizaje automático de Azure**.
+2. Asigne una clave de API con la clave de un servicio web. Consulte el apartado anterior **Obtener una clave de autorización de Aprendizaje automático de Azure**.
 3. Asigne la URI de servicio a la URI de solicitud. Consulte cómo obtener un URI de solicitud.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

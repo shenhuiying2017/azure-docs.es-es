@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones Android
@@ -132,11 +132,14 @@ Vaya a **MainActivity.java** y agregue lo siguiente para reemplazar la clase bas
 
 	public class MainActivity extends EngagementActivity {
 
+> [AZURE.NOTE] Si la clase base no es *Activity*, consulte [Reporting Options with Engagement on Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) (Opciones de informes con Engagement en Android) sobre cómo heredar de clases diferentes.
+
+
 Debería convertir en comentario (excluir) la línea siguiente para este escenario de ejemplo simple:
 
     // setSupportActionBar(toolbar);
 
-Si desea tenerlo a mano, debe consultar el escenario "Informes básicos" en nuestro [Integración de Engagement en Android](mobile-engagement-android-integrate-engagement.md/#basic-reporting)
+Si desea tenerlo a mano, consulte [Reporting Options with Engagement on Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) (Opciones de informes con Engagement en Android).
 
 ## Conectar la aplicación con la supervisión en tiempo real
 
@@ -162,6 +165,10 @@ Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante
 
 [AZURE.INCLUDE [Envío de notificaciones desde el portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
+## Más recursos
+
+Vaya a [SDK de Android](mobile-engagement-android-sdk-overview.md) para obtener información detallada sobre la integración de SDK.
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -175,4 +182,4 @@ Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

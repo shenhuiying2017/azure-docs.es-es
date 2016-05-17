@@ -3,9 +3,9 @@
 	description="Use una plantilla de Administrador de recursos de Azure para implementar una aplicación web que contenga un proyecto de un repositorio de GitHub." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="tfitzmac" 
+	authors="cephalin" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="cephalin"/>
 
 # Implementación de una aplicación web vinculada a un repositorio de GitHub
 
@@ -69,31 +69,32 @@ Especifique el nombre de la aplicación web a través del parámetro **siteName*
 La aplicación web también tiene un recurso secundario que se define en la sección **Recursos** más adelante. Este recurso secundario define el control de código fuente para el proyecto implementado con la aplicación web. En esta plantilla, el control de código fuente está vinculado a un repositorio de GitHub determinado. El repositorio de GitHub se define con el código **"RepoUrl": "https://github.com/davidebbo-test/Mvc52Application.git"**. Podría codificar la dirección URL del repositorio cuando desee crear una plantilla que implemente de forma repetida un único proyecto y se requiera el número mínimo de parámetros. En lugar de codificar la dirección URL del repositorio, puede agregar un parámetro para ella y usar ese valor para la propiedad **RepoUrl**.
 
     {
-      "apiVersion":"2015-04-01",
-      "name":"[parameters('siteName')]",
-      "type":"Microsoft.Web/sites",
-      "location":"[parameters('siteLocation')]",
-      "dependsOn":[
-         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+      "apiVersion": "2015-08-01",
+      "name": "[parameters('siteName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
-      "properties":{
-        "serverFarmId":"[parameters('hostingPlanName')]"
+      "properties": {
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
-       "resources":[
-         {
-           "apiVersion":"2015-04-01",
-           "name":"web",
-           "type":"sourcecontrols",
-           "dependsOn":[
-             "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
-           ],
-           "properties":{
-             "RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git",
-             "branch":"master"
-           }
-         }
-       ]
-     }
+      "resources": [
+        {
+          "apiVersion": "2015-08-01",
+          "name": "web",
+          "type": "sourcecontrols",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+          ],
+          "properties": {
+            "RepoUrl": "[parameters('repoURL')]",
+            "branch": "[parameters('branch')]",
+            "IsManualIntegration": true
+          }
+        }
+      ]
+    }
 
 ## Comandos para ejecutar la implementación
 
@@ -110,4 +111,4 @@ La aplicación web también tiene un recurso secundario que se define en la secc
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

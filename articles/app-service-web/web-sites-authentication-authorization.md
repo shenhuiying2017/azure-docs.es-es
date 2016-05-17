@@ -39,7 +39,7 @@ En muchos escenarios, quiere personalizar el comportamiento de la autenticación
 	-	Azure AD delega la administración de aplicaciones de [usuarios de confianza](http://en.wikipedia.org/wiki/Relying_party) a los roles que son administradores, mientras que los administradores globales tienen que seguir configurando el acceso a los datos de directorios confidenciales de la aplicación.
 	-	Envía un conjunto de uso general de tipos de notificaciones para todas las aplicaciones de usuarios de confianza. Para conocer la lista de tipos de notificaciones, consulte [Tokens compatibles y tipos de notificaciones](http://msdn.microsoft.com/library/azure/dn195587.aspx). Las notificaciones no se pueden personalizar.
 	-	La [API gráfica de Azure AD](http://msdn.microsoft.com/library/azure/hh974476.aspx) permite el acceso a datos de directorios de la aplicación en Azure AD.
--	[Servicio de token seguro (STS) local, como AD FS](../web-sites-dotnet-lob-application-adfs/): puede implementar la autenticación y la autorización para la aplicación web con un STS local como AD FS. Con AD FS local dispone de las siguientes características:
+-	[Servicio de token seguro (STS) local, como AD FS](web-sites-dotnet-lob-application-adfs.md): puede implementar la autenticación y la autorización para la aplicación web con un STS local como AD FS. Con AD FS local dispone de las siguientes características:
 	-	La topología de AD FS debe implementarse localmente, con la sobrecarga de administración y coste.
 	-	Es la mejor opción cuando la directiva de la empresa requiere que los datos de AD se almacenen localmente.
 	-	Solo los administradores de AD FS pueden configurar las [confianzas de los usuarios confianza y las reglas de notificaciones](http://technet.microsoft.com/library/dd807108.aspx).
@@ -52,4 +52,4 @@ En muchos escenarios, quiere personalizar el comportamiento de la autenticación
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

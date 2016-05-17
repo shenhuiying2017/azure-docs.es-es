@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # Administración de Caché en Redis de Azure con Azure PowerShell
@@ -292,7 +292,7 @@ Se puede usar `Set-AzureRmRedisCache` para escalar una instancia de caché en Re
 >-	No puede escalar a una memoria caché de nivel **Premium** o desde esta.
 >-	No puede escalar desde una memoria caché **Estándar** a una **Básica**.
 >-	Puede escalar desde una memoria caché **Basic** a una memoria caché **Standard**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
->-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
+>-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
 >
 >Para más información, vea [Escalado de caché en Redis de Azure](cache-how-to-scale.md).
 
@@ -609,4 +609,4 @@ Para obtener más información acerca de Windows PowerShell con Azure, consulte 
 - [Blog de Windows PowerShell](http://blogs.msdn.com/powershell): obtenga información acerca de las nuevas características de Windows PowerShell.
 - [Blog ¡Hola, chicos del scripting!](http://blogs.technet.com/b/heyscriptingguy/): Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introducción al Almacenamiento de blobs de Azure mediante .NET | Microsoft Azure"
-	description="Almacene datos de archivo en la nube con Almacenamiento de blobs (objetos) de Azure. Introducción a operaciones simples de Almacenamiento de blobs, incluida la creación de un contenedor y la carga, descarga, enumeración y eliminación del contenido de blob."
+	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -380,7 +380,7 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 
 ### Guías conceptuales
 
-- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 - [Introducción al Almacenamiento de archivos para .NET](storage-dotnet-how-to-use-files.md)
 - [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -395,4 +395,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

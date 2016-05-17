@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Uso de la red CDN de Azure del Servicio de aplicaciones de Azure" 
 	description="Un tutorial que le enseña cómo implementar una aplicación web en el Servicio de aplicaciones de Azure que ofrece contenido de un extremo de la red CDN de Azure integrado" 
-	services="app-service\web" 
+	services="app-service\web,cdn" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -552,7 +552,7 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	...
 	```
 
-	Observe que el script inyectado para el paquete de CSS contiene aún el residuo errante de la propiedad `CdnFallbackExpression` en la línea:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
@@ -566,13 +566,12 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 ## Más información 
 - [Información general de la red de entrega de contenido (CDN) de Azure](../cdn/cdn-overview.md)
-- [Entrega de contenido desde la red CDN de Azure en su aplicación web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Uso de CDN de Azure](../cdn/cdn-create-new-endpoint.md)
 - [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Unión y minificación de ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Uso de CDN de Azure](../cdn/cdn-create-new-endpoint.md)
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

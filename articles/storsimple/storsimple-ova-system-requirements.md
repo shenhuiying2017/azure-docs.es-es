@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="04/28/2016"
    ms.author="alkohli"/>
 
 # Requisitos del sistema de la matriz virtual de StorSimple
@@ -87,15 +87,37 @@ La siguiente tabla enumera los puertos que deben abrirse en el firewall para per
 | TCP 443 (HTTPS) | Fuera | WAN | Sí | El puerto de salida se usa para tener acceso a los datos en la nube. <br></br>El usuario puede configurar el proxy web de salida. |
 | UDP 53 (DNS) | Fuera | WAN | En algunos casos; consulte las notas. | Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. <br></br> **Nota**: Si implementa un servidor de archivos, le recomendamos que use el servidor DNS local.|
 | UDP 123 (NTP) | Fuera | WAN | En algunos casos; consulte las notas. | Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet.<br></br> **Nota:** Si implementa un servidor de archivos, le recomendamos que sincronice la hora con los controladores de dominio de Active Directory. |
-|TCP 9354 | Fuera | WAN | Sí | El dispositivo StorSimple usa el puerto de salida para comunicarse con el servicio StorSimple Manager.|
-| TCP 80 (HTTP) | En el | LAN | Sí | Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. <br></br> **Nota**: Si obtiene acceso a la interfaz de usuario local mediante HTTP, se le redireccionará automáticamente a HTTPS.|
+| TCP 80 (HTTP) | En el | LAN | Sí | Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. <br></br> **Nota**: si obtiene acceso a la interfaz de usuario local mediante HTTP, se le redireccionará automáticamente a HTTPS.|
 | TCP 443 (HTTPS) | En el | LAN | Sí | Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local.|
 | TCP 3260 (iSCSI) | En el | LAN | No | Este puerto se utiliza para tener acceso a datos a través de iSCSI.|
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
+### Patrones de URL para reglas de firewall 
+
+Con frecuencia, los administradores de red pueden configurar reglas avanzadas de firewall de acuerdo con los patrones de URL para filtrar el tráfico saliente y entrante. La matriz virtual y el servicio de StorSimple Manager dependen de otras aplicaciones de Microsoft, como el Bus de servicio de Microsoft Azure, el Servicio de control de acceso de Microsoft Azure AD, las cuentas de almacenamiento y los servidores de Microsoft Update. Es posible usar los patrones de URL asociados a estas aplicaciones para configurar las reglas de firewall. Es importante entender que los patrones de URL asociados a estas aplicaciones pueden cambiar. Esta realidad, a su vez, requiere que el administrador de red supervise y actualice las reglas de firewall de su StorSimple de forma pertinente y oportuna.
+
+Se recomienda que establezca las reglas de firewall para el tráfico saliente, basándose en las direcciones IP fijas de StorSimple, de forma generosa en la mayoría de los casos. Sin embargo, puede utilizar la información siguiente con el objetivo de establecer las reglas avanzadas de firewall que se necesitan para crear entornos seguros.
+
+> [AZURE.NOTE] 
+> 
+> - Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube. 
+> - Las IP de destino, por su parte, se deben establecer en los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/es-ES/download/confirmation.aspx?id=41653).
+
+
+| Patrón de URL | Componente o funcionalidad |
+|------------------------------------------------------------------|---------------------------------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servicio de StorSimple Manager<br>Servicio de control de acceso<br>Bus de servicio de Microsoft Azure|
+|`http://*.backup.windowsazure.com`|Registro de dispositivos|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revocación de certificados |
+| `https://*.core.windows.net/*` | Supervisión y cuentas de Almacenamiento de Azure |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores de Microsoft Update<br> |
+| `http://*.deploy.akamaitechnologies.com` |CDN de Akamai |
+| `https://*.partners.extranet.microsoft.com/*` | Paquete de soporte |
+| `http://*.data.microsoft.com ` | Para obtener información sobre el servicio de telemetría en Windows, consulte la [actualización para la experiencia del usuario y la telemetría de diagnóstico](https://support.microsoft.com/es-ES/kb/3068708) |
+
 ## Paso siguiente
 
 -   [Prepare el portal para implementar la matriz virtual de StorSimple](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

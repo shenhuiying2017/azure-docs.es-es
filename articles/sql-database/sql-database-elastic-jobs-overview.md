@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Información general sobre los trabajos de base de datos elástica | Microsoft Azure" 
+	pageTitle="Administración de bases de datos escaladas horizontalmente en la nube | Microsoft Azure" 
 	description="Muestra el servicio de trabajo de base de datos elástica" 
 	metaKeywords="azure sql database elastic databases" 
 	services="sql-database" 
@@ -13,40 +13,60 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="04/25/2016" 
 	ms.author="ddove;sidneyh" />
 
-# Información general de Trabajos de base de datos elástica
+# Administración de bases de datos escaladas horizontalmente en la nube
 
-La característica **Trabajos de base de datos elástica** (versión preliminar) permite ejecutar un script de Transact-SQL (T-SQL) de forma confiable o aplicar un archivo DACPAC ([aplicación de capa de datos](https://msdn.microsoft.com/library/ee210546.aspx)) en un grupo de bases de datos, incluidos:
+Para administrar bases de datos particionadas y escaladas horizontalmente en la nube, la característica **Trabajos de base de datos elástica** (versión preliminar) permite ejecutar un script de Transact-SQL (T-SQL) de forma confiable o aplicar un archivo DACPAC ([aplicación de capa de datos](https://msdn.microsoft.com/library/ee210546.aspx)) en un grupo de bases de datos, lo que incluye:
 
 * una colección personalizada de bases de datos (se explica más adelante)
 * todas las bases de datos de un [grupo de bases de datos elásticas](sql-database-elastic-pool.md)
 * un conjunto de particiones (creadas con la [biblioteca de cliente de bases de datos elásticas](sql-database-elastic-database-client-library.md)) 
  
-Para obtener instrucciones sobre la instalación, vaya a [Instalación de componentes de Trabajo de base de datos elástica](sql-database-elastic-jobs-service-installation.md). Vea también [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md).
+## Documentación
+
+* [Información general sobre la instalación de Trabajos de base de datos elástica](sql-database-elastic-jobs-service-installation.md). 
+* [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md)
+* [Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell](sql-database-elastic-jobs-powershell.md).
+* [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md)
 
 **Trabajos de base de datos elástica** es actualmente un servicio en la nube de Azure hospedado en el cliente que permite la ejecución de tareas administrativas ad hoc y programadas, que se denominan **trabajos**. Con los trabajos, puede administrar de forma fácil y confiable grandes grupos de bases de datos SQL de Azure mediante la ejecución de scripts de Transact-SQL para realizar operaciones administrativas.
 
 ![Servicio del trabajo de bases de datos elásticas][1]
 
-## Ventajas
-* Administre fácilmente cambios de esquema, credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o recopilación de telemetría de inquilinos (cliente).
-* Sobrecarga reducida: normalmente, debe conectarse a cada base de datos de forma independiente para ejecutar instrucciones T-SQL o realizar otras tareas administrativas. Un trabajo controla la tarea de inicio de sesión en cada base de datos en el grupo de destino.
-* Control: los trabajos ejecutan el script y registran el estado de ejecución para cada base de datos. 
-* Flexibilidad: defina grupos personalizados de bases de datos SQL de Azure
-* Definición, mantenimiento y conservación de los scripts de Transact-SQL que se van a ejecutar transversalmente en un grupo de bases de datos elásticas 
-* Implementación de una aplicación de capa de datos (DACPAC)
-* Reintento automático al ejecutar scripts
-* Definición de programaciones de ejecución
-* Agregación de datos de una colección de bases de datos SQL de Azure en una tabla de destino única
+## ¿Por qué usar trabajos?
+
+**Manage**
+
+Realice fácilmente cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o recopilación de telemetría de inquilinos (cliente).
+
+**Informes**
+
+Agregue datos de una colección de bases de datos SQL de Azure en una tabla de destino única.
+
+**Reducción de la sobrecarga**
+
+Normalmente, debe conectarse a cada base de datos de forma independiente para ejecutar instrucciones T-SQL o realizar otras tareas administrativas. Un trabajo controla la tarea de inicio de sesión en cada base de datos en el grupo de destino. También se definen, mantienen y conservan los scripts Transact-SQL que se van a ejecutar transversalmente en un grupo de bases de datos SQL de Azure.
+
+**Control**
+
+Los trabajos ejecutan el script y registran el estado de ejecución de cada base de datos. Obtenga también el reintento automático en caso de errores.
+
+**Flexibilidad**
+
+Defina grupos personalizados de bases de datos SQL de Azure, así como programaciones para ejecutar un trabajo.
+
+**Implementación**
+
+Implemente aplicaciones de capa de datos (DACPAC).
 
 > [AZURE.NOTE] En el Portal de Azure, solo hay disponible un conjunto reducido de funciones limitadas a grupos elásticos de SQL Azure. Use las API de PowerShell para tener acceso al conjunto completo de funcionalidad actual.
 
-## Escenarios
+## Aplicaciones 
 
-* Realización de tareas administrativas como, por ejemplo, la implementación de un nuevo esquema
-* Actualice los datos de referencia como, por ejemplo, información del producto común para todas las bases de datos, e incluso use programaciones que automaticen las actualizaciones todos los días laborables después del horario.
+* Realice tareas administrativas como, por ejemplo, la implementación de un nuevo esquema
+* Actualice información de producto con datos de referencia comunes en todas las bases de datos. O bien, programe actualizaciones automáticas todos los días laborables, fuera del horario de trabajo.
 * Regeneración de índices para mejorar el rendimiento de consultas La regeneración puede configurarse para que se ejecute periódicamente en una colección de bases de datos como, por ejemplo, fuera de horas pico.
 * Recopile los resultados de consulta de un conjunto de bases de datos en una tabla central de forma continua. Las consultas de rendimiento pueden ejecutarse continuamente y configurarse para que desencadenen la ejecución de otras tareas.
 * Ejecute consultas de procesamiento de datos de ejecución más larga en un conjunto grande de bases de datos; por ejemplo, la recopilación de telemetría de cliente. Los resultados se recopilan en una sola tabla de destino para su posterior análisis.
@@ -59,7 +79,8 @@ Para obtener instrucciones sobre la instalación, vaya a [Instalación de compon
 5.	Siga estos pasos para crear trabajos mediante el Portal de Azure: [Creación y administración de trabajos de base de datos elástica](sql-database-elastic-jobs-create-and-manage.md). 
 6.	O bien use scripts de PowerShell: [Creación y administración de trabajos de base de datos elástica de Base de datos SQL (vista previa)](sql-database-elastic-jobs-powershell.md).
 
-## La importancia de los scripts idempotentes
+## Scripts idempotentes
+
 Los scripts deben ser [idempotentes](https://en.wikipedia.org/wiki/Idempotence). En términos sencillos, "idempotente" significa que si el script se ejecuta correctamente y se vuelve a ejecutar, produce el mismo resultado. Un script puede producir errores debido a problemas de red transitorios. En ese caso, el trabajo volverá a intentar ejecutar automáticamente el script un número de veces predefinido antes de desistir. Un script idempotente produce el mismo resultado aunque se ejecute correctamente dos veces.
 
 Una táctica sencilla es probar la existencia de un objeto antes de crearlo.
@@ -81,12 +102,13 @@ Hay dos tipos de grupos:
 1. Conjuntos de particiones
 2. Grupos personalizados
 
-Los grupos de conjuntos de particiones se crean mediante las [Herramientas para bases de datos elásticas](sql-database-elastic-scale-introduction.md). Cuando se crea un grupo de conjuntos de particiones, las bases de datos se agregan o se quitan del grupo automáticamente. Es decir, las nuevas particiones estarán en el grupo automáticamente. Los trabajos se ejecutarán en el grupo sin ajustes.
+Los grupos de conjuntos de particiones se crean mediante las [Herramientas para bases de datos elásticas](sql-database-elastic-scale-introduction.md). Cuando se crea un grupo de conjuntos de particiones, las bases de datos se agregan o se quitan del grupo automáticamente. Por ejemplo, las nuevas particiones se incluyen automáticamente en el grupo al agregarlas al mapa de particiones. A continuación, se puede ejecutar un trabajo en el grupo.
 
 Por otro lado, los grupos personalizados se definen de forma rígida. Debe agregar o quitar explícitamente las bases de datos de los grupos personalizados. Si se quita una base de datos del grupo, el trabajo intentará ejecutar el script en la base de datos, lo que puede producir un error. Los grupos creados mediante el Portal de Azure son grupos personalizados.
 
 
-## Componentes y precios 
+## Componentes y precios
+ 
 Los siguientes componentes funcionan conjuntamente para crear un servicio de nube de Azure que permite la ejecución de ad hoc de trabajos administrativos. Los componentes se instalan y configuran automáticamente durante la instalación, en su suscripción. Puede identificar los servicios, ya que todos tienen el mismo nombre generado automáticamente. El nombre es único y se compone del prefijo "edj" seguido de 21 caracteres generados de forma aleatoria.
 
 * **Servicio de nube de Azure**: los trabajos de bases de datos elásticas (vista previa) se entregan como un servicio de nube de Azure hospedado por el cliente para realizar la ejecución de las tareas requeridas. Desde el portal, el servicio se implemente y hospeda en su suscripción de Microsoft Azure. El servicio implementado predeterminado se ejecuta con un mínimo de dos roles de trabajador para ofrecer un elevado nivel de disponibilidad. El tamaño predeterminado de cada función de trabajador (ElasticDatabaseJobWorker) se ejecuta en una instancia de A0. Para obtener información sobre los precios, vea [Precios de servicios de nube](https://azure.microsoft.com/pricing/details/cloud-services/). 
@@ -95,13 +117,15 @@ Los siguientes componentes funcionan conjuntamente para crear un servicio de nub
 * **Almacenamiento de Azure**: se usa una cuenta de almacenamiento de Azure para almacenar los registros de salida de diagnóstico en caso de que un problema requiera una mayor depuración (vea [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)). Para obtener información sobre precios, vea [Precios de almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## Funcionamiento de Trabajos de base de datos elástica
-1.	Una Base de datos SQL de Azure se designa como base de datos de control que almacena todos los datos de estado y los metadatos.
-2.	**Trabajos de base de datos elástica** obtiene acceso a la base de control para iniciar los trabajos que deben ejecutarse y hacerles el seguimiento.
+
+1.	Se designa una Base de datos SQL de Azure como **base de datos de control** que almacena todos los datos de estado y los metadatos.
+2.	Se obtiene acceso a la base de control mediante el **servicio de trabajos** para iniciar los trabajos que deben ejecutarse y hacerles el seguimiento.
 3.	Dos roles diferentes se comunican con la base de datos de control: 
 	* Controlador: determina los trabajos que requieren tareas para realizar el trabajo solicitado y reintenta los trabajos con errores creando nuevas tareas de trabajo.
 	* Ejecución de tareas de trabajo: lleva a cabo las tareas de trabajo.
 
 ### Tipos de tareas de trabajo
+
 Hay varios tipos de tareas de trabajo que efectúan la ejecución de trabajos:
 
 * ShardMapRefresh: consulta el mapa de particiones para determinar todas las bases de datos que se usan como particiones
@@ -111,6 +135,7 @@ Hay varios tipos de tareas de trabajo que efectúan la ejecución de trabajos:
 * Dacpac: aplica un DACPAC a una base de datos concreta con las credenciales que se determinen
 
 ## Flujo de trabajo de ejecución de trabajos completo
+
 1.	Con el Portal o la API de PowerShell, se inserta un trabajo en la **base de datos de control**. El trabajo solicita la ejecución de un script de Transact-SQL en un grupo de bases de datos con las credenciales específicas.
 2.	El controlador identifica el nuevo trabajo. Se crean tareas de trabajo y se ejecutan para dividir el script y actualizar las bases de datos del grupo. Por último, se crea otro trabajo y se ejecuta para expandir el trabajo y crear nuevos trabajos secundarios donde se especifica que cada trabajo secundario ejecute el script de Transact-SQL en una base de datos individual del grupo.
 3.	El controlador identifica los trabajos secundarios creados. Para cada trabajo, el controlador crea y desencadena una tarea de trabajo que ejecuta el script en una base de datos. 
@@ -127,4 +152,4 @@ Hay varios tipos de tareas de trabajo que efectúan la ejecución de trabajos:
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

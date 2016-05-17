@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/02/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila 
@@ -58,7 +58,7 @@ Después de conectarse a una base de datos de partición mediante la API de enru
 
 ### Entity Framework
 
-Para las aplicaciones que usan Entity Framework, el enfoque más sencillo es establecer SESSION\_CONTEXT dentro de la invalidación de ElasticScaleContext descrita en [Enrutamiento dependiente de datos con DbContext de EF](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Antes de devolver la conexión de intermediación a través de enrutamiento dependiente de datos, basta con crear y ejecutar un SqlCommand que establece "TenantId" en SESSION\_CONTEXT en la shardingKey especificada para esa conexión. De este modo, solo deberá escribir el código una vez para establecer SESSION\_CONTEXT.
+Para las aplicaciones que usan Entity Framework, el enfoque más sencillo es establecer SESSION\_CONTEXT dentro de la invalidación de ElasticScaleContext descrita en [Enrutamiento dependiente de datos con DbContext de EF](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Antes de devolver la conexión de intermediación a través de enrutamiento dependiente de datos, basta con crear y ejecutar un SqlCommand que establece "TenantId" en SESSION\_CONTEXT en la shardingKey especificada para esa conexión. De este modo, solo deberá escribir el código una vez para establecer SESSION\_CONTEXT.
 
 ```
 // ElasticScaleContext.cs 
@@ -312,4 +312,4 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

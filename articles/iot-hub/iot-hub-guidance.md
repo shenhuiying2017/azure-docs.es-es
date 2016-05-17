@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Diseño de la solución
@@ -42,33 +42,20 @@ Las [API de registro de identidad del Centro de IoT][lnk-devguide-identityregist
 
 ## Puertas de enlace de campo
 
-En una solución de IoT, un *puerta de enlace de campo* se encuentra entre los dispositivos y el Centro de IoT. Suele encontrarse cerca de los dispositivos. Los dispositivos se comunican directamente con la puerta de enlace de campo mediante un protocolo compatible con los dispositivos. La puerta de enlace de campo se comunica con el Centro de IoT mediante un protocolo que es compatible con el Centro de IoT. Una puerta de enlace de campo puede ser un dispositivo independiente especializado o un software que se ejecuta en un hardware ya existente.
+En una solución de IoT, un *puerta de enlace de campo* se encuentra entre los dispositivos y el Centro de IoT. Suele encontrarse cerca de los dispositivos. Los dispositivos se comunican directamente con la puerta de enlace de campo mediante un protocolo compatible con los dispositivos. La puerta de enlace de campo se comunica con el Centro de IoT mediante un protocolo que es compatible con el Centro de IoT. Una puerta de enlace de campo puede ser hardware muy especializado o un equipo de bajo consumo que ejecuta software que lleva a cabo el escenario de extremo a extremo al que va destinada la puerta de enlace.
 
 Una puerta de enlace de campo es diferente de un dispositivo de enrutamiento de tráfico simple (como un firewall o un dispositivo de traducción de direcciones de red (NAT)) porque normalmente desempeña un rol activo en la administración del acceso y del flujo de la información en su solución. Por ejemplo, una puerta de enlace de campo puede:
 
-- Administrar dispositivos locales. Por ejemplo, una puerta de enlace de campo puede llevar a cabo procesamiento de reglas de evento y enviar comandos a los dispositivos en respuesta a datos específicos de telemetría.
-- Filtrar o agregar los datos de telemetría antes de que los reenvíe al Centro de IoT. Esto puede reducir la cantidad de datos que se envían al Centro de IoT y los costos de la solución.
-- Ayudar a aprovisionar dispositivos.
-- Transformar los datos de telemetría para facilitar el procesamiento en el back-end de solución.
-- Realizar la conversión del protocolo para que los dispositivos puedan comunicarse con el Centro de IoT, incluso cuando no usan los protocolos de transporte que este admite.
-
-> [AZURE.NOTE] Aunque normalmente se implementa una puerta de enlace de campo local en sus dispositivos, en algunos casos podría implementar una [puerta de enlace de protocolo][lnk-gateway] en la nube.
-
-### Tipos de puertas de enlace de campo
-
-Una puerta de enlace de campo puede ser *transparente* u *opaca*:
-
-| &nbsp; | Puerta de enlace transparente | Puerta de enlace opaca|
-|--------|-------------|--------|
-| Identidades que se almacenan en el registro de identidades del Centro de IoT | Identidades de todos los dispositivos conectados | Solo la identidad de la puerta de enlace de campo |
-| El Centro de IoT puede proporcionar [protección contra la suplantación de identidad del dispositivo][lnk-devguide-antispoofing] | Sí | No |
-| [Limitaciones y cuotas][lnk-throttles-quotas] | Se aplican a cada dispositivo | Se aplican a la puerta de enlace de campo |
-
-> [AZURE.IMPORTANT]  Cuando se utiliza un patrón de puerta de enlace opaco, todos los dispositivos que se conectan a través de dicha puerta de enlace comparten la misma cola de nube a dispositivo, que puede contener como máximo 50 mensajes. Se supone que el patrón de puerta de enlace opaco debe utilizarse únicamente cuando muy pocos dispositivos se conectan a través de cada puerta de enlace de campo y su tráfico de nube a dispositivo es bajo.
+- **Agregar compatibilidad con dispositivos nuevos y heredados**: existen millones de sensores y accionadores nuevos y heredados que no pueden enviar datos directamente a la nube. Estos dispositivos utilizan un protocolo que no es adecuado para Internet, no implementan cifrado o no pueden almacenar certificados de identidad. El uso de una puerta de enlace reduce la carga y el costo de conectar estos dispositivos.
+- **Ejecutar análisis de extremos**: hay muchas operaciones que se pueden realizar localmente para reducir la cantidad de datos que se intercambian con la nube. Por ejemplo, el filtrado de datos, el procesamiento por lotes y la compresión. También puede ser deseable realizar algunos cálculos, como limpieza de datos o puntuación de un modelo de aprendizaje automático con datos en tiempo real en el entorno local.
+- **Minimizar la latencia**: los milisegundos importan cuando está intentando impedir que la línea de fabricación se apague o restaurar un servicio eléctrico. Analizar los datos cerca del dispositivo que los recopila puede marcar la diferencia entre evitar un desastre y un error del sistema en cascada.
+- **Conservar ancho de banda de red**: una plataforma petrolera en alta mar genera habitualmente entre 1 y 2 TB de datos cada día. Un Boeing 787 crea medio terabyte de datos por vuelo. No resulta práctico transportar enormes cantidades de datos procedentes de miles o cientos de miles de dispositivos perimetrales a la nube. Ni es necesario, ya que muchos análisis importantes no requieren procesamiento y almacenamiento a escala de nube.
+- **Funcionar de manera confiable**: los datos IoT se usan cada vez más en la toma de decisiones que afectan a la seguridad de los ciudadanos y a infraestructura de vital importancia. La integridad y la disponibilidad de la infraestructura y de los datos no se pueden ver comprometidas por conexiones intermitentes a la nube. El uso de funcionalidades, como almacenar y reenviar para recopilar datos y actuar sobre ellos localmente para luego enviarlos a la nube cuando sea adecuado, ayuda a crear soluciones confiables.
+- **Solucionar problemas de privacidad y seguridad**: los dispositivos IoT y los datos que producen han de estar protegidos. Las puertas de enlace pueden proporcionar servicios, por ejemplo, aislar dispositivos de la red Internet abierta, proporcionar cifrado y servicios de identidad para dispositivos que no son capaces de proporcionar estos servicios por sí mismos. Los datos almacenados o almacenados localmente en búfer se protegen y se elimina la información de identificación personal antes de enviarlos a través de Internet.
 
 ### Otras consideraciones
 
-Puede usar los [SDK de dispositivo IoT de Azure][lnk-device-sdks] para implementar una puerta de enlace de campo. Algunos SDK de dispositivo ofrecen una funcionalidad específica que le ayuda a implementar una puerta de enlace de campo, como la capacidad de multiplexar la comunicación de varios dispositivos en la misma conexión al Centro de IoT. Tal y como se explica en la [Guía para el desarrollador del Centro de IoT - Elegir el protocolo de comunicación][lnk-devguide-protocol], debe evitar usar HTTP/1 como protocolo de transporte para puertas de enlace de campo.
+Puede usar el [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk] para implementar una puerta de enlace de campo. Este SDK ofrece funcionalidad específica, como la posibilidad de multiplexar la comunicación desde varios dispositivos en la misma conexión al Centro de IoT.
 
 ## Personalización de la autenticación de dispositivos
 
@@ -97,13 +84,13 @@ El modelo de servicio de token es el método recomendado para implementar un esq
 
 ## Latido de dispositivo <a id="heartbeat"></a>
 
-El [registro de identidades del Centro de IoT][lnk-devguide-identityregistry] contiene un campo llamado **connectionState**. Solo debe utilizar el campo **connectionState** durante el desarrollo y la depuración, las soluciones de IoT no deben consultar el campo en tiempo de ejecución (por ejemplo, para comprobar si un dispositivo está conectado con el fin de decidir si enviar un mensaje de nube a dispositivo o un SMS). Si la solución de IoT necesita saber si un dispositivo está conectado (ya sea en tiempo de ejecución o con una precisión superior a que ofrece la propiedad **connectionState**), debe implementar el *patrón de latido*.
+El [registro de identidad del Centro de IoT][lnk-devguide-identityregistry] contiene un campo llamado **connectionState**. Solo debe utilizar el campo **connectionState** durante el desarrollo y la depuración, las soluciones de IoT no deben consultar el campo en tiempo de ejecución (por ejemplo, para comprobar si un dispositivo está conectado con el fin de decidir si enviar un mensaje desde la nube al dispositivo o un SMS). Si la solución de IoT necesita saber si un dispositivo está conectado (ya sea en tiempo de ejecución o con una precisión superior a la que ofrece la propiedad **connectionState**), debe implementar el *patrón de latido*.
 
 En el patrón de latido, el dispositivo envía mensajes de dispositivo a la nube al menos una vez en un período de tiempo predeterminado (por ejemplo, al menos una vez cada hora). Esto significa que incluso si un dispositivo no tiene ningún dato que enviar, seguirá enviando un mensaje de dispositivo a la nube vacío (normalmente con una propiedad que lo identifica como un latido). En el lado del servicio, la solución mantiene un mapa con el último latido recibido para cada dispositivo, y supone que hay un problema con un dispositivo si no recibe un mensaje de latido en el tiempo esperado.
 
-Una implementación más compleja podría incluir la información de [supervisión de operaciones][lnk-devguide-opmon] para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Al implementar el patrón de latidos, asegúrese de echar un vistazo a [las cuotas y limitaciones de Centro de IoT][].
+Una implementación más compleja podría incluir la información de [supervisión de operaciones][lnk-devguide-opmon] para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Al implementar el patrón de latidos, asegúrese de echar un vistazo a [las cuotas y limitaciones del Centro de IoT][].
 
-> [AZURE.NOTE] Si una solución de IoT requiere el estado de conexión de dispositivos únicamente para determinar si enviar mensajes de la nube a dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, un patrón mucho más sencillo a tener en cuenta es usar un breve tiempo de expiración. Así se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta mucho más eficiente. También es posible hacer que el Centro de IoT le notifique, solicitando acuses de recibo de mensajes, de qué dispositivos pueden recibir mensajes y cuáles no se encuentran conectados o presentan errores. Consulte la [Guía del desarrollador del Centro de IoT de Azure][lnk-devguide-messaging] para obtener más información sobre los mensajes C2D.
+> [AZURE.NOTE] Si una solución de IoT requiere el estado de conexión de dispositivos únicamente para determinar si enviar mensajes de la nube a dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, un patrón mucho más sencillo a tener en cuenta es usar un breve tiempo de expiración. Así se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta mucho más eficiente. También es posible hacer que el Centro de IoT le notifique, solicitando acuses de recibo de mensajes, de qué dispositivos pueden recibir mensajes y cuáles no se encuentran conectados o presentan errores. Consulte la [Guía del desarrollador del Centro de IoT de Azure][lnk-devguide-messaging] para más información sobre los mensajes C2D.
 
 ## Pasos siguientes
 
@@ -131,6 +118,7 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
-[las cuotas y limitaciones de Centro de IoT]: iot-hub-devguide.md#throttling
+[las cuotas y limitaciones del Centro de IoT]: iot-hub-devguide.md#throttling
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="jeffstok"/>
 
 #Giro de las credenciales de inicio de sesión para entradas y salidas de los trabajos de Análisis de transmisiones
@@ -121,7 +121,11 @@ Para otras entradas/salidas, vaya a la Parte 2.
 4.	Vaya a la parte 5.  
 
 ##Parte 5: Eliminación del antiguo conjunto de credenciales
-Este elemento es aplicable a las siguientes entradas/salidas: * Almacenamiento de blobs * Centros de eventos * Base de datos SQL * Almacenamiento de tablas
+Esta parte es aplicable a las siguientes entradas/salidas:
+* Almacenamiento de blobs
+* Centros de eventos
+* Base de datos SQL
+* Almacenamiento de tablas
 
 ###Almacenamiento de blobs/almacenamiento de tablas
 Repita la Parte 1 para la clave de acceso usada previamente por su trabajo para renovar la clave de acceso ahora no utilizada.
@@ -194,4 +198,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

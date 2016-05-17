@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="04/26/2016"
    ms.author="hascipio"/>
 
 # Finalización de la creación de ofertas con contenido de marketing
@@ -165,11 +165,11 @@ A continuación se muestra una vista detallada de cómo se utiliza la informaci�
 *Detalles de precios de la descripción de la oferta en el sitio web de Azure Marketplace*
 
 ### Portal de Azure
-![dibujo](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
+![dibujo](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
 *Lista de ofertas en el Portal de Azure*
 
-![dibujo](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
+![dibujo](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
 *Detalles de descripción de la oferta en el Portal de Azure*
 
@@ -192,4 +192,4 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

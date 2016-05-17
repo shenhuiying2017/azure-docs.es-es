@@ -3,7 +3,7 @@
    description="Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análisis de Data Lake." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Administración de Análisis de Azure Data Lake mediante el Portal de Azure
 
@@ -145,7 +145,7 @@ Cuando se crea una cuenta de Análisis de Data Lake, debe designar una cuenta de
 
 <a name="upload-data-to-adls"></a> **Para cargar archivos a la cuenta de Almacén de Data Lake**
 
-1. En el Portal, haga clic en **Examinar ** en el menú de la izquierda y después haga clic en **Almacén de Data Lake**.
+1. En el Portal, haga clic en **Examinar** en el menú de la izquierda y después haga clic en **Almacén de Data Lake**.
 2. Haga clic en la cuenta de Almacén de Data Lake a la que desea cargar datos. Para buscar la cuenta predeterminada de Almacén de Data Lake, consulte [aquí](#default-adl-account).
 3. Haga clic en **Explorador de datos** en el menú superior.
 4. Haga clic en **Nuevo directorio** para crear una carpeta o haga clic en el nombre de una carpeta para cambiar de carpeta.
@@ -293,4 +293,4 @@ La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes
 - [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

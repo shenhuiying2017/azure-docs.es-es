@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/29/2016"
 	ms.author="robinsh"/>
 
 # Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure
@@ -149,7 +149,7 @@ Normalmente, un explorador no permitirá que el código JavaScript de una págin
 Estas dos tecnologías pueden ayudarle a evitar una carga innecesaria (y cuellos de botella) en la aplicación web.
 
 ####Recursos útiles
-Para obtener más información acerca de SAS, consulte [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1/).
+Para obtener más información acerca de SAS, consulte [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
 
 Para obtener más información sobre CORS, vea [Compatibilidad del Uso compartido de recursos entre orígenes (CORS) para los Servicios de Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -393,7 +393,7 @@ Para obtener información de costo actualizada, consulte [Precios de Almacenamie
 ###<a name=subheading44"></a>UpdateMessage
 Puede usar **UpdateMessage para** aumentar el tiempo de espera de invisibilidad o para actualizar la información de estado de un mensaje. Aunque esto es muy eficiente, recuerde que cada operación **UpdateMessage** cuenta para el objetivo de escalabilidad. Sin embargo, esto puede ser un enfoque mucho más eficiente que tener un flujo de trabajo que pasa un trabajo de una cola a la siguiente, cuando cada paso del trabajo se completa. El uso de la operación **UpdateMessage** permite que la aplicación guarde el estado del trabajo en el mensaje y, a continuación, continúe trabajando, en lugar de volver a poner en cola el mensaje para el próximo paso del trabajo cada vez que se completa un paso.
 
-Para obtener más información, consulte [Cambio del contenido de un mensaje en cola](storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message).
+Para obtener más información, consulte [Cambio del contenido de un mensaje en cola](storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).
 
 ###<a name=subheading45"></a>Arquitectura de la aplicación
 Debe usar colas para que la arquitectura de la aplicación sea escalable. A continuación se enumeran algunas formas de usar colas para que la aplicación sea más escalable:
@@ -404,4 +404,4 @@ Debe usar colas para que la arquitectura de la aplicación sea escalable. A cont
 ##Conclusión
 En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa el Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas aplicaciones que usan el Almacenamiento de Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

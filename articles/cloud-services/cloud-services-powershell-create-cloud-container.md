@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Uso de un comando de Azure PowerShell para crear un contenedor vacío de servicios en la nube | Microsoft Azure"
-   description="En este artículo se explica cómo crear un contenedor de servicios en la nube y realizar las operaciones de administración relacionadas con un servicio en la nube mediante un script de PowerShell."
+   pageTitle="Creación de un contenedor de servicios en la nube con PowerShell | Microsoft Azure"
+   description="En este artículo se explica cómo crear un contenedor de servicios en la nube con PowerShell. El contenedor hospeda roles web y roles de trabajo."
    services="cloud-services"
    documentationCenter=".net"
    authors="cawaMS"
-   manager="paulyuk"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="cawa"/>
 
 # Uso de un comando de Azure PowerShell para crear un contenedor vacío de servicios en la nube
@@ -32,11 +32,13 @@ En este artículo se explica cómo crear rápidamente un contenedor de servicios
     New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
 ```
 
-5. Para invocar el cmdlet, siga este ejemplo: ```
-New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
+5. Para invocar el cmdlet, siga este ejemplo:
+```
+New-AzureService -ServiceName "mytestcloudservice" -Location "Central US" -Label "mytestcloudservice"
 ```
 
-Para más información acerca de cómo crear el servicio en la nube de Azure, ejecute lo siguiente: ```
+Para obtener más información sobre cómo crear el servicio en la nube de Azure, ejecute:
+```
 Get-help New-AzureService
 ```
 
@@ -46,4 +48,4 @@ Get-help New-AzureService
 
  * Para publicar el proyecto de servicio en la nube en Azure, consulte el código de ejemplo de **PublishCloudService.ps1** de [Entrega continua para Servicios en la nube de Azure](cloud-services-dotnet-continuous-delivery.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

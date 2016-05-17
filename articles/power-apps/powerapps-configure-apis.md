@@ -14,78 +14,89 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="05/02/2016"
    ms.author="guayan"/>
 
 # Actualizar una API existente y sus propiedades
 
-La API que registra en el entorno del servicio de aplicaciones es esencialmente un proxy al servicio back-end. Una vez creada la API, puede cambiar sus propiedades. Por ejemplo, puede:
+> [AZURE.IMPORTANT] Este tema está archivado y pronto se quitará. Venga a ver lo que estamos preparando en el nuevo [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Para obtener más información sobre PowerApps y empezar a trabajar, vaya a [PowerApps](https://powerapps.microsoft.com).  
+> - Para obtener más información sobre las API personalizadas en PowerApps, vaya a [What are Custom APIs](https://powerapps.microsoft.com/tutorials/register-custom-api/) (¿Qué son las API personalizadas). 
 
-- Agregar un icono personalizado para la API.
-- Cambiar el modo de protección del back-end usado por la API. 
-- Actualizar el nombre para mostrar de la API a un nombre más descriptivo.
+<!--Archived
+The API you register in the app service environment is essentially a proxy to your backend service. Once you create the API, you may want to change its properties. For example, you may want to: 
+
+- Add a custom icon for your API.
+- Change how you secure the backend used by the API. 
+- Update the display name of your API to a more user friendly name.
 
 
-#### Requisitos previos para empezar
+#### Prerequisites to get started
 
-- Suscríbase a [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
-- Cree un [entorno del Servicio de aplicaciones](powerapps-get-started-azure-portal.md).
-- Registrar una [API](powerapps-register-from-available-apis) en su entorno.
+- Sign up for [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
+- Create an [app service environment](powerapps-get-started-azure-portal.md).
+- Register an [API](powerapps-register-from-available-apis) in your environment.
 
-## Agregar un icono personalizado o agregar un nombre para mostrar descriptivo
+## Add a custom icon or add a user friendly display name
 
-1. En el [Portal de Azure](https://portal.azure.com), abra la hoja de la API.
-2. Seleccione **Toda la configuración**.
-3. En **Configuración**, seleccione **General**: ![][11]
+1. In the [Azure portal](https://portal.azure.com), open the blade for your API.
+2. Select **All settings**.
+3. In **Settings**, select **General**:  
+![][11]
 
-En General, puede cambiar la configuración siguiente:
+In General, you can change the following settings:
 
-Configuración | Descripción
+Setting | Description
 --- | ---
-Nombre para mostrar | Este nombre se usa al enumerar las *Conexiones disponibles* en PowerApps. De forma predeterminada, usa el nombre del recurso de la API, que es posible que no sea el mejor nombre para los usuarios de PowerApps. Puede escribir un nombre para mostrar descriptivo. Por ejemplo, puede denominarlo **Nuevos pedidos de cliente** o **Ver historial de ventas**.  
-URL de icono | Puede agregar un icono personalizado para la API. El icono se usa al enumerar las *Conexiones disponibles* y *Mis conexiones* en PowerApps. De forma predeterminada, se usa el siguiente icono: <br/><br/>![][12] <br/><br/>Cuando se usa un icono personalizado:<br/><ul><li>la dirección URL del icono deben ser de acceso público.</li><li>Puede ser un archivo .png o .svg. Cuando se usa un archivo png, es preferible que sea de 40 x 40 píxeles.</li></ul>
-Esquema de dirección URL | Elija el esquema o esquemas que desee que admita la API. Puede elegir **HTTP**, **HTTPS** o **HTTP y HTTPS**. De forma predeterminada, se habilitan HTTP y HTTPS. <br/><br/>El entorno del Servicio de aplicaciones configura automáticamente el esquema según la configuración del back-end. Por lo tanto, si hay algo más que necesita configurar, puede desarrollar o cambiar su servicio back-end. 
-Autenticar con el servicio back-end | Después de registrar su servicio back-end en el entorno del Servicio de aplicaciones, es aconsejable proteger el back-end para que los clientes solo lo llamen mediante la API. En función de dónde se implemente el back-end, estarán disponibles las siguientes opciones:<br/><br/><ul><li><strong>Solo accesible a través de esta API</strong>: esta opción solo está disponible cuando el back-end se implementa en el entorno del Servicio de aplicaciones. Una vez seleccionada, esta opción deshabilita cualquier nombre de host del back-end. Dado que el proxy de la API también se ejecuta en el mismo entorno de Servicio de aplicaciones, todavía puede acceder a su back-end.</li><li><strong>Autenticación básica HTTP</strong>: esta opción está disponible independientemente de dónde se implemente su back-end. Cuando la seleccione, escriba un nombre de usuario y una contraseña. Cuando el proxy llama a su back-end, usa la autenticación básica de HTTP para pasar el nombre de usuario y la contraseña del encabezado de autorización HTTP. Por último, su servicio back-end debe confirmar (autenticar) el nombre de usuario y la contraseña introducidos.<br/><br/>Para obtener más información acerca de la implementación de la autenticación básica HTTP en la API 2 web ASP.NET, consulte [Filtros de autenticación en la API 2 web ASP.NET](http://www.asp.net/web-api/overview/security/authentication-filters).</li></ul>
+Display name | This name is used when listing the *Available connections* in PowerApps. By default, it uses the API's resource name, which may not be the best name for your PowerApps users. You can enter a user friendly display name. For example, you can name it **New Customer Orders** or **View Sales History**.  
+Icon URL | You can add a custom icon for you API. The icon is used when listing the *Available connections* and *My connections* in PowerApps. By default, the following icon is used: <br/><br/>![][12] <br/><br/>When using a custom icon:<br/><ul><li>The URL to the icon must be publicly accessible.</li><li>It can be a .png or an .svg file. When using a png file, 40 x 40 pixels is preferred.</li></ul>
+URL Scheme | Choose which scheme or schemes you want your API to support. You can choose **HTTP**, **HTTPS**, or **HTTP and HTTPS**. By default, HTTP and HTTPS are enabled. <br/><br/>The app service environment automatically configures the scheme based on the backend configuration. So if there is anything additional you need to configure, you can develop or change your backend service. 
+Authenticate with backend service | After registering your backend service in the app service environment, it's a good idea to secure the backend so that clients only call it using your API. Based on where your backend is deployed,  the following options are available:<br/><br/><ul><li><strong>Only accessible via this API</strong>: This option is only available when your backend is deployed in the app service environment. When selected, it disables any host name on your backend. Since the API proxy is also running in the same app service environment, it can still access your backend.</li><li><strong>HTTP basic authentication</strong>: This option is available regardless of where you backend is deployed. When selected, you enter a user name and password. When the proxy calls your backend, it uses HTTP basic authentication to pass the username and password in the HTTP Authorization header. Finally, your backend service needs to confirm (authenticate) the user name and password entered.<br/><br/>To learn more about implementing HTTP basic authentication in ASP.NET Web API 2, see [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).</li></ul>
 
 
-## Actualizar el Swagger de la API
+## Update the Swagger of your API
 
-1. En el [Portal de Azure](https://portal.azure.com), abra la hoja de la API.
-2. Seleccione **Toda la configuración**.
-3. En **configuración**, seleccione **Definición de la API**: ![][13]
+1. In the [Azure portal](https://portal.azure.com), open the blade for your API.
+2. Select **All settings**.
+3. In **Settings**, select **API definition**:  
+![][13]
 
-**Swagger 2.0** es el formato de definición de API compatible. La definición de la API actual está en el editor de JSON insertado. Puede editar en línea o cargar un nuevo archivo JSON. Después de **Guardar** los cambios, los errores se muestran en esta hoja, incluidos los errores con la definición de la API.
+**Swagger 2.0** is the supported API definition format. The current API definition is in the embedded JSON editor. You can edit inline or upload a new JSON file. After you **Save** your changes, any errors are shown in this blade, including any errors with the API definition.
 
-- Para obtener más información acerca de Swagger 2.0, consulte el [sitio web oficial de Swagger](http://swagger.io).
-- Para obtener más información acerca de cómo obtener Swagger 2.0 al desarrollar su API, consulte:  
-	- [Creación de una aplicación de API ASP.NET en el Servicio de aplicaciones de Azure](../app-service-dotnet-create-api-app.md)
-	- [Compilación e implementación de una aplicación de API de Java en el Servicio de aplicaciones de Azure](../app-service-api-java-api-app.md)
-	- [Compilación e implementación de una aplicación de API de Node.js en el Servicio de aplicaciones de Azure](../app-service-api-nodejs-api-app.md)
-	- [Personalización de definiciones de API generadas por Swashbuckle](../app-service-api-dotnet-swashbuckle-customize.md)
-- Para obtener más información acerca de las prácticas recomendadas de uso de Swagger 2.0 para PowerApps, consulte [Desarrollar una API para PowerApps](powerapps-develop-api.md).
+- To learn more about Swagger 2.0, see the [official Swagger website](http://swagger.io).
+- To learn more about how to get Swagger 2.0 when developing your API, see:  
+	- [Create an ASP.NET API app in Azure App Service](../app-service-dotnet-create-api-app.md)
+	- [Build and deploy a Java API app in Azure App Service](../app-service-api-java-api-app.md)
+	- [Build and deploy a Node.js API app in Azure App Service](../app-service-api-nodejs-api-app.md)
+	- [Customize Swashbuckle-generated API definitions](../app-service-api-dotnet-swashbuckle-customize.md)
+- To learn more about best practices of using Swagger 2.0 for PowerApps, see [Develop an API for PowerApps](powerapps-develop-api.md).
 
-## Actualizar la directiva XML de la API
+## Update the XML policy of your API
 
-1. En el [Portal de Azure](https://portal.azure.com), abra la hoja de la API.
-2. Seleccione **Toda la configuración**.
-3. En **Configuración**, seleccione **Directiva**: ![][14]
+1. In the [Azure portal](https://portal.azure.com), open the blade for your API.
+2. Select **All settings**.
+3. In **Settings**, select **Policy**:  
+![][14]
 
-Esta es la misma directiva admitida por [Administración de API de Azure](https://azure.microsoft.com/services/api-management/). La directiva actual está en el editor XML insertado. Puede editarlo en línea o cargar un nuevo archivo XML. Después de **Guardar** los cambios, los errores se muestran en esta hoja, incluidos los errores de la directiva de la API.
+This policy is the same policy supported by [Azure API Management](https://azure.microsoft.com/services/api-management/). The current policy is in the embedded XML editor. You can either edit inline or upload a new XML file. After you **Save** your changes, any errors are shown in this blade, including any issues with the API policy.
 
-[Directivas de administración de API de Azure](../api-management/api-management-howto-policies.md) es un buen recurso para obtener más información acerca de la configuración y la descripción de las directivas.
+[Policies in Azure API Management](../api-management/api-management-howto-policies.md) is a good resource to learn more about configuring and understanding policies.
 
 
-## Resumen y pasos siguientes
-Una vez creada la API, puede usar los pasos de este tema para cambiar su configuración e incluso personalizar algunas opciones de configuración.
+## Summary and next steps
+After you create your API, you can use the steps in this topic to change its settings and even customize some settings. 
 
-Estos son algunos temas y recursos relacionados que le permitirán obtener más información acerca de PowerApps.
+Here are some related topics and resources for learning more about PowerApps.
 
-- [Configurar una API para conectarse a un back-end protegido por AAD](powerapps-configure-apis-aad.md)
-- [Desarrollar una API para PowerApps](powerapps-develop-api.md)
+- [Configure an API to Connect to AAD Protected Backend](powerapps-configure-apis-aad.md)
+- [Develop an API for PowerApps](powerapps-develop-api.md)
+-->
+
 
 [11]: ./media/powerapps-configure-apis/api-settings-general.png
 [12]: ./media/powerapps-configure-apis/api-default-icon.png
 [13]: ./media/powerapps-configure-apis/api-settings-api-definition.png
 [14]: ./media/powerapps-configure-apis/api-settings-policy.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

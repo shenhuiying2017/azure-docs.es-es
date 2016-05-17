@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="04/27/2016"
    ms.author="telmos" />
 
 # Implementar una máquina virtual con una dirección IP pública estática mediante una plantilla
@@ -46,9 +46,9 @@ En la sección siguiente se muestra la definición del recurso de IP pública, b
         }
       },
 
-Observe la propiedad **publicIPAllocationMethod**, que se establece en *Static*. Esta propiedad puede ser *Dynamic* (valor predeterminado) o *Static*. Si se establece en estática, se garantiza que nunca cambiará la dirección IP para esta dirección IP pública.
+Observe la propiedad **publicIPAllocationMethod**, que se establece en *Static*. Esta propiedad puede ser *Dynamic* (valor predeterminado) o *Static*. Si se establece en estática, se garantiza que la dirección IP pública asignada no cambiará nunca.
 
-En la sección siguiente se muestra la asociación de la dirección IP pública anterior con una NIC.
+En la sección siguiente se muestra la asociación de la dirección IP pública con una interfaz de red.
 
       {
         "apiVersion": "2015-06-15",
@@ -83,7 +83,7 @@ En la sección siguiente se muestra la asociación de la dirección IP pública 
 
 Observe la propiedad **publicIPAddress** que señala al **Id.** de un recurso denominado **variables('webVMSetting').pipName**. Se trata del nombre del recurso de IP pública que se muestra arriba.
 
-Por último, la NIC anterior se muestra en la propiedad **networkProfile** de la máquina virtual que se va a crear.
+Por último, la interfaz de red anterior se muestra en la propiedad **networkProfile** de la máquina virtual que se va a crear.
 
       "networkProfile": {
         "networkInterfaces": [
@@ -95,7 +95,7 @@ Por último, la NIC anterior se muestra en la propiedad **networkProfile** de la
 
 ## Implementar la plantilla por medio de un solo clic para implementar
 
-La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados utilizados para generar el escenario descrito anteriormente. Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
+La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados utilizados para generar el escenario descrito anteriormente. Para implementar esta plantilla haciendo clic para implementar, haga clic en **Implementar en Azure** en el archivo Readme.md para la plantilla [Máquina virtual con PIP estático](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP). Reemplace los valores de parámetro predeterminados si lo desea y escriba los valores para los parámetros en blanco. Siga las instrucciones en el portal para crear una máquina virtual con una dirección IP pública estática.
 
 ## Implementación de la plantilla mediante PowerShell
 
@@ -105,11 +105,11 @@ Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
 2. En una consola de PowerShell, ejecute el cmdlet **New-AzureRmResourceGroup** para crear un nuevo grupo de recursos, si fuera necesario. Si ya tiene un grupo de recursos creado, vaya al paso 3.
 
-		New-AzureRmResourceGroup -Name StaticPublicIP -Location westus
+		New-AzureRmResourceGroup -Name PIPTEST -Location westus
 
 	Resultado esperado:
 
-		ResourceGroupName : StaticPublicIP
+		ResourceGroupName : PIPTEST
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -126,7 +126,7 @@ Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 		DeploymentName    : DeployVM
 		ResourceGroupName : PIPTEST
 		ProvisioningState : Succeeded
-		Timestamp         : 1/8/2016 7:04:44 PM
+		Timestamp         : <Deployment date> <Deployment time>
 		Mode              : Incremental
 		TemplateLink      :
 		                    Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
@@ -152,8 +152,8 @@ Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
+1. Si nunca ha usado la CLI de Azure, siga los pasos del artículo [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) artículo y, a continuación, los pasos para conectar la CLI a su suscripción en la sección "Uso del inicio de sesión de Azure para realizar una autenticación interactiva" del artículo [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
+2. Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
 
@@ -161,13 +161,13 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 		info:    New mode is arm
 
-3. Abra el [archivo de parámetros](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), seleccione su contenido y guárdelo en un archivo del equipo. Para este ejemplo, guardamos el archivo de parámetros en *parameters.json*.
+3. Abra el [archivo de parámetros](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), seleccione su contenido y guárdelo en un archivo del equipo. En este ejemplo, los parámetros se guardan en un archivo denominado *parameters.json*. Cambie los valores de parámetro en el archivo si lo desea, pero como mínimo, se recomienda que cambie el valor para el parámetro adminPassword a una contraseña única y compleja.
 
-4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes. En la lista que se muestra en la salida se explican los parámetros utilizados.
+4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes. En el siguiente comando, reemplace <path> por la ruta de acceso en la que ha guardado el archivo.
 
-		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e parameters.json
+		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
 
-	Resultado esperado:
+	Resultado esperado (enumera los valores de parámetro utilizados):
 
 		info:    Executing command group create
 		+ Getting resource group PIPTEST2
@@ -176,7 +176,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		+ Initializing template configurations and parameters
 		+ Creating a deployment
 		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/PIPTEST2
+		data:    Id:                  /subscriptions/<Subscription ID>/resourceGroups/PIPTEST2
 		data:    Name:                PIPTEST2
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded
@@ -184,4 +184,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

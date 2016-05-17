@@ -51,7 +51,6 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
-        Install-Package Microsoft.Azure.Management.Resources -Pre
 
     Estos comandos agregan las bibliotecas y referencias .NET al proyecto de Visual Studio actual.
 
@@ -82,7 +81,7 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
                 private const int NewClusterNumNodes = 1;
                 private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
                 private const OSType NewClusterOSType = OSType.Linux;
-                private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
                 private const string NewClusterVersion = "3.2";
                 private const string NewClusterUsername = "admin";
                 private const string NewClusterPassword = "<Enter HTTP User Password>";
@@ -371,4 +370,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 - [Run Sqoop jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) (Ejecución de trabajos de Sqoop en HDInsight mediante el SDK de .NET)
 - [Run Oozie jobs in HDInsightt](hdinsight-use-oozie.md) (Ejecución de trabajos de Oozie en HDInsight)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

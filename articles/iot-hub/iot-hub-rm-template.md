@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Creación de un Centro de IoT mediante un programa de C# con una plantilla del Administrador de recursos de Azure
@@ -115,7 +115,7 @@ Use una plantilla de JSON y un archivo de parámetro para crear un nuevo Centro 
 
 3. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y luego en **Nuevo elemento**. Agregue un nuevo archivo JSON denominado **parameters.json** a su proyecto.
 
-4. Reemplace el contenido de **parameters.json** por la siguiente información de parámetro que establece el nombre del nuevo Centro de IoT en **mynewiothub** (tenga en cuenta que este nombre debe ser único global):
+4. Reemplace el contenido de **parameters.json** por la siguiente información de parámetro que establece un nombre para el nuevo Centro de IoT como **{sus iniciales} mynewiothub** (tenga en cuenta que este nombre debe ser globalmente único, por lo que debe incluir su nombre o sus iniciales):
 
     ```
     {
@@ -215,4 +215,4 @@ Ahora que ha implementado un Centro de IoT mediante una plantilla del Administra
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

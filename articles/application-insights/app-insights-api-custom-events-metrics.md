@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -339,7 +339,7 @@ Normalmente el SDK envía datos en momentos elegidos para minimizar el impacto e
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Tenga en cuenta que la función es asincrónica para canales en memoria, pero sincrónica si decide usar el [canal persistente](app-insights-windows-desktop.md#persistence-channel).
+Tenga en cuenta que la función es asincrónica para canales en memoria, pero sincrónica si decide usar el [canal persistente](app-insights-windows-services.md#persistence-channel).
 
 
 ## Usuarios autenticados
@@ -567,16 +567,16 @@ Las llamadas de telemetría individuales pueden invalidar los valores predetermi
 
 **Para los clientes web de JavaScript**, [use los inicializadores de telemetría de JavaScript](#js-initializer).
 
-**Para agregar propiedades a toda la telemetría**, incluidos los datos de los módulos de colección estándar, [cree un inicializador de telemetría](app-insights-api-filtering-sampling.md#add-properties).
+**Para agregar propiedades a toda la telemetría**, incluidos los datos de los módulos de colección estándar, [implemente `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## Muestreo, filtrado y telemetría de procesamiento 
 
 Puede escribir código para procesar la telemetría antes de que se envíe desde el SDK. El procesamiento incluye los datos enviados desde los módulos de telemetría estándar, como la recopilación de solicitudes HTTP y de dependencias.
 
-* [Agregue propiedades](app-insights-api-filtering-sampling.md#add-properties) a la telemetría, por ejemplo, números de versión o valores calculados a partir de otras propiedades.
-* El [muestreo](app-insights-api-filtering-sampling.md#sampling) reduce el volumen de datos enviados desde la aplicación al portal, sin que ello afecte a las métricas que se muestran ni a su capacidad para diagnosticar problemas al navegar entre elementos relacionados, como excepciones, solicitudes y vistas de página.
-* El [filtrado](app-insights-api-filtering-sampling.md#filtering) también reduce el volumen. Puede controlar qué se envía y qué se descarta, pero debe tener en cuenta el efecto en las métricas. Según la forma en que se descarten los elementos, podría perder la capacidad de navegar entre elementos relacionados.
+* [Agregue propiedades](app-insights-api-filtering-sampling.md#add-properties) a la telemetría mediante la implementación de `ITelemetryInitializer`; por ejemplo, para agregar números de versión o valores calculados a partir de otras propiedades. 
+* El [filtrado](app-insights-api-filtering-sampling.md#filtering) puede modificar o descartar la telemetría antes de que se envía desde el SDK, mediante la implementación de `ITelemetryProcesor`. Puede controlar qué se envía y qué se descarta, pero debe tener en cuenta el efecto en las métricas. Según la forma en que se descarten los elementos, podría perder la capacidad de navegar entre elementos relacionados.
+* El [muestreo](app-insights-api-filtering-sampling.md#sampling) es una solución en paquetes para reducir el volumen de los datos enviados desde la aplicación al portal. Hace esto sin afectar a las métricas que se muestran ni a su capacidad para diagnosticar problemas al navegar entre elementos relacionados, como excepciones, solicitudes y vistas de página.
 
 [Más información](app-insights-api-filtering-sampling.md)
 
@@ -676,24 +676,14 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 * **Session** Identifica la sesión del usuario. El id. se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
 * **User** Información del usuario. 
 
-
-
 ## Límites
 
-Hay algunos límites en el número de métricas y eventos por aplicación (es decir, por clave de instrumentación).
 
-1. Una velocidad máxima por segundo que se aplica por separado a cada clave de instrumentación. Por encima del límite, se quitarán algunos datos.
- * Hasta 500 puntos de datos por segundo de llamadas a TrackTrace y datos de registro capturados. (100 por segundo para el plan de tarifa gratuito).
- * Hasta 50 puntos de datos por segundo para las excepciones, que capturan nuestros módulos o llamadas a TrackException. 
- * Hasta 500 puntos de datos por segundo para todos los demás datos, donde se incluyen la telemetría estándar enviada por los módulos del SDK, y los eventos personalizados, las métricos y otros datos de telemetría enviados por su código. (100 por segundo para el plan de tarifa gratuito).
-1. Volumen total mensual de datos, según el [plan de tarifa](app-insights-pricing.md).
-1.	Máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones u otros tipos de datos como eventos. Los nombres de métricas y propiedades son globales por clave de instrumentación, no limitadas al tipo de datos.
-2.	Las propiedades se pueden usar para filtrar y agrupar por solo cuando tienen menos de 100 valores únicos para cada propiedad. Después de que los valores únicos superen los 100, la propiedad todavía se puede usar para búsqueda, pero no para filtros.
-3.	Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". El valor original puede seguir usándose para la búsqueda de texto completo y el filtrado.
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 *¿Cómo puedo evitar llegar al límite de velocidad de datos?*
 
-* Instale el SDK más reciente para usar el [muestreo](app-insights-sampling.md).
+* Use el [muestreo](app-insights-sampling.md).
 
 *¿Durante cuánto tiempo se conservan los datos?*
 
@@ -758,4 +748,4 @@ Hay algunos límites en el número de métricas y eventos por aplicación (es de
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="elfish"/>
 
 # Preguntas frecuentes sobre la continuidad del negocio
@@ -50,14 +50,8 @@ Para la recuperación tras una interrupción: use la opción [Obtener base de da
 
 No existe ninguna funcionalidad integrada para restaurar de forma masiva. El script denominado [Base de datos SQL de Azure: recuperación completa del servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666), es un ejemplo de uno de los diferentes modos de realizar esta tarea.
 
-## 8\. ¿Cuál es la diferencia entre la replicación geográfica estándar y la replicación geográfica activa?
-
-En la replicación geográfica estándar, la base de datos secundaria no es legible. Solo está disponible para la conmutación por error durante las interrupciones.
-
-En la replicación geográfica activa, todas las bases de datos secundarias son legibles (hasta 4 secundarias).
-
-## 9\. ¿Cuál es el retraso de replicación cuando se utiliza la replicación geográfica estándar o la replicación geográfica activa?
+## 8\. ¿Cuál es el retraso de replicación al usar la replicación geográfica activa?
 
 Use la vista de administración dinámica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) para obtener la última hora de la replicación, el retraso de la replicación y otro tipo de información acerca del vínculo de la replicación.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->
