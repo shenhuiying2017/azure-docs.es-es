@@ -76,7 +76,7 @@ El runbook que acabamos de crear aún está en modo borrador. Tenemos que public
 4.	Queremos iniciar el runbook, por lo que debe hacer clic en **Iniciar** y, a continuación, en **Sí** cuando se le solicite.<br> ![Iniciar runbook](media/automation-first-runbook-graphical/runbook-controls-start.png)
 5.	Se abre una hoja de trabajo para el trabajo de Runbook que acabamos de crear. Podemos cerrar esta hoja, pero en este caso la dejaremos abierta para poder ver el progreso del trabajo.
 6.	El estado del trabajo se muestra en **Resumen de trabajos** y coincide con los estados que vimos cuando probamos el runbook.<br>![Resumen del trabajo](media/automation-first-runbook-graphical/runbook-job-summary.png)
-7.	Cuando el estado del runbook aparezca como *Completado*, haga clic en **Salida**. Se abre la hoja **Salida **y podemos ver nuestro *Hello World* en el panel.<br> ![Resumen del trabajo](media/automation-first-runbook-graphical/runbook-job-output.png)  
+7.	Cuando el estado del runbook aparezca como *Completado*, haga clic en **Salida**. Se abre la hoja **Salida** y podemos ver nuestro *Hello World* en el panel.<br> ![Resumen del trabajo](media/automation-first-runbook-graphical/runbook-job-output.png)  
 8.	Cierre la hoja Salida.
 9.	Haga clic en **Todos los registros** para abrir la hoja Transmisiones para el trabajo de Runbook. Solo deberíamos ver *Hello World* en el flujo de salida, pero se pueden mostrar otras secuencias de un trabajo de runbook como Detallado y Error si el runbook escribe en ellas.<br> ![Resumen del trabajo](media/automation-first-runbook-graphical/runbook-job-AllLogs.png)
 10.	Cierre las hojas Todos los registros y Trabajo para volver a la hoja MyFirstRunbook.
@@ -145,7 +145,7 @@ Actualmente, nuestro Runbook inicia la máquina virtual en el grupo de recursos 
 1. Abra el editor gráfico haciendo clic en **Editar** en el panel **MyFirstRunbook**.
 2. Haga clic en **Entrada y salida** y, a continuación, en **Agregar entrada** para abrir el panel Parámetros de entrada de runbook.<br> ![Entrada y salida de runbook](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput.png)
 3. Especifique *VMName* para el campo **Name**. Mantenga *string* en **Type** y cambie **Mandatory** a *Yes*. Haga clic en **OK**.
-4. Cree un segundo parámetro de entrada obligatorio denominado *ResourceGroupName* y haga clic en **Aceptar** para cerrar el panel ** Entrada y salida**.<br> ![Parámetros de entrada de runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
+4. Cree un segundo parámetro de entrada obligatorio denominado *ResourceGroupName* y haga clic en **Aceptar** para cerrar el panel **Entrada y salida**.<br> ![Parámetros de entrada de runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
 5. Seleccione la actividad **Start-AzureRmVM** y haga clic en **Parámetros**.
 6. Cambie el **Origen de datos** de **Nombre** a **Entrada de Runbook** y seleccione **VMName**.<br>
 7. Cambie el **Origen de datos** de **ResourceGroupName** a **Entrada de Runbook** y seleccione **ResourceGroupName**.<br> ![Parámetros Start-AzureVM](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
