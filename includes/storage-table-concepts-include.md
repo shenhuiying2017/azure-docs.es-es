@@ -19,7 +19,7 @@ El servicio Tabla contiene los siguientes componentes:
       
     Puede desviar las tablas de Azure directamente mediante esta dirección con el protocolo OData. Para obtener más información, consulte [OData.org][].
 
--   **Cuenta de almacenamiento:** todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md) para obtener información sobre la capacidad de la cuenta de almacenamiento.
+-   **Cuenta de almacenamiento:** todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../articles/storage/storage-scalability-targets.md) para obtener información sobre la capacidad de la cuenta de almacenamiento.
 
 -   **Tabla**: una tabla es una colección de entidades. Las tablas no exigen un esquema sobre entidades, lo que significa que una única tabla puede contener entidades que dispongan de diferentes conjuntos de propiedades. El número de tablas que una cuenta de almacenamiento puede contener se encuentra restringido solo por el límite de capacidad de la cuenta de almacenamiento.
 
