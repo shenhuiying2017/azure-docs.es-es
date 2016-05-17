@@ -76,4 +76,4 @@ Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, pue
 [Precios Almacenamiento de datos SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Descargas de Visual Studio]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

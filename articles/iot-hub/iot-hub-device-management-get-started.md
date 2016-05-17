@@ -16,7 +16,9 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Introducción a la administración de dispositivos de Centro de IoT de Azure (vista previa)
+# Introducción a la administración de dispositivos de Centro de IoT de Azure con C# (versión preliminar)
+
+[AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## Introducción
 Para comenzar con la administración de dispositivos en un Centro de IoT de Azure, primero debe crear un Centro de IoT de Azure, abastecerlo de dispositivos e iniciar varios dispositivos simulados. Este tutorial le guiará a través de estos pasos.
@@ -50,14 +52,16 @@ Debe crear un Centro de IoT con la administración de dispositivos habilitada pa
   -   En el cuadro **Nombre**, escriba un nombre para su Centro de IoT. Si el **Nombre** es válido y está disponible, aparecerá una marca de verificación verde en el cuadro **Nombre**.
   -   Seleccione un **Plan de tarifa y escalado**. Este tutorial no requiere ningún nivel determinado.
   -   En **Grupo de recursos**, cree un grupo de recursos o seleccione uno existente. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure].
-  -   Marque la casilla para **Enable Device Management** (Habilitar la administración de dispositivos).
-  -   En **Ubicación**, seleccione la ubicación para albergar el Centro de IoT. La administración de dispositivos del Centro de IoT solo está disponible en el este de EE. UU., Europa del Norte y Asia Oriental.
+  -   Active la casilla **Enable Device Management** (Habilitar la administración de dispositivos).
+  -   En **Ubicación**, seleccione la ubicación para hospedar el Centro de IoT. La administración de dispositivos del Centro de IoT solo está disponible en el este de EE. UU., Europa del Norte y Asia Oriental. En el futuro, estará disponible en todas las regiones.
+
+    > [AZURE.NOTE]  Si no activa la casilla **Enable Device Management** (Habilitar la administración de dispositivos), los ejemplos no funcionarán.
 
 4.  Cuando haya elegido las opciones de configuración del Centro de IoT, haga clic en **Crear**. Azure puede tardar unos minutos en crear el Centro de IoT. Para comprobar el estado, puede supervisar el progreso en el **Panel de inicio** o en el panel de **notificaciones**.
 
 	![][img-monitor]
 
-5.  Cuando haya creado el Centro de IoT, abra la hoja del nuevo Centro de IoT, tome nota del **nombre de host** y, a continuación, haga clic en el icono de **llave**.
+5.  Cuando haya creado el Centro de IoT, abra la hoja del nuevo Centro de IoT, tome nota del **nombre de host** y, después, haga clic en el icono de **llave**.
 
 	![][img-keys]
 
@@ -79,19 +83,19 @@ Para compilar los ejemplos y aprovisionar dispositivos en el Centro de IoT, siga
 
 2.  Clone el repositorio GitHub. **Asegúrese de clonarlo en un directorio que sin espacios en blanco.**
 
-  ```
-  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
-  ```
+	  ```
+	  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
+	  ```
 
 3.  En la carpeta raíz donde clonó el repositorio **azure-iot-sdks**, navegue hasta la carpeta **\\azure-iot-sdks\\csharp\\service\\samples** y ejecute el archivo después de reemplazar el valor del marcador de posición por la cadena de conexión de la sección anterior:
 
-  ```
-  setup.bat <IoT Hub Connection String>
-  ```
+	  ```
+	  setup.bat <IoT Hub Connection String>
+	  ```
 
 El script hace lo siguiente:
 
-1.  Ejecuta **cmake** para crear una solución de Visual Studio 2015 para el dispositivo simulado. Este archivo de proyecto es **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Los archivos de código fuente se encuentran en la carpeta **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Ejecuta **cmake** para crear una solución de Visual Studio 2015 para el dispositivo simulado. Este archivo de proyecto es **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Observe que los archivos de código fuente se encuentran en la carpeta ****azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Compila el proyecto **iotdm\_simple\_sample.vcxproj** para el dispositivo simulado.
 
@@ -113,9 +117,9 @@ Este script ejecuta una instancia de **iotdm\_simple\_sample.exe** para cada dis
 
 La aplicación de ejemplo **iotdm\_simple\_sample** se genera a partir de la biblioteca del cliente de administración de dispositivos del Centro de IoT de Azure para C, que permite la creación de dispositivos IoT que pueden administrarse mediante el Centro de IoT de Azure. Los fabricantes de los dispositivos pueden usar esta biblioteca para informar de propiedades de los dispositivos e implementar las acciones de ejecución que necesitan los trabajos de dispositivo. Esta biblioteca es un componente que se ofrece como parte del SDK de Centro de IoT de Azure de código abierto.
 
-Al ejecutar **simulate.bat**, verá la transmisión de datos en la ventana de resultados. Estos resultados muestran el tráfico entrante y saliente, así como las instrucciones de **printf** de las funciones de devolución de llamada específicas de la aplicación. Esto le permite ver el tráfico entrante y saliente junto, además de cómo la aplicación de ejemplo maneja los paquetes descodificados. Cuando el dispositivo se conecta al Centro de IoT, el servicio comienza automáticamente a observar los recursos del dispositivo. Después, la biblioteca del cliente de DM del Centro de IoT invoca las devoluciones de llamada del dispositivo para recuperar los valores más recientes del dispositivo.
+Al ejecutar **simulate.bat**, verá la transmisión de datos en la ventana de resultados. Esta salida muestra el tráfico entrante y saliente, así como las instrucciones de **printf** de las funciones de devolución de llamada específicas de la aplicación. Esto le permite ver el tráfico entrante y saliente junto, además de cómo la aplicación de ejemplo maneja los paquetes descodificados. Cuando el dispositivo se conecta al Centro de IoT, el servicio comienza automáticamente a observar los recursos del dispositivo. Después, la biblioteca del cliente de DM del Centro de IoT invoca las devoluciones de llamada del dispositivo para recuperar los valores más recientes del dispositivo.
 
-A continuación se muestra el resultado de la aplicación de prueba **iotdm\_simple\_sample**. En la parte superior, verá el mensaje **REGISTRADO**, que muestra el dispositivo con identificador **Device11 7ce4a850** conectándose al Centro de IoT.
+A continuación se muestra la salida de la aplicación de prueba **iotdm\_simple\_sample**. En la parte superior, verá el mensaje **REGISTRADO**, que muestra el dispositivo con identificador **Device11 7ce4a850** conectándose al Centro de IoT.
 
 > [AZURE.NOTE]  Para que el resultado sea menos detallado, genere y ejecute la configuración de venta directa.
 
@@ -125,13 +129,13 @@ Asegúrese de dejar todos los dispositivos simulados en ejecución mientras comp
 
 ## Pasos siguientes
 
-Para más información acerca de las características de administración de dispositivos del Centro de IoT de Azure puede realizar los tutoriales:
+Para más información sobre las características de administración de dispositivos del Centro de IoT de Azure, puede consultar los tutoriales:
 
-- [How to use the device twin][lnk-tutorial-twin] \(Uso del conjunto de dispositivos)
+- [How to use the device twin (Uso del conjunto de dispositivos)][lnk-tutorial-twin]
 
-- [How to find device twins using queries][lnk-tutorial-queries] \(Cómo encontrar conjuntos de dispositivos con las consultas)
+- [How to find device twins using queries (Búsqueda de dispositivos gemelos mediante consultas)][lnk-tutorial-queries]
 
-- [How to use device jobs to update device firmware][lnk-tutorial-jobs] \(Uso de trabajos de dispositivos para actualizar el firmware de dispositivo)
+- [How to use device jobs to update device firmware (Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)][lnk-tutorial-jobs]
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started/image1.png
@@ -148,4 +152,4 @@ Para más información acerca de las características de administración de disp
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

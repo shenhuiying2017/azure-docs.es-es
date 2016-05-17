@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/29/2016"
+	ms.date="05/10/2016"
 	ms.author="mandia"/>
 
 
@@ -35,7 +35,7 @@ Las ventajas de las conexiones híbridas incluyen:
 - Las aplicaciones que usan conexiones híbridas solo acceden al recurso local específico que se publica a través de la conexión híbrida.
 - Pueden conectarse a cualquier recurso local que use un puerto TCP estático, como SQL Server, MySQL, API Web HTTP y la mayoría de los servicios web personalizados.
 
-	> [AZURE.NOTE] Los servicios basados en TCP que usan puertos dinámicos (como modo pasivo FTP o modo pasivo extendido) no se admiten actualmente.
+	> [AZURE.NOTE] Los servicios basados en TCP que usan puertos dinámicos (como modo pasivo FTP o modo pasivo extendido) no se admiten actualmente. Tampoco se admite LDAP. LDAP utiliza un puerto TCP estático, pero también podría usar UDP. Como resultado, no se admite.
 
 - Se pueden usar con todos los marcos compatibles con Aplicaciones web (.NET, PHP, Java, Python, Node.js) y Aplicaciones móviles (Node.js, .NET).
 - Las Aplicaciones web y las Aplicaciones móviles pueden acceder a los recursos locales igual que si la aplicación web o móvil se encontrara en la red local. Por ejemplo, la misma cadena de conexión usada en el entorno local se puede utilizar en Azure.
@@ -47,7 +47,7 @@ Las conexiones híbridas también ofrecen a los administradores de empresa contr
 - Los registros de eventos y de auditoría de la red corporativa proporcionan visibilidad sobre los recursos a los que acceden las conexiones híbridas.
 
 
-## Configuraciones admitidas
+## Escenarios de ejemplo
 
 Las conexiones híbridas admiten las siguientes combinaciones de aplicaciones y marcos de trabajo:
 
@@ -103,4 +103,4 @@ Port | Por qué es necesario
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

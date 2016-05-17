@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="05/10/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
@@ -108,7 +108,7 @@ En general, queremos que las DWU sean sencillas. Cuando necesite resultados más
 
 - Para entender el valor ideal de su DWU, intente escalar verticalmente hacia arriba y hacia abajo, y ejecute algunas consultas después de cargar los datos. Puesto que el escalado se realiza rápidamente, puede probar distintos niveles de rendimiento sin dedicarle más de una hora.
 
-> [AZURE.NOTE] Tenga en cuenta que debido a la arquitectura o al Almacenamiento de datos SQL, puede que no vea el escalado del rendimiento esperado en volúmenes de datos más reducidos. Se recomienda comenzar con volúmenes de datos a partir de 1 TB o más a fin de obtener unos resultados de pruebas de rendimiento exactos.
+> [AZURE.NOTE] Tenga en cuenta que debido a la arquitectura de Almacenamiento de datos SQL s posible que no vea las funcionalidades de rendimiento esperadas en volúmenes de datos más reducidos. Se recomienda comenzar con volúmenes de datos de 1 TB, o superiores, con el fin de obtener una indicación verdadera de los beneficios de rendimiento.
 
 ## Integrado
 
@@ -142,23 +142,38 @@ Polybase es fácil de usar y permite aprovechar datos de orígenes diferentes co
 
 - PolyBase se puede usar para acceder al Almacenamiento de blobs, que sirve también como almacenamiento para un clúster de HD Insight, lo que proporciona un acceso innovador a los mismos datos con herramientas relacionales y no relacionales.
 
-
 ## Pasos siguientes
 
-Ahora que ya conoce un poco el Almacenamiento de datos SQL, obtenga información acerca de la [carga de trabajo de almacenamiento de datos], el [aprovisionamiento] y la carga de [datos de ejemplo] para comenzar.
+Ahora que ya tiene cierto conocimiento sobre Almacenamiento de datos SQL, obtenga información acerca de la [carga de trabajo del almacenamiento de datos], [cómo aprovisionar] un Almacenamiento de datos SQL y [cómo cargar datos de ejemplo]. O bien, examine algunos de estos otros recursos de Almacenamiento de datos de SQL.
 
->[AZURE.NOTE] Queremos mejorar este artículo. Si elige responder que no a la pregunta de si le resultó útil este artículo, incluya una sugerencia breve sobre lo que falta o cómo piensa que se podría mejorar el artículo. Gracias de antemano.
+- [Blogs] 
+- [Solicitud de función]
+- [Vídeos]
+- [Blogs del equipo de CAT]
+- [Creación de una incidencia de soporte técnico]
+- [Foro de MSDN]
+- [Foro Stack Overflow]
+- [Twitter]
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[carga de trabajo de almacenamiento de datos]: ./sql-data-warehouse-overview-workload.md
-[datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[aprovisionamiento]: ./sql-data-warehouse-get-started-provision.md
+[Creación de una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[carga de trabajo del almacenamiento de datos]: ./sql-data-warehouse-overview-workload.md
+[cómo cargar datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[cómo aprovisionar]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Blogs del equipo de CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Solicitud de función]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Foro de MSDN]: https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureSQLDataWarehouse
+[Foro Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

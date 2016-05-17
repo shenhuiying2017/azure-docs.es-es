@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="05/10/2016"
    ms.author="yurid"/>
 
 # Establecimiento de directivas de seguridad en el Centro de seguridad de Azure
@@ -37,11 +37,11 @@ Las directivas de seguridad se pueden configurar para cada suscripción o grupo 
 
 2. En la hoja **Directiva de seguridad - Definir directiva por suscripción o grupo de recursos** que se abre en el lado derecho, seleccione la suscripción que desee para habilitar la directiva de seguridad. Si prefiere habilitar la directiva de seguridad para un grupo de recursos en lugar de para toda la suscripción, desplácese hacia abajo hasta la siguiente sección en la que hablamos sobre la configuración de directivas de seguridad para grupos de recursos.
 
-    ![Habilitación de la recopilación de datos](./media/security-center-policies/security-center-policies-fig01.png)
+    ![Definición de directiva](./media/security-center-policies/security-center-policies-fig01.png)
 
 3. La hoja **Directiva de seguridad** de esa suscripción se abrirá con un conjunto de opciones similares a las que se muestran a continuación:
 
-    ![Habilitación de la recopilación de datos](./media/security-center-policies/security-center-policies-fig1-1.png)
+    ![Habilitación de la recopilación de datos](./media/security-center-policies/security-center-policies-fig1-new.png)
 
 4. Asegúrese de que la opción **Recopilar datos de máquinas virtuales** está **Activada**. Esta opción habilita la recopilación de inicio de sesión automático para recursos nuevos y existentes.
 
@@ -61,20 +61,24 @@ Las directivas de seguridad se pueden configurar para cada suscripción o grupo 
 
     > [AZURE.NOTE] Si lo prefiere, puede agregar datos desde máquinas virtuales de varias regiones en una cuenta de almacenamiento central. Consulte las [preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md) para obtener más información.
 
-9. En la hoja **Directiva de seguridad**, haga clic en **Activado** para habilitar las recomendaciones de seguridad que desea usar en esta suscripción. Utilice la tabla siguiente como referencia para comprender lo que hará cada opción:
+9. En la hoja **Directiva de seguridad**, haga clic en **Activado** para habilitar las recomendaciones de seguridad que desea usar en esta suscripción. Haga clic en la opción **Prevention policy** (Directiva de prevención). Se abrirá la hoja **Directiva de seguridad** tal como se muestra a continuación.
+
+	![Selección de las directivas de seguridad](./media/security-center-policies/security-center-policies-fig1-1-new2.png)
+
+Utilice la tabla siguiente como referencia para comprender lo que hará cada opción:
 
 | Directiva | Cuando el estado es Activado |
 |----- |-----|
 | Actualizaciones del sistema | Recupera una lista de actualizaciones disponibles desde Windows Update o WSUS, dependiendo de qué servicio está configurado para esa máquina virtual, cada 12 horas, y recomienda instalar las actualizaciones críticas y de seguridad que falten en sus máquinas virtuales de Windows. |
 | Reglas de línea de base | Analiza todas las máquinas virtuales para identificar las configuraciones de SO que podrían hacer que la máquina virtual fuera más vulnerable a ataques y recomienda cambios de configuración para hacer frente a estas vulnerabilidades. Vea la [lista de líneas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para más información sobre las configuraciones específicas que se están supervisando. |
-| Antimalware | Recomienda que se aprovisione antimalware para todas las máquinas virtuales de Windows para ayudar a identificar y a quitar virus, spyware y otro software malintencionado. |
-| Lista de control de acceso en puntos de conexión | Recomienda que se configure una [lista de control de acceso](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) (ACL) para limitar el acceso a puntos de conexión de máquinas virtuales clásicas. Esto normalmente se usaría para asegurarse de que solo los usuarios que están conectados a la red corporativa pueden acceder a las máquinas virtuales. |
-| Grupos de seguridad de red | Recomienda que los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) (NSG) se configuren para controlar el tráfico entrante y saliente a subredes e interfaces de red para máquinas virtuales del Administrador de recursos. Todas las interfaces de red de máquina virtual heredarán los grupos de seguridad de red configurados para una subred a menos que se especifique lo contrario. Además de comprobar que se ha configurado un grupo de seguridad de red, esta opción evalúa las reglas de seguridad de entrada para identificar si hay alguna que permita el tráfico entrante. |
+| Endpoint Protection | Recomienda que se aprovisione el servicio Endpoint Protection para todas las máquinas virtuales de Windows para ayudar a identificar y a quitar virus, spyware y otro software malintencionado. 
+| Grupos de seguridad de red | Recomienda que se configuren [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) (NSG) para controlar el tráfico entrante y saliente a subredes e interfaces de red. Todas las interfaces de red de máquina virtual heredarán los grupos de seguridad de red configurados para una subred a menos que se especifique lo contrario. Además de comprobar que se ha configurado un grupo de seguridad de red, esta opción evalúa las reglas de seguridad de entrada para identificar si hay alguna que permita el tráfico entrante. |
 | Firewall de aplicaciones web | Recomienda aprovisionar un Firewall de aplicaciones web en máquinas virtuales cuando: se usa una [Dirección IP pública a nivel de instancia](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) y se configuran las reglas de seguridad de entrada del grupo de seguridad de red asociadas para permitir el acceso al puerto 80 o 443. Se utiliza la dirección IP de carga equilibrada (VIP) y se configuran las reglas NAT de entrada y de equilibrio de carga asociadas para permitir el acceso al puerto 80 o 443 (para obtener más información, consulte [Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga](../load-balancer/load-balancer-arm.md)). |
+| Firewall de próxima generación | Esto amplía las medidas de protección de la red más allá de los grupos de seguridad de red, que están integrados en Azure. Security Center detectará las implementaciones para las que se recomiende un firewall de próxima generación y permitirá que se aprovisione una aplicación virtual. |
 | Auditoría SQL | Se recomienda que la auditoría del acceso a bases de datos y servidores SQL de Azure esté habilitada para fines de cumplimiento, detección avanzada e investigación. |
 | Cifrado de datos transparente de SQL | Recomienda que el cifrado en reposo se habilite para las bases de datos SQL de Azure, las copias de seguridad asociadas y los archivos de registro de transacciones, de forma que aunque haya infracción de datos, no se puedan leer. |
 
-10\. Cuando termine de configurar todas las opciones, haga clic en **Guardar** para confirmar los cambios.
+11\. Cuando termine de configurar todas las opciones, haga clic en **Aceptar ** en la hoja **Directiva de seguridad** con las recomendaciones y después haga clic en **Guardar** en la hoja **Directiva de seguridad** con la configuración inicial.
 
 ## Configuración de directivas de seguridad para grupos de recursos
 
@@ -82,10 +86,9 @@ Si prefiere configurar sus directivas de seguridad por grupo de recursos, los pa
 
 ![Selección de grupo de recursos](./media/security-center-policies/security-center-policies-fig4.png)
 
-Después de seleccionar el grupo de recursos, se abrirá la hoja **Directiva de seguridad**. De forma predeterminada, la opción **Herencia** está habilitada, lo que significa que todas las directivas de seguridad para este grupo de recursos se heredan a partir del nivel de suscripción. Puede cambiar esta configuración en caso de que desee una directiva de seguridad personalizada por grupo de recursos. Si ese es el caso, debe seleccionar **Exclusiva** y realizar los cambios en la opción **Mostrar recomendaciones para**.
+Después de seleccionar el grupo de recursos, se abrirá la hoja **Directiva de seguridad**. De forma predeterminada, la opción **Herencia** está habilitada, lo que significa que todas las directivas de seguridad para este grupo de recursos se heredan a partir del nivel de suscripción. Puede cambiar esta configuración en caso de que desee una directiva de seguridad personalizada por grupo de recursos. Si ese es el caso, debe seleccionar **Exclusiva** y realizar los cambios en la opción **Prevention policy** (Directiva de prevención).
 
-
-![Directiva de seguridad por grupo de recursos](./media/security-center-policies/security-center-policies-fig5.png)
+![Directiva de seguridad por grupo de recursos](./media/security-center-policies/security-center-policies-fig5-new.png)
 
 > [AZURE.NOTE] En caso de un conflicto entre la directiva del nivel de suscripción y la directiva del nivel de grupo de recursos, la del nivel de recursos tiene prioridad.
 
@@ -94,10 +97,11 @@ Después de seleccionar el grupo de recursos, se abrirá la hoja **Directiva de 
 
 En este documento ha aprendido a configurar directivas de seguridad en el Centro de seguridad de Azure. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
-- [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
-- [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): Obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Supervisión de soluciones de asociados con Azure Security Center): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): aprenda a planear y comprender las consideraciones de diseño para adoptar Azure Security Center.
+- [Supervisión del estado de seguridad en Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
+- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
+- [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

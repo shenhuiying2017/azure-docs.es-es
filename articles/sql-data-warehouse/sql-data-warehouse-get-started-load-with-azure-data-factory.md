@@ -65,7 +65,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 Ahora que los datos están en su sitio podemos crear la canalización de Factoría de datos de Azure para mover los datos desde el almacenamiento de blobs de Azure a Almacenamiento de datos SQL.
 
-Para empezar, abra el [Portal de Azure][] y seleccione la factoría de datos en el menú de la izquierda.
+Para empezar, abra el [Portal de Azure][] y seleccione su instancia de Data Factory en el menú de la izquierda.
 
 ### Paso 2.1: Creación del servicio vinculado
 
@@ -240,4 +240,4 @@ En estos temas se proporciona información detallada sobre Factoría de datos de
 [Portal de Azure]: https://portal.azure.com
 [Descargue los datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

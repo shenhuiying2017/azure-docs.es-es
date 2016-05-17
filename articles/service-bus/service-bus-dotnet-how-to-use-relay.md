@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="05/06/2016"
 	ms.author="sethm"/>
 
 
@@ -25,7 +25,7 @@ En este artículo se describe cómo usar el servicio de Retransmisión de bus de
 
 ## ¿Qué es la retransmisión de bus de servicio?
 
-El servicio [*Retransmisión* de bus de servicio](service-bus-relay-overview.md) permite crear aplicaciones híbridas que se pueden ejecutar en los centros de datos de Azure y en un entorno empresarial local. La Retransmisión de bus de servicio facilita esta posibilidad, ya que permite exponer de forma segura los servicios Windows Communication Foundation (WCF) que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall y sin que sea necesario realizar cambios molestos en una infraestructura de red corporativa.
+El servicio [*Retransmisión* de bus de servicio](service-bus-relay-overview.md) permite crear aplicaciones híbridas que se pueden ejecutar en los centros de datos de Azure y en un entorno empresarial local. La retransmisión de bus de servicio facilita esta posibilidad, ya que le permite exponer de forma segura los servicios Windows Communication Foundation (WCF) que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall ni realizar cambios intrusivos en una infraestructura de red corporativa.
 
 ![Conceptos del relé](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
@@ -35,7 +35,7 @@ En este artículo se muestra cómo usar la Retransmisión de bus de servicio par
 
 ## Creación de un espacio de nombres de servicio
 
-Para comenzar a usar el relé del bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
+Para comenzar a usar la retransmisión de bus de servicio en Azure, primero debe crear un espacio de nombres. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
 
 Para crear un nombre de espacio de servicio:
 
@@ -75,9 +75,7 @@ Para realizar operaciones de administración, como la creación de una conexión
 
 ## Obtenga el paquete NuGet del bus de servicio
 
-El [paquete NuGet del bus de servicio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio.
-
-Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
+El [paquete NuGet del bus de servicio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
 
 1.  En el Explorador de soluciones, haga clic con el botón secundario en **References** y, a continuación, en **Manage NuGet Packages**.
 2.  Busque "Bus de servicio" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
@@ -265,8 +263,8 @@ Las definiciones del extremo se trasladan al archivo App.config. El siguiente ej
 
 Ahora que conoce los fundamentos del servicio Retransmisión de bus de servicio, siga estos vínculos para obtener más información.
 
+- [Mensajería retransmitida del Bus de servicio](service-bus-relay-overview.md)
 - [Información general sobre la arquitectura de Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-- [Cómo usar el servicio de retransmisión del Bus de servicio](service-bus-dotnet-how-to-use-relay.md)
 - Descargue ejemplos de Bus de servicio en [Ejemplos de Azure][] o consulte la [información general de ejemplos de Bus de servicio][].
 
   [Portal de Azure clásico]: http://manage.windowsazure.com
@@ -274,4 +272,4 @@ Ahora que conoce los fundamentos del servicio Retransmisión de bus de servicio,
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [información general de ejemplos de Bus de servicio]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

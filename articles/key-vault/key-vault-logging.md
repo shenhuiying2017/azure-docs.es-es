@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/08/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 
 # Registro del Almacén de claves de Azure #
-Almacén de claves de Azure está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios del Almacén de claves](../../../../pricing/details/key-vault/).
+Almacén de claves de Azure está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios del Almacén de claves](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Introducción  
 Después de haber creado uno o varios almacenes de claves, es probable que desee supervisar cómo y cuándo se accede a los almacenes de claves y quién lo hace. Puede hacerlo al habilitar el registro del Almacén de claves, que guarda la información en una cuenta de almacenamiento de Azure proporcionada por el usuario. Un nuevo contenedor llamado **insights-logs-auditevent** se crea automáticamente para su cuenta de almacenamiento especificada, y puede utilizar esta misma cuenta para recopilar registros de varios almacenes de claves.
@@ -30,7 +30,7 @@ Puede acceder a la información de registro como máximo, 10 minutos después de
 Use este tutorial para tener ayuda para empezar a trabajar con el registro del Almacén de claves de Azure, para crear la cuenta de almacenamiento, habilitar el registro e interpretar la información de registro recopilada.
 
 
->[AZURE.NOTE]Este tutorial no incluye instrucciones sobre cómo crear almacenes de claves, claves o secretos. Para obtener información, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md). O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
+>[AZURE.NOTE]  Este tutorial no incluye instrucciones sobre cómo crear almacenes de claves, claves o secretos. Para obtener información, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md). O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
 >
 >Actualmente, no es posible configurar el Almacén de claves de Azure en el portal de Azure. En su lugar, siga estas instrucciones de Azure PowerShell.
 
@@ -73,7 +73,7 @@ Para una mayor facilidad de administración, también usaremos el grupo de recur
 	$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
 
 
->[AZURE.NOTE]Si decide usar una cuenta de almacenamiento existente, ésta debe usar la misma suscripción que el Almacén de claves y el modelo de implementación del Administrador de recursos, en lugar del modelo de implementación clásica.
+>[AZURE.NOTE]  Si decide usar una cuenta de almacenamiento existente, ésta debe usar la misma suscripción que el Almacén de claves y el modelo de implementación del Administrador de recursos, en lugar del modelo de implementación clásica.
 
 ## <a id="identify"></a>Identificación del Almacén de claves para los registros ##
 
@@ -105,8 +105,8 @@ Qué se registra:
 - Se registran todas las solicitudes de API de REST autenticadas, incluidas las solicitudes con error debido a permisos de acceso, errores del sistema o solicitudes incorrectas.
 - Las operaciones en el Almacén de claves, incluidas la creación, la eliminación, la definición de políticas de acceso del Almacén de claves y la actualización de los atributos del Almacén de claves, como las etiquetas.
 - Las operaciones en claves y secretos del Almacén de claves, incluidas la creación, la modificación o la eliminación de estas claves o secretos; operaciones como firmar, comprobar, cifrar, descifrar, encapsular y desencapsular claves, obtener secretos, generar listas de claves y secretos y sus versiones.
+- Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o tienen un token no válido.  
 
-Las solicitudes no autenticadas no se registran.
 
 ## <a id="access"></a>Acceso a los registros ##
 
@@ -240,7 +240,7 @@ En la tabla siguiente se muestra el operationName y el comando de API de REST co
 | KeyCreate | [Crear una clave](https://msdn.microsoft.com/es-ES/library/azure/dn903634.aspx)|
 | KeyGet | [Obtener información sobre una clave](https://msdn.microsoft.com/es-ES/library/azure/dn878080.aspx)|
 | KeyImport | [Importar una clave a un almacén](https://msdn.microsoft.com/es-ES/library/azure/dn903626.aspx)|
-| KeyBackup | [Copia de seguridad de una clave](https://msdn.microsoft.com/es-ES/library/azure/dn878058.aspx).|
+| KeyBackup | [Realizar una copia de seguridad de una clave](https://msdn.microsoft.com/es-ES/library/azure/dn878058.aspx).|
 | KeyDelete | [Eliminar una clave](https://msdn.microsoft.com/es-ES/library/azure/dn903611.aspx)|
 | KeyRestore | [Restauración de una clave](https://msdn.microsoft.com/es-ES/library/azure/dn878106.aspx)|
 | KeySign | [Firma con una clave](https://msdn.microsoft.com/es-ES/library/azure/dn878096.aspx)|
@@ -271,4 +271,4 @@ Para conocer las referencias de programación, consulte la [Guía del desarrolla
 Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Almacén de claves de Azure, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Cmdlets de Almacén de claves de Azure).
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0511_2016-->

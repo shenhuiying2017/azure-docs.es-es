@@ -3,8 +3,8 @@
    description="Tutorial integral que muestra los escenarios y las funcionalidades del Catálogo de datos de Azure."
    documentationCenter=""
    services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="04/15/2016"
-   ms.author="derrickv"/>
+   ms.date="05/06/2016"
+   ms.author="maroche"/>
 
 # Introducción al Catálogo de datos de Azure
 
@@ -184,9 +184,11 @@ En este ejercicio usará el portal del **Catálogo de datos de Azure** para anot
 
 En este ejercicio ha agregado información descriptiva a los recursos de datos registrados para que los usuarios del catálogo puedan detectar el origen de datos con términos que puedan entender.
 
+> [AZURE.NOTE] La edición estándar del Catálogo de datos incluye un glosario empresarial que permite a los administradores del catálogo definir una taxonomía empresarial central. Después, los usuarios del catálogo pueden anotar los recursos de datos con los términos del glosario. Para más información, consulte [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md) (Configuración del glosario empresarial para el etiquetado regulado)
+
 ## Ejercicio 5: Metadatos de micromecenazgo
 
-En este ejercicio trabajará con otro usuario para agregar metadatos a los recursos de datos del catálogo. El enfoque de micromecenazgo del **Catálogo de datos de Azure** para las anotaciones permite a cualquier usuario agregar etiquetas, descripciones y otros metadatos, de modo que cualquier usuario con una perspectiva en un recurso de datos y su uso pueda capturar dicha perspectiva para que esté disponible para otros usuarios.
+En este ejercicio trabajará con otro usuario para agregar metadatos a los recursos de datos del catálogo. El enfoque de micromecenazgo del **Catálogo de datos de Azure** respecto a las anotaciones permite a cualquier usuario agregar etiquetas, descripciones y otros metadatos. Por tanto, cualquier usuario con una perspectiva en un recurso de datos y su uso pueda capturar dicha perspectiva para que esté disponible para otros usuarios.
 
 > [AZURE.NOTE] Si no dispone de otro usuario con el que trabajar en este tutorial, no se preocupe. Los usuarios que acceden al catálogo de datos pueden agregar su propio punto de vista cuando lo deseen. Este enfoque de micromecenazgo de los metadatos permite que el contenido del catálogo y la riqueza de los metadatos del catálogo crezcan con el tiempo.
 
@@ -196,7 +198,7 @@ Solicite a un compañero que repita el ejercicio [Anotación de los orígenes de
 
 ![](media/data-catalog-get-started/data-catalog-crowdsource.png)
 
-En este ejercicio se han explorado las funcionalidades del **Catálogo de datos de Azure** para los metadatos de micromecenazgo, donde cualquier usuario del catálogo puede anotar los recursos de datos que detecta.
+En este ejercicio se han explorado las funcionalidades del **Catálogo de datos de Azure** para los metadatos de micromecenazgo, por las que cualquier usuario del catálogo puede anotar los recursos de datos que detecta.
 
 ## Ejercicio 6: Conectarse a orígenes de datos
 
@@ -206,7 +208,7 @@ En este ejercicio usará el portal del **Catálogo de datos de Azure** para cone
 
 ### A continuación se indica cómo conectarse a un origen de datos desde Excel
 
-1. Vaya a https://azure.microsoft.com/services/data-catalog, haga clic en **Iniciado** e inicie sesión en el portal del **Catálogo de datos de Azure**.
+1. Vaya a https://azure.microsoft.com/services/data-catalog, haga clic en **Introducción** e inicie sesión en el portal del **Catálogo de datos de Azure**.
 2. Haga clic en **Detectar**.
 3. Elija un recurso de datos. En este ejemplo, elija ProductCategory.
 4. Elija **Abrir en** > **Excel**.
@@ -231,7 +233,7 @@ En el **Catálogo de datos de Azure** se pueden eliminar uno o varios recursos.
 
 ### A continuación se muestra cómo eliminar varios recursos de datos
 
-1. Vaya a https://azure.microsoft.com/services/data-catalog, haga clic en **Iniciado** e inicie sesión en el portal del **Catálogo de datos de Azure**.
+1. Vaya a https://azure.microsoft.com/services/data-catalog, haga clic en **Introducción** e inicie sesión en el portal del **Catálogo de datos de Azure**.
 2. Haga clic en **Detectar**.
 3. Elija uno o varios recursos de datos.
 4. Hacer clic en **Eliminar**.
@@ -246,7 +248,7 @@ En este ejercicio usará las funcionalidades de administración del **Catálogo 
 
 ### A continuación se muestra cómo tomar posesión de los recursos de datos y restringir la visibilidad
 
-1. Vaya a https://azure.microsoft.com/services/data-catalog, haga clic en **Iniciado** e inicie sesión en el portal del **Catálogo de datos de Azure**.
+1. Vaya a https://azure.microsoft.com/services/data-catalog, haga clic en **Introducción** e inicie sesión en el portal del **Catálogo de datos de Azure**.
 2. Haga clic en **Detectar**.
 3. Elija uno o varios recursos de datos.
 4. En el panel **Propiedades**, sección **Administración**, haga clic en **Tomar posesión**.
@@ -260,4 +262,4 @@ En este ejercicio ha explorado las funcionalidades de administración del **Cat�
 
 En este tutorial ha explorado las funcionalidades esenciales del **Catálogo de datos de Azure**, entre las que se incluyen el registro, la anotación, la detección y la administración de orígenes de datos empresariales. Ahora que ha completado el tutorial, ha llegado el momento de comenzar. Puede empezar hoy mismo por registrar los orígenes de datos en los que confían usted y su equipo, e invitando a compañeros a usar el catálogo.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

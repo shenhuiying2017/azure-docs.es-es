@@ -16,7 +16,7 @@ El uso de las colas le permite escalar sus aplicaciones más fácilmente y dotar
 
 Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
 
-Para crear un nombre de espacio de servicio:
+Para crear un espacio de nombres:
 
 1.  Inicie sesión en el [Portal de Azure clásico][].
 
@@ -30,7 +30,7 @@ Para crear un nombre de espacio de servicio:
 
 5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
 
-	 >[AZURE.IMPORTANT] seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
+	 > [AZURE.IMPORTANT] seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
 
 6. 	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación Aceptar. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
@@ -61,4 +61,3 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
   [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->

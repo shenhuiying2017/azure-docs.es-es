@@ -528,6 +528,7 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 
 ## Pasos siguientes
 
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
+- Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
+- Para más información acerca de BGP, consulte [Información acerca de BGP](vpn-gateway-bgp-overview.md) y [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Configuración de BGP). 
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

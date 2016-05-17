@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/02/2016"
+   ms.date="05/02/2016"
    ms.author="elizapo"/>
 
 # SQL Azure con Azure RemoteApp
@@ -50,4 +50,4 @@ Si el uso de una aplicación cliente hospedada en Azure RemoteApp que se conecta
 - La aplicación cliente hospedada en Azure RemoteApp está bajo presión. Seleccionar un plan de facturación diferente, como la facturación Premium, mejorará el rendimiento. Otro truco es supervisar los recursos que consume la aplicación: durante una sesión activa, pulse la secuencia de teclas ctrl-alt-fin, que iniciará la pantalla SAS, seleccione Administrador de tareas y observe el uso de recursos para la aplicación.
 - SQL Server está bajo presión o no está optimizado. Siga las instrucciones de SQL para la solucionar el problema. 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->
