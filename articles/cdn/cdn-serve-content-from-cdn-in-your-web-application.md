@@ -277,4 +277,4 @@ Sin la integración con Aplicaciones web del Servicio de aplicaciones de Azure o
 - [Uso de CDN de Azure](cdn-create-new-endpoint.md)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-----HONumber=AcomDC_0504_2016-->
