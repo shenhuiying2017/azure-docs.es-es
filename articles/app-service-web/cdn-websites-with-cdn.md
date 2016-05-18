@@ -552,7 +552,7 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	...
 	```
 
-	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+	Observe que el script inyectado para el paquete de CSS contiene aún el residuo errante de la propiedad `CdnFallbackExpression` en la línea:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
@@ -574,4 +574,4 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
