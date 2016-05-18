@@ -33,7 +33,8 @@ Automatización | Actualización del artículo acerca del [análisis de los dato
 Almacenamiento | Artículo que explica WASB y Almacén de Data Lake como opciones de almacenamiento | 2 | Pendiente | [@mumian](https://github.com/mumian) | - 
 Rendimiento | Directrices de ajuste de rendimiento para aplicaciones MapReduce | 2 | Pendiente | [@blackmist](https://github.com/blackmist) | -
  Almacenamiento | Directrices de ajuste del rendimiento para Spark |1 | Pendiente | [@nitinme](https://github.com/nitinme) | - 
- Desarrollo |Ejemplo de Curl y de API de Rest usando Sqoop | 2 | Pendiente | [@mumian](https://github.com/mumian) | Jon Kennerly | Desarrollo | [autenticación no interactiva con aplicaciones .NET de HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications) |2| [Completado](hdinsight-create-non-interactive-authentication-dotnet-applications.md) | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
+ Desarrollo |Ejemplo de Curl y de API de Rest usando Sqoop | 2 | Pendiente | [@mumian](https://github.com/mumian) | Jon Kennerly | 
+Desarrollo | [autenticación no interactiva con aplicaciones .NET de HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications) |2| [Completado](hdinsight-create-non-interactive-authentication-dotnet-applications.md) | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
 ## Cómo enviar comentarios al trabajo pendiente
@@ -42,4 +43,4 @@ Existen varias formas de proporcionar comentarios en el trabajo pendiente:
 * Agregar un comentario a continuación.
 * Enviar una solicitud de incorporación de cambios en este documento al [repositorio de contenido de Azure](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
