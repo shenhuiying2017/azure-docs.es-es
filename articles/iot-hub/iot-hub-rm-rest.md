@@ -183,4 +183,4 @@ Ahora que ha implementado un Centro de IoT mediante la API de REST, quizá desee
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
