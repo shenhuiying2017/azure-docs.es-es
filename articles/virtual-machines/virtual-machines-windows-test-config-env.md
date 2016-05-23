@@ -289,7 +289,7 @@ A continuación, compruebe que puede tener acceso a recursos compartidos de arch
 2.	En **Propiedades de CLIENT1**, haga clic en **Activo** al lado de **Configuración de seguridad mejorada de IE**.
 3.	En **Configuración de seguridad mejorada de IE**, haga clic en **Desactivar** para **Administradores** y **Usuarios** y, a continuación, haga clic en **Aceptar**.
 4.	En la pantalla Inicio, haga clic en **Internet Explorer** y, a continuación, en **Aceptar**.
-5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y, a continuación, presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
+5.	En la barra de direcciones, escriba **http://app1.corp.contoso.com/** y, a continuación, presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
 6.	En la barra de tareas del escritorio, haga clic en el icono Explorador de archivos.
 7.	En la barra de direcciones, escriba **\\\app1\\Files** y, a continuación, presione ENTRAR.
 8.	Debería ver una ventana de carpeta con el contenido de la carpeta compartida Archivos.

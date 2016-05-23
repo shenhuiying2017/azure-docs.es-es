@@ -29,11 +29,11 @@ Para ver o descargar su factura:
 1. Inicie sesión en el Portal de cuentas de Azure con su identificador de organización.
 2. Haga clic en **Marketplace**. La lista que aparece es una lista completa de todos los pedidos de Marketplace que se han realizado mediante su cuenta de Azure. Observe que los pedidos se agrupan mediante el nombre y el identificador de la suscripción primaria de Azure.
 
-    ![Pedidos de Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+	![Pedidos de Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
-3. Al hacer clic en cualquiera de los pedidos mostrados podrá ver la información de resumen general de ese pedido para el ciclo de facturación actual. Puede encontrar una explicación de los distintos modelos de precios en la sección de [preguntas más frecuentes de Marketplace](https://azure.microsoft.com/marketplace/faq/).
+3. Al hacer clic en cualquiera de los pedidos mostrados podrá ver la información de resumen general de ese pedido para el ciclo de facturación actual. Puede encontrar una explicación de los distintos modelos de precios en la sección de [preguntas más frecuentes de Marketplace]( https://azure.microsoft.com/marketplace/faq/).
 
-    ![Resumen del pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+	![Resumen del pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 La vista de resumen contiene la siguiente información de cada pedido:
 - Precio
@@ -57,13 +57,13 @@ Este vínculo le llevará a otro portal donde podrá realizar cambios en el mét
 
 Para cambiar el método de pago, siga estos pasos:
 
-1. Haga clic en **Change how you pay** (Cambiar la forma de pago).
+1. Haga clic en **Cambiar la forma de pago**.
 
-    ![Suscripciones](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
+![Suscripciones](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
 
-2. Seleccione el método de pago al que desea cambiar. La opción **Pay with** (pagar con) permite seleccionar una tarjeta de crédito. La opción **Agregar una nueva forma de pago** permite agregar una nueva tarjeta de crédito.
+2. Seleccione el método de pago al que desea cambiar. La opción **Pagar con** permite seleccionar una tarjeta de crédito. La opción **Agregar una nueva forma de pago** permite agregar una nueva tarjeta de crédito.
 
-    ![Cambiar método de pago](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+	![Cambiar método de pago](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
 ## Administración de pedidos
 En la página de resumen, verá el vínculo **Administrar pedido**. Este vínculo le llevará a un portal en el que puede ver todos los pedidos de Marketplace, ver el mantenimiento del servicio y solicitar soporte técnico.

@@ -82,8 +82,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar las opciones de la aplicación](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configurar las opciones de la aplicación")
 
-    1.  En el cuadro de texto **URL de inicio de sesión**, escriba ****http://azure.benefitsolver.com**.
-2.  En el cuadro de texto **URL de respuesta**, escriba ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+    1.  En el cuadro de texto **URL de inicio de sesión**, escriba **http://azure.benefitsolver.com**.
+	2.  En el cuadro de texto **URL de respuesta**, escriba **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.  
 
     3.  Haga clic en **Siguiente**.
 
@@ -135,7 +135,7 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Benefitsolver ** haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Benefitsolver** haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Asignar usuarios")
 

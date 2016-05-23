@@ -357,7 +357,7 @@ Cada usuario para el que se ha emitido un certificado de cliente debe seguir est
 * En el cuadro de diálogo Certificado que se abre, seleccione la pestaña Detalles
 * Asegúrese de que Mostrar esté mostrando Todo
 * Seleccione el campo denominado Huella digital en la lista
-* Copie el valor de la huella digital. **Elimine los caracteres Unicode no visibles delante del primer dígito. ** Elimine todos los espacios.
+* Copie el valor de la huella digital. **Elimine los caracteres Unicode no visibles delante del primer dígito. **Elimine todos los espacios.
 
 ## Configuración de clientes autorizados en el archivo de configuración de servicio
 

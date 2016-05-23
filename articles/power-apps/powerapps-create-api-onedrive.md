@@ -29,7 +29,7 @@ Add the Onedrive API to your organization's (tenant) app service environment.
 
 ## Create the API in the Azure portal
 
-1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
+1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@*SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
  
 2. Select **Browse** in the task bar:  
 ![][14]

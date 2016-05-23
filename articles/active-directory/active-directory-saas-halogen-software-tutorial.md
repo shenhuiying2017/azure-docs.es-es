@@ -216,7 +216,8 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Qué es Azure AD Connect][106]
 
-    a. Anote el valor del campo **Nueva contraseña**. b. Haga clic en **Completo**.
+    a. Anote el valor del campo **Nueva contraseña**. 
+    b. Haga clic en **Completo**.
   
  
 ### Creación de un usuario de prueba de Halogen Software

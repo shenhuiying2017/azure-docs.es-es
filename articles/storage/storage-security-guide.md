@@ -612,7 +612,7 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 	Cuando se recupera el blob, si hay un valor de MD5 almacenado, este lo devolverá en los encabezados de la solicitud. A continuación, puede calcular el valor hash de MD5 de los datos recibidos y compararlo con el valor MD5 almacenado. Si no coinciden, el blob se dañó durante el transporte.
 
-	Para más información, consulte [Windows Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx) (Información general de MD5 del servicio BLOB de Azure).
+	Para más información, consulte [Microsoft Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx) (Información general de MD5 del servicio BLOB de Azure).
 
 2.  **¿Y qué ocurre con el cumplimiento de la norma FIPS para el Gobierno de EE. UU.?**
 

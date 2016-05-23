@@ -105,7 +105,7 @@ Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes 
 
 En esta sección se describen los pasos para construir un script de Windows PowerShell que publicará el resultado del paquete de aplicaciones en la nube en Azure con la ayuda de parámetros opcionales. Este script puede llamarse después del paso de compilación en su automatización de compilación personalizada. También puede llamarse desde las actividades de flujo de trabajo de la Plantilla de procesos en Visual Studio TFS Team Build.
 
-1.  Instale los [cmdlets de Azure PowerShell][] (v0.6.1 o superior). Durante la fase de instalación del cmdlet, seleccione instalar como complemento. Tenga en cuenta que esta versión oficialmente compatible reemplaza la versión anterior que se ofrece mediante CodePlex, aunque las versiones anteriores tenían la numeración 2.x.x.
+1.  Instale los [cmdlets de Azure PowerShell][] \(v0.6.1 o superior). Durante la fase de instalación del cmdlet, seleccione instalar como complemento. Tenga en cuenta que esta versión oficialmente compatible reemplaza la versión anterior que se ofrece mediante CodePlex, aunque las versiones anteriores tenían la numeración 2.x.x.
 
 2.  Inicie Azure PowerShell mediante el menú Inicio o la página de inicio. Si inicia de esta manera, se cargarán los cmdlets de Azure PowerShell.
 

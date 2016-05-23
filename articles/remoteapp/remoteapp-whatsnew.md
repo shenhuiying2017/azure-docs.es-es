@@ -38,7 +38,7 @@ Una de las ventajas de Azure RemoteApp es que siempre trabajamos para mejorarlo.
 En agosto hubo cambios importantes. A continuación, presentamos los aspectos destacados:
 
 - Ahora puede usar una red virtual de Azure con una colección en la nube. Revise las [instrucciones para la creación de la nube](remoteapp-create-cloud-deployment.md) para ver los pasos nuevos.
-- Se hizo posible agregar aplicaciones al menú **Inicio** para el cliente de Windows RemoteApp. Las aplicaciones aparecerán en la lista de aplicaciones y puede anclarlas en el menú **Inicio ** de Windows.
+- Se hizo posible agregar aplicaciones al menú **Inicio** para el cliente de Windows RemoteApp. Las aplicaciones aparecerán en la lista de aplicaciones y puede anclarlas en el menú **Inicio** de Windows.
 - Se agregó una imagen nueva a la galería de máquinas virtuales de Azure - Host de sesión de Escritorio remoto de Windows Server con Microsoft Office 365 ProPlus.
 - Se corrigió el cliente de Mac para que las aplicaciones con ventanas modales dejarán de inmovilizarse.
 - Se documentó la forma en que puede usar la [suscripción a Office 365 ProPlus](remoteapp-officesubscription.md) con Azure RemoteApp.

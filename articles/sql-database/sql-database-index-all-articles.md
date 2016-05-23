@@ -343,7 +343,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | 172 | [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md) | En esta página se describen algunos límites de recursos comunes para Base de datos SQL de Azure. |
 | 173 | [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md) | Instrucciones de Transact-SQL que no son totalmente compatibles con la Base de datos SQL de Azure |
 | 174 | [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md) | Muestra el número de versión mínimo para cada controlador que pueden usar los programas cliente para conectarse a Base de datos SQL de Azure o a Microsoft SQL Server. Se proporciona un vínculo con información acerca de los controladores publicados por la comunidad y no por Microsoft. |
-| 175 | [Búsqueda con filtros](https://azure.microsoft.com/es-ES/documentation/articles/?service=sql-database) | Búsqueda con filtros de artículos de documentación sobre Base de datos SQL de Azure. |
+| 175 | [Búsqueda con filtros](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Búsqueda con filtros de artículos de documentación sobre Base de datos SQL de Azure. |
 
 
 ## Varios

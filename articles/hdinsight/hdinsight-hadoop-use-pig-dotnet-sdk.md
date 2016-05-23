@@ -46,23 +46,23 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 3. Para el nuevo proyecto, escriba o seleccione los valores siguientes.
 
 	<table>
-	<tr>
-	<th>Propiedad</th>
-	<th>Valor</th>
-	</tr>
-	<tr>
-	<th>Categoría</th>
-	<th>Plantillas/Visual C#/Windows</th>
-	</tr>
-	<tr>
-	<th>Plantilla</th>
-	<th>Aplicación de consola</th>
-	</tr>
-	<tr>
-	<th>Nombre</th>
-	<th>SubmitPigJob</th>
-	</tr>
-	</table>
+<tr>
+<th>Propiedad</th>
+<th>Valor</th>
+</tr>
+<tr>
+<th>Categoría</th>
+<th>Plantillas/Visual C#/Windows</th>
+</tr>
+<tr>
+<th>Plantilla</th>
+<th>Aplicación de consola</th>
+</tr>
+<tr>
+<th>Nombre</th>
+<th>SubmitPigJob</th>
+</tr>
+</table>
 4. Haga clic en **Aceptar** para crear el proyecto.
 5. En el menú **Herramientas**, seleccione **Administrador de paquetes de biblioteca** o **Administrador de paquetes de Nuget** y, a continuación, seleccione **Consola del administrador de paquetes**.
 6. Ejecute el siguiente comando en la consola para instalar los paquetes de SDK de .NET.

@@ -75,11 +75,11 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 
 	<table border="1">
-	<tr><th>Propiedad del clúster</th><th>Descripción</th></tr>
-	<tr><td>Nombre de clúster de HBase</td><td>El nombre del clúster de HBase de HDInsight. Por ejemplo: https://myhbase.azurehdinsight.net/</td></tr>
-	<tr><td>Nombre de usuario de clúster</td><td>El nombre de la cuenta de usuario de Hadoop. El nombre de usuario de Hadoop predeterminado es <strong>admin</strong>.</td></tr>
-	<tr><td>Contraseña de usuario de clúster</td><td>La contraseña de usuario del clúster de Hadoop.</td></tr>
-	</table>
+<tr><th>Propiedad del clúster</th><th>Descripción</th></tr>
+<tr><td>Nombre de clúster de HBase</td><td>El nombre del clúster de HBase de HDInsight. Por ejemplo: https://myhbase.azurehdinsight.net/</td></tr>
+<tr><td>Nombre de usuario de clúster</td><td>El nombre de la cuenta de usuario de Hadoop. El nombre de usuario de Hadoop predeterminado es <strong>admin</strong>.</td></tr>
+<tr><td>Contraseña de usuario de clúster</td><td>La contraseña de usuario del clúster de Hadoop.</td></tr>
+</table>
 
 - **Una estación de trabajo** con Visual Studio 2013 instalado. Para obtener instrucciones, consulte [Instalación de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -367,7 +367,7 @@ Debe crear una aplicación para obtener tweets, calcular la puntuación de opini
             }
         }
 
-6. Establezca las constantes del código anterior, incluidas **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** y DICTIONARYFILENAME. DICTIONARYFILENAME es el nombre de archivo y la ubicación de direction.tsv. El archivo se puede descargar de ****https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Si desea cambiar el nombre de tabla de HBase, deberá cambiarlo también en la aplicación web.
+6. Establezca las constantes del código anterior, incluidas **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** y DICTIONARYFILENAME. DICTIONARYFILENAME es el nombre de archivo y la ubicación de direction.tsv. El archivo se puede descargar de **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Si desea cambiar el nombre de tabla de HBase, deberá cambiarlo también en la aplicación web.
 
 7. Abra **Program.cs** y reemplace el código por el siguiente:
 
@@ -445,7 +445,7 @@ Debe crear una aplicación para obtener tweets, calcular la puntuación de opini
 
 Para ejecutar el servicio de streaming, presione **F5**. La siguiente es una captura de pantalla de la aplicación de consola:
 
-![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
+	![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
     
 Mientras desarrolla la aplicación web, mantenga en ejecución la aplicación de consola de streaming para disponer de más datos. Para examinar los datos insertados en la tabla, puede usar HBase Shell. Consulte [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
 

@@ -191,7 +191,7 @@ El SDK de Centros de notificaciones de Azure ha tenido algunas actualizaciones i
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
-        // see https://azure.microsoft.com/es-ES/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
+        // see https://azure.microsoft.com/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
         logger.silly('Running TodoItem.insert');
 
         // This push uses a template mechanism, so we need a template/
@@ -271,7 +271,7 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[precios del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
+[precios del Servicio de aplicaciones]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 [Portal de Azure]: https://portal.azure.com/
