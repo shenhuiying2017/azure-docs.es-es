@@ -3,7 +3,7 @@
 	description="Proporciona procedimientos recomendados para cambiar la configuración predeterminada de Azure AD Connect Sync."
 	services="active-directory"
 	documentationCenter=""
-	authors="andkjell"
+	authors="markvi"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/10/2016"
-	ms.author="markvi;andkjell"/>
+	ms.author="markvi"/>
 
 
 # Azure AD Connect Sync: procedimientos recomendados de cambio de la configuración predeterminada
