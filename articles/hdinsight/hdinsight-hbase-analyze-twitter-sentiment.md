@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="05/09/2016" 
 	ms.author="jgao"/>
 
 # Realizar análisis de opinión en Twitter en tiempo real con HBase en HDInsight
@@ -23,7 +23,7 @@ Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sen
 
 Los sitios web de las redes sociales constituyen una de las principales fuerzas motrices para la adopción de Big Data. Las API públicas proporcionadas por sitios como Twitter constituyen un origen de datos muy útil para analizar y comprender las tendencias populares. En este tutorial, aprenderá a desarrollar una aplicación de servicio de streaming de consola y una aplicación web ASP.NET para hacer lo siguiente:
 
-![][img-app-arch]
+![Análisis de las opiniones de Twitter con HBase en HDInsight.][img-app-arch]
 
 - La aplicación de streaming
 	- Obtener tweets con geoetiqueta en tiempo real a través de la API de streaming de Twitter.
@@ -71,7 +71,7 @@ Encontrará una solución completa de Visual Studio de ejemplo en GitHub: [Aplic
 ### Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Un clúster de HBase en HDInsight**. Para obtener instrucciones sobre la creación de clústeres, consulte [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows][hbase-get-started]. Para completar el tutorial, necesitará los datos siguientes:
+- **Un clúster de HBase en HDInsight**. Para ver instrucciones sobre la creación de clústeres, consulte [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows][hbase-get-started]. Para completar el tutorial, necesitará los datos siguientes:
 
 
 	<table border="1">
@@ -146,8 +146,8 @@ Debe crear una aplicación para obtener tweets, calcular la puntuación de opini
 		Install-Package Microsoft.HBase.Client
 		Install-Package TweetinviAPI
     Estos comandos instalarán el paquete [SDK para .NET de HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/), que es la biblioteca de cliente para el acceso al clúster de HBase, y el paquete [API de Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/), que se utiliza para el acceso a la API de Twitter.
-3. En el **Explorador de soluciones**, agregue **System.Configuration" a la referencia.
-4. Agregue un archivo de clase nuevo al proyecto denominado **HBaseWriter.cs** y luego reemplace el código por lo siguiente:
+3. En el **Explorador de soluciones**, agregue **System.Configuration** a la referencia.
+4. Agregue un nuevo archivo de clase al proyecto **HBaseWriter.cs** y reemplace el código por el siguiente:
 
         using System;
         using System.Collections.Generic;
@@ -193,12 +193,12 @@ Debe crear una aplicación para obtener tweets, calcular la puntuación de opini
                     client = new HBaseClient(credentials);
 
                     // create the HBase table if it doesn't exist
-                    if (!client.ListTables().name.Contains(HBASETABLENAME))
+                    if (!client.ListTablesAsync().Result.name.Contains(HBASETABLENAME))
                     {
                         TableSchema tableSchema = new TableSchema();
                         tableSchema.name = HBASETABLENAME;
                         tableSchema.columns.Add(new ColumnSchema { name = "d" });
-                        client.CreateTable(tableSchema);
+                        client.CreateTableAsync(tableSchema).Wait;
                         Console.WriteLine("Table "{0}" is created.", HBASETABLENAME);
                     }
 
@@ -344,7 +344,7 @@ Debe crear una aplicación para obtener tweets, calcular la puntuación de opini
                                 }
 
                                 // Write the Tweet by words cell set to the HBase table
-                                client.StoreCells(HBASETABLENAME, set);
+								client.StoreCellsAsync(HBASETABLENAME, set).Wait();
                                 Console.WriteLine("\tRows written: {0}", set.rows.Count);
                             }
                             Thread.Sleep(100);
@@ -367,9 +367,9 @@ Debe crear una aplicación para obtener tweets, calcular la puntuación de opini
             }
         }
 
-6. Establezca las constantes del código anterior, incluidas **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** y DICTIONARYFILENAME. DICTIONARYFILENAME es el nombre de archivo y la ubicación de direction.tsv. El archivo se puede descargar aquí: ****https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Si desea cambiar el nombre de tabla de HBase, deberá cambiarlo también en la aplicación web.
+6. Establezca las constantes del código anterior, incluidas **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** y DICTIONARYFILENAME. DICTIONARYFILENAME es el nombre de archivo y la ubicación de direction.tsv. El archivo se puede descargar de ****https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Si desea cambiar el nombre de tabla de HBase, deberá cambiarlo también en la aplicación web.
 
-7. Abra **Program.cs** y reemplace el código por lo siguiente:
+7. Abra **Program.cs** y reemplace el código por el siguiente:
 
         using System;
         using System.Diagnostics;
@@ -445,9 +445,9 @@ Debe crear una aplicación para obtener tweets, calcular la puntuación de opini
 
 Para ejecutar el servicio de streaming, presione **F5**. La siguiente es una captura de pantalla de la aplicación de consola:
 
-	![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
+![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
     
-Mientras desarrolla la aplicación web, mantenga en ejecución la aplicación de consola de streaming para disponer de más datos. Para examinar los datos insertados en la tabla, puede usar HBase Shell. Vea [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
+Mientras desarrolla la aplicación web, mantenga en ejecución la aplicación de consola de streaming para disponer de más datos. Para examinar los datos insertados en la tabla, puede usar HBase Shell. Consulte [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
 
 
 ## Visualización de la opinión en tiempo real
@@ -1236,8 +1236,8 @@ En este tutorial, ha aprendido a obtener tweets, analizar la opinión de estos, 
 - [Desarrollo de programas de MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
-[website-get-started]: ../web-sites-dotnet-get-started.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
+[website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
 
 
 
@@ -1248,9 +1248,8 @@ En este tutorial, ha aprendido a obtener tweets, analizar la opinión de estos, 
 
 
 
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 
 
 
@@ -1277,4 +1276,4 @@ En este tutorial, ha aprendido a obtener tweets, analizar la opinión de estos, 
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

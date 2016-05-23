@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/09/2016"
 	ms.author="renash"/>
 
 
@@ -195,6 +195,7 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 	- Anker 68UPSATAA-02BU
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE
+	- Sharkoon QuickPort XT HC
 
 > [AZURE.NOTE] Si su convertidor no aparece en la lista anterior, puede probar a ejecutar la herramienta de importación y exportación de Azure para preparar la unidad y comprobar si funciona antes de adquirir un convertidor compatible.
 
@@ -239,13 +240,13 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 
 - Para las regiones en EE. UU. y Europa, solo se admite [Federal Express](http://www.fedex.com/us/oadr/) (FedEx). Todos los paquetes se devolverán a través de FedEx Ground o FedEx International Economy.
 
-- En las zonas Este de Asia pacífico, Sudeste de Asia Pacífico, Este de Australia, Sudeste de Australia y Japón Occidental, solo se admite [DHL](http://www.dhl.com/). Todos los paquetes se devolverán a través de DHL Express Worldwide.
+- En las zonas Este de Asia pacífico, Sudeste de Asia Pacífico, Este de Australia, Sudeste de Australia, Japón Occidental, Japón Oriental y centro de la India, solo se admite [DHL](http://www.dhl.com/). Todos los paquetes se devolverán a través de DHL Express Worldwide.
 
 	> [AZURE.IMPORTANT] Debe proporcionar su número de seguimiento al servicio de importación y exportación de Azure; de lo contrario, no se podrá procesar su trabajo.
 
 **¿Existe algún coste asociado al envío de devolución?**
 
-- Microsoft utilizará el número de cuenta del transportista que facilite en el momento de creación del trabajo para enviar las unidades a la dirección de devolución desde el centro de datos. Asegúrese de proporcionar un número de cuenta del transportista para el transportista admitido en la región del centro de datos. Puede crear una cuenta de transportista de [FedEx](http://www.fedex.com/us/oadr/) (en EE. UU. y Europa) o [DHL](http://www.dhl.com/) (Asia) si no dispone de una.
+- Microsoft utilizará el número de cuenta del transportista que facilite en el momento de creación del trabajo para enviar las unidades a la dirección de devolución desde el centro de datos. Asegúrese de proporcionar un número de cuenta del transportista para el transportista admitido en la región del centro de datos. Puede crear una cuenta de transportista de [FedEx](http://www.fedex.com/us/oadr/) (en EE. UU. y Europa) o [DHL](http://www.dhl.com/) (Asia y Australia) si no dispone de una.
 
 - Los gastos de la devolución se cargan en su cuenta de transportista, y dependen de este último.
 
@@ -265,6 +266,8 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 	- Australia Oriental
 	- Sudeste de Australia
 	- Oeste de Japón
+	- Este de Japón
+	- India Central
 
 - Se le proporcionará una dirección de envío del lugar de residencia de su cuenta de almacenamiento. Por ejemplo, si vive en EE. UU. y la cuenta de almacenamiento se encuentra en el centro de datos de Europa occidental, se le proporcionará una dirección de envío en Europa para enviar las unidades.
 
@@ -293,4 +296,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

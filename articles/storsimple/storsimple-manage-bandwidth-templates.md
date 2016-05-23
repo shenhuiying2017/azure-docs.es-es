@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Administración de plantillas de ancho de banda de StorSimple | Microsoft Azure"
    description="Describe cómo administrar plantillas de ancho de banda de StorSimple, que le permiten controlar el consumo de ancho de banda."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="05/10/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para administrar plantillas de ancho de banda de StorSimple
@@ -28,7 +28,7 @@ Mediante programaciones de limitación de ancho de banda puede:
 - Centralizar la administración y reutilizar las programaciones en varios dispositivos de forma fácil y transparente.
 
 > [AZURE.NOTE] Esta característica está disponible solo para dispositivos físicos StorSimple y no para los dispositivos virtuales.
-   
+
 Todas las plantillas de ancho de banda del servicio se muestran en formato tabular y contienen la siguiente información:
 
 - **Nombre**: nombre único asignado a la plantilla de ancho de banda cuando se creó.
@@ -63,11 +63,11 @@ Realice los siguientes pasos para crear una nueva plantilla de ancho de banda.
    2. Seleccione la opción **Todo el día** si la programación se aplica para todo el día. Cuando se activa esta opción, ya no se puede especificar una **hora de inicio** ni una **hora de finalización**. La programación se ejecuta desde las 12:00 a.m. hasta las 11:59 p.m.
    3. En la lista desplegable, seleccione una **hora de inicio**. Esta es la hora a la que se iniciará la programación.
    4. En la lista desplegable, seleccione una **hora de finalización**. Esta es la hora a la que finalizará la programación.
-   
-         > [AZURE.NOTE] No se permiten las programaciones superpuestas. Si las horas de inicio y finalización provocan una programación superpuesta, verá un mensaje de error que lo indica.
 
-   5. Especifique la **velocidad de ancho de banda**. Esto es el ancho de banda en Megabits por segundo (Mbps) utilizado por el dispositivo StorSimple en operaciones que afectan a la nube. Proporcione un número entre 1 y 1.000 para este campo.
-   
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
+
+   5. Especifique la **velocidad de ancho de banda**. Este es el ancho de banda en Megabits por segundo (Mbps) utilizado por el dispositivo StorSimple en operaciones que afectan a la nube (tanto cargas como descargas). Proporcione un número entre 1 y 1.000 para este campo.
+
    6. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). La plantilla que ha creado se agregará a la lista de plantillas de ancho de banda en la página **configurar** del servicio.
 
     ![Crear nueva plantilla de ancho de banda](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
@@ -172,4 +172,4 @@ Siga estas prácticas recomendadas para el dispositivo StorSimple:
 
 Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

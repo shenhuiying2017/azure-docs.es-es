@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 #Guía de seguridad de Almacenamiento de Azure
@@ -40,7 +40,7 @@ Estos son los temas que se tratarán en este artículo:
 
 -   Cifrado en reposo
 
-    Hablaremos acerca del Cifrado del servicio de almacenamiento y el modo de habilitarlo para una cuenta de almacenamiento, lo que conlleva que los blobs en bloques y los blobs en páginas se cifren automáticamente al escribir en Almacenamiento de Azure. También veremos cómo puede usar el Cifrado de discos de Azure y exploraremos los casos y las diferencias básicas entre el Cifrado de discos, el Cifrado del servicio de almacenamiento y el Cifrado de cliente. Asimismo, estudiaremos brevemente el cumplimiento de la norma FIPS para equipos del Gobierno de EE. UU.
+    Hablaremos acerca del Cifrado del servicio de almacenamiento y el modo de habilitarlo para una cuenta de almacenamiento, lo que conlleva que los blobs en bloques y los blobs en páginas se cifren automáticamente al escribir en Almacenamiento de Azure. También veremos cómo puede usar Cifrado de discos de Azure y exploraremos los casos y las diferencias básicas entre Cifrado de discos, Cifrado del servicio de almacenamiento y Cifrado en el cliente. Asimismo, estudiaremos brevemente el cumplimiento de la norma FIPS para equipos del Gobierno de EE. UU.
 
 -   Uso de Análisis de almacenamiento para auditar el acceso de Almacenamiento de Azure
 
@@ -612,7 +612,7 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 	Cuando se recupera el blob, si hay un valor de MD5 almacenado, este lo devolverá en los encabezados de la solicitud. A continuación, puede calcular el valor hash de MD5 de los datos recibidos y compararlo con el valor MD5 almacenado. Si no coinciden, el blob se dañó durante el transporte.
 
-	Para más información, consulte [Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx) (Información general de MD5 del servicio BLOB de Azure).
+	Para más información, consulte [Windows Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx) (Información general de MD5 del servicio BLOB de Azure).
 
 2.  **¿Y qué ocurre con el cumplimiento de la norma FIPS para el Gobierno de EE. UU.?**
 
@@ -634,4 +634,4 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 	Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

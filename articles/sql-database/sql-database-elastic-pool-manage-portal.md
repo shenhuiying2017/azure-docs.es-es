@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/02/2016"
+	ms.date="05/09/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -27,17 +27,96 @@
 - [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
-Puede utilizar el portal de Azure para supervisar, administrar y configurar un grupo de bases de datos elásticas y las bases de datos del grupo. Base de datos SQL tiene inteligencia integrada que analiza el uso histórico de todas las bases de datos de un servidor (con independencia de que estén en grupos o no) y recomienda un grupo de bases de datos cuando sea más rentable.
+Puede utilizar el Portal de Azure para supervisar y administrar un grupo de bases de datos elásticas y las bases de datos del grupo. En el portal, puede supervisar el uso de un grupo elástico y las bases de datos dentro de ese grupo. También puede realizar un conjunto de cambios en el grupo elástico y enviar todos los cambios a la vez. Estos cambios incluyen agregar o quitar bases de datos, cambiar la configuración del grupo elástico o cambiar la configuración de la base de datos.
 
-El portal permite cambiar la configuración de grupos y bases de datos, obtener una vista previa de los cambios y, después, confirmar todos los cambios al mismo tiempo. Puede obtener una vista previa de los cambios, como agregar y quitar bases de datos. También se mostrará el posible impacto en el rendimiento y en los precios.
+El siguiente gráfico muestra un grupo elástico de ejemplo. La vista incluye:
 
-Para seguir los pasos de este artículo, necesitará algunas bases de datos y un grupo. Si ya tiene bases de datos, consulte [Creación de un grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-create-portal.md); si no dispone de una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md).
+*  Los gráficos para supervisar el uso de recursos del grupo elástico y las bases de datos contenidas en el grupo. 
+*  El botón **Configurar grupo** para realizar cambios en el grupo elástico. 
+*  El botón **Crear base de datos**, que crea una base de datos y la agrega al grupo elástico actual.
+*  Los trabajos elásticos que le ayudarán a administran un gran número de bases de datos mediante la ejecución de scripts de Transact SQL en todas las bases de datos de una lista. 
 
-## Seleccione un grupo con el que desea trabajar.
+![Vista Grupo][2]
 
-1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar**.
-2. Haga clic en **Grupos elásticos de SQL**.
-3. En la lista, haga clic en el grupo con el que desea trabajar.
+Para trabajar con los pasos de este artículo, necesitará SQL server en Azure con, al menos, una base de datos y un grupo elástico. Si no tiene ningún grupo elástico, consulte [Creación de un nuevo grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-create-portal.md); si no tiene ninguna base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md).
+
+## Supervisión de grupo elástico
+
+Puede ir a un grupo concreto para ver su utilización de recursos. De forma predeterminada, el grupo está configurado para mostrar el almacenamiento y el uso de eDTU durante la última hora. El gráfico puede configurarse para mostrar métricas diferentes en varias ventanas de tiempo.
+
+1. Seleccione un grupo con el que desea trabajar.
+2. En **Supervisión de grupo elástico** hay un gráfico con la etiqueta **Uso de recursos**. Haga clic en el gráfico.
+
+	![Supervisión de grupo elástico][3]
+
+	Se abre la hoja **Métrica**, donde se muestra una vista detallada de las métricas especificadas en la ventana de tiempo especificada.
+
+	![Cuadro de métricas][9]
+
+### Personalización de la visualización del gráfico
+
+Puede editar el gráfico y la hoja de métricas para mostrar otras métricas, como el porcentaje de CPU, el porcentaje de E/S de datos y el porcentaje de E/S de registro usados.
+ 
+2. En la hoja de métricas, haga clic en **Editar**.
+
+	![Haga clic en Editar.][6]
+
+- En la hoja **Editar gráfico**, seleccione un nuevo intervalo de tiempo (última hora, hoy o última semana) o haga clic en **personalizado** para seleccionar cualquier intervalo de fechas dentro de las últimas dos semanas. Seleccione el tipo de gráfico (de barras o líneas) y, después, seleccione los recursos que se supervisarán. 
+
+	![Haga clic en Editar.](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+
+- A continuación, haga clic en **Aceptar**.
+
+
+## Supervisión de la base de datos elástica
+
+También se pueden supervisar bases de datos individuales en caso de un problema potencial.
+
+1. En **Supervisión de base de datos elástica** hay un gráfico que muestra las métricas para cinco bases de datos. De forma predeterminada, el gráfico muestra las 5 bases de datos principales en el grupo por uso promedio de eDTU durante la última hora. Haga clic en el gráfico.
+
+	![Supervisión de grupo elástico][4]
+
+2. Aparece la hoja **Database Resource Utilization** (Uso de recursos de bases de datos). Esto proporciona una vista detallada del uso de las bases de datos en el grupo. Mediante la cuadrícula situada en la parte inferior de la hoja, puede seleccionar las bases de datos del grupo para mostrar su uso en el gráfico (hasta cinco bases de datos). También puede personalizar la ventana de tiempo y métricas que se muestra en el gráfico; para ello, haga clic en **Editar gráfico**.
+
+	![Hoja de utilización de recursos de base de datos][8]
+
+### Personalización de la vista
+
+1. En la hoja **Database Resource Utilization** (Uso de recursos de bases de datos), haga clic en **Editar gráfico**.
+
+	![Clic en Editar gráfico](./media/sql-database-elastic-pool-manage-portal/db-utilization-blade.png)
+
+2. En la hoja **Editar gráfico**, seleccione un nuevo intervalo de tiempo (última hora o 24 horas) o haga clic en **personalizado** para seleccionar otro día dentro de las últimas dos semanas que se mostrará.
+
+	![Clic en Personalizado](./media/sql-database-elastic-pool-manage-portal/editchart-date-time.png)
+
+3. Haga clic en la lista desplegable **Compare databases by** (Comparar bases de datos por) para seleccionar otra métrica que se usará al comparar bases de datos.
+
+	![Edición del gráfico](./media/sql-database-elastic-pool-manage-portal/edit-comparison-metric.png)
+
+### Selección de las bases de datos que se supervisarán
+
+En la lista de bases de datos en la hoja **Database Resource Utilization** (Uso de recursos de bases de datos) puede encontrar bases de datos específicas consultando las páginas de la lista o escribiendo el nombre de una base de datos. Utilice la casilla para seleccionar la base de datos.
+
+![Búsqueda de las bases de datos que se supervisarán][7]
+  
+
+## Adición de una alerta a un grupo de recursos
+
+Puede agregar reglas a los recursos que envían correos electrónicos a personas o cadenas de alerta a puntos de conexión de URL cuando el recurso alcanza un umbral de uso que establezca.
+
+**Para agregar una alerta para cualquier recurso, siga estos pasos:**
+
+1. Haga clic en el gráfico **Uso de recursos** para abrir la hoja **Métrica**, haga clic en **Agregar alerta** y rellene la información de la hoja **Agregar una regla de alerta** (el campo **Recurso** se establece automáticamente en el grupo con el que está trabajando).
+2. Escriba un **Nombre** y una **Descripción** que identifique la alerta de cara a usted y a los destinatarios.
+3. Elija en la lista la **Métrica** para la que quiera que se generen alertas.
+
+    El gráfico muestra dinámicamente el uso de recursos relativos a esa métrica a fin de ayudarle a elegir un umbral.
+
+4. Elija una **Condición** (mayor que, menor que, etc.) y un **Umbral**.
+5. Haga clic en **Aceptar**.
+
+
 
 ## Movimiento de una base de datos a un grupo elástico
 
@@ -56,11 +135,11 @@ Puede agregar o quitar las bases de datos de un grupo existente. Las bases de da
 
 	![Seleccione las bases de datos que desea agregar.](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
-    La hoja **Configurar grupo** muestra ahora, con el estado **Pendiente**, la base de datos que acaba de agregar.
+    La hoja **Configurar grupo** muestra ahora la base de datos que ha seleccionado para agregarla, con el estado establecido como **Pendiente**.
 
     ![Adiciones de grupo pendientes.](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
-3. En la hoja "Configurar grupo", haga clic en **Guardar**.
+3. En la hoja **Configurar grupo**, haga clic en **Guardar**.
 
     ![Haga clic en Guardar](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
@@ -72,56 +151,25 @@ Puede agregar o quitar las bases de datos de un grupo existente. Las bases de da
 
 2. Haga clic en **Quitar del grupo**.
 
-    ![lista de bases de datos](./media/sql-database-elastic-pool-manage-portal/remove-from-pool.png)
+    ![lista de bases de datos](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
 
-	Las bases de datos seleccionadas aparecerán en la interfaz de usuario como "databases selected to be removed" (bases de datos seleccionadas para quitarse).
+    La hoja **Configurar grupo** muestra ahora la base de datos que ha seleccionado para quitarla, con el estado establecido como **Pendiente**.
+    
+    ![Adición de base de datos de vista previa y eliminación](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
 
+3. En la hoja **Configurar grupo**, haga clic en **Guardar**.
 
-## Supervisión del uso de recursos de un grupo
-
-
-1. Seleccione un grupo con el que desea trabajar.
-2. En **Supervisión de grupo elástico**, un gráfico e iconos dinámicos mostrarán información de uso importante del grupo.
-
-![Supervisión de grupos elásticos](./media/sql-database-elastic-pool-manage-portal/monitor-elastic-pool.png)
-
-**Para cambiar el gráfico y la visualización, siga estos pasos:**
-
-- Haga clic en **Editar**.
-
-	![Haga clic en Editar.](./media/sql-database-elastic-pool-manage-portal/edit-resource-utlization.png)
-
-- En la hoja **Editar gráfico**, seleccione un nuevo intervalo de tiempo (última hora, hoy o última semana) o haga clic en **personalizado** para establecer un intervalo de tiempo diferente. Seleccione el tipo de gráfico (de barras o líneas) y, después, seleccione los recursos que se supervisarán.
-
-	![Haga clic en Editar.](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
-
-- A continuación, haga clic en **Aceptar**.
-
-
-## Adición de una alerta a un grupo de recursos
-
-Puede agregar reglas a los recursos que envían correos electrónicos a personas o cadenas de alerta a puntos de conexión de URL cuando el recurso alcanza un umbral de uso que establezca.
-
-**Para agregar una alerta para cualquier recurso, siga estos pasos:**
-
-1. Haga clic en el gráfico **Uso de recursos** para abrir la hoja **Métrica**, haga clic en **Agregar alerta** y, después, rellene la información de la hoja **Agregar una regla de alerta** (el campo **Recurso** se establece automáticamente en el grupo con el que está trabajando).
-2. Escriba un **nombre** y una **descripción** para la alerta que resulten significativos para usted y los destinatarios.
-3. Elija una **métrica** de la que quiera que se generen alertas en la lista.
-
-    El gráfico muestra dinámicamente el uso de recursos relativos a esa métrica a fin de ayudarle a elegir un umbral.
-
-4. Elija una **condición** (mayor que, menor que, etc.) y un **umbral**.
-5. Haga clic en **Aceptar**.
+    ![Haga clic en Guardar](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
 ## Cambio de la configuración de rendimiento de un grupo
 
-Cuando supervise el uso de recursos de un grupo, es posible que descubra que el grupo necesita una eDTU más. También puede percatarse de que las bases de datos individuales del grupo necesitan una configuración de eDTU diferente. Puede cambiar la configuración del grupo en cualquier momento para obtener el mejor equilibrio entre rendimiento y costo. Consulte [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md) para obtener más información.
+Cuando supervise el uso de recursos de un grupo, es posible que descubra que son necesarios algunos ajustes. Quizás el grupo necesita un cambio en los límites de almacenamiento o rendimiento. Posiblemente desee cambiar la configuración de la base de datos en el grupo. Puede cambiar la configuración del grupo en cualquier momento para obtener el mejor equilibrio entre rendimiento y costo. Consulte [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md) para más información.
 
-**Para cambiar las eDTU por grupo y por base de datos, siga estos pasos:**
+**Para cambiar los límites de almacenamiento o eDTU por grupo y las eDTU por base de datos:**
 
 1. Abra la hoja **Configurar grupo**.
 
-    En **Configuración del grupo de bases de datos elásticas**, utilice los controles deslizantes para cambiar la configuración del grupo.
+    En **Configuración del grupo de bases de datos elásticas**, utilice el control deslizante para cambiar la configuración del grupo.
 
     ![Uso de recursos de grupos elásticos](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
@@ -129,18 +177,18 @@ Cuando supervise el uso de recursos de un grupo, es posible que descubra que el 
 
     ![Actualización de un grupo y nuevo costo mensual](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
-## Vista previa de las acciones en las bases de datos
-
-Puede obtener una vista previa de la adición o eliminación de bases de datos antes de confirmar la acción en la hoja **Configurar grupo**:
-
-![Adición de base de datos de vista previa y eliminación](./media/sql-database-elastic-pool-manage-portal/pools-tab.png).
-
 
 ## Creación y administración de trabajos elásticos
 
-Los trabajos elásticos le permiten ejecutar scripts de Transact-SQL con cualquier número de bases de datos en el grupo. Antes de usar los trabajos, instale los componentes de trabajos elásticos y especifique sus credenciales. Para obtener más información, vea [Información general sobre los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md).
+Los trabajos elásticos le permiten ejecutar scripts de Transact-SQL con cualquier número de bases de datos en el grupo. Puede crear tareas o administrar trabajos existentes mediante el portal.
 
-Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
+![Creación y administración de trabajos elásticos][5]
+
+
+Antes de usar los trabajos, instale los componentes de trabajos elásticos y especifique sus credenciales. Para obtener más información, vea [Información general sobre los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md).
+
+Consulte [Información general de las características de bases de datos elásticas](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
+
 
 
 ## Recursos adicionales
@@ -154,5 +202,13 @@ Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elast
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool-manage-portal/configure-pool.png
+[2]: ./media/sql-database-elastic-pool-manage-portal/basic.png
+[3]: ./media/sql-database-elastic-pool-manage-portal/basic-2.png
+[4]: ./media/sql-database-elastic-pool-manage-portal/basic-3.png
+[5]: ./media/sql-database-elastic-pool-manage-portal/elastic-jobs.png
+[6]: ./media/sql-database-elastic-pool-manage-portal/edit-metric.png
+[7]: ./media/sql-database-elastic-pool-manage-portal/select-dbs.png
+[8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
+[9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

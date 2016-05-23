@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/06/2016"
+    ms.date="05/02/2016"
     ms.author="elizapo" />
 
 
@@ -23,7 +23,7 @@
 Una de las ventajas de Azure RemoteApp es que siempre trabajamos para mejorarlo. Cada vez que lo hagamos, anunciaremos aquí esos cambios.
 
 ## Actualizaciones futuras
-Hola, ¿sabía que el equipo de Azure RemoteApp publica actualizaciones mensuales en el blog RDS? No solo encontrará las novedades de Azure RemoteApp, sino también más información acerca de cómo utilizar RDS. Para obtener información, visite el blog [Remote Desktop Services Blog](https://blogs.msdn.microsoft.com/rds/). Por ejemplo, hace un par de semanas, publicaron una entrada sobre [elevación y desplazamiento de cargas de trabajo con Azure RemoteApp y Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+¿Sabía que el equipo de Azure RemoteApp publica actualizaciones mensuales en el blog de RDS? No solo encontrará las novedades de Azure RemoteApp, sino también más información acerca de cómo utilizar RDS. Para obtener información, visite su blog: [Remote Desktop Services Blog](https://blogs.msdn.microsoft.com/rds/). Por ejemplo, hace un par de semanas, publicaron una entrada sobre [elevación y desplazamiento de cargas de trabajo con Azure RemoteApp y Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
  
 ## Septiembre de 2015
 - Se agregó InfoPath a la imagen de galería y plantilla de Microsoft Office 365. Si desea compartir InfoPath, asegúrese de actualizar las colecciones con la imagen más reciente.
@@ -87,4 +87,4 @@ Gracias por seguir con nosotros, volveremos el próximo mes con más novedades.
 ### Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

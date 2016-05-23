@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 
@@ -40,7 +40,7 @@ Use el procedimiento siguiente para ver los trabajos de copia de seguridad progr
 
     - **Última ejecución**: la fecha y hora de la instantánea programada más reciente
 
-    >[AZURE.NOTE]En las instantáneas que se realizan una sola vez, los valores de **Siguiente ejecución** y **Última ejecución** serán iguales.
+    >[AZURE.NOTE] En las instantáneas que se realizan una sola vez, los valores de **Siguiente ejecución** y **Última ejecución** serán iguales.
  
     ![Trabajos de copia de seguridad programados](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png)
  
@@ -96,11 +96,11 @@ Utilice el procedimiento siguiente para ver los trabajos que se están ejecutand
     
     - **Transcurrido**: la cantidad de tiempo que ha transcurrido desde que comenzó la copia de seguridad.
 
-    - **Rendimiento medio (MB)**: la cantidad media de datos entregados, expresada en megabytes (MB).
+    - **Rendimiento medio (MB)**: la relación del total de bytes de datos procesados con el tiempo total necesario para realizar el procesamiento (MB).
 
-    - **Bytes procesados (MB)**: la cantidad de datos del grupo de volúmenes que se procesó (en MB).
+    - **Bytes procesados (MB)**: total de bytes de los datos procesados (en MB).
 
-    - **Bytes escritos (MB)**: la cantidad de datos que se escriben en la copia de seguridad (en MB).
+    - **Bytes escritos (MB)**: total de bytes de los datos escritos (en MB). Incluye los datos, así como los metadatos y, por tanto, es normalmente mayor que los bytes procesados.
 
     ![Trabajos en ejecución](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
 
@@ -130,4 +130,4 @@ Utilice el procedimiento siguiente para ver los trabajos que se están ejecutand
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

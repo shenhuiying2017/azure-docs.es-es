@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="04/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -67,7 +67,7 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 ## Creación e implementación
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **Nuevo > Proceso** y luego desplácese hacia abajo y haga clic en **Servicio en la nube**.
+2. Haga clic en **Nuevo > Máquinas virtuales**, desplácese hacia abajo y haga clic en **Servicio en la nube**.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
@@ -75,12 +75,13 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 4. En la nueva hoja **Servicio en la nube**, escriba un valor para **Nombre DNS**
 5. Cree un nuevo **Grupo de recursos** o seleccione uno existente.
 6. Seleccione una **ubicación**.
-7. Seleccione **Paquete** y, en la hoja **Cargar un paquete**, rellene los campos obligatorios.  
+7. Haga clic en **Paquete**. Se abrirá la hoja **Upload a package** (Cargar un paquete). Rellene todos los campos obligatorios.  
 
      Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté seleccionada.
 
 8. Asegúrese de que la opción **Iniciar implementación** esté seleccionada.
-9. Haga clic en **Aceptar**.
+9. Haga clic en **Aceptar** que cerrará la hoja **Upload a package** (Cargar un paquete).
+10. Si no tiene ningún certificado para agregar, haga clic en **Crear**.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
@@ -115,4 +116,4 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

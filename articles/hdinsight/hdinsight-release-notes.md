@@ -42,7 +42,7 @@ Esta versión contiene las siguientes actualizaciones.
 | Recuperación tras bloqueo de Livy | Proporciona resistencia de estado de trabajos en todos los trabajos que se envíen a través de Livy. | Confiabilidad | Spark en Linux| N/D
 | Contenido de Jupyter (alta disponibilidad) | Ofrece la posibilidad de guardar y cargar contenido de Jupyter Notebook en la cuenta de almacenamiento asociada al clúster. Para obtener más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Cuadernos | Spark en Linux| N/D
 | Eliminación de hiveContext en cuadernos de Jupyter Notebook | Use la instrucción mágica `%%sql` en lugar de `%%hive`. SqlContext es equivalente a hiveContext. Para obtener más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Cuadernos | Clústeres de Spark en Linux| N/D
-| Degradación de las versiones anteriores de Spark | El 31 de mayo se quitará del servicio la versión anterior 1.3.1 de Spark. | Servicio | Clústeres de Spark en Linux | N/D
+| Degradación de las versiones anteriores de Spark | El 31 de mayo se quitará del servicio la versión anterior 1.3.1 de Spark. | Servicio | Clústeres de Spark en Windows | N/D
 
 ## Notas de la versión del 29/03/2016 de HDinsight
 
@@ -1523,7 +1523,7 @@ Se han realizado los siguientes cambios de versión entre HDInsight 2.x (HDP1.x)
 
 
 ### Controladores
-El controlador Java Database Connnectivity (JDBC) para SQL Server se usa de forma interna mediante HDInsight y no se usa para realizar operaciones externas. Si desea conectarse a HDInsight mediante Conectividad abierta de bases de datos (ODBC), utilice Microsoft Hive ODBC Driver. Para obtener más información, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
+El controlador Java Database Connnectivity (JDBC) para SQL Server se usa de forma interna mediante HDInsight y no se usa para realizar operaciones externas. Si desea conectarse a HDInsight mediante Conectividad abierta de bases de datos (ODBC), utilice Microsoft Hive ODBC Driver. Para obtener más información, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Corrección de errores
@@ -1565,4 +1565,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

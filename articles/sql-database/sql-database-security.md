@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="01/22/2016"
+   ms.date="04/25/2016"
    ms.author="thmullan;jackr"/>
 
 
@@ -102,8 +102,10 @@ Si desea conocer otras formas de cifrar los datos secretos, considere:
 
 La auditoría y el seguimiento de eventos de la base de datos pueden ayudarle a mantener el cumplimiento de las reglamentaciones y a identificar cualquier actividad sospechosa. La auditoría de Base de datos SQL permite grabar los eventos de la base de datos en un registro de auditoría de una cuenta de Almacenamiento de Azure. La auditoría de Base de datos SQL también se integra con Microsoft Power BI, con el fin de facilitar la generación de análisis e informes detallados. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL](sql-database-auditing-get-started.md).
 
+Detección de amenazas de Base de datos SQL proporciona un nivel adicional de seguridad añadido a la auditoría. Le permite responder a las amenazas a medida que se producen proporcionando alertas de seguridad sobre actividades anómalas. Para más información, consulte [Introducción a Detección de amenazas de Base de datos SQL](sql-database-threat-detection-get-started.md).
+
 ## Cumplimiento normativo
 
 Además de las anteriores características y funcionalidades que pueden ayudar a su aplicación a cumplir distintos requisitos de cumplimiento de normas de seguridad, la Base de datos SQL de Azure también participa en las auditorías regulares y ha sido certificada con una serie de estándares de cumplimiento normativo. Para obtener más información, consulte el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de Base de datos SQL](https://azure.microsoft.com/support/trust-center/services/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

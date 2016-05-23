@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="04/22/2016"
    ms.author="larryfr"/>
 
 #Ejecución de las consultas de Hive mediante las herramientas de HDInsight para Visual Studio
@@ -31,7 +31,13 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Un clúster de HDInsight (Hadoop en HDInsight) de Azure (Linux o basado en Windows)
 
-* Visual Studio 2012 con [Update 4](http://www.microsoft.com/download/details.aspx?id=39305), Visual Studio 2013 con [Update 3](http://go.microsoft.com/fwlink/?LinkId=390465) o [Visual Studio Express 2013](http://www.microsoft.com/download/details.aspx?id=40769)
+* Visual Studio (una de las siguientes versiones):
+
+    Visual Studio 2013 Comunidad/Professional/Premium/Ultimate con [actualización 4](https://www.microsoft.com/download/details.aspx?id=44921)
+
+    Visual Studio 2015 (Community/Enterprise)
+
+- Herramientas de HDInsight para Visual Studio Consulte [Introducción al uso de herramientas de Hadoop en Visual Studio para HDInsight para ejecutar una consulta de Hive](hdinsight-hadoop-visual-studio-tools-get-started.md) para conocer los pasos que le permitirán instalar y configurar las herramientas.
 
 ##<a id="run"></a> Ejecución de consultas de Hive mediante las herramientas de HDInsight para Visual Studio
 
@@ -59,7 +65,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
     * **SELECT**: permite seleccionar un número de todas las filas donde la columna **t4** contiene el valor **[ERROR]**. Esto debe devolver un valor de **3** porque hay tres filas que contienen este valor.
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'**: indica a Hive que solo deberíamos devolver datos de archivos que terminan en .log. Esto restringe la búsqueda al archivo sample.log que contiene los datos y le impide que devuelva datos de otros archivos de datos de ejemplo que no coinciden con el esquema que hemos definido.
 
-3. En la barra de herramientas, seleccione el **clúster de HDInsight** que desea usar para esta consulta y, a continuación, seleccione **Enviar** para ejecutar las instrucciones como un trabajo de Hive. El **resumen del trabajo de Hive** aparecerá y mostrará información sobre el trabajo en ejecución. Utilice el vínculo **Actualizar** para actualizar la información del trabajo, hasta que el **estado del trabajo** cambie a **Completado**.
+3. En la barra de herramientas, seleccione el **clúster de HDInsight** que desea usar para esta consulta y, después, seleccione **Enviar a WebHCat** para ejecutar las instrucciones como un trabajo de Hive mediante WebHCat. También puede enviar el trabajo con el botón __Execute via HiveServer2__ (Ejecutar a través de HiveServer2) si HiveServer2 está disponible en su versión de clúster. El **resumen del trabajo de Hive** aparecerá y mostrará información sobre el trabajo en ejecución. Utilice el vínculo **Actualizar** para actualizar la información del trabajo, hasta que el **estado del trabajo** cambie a **Completado**.
 
 4. Utilice el vínculo **Salida de trabajo** para ver el resultado de este trabajo. Debe mostrar `[ERROR] 3`, que es el valor devuelto por la instrucción SELECT.
 
@@ -135,4 +141,4 @@ Para obtener más información acerca de las herramientas de HDInsight para Visu
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -4,7 +4,7 @@
   services="app-service\mobile"
   documentationCenter=""
   authors="lindydonna"
-  manager="dwrede"
+  manager="erikre"
   editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="02/04/2016"
+  ms.date="05/10/2016"
   ms.author="donnam"/>
 
 # Control de versiones de cliente y servidor en Aplicaciones móviles y Servicios móviles
@@ -79,8 +79,7 @@ Nota: los SDK de cliente de Servicios móviles *no* envían un valor de encabeza
 
 | Plataforma de servidor | Versión | Encabezado de versión aceptado |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Sin encabezado de versión ** |
-| Node.js | (próximamente) | **Sin encabezado de versión** |
+| .NET | [WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ****Sin encabezado de versión ** || Node.js | (próximamente) | **Sin encabezado de versión** |
 
 <!-- TODO: add Node npm version -->
 
@@ -113,7 +112,7 @@ La comprobación de versión se incluye en las siguientes versiones del SDK de s
 | Plataforma de servidor | SDK | Encabezado de versión aceptado |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
 | .NET | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
-| Node.js | [azure-mobile-apps Versión 1.0-beta1 (o posterior)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
+| Node.js | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
 
 ### Comportamiento de back-ends de Aplicaciones móviles
 
@@ -139,4 +138,4 @@ La comprobación de versión se incluye en las siguientes versiones del SDK de s
 [Migración de un servicio móvil a Servicio de aplicaciones de Azure]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Azure mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

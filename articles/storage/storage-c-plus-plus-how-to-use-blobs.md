@@ -1,6 +1,6 @@
 <properties
     pageTitle="Cómo usar el almacenamiento de blobs (C++) | Microsoft Azure"
-    description="Obtenga información sobre cómo usar el servicio de almacenamiento de blobs de Azure. Los ejemplos están escritos en C++."
+	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+    ms.date="04/29/2016"
     ms.author="dineshm"/>
 
 # Cómo usar el almacenamiento de blobs de C++  
@@ -238,4 +238,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 -	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

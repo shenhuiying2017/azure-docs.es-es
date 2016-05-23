@@ -21,7 +21,7 @@
 
 Este tema contiene información sobre cómo insertar distintos tipos de anuncios en el lado del cliente.
 
-Para obtener información acerca de la compatibilidad con anuncios y subtítulos en vídeos de streaming en vivo, consulte [Estándares de inserción de anuncios y subtítulos compatibles](media-services-manage-channels-overview.md#cc_and_ads).
+Para obtener información acerca de la compatibilidad con anuncios y subtítulos en vídeos de streaming en vivo, consulte [Estándares de inserción de anuncios y subtítulos compatibles](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
 >[AZURE.NOTE] Actualmente, el Reproductor multimedia de Azure no admite anuncios.
 
@@ -160,7 +160,7 @@ Application/x-javascript: el recurso se muestra en una etiqueta HTML <**script**
 
 Application/x-shockwave-flash: el recurso se muestra en un reproductor Flash.
 
-**<IFrameResource>** describe un recurso HTML que se puede mostrar en un IFrame. **<HTMLResource>** describe un fragmento de código HTML que se puede insertar en una página web. **<TrackingEvents>** especifica los eventos de seguimiento y el URI que se solicitan cuando se produce el evento. En este ejemplo se realiza el seguimiento de los eventos acceptInvitation y collapse. Para obtener más información sobre el elemento **<NonLinearAds>** y sus elementos secundarios, consulte IAB.NET/VAST. Tenga en cuenta que el elemento **<TrackingEvents>** está ubicado en el elemento **<NonLinearAds>** en lugar del elemento **<NonLinear>**.
+**<IFrameResource>** describe un recurso HTML que se puede mostrar en un IFrame. **<HTMLResource>** describe un fragmento de código HTML que se puede insertar en una página web. **<TrackingEvents>** especifica los eventos de seguimiento y el URI que se solicitan cuando se produce el evento. En este ejemplo se realiza el seguimiento de los eventos acceptInvitation y collapse. Para obtener más información sobre el elemento **<NonLinearAds>** y sus elementos secundarios, consulte IAB.NET/VAST. Tenga en cuenta que el elemento **<TrackingEvents>** está ubicado en el elemento ** <NonLinearAds>** en lugar del elemento **<NonLinear>**.
 
 Los anuncios complementarios se definen dentro de un elemento <CompanionAds>. El elemento <CompanionAds> puede contener uno o varios elementos <Companion>. Cada elemento <Companion> describe un anuncio complementario y puede contener un <StaticResource>, una <IFrameResource> o un <HTMLResource>, que se especifican de la misma forma que un anuncio no lineal. Un archivo VAST puede contener varios anuncios complementarios y la aplicación de reproductor puede elegir el anuncio más apropiado para mostrar. Para obtener más información acerca de VAST, consulte [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
 
@@ -813,4 +813,4 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
 
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

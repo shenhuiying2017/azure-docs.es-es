@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Procedimiento: para migrar y publicar una aplicación web en un servicio en la nube de Azure desde Visual Studio
@@ -55,17 +55,17 @@ Para migrar y publicar una aplicación web en Azure desde Visual Studio, siga es
 
 Si tiene una cadena de conexión para la aplicación web que usa una Base de datos de SQL Server local, debe cambiar esta cadena de conexión para usar una instancia de Base de datos SQL que hospeda Azure en su lugar.
 
->[AZURE.IMPORTANT] Su suscripción debe permitir usar la Base de datos SQL. Si tiene acceso a su suscripción desde el Portal de administración de Azure, puede determinar qué servicios proporciona su suscripción. Las siguientes instrucciones se aplican en el Portal de administración liberado. Si usa el Portal de administración de vista previa, vaya al siguiente procedimiento. |
+>[AZURE.IMPORTANT] Su suscripción debe permitir usar la Base de datos SQL. Si tiene acceso a su suscripción desde el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885), puede determinar qué servicios proporciona su suscripción. Las siguientes instrucciones se aplican en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) publicado. Si usa el [Portal de Azure](http://portal.microsoft.com), vaya al siguiente procedimiento.
 
 ### Para usar una instancia de Base de datos SQL en el rol web para la cadena de conexión
 
-1. Para crear una instancia de base de datos SQL en el Portal de administración de Azure, siga los pasos del artículo siguiente: [Crear un servidor de Base de datos SQL](http://go.microsoft.com/fwlink/?LinkId=225109).
+1. Para crear una instancia de Base de datos SQL en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkId=225109), siga los pasos de la sección siguiente [Creating a SQL Database Server](http://go.microsoft.com/fwlink/?LinkID=213885) (Creación de un servidor de Base de datos SQL).
 
     >[AZURE.NOTE] Al configurar las reglas de firewall de su instancia de Base de datos SQL, debe activar la casilla **Permitir que otros servicios de Azure tengan acceso a este servidor**.
 
 1. Para crear una instancia de Base de datos de SQL para usarla para su cadena de conexión, siga los pasos de la siguiente sección del siguiente artículo: [Crear una Base de datos SQL](http://go.microsoft.com/fwlink/?LinkId=225110).
 
-1. Para copiar la cadena de conexión de ADO.NET para usarla para su cadena de conexión, en el Portal de administración de Azure siga estos pasos:
+1. Para copiar la cadena de conexión de ADO.NET para usarla para su cadena de conexión, en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) siga estos pasos:
 
   1. Elija el botón **Base de datos** y, a continuación, vuelva a abrir el nodo de suscripción que usó para crear la instancia de Base de datos SQL.
 
@@ -99,9 +99,9 @@ Si tiene una cadena de conexión para la aplicación web que usa una Base de dat
 
 1. Guarde el archivo modificado y vuelva a publicar la aplicación.
 
-### Para usar una instancia de Base de datos SQL mediante el Portal de administración de Azure
+### Para usar una instancia de Base de datos SQL mediante el Portal de Azure clásico
 
-1. En el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=213885), elija el nodo Base de datos SQL.
+1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885), elija el nodo Base de datos SQL.
 
   - Si aparece la instancia de Base de datos de SQL que desea usar, elija abrirla.
 
@@ -135,7 +135,7 @@ Si tiene una cadena de conexión para la aplicación web que usa una Base de dat
 
 1. (Opcional) Para cancelar el proceso de implementación, abra el menú contextual de la línea del registro de actividad y elija **Cancelar y quitar**. Esto detiene el proceso de implementación y elimina el entorno de implementación de Azure.
 
-    >[AZURE.NOTE] Para quitar este entorno de implementación una vez implementado, debe usar el Portal de administración de Azure.
+    >[AZURE.NOTE] Para quitar este entorno de implementación una vez implementado, debe usar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Opcional) Después de que se hayan iniciado las instancias del rol, Visual Studio muestra automáticamente el entorno de implementación en el nodo **Cálculo de Azure** de **Cloud Explorer** o el **Explorador de servidores**. Desde aquí puede ver el estado de las instancias de rol individuales.
 
@@ -168,7 +168,7 @@ Si tiene una cadena de conexión para la aplicación web que usa una Base de dat
 
 1. Para crear una Base de datos SQL de Azure que pueda usarse con la aplicación web Entidades dinámicas de ASP.NET, debe seguir los pasos de este procedimiento: **Usar una Base de datos SQL de Azure para su aplicación**.
 
-1. Agregue las tablas y los campos que necesite para esta base de datos desde el Portal de administración de la plataforma Azure.
+1. Agregue las tablas y los campos que necesite para esta base de datos desde el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. La cadena de conexión para este tipo de aplicación tiene el formato siguiente en el archivo web.config:
 
@@ -208,4 +208,4 @@ Para publicar una aplicación web en Azure, la aplicación debe usar una de las 
 ## Pasos siguientes
 Para obtener más información sobre la publicación, vea [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Consulte también [Configuración de credenciales de autenticación con nombre](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

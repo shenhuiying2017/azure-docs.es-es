@@ -19,7 +19,7 @@
 
     3. Especifique la frecuencia de copia de seguridad en minutos, horas, días o semanas.
 
-    4. Seleccione una programación de retención en la lista desplegable. Las opciones de retención dependen de la frecuencia de copia de seguridad. Por ejemplo, para una directiva diaria, la retención puede especificarse en semanas, mientras que la retención de una directiva mensual es en meses.
+    4. Seleccione una programación de retención en la lista desplegable. Las opciones de retención dependen de la frecuencia de copia de seguridad.
  
     5. Seleccione la fecha y hora de inicio para la directiva.
 
@@ -29,4 +29,4 @@
 
 8. Volverá a la página **Directivas de copia de seguridad**. La lista tabular de las directivas de copia de seguridad se actualizarán para mostrar la directiva modificada.
 
-<!---HONumber=AcomDC_1217_2015-->
+

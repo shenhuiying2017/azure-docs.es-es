@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
 # Fase 5 de la carga de trabajo de aplicación de línea de negocio: Creación del grupo de disponibilidad y adición de las bases de datos de la aplicación
@@ -45,7 +45,7 @@ Para habilitar la copia de seguridad y restauración, los archivos de copia de s
 5.	Haga clic en la columna **Nivel de permiso** para el nombre de cuenta de **sqlservice** y, a continuación, haga clic en **Lectura/escritura**. 
 6.	Haga clic en **Compartir** dos veces y, a continuación, en **Hecho**.
 
-Realice el procedimiento anterior en el servidor de base de datos secundario, salvo asignar a la cuenta sqlservice permiso de **Lectura** en la carpeta F:\\Backup del paso 5.
+Realice el procedimiento anterior en el servidor de base de datos secundario, salvo asignar a la cuenta sqlservice permiso de **Lectura** en la carpeta F:\\Backup del paso 5.
 
 ### Copia de seguridad y restauración de una base de datos
 
@@ -80,7 +80,7 @@ Use estos pasos para reiniciar una base de datos.
 Después de preparar al menos una base de datos (mediante el método de copia de seguridad y restauración), cree un grupo de disponibilidad.
 
 1.	Vuelva a la sesión de Escritorio remoto del servidor de base de datos principal.
-2.	En **SQL Server Management Studio**, en el panel izquierdo, haga clic en **Alta disponibilidad AlwaysOn** y, a continuación, haga clic en **Asistente para nuevo grupo de disponibilidad**.
+2.	En **SQL Server Management Studio**, en el panel izquierdo, haga clic en **Alta disponibilidad AlwaysOn** y, a continuación, en **Asistente para nuevo grupo de disponibilidad**.
 3.	En la página **Introducción**, haga clic en **Siguiente**. 
 4.	En la página **Especificar nombre de grupo de disponibilidad**, escriba el nombre del grupo de disponibilidad en **Nombre de grupo de disponibilidad** (ejemplo: AG1) y después haga clic en **Siguiente**.
 5.	En la página **Seleccionar bases de datos**, seleccione las bases de datos para la aplicación de la que se realizó la copia de seguridad y haga clic en **Siguiente**. Estas bases de datos cumplen los requisitos previos para un grupo de disponibilidad porque se ha realizado al menos una copia de seguridad completa en la réplica principal pretendida.
@@ -104,7 +104,7 @@ En su lugar, puede seleccionar **Completo** para permitir que el Asistente de nu
 12.	En la página **Resumen**, haga clic en **Finalizar**. Una vez que el asistente haya finalizado, inspeccione la página **Resultados** para comprobar que se ha creado correctamente el grupo de disponibilidad. Si es así, haga clic en **Cerrar** para salir del asistente. 
 13.	Desde la pantalla de inicio, escriba **Conmutación por error** y, a continuación, haga clic en **Administrador de clústeres de conmutación por error**. En el panel izquierdo, abra el nombre del clúster y, a continuación, haga clic en **Roles**. Debe estar presente una nueva función con el nombre del grupo de disponibilidad.
 
-Ya tiene configurado correctamente un grupo de disponibilidad de AlwaysOn SQL Server para las bases de datos de la aplicación.
+Ha configurado correctamente un grupo de disponibilidad de SQL Server AlwaysOn para las bases de datos de la aplicación.
 
 ![](./media/virtual-machines-windows-ps-lob-ph5/workload-lobapp-phase4.png)
 
@@ -120,4 +120,4 @@ Una vez configurado el agente de escucha, tendrá que configurar todas las máqu
 
 - Ver estas [directrices](virtual-machines-linux-infrastructure-service-guidelines.md) si implementa su propia carga de trabajo de TI en Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

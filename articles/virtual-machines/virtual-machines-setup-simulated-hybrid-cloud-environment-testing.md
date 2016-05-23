@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/25/2016" 
 	ms.author="josephd"/>
 
 # Configuración de un entorno de nube híbrida simulado para pruebas
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
-Este artículo le guiará en el proceso de creación de un entorno de nube híbrida simulado con Microsoft Azure para las pruebas con dos redes virtuales de Azure independientes. Use esta configuración como alternativa a la [configuración de un entorno de nube híbrida para hacer pruebas](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md) cuando no tenga conexión directa a Internet ni una dirección IP pública disponible. Aquí está la configuración resultante.
+Este artículo le guiará en el proceso de creación de un entorno de nube híbrida simulado con Microsoft Azure para las pruebas con dos redes virtuales de Azure independientes. Use esta configuración como alternativa a la [configuración de un entorno de nube híbrida para hacer pruebas](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md) cuando no tenga conexión directa a Internet ni una dirección IP pública disponible. Aquí está la configuración resultante.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_4.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
 
 Esto simula un entorno de producción de nube híbrida. Consta de:
 
@@ -54,7 +54,7 @@ Use las instrucciones que encontrará en el [Entorno de prueba de la configuraci
 
 Después, inicie un símbolo del sistema de Azure PowerShell.
 
-> [AZURE.NOTE] El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea Azure PowerShell 1.0.
+> [AZURE.NOTE] El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Inicie sesión en su cuenta.
 
@@ -99,7 +99,7 @@ Desde el Portal de Azure en el equipo local, conéctese a DC1 con las credencial
 
 Esta es su configuración actual.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_1.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph1.png)
  
 ## Fase 2: creación de la red virtual TestVNET
 
@@ -127,7 +127,7 @@ A continuación, solicite una dirección IP pública que se asignará a la puert
 
 Esta es su configuración actual.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_2.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph2.png)
  
 ##Fase 3: creación de la conexión red virtual a red virtual
 
@@ -145,7 +145,7 @@ Después de unos minutos, se debe establecer la conexión. Tenga en cuenta que e
 
 Esta es su configuración actual.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_3.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph3.png)
  
 ## Fase 4: configuración de DC2
 
@@ -190,7 +190,7 @@ A continuación, agregue el disco de datos adicional como un nuevo volumen con l
 8.	En la página Selección de la configuración del sistema de archivos, haga clic en **Siguiente**.
 9.	En la página Confirmación de las selecciones, haga clic en **Crear**.
 10.	Cuando haya terminado, haga clic en **Cerrar**.
-
+ 
 A continuación, configure DC2 como un controlador de dominio de réplica para el dominio corp.contoso.com. Ejecute estos comandos desde el símbolo del sistema de Windows PowerShell en DC2.
 
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
@@ -207,7 +207,7 @@ Ahora que la red virtual TestVNET tiene su propio servidor DNS (DC2), debe confi
 
 Esta es su configuración actual.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_4.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
  
 Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
@@ -215,4 +215,4 @@ Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
 - [Agregar una nueva máquina virtual](virtual-machines-windows-create-powershell.md) a la subred TestVNET, como una instancia de Microsoft SQL Server en ejecución.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

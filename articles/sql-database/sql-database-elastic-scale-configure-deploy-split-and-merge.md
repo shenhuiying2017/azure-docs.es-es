@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial de la herramienta de división y combinación de Base de datos elástica | Microsoft Azure"
+	pageTitle="Implementación de un servicio de división y combinación | Microsoft Azure"
 	description="División y combinación con las herramientas de Base de datos elástica"
 	services="sql-database"  
 	documentationCenter=""
@@ -13,21 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
-	ms.author="sidneyh" />
+	ms.date="04/26/2016"
+	ms.author="ddove" />
 
-# Tutorial de la herramienta de división y combinación de Base de datos elástica
+# Implemente un servicio de división y combinación 
+
+La herramienta de división y combinación permite mover los datos entre bases de datos particionadas. Consulte [Mover datos entre bases de datos en la nube escaladas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).
 
 ## Descarga de los paquetes de División y combinación
+
 1. Descargue la última versión de NuGet desde [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
-2. Abra un símbolo del sistema y vaya al directorio al que descargó nuget.exe.
+2. Abra un símbolo del sistema y vaya al directorio al que descargó nuget.exe. La descarga incluye comandos de PowerShell.
 3. Descargue el paquete de división y combinación más reciente en el directorio actual con el comando que aparece a continuación:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-Los pasos anteriores descargan los archivos de División y combinación al directorio actual. Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, donde *x.x.xxx.x* refleja el número de la versión. Busque los archivos del servicio División y combinación en el subdirectorio **content\\splitmerge\\service** y los scripts de Powershell de División y combinación (y las .dll de cliente necesarias) en el subdirectorio **content\\splitmerge\\powershell**.
+Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, donde *x.x.xxx.x* refleja el número de la versión. Busque los archivos del servicio de división y combinación en el subdirectorio **content\\splitmerge\\service** y los scripts de Powershell de división y combinación (y las .dll de cliente necesarias) en el subdirectorio **content\\splitmerge\\powershell**.
 
 ## Requisitos previos
 
-1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de División y combinación. Vaya al [Portal de Azure](https://ms.portal.azure.com). Cree una nueva **Base de datos SQL**. Rellene el nombre de la base de datos y cree un nuevo usuario y contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
+1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de división y combinación. Vaya al [Portal de Azure](https://ms.portal.azure.com). Cree una nueva **Base de datos SQL**. Asigne un nombre a la base de datos y cree un nuevo administrador y una contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
 
 2. Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. En el portal, en la **Configuración de firewall**, asegúrese de que la opción **Permitir acceso a Servicios de Azure** está establecida en **Activado**. Haga clic en el icono de "guardar".
 
@@ -38,7 +41,7 @@ Los pasos anteriores descargan los archivos de División y combinación al direc
 4. Cree un servicio en la nube de Azure que contendrá el servicio de División y combinación. Vaya al Portal de Azure. En la barra de la izquierda, haga clic en **Nuevo**, en **Proceso**, en **Servicio en la nube** y en **Crear**.
 
 
-## Configuración del servicio División y combinación
+## Configuración del servicio de división y combinación
 
 ### Configuración del servicio División y combinación
 
@@ -58,6 +61,7 @@ Los pasos anteriores descargan los archivos de División y combinación al direc
 5.    Para el rol **SplitMergeWorker**, escriba una cadena de conexión válida en el Almacenamiento de Azure para la configuración **WorkerRoleSynchronizationStorageAccountConnectionString**.
         
 ### Configuración de seguridad
+
 Para obtener instrucciones detalladas para configurar la seguridad del servicio, consulte [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Para fines de una simple implementación de prueba para este tutorial, se realizará un conjunto mínimo de pasos de configuración para configurar y ejecutar el servicio. Estos pasos solo habilitan la máquina/cuenta que los ejecuta para comunicarse con el servicio.
@@ -119,9 +123,9 @@ Para el rol web:
 
 Tenga en cuenta que para las implementaciones de producción se deben usar certificados independientes para la CA, para cifrado, el certificado de servidor y los certificados de cliente. Para obtener instrucciones detalladas al respecto, consulte [Configuración de seguridad](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-### Implementación del servicio División y combinación
+## Implementación del servicio
 
-1. Vaya al [portal de Azure](https://manage.windowsazure.com).
+1. Vaya al [Portal de Azure](https://manage.windowsazure.com).
 2. Haga clic en la pestaña **Servicios en la nube** que aparece a la izquierda y seleccione el servicio en la nube que creó anteriormente.
 3. Haga clic en **Panel**.
 4. Elija el entorno de ensayo y, a continuación, haga clic en **Cargar una nueva implementación de ensayo**.
@@ -135,7 +139,7 @@ Tenga en cuenta que para las implementaciones de producción se deben usar certi
 ![Cargar][4]
 
 
-## Solución de problemas de implementación
+## Solución de problemas de la implementación
 
 Si el rol web no puede ponerse en línea, probablemente haya un problema con la configuración de seguridad. Compruebe que SSL esté configurado como se describió anteriormente.
 
@@ -150,7 +154,7 @@ Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probableme
 * Asegúrese de que el nombre del servidor no comience por ****https://**.
 * Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "Bases de datos SQL" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione su servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que el valor **Servicios de Microsoft Azure** esté establecido en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
 
-## Prueba de la implementación del servicio División y combinación
+## Prueba de la implementación del servicio
 
 ### Conexión con un explorador web
 
@@ -212,7 +216,7 @@ Los archivos de script incluidos son:
   </tr>
 </table>
 
-##Uso de PowerShell para comprobar la implementación
+## Uso de PowerShell para comprobar la implementación
 
 1.    Abra una nueva ventana de PowerShell y vaya al directorio al que descargó el paquete División y combinación y, a continuación, vaya al directorio "powershell".
 2.    Cree un servidor de base de datos SQL de Azure (o elija un servidor existente) en el que se crearán las particiones y el administrador de mapa de particiones.
@@ -292,11 +296,11 @@ Los archivos de script incluidos son:
 
 6.    Experimente con otros tipos de datos. Todos estos scripts tienen un parámetro -ShardKeyType opcional que le permite especificar el tipo de clave. El valor predeterminado es Int32, pero también puede especificar Int64, Guid o Binary.
 
-## Creación de sus propias solicitudes
+## Creación de solicitudes
 
 El servicio se puede utilizar mediante la interfaz de usuario web o importando y utilizando el módulo de PowerShell SplitMerge.psm1 que enviará sus solicitudes a través del rol web.
 
-El servicio División y combinación puede mover los datos de las tablas particionadas y de las tablas de referencia. Una tabla particionada tiene una columna de clave de particionamiento y distintos datos de fila en cada partición. Una tabla de referencia no está particionada, por lo que contiene los mismos datos de fila en cada partición. Las tablas de referencia son útiles para los datos que no cambian con frecuencia y que se usan para UNIRSE con tablas particionadas en consultas.
+El servicio puede mover los datos de las tablas particionadas y de las tablas de referencia. Una tabla particionada tiene una columna de clave de particionamiento y distintos datos de fila en cada partición. Una tabla de referencia no está particionada, por lo que contiene los mismos datos de fila en cada partición. Las tablas de referencia son útiles para los datos que no cambian con frecuencia y que se usan para UNIRSE con tablas particionadas en consultas.
 
 Para realizar una operación de división y combinación, debe declarar las tablas particionadas y las tablas de referencia que desea mover. Esto se realiza con la API **SchemaInfo**. Esta API está en el espacio de nombres **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema**.
 
@@ -312,6 +316,7 @@ Tenga en cuenta que el servicio División y combinación no crea la base de dato
 
 
 ## Solución de problemas
+
 Es posible que cuando ejecute los scripts de ejemplo de PowerShell vea el siguiente mensaje:
 
     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
@@ -334,4 +339,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

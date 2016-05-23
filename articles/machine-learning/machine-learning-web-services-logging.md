@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
-	ms.date="02/04/2016"
+	ms.date="05/10/2016"
 	ms.author="raymondl;garye"/>
 
 #Habilitar el registro para los servicios web de Aprendizaje automático  
@@ -44,4 +44,4 @@ Este documento proporciona información sobre la capacidad de registro de los se
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

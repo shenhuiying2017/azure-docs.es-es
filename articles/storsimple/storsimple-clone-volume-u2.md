@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/31/2016"
+   ms.date="04/19/2016"
    ms.author="alkohli" />
 
 # Usar el servicio StorSimple Manager para clonar un volumen (Update 2)
@@ -35,7 +35,7 @@ Este tutorial describe cómo puede usar una copia de seguridad para clonar un vo
 >
 >`Unable to modify the usage type for volume {0}. This can happen if the volume being modified is a transient clone and hasn’t been made permanent. Take a cloud snapshot of this volume and then retry the modify operation.`
 >
->Puede convertir correctamente el volumen a anclado localmente si convierte primero el clon transitorio en un clon permanente. Para convertir el clon transitorio en un clon permanente, tome una instantánea de nube del mismo.
+>Este error solo se recibe si está clonando en un dispositivo diferente. Puede convertir correctamente el volumen a anclado localmente si convierte primero el clon transitorio en un clon permanente. Para convertir el clon transitorio en un clon permanente, tome una instantánea de nube del mismo.
 
 ## Crear un clon de un volumen
 
@@ -90,9 +90,9 @@ Este clon es ahora un volumen normal, y todas las operaciones que sean posibles 
 
 ## Clones transitorios frente a clones permanentes
 
-Se puede clonar un volumen específico de un conjunto de copia de seguridad. Los clones que se creen de esta forma son clones *transitorios*. El clon transitorio tendrá referencias al volumen original y usará ese volumen para leer mientras escribe de forma local. Esto podría conllevar un rendimiento lento, especialmente si el volumen clonado es grande.
+Los clones transitorios y permanentes solo se crean al clonarse en un dispositivo diferente. Se puede clonar un volumen específico de un conjunto de copia de seguridad a un dispositivo diferente. Los clones que se creen de esta forma son clones *transitorios*. El clon transitorio tendrá referencias al volumen original y usará ese volumen para leer mientras escribe de forma local.
 
-Después de tomar una instantánea en la nube de un clon transitorio, el clon resultante será un clon *permanente*. El clon permanente es independiente y no tiene ninguna referencia al volumen original desde el que se clonó. Para agilizar el rendimiento, se recomienda crear clones permanentes.
+Después de tomar una instantánea en la nube de un clon transitorio, el clon resultante será un clon *permanente*. El clon permanente es independiente y no tiene ninguna referencia al volumen original desde el que se clonó.
 
 ## Escenarios para clones transitorios y permanentes
 
@@ -108,7 +108,7 @@ Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las
 
 ### Pruebas en el entorno de producción con un clon permanente
 
-Necesita comprobar un error de prueba en el entorno de producción. Crear un clon del volumen en el entorno de producción. Para aumentar el rendimiento, deberá tomar una instantánea en la nube de este clon. El volumen clonado es ahora independiente, lo que conlleva un rendimiento más rápido. En este escenario, se usa un clon permanente.
+Necesita comprobar un error de prueba en el entorno de producción. Puede crear un clon del volumen en el entorno de producción y, después, tomar una instantánea de nube de este clon para crear un volumen clonado independiente. En este escenario, se usa un clon permanente.
 
 ## Pasos siguientes
 - Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set-u2.md).
@@ -117,4 +117,4 @@ Necesita comprobar un error de prueba en el entorno de producción. Crear un clo
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

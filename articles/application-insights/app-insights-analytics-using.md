@@ -31,7 +31,7 @@ En el recurso de inicio de la aplicación de Application Insights, haga clic en 
 
 ![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics/001.png)
 
-El tutorial en línea le dará varias ideas sobre lo que puede hacer.
+El tutorial en línea le dará algunas ideas sobre lo que puede hacer.
 
 Podrá encontrar un [paseo más amplio aquí](app-insights-analytics-tour.md).
 
@@ -62,7 +62,7 @@ Puede elegir las columnas que desea ver. Expanda cualquier elemento para ver tod
 
 > [AZURE.NOTE] Haga clic en el encabezado de una columna para cambiar el orden de los resultados disponibles en el explorador web de una forma rápida. Tenga en cuenta que, para un conjunto grande de resultados, el número de filas que se descargan en el explorador es limitado. Por tanto, esta forma de ordenación no siempre muestra los elementos mayores o menores reales. Para ello, es preciso usar los operadores [top](app-insights-analytics-queries.md#top-operator) o [sort](app-insights-analytics-queries.md#sort-operator).
 
-No obstante, es aconsejable usar los operadores [take](app-insights-analytics-queries.md#take-operator), [top](app-insights-analytics-queries.md#top-operator) o [summarize](app-insights-analytics-queries.md#summarize-operator) para evitar que se descarguen tablas muy grandes del servidor. De todas formas, hay un límite automático de 10 000 filas por consulta.
+No obstante, es aconsejable usar los operadores [take](app-insights-analytics-queries.md#take-operator), [top](app-insights-analytics-queries.md#top-operator) o [summarize](app-insights-analytics-queries.md#summarize-operator) para evitar que se descarguen tablas muy grandes del servidor. De todas formas, hay un límite automático de 10 000 filas por consulta.
 
 
 ## Diagramas
@@ -101,6 +101,7 @@ Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga c
 
 
 
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

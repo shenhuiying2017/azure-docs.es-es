@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configuración de Grupos de disponibilidad AlwaysOn en una máquina virtual de Azure | Microsoft Azure"
-	description="En este tutorial se usan los recursos creados con el modelo de implementación clásica, y se usa PowerShell para crear un grupo de disponibilidad AlwaysOn en Azure."
+	pageTitle="Configuración de grupos de disponibilidad AlwaysOn en una máquina virtual de Azure | Microsoft Azure"
+	description="En este tutorial se usan los recursos creados con el modelo de implementación clásica, y se utiliza PowerShell para crear un grupo de disponibilidad AlwaysOn en Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="05/04/2016"
 	ms.author="mikeray" />
 
 # Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (PowerShell)
@@ -47,7 +47,7 @@ Este tutorial está concebido para mostrarle los pasos necesarios para configura
 
 - Tiene instalados los [cmdlets de Azure PowerShell](../powershell-install-configure.md).
 
-- Ya tiene un conocimiento sólido de grupos de disponibilidad AlwaysOn para soluciones locales. Para obtener más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+- Ya tiene un conocimiento sólido de grupos de disponibilidad AlwaysOn para soluciones locales. Para más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Conexión a la suscripción de Azure y creación de la Red virtual
 
@@ -534,7 +534,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
 		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Descargue **CreateAzureFailoverCluster.ps1** desde [Creación del clúster de WSFC para grupos de disponibilidad AlwaysOn en la máquina virtual de Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) en el directorio de trabajo local. Usará este script para ayudarle a crear un clúster funcional de WSFC. Para obtener información importante sobre cómo WSFC interactúa con la red de Azure, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-high-availability-dr.md).
+1. Descargue **CreateAzureFailoverCluster.ps1** desde [Create WSFC Cluster for AlwaysOn Availability Groups in Windows Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creación del clúster de WSFC para grupos de disponibilidad AlwaysOn en la máquina virtual de Azure) en el directorio de trabajo local. Usará este script para ayudarle a crear un clúster funcional de WSFC. Para obtener información importante sobre cómo WSFC interactúa con la red de Azure, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 1. Cambie al directorio de trabajo y cree el clúster de WSFC con el script descargado.
 
@@ -561,7 +561,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
 		net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
 		icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 
-1. Cree una base de datos en **ContosoSQL1** denominado **MyDB1**, realice tanto una copia de seguridad completa como una copia de seguridad de registros y restáurelas en **ContosoSQL2** con la opción **WITH NORECOVERY **.
+1. Cree una base de datos en **ContosoSQL1** denominado **MyDB1**, realice tanto una copia de seguridad completa como una copia de seguridad de registros y restáurelas en **ContosoSQL2** con la opción ** WITH NORECOVERY **.
 
 		Invoke-SqlCmd -Query "CREATE database $db"
 		Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
@@ -625,8 +625,8 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
 		    -Database $db
 
 ## Pasos siguientes
-Ha implementado correctamente SQL Server AlwaysOn creando un grupo de disponibilidad en Azure. Para configurar un agente de escucha para este grupo de disponibilidad, consulte [Configuración del agente de escucha ILB de los grupos de disponibilidad AlwaysOn en Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Ha implementado correctamente SQL Server AlwaysOn mediante la creación de un grupo de disponibilidad en Azure. Para configurar un agente de escucha para este grupo de disponibilidad, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

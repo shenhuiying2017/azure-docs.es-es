@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
 # Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad
@@ -52,7 +52,7 @@ La configuración representativa y básica de una aplicación de línea de negoc
 Consta de:
 
 - Una aplicación de línea de negocio solo de intranet con dos servidores en los niveles web y de base de datos.
-- Una configuración AlwaysOn de SQL Server con dos máquinas virtuales que ejecuten SQL Server y un equipo de nodos de mayoría en un clúster.
+- Una configuración SQL Server AlwaysOn con dos máquinas virtuales que ejecutan SQL Server y un equipo de nodos de mayoría en un clúster.
 - Servicios de dominio de Active Directory en la red virtual con dos controladores de dominio de réplica.
 
 Para obtener información general sobre aplicaciones de línea de negocio, vea [Plano de arquitectura de aplicaciones de línea de negocio](http://msdn.microsoft.com/dn630664).
@@ -75,9 +75,9 @@ Para implementar esta configuración, siga este proceso :
 
 	Cree las máquinas virtuales de servidor web y agregue la aplicación de línea de negocio. Para la información detallada, consulte [Fase 4](virtual-machines-windows-ps-lob-ph4.md).
 
-- Fase 5: Configuración de un grupo de disponibilidad AlwaysOn de SQL Server.
+- Fase 5: Configuración de un grupo de disponibilidad SQL Server AlwaysOn.
 
-	Prepare las bases de datos de la aplicación de línea de negocio, cree un grupo de disponibilidad AlwaysOn de SQL Server y agregue las bases de datos de la aplicación al grupo. Para los pasos de configuración detallados, consulte [Fase 5](virtual-machines-windows-ps-lob-ph5.md).
+	Prepare las bases de datos de la aplicación, cree un grupo de disponibilidad SQL Server AlwaysOn y agréguele las bases de datos de la aplicación. Para los pasos de configuración detallados, consulte [Fase 5](virtual-machines-windows-ps-lob-ph5.md).
 
 Una vez configurada, puede ampliar fácilmente esta aplicación de línea de negocio agregando más servidores web o máquinas virtuales que ejecuten SQL Server al clúster.
 
@@ -85,4 +85,4 @@ Una vez configurada, puede ampliar fácilmente esta aplicación de línea de neg
 
 - Obtenga [información general](virtual-machines-windows-lob-overview.md) de la carga de trabajo de producción antes de comenzar con la configuración.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

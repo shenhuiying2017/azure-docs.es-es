@@ -24,9 +24,9 @@ Para los fines de este artículo, usaremos el patrón de aplicaciones de ISV de 
 
 <i>Una aplicación web moderna, basada en la nube, aprovisiona una base de datos SQL para cada usuario final. El ISV tiene un gran número de clientes y, por tanto, utiliza muchas bases de datos, conocidas como bases de datos de inquilino. Dado que las bases de datos de inquilino normalmente tienen patrones de actividad impredecibles, el ISV usa un grupo elástico para que el costo de la base de datos sea muy predecible durante prolongados períodos. El grupo elástico también simplifica la administración del rendimiento cuando aumenta la actividad del usuario. Además de las bases de datos de inquilino, la aplicación también utiliza varias bases de datos para administrar los perfiles de usuario, la seguridad o la recopilación de los patrones de uso, entre otros. La disponibilidad de los inquilinos individuales no afecta a la disponibilidad de la aplicación como conjunto. Sin embargo, la disponibilidad y el rendimiento de las bases de datos de administración son fundamentales para la función de la aplicación y, si las bases de datos de administración están sin conexión, toda la aplicación estará sin conexión.</i>
 
-En el resto del artículo, analizaremos varios escenarios relacionados y trataremos una estrategia de recuperación ante desastres para cada caso.
+En el resto del artículo, trataremos las estrategias de recuperación ante desastres que abarcan una variedad de escenarios que va desde las aplicaciones de inicio sensibles al costo a aquellas con requisitos estrictos de disponibilidad.
 
-## Escenario 1.
+## Escenario 1. Inicio sensible al costo
 
 <i>Acabo de crear una empresa y me preocupan sobremanera los costos. Quiero simplificar la implementación y administración de la aplicación y estoy dispuesto a tener un contrato de nivel de servicio limitado para clientes individuales. Pero quiero garantizar que la aplicación como un todo nunca estará sin conexión.</i>
 
@@ -61,7 +61,7 @@ En este momento la aplicación estará en línea en la región principal con tod
 
 La principal **ventaja** de esta estrategia es el bajo costo continuo para la redundancia de nivel de datos. Las copias de seguridad las realiza automáticamente el servicio de Base de datos SQL sin necesidad de reescritura de aplicación y sin costo adicional. El costo se contrae solo cuando se restauran las bases de datos elásticas. La **contrapartida** es que la recuperación completa de todas las bases de datos de inquilino tardará mucho tiempo. Dependerá del número total de restauraciones que se inicien en la región de recuperación ante desastres y del tamaño general de las bases de datos de inquilino. Aunque si se priorizan algunas restauraciones de inquilinos sobre otras, estará compitiendo con todas las demás restauraciones que se inicien en la misma región, ya que el servicio arbitrará y se limitará para minimizar la repercusión global en las bases de datos de los clientes existentes. Además, la recuperación de las bases de datos de inquilino no podrá iniciarse hasta que se cree el nuevo grupo elástico en la región de recuperación ante desastres.
 
-## Escenario 2.
+## Escenario 2. Aplicación madura con servicio en capas 
 
 <i>Tengo una aplicación de SaaS madura con ofertas de servicio en capas y distintos contratos de nivel de servicio para clientes de versiones de prueba y clientes de versiones de pago. Para los clientes de versiones de prueba, tengo que reducir el costo tanto como sea posible. Los clientes de versiones de prueba pueden asumir el tiempo de inactividad, pero quiero reducir su probabilidad. Para los clientes de versiones de pago, los tiempos de inactividad es un riesgo de vuelo. Por tanto, quiero asegurarme de que los clientes con versiones de pago siempre tienen acceso a sus datos.</i>
 
@@ -102,7 +102,7 @@ Cuando Azure recupera la región primera *después* de haber restaurado la aplic
 
 La principal **ventaja** de esta estrategia es que proporciona el contrato de nivel de servicio superior para los clientes de versiones de pago. También garantiza que las nuevas versiones de prueba se desbloquean en cuanto se crea el grupo de recuperación ante desastres de versiones de prueba. La **contrapartida** es que esta configuración aumentará el costo total de las bases de datos de inquilino por el costo del grupo de recuperación ante desastres secundario para los clientes de versiones de pago. Además, si el grupo secundario tiene un tamaño diferente, los clientes de versiones de pago experimentarán un rendimiento menor después de la conmutación por error hasta que se complete la actualización del grupo en la región de recuperación ante desastres.
 
-## Escenario 3.
+## Escenario 3. Aplicación distribuida geográficamente con servicio en capas
 
 <i>Tengo una aplicación de SaaS madura con ofertas de servicio en capas. Deseo ofrecer un contrato de nivel de servicio muy agresivo a mis clientes de versiones de pago y minimizar el riesgo de impacto cuando se produzcan interrupciones, porque incluso una breve interrupción puede causar la insatisfacción del cliente. Es fundamental que los clientes de versiones de pago siempre puedan acceder a sus datos. Las versiones de prueba son gratuitas y no se ofrece ningún contrato de nivel de servicio durante el período de prueba. </i>
 
@@ -146,20 +146,22 @@ Cuando se recupera la región A, debe decidir si quiere usar la región B para c
 - Elimine el grupo de recuperación ante desastres (14). 
 
 Las principales **ventajas** de esta estrategia son las siguientes:
+
 - Admite el contrato de nivel de servicio más agresivo para los clientes de versiones de pago porque garantiza que una interrupción no puede afectar a más del 50 % de las bases de datos de inquilino. 
 - También garantiza que las nuevas versiones de prueba se desbloquean tan pronto se cree el grupo de recuperación ante desastres de versiones de prueba durante la recuperación. 
 - Permite un uso más eficaz de la capacidad del grupo, ya que se garantiza que el 50 % de las bases de datos secundarias de los grupos 1 y 2 sean menos activas que las bases de datos principales.
 
 Las **contrapartidas** principales son las siguientes:
+
 - Las operaciones de CRUD en las bases de datos de administración tendrán una latencia menor para los usuarios finales conectados a la región A que para los usuarios finales conectados a la región B, ya que se ejecutarán en la principal de las bases de datos de administración.
 - Requiere un diseño más complejo de la base de datos de administración. Por ejemplo, cada registro de inquilinos tendría que tener una etiqueta de ubicación que debe cambiarse durante la conmutación por error y la conmutación por recuperación.  
 - Los clientes de versiones de pago pueden experimentar un rendimiento inferior al normal hasta que se complete la actualización de los grupos en la región B. 
 
 ## Resumen
 
-Este artículo se centra en las estrategias de recuperación ante desastres para el nivel de base de datos utilizado por una aplicación multiinquilino ISV de SaaS. La elección de la estrategia debe basarse en las necesidades de la aplicación, como el modelo de negocio, el contrato de nivel de servicio que desea ofrecer a sus clientes, la restricción del presupuesto, entre otras. Cada estrategia descrita describe las ventajas y los inconvenientes para que pueda tomar una decisión informada. Además, la aplicación específica probablemente incluya otros componentes de Azure. Debe revisar sus instrucciones de continuidad de negocio y coordinar la recuperación de la capa de base de datos con otros componentes de la aplicación. Para más información acerca de la administración de la recuperación de aplicaciones de base de datos en Azure, consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica en la Base de datos SQL](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Este artículo se centra en las estrategias de recuperación ante desastres para el nivel de base de datos utilizado por una aplicación multiinquilino ISV de SaaS. La estrategia que seleccione debe basarse en las necesidades de la aplicación, como el modelo de negocio, el contrato de nivel de servicio que desea ofrecer a sus clientes, la restricción del presupuesto, entre otras. Cada estrategia descrita describe las ventajas y los inconvenientes para que pueda tomar una decisión informada. Además, la aplicación específica probablemente incluya otros componentes de Azure. Debe revisar las instrucciones de continuidad de negocio de los mismos y coordinar la recuperación de la capa de base de datos con ellos. Para más información acerca de la administración de la recuperación de aplicaciones de base de datos en Azure, consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica en la Base de datos SQL](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-Las páginas siguientes le ayudarán a comprender las operaciones específicas necesarias para implementar cada uno de los escenarios de este artículo:
+Los pasos individuales necesarios para cada escenario implican operaciones en un gran número de bases de datos. Considere el uso de trabajos elásticos de Base de datos SQL para administrar estas operaciones a escala. Para más información acuda a [Información general de Trabajos de base de datos elástica](./sql-database-elastic-jobs-overview.md). Las páginas siguientes le ayudarán a comprender las operaciones específicas necesarias para implementar cada uno de los escenarios de este artículo:
 
 - [Agregar una base de datos secundaria](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Conmutar por error la base de datos en la secundaria](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -167,4 +169,4 @@ Las páginas siguientes le ayudarán a comprender las operaciones específicas n
 - [Quitar la base de datos](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copiar la base de datos](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -23,7 +23,7 @@
 
 ## Información general
 
-Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Los archivos de vídeo digital son bastante grandes y pueden ser demasiado pesados para entregarlos a través de Internet o para que los dispositivos de sus clientes los muestren correctamente. La codificación es el proceso de compresión de vídeo y audio para que los clientes puedan ver el contenido multimedia. Una vez que se ha codificado un vídeo puede colocarse en otros contenedores de archivos. El proceso de colocar contenido multimedia codificado en un contenedor se denomina empaquetado. Por ejemplo, puede tomar un archivo MP4 y convertirlo en contenido de Smooth Streaming o HLS mediante Azure Media Packager. Para obtener más información, consulte [Codificación frente a empaquetado](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Los archivos de vídeo digital son bastante grandes y pueden ser demasiado pesados para entregarlos a través de Internet o para que los dispositivos de sus clientes los muestren correctamente. La codificación es el proceso de compresión de vídeo y audio para que los clientes puedan ver el contenido multimedia. Una vez que se ha codificado un vídeo puede colocarse en otros contenedores de archivos. El proceso de colocar contenido multimedia codificado en un contenedor se denomina empaquetado. Por ejemplo, puede tomar un archivo MP4 y convertirlo en contenido de Smooth Streaming o HLS mediante Azure Media Packager.
 
 Servicios multimedia admite el empaquetado dinámico y estático. Al usar el empaquetado estático, debe crear una copia del contenido en cada formato requerido por los clientes. Con el empaquetado dinámico, lo único que debe hacer es crear un recurso que contenga un conjunto de archivos MP4 o Smooth Streaming de velocidad de bits adaptativa. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegurará de que reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente.
 
@@ -1447,4 +1447,4 @@ Asegúrese de actualizar el código siguiente para que señale a la carpeta dond
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

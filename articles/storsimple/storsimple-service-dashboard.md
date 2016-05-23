@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Panel del servicio del Administrador de StorSimple | Microsoft Azure"
    description="Describe el panel del servicio del Administrador de StorSimple y explica cómo se usa para supervisar el estado de la solución de StorSimple."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="SharS"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/01/2016"
+   ms.date="05/10/2016"
    ms.author="v-sharos" />
 
 # Uso del panel del servicio StorSimple Manager
@@ -25,7 +25,7 @@ La página del panel del servicio StorSimple Manager proporciona una vista resum
 
 El panel del servicio StorSimple Manager muestra la siguiente información:
 
-- En el área **gráfica**, puede ver el gráfico de las métricas pertinentes para sus dispositivos. Puede ver el almacenamiento principal usado en todos los dispositivos, así como el almacenamiento en la nube consumido por los dispositivos durante un período de tiempo. Use los controles de la esquina superior derecha del gráfico para especificar una escala de tiempo de 1 semana, 1 mes, 3 meses o 1 año.
+- En el área **gráfica**, puede ver el gráfico de las métricas pertinentes para sus dispositivos. Puede ver el almacenamiento principal (organizado en capas y anclado localmente) usado en todos los dispositivos, así como el almacenamiento en la nube consumido por los dispositivos durante un período. Use los controles de la esquina superior derecha del gráfico para especificar una escala de tiempo de 1 semana, 1 mes, 3 meses o 1 año.
 
 - La **información general del uso** muestra el almacenamiento principal aprovisionado y usado por todos los dispositivos en relación con el almacenamiento total disponible en todos los dispositivos. **Aprovisionado** se refiere a la cantidad de almacenamiento que está preparada y asignada para su uso, mientras que **Usado** se refiere al uso de los volúmenes, tal como lo ven los iniciadores que están conectados a los dispositivos.
 
@@ -76,4 +76,4 @@ Para ver los registros de operaciones, haga clic en el vínculo de registros de 
 
 - Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

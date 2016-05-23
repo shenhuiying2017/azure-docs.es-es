@@ -38,11 +38,11 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
 	        SharedPreferences prefs = getSharedPreferences(SHAREDPREFFILE, Context.MODE_PRIVATE);
-    	    String userId = prefs.getString(USERIDPREF, "undefined"); 
-	        if (userId == "undefined")
+    	    String userId = prefs.getString(USERIDPREF, null); 
+	        if (userId == null)
 	            return false;
-    	    String token = prefs.getString(TOKENPREF, "undefined"); 
-    	    if (token == "undefined")
+    	    String token = prefs.getString(TOKENPREF, null); 
+    	    if (token == null)
     	        return false;
         	    
     	    MobileServiceUser user = new MobileServiceUser(userId);
@@ -87,4 +87,5 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 
 6. Cree la aplicación y pruebe la autenticación mediante una cuenta válida. Ejecútela al menos dos veces. Durante la primera ejecución, debe recibir un aviso para iniciar sesión y crear la caché del token. Después, cada ejecución intentará cargar la caché del token para su autenticación y no debería requerirse el inicio de sesión.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+

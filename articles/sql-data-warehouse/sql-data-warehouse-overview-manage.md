@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="05/04/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Administración de base datos en Almacenamiento de datos SQL de Azure
@@ -115,7 +115,7 @@ Unos buenos principios de diseño de base de datos le facilitarán la administra
 <!--Image references-->
 
 <!--Article references-->
-[Opciones de redundancia de Almacenamiento de Azure]: storage-redundancy.md#read-access-geo-redundant-storage
+[Opciones de redundancia de Almacenamiento de Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Creación de Almacenamiento de datos SQL (Portal de Azure)]: sql-data-warehouse-get-started-provision.md
 [Creación de una base de datos (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
@@ -139,4 +139,4 @@ Unos buenos principios de diseño de base de datos le facilitarán la administra
 <!--Other web references-->
 [Portal de Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

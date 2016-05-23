@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher" />
 
 # Administración de recursos de almacenamiento de Azure con el Explorador de almacenamiento (versión preliminar)
@@ -42,8 +42,8 @@ Para ver los recursos de almacenamiento de Azure en el Explorador de almacenamie
 ### Asociación de un almacenamiento externo
 
 1. Obtenga el nombre de cuenta y la clave para la cuenta de almacenamiento que desea adjuntar.
-	1.	En el Portal de vista previa de Azure, elija la cuenta de almacenamiento para adjuntar.
-	1.	En la sección **Administrar** del panel **Configuración** en el Portal de vista previa de Azure, elija el botón **Claves**.
+	1.	En el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), elija la cuenta de almacenamiento que desea adjuntar.
+	1.	En la sección **Administrar** del panel **Configuración**, elija el botón **Claves**.
 	1.	Copie los valores de los campos **Nombre de la cuenta de almacenamiento** y **Clave de acceso principal**.
 
 		![][2]
@@ -182,4 +182,4 @@ Obtenga más información sobre las características de los servicios de Almacen
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

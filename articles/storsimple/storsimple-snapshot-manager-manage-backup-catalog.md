@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad
 
 ## Información general
 
-La función principal de Administrador de instantáneas StorSimple es permitirle crear copias de seguridad coherentes con las aplicaciones de los volúmenes de Azure StorSimple en el formato de instantáneas. Las instantáneas se enumeran en un archivo XML llamado *catálogo de copia de seguridad*. El catálogo de copia de seguridad organiza las instantáneas por grupo de volúmenes y, luego, por instantáneas locales o instantánea de nube.
+La función principal de StorSimple Snapshot Manager es permitirle crear copias de seguridad coherentes con las aplicaciones de los volúmenes de StorSimple en formato de instantáneas. Las instantáneas se enumeran en un archivo XML llamado *catálogo de copia de seguridad*. El catálogo de copia de seguridad organiza las instantáneas por grupo de volúmenes y, luego, por instantáneas locales o instantánea de nube.
+
+Este tutorial describe cómo se puede usar el nodo **Catálogo de copia de seguridad** para completar las tareas siguientes:
+
+- Restauración de un volumen 
+- Clonación de un volumen o un grupo de volúmenes 
+- Eliminación de una copia de seguridad 
+- Recuperación de un archivo
+- Restauración de la base de datos de Administrador de instantáneas Storsimple
 
 Puede ver el catálogo de copia de seguridad expandiendo el nodo **Catálogo de copia de seguridad** en el panel **Ámbito** y luego el grupo de volúmenes.
 
@@ -33,7 +41,7 @@ Puede ver el catálogo de copia de seguridad expandiendo el nodo **Catálogo de 
 
     - **Propietario**: el propietario del contenido.
 
-    - **Disponible**: si la instantánea está disponible actualmente. True indica que la instantánea esté disponible y se pueden restaurar; False indica que la instantánea ya no está disponible.
+    - **Disponible**: si la instantánea está disponible actualmente. **True** indica que la instantánea esté disponible y se pueden restaurar; **False** indica que la instantánea ya no está disponible.
 
     - **Importado**: si se importó la copia de seguridad. **True** indica que la copia de seguridad se importó desde el servicio StorSimple Manager en el momento en el que se configuró el dispositivo en Administrador de instantáneas StorSimple; **False** indica que no se importó, pero se creó con Administrador de instantáneas StorSimple. (Se puede identificar fácilmente un grupo de volúmenes importado porque se agrega un sufijo que identifica el dispositivo desde el que se ha importado el grupo de volúmenes.)
 
@@ -49,13 +57,6 @@ Puede ver el catálogo de copia de seguridad expandiendo el nodo **Catálogo de 
 
     - **Disponible**: si la instantánea está disponible actualmente. **True** indica que la instantánea esté disponible y se pueden restaurar; **False** indica que la instantánea ya no está disponible.
 
-Este tutorial describe cómo se puede usar el nodo **Catálogo de copia de seguridad** para completar las tareas siguientes:
-
-- Restauración de un volumen 
-- Clonación de un volumen o un grupo de volúmenes 
-- Eliminación de una copia de seguridad 
-- Recuperación de un archivo
-- Restauración de la base de datos de Administrador de instantáneas Storsimple
 
 ## Restauración de un volumen
 
@@ -69,7 +70,7 @@ Administrador de instantáneas StorSimple muestra el siguiente mensaje mientras 
 
 ![Mensaje de instantánea automático](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png)
 
->[AZURE.IMPORTANT]No se puede eliminar un volumen que forma parte de un grupo de volúmenes. La opción Eliminar no está disponible.<br>
+>[AZURE.IMPORTANT] No se puede eliminar un volumen que forma parte de un grupo de volúmenes. La opción Eliminar no está disponible.<br>
 
 #### Para restaurar un volumen
 
@@ -117,7 +118,7 @@ Utilice el procedimiento siguiente para crear un duplicado (clon) de un volumen 
 
 Utilice el procedimiento siguiente para eliminar una instantánea del catálogo de copia de seguridad.
 
->[AZURE.NOTE]Si se elimina una instantánea, se eliminan también los datos de copia de seguridad asociados a la instantánea. De todas formas, el proceso de limpieza de datos de la nube puede tardar algún tiempo.<br>
+>[AZURE.NOTE] Si se elimina una instantánea, se eliminan también los datos de copia de seguridad asociados a la instantánea. De todas formas, el proceso de limpieza de datos de la nube puede tardar algún tiempo.<br>
  
 #### Para eliminar una copia de seguridad
 
@@ -183,7 +184,7 @@ Debe hacer de forma regular copias de seguridad de la base de datos de Administr
 
 2. En el equipo host, vaya a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
-    >[AZURE.NOTE]ProgramData es una carpeta oculta.
+    >[AZURE.NOTE] ProgramData es una carpeta oculta.
  
 3. Busque el archivo XML de catálogo, copie el archivo y almacene la copia en una ubicación segura o en la nube. Si se produce un error en el host, puede usar este archivo de copia de seguridad para ayudar a recuperar las directivas de copia de seguridad que creó en Administrador de instantáneas StorSimple.
 
@@ -208,4 +209,4 @@ Debe hacer de forma regular copias de seguridad de la base de datos de Administr
 - Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 - Obtenga más información sobre las [tareas y flujos de trabajo de Snapshot Manager de StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

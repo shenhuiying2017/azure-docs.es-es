@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transacciones en el Almacenamiento de datos SQL
@@ -27,6 +27,7 @@ El Almacenamiento de datos SQL implementa las transacciones ACID. Sin embargo, e
 Una transacción de modificación de datos única tiene un tamaño limitado. Actualmente, el límite se aplica "por distribución". Por tanto, para obtener la cifra total debemos multiplicar el límite por el recuento de distribución. Para aproximar el número máximo de filas de la transacción, divida el extremo de la distribución entre el tamaño total de cada columna. Para las columnas de longitud variable, en lugar de utilizar el tamaño máximo, tenga en cuenta la longitud media de la columna.
 
 En la tabla siguiente se han considerado estas hipótesis:
+
 * Se ha producido una distribución uniforme de los datos 
 * La longitud media de la fila es de 250 bytes
 
@@ -140,4 +141,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

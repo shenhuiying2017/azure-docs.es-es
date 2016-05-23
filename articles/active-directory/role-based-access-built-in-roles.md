@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/18/2016"
+	ms.date="05/10/2016"
 	ms.author="kgremban"/>
 
 #RBAC: Roles integrados
@@ -34,7 +34,7 @@ La tabla siguiente proporciona breves descripciones de los roles integrados. Hag
 | [Colaborador de ClearDB MySQL DB](#cleardb-mysql-db-contributor) | Puede administrar bases de datos ClearDB MySQL |
 | [Colaborador](#contributor) | Puede administrar todo el contenido, excepto el acceso |
 | [Colaborador de Factoría de datos](#data-factory-contributor) | Puede administrar las factorías de datos |
-| [Usuario del laboratorio de desarrollo y pruebas](#devtest-lab-user) | Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las máquinas virtuales |
+| [Usuario de DevTest Labs](#devtest-labs-user) | Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las máquinas virtuales |
 | [Colaborador de cuenta de base de datos de documento](#document-db-account-contributor) | Puede administrar cuentas de DocumentDB |
 | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) | Puede administrar cuentas de Sistemas inteligentes |
 | [Colaborador de la red](#network-contributor) | Puede administrar todos los recursos de red |
@@ -152,22 +152,12 @@ Puede administrar las factorías de datos
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
-### Usuario del laboratorio de desarrollo y pruebas
+### Usuario de DevTest Labs
 Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las máquinas virtuales
 
 | **Acciones** ||
 | ------- | ------ |
-| */read | Leer recursos de todos los tipos | | Microsoft.DevTestLab/labs/labStats/action | Leer estadísticas de laboratorio | | Microsoft.DevTestLab/Environments/* | Crear y administrar entornos |
-| Microsoft.DevTestLab/labs/createEnvironment/action | Crear un entorno de laboratorio |
-| Microsoft.Compute/virtualMachines/start/action | Iniciar máquinas virtuales |
-| Microsoft.Compute/virtualMachines/restart/action | Reiniciar máquinas virtuales |
-| Microsoft.Compute/virtualMachines/deallocate/action | Desasignar máquinas virtuales |
-| Microsoft.Storage/storageAccounts/listKeys/action | Enumerar claves de cuentas de almacenamiento |
-| Microsoft.Network/virtualNetworks/join/action | Unirse a redes virtuales |
-| Microsoft.Network/loadBalancers/join/action | Unirse a equilibradores de carga |
-| Microsoft.Network/publicIPAddresses/link/action | Vincular a direcciones IP públicas |
-| Microsoft.Network/networkInterfaces/link/action | Vincular a interfaces de red |
-| Microsoft.Network/networkInterfaces/write | Escribir interfaces de red |
+| **/read | Leer todo tipo de recursos | | Microsoft.DevTestLab/labs/createEnvironment/action | Crear un entorno de laboratorio | | Microsoft.DevTestLab/labs/formulas/delete | Eliminar fórmulas | | Microsoft.DevTestLab/labs/formulas/write | Agregar o modificar fórmulas | | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluar directivas de laboratorio | | Microsoft.Compute/virtualMachines/start/action | Iniciar máquinas virtuales | | Microsoft.Compute/virtualMachines/restart/action | Reiniciar máquinas virtuales | | Microsoft.Compute/virtualMachines/deallocate/action | Desasignar máquinas virtuales | | Microsoft.Storage/storageAccounts/listKeys/action | Enumerar claves de cuenta de almacenamiento | | Microsoft.Network/virtualNetworks/subnets/join/action | Unir una red virtual | | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Unir un grupo de direcciones de back-end de equilibrador de carga | | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Unir una regla NAT de entrada del equilibrador de carga | | Microsoft.Network/publicIPAddresses/join/action | Unirse a una dirección IP pública | | Microsoft.Network/networkInterfaces/join/action | Unir una máquina virtual a una interfaz de red | | Microsoft.Network/networkInterfaces/write | Escribir interfaces de red |
 
 ### Colaborador de cuenta de base de datos de documento
 Puede administrar cuentas de DocumentDB
@@ -369,17 +359,17 @@ Puede administrar las cuentas de almacenamiento clásico
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de la cuenta de almacenamiento
-Puede administrar las cuentas de almacenamiento
+Permite administrar cuentas de almacenamiento, pero no el acceso a ellas.
 
 | **Acciones** ||
 | ------- | ------ |
 | Microsoft.Storage/storageAccounts/* | Crear y administrar cuentas de almacenamiento |
 | Microsoft.Authorization/*/read | Leer toda la autorización |
-| Microsoft.Resources/subscriptions/resources/read | Leer recursos de suscripción |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos de suscripción |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Leer recursos de grupos de recursos de suscripción |
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Crear y administrar implementaciones de grupos de recursos de suscripción |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+| Microsoft.Insights/diagnosticSettings/* | Administrar la configuración de diagnóstico |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Administrador de acceso de usuario
@@ -387,8 +377,7 @@ Puede administrar el acceso de usuarios a los recursos de Azure
 
 | **Acciones** ||
 | ------- | ------ |
-| */read | Leer recursos de todos los tipos, excepto secretos. | 
-| Microsoft.Authorization/* | Leer autorización |
+| */read | Leer recursos de todos los tipos, excepto secretos. | | Microsoft.Authorization/* | Leer autorización |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de la máquina virtual clásica
@@ -487,9 +476,9 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 | Microsoft.Insights/components/* | Crear y administrar componentes de Insights |
 
 ## Consulte también
-- [Control de acceso basado en roles de Azure](role-based-access-control-configure.md): obtenga una introducción a RBAC en el Portal de Azure.
-- [Roles personalizados en Azure RBAC](role-based-access-control-custom-roles.md): aprenda a crear roles personalizados para satisfacer sus necesidades de acceso.
-- [Creación de un informe de historial de cambios de acceso](role-based-access-control-access-change-history-report.md): realice un seguimiento del cambio de asignaciones de rol en el RBAC.
-- [Solución de problemas del control de acceso basado en roles](role-based-access-control-troubleshooting.md): obtenga sugerencias para solucionar problemas frecuentes.
+- [Control de acceso basado en rol de Azure](role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure
+- [Roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md): aprenda a crear roles personalizados para satisfacer sus necesidades de acceso.
+- [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md): realice el seguimiento del cambio de asignaciones de rol en RBAC.
+- [Solución de problemas del control de acceso basado en rol](role-based-access-control-troubleshooting.md): obtenga sugerencias para solucionar problemas frecuentes.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/07/2016"
+   ms.date="04/25/2016"
    ms.author="manuaery" />
 
 # Volúmenes de StorSimple anclados localmente: preguntas más frecuentes (P+F)
@@ -183,7 +183,7 @@ Más información acerca de la [conversión de un volumen en capas en un volumen
 
 **P.** ¿Puedo clonar un volumen anclado localmente?
 
-**R.** Sí, puede hacerlo. Sin embargo, un volumen anclado localmente se clonará como un volumen en capas. Más información acerca de cómo [clonar un volumen anclado localmente](storsimple-clone-volume-u2)
+**R.** Sí, puede hacerlo. Sin embargo, un volumen anclado localmente se clonará como un volumen en capas. Más información sobre cómo [clonar un volumen anclado localmente](storsimple-clone-volume-u2.md)
 
 ## Preguntas acerca de la conmutación por error de un volumen anclado localmente
 
@@ -195,7 +195,7 @@ Más información acerca de la [conversión de un volumen en capas en un volumen
 - En capas si el dispositivo de destino se está ejecutando en la serie StorSimple 8000 Update 1.x.
 - En capas si el dispositivo de destino es el dispositivo en la nube (versión del software Update 2 o Update 1.x).
 
-Más información acerca de la [conmutación por error y recuperación ante desastres de volúmenes anclados localmente en las distintas versiones](storsimple-device-failover-disaster-recover.md#device-failover-across-software-versions)
+Más información sobre la [conmutación por error y la recuperación ante desastres de volúmenes anclados localmente en las distintas versiones](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions).
 
 **P.** ¿Se restauran los volúmenes anclados localmente al instante durante la recuperación ante desastres?
 
@@ -211,6 +211,6 @@ Más información acerca de la [conmutación por error y recuperación ante desa
 
 **P.** ¿Puedo conmutar un contenedor de volúmenes con volúmenes anclados localmente en el dispositivo en la nube?
 
-**R.** Sí, puede hacerlo. Los volúmenes anclados localmente se conmutarán por error como volúmenes en capas. Más información acerca de la [conmutación por error y recuperación ante desastres de volúmenes anclados localmente en las distintas versiones](storsimple-device-failover-disaster-recover.md#device-failover-across-software-versions)
+**R.** Sí, puede hacerlo. Los volúmenes anclados localmente se conmutarán por error como volúmenes en capas. Más información sobre la [conmutación por error y la recuperación ante desastres de volúmenes anclados localmente en las distintas versiones](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

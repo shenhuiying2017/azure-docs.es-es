@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Uso de cmdlets de PowerShell con Azure RemoteApp | Microsoft Azure"
+   pageTitle="Uso de cmdlets de PowerShell con RemoteApp de Azure | Microsoft Azure"
    description="Vea cómo usar los cmdlets de Windows PowerShell con Azure RemoteApp"
    services="remoteapp"
    documentationCenter=""
@@ -13,19 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/23/2016"
+   ms.date="05/05/2016"
    ms.author="elizapo"/>
 
 
 
 # Uso de cmdlets de Windows PowerShell con Azure RemoteApp
-=====================================
 
  Puede usar los cmdlets de PowerShell de RemoteApp de Azure para administrar y mantener las colecciones. Use la siguiente información para comenzar.
 
 ## Obtención de los cmdlets 
 -------------
-En primer lugar, descargue [aquí](http://go.microsoft.com/?linkid=9811175) los cmdlets de Azure PowerShell, que incluyen los de RemoteApp.
+En primer lugar, descargue [aquí](http://go.microsoft.com/?linkid=9811175) los cmdlets de Azure PowerShell, que incluyen los de RemoteApp.
 
 Consulte la [ayuda de cmdlets de Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
 
@@ -37,7 +36,7 @@ Puede usar estos pasos para una introducción rápida:
 
 1.	Descargue e instale los [cmdlets de Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
 2.	Inicie Microsoft Azure PowerShell.
-3.	Ejecute **Add-AzureAccount** para la autenticarse en su suscripción de Azure. Cuando se le solicite, escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
+3.	Ejecute **Add-AzureAccount** para autenticarse en su suscripción de Azure. Cuando se le solicite, escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
 4.	Ejecute **Get-AzureSubscription** para enumerar las suscripciones asociadas a su cuenta de usuario. 
 5.	Ejecute **Select-AzureSubscription** y especifique el nombre de la suscripción o el identificador que se usa en la consola de PowerShell.
 
@@ -112,4 +111,4 @@ Otros cmdlets de RemoteApp:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

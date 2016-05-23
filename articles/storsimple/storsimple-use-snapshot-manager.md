@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/25/2016"
    ms.author="v-sharos" />
 
 # Interfaz de usuario de Administrador de instantáneas StorSimple
 
 ## Información general
 
-Administrador de instantáneas StorSimple tiene una interfaz gráfica de usuario (GUI) intuitiva que puede usar para administrar copias de seguridad de grupos de volúmenes, incluyendo las almacenadas localmente y en la nube. Este tutorial proporciona una introducción a la interfaz y, a continuación, explica cómo usar cada uno de los componentes. Para obtener una descripción detallada de StorSimple Snapshot Manager, consulte [¿Qué es StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+Snapshot Manager de StorSimple tiene una interfaz de usuario intuitiva que puede usar para realizar y administrar copias de seguridad. Este tutorial proporciona una introducción a la interfaz de usuario y, después, explica cómo usar cada uno de los componentes. Para obtener una descripción detallada de StorSimple Snapshot Manager, consulte [¿Qué es StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ### Descripción de la consola
 
@@ -110,7 +110,7 @@ La tabla siguiente contiene una lista alfabética de las acciones de Administrad
 
 - La columna **Descripción** explica cómo usar cada acción en el menú **Acción** o el panel Acciones y explica lo que hace.
 
->[AZURE.NOTE]El panel **Acciones** y los menús **Acción** contienen opciones adicionales, como **Vista**, **Nueva ventana desde aquí**, **Actualizar**, **Exportar lista** **Ayuda**. Estas opciones están disponibles como parte de MMC y no son específicas de Administrador de instantáneas StorSimple. La tabla incluye descripciones de estas opciones.
+>[AZURE.NOTE] El panel **Acciones** y los menús **Acción** contienen opciones adicionales, como **Vista**, **Nueva ventana desde aquí**, **Actualizar**, **Exportar lista** **Ayuda**. Estas opciones están disponibles como parte de MMC y no son específicas de Administrador de instantáneas StorSimple. La tabla incluye descripciones de estas opciones.
  
 | Acción | Navegación | Descripción |
 |:--------|:------------|:-------------|
@@ -234,7 +234,7 @@ En la tabla siguiente se describe los iconos que aparecen en la barra de herrami
  
 ## Panel de Ámbito
 
-El panel **Ámbito** es el panel izquierdo, en la interfaz de usuario de Administrador de instantáneas StorSimple. Contiene el árbol de consola (o nodo) y es el mecanismo de navegación principal para Administrador de instantáneas StorSimple.
+El panel **Ámbito** es el panel situado más a la izquierda en la interfaz de usuario de Snapshot Manager de StorSimple. Contiene el árbol de consola (o nodo) y es el mecanismo de navegación principal para Administrador de instantáneas StorSimple.
  
 ### Estructura del panel Ámbito
 
@@ -307,7 +307,7 @@ Las directivas de copia de seguridad son las programaciones de trabajo para real
 
 - Para ver una lista de directivas de copia de seguridad, haga clic en **Directivas de copias de seguridad** en el panel **Ámbito**. La lista de directrices de copias de seguridad, junto con información sobre cada directriz aparece en el panel **Resultados**.
 
->[AZURE.NOTE]Puede conservar un máximo de 64 copias de seguridad.
+>[AZURE.NOTE] Puede conservar un máximo de 64 copias de seguridad.
 
 
 ### Nodo Catálogo de copias de seguridad
@@ -490,8 +490,7 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 | V | Abre el menú **Vista**. |
 | W | Abre una nueva consola de StorSimple Snapshot Manager centrada en el nodo **Grupos de volúmenes**.|
 | F | Actualiza la consola de Administrador de instantáneas StorSimple.|
-| L | Abre la página **Exportar lista**.
-| H | Abre la Ayuda en pantalla. |
+| L | Abre la página **Exportar lista**. | H | Abre la Ayuda en pantalla. |
  
 #### Teclas de método abreviado del nodo Catálogo de copia de seguridad
 
@@ -516,4 +515,4 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 - Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 - Aprenda a [usar StorSimple Snapshot Manager para conectarse y administrar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

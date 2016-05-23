@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación de Windows
@@ -52,7 +52,17 @@ Las características sin conexión de Aplicaciones móviles de Azure permiten in
 
     >[AZURE.NOTE] Si la instalación crea una referencia adicional a una versión diferente de SQLite a la que tiene instalada, se genera un error de compilación. Debería resolver este error quitando el duplicado del nodo de **referencias** de sus proyectos.
 
-3. En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** para el tiempo de ejecución de Windows 8.1 y los proyectos de la plataforma Windows Phone 8.1 y asegúrese de que hay una referencia a SQLite, que se encuentra en la sección **Extensiones**.
+3. SQLite es una biblioteca nativa y requiere que elija una arquitectura específica de la plataforma como **x86**, **x64** o **ARM**. No se admite **cualquier CPU**. En el Explorador de soluciones, haga clic en Solución que aparece en la parte superior, luego cambie el cuadro desplegable de la arquitectura del procesador a uno de la configuración compatible que desea probar.
+
+    >[AZURE.NOTE] Si usa Visual Studio 2015, haga clic con el botón derecho en la solución y, después, en **Propiedades** para abrir el Administrador de configuración y establecer la plataforma para los proyectos de Windows y de Windows Phone.
+
+    ![][13]
+
+
+4. En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** para los proyectos de la plataforma en tiempo de ejecución de Windows 8.1 y Windows Phone 8.1. Asegúrese de que hay una referencia a SQLite, que se encuentra en la sección **Extensiones**.
+
+    >[AZURE.NOTE] Si usa Visual Studio 2015, haga clic con el botón derecho en el nodo **Referencias** para los proyectos de Windows 8.1 Runtime y Windows Phone 8.1 y haga clic en **Agregar una referencia** para abrir el Administrador de referencias.
+
 
     ![][1] </br>
 
@@ -62,9 +72,6 @@ Las características sin conexión de Aplicaciones móviles de Azure permiten in
 
     **Windows Phone 8.1**
 
-4. SQLite es una biblioteca nativa y requiere que elija una arquitectura específica de la plataforma como **x86**, **x64** o **ARM**. No se admite **cualquier CPU**. En el Explorador de soluciones, haga clic en Solución que aparece en la parte superior, luego cambie el cuadro desplegable de la arquitectura del procesador a uno de la configuración compatible que desea probar.
-
-    ![][13]
 
 5. En el Explorador de soluciones, en el proyecto compartido, abra el archivo MainPage.cs. Quite la marca de comentario de las siguientes instrucciones using en la parte superior del archivo:
 
@@ -259,10 +266,10 @@ Cuando se quiere sincronizar el almacén local con el servidor, se usan los mét
 
 
 <!-- URLs. -->
-[Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: ../app-service-mobile-offline-data-sync.md
-[create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
-[Creación de una aplicación de Windows]: ../app-service-mobile-windows-store-dotnet-get-started.md
-[Creación de una aplicación para Windows]: ../app-service-mobile-windows-store-dotnet-get-started.md
+[Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
+[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
+[Creación de una aplicación de Windows]: app-service-mobile-windows-store-dotnet-get-started.md
+[Creación de una aplicación para Windows]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite para Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite para Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite para Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
@@ -272,4 +279,4 @@ Cuando se quiere sincronizar el almacén local con el servidor, se usan los mét
 [Descripción de la nube: sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

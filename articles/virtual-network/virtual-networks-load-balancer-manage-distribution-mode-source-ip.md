@@ -3,7 +3,7 @@
    description="Características de administración para el modo de distribución del equilibrador de carga de Azure"
    services="virtual-network"
    documentationCenter=""
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    />
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/07/2015"
-   ms.author="telmos"
+   ms.author="jdial"
    />
 
 # Administrar la red virtual : Modo de distribución del equilibrador de carga (afinidad de IP de origen)
@@ -160,4 +160,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->
