@@ -252,7 +252,7 @@ También puede ejecutar transacciones atómicas en relación con documentos con 
 
     await client.ExecuteStoredProcedureAsync<DeviceReading>(
         UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
-        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") },
+        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
         "XMS-001-FE24C");
 
 En la siguiente sección, veremos cómo puede moverse a colecciones con particiones desde colecciones de partición única.
@@ -319,4 +319,4 @@ En este artículo hemos descrito el funcionamiento de las particiones en Azure D
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

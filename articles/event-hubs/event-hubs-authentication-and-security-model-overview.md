@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Introducción al modelo de autenticación y seguridad de los Centros de eventos | Microsoft Azure"
-   description="Introducción al modelo de autenticación y seguridad de Centros de eventos"
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Introducción al modelo de autenticación y seguridad de los Centros de eventos | Microsoft Azure"
+    description="Introducción al modelo de autenticación y seguridad de Centros de eventos"
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/03/2016"
+    ms.author="sethm;clemensv" />
 
 # Introducción al modelo de autenticación y seguridad de los Centros de eventos
 
@@ -25,9 +25,9 @@ El modelo de seguridad de los Centros de eventos cumple los siguientes requisito
 
 ## Autenticación de dispositivos
 
-El modelo de seguridad de los Centros de eventos se basa en una combinación de tokens de [firma de acceso compartido (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) y publicadores de eventos. Un publicador de eventos define un extremo virtual para un Centro de eventos. El publicador solo puede usarse para enviar mensajes a un Centro de eventos. No es posible recibir mensajes desde un publicador.
+El modelo de seguridad de los Centros de eventos se basa en una combinación de tokens de [firma de acceso compartido (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) y *publicadores de eventos*. Un publicador de eventos define un extremo virtual para un Centro de eventos. El publicador solo puede usarse para enviar mensajes a un Centro de eventos. No es posible recibir mensajes desde un publicador.
 
-Normalmente, un Centro de eventos emplea un publicador por dispositivo. Todos los mensajes que se envíen a cualquiera de los publicadores de un Centro de eventos se ponen en cola dentro de ese Centro de eventos. Los publicadores permiten un control de acceso y limitación avanzados.
+Normalmente, un Centro de eventos emplea a un publicador por dispositivo. Todos los mensajes que se envíen a cualquiera de los publicadores de un Centro de eventos se ponen en cola dentro de ese Centro de eventos. Los publicadores permiten control de acceso y limitación avanzados.
 
 A cada dispositivo se le asigna un token único, que se carga en el dispositivo. Los tokens se producen de forma que cada token único concede acceso a un publicador único diferente. Un dispositivo que posea un token solo puede enviar a un publicador y a ningún otro. Si varios dispositivos comparten el mismo token, cada uno de estos dispositivos comparte un publicador.
 
@@ -50,7 +50,7 @@ Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.
 TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
 NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create Event hub with a SAS rule that allows sending to that Event hub
+// Create Event Hub with a SAS rule that enables sending to that Event Hub
 EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
 string eventHubSendKeyName = "EventHubSendKey";
 string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
@@ -87,7 +87,7 @@ Normalmente, los tokens tienen una duración que se parece o supera la duración
 
 Cuando se han creado los tokens, cada dispositivo se aprovisiona con su propio token único.
 
-Cuando el dispositivo envía datos a un Centro de eventos, el dispositivo etiqueta su token con la solicitud de envío. Para evitar que un atacante use la técnica de interceptación de la red y robe el token, la comunicación entre el dispositivo y el Centro de eventos debe realizarse a través de un canal cifrado.
+Cuando el dispositivo envía datos a un Centro de eventos, el dispositivo etiqueta su token con la solicitud de envío. Para evitar que un atacante use la técnica de eavesdropping y robe el token, la comunicación entre el dispositivo y el Centro de eventos debe realizarse a través de un canal cifrado.
 
 ### Incorporación de dispositivos a la lista negra
 
@@ -95,7 +95,7 @@ Si un atacante roba un token, el atacante puede suplantar el dispositivo al que 
 
 ## Autenticación de aplicaciones de back-end
 
-Para autenticar aplicaciones de back-end que consumen los datos que generan los dispositivos, los Centros de eventos emplean un modelo de seguridad que es similar al que se usa en los temas de Bus de servicio. Un grupo de consumidores de Centros de eventos es equivalente a una suscripción a un tema de Bus de servicio. Un cliente puede crear un grupo de consumidores si la solicitud para crear el grupo de consumidores viene acompañada de un token que concede privilegios de administración para el Centro de eventos o para el espacio de nombres al que este pertenece. Se permite que un cliente pueda consumir datos de un grupo de consumidores si la solicitud de recepción está acompañada de un token que concede derechos de recepción en ese grupo de consumidores, el Centro de eventos o el espacio de nombres al que este pertenece.
+Para autenticar aplicaciones de back-end que consumen los datos que generan los dispositivos, los Centros de eventos emplean un modelo de seguridad que es similar al que se usa en los temas de Bus de servicio. Un grupo de consumidores de Centros de eventos es equivalente a una suscripción a un tema de Bus de servicio. Un cliente puede crear un grupo de consumidores si la solicitud para crear el grupo de consumidores viene acompañada de un token que concede privilegios de administración para el Centro de eventos o para el espacio de nombres al que pertenece. Se permite que un cliente pueda consumir datos de un grupo de consumidores si la solicitud de recepción está acompañada de un token que concede derechos de recepción en ese grupo de consumidores, Centro de eventos o espacio de nombres al que pertenece el Centro de eventos.
 
 La versión actual del Bus de servicio no admite reglas SAS para suscripciones individuales. Lo mismo sucede con los grupos de consumidores de los Centros de eventos. La compatibilidad con SAS se agregará para ambas características en el futuro.
 
@@ -154,4 +154,4 @@ Para obtener más información sobre los Centros de eventos, visite los siguient
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

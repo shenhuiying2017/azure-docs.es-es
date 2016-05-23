@@ -12,9 +12,9 @@ Las suscripciones y temas del Bus de servicio le permiten escalar para realizar 
 
 ## Creación de un espacio de nombres de servicio
 
-Para comenzar a usar suscripciones y temas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del Bus de servicio en la aplicación.
+Para comenzar a usar suscripciones y temas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
 
-Para crear un nombre de espacio de servicio:
+Para crear un espacio de nombres:
 
 1.  Inicie sesión en el [Portal de Azure clásico][].
 
@@ -56,5 +56,3 @@ Para realizar operaciones de administración (como la creación de un tema o una
 
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
-
-<!---HONumber=AcomDC_1203_2015-->

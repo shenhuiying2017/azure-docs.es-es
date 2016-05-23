@@ -103,11 +103,13 @@ A continuación, actualizará la aplicación para permitir la autenticación ant
 
     De este modo se crea un conjunto de funciones para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión en Facebook. Si usa un proveedor de identidades que no sea Facebook, cambie el valor pasado al método **login** a uno de los siguientes: *microsoftaccount*, *facebook*, *twitter*, *google* o *aad*.
 
-	>[AZURE.IMPORTANT]En una aplicación de PhoneGap, también debe agregar los siguientes complementos al proyecto: <ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+	>[AZURE.IMPORTANT]En una aplicación de PhoneGap, también debe agregar los siguientes complementos al proyecto:
+	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
+	> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. Vuelva al explorador en el que se ejecuta su aplicación y actualice la página.
 
-	   Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
+	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
 	>[AZURE.NOTE]Si usa Internet Explorer, podría recibir el error siguiente después de iniciar sesión: <code>No se puede acceder al elemento de apertura de ventanas. Puede estar en una zona Internet Explorer diferente</code>. Esto sucede porque la ventana emergente se ejecuta en una zona de seguridad diferente (Internet) del localhost (intranet). Esto solo afecta a las aplicaciones durante el desarrollo que usan localhost. También puede abrir la pestaña **Seguridad** de **Opciones de Internet**, hacer clic en **Intranet local**, después en **Sitios** y deshabilitar **Detectar redes intranet automáticamente**. Acuérdese de volver a cambiar esta configuración cuando haya terminado la prueba.
 
@@ -135,4 +137,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Servicios móviles con HTML/JavaScript en Referencia conceptual de Servicios móviles HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Vista previa de la colaboración B2B de Azure AD: integración sencilla y segura de los asociados de la nube
@@ -32,7 +32,7 @@ Consulte la [publicación de blog en la que se anuncia la vista previa pública]
 Para más información sobre una comparación de los casos de uso para la colaboración B2B de Azure AD, Azure AD B2C y la aplicación multiinquilino de Azure AD, consulte [Comparación de funcionalidades para administrar identidades externas con Azure Active Directory](active-directory-b2b-compare-external-identities.md).
 
 ## Artículos relacionados
-Examine nuestros otros artículos sobre colaboración de Azure B2B:
+Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 
 - [Cómo funciona](active-directory-b2b-how-it-works.md)
 - [Tutorial detallado](active-directory-b2b-detailed-walkthrough.md)
@@ -42,4 +42,4 @@ Examine nuestros otros artículos sobre colaboración de Azure B2B:
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

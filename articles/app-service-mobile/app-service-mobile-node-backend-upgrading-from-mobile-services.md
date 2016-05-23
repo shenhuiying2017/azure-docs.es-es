@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="ggailey"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="chrande"/>
+	ms.date="05/05/2016"
+	ms.author="adrianha"/>
 
 # Actualización del Servicio móvil de Azure de Node.js existente a Servicio de aplicaciones
 
@@ -34,11 +34,11 @@ Cuando un back-end móvil se actualiza a Servicio de aplicaciones de Azure, acce
 
 La actualización al nuevo [SDK de Aplicaciones móviles](https://www.npmjs.com/package/azure-mobile-apps) ofrece muchas mejoras, entre las que se incluyen:
 
-- Basado en [marco Express](http://expressjs.com/en/index.html), el nuevo SDK para Node es ligero y está diseñado para mantenerse al día con nuevas versiones de Node a medida que salen. Puede personalizar el comportamiento de la aplicación con middleware de Express.
+- Basado en la [plataforma Express](http://expressjs.com/en/index.html), el nuevo SDK para Node es ligero y está diseñado para mantenerse al día con nuevas versiones de Node a medida que salen. Puede personalizar el comportamiento de la aplicación con middleware de Express.
 
 - Ofrece mejoras de rendimiento significativas en comparación con el SDK de Servicios móviles.
 
-- Ahora puede hospedar un sitio web junto con el back-end móvil; asimismo, es fácil agregar el Azure Mobile SDK a cualquier aplicación expressv4 existente.
+- Ahora puede hospedar un sitio web junto con el back-end móvil; asimismo, es fácil agregar el Azure Mobile SDK a cualquier aplicación v4 existente.
 
 - Creado para desarrollo multiplataforma y local, el SDK de Aplicaciones móviles se puede desarrollar y ejecutar localmente en plataformas Windows, Linux y OSX. Ahora es fácil usar técnicas de desarrollo comunes de Node como, por ejemplo, ejecutar pruebas [Mocha](https://mochajs.org/) antes de la implementación.
 
@@ -52,7 +52,7 @@ A diferencia del SDK de Aplicaciones móviles para .NET, la actualización de un
 
 Los SDK de cliente de Servicios móviles **no** son compatibles con el nuevo SDK de servidor de Aplicaciones móviles. A fin de ofrecer continuidad del servicio para la aplicación, no debe publicar cambios en un sitio que actualmente presta servicio a clientes publicados. En su lugar, debe crear una aplicación móvil que actúe como duplicado. Puede colocar esta aplicación en el mismo Plan del Servicio de aplicaciones para evitar incurrir en costos financieros adicionales.
 
-Entonces tendrá dos versiones de la aplicación,: una que permanece igual y presta servicio a aplicaciones publicadas en su estado natural, y otra que después se puede actualizar y destinar a una nueva versión del cliente. Puede mover y probar el código a su ritmo, pero debe asegurarse de que las correcciones de errores se apliquen a ambas. Cuando crea que la cantidad que elija de aplicaciones cliente en estado natural se han actualizado a la versión más reciente, puede eliminar si quiere la aplicación migrada original. No incurre en costos monetarios adicionales, si se hospeda en el mismo Plan del Servicio de aplicaciones que la aplicación móvil.
+Entonces tendrá dos versiones de la aplicación: una que permanece igual y presta servicio a las aplicaciones publicadas en su estado natural, y otra que después se puede actualizar y destinar a una nueva versión del cliente. Puede mover y probar el código a su ritmo, pero debe asegurarse de que las correcciones de errores se apliquen a ambas. Cuando crea que la cantidad que elija de aplicaciones cliente en estado natural se han actualizado a la versión más reciente, puede eliminar si quiere la aplicación migrada original. No incurre en costos monetarios adicionales, si se hospeda en el mismo Plan del Servicio de aplicaciones que la aplicación móvil.
 
 El esquema completo del proceso de actualización es el siguiente:
 
@@ -191,7 +191,7 @@ El SDK de Centros de notificaciones de Azure ha tenido algunas actualizaciones i
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
-        // see https://azure.microsoft.com/es-ES/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
+        // see https://azure.microsoft.com/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
         logger.silly('Running TodoItem.insert');
 
         // This push uses a template mechanism, so we need a template/
@@ -271,7 +271,7 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[precios del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
+[precios del Servicio de aplicaciones]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 [Portal de Azure]: https://portal.azure.com/
@@ -288,4 +288,4 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

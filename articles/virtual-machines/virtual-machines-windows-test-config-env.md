@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/25/2016"
 	ms.author="josephd"/>
 
 # Entorno de prueba de la configuración básica
@@ -302,9 +302,10 @@ Se trata de la configuración final.
 
 La configuración base de Azure ya está lista para entornos de pruebas y desarrollo de aplicaciones o para entornos de prueba adicionales.
 
-## Paso siguiente
+## Pasos siguientes
 
-- Agregar una nueva máquina virtual mediante el [Portal de Azure](virtual-machines-windows-hero-tutorial.md) o generar el [entorno de prueba de nube híbrida simulado](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)
+- Agregar una nueva máquina virtual mediante el [Portal de Azure](virtual-machines-windows-hero-tutorial.md).
+- Cree el [entorno de prueba de nube híbrida simulada](virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
 ## <a id="costs"></a>Reducción del costo de las máquinas virtuales del entorno de prueba en Azure
@@ -334,4 +335,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/05/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 # Creación de clústeres independientes de Service Fabric en Windows Server o Linux
@@ -62,4 +62,4 @@ Creación de un clúster en máquinas virtuales o equipos que ejecutan Windows S
 
 Creación de un clúster en máquinas virtuales o equipos que ejecutan Linux: [Service Fabric en Linux](service-fabric-linux-overview.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

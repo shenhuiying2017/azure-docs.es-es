@@ -4,8 +4,8 @@
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="04/25/2016" 
 	ms.author="tomfitz"/>
 
 # Bloqueo de recursos con el Administrador de recursos de Azure
 
-Como administrador, existen escenarios en los que querrá bloquear una suscripción, un grupo de recursos o un recurso para impedir que otros usuarios de su organización eliminen accidentalmente un recurso esencial. Cuando se bloquean, los usuarios autorizados podrán seguir leyendo y modificando los recursos, pero no podrán eliminarlos.
+Como administrador, es posible que quiera bloquear una suscripción, un grupo de recursos o un recurso para impedir que otros usuarios de su organización eliminen accidentalmente un recurso esencial. Cuando se bloquean, los usuarios autorizados podrán seguir leyendo y modificando los recursos, pero no podrán eliminarlos.
 
-Los bloqueos son diferentes del uso del control de acceso basado en rol para asignar permisos de usuario para realizar determinadas acciones. Para información sobre cómo establecer permisos para usuarios y roles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md). Al contrario que con el control de acceso basado en rol, se usan los bloqueos de administración para aplicar una restricción a todos los usuarios y roles, y normalmente se aplican los bloqueos solo durante un tiempo limitado.
+A diferencia de control de acceso basado en rol, puede usar los bloqueos de administración para aplicar una restricción a través de todos los usuarios y roles. Para más información acerca de cómo establecer permisos para usuarios y roles, consulte [Control de acceso basado en rol de Azure](./active-directory/role-based-access-control-configure.md).
 
 Cuando se aplica un bloqueo en un ámbito primario, todos los recursos secundarios heredan el mismo bloqueo.
 
 ## Quién puede crear o eliminar bloqueos en su organización
 
-Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. Entre los roles integrados, solamente se conceden esas acciones a **Propietario** y **Administrador de acceso de usuarios**. Para más información sobre la asignación del control de acceso, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
+Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. Entre los roles integrados, solamente se conceden esas acciones a **Propietario** y **Administrador de acceso de usuarios**.
 
 ## Creación de un bloqueo en una plantilla
 
@@ -90,4 +90,4 @@ Azure PowerShell ofrece otros comandos para bloqueos de trabajo, como **Set-Azur
 - Para cambiar el grupo de recursos en que reside un recurso, vea [Traslado de los recursos a un nuevo grupo de recursos](resource-group-move-resources.md).
 - Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. Para más información, vea [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

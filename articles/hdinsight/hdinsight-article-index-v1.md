@@ -84,8 +84,7 @@ Para obtener artículos acerca del uso de clústeres de Apache Spark nativos en 
 
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 * [Instalación y uso de Spark en clústeres Hadoop](hdinsight-hadoop-spark-install.md)
-* [Servidor de trabajo Spark en clústeres de HDInsight](hdinsight-apache-spark-job-server.md)
-* [Aprovisionamiento de un Apache Spark y ejecución de consultas interactivas mediante Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
+
 
 
 ## Soluciones de Big data
@@ -131,4 +130,4 @@ Para obtener artículos acerca del uso de clústeres de Apache Spark nativos en 
 * [Interpretación de mensajes de error](hdinsight-debug-jobs.md)
 * [Obtención de ayuda en el foro](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

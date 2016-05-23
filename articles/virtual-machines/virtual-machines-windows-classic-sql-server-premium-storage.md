@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="danielsollondon"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="monicar"    
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/22/2016"
+	ms.date="05/04/2016"
 	ms.author="jroth"/>
 
 # Usar el almacenamiento Premium de Azure con SQL Server en máquinas virtuales
@@ -33,9 +33,9 @@ Es importante comprender el proceso de extremo a extremo para usar el almacenami
 
 - Identificación de los requisitos previos para usar el almacenamiento Premium.
 - Ejemplos de implementación de SQL Server en IaaS en el almacenamiento Premium para nuevas implementaciones.
-- Ejemplos de migración de implementaciones existentes, y servidores e implementaciones independientes mediante grupos de disponibilidad AlwaysOn de SQL.
+- Ejemplos de migración de implementaciones existentes, tanto servidores independientes como implementaciones mediante grupos de disponibilidad AlwaysOn de SQL.
 - Enfoques de migración posibles.
-- Ejemplo completo de un extremo a extremo que muestra los pasos de Azure, Windows y SQL Server para la migración de una implementación existente de AlwaysOn.
+- Ejemplo completo que muestra los pasos de Azure, Windows y SQL Server para la migración de una implementación AlwaysOn existente.
 
 Para obtener información general sobre SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
@@ -51,7 +51,7 @@ Para usar el almacenamiento Premium deberá usar máquinas virtuales de la serie
 
 ### Servicios en la nube
 
-Solo puede usar máquinas virtuales DS* con almacenamiento Premium cuando se crean en un servicio en la nube nuevo. Si está usando AlwaysOn de SQL Server en Azure, el agente de escucha de AlwaysOn hará referencia a la dirección IP del equilibrador de carga interno o externo de Azure que está asociada a un servicio en la nube. Este artículo se centra en cómo migrar manteniendo al mismo tiempo la disponibilidad en este escenario.
+Solo puede usar máquinas virtuales DS* con almacenamiento Premium cuando se crean en un servicio en la nube nuevo. Si usando AlwaysOn de SQL Server en Azure, el agente de escucha de AlwaysOn hará referencia a la dirección IP del equilibrador de carga interno o externo de Azure asociada a un servicio en la nube. Este artículo se centra en cómo migrar manteniendo al mismo tiempo la disponibilidad en este escenario.
 
 > [AZURE.NOTE] La primera máquina virtual que se implementa en el servicio en la nube nuevo debe ser de la serie DS*.
 
@@ -350,7 +350,7 @@ Aquí va a crear la máquina virtual a partir de la imagen y a adjuntar dos VHD 
 
 > [AZURE.NOTE] Para las implementaciones existentes, vea primero la sección [Requisitos previos](#prerequisites-for-premium-storage) de este tema.
 
-Existen diferentes consideraciones para las implementaciones de SQL Server que no usan grupos de disponibilidad AlwaysOn y para las que sí los usan. Si no usa AlwaysOn y tiene un servidor SQL Server independiente, puede actualizar al almacenamiento Premium usando un servicio en la nube y una cuenta de almacenamiento nuevos. Considere las opciones siguientes:
+Existen diferentes consideraciones para las implementaciones de SQL Server que no usan grupos de disponibilidad AlwaysOn y para las que los usan. Si no usa AlwaysOn y tiene un servidor SQL Server independiente, puede realizar la actualización a almacenamiento Premium mediante un servicio en la nube y una cuenta de almacenamiento nuevos. Considere las opciones siguientes:
 
 - **Crear una nueva máquina virtual de SQL Server**. Puede crear una nueva máquina virtual de SQL Server que use una cuenta de almacenamiento Premium, como se documenta en Nuevas implementaciones. A continuación, haga una copia de seguridad y restaure las bases de datos de usuario y la configuración de SQL Server. La aplicación deberá actualizarse para que haga referencia al nuevo servidor SQL Server si se tiene acceso a ella interna o externamente. Deberá copiar todos los objetos “fuera de la base de datos” como si estuviera llevando a cabo una migración de SQL Server en paralelo (SxS). Esto incluye objetos tales como inicios de sesión, certificados y servidores vinculados.
 - **Migrar una máquina virtual de SQL Server existente**. Esto requerirá desconectar la máquina virtual de SQL Server y, a continuación, transferirla a un nuevo servicio en la nube, lo que incluye copiar todos los VHD conectados en la cuenta de almacenamiento Premium. Cuando la máquina virtual se conecte, la aplicación hará referencia al nombre de host del servidor, igual que antes. Tenga en cuenta que el tamaño del disco existente afectará a las características de rendimiento. Por ejemplo, un disco de 400 GB se redondea hacia arriba a P20. Si sabe que no necesita ese rendimiento de disco, podría volver a crear la máquina virtual como una máquina virtual de la serie DS y conectar los VHD de almacenamiento Premium con la especificación de tamaño o rendimiento que necesite. A continuación, puede desconectar y volver a conectar los archivos de base de datos de SQL.
@@ -363,19 +363,19 @@ Si se tiene acceso al servidor SQL Server externamente, la VIP del servicio en l
 
 > [AZURE.NOTE] Para las implementaciones existentes, vea primero la sección [Requisitos previos](#prerequisites-for-premium-storage) de este tema.
 
-En esta sección veremos en primer lugar cómo AlwaysOn interactúa con las redes de Azure. A continuación, desglosaremos las migraciones en dos escenarios: migraciones donde se puede tolerar un tiempo de inactividad y migraciones donde se debe alcanzar el tiempo de inactividad mínimo.
+En esta sección, examinaremos, en primer lugar, la forma en que AlwaysOn interactúa con las redes de Azure. A continuación, desglosaremos las migraciones en dos escenarios: migraciones donde se puede tolerar un tiempo de inactividad y migraciones donde se debe alcanzar el tiempo de inactividad mínimo.
 
-Los grupos de disponibilidad AlwaysOn locales de SQL Server usan un agente de escucha local que registra un nombre DNS virtual junto con una dirección IP que se comparte entre uno o más servidores de SQL Server. Cuando los clientes se conectan, se enrutan a través de la dirección IP de escucha al servidor principal de SQL Server. Este es el servidor que posee el recurso IP de AlwaysOn en ese momento.
+Los grupos de disponibilidad AlwaysOn de SQL Server locales usan un agente de escucha local que registra un nombre DNS virtual junto con una dirección IP que comparten uno o varios servidores SQL Server. Cuando los clientes se conectan, se enrutan a través de la dirección IP de escucha al servidor principal de SQL Server. Este es el servidor que posee el recurso IP de AlwaysOn en ese momento.
 
-![DeploymentsUseAlwaysOn][6]
+![DeploymentsUseAlways On][6]
 
 En Microsoft Azure, solo puede tener una dirección IP asignada a una NIC en la máquina virtual, así que para lograr el mismo nivel de abstracción que en local, Azure emplea la dirección IP que se asigna a los equilibradores de carga internos y externos (ILB/ELB). El recurso IP que se comparte entre los servidores se establece en la misma IP que el ILB/ELB. Esto se publica en el DNS y el tráfico de cliente se pasa a través del ILB/ELB a la réplica del servidor principal de SQL Server. El ILB/ELB sabe qué servidor de SQL Server es el principal, ya que usa sondeos para sondear el recurso IP de AlwaysOn. En el ejemplo anterior, sondea cada nodo que tiene un extremo al que hace referencia el ELB/ILB, y el que responde es el servidor principal de SQL Server.
 
 > [AZURE.NOTE] El ILB y ELB se asignan a un servicio en la nube de Azure determinado, por lo tanto lo más probable es que cualquier migración a la nube en Azure implique un cambio en la dirección IP del equilibrador de carga.
 
-### Migrar implementaciones de AlwaysOn que permiten cierto tiempo de inactividad
+### Migración de implementaciones de AlwaysOn que permiten cierto tiempo de inactividad
 
-Hay dos estrategias para migrar las implementaciones de AlwaysOn que permiten cierto tiempo de inactividad:
+Hay dos estrategias para migrar implementaciones de AlwaysOn que permiten cierto tiempo de inactividad:
 
 1. **Agregar más réplicas secundarias a un clúster de AlwaysOn existente**
 1. **Migrar a un clúster de AlwaysOn nuevo**
@@ -387,13 +387,13 @@ Una estrategia consiste en agregar más elementos secundarios al grupo de dispon
 ##### Puntos de tiempo de inactividad:
 
 - Validación de clústeres.
-- Pruebas de las conmutaciones por error AlwaysOn para los elementos secundarios nuevos.
+- Pruebas de las conmutaciones por error de AlwaysOn en los elementos secundarios nuevos.
 
 Si usa grupos de almacenamiento de Windows en la máquina virtual para un mayor rendimiento de E/S, se desconectarán durante una validación completa del clúster. La prueba de validación es necesaria al agregar nodos al clúster. El tiempo necesario para ejecutar la prueba puede variar, por lo que debe probarlo en un entorno de prueba representativo para obtener una aproximación del tiempo que tardará.
 
-Debe aprovisionar tiempo donde se pueda realizar una conmutación por error manual y una prueba de caos en los nodos recién agregados para asegurarse de que la alta disponibilidad de AlwaysOn funciona según lo esperado.
+Debe aprovisionar tiempo donde pueda realizar una conmutación por error manual y pruebas de caos en los nodos recién agregados para asegurarse de que la alta disponibilidad de AlwaysOn funciona tal como se espera de ella.
 
-![DeploymentUseAlwaysOn2][7]
+![DeploymentUseAlways On2][7]
 
 > [AZURE.NOTE] Debe detener todas las instancias del servidor SQL Server donde se usen los grupos de almacenamiento antes de que se ejecute la validación.
 ##### Pasos de alto nivel
@@ -409,15 +409,15 @@ Debe aprovisionar tiempo donde se pueda realizar una conmutación por error manu
 1. Agregue nuevos nodos al clúster y ejecute la validación completa.
 1. Una vez que la validación sea correcta, inicie todos los servicios de SQL Server.
 1. Haga una copia de seguridad de los registros de transacciones y restaure las bases de datos de usuario.
-1. Agregue nuevos nodos en el grupo de disponibilidad AlwaysOn y coloque la replicación en **Sincrónica**.
-1. Agregue el recurso de dirección IP del ILB/ELB del servicio en la nube nuevo mediante PowerShell para AlwaysOn basándose en el ejemplo multisitio del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). En los clústeres de Windows, establezca los **Posibles propietarios** del recurso de **Dirección IP** en los nuevos nodos antiguos. Consulte la sección “Agregar recurso de dirección IP en la misma subred” del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+1. Agregue nuevos nodos al grupo de disponibilidad AlwaysOn y coloque la replicación en **Sincrónica**.
+1. Agregue el recurso de dirección IP del ILB/ELB del servicio en la nube nuevo a través de PowerShell para AlwaysOn basándose en el ejemplo de sitios múltiples del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). En los clústeres de Windows, establezca los **Posibles propietarios** del recurso de **Dirección IP** en los nuevos nodos antiguos. Consulte la sección “Agregar recurso de dirección IP en la misma subred” del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 1. Conmute por error a uno de los nodos nuevos.
 1. Convierta los nuevos nodos en asociados de conmutación por error automática y pruebe las conmutaciones por error.
 1. Quite los nodos originales del grupo de disponibilidad.
 
 ##### Ventajas
 
-- Puede probar los nuevos servidores SQL (SQL Server y aplicación) antes de agregarlos a AlwaysOn.
+- Los nuevos servidores SQL Server (SQL Server y aplicación) se pueden probar antes de agregarlos a AlwaysOn.
 - Puede cambiar el tamaño de la máquina virtual y personalizar el almacenamiento en función de sus requisitos. Sin embargo, sería beneficioso mantener las rutas de acceso de archivos de SQL.
 - Puede controlar cuándo se inicia la transferencia de las copias de seguridad de la base de datos a las réplicas secundarias. Esto difiere del uso del commandlet **Start-AzureStorageBlobCopy** de Azure para copiar VHD, ya que es una copia asincrónica.
 
@@ -429,11 +429,11 @@ Debe aprovisionar tiempo donde se pueda realizar una conmutación por error manu
 
 #### 2\. Migrar a un clúster de AlwaysOn nuevo
 
-Otra estrategia consiste en crear un clúster de AlwaysOn nuevo con nodos completamente nuevos en el servicio en la nube nuevo y, a continuación, redirigir los clientes para que lo usen.
+Otra estrategia consiste en crear un clúster de AlwaysOn nuevo con nodos completamente nuevos en el servicio en la nube nuevo y, después, redirigir a los clientes para que lo usen.
 
 ##### Puntos de tiempo de inactividad
 
-Hay tiempo de inactividad cuando se transfieren aplicaciones y usuarios al nuevo agente de escucha de AlwaysOn. El tiempo de inactividad depende de lo siguiente:
+Cuando se transfieren aplicaciones y usuarios al nuevo agente de escucha de AlwaysOn se produce un tiempo de inactividad. El tiempo de inactividad depende de lo siguiente:
 
 - El tiempo necesario para restaurar las copias de seguridad del registro de transacciones finales a las bases de datos de los servidores nuevos.
 - El tiempo necesario para actualizar las aplicaciones cliente para que usen el nuevo agente de escucha de AlwaysOn.
@@ -443,17 +443,17 @@ Hay tiempo de inactividad cuando se transfieren aplicaciones y usuarios al nuevo
 - Puede probar el entorno de producción real, SQL Server y los cambios de compilación del sistema operativo.
 - Tiene la opción de personalizar el almacenamiento y posiblemente reducir el tamaño de la máquina virtual. Esto podría reducir los costos.
 - Puede actualizar su compilación o versión de SQL Server durante este proceso. También puede actualizar el sistema operativo.
-- El clúster de AlwaysOn anterior puede actuar como un destino de reversión sólido.
+- El clúster de AlwaysOn anterior puede actuar como destino de reversión sólido.
 
 ##### Desventajas
 
-- Debe cambiar el nombre DNS del agente de escucha si desea que ambos clústeres de AlwaysOn se ejecuten simultáneamente. Esto agrega sobrecarga de administración durante la migración, ya que las cadenas de la aplicación cliente deben reflejar el nuevo nombre del agente de escucha.
+- Si desea que los dos clústeres de AlwaysOn se ejecuten simultáneamente, debe cambiar el nombre DNS del agente de escucha. Esto agrega sobrecarga de administración durante la migración, ya que las cadenas de la aplicación cliente deben reflejar el nuevo nombre del agente de escucha.
 - Debe implementar un mecanismo de sincronización entre los dos entornos para mantenerlos lo más cerca posible, con el fin de minimizar los requisitos de sincronización final antes de la migración.
 - Existe un coste añadido durante la migración mientras se ejecuta el nuevo entorno.
 
-### Migrar las implementaciones de AlwaysOn para un tiempo de inactividad mínimo
+### Migración de las implementaciones de AlwaysOn para reducir el tiempo de inactividad al mínimo
 
-Hay dos estrategias para migrar las implementaciones de AlwaysOn para un tiempo de inactividad mínimo:
+Hay dos estrategias para migrar las implementaciones de AlwaysOn de tal modo que el tiempo de inactividad sea mínimo:
 
 1. **Usar un elemento secundario existente: sitio único**
 1. **Usar una réplica de un elemento secundario existente: multisitio**
@@ -466,9 +466,9 @@ Una estrategia para el tiempo de inactividad mínimo consiste en tomar un elemen
 
 - Hay tiempo de inactividad cuando se actualiza el nodo final con el extremo de carga equilibrada.
 - La reconexión del cliente podría retrasarse en función de la configuración de cliente/DNS.
-- Hay tiempo de inactividad adicional si decide desconectar el grupo de clústeres de AlwaysOn para intercambiar las direcciones IP. Para evitarlo, use una dependencia OR y los posibles propietarios del recurso de dirección IP adicional. Consulte la sección “Agregar recurso de dirección IP en la misma subred” del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+- Si elige desconectar el grupo de clústeres de AlwaysOn para intercambiar las direcciones IP, habrá un tiempo de inactividad adicional. Para evitarlo, use una dependencia OR y los posibles propietarios del recurso de dirección IP adicional. Consulte la sección “Agregar recurso de dirección IP en la misma subred” del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
-> [AZURE.NOTE] Si desea que el nodo agregado participe como asociado de conmutación por error de AlwaysOn, deberá agregar un extremo de Azure con una referencia al conjunto de carga equilibrada. Al ejecutar el comando **Add-AzureEndpoint** para hacerlo, las conexiones actuales permanecen abiertas, pero las nuevas conexiones con el agente de escucha no podrán establecerse hasta que se actualice el equilibrador de carga. En las pruebas se vio que duraba 90-120 segundos. En necesario comprobarlo.
+> [AZURE.NOTE] Si desea que el nodo agregado participe como asociado de conmutación por error de AlwaysOn, deberá agregar un punto de conexión de Azure con una referencia al conjunto de carga equilibrada. Al ejecutar el comando **Add-AzureEndpoint** para hacerlo, las conexiones actuales permanecen abiertas, pero las nuevas conexiones con el agente de escucha no podrán establecerse hasta que se actualice el equilibrador de carga. En las pruebas se vio que duraba 90-120 segundos. En necesario comprobarlo.
 
 ##### Ventajas
 
@@ -497,7 +497,7 @@ Este documento no muestra un ejemplo completo de un extremo a otro; sin embargo,
 - Cree un nuevo servicio en la nube y vuelva a implementar la máquina virtual SQL2 en ese servicio en la nube. Cree la máquina virtual mediante el VHD del sistema operativo original copiado y adjunte los VHD copiados.
 - Configure ILB/ELB y agregue extremos.
 - Actualice el agente de escucha de una de las siguientes maneras:
-	- Desconecte el grupo de AlwaysOn y actualice el agente de escucha de AlwaysOn con la dirección IP del ILB/ELB nuevo.
+	- Desconecte el grupo de AlwaysOn y actualice el agente de escucha de AlwaysOn con la nueva dirección IP del ILB/ELB.
 	- Agregue el recurso de dirección IP del ILB/ELB nuevo del servicio en la nube a través de PowerShell en los clústeres de Windows. A continuación, establezca los posibles propietarios del recurso de dirección IP en el nodo migrado, SQL2, y establézcalo como dependencia OR en el nombre de red. Consulte la sección “Agregar recurso de dirección IP en la misma subred” del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 - Compruebe la configuración/propagación de DNS en los clientes.
 - Migre la máquina virtual SQL1 y siga los pasos del 2 al 4.
@@ -508,7 +508,7 @@ Este documento no muestra un ejemplo completo de un extremo a otro; sin embargo,
 
 Si tiene nodos en más de un centro de datos (DC) de Azure o si tiene un entorno híbrido, puede usar una configuración de AlwaysOn en este entorno para minimizar el tiempo de inactividad.
 
-El enfoque consiste en cambiar la sincronización de AlwaysOn a sincrónica para el centro de datos local o secundario de Azure y, a continuación, conmutar por error a ese servidor SQL Server. Posteriormente, copie los VHD en una cuenta de almacenamiento Premium y vuelva a implementar la máquina en un nuevo servicio en la nube. Actualice el agente de escucha y, a continuación, conmute por recuperación.
+El enfoque consiste en cambiar la sincronización de AlwaysOn a sincrónica para el centro de datos de Azure local o secundario y, después, realizar la conmutación por error a ese servidor SQL Server. Posteriormente, copie los VHD en una cuenta de almacenamiento Premium y vuelva a implementar la máquina en un nuevo servicio en la nube. Actualice el agente de escucha y, a continuación, conmute por recuperación.
 
 ##### Puntos de tiempo de inactividad
 
@@ -543,15 +543,15 @@ Este escenario da por supuesto que se ha documentado sobre su instalación y sab
 - Cree una cuenta de almacenamiento Premium y copie los VHD de la cuenta de almacenamiento estándar.
 - Cree un nuevo servicio en la nube y cree la máquina virtual SQL2 con sus discos de almacenamiento Premium conectados.
 - Configure ILB/ELB y agregue extremos.
-- Actualice el agente de escucha de AlwaysOn con la dirección IP del ILB/ELB nuevo y pruebe la conmutación por error.
+- Actualice el agente de escucha de AlwaysOn con la nueva dirección IP del ILB/ELB y pruebe la conmutación por error.
 - Compruebe la configuración de DNS.
 - Cambie el AFP a SQL2 y, a continuación, migre SQL1 y siga los pasos del 2 al 5.
 - Pruebe las conmutaciones por error.
 - Cambie el AFP de nuevo a SQL1 y SQL2.
 
-## Apéndice: Migrar un clúster multisitio de AlwaysOn al almacenamiento Premium
+## Apéndice: Migración de un clúster de AlwaysOn de sitios múltiples al Almacenamiento premium
 
-El resto de este tema proporciona un ejemplo detallado de la conversión de un clúster multisitio de AlwaysOn al almacenamiento Premium. Asimismo, convierte el agente de escucha de modo que pase de usar un equilibrador de carga externo (ELB) a un equilibrador de carga interno (ILB).
+En el resto de este tema, encontrará un ejemplo detallado de cómo convertir un clúster de AlwaysOn de sitios múltiples al Almacenamiento premium. Asimismo, convierte el agente de escucha de modo que pase de usar un equilibrador de carga externo (ELB) a un equilibrador de carga interno (ILB).
 
 ### Environment
 
@@ -609,9 +609,9 @@ En este ejemplo, vamos a demostrar cómo pasar de ELB a ILB. ELB estaba disponib
     New-AzureService $destcloudsvc -Location $location
 
 #### Paso 2: Aumentar los errores permitidos en los recursos <Optional>
-En ciertos recursos que pertenecen al grupo de disponibilidad de AlwaysOn hay límites en el número de errores que pueden producirse en un período, en el que el servicio de clúster intentará reiniciar el grupo de recursos. Se recomienda aumentar este número al realizar este procedimiento, ya que, si no lo conmuta por error manualmente y desencadena conmutaciones por error al apagar los equipos, puede acercarse a este límite.
+En ciertos recursos que pertenecen al grupo de disponibilidad AlwaysOn hay límites en el número de errores que pueden producirse en un período, en el que el servicio de clúster intentará reiniciar el grupo de recursos. Se recomienda aumentar este número al realizar este procedimiento, ya que, si no lo conmuta por error manualmente y desencadena conmutaciones por error al apagar los equipos, puede acercarse a este límite.
 
-Sería recomendable duplicar el número de errores permitidos. Para hacerlo en el Administrador de clústeres de conmutación por error, vaya a las propiedades del grupo de recursos AlwaysOn:
+También se recomienda duplicar el número de errores permitidos. Para hacerlo en el Administrador de clústeres de conmutación por error, vaya a las propiedades del grupo de recursos de AlwaysOn:
 
 ![Appendix3][13]
 
@@ -623,16 +623,16 @@ Si tiene una sola dirección IP para el grupo de clústeres y está alineada con
 
 #### Paso 4: Configuración de DNS
 
-La implementación de una transición fluida depende de cómo se usa y se actualiza DNS. Cuando se instala AlwaysOn, se crea un grupo de recursos de clúster de Windows. Si abre el Administrador de clústeres de conmutación por error verá que, como mínimo, tendrá tres recursos. Los dos a los que hace referencia el documento son:
+La implementación de una transición fluida depende de cómo se usa y se actualiza DNS. Cuando se instala AlwaysOn, se crea un grupo de recursos de clúster de Windows. Si se abre el Administrador de clústeres de conmutación por error verá que, como mínimo, tendrá tres recursos. Los dos a los que hace referencia el documento son:
 
 - Nombre de red virtual (VNN): es el nombre DNS al que se conecta el cliente cuando desea conectarse a servidores SQL Server a través de AlwaysOn.
 - Recurso de dirección IP: es la dirección IP asociada con el VNN. Puede tener más de una, y en una configuración multisitio tendrá una dirección IP por subred/sitio.
 
-Al conectarse a SQL Server, el controlador cliente de SQL Server recuperará los registros DNS asociados al agente de escucha e intentará conectarse a cada dirección IP asociada de AlwaysOn. A continuación trataremos algunos de los factores que pueden influir en esto.
+Al conectarse a SQL Server, el controlador del cliente de SQL Server recuperará los registros DNS asociados al agente de escucha e intentará conectarse a cada dirección IP asociada de AlwaysOn. A continuación, se explicarán algunos de los factores que pueden influir en esto.
 
-El número de registros DNS simultáneos que están asociados al nombre del agente de escucha depende no solo del número de direcciones IP asociadas, sino de la configuración “RegisterAllIpProviders” en los clústeres de conmutación por error para el recurso VNN de AlwaysON.
+El número de registros DNS simultáneos asociados al nombre del agente de escucha depende no solo del número de direcciones IP asociadas, sino también de la configuración “RegisterAllIpProviders” de los clústeres de conmutación por error del recurso VNN de AlwaysOn.
 
-Al implementar AlwaysOn en Azure deben seguirse varios pasos para crear el agente de escucha y las direcciones IP. Debe configurar manualmente “RegisterAllIpProviders” en 1, lo que es diferente de una implementación local de AlwaysOn establecida en 1.
+Al implementar AlwaysOn en Azure, es preciso seguir varios pasos para crear el agente de escucha y las direcciones IP. En “RegisterAllIpProviders”, debe seleccionarse manualmente 1. Este procedimiento es distinto de una implementación local de AlwaysOn, donde este valor ya está establecido en 1.
 
 Si “RegisterAllIpProviders” es 0, solo verá un registro DNS en el DNS asociado al agente de escucha:
 
@@ -651,11 +651,11 @@ El código siguiente volcará la configuración del VNN y la establecerá autom�
     ##Set RegisterAllProvidersIP
     Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
-En un paso posterior de la migración necesitará actualizar el agente de escucha de AlwaysOn con una dirección IP actualizada que hará referencia a un equilibrador de carga. Esto conllevará quitar y agregar un recurso de dirección IP. Después de la actualización de la IP, deberá asegurarse de que la nueva dirección IP se actualizó en la zona DNS y que los clientes actualizan su caché de DNS local.
+En un paso posterior de la migración, será preciso que actualice el agente de escucha de AlwaysOn con una dirección IP actualizada que haga referencia a un equilibrador de carga, lo que implicará la eliminación y posterior adición de un recurso de dirección IP. Después de la actualización de la IP, deberá asegurarse de que la nueva dirección IP se actualizó en la zona DNS y que los clientes actualizan su caché de DNS local.
 
 Si los clientes residen en un segmento de red diferente y hacen referencia a un servidor DNS diferente, necesitará tener en cuenta lo que sucede con la transferencia de zona DNS durante la migración, ya que el tiempo de reconexión de la aplicación se verá restringido como mínimo por el tiempo de transferencia de zona de las direcciones IP nuevas del agente de escucha. Si está sometido a una restricción de tiempo, debe analizar y probar la opción de forzar una transferencia de zona incremental con sus equipos de Windows, y también colocar el registro de host DNS en un menor período de vida (TTL), para que los clientes se actualicen. Para obtener más información, consulte [Transferencias de zona incrementales](https://technet.microsoft.com/library/cc958973.aspx) y [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
-De forma predeterminada, el TTL del registro DNS que está asociado al agente de escucha de AlwaysOn en Azure es de 1200 segundos. Puede que desee reducir este valor si está sometido a una restricción de tiempo durante la migración para garantizar que los clientes actualicen sus DNS con la dirección IP actualizada para el agente de escucha. Puede ver y modificar la configuración volcando la configuración del VNN:
+De manera predeterminada, el TTL del registro DNS asociado al agente de escucha de AlwaysOn en Azure es de 1200 segundos. Puede que desee reducir este valor si está sometido a una restricción de tiempo durante la migración para garantizar que los clientes actualicen sus DNS con la dirección IP actualizada para el agente de escucha. Puede ver y modificar la configuración volcando la configuración del VNN:
 
     $AGName = "myProductionAG"
     $ListenerName = "Mylistener"
@@ -669,7 +669,7 @@ Tenga en cuenta que cuanto menor sea “HostRecordTTL”, mayor tráfico DNS se 
 
 ##### Configuración de la aplicación cliente
 
-Si la aplicación cliente de SQL admite .Net 4.5 SQLClient, puede usar la palabra clave “MULTISUBNETFAILOVER=TRUE”. Se recomienda que la aplique, ya que permite una conexión más rápida con el grupo de disponibilidad AlwaysOn de SQL durante la conmutación por error. Enumera todas las direcciones IP asociadas al agente de escucha de AlwaysOn en paralelo y tiene una velocidad de reintento de conexión TCP más agresiva durante una conmutación por error.
+Si la aplicación cliente de SQL admite .Net 4.5 SQLClient, puede usar la palabra clave “MULTISUBNETFAILOVER=TRUE”. Se recomienda que se aplique, ya que permite una conexión más rápida con el grupo de disponibilidad AlwaysOn de SQL durante la conmutación por error. Enumera todas las direcciones IP asociadas al agente de escucha de AlwaysOn en paralelo y tiene una velocidad de reintento de conexión TCP más agresiva durante una conmutación por error.
 
 Para obtener más información sobre la configuración anterior, consulte [Palabra clave MultiSubnetFailover y características asociadas](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte también [Compatibilidad de SqlClient para la alta disponibilidad y la recuperación ante desastres](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
 
@@ -685,7 +685,7 @@ Para obtener más información sobre la administración y la configuración del 
 #### Paso 6: Extraer los extremos y las ACL existentes
     #GET Endpoint info
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureEndpoint
-    #GET ACL Rules for Each EP, this example is for the AlwaysOn Endpoint
+    #GET ACL Rules for Each EP, this example is for the Always On Endpoint
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
 
 Guárdelos en un archivo de texto.
@@ -906,7 +906,7 @@ Ahora quite la dirección IP antigua del servicio en la nube.
 
 #### Paso 15: Comprobar actualizaciones de DNS
 
-Ahora debe comprobar los servidores DNS en sus redes de cliente de SQL Server y asegurarse de que los clústeres agregaron el registro de host adicional para la dirección IP agregada. Si esos servidores DNS no se actualizaron, considere la posibilidad de forzar una transferencia de zona DNS y asegúrese de que los clientes de la subred pueden resolver las direcciones IP de AlwaysOn para no tener que esperar a la replicación automática de DNS.
+Ahora debe comprobar los servidores DNS en sus redes de cliente de SQL Server y asegurarse de que los clústeres agregaron el registro de host adicional para la dirección IP agregada. Si los servidores DNS no se han actualizado, considere la posibilidad de forzar una transferencia de zona DNS y asegúrese de que los clientes de la subred pueden realizar la resolución en ambas direcciones IP de AlwaysOn, con el fin de que no tenga que esperar a la replicación automática de DNS.
 
 #### Paso 16: Reconfigurar AlwaysOn
 
@@ -1091,7 +1091,7 @@ Para obtener información sobre los blobs individuales: #Check induvidual blob s
 
 #### Paso 23: Probar la conmutación por error
 
-Ahora debe permitir que el nodo migrado se sincronice con el nodo local de AlwaysOn, colocarlo en modo de replicación sincrónica y esperar hasta que se sincronice. A continuación, conmute por error de local al primer nodo migrado, que es el AFP. En cuanto lo consiga, cambie el último nodo migrado al AFP.
+Ahora debe permitir que el nodo migrado se sincronice con el nodo de AlwaysOn local, colocarlo en modo de replicación sincrónica y esperar hasta que se sincronice. A continuación, conmute por error de local al primer nodo migrado, que es el AFP. En cuanto lo consiga, cambie el último nodo migrado al AFP.
 
 Debe probar las conmutaciones por error entre todos los nodos y ejecutar pruebas de caos para garantizar que las conmutaciones por error funcionan como se esperaba y de manera puntual.
 
@@ -1148,4 +1148,4 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

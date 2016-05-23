@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="05/03/2016"
    ms.author="alkohli" />
 
 # Uso del servicio StorSimple Manager para administrar los registros de control de acceso para la matriz virtual de StorSimple 
@@ -43,7 +43,7 @@ Siga estos pasos para obtener el nombre completo del IQN de un host de Windows q
 
 Use la página **Configuración** del servicio Administrador de StorSimple para agregar ACR. Normalmente, se asociará un ACR a un volumen.
 
-Para obtener información sobre la asociación de un ACR a un volumen, vaya a [Usar el servicio de Administrador de StorSimple para administrar volúmenes](storsimple-ova-manage-volumes).
+Para más información sobre cómo asociar un ACR a un volumen, vaya a [Agregar un volumen](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
 >[AZURE.IMPORTANT] 
 > 
@@ -114,4 +114,4 @@ Realice los pasos siguientes para eliminar un registro de control de acceso.
 
 - Obtenga más información sobre la [adición de volúmenes y la configuración de ACR](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

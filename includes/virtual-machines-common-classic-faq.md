@@ -13,6 +13,13 @@ Todos los suscriptores pueden ejecutar software de servidor en una máquina virt
 
 Para imágenes de cliente de Windows, hay disponibles determinadas versiones de Windows 7 y Windows 8.1 para suscriptores de MSDN Azure y suscriptores de pago por uso de desarrollo y prueba de MSDN, para tareas de desarrollo y prueba. Para obtener más información, como instrucciones y limitaciones, consulte [Imágenes de cliente de Windows para los suscriptores de MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
+## ¿Por qué se han dejado de usar los Grupos de afinidad?
+
+Los grupos de afinidad son un concepto heredado que se proporcionó originalmente para mejorar el rendimiento de la red de máquina virtual a máquina virtual en los primeros diseños de red de Azure y para dar soporte a la versión inicial de redes virtuales que estaban limitadas a un pequeño conjunto de hardware en una región. La red de Azure actual dentro de una región está diseñada para que los grupos de afinidad ya no sean necesarios. Las redes virtuales se encuentran también en un ámbito regional, así que ya no necesita un grupo de afinidad al usar una red virtual. Debido a estas mejoras ya no recomendamos a los clientes que utilicen grupos de afinidad, ya que pueden ser limitados en algunos casos. El uso de grupos de afinidad asociará innecesariamente las máquinas virtuales a un hardware específico, lo cual limitará la elección de los tamaños de máquinas virtuales disponibles. También puede conducir a errores relacionados con la capacidad al intentar agregar nuevas máquinas virtuales cuando el hardware específico asociado con el grupo de afinidad está al límite de su capacidad.
+
+Las características de los grupos de afinidad ya están en desuso en el modelo de implementación de Azure Resource Manager y en el portal. Estamos en proceso de suspender el soporte para la creación de grupos de afinidad y la creación de recursos de almacenamiento anclados a un grupo de afinidad, desde el portal clásico. Los servicios en la nube ya existentes que utilizan un grupo de afinidad no necesitan modificarse. Los nuevos servicios en la nube no deberían usar grupos de afinidad a menos que lo recomiende un profesional de soporte técnico de Azure.
+
+
 ## ¿Cuánto almacenamiento puedo usar con una máquina virtual?
 
 Cada disco de datos puede ser de hasta 1 TB. El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-sizes.md).
@@ -137,5 +144,3 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 [Diferentes formas de crear una máquina virtual Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
 [Diferentes formas de crear una máquina virtual de Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
-
-<!---HONumber=AcomDC_0413_2016-->

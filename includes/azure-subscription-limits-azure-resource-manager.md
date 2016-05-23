@@ -8,13 +8,11 @@ Máquinas virtuales por [suscripción](../articles/billing-buy-sign-up-azure-sub
 Lecturas de API del Administrador de recursos|15 000 por hora|15 000 por hora
 Escrituras de API del Administrador de recursos|1200 por hora|1200 por hora
 Tamaño de recursos de API de Administrador de recursos|4194304 bytes|4194304 bytes
-[Servicios en la nube](../articles/cloud-services/cloud-services-choose-me.md) por suscripción|En desuso<sup>3</sup>|En desuso<sup>3</sup>
-[Grupos de afinidad](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción|En desuso<sup>3</sup>|En desuso<sup>3</sup>
+[Servicios en la nube](../articles/cloud-services/cloud-services-choose-me.md) por suscripción|No aplicable<sup>3</sup>|No aplicable<sup>3</sup>
+[Grupos de afinidad](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción|No aplicable<sup>3</sup>|No aplicable<sup>3</sup>
 
 <sup>1</sup>Los límites predeterminados varían según el tipo de categoría de la oferta, como versión de prueba gratuita, pago por uso, etc.
 
 <sup>2</sup>Para aumentar el límite, póngase en contacto con soporte técnico.
 
 <sup>3</sup>Estas características ya no son necesarias con los grupos de recursos de Azure y el Administrador de recursos de Azure.
-
-<!---HONumber=AcomDC_0420_2016-->

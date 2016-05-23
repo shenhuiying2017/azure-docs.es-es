@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Uso del almacenamiento de blobs de Azure desde Python | Microsoft Azure"
-	description="Aprenda a usar el servicio de almacenamiento Blob de Azure desde Python para cargar, enumerar, descargar y eliminar blobs."
+	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
 	services="storage"
 	documentationCenter="python"
 	authors="emgerner-msft"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/29/2016"
+    ms.date="04/29/2016"
 	ms.author="jehine"/>
 
 # Uso del almacenamiento de blobs de Azure desde Python
@@ -125,4 +125,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

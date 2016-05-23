@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="05/04/2016"
 	ms.author="juliako"/>
 
 #Uso de Servicios multimedia de Azure para transmitir contenido HLS protegido con Apple FairPlay 
@@ -41,6 +41,9 @@ Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámica
 
 	- Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 	- Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema de [creación de cuenta](media-services-create-account.md).
+	- Suscríbase al [programa de desarrollo de Apple](https://developer.apple.com/).
+	- En Apple es obligatorio que el propietario del contenido obtenga el [paquete de implementación](https://developer.apple.com/contact/fps/). Indique en la solicitud que ya ha implementado KSM (módulo principal de seguridad) con Servicios multimedia de Azure y que está solicitando el paquete FPS final. Se proporcionarán instrucciones en el paquete FPS final para generar certificados y obtener la ASK, que luego se utilizarán para configurar FairPlay. 
+
 	- Versión **3.6.0** del SDK .NET de Servicios multimedia de Azure.
 
 - En la entrega de claves de AMS se debe establecer lo siguiente:
@@ -51,8 +54,8 @@ Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámica
 	- **Contraseña de certificación de aplicaciones**: contraseña del cliente para crear el archivo .pfx.
 	- **Identificador de contraseña de certificación de aplicaciones**: el cliente debe cargar la contraseña de forma similar a como carga otras claves de AMS y mediante el valor de enumeración **ContentKeyType.FairPlayPfxPassword**. En el resultado se obtendrá el identificador de AMS que es lo que se necesita usar dentro de la opción de directiva de entrega de claves.
 	- **iv**: valor aleatorio de 16 bytes que debe coincidir con el iv de la directiva de entrega de recursos. El cliente genera el IV y lo pone en ambos lugares: en la directiva de entrega de recursos y en la opción de directiva de entrega de claves. 
-	- **ASK**: la clave secreta de la aplicación (ASK, Application Secret Key) se recibe cuando se genere la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibirá una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Debe configurar ASK como FairPlayAsk en Servicios multimedia de Azure más adelante. 
-	-  **Identificador ASK**: lo proporciona Apple. El cliente debe cargar la ASK de forma similar a como carga otras claves de AMS mediante el valor de enumeración **ContentKeyType.FairPlayASk**. En el resultado se obtendrá el identificador de WAMS que es lo que se necesita usar dentro de la opción de directiva de entrega de claves.
+	- **ASK**: la clave secreta de la aplicación (ASK, Application Secret Key) se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibirá una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Debe configurar ASK como FairPlayAsk en Servicios multimedia de Azure más adelante. 
+	-  **Identificador de ASK**: se obtiene cuando el cliente carga ASK en AMS. El cliente debe cargar la ASk mediante el valor de enumeración **ContentKeyType.FairPlayASk**. Como resultado, obtendrá el identificador de AMS y este es el que debe utilizarse al establecer la opción de directiva de entrega de claves.
 
 - En el lado cliente FPS se debe establecer lo siguiente:
  	- **Certificación de aplicaciones (AC)**: archivo .cer o .der que contiene la clave pública que utiliza el SO para cifrar algunas cargas. AMS necesita tener información sobre él porque lo necesita el reproductor. El servicio de entrega de claves lo descifra utilizando la clave privada correspondiente.
@@ -75,7 +78,9 @@ Estos son los pasos generales que deberá realizar cuando proteja los recursos c
 1. Configuración de la directiva de autorización de la clave de contenido. Al crear la directiva de autorización de claves de contenido, necesita especificar lo siguiente: 
 	
 	- Método de entrega (en este caso, FairPlay) 
-	- Configuración de opciones de directiva de FairPlay. Para obtener detalles sobre cómo configurar FairPlay, consulte el método ConfigureFairPlayPolicyOptions() a continuación.
+	- Configuración de opciones de directiva de FairPlay. Para más detalles sobre cómo configurar FairPlay, consulte el método ConfigureFairPlayPolicyOptions() en el siguiente ejemplo.
+	
+		>[AZURE.NOTE] En la mayoría de los casos, lo más seguro es que desee configurar las opciones de directiva de FairPlay solo una vez, ya que solo tendrá un conjunto de certificados y una ASK.
 	- Restricciones (abiertas o token), 
 	- Y la información específica del tipo de entrega de claves que define cómo se entrega la clave al cliente. 
 	
@@ -91,6 +96,11 @@ Estos son los pasos generales que deberá realizar cuando proteja los recursos c
 	>- Otra IAssetDeliveryPolicy para configurar FairPlay para HLS
 
 1. Creación de un localizador a petición para obtener una URL de streaming.
+
+>[AZURE.NOTE] Reproductor multimedia de Azure no admite la reproducción de FairPlay de fábrica. Debe obtener el reproductor de ejemplo de la cuenta de desarrollador de Apple para obtener la reproducción de FairPlay en MAC OSX.
+>
+>También puede desarrollar aplicaciones mediante el SDK de iOS.
+
 
 ##Ejemplo de .NET
 
@@ -281,7 +291,7 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 		
 		        static public IContentKey CreateCommonCBCTypeContentKey(IAsset asset)
 		        {
-		            // Create envelope encryption content key
+		            // Create HLS SAMPLE AES encryption content key
 		            Guid keyId = Guid.NewGuid();
 		            byte[] contentKey = GetRandomBuffer(16);
 		
@@ -439,6 +449,13 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 		            // Get the FairPlay license service URL.
 		            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.FairPlay);
 		
+					// The reason the below code replaces "https://" with "skd://" is because
+					// in the IOS player sample code which you obtained in Apple developer account, 
+					// the player only recognizes a Key URL that starts with skd://. 
+					// However, if you are using a customized player, 
+					// you can choose whatever protocol you want. 
+					// For example, "https". 
+
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
@@ -519,4 +536,4 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

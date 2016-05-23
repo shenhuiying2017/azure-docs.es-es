@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configuración de credenciales de autenticación con nombre
@@ -33,7 +33,7 @@ Visual Studio usa el Id. de suscripción junto con los datos del certificado com
 
 Puede editar la información de suscripción en el cuadro de diálogo **Nueva suscripción/Editar suscripción**, como se explica más adelante en este tema.
 
-Si desea crear un certificado por sí mismo, puede consultar las instrucciones de [Crear y cargar un certificado de administración para Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) y después cargar manualmente el certificado en el Portal de administración.
+Si desea crear un certificado por sí mismo, puede consultar las instrucciones de [Introducción a los certificados para los servicios en la nube de Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) y después cargar manualmente el certificado en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.NOTE] Estas credenciales que Visual Studio necesita para administrar sus servicios en la nube no coinciden con las necesarias para autenticar una solicitud en los servicios de almacenamiento de Azure.
 
@@ -53,15 +53,15 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
 
 1. Elija el botón **Copiar la ruta de acceso completa**. La ruta de acceso para el certificado (archivo .cer) se copia en el Portapapeles.
 
-    >[AZURE.IMPORTANT] Para publicar la aplicación de Azure desde Visual Studio, debe cargar este certificado en el Portal de administración.
+    >[AZURE.IMPORTANT] Para publicar la aplicación de Azure desde Visual Studio, debe cargar este certificado en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-1. Para cargar el certificado en el Portal de administración de Azure:
+1. Para cargar el certificado en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885):
 
     1. Elija el vínculo Portal de Azure.
 
-         A continuación, se abrirá el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+         Se abre el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-    1. Inicie sesión en el Portal de administración de Azure con la cuenta Microsoft y después elija el botón **Servicios en la nube**.
+    1. Inicie sesión en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) y elija el botón **Servicios en la nube**.
 
     1. Elija el servicio en la nube que le interese.
 
@@ -71,4 +71,4 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
 
     1. Pegue la ruta de acceso completa del archivo .cer que acaba de crear y después escriba la contraseña que especificó.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

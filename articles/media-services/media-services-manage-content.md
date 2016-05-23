@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016"   
+	ms.date="04/25/2016"   
 	ms.author="juliako"/>
 
 
@@ -100,12 +100,14 @@ En esta sección se describen los pasos que puede seguir para codificar el conte
 
 1.  Seleccione el archivo que desea codificar.
 
-  Si se admite la codificación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido. 4. En el cuadro de diálogo **Proceso**, seleccione el procesador **Estándar de codificador multimedia**. 5. Elija una de las **configuraciones de codificación**.
+  Si se admite la codificación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido.
+4. En el cuadro de diálogo **Proceso**, seleccione el procesador **Estándar de codificador multimedia**.
+5. Elija una de las **configuraciones de codificación**.
 
 ![Process2][process2]
 
 
-El tema [Task Preset Strings for Media Encoder Standard (Cadenas preestablecidas de tareas para Estándar de codificador multimedia)](https://msdn.microsoft.com/library/mt269960) explica el significado de cada cadena preestablecida.
+En el tema sobre los [valores preestablecidos de tareas para el procesador Estándar de codificador multimedia](https://msdn.microsoft.com/library/mt269960) se explica lo que significa cada uno de estos valores.
 
 5. A continuación, especifique el nombre descriptivo del contenido de salida o acepte el valor predeterminado. A continuación, haga clic en el botón de comprobación para iniciar la operación de codificación y podrá realizar un seguimiento del progreso desde la parte inferior del portal.
 6. Presione Aceptar.
@@ -220,4 +222,4 @@ Se aplican algunas consideraciones:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

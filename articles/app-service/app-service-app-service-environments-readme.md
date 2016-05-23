@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Entorno del Servicio de aplicaciones de Azure" 
-	description="Obtenga información acerca de cómo funciona Servicio de aplicaciones." 
-	keywords="entorno del servicio de aplicaciones, entorno del servicio de aplicaciones de azure"
+	pageTitle="Entorno del Servicio de aplicaciones | Microsoft Azure" 
+	description="¿Qué es un Entorno del Servicio de aplicaciones de Azure? Introducción al Entorno del Servicio de aplicaciones" 
+	keywords="entorno del servicio de aplicaciones de Azure, red virtual, redes seguras"
 	services="app-service" 
 	documentationCenter="" 
 	authors="yochay" 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/10/2016" 
 	ms.author="stefsch"/>
 
-# Información general
+# Documentación del Entorno del Servicio de aplicaciones
 
 Un entorno del Servicio de aplicaciones es una opción de plan de servicio [Premium][PremiumTier] del Servicio de aplicaciones de Azure que proporciona un entorno plenamente aislado y dedicado para ejecutar de forma segura las aplicaciones del Servicio de aplicaciones de Azure a gran escala, lo que incluye [Aplicaciones web][WebApps], [Aplicaciones móviles][MobileApps] y [Aplicaciones de API][APIApps].
 
@@ -59,4 +59,4 @@ Las aplicaciones suelen requerir acceso a recursos corporativos, como bases de d
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

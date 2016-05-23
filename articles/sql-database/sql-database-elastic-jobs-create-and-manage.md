@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación y administración de trabajos de Base de datos elástica | Micosoft Azure"
+	pageTitle="Creación y administración de bases de datos de SQL de Azure escaladas horizontalmente | Micosoft Azure"
 	description="Siga los pasos necesarios de los procesos de creación y administración de un trabajo de base de datos elástica."
 	services="sql-database"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="04/25/2016"
 	ms.author="ddove; sidneyh"/>
 
-# Creación y administración de trabajos elásticos de Base de datos SQL (vista previa)
+# Creación y administración de bases de datos de SQL de Azure escaladas horizontalmente (versión preliminar)
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [Portal de Azure](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -115,4 +115,4 @@ Si se produce un error en un trabajo, puede encontrar un registro de su ejecuci�
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

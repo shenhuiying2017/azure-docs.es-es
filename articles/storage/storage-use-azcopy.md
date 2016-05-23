@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/06/2016"
 	ms.author="micurd"/>
 
 # Transferencia de datos con la utilidad en línea de comandos AzCopy
@@ -477,7 +477,7 @@ Tenga en cuenta que si especifica una ruta de acceso relativa después de la opc
 
 ### Especificación del número de operaciones simultáneas para iniciar
 
-La opción `/NC` especifica el número de operaciones de copia simultáneas. De forma predeterminada, AzCopy iniciará operaciones simultáneas a ocho veces el número de procesadores de núcleo que tiene. Si ejecuta AzCopy en una red con un ancho de banda bajo, puede especificar un número bajo para esta opción para evitar errores provocados por la competencia de recursos.
+La opción `/NC` especifica el número de operaciones de copia simultáneas. De manera predeterminada, AzCopy inicia un número determinado de operaciones simultáneas para aumentar el rendimiento de la transferencia de datos. Para las operaciones de tablas, el número de operaciones simultáneas es igual al número de procesadores que se tiene. Para las operaciones de blobs y archivos, el número de operaciones simultáneas es igual a ocho veces el número de procesadores que se tiene. Si ejecuta AzCopy en una red con un ancho de banda bajo, puede especificar un número bajo para /NC con el fin de evitar errores provocados por la competencia de recursos.
 
 ### Ejecución de AzCopy en el emulador de Almacenamiento de Azure
 
@@ -583,7 +583,7 @@ AzCopy siempre establece la propiedad Content-MD5 para un blob o archivo de Azur
 
 Indica si se desean transferir instantáneas. Esta opción solo es válida cuando el origen es un blob.
 
-El nombre de las instantáneas del blob transferidas se cambia según este formato: [nombre del blob](snapshot-time)[extensión].
+El nombre de las instantáneas del blob transferidas se cambia según este formato: nombre-blog (hora de la instantánea).extensión.
 
 De forma predeterminada, las instantáneas no se copian.
 
@@ -864,4 +864,4 @@ Para más información acerca de Almacenamiento de Azure y AzCopy, consulte los 
 - [AzCopy: Uso de copia de blobs entre cuentas](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Carga y descarga de archivos para blobs de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

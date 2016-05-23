@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configuración de su proyecto Azure mediante varias configuraciones de servicio
@@ -91,7 +91,7 @@ Puede usar la página de propiedades **Almacenamiento local** para reservar uno 
 
 En la página **Certificados**, puede asociar certificados a un rol. Los certificados que agregue se pueden usar para configurar los extremos HTTPS en la página de propiedades **Extremos**.
 
-La página de propiedades **Certificados** agrega información sobre los certificados a la configuración del servicio. Tenga en cuenta que sus certificados no se incluyen con el servicio, debe cargarlos por separado en Azure a través del [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+La página de propiedades **Certificados** agrega información sobre los certificados a la configuración del servicio. Tenga en cuenta que sus certificados no se incluyen con el servicio, debe cargarlos por separado en Azure a través del [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Para asociar un certificado a su rol, proporcione un nombre para el certificado. Usará este nombre para hacer referencia al certificado cuando configure un extremo HTTPS en la página de propiedades **Extremos**. A continuación, especifique si el almacén de certificados es **Local Machine** o **Current User**, así como el nombre del almacén Por último, especifique la huella digital del certificado. Si el certificado está en el almacén Current User\\Personal (My), para especificar la huella digital del certificado selecciónelo en una lista rellenada. Si se encuentra en otra ubicación, especifique el valor de la huella digital manualmente.
 
@@ -110,4 +110,4 @@ Para configurar los valores que se aplican a todo un proyecto de servicio en la 
 |Desarrollo|Desde esta página, puede especificar las instrucciones de la configuración de compilación y las condiciones bajos las cuales se ejecutan los eventos posteriores a la compilación.|
 |Web|Desde esta página, puede configurar los valores relacionados con el servidor web.|
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/29/2016"
+   ms.date="04/25/2016"
    ms.author="juliako"/>
-
 
 # Notas de la versión de SDK de Azure para .NET 2.9
 
@@ -44,7 +43,7 @@ Esta actualización incluye lo siguiente:
 
 	La herramienta se actualiza con frecuencia. Vaya [aquí](http://aka.ms/datalaketool) para obtener las actualizaciones.
 
-- El **Explorador de servidores** ahora le permite verlo todo y crear algunas entidades de metadatos U-SQL. Para obtener más información, consulte [este blog]().
+- El **Explorador de servidores** ahora le permite verlo todo y crear algunas entidades de metadatos U-SQL. Para más información, consulte [este blog](https://azure.microsoft.com/documentation/services/data-lake-analytics/).
 
 
 ##Herramientas de HDInsight 
@@ -60,4 +59,4 @@ Esta versión agrega compatibilidad de [KeyVault](../resource-manager-keyvault-p
 
 [Announcing the Visual Studio Azure Tools and SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/) (Presentación de Visual Studio Azure Tools y el SDK 2.9).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

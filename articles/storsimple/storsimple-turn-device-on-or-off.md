@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="04/21/2016"
    ms.author="alkohli" />
 
 # Encendido o apagado del dispositivo de StorSimple 
@@ -28,12 +28,12 @@ En la tabla siguiente, se muestran varios escenarios en los cuales se debe activ
 |Activar un dispositivo nuevo|[Activar un dispositivo nuevo](#turn-on-a-new-device)<ul><li>[Dispositivo nuevo solo con gabinete principal](#new-device-with-primary-enclosure-only)</li><li>[Dispositivo nuevo con gabinete EBOD](#new-device-with-ebod-enclosure)</li></ul>|
 |Activar un dispositivo después del apagado|[Activar un dispositivo después del apagado](#turn-on-a-device-after-shutdown)<ul><li>[Dispositivo solo con gabinete principal](#device-with-primary-enclosure-only)</li><li>[Dispositivo con gabinete EBOD](#device-with-ebod-enclosure)</li></ul>|
 |Activar un dispositivo después de una pérdida de energía|[Activar un dispositivo después de una pérdida de energía](#turn-on-a-device-after-a-power-loss)<ul><li>[Dispositivo solo con gabinete principal](#8100)</li><li>[Dispositivo con gabinete EBOD](#8600)</li></ul>|
-|Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD|[Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD|[Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost)|
 |Apagar un dispositivo activo|[Apagar un dispositivo activo](#turn-off-a-running-device)<ul><li>[Dispositivo solo con gabinete principal](#8100a)</li><li>[Dispositivo con gabinete EBOD](#8600a)</li></ul>|
 
 ## Activar un dispositivo nuevo
 
-Los pasos para activar por primera vez un dispositivo de Microsoft Azure StorSimple difieren si el modelo del dispositivo es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD. Las secciones siguientes abarcan los pasos detallados para ambos modelos.
+Los pasos para activar por primera vez un dispositivo StorSimple difieren si el modelo del dispositivo es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD. Las secciones siguientes abarcan los pasos detallados para ambos modelos.
 
 - [Dispositivo nuevo solo con gabinete principal](#new-device-with-primary-enclosure-only)
 
@@ -63,7 +63,7 @@ Cuando configure este dispositivo por primera vez, realice primero los pasos par
 
 ## Activar un dispositivo después del apagado
 
-Los pasos para activar un dispositivo de Microsoft Azure StorSimple después del apagado son distintos si el modelo del dispositivo es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD.
+Los pasos para activar un dispositivo StorSimple después del apagado son distintos si el modelo del dispositivo es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD.
 
 - [Dispositivo solo con gabinete principal](#device-with-primary-enclosure-only)
 
@@ -107,7 +107,7 @@ Después del apagado, utilice el procedimiento siguiente para encender un dispos
 
 ## Activar un dispositivo después de una pérdida de energía
 
-Una interrupción o una pérdida de energía puede apagar un dispositivo de Microsoft Azure StorSimple. El corte de energía puede producirse en uno o en ambos sistemas de alimentación. Los pasos de recuperación son distintos si el modelo del dispositivo es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD. En esta sección se describe el procedimiento de recuperación para cada uno de los escenarios.
+Una interrupción o una pérdida de energía puede apagar un dispositivo StorSimple. El corte de energía puede producirse en uno o en ambos sistemas de alimentación. Los pasos de recuperación son distintos si el modelo del dispositivo es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD. En esta sección se describe el procedimiento de recuperación para cada uno de los escenarios.
 
 - [Dispositivo solo con gabinete principal](#8100)
 
@@ -177,11 +177,11 @@ Cuando se quitan ambos cables SAS o se interrumpe la conexión entre el gabinete
 
 10. Revise que las luces LED del canal SAS (cuatro por cada controlador EBOD) estén todas encendidas para comprobar que la conexión del gabinete EBOD con el gabinete principal es correcta.
 
->[AZURE.IMPORTANT]Si los cables SAS son defectuosos o la conexión entre el gabinete EBOD y el gabinete principal no es buena, cuando encienda el sistema, entrará en el modo de recuperación. Si esto sucede, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
+>[AZURE.IMPORTANT] Si los cables SAS son defectuosos o la conexión entre el gabinete EBOD y el gabinete principal no es buena, cuando encienda el sistema, entrará en el modo de recuperación. Si esto sucede, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Apagar un dispositivo activo
 
-Es posible que sea necesario apagar un dispositivo de Microsoft Azure StorSimple activo si debe moverse, quitarlo del servicio o si tiene un componente que no funciona correctamente y que se debe reemplazar. Los pasos son distintos si el modelo del dispositivo de Microsoft Azure StorSimple es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD. En esta sección, se detallan los pasos pagara apagar un dispositivo activo.
+Puede ser necesario apagar un dispositivo StorSimple activo si debe trasladarlo, quitarlo del servicio o si tiene un componente que no funciona correctamente y que se debe reemplazar. Los pasos son distintos si el modelo del dispositivo StorSimple es 8100 u 8600. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD. En esta sección, se detallan los pasos pagara apagar un dispositivo activo.
 
 - [Dispositivo con gabinete principal](#8100a)
 
@@ -191,7 +191,7 @@ Es posible que sea necesario apagar un dispositivo de Microsoft Azure StorSimple
 
 Actualmente, no hay manera de apagar un dispositivo de StorSimple activo desde el Portal de Azure clásico. La única manera de apagarlo es mediante el uso de Windows PowerShell para StorSimple. Para apagar el dispositivo de manera ordenada y controlada, obtenga acceso a Windows PowerShell para StorSimple y siga los pasos siguientes.
 
->[AZURE.IMPORTANT]No apague un dispositivo activo con el botón de inicio/apagado que se encuentra en la parte posterior del dispositivo.
+>[AZURE.IMPORTANT] No apague un dispositivo activo con el botón de inicio/apagado que se encuentra en la parte posterior del dispositivo.
 >
 >Antes de apagar el dispositivo, asegúrese de que todos los componentes del mismo funcionen bien. En el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware** y compruebe que el color del estado de todos los componentes sea verde. Esto solo sucede si el sistema funciona correctamente. Si el dispositivo se apaga para reemplazar un componente que no funciona correctamente, verá una luz LED de estado de error (rojo) o degradado (amarillo) para el componente respectivo en el **Estado del hardware**.
 
@@ -211,7 +211,7 @@ Puede conectarse a Windows PowerShell para StorSimple mediante la consola serie 
 
     Con esto se debería apagar el controlador en espera actual.
 
-    >[AZURE.IMPORTANT]Espere hasta que el controlador se apague completamente antes de continuar con el paso siguiente.
+    >[AZURE.IMPORTANT] Espere hasta que el controlador se apague completamente antes de continuar con el paso siguiente.
 
 5. Para comprobar que finalizó el apagado, revise la parte posterior del dispositivo. El LED de error del controlador debe ser fijo y aparecer en rojo.
 
@@ -225,7 +225,7 @@ Puede conectarse a Windows PowerShell para StorSimple mediante la consola serie 
 
 ### Dispositivo con gabinete EBOD <a name="8600a">
 
->[AZURE.IMPORTANT]Antes de apagar el gabinete principal y el gabinete EBOD, asegúrese de que todos los componentes del dispositivo funcionen bien. En el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware** y compruebe que todos los componentes estén en buen estado.
+>[AZURE.IMPORTANT] Antes de apagar el gabinete principal y el gabinete EBOD, asegúrese de que todos los componentes del dispositivo funcionen bien. En el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware** y compruebe que todos los componentes estén en buen estado.
 
 #### Para apagar un dispositivo activo con gabinete EBOD
 
@@ -235,10 +235,10 @@ Puede conectarse a Windows PowerShell para StorSimple mediante la consola serie 
 
 3. Para comprobar que el EBOD se apagó, revise que todas las luces de la parte posterior del gabinete EBOD están apagadas.
 
->[AZURE.NOTE]Los cables SAS que se utilizan para conectar el gabinete EBOD con el gabinete principal no deben quitarse hasta después que se apague el sistema.
+>[AZURE.NOTE] Los cables SAS que se utilizan para conectar el gabinete EBOD con el gabinete principal no deben quitarse hasta después que se apague el sistema.
 
 ## Pasos siguientes
 
 Si encuentra problemas al encender o apagar un dispositivo de StorSimple, [póngase en contacto con el soporte técnico de Microsoft Support](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/03/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Vista previa de la colaboración B2B de Azure AD: cambios en los atributos de objeto de usuario externo
@@ -27,9 +27,9 @@ Cada usuario de un directorio de Azure AD se representa mediante un objeto de us
 El seguimiento de estos atributos en Azure AD puede ayudarle a solucionar problemas haya canjeado un usuario asociado o no su invitación de colaboración de B2B.
 
 ## Artículos relacionados
-Examine nuestros otros artículos sobre colaboración de Azure B2B:
+Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 
-- [¿Qué es la colaboración de Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Cómo funciona](active-directory-b2b-how-it-works.md)
 - [Tutorial detallado](active-directory-b2b-detailed-walkthrough.md)
 - [Referencia de formato de archivo CSV](active-directory-b2b-references-csv-file-format.md)
@@ -37,4 +37,4 @@ Examine nuestros otros artículos sobre colaboración de Azure B2B:
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

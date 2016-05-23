@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Acceso a nubes privadas de Azure con Visual Studio
@@ -23,7 +23,7 @@ De forma predeterminada, Visual Studio admite extremos REST de nube pública de 
 
 ## Para obtener acceso a una nube privada de Azure en Visual Studio
 
-1. En el Portal de administración de la nube privada, descargue el archivo de configuración de publicación o póngase en contacto con su administrador para obtenerlo. En la versión pública de Azure, el vínculo para descargarlo es [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (El archivo que descargue debe tener una extensión .publishsettings).
+1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) de la nube privada, descargue el archivo de configuración de publicación o póngase en contacto con su administrador para obtenerlo. En la versión pública de Azure, el vínculo para descargarlo es [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (El archivo que descargue debe tener una extensión .publishsettings).
 
 1. En **Explorador de servidores** en Visual Studio, elija el nodo **Azure** y, en el menú contextual, elija el comando **Administrar suscripciones**.
 
@@ -43,4 +43,4 @@ De forma predeterminada, Visual Studio admite extremos REST de nube pública de 
 
 [Descarga e importación de la configuración de publicación y la información de suscripción] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

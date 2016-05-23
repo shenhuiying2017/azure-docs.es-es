@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="05/11/2016"
 	ms.author="daleche"/>
 
 # Restaurar una base de datos a un momento anterior en el tiempo, restaurar una base de datos eliminada o recuperarse de una interrupción del centro de datos
@@ -42,4 +42,4 @@ Azure ofrece también copias de seguridad de cada base de datos en una región d
 
 - En el [Portal de Azure](https://azure.microsoft.com/), haga clic en **Nuevo**, en **Datos y almacenamiento**, haga clic en **Base de datos SQL** y luego seleccione **Copia de seguridad** como el origen de la base de datos. Vea [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md) para detalles.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -2,6 +2,7 @@ Factoría de datos es un servicio multiempresa que tiene los siguientes límites
 
 **Recurso** | **Límite predeterminado** | **Límite máximo**
 -------- | ------------- | -------------
+factorías de datos en una suscripción de Azure | 50 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 canalizaciones dentro de una factoría de datos | 100 | 2\.500
 conjuntos de datos dentro de una factoría de datos | 500 | 5\.000
 fragmentos simultáneos por conjunto de datos | 10 | 10
@@ -29,4 +30,4 @@ Valor de tiempo de espera de reintento | 1 segundo | 1 segundo
 
 El Administrador de recursos de Azure tiene límites para las llamadas API. Se pueden realizar llamadas API a un ritmo que esté dentro de los [límites de la API del Administrador de recursos de Azure](../azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_0323_2016-->
+

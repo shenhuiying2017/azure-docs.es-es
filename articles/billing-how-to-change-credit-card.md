@@ -15,12 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="05/05/2016"
 	ms.author="genli"/>
 
-# Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure
+# Cambio de la tarjeta de crédito usada para pagar una factura de Azure
 
-Puede pagar con tarjeta de crédito o débito, o recibir aprobación para pagar mediante factura. Para obtener más información sobre el pago mediante factura, consulte [Facturación de Azure](https://azure.microsoft.com/pricing/invoicing/).
+Es posible que, en ocasiones, necesite actualizar los detalles de la tarjeta de crédito en la información de su cuenta, o cambiar la tarjeta que utiliza para pagar la factura.
+
+Si se renueva la tarjeta de crédito y el número sigue siendo el mismo, solo tiene que actualizar la información de la tarjeta de crédito existente, como la fecha de caducidad.
+
+Si alguna vez cambia el número de tarjeta de crédito, debido a la pérdida, robo o que ha caducado, tendrá que agregar la nueva tarjeta de crédito a la cuenta. Esto es debido a que el código de seguridad CVV de la tarjeta cambia cuando cambia el número de la tarjeta de crédito.
 
 ## Editar información de pago de una tarjeta de crédito existente
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta. En el [Portal de Azure](https://portal.azure.com), puede acceder al Centro de cuentas seleccionando **Suscripción**>*nombre de la suscripción*>**Administrar**.
@@ -47,4 +51,4 @@ Puede pagar con tarjeta de crédito o débito, o recibir aprobación para pagar 
 3. En el lado derecho de la página, seleccione **Cambiar el método de pago**.
 4. En la página **Elegir método de pago**, seleccione la flecha desplegable situada junto a la tarjeta de crédito, seleccione la que quiera usar y finalmente seleccione ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) para cerrar la ventana.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

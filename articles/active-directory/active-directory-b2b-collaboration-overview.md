@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/31/2016"
+   ms.date="05/09/2016"
    ms.author="curtand"/>
 
 # Colaboración de Azure Active Directory B2B
@@ -47,9 +47,9 @@ No se admiten actualmente las invitaciones a las direcciones de correo electrón
 Para obtener más información sobre el funcionamiento de la colaboración de B2B, eche un vistazo a [este vídeo](http://aka.ms/aadshowb2b).
 
 ## Pasos siguientes
-Examine nuestros otros artículos sobre colaboración B2B de Azure.
+Consulte otros artículos nuestros sobre la colaboración B2B de Azure AD:
 
-- [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [¿Qué es la colaboración de Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Cómo funciona](active-directory-b2b-how-it-works.md)
 - [Tutorial detallado](active-directory-b2b-detailed-walkthrough.md)
 - [Referencia de formato de archivo CSV](active-directory-b2b-references-csv-file-format.md)
@@ -58,4 +58,4 @@ Examine nuestros otros artículos sobre colaboración B2B de Azure.
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

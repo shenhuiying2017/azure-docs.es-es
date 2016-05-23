@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Catálogo de datos de Azure | Microsoft Azure"
-   description="En este artículo se muestran los métodos abreviados de teclado para el Catálogo de datos de Azure."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor="steelanddata"
-   tags=""/>
+	pageTitle="Catálogo de datos de Azure | Microsoft Azure"
+	description="En este artículo se muestran los métodos abreviados de teclado para el Catálogo de datos de Azure."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/31/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="03/31/2016"
+	ms.author="spelluru"/>
 
 # Métodos abreviados de teclado para el Catálogo de datos de Azure
 
@@ -92,4 +92,4 @@
 |Alternar menú **Abrir en** | ALT + O
 |Explorar el contenedor, si el recurso es un contenedor | ALT + L
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

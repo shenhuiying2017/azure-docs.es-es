@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="04/26/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM
@@ -30,7 +30,7 @@ Aprenda a crear clústeres de HDInsight con plantillas del Administrador de recu
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 - [Suscripción de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) o [CLI de Azure](../xplat-cli-install.md).
+- Azure PowerShell o CLI de Azure
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -38,7 +38,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 La plantilla de ARM facilita la creación de clústeres de HDInsight, sus recursos dependientes (por ejemplo, la cuenta de almacenamiento predeterminada) y otros recursos (como la Base de datos SQL de Azure para utilizar Apache Sqoop) para la aplicación en una operación única y coordinada. En la plantilla, se definen los recursos necesarios para la aplicación y se especifican los parámetros de implementación para especificar valores para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
 
-En el [apéndice A](#appx-a-arm-template) puede encontrar una plantilla de ARM para crear un clúster de HDInsight y la cuenta de Almacenamiento de Azure dependiente. Utilice [VSCode](https://code.visualstudio.com/#alt-downloads) multiplataforma con la [extensión de ARM](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor de texto para guardar la plantilla en un archivo en su estación de trabajo. En este documento, obtendrá información sobre cómo llamar a la plantilla mediante distintos métodos.
+En el [Anexo A](#appx-a-arm-template) puede encontrar una plantilla de ARM para crear un clúster de HDInsight y la cuenta de Almacenamiento de Azure dependiente. Utilice [VSCode](https://code.visualstudio.com/#alt-downloads) multiplataforma con la [extensión de ARM](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor de texto para guardar la plantilla en un archivo en su estación de trabajo. En este documento, obtendrá información sobre cómo llamar a la plantilla mediante distintos métodos.
 
 Para obtener más información acerca de la plantilla de ARM, vea
 
@@ -93,7 +93,7 @@ El procedimiento siguiente crea el clúster de HDInsight basado en Linux.
         New-AzureRmResourceGroup -Name $resourceGroupName -Location $Location
 
         # Create cluster and the dependent storage accounge
-        $parameters = @{clusterName="$hdinsightClusterName";clusterStorageAccountName="$defaultStorageAccountName"}
+        $parameters = @{clusterName="$hdinsightClusterName"}
 
         New-AzureRmResourceGroupDeployment `
             -Name $armDeploymentName `
@@ -129,16 +129,16 @@ Consulte [Implementación con la API de REST](../resource-group-template-deploy.
 
 Con Visual Studio, puede crear un proyecto del grupo de recursos e implementarlo en Azure a través de la interfaz de usuario. Seleccione el tipo de recursos que incluirá en su proyecto y esos recursos se agregarán automáticamente a la plantilla del Administrador de recursos. El proyecto también ofrece un script de PowerShell para implementar la plantilla.
 
-Para ver una introducción sobre el uso de Visual Studio con grupos de recursos, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Para obtener una introducción sobre el uso de Visual Studio con grupos de recursos, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ##Pasos siguientes
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
-- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](../virtual-machines/virtual-machines-windows-csharp-template.md).
-- Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](../virtual-machines/virtual-machines-windows-csharp-template.md) (Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
+- Para obtener un ejemplo detallado de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](../solution-dev-test-environments.md).
-- Para obtener información sobre las secciones de la plantilla de Azure Resource Manager, vea [Creación de plantillas](../resource-group-authoring-templates.md).
-- Para obtener una lista de las funciones que puede usar en una plantilla de Azure Resource Manager, vea [Funciones de la plantilla](../resource-group-template-functions.md).
+- Para obtener información sobre las secciones de la plantilla de Azure Resource Manager, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+- Para obtener una lista de las funciones que puede utilizar en una plantilla de Azure Resource Manager, consulte [Funciones de la plantilla de Azure Resource Manager](../resource-group-template-functions.md).
 
 ##Anexo A: plantilla de ARM
 
@@ -276,7 +276,7 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
             "roles": [
                 {
                 "name": "headnode",
-                "targetInstanceCount": "1",
+                "targetInstanceCount": "2",
                 "hardwareProfile": {
                     "vmSize": "Large"
                 },
@@ -313,4 +313,4 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
     }
     }
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

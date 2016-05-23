@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="05/10/2016"
 ms.author="mandia"/>
 
 # Introducción a la API de Twilio
@@ -247,4 +247,4 @@ Envía un nuevo mensaje a un número de teléfono móvil. ```POST: /Messages.jso
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

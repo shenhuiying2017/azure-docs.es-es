@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="04/26/2016"
     ms.author="curtand"/>
 
 # Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS  
@@ -47,7 +47,7 @@ La configuración del inicio de sesión único para una aplicación que ya se us
 
 ### Asignación de cuentas de usuario
 
-Normalmente, la identidad de un usuario tiene un identificador único que podría ser una dirección de correo electrónico o un nombre universal personal (UPN). Tendrá que vincular (asignar) la identidad de la aplicación de cada usuario a sus respectivas identidades de Azure AD. Hay dos maneras de lograrlo en función del requisito de autenticación de la aplicación.
+Normalmente, la identidad de un usuario tiene un identificador único que podría ser una dirección de correo electrónico o un nombre principal de usuario (UPN). Tendrá que vincular (asignar) la identidad de la aplicación de cada usuario a sus respectivas identidades de Azure AD. Hay dos maneras de lograrlo en función del requisito de autenticación de la aplicación.
 
 Para obtener más información sobre la vinculación de identidades de la aplicación con identidades de Azure AD, consulte [Personalización de notificaciones emitidas en el token SAML](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) y [Personalización de asignaciones de atributos para aprovisionamiento](active-directory-saas-customizing-attribute-mappings.md).
 
@@ -72,4 +72,4 @@ Encontrará más información sobre todos estos problemas en la biblioteca de Az
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

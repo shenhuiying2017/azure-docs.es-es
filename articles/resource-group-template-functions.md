@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="05/06/2016"
    ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
@@ -228,15 +228,15 @@ En el ejemplo siguiente se muestra cómo combinar dos matrices.
 <a id="padleft" />
 ### padLeft
 
-**padLeft(stringToPad, totalLength, paddingCharacter)**
+**padLeft(valueToPad, totalLength, paddingCharacter)**
 
 Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda hasta alcanzar la longitud total especificada.
   
 | Parámetro | Obligatorio | Descripción
 | :--------------------------------: | :------: | :----------
-| stringToPad | Sí | La cadena que se va a alinear a la derecha.
+| valueToPad | Sí | La cadena o el entero que se va a alinear a la derecha.
 | totalLength | Sí | El número total de caracteres de la cadena devuelta.
-| paddingCharacter | Sí | El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total.
+| paddingCharacter | No | El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total. El valor predeterminado es un espacio.
 
 En el ejemplo siguiente se muestra cómo rellenar el valor del parámetro proporcionado por el usuario agregando el carácter cero hasta que la cadena llegue a 10 caracteres. Si el valor del parámetro original tiene más de 10 caracteres, no se agrega ningún carácter.
 
@@ -278,7 +278,7 @@ Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entra
 
 | Parámetro | Obligatorio | Descripción
 | :--------------------------------: | :------: | :----------
-| inputString | Sí | Cadena que se va a dividir.
+| inputString | Sí | La cadena que se va a dividir.
 | delimiter | Sí | Delimitador que se va a usar, puede ser una cadena o una matriz de cadenas.
 
 En el ejemplo siguiente la cadena de entrada se divide con una coma.
@@ -299,15 +299,31 @@ Convierte el valor especificado en cadena.
 
 | Parámetro | Obligatorio | Descripción
 | :--------------------------------: | :------: | :----------
-| valueToConvert | Sí | Valor que se convierte en cadena. Solo puede ser de tipo booleano, entero o cadena.
+| valueToConvert | Sí | El valor que se convierte en cadena. Se puede convertir cualquier tipo de valor, incluidos objetos y matrices.
 
-En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario en cadena.
+En el siguiente ejemplo los valores del parámetro proporcionados por el usuario se convierten en cadenas.
 
     "parameters": {
-        "appId": { "type": "int" }
+      "jsonObject": {
+        "type": "object",
+        "defaultValue": {
+          "valueA": 10,
+          "valueB": "Example Text"
+        }
+      },
+      "jsonArray": {
+        "type": "array",
+        "defaultValue": [ "a", "b", "c" ]
+      },
+      "jsonInt": {
+        "type": "int",
+        "defaultValue": 5
+      }
     },
     "variables": { 
-        "stringValue": "[string(parameters('appId'))]"
+      "objectString": "[string(parameters('jsonObject'))]",
+      "arrayString": "[string(parameters('jsonArray'))]",
+      "intString": "[string(parameters('jsonInt'))]"
     }
 
 <a id="substring" />
@@ -397,14 +413,14 @@ En el ejemplo siguiente se recortan los caracteres de espacio en blanco del valo
 
 **uniqueString (stringForCreatingUniqueString,...)**
 
-Realiza un hash de 64 bits de las cadenas proporcionadas para crear una cadena única. Esta función es útil cuando se debe crear un nombre único para un recurso. Proporciona valores de parámetros que representan el nivel de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación.
+Crea una cadena única basada en los valores proporcionados como parámetros. Esta función es útil cuando se debe crear un nombre único para un recurso. Proporciona valores de parámetros que representan el nivel de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación.
 
 | Parámetro | Obligatorio | Descripción
 | :--------------------------------: | :------: | :----------
 | stringForCreatingUniqueString | Sí | Cadena base utilizada en la función hash para crear una cadena única.
 | parámetros adicionales según sea necesario | No | Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad.
 
-El valor devuelto no es una cadena completamente aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. No se garantiza que sea único global. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre más descriptivo.
+El valor devuelto no es una cadena aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. No se garantiza que sea único global. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre que sea más fácil de reconocer.
 
 En los ejemplos siguientes se muestra cómo utilizar uniqueString para crear un valor único para diferentes niveles de uso común.
 
@@ -671,15 +687,6 @@ Puede recuperar un valor concreto del objeto devuelto, como el URI del punto de 
 		}
 	}
 
-Si ahora quiere especificar directamente la versión de la API en su plantilla, puede usar la función [providers](#providers) y recuperar uno de los valores, como la versión más reciente, como se muestra a continuación.
-
-    "outputs": {
-		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
-
 En el ejemplo siguiente se hace referencia a una cuenta de almacenamiento en otro grupo de recursos.
 
     "outputs": {
@@ -717,7 +724,7 @@ En el ejemplo siguiente se utiliza la ubicación del grupo de recursos para asig
 <a id="resourceid" />
 ### resourceId
 
-**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 Devuelve el identificador único de un recurso. Utilice esta función cuando el nombre del recurso sea ambiguo o no esté aprovisionado dentro de la misma plantilla. El identificador se devuelve con el formato siguiente:
 
@@ -725,6 +732,7 @@ Devuelve el identificador único de un recurso. Utilice esta función cuando el 
       
 | Parámetro | Obligatorio | Descripción
 | :---------------: | :------: | :----------
+| subscriptionId | No | Id. de suscripción opcional. El valor predeterminado es la suscripción actual. Especifique este valor cuando se recupere un recurso en otra suscripción.
 | resourceGroupName | No | Nombre del grupo de recursos opcional. El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando se recupere un recurso en otro grupo de recursos.
 | resourceType | Sí | Tipo de recurso, incluido el espacio de nombres del proveedor de recursos.
 | resourceName1 | Sí | Nombre del recurso.
@@ -733,7 +741,7 @@ Devuelve el identificador único de un recurso. Utilice esta función cuando el 
 En el ejemplo siguiente se muestra cómo recuperar los identificadores de recursos para un sitio web y una base de datos. El sitio web existe en un grupo de recursos denominado **myWebsitesGroup** y la base de datos existe en el grupo de recursos actual para esta plantilla.
 
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
+    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
     
 A menudo, necesitará utilizar esta función cuando se usa una cuenta de almacenamiento o red virtual en un grupo de recursos alternativo. La cuenta de almacenamiento o la red virtual puede utilizarse en varios grupos de recursos; por lo tanto, no es deseable su eliminación cuando se elimina un único grupo de recursos. En el ejemplo siguiente se muestra cómo un recurso de un grupo de recursos externos se puede utilizar fácilmente:
 
@@ -807,4 +815,4 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 - Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

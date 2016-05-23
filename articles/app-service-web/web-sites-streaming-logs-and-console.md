@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="05/10/2016" 
 	ms.author="byvinyal"/>
 
 #Registros de transmisión y la consola
@@ -53,9 +53,9 @@ console.log("My trace statement").
 `````````````````````````
 
 ### Habilitación y visualización de registros de transmisión ###
-![][BrowseSitesScreenshot] El diagnóstico se habilita por aplicación web. En el [portal](https://portal.azure.com), vaya al sitio que para el que quiere habilitar esta característica.
+![][BrowseSitesScreenshot] El diagnóstico se habilita por aplicación web. En el [portal](https://portal.azure.com), vaya al sitio para el que quiere habilitar esta característica.
   
-![][DiagnosticsLogs] A continuación, haga clic en **(1) Configuración** > **(2) Registros de diagnóstico** y **(3) Active** el **Registro de la aplicación (Sistema de archivos)** o el **Registro de la aplicación (blob)**. La opción **Nivel** le permite cambiar el nivel de gravedad de las trazas que se capturan. Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
+![][DiagnosticsLogs] A continuación, haga clic en **(1) Configuración** > **(2) Registros de diagnóstico** y **(3) active** el **Registro de la aplicación (sistema de archivos)** o el **Registro de la aplicación (Blob)**. La opción **Nivel** le permite cambiar el nivel de gravedad del seguimiento que se captura. Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
 
 Haga clic en **SAVE** en la parte superior del cuadro y estará listo para ver los registros.
 
@@ -84,4 +84,4 @@ cd
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

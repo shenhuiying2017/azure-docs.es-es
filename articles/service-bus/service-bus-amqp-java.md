@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Bus de servicio y Java con AMQP 1.0 | Microsoft Azure"
-   description="Uso del Bus de servicio desde Java con AMQP."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Bus de servicio y Java con AMQP 1.0 | Microsoft Azure"
+    description="Uso del Bus de servicio desde Java con AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
-# Uso del Bus de servicio desde Java con AMQP 1.0
+# uso del Bus de servicio desde Java con AMQP 1.0
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
@@ -446,4 +446,4 @@ Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el Bus de se
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/26/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher"/>
 
 # Implementación de un contenedor ASP.NET en un host remoto de Docker
@@ -51,19 +51,19 @@ Los siguientes pasos le guiarán a través del proceso de creación de una aplic
 1.  Reinicie Visual Studio.
 
 ## 5\. Configure el punto de conexión del host de Docker de Azure
-Antes de implementar la aplicación de Visual Studio en Azure, agregue el punto de conexión 80 a la máquina virtual del host de Docker para que pueda ver la aplicación desde el explorador más adelante. Esto puede hacerse bien a través del Portal de Azure clásico bien a través de Windows PowerShell:
+Antes de implementar la aplicación de Visual Studio en Azure, agregue el punto de conexión 80 a la máquina virtual del host de Docker para que pueda ver la aplicación desde el explorador más adelante. Esto puede hacerse bien a través del [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) o de Windows PowerShell:
 
-- **Si utiliza el Portal de Azure clásico para configurar el punto de conexión del host de Docker de Azure:**
+- **Utilice el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) para configurar el punto de conexión del host de Docker de Azure**
 
-    1.  Entre en el [Portal de Azure clásico](https://manage.windowsazure.com/). 
+    1.  Vaya al [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). 
     
     1.  Pulse en **MÁQUINAS VIRTUALES**.
     
     1.  Seleccione la máquina virtual del host de Docker.
     
-    1.  Pulse la pestaña **ENDPOINTS** (EXTREMOS).
+    1.  Pulse la pestaña **PUNTOS DE CONEXIÓN**.
     
-    1.  Haga clic en **AGREGAR** (en la parte inferior de la página).
+    1.  Pulse **AGREGAR** (en la parte inferior de la página).
     
     1.  Siga las instrucciones para exponer el puerto 80, que lo usa el script de implementación de manera predeterminada.
 
@@ -77,7 +77,7 @@ Antes de implementar la aplicación de Visual Studio en Azure, agregue el punto 
         ```
 
 ## 6\. Compile y ejecute la aplicación
-Al realizar implementaciones en hosts remotos, la característica de asignación de volumen usada para el desarrollo de edición y actualización no funcionará. Por lo tanto, deberá utilizar la *configuración Release* al compilar la aplicación para evitar la configuración de la asignación de volumen. Siga estos pasos para ejecutar la aplicación.
+Al realizar implementaciones en hosts remotos, la característica de asignación de volumen usada para el desarrollo de edición y actualización no funcionará. Por lo tanto, tendrá que utilizar la *configuración de lanzamiento* al compilar la aplicación para evitar la configuración de asignación de volumen. Siga estos pasos para ejecutar la aplicación.
 
 1.  En la barra de herramientas de Visual Studio, seleccione la configuración **Release**.
 
@@ -96,4 +96,4 @@ Debería ver resultados similares a los siguientes:
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

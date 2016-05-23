@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,44 +13,55 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/10/2016"
-	ms.author="piyushjo" />
+	ms.date="05/10/2016"
+	ms.author="piyushjo;ricksal" />
 
 
-#SDK de Android para Azure Mobile Engagement
+# Uso de las características avanzadas de Azure Mobile Engagement para aplicaciones de Android
 
-Comience aquí para obtener todos los detalles sobre cómo integrar Azure Mobile Engagement en una aplicación Android. Si primero quiere probarlo, asegúrese de seguir nuestro [tutorial de 15 minutos](mobile-engagement-android-get-started.md).
+> [AZURE.SELECTOR]
+- [Windows universal](mobile-engagement-windows-store-sdk-overview.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
+- [iOS](mobile-engagement-ios-sdk-overview.md)
+- [Android](mobile-engagement-android-sdk-overview.md)
 
-Haga clic para ver el [contenido del SDK](mobile-engagement-android-sdk-content.md).
+Obtenga información acerca de todas las características avanzadas de Azure Mobile Engagement que puede integrar en la aplicación de Android.
 
-##Procedimientos de integración
-1. Comience aquí: [Integración de Mobile Engagement en su aplicación Android](mobile-engagement-android-integrate-engagement.md)
+## Requisitos previos
 
-2. Para las notificaciones: [Integración de cobertura (notificaciones) en su aplicación Android](mobile-engagement-android-integrate-engagement-reach.md)
-	1. Google Cloud Messaging (GCM): [Integración de GCM con Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
-	2. Amazon Device Messaging (ADM): [Integración de ADM con Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+[AZURE.INCLUDE [Requisitos previos](../../includes/mobile-engagement-android-prereqs.md)]
 
-3. Implementación del plan de etiquetas: [Uso de la API de etiquetado de Mobile Engagement avanzada en su aplicación Android](mobile-engagement-android-use-engagement-api.md)
+## Características avanzadas
 
+### Características de informes
 
-##Notas de la versión
+Puede agregar estas características:
 
-##4\.2.0 (03/11/2016)
+1. [Opciones de informes avanzados](mobile-engagement-android-advanced-reporting.md)
+2. [Opciones de informes de ubicación](mobile-engagement-android-location-reporting.md)
+3. [Opciones de configuración avanzada](mobile-engagement-android-advanced-configuration.md)
+
+### Notificaciones:
+[Integración de cobertura (notificaciones) en su aplicación Android](mobile-engagement-android-integrate-engagement-reach.md)
+
+1. Google Cloud Messaging (GCM): [Integración de GCM con Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+
+2. Amazon Device Messaging (ADM): [Integración de ADM con Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+
+### Implementación del plan de etiquetas:
+[Uso de la API de etiquetado de Mobile Engagement avanzada en su aplicación Android](mobile-engagement-android-use-engagement-api.md)
+
+## Notas de la versión
+
+### 4\.2.0 (03/11/2016)
 
 - El SDK tiene una licencia de MIT.
 - Permite especificar un identificador de dispositivo personalizado en el tiempo de inicialización del SDK.
 
-##4\.1.0 (08/25/2015)
+Para todas las versiones, consulte las [notas de la versión completas](mobile-engagement-android-release-notes.md).
 
-- Controle el nuevo modelo de permiso para Android M.
-- Ahora puede configurar las características de ubicación en tiempo de ejecución en lugar de usar `AndroidManifest.xml`.
-- Corrija un error de permiso: si usa `ACCESS_FINE_LOCATION`, ya no necesita `ACCESS_COARSE_LOCATION`.
-- Mejoras de estabilidad.
-
-Para todas las versiones, vea las [notas de la versión completas](mobile-engagement-android-release-notes.md).
-
-##Procedimientos de actualización
+## Procedimientos de actualización
 
 Si ya ha integrado una versión anterior de nuestro SDK en su aplicación, consulte [Procedimientos de actualización](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

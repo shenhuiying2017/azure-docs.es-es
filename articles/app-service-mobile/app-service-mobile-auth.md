@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="mattchenderson"
-	manager="dwrede"
+	manager="erikref"
 	editor=""/>
 
 <tags
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="mahender"/>
 
 # Autenticación y autorización en Aplicaciones móviles de Azure
 
 ## ¿Qué es la autenticación o autorización del Servicio de aplicaciones?
+
+> [AZURE.NOTE] Este tema se migrará a un tema de [Autenticación/autorización del servicio de aplicaciones](../app-service/app-service-authentication-overview.md) consolidado, que abarca la web, los móviles y las aplicaciones de API.
 
 La autenticación o autorización del Servicio de aplicaciones es una característica que permite que los usuarios inicien sesión en la aplicación sin necesidad de realizar cambios en el código del back-end de la misma. Ofrece una forma fácil de proteger su aplicación y trabajar con datos por usuario.
 
@@ -102,4 +104,4 @@ Si desea usar un sistema de identidades diferente a los proporcionados aquí, ta
 [Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configuración de la aplicación para usar el inicio de sesión de Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->
