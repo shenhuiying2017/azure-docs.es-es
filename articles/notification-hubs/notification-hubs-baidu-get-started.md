@@ -39,7 +39,7 @@ Este tutorial requiere lo siguiente:
 
 Para usar Baidu, tiene que tener una cuenta de Baidu. Si ya tiene una, inicie sesión en el [portal de Baidu] y vaya al paso siguiente. De lo contrario, consulte las siguientes instrucciones sobre cómo crear una cuenta de Baidu.
 
-1. Vaya al [portal de Baidu] y haga clic en el vínculo** 登录** (**inicio de sesión**). Haga clic en**立即注册** para iniciar el proceso de registro de cuenta.
+1. Vaya al [portal de Baidu] y haga clic en el vínculo **登录** (**inicio de sesión**). Haga clic en**立即注册** para iniciar el proceso de registro de cuenta.
 
    	![][1]
 
@@ -504,4 +504,4 @@ Para enviar una notificación de prueba, puede usar la pestaña de depuración d
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 [portal de Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->
