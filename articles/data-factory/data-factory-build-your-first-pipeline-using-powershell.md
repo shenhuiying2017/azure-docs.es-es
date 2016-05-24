@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/03/2016"
+	ms.date="05/16/2016"
 	ms.author="spelluru"/>
 
 # Compilación de la primera Data Factory de Azure mediante Azure PowerShell
@@ -128,7 +128,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
 	| Propiedad | Descripción |
 	| :------- | :---------- |
-	| Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.2. | 
+	| Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.2. | 
 	| ClusterSize | Así se crea un clúster de HDInsight de un nodo. | 
 	| TimeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
 	| linkedServiceName | Especifica la cuenta de almacenamiento que se usará para almacenar los registros que genere HDInsight. |
@@ -268,8 +268,8 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2014-02-01T00:00:00Z",
-		        "end": "2014-02-02T00:00:00Z",
+		        "start": "2016-04-01T00:00:00Z",
+		        "end": "2016-04-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}
@@ -356,4 +356,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -173,7 +173,13 @@ A estas alturas ha implementado la infraestructura de la aplicación, pero no ha
 
     ![agregar referencia](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    Al agregar una referencia, se vincula el proyecto de aplicación web con el proyecto del grupo de recursos y se establecen tres propiedades clave. **Propiedades adicionales** contiene la ubicación de ensayo del paquete de implementación web que se insertará en Almacenamiento de Azure. **Incluir ruta del archivo** contiene la ruta de acceso donde se creará el paquete. **Incluir destinos** contiene el comando que ejecutará la implementación. El valor predeterminado **Build;Package** permite a la implementación generar y crear un paquete de implementación web (package.zip). No se necesita un perfil de publicación ya que la implementación obtiene la información necesaria de las propiedades para crear el paquete.
+    Al agregar una referencia, se vincula el proyecto de aplicación web con el proyecto del grupo de recursos y automáticamente se establecen tres propiedades clave.
+    
+    - **Propiedades adicionales** contiene la ubicación de ensayo del paquete de implementación web que se insertará en Almacenamiento de Azure. 
+    - **Incluir ruta del archivo** contiene la ruta de acceso donde se creará el paquete. **Incluir destinos** contiene el comando que ejecutará la implementación. 
+    - El valor predeterminado **Build;Package** permite a la implementación generar y crear un paquete de implementación web (package.zip).  
+    
+    No se necesita un perfil de publicación ya que la implementación obtiene la información necesaria de las propiedades para crear el paquete.
     
       ![ver referencia](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
@@ -181,11 +187,11 @@ A estas alturas ha implementado la infraestructura de la aplicación, pero no ha
 
     ![agregar implementación web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Vuelva a implementar el proyecto del grupo de recursos en el grupo de recursos. Esta vez, hay algunos parámetros nuevos. No es necesario proporcionar valores para ** \_artifactsLocation ** o ** \_artifactsLocationSasToken ** ya que se generan automáticamente. Establezca la carpeta y el nombre de archivo en la ruta de acceso que contiene el paquete de implementación.
+1. Vuelva a implementar el proyecto del grupo de recursos en el grupo de recursos. Esta vez, hay algunos parámetros nuevos. No es necesario proporcionar valores para **\_artifactsLocation** o **\_artifactsLocationSasToken** ya que se generan automáticamente. Establezca la carpeta y el nombre de archivo en la ruta de acceso que contiene el paquete de implementación.
 
     ![agregar implementación web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
-    Para la **Cuenta de almacenamiento de artefactos** puede utilizar una implementada con este grupo de recursos.
+    Para la **Cuenta de almacenamiento de artefactos** puede utilizar la implementada con este grupo de recursos.
     
 Una vez finalizada la implementación, puede ir al sitio y podrá observar que se ha implementado la aplicación ASP.NET predeterminada.
 
@@ -194,6 +200,6 @@ Una vez finalizada la implementación, puede ir al sitio y podrá observar que s
 ## Pasos siguientes
 
 - Para más información sobre cómo administrar sus recursos a través del portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
-- Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
+- Para más información sobre las plantillas, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

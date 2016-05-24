@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="04/07/2016"
    ms.author="larryfr"/>
 
 #Ejecución de consultas de Hive con PowerShell
@@ -31,7 +31,9 @@ En este documento se ofrece un ejemplo de uso de Azure PowerShell en el modo Gru
 Necesitará lo siguiente para completar los pasos de este artículo.
 
 - **Un clúster de HDInsight de Azure (Hadoop en HDInsight) (basado en Windows o en Linux)**
-- **Una estación de trabajo con Azure PowerShell**. Consulte [Instalar Azure PowerShell 1.0 y versiones posteriores](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Una estación de trabajo con Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Ejecución de consultas de Hive con Azure PowerShell
 
@@ -186,4 +188,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

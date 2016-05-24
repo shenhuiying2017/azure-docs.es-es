@@ -3,7 +3,7 @@
    description="Creación, implementación y depuración de una aplicación de Service Fabric con Visual Studio"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/27/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Creación de la primera aplicación de Azure Service Fabric en Visual Studio
 
@@ -115,9 +115,9 @@ Ahora que tiene una aplicación, puede probar a ejecutarla.
   Antes de concluir, es importante recordar que el clúster local es real. Incluso después de detener el depurador y de cerrar Visual Studio, las aplicaciones se seguirán ejecutando en segundo plano. Según la naturaleza de las aplicaciones, esta actividad en segundo plano puede consumir importantes recursos en su máquina. Tiene varias opciones para administrar esto:
 
   1. Para quitar una aplicación individual y todos sus datos, utilice la acción **Eliminar aplicación** en el explorador de Service Fabric con el menú **ACCIONES** o el menú contextual en la vista de lista de aplicaciones del panel izquierdo.
-  
+
     ![Eliminación de una aplicación en el explorador de Service Fabric][sfe-delete-application]
-    
+
   2. Después de eliminar la aplicación del clúster, a continuación, puede elegir **el tipo de anulación de aprovisionamiento** para la aplicación que quita el paquete de la aplicación, incluido el código y la configuración, del almacén de imágenes del clúster.
   3. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Detener clúster local** en la aplicación de bandeja del sistema.
 
@@ -150,4 +150,4 @@ Temporarily removing this link because we have removed the ASP.NET template.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

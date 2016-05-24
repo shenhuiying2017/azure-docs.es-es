@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Exploración y administración de recursos de almacenamiento con el Explorador de servidores
@@ -21,7 +21,7 @@ Si ha instalado Azure Tools para Microsoft Visual Studio, puede ver datos de blo
 
 Para ver el Explorador de servidores en Visual Studio, en la barra de menús, elija **Ver**, **Explorador de servidores**. El nodo de almacenamiento muestra todas las cuentas de almacenamiento que existen en cada suscripción/certificado de Azure a los que esté conectado. Si no aparece la cuenta de almacenamiento, puede agregarla siguiendo las instrucciones [más adelante en este tema](#add-storage-accounts-by-using-server-explorer).
 
-A partir del SDK de Azure versión 2.7, también puede usar el nuevo Cloud Explorer para ver y administrar los recursos de Azure. Consulte [Administración de recursos de Azure con Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer) para obtener más información.
+A partir del SDK de Azure versión 2.7, también puede usar el nuevo Cloud Explorer para ver y administrar los recursos de Azure. Consulte [Administración de recursos de Azure con Cloud Explorer](./vs-azure-tools-resources-managing-with-cloud-explorer.md) para obtener más información.
 
 
 ## Visualización y administración de recursos de almacenamiento en Visual Studio
@@ -40,7 +40,7 @@ Para ver los recursos en una cuenta de almacenamiento, expanda el nodo de la cue
 
 ## Trabajo con recursos de blob
 
-El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento seleccionada. Los contenedores de blobs incluyen archivos de blob, y puede organizar estos blobs en carpetas y subcarpetas. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](..storage/storage-dotnet-how-to-use-blobs/).
+El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento seleccionada. Los contenedores de blobs incluyen archivos de blob, y puede organizar estos blobs en carpetas y subcarpetas. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](./storage/storage-dotnet-how-to-use-blobs.md).
 
 ### Para crear un contenedor de blobs
 
@@ -308,10 +308,10 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
 - En el Explorador de servidores, abra el menú contextual del nombre de cuenta y elija **Eliminar**. Si elimina una cuenta de almacenamiento, también se quita cualquier información de clave guardada para esa cuenta.
 
-    >[AZURE.NOTE] Si elimina una cuenta de almacenamiento del Explorador de servidores, esto no afecta a la cuenta de almacenamiento ni a ningún dato que contenga; simplemente se quita la referencia del Explorador de servidores. Para eliminar de forma permanente una cuenta de almacenamiento, use el Portal de administración de Azure.
+    >[AZURE.NOTE] Si elimina una cuenta de almacenamiento del Explorador de servidores, esto no afecta a la cuenta de almacenamiento ni a ningún dato que contenga; simplemente se quita la referencia del Explorador de servidores. Para eliminar de forma permanente una cuenta de almacenamiento, use el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 ## Pasos siguientes
 
 Para obtener más información sobre cómo usar los servicios de almacenamiento de Azure, vea [Acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

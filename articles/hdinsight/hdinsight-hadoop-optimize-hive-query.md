@@ -57,6 +57,7 @@ Puede realizar cualquier consulta de Hive habilitada con Tez anteponiendo a la c
 
 Para los clústeres de HDInsight basados en Windows, Tez debe estar habilitada en el momento del aprovisionamiento. El siguiente es un script de PowerShell de Azure de ejemplo para el aprovisionamiento de un clúster de Hadoop habilitado con Tez:
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	$clusterName = "[HDInsightClusterName]"
 	$location = "[AzureDataCenter]" #i.e. West US
@@ -220,4 +221,4 @@ En este artículo, ha aprendido varios métodos comunes de optimización de cons
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Vista previa de la colaboración B2B de Azure AD: funcionamiento
@@ -34,7 +34,7 @@ Aunque no es obligatorio contar con una suscripción de pago de Azure AD (Básic
  - La personalización de la marca del inquilino de administración se usa para personalizar la marca en los correos electrónicos de invitación y la experiencia de canje, lo que proporciona más contexto a los usuarios invitados del asociado.
 
 ## Artículos relacionados
- Examine nuestros otros artículos sobre la colaboración de Azure B2B:
+ Consulte otros artículos nuestros sobre la colaboración B2B de Azure AD:
 
  - [¿Qué es la colaboración de Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
  - [Tutorial detallado](active-directory-b2b-detailed-walkthrough.md)
@@ -44,4 +44,4 @@ Aunque no es obligatorio contar con una suscripción de pago de Azure AD (Básic
  - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
  - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

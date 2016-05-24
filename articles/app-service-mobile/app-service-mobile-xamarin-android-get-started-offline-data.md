@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
     ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación móvil Xamarin.Android
@@ -132,7 +132,7 @@ En esta sección, modificará la aplicación cliente para simular un escenario s
 
 En esta sección se volverá a conectar la aplicación al back-end móvil, que simula que la aplicación vuelve a un estado en línea. Al realizar el gesto de la actualización, los datos se sincronizarán con el back-end móvil.
 
-1. Abra `ToDoActivity.cs`. Corrija `applicationURL` para que apunte a las direcciones URL correctas.
+1. Abra `ToDoActivity.cs`. Corrija `applicationURL` para que apunte a la dirección URL correcta.
 
 2. Recompile y ejecute la aplicación. La aplicación intenta sincronizarse con el back-end de la aplicación móvil de Azure después de iniciarse. Compruebe que no se generan cuadros de diálogo de excepción.
 
@@ -170,4 +170,4 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

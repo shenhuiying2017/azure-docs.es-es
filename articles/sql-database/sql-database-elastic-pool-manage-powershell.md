@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/28/2016"
+    ms.date="05/10/2016"
     ms.author="sidneyh"/>
 
 # Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas con PowerShell 
@@ -31,6 +31,7 @@ Para ver los códigos de error comunes, consulte [Códigos de error para las apl
 Los valores de los grupos se pueden encontrar en el artículo de [límites de almacenamiento y de eDTU](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ## Requisitos previos
+
 * Azure PowerShell 1.0 o posterior. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 * Los grupos de bases de datos elásticas solo están disponibles en los servidores de la versión 12 de Base de datos SQL de Azure. Si tiene un servidor de la versión 11 de Base de datos SQL, [use PowerShell para actualizarlo a la versión 12 y crear un grupo](sql-database-upgrade-server-portal.md) en un solo paso.
 
@@ -101,6 +102,26 @@ Para esta API, las métricas recuperadas se expresan como un porcentaje de la ca
 Para recuperar las métricas, siga estos pasos:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+
+## Recopilación y supervisión de los datos de uso de recursos entre varios grupos de una suscripción
+
+Si hay un gran número de bases de datos en una suscripción, es complicado supervisar cada grupo elástico por separado. En su lugar, se pueden combinar las consultas de T-SQL y los cmdlets de PowerShell de Base de datos SQL para recopilar datos de uso de recursos de varios grupos y sus bases de datos para la supervisión y el análisis del uso de recursos. Puede encontrar una [implementación de ejemplo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) de un conjunto similar de scripts de Powershell en el repositorio de ejemplos de GitHub SQL Server junto con documentación sobre lo que hace y cómo se utiliza.
+
+Para utilizar esta implementación de ejemplo siga los pasos enumerados a continuación.
+
+
+1. Descargue los [scripts y la documentación](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
+2. Modifique los scripts para su entorno. Especifique uno o más servidores en los que se alojan los grupos elásticos.
+3. Especifique una base de datos de telemetría donde se puedan almacenar las métricas recopiladas. 
+4. Personalice el script para especificar el tiempo de ejecución de los scripts.
+
+En un nivel alto, los scripts realizan lo siguiente:
+
+*	Enumera todos los servidores de una determinada suscripción de Azure (o una lista de servidores especificada).
+*	Ejecuta un trabajo en segundo plano para cada servidor. El trabajo se ejecuta en un bucle a intervalos regulares y recopila los datos de telemetría de todos los grupos en el servidor. A continuación, carga los datos recopilados en la base de datos de telemetría especificada.
+*	Enumera una lista de bases de datos en cada grupo para recopilar los datos de uso de recursos de base de datos. A continuación, carga los datos recopilados en la base de datos de telemetría.
+
+Para supervisar el estado de los grupos elásticos y de las bases de datos en tales grupos, se pueden analizar las métricas recopiladas en la base de datos de telemetría. El script también instala una función de valores de tabla (TVF) predefinida en la base de datos de telemetría para ayudar a agregar las métricas para un período de tiempo especificado. Por ejemplo, los resultados de la función TVF pueden utilizarse para mostrar "los N grupos elásticos que presentan el máximo uso de eDTU en un período de tiempo determinado". Opcionalmente, puede utilizar herramientas de análisis como Excel o Power BI para consultar y analizar los datos recopilados.
 
 ## Ejemplo: recuperación de métricas de consumo de recursos de un grupo y de sus bases de datos
 
@@ -188,6 +209,6 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 ## Pasos siguientes
 
 - [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos del grupo.
-- Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
+- Consulte [Información general de las características de bases de datos elásticas](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

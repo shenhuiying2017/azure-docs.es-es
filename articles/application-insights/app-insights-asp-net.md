@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/14/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
 
 
@@ -143,15 +143,20 @@ Abra el recurso de Application Insights en el [Portal de Azure][portal].
 
 Si no inició sesión en Azure cuando agregó Application Ingsights a esta aplicación, hágalo ahora. Seleccione **Configurar Application Insights**. Eso le permitirá seguir viendo la telemetría desde la aplicación activa después de haberla implementado. La telemetría aparecerá en el portal de Application Insights.
 
-### Métricas: datos agregados
+### Transmisión en directo
 
-Busque los datos en los gráficos de Información general. Al principio, solo aparecerán uno o dos puntos. Por ejemplo:
+Para obtener una vista rápida de los datos de telemetría cuando esté depurando o justo después de una implementación, use Transmisión en directo.
 
-![Haga clic en las distintas opciones para obtener más datos](./media/app-insights-asp-net/12-first-perf.png)
+![En la hoja de información general, haga clic en Transmisión en directo.](./media/app-insights-asp-net/45.png)
 
-Haga clic en cualquier gráfico para ver métricas más detalladas. [Más información acerca de las métricas][perf]
 
-* *¿No hay datos de usuario o página?* - [Agregar datos de usuario y página](app-insights-web-track-usage.md)
+Transmisión en directo se ha diseñado para que pueda comprobar si la aplicación funciona correctamente después de una implementación.
+
+Muestra solamente los datos de los últimos minutos y no conserva ninguno.
+
+Requiere la versión 2.1.0-beta1 o posterior del SDK.
+
+
 
 ### Búsqueda: eventos individuales
 
@@ -162,6 +167,23 @@ Abra Búsqueda para investigar solicitudes individuales y sus eventos asociados.
 [Más información sobre la búsqueda](app-insights-diagnostic-search.md)
 
 * *¿No hay eventos asociados?* Configure [excepciones de servidor](app-insights-asp-net-exceptions.md) y [dependencias](app-insights-asp-net-dependencies.md).
+
+
+### Métricas: datos agregados
+
+Busque datos agregados en los gráficos de Información general. Al principio, solo aparecerán uno o dos puntos. Por ejemplo:
+
+![Haga clic en las distintas opciones para obtener más datos](./media/app-insights-asp-net/12-first-perf.png)
+
+Haga clic en cualquier gráfico para ver métricas más detalladas. [Más información acerca de las métricas][perf]
+
+* *¿No hay datos de usuario o página?* - [Agregar datos de usuario y página](app-insights-web-track-usage.md)
+
+### Analytics: Lenguaje de consulta eficaz
+
+A medida que acumula más datos, puede ejecutar consultas tanto para agregar datos como para buscar instancias individuales. [Analytics]() es una herramienta eficaz para comprender el rendimiento y el uso, así como para el diagnóstico.
+
+![Ejemplo de Analytics](./media/app-insights-asp-net/025.png)
 
 
 ## ¿No hay datos?
@@ -179,19 +201,8 @@ Abra Búsqueda para investigar solicitudes individuales y sus eventos asociados.
 
 Implemente ahora la aplicación y observe cómo se acumulan los datos.
 
-### Transmisión en directo
+Use [Transmisión en directo](#live-stream) para supervisar los primeros minutos de una implementación o reimplementación para ver si la aplicación funciona correctamente. En particular, al reemplazar una versión anterior, desea saber si el rendimiento ha mejorado. Si hay un problema, quizá desee volver a la versión anterior.
 
-Los primeros minutos de una implementación indican si la aplicación funciona correctamente. En particular, al reemplazar una versión anterior, desea saber si el rendimiento ha mejorado. Si hay un problema, quizá desee volver a la versión anterior.
-
-Transmisión en directo proporciona una vista inmediata de un conjunto de métricas de rendimiento clave. Está diseñada para que pueda verla durante una reimplementación o reconfiguración.
-
-![En la hoja de información general, haga clic en Transmisión en directo.](./media/app-insights-asp-net/45.png)
-
-A diferencia de los demás gráficos de métricas, Transmisión en directo muestra datos solo de los últimos minutos y no conserva ningún dato. La canalización de agregación es mínima y la presentación se actualiza a cada segundo.
-
-Transmisión en directo requiere la versión 2.1.0-beta1 o posterior del SDK.
-
-*¿Transmisión en directo está bloqueado en la página de configuración?: actualice el explorador (F5).*
 
 #### ¿Tiene problemas el servidor de compilación?
 
@@ -246,4 +257,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

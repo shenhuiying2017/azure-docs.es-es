@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Configuraciones de seguridad de escala elástica | Microsoft Azure" 
+    pageTitle="Configuración de seguridad de división y combinación | Microsoft Azure" 
     description="Configuración de certificados x409 para cifrado" 
     metaKeywords="Elastic Database certificates security" 
     services="sql-database" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/23/2016" 
+    ms.date="04/26/2016" 
     ms.author="torsteng;sidneyh" />
 
 
@@ -357,7 +357,7 @@ Cada usuario para el que se ha emitido un certificado de cliente debe seguir est
 * En el cuadro de diálogo Certificado que se abre, seleccione la pestaña Detalles
 * Asegúrese de que Mostrar esté mostrando Todo
 * Seleccione el campo denominado Huella digital en la lista
-* Copie el valor de la huella digital. **Elimine los caracteres Unicode no visibles delante del primer dígito.** Elimine todos los espacios.
+* Copie el valor de la huella digital. **Elimine los caracteres Unicode no visibles delante del primer dígito. **Elimine todos los espacios.
 
 ## Configuración de clientes autorizados en el archivo de configuración de servicio
 
@@ -487,4 +487,4 @@ Las credenciales almacenadas en esta base de datos están cifradas. Sin embargo,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

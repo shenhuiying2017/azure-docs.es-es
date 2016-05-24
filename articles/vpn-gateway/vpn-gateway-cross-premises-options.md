@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc" />
 
 # Acerca de la conectividad segura entre locales de redes virtuales
 
-En este artículo se describen las distintas formas en que puede conectar el sitio local a una red virtual de Azure. Este artículo se aplica tanto al modelo de implementación del Administrador de recursos como al clásico.
+En este artículo se describen las distintas formas en que puede conectar el sitio local a una red virtual de Azure. Este artículo se aplica tanto al modelo de implementación del Administrador de recursos como al clásico. Si está buscando diagramas de conexión de Puerta de enlace de VPN, consulte [Topologías de conexión de la puerta de enlace de VPN de Azure](vpn-gateway-topology.md).
 
 Hay tres opciones de conexión: de sitio a sitio, de punto a sitio y ExpressRoute. La opción que elija dependerá de varios factores, como, por ejemplo:
 
@@ -31,20 +31,7 @@ Hay tres opciones de conexión: de sitio a sitio, de punto a sitio y ExpressRout
 
 La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad para su solución.
 
-
-| - | **De punto a sitio** | **De sitio a sitio** | **ExpressRoute** |
-|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Servicios de Azure compatibles** | Servicios en la nube y máquinas virtuales | Servicios en la nube y máquinas virtuales | [Lista de servicios](../expressroute/expressroute-faqs.md#supported-services) |
-| **Anchos de banda típicos** | Agregación típica de < 100 Mbps | Agregación típica de < 100 Mbps | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
-| **Protocolos admitidos** | Protocolo de túnel de sockets seguros (SSTP) | IPsec | Conexión directa a través de las redes VLAN y las tecnologías VPN de NSP (MPLS, VPLS...) |
-| **Enrutamiento** | Basado en enrutamientos (dinámico) | Admitimos elementos basados en directivas (enrutamiento estático) y basados en enrutamiento (VPN de enrutamiento dinámico) | BGP |
-| **Resistencia de la conexión** | activa-pasiva | activa-pasiva | activa-activa |
-| **Caso de uso típico** | Creación de prototipos, escenarios de laboratorio / pruebas / desarrollo para máquinas virtuales y servicios en la nube | Escenarios de laboratorio / pruebas / desarrollo y cargas de trabajo de producción a pequeña escala para máquinas virtuales y servicios en la nube | Acceso a todos los servicios de Azure (lista validada), cargas de trabajo críticas y empresariales, copias de seguridad, macrodatos, Azure como sitio de recuperación ante desastres |
-| **CONTRATO DE NIVEL DE SERVICIO** | [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/) |
-| **Precios** | [Precios](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Precios](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Precios](https://azure.microsoft.com/pricing/details/expressroute/) |
-| **Documentación técnica** | [Documentación de Puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentación de Puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **P+F** | [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) | [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) | [Preguntas frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md) |
-
+[AZURE.INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## Conexiones de sitio a sitio
 
@@ -60,10 +47,12 @@ Una VPN de sitio a sitio permite crear una conexión segura entre el sitio local
 
 - El dispositivo VPN local debe tener una dirección IP del tipo IPv4 accesible desde Internet. Ésta no puede estar detrás de un NAT.
 - Debe tener un dispositivo VPN que sea compatible. Vea [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md). 
-- El dispositivo VPN que use debe ser compatible con el tipo de puerta de enlace que se requiere para la solución. Vea [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
-- La SKU de la puerta de enlace también afectará al rendimiento agregado. Vea [SKU de puertas de enlace](vpn-gateway-about-vpngateways.md#gateway-skus) para más información. 
+- El dispositivo VPN que use debe ser compatible con el tipo de puerta de enlace que se requiere para la solución. Consulte [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md).
+- La SKU de la puerta de enlace también afectará al rendimiento agregado. Vea [SKU de puertas de enlace](vpn-gateway-about-vpngateways.md#gwsku) para más información. 
 
-Para información sobre cómo configurar una conexión de puerta de enlace de VPN de sitio a sitio con el Portal de Azure clásico y el modelo de implementación clásico, consulte [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico](vpn-gateway-site-to-site-create.md). Para información sobre cómo configurar una VPN de sitio a sitio con el modelo de implementación del Administrador de recursos, consulte [Crear una red virtual con una conexión VPN de sitio a sitio mediante PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
+**Métodos y modelos de implementación disponibles para S2S**
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 
 ## Conexiones de punto a sitio
@@ -84,7 +73,9 @@ Las configuraciones de punto a sitio y de sitio a sitio pueden existir simultán
 
 - En caso de que no tenga acceso a una dirección IP del tipo IPv4 accesible desde Internet para el dispositivo VPN.
 
-Para más información acerca de cómo configurar una conexión de punto a sitio para el modelo de implementación clásica, consulte [Configuración de una conexión VPN de punto a sitio a una red virtual](vpn-gateway-point-to-site-create.md). Para más información acerca de cómo configurar una conexión de punto a sitio para el modelo de implementación del Administrador de recursos, consulte [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
+**Métodos y modelos de implementación disponibles para S2S**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## Conexiones de ExpressRoute
 
@@ -92,11 +83,13 @@ Azure ExpressRoute permite crear conexiones privadas entre los centros de datos 
 
 En algunos casos, el uso de conexiones de ExpressRoute para transferir datos entre dispositivos locales y Azure también puede aportar beneficios económicos importantes. Con ExpressRoute, se pueden establecer conexiones con Azure en una ubicación de ExpressRoute (utilidad de proveedor de intercambio) o se puede conectar directamente a Azure desde la red WAN existente (como una VPN MPLS) suministrada por un proveedor de servicios de red.
 
-Para más información sobre ExpressRoute, vea la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
+Para más información sobre ExpressRoute, consulte la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
 
 
 ## Pasos siguientes
 
-Consulte [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) y [P+F de ExpressRoute](../expressroute/expressroute-faqs.md) para más información.
+- Para más información acerca de Puerta de enlace de VPN, consulte [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md), las [preguntas más frecuentes](vpn-gateway-vpn-faq.md) sobre Puerta de enlace de VPN y los artículos sobre [planeación y diseño](vpn-gateway-plan-design.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+- Para más información sobre ExpressRoute, consulte la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md), las [preguntas más frecuentes](../expressroute/expressroute-faqs.md) y los [flujos de trabajo](../expressroute/expressroute-workflows.md).
+
+<!---HONumber=AcomDC_0518_2016-->

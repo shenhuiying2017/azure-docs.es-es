@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="05/12/2016"
 	ms.author="awills"/>
 
 # Introducción a Application Insights en un proyecto web de Java
@@ -214,35 +214,38 @@ Ejecútela en modo de depuración en el equipo de desarrollo o bien publíquela 
 
 ## 6\. Visualización de la telemetría en Application Insights
 
+
 Vuelva al recurso Application Insights en el [Portal de Microsoft Azure](https://portal.azure.com).
 
 Los datos de las solicitudes HTTP aparecerán en la hoja de información general. (Si todavía no está ahí, espere unos segundos y, a continuación, haga clic en Actualizar).
 
 ![datos de ejemplo](./media/app-insights-java-get-started/5-results.png)
 
+[Más información acerca de las métricas][metrics]
 
-Haga clic en cualquier gráfico para ver métricas más detalladas.
+Haga clic en cualquier gráfico para ver métricas agregadas más detalladas.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
+> Application Insights da por supuesto que el formato de las solicitudes HTTP para las aplicaciones de MVC es: `VERB controller/action`. Por ejemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` y `GET Home/Product/sdf96vws` se agruparán en `GET Home/Product`. Esto permite agregaciones significativas de solicitudes, como el número de solicitudes y el tiempo de ejecución promedio para las solicitudes.
 
 
-Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemetría asociados, como solicitudes y excepciones.
+### Datos de instancia 
+
+Haga clic en un tipo de solicitud específico para ver las instancias individuales.
+
+Se muestran dos tipos de datos en Application Insights: datos agregados, almacenados y mostrados como promedios, recuentos y sumas; y datos de instancia, como informes individuales de las solicitudes HTTP, excepciones, vistas de página o eventos personalizados.
+
+Cuando vea las propiedades de una solicitud, podrá ver los eventos de telemetría asociados, como solicitudes y excepciones.
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
+### Analytics: Lenguaje de consulta eficaz
 
-[Más información acerca de las métricas][metrics]
+A medida que acumula más datos, puede ejecutar consultas tanto para agregar datos como para buscar instancias individuales. [Analytics]() es una herramienta eficaz para comprender el rendimiento y el uso, así como para el diagnóstico.
 
-#### Cálculo de nombre de dirección inteligente
-
-Application Insights asume que el formato de las solicitudes HTTP para las aplicaciones de MVC es: `VERB controller/action`
-
-
-Por ejemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` y `GET Home/Product/sdf96vws` se agruparán en `GET Home/Product`.
-
-Esto permite agregaciones significativas de solicitudes, como el número de solicitudes y el tiempo de ejecución promedio para las solicitudes.
+![Ejemplo de Analytics](./media/app-insights-java-get-started/025.png)
 
 
 ## 5\. Instalación de la aplicación en el servidor
@@ -364,7 +367,7 @@ Ahora que ha instalado el SDK, puede utilizar la API para enviar su propia telem
 
 ## Pruebas web de disponibilidad
 
-Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. [Para configurarlo][availability], desplácese hacia abajo y haga clic en Disponibilidad.
+Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. [Para configurarlo][availability], baje y haga clic en Disponibilidad.
 
 ![Desplazarse hacia abajo, hacer clic en Disponibilidad y luego en Agregar prueba web](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -398,4 +401,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Java
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

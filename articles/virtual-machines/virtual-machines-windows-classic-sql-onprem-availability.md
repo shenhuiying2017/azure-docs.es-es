@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Ampliación de los grupos de disponibilidad AlwaysOn locales a Azure | Microsoft Azure"
-	description="Este tutorial utiliza los recursos creados con el modelo de implementación clásica y describe cómo utilizar el Asistente para agregar réplica en SQL Server Management Studio (SSMS) para agregar una réplica del grupo de disponibilidad AlwaysOn en Azure."
+	description="Este tutorial utiliza los recursos creados con el modelo de implementación clásica y describe cómo utilizar el Asistente para agregar una réplica en SQL Server Management Studio (SSMS) a fin de agregar una réplica del grupo de disponibilidad AlwaysOn en Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="05/08/2016"
 	ms.author="mikeray" />
 
 # Ampliación de los grupos de disponibilidad AlwaysOn locales a Azure
 
-Los grupos de disponibilidad AlwaysOn proporcionan alta disponibilidad para los grupos de la base de datos mediante la adición de las réplicas secundarias. Estas réplicas permiten la conmutación por error en bases de datos en caso de error. Además puede usarse para descargar las cargas de trabajo de lectura o tareas de copia de seguridad.
+Los grupos de disponibilidad AlwaysOn proporcionan alta disponibilidad para los grupos de la base de datos mediante la incorporación de réplicas secundarias. Estas réplicas permiten la conmutación por error en bases de datos en caso de error. Además puede usarse para descargar las cargas de trabajo de lectura o tareas de copia de seguridad.
 
 Puede ampliar los grupos de disponibilidad locales a Microsoft Azure al aprovisionar una o más máquinas virtuales de Azure con SQL Server y, a continuación, agregarlas a los grupos de disponibilidad locales como réplicas.
 
@@ -27,7 +27,7 @@ Este tutorial supone que tiene lo siguiente:
 
 - Una suscripción de Azure activa. Puede [suscribirse a una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-- Un grupo de disponibilidad AlwaysOn local existente. Para obtener más información sobre los grupos de disponibilidad, consulte [Grupos de disponibilidad AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
+- Un grupo de disponibilidad AlwaysOn local existente. Para más información sobre los grupos de disponibilidad, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 - Conectividad entre la red local y la red virtual de Azure. Para obtener más información sobre la creación de esta red virtual, consulte [Configurar una VPN de sitio a sitio en el Portal de Azure clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
@@ -81,7 +81,7 @@ En esta sección se muestra cómo usar el **Asistente para agregar una réplica 
 
 1. Haga clic en **Siguiente**.
 
-1. Seleccione el método de sincronización de datos que desea usar en la página **Seleccionar sincronización de datos iniciales** y haga clic en **Siguiente**. Para la mayoría de los escenarios, seleccione **Sincronización de datos completos**. Para obtener más información sobre los métodos de sincronización de datos, consulte la página [ Seleccionar sincronización de datos iniciales (Asistente para grupos de disponibilidad AlwaysOn)](https://msdn.microsoft.com/library/hh231021.aspx).
+1. Seleccione el método de sincronización de datos que desea usar en la página **Seleccionar sincronización de datos iniciales** y haga clic en **Siguiente**. Para la mayoría de los escenarios, seleccione **Sincronización de datos completos**. Para más información sobre los métodos de sincronización de datos, consulte [Página Seleccionar sincronización de datos iniciales (asistentes para grupos de disponibilidad AlwaysOn)](https://msdn.microsoft.com/library/hh231021.aspx).
 
 1. Revise los resultados en la página **Validación**. Corrija los problemas pendientes, si es necesario, vuelva a ejecutar la validación. Haga clic en **Siguiente**.
 
@@ -99,8 +99,8 @@ Después de crear el grupo de disponibilidad, debe crear un agente de escucha pa
 
 ## Pasos siguientes
 
-Además de usar el **Asistente para agregar una réplica de Azure** para ampliar el grupo de disponibilidad AlwaysOn a Azure, también puede mover algunas cargas de trabajo de SQL Server totalmente a Azure. Para obtener más información, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md).
+Además de usar el **Asistente para agregar una réplica de Azure** para ampliar el grupo de disponibilidad AlwaysOn a Azure, también puede mover algunas cargas de trabajo de SQL Server por completo a Azure. Para obtener más información, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

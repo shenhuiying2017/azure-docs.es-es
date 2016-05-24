@@ -6,7 +6,7 @@
    tags=""
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/24/2016"
+   ms.date="04/19/2016"
    ms.author="tomfitz"/>
 
 # Resolución de errores comunes al implementar recursos en Azure con Azure Resource Manager
@@ -22,6 +22,16 @@
 En este tema se describe cómo resolver algunos de los errores comunes que puede encontrarse al implementar recursos en Azure. Para obtener información sobre la solución de problemas en implementaciones, consulte [Troubleshooting resource group deployments (Solución de problemas de implementaciones de grupos de recursos)](resource-manager-troubleshoot-deployments-portal.md).
 
 Puede evitar algunos errores si valida la plantilla y los parámetros antes de la implementación. Para obtener ejemplos de validación de la plantilla, consulte [Implementación de recursos con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
+
+## Plantilla o recurso no válidos
+
+Si recibe un error que indica que la plantilla o una propiedad de un recurso no es válida, puede que falte un carácter en la plantilla. Este error es fácil de cometer cuando utiliza expresiones de plantilla porque la expresión está incluida entre comillas, por lo que JSON lo valida y el editor puede no detectar el error. Por ejemplo, la siguiente asignación de nombre de una cuenta de almacenamiento contiene un conjunto de corchetes, tres funciones, tres conjuntos de paréntesis, un conjunto de comillas simples y una propiedad:
+
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+
+Si no proporciona toda la sintaxis de coincidencia, la plantilla generará un valor que es muy diferente del que esperaba.
+
+En función de si el carácter que falta está ubicado en la plantilla, recibirá un error que indica que la plantilla o un recurso no son válidos. El error puede indicar también que el proceso de implementación no pudo procesar la expresión del lenguaje de plantilla. Si recibe este tipo de error, revise cuidadosamente la sintaxis de las expresiones.
 
 ## El nombre de recurso ya existe
 
@@ -100,7 +110,7 @@ Para la API de REST, consulte [Obtención de información sobre un proveedor de 
 
 ## Cuota superada
 
-Podría tener problemas cuando una implementación supera una cuota, lo que podría suceder por grupo de recursos, suscripciones, cuentas y otros ámbitos. Por ejemplo, la suscripción puede configurarse para limitar el número de núcleos para una región. Si intenta implementar una máquina virtual con más núcleos que la cantidad permitida, recibirá un error que indica que se ha superado la cuota. Para obtener información completa de las cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](./azure-subscription-service-limits.md).
+Podría tener problemas cuando una implementación supera una cuota, lo que podría suceder por grupo de recursos, suscripciones, cuentas y otros ámbitos. Por ejemplo, la suscripción puede configurarse para limitar el número de núcleos para una región. Si intenta implementar una máquina virtual con más núcleos que la cantidad permitida, recibirá un error que indica que se ha superado la cuota. Para obtener información completa de las cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md).
 
 Para examinar las cuotas de su suscripción para núcleos, puede usar el comando `azure vm list-usage` en la CLI de Azure. En el siguiente ejemplo se muestra que la cuota de núcleos para una cuenta de evaluación gratuita es 4:
 
@@ -146,9 +156,9 @@ En estos casos, debe ir al portal y archivar un problema de soporte técnico par
 
 Puede recibir un error durante la implementación porque la cuenta o la entidad de servicio que intenta implementar los recursos no tiene acceso para realizar esas acciones. Azure Active Directory permite al usuario o al administrador controlar qué identidades pueden acceder a qué recursos con un alto grado de precisión. Por ejemplo, si su cuenta se asigna al rol Lector, no podrá crear nuevos recursos. En ese caso, debería ver un mensaje de error que indica que hubo un error de autorización.
 
-Para obtener más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
+Para más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 
-Además del control de acceso basado en roles, las acciones de implementación pueden estar limitadas por las directivas en la suscripción. A través de directivas, el administrador puede exigir convenciones en todos los recursos implementados en la suscripción. Por ejemplo, un administrador puede requerir que se proporcione un valor de etiqueta específico para un tipo de recurso. Si no ha cumplido los requisitos de la directiva, recibirá un error durante la implementación. Para obtener más información sobre directivas, vea [Uso de directivas para administrar los recursos y controlar el acceso](./resource-manager-policy.md).
+Además del control de acceso basado en roles, las acciones de implementación pueden estar limitadas por las directivas en la suscripción. A través de directivas, el administrador puede exigir convenciones en todos los recursos implementados en la suscripción. Por ejemplo, un administrador puede requerir que se proporcione un valor de etiqueta específico para un tipo de recurso. Si no ha cumplido los requisitos de la directiva, recibirá un error durante la implementación. Para más información sobre directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
 ## Comprobación del registro del proveedor de recursos
 
@@ -213,7 +223,7 @@ Para registrar un proveedor, consulte [Registro de una suscripción con un prove
 
 ## Errores de extensión de script personalizado
 
-Si se produce un error con una extensión de script personalizado al implementar una máquina virtual, consulte [Troubleshooting Azure Windows VM extension failures (Solución de problemas de la extensión de VM con Windows de Azure)](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) o [Troubleshooting Azure Linux VM extension failures (Solución de problemas de la extensión de VM con Linux de Azure)](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
+Si se produce un error con una extensión de script personalizado al implementar una máquina virtual, consulte [Solución de problemas de la extensión de máquina virtual de Microsoft Azure](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) o [Solución de problemas de la extensión de máquina virtual de Linux Azure](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
 
 ## Comprensión de cuándo una implementación está lista 
 
@@ -223,7 +233,7 @@ Sin embargo, puede evitar que Azure informe de que la implementación se produjo
 
 ## Pasos siguientes
 
-- Para obtener información sobre la auditoría de acciones, consulte [Operaciones de auditoría con Resource Manager](./resource-group-audit.md).
-- Para obtener información sobre las acciones para determinar los errores durante la implementación, consulte [Troubleshooting resource group deployments (Solución de problemas en implementaciones de grupos de recursos)](./resource-manager-troubleshoot-deployments-portal.md).
+- Para más información sobre la auditoría de acciones, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
+- Para más información sobre las acciones para determinar los errores durante la implementación, consulte [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

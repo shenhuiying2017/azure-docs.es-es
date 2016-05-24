@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuración de seguridad para Replicación geográfica activa o estándar"
+	pageTitle="Administración de la seguridad después de la recuperación ante desastres"
 	description="En este tema, se explican las consideraciones de seguridad para administrar escenarios de Replicación geográfica activa para Base de datos SQL."
 	services="sql-database"
 	documentationCenter="na"
@@ -14,36 +14,39 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/27/2016"
+	ms.date="05/10/2016"
 	ms.author="carlrab" />
 
-# Configuración de seguridad para Replicación geográfica activa o estándar
+# Administración de la seguridad después de la recuperación ante desastres
 
 >[AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) está disponible ahora para todas las bases de datos en todos los niveles de servicio.
 
-## Información general sobre los requisitos de autenticación para Replicación geográfica activa
-En este tema se describen los requisitos de autenticación para configurar y controlar la [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md) y los pasos necesarios para configurar el acceso de usuario a la base de datos secundaria. Para obtener más información sobre el uso de la replicación geográfica, consulte [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md).
+## Información general sobre los requisitos de autenticación para la recuperación ante desastres
 
-## Uso de la replicación geográfica activa con usuarios independientes
-Con la [versión V12 de Base de datos SQL de Azure](sql-database-v12-whats-new.md), Base de datos SQL admite ahora los usuarios independientes. A diferencia de los usuarios tradicionales, que deben asignarse a inicios de sesión en la base de datos maestra, un usuario independiente se administra completamente en la base de datos, lo que ofrece dos ventajas. En el escenario de replicación geográfica, los usuarios pueden proceder a conectarse a la base de datos secundaria sin ninguna configuración adicional, ya que la base de datos administra los usuarios. También existen ventajas potenciales de escalabilidad y rendimiento con esta configuración desde la perspectiva del inicio de sesión. Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+En este tema se describen los requisitos de autenticación para configurar y controlar la [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md) y los pasos necesarios para configurar el acceso de usuario a la base de datos secundaria. También se describe cómo habilitar el acceso a la base de datos recuperada después de utilizar la georrestauración. Para más información sobre las opciones de recuperación, consulte [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md).
 
-Si tiene varias bases de datos que usan el mismo inicio de sesión, el mantenimiento de las credenciales que usan los usuarios independientes en varias bases de datos puede invalidar las ventajas de los usuarios independientes. Por ejemplo, si la contraseña cambia, el cambio tendrá que hacerse por separado para el usuario independiente de cada base de datos, en lugar de cambiar la contraseña de inicio de sesión una sola vez en el nivel del servidor. Por este motivo, si tiene varias bases de datos que utilizan el mismo nombre de usuario y la misma contraseña, no se recomienda usar usuarios independientes.
+## Recuperación ante desastres con usuarios contenidos
 
-## Uso de inicios de sesión y usuarios con la replicación geográfica activa
-Si usa inicios de sesión y usuarios (en lugar de usuarios independientes), debe realizar pasos adicionales para asegurarse de que existan los mismos inicios de sesión en el servidor de la base de datos secundaria. En las secciones siguientes, se describen los pasos necesarios y otras consideraciones.
+Con la [versión V12 de Base de datos SQL de Azure](sql-database-v12-whats-new.md), Base de datos SQL admite ahora los usuarios independientes. A diferencia de los usuarios tradicionales, que deben asignarse a inicios de sesión en la base de datos maestra, un usuario independiente se administra completamente en la base de datos, lo que ofrece dos ventajas. En el escenario de replicación geográfica, los usuarios pueden proceder a conectarse a la nueva base de datos principal o a la base de datos recuperada mediante georrestauración, sin ninguna configuración adicional, ya que la base de datos administra los usuarios. También existen ventajas potenciales de escalabilidad y rendimiento con esta configuración desde la perspectiva del inicio de sesión. Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
-### Configuración del acceso de usuario a una base de datos secundaria
-Para que la base de datos secundaria se pueda usar como base de datos de solo lectura secundaria o como base de datos principal viable después de una conmutación por error, secundaria debe tener la configuración de seguridad adecuada.
+El principal inconveniente es que la administración del proceso de recuperación ante desastres a escala es más compleja. Si tiene varias bases de datos que usan el mismo inicio de sesión, el mantenimiento de las credenciales que usan los usuarios independientes en varias bases de datos puede invalidar las ventajas de los usuarios independientes. Por ejemplo, la directiva de rotación de contraseñas requiere que se realicen cambios constantemente en varias bases de datos en lugar de cambiar la contraseña para el inicio de sesión una vez en la base de datos maestra. Por este motivo, si tiene varias bases de datos que utilizan el mismo nombre de usuario y la misma contraseña, no se recomienda usar usuarios contenidos.
 
-El administrador del servidor o los usuarios con los permisos adecuados pueden completar los pasos de configuración descritos en este tema. Los permisos específicos para cada paso se describen más adelante en este tema.
+## Configuración de inicios de sesión y de usuarios
 
-La preparación del acceso de usuario a la base de datos secundaria en línea de Replicación geográfica activa puede realizarse en cualquier momento. Consta de los tres pasos descritos a continuación:
+Si usa inicios de sesión y usuarios (en lugar de usuarios contenidos), debe realizar pasos adicionales para asegurarse de que existan los mismos inicios de sesión en la base de datos maestra. En las secciones siguientes, se describen los pasos necesarios y otras consideraciones.
 
-1. Determinar los inicios de sesión con acceso a la base de datos principal;
-2. Buscar al SID de estos inicios de sesión en el servidor de origen;
-3. Cree los inicios de sesión en el servidor de destino con el SID correspondiente del servidor de origen.
+### Configuración del acceso de usuario a una base de datos secundaria o recuperada
 
->[AZURE.NOTE] Si los inicios de sesión en el servidor de destino no se asignan correctamente a los usuarios de la base de datos secundaria, el acceso a esta como base de datos de solo lectura o el acceso a la nueva base de datos principal después de la conmutación por error quedan limitados únicamente al administrador del servidor.
+Para que la base de datos secundaria se pueda utilizar como base de datos secundaria de solo lectura y garantizar el acceso adecuado a la nueva base de datos principal o a la base de datos recuperada mediante la georrestauración, la base de datos maestra del servidor de destino debe tener la configuración de seguridad adecuada antes de la recuperación.
+
+Los permisos específicos para cada paso se describen más adelante en este tema.
+
+La preparación de acceso de usuario a una base de datos secundaria de replicación geográfica debe realizarse como parte de la configuración de replicación geográfica. La preparación de acceso de usuario a las bases de datos georrestauradas debe realizarse en cualquier momento en que el servidor original esté en línea (por ejemplo, como parte de la obtención de detalles de recuperación ante desastres).
+
+>[AZURE.NOTE] Si realiza una conmutación por error o la georrestauración en un servidor que no tiene configurado correctamente el acceso de inicio de sesión al mismo, se limitará a la cuenta de administrador del servidor.
+
+La configuración de los inicios de sesión en el servidor de destino implica los tres pasos descritos a continuación:
+
 
 #### 1\. Determinar los inicios de sesión con acceso a la base de datos principal:
 El primer paso del proceso es determinar qué inicios de sesión se deben duplicar en el servidor de destino. Esto se logra con un par de instrucciones SELECT, una en la base de datos maestra lógica del servidor de origen y otra, en la base de datos principal en sí.
@@ -85,8 +88,9 @@ El último paso consiste en ir al servidor o los servidores de destino y generar
 >DISABLE no cambia la contraseña, por lo que siempre puede habilitarlo si es necesario.
 
 ## Pasos siguientes
-Para más información sobre la replicación geográfica activa, vea [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md).
 
+- Para más información acerca de cómo administrar el acceso a la base de datos y los inicios de sesión, consulte [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](sql-database-manage-logins.md).
+- Para más información sobre los usuarios de bases de datos contenidos, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Recursos adicionales
 
@@ -96,4 +100,4 @@ Para más información sobre la replicación geográfica activa, vea [Replicaci�
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

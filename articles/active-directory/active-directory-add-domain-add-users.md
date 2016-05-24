@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="04/20/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Asignación de usuarios a un dominio personalizado
@@ -22,13 +22,13 @@ Una vez que haya agregado el dominio personalizado a Azure Active Directory, deb
 
 ## Usuarios sincronizados desde un directorio de la red corporativa
 
-Si ya estableció una conexión entre su Active Directory local y Azure Active Directory, puede rellenar las cuentas mediante la sincronización. Para más información sobre cómo sincronizar Azure Active Directory con su Active Directory local, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+Si ya estableció una conexión entre su instancia de Active Directory local y Azure Active Directory, puede rellenar las cuentas mediante la sincronización. Para más información sobre cómo sincronizar Azure Active Directory con su Active Directory local, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
 ## Usuarios que se agregan y administran en la nube
 
 Para cambiar el dominio de una cuenta de usuario existente:
 
-1.  Abra el Portal de Azure clásico con una cuenta que sea un administrador global o un administrador del usuario.
+1.  Abra el Portal de Azure clásico con una cuenta de administrador global o administrador de usuarios.
 
 2.  Abra el directorio.
 
@@ -42,7 +42,7 @@ Esto también puede hacerse con [Microsoft PowerShell](https://msdn.microsoft.co
 
 ## Selección de un dominio personalizado al crear un nuevo usuario
 
-1.  Abra el Portal de Azure clásico con una cuenta que sea un administrador global o un administrador del usuario.
+1.  Abra el Portal de Azure clásico con una cuenta de administrador global o administrador de usuarios.
 
 2.  Abra el directorio.
 
@@ -56,10 +56,10 @@ Esto también puede hacerse con [Microsoft PowerShell](https://msdn.microsoft.co
 
 ## Pasos siguientes
 
-- [Incorporación de su propio nombre de dominio a Azure Active Directory](active-directory-add-domain.md)
-- [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
-- [Add and verify a custom domain name in Azure Active Directory (Incorporación y comprobación de un nombre de dominio personalizado en Azure Active Directory)](active-directory-add-domain-add-verify-general.md)
-- [Qué hacer si se cambia el registrador DNS del nombre de dominio personalizado](active-directory-add-domain-change-registrar.md)
-- [Deleting a custom domain name (Eliminación de un nombre de dominio personalizado)](active-directory-add-domain-delete-domain.md)
+-   [Using custom domain names to simplify the sign-in experience for your users (Uso de nombres de dominio personalizado para simplificar la experiencia de inicio de sesión para los usuarios)](active-directory-add-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+-   [Managing custom domain names (Administración de nombres de dominio).](active-directory-add-manage-domain-names.md)
+
+-   [Información general conceptual de nombres de dominio personalizado en Azure Active Directory](active-directory-add-domain-concepts.md)
+
+<!---HONumber=AcomDC_0511_2016-->

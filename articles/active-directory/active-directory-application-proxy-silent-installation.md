@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 # Cómo instalar de forma silenciosa el conector de Proxy de aplicación de Azure AD
@@ -23,7 +23,7 @@
 Quiere poder enviar un script de instalación a varios servidores de Windows o servidores de Windows Server que no tienen habilitada la interfaz de usuario. En este tema se explica cómo crear un script de Windows PowerShell que permite instalación desatendida para instalar y registrar el conector de Proxy de aplicación de Azure AD.
 
 ## Habilitación del acceso
-El proxy de la aplicación funciona mediante la instalación de un pequeño servicio de Windows Server denominado conector dentro de la red. Para que el conector de Proxy de aplicación funcione debe estar registrado con el directorio de Azure AD mediante un administrador global y una contraseña. Normalmente esto se especifica durante la instalación del conector en un cuadro de diálogo emergente. En su lugar, puede usar Windows PowerShell para crear un objeto de credenciales para escribir la información de registro, o puede crear su propio token y usarlo con esta finalidad.
+El proxy de la aplicación funciona mediante la instalación de un pequeño servicio de Windows Server denominado conector dentro de la red. Para que el conector de Proxy de aplicación funcione debe estar registrado con el directorio de Azure AD mediante un administrador global y una contraseña. Normalmente esto se especifica durante la instalación del conector en un cuadro de diálogo emergente. Si lo prefiere, puede usar Windows PowerShell para crear un objeto de credenciales para escribir la información de registro, o bien puede crear su propio token y usarlo con esta finalidad.
 
 ## Paso 1: Instalar el conector sin registro
 
@@ -125,24 +125,13 @@ Para ello, puede usar cualquiera de los métodos siguientes:
 
 
 
-## Pasos siguientes
-Hay mucho más que puede hacer con el proxy de la aplicación:
+## Consulte también
 
-
+- [Habilitación del proxy de aplicación de Azure Active Directory](active-directory-application-proxy-enable.md)
 - [Publicar aplicaciones mediante su propio nombre de dominio](active-directory-application-proxy-custom-domains.md)
 - [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
-- [Trabajar con las aplicaciones para notificaciones](active-directory-application-proxy-claims-aware-apps.md)
-- [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
+- [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
 
+Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/) (Proxy de aplicación).
 
-### Obtenga más información acerca del proxy de la aplicación
-- [Eche un vistazo para ver nuestra ayuda en línea](active-directory-application-proxy-enable.md)
-- [Consulte el blog del proxy de la aplicación](http://blogs.technet.com/b/applicationproxyblog/)
-- [Vea nuestros vídeos de Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
-
-## Recursos adicionales
-- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-- [Registro en Azure como una organización](sign-up-organization.md)
-- [Identidad de Azure](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

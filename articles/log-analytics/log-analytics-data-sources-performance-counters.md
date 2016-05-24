@@ -86,11 +86,13 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 | Type=Perf | Todos los datos de rendimiento |
 | Type=Perf Computer="MyComputer" | Todos los datos de rendimiento de un equipo concreto |
 | Type=Perf CounterName="Current Disk Queue Length" | Todos los datos de rendimiento de un contador concreto |
-| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=\_Total | measure Avg(Average) as AVGCPU by Computer | Uso medio de CPU en todos los equipos |
-| Type=Perf (CounterName="% Processor Time") | measure max(Max) by Computer | Uso máximo de CPU en todos los equipos |
-| Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" | measure Avg(Average) by InstanceName | Longitud media de cola de disco actual en todas las instancias de un equipo dado |
-| Type=Perf CounterName="DiskTransfers/sec" | measure percentile95(Average) by Computer | Percentil 95 de transferencias de disco por segundo en todos los equipos |
-| Type=Perf CounterName="% Processor Time" InstanceName="\_Total" | measure avg(CounterValue) by Computer Interval 1HOUR | Hourly average of CPU usage across all computers | | Type=Perf Computer="MyComputer" CounterName=%* InstanceName=\_Total | measure percentile70(CounterValue) by CounterName Interval 1HOUR | Hourly 70 percentile of every % percent counter for a particular computer | | Type=Perf CounterName="% Processor Time" InstanceName="\_Total" (Computer="MyComputer") | measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR | Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
+| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=\_Total measure Avg(Average) as AVGCPU by Computer | Uso medio de CPU en todos los equipos |
+| Type=Perf (CounterName="% Processor Time") measure max(Max) by Computer | Uso máximo de CPU en todos los equipos |
+| Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" measure Avg(Average) by InstanceName | Longitud media de cola de disco actual en todas las instancias de un equipo dado |
+| Type=Perf CounterName="DiskTransfers/sec" measure percentile95(Average) by Computer | Percentil 95 de transferencias de disco por segundo en todos los equipos |
+| Type=Perf CounterName="% Processor Time" InstanceName="\_Total" measure avg(CounterValue) by Computer Interval 1HOUR | Hourly average of CPU usage across all computers |
+| Type=Perf Computer="MyComputer" CounterName=%* InstanceName=\_Total measure percentile70(CounterValue) by CounterName Interval 1HOUR | Hourly 70 percentile of every % percent counter for a particular computer |
+| Type=Perf CounterName="% Processor Time" InstanceName="\_Total" (Computer="MyComputer") measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR | Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
 
 ## Visualización de datos de rendimiento
 
@@ -108,4 +110,4 @@ Si el intervalo de tiempo que ha seleccionado es de 6 horas, o inferior, el grá
 - Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.  
 - Exporte los datos recopilados a [Power BI](log-analytics-powerbi.md) para poder realizar más análisis y tener más formas de visualizarlos.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-----HONumber=AcomDC_0504_2016-->

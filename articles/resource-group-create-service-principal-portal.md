@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,20 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="04/18/2016"
    ms.author="tomfitz"/>
 
 # Creación de aplicación de Active Directory y entidad de servicio mediante el portal
 
 ## Información general
-Si tiene una aplicación o un proceso automatizado que necesita tener acceso a unos recursos o modificarlos, puede usar el portal clásico para crear una aplicación de Active Directory. Si crea una aplicación de Active Directory a través del portal clásico, en realidad se crea la aplicación y una entidad de servicio. Puede ejecutar la aplicación con la identidad de esta o con la identidad del usuario que ha iniciado sesión en la aplicación. Estos dos métodos de autenticación de las aplicaciones se conocen como interactivo (el usuario inicia sesión) y no interactivo (la aplicación proporciona sus propias credenciales). En el modo no interactivo, debe asignar la entidad de servicio a un rol con el permiso correcto.
+Si tiene una aplicación o un proceso automatizado que necesita tener acceso a unos recursos o modificarlos, puede usar el portal clásico para crear una aplicación de Active Directory. Puede ejecutar la aplicación con la identidad de esta o con la identidad del usuario que ha iniciado sesión en la aplicación. Estos dos métodos de autenticación de las aplicaciones se conocen como interactivo (el usuario inicia sesión) y no interactivo (la aplicación proporciona sus propias credenciales). En el modo no interactivo, debe asignar un rol con el permiso correcto a la identidad de la aplicación. Si la aplicación se ejecuta de forma desatendida, como un proceso back-end, deberá utilizar la autenticación no interactiva.
 
-En este tema se muestra cómo crear una nueva aplicación y entidad de servicio mediante el portal clásico. Actualmente, debe usar el portal clásico para crear una nueva aplicación de Active Directory. Esta capacidad se agregará al portal de Azure en una versión posterior. Puede utilizar el portal para asignar la aplicación a un rol. También puede llevar a cabo estos pasos a través de Azure PowerShell o CLI de Azure. Para obtener más información sobre cómo usar PowerShell o CLI con la entidad de servicio, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
+En este tema se muestra cómo crear una nueva aplicación mediante el portal clásico. Actualmente, debe usar el portal clásico para crear una nueva aplicación de Active Directory. Puede utilizar el portal para asignar la aplicación a un rol.
+
+También puede llevar a cabo estos pasos a través de Azure PowerShell o CLI de Azure. Para obtener más información sobre cómo usar PowerShell o CLI con la entidad de servicio, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 
 ## Conceptos
-1. Azure Active Directory (AAD): un servicio de administración de identidades y acceso creado para la nube. Para obtener más información, consulte [¿Qué es Azure Active Directory?](active-directory/active-directory-whatis.md)
-2. Entidad de servicio: una instancia de una aplicación en un directorio.
-3. Aplicación de AD: un registro de directorio en AAD que identifica una aplicación en AAD. 
+1. Azure Active Directory (AAD): un servicio de administración de identidades y acceso creado para la nube. Para más información, consulte [¿Qué es Azure Active Directory?](active-directory/active-directory-whatis.md)
+2. Aplicación de AD: un registro de directorio en Active Directory que identifica una aplicación. 
+3. Entidad de servicio: una instancia de la aplicación a la que puede aplicar roles de control de acceso.
 
 Para obtener una explicación más detallada de las aplicaciones y entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](active-directory/active-directory-application-objects.md). Para obtener más información acerca de la autenticación de Active Directory, vea [Escenarios de autenticación en Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
@@ -40,10 +42,14 @@ Para aplicaciones interactivas y no interactivas, debe crear y configurar la apl
 2. Seleccione **Active Directory** en el panel izquierdo.
 
      ![seleccionar Active Directory][1]
-
-3. Seleccione el directorio que desea utilizar para crear la nueva aplicación.
+     
+3. Seleccione el directorio que desea usar para crear la nueva aplicación. Para los recursos de su suscripción, solo puede asignar el acceso a entidades de servicio en el mismo directorio que su suscripción. Normalmente, suele crear la aplicación en el directorio donde se encuentra la suscripción.
 
      ![elegir directorio][2]
+     
+    Si necesita encontrar el directorio de su suscripción, seleccione **Configuración** y busque el nombre del directorio.
+   
+     ![buscar directorio predeterminado](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
 3. Para ver las aplicaciones en su directorio, haga clic en **Aplicaciones**.
 
@@ -65,7 +71,7 @@ Para aplicaciones interactivas y no interactivas, debe crear y configurar la apl
 
      ![aplicación de nombre][9]
 
-7. Rellene las propiedades de la aplicación. Para **DIRECCIÓN URL DE INICIO DE SESIÓN**, proporcione el URI para un sitio web que describe la aplicación. No se valida la existencia del sitio web. Para **URI DE ID. DE APLICACIÓN**, proporcione el URI que identifica la aplicación. No se valida la singularidad o la existencia del extremo. Si había seleccionado **Aplicación de cliente nativo** para el tipo de aplicación, proporcionará un valor de **URI de redirección**. Haga clic en **Completo** para crear la aplicación de AAD.
+7. Rellene las propiedades de la aplicación. Para **DIRECCIÓN URL DE INICIO DE SESIÓN**, proporcione el URI para un sitio web que describe la aplicación. No se valida la existencia del sitio web. Para **URI DE ID. DE APLICACIÓN**, proporcione el URI que identifica la aplicación. No se valida la singularidad o la existencia del extremo. Si había seleccionado **Aplicación de cliente nativo** para el tipo de aplicación, proporcionará un valor de **URI de redirección**. Haga clic en **Completar** para crear la aplicación de AAD.
 
      ![propiedades de la aplicación][4]
 
@@ -83,7 +89,7 @@ En algunos casos, debe pasar el id. del inquilino con su solicitud de autenticac
 
 Los puntos de conexión no están disponibles para las aplicaciones de cliente nativo. En su lugar, puede recuperar el identificador de inquilino mediante PowerShell:
 
-    PS C:\> Get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 O de la CLI de Azure:
 
@@ -116,15 +122,15 @@ La aplicación está ahora lista y la entidad de servicio creada en el inquilino
 
 ## Establecimiento de permisos delegados
 
-Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado sesión, debe conceder a la aplicación el permiso delegado para tener acceso a otras aplicaciones. Esto se puede hacer en la sección **permisos para otras aplicaciones** de la pestaña **Configurar**. De forma predeterminada, ya hay habilitado un permiso delegado para Azure Active Directory. Deje este permiso delegado sin cambios.
+Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado sesión, debe conceder a la aplicación el permiso delegado para tener acceso a otras aplicaciones. Esto se puede hacer en la sección de **permisos para otras aplicaciones** de la pestaña **Configurar**. De forma predeterminada, ya hay habilitado un permiso delegado para Azure Active Directory. Deje este permiso delegado sin cambios.
 
-1. Seleccione **Agregar aplicación**.
+1. Seleccione **Agregar una aplicación**.
 
-2. En la lista, seleccione la **API de administración de servicios de Microsoft Azure**.
+2. En la lista, seleccione **Azure Service Management API**.
 
       ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. Agregue el permiso delegado **Acceso a Azure Service Management (versión preliminar)** a Service Management API
+3. Agregue el permiso delegado **Acceso a Azure Service Management (versión preliminar)** a Service Management API.
 
        ![seleccionar permiso](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
@@ -218,7 +224,7 @@ Puede pasar el token en el encabezado de la solicitud con el código siguiente:
 
 - Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).  
 - Para ver una demostración en vídeo de estos pasos, consulte [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
-- Para obtener información acerca del uso de Azure PowerShell o la CLI de Azure para trabajar con aplicaciones de Active Directory y entidades de servicio, incluida la forma de utilizar un certificado para la autenticación, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](./resource-group-authenticate-service-principal.md).
+- Para obtener información acerca del uso de Azure PowerShell o la CLI de Azure para trabajar con aplicaciones de Active Directory y entidades de servicio, incluida la forma de utilizar un certificado para la autenticación, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 - Para obtener instrucciones sobre cómo implementar la seguridad con el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 
 
@@ -237,4 +243,4 @@ Puede pasar el token en el encabezado de la solicitud con el código siguiente:
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

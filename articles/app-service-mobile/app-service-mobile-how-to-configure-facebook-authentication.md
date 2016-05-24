@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Configuración de la autenticación mediante Facebook para la aplicación de Servicios de aplicaciones"
 	description="Obtenga información acerca de cómo configurar la autenticación mediante Facebook para la aplicación de Servicios de aplicaciones."
-	services="app-service\mobile"
+	services="app-service"
 	documentationCenter=""
 	authors="mattchenderson"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/28/2016"
+	ms.date="05/04/2016"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Facebook
@@ -36,22 +36,15 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 5. En **Nombre para mostrar**, escriba un nombre único para la aplicación, elija una **Categoría** para la aplicación, haga clic en **Crear id. de aplicación** y complete la comprobación de seguridad. Esto le llevará al panel del desarrollador de la nueva aplicación de Facebook.
 
-6. En el campo **Secreto de la aplicación**, haga clic en **Mostrar**, escriba la contraseña si se le solicita y, a continuación, anote los valores de **Id. de aplicación** y **Secreto de la aplicación**. Más adelante lo usará para configurar la aplicación en Azure.
-
-	> [AZURE.IMPORTANT] El secreto de aplicación es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
-
-7. En la barra de navegación de la izquierda, haga clic en **Configuración**, escriba la **Dirección URL** de la aplicación móvil en **Dominios de aplicación** y escriba un **Correo electrónico de contacto**.
-
-    ![][0]
-
-8. Si no ve una sección del sitio web a continuación, haga clic en **Agregar plataforma** > **Sitio web**, escriba la **Dirección URL** de la aplicación móvil en el campo **Dirección URL del sitio** y luego haga clic en **Guardar cambios**.
-
-9. Haga clic en la pestaña **Avanzado**, agregue el **URI de redireccionamiento** de la aplicación a **URI de redireccionamiento de OAuth válidos** y haga clic en **Guardar cambios**.
+6. En "Inicio de sesión de Facebook", haga clic en **Comenzar**. Agregue el **URI de redirección** de la aplicación a **Valid OAuth redirect URIs** (URI de redirección de OAuth válidos) y haga clic en **Guardar cambios**.
 
 	> [AZURE.NOTE] El URI de redireccionamiento es la dirección URL de la aplicación anexada a la ruta de acceso, _/.auth/login/facebook/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Asegúrese de que está utilizando el esquema HTTPS.
 
-10. La cuenta de Facebook que se utilizó para registrar la aplicación es un administrador de la aplicación. En este momento, solo los administradores pueden iniciar sesión en esta aplicación. Para autenticar otras cuentas de Facebook, haga clic en **Revisión de aplicaciones** y habilite **Hacer público todolist-complete-nodejs** para habilitar el acceso público general mediante la autenticación de Facebook.
+6. En el panel de navegación izquierdo, haga clic en **Configuración**. En el campo **Secreto de la aplicación**, haga clic en **Mostrar**, escriba la contraseña si se le solicita y, a continuación, anote los valores de **Id. de aplicación** y **Secreto de la aplicación**. Más adelante lo usará para configurar la aplicación en Azure.
 
+	> [AZURE.IMPORTANT] El secreto de aplicación es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
+
+7. La cuenta de Facebook que se utilizó para registrar la aplicación es un administrador de la aplicación. En este momento, solo los administradores pueden iniciar sesión en esta aplicación. Para autenticar otras cuentas de Facebook, haga clic en **App Review** (Revisión de aplicaciones) y habilite **Hacer público <your-app-name>** para habilitar el acceso público general mediante la autenticación de Facebook.
 
 ## <a name="secrets"> </a>Agregar información de Facebook a la aplicación
 
@@ -59,7 +52,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 2. Haga clic en **Facebook**, pegue los valores de identificador de la aplicación y de secreto de la aplicación que obtuvo anteriormente, habilite opcionalmente los ámbitos que requiera la aplicación y después haga clic en **Aceptar**.
 
-    ![][1]
+    ![][0]
 
 	De forma predeterminada, el Servicio de aplicaciones ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
 
@@ -74,8 +67,7 @@ De este modo ya estará listo para usar Facebook para realizar la autenticación
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->
-[0]: ./media/app-service-mobile-how-to-configure-facebook-authentication/app-service-facebook-dashboard.png
-[1]: ./media/app-service-mobile-how-to-configure-facebook-authentication/mobile-app-facebook-settings.png
+[0]: ./media/app-service-mobile-how-to-configure-facebook-authentication/mobile-app-facebook-settings.png
 
 <!-- URLs. -->
 [Desarrolladores de Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
@@ -83,4 +75,4 @@ De este modo ya estará listo para usar Facebook para realizar la autenticación
 [Get started with authentication]: /es-ES/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

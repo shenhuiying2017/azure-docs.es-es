@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/22/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure en el Portal
@@ -23,7 +23,7 @@ Este artículo es una introducción sin código a Búsqueda de Azure de Microsof
 
 En este tutorial se da por hecho que dispone de una [base de datos de Azure DocumentDB de ejemplo](#apdx-sampledata) que puede crear fácilmente con nuestras instrucciones y datos de ejemplo; sin embargo, también puede adaptar estos pasos a los datos existentes, bien en DocumentDB o en Base de datos SQL.
 
-> [AZURE.NOTE] Para este tutorial de inicio se necesita una [suscripción de Azure](../../includes/free-trial-note.md) y un [servicio Búsqueda de Azure](search-create-service-portal.md). Si no está listo para registrarse para obtener una suscripción de prueba, puede omitir este tutorial y optar por [probar el Servicio de aplicaciones de Azure](search-tryappservice.md). Esta opción alternativa ofrece el servicio Búsqueda de Azure con una aplicación web de ASP.NET de forma gratuita (una hora por sesión); no es necesaria ninguna suscripción.
+> [AZURE.NOTE] Para este tutorial de inicio se necesita una [suscripción de Azure](../../includes/free-trial-note.md) y un [servicio Búsqueda de Azure](search-create-service-portal.md).
  
 ## Búsqueda del servicio
 
@@ -123,7 +123,7 @@ Ahora tiene un índice de búsqueda listo para su consulta.
 **Explorador de búsqueda** es una herramienta de consulta integrada en el portal. Proporciona un cuadro de búsqueda para que se pueda comprobar que una entrada de búsqueda devuelve los datos esperados.
 
 1. Haga clic en **Explorador de búsqueda** en la barra de comandos.
-2. Observe qué índice está activo. Si no es el que acaba de crear, haga clic en **Cambiar índice** en la barra de comandos para seleccionar el que desee.
+2. Observe qué índice está activo. Si no es el que acaba de crear, haga clic en **Índice de cambios** en la barra de comandos para seleccionar el que desee.
 2. Deje vacío el cuadro de búsqueda y, a continuación, haga clic en el botón **Buscar** para ejecutar una búsqueda con caracteres comodín que devuelva todos los documentos.
 3. Escriba algunas consultas de búsqueda de texto completo. Puede revisar los resultados en la búsqueda con caracteres comodín para familiarizarse con los intérpretes, álbumes y géneros que se van a consultar.
 4. Para obtener ideas, pruebe otra sintaxis de consulta con los [ejemplos proporcionados al final de este artículo](https://msdn.microsoft.com/library/azure/dn798927.aspx) y modifique la consulta para utilizar cadenas de búsqueda que es probable que se encuentren en el índice.
@@ -183,4 +183,4 @@ Obtendrá un JSON de salida, que comienza por el número de documento 386 y term
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

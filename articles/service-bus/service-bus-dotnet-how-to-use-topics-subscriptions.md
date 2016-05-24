@@ -52,7 +52,7 @@ En ambos casos, puede recuperar la cadena de conexión utilizando el método `Cl
 
 ### Configuración de una cadena de conexión
 
-El mecanismo de configuración de servicios le permite cambiar dinámicamente la configuración desde el [Portal de Azure clásico][] sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (****.csdef**), como se indica en el siguiente ejemplo:
+El mecanismo de configuración de servicios le permite cambiar dinámicamente la configuración desde el [Portal de Azure clásico][] sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (***.csdef**), como se indica en el siguiente ejemplo:
 
 ```
 <ServiceDefinition name="Azure1">
@@ -328,4 +328,4 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
   [Tutorial de .NET de mensajería asincrónica del Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->

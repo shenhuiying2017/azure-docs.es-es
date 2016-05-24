@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Introducción a consultas elásticas para particionamiento horizontal | Microsoft Azure"
+	pageTitle="Informes de bases de datos escaladas horizontalmente en la nube (partición horizontal) | Microsoft Azure"
 	description="cómo utilizar consultas de bases de datos cruzadas"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,14 +12,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="04/26/2016"
 	ms.author="SilviaDoomra" />
 
-# Introducción a consultas elásticas para particionamiento horizontal
+# Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)
 
-La consulta de base de datos elástica (vista previa) para Base de datos SQL de Azure le permite ejecutar consultas T-SQL que distribuyen varias bases de datos con un único punto de conexión. Para obtener más información sobre la característica de base de datos elástica, consulte la [página de introducción de la característica](sql-database-elastic-query-overview.md).
+Puede crear informes de varias bases de datos SQL de Azure desde un único punto de conexión mediante una [consulta elástica](sql-database-elastic-query-overview.md). Las bases de datos deben tener particiones horizontales (también conocidas como "particiones").
 
-Este tema amplía el ejemplo que aparece en [Introducción a las herramientas de la base de datos elástica](sql-database-elastic-scale-get-started.md). Una vez completado, sabrá: cómo configurar y usar una Base de datos SQL de Azure para realizar consultas que distribuyan muchas bases de datos relacionadas.
+Si tiene una base de datos, consulte [Conversión de bases de datos existentes para usar herramientas para bases de datos elásticas](sql-database-elastic-convert-to-use-elastic-tools.md).
+
+Para comprender los objetos SQL necesarios para realizar consultas, consulte [Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)](sql-database-elastic-query-horizontal-partitioning.md).
+
 ## Requisitos previos
 
 Descargue [Introducción al ejemplo de herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
@@ -142,4 +145,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

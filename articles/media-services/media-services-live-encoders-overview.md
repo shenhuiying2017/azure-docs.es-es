@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuración de los codificadores en directo locales" 
+	pageTitle="Configuración de los codificadores locales al usar Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple" 
 	description="En este tema se enumeran los codificadores en directo locales que puede utilizar para capturar los eventos en directo y enviar una secuencia en directo con velocidad de bits única a canales AMS (que permiten la codificación en directo) para su posterior procesamiento. El tema establece vínculos a tutoriales que muestran cómo configurar los codificadores que se presentan." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="05/05/2016"
 	ms.author="juliako"/>
 
 
 
-#Configuración de los codificadores en directo locales
+#Configuración de los codificadores locales al usar Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple
 
 En este tema se enumeran los codificadores en directo locales que puede utilizar para capturar los eventos en directo y enviar una secuencia en directo con velocidad de bits única a canales AMS (que permiten la codificación en directo) para su posterior procesamiento. El tema también incluye vínculos a tutoriales que muestran cómo configurar los codificadores presentados.
 
@@ -51,6 +51,6 @@ Para obtener información sobre cómo configurar el codificador [Tricaster](http
 
 ## Consulte también
 
-[Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
+[Streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple](media-services-manage-live-encoder-enabled-channels.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="02/24/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configuración de los roles para un servicio en la nube de Azure con Visual Studio
@@ -279,8 +279,8 @@ Puede recopilar datos de diagnóstico para el servicio en la nube de Azure. Esto
 
 1. Elija la cuenta de almacenamiento que quiera usar en **Nombre de cuenta**.
 
-    Si va a especificar manualmente sus credenciales de la cuenta de almacenamiento, copie o escriba su clave principal en **Clave de cuenta**. Esta clave se puede copiar desde el Portal de administración de Azure. Para copiar esta clave, siga estos pasos desde la vista **Cuentas de almacenamiento** en el Portal de administración de Azure:
-
+    Si va a especificar manualmente sus credenciales de la cuenta de almacenamiento, copie o escriba su clave principal en **Clave de cuenta**. Esta clave se puede copiar desde el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). Para copiar esta clave, siga estos pasos desde la vista **Cuentas de almacenamiento** en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885):
+    
   1. Seleccione la cuenta de almacenamiento que quiera usar para su servicio en la nube.
 
   1. Elija el botón **Administrar claves de acceso** que se encuentra en la parte inferior de la pantalla. Aparecerá el cuadro de diálogo **Administrar claves de acceso**.
@@ -319,7 +319,7 @@ También puede agregar extremos que se pueden usar interna o externamente. Los e
 
 Si agrega extremos HTTPS, debe usar un certificado SSL. Para ello, puede asociar certificados a su rol para todas las configuraciones de servicio y usarlos para sus extremos.
 
->[AZURE.IMPORTANT] Estos certificados no se empaquetan con su servicio. Debe cargar sus certificados en Azure a través del portal de administración de la plataforma Azure.
+>[AZURE.IMPORTANT] Estos certificados no se empaquetan con su servicio. Debe cargar sus certificados por separado en Azure mediante el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Cualquier certificado de administración que asocie a sus configuraciones de servicio solo se aplicarán cuando se ejecute su servicio en la nube en Azure. Cuando su servicio en la nube se ejecute en el entorno de desarrollo local, se usará un certificado estándar administrado por el emulador de proceso de Azure.
 
@@ -376,4 +376,4 @@ Cualquier certificado de administración que asocie a sus configuraciones de ser
 ## Pasos siguientes
 Para obtener más información sobre los proyectos de Azure en Visual Studio, consulte [Configurar un proyecto de Azure](vs-azure-tools-configuring-an-azure-project.md). Para obtener más información sobre el esquema del servicio en la nube, consulte [Referencia de esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->
