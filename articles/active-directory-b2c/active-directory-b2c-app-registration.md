@@ -31,7 +31,7 @@ Para crear una aplicación que acepte registros e inicios de sesión de consumid
 
 Puede desplazarse a la hoja de características B2C desde el Portal de Azure o el Portal de Azure clásico.
 
-### 1\. Acceso en el Portal de Azure
+### 1. Acceso en el Portal de Azure
 
 Si dispone de la hoja de características B2C anclada al Panel de inicio, la verá en cuanto inicie sesión en el [Portal de Azure](https://portal.azure.com/) como administrador global del inquilino B2C.
 
@@ -42,7 +42,7 @@ También puede acceder a ella directamente en [https://portal.azure.com/{tenant}
     > [AZURE.IMPORTANT]
     You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
 
-### 2\. Acceso en el Portal de Azure clásico
+### 2. Acceso en el Portal de Azure clásico
 
 Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) como administrador de la suscripción. (esto es, con la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para suscribirse a Azure). Vaya a la extensión de Active Directory de la izquierda y haga clic en el inquilino B2C. En la pestaña **Inicio rápido** (la primera pestaña que se abre), haga clic en **Administrar la configuración B2C** en **Administrar**. Se abrirá la hoja de características B2C en una nueva ventana de explorador o en una nueva pestaña.
 

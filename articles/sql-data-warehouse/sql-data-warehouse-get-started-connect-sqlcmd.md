@@ -30,7 +30,7 @@ En este tutorial se muestra cómo conectarse y realizar consultas a una base de 
 
 ## Requisitos previos
 
-+ Para descargar el archivo [sqlcmd.exe][], consulte el [Microsoft Command Line Utilities 11 for SQL Server][] (Utilidades de la línea de comandos 11 de Microsoft para SQL Server).
++ Para descargar el archivo [sqlcmd.exe][], consulte el [Microsoft Command Line Utilities 11 for SQL Server][] \(Utilidades de la línea de comandos 11 de Microsoft para SQL Server).
 
 ## Obtención del nombre completo del servidor de Azure SQL Server
 
