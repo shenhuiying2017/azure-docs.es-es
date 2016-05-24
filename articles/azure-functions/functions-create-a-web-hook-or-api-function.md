@@ -67,7 +67,8 @@ A continuación, creará el webhook real en el repositorio de GitHub.
 
 	![Crear función de webhook de GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png)
 
-En este punto, el webhook de GitHub está configurado para desencadenar la función cuando se agregue un nuevo comentario de problema. Ahora, ha llegado el momento de probarlo.
+En este punto, el webhook de GitHub está configurado para desencadenar la función cuando se agregue un nuevo comentario de problema. 
+Ahora, ha llegado el momento de probarlo.
 
 ##Prueba de la función
 
@@ -82,11 +83,14 @@ En este punto, el webhook de GitHub está configurado para desencadenar la funci
 
 Consulte estos temas para más información sobre Funciones de Azure.
 
-+ [Azure Functions developer reference](functions-reference.md) (Referencia para desarrolladores de Funciones de Azure) contiene las referencias del programador para codificar las funciones y definir los desencadenadores y los enlaces.
-+ [Testing Azure Functions](functions-test-a-function.md) (Prueba de Funciones de Azure) describe las diversas herramientas y técnicas para probar sus funciones.
-+ [How to scale Azure Functions](functions-scale.md) (Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.  
++ [Azure Functions developer reference](functions-reference.md)  
+(Referencia para desarrolladores de Funciones de Azure) contiene las referencias del programador para codificar las funciones y definir los desencadenadores y los enlaces.
++ [Testing Azure Functions](functions-test-a-function.md)  
+(Prueba de Funciones de Azure) describe las diversas herramientas y técnicas para probar sus funciones.
++ [How to scale Azure Functions](functions-scale.md)  
+(Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.  
 
 
 [AZURE.INCLUDE [Nota de introducción](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->
