@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="cherylmc"/>
 
 # Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico
@@ -27,17 +27,20 @@
 
 Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio con la red local. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales. Este artículo se aplica al modelo de implementación clásico y utiliza el Portal de Azure clásico.
 
+
 **Información sobre los modelos de implementación de Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## Diagrama de conexión
  
 ![Diagrama de sitio a sitio](./media/vpn-gateway-site-to-site-create/site2site.png "De sitio a sitio")
 
 **Modelos de implementación y herramientas para las conexiones de sitio a sitio**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
- 
-Si desea conectar las redes virtuales, pero no va a crear una conexión con una ubicación local, consulte [Configuración de una conexión de red virtual a red virtual para el modelo de implementación clásico](virtual-networks-configure-vnet-to-vnet-connection.md) o [Configuración de una conexión entre dos redes virtuales mediante Azure Resource Manager y PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+
+Si desea conectar las redes virtuales entre sí pero no está creando una conexión a una ubicación local, consulte [Configuración de una conexión de red virtual a red virtual para el modelo de implementación clásico](virtual-networks-configure-vnet-to-vnet-connection.md). Si busca un tipo diferente de configuración de la conexión, consulte el artículo [Topologías de conexión de la puerta de enlace de VPN de Azure](vpn-gateway-topology.md).
 
  
 ## Antes de empezar
@@ -109,4 +112,4 @@ A continuación, configurará la puerta de enlace de la red virtual con el fin d
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/) para más información.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

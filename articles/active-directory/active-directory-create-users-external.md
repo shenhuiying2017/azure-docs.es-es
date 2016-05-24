@@ -74,13 +74,14 @@ Si se elimina un usuario en su directorio principal o se cancela su cuenta de Mi
 - Los usuarios externos no pueden dar su consentimiento a aplicaciones multiinquilino en directorios fuera de su directorio principal.
 - PowerBI no admite actualmente el acceso a usuarios externos
 - El Portal de Office no admite licencias de usuarios externos
+- En Azure AD PowerShell, los usuarios externos se registran en su directorio particular y no pueden administrar los directorios para los cuales sean externos
 
 
 ## Pasos siguientes
 
-- [Adición o cambio de usuarios en Azure Active Directory](active-directory-create-users.md)
+- [Adición de nuevos usuarios a Azure Active Directory](active-directory-create-users.md)
 - [Administración de Azure AD](active-directory-administer.md)
 - [Administración de contraseñas en Azure AD](active-directory-manage-passwords.md)
 - [Administración de grupos en Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

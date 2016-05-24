@@ -41,7 +41,7 @@ Ahora, abra un shell y ejecute el siguiente comando, donde:
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
-### Túnel de DC/OS
+## Túnel de DC/OS
 
 Para abrir un túnel a los puntos de conexión relacionados con DC/OS, ejecute un comando similar al siguiente:
 
@@ -59,7 +59,7 @@ Ya puede acceder a los puntos de conexión relacionados con DC/OS en:
 
 De igual forma, se puede acceder a las API de REST de cada aplicación a través de este túnel.
 
-### Túnel de Swarm
+## Túnel de Swarm
 
 Para abrir un túnel al punto de conexión de Swarm, ejecute un comando parecido al siguiente:
 
@@ -117,4 +117,4 @@ Implemente y administre contenedores con DC/OS o Swarm.
 
 [Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md) [Administración de contenedores con Docker Swarm](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

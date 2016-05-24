@@ -28,7 +28,9 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
 
 	Esto descarga, instala y agrega una referencia al [Centro de eventos del Bus de servicio de Azure - Paquete de NuGet de EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), con todas sus dependencias.
 
-7. Haga clic con el botón derecho en el proyecto **Receptor**, haga clic en **Agregar** y, a continuación, haga clic en **Clase**. Asigne a la nueva clase el nombre **SimpleEventProcessor** y después haga clic en **Aceptar** para crear la clase.
+7. Haga clic con el botón derecho en el proyecto **Receptor**, haga clic en **Agregar** y, a continuación, haga clic en **Clase**. Asigne a la nueva clase el nombre **SimpleEventProcessor** y después haga clic en **Agregar** para crear la clase.
+
+	![][15]
 
 8. Agregue las siguientes instrucciones en la parte superior del archivo SimpleEventProcessor.cs:
 
@@ -89,7 +91,7 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-	Después, modifique el método `Main` de la clase `Program` de la siguiente manera: sustituyendo el nombre del Centro de eventos y la cadena de conexión **ReceiveRule**, y la cuenta de almacenamiento y la clave que ha copiado en las secciones anteriores. Asegúrese de quitar el sufijo `EntityPath` de la cadena de conexión:
+	Después, reemplace el método `Main` de la clase `Program` con el código siguiente, sustituyendo el nombre del Centro de eventos y la cadena de conexión de nivel del espacio de nombres que ha guardado anteriormente, y la cuenta de almacenamiento y la clave que ha copiado en las secciones anteriores.
 
     ```
 	static void Main(string[] args)
@@ -128,6 +130,6 @@ Para poder usar [EventProcessorHost][], debe tener una [cuenta de almacenamiento
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
 
-<!---HONumber=AcomDC_0413_2016-->

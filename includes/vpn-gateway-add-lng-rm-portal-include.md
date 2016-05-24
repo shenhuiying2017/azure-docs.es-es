@@ -1,10 +1,8 @@
-### Siga estos pasos para crear una puerta de enlace de red local:
-
 1. En el Portal de Azure, vaya a **Nuevo** **>** **Redes** **>** **Puerta de enlace de red local**.
 
 	![crear una puerta de enlace de red local](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. En la hoja **Crear puertas de enlace de red local**, especifique un **nombre** al objeto de puerta de enlace de red local.
+2. En la hoja **Crear puertas de enlace de red local**, especifique un **nombre** para el objeto de puerta de enlace de red local.
  
 3. Especifique una **dirección IP** para la puerta de enlace. Esta es la dirección IP del dispositivo VPN externo al que desea conectarse. No puede encontrarse detrás de NAT y debe estar al alcance de Azure.
 
@@ -23,5 +21,3 @@
 10. Cuando se haya creado la puerta de enlace de red local, se abrirá en el portal para que se pueda ver.
 
 	
-
-<!---HONumber=AcomDC_0406_2016-->

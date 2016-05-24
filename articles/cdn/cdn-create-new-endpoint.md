@@ -61,16 +61,18 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
 7. En el **Encabezado del host de origen**, escriba el encabezado de host que quiera que la red CDN envíe con cada solicitud o deje el valor predeterminado.
 
+	> [AZURE.WARNING] Algunos tipos de orígenes, como Almacenamiento de Azure y Aplicaciones web, requieren que el encabezado del host coincida con el dominio del origen. A menos que tenga un origen que requiera un encabezado de host diferente de su dominio, debe dejar el valor predeterminado.
+
 8. Para **Protocolo** y **Puerto de origen**, especifique los protocolos y los puertos que se usan para tener acceso a sus recursos en el origen. Se debe seleccionar al menos un protocolo (HTTP o HTTPS).
 	
-	> [AZURE.NOTE] El **puerto de origen** solo afecta al puerto que utiliza el punto de conexión para recuperar información desde el origen. El propio punto de conexión solo estará disponible para los clientes finales en los puertos HTTP y HTTPS predeterminados (80 y 443), con independencia del **puerto de origen**.
+	> [AZURE.NOTE] El valor de **Puerto de origen** solo afecta al puerto que utiliza el punto de conexión para recuperar información del origen. El propio punto de conexión solo estará disponible para los clientes finales en los puertos HTTP y HTTPS predeterminados (80 y 443), independencia de cuál sea el **puerto de origen**.
 	>
-	> Los puntos de conexión de la **red CDN de Azure de Akamai** no permiten el intervalo completo de puertos TCP para los orígenes. Para obtener una lista de puertos de origen que no están permitidos, consulte [Azure CDN from Akamai behavior details](cdn-akamai-behavior-details.md) (Detalles del comportamiento de la red CDN de Azure de Akamai).
+	> Los puntos de conexión de la **red CDN de Azure de Akamai** no permiten el intervalo completo de puertos TCP para los orígenes. Para obtener una lista de los puertos de origen que no se permiten, consulte [Azure CDN from Akamai behavior details](cdn-akamai-behavior-details.md) (Detalles del comportamiento de la red CDN de Azure de Akamai).
 	>
 	> El acceso al contenido de la red CDN usando HTTPS tiene la siguiente restricciones:
 	> 
 	> - Debe utilizar el certificado SSL proporcionado por la red CDN. No se admiten certificados de terceros.
-	> - Tiene que usar el dominio proporcionado por la red CDN (`<endpointname>.azureedge.net`)para acceder al contenido HTTPS. La compatibilidad con HTTPS no está disponible para nombres de dominio personalizados (CNAME) dado que la red CDN no admite certificados personalizados en este momento.
+	> - Para acceder al contenido HTTPS, tiene que usar el dominio proporcionado por la red CDN (`<endpointname>.azureedge.net`). La compatibilidad con HTTPS no está disponible para nombres de dominio personalizados (CNAME) dado que la red CDN no admite certificados personalizados en este momento.
 
 9. Haga clic en el botón **Agregar** para crear el nuevo punto de conexión.
 
@@ -78,9 +80,9 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
     ![Punto de conexión de CDN][cdn-endpoint-success]
 
-    > [AZURE.IMPORTANT] El punto de conexión no estará disponible para su uso de forma inmediata; el registro puede tardar en propagarse a través de la red CDN. Para los perfiles de <b>red CDN de Azure de Akamai</b>, la propagación normalmente se completa en el espacio de un minuto. Para los perfiles de <b>red CDN de Azure de Verizon</b>, la propagación normalmente se completa en el espacio de 90 minutos, pero en algunos casos puede tardar más tiempo.
+    > [AZURE.IMPORTANT] El punto de conexión no estará disponible para su uso de forma inmediata; el registro puede tardar en propagarse a través de la red CDN. Para los perfiles de la <b>red CDN de Azure de Akamai</b>, la propagación normalmente se completará en un minuto. Para los perfiles de <b>red CDN de Azure de Verizon</b>, la propagación normalmente se completará en 90 minutos, pero en algunos casos puede tardar más tiempo.
 	>	 
-	> Los usuarios que intenten usar el nombre de dominio de la red CDN antes de que la configuración del punto de conexión se haya propagado a los POP recibirán los códigos de respuesta HTTP 404. Si han pasado varias horas desde que creó el punto de conexión y todavía recibe errores 404, consulte [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md) (Solución de problemas de puntos de conexión de redes CDN que devuelven errores 404).
+	> Los usuarios que intenten usar el nombre de dominio de la red CDN antes de que la configuración del punto de conexión se haya propagado a los POP recibirán los códigos de respuesta HTTP 404. Si han pasado varias horas desde que creó el punto de conexión y aún recibe errores 404, consulte [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md) (Solución de problemas de puntos de conexión de redes CDN que devuelven errores 404).
 
 
 ##Otras referencias
@@ -95,4 +97,4 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->
