@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="05/16/2016"
     ms.author="magoedte"/>
 
 # Autenticación de Runbooks con una cuenta de ejecución de Azure
@@ -53,7 +53,15 @@ En esta sección, realizará los siguientes pasos para crear una cuenta de Autom
 
 7. Mientras Azure crea la cuenta de Automatización, puede seguir el progreso en **Notificaciones** en el menú.
 
-Cuando haya finalizado, se crea la cuenta de Automatización con un recurso de certificado denominado **AzureRunAsCertificate** que tiene una duración de un año y un recurso de conexión denominado **AzureRunAsConnection**.
+### Recursos incluidos
+Una vez completada la creación de la cuenta de Automatización, se crean varios recursos automáticamente. Se resumen en la tabla siguiente.
+
+Recurso|Descripción 
+----|----
+Runbook AzureAutomationTutorial|Un runbook de ejemplo que demuestra cómo autenticar mediante la cuenta de ejecución y mostrar las diez primeras máquinas virtuales de Azure de su suscripción.
+AzureRunAsCertificate|Recurso de certificado creado si seleccionó que se creara la cuenta de ejecución durante la creación de la cuenta de Automatización o mediante el siguiente script de PowerShell para una cuenta existente. Este certificado tiene una duración de un año. 
+AzureRunAsConnection|Recurso de conexión creado si seleccionó que se creara la cuenta de ejecución durante la creación de la cuenta de Automatización o mediante el siguiente script de PowerShell para una cuenta existente.
+Módulos|15 módulos con cmdlets de Azure, PowerShell y Automatización que puede comenzar a usar inmediatamente en sus runbooks.  
 
 ## Actualización de una cuenta de Automatización mediante PowerShell
 El procedimiento siguiente actualiza una cuenta de Automatización existente y crea la entidad de servicio mediante PowerShell. Este procedimiento es necesario si se ha creado una cuenta, pero se rechazado crear la cuenta de ejecución.
@@ -62,7 +70,7 @@ Antes de continuar, compruebe lo siguiente:
 
 1. Ha descargado e instalado el [módulo de Azure Active Directory para Windows PowerShell (versión de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297).
 2. Ha creado una cuenta de Automatización. Se hará referencia a esta cuenta como valor para los parámetros-AutomationAccountName y - ApplicationDisplayName en el siguiente script.
-3. Ha instalado el [kit de herramientas de creación de Automatización de Azure](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.2)
+3. Ha instalado [Azure Automation Authoring Toolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.2) (kit de herramientas de creación de Automatización de Azure).
 
 ```
 Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
@@ -92,6 +100,9 @@ El script de PowerShell configurará los siguientes elementos:
     [String] $ApplicationDisplayName,
 
     [Parameter(Mandatory=$true)]
+    [String] $SubscriptionName,
+
+    [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
 
     [Parameter(Mandatory=$false)]
@@ -100,6 +111,7 @@ El script de PowerShell configurará los siguientes elementos:
 
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
+    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
@@ -156,12 +168,13 @@ El script de PowerShell configurará los siguientes elementos:
     ```
 <br>
 2. En el equipo, inicie **Windows PowerShell** desde la pantalla **Inicio** con derechos de usuario elevados.
-3. Desde el shell de línea de comandos de PowerShell elevado, navegue hasta la carpeta que contiene el script que se creó en el paso 1 y ejecútelo después de cambiar los valores de los parámetros *– ResourceGroup*, *- AutomationAccountName*, *- ApplicationDisplayName* y *- CertPlainPassword*.<br>
+3. En el shell de línea de comandos de PowerShell elevado, vaya a la carpeta que contiene el script que se creó en el paso 1 y ejecútelo después de cambiar los valores de los parámetros *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName* y *-CertPlainPassword*.<br>
 
     ```
     .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
+     -SubscriptionName <SubscriptionName> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
@@ -174,30 +187,63 @@ A continuación, realizaremos una pequeña prueba para confirmar que puede auten
 
 1. En el Portal de Azure, abra la cuenta de Automatización que creó anteriormente.  
 2. Haga clic en el icono **Runbooks** para abrir la lista de runbooks.
-3. Haga clic en el botón **Agregar un Runbook** para crear un runbook nuevo y, en la hoja **Agregar Runbook**, seleccione **Crear un runbook nuevo**.
+3. Haga clic en el botón **Agregar un Runbook** para crear un runbook y, en la hoja **Agregar Runbook**, seleccione **Crear un nuevo Runbook**.
 4. Asigne al runbook el nombre *Test-SecPrin-Runbook* y seleccione PowerShell en **Tipo de Runbook**. Haga clic en **Crear** para crear el runbook.
 5. En la hoja **Editar Runbook de PowerShell**, pegue el siguiente código en el lienzo:<br>
 
     ```
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-   ```  
+    ```  
 <br>
-6. Haga clic en **Guardar** para guardar el runbook.
-7. Haga clic en **Panel de prueba** para abrir la hoja **Probar**.
+6. Para guardar el runbook, haga clic en **Guardar**.
+7. Haga clic en **Panel de prueba** para abrir la hoja **Prueba**.
 8. Haga clic en **Iniciar** para iniciar la prueba.
 9. Se crea un [trabajo de runbook](automation-runbook-execution.md) y su estado se muestra en el panel.  
-10. El estado del trabajo se iniciará como *En cola*, lo que indica que espera que haya algún trabajo de runbook en la nube disponible. A continuación, pasará a *Iniciando* cuando un trabajador de runbook solicite el trabajo y, a continuación, a *En ejecución* cuando el runbook empiece a ejecutarse realmente.  
-11. Cuando se complete el trabajo del runbook, se mostrará su resultado. En nuestro caso, deberíamos ver el estado **Completado**.<br> ![Prueba de Runbook de entidad de seguridad](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
-12. Cierre la hoja **Probar** para volver al lienzo.
+10. El estado del trabajo se iniciará como *En cola*, lo que indica que espera a que haya algún trabajo de runbook en la nube disponible. A continuación, pasará a *Iniciando* cuando un trabajador de runbook solicite el trabajo y, a continuación, a *En ejecución* cuando el runbook empiece a ejecutarse realmente.  
+11. Cuando se complete el trabajo del runbook, se mostrará su resultado. En nuestro caso, se debería ver el estado **Completado**.<br> ![Prueba de Runbook de entidad de seguridad](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
+12. Cierre la hoja **Prueba** para volver al lienzo.
 13. Cierre la hoja **Editar Runbook de PowerShell**.
 14. Cierre la hoja **Test-SecPrin-Runbook**.
 
-El código anterior, que se ha usado para comprobar si la nueva cuenta está configurada correctamente, es lo que usará en los Runbooks de PowerShell para autenticarse en Automatización de Azure para administrar los recursos de ARM. Por supuesto, aún puede autenticarse con la cuenta de Automatización que usa actualmente.
+## Código de ejemplo para autenticarse con recursos ARM
+
+Puede usar el código de ejemplo actualizado siguiente, procedente del runbook de ejemplo AzureAutomationTutorial, para autenticarse con la cuenta de ejecución para administrar recursos ARM con sus runbooks.
+
+   ```
+   $connectionName = "AzureRunAsConnection"
+   $SubId = Get-AutomationVariable -Name 'SubscriptionId'
+   try
+   {
+      # Get the connection "AzureRunAsConnection "
+      $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+      "Logging in to Azure..."
+      Add-AzureRmAccount `
+         -ServicePrincipal `
+         -TenantId $servicePrincipalConnection.TenantId `
+         -ApplicationId $servicePrincipalConnection.ApplicationId `
+         -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+	  "Setting context to a specific subscription"	 
+	  Set-AzureRmContext -SubscriptionId $SubId	 		 
+   }
+   catch {
+       if (!$servicePrincipalConnection)
+       {
+           $ErrorMessage = "Connection $connectionName not found."
+           throw $ErrorMessage
+       } else{
+           Write-Error -Message $_.Exception
+           throw $_.Exception
+       }
+   } 
+   ```
+
+El script incluye dos líneas adicionales de código para admitir la referencia a un contexto de la suscripción, de forma que pueda trabajar fácilmente entre varias suscripciones. Un recurso de variable denominado SubscriptionId contiene el identificador de la suscripción y, después de la instrucción de cmdlet Add-AzureRmAccount, el [cmdlet Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) se indica con el conjunto de parámetros *-SubscriptionId*. Si el nombre de variable es demasiado genérico, puede modificarlo para que incluya un prefijo u otra convención de nomenclatura que facilite la identificación. Como alternativa, puede usar el conjunto de parámetros -SubscriptionName en lugar de -SubscriptionId con un recurso de variable correspondiente.
 
 ## Pasos siguientes
 - Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
 - Para más información acerca del control de acceso basado en rol en Automatización de Azure, consulte [Control de acceso basado en rol en Automatización de Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

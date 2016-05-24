@@ -1,5 +1,3 @@
-### Para crear una subred de puerta de enlace en el Portal de Azure
-
 1. En el portal, navegue a la red virtual a la que desea conectar una puerta de enlace. En la hoja de la red virtual, haga clic en el icono **Configuración** situado en la parte superior de la hoja para expandir la hoja Configuración. 
 
 2. En la hoja **Configuración**, haga clic en **Subredes** para expandir la hoja Subredes.
@@ -14,4 +12,5 @@
 
 6. Haga clic en **Aceptar** en la parte inferior de la hoja para crear la subred.
 
-<!---HONumber=AcomDC_0406_2016-->
+
+

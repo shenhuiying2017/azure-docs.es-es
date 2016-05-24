@@ -40,7 +40,7 @@ Las reglas de grupo de seguridad de red contienen las siguientes propiedades:
 |---|---|---|---|
 |**Name**|Nombre de la regla|Debe ser único dentro de la región.<br/>Puede contener letras, números, caracteres de subrayado, puntos y guiones.<br/>Debe comenzar con una letra o un número.<br/>Debe terminar con una letra, un número o un carácter de subrayado.<br/>Puede tener hasta 80 caracteres.|Puede tener varias reglas dentro de un grupo de seguridad de red, de modo que asegúrese de seguir una convención de nomenclatura que le permita identificar la función de cada una.|
 |**Protocolo**|Protocolo que debe coincidir con la regla|TCP, UDP o *.|El uso de * como protocolo incluye ICMP (solo tráfico este oeste), así como UDP y TCP, y puede reducir el número de reglas necesarias. <br/>Al mismo tiempo, el uso de * podría ser un enfoque demasiado amplio, así que asegúrese de usarlo solamente cuando sea realmente necesario.|
-|**Intervalo de puertos de origen**|Intervalo del puerto de origen que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65635) o * (para todos los puertos).|Los puertos de origen podrían ser transitorios. A menos que el programa de cliente use un puerto específico, use "*" en la mayoría de los casos.<br/>Pruebe a usar intervalos de puertos tanto como sea posibles para evitar tener que usar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar por una coma 
+|**Intervalo de puertos de origen**|Intervalo del puerto de origen que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65635) o * (para todos los puertos).|Los puertos de origen podrían ser transitorios. A menos que el programa de cliente use un puerto específico, use "*" en la mayoría de los casos.<br/>Pruebe a usar intervalos de puertos tanto como sea posibles para evitar tener que usar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar por una coma|
 |**Intervalo de puertos de destino**|Intervalo del puerto de destino que debe coincidir con la regla|Número de puerto único entre 1 y 65535, intervalo de puertos (es decir, 1-65535) o * (para todos los puertos).|Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que usar varias reglas<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar por una coma
 |**Prefijo de dirección de origen**|Prefijo o etiqueta de la dirección de origen que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#Default-Tags) o * (para todas las direcciones).|Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas.|
 |**Prefijo de dirección de destino**|Prefijo o etiqueta de la dirección de destino que debe coincidir con la regla.|Dirección IP única (es decir, 10.10.10.10), subred IP (es decir, 192.168.1.0/24), [etiqueta predeterminada](#Default-Tags) o * (para todas las direcciones).|Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas.|
@@ -173,7 +173,7 @@ También debe tener en cuenta las reglas especiales que se enumeran a continuaci
 
 ### Tráfico ICMP
 
-Las reglas de los grupos de seguridad de red actuales solo permiten los protocolos *TCP* o *UDP*. No hay una etiqueta específica para *ICMP*. Sin embargo, el tráfico ICMP se permite dentro de una red virtual de manera predeterminada gracias a las reglas de red virtual de entrada (regla predeterminada 65500 de entrada) que permiten el tráfico desde y hacia cualquier puerto y protocolo dentro de la red virtual.
+Las reglas de los grupos de seguridad de red actuales solo permiten los protocolos *TCP* o *UDP*. No hay una etiqueta específica para *ICMP*. Sin embargo, el tráfico ICMP se permite dentro de una red virtual de manera predeterminada gracias a las reglas de red virtual de entrada (regla predeterminada 65000 de entrada) que permiten el tráfico desde y hacia cualquier puerto y protocolo dentro de la red virtual.
 
 ### Subredes
 
@@ -282,4 +282,4 @@ Puesto que algunos de los grupos de seguridad de red mencionados anteriormente d
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

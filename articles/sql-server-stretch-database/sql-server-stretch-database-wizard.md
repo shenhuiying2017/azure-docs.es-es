@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Ejecución del asistente para habilitar la base de datos para Stretch
@@ -44,7 +44,7 @@ Seleccione las tablas que desee habilitar para Stretch.
 |**Name**|Especifica el nombre de la columna en la tabla.|
 |(sin título)|Un símbolo en esta columna indica normalmente que no puede habilitar la tabla seleccionada para Stretch debido a un problema de bloqueo. Esto puede deberse a que la tabla usa un tipo de datos no compatible. Mantenga el mouse sobre el símbolo para mostrar más información en una información sobre herramientas. Para más información, vea [Limitaciones de área expuesta y problemas de bloqueo de Stretch Database](sql-server-stretch-database-limitations.md).|
 |**Extendida**|Indica si la tabla ya está habilitada.|
-|**Migrar**|En RC3, puede migrar una tabla entera (**Toda la tabla**) o puede especificar un predicado de filtro basado en la fecha en el asistente. Si desea usar un predicado de filtro diferente para seleccionar las filas que se van a migrar, ejecute la instrucción ALTER TABLE para especificar el predicado de filtro después de salir del asistente. Para más información sobre el predicado de filtro, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md). Para más información sobre cómo aplicar el predicado, consulte [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrar**|Puede migrar una tabla entera (**Toda la tabla**) o puede especificar un predicado de filtro basado en la fecha en el asistente. Si desea usar un predicado de filtro diferente para seleccionar las filas que se van a migrar, ejecute la instrucción ALTER TABLE para especificar el predicado de filtro después de salir del asistente. Para más información sobre el predicado de filtro, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md). Para más información sobre cómo aplicar el predicado, consulte [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**Filas**|Especifica el número de filas de la tabla.|
 |**Tamaño (KB)**|Especifica el tamaño de la tabla en KB.|
 
@@ -163,4 +163,4 @@ Habilitación tablas adicionales para Stretch Database Supervisión de la migrac
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Autenticación IIS
@@ -76,4 +76,4 @@ Las IP de confianza permiten a los usuarios omitir Azure Multi-Factor Authentica
 3. Cuando aparezca el cuadro de diálogo Agregar IP de confianza, seleccione el botón de radio IP única, Intervalo IP o Subred.
 4. Escriba la dirección IP, el intervalo IP o la subred que debe estar en la lista blanca. Si introduce una subred, seleccione la máscara de red adecuada y haga clic en el botón Aceptar. Se ha agregado a la lista blanca.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

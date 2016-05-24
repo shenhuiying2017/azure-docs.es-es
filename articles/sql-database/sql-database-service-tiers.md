@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jhubbard"
-	editor="jeffreyg"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/27/2016"
+	ms.date="05/13/2016"
 	ms.author="carlrab"/>
 
 # Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio
@@ -64,4 +64,4 @@ Todas las bases de datos de un grupo también se ajustan a las características 
 - Obtenga información acerca de cómo [supervisar, administrar y cambiar el tamaño de los grupos elásticos](sql-database-elastic-pool-manage-portal.md) y [supervisar el rendimiento de bases de datos únicas](sql-database-single-database-monitor.md).
 - Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

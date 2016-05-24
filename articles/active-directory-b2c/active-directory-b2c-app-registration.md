@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 
@@ -31,7 +31,7 @@ Para crear una aplicación que acepte registros e inicios de sesión de consumid
 
 Puede desplazarse a la hoja de características B2C desde el Portal de Azure o el Portal de Azure clásico.
 
-### 1\. Acceso en el Portal de Azure
+### 1. Acceso en el Portal de Azure
 
 Si dispone de la hoja de características B2C anclada al Panel de inicio, la verá en cuanto inicie sesión en el [Portal de Azure](https://portal.azure.com/) como administrador global del inquilino B2C.
 
@@ -39,10 +39,10 @@ Otra manera de acceder a la hoja es hacer clic en **Examinar** y luego en **Azur
 
 También puede acceder a ella directamente en [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/), donde **{tenant}** se sustituirá por el nombre usado en el momento de la creación del inquilino (por ejemplo, contosob2c). Puede marcar este vínculo para usarlo en el futuro.
 
-> [AZURE.IMPORTANT]
-Necesita ser administrador global del inquilino B2C para poder acceder a la hoja Características B2C. Un administrador global de cualquier otro inquilino o un usuario de cualquier inquilino no puede acceder a dicha hoja.
+    > [AZURE.IMPORTANT]
+    You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
 
-### 2\. Acceso en el Portal de Azure clásico
+### 2. Acceso en el Portal de Azure clásico
 
 Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) como administrador de la suscripción. (esto es, con la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para suscribirse a Azure). Vaya a la extensión de Active Directory de la izquierda y haga clic en el inquilino B2C. En la pestaña **Inicio rápido** (la primera pestaña que se abre), haga clic en **Administrar la configuración B2C** en **Administrar**. Se abrirá la hoja de características B2C en una nueva ventana de explorador o en una nueva pestaña.
 
@@ -60,7 +60,7 @@ También encontrará el vínculo **Administrar la configuración B2C** (de la se
 
 5. Si va a escribir una aplicación móvil, mueva el conmutador **Incluir cliente nativo** a **Sí**. Copie el **URI de redirección** predeterminado creado automáticamente.
 6. Haga clic en **Crear** para registrar la aplicación.
-7. Haga clic en la aplicación que acaba de crear y copie el **Id. de aplicación** único global que usará más adelante en el código.
+7. Haga clic en la aplicación que acaba de crear y copie el **Id. de cliente de aplicación** único global que usará más adelante en el código.
 
 ## Creación de una aplicación de inicio rápido
 
@@ -68,4 +68,4 @@ Ahora que tiene una aplicación registrada en Azure AD B2C, puede completar uno 
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

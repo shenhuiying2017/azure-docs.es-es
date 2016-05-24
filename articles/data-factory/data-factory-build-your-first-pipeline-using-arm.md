@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/03/2016"
+	ms.date="05/16/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager
@@ -206,8 +206,8 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 						                "linkedServiceName": "HDInsightOnDemandLinkedService"
 						            }
 						        ],
-						        "start": "2014-02-01T00:00:00Z",
-						        "end": "2014-02-02T00:00:00Z",
+						        "start": "2016-04-01T00:00:00Z",
+						        "end": "2016-04-02T00:00:00Z",
 						        "isPaused": false
 						    }
 	                    }
@@ -254,6 +254,11 @@ Para más información, consulte la sección [Servicio vinculado a petición de 
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)	
 10. Cuando el segmento se encuentre en el estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** de Almacenamiento de blobs.  
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
+
+También puede supervisar y administrar la aplicación para supervisar las canalizaciones de datos. Para más información acerca del uso de la aplicación, consulte [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
+
+> [AZURE.IMPORTANT] El archivo de entrada se elimina cuando el segmento se procesa correctamente. Por lo tanto, si desea volver a ejecutar el segmento o volver a realizar el tutorial, cargue el archivo de entrada (input.log) en la carpeta inputdata del contenedor adfgetstarted.
+
+<!---HONumber=AcomDC_0518_2016-->

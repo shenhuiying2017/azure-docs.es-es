@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 # Protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con AD FS 2.0
 
@@ -93,4 +93,6 @@ Las IP de confianza permiten a los usuarios omitir Azure Multi-Factor Authentica
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=AcomDC_0224_2016-->
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

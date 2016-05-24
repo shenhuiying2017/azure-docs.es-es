@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/03/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -37,7 +37,7 @@ Para establecer la configuración entre pares se pueden usar direcciones IP priv
  - Las subredes no deben entrar en conflicto con el intervalo reservado por el cliente para su uso en la nube de Microsoft.
  - Si se usa una subred /29, se dividirá en dos /30 subredes. 
 	 - La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
-	 - Para cada uno de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
+	 - Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
 	 - Para que el [contrato de nivel de servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es preciso configurar las dos sesiones BGP.  
 
 #### Ejemplo de configuración entre pares privados
@@ -48,8 +48,8 @@ a.b.c.d/29 se divide en a.b.c.d/30 y a.b.c.d+4/30 y se pasa a Microsoft a travé
 
 Considere el caso en que selecciona 192.168.100.128/29 para configurar el emparejamiento privado. 192.168.100.128/29 incluye direcciones desde 192.168.100.128 hasta 192.168.100.135, entre los que:
 
-- 192.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
-- 192.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
+- 192\.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
+- 192\.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
 
 ### Direcciones IP para configuración de pares públicos de Azure y de Microsoft
 
@@ -176,4 +176,4 @@ Microsoft no admite los valores de las comunidades de BGP que defina. Se requier
 	- [Configuración del enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configuración del enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md)
 	- [Vinculación de una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vinculación de una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
+   ms.date="05/13/2016"
    ms.author="sonyama;barbkess"/>
 
 # Conexión a Almacenamiento de datos SQL con Visual Studio
@@ -22,27 +22,26 @@
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Este tutorial muestra cómo conectarse a una base de datos de Almacenamiento de datos SQL de Azure en solo unos minutos con SQL Server Data Tools (SSDT) en Visual Studio. Una vez conectado, ejecutará una consulta simple.
+Este tutorial le muestra cómo conectarse a un Almacenamiento de datos SQL de Azure en solo unos minutos con la extensión de SQL Server Data Tools (SSDT) en Visual Studio. Una vez conectado, ejecutará una consulta simple.
 
 ## Requisitos previos
 
-+ Base de datos de ejemplo AdventureWorksDW en Almacenamiento de datos SQL. Para crearla, consulte [Creación de una base de datos de Almacenamiento de datos SQL](sql-data-warehouse-get-started-provision.md).
-+ SQL Server Data Tools para Visual Studio Para ver instrucciones y opciones de instalación, consulte [Instalación de Visual Studio y SSDT](sql-data-warehouse-install-visual-studio.md)
++ Datos de ejemplo de AdventureWorksDW en Almacenamiento de datos SQL. Para ello, consulte [Creación de Almacenamiento de datos SQL][].
++ SQL Server Data Tools para Visual Studio Para ver instrucciones y opciones de instalación, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL][]
 
 ## Paso 1: Búsqueda del nombre completo de Azure SQL Server
 
-La base de datos está asociado a un Azure SQL Server. Para conectarse a la base de datos, necesita el nombre completo del servidor (***servername**.database.windows.net*).
+La base de datos del Almacenamiento de datos SQL está asociada a un SQL Server de Azure. Para conectarse a la base de datos, necesita el nombre completo del servidor (***servername**.database.windows.net*).
 
 Para buscar el nombre del servidor completo.
 
-1. Vaya al [Portal de Azure](https://portal.azure.com).
+1. Vaya al [Portal de Azure][].
 2. Haga clic en **Bases de datos SQL** y haga clic en la base de datos a la que desea conectarse. Este ejemplo usa la base de datos de ejemplo AdventureWorksDW.
 3. Busque el nombre del servidor completo:
 
     ![Nombre del servidor completo][1]
 
-## Paso 2: Conexión a la base de datos SQL
-Para obtener la mejor experiencia, use Visual Studio 2015 con la [actualización más reciente de SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+## Paso 2: Conéctese al Almacenamiento de datos SQL
 
 1. Abra Visual Studio 2013 o 2015
 2. Abra el Explorador de objetos de SQL Server. Para ello, seleccione **Ver** > **Explorador de objetos de SQL Server**.
@@ -57,21 +56,18 @@ Para obtener la mejor experiencia, use Visual Studio 2015 con la [actualización
 
     ![Conectar al servidor][4]
 
-    - **Nombre del servidor**. Escriba el *nombre del servidor* definido anteriormente.
-    - **Autenticación**. Seleccione Autenticación de SQL Server.
-    - **Nombre de usuario** y **contraseña**. Escriba el nombre de usuario y la contraseña para Azure SQL Server.
-    - **Nombre de la base de datos**. Escriba el nombre de la base de datos para la base de datos DW de SQL.
+    - **Nombre del servidor**. Escriba el **nombre del servidor** definido anteriormente.
+    - **Autenticación**. Seleccione **Autenticación de SQL Server** o **autenticación integrada de Active Directory**.
+    - **Nombre de usuario** y **contraseña**. Escriba el nombre de usuario y la contraseña si la autenticación de SQL Server se seleccionó anteriormente.
     - Haga clic en **Conectar**.
 
 5. Para explorar, expanda su Azure SQL Server. Puede ver las bases de datos asociadas al servidor. Expanda AdventureWorksDW para ver las tablas de la base de datos de ejemplo.
 
     ![Explorar AdventureWorksDW][5]
 
-> [AZURE.NOTE] Es importante especificar la base de datos de Almacenamiento de datos SQL en el campo **Nombre de la base de datos** en el momento de la conexión (paso 4) para que el árbol de objetos funcione correctamente. Si deja esta opción en blanco y se conecta a la base de datos predeterminada, **master**, es posible que no funcione si algunas de las bases de datos en el servidor lógico están en pausa. Esta limitación terminará por resolverse pero mientras tanto debería conectarse a la base de datos de Almacenamiento de datos SQL para garantizar la función correcta del árbol de explorador de objetos como se ha mostrado.
-
 ## Paso 3: Ejecución de una consulta de ejemplo
 
-Ahora que se ha establecido una conexión a la base de datos, continuemos y escribamos una consulta.
+Ahora que se ha establecido una conexión a la base de datos, pasemos a escribir una consulta.
 
 1. Haga clic con el botón derecho en la base de datos en el Explorador de objetos de SQL Server.
 
@@ -97,8 +93,16 @@ Ahora que se ha establecido una conexión a la base de datos, continuemos y escr
 
 Ahora que puede conectarse y realizar consultas, pruebe a [visualizar los datos con PowerBI][].
 
+Para configurar el entorno para la autenticación de Windows, consulte [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory][].
+
+<!--Arcticles-->
+[Creación de Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
+[Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL]: sql-data-warehouse-install-visual-studio.md
+[Conexión a Base de datos SQL mediante autenticación de Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
 [visualizar los datos con PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 
+<!--Other-->
+[Portal de Azure]: https://portal.azure.com
 
 <!--Image references-->
 
@@ -111,4 +115,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [visualizar los datos 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

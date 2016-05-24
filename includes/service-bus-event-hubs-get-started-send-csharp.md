@@ -4,9 +4,9 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 
 1. En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual C# con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **Remitente**.
 
-   ![][7]
+	![][7]
 
-2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego haga clic en **Administrar paquetes NuGet para la solución**. 
+2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego haga clic en **Administrar paquetes NuGet para la solución**.
 
 3. Haga clic en la pestaña **Examinar** y, después, busque `Microsoft Azure Service Bus`. Asegúrese de que el nombre del proyecto (**Remitente**) se especifica en el cuadro **Versiones**. Haga clic en **Instalar** y acepte las condiciones de uso.
 
@@ -21,7 +21,7 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-5. Agregue los siguientes campos a la clase **Program**; para ello, sustituya los valores del marcador de posición por el nombre del Centro de eventos creado en la sección anterior y la cadena de conexión con derechos de **envío** (la cadena de conexión **SendRule**). Asegúrese de quitar el sufijo `EntityPath` de la cadena de conexión:
+5. Agregue los siguientes campos a la clase **Program**; para ello, sustituya los valores del marcador de posición por el nombre del Centro de eventos creado en la sección anterior y la cadena de conexión de nivel del espacio de nombres que ha guardado anteriormente.
 
 	```
 	static string eventHubName = "{Event Hub name}";
@@ -69,5 +69,3 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-
-<!---HONumber=AcomDC_0413_2016-->
