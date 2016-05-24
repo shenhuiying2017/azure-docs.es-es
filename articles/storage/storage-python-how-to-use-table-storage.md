@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Uso del almacenamiento de tablas de Python | Microsoft Azure"
-	description="Aprenda a usar el servicio Tabla de Azure desde Python para crear y eliminar una tabla e insertar y consultar una tabla."
+	description="Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL."
 	services="storage"
 	documentationCenter="python"
 	authors="emgerner-msft"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="04/29/2016"
 	ms.author="emgerner"/>
 
 
@@ -149,4 +149,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de ta
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

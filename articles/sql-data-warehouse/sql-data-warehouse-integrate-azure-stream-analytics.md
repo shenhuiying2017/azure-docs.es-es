@@ -63,7 +63,7 @@ Escriba estos valores en la página siguiente:
 
 ![][add-database]
 
-### Paso 4
+### Paso 4
 
 Haga clic en el botón de comprobación para agregar esta salida de trabajo y comprobar que Análisis de transmisiones puede conectarse correctamente a la base de datos.
 
@@ -86,8 +86,8 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Article references-->
 
-[Introducción a Análisis de transmisiones de Azure]: stream-analytics-introductiond.md
-[Introducción al uso de Azure Stream Analytics]: stream-analytics-get-started.md
+[Introducción a Análisis de transmisiones de Azure]: ../stream-analytics/stream-analytics-introductiond.md
+[Introducción al uso de Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
 [información general sobre desarrollo de Almacenamiento de datos SQL]: sql-data-warehouse-overview-develop.md
 [Información general de la integración de Almacenamiento de datos SQL]: sql-data-warehouse-overview-integrate.md
 
@@ -96,4 +96,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

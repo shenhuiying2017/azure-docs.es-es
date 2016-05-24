@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="05/09/2016" 
 	ms.author="robinsh"/>
 
 # Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes 
@@ -208,8 +208,8 @@ El analizador de mensajes incluye herramientas del servicio Almacenamiento de Az
 
 1. Descargue el [analizador de mensajes](http://www.microsoft.com/download/details.aspx?id=44226) del Centro de descarga de Microsoft y ejecute el programa de instalación.
 2. Inicie el analizador de mensajes.
-3. En la página **Inicio**, vaya a **Descargas** y filtre por **Almacenamiento de Azure**. Verá las herramientas de Almacenamiento de Azure como se muestra en la imagen de abajo.
-4. Haga clic en **Sync All Displayed Items** (Sincronizar todos los elementos que se muestran) para instalar las herramientas de Almacenamiento de Azure. Tiene disponibles los siguientes recursos: 
+3. En el menú **Herramientas**, seleccione **Administrador de activos**. En el cuadro de diálogo **Administrador de activos**, seleccione **Descargas** y filtre por **Almacenamiento de Azure**. Verá las herramientas de Almacenamiento de Azure como se muestra en la imagen de abajo.
+4. Haga clic en **Sync All Displayed Items** (Sincronizar todos los elementos que se muestran) para instalar las herramientas de Almacenamiento de Azure. Tiene disponibles los siguientes recursos:
 	- **Reglas de color de Almacenamiento Azure:** las reglas de color de Almacenamiento de Azure permiten definir filtros especiales que usan estilos de color, texto y fuente para resaltar los mensajes que contengan información específica en un seguimiento.
 	- **Gráficos de Almacenamiento de Azure:** los gráficos de Almacenamiento de Azure son gráficos predefinidos que en los que se trazan datos de los registro de servidor. Tenga en cuenta que, actualmente, el uso de los gráficos de Almacenamiento de Azure se reduce únicamente a cargar el registro del servidor en la cuadrícula de análisis.
 	- **Analizadores de Almacenamiento de Azure:** los analizadores de Almacenamiento de Azure analizan los registros de cliente, servidor y HTTP del Almacenamiento de Azure para mostrarlos en la cuadrícula de análisis.
@@ -217,7 +217,7 @@ El analizador de mensajes incluye herramientas del servicio Almacenamiento de Az
 	- **Diseños de vista de Almacenamiento Azure:** los diseños de vista de Almacenamiento de Azure son diseños y agrupaciones de columna predefinidos en la cuadrícula de análisis.
 4. Reinicie el analizador de mensajes después de haber instalado estas herramientas.
 
-![Página de inicio del analizador de mensajes](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
+![Administrador de activos del analizador de mensajes](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
 
 > [AZURE.NOTE] Instale todas las herramientas de Almacenamiento de Azure que se muestran para poder realizar este tutorial.
 
@@ -375,4 +375,4 @@ Para más información sobre los escenarios de solución integral de problemas e
  
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

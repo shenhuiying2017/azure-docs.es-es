@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/10/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones Android
@@ -165,7 +165,7 @@ Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante
 
 [AZURE.INCLUDE [Envío de notificaciones desde el portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-## Más recursos
+## Pasos siguientes
 
 Vaya a [SDK de Android](mobile-engagement-android-sdk-overview.md) para obtener información detallada sobre la integración de SDK.
 
@@ -182,4 +182,4 @@ Vaya a [SDK de Android](mobile-engagement-android-sdk-overview.md) para obtener 
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

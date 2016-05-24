@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/18/2016" 
+	ms.date="05/18/2016" 
 	ms.author="andrl"/>
 
 #<a name="_Toc395809351"></a>Tutorial de ASP.NET MVC: Desarrollo de una aplicación web con DocumentDB
@@ -30,7 +30,7 @@ Para resaltar cómo puede aprovechar eficazmente Azure DocumentDB para almacenar
 
 ![Captura de pantalla de la aplicación web MVC de lista ToDo creada por este tutorial: tutorial ASP NET MVC paso a paso](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
-Este tutorial muestra cómo utilizar el servicio de DocumentDB proporcionado por Azure para almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Azure.
+Este tutorial muestra cómo utilizar el servicio de DocumentDB proporcionado por Azure para almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Azure. Si busca un tutorial que se centre solo en DocumentDB, no en los componentes de ASP.NET MVC, consulte [Tutorial de NoSQL: Crear una aplicación de consola de C# DocumentDB](documentdb-get-started.md).
 
 > [AZURE.TIP] En este tutorial se supone que tiene experiencia previa con ASP.NET MVC y Sitios web Azure. Si no está familiarizado con ASP.NET o con las [herramientas de requisitos previos](#_Toc395637760), le recomendamos que descargue el proyecto de ejemplo completo de [GitHub][] y siga las instrucciones de este ejemplo. Una vez compilado, puede revisar este artículo para obtener información sobre el código en el contexto del proyecto.
 
@@ -101,9 +101,9 @@ Ahora que ya tenemos la mayoría de los mecanismos de ASP.NET MVC que necesitamo
 
 	Aparecerá el cuadro de diálogo **Administrar paquetes de NuGet**.
 
-2. En el cuadro **Buscar en línea**, escriba ***Azure DocumentDB***.
+2. En el cuadro **Examinar** de NuGet, escriba ***Azure DocumentDB***.
 	
-	En los resultados, instale el paquete **Biblioteca de cliente de Microsoft Azure DocumentDB**. De esta manera se descarga e instala el paquete de DocumentDB además de todas las dependencias, como Newtonsoft.Json.
+	En los resultados, instale el paquete **Biblioteca de cliente de Microsoft Azure DocumentDB**. De esta manera se descarga e instala el paquete de DocumentDB además de todas las dependencias, como Newtonsoft.Json. Haga clic en **Aceptar** en el ventana **Vista previa** y **Acepto** en la ventana **Aceptación de licencia** para completar la instalación.
 
   	![Captura de pantalla de la ventana Administrar paquetes de NuGet, con la biblioteca de cliente de Microsoft Azure DocumentDB resaltada](./media/documentdb-dotnet-application/nuget.png)
 
@@ -391,6 +391,10 @@ Lo primero que debe hacerse es agregar una clase que contenga toda la lógica pa
 			return View(items);
 		}
 	
+7. Abra **Global.asax.cs** y agregue la siguiente línea al método **Application\_Start**
+ 
+		DocumentDBRepository<todo.Models.Item>.Initialize();
+	
 En este punto, la solución debe ser capaz de compilar sin errores.
 
 Si ejecuta la aplicación ahora, irá a **HomeController** y a la vista de **índice** de ese controlador. Este es el comportamiento predeterminado para el proyecto de plantillas MVC que seleccionamos al comienzo, pero no queremos eso. Cambiemos el enrutamiento en esta aplicación MVC para modificar este comportamiento.
@@ -587,4 +591,4 @@ Para agregar la funcionalidad adicional a la aplicación, revise las API disponi
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

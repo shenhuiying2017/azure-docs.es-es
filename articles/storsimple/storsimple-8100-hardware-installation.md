@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Instalación del dispositivo StorSimple 8100 | Microsoft Azure"
    description="Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100 antes de implementar y configurar el software."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100.
@@ -33,12 +33,12 @@ Antes de desempaquetar el dispositivo, revise la información siguiente.
 
 1. Asegúrese de que haya dos personas disponibles para administrar el peso del revestimiento de hardware si lo está manejando de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 1. Coloque la caja en una superficie plana y nivelada.
- 
+
 A continuación, complete los pasos siguientes para desempaquetar el dispositivo.
 
 #### Para desempaquetar el dispositivo
 
-1. Compruebe si la caja y la espuma del embalaje presentan golpes, cortes, daños por agua o cualquier otro daño evidente. Si la caja o el embalaje están muy dañados, no abra la caja. [Póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para ayudarle a determinar si el dispositivo está en buen estado. 
+1. Compruebe si la caja y la espuma del embalaje presentan golpes, cortes, daños por agua o cualquier otro daño evidente. Si la caja o el embalaje están muy dañados, no abra la caja. [Póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para ayudarle a determinar si el dispositivo está en buen estado.
 
 2. Desempaquete la caja. En la siguiente imagen se muestra el dispositivo StorSimple desempaquetado.
 
@@ -46,7 +46,7 @@ A continuación, complete los pasos siguientes para desempaquetar el dispositivo
 
     **Vista del dispositivo de almacenamiento desempaquetado**
 
-     Etiqueta | Descripción 
+     Etiqueta | Descripción
      ----- | -------------
      1 | Caja de embalaje
      2 | Espuma inferior
@@ -73,9 +73,12 @@ El paso siguiente es el montaje en bastidor del dispositivo.
 
 ## Montaje en bastidor del dispositivo StorSimple 8100
 
-Siga los pasos siguientes para instalar el dispositivo de almacenamiento StorSimple 8100 en un bastidor de 19 pulgadas estándar con postes delanteros y traseros. El dispositivo StorSimple 8100 tiene un único alojamiento principal.
+Siga los pasos que aparecen a continuación para instalar el dispositivo de almacenamiento StorSimple 8100 en un bastidor de 19 pulgadas estándar con postes delanteros y traseros. El dispositivo StorSimple 8100 tiene un único alojamiento principal.
 
 La instalación consta de varios pasos, cada uno de los cuales se explica en los procedimientos siguientes.
+
+> [AZURE.IMPORTANT]
+Los dispositivos StorSimple deben estar montados en un bastidor para funcionar correctamente.
 
 ### Preparación de la ubicación
 
@@ -90,7 +93,7 @@ El dispositivo debe instalarse en un bastidor estándar de 19 pulgadas con poste
 3. Asegúrese de que haya disponible una ranura 2U en el bastidor en el que desea montar el dispositivo.
 
 ![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **ADVERTENCIA**
- 
+
 Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si está instalando el dispositivo de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 
 ### Requisitos previos del bastidor
@@ -110,17 +113,14 @@ Se proporciona un conjunto de guías de montaje para utilizar con el armario de 
 
 2. Realice este paso únicamente si las guías internas no están instaladas en el dispositivo. Normalmente, las guías internas vienen instaladas de fábrica. En caso contrario, instale las guías del lado izquierdo y derecho en los laterales del chasis del receptáculo. Estas se instalan mediante seis tornillos métricos en cada lado. Para ayudarle con la orientación, las guías disponen de las marcas **LH – Front** y **RH – Front**, y el extremo que se fija en la parte trasera del receptáculo tiene un extremo ahusado.<br/>
 
-    ![Fijación de las guías al chasis del receptáculo](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Fijación de las guías al chasis del receptáculo](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) **Fijación de guías internas a los laterales de la caja**
 
-   **Fijación de guías internas a los laterales de la caja**
+	 Etiqueta | Descripción
+       ----- | -----------
+     1 | Tornillos de cabeza de botón M 3 x 4
+     2 | Guías de chasis
 
-    	Label | Description
-    	----- | -----------
-    	1     | M 3x4 button-head screws
-   		2     | Chassis slides
-
-
-3. Instale los ensamblajes de las guías del lado izquierdo y derecho exteriores en los miembros verticales del armario del bastidor. Los soportes presentan las marcas **LH**, **RH** y **This side up** para guiarle a la hora de efectuar la orientación correcta. 
+3. Instale los ensamblajes de las guías del lado izquierdo y derecho exteriores en los miembros verticales del armario del bastidor. Los soportes presentan las marcas **LH**, **RH** y **This side up** para guiarle a la hora de efectuar la orientación correcta.
 
 4. Busque los pasadores de la guía en la parte frontal y trasera del soporte de la guía. Extienda la guía para ajustarla entre los postes del bastidor e inserte los pasadores en los orificios del miembro vertical del poste del bastidor delantero y trasero. Asegúrese de que el soporte de la guía esté nivelado.
 
@@ -147,7 +147,7 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
 
 #### Para montar el dispositivo
 
-1. Con la ayuda de otra persona, levante el receptáculo y alinéelo con las guías del bastidor. 
+1. Con la ayuda de otra persona, levante el receptáculo y alinéelo con las guías del bastidor.
 
 2. Inserte cuidadosamente el dispositivo en las guías y, a continuación, empuje el dispositivo completamente en el armario del bastidor.<br/>
 
@@ -163,7 +163,7 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
 4. Presione los topes de las bridas en su posición para ajustarlos.<br/>
 
      ![Instalación de los topes de las bridas](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
- 
+
     **Instalación de los topes de las bridas**
 
      Etiqueta | Descripción
@@ -218,7 +218,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
     ![Panel posterior del dispositivo 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
     **Parte posterior del dispositivo en la que se muestran los puertos de datos**
- 
+
      Etiqueta | Descripción
      ------- | -----------
      0,1,4,5 | Interfaces de red de 1 GbE
@@ -227,12 +227,12 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
 2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. La configuración adicional requerida para alta disponibilidad y rendimiento se muestra mediante líneas de puntos.
 
-		
+
     ![Colocación del cable de red del dispositivo 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
     **Cables de red del dispositivo**
 
-   
+
 	|Etiqueta | Descripción |
     |----- | ----------- |
     | Encontrará | LAN con acceso a Internet |
@@ -244,34 +244,34 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
     | 0-5 | Interfaces de red |
 
 
-	
+
 Cuando se realiza el cableado del dispositivo, la configuración mínima requiere:
 
 
 - Al menos dos interfaces de red conectadas en cada controlador con una para el acceso a la nube y otra para iSCSI. El puerto DATA 0 se habilita y configura automáticamente mediante la consola serie del dispositivo. Además del puerto DATA 0, también es necesario configurar otro puerto de datos a través del Portal de Azure clásico. En este caso, conecte el puerto DATA 0 a la LAN principal (red con acceso a Internet). Los demás puertos de datos pueden conectarse al segmento de la LAN SAN/iSCSI (VLAN) de la red, dependiendo del rol deseado.
 
 - Interfaces idénticas en cada controlador conectadas a la misma red para garantizar la disponibilidad si se produce conmutación por error en un controlador. Por ejemplo, si decide conectar los puertos DATA 0 y DATA 3 para uno de los controladores, necesitará conectar los puertos DATA 0 y DATA 3 correspondientes en el otro controlador.
-	
+
 Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
 
-- Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador. 
+- Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador.
 
 - Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos.
 
 Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE] Si usa SFP y los transceptores con las interfaces de red de 10 GbE, use los adaptadores QSFP-SFP proporcionados. Puede encontrar más información en [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
-    
+>[AZURE.NOTE] Si usa SFP y los transceptores con las interfaces de red de 10 GbE, use los adaptadores QSFP-SFP proporcionados. Para más información, vaya a [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-   
+
+
 ### Cableado del puerto serie
 
 Realice los pasos siguientes para pasar el cable del puerto serie.
 
 #### Colocación de los cables de conexión en serie
 
-1. El dispositivo tiene un puerto serie en cada controlador que se identifica mediante un icono de una llave inglesa. Consulte la ilustración de la sección [Cables de red](#network-cabling) para buscar los puertos serie en el plano anterior del dispositivo. 
+1. El dispositivo tiene un puerto serie en cada controlador que se identifica mediante un icono de una llave inglesa. Consulte la ilustración de la sección [Cables de red](#network-cabling) para buscar los puertos serie en el plano anterior del dispositivo.
 
 2. Identifique el controlador activo en la placa posterior del dispositivo. Un LED que parpadeará en azul indica que el controlador está activo.
 
@@ -289,6 +289,6 @@ Ahora su dispositivo dispondrá de los cables de alimentación, de acceso a la r
 
 ## Pasos siguientes
 
-Obtenga información sobre cómo [implementar y configurar el dispositivo local StorSimple](storsimple-deployment-walkthrough.md).
+Aprenda cómo [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

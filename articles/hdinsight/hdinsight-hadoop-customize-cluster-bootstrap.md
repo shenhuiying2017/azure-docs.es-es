@@ -33,6 +33,9 @@ Los clústeres no pueden conservar los cambios debido a la recreación de imáge
 Hay tres maneras de usar bootstrap:
 
 - Uso de Azure PowerShell
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+    
 - Uso del SDK de .NET
 - Uso de una plantilla de ARM
 
@@ -66,14 +69,14 @@ El siguiente código de PowerShell personaliza una configuración de Hive:
 		-HttpCredential $httpCredential `
 		-Config $config 
 
-En el [Apéndice A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample) se puede encontrar un script de PowerShell completamente en uso.
+En el [Anexo A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample) se puede encontrar un script de PowerShell completamente en uso.
 
 **Para comprobar el cambio:**
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. En el panel izquierdo, haga clic en **Examinar** y luego haga clic en **Clústeres de HDInsight**.
 3. Haga clic en el clúster que acaba de crear mediante el script de PowerShell.
-4. Haga clic en **Panel** desde la parte superior de la hoja para abrir la IU de Ambari.
+4. Haga clic en el **Panel** desde la parte superior de la hoja para abrir la IU de Ambari.
 5. Haga clic en **Hive** en el menú izquierdo.
 6. Haga clic en **HiveServer2** en **Summary** (Resumen).
 7. Seleccione la pestaña **Configs** (Configuraciones).
@@ -249,4 +252,4 @@ Este script de PowerShell crea un clúster de HDInsight y personaliza una config
 
     #endregion
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

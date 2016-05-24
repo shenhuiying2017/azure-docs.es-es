@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="05/05/2016"
 	ms.author="danlep"/>
 
-# Comandos de la CLI de Azure en el modo de Azure Resource Manager (ARM)
+# Comandos de la CLI de Azure en el modo de Resource Manager
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-machines-command-line-tools.md).
 
@@ -1796,7 +1796,9 @@ Opciones de parámetro:
 
 **Crear una máquina virtual con los recursos predeterminados**
 
-	vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>
+    vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
+    
+>[AZURE.TIP]A partir de CLI versión 0.10, puede proporcionar un alias corto como "UbuntuLTS" o "Win2012R2Datacenter" como `image-urn` para algunas imágenes populares de Marketplace. Ejecute `azure help vm quick-create` para ver las opciones. Además, desde la versión 0.10, `azure vm quick-create` utiliza Almacenamiento premium de forma predeterminada, si está disponible en la región seleccionada.
 
 **Mostrar las máquinas virtuales dentro de una cuenta**
 
@@ -1872,4 +1874,4 @@ Opciones de parámetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

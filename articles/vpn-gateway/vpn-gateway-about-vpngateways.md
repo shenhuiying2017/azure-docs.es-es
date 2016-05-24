@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Acerca de las puertas de enlace de VPN para la conectividad entre entornos locales en redes virtuales | Microsoft Azure"
-   description="Obtenga información acerca de las puertas de enlace de VPN, que se pueden usar en conexiones locales de sitio a sitio para configuraciones híbridas, en conexiones entre redes virtuales y en conexiones de punto a sitio."
+   pageTitle="Acerca de Puerta de enlace de VPN | Microsoft Azure"
+   description="Obtenga información acerca de Puerta de enlace de VPN para Red virtual de Azure."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/18/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc" />
 
-# Información acerca de las puertas de enlace de VPN
+# Acerca de Puerta de enlace de VPN
 
-Las puertas de enlace de VPN, también llamadas puertas de enlace de red virtual de Azure, se usan para enviar tráfico de red entre las redes virtuales y las ubicaciones locales. También se usan para enviar el tráfico entre varias redes virtuales dentro de Azure (red virtual a red virtual). Las secciones siguientes describen los elementos relacionados con una puerta de enlace de VPN.
+La puerta de enlace de VPN se utiliza para enviar tráfico de red entre redes virtuales y ubicaciones locales. También se usa para enviar el tráfico entre varias redes virtuales dentro de Azure (red virtual a red virtual). Las secciones siguientes describen los elementos relacionados con Puerta de enlace de VPN.
 
 Las instrucciones que se usan para crear la puerta de enlace de VPN dependerán del modelo de implementación usado para crear la red virtual. Por ejemplo, si la red virtual se creó con el modelo de implementación clásica, usará las instrucciones y directrices del modelo de implementación clásica para crear y configurar la puerta de enlace de VPN. No se puede crear una puerta de enlace de VPN de Resource Manager para una red virtual del modelo de implementación clásica.
 
@@ -39,6 +39,7 @@ El ejemplo siguiente muestra una subred de puerta de enlace con el nombre Gatewa
 
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 
+>[AZURE.IMPORTANT] Asegúrese de que la GatewaySubnet no tiene un grupo de seguridad de red (NSG) aplicado, ya que esto puede causar errores en las conexiones.
 
 ## <a name="gwtype"></a>Tipos de puerta de enlace
 
@@ -48,7 +49,7 @@ El tipo de puerta de enlace especifica cómo se conecta la puerta de enlace y es
 - ExpressRoute
 
 
-Este ejemplo del modelo de implementación de Resource Manager especifica -GatewayType como *Vpn*. Al crear una puerta de enlace, debe asegurarse de que el tipo de puerta de enlace es el correcto para su configuración.
+Este ejemplo del modelo de implementación de Resource Manager especifica GatewayType como *Vpn*. Al crear una puerta de enlace, debe asegurarse de que el tipo de puerta de enlace es el correcto para su configuración.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -60,11 +61,11 @@ Cuando se crea una puerta de enlace de VPN, debe especificar la SKU de puerta de
 - Standard
 - HighPerformance
 
-El ejemplo siguiente especifica `-GatewaySku` como *Standard*.
+El ejemplo siguiente especifica `-GatewaySku` como *Estándar*.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
 
-### Rendimiento agregado estimado por tipo de SKU y de puerta de enlace
+###  <a name="aggthroughput"></a>Rendimiento agregado estimado por tipo de SKU y de puerta de enlace
 
 
 La tabla siguiente muestra los tipos de puerta de enlace y el rendimiento agregado estimado. Los precios difieren entre las SKU de puerta de enlace. Para obtener información acerca de los precios, consulte [Precios de puertas de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
@@ -73,7 +74,9 @@ La tabla siguiente muestra los tipos de puerta de enlace y el rendimiento agrega
 
 ## <a name="vpntype"></a>Tipos de VPN
 
-Cada configuración requiere un tipo específico de VPN para funcionar. Si combina dos configuraciones, como la creación de una conexión de sitio a sitio y una conexión de punto a sitio a la misma red virtual, debe usar un tipo de VPN que cumpla ambos requisitos de conexión. En el caso de las conexiones de punto a sitio y de sitio a sitio coexistentes, debe usar un tipo de VPN basado en la ruta cuando se trabaja con el modelo de implementación de Resource Manager, o una puerta de enlace dinámica si trabaja con el modo de implementación clásica.
+Cada configuración requiere un tipo específico de VPN para funcionar. Si combina dos configuraciones, como la creación de una conexión de sitio a sitio y una conexión de punto a sitio a la misma red virtual, debe usar un tipo de VPN que cumpla ambos requisitos de conexión.
+
+En el caso de las conexiones de punto a sitio y de sitio a sitio coexistentes, debe usar un tipo de VPN basado en la ruta cuando se trabaja con el modelo de implementación de Resource Manager, o una puerta de enlace dinámica si trabaja con el modo de implementación clásica.
 
 Al crear la configuración, seleccione el tipo de VPN que se requiere para la conexión.
 
@@ -115,14 +118,14 @@ En el ejemplo siguiente verá cómo se especifica una puerta de enlace de red lo
 
 ### Modificar prefijos de dirección: implementación clásica
 
-Si necesita modificar los sitios locales al usar el modelo de implementación clásica, en este momento puede usar la página de configuración Redes locales en el portal clásico, o modificar directamente el archivo de configuración de red NETCFG.XML.
+Si necesita modificar los sitios locales al usar el modelo de implementación clásica, puede usar la página de configuración Redes locales en el portal clásico, o modificar directamente el archivo de configuración de red NETCFG.XML.
 
 
-## Dispositivos VPN
+##  <a name="devices"></a> Dispositivos VPN
 
 Debe asegurarse de que el dispositivo VPN que planea usar admite el tipo de VPN necesario para la configuración. Para más información acerca de los dispositivos VPN compatibles, consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
 
-## Requisitos de las puertas de enlace
+##  <a name="requirements"></a>Requisitos de las puertas de enlace
 
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
@@ -138,4 +141,4 @@ Consulte el artículo [Preguntas más frecuentes sobre la puerta de enlace de VP
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

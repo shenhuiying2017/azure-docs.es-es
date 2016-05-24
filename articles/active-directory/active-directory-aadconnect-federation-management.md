@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Administración y personalización de AD FS con Azure AD Connect | Microsoft Azure"
+	pageTitle="Servicios de federación de Active Directory y personalización con Azure AD Connect | Microsoft Azure"
 	description="Administración de AD FS con Azure AD Connect y personalización del inicio de sesión de AD FS del usuario con Azure AD Connect y PowerShell."
 	services="active-directory"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/04/2016"
 	ms.author="anandy"/>
 
-# Administración y personalización de AD FS con Azure AD Connect
+# Servicios de federación de Active Directory y personalización con Azure AD Connect
 
-En este artículo se describen diversas tareas relacionadas con AD FS que se pueden realizar con Azure AD Connect y otras tareas comunes de AD FS que pueden ser necesarias para la configuración completa de una granja de servidores de AD FS.
+En este artículo se describen diversas tareas relacionadas con los Servicios de federación de Active Directory (AD FS) que se pueden realizar con Azure AD Connect y otras tareas comunes de AD FS que pueden ser necesarias para la configuración completa de una granja de servidores de AD FS.
 
 ## Administración de AD FS
 
@@ -84,9 +84,9 @@ Haga clic en Siguiente y recorra la página de configuración final. Una vez que
 
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### Incorporación de un nuevo servidor WAP de AD FS
+### Incorporación de un nuevo servidor proxy de aplicación web de AD FS
 
-> [AZURE.NOTE] Azure AD Connect requiere el archivo de certificado PFX para agregar un servidor WAP. Por lo tanto, podrá realizar esta operación solamente si ha configurado la granja de servidores de AD FS con Azure AD Connect.
+> [AZURE.NOTE] Azure AD Connect requiere el archivo de certificado PFX para agregar un servidor proxy de aplicación web. Por lo tanto, podrá realizar esta operación solamente si ha configurado la granja de servidores de AD FS con Azure AD Connect.
 
 Seleccione **Implementar proxy de aplicación web** en la lista de tareas disponibles.
 
@@ -102,7 +102,7 @@ A continuación, verá la página **Especificar el certificado SSL**, donde debe
 
 ![](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
 
-En la siguiente página, incluya el servidor que se agregará como WAP. Como el servidor WAP puede estar unido al dominio o no, se le pedirán credenciales administrativas para el servidor que se va a agregar.
+En la siguiente página, incluya el servidor que se agregará como proxy de aplicación web. Como el servidor proxy de aplicación web puede estar unido al dominio o no, se le pedirán credenciales administrativas para el servidor que se va a agregar.
 
 ![](media\active-directory-aadconnect-federation-management\WapServer5.PNG)
 
@@ -138,7 +138,7 @@ En la siguiente página del asistente, aparecerá una lista de dominios de Azure
 
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain4.PNG)
 
-Después de elegir el dominio, se le proporcionará información adecuada sobre otras acciones que el asistente vaya a llevar a cabo y cómo afectarán a la configuración. En algunos casos, si selecciona un dominio que aún no esté comprobado en Azure AD, se le proporcionará información para ayudarlo a comprobarlo. Consulte [Incorporación y comprobación de un nombre de dominio personalizado en Azure Active Directory](active-directory-add-domain-add-verify-general.md) para ver más detalles sobre cómo comprobar el dominio.
+Después de elegir el dominio, se le proporcionará información adecuada sobre otras acciones que el asistente vaya a llevar a cabo y cómo afectarán a la configuración. En algunos casos, si selecciona un dominio que aún no esté comprobado en Azure AD, se le proporcionará información para ayudarlo a comprobarlo. Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](active-directory-add-domain.md) para ver más detalles sobre cómo comprobar el dominio.
 
 Haga clic en Siguiente y en la página **Listo para configurar** se mostrará la lista de acciones que realizará Azure AD Connect. Haga clic en Instalar para finalizar la configuración.
 
@@ -191,7 +191,10 @@ Además, al usar "add" y no "issue", no se tiene que agregar una emisión de sal
 
 Esta regla simplemente define un marcador temporal "idflag", que se establece en "useguid" si no hay ningún atributo ms-ds-consistencyguid rellenado para el usuario. Esto se debe a que ADFS no admite notificaciones vacías. Por tanto, cuando se agregan las notificaciones http://contoso.com/ws/2016/02/identity/claims/objectguid y http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid en la regla 1, solo terminará con la notificación msdsconsistencyguid si se rellena el valor para el usuario. Si no se rellena, ADFS considera que aparecerá como valor vacío y lo elimina directamente. Como sabe, todos los objetos tendrán el atributo objectGuid, así que esa notificación seguirá estando después de que se ejecute la regla 1.
 
-**Regla 3: emitir ms-ds-consistencyguid como identificador inmutable si está presente** c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
+**Regla 3: emitir ms-ds-consistencyguid como identificador inmutable si está presente**
+
+    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"]
+    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
 Se trata de una comprobación EXIST implícita. Si el valor de la notificación existe, emítalo como identificador inmutable. Observe que estoy emitiendo la notificación nameidentifier. Tendrá que cambiar este valor al tipo de notificación adecuado para un identificador inmutable en su entorno.
 
@@ -205,4 +208,35 @@ En esta regla simplemente se va a comprobar la marca temporal "idflag" y, según
 
 > [AZURE.NOTE] La secuencia de estas reglas es importante.
 
-<!---HONumber=AcomDC_0427_2016-->
+#### SSO con un UPN de subdominio
+
+Puede agregar más de un dominio para federarlo mediante Azure AD Connect ([Incorporación de un nuevo dominio federado](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain)). La notificación de UPN deberá modificarse para que el identificador de emisor se corresponda con el dominio raíz y no con el subdominio ya que el dominio raíz federado cubre también el elemento secundario.
+
+De forma predeterminada, la regla de notificaciones para el identificador de emisor se establece como:
+
+	c:[Type 
+	== “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+![Notificación del identificador de emisor predeterminado](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
+
+La regla predeterminada simplemente toma el sufijo UPN y lo utiliza en la notificación de identificador del emisor. Por ejemplo, John es un usuario de sub.contoso.com y contoso.com está federado con Azure AD. John entra en john@sub.contoso.com como nombre de usuario al iniciar sesión en Azure AD y, a continuación, la regla predeterminada de notificaciones de identificador de emisor en AD FS lo controlará de la siguiente manera:
+
+c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+**Valor de notificación:** http://sub.contoso.com/adfs/services/trust/
+
+Para tener solo el dominio raíz en el valor de notificación del emisor, cambie la regla de notificaciones a:
+
+	c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+
+## Pasos siguientes
+
+Obtenga más información sobre las [opciones de inicio de sesión del usuario](active-directory-aadconnect-user-signin.md)
+
+<!---HONumber=AcomDC_0511_2016-->

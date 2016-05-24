@@ -4,7 +4,7 @@
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/01/2016" 
+	ms.date="04/26/2016" 
 	ms.author="ddove;sidneyh" />
 
-# Actualización a la última biblioteca de clientes de base de datos elástica
+# Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente
 
-Hay nuevas versiones disponibles de la [biblioteca de clientes de Base de datos elástica](sql-database-elastic-database-client-library.md) a través de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) y de la interfaz del Administrador de paquetes de NuGet en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
+Las nuevas versiones de la [biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md) están disponibles a través de NuGet y de la interfaz del Administrador de paquetes NuGet en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
+
+[Para obtener la última versión](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/): vaya a **Microsoft.Azure.SqlDatabase.ElasticScale.Client**.
 
 Vuelve a generar la aplicación con la nueva biblioteca, así como cambiar los metadatos de administrador de asignación de particiones existentes almacenados en sus bases de datos SQL de Azure para admitir nuevas características.
 
@@ -39,7 +41,7 @@ Al realizar estos pasos de actualización en orden se asegura de que las version
 
 **3. Actualice el servicio de división y combinación.** Si usa la herramienta de división y combinación de base de datos elástica para reorganizar datos particionados, [descargue e implemente la versión más reciente de la herramienta](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Puede encontrar pasos detallados para la actualización del servicio [aquí](sql-database-elastic-scale-overview-split-and-merge.md).
 
-**4. Actualice sus bases de datos de administrador de asignación de partición**. Actualice los metadatos compatibles con sus asignaciones de partición en la base de datos SQL de Azure. Hay dos maneras de hacerlo, mediante PowerShell o C#. Ambas opciones se muestran a continuación.
+**4. Actualice las bases de datos de Shard Map Manager **. Actualice los metadatos compatibles con sus asignaciones de partición en la base de datos SQL de Azure. Hay dos maneras de hacerlo, mediante PowerShell o C#. Ambas opciones se muestran a continuación.
 
 ***Opción 1: actualizar los metadatos mediante PowerShell***
 
@@ -74,20 +76,7 @@ Estas técnicas para las actualizaciones de metadatos se pueden aplicar varias v
 
 ## Historial de versiones de cliente de base de datos elástica 
 
-**Versión 1.0: abril de 2015**
-
-* Versión de disponibilidad general
-* Se ha agregado compatibilidad para los tipos de fecha y hora como claves de particionamiento
-
-**Versión 0.8: marzo de 2015**
-
-* Compatibilidad de Async agregada para el enrutamiento según los datos con los nuevos métodos ShardMap.OpenConnectionForKeyAsync. 
-* Propiedad KeyType pública agregada a ShardMap 
-* Mejoras agregadas de compatibilidad con escenarios de recuperación ante desastres y restauración de base de datos para particiones 
-
-**Versión 0.7: octubre de 2014**
-
-Versión inicial de vista previa
+Para el historial de versiones: vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -97,4 +86,4 @@ Versión inicial de vista previa
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

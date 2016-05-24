@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/10/2016" 
+	ms.date="04/26/2016" 
 	ms.author="larryfr"/>
 
 #Uso de Python con Hive y Pig en HDInsight
@@ -226,6 +226,8 @@ Después de cargar los archivos, siga los pasos siguientes para ejecutar los tra
 
 En estos pasos que se usa Azure PowerShell. Si aún no está instalado y configurado en su máquina de desarrollo, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) antes de realizar los siguientes pasos.
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 1. Mediante los ejemplos de Python [streaming.py](#streamingpy) y [jython.py](#jythonpy), cree copias locales de los archivos en su máquina de desarrollo.
 
 2. Utilice el siguiente script de PowerShell para cargar los archivos **streaming.py** y **jython.py** en el servidor. Sustituya el nombre del clúster de HDInsight de Azure y la ruta de acceso a los archivos **streaming.py** y **jython.py** en las tres primeras líneas del script.
@@ -409,7 +411,7 @@ Al ejecutar el trabajo de Hive, es posible que se produzca un error similar al s
     
 Este problema puede deberse a los finales de línea del archivo streaming.py. De forma predeterminada, muchos editores de Windows usan CRLF como final de línea, pero las aplicaciones Linux normalmente esperan caracteres LF.
 
-Si tiene un editor que no puede crear finales de línea LF, o bien no está seguro qué finales de línea usa, siga las siguientes instrucciones de PowerShell para quitar los caracteres CR antes de cargar el archivo en HDInsight:
+Si tiene un editor que no puede crear finales de línea LF, o bien no está seguro de qué finales de línea usa, lea las siguientes instrucciones de PowerShell para quitar los caracteres CR antes de cargar el archivo en HDInsight:
 
     $original_file ='c:\path\to\streaming.py'
     $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
@@ -447,4 +449,4 @@ Para conocer otras formas de usar Pig y Hive, y para obtener información sobre 
 
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Centros de eventos
@@ -51,7 +51,7 @@ Diagnósticos de Azure siempre inserta registros y métricas, de forma predeterm
 
 En este ejemplo, la URL del centro de eventos se establece en el espacio de nombres completo del centro de eventos (espacio de nombres de ServiceBus + "/" + nombre del centro de eventos).
 
-La URL del centro de eventos se muestra en el [Portal de Azure clásico](https://manage.windowsazure.com) en el panel de Centros de eventos.
+La URL del centro de eventos se muestra en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) en el panel de Centros de eventos.
 
 El nombre **Sink** se puede establecer en cualquier cadena válida siempre y cuando se use el mismo valor sistemáticamente en el archivo de configuración.
 
@@ -295,4 +295,4 @@ El archivo *ServiceConfiguration.Cloud.cscfg* complementario para este ejemplo s
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

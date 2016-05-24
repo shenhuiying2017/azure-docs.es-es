@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/06/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Inserción de un informe de Power BI con un iframe
@@ -180,10 +180,44 @@ function postActionLoadReport() {
     iframe.contentWindow.postMessage(message, "*");
 }
 ```
+Cuando tenga un informe insertado en la aplicación, puede filtrar el informe. La sección siguiente le muestra cómo filtrar un informe mediante una sintaxis de dirección URL.
+
+## Filtro de un informe
+
+Puede filtrar un informe incrustado mediante una sintaxis de dirección URL. Para ello, agregue un parámetro de cadena de consulta a la dirección URL de src de iFrame con el filtro especificado. También puede **filtrar por un valor** y **ocultar el panel de filtro**.
+
+
+**Filtrar por un valor**
+
+Para filtrar por un valor, utilice una sintaxis de consulta de **$filter** con un operador **eq** como sigue:
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-...-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
+```
+
+Por ejemplo, puede filtrar por la cadena del almacén 'Lindseys'. La parte de filtro de la dirección URL tendría el siguiente aspecto:
+
+```
+$filter=Store/Chain%20eq%20'Lindseys'
+```
+
+> [AZURE.NOTE] {tableName/fieldName} no puede incluir espacios ni caracteres especiales. {fieldValue} acepta un único valor de categoría.
+
+**Ocultar el panel de filtro**
+
+Para ocultar el **panel de filtro**, agregue **filterPaneEnabled** a la cadena de consulta del informe como sigue:
+
+```
+&filterPaneEnabled=false
+```
+
+## Conclusión
 
 En este artículo, se le ha presentado el código para integrar un informe de **Power BI** en la aplicación. Para empezar rápidamente a integrar un informe en una aplicación, descargue estos ejemplos en GitHub:
 
-- [Integrate a report with an IFrame sample](https://github.com/Azure-Samples/power-bi-embedded-iframe) (Ejemplo de integración de un informe con un objeto IFrame)
+- [Integrate a report with an IFrame sample (Ejemplo de integración de un informe con un objeto IFrame)](https://github.com/Azure-Samples/power-bi-embedded-iframe)
 - [Aplicación web de panel de ejemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## Otras referencias
@@ -194,4 +228,4 @@ En este artículo, se le ha presentado el código para integrar un informe de **
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,15 +1,15 @@
 <properties 
-   authors="danielceckert" 
+   authors="jimdial" 
    documentationCenter="dev-center-name" 
    editor=""
-   manager="jefco" 
+   manager="carmonm" 
    pageTitle="Administrar: Tiempo de espera de inactividad del equilibrador de carga" 
    description="Características de administración para el tiempo de espera de inactividad del equilibrador de carga de Azure" 
    services="virtual-network" 
    />
 
 <tags
-   ms.author="danecke"
+   ms.author="jdial"
    ms.date="09/01/2015"
    ms.devlang="na"
    ms.service="virtual-network"
@@ -152,4 +152,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

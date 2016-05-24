@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Uso del almacenamiento de tablas de Java | Microsoft Azure"
-	description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de código están escritos en código Java."
+	description="Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -564,4 +564,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [Tablas de Azure: Introducción a Upsert y proyección de consultas]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [Tablas de Azure: Introducción de Upsert y proyección de consultas]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

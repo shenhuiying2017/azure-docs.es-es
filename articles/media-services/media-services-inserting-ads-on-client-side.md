@@ -21,7 +21,7 @@
 
 Este tema contiene información sobre cómo insertar distintos tipos de anuncios en el lado del cliente.
 
-Para obtener información acerca de la compatibilidad con anuncios y subtítulos en vídeos de streaming en vivo, consulte [Estándares de inserción de anuncios y subtítulos compatibles](media-services-manage-channels-overview.md#cc_and_ads).
+Para obtener información acerca de la compatibilidad con anuncios y subtítulos en vídeos de streaming en vivo, consulte [Estándares de inserción de anuncios y subtítulos compatibles](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
 >[AZURE.NOTE] Actualmente, el Reproductor multimedia de Azure no admite anuncios.
 
@@ -813,4 +813,4 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
 
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

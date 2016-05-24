@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Tener acceso a Máquinas virtuales de Azure desde el Explorador de servidores
@@ -27,7 +27,7 @@ Si tiene máquinas virtuales hospedadas por Azure, puede acceder a ellas en el E
 
 1. En el Explorador de servidores, elija una máquina virtual y, a continuación, presione la tecla F4 para mostrar su ventana de propiedades.
 
-    La siguiente tabla muestra las propiedades que están disponibles, pero son todas de solo lectura. Para cambiarlas, use el Portal de administración.
+    La siguiente tabla muestra las propiedades que están disponibles, pero son todas de solo lectura. Utilizar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) para cambiarlas.
 
   	|Propiedad|Descripción|
   	|---|---|
@@ -35,12 +35,12 @@ Si tiene máquinas virtuales hospedadas por Azure, puede acceder a ellas en el E
   	|Environment|En el caso de una máquina virtual, el valor de esta propiedad siempre es Production.|
   	|Nombre|El nombre de la máquina virtual.|
   	|Tamaño|El tamaño de la máquina virtual, que refleja la cantidad de memoria y espacio en disco disponibles. Para obtener más información, consulte Procedimiento: creación de los tamaños de las máquinas virtuales.|
-  	|Estado|Los valores incluyen: Iniciando, Iniciado, Deteniéndose, Detenido y Recuperando estado. Si aparece Recuperando estado, el estado actual es desconocido. Los valores para esta propiedad son distintos de los que se usan en el Portal de administración.|
-  	|SubscriptionID|El Id. de suscripción de la cuenta de Azure. Esta información se puede mostrar en el Portal de administración mediante la visualización de las propiedades de una suscripción.|
+  	|Estado|Los valores incluyen: Iniciando, Iniciado, Deteniéndose, Detenido y Recuperando estado. Si aparece Recuperando estado, el estado actual es desconocido. Los valores para esta propiedad son distintos de los que se usan en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).|
+  	|SubscriptionID|El Id. de suscripción de la cuenta de Azure. Esta información se puede mostrar en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) mediante la visualización de las propiedades de una suscripción.|
 
 1. Seleccione un nodo de extremo y, a continuación, vea la ventana **Propiedades**.
 
-1. La tabla siguiente describe las propiedades disponibles de los extremos, pero son de solo lectura. Para agregar o editar los extremos de una máquina virtual, use el Portal de administración.
+1. La tabla siguiente describe las propiedades disponibles de los extremos, pero son de solo lectura. Para agregar o editar los puntos de conexión de una máquina virtual, use el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
   	|Propiedad|Descripción|
   	|---|---|
@@ -53,4 +53,4 @@ Si tiene máquinas virtuales hospedadas por Azure, puede acceder a ellas en el E
 
 Para obtener más información sobre los roles de Azure en Visual Studio, consulte [Uso de Escritorio de remoto con los roles de Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

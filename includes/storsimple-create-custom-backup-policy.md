@@ -26,7 +26,7 @@
 
     3. Especifique la frecuencia de copia de seguridad en minutos, horas, días o semanas.
 
-    4. Seleccione una retención. Las opciones de retención dependen de la frecuencia de copia de seguridad. Por ejemplo, para una directiva diaria, la retención puede especificarse en semanas, mientras que la retención de una directiva mensual es en meses.
+    4. Seleccione una retención. Las opciones de retención dependen de la frecuencia de copia de seguridad.
  
     5. Seleccione la fecha y hora de inicio para la directiva.
 
@@ -40,4 +40,4 @@
 
     ![Directiva de copia de seguridad personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=AcomDC_1203_2015-->
+

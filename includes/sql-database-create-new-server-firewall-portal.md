@@ -30,6 +30,9 @@ Utilice los pasos siguientes en el Portal de Azure para crear una regla de firew
 
  	![nuevo firewall de servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
+
+ 	> [AZURE.IMPORTANT] Si no ve la opción para **Firewall** en la hoja que está consultando, vuelva atrás y asegúrese de que está viendo la hoja del servidor lógico de Base de datos SQL y no la hoja de una base de datos SQL.
+
 5. Haga clic en **Agregar IP de cliente** para que Azure cree una regla para la dirección IP del cliente.
 
       ![nuevo firewall de servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)

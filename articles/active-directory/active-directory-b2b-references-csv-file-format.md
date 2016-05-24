@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="03/31/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Vista previa de la colaboración B2B de Azure AD: formato de archivo CSV
@@ -57,7 +57,7 @@ bsmith@contoso.com,Ben Smith,Hi Ben! I hope you’ve been doing well.,,cd3ed3de-
 ```
 
 ## Artículos relacionados
-Examine nuestros otros artículos sobre la colaboración de Azure B2B:
+Consulte otros artículos nuestros sobre la colaboración B2B de Azure AD:
 
 - [¿Qué es la colaboración de Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Cómo funciona](active-directory-b2b-how-it-works.md)
@@ -67,4 +67,4 @@ Examine nuestros otros artículos sobre la colaboración de Azure B2B:
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -29,7 +29,12 @@ En la tabla siguiente se enumeran los orígenes de datos que actualmente se encu
 
 | Origen de datos | Tipo de evento | Descripción |
 |:--|:--|:--|
-| [Registros personalizados](log-analytics-data-sources-custom-logs.md) | <NombreRegistro>\_CL | Archivos de texto en agentes de Windows o Linux que contienen información de registro. | | [Registros de eventos de Windows](log-analytics-data-sources-windows-events.md) | Evento | Eventos recopilados desde el registro de eventos en equipos Windows. | | [Contadores de rendimiento de Windows](log-analytics-data-sources-performance-counters.md) | Rend | Contadores de rendimiento recopilados de equipos Windows. | | [Contadores de rendimiento de Linux](log-analytics-data-sources-performance-counters.md) | Rend | Contadores de rendimiento recopilados de equipos Linux. | | [Registros de IIS](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Registros de Internet Information Services en formato W3C. | | Syslog | Syslog | Eventos de syslog en equipos Windows o Linux. |
+| [Registros personalizados](log-analytics-data-sources-custom-logs.md) | \<NombreRegistro\>_CL | Archivos de texto en agentes de Windows o Linux que contienen información de registro. |
+| [Registros de eventos de Windows](log-analytics-data-sources-windows-events.md) | Evento | Eventos recopilados desde el registro de eventos en equipos Windows. |
+| [Contadores de rendimiento de Windows](log-analytics-data-sources-performance-counters.md) | Rend | Contadores de rendimiento recopilados de equipos Windows. |
+| [Contadores de rendimiento de Linux](log-analytics-data-sources-performance-counters.md) | Rend | Contadores de rendimiento recopilados de equipos Linux. |
+| [Registros de IIS](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Registros de Internet Information Services en formato W3C. |
+| Syslog | Syslog | Eventos de syslog en equipos Windows o Linux. |
 
 ## Configuración de orígenes de datos
 

@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/09/2016"
    ms.author="cherylmc" />
 
 # Configuración de una puerta de enlace VPN para el modelo de implementación clásico
@@ -162,12 +162,10 @@ Antes de cambiar el tipo VPN de puerta de enlace, asegúrese de comprobar que el
 
 ## Pasos siguientes
 
-Puede obtener más información sobre conectividad entre entornos de red virtual en este artículo: [Información acerca de la conectividad entre entornos de red virtual](vpn-gateway-cross-premises-options.md).
-
 Puede agregar máquinas virtuales a la red virtual. Vea [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
 Si quiere configurar una conexión VPN de punto a sitio, vea [Configuración de una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

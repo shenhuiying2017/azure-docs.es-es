@@ -187,7 +187,7 @@ Asegúrese de crear el grupo de recursos si no está ya creado, antes de crear l
 #### 1\. Obtenga las dos puertas de enlace
 
 		$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
-		$lng5gw  = Get-AzureRmVirtualNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5
+		$lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5
 
 #### 2\. Cree la conexión de TestVNet1 a Site5
 
@@ -278,7 +278,7 @@ En este ejemplo, ambas puertas de enlace están en la misma suscripción. Puede 
 Asegúrese de iniciar sesión y conectarse a la suscripción 1.
 
 	$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-	$vnet2gw = Get-AzureRmLocalNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
+	$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 	
 #### 2\. Cree ambas conexiones
 
@@ -300,4 +300,4 @@ Si ha completado las tres partes de este ejercicio, habrá establecido una topol
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

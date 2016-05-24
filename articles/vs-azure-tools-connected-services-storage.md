@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Adición de almacenamiento de Azure mediante Servicios conectados de Visual Studio
@@ -79,7 +79,7 @@ Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencia
  - Para los proyectos de ASP.NET, vea [¿Qué ha ocurrido? - Proyectos de ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
  - Para los proyectos de ASP.NET 5, vea [¿Qué ha ocurrido? - Proyectos de ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
  - Para los proyectos de servicio en la nube (roles web y roles de trabajo), vea [¿Qué ha ocurrido? – Proyectos de servicio en la nube](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
- - Para los proyectos de trabajo web, consulte [¿Qué ha ocurrido? - Proyectos de trabajo web](vs-storage-webjobs-what-happened/).
+ - Para los proyectos de trabajo web, consulte [¿Qué ha ocurrido? - Proyectos de trabajo web](./storage/vs-storage-webjobs-what-happened.md).
 
 ## Pasos siguientes
 
@@ -94,4 +94,4 @@ Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencia
 
      - [Documentación de almacenamiento en azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

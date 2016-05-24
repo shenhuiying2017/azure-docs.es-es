@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016"
+	ms.date="04/26/2016"
 	ms.author="adegeo"/>
 
 
 # Administración de servicios en la nube
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-manage.md)
-- [Azure portal](cloud-services-how-to-manage-portal.md)
+- [Portal de Azure](cloud-services-how-to-manage-portal.md)
+- [Portal de Azure clásico](cloud-services-how-to-manage.md)
+
 
 En el área **Servicios en la nube** del Portal de Azure, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
 
@@ -42,15 +43,13 @@ Si necesita actualizar el código de la aplicación para su servicio en la nube,
 
 4. **Opcionalmente** puede actualizar la etiqueta de implementación y la cuenta de almacenamiento.
 
-5. Si la actualización cambia el número de roles o el tamaño de algún rol, active la casilla **Permitir actualizar si cambian los tamaños de rol o el número de roles** para que la actualización continúe.
-
-	>[AZURE.WARNING] Tenga presente que si cambia el tamaño de un rol (es decir, el tamaño de una máquina virtual que hospeda una instancia de rol) o la cantidad de roles, se debe volver a crear una imagen de la instancia de rol (máquina virtual) y se perderán todos los datos locales.
-
-6. Si algún rol de servicio tiene solo una instancia de rol, active la casilla **Actualizar aunque uno o más roles contengan una única instancia** para permitir que la actualización continúe.
+5. Si cualquier de los roles de servicio solo tiene una instancia de rol, seleccione **Implementar aunque uno o varios roles contengan una sola instancia** para permitir que la actualización continúe.
 
 	Azure solo puede garantizar un 99,95 % de disponibilidad del servicio durante una actualización del servicio en la nube si cada rol tiene al menos dos instancias de rol (máquinas virtuales). Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza.
 
-8. Haga clic en **Aceptar** para iniciar la actualización del servicio.
+6. Compruebe **Iniciar implementación** si desea que la actualización se aplica que cuando termine la carga del paquete.
+
+7. Haga clic en **Aceptar** para iniciar la actualización del servicio.
 
 
 
@@ -114,4 +113,4 @@ Si se configura una supervisión detallada para su servicio en la nube, Azure no
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

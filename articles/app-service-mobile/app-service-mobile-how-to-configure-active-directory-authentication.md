@@ -2,9 +2,9 @@
 	pageTitle="Configuración de la autenticación de Azure Active Directory para la aplicación de Servicios de aplicaciones"
 	description="Obtenga información acerca de cómo configurar la autenticación de Azure Active Directory para la aplicación de Servicios de aplicaciones"
 	authors="mattchenderson"
-	services="app-service\mobile"
+	services="app-service"
 	documentationCenter=""
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/04/2016"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory
@@ -21,9 +21,6 @@
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar Azure Active Directory como proveedor de autenticación.
-
-> [AZURE.NOTE] En este tema se muestra el uso de la característica Autenticación/autorización del Servicio de aplicaciones. Esto reemplaza a la puerta de enlace del Servicio de aplicaciones en la mayoría de las aplicaciones. Si usa la puerta de enlace, consulte el [método alternativo]. Las diferencias que se aplican al uso de la puerta de enlace se indican con notas a lo largo de esa sección.
-
 
 ## <a name="express"> </a>Configuración de Azure Active Directory mediante la configuración rápida
 
@@ -33,7 +30,7 @@ En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para
 
 15. Haga clic en **Azure Active Directory** y luego haga clic en **Rápida** en **Modo de administración**.
 
-16. Haga clic en **Aceptar** para registrar la aplicación en Azure Active Directory. Se creará un nuevo registro. Si, por el contrario, desea elegir un registro existente, haga clic en **Seleccionar una aplicación existente** y luego busque el nombre de un registro creado anteriormente en el inquilino. Haga clic en el registro para seleccionarlo y haga clic en **Aceptar**. A continuación, haga clic en **Aceptar** en la hoja de configuración de Azure Active Directory.
+16. Haga clic en **Aceptar** para registrar la aplicación en Azure Active Directory. Se creará un nuevo registro. Si, por el contrario, desea elegir un registro existente, haga clic en **Seleccionar una aplicación existente** y busque el nombre de un registro creado anteriormente en el inquilino. Haga clic en el registro para seleccionarlo y haga clic en **Aceptar**. A continuación, haga clic en **Aceptar** en la hoja de configuración de Azure Active Directory.
 
     ![][0]
 
@@ -68,11 +65,6 @@ También puede elegir proporcionar los valores de configuración manualmente. Es
 
     ![][3]
 
-
-	> [AZURE.NOTE]
-	Si usa la puerta de enlace en lugar de la característica Autenticación/autorización del Servicio de aplicaciones, la URL de respuesta usará en su lugar la URL de la puerta de enlace con la ruta de acceso _/signin-aad_.
-
-
 9. Haga clic en **Guardar**. A continuación, copie **Id. de cliente** de la aplicación. Más adelante configurará la aplicación para usar este valor.
 
 10. En la barra de comandos, haga clic en **Ver extremos** y luego copie la URL del **documento de metadatos de federación** y descargue ese documento o vaya a él en un explorador.
@@ -80,10 +72,6 @@ También puede elegir proporcionar los valores de configuración manualmente. Es
 11. En el elemento raíz **EntityDescriptor**, debe haber un atributo **entityID** del formulario `https://sts.windows.net/` seguido de un GUID específico para el inquilino (denominado "identificador de inquilino"). Copie este valor, actuará como **URL del emisor**. Más adelante configurará la aplicación para usar este valor.
 
 ### <a name="secrets"> </a>Incorporación de información de Azure Active Directory a la aplicación
-
-> [AZURE.NOTE]
-Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad**, y luego **Azure Active Directory**. Pegue el elemento ClientID y agregue el identificador del inquilino a la lista **Inquilinos permitidos**. Haga clic en **Guardar**.
-
 
 13. Vuelva al [Portal de Azure] y vaya a la aplicación. Haga clic en **Configuración** y, a continuación, en **Autenticación/autorización**.
 
@@ -113,7 +101,7 @@ Azure Active Directory también permite registrar a los clientes nativos, lo que
 
 4. En el Asistente para agregar aplicaciones, escriba el **nombre** de la aplicación y haga clic en el tipo **Aplicación de cliente nativo**. A continuación, haga clic para continuar.
 
-5. En el **URI de redireccionamiento** especifique el punto de conexión del sitio _/.auth/login/done_, con el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+5. En el **URI de redireccionamiento** especifique el punto de conexión del sitio _/.auth/login/done_, con el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_. Si crea una aplicación de Windows, en su lugar, use el valor de [SID del paquete](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como URI.
 
 6. Una vez que haya agregado la aplicación nativa, haga clic en la pestaña **Configurar**. Busque el **Identificador de cliente** y tome nota de este valor.
 
@@ -140,7 +128,6 @@ Ahora ha configurado una aplicación de cliente nativo que puede acceder a la ap
 
 [Portal de Azure]: https://portal.azure.com/
 [Portal de Azure clásico]: https://manage.windowsazure.com/
-[ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
-[método alternativo]: #advanced
+[alternative method]: #advanced
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

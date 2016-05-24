@@ -1,6 +1,6 @@
 <properties
     pageTitle="Uso del almacenamiento de tablas (C++) | Microsoft Azure"
-    description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos están escritos en C++."
+	description="Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+	ms.date="04/29/2016"
     ms.author="dineshm"/>
 
 # Uso de almacenamiento de tablas desde C++
@@ -414,4 +414,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 -	[Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

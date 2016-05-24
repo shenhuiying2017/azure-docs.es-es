@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Cómo configurar puntos de conexión de máquinas virtuales Linux clásicas en Azure
@@ -23,13 +23,15 @@ Todas las máquinas virtuales con Linux que se crean en Azure con el modelo de i
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
-Cuando se crea una máquina virtual con Linux en el Portal de Azure clásico, se suelen crear automáticamente puntos de conexión comunes como de Shell seguro (SSH). Puede configurar extremos adicionales al crear la máquina virtual o posteriormente, según sea necesario.
+Cuando se crea una máquina virtual de Linux en el Portal de Azure clásico, se suelen crear automáticamente puntos de conexión comunes como de Shell seguro (SSH). Puede configurar extremos adicionales al crear la máquina virtual o posteriormente, según sea necesario.
  
 
 [AZURE.INCLUDE [virtual-machines-common-classic-setup-endpoints](../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
 ## Pasos siguientes
 
-* También se puede crear un punto de conexión de máquina virtual desde la interfaz de línea de comandos de Azure en el [modo de Administración de servicios](../virtual-machines-command-line-tools.md). Ejecute el comando **azure vm endpoint create**.
+* También se puede crear un punto de conexión mediante la [interfaz de línea de comandos de Azure](../virtual-machines-command-line-tools.md). Ejecute el comando **azure vm endpoint create**.
 
-<!---HONumber=AcomDC_0413_2016-->
+* Si ha creado una máquina virtual en el modelo de implementación de Resource Manager, también puede usar la CLI de Azure en modo de Resource Manager para [crear grupos de seguridad de la red](../virtual-network/virtual-networks-create-nsg-arm-cli.md) con el fin de controlar el tráfico en la máquina virtual.
+
+<!---HONumber=AcomDC_0511_2016-->

@@ -292,7 +292,7 @@ Ejemplos:
 Type=Event Computer=*SQL*
 ```
 
->[AZURE.NOTE] Actualmente no se pueden usar caracteres comodín entrecomillados. En Message=`"*This text*"`, se considerará que el asterisco (*) se usa como carácter literal (*).
+>[AZURE.NOTE] Actualmente no se pueden usar caracteres comodín entrecomillados. En Message=`"*This text*"`, se considerará que el asterisco (\*) se usa como carácter literal (\*).
 
 ## Comandos:
 

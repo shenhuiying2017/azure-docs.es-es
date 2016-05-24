@@ -3,7 +3,7 @@
    description="Creación de una incidencia de soporte técnico en Almacenamiento de datos SQL de Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="sonyam;barbkess;sonyama"/>
 
 # Creación de una incidencia de soporte técnico para Almacenamiento de datos SQL
  En este artículo se muestra cómo crear una incidencia de soporte técnico para Almacenamiento de datos SQL.
@@ -84,4 +84,4 @@ Además, puede conectar con la comunidad de Almacenamiento de datos SQL usando l
 [Desbordamiento de pila]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [foro de MSDN Almacenamiento de datos SQL de Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

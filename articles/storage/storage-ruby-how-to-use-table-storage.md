@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Uso del almacenamiento de tablas de Ruby | Microsoft Azure"
-	description="Uso del Almacenamiento de tablas de Azure en Azure. Los ejemplos de código están escritos usando la API Ruby."
+	description="Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL."
 	services="storage"
 	documentationCenter="ruby"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/10/2016"
+	ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 
@@ -164,4 +164,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Repositorio de [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

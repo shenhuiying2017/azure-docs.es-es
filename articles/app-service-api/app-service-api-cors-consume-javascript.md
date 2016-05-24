@@ -72,7 +72,7 @@ Para ver un ejemplo de una plantilla de Azure Resource Manager que establece la 
 
 ## <a id="tutorialstart"></a> Continuación del tutorial de introducción de .NET
 
-Si está siguiendo la serie de introducción de Node.js o Java para aplicaciones de API, vaya al siguiente artículo sobre la [autenticación de aplicaciones de API del Servicio de aplicaciones](app-service-api-authentication.md).
+Si está siguiendo las series de introducción de Node.js o de Java para aplicaciones de API, la ha completado. Vaya a la sección [Pasos siguientes](#next-steps) para ver sugerencias para aprender más acerca de las aplicaciones de API.
 
 El resto de este artículo es una continuación de la serie de introducción de .NET y se considera que ha completado correctamente [el primer tutorial](app-service-api-dotnet-get-started.md).
 
@@ -264,6 +264,13 @@ Los pasos siguientes resumen el proceso para habilitar la compatibilidad con Web
 		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
+## Uso de Administración de API de Azure con aplicaciones de API
+
+Si usa Administración de API de Azure con una aplicación de API, configure CORS en Administración de API en lugar de en la aplicación de API. Para obtener más información, consulte los siguientes recursos:
+
+* [Azure API Management Overview (vídeo: CORS empieza en 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/) (Información general de Administración de API de Azure)
+* [Directivas entre dominios de Administración de API](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
+ 
 ## Solución de problemas
 
 Si experimenta problemas mientras avanza por este tutorial, asegúrese de que está usando la versión más reciente del SDK de Azure para. NET. La forma más fácil de hacerlo es [descargar el SDK de Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003); si tiene instalada la versión actual, el Instalador de plataforma web indicará que no es preciso realizar la instalación.
@@ -279,6 +286,6 @@ Para más información acerca de las características de Visual Studio que simpl
 
 ## Pasos siguientes 
 
-En este artículo, se ha explicado cómo habilitar la compatibilidad con CORS del Servicio de aplicaciones para que el código JavaScript del cliente pueda llamar a una API de un dominio diferente. En el siguiente artículo de la serie de introducción a Aplicaciones de API, aprenderá sobre la [autenticación de aplicaciones de API del Servicio de aplicaciones](app-service-api-authentication.md).
+En este artículo, se ha explicado cómo habilitar la compatibilidad con CORS del Servicio de aplicaciones para que el código JavaScript del cliente pueda llamar a una API de un dominio diferente. Para aprender más sobre las aplicaciones de API, consulte [Introducción a la autenticación en el Servicio de aplicaciones](../app-service/app-service-authentication-overview.md) y después vaya al tutorial de [autenticación de usuario para aplicaciones de API](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

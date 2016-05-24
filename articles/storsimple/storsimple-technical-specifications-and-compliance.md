@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/07/2016"
+   ms.date="04/19/2016"
    ms.author="alkohli" />
 
 # Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
@@ -24,9 +24,9 @@ Los componentes de hardware del dispositivo StorSimple de Microsoft Azure se adh
 
 ## Especificaciones del módulo de alimentación y refrigeración  
 
-El dispositivo StorSimple tiene dos módulos de alimentación y refrigeración (PCM) compatibles con SBB con ventilador dual de 100-240 V. Esto proporciona una configuración de alimentación redundante. Si se produce un error en un PCM, el dispositivo sigue funcionando con normalidad en el otro PCM hasta que se reemplaza el módulo con error.
+El dispositivo StorSimple tiene dos módulos de alimentación y refrigeración (PCM) compatibles con SBB con ventilador dual de 100-240 V. Esto proporciona una configuración de alimentación redundante. Si se produce un error en un PCM, el dispositivo sigue funcionando con normalidad en el otro PCM hasta que se reemplaza el módulo con error.
 
-El revestimiento de EBOD usa un PCM de 580 W, y el revestimiento principal usa un PCM de 764 W. En las tablas siguientes se enumeran las especificaciones técnicas asociadas a los PCM.
+El revestimiento de EBOD usa un PCM de 580 W, y el revestimiento principal usa un PCM de 764 W. En las tablas siguientes se enumeran las especificaciones técnicas asociadas a los PCM.
 
 | Especificación | PCM de 580 W (EBOD) | PCM de 764 W (principal) |
 |------------------------ | --------------------------------------------------- | -------------------------------------------------- |
@@ -35,10 +35,10 @@ El revestimiento de EBOD usa un PCM de 580 W, y el revestimiento principal usa u
 | Selección del intervalo de voltaje | Intervalo automático: 90-264 V CA, 47/63 Hz | Intervalo automático: 90-264 V CA, 47/63 Hz |
 | Corriente de entrada máxima | 20 A | 20 A |
 | Corrección del factor de potencia | >95% del voltaje de entrada nominal | >95% del voltaje de entrada nominal |
-| Armónicos | Cumple la norma EN 61000-3-2 | Cumple la norma EN 61000-3-2 |
-| Salida | Voltaje en espera de 5 V a 2,0 A | Voltaje en espera de 5 V a 2,7 A |
-| | +5 V a 42 A | +5 V a 40 A |
-| | +12 V a 38 A | +12 V a 38 A |
+| Armónicos | Cumple la norma EN 61000-3-2 | Cumple la norma EN 61000-3-2 |
+| Salida | Voltaje en espera de 5 V a 2,0 A | Voltaje en espera de 5 V a 2,7 A |
+| | +5 V a 42 A | +5 V a 40 A |
+| | +12 V a 38 A | +12 V a 38 A |
 | Conectable en funcionamiento | Sí | Sí |
 | Conmutadores y LED | Conmutador de encendido y apagado de CA y cuatro LED indicadores de estado | Conmutador de encendido y apagado de CA y seis LED indicadores de estado |
 | Refrigeración del revestimiento | Ventiladores axiales de refrigeración con control de velocidad del ventilador variable | Ventiladores axiales de refrigeración con control de velocidad del ventilador variable |
@@ -62,7 +62,7 @@ En la siguiente tabla se enumeran los datos de consumo de energía típicos (pue
 El dispositivo StorSimple admite hasta 12 unidades de disco SCSI conectadas en serie (SAS) con factor de forma de 3,5 pulgadas. Las unidades reales pueden ser una combinación de unidades de estado sólido (SSD) o unidades de disco duro (HDD), en función de la configuración del producto. Las 12 ranuras de la unidad de disco se encuentran en una configuración de 3 por 4 delante del revestimiento. El revestimiento de EBOD permite el almacenamiento adicional de otras 12 unidades de disco. Estas son siempre unidades de disco duro.
 
 ## Especificaciones de almacenamiento
-Los dispositivos StorSimple tienen una combinación de unidades de disco duro y unidades de estado sólido en los modelos 8100 y 8600. La capacidad total utilizable de los modelos 8100 y 8600 es de unos 15 TB y 40 TB, respectivamente. La tabla siguiente proporciona información detallada acerca de las SSD, las HDD y la capacidad de nube en el contexto de la capacidad de una solución StorSimple.
+Los dispositivos StorSimple tienen una combinación de unidades de disco duro y unidades de estado sólido en los modelos 8100 y 8600. La capacidad total utilizable de los modelos 8100 y 8600 es de unos 15 TB y 38 TB, respectivamente. La tabla siguiente proporciona información detallada acerca de las SSD, las HDD y la capacidad de nube en el contexto de la capacidad de una solución StorSimple.
 
 | Modelo de dispositivo/capacidad | 8100 | 8600 |
 |------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
@@ -73,7 +73,7 @@ Los dispositivos StorSimple tienen una combinación de unidades de disco duro y 
 | Capacidad de reserva | 4 TB | 4 TB |
 | Capacidad de HDD utilizable | 14 TB | 36 TB |
 | Capacidad de SSD utilizable | 800 GB | 2 TB |
-| Capacidad total utilizable* | ~ 15 TB | ~ 40 TB |
+| Capacidad total utilizable* | ~ 15 TB | ~ 38 TB |
 | Capacidad máxima de la solución (incluida la nube) | 200 TB | 500 TB |
 
 
@@ -112,25 +112,25 @@ En esta sección se enumeran las especificaciones relacionadas con el entorno de
 
 | Revestimiento | Intervalo de temperatura ambiente | Humedad relativa del ambiente | Temperatura máxima de termómetro húmedo |
 |------------------|----------------------------|---------------------------|--------------------|
-| Operativo | 5 °C - 35 °C (41 °F - 95 °F) | 20% - 80% sin condensación | 28 °C (82 °F) |
-| No operativo | -40 °C - 70 °C (40 °F - 158 °F) | 5% - 100% sin condensación | 29 °C (84 °F) |
+| Operativo | 5 °C - 35 °C (41 °F - 95 °F) | 20% - 80% sin condensación | 28 °C (82 °F) |
+| No operativo | -40 °C - 70 °C (40 °F - 158 °F) | 5% - 100% sin condensación | 29 °C (84 °F) |
 
 ### Flujo de aire, altitud, golpes, vibraciones, orientación, seguridad y CEM
  
 | Revestimiento | Especificaciones operativas |
 |--------------------|---------------------------------------------------------------------------| 
 | Flujo de aire | El flujo de aire del sistema va de delante atrás. El sistema debe funcionar con una instalación de baja presión y escape trasero. La contrapresión creada por puertas del revestimiento y los obstáculos no debe superar los 5 pascales (medidor de agua de 0,5 mm). |
-| Altitud (operativo) | De -30 metros a 3.045 metros (de -100 pies a 10.000 pies) con la temperatura máxima de funcionamiento reducida en 5 °C por encima de los 7.000 pies. |
+| Altitud (operativo) | De -30 metros a 3.045 metros (de -100 pies a 10.000 pies) con la temperatura máxima de funcionamiento reducida en 5 °C por encima de los 7.000 pies. |
 | Altitud (no operativo) | De -305 metros a 12.192 metros (de -1.000 pies a 40.000 pies) |
-| Golpes (operativo) | 5 g 10 ms ½ seno |
-| Golpes (no operativo) | 30 g 10 ms ½ seno |
-| Vibraciones (operativo) | 0,21 g RMS 5-500 Hz aleatorio |
-| Vibraciones (no operativo) | 1,04 g RMS 2-200 Hz aleatorio |
-| Vibraciones (reubicación) | 3 g 2-200 Hz seno |
+| Golpes (operativo) | 5 g 10 ms ½ seno |
+| Golpes (no operativo) | 30 g 10 ms ½ seno |
+| Vibraciones (operativo) | 0,21 g RMS 5-500 Hz aleatorio |
+| Vibraciones (no operativo) | 1,04 g RMS 2-200 Hz aleatorio |
+| Vibraciones (reubicación) | 3 g 2-200 Hz seno |
 | Orientación y montaje | Montaje en bastidor de 19 pulgadas (2 unidades EIA) |
 | Guías del bastidor | Para ajustarse a bastidores con una profundidad mínima de 700 mm (31,50 pulgadas) compatibles con CEI 297 |
 | Seguridad y homologaciones |	CE y UL EN 61000-3, CEI 61000-3, UL 61000-3 |
-| CEM | EN 55022 (CISPR - A), FCC A |
+| CEM | EN 55022 (CISPR - A), FCC A |
 
 ## Cumplimiento de normas internacionales
 El dispositivo de Microsoft Azure StorSimple cumple los estándares internacionales siguientes:
@@ -172,7 +172,7 @@ El enchufe y el conjunto completo del cable de alimentación deben cumplir los e
 
 | Componente | Especificación |
 | --------------- | ----------------------------------------------------------------- | 
-| Tipo de cable | SV o SVT, AWG 18 como mínimo, 3 conductores, longitud máxima de 2,0 metros |
+| Tipo de cable | SV o SVT, AWG 18 como mínimo, 3 conductores, longitud máxima de 2,0 metros |
 | Enchufe | Enchufe de toma de tierra NEMA 5-15P para 120 V, 10 A; o CEI 320 C14, 250 V, 10 A |
 | Toma de corriente | CEI 320 C-13, 250 V, 10 A |
 
@@ -191,4 +191,4 @@ Para las interfaces de red de 10 GbE, DATA 2 y DATA 3, consulte la [lista de cab
 
 Ya está listo para implementar un dispositivo StorSimple en su centro de datos. Para más información, vea [Implementar un dispositivo local](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

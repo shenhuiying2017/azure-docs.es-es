@@ -82,7 +82,7 @@ La siguiente es una lista de los SDK e integraciones que puede usar con los punt
 
 * [Cliente de Centros de eventos de Java](https://github.com/hdinsight/eventhubs-client)
 * [Spout de Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Puede ver el [origen de spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) en GitHub.
-* [Integración de Apache Spark](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [Integración de Apache Spark](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)
 
 ## Registro de identidad del dispositivo
 
@@ -557,4 +557,4 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

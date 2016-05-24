@@ -45,10 +45,6 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-##Póster
-
-[Aquí](https://azure.microsoft.com/documentation/infographics/media-services/) puede ver el póster de Servicios multimedia de Azure que representa los flujos de trabajo de AMS, desde la creación de medios hasta el consumo.
-
 ##Requisitos previos
 
 Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
@@ -62,9 +58,9 @@ Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
 
 ##Introducción y conceptos
 
-Para conocer los conceptos de Servicios multimedia de Azure, vea [Conceptos](media-services-concepts.md).
+Para conocer los conceptos de Servicios multimedia de Azure, consulte [Conceptos](media-services-concepts.md).
 
-Para una serie de procedimientos en que se presentan todos los componentes principales de Servicios multimedia de Azure, vea los [tutoriales paso a paso de Servicios multimedia de Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Esta serie tiene una excelente introducción de conceptos y utiliza la herramienta AMSE para demostrar las tareas AME. Tenga en cuenta que la herramienta AMSE es una herramienta de Windows. Esta herramienta admite la mayoría de las tareas que puede lograr mediante programación con el [SDK de AMS para .NET](https://github.com/Azure/azure-sdk-for-media-services), el [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java) o el [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php).
+Para una serie de procedimientos en que se presentan todos los componentes principales de Servicios multimedia de Azure, consulte los [tutoriales paso a paso de Servicios multimedia de Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Esta serie tiene una excelente introducción de conceptos y utiliza la herramienta AMSE para demostrar las tareas AME. Tenga en cuenta que la herramienta AMSE es una herramienta de Windows. Esta herramienta admite la mayoría de las tareas que puede lograr mediante programación con el [SDK de AMS para .NET](https://github.com/Azure/azure-sdk-for-media-services), el [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java) o el [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Entrega de contenido multimedia a petición con Servicios multimedia de Azure: escenarios y tareas comunes
 
@@ -112,11 +108,11 @@ Análisis multimedia es una colección de componentes de voz y visión que facil
 1. Cargue un archivo intermedio de alta calidad en un recurso.
 2. Utilice uno de los siguientes servicios de Análisis multimedia para procesar sus vídeos:
 	
-	- **Indexador**: [Indización de archivos multimedia con Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
-	- **Hyperlapse**: [Archivos multimedia de Hyperlapse con Azure Media Hyperlapse](media-services-hyperlapse-content.md)
-	- **Detección de movimiento**: [Detección de movimientos con Análisis multimedia de Azure](media-services-motion-detection.md).
-	- **Detección de cara y emociones**: [Detección de caras y emociones con Análisis multimedia de Azure](media-services-face-and-emotion-detection.md).
-	- **Resumen de vídeo**: [Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo](media-services-video-summarization.md)
+	- **Indexador**: [procesa vídeos con Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
+	- **Hyperlapse**: [archivos multimedia de Hyperlapse con Azure Media Hyperlapse](media-services-hyperlapse-content.md)
+	- **Detección de movimiento**: [detección de movimiento con Análisis multimedia de Azure](media-services-motion-detection.md).
+	- **Detección de cara y emociones**: [detección de caras y emociones con Análisis multimedia de Azure](media-services-face-and-emotion-detection.md).
+	- **Resumen de vídeo**: [uso de miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo](media-services-video-summarization.md).
 3. Los procesadores multimedia de Análisis multimedia generan archivos MP4 o JSON. Si un procesador multimedia genera un archivo MP4, puede descargar progresivamente el archivo. Si un procesador multimedia genera un archivo JSON, puede descargar el archivo desde Almacenamiento de blobs de Azure. 
 
 
@@ -132,17 +128,6 @@ Análisis multimedia es una colección de componentes de voz y visión que facil
   
 1. Descargue contenido de forma progresiva.
 
-###Vea también
-
-- [Carga de contenido](media-services-manage-content.md#upload)
-- [Obtención de un procesador multimedia](media-services-get-media-processor.md)
-- [Codificación de contenido](media-services-manage-content.md#encode)
-- [Supervisión de trabajos](media-services-portal-check-job-progress.md)
-- [Información general de análisis de Servicios multimedia de Azure](media-services-analytics-overview.md)
-- [Protección del contenido](media-services-manage-content.md#encrypt)
-- [Protección de las publicaciones](media-services-manage-content.md#publish)
-- [Escalación de la codificación](media-services-portal-encoding-units.md)
-
 ##<a id="live_scenarios"></a>Entrega de eventos de streaming en vivo con Servicios multimedia de Azure
 
 Cuando se trabaja con streaming en vivo, normalmente participan los siguientes componentes:
@@ -150,13 +135,14 @@ Cuando se trabaja con streaming en vivo, normalmente participan los siguientes c
 - Una cámara que se usa para difundir un evento.
 - Un codificador de vídeo en directo que convierte las señales de la cámara en secuencias que se envían a un servicio de streaming en vivo.
 
-Opcionalmente, varios codificadores en directo. Para determinados eventos en directo críticos que demandan una disponibilidad y una calidad de experiencia muy altas, se recomienda emplear codificadores redundantes activo-activo para lograr una conmutación por error perfecta sin pérdida de datos.
+	Opcionalmente, varios codificadores sincronizados en directo. Para determinados eventos en directo críticos que demandan una disponibilidad y una calidad de experiencia muy altas, se recomienda emplear codificadores redundantes activo-activo con sincronización de hora para lograr una conmutación por error perfecta sin pérdida de datos.
 - Un servicio de streaming en vivo que permita hacer lo siguiente:
-- Recopilar contenido en directo mediante varios protocolos de streaming en vivo (por ejemplo RTMP o Smooth Streaming).
-- Codificar la secuencia en una secuencia con velocidad de bits adaptable.
-- Mostrar una vista previa de la secuencia en vivo.
-- Almacenar el contenido recibido para transmitirlo posteriormente (vídeo bajo demanda).
-- Entregar el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth, HLS, HDS) directamente a sus clientes o a una red de entrega de contenido (CDN) para ampliar la distribución.
+	
+	- Recopilar contenido en directo mediante varios protocolos de streaming en vivo (por ejemplo RTMP o Smooth Streaming).
+	- (Opcionalmente) Codificar la transmisión en una transmisión con velocidad de bits adaptable.
+	- Mostrar una vista previa de la secuencia en vivo.
+	- Registrar y almacenar el contenido recibido para transmitirlo posteriormente (vídeo bajo demanda).
+	- Entregar el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth, HLS, HDS) directamente a sus clientes o a una red de entrega de contenido (CDN) para ampliar la distribución.
 
 
 **Servicios multimedia de Microsoft Azure** (AMS) permite recopilar, codificar, mostrar una vista previa, almacenar y entregar el contenido de streaming en vivo.
@@ -165,17 +151,24 @@ Al entregar contenido a sus clientes, el objetivo es entregar un vídeo de alta 
 
 En Servicios multimedia de Azure, los **canales**, **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la recopilación, el formato, DVR, la seguridad, la escalabilidad y la redundancia.
 
-Un **canal** representa una canalización para procesar contenido de streaming en vivo. Actualmente, un canal puede recibir secuencias de entrada en directo de la siguiente manera:
+Un **canal** representa una canalización para procesar contenido de streaming en vivo. Un canal puede recibir transmisiones de entrada en directo de la siguiente manera:
 
+- Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal que está configurado por la entrega de **paso a través**. La entrega de **paso a través** significa que las transmisiones ingeridas pasan a través de **canales** sin más procesamiento. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
+	>[AZURE.NOTE] El uso de un método de paso a través es la forma más económica de streaming en vivo cuando está realizando varios eventos en un largo período y ya ha invertido en codificadores locales. Consulte los detalles en [Precios de Servicios multimedia](/pricing/details/media-services/).
+	
 - Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Servicios multimedia, con uno de los siguientes formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
-La codificación de secuencias en directo con Servicios multimedia está en **vista previa**.
-- Un codificador en directo local envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) con varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
+###Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales (paso a través)
+
+En el diagrama siguiente se muestran las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de **paso a través**.
+
+![Flujo de trabajo activo][live-overview2]
+
+Para más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
 
 ###Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure
-
 
 El diagrama siguiente muestra las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de streaming en vivo, en la que se habilita un canal para realizar la codificación en directo con Servicios multimedia.
 
@@ -183,15 +176,6 @@ El diagrama siguiente muestra las partes principales de la plataforma AMS que in
 
 Para obtener más información, vea [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-
-###Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
-
-
-En el diagrama siguiente se muestran las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de streaming en vivo.
-
-![Flujo de trabajo activo][live-overview2]
-
-Para más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
 
 ##Consumo de contenido
 
@@ -236,4 +220,4 @@ Para obtener más información, consulte el [Contrato de nivel de servicio (SLA)
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

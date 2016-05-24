@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="03/11/2016"
+	ms.date="05/12/2016"
 	ms.author="yidingz;marsma"/>
 
 # Información general de las características de Lote de Azure
@@ -38,7 +38,7 @@ El siguiente flujo de trabajo de alto nivel es el que se usa normalmente en todo
 
 6. Supervise el progreso del trabajo y recupere los resultados.
 
-> [AZURE.NOTE] Necesitará una [cuenta de Lote](batch-account-create-portal.md) para usar el servicio Lote, y casi todas las soluciones usarán una cuenta de [almacenamiento de Azure][azure_storage] para el almacenamiento y la recuperación de los archivos.
+> [AZURE.NOTE] Necesitará una [cuenta de Lote](batch-account-create-portal.md) para usar el servicio Lote, y casi todas las soluciones usarán una cuenta de [almacenamiento de Azure][azure_storage] para el almacenamiento y la recuperación de los archivos. Actualmente Lote solo admite el tipo de cuenta de almacenamiento **de uso general**, como se describe en el paso 5 [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) en [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
 En las siguientes secciones, aprenderá sobre cada uno de los recursos mencionados en el flujo de trabajo anterior, así como muchas otras características de Lote que harán posible su escenario de cálculo distribuido.
 
@@ -130,7 +130,7 @@ Una tarea es una unidad de cálculo que está asociada a un trabajo y se ejecuta
 
 - La aplicación especificada en la **línea de comandos** de la tarea.
 
-- Los **archivos de recursos** que contienen los datos que se procesan. Estos archivos se copian automáticamente en el nodo del almacenamiento de blobs en una cuenta de almacenamiento de Azure. Para obtener más información, consulte a continuación [Archivos y directorios](#files).
+- Los **archivos de recursos** que contienen los datos que se procesan. Estos archivos se copian automáticamente en el nodo desde el Almacenamiento de blobs en una cuenta de Almacenamiento de Azure **de uso general**. Para más información, consulte a continuación *Tarea de inicio* y [Archivos y directorios](#files).
 
 - Las **variables de entorno** que requiere la aplicación. Para obtener más información, consulte a continuación [Configuración del entorno para las tareas](#environment).
 
@@ -149,6 +149,8 @@ Además de las tareas que se pueden definir para realizar cálculos en un nodo, 
 Mediante la asociación de una **tareas de inicio** con un grupo, puede configurar el entorno operativo de sus nodos, realizar acciones, como instalar software, o iniciar procesos en segundo plano. La tarea de inicio se ejecuta cada vez que se inicia un nodo siempre y cuando dicho nodo permanezca en el grupo. Aquí se incluye también la primera vez que el nodo se agrega al grupo. Una de las principales ventajas de la tarea de inicio es que contiene toda la información necesaria para configurar los nodos de ejecución e instalar las aplicaciones requeridas para la ejecución de las tareas del trabajo. Por lo tanto, aumentar el número de nodos en un grupo es tan sencillo como especificar el nuevo número de nodos de destino; el servicio Lote ya tiene toda la información necesaria para configurar los nuevos nodos y tenerlos preparados para aceptar tareas.
 
 Como con cualquier tarea por lotes, se puede especificar una **lista de archivos** en el [almacenamiento de Azure][azure_storage], además de una **línea de comandos** para ejecutar. El servicio Lote de Azure copia primero los archivos desde el almacenamiento de Azure y luego ejecuta la línea de comandos. En una tarea de inicio de grupo, la lista de archivos contiene normalmente el paquete o los archivos de la aplicación, pero podría incluir también datos de referencia que usarán todas las tareas que se ejecuten en los nodos de ejecución. La línea de comandos de la tarea de inicio podría ejecutar un script de PowerShell o realizar una operación `robocopy`, por ejemplo, para copiar los archivos de aplicación en la carpeta "compartida" y posteriormente ejecutar un MSI o `setup.exe`.
+
+> [AZURE.IMPORTANT] Actualmente Lote *solo* admite el tipo de cuenta de almacenamiento **de uso general**, como se describe en el paso 5 [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) en [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). Las tareas de Lote (incluidas las estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) deben especificar archivos de recursos que residan *solamente* en cuentas de almacenamiento **de uso general**.
 
 Habitualmente, es conveniente que el servicio Lote espere a que la tarea de inicio finalice antes de considerar que el nodo está listo para asignarle tareas, pero este procedimiento es configurable.
 
@@ -187,7 +189,7 @@ Para obtener más información sobre las tareas de preparación y liberación de
 
 Una [tarea de instancias múltiples](batch-mpi.md) es aquella que está configurada para ejecutarse simultáneamente en varios nodos de proceso. Con tareas de instancias múltiples, puede habilitar escenarios de informática de alto rendimiento como, por ejemplo, la interfaz de paso de mensajes (MPI) que requiere tener un grupo de nodos de proceso asignados juntos para procesar una carga de trabajo única.
 
-Para obtener información detallada sobre la ejecución de trabajos de MPI en el servicio Lote mediante la biblioteca .NET de Lote, consulte [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure](batch-mpi.md).
+Para ver una explicación detallada sobre la ejecución de trabajos de MPI en el servicio Lote mediante la biblioteca .NET de Lote, consulte [Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure](batch-mpi.md).
 
 #### <a name="taskdep"></a>Dependencias de tareas
 
@@ -195,11 +197,11 @@ Las dependencias de tareas, como el propio nombre implica, permiten especificar 
 
 Con las dependencias de tareas, se pueden configurar escenarios como los siguientes:
 
-* *taskB* depende de *taskA* (la ejecución de *taskB* no se iniciará hasta que *taskA* se ha completado)
-* *taskC* depende de ambos, *taskA* y *taskB*
-* *taskD* depende de un intervalo de tareas, como las tareas *1* a *10*, antes ejecutarse
+* *taskB* depende de *taskA* (la ejecución de *taskB* no se iniciará hasta que *taskA* se haya completado).
+* *taskC* depende de ambas, *taskA* y *taskB*.
+* *taskD* depende de un intervalo de tareas, como las tareas de *1* a *10*, antes de ejecutarse.
 
-Consulte el código de ejemplo [TaskDependencies][github_sample_taskdeps] del repositorio de GitHub [azure-batch-samples][github_samples]. En él, verá cómo configurar tareas que dependen de otras tareas mediante la biblioteca [.NET de Lote][batch_net_api].
+Consulte el código de ejemplo [TaskDependencies][github_sample_taskdeps] del repositorio de GitHub [azure-batch-samples][github_samples]. En él verá cómo configurar tareas que dependen de otras tareas mediante la biblioteca [.NET de Lote][batch_net_api].
 
 ### <a name="jobschedule"></a>Trabajos programados
 
@@ -207,11 +209,11 @@ Las programaciones de trabajos permiten crear tareas recurrentes dentro del serv
 
 ### <a name="appkg"></a>Paquetes de aplicación
 
-La característica [paquetes de aplicación](batch-application-packages.md) permite administrar y implementar fácilmente aplicaciones en los nodos de proceso de los grupos. Con paquetes de aplicación, puede cargar y administrar fácilmente varias versiones de las aplicaciones que ejecutan las tareas, incluidos los archivos binarios y archivos auxiliares, y luego, implementar automáticamente una o varias de estas aplicaciones en los nodos de proceso del grupo.
+La característica de [paquetes de aplicación](batch-application-packages.md) permite administrar y implementar fácilmente aplicaciones en los nodos de proceso de los grupos. Con paquetes de aplicación, puede cargar y administrar fácilmente varias versiones de las aplicaciones que ejecutan las tareas, incluidos los archivos binarios y archivos auxiliares, y luego, implementar automáticamente una o varias de estas aplicaciones en los nodos de proceso del grupo.
 
 Lote administra los detalles del trabajo con Almacenamiento de Azure en segundo plano para almacenar e implementar de forma segura los paquetes de aplicación en los nodos de proceso, por lo que tanto el código como la sobrecarga de administración se pueden simplificar.
 
-Para más información acerca de la característica paquetes de aplicación, consulte [Application deployment with Azure Batch application packages](batch-application-packages.md) (Implementación de aplicaciones con paquetes de aplicación de Lote de Azure).
+Para más información acerca de la característica de paquetes de aplicación, consulte [Implementación de aplicaciones con paquetes de aplicación de Lote de Azure](batch-application-packages.md).
 
 ## <a name="files"></a>Archivos y directorios
 
@@ -244,7 +246,7 @@ Un enfoque combinado, usado normalmente para controlar la carga variable pero co
 
 ## <a name="scaling"></a>Escalado de aplicaciones
 
-Con el [escalado automático](batch-automatic-scaling.md). el servicio Lote puede ajustar dinámicamente el número de nodos de proceso de un grupo según la carga de trabajo actual y el uso de los recursos del escenario de proceso. Esto le permite reducir el costo general de la ejecución de la aplicación usando solo los recursos que necesita, y liberando los que no. Puede especificar la configuración del escalado automático para un grupo cuando se crea o habilitar el escalado más adelante, y puede actualizar la configuración del escalado en un grupo habilitado para escalado automático.
+Con el [escalado automático](batch-automatic-scaling.md), el servicio Lote puede ajustar dinámicamente el número de nodos de proceso de un grupo según la carga de trabajo actual y el uso de los recursos en el escenario de proceso. Esto le permite reducir el costo general de la ejecución de la aplicación usando solo los recursos que necesita, y liberando los que no. Puede especificar la configuración del escalado automático para un grupo cuando se crea o habilitar el escalado más adelante, y puede actualizar la configuración del escalado en un grupo habilitado para escalado automático.
 
 El escalado automático se realiza mediante la especificación de una **fórmula de escalado automático** para un grupo. El servicio Lote usa esta fórmula para determinar el número objetivo de nodos del grupo para el siguiente intervalo de escalado (un intervalo que puede especificar).
 
@@ -268,11 +270,11 @@ Para obtener más información sobre cómo escalar automáticamente una aplicaci
 
 Normalmente necesitará usar certificados al cifrar o descifrar información confidencial para las tareas, como la clave de una [cuenta de almacenamiento de Azure][azure_storage]. Para ayudar en esta situación, se pueden instalar certificados en los nodos. Los secretos cifrados se pasan a las tareas mediante parámetros de línea de comandos o se insertan en uno de los recursos de tarea, y los certificados instalados se pueden usar para descifrarlos.
 
-Use la operación [Agregar certificado][rest_add_cert] (API de REST de Lote) o el método [CertificateOperations.CreateCertificate][net_create_cert] (API de .NET de Lote) para agregar un certificado a una cuenta de Lote. Se puede asociar el certificado a un grupo nuevo o existente. Cuando se asocia un certificado a un grupo, el servicio Lote instala el certificado en cada nodo del grupo. El servicio Lote instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea, lo cual incluye tareas de inicio y tareas del Administrador de trabajos.
+Use la operación [Agregar certificado][rest_add_cert] \(API de REST de Lote) o el método [CertificateOperations.CreateCertificate][net_create_cert] \(API de .NET de Lote) para agregar un certificado a una cuenta de Lote. Se puede asociar el certificado a un grupo nuevo o existente. Cuando se asocia un certificado a un grupo, el servicio Lote instala el certificado en cada nodo del grupo. El servicio Lote instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea, lo cual incluye tareas de inicio y tareas del Administrador de trabajos.
 
 ## <a name="scheduling"></a>Prioridad de programación
 
-Puede asignar una prioridad a los trabajos que se crean en Lote. El servicio Lote usa los valores de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta. Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Puede actualizar la prioridad de un trabajo mediante la operación [Actualizar las propiedades de un trabajo][rest_update_job] (API de REST de Lote) o modificando la propiedad [CloudJob.Priority][net_cloudjob_priority] (API de .NET de Lote).
+Puede asignar una prioridad a los trabajos que se crean en Lote. El servicio Lote usa los valores de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta. Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Puede actualizar la prioridad de un trabajo mediante la operación [Actualizar las propiedades de un trabajo][rest_update_job] \(API de REST de Lote) o modificando la propiedad [CloudJob.Priority][net_cloudjob_priority] \(API de .NET de Lote).
 
 Dentro de la misma cuenta, los trabajos de mayor prioridad tienen primacía de programación sobre los trabajos con menor prioridad. Un trabajo con un valor de prioridad determinado en una cuenta no tiene primacía de programación sobre otro trabajo con un valor de prioridad inferior de una cuenta diferente.
 
@@ -282,9 +284,9 @@ La programación de trabajos entre los grupos es independiente. Entre grupos dif
 
 Cada tarea que se ejecuta dentro de un trabajo de Lote tiene acceso al conjunto variables establecido por el servicio Lote (definido por el sistema, consulte la tabla a continuación), así como a las variables de entorno definidas por el usuario. Las aplicaciones y scripts ejecutados por las tareas en los nodos de ejecución tienen acceso a estas variables de entorno durante la ejecución en el nodo.
 
-Establezca variables de entorno definidas por el usuario cuando use la operación [Agregar una tarea a un trabajo][rest_add_task] (API de REST de Lote) o modifique la propiedad [CloudTask.EnvironmentSettings][net_cloudtask_env] (API de .NET Lote) al agregar tareas a un trabajo.
+Establezca variables de entorno definidas por el usuario cuando use la operación [Agregar una tarea a un trabajo][rest_add_task] \(API de REST de Lote) o modifique la propiedad [CloudTask.EnvironmentSettings][net_cloudtask_env] \(API de .NET Lote) al agregar tareas a un trabajo.
 
-Obtenga las variables de entorno de una tarea, tanto las definidas por el usuario como por el sistema, mediante la operación [Obtener información sobre una tarea][rest_get_task_info] (API de REST de Lote) o mediante el acceso a la propiedad [CloudTask.EnvironmentSettings][net_cloudtask_env] (API de .NET de Lote). Como se mencionó, los procesos que se ejecutan en un nodo de ejecución también pueden acceder a todas las variables de entorno mediante el uso de, por ejemplo, la conocida sintaxis `%VARIABLE_NAME%`.
+Obtenga las variables de entorno de una tarea, tanto las definidas por el usuario como por el sistema, mediante la operación [Obtener información sobre una tarea][rest_get_task_info] \(API de REST de Lote) o mediante el acceso a la propiedad [CloudTask.EnvironmentSettings][net_cloudtask_env] (API de .NET de Lote). Como se mencionó, los procesos que se ejecutan en un nodo de ejecución también pueden acceder a todas las variables de entorno mediante el uso de, por ejemplo, la conocida sintaxis `%VARIABLE_NAME%`.
 
 Para cada tarea programada dentro de un trabajo, el siguiente conjunto de variables de entorno definidas por el sistema lo establece el servicio Lote:
 
@@ -326,7 +328,7 @@ Los errores de las tareas se incluyen en estas categorías:
 
 Durante la ejecución, una aplicación produce resultados de diagnóstico que se pueden usar para la solución de problemas. Como se mencionó anteriormente en [Archivos y directorios](#files), el servicio Lote envía salidas stdout y stderr a los archivos `stdout.txt` y `stderr.txt` ubicados en el directorio de tareas en el nodo de ejecución. Mediante el uso de [ComputeNode.GetNodeFile][net_getfile_node] y [CloudTask.GetNodeFile][net_getfile_task] en la API de .NET de Lote, puede recuperar estos y otros archivos para solucionar problemas.
 
-Se puede realizar incluso una depuración más amplia iniciando sesión en un nodo de ejecución mediante *Escritorio remoto*. También puede [obtener un archivo de protocolo de escritorio remoto de un nodo][rest_rdp] (API de REST de Lote) o usar el método [ComputeNode.GetRDPFile][net_rdp] (API de .NET Lote) para el inicio de sesión remoto.
+Se puede realizar incluso una depuración más amplia iniciando sesión en un nodo de ejecución mediante *Escritorio remoto*. También puede [obtener un archivo de protocolo de escritorio remoto de un nodo][rest_rdp] \(API de REST de Lote) o usar el método [ComputeNode.GetRDPFile][net_rdp] \(API de .NET Lote) para el inicio de sesión remoto.
 
 >[AZURE.NOTE] Para conectarse a un nodo a través de RDP, primero debe crear un usuario en el nodo. Para ello, [Agregue una cuenta de usuario a un nodo][rest_create_user] en la API de REST o use el método [ComputeNode.CreateComputeNodeUser][net_create_user] en la API de .NET de Lote.
 
@@ -354,9 +356,9 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 - **Deshabilitar la programación de tareas en el nodo** ([REST][rest_offline] | [.NET][net_offline])
 
-	Esto desconecta el nodo para que no se le asigne ninguna tarea adicional, pero permite que el nodo permanezca en ejecución y en el grupo. Esto permite seguir investigando la causa de los errores sin perder los datos de la tarea con errores, y sin que el nodo produzca más errores en la tarea. Por ejemplo, puede deshabilitar la programación de tareas en el nodo, luego iniciar una sesión remota para examinar los registros de eventos del nodo o solucionar otros problemas. Una vez que haya terminado la investigación, puede volver a conectar el nodo, para lo que debe habilitar la programación de tareas ([REST][rest_online], [.NET][net_online]), o bien realizar una de las otras acciones mencionadas anteriormente.
+	Esto desconecta el nodo para que no se le asigne ninguna tarea adicional, pero permite que el nodo permanezca en ejecución y en el grupo. Esto permite seguir investigando la causa de los errores sin perder los datos de la tarea con errores, y sin que el nodo produzca más errores en la tarea. Por ejemplo, puede deshabilitar la programación de tareas en el nodo, luego iniciar una sesión remota para examinar los registros de eventos del nodo o solucionar otros problemas. Una vez que haya terminado la investigación, puede volver a conectar el nodo, para lo que debe habilitar la programación de tareas ([REST][rest_online], [.NET][net_online]), o bien realizar una de las otras acciones mencionadas antes.
 
-> [AZURE.IMPORTANT] Con cada acción anterior (reiniciar, restablecer la imagen inicial, quitar, deshabilitar la programación de tareas), puede especificar cómo se controlan las tareas que se están ejecutando en el nodo al realizar la acción. Por ejemplo, cuando deshabilita la programación de tareas en un nodo con la biblioteca de cliente .NET de Lote, puede especificar un valor de enumeración [DisableComputeNodeSchedulingOption][net_offline_option] para especificar si se terminarán las tareas en ejecución (**Terminate**), si se volverán a poner en la cola para su programación en otros nodos (**Requeue**) o si se permitirá que las tareas en ejecución se completen antes de realizar la acción (**TaskCompletion**).
+> [AZURE.IMPORTANT] Con cada acción anterior (reiniciar, restablecer la imagen inicial, quitar, deshabilitar la programación de tareas), puede especificar cómo se controlan las tareas que se están ejecutando en el nodo al realizar la acción. Por ejemplo, cuando deshabilita la programación de tareas en un nodo con la biblioteca de cliente .NET de Lote, puede indicar un valor de enumeración [DisableComputeNodeSchedulingOption][net_offline_option] para especificar si se terminarán las tareas en ejecución (**Terminate**), si se volverán a poner en la cola para su programación en otros nodos (**Requeue**) o si se permitirá que las tareas en ejecución se completen antes de realizar la acción (**TaskCompletion**).
 
 ## Pasos siguientes
 
@@ -411,4 +413,4 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

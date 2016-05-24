@@ -1,6 +1,4 @@
-Para crear una red virtual mediante el Portal de Azure, siga estos pasos. Tenga en cuenta que las capturas de pantalla se proporcionan a modo de ejemplos. Asegúrese de reemplazar los valores por los suyos.
-
-Para más información sobre redes virtuales, consulte [Información general sobre redes virtuales](../articles/virtual-network/virtual-networks-overview.md).
+Para crear una red virtual mediante el Portal de Azure, siga estos pasos. Tenga en cuenta que las capturas de pantalla se proporcionan a modo de ejemplos. Asegúrese de reemplazar los valores por los suyos. Para más información sobre redes virtuales, consulte [Información general sobre redes virtuales](../articles/virtual-network/virtual-networks-overview.md).
 
 1. Desde un explorador, vaya al [Portal de Azure](http://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
 
@@ -8,7 +6,7 @@ Para más información sobre redes virtuales, consulte [Información general sob
 
 	![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
 
-3. En la parte inferior de la hoja Red virtual, en la lista **Seleccionar un modelo de implementación**, seleccione **Administrador de recursos** y, finalmente, haga clic en **Crear**.
+3. En la parte inferior de la hoja Red virtual, en la lista **Seleccionar un modelo de implementación**, seleccione **Resource Manager** y, finalmente, haga clic en **Crear**.
 
 
 	![Selección del Administrador de recursos](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
@@ -31,5 +29,3 @@ Para más información sobre redes virtuales, consulte [Información general sob
 9. Después de hacer clic en Crear, verá un icono en el panel que reflejará el progreso de la red virtual. El icono cambiará a medida que se vaya creando la red virtual.
 
 	![Icono de Crear red virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
-
-<!---HONumber=AcomDC_0504_2016-->

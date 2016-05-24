@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/16/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conexión y consultas con SQLCMD
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [Visual Studio][]
+- [SQLCMD][]
 
 En este tutorial se muestra cómo conectarse y realizar consultas a una base de datos de Almacenamiento de datos SQL de Azure en solo unos minutos con la utilidad sqlcmd.exe. En este tutorial realizará lo siguiente:
 
@@ -30,13 +30,13 @@ En este tutorial se muestra cómo conectarse y realizar consultas a una base de 
 
 ## Requisitos previos
 
-+ [sqlcmd.exe](https://msdn.microsoft.com/library/azure/ms162773.aspx): para descargar sqlcmd.exe, consulte el [Utilidades de la línea de comandos 11 de Microsoft para SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501).
++ Para descargar el archivo [sqlcmd.exe][], consulte el [Microsoft Command Line Utilities 11 for SQL Server][] \(Utilidades de la línea de comandos 11 de Microsoft para SQL Server).
 
 ## Obtención del nombre completo del servidor de Azure SQL Server
 
 Para conectarse a la base de datos, necesita el nombre completo del servidor (****servername**.database.windows.net*) que contiene la base de datos a la que quiere conectarse.
 
-1. Vaya al [Portal de Azure](https://portal.azure.com).
+1. Vaya al [Portal de Azure][].
 2. Vaya a la base de datos a la que quiere conectarse.
 3. Busque el nombre de servidor completo (se usará en los pasos siguientes):
 
@@ -70,17 +70,27 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 3> QUIT
 ```
 
-Para obtener información adicional sobre sqlcmd, consulte la [documentación de sqlcmd](https://msdn.microsoft.com/library/azure/ms162773.aspx).
+Para obtener información adicional sobre sqlcmd, consulte la [documentación de sqlcmd][sqlcmd.exe].
 
 
 ## Pasos siguientes
 
 Ahora que puede conectarse y realizar consultas, pruebe a [conectarse con PowerBI][].
 
-[conectarse con PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
+Para configurar el entorno para la autenticación de Windows, consulte [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory][].
 
+<!--Articles-->
+[Conexión a Base de datos SQL mediante autenticación de Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
+[conectarse con PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
+[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
+[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+
+<!--Other-->
+[sqlcmd.exe]: https://msdn.microsoft.com/es-ES/library/ms162773.aspx
+[Microsoft Command Line Utilities 11 for SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[Portal de Azure]: https://portal.azure.com
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

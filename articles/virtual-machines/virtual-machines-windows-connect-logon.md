@@ -33,6 +33,8 @@ Usará el botón **Conectar** en el Portal de Azure para iniciar una sesión de 
 4. En la hoja de la máquina virtual, haga clic en **Conectar**.
 
 	![Captura de pantalla del Portal de Azure que muestra cómo conectarse a la máquina virtual.](./media/virtual-machines-windows-connect-logon/connect.png)
+	
+ > [AZURE.TIP] Si el botón 'Conectar' del portal está atenuado y no está conectado a Azure a través de un [Express Route](../expressroute/expressroute-introduction.md) o una conexión [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), deberá crear y asignar una dirección IP pública de la máquina virtual antes de poder usar RDP. Aquí puede conocer más información sobre [direcciones IP públicas en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 ## Iniciar sesión en la nueva máquina virtual
 
@@ -43,4 +45,4 @@ Usará el botón **Conectar** en el Portal de Azure para iniciar una sesión de 
 
 Si surgen problemas al intentar conectarse, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

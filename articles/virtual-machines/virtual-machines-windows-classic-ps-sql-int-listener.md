@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn | Microsoft Azure"
-	description="En este tutorial se usan los recursos creados con el modelo de implementación clásica, y crea un agente de escucha de grupo de disponibilidad AlwaysOn en Azure mediante un equilibrador de carga interno (ILB)."
+	description="En este tutorial se usan los recursos creados con el modelo de implementación clásica y se crea un agente de escucha de grupo de disponibilidad AlwaysOn en Azure con un equilibrador de carga interno (ILB)."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="mikeray" />
 
 # Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure
@@ -26,7 +26,7 @@
 
 En este tema se muestra cómo configurar un agente de escucha para un grupo de disponibilidad AlwaysOn mediante un **equilibrador de carga interno (ILB)**.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos. Para configurar un agente de escucha con ILB para un grupo de disponibilidad AlwaysOn en el modelo de Resource manager, consulte [Configuración de un equilibrador de carga interno para un grupo de disponibilidad AlwaysOn de Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 
 El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) pero no un agente de escucha.
@@ -36,7 +36,7 @@ Tenga en cuenta las siguientes instrucciones acerca del agente de escucha del gr
 
 - El agente de escucha del grupo de disponibilidad es compatible con Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.
 
-- Solo se admite un agente de escucha de grupo de disponibilidad interno para cada servicio en la nube, ya que el agente de escucha se configura según el ILB y solo hay un ILB por cada servicio en la nube. Sin embargo, es posible crear varios agentes de escucha externos. Para obtener más información, consulte [Configurar un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
+- Solo se admite un agente de escucha de grupo de disponibilidad interno para cada servicio en la nube, ya que el agente de escucha se configura según el ILB y solo hay un ILB por cada servicio en la nube. Sin embargo, es posible crear varios agentes de escucha externos. Para más información, consulte [Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 - No se puede crear un agente de escucha interno en el mismo servicio en la nube donde también haya creado un agente de escucha externo mediante el servicio en la nube público VIP.
 
@@ -138,4 +138,4 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

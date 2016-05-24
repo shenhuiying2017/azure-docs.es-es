@@ -81,26 +81,26 @@ Utilice la siguiente información para establecer la cuenta de ejecución de Ope
 6. Modifique y luego ejecute el siguiente ejemplo de T-SQL en cada instancia de SQL Server para conceder los permisos mínimos que necesita la cuenta de ejecución para realizar la evaluación de SQL. Sin embargo, este paso no es necesario si una cuenta de ejecución ya forma parte del rol de servidor sysadmin en las instancias de SQL Server.
 
 ```
----
-    -- Replace <UserName> with the actual user name being used as Run As Account.
-    USE master
-
-    -- Create login for the user, comment this line if login is already created.
-    CREATE LOGIN [<UserName>] FROM WINDOWS
-
-    -- Grant permissions to user.
-    GRANT VIEW SERVER STATE TO [<UserName>]
-    GRANT VIEW ANY DEFINITION TO [<UserName>]
-    GRANT VIEW ANY DATABASE TO [<UserName>]
-
-    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
-    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
-    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
+	---
+	    -- Replace <UserName> with the actual user name being used as Run As Account.
+	    USE master
+	
+	    -- Create login for the user, comment this line if login is already created.
+	    CREATE LOGIN [<UserName>] FROM WINDOWS
+	
+	    -- Grant permissions to user.
+	    GRANT VIEW SERVER STATE TO [<UserName>]
+	    GRANT VIEW ANY DEFINITION TO [<UserName>]
+	    GRANT VIEW ANY DATABASE TO [<UserName>]
+	
+	    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
+	    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
+	    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
 
 ```
-#### To configure the SQL Run As account using Windows PowerShell
+#### Para configurar la cuenta de ejecución de SQL mediante Windows PowerShell, siga estos pasos:
 
-Open a PowerShell window and run the following script after you’ve updated it with your information:
+Abra una ventana de PowerShell y ejecute el siguiente script después de actualizarlo con su información:
 
 ```
 
@@ -112,70 +112,70 @@ Open a PowerShell window and run the following script after you’ve updated it 
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```
 
-## Understanding how recommendations are prioritized
+## Cómo se establecen prioridades entre las recomendaciones
 
-Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the ten most important recommendations are shown.
+A cada recomendación efectuada se le asigna un valor de ponderación que identifica su importancia relativa. Se muestran solo las diez recomendaciones más importantes.
 
-### How weights are calculated
+### Cálculo de las ponderaciones
 
-Weightings are aggregate values based on three key factors:
+Las ponderaciones son valores agregados en función de tres factores principales:
 
-- The *probability* that an issue identified will cause problems. A higher probability equates to a larger overall score for the recommendation.
+- La *probabilidad* de que un asunto identificado pueda causar problemas. Una probabilidad más alta equivale a una puntuación total mayor para la recomendación.
 
-- The *impact* of the issue on your organization if it does cause a problem. A higher impact equates to a larger overall score for the recommendation.
+- El *impacto* del asunto en su organización en caso de que se produzca un problema. Un mayor impacto equivale a una puntuación total mayor para la recomendación.
 
-- The *effort* required to implement the recommendation. A higher effort equates to a smaller overall score for the recommendation.
+- El *esfuerzo* necesario para implementar la recomendación. Un mayor esfuerzo equivale a una puntuación total menor para la recomendación.
 
-The weighting for each recommendation is expressed as a percentage of the total score available for each focus area. For example, if a recommendation in the Security and Compliance focus area has a score of 5%, implementing that recommendation will increase your overall Security and Compliance score by 5%.
+La ponderación de cada recomendación se expresa como un porcentaje de la puntuación total disponible para cada área de enfoque. Por ejemplo, si una recomendación en el área de enfoque de seguridad y cumplimiento tiene una puntuación del 5 %, la implementación de esa recomendación aumentará la puntuación total de seguridad y cumplimiento en un 5 %.
 
-### Focus areas
+### Áreas de enfoque
 
-**Security and Compliance** - This focus area shows recommendations for potential security threats and breaches, corporate policies, and technical, legal and regulatory compliance requirements.
+**Seguridad y cumplimiento**. Esta área de enfoque muestra recomendaciones en caso de posibles amenazas e infracciones de seguridad, directivas corporativas y requisitos de cumplimiento técnico, legal y reglamentario.
 
-**Availability and Business Continuity** - This focus area shows recommendations for service availability, resiliency of your infrastructure, and business protection.
+**Disponibilidad y continuidad empresarial**. Esta área de enfoque muestra recomendaciones relacionadas con la disponibilidad de servicio, la resistencia de la infraestructura y la protección del negocio.
 
-**Performance and Scalability** - This focus area shows recommendations to help your organization's IT infrastructure grow, ensure that your IT environment meets current performance requirements, and is able to respond to changing infrastructure needs.
+**Rendimiento y escalabilidad**. Esta área de enfoque muestra recomendaciones que ayudarán a crecer a la infraestructura de TI de su organización y garantizarán que el entorno de TI cumple con los actuales requisitos de rendimiento y que, además, puede responder a las cambiantes necesidades de infraestructura.
 
-**Upgrade, Migration and Deployment** - This focus area shows recommendations to help you upgrade, migrate, and deploy SQL Server to your existing infrastructure.
+**Actualización, migración e implementación**. Esta área de enfoque muestra recomendaciones que le ayudarán a actualizar, migrar e implementar SQL Server en la infraestructura existente.
 
-**Operations and Monitoring** - This focus area shows recommendations to help streamline your IT operations, implement preventative maintenance, and maximize performance.
+**Operaciones y supervisión**. Esta área de enfoque muestra recomendaciones para ayudar a simplificar las operaciones de TI, implementar el mantenimiento preventivo y maximizar el rendimiento.
 
-**Change and Configuration Management** - This focus area shows recommendations to help protect day-to-day operations, ensure that changes don't negatively affect your infrastructure, establish change control procedures, and to track and audit system configurations.
+**Administración de cambios y configuración**. Esta área de enfoque muestra recomendaciones para ayudar a proteger las operaciones diarias, garantizar que los cambios no afectan de manera negativa a su infraestructura, establecer procedimientos de control de cambios y realizar un seguimiento y auditar las configuraciones del sistema.
 
-### Should you aim to score 100% in every focus area?
+### ¿Debe tratar de conseguir una puntuación del 100 % en cada área de enfoque?
 
-Not necessarily. The recommendations are based on the knowledge and experiences gained by Microsoft engineers across thousands of customer visits. However, no two server infrastructures are the same, and specific recommendations may be more or less relevant to you. For example, some security recommendations might be less relevant if your virtual machines are not exposed to the Internet. Some availability recommendations may be less relevant for services that provide low priority ad hoc data collection and reporting. Issues that are important to a mature business may be less important to a start-up. You may want to identify which focus areas are your priorities and then look at how your scores change over time.
+No necesariamente. Las recomendaciones se basan en los conocimientos y las experiencias adquiridos por los ingenieros de Microsoft producto de miles de visitas de clientes. Sin embargo, no hay dos infraestructuras de servidores que sean iguales, y es posible que determinadas recomendaciones puedan ser más o menos relevantes para usted. Por ejemplo, algunas recomendaciones de seguridad pueden ser menos pertinentes si las máquinas virtuales no están expuestas a Internet. Algunas recomendaciones de disponibilidad pueden ser menos relevantes para los servicios que proporcionan informes y recopilaciones de datos ad hoc de baja prioridad. Los problemas que son importantes para un negocio maduro pueden no serlo para otro que esté en sus inicios. Puede que desee identificar qué áreas de enfoque son prioritarias para usted y, posteriormente, observar cómo cambian las puntuaciones con el tiempo.
 
-Every recommendation includes guidance about why it is important. You should use this guidance to evaluate whether implementing the recommendation is appropriate for you, given the nature of your IT services and the business needs of your organization.
+Cada recomendación incluye pautas que indican por qué es importante. Debe utilizar estas directrices para evaluar si es adecuado o no para usted implementar la recomendación, en función de la naturaleza de los servicios de TI y las necesidades empresariales de su organización.
 
-## Use assessment focus area recommendations
+## Uso de las recomendaciones de área de enfoque de evaluación
 
-Before you can use an assessment solution in OMS, you must have the solution installed. To read more about installing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). After it is installed, you can view the summary of recommendations by using the SQL Assessment tile on the Overview page in OMS.
+Antes de que pueda usar una solución de evaluación en OMS, debe tener instalada la solución. Para más información sobre cómo instalar las soluciones, consulte [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md). Una vez realizada la instalación, podrá ver el resumen de las recomendaciones mediante el icono de evaluación de SQL en la página Información general de OMS.
 
-View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
+Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura y, a continuación, profundice las recomendaciones.
 
-### To view recommendations for a focus area and take corrective action
+### Visualización de las recomendaciones para un área de enfoque y adopción de las medidas correctivas
 
-1. On the **Overview** page, click the **SQL Assessment** tile.
-2. On the **SQL Assessment** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
-3. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.  
-    ![image of SQL Assessment recommendations](./media/log-analytics-sql-assessment/sql-assess-focus.png)
-4. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
+1. En la página **Información general**, haga clic en el icono de **evaluación de SQL**.
+2. En la página de **evaluación de SQL**, revise la información de resumen de una de las hojas de las áreas de enfoque y, a continuación, haga clic en una de ellas para ver las recomendaciones para dicha área de enfoque.
+3. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación. 
+![imagen de las recomendaciones de evaluación de SQL](./media/log-analytics-sql-assessment/sql-assess-focus.png)
+4. Puede adoptar las acciones correctivas que se sugieren en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registrarán las acciones recomendadas que se han realizado y aumentará su calificación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
 
-## Ignore recommendations
+## Omisión de las recomendaciones
 
-If you have recommendations that you want to ignore, you can create a text file that OMS will use to prevent recommendations from appearing in your assessment results.
+Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS usará para evitar que aparezcan recomendaciones en los resultados de la evaluación.
 
-### To identify recommendations that you will ignore
+### Para identificar las recomendaciones que omitirá
 
-1.	Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.
+1.	Inicie sesión en su área de trabajo y abra Búsqueda de registros. Use la siguiente consulta para mostrar las recomendaciones para los equipos que presentan errores en el entorno.
 
     ```
     Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
 
-    Here's a screen shot showing the Log Search query:
-    ![failed recommendations](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
+    Esta es una captura de pantalla que muestra la consulta de Búsqueda de registros:
+     ![recomendaciones con error](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
 
 2.	Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
 
@@ -235,7 +235,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 - En lugar de darle una lista exhaustiva y abrumadora de tareas, se recomienda centrarse primero en las recomendaciones prioritarias. Después de aplicarlas, se mostrarán más recomendaciones. Si prefiere ver una lista detallada, puede ver todas las recomendaciones mediante la búsqueda de registros de OMS.
 
 *¿Se puede hacer caso omiso de una recomendación?*
-- Sí, consulte la sección [Omisión de recomendaciones](#ignore-recommendations) anterior.
+- Sí, consulte la sección [Omisión de las recomendaciones](#ignore-recommendations) anterior.
 
 
 

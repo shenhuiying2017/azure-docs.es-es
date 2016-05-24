@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-Este tutorial le guiará por los pasos necesarios para implementar una aplicación básica de streaming en vivo de Servicios multimedia donde un canal recibe una secuencia en vivo de velocidades de bits múltiples desde un codificador en directo local. Para obtener información detallada acerca de cómo trabajar con canales y componentes relacionados, consulte [Trabajo con canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
+Este tutorial le guiará por los pasos necesarios para implementar una aplicación básica de streaming en vivo de Servicios multimedia donde un canal recibe una secuencia en vivo de velocidades de bits múltiples desde un codificador en directo local. Para obtener información detallada acerca de cómo trabajar con canales y componentes relacionados, consulte [Trabajo con canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
 
 En este tutorial, se utiliza el Portal de Azure clásico para realizar las tareas siguientes:
 
@@ -88,7 +88,7 @@ Una vez creado el canal, obtendrá direcciones URL de introducción que se propo
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-Para obtener más información sobre las URL de introducción, consulte [Uso de codificadores locales para enviar secuencias en vivo de velocidad de bits múltiple a un canal](media-services-manage-channels-overview.md)
+Para obtener más información sobre las URL de introducción, consulte [Uso de codificadores locales para enviar secuencias en vivo de velocidad de bits múltiple a un canal](media-services-live-streaming-with-onprem-encoders.md)
 
 ## Configuración de un codificador en directo y de una secuencia en vivo de introducción
 
@@ -212,4 +212,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

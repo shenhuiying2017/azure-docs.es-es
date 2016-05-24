@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/05/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
 # Creación de una aplicación web con Caché en Redis
@@ -688,12 +688,13 @@ Al hacer clic en el botón **Implementar en Azure** va al Portal de Azure y se i
 1. En la hoja **Implementación personalizada**, seleccione la suscripción de Azure que se usará y seleccione un grupo de recursos existente o cree uno nuevo, luego especifique la ubicación del grupo de recursos.
 2. En la hoja **Parámetros**, especifique un nombre de cuenta de administrador (**ADMINISTRATORLOGIN**; no utilice **admin**), la contraseña de inicio de sesión (**ADMINISTRATORLOGINPASSWORD**) y un nombre de base de datos (**DATABASENAME**). Los demás parámetros están configurados para un plan de hospedaje del Servicio de aplicaciones gratis y opciones de costo reducido para Base de datos SQL y Caché en Redis de Azure, que no incluyen un nivel Gratis.
 3. Cambie cualquiera de las demás configuraciones, si así lo desea, o mantenga los valores predeterminados y haga clic en **Aceptar**.
-4. Una vez realizada la configuración, haga clic en **Revisar los términos legales**.
+
 
 ![Implementación en Azure][cache-deploy-to-azure-step-2]
 
-1. Lea los términos de la hoja **Crear** y haga clic en **Crear**.
-2. Para empezar a aprovisionar los recursos, haga clic en **Crear** en la hoja **Implementación personalizada**.
+1. Haga clic en **Revisar los términos legales**.
+2. Lea los términos de la hoja **Adquirir** y haga clic en **Adquirir**.
+3. Para empezar a aprovisionar los recursos, haga clic en **Crear** en la hoja **Implementación personalizada**.
 
 Para ver el progreso de la implementación, haga clic en el icono de notificación y en **Implementación iniciada**.
 
@@ -838,4 +839,4 @@ Cuando haya seleccionado o creado la caché que desea utilizar, vaya hasta ella 
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

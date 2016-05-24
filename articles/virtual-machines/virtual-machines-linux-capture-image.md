@@ -71,7 +71,7 @@ Después de aprovisionar y ejecutar la máquina virtual, debe asociar y montar u
 
 7. Detenga la máquina virtual que ya desaprovisionó con el comando siguiente:
 
-	`azure vm stop –g <your-resource-group-name> -n <your-virtual-machine-name>`
+	`azure vm deallocate -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 8. Generalice la máquina virtual con el comando siguiente:
 
@@ -197,4 +197,4 @@ Para obtener opciones de comando adicionales, ejecute `azure help vm create`.
 
 Para administrar las máquinas virtuales con la CLI, consulte las tareas de [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

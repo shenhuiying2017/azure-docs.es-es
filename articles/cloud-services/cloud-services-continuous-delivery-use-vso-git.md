@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Entrega continua a Azure con Visual Studio Team Services y Git
@@ -59,7 +59,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 ## 3: Conexión del proyecto a Azure
 
-1. Ahora que tiene un repositorio Git en Visual Studio Team Services con código fuente, está en disposición de conectarlo a Azure. En el [Portal de Azure clásico](http://manage.windowsazure.com), seleccione el servicio en la nube o la aplicación web, o bien cree unos nuevos haciendo clic en el icono + situado en la parte inferior izquierda y seleccionando **Servicio en la nube** o **Aplicación web** y, a continuación, **Creación rápida**.
+1. Ahora que tiene un repositorio Git en Visual Studio Team Services con código fuente, está en disposición de conectarlo a Azure. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885), seleccione el servicio en la nube o la aplicación web, o bien cree unos nuevos haciendo clic en el icono + situado en la parte inferior izquierda y seleccionando **Servicio en la nube** o **Aplicación web** y, a continuación, **Creación rápida**.
 
 	![][9]
 
@@ -152,7 +152,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 	![][29]
 
-1. En el [Portal de Azure clásico](http://manage.windowsazure.com) puede ver la implementación asociada en la pestaña **Implementaciones**, al seleccionar el entorno de ensayo.
+1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) puede ver la implementación asociada en la pestaña **Implementaciones**, al seleccionar el entorno de ensayo.
 
 	![][30]
 
@@ -182,7 +182,7 @@ Cuando esté listo, puede promover el entorno de ensayo al de producción, para 
 
 ![][35]
 
-## 6: Implementación desde una bifurcación de trabajo.
+## 7: Implementación desde una bifurcación de trabajo.
 
 Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y la integra en la bifurcación principal cuando el trabajo de desarrollo alcanza una fecha de finalización. Durante la fase de desarrollo de un proyecto, querrá compilar e implementar la bifurcación de trabajo en Azure.
 
@@ -272,4 +272,4 @@ Para ver más sugerencias sobre el uso de Git con Visual Studio Team Services, c
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

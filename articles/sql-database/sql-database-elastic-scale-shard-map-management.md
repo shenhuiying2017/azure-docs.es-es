@@ -13,17 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/26/2016" 
 	ms.author="ddove;sidneyh"/>
 
-# Administración de mapas de particiones.
+# Escalado horizontal de las bases de datos mediante Shard Map Manager
 
-En un entorno de base de datos particionada, un [**mapa de particiones**](sql-database-elastic-scale-glossary.md) mantiene información que permite que una aplicación se conecte a la base de datos correcta en función del valor de la **clave de particionamiento**. Comprender cómo se construyen estos mapas es fundamental para la administración de los mapas de particiones. Para Base de datos SQL de Azure, use la [clase ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), que se encuentra en la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md) para administrar los mapas de particiones.
+Para escalar fácilmente bases de datos de SQL Azure, utilice Shard Map Manager. Shard Map Manager es una base de datos especial que mantiene la información de asignación global acerca de todas las particiones (bases de datos) de un conjunto de particiones. Los metadatos permiten que una aplicación se conecte a la base de datos correcta en función del valor de la **clave de particionamiento**. Además, cada partición del conjunto contiene asignaciones que realizan el seguimiento de los datos de particiones locales (conocidos como **shardlets**).
 
-Para convertir un conjunto existente de bases de datos, consulte [Conversión de bases de datos existentes para usar herramientas para bases de datos elásticas](sql-database-elastic-convert-to-use-elastic-tools.md).
- 
+![Administración de mapas de particiones.](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
+
+Comprender cómo se construyen estos mapas es fundamental para la administración de los mapas de particiones. Esto se realiza mediante [la clase ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), que se encuentra en la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md) para administrar los mapas de particiones.
+
 
 ## Mapas de particiones y asignaciones de particiones
+
+Para cada partición, debe seleccionar el tipo de mapa de particiones que desea crear. La elección depende de la arquitectura de base de datos:
+
+1. Un solo inquilino por base de datos  
+2. Varios inquilinos por base de datos (dos tipos):
+	3. Asignación de lista
+	4. Asignación de intervalo
+ 
+Para un modelo de un solo inquilino, cree un mapa de particiones de **asignación de lista**. El modelo de inquilino único asigna una base de datos por inquilino. Se trata de un modelo eficaz para desarrolladores de SaaS, pues simplifica la administración.
+
+![Asignación de lista][1]
+
+El modelo de varios inquilinos asigna varios inquilinos a una base de datos única (y puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asignamos un intervalo de inquilinos a una base de datos mediante **asignación de intervalo**.
+ 
+
+![Asignación de intervalo][2]
+
+O puede implementar un modelo de base de datos de varios inquilinos mediante una *asignación de lista* para asignar varios inquilinos a una sola base de datos. Por ejemplo, DB1 se usa para almacenar información sobre el id. de inquilino 1 y 5, mientras que DB2 almacena datos sobre el inquilino 7 y 10.
+
+![Varios inquilinos en una sola base de datos][3]
  
 ### Tipos .NET admitidos para claves de particionamiento
 
@@ -79,7 +101,7 @@ En biblioteca de cliente, el Administrador de mapas de particiones es una colecc
 
 ## Construcción de un ShardMapManager
 
-Un objeto **ShardMapManager** se construye mediante un patrón de [fábrica](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). El método **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** toma las credenciales (lo que incluye el nombre del servidor y el nombre de la base de datos que contienen el GSM) en forma de una instancia de **ConnectionString** y devuelve una instancia de **ShardMapManager**.
+Un objeto **ShardMapManager** se construye mediante un patrón de [fábrica](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). El método **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** toma las credenciales (lo que incluye el nombre del servidor y el nombre de la base de datos que contiene el GSM) en forma de una instancia de **ConnectionString** y devuelve una instancia de **ShardMapManager**.
 
 **Nota**: solo se debe crear una instancia de **ShardMapManager** una vez por dominio de aplicación, dentro del código de inicialización de una aplicación. La creación de instancias adicionales de ShardMapManager en el mismo dominio de aplicación dará lugar a un aumento en el uso de memoria y CPU de la aplicación. Un objeto **ShardMapManager** puede contener cualquier número de mapas de particiones. Aunque un solo mapa de particiones puede ser suficiente para muchas aplicaciones, hay veces en que se usan diferentes conjuntos de bases de datos para un esquema diferente o con fines únicos y, en esos casos, puede que sea preferible usar varios mapas de particiones.
 
@@ -151,7 +173,7 @@ Consulte [Credenciales usadas para acceder a la biblioteca de cliente de bases d
 
 ### Solo los metadatos afectados 
 
-Los métodos usados para rellenar o cambiar datos de **ShardMapManager** no modifican los datos de usuario almacenados en las propias particiones. Por ejemplos, métodos como **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. afectan solo a los metadatos del mapa de particiones. No quitan, agregan ni modificar los datos contenidos en las particiones. En su lugar, estos métodos están diseñados para usarse conjuntamente con operaciones independientes que se lleven a cabo para crear o quitar bases de datos reales, o para mover filas de una partición a otra con el fin de reequilibrar un entorno particionado. (La herramienta de **división y combinación** incluida en las herramientas de bases de datos elásticas usa estas API junto con la coordinación del movimiento de datos real entre particiones). Consulte [Escalado con la herramienta de división y combinación de bases de datos elásticas](sql-database-elastic-scale-overview-split-and-merge.md).
+Los métodos usados para rellenar o cambiar datos de **ShardMapManager** no modifican los datos de usuario almacenados en las propias particiones. Por ejemplos, métodos como **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. afectan solo a los metadatos del mapa de particiones. No quitan, agregan ni modificar los datos contenidos en las particiones. En su lugar, estos métodos están diseñados para usarse conjuntamente con operaciones independientes que se lleven a cabo para crear o quitar bases de datos reales, o para mover filas de una partición a otra con el fin de reequilibrar un entorno particionado. (La herramienta de **división y combinación** incluida en las herramientas de bases de datos elásticas usa estas API junto con la coordinación del movimiento de datos real entre particiones). (Consulte [Escalado con la herramienta de división y combinación de Base de datos elástica](sql-database-elastic-scale-overview-split-and-merge.md)).
 
 ## Ejemplo de cómo rellenar un mapa de particiones
  
@@ -312,5 +334,9 @@ Sin embargo, para escenarios que requieren movimiento de datos, se necesita la h
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
+<!--Image references-->
+[1]: ./media/sql-database-elastic-scale-shard-map-management/listmapping.png
+[2]: ./media/sql-database-elastic-scale-shard-map-management/rangemapping.png
+[3]: ./media/sql-database-elastic-scale-shard-map-management/multipleonsingledb.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

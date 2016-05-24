@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/08/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Uso de Azure AD Connect Health para sincronización
@@ -67,4 +67,4 @@ Esta característica proporciona una tendencia gráfica del número de cambios q
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

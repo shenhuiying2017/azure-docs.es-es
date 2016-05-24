@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="larryfr"/>
 
 #Ejecución de consultas de Hive con Hadoop en HDInsight con PowerShell
@@ -29,7 +29,9 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 - **Un clúster de HDInsight de Azure (Hadoop en HDInsight) (basado en Windows o en Linux)**
 
-- **Una estación de trabajo con Azure PowerShell**. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+- **Una estación de trabajo con Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##<a id="powershell"></a>Ejecución de un trabajo de MapReduce mediante Azure PowerShell
 
@@ -182,4 +184,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

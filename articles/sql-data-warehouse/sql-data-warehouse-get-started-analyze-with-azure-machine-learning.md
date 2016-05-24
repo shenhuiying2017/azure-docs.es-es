@@ -3,7 +3,7 @@
    description="Tutorial para usar Aprendizaje automático de Azure con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shivaniguptamsft;barbkess;sonyama"/>
 
 # Análisis de datos con Aprendizaje automático de Azure
 Este tutorial le enseñará a crear un modelo de aprendizaje automático predictivo con Aprendizaje automático de Azure con sus datos de Almacenamiento de datos SQL de Azure. En este tutorial, crearemos una campaña de marketing dirigida para Adventure Works, una tienda de bicicletas, mediante la predicción de la probabilidad que existe de que un cliente compre una bicicleta.
@@ -65,9 +65,6 @@ Para ejecutar el experimento, haga clic en **Ejecutar** en el lienzo de experime
 Cuando el experimento haya terminado de ejecutarse correctamente, haga clic en el puerto de salida en la parte inferior del módulo del lector y seleccione **Visualizar** para ver los datos importados. ![Ver los datos importados][3]
 
 
-
-
-
 ## Paso 2: Limpieza de datos
 Se quitarán algunas columnas que no son relevantes para el modelo.
 
@@ -75,8 +72,6 @@ Se quitarán algunas columnas que no son relevantes para el modelo.
 2. Haga clic en **Iniciar selector de columnas** en el panel Propiedades para especificar las columnas que desea quitar. ![Columnas del proyecto][4]
 
 3. Excluya dos columnas: CustomerAlternateKey y GeographyKey. ![Quitar las columnas innecesarias][5]
-
-
 
 
 ## Paso 3: Creación del modelo
@@ -91,9 +86,6 @@ Dividiremos los datos 80-20: 80% para entrenar un modelo de aprendizaje automát
 5. Seleccione la columna **BikeBuyer** como columna de predicción. ![Seleccionar columna de predicción][8]
 
 
-
-
-
 ## Paso 4: Modelo de puntuación
 Ahora, probaremos cómo funciona el modelo con datos de prueba. Compararemos el algoritmo que elijamos con otro algoritmo para comprobar cuál funciona mejor.
 
@@ -103,8 +95,6 @@ Ahora, probaremos cómo funciona el modelo con datos de prueba. Compararemos el 
 4. Arrastre el módulo **Evaluar modelo** al lienzo para comparar los dos algoritmos.
 5. **Ejecute** el experimento. ![Ejecutar el experimento][10]
 6. Haga clic en el puerto de salida en la parte inferior del módulo Evaluar modelo y haga clic en Visualizar. ![Visualizar los resultados de evaluación][11]
-
-
 
 Las métricas proporcionadas son la curva ROC, el diagrama de retirada-precisión y la curva de elevación. Al mirar estas métricas, podemos ver que el primer modelo funciona mejor que el segundo. Para ver lo que ha predicho el primer modelo, haga clic en el puerto de salida de Puntuar modelo y haga clic en Visualizar. ![Visualizar los resultados de puntuación][12]
 
@@ -118,8 +108,6 @@ Comparación de la columna BikeBuyer (real) con las etiquetas puntuadas (predicc
 ## Pasos siguientes
 
 Para obtener más información sobre la creación de modelos de aprendizaje automático predictivo, consulte [Introducción al aprendizaje automático en Azure][].
-
-
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -142,4 +130,4 @@ Para obtener más información sobre la creación de modelos de aprendizaje auto
 [cargar manualmente los datos de ejemplo]: sql-data-warehouse-get-started-manually-load-samples.md
 [Creación de un Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

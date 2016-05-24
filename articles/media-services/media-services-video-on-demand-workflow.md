@@ -87,7 +87,7 @@ Este artículo contiene vínculos a temas que muestran cómo configurar su entor
 
 ##Conceptos
 
-Para obtener información sobre los conceptos relacionados con la entrega de su contenido bajo demanda, vea [Conceptos sobre Servicios multimedia](media-services-concepts.md).
+Para obtener información sobre los conceptos relacionados con la entrega de su contenido bajo demanda, consulte [Conceptos sobre Servicios multimedia](media-services-concepts.md).
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -101,4 +101,4 @@ Para obtener información sobre los conceptos relacionados con la entrega de su 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->
