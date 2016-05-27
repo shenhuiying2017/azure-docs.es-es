@@ -157,7 +157,21 @@ Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las 
 
 | **Acciones** ||
 | ------- | ------ |
-| **/read | Leer todo tipo de recursos | | Microsoft.DevTestLab/labs/createEnvironment/action | Crear un entorno de laboratorio | | Microsoft.DevTestLab/labs/formulas/delete | Eliminar fórmulas | | Microsoft.DevTestLab/labs/formulas/write | Agregar o modificar fórmulas | | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluar directivas de laboratorio | | Microsoft.Compute/virtualMachines/start/action | Iniciar máquinas virtuales | | Microsoft.Compute/virtualMachines/restart/action | Reiniciar máquinas virtuales | | Microsoft.Compute/virtualMachines/deallocate/action | Desasignar máquinas virtuales | | Microsoft.Storage/storageAccounts/listKeys/action | Enumerar claves de cuenta de almacenamiento | | Microsoft.Network/virtualNetworks/subnets/join/action | Unir una red virtual | | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Unir un grupo de direcciones de back-end de equilibrador de carga | | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Unir una regla NAT de entrada del equilibrador de carga | | Microsoft.Network/publicIPAddresses/join/action | Unirse a una dirección IP pública | | Microsoft.Network/networkInterfaces/join/action | Unir una máquina virtual a una interfaz de red | | Microsoft.Network/networkInterfaces/write | Escribir interfaces de red |
+| **/read | Leer todo tipo de recursos | 
+| Microsoft.DevTestLab/labs/createEnvironment/action | Crear un entorno de laboratorio | 
+| Microsoft.DevTestLab/labs/formulas/delete | Eliminar fórmulas | 
+| Microsoft.DevTestLab/labs/formulas/write | Agregar o modificar fórmulas | 
+| Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluar directivas de laboratorio | 
+| Microsoft.Compute/virtualMachines/start/action | Iniciar máquinas virtuales | 
+| Microsoft.Compute/virtualMachines/restart/action | Reiniciar máquinas virtuales | 
+| Microsoft.Compute/virtualMachines/deallocate/action | Desasignar máquinas virtuales | 
+| Microsoft.Storage/storageAccounts/listKeys/action | Enumerar claves de cuenta de almacenamiento | 
+| Microsoft.Network/virtualNetworks/subnets/join/action | Unir una red virtual | 
+| Microsoft.Network/loadBalancers/backendAddressPools/join/action | Unir un grupo de direcciones de back-end de equilibrador de carga | 
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Unir una regla NAT de entrada del equilibrador de carga | 
+| Microsoft.Network/publicIPAddresses/join/action | Unirse a una dirección IP pública | 
+| Microsoft.Network/networkInterfaces/join/action | Unir una máquina virtual a una interfaz de red | 
+| Microsoft.Network/networkInterfaces/write | Escribir interfaces de red |
 
 ### Colaborador de cuenta de base de datos de documento
 Puede administrar cuentas de DocumentDB
@@ -482,4 +496,4 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 - [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md): realice el seguimiento del cambio de asignaciones de rol en RBAC.
 - [Solución de problemas del control de acceso basado en rol](role-based-access-control-troubleshooting.md): obtenga sugerencias para solucionar problemas frecuentes.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->
