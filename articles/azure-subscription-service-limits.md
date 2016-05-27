@@ -284,4 +284,6 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de servicios en la nube](cloud-services/cloud-services-sizes-specs.md)
 
-<!----HONumber=AcomDC_0511_2016-->
+
+
+<!------HONumber=AcomDC_0511_2016-->
