@@ -50,4 +50,4 @@ Las reglas de negocio encapsulan las directivas y decisiones que controlan los p
 Consulte [Lista de conectores y aplicaciones de API](app-service-logic-connectors-list.md) para obtener una lista completa de conectores y aplicaciones de API incluidas en cada categoría, incluidos los conectores estándar, EAI de BizTalk, conectores de Premium, etc.
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->
