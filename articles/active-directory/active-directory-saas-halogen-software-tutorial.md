@@ -118,7 +118,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: ![Configurar las opciones de la aplicación][10]
  
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de Halogen Software con el siguiente patrón: **https://global.hgncloud.com/fabrikam/welcome.jsp*
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de Halogen Software con el siguiente patrón: *https://global.hgncloud.com/fabrikam/welcome.jsp*
 
      b. Haga clic en **Siguiente**.
  
@@ -147,7 +147,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     d. Para probar la configuración, haga clic en **Ejecutar prueba**.
 
-    > [AZURE.NOTE] Deberá esperar a que aparezca el mensaje "*La prueba de SAML está completa. Cierre esta ventana *". A continuación, cierre la ventana del explorador abierta. La casilla de verificación **Habilitar SAML** solo está habilitada si se ha completado la prueba.
+    > [AZURE.NOTE] Deberá esperar a que aparezca el mensaje "*La prueba de SAML está completa. Cierre esta ventana*". A continuación, cierre la ventana del explorador abierta. La casilla de verificación **Habilitar SAML** solo está habilitada si se ha completado la prueba.
 
     e. Seleccione **Habilitar SAML**.
     
@@ -322,4 +322,4 @@ Al hacer clic en el icono de Halogen Software en el Panel de acceso, debería in
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->
