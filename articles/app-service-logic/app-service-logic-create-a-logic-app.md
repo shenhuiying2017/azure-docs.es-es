@@ -67,4 +67,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Azure portal]: https://portal.azure.com
 [Uso de las características de aplicaciones lógicas]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
